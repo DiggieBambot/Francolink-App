@@ -55,6 +55,7 @@ export type FullMultiLangString = {
 // Main lesson content structure
 export interface LessonContent {
   version: '2.0';  // Updated version for multi-lang support
+  type?: 'structured' | 'html'; // Add this line
   
   // Metadata
   title: MultiLangString;
@@ -71,7 +72,7 @@ export interface LessonContent {
   objectives: MultiLangString[];
   
   // Main content sections
-  sections: LessonSection[];
+  sections?: LessonSection[];
   
   // Tutor-only content
   tutorNotes?: TutorNotes;
