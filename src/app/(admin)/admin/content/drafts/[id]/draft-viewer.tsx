@@ -14,7 +14,49 @@ import {
   Maximize2,
   Languages
 } from 'lucide-react';
-import { HtmlLessonContent, isHtmlContent, getTranslation, SupportedLanguage } from '@/types/lesson-content';
+import { isHtmlContent, getTranslation, SupportedLanguage, MultiLangString, TutorNotes } from '@/types/lesson-content';
+
+// Extended HtmlLessonContent type that includes fields the AI processor actually returns
+interface VocabularyEntry {
+  term: string;
+  translation: MultiLangString;
+  pageNumber?: number;
+  partOfSpeech?: string;
+}
+
+interface ExerciseEntry {
+  type: string;
+  question: string;
+  pageNumber?: number;
+}
+
+interface PageEntry {
+  pageNumber: number;
+  imageUrl: string;
+  width?: number;
+  height?: number;
+  textContent?: string;
+}
+
+interface ExtendedHtmlLessonContent {
+  type: 'html';
+  version: string;
+  title: MultiLangString;
+  subtitle?: MultiLangString;
+  category: string;
+  targetLevel: string;
+  estimatedMinutes: number;
+  availableLanguages: SupportedLanguage[];
+  sourceLanguage: SupportedLanguage;
+  objectives: MultiLangString[];
+  tutorNotes?: TutorNotes;
+  // HTML-specific fields
+  pages: PageEntry[];
+  pdfUrl?: string;
+  // Optional enrichment fields (may be present depending on processing)
+  vocabulary?: VocabularyEntry[];
+  exercises?: ExerciseEntry[];
+}
 
 interface DraftViewerProps {
   draft: {
@@ -37,7 +79,7 @@ export function DraftViewer({ draft }: DraftViewerProps) {
   const [viewMode, setViewMode] = useState<ViewMode>('preview');
   const [selectedLanguage, setSelectedLanguage] = useState<SupportedLanguage>('en');
 
-  const content = draft.content as HtmlLessonContent;
+  const content = draft.content as ExtendedHtmlLessonContent;
   
   if (!content) {
     return (
@@ -47,7 +89,7 @@ export function DraftViewer({ draft }: DraftViewerProps) {
     );
   }
 
-  const isHtml = isHtmlContent(content);
+  const isHtml = isHtmlContent(content as any);
 
   return (
     <div className="space-y-6">
@@ -69,7 +111,7 @@ export function DraftViewer({ draft }: DraftViewerProps) {
               <span>•</span>
               <span>{draft.level}</span>
               <span>•</span>
-              <span>{content.pageCount || 0} pages</span>
+              <span>{content.pages?.length || 0} pages</span>
               {isHtml && (
                 <>
                   <span>•</span>
@@ -119,12 +161,12 @@ export function DraftViewer({ draft }: DraftViewerProps) {
           <div className="text-sm text-muted-foreground">Objectives</div>
         </div>
         <div className="p-4 bg-card border border-border rounded-lg">
-          <div className="text-2xl font-bold text-foreground">{content.vocabulary?.length || 0}</div>
-          <div className="text-sm text-muted-foreground">Vocabulary</div>
+          <div className="text-2xl font-bold text-foreground">{content.pages?.length || 0}</div>
+          <div className="text-sm text-muted-foreground">Pages</div>
         </div>
         <div className="p-4 bg-card border border-border rounded-lg">
-          <div className="text-2xl font-bold text-foreground">{content.exercises?.length || 0}</div>
-          <div className="text-sm text-muted-foreground">Exercises</div>
+          <div className="text-2xl font-bold text-foreground">{content.vocabulary?.length || 0}</div>
+          <div className="text-sm text-muted-foreground">Vocabulary</div>
         </div>
       </div>
 
@@ -169,36 +211,52 @@ export function DraftViewer({ draft }: DraftViewerProps) {
 
       {/* Content Area */}
       <div className="bg-card border border-border rounded-lg p-6">
-        {viewMode === 'preview' && isHtml && (
+        {viewMode === 'preview' && (
           <div className="space-y-4">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-semibold">Lesson Preview</h3>
-              <div className="flex gap-2">
-                <a
-                  href={content.pdfUrl}
-                  download
-                  className="p-2 hover:bg-muted rounded-lg transition-colors"
-                  title="Download PDF"
-                >
-                  <Download className="w-4 h-4" />
-                </a>
-                <button
-                  onClick={() => window.open(content.pdfUrl, '_blank')}
-                  className="p-2 hover:bg-muted rounded-lg transition-colors"
-                  title="Open in new tab"
-                >
-                  <Maximize2 className="w-4 h-4" />
-                </button>
-              </div>
+              {content.pdfUrl && (
+                <div className="flex gap-2">
+                  <a
+                    href={content.pdfUrl}
+                    download
+                    className="p-2 hover:bg-muted rounded-lg transition-colors"
+                    title="Download PDF"
+                  >
+                    <Download className="w-4 h-4" />
+                  </a>
+                  <button
+                    onClick={() => window.open(content.pdfUrl, '_blank')}
+                    className="p-2 hover:bg-muted rounded-lg transition-colors"
+                    title="Open in new tab"
+                  >
+                    <Maximize2 className="w-4 h-4" />
+                  </button>
+                </div>
+              )}
             </div>
 
-            {/* Embedded PDF Viewer */}
-            <iframe
-              src={`${content.pdfUrl}#toolbar=0&navpanes=0&scrollbar=1`}
-              className="w-full rounded-lg border border-border"
-              style={{ height: '80vh', minHeight: '600px' }}
-              title="Lesson PDF Preview"
-            />
+            {content.pdfUrl ? (
+              <iframe
+                src={`${content.pdfUrl}#toolbar=0&navpanes=0&scrollbar=1`}
+                className="w-full rounded-lg border border-border"
+                style={{ height: '80vh', minHeight: '600px' }}
+                title="Lesson PDF Preview"
+              />
+            ) : content.pages && content.pages.length > 0 ? (
+              <div className="space-y-4">
+                {content.pages.map((page) => (
+                  <img
+                    key={page.pageNumber}
+                    src={page.imageUrl}
+                    alt={`Page ${page.pageNumber}`}
+                    className="w-full h-auto rounded-lg border border-border"
+                  />
+                ))}
+              </div>
+            ) : (
+              <p className="text-muted-foreground text-center py-8">No preview available</p>
+            )}
           </div>
         )}
 
@@ -231,10 +289,10 @@ export function DraftViewer({ draft }: DraftViewerProps) {
                         {getTranslation(item.translation, selectedLanguage)}
                       </div>
                       <div className="flex items-center gap-2 mt-2 text-xs text-muted-foreground">
-                        <span>Page {item.pageNumber}</span>
+                        {item.pageNumber && <span>Page {item.pageNumber}</span>}
                         {item.partOfSpeech && (
                           <>
-                            <span>•</span>
+                            {item.pageNumber && <span>•</span>}
                             <span className="capitalize">{item.partOfSpeech}</span>
                           </>
                         )}
@@ -263,7 +321,9 @@ export function DraftViewer({ draft }: DraftViewerProps) {
                             <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full capitalize">
                               {exercise.type.replace('_', ' ')}
                             </span>
-                            <span className="text-sm text-muted-foreground">Page {exercise.pageNumber}</span>
+                            {exercise.pageNumber && (
+                              <span className="text-sm text-muted-foreground">Page {exercise.pageNumber}</span>
+                            )}
                           </div>
                           <p className="text-sm text-foreground">{exercise.question}</p>
                         </div>

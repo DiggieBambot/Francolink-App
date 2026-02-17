@@ -1,5 +1,4 @@
 // src/lib/ai/html-processor.ts
-
 import { HtmlLessonContent, SupportedLanguage } from '@/types/lesson-content';
 import { chatCompletion } from '../ai/client';
 import { convertPdfToHtml } from '../pdf/pdf-to-html';
@@ -21,28 +20,25 @@ export async function processHtmlLesson(
 }> {
   try {
     console.log('Converting PDF to HTML...');
-    
+
     // Step 1: Convert PDF to images and text
-    const { pages, fullText, metadata } = await convertPdfToHtml(pdfBuffer);
-    
+    const { pages, fullText, metadata: pdfMetadata } = await convertPdfToHtml(pdfBuffer);
+
     console.log(`Converted ${pages.length} pages`);
-    
+
     // Step 2: Upload page images to storage
     console.log('Uploading images to storage...');
     const uploadedImages = await uploadPageImages(pages, lessonId);
-    
+
     console.log(`Uploaded ${uploadedImages.length} images`);
-    
+
     // Step 3: Use AI to extract metadata from text
     const languages = options.targetLanguages.join(', ');
-    
-    const metadataPrompt = `Analyze this French lesson content and extract metadata.
 
+    const metadataPrompt = `Analyze this French lesson content and extract metadata.
 PDF Text Content:
 ${fullText.substring(0, 10000)} ${fullText.length > 10000 ? '...' : ''}
-
 Provide translations in: ${languages}
-
 Output JSON with:
 {
   "title": { "fr": "...", "en": "...", ... },
