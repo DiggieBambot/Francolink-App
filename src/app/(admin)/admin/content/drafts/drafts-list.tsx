@@ -50,7 +50,7 @@ export function DraftsList({ initialDrafts }: DraftsListProps) {
 
   // Status badge component
   const StatusBadge = ({ status, progress }: { status: DraftStatus; progress: number }) => {
-    const config = {
+    const config: Record<DraftStatus, { icon: React.ElementType; label: string; className: string; animate?: boolean }> = {
       pending: { 
         icon: Clock, 
         label: 'Pending', 
@@ -79,7 +79,7 @@ export function DraftsList({ initialDrafts }: DraftsListProps) {
       },
     };
 
-    const { icon: Icon, label, className, animate } = config[status];
+    const { icon: Icon, label, className, animate = false } = config[status];
 
     return (
       <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${className}`}>
