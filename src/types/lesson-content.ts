@@ -540,3 +540,12 @@ export type {
   MultiLangString as Translation,
   FullMultiLangString as FullTranslation,
 };
+// Add these missing interfaces
+export interface HtmlLessonContent extends Omit<LessonContent, 'sections'> {
+  type: 'html';
+  htmlContent: string;
+}
+
+export interface StructuredLessonContent extends LessonContent {
+  type: 'structured';
+}
