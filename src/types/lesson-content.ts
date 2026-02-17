@@ -56,6 +56,7 @@ export type FullMultiLangString = {
 export interface LessonContent {
   version: '2.0';  // Updated version for multi-lang support
   type?: 'structured' | 'html'; // Add this line
+  pageCount?: number;
   
   // Metadata
   title: MultiLangString;
