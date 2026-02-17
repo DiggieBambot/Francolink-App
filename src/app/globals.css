@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap');
+@import "tailwindcss";
+
+/* ============================================
+   THEME CONFIGURATION (Tailwind v4)
+   ============================================ */
+
+@theme {
+  --color-primary-50: #e6f0f9;
+  --color-primary-100: #cce1f3;
+  --color-primary-200: #99c3e7;
+  --color-primary-300: #66a5db;
+  --color-primary-400: #3387cf;
+  --color-primary-500: #0069c3;
+  --color-primary-600: #09477a;
+  --color-primary-700: #092846;
+  --color-primary: #092846;
+  --color-primary-800: #061b2f;
+  --color-primary-900: #030d17;
+
+  --color-secondary-50: #fef6e6;
+  --color-secondary-100: #fdedcc;
+  --color-secondary-200: #fbdb99;
+  --color-secondary-300: #f9c966;
+  --color-secondary-400: #f7b733;
+  --color-secondary-500: #f48c17;
+  --color-secondary: #f48c17;
+  --color-secondary-600: #c37012;
+  --color-secondary-700: #92540e;
+  --color-secondary-800: #623809;
+  --color-secondary-900: #311c05;
+
+  --color-success: #22c55e;
+  --color-success-light: #dcfce7;
+
+  --color-error: #ef4444;
+  --color-error-light: #fee2e2;
+
+  --color-warning: #f59e0b;
+  --color-warning-light: #fef3c7;
+
+  --color-xp: #fcd34d;
+  --color-streak: #f97316;
+  --color-premium: #8b5cf6;
+
+  --font-heading: "Mulish", sans-serif;
+  --font-body: "Roboto", sans-serif;
+
+  --shadow-soft: 0 2px 15px -3px rgba(9, 40, 70, 0.1),
+    0 10px 20px -2px rgba(9, 40, 70, 0.04);
+  --shadow-medium: 0 4px 25px -5px rgba(9, 40, 70, 0.15),
+    0 10px 30px -5px rgba(9, 40, 70, 0.08);
+  --shadow-hard: 0 10px 40px -10px rgba(9, 40, 70, 0.2);
+
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 24px;
+
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-slide-up: slide-up 0.5s ease-out;
+  --animate-bounce-light: bounce-light 1s infinite;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slide-up {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce-light {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-primary-700);
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+*:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-secondary), 0 0 0 4px white;
+  border-radius: 4px;
+}
+
+/* ============================================
+   UTILITIES
+   ============================================ */
+
+@utility gradient-hero {
+  background: linear-gradient(180deg, #092846 0%, #0d3a5c 50%, #124a72 100%);
+}
+
+@utility gradient-orange {
+  background: linear-gradient(135deg, #f48c17 0%, #f9a825 100%);
+}
+
+@utility text-gradient {
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@utility glass {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -1,0 +1,126 @@
+'use client';
+
+import { useState } from 'react';
+import { Save, DollarSign, Tag, Percent } from 'lucide-react';
+import { createClient } from '@/lib/supabase/client';
+
+export function PricingSettingsForm({ settings }: { settings: any[] }) {
+  const supabase = createClient();
+  const [loading, setLoading] = useState(false);
+  
+  // Helper to get value by key
+  const getVal = (key: string) => settings.find(s => s.key === key)?.value || '';
+
+  const [formData, setFormData] = useState({
+    // Student
+    student_premium_price: getVal('premium_monthly_price'),
+    student_premium_sale: getVal('premium_monthly_sale_price'), // You might need to add this key to DB too if missing
+    
+    // Tutor
+    tutor_premium_price: getVal('tutor_premium_price'),
+    tutor_premium_sale: getVal('tutor_premium_sale_price'),
+    tutor_price_id: getVal('tutor_premium_price_id'),
+
+    // Marketing
+    is_sale_active: getVal('is_global_sale_active') === 'true',
+    promo_text: getVal('promo_banner_text'),
+    coupon_code: getVal('active_coupon_code'),
+  });
+
+  const handleSave = async () => {
+    setLoading(true);
+    const updates = Object.entries(formData).map(([key, value]) => ({
+      key, 
+      value: String(value),
+      updated_at: new Date().toISOString()
+    }));
+
+    // In a real app, mapping form keys back to DB keys might be needed if names differ
+    // For simplicity, assuming mapped correctly or updating logic here
+    
+    // ... API call to save ...
+    setLoading(false);
+  };
+
+  return (
+    <div className="space-y-8">
+      
+      {/* Marketing / Sales Control */}
+      <div className="bg-white p-6 rounded-xl border border-blue-100 shadow-sm">
+        <h3 className="text-lg font-bold flex items-center gap-2 mb-4 text-blue-900">
+          <Tag className="w-5 h-5" /> Marketing & Coupons
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="flex items-center gap-2">
+            <input 
+              type="checkbox" 
+              checked={formData.is_sale_active}
+              onChange={e => setFormData({...formData, is_sale_active: e.target.checked})}
+              className="w-5 h-5"
+            />
+            <label>Activate Global Sale Mode</label>
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">Promo Banner Text</label>
+            <input 
+              type="text" 
+              value={formData.promo_text}
+              onChange={e => setFormData({...formData, promo_text: e.target.value})}
+              className="w-full border rounded-lg p-2" 
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">Display Coupon Code</label>
+            <input 
+              type="text" 
+              value={formData.coupon_code}
+              onChange={e => setFormData({...formData, coupon_code: e.target.value})}
+              className="w-full border rounded-lg p-2" 
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Tutor Pricing */}
+      <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+        <h3 className="text-lg font-bold flex items-center gap-2 mb-4">
+          <DollarSign className="w-5 h-5" /> Tutor Subscription Pricing
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label className="block text-sm font-medium mb-1">Original Price ($)</label>
+            <input 
+              type="number" 
+              value={formData.tutor_premium_price}
+              onChange={e => setFormData({...formData, tutor_premium_price: e.target.value})}
+              className="w-full border rounded-lg p-2" 
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1 text-green-600">Sale Price ($)</label>
+            <input 
+              type="number" 
+              value={formData.tutor_premium_sale}
+              onChange={e => setFormData({...formData, tutor_premium_sale: e.target.value})}
+              className="w-full border rounded-lg p-2 border-green-200 bg-green-50" 
+            />
+            <p className="text-xs text-gray-500 mt-1">Leave empty to use original price</p>
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">Stripe Price ID</label>
+            <input 
+              type="text" 
+              value={formData.tutor_price_id}
+              onChange={e => setFormData({...formData, tutor_price_id: e.target.value})}
+              className="w-full border rounded-lg p-2 font-mono text-xs" 
+            />
+          </div>
+        </div>
+      </div>
+
+      <button onClick={handleSave} disabled={loading} className="px-6 py-2 bg-blue-600 text-white rounded-lg">
+        {loading ? 'Saving...' : 'Save Changes'}
+      </button>
+    </div>
+  );
+}
