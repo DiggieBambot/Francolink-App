@@ -34,8 +34,8 @@ export default async function DraftDetailPage({ params }: PageProps) {
     return (
       <div className="max-w-4xl mx-auto">
         <div className="text-center py-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900 mb-4">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-100 dark:bg-primary-900 mb-4">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
           </div>
           <h2 className="text-2xl font-bold text-foreground mb-2">Processing Lesson</h2>
           <p className="text-muted-foreground mb-4">
@@ -44,7 +44,7 @@ export default async function DraftDetailPage({ params }: PageProps) {
           <div className="max-w-md mx-auto">
             <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
               <div 
-                className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                className="bg-primary h-2 rounded-full transition-all duration-300"
                 style={{ width: `${draft.progress || 0}%` }}
               />
             </div>

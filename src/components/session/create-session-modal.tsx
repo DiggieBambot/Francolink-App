@@ -121,7 +121,7 @@ export function CreateSessionModal({ isOpen, onClose }: CreateSessionModalProps)
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b dark:border-gray-700">
           <h2 className="text-xl font-semibold flex items-center gap-2 text-gray-900 dark:text-white">
-            <Plus className="w-5 h-5 text-blue-600" />
+            <Plus className="w-5 h-5 text-primary" />
             Create New Session
           </h2>
           <button
@@ -150,7 +150,7 @@ export function CreateSessionModal({ isOpen, onClose }: CreateSessionModalProps)
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="e.g., French Basics - Lesson 1"
-              className="w-full px-3 py-2 border dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-3 py-2 border dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-secondary focus:border-primary-500"
               required
             />
           </div>
@@ -164,7 +164,7 @@ export function CreateSessionModal({ isOpen, onClose }: CreateSessionModalProps)
             <select
               value={lessonId}
               onChange={(e) => setLessonId(e.target.value)}
-              className="w-full px-3 py-2 border dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-3 py-2 border dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-secondary focus:border-primary-500"
             >
               <option value="">No lesson selected</option>
               {lessons.map((lesson) => (
@@ -185,7 +185,7 @@ export function CreateSessionModal({ isOpen, onClose }: CreateSessionModalProps)
               type="datetime-local"
               value={scheduledAt}
               onChange={(e) => setScheduledAt(e.target.value)}
-              className="w-full px-3 py-2 border dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-3 py-2 border dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-secondary focus:border-primary-500"
             />
           </div>
 
@@ -210,7 +210,7 @@ export function CreateSessionModal({ isOpen, onClose }: CreateSessionModalProps)
                       type="checkbox"
                       checked={selectedStudents.includes(student.id)}
                       onChange={() => toggleStudent(student.id)}
-                      className="w-4 h-4 text-blue-600 rounded"
+                      className="w-4 h-4 text-primary rounded"
                     />
                     <span className="text-sm text-gray-900 dark:text-white">
                       {student.name || 'Unnamed Student'}
@@ -233,7 +233,7 @@ export function CreateSessionModal({ isOpen, onClose }: CreateSessionModalProps)
             <button
               type="submit"
               disabled={isLoading || !title}
-              className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="flex-1 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               {isLoading ? 'Creating...' : 'Create Session'}
             </button>

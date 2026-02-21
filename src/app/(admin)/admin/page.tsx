@@ -25,7 +25,7 @@ export default async function AdminDashboardPage() {
       label: "Total Users",
       value: userCount || 0,
       icon: Users,
-      color: "bg-blue-500",
+      color: "bg-primary-500",
     },
     {
       label: "Total Lessons",

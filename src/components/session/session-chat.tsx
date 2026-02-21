@@ -71,7 +71,7 @@ export function SessionChat({ events, currentUserId, onSendMessage }: SessionCha
                 {/* Sender Name (not shown for own messages) */}
                 {!isOwnMessage && (
                   <span className={`text-xs mb-1 px-1 ${
-                    isTutor ? 'text-blue-600 font-medium' : 'text-gray-500'
+                    isTutor ? 'text-primary font-medium' : 'text-gray-500'
                   }`}>
                     {data.sender_name}
                     {isTutor && ' (Tutor)'}
@@ -82,9 +82,9 @@ export function SessionChat({ events, currentUserId, onSendMessage }: SessionCha
                 <div
                   className={`max-w-[85%] px-3 py-2 rounded-2xl ${
                     isOwnMessage
-                      ? 'bg-blue-600 text-white rounded-br-md'
+                      ? 'bg-primary text-white rounded-br-md'
                       : isTutor
-                      ? 'bg-blue-100 text-blue-900 rounded-bl-md'
+                      ? 'bg-primary-100 text-primary-900 rounded-bl-md'
                       : 'bg-gray-100 text-gray-900 rounded-bl-md'
                   }`}
                 >
@@ -113,13 +113,13 @@ export function SessionChat({ events, currentUserId, onSendMessage }: SessionCha
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Type a message..."
-            className="flex-1 px-3 py-2 border rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="flex-1 px-3 py-2 border rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
             maxLength={500}
           />
           <button
             type="submit"
             disabled={!message.trim()}
-            className="p-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="p-2 bg-primary text-white rounded-full hover:bg-primary-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             <Send className="w-5 h-5" />
           </button>

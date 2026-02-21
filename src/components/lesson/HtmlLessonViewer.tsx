@@ -54,14 +54,14 @@ export function HtmlLessonViewer({
         
         {/* Objectives */}
         {content.objectives && content.objectives.length > 0 && (
-          <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-950 rounded-lg border border-blue-200 dark:border-blue-800">
+          <div className="mt-4 p-4 bg-primary-50 dark:bg-primary-900 rounded-lg border border-primary-200 dark:border-primary-800">
             <div className="flex items-center gap-2 mb-2">
-              <BookOpen className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-              <h3 className="font-semibold text-blue-900 dark:text-blue-100">
+              <BookOpen className="w-5 h-5 text-primary dark:text-primary-400" />
+              <h3 className="font-semibold text-primary-900 dark:text-primary-100">
                 Learning Objectives
               </h3>
             </div>
-            <ul className="list-disc list-inside space-y-1 text-sm text-blue-800 dark:text-blue-200">
+            <ul className="list-disc list-inside space-y-1 text-sm text-primary-800 dark:text-primary-200">
               {content.objectives.map((obj, idx) => (
                 <li key={idx}>{getTranslation(obj, userLanguage)}</li>
               ))}

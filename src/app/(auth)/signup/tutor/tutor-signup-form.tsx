@@ -107,7 +107,7 @@ export function TutorSignupForm({ selectedPlan, plans }: Props) {
             required
             value={formData.fullName}
             onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-            className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+            className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
             placeholder="Marie Dubois"
           />
         </div>
@@ -121,7 +121,7 @@ export function TutorSignupForm({ selectedPlan, plans }: Props) {
             required
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+            className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
             placeholder="marie@example.com"
           />
         </div>
@@ -136,7 +136,7 @@ export function TutorSignupForm({ selectedPlan, plans }: Props) {
             minLength={8}
             value={formData.password}
             onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-            className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+            className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
             placeholder="••••••••"
           />
         </div>
@@ -152,28 +152,28 @@ export function TutorSignupForm({ selectedPlan, plans }: Props) {
                 onClick={() => setFormData({ ...formData, plan: plan.key })}
                 className={`p-4 border rounded-lg cursor-pointer flex items-center justify-between transition-all ${
                   formData.plan === plan.key
-                    ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20 ring-1 ring-blue-500'
+                    ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20 ring-1 ring-secondary'
                     : 'border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/50'
                 }`}
               >
                 <div>
                   <div className={`font-semibold ${
                     formData.plan === plan.key 
-                      ? 'text-blue-700 dark:text-blue-300' 
+                      ? 'text-primary dark:text-primary-300' 
                       : 'text-zinc-900 dark:text-zinc-100'
                   }`}>
                     {plan.name}
                   </div>
                   <div className={`text-sm ${
                     formData.plan === plan.key 
-                      ? 'text-blue-600 dark:text-blue-400' 
+                      ? 'text-primary dark:text-primary-400' 
                       : 'text-zinc-500 dark:text-zinc-400'
                   }`}>
                     {plan.price_monthly === 0 ? 'Free' : `$${plan.price_monthly}/month`}
                   </div>
                 </div>
                 {formData.plan === plan.key && (
-                  <div className="bg-blue-600 rounded-full p-1">
+                  <div className="bg-primary rounded-full p-1">
                     <Check className="w-3 h-3 text-white" />
                   </div>
                 )}
@@ -185,7 +185,7 @@ export function TutorSignupForm({ selectedPlan, plans }: Props) {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2 shadow-sm"
+          className="w-full py-3 bg-primary hover:bg-primary-800 text-white rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2 shadow-sm"
         >
           {isLoading ? (
             <>
@@ -199,7 +199,7 @@ export function TutorSignupForm({ selectedPlan, plans }: Props) {
 
         <p className="text-center text-sm text-zinc-500 dark:text-zinc-400">
           Already have an account?{' '}
-          <Link href="/login" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">
+          <Link href="/login" className="text-primary dark:text-primary-400 hover:underline font-medium">
             Log in
           </Link>
         </p>

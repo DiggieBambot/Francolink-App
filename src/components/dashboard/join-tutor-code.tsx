@@ -101,14 +101,14 @@ export function JoinTutorCode({ userId }: JoinTutorCodeProps) {
             value={inviteCode}
             onChange={(e) => setInviteCode(e.target.value.toUpperCase())}
             placeholder="e.g., T_ABC123"
-            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-primary-500"
             disabled={isLoading}
             autoFocus
           />
           <button
             type="submit"
             disabled={isLoading || !inviteCode.trim()}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm font-medium flex items-center gap-2"
+            className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm font-medium flex items-center gap-2"
           >
             {isLoading ? (
               <>
@@ -145,7 +145,7 @@ export function JoinTutorCode({ userId }: JoinTutorCodeProps) {
             href="https://www.francolink.net/teachers"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 hover:underline"
+            className="text-primary hover:underline"
           >
             FrancoLink Teachers
           </a>

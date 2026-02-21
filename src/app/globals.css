@@ -1,3 +1,5 @@
+/* src/app/globals.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap');
 @import "tailwindcss";
 
@@ -6,6 +8,7 @@
    ============================================ */
 
 @theme {
+  /* Primary - Deep Navy Blue */
   --color-primary-50: #e6f0f9;
   --color-primary-100: #cce1f3;
   --color-primary-200: #99c3e7;
@@ -13,11 +16,12 @@
   --color-primary-400: #3387cf;
   --color-primary-500: #0069c3;
   --color-primary-600: #09477a;
-  --color-primary-700: #092846;
-  --color-primary: #092846;
+  --color-primary-700: #092845;
+  --color-primary: #092845;
   --color-primary-800: #061b2f;
   --color-primary-900: #030d17;
 
+  /* Secondary - Warm Orange */
   --color-secondary-50: #fef6e6;
   --color-secondary-100: #fdedcc;
   --color-secondary-200: #fbdb99;
@@ -30,36 +34,68 @@
   --color-secondary-800: #623809;
   --color-secondary-900: #311c05;
 
+  /* Accent - Red for Alerts/CTAs */
+  --color-accent: #dd3333;
+  --color-accent-light: #fee2e2;
+
+  /* Status Colors */
   --color-success: #22c55e;
   --color-success-light: #dcfce7;
-
   --color-error: #ef4444;
   --color-error-light: #fee2e2;
-
   --color-warning: #f59e0b;
   --color-warning-light: #fef3c7;
+  --color-info: #3b82f6;
+  --color-info-light: #dbeafe;
 
+  /* Gamification Colors */
   --color-xp: #fcd34d;
   --color-streak: #f97316;
   --color-premium: #8b5cf6;
 
+  /* Neutral/Gray Scale */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  /* Typography */
   --font-heading: "Mulish", sans-serif;
   --font-body: "Roboto", sans-serif;
 
+  /* Shadows - Navy-tinted for brand consistency */
   --shadow-soft: 0 2px 15px -3px rgba(9, 40, 70, 0.1),
     0 10px 20px -2px rgba(9, 40, 70, 0.04);
   --shadow-medium: 0 4px 25px -5px rgba(9, 40, 70, 0.15),
     0 10px 30px -5px rgba(9, 40, 70, 0.08);
   --shadow-hard: 0 10px 40px -10px rgba(9, 40, 70, 0.2);
+  --shadow-glow-primary: 0 0 20px rgba(9, 40, 70, 0.3);
+  --shadow-glow-secondary: 0 0 20px rgba(244, 140, 23, 0.3);
 
+  /* Border Radius */
   --radius-xl: 12px;
   --radius-2xl: 16px;
   --radius-3xl: 24px;
 
+  /* Animations */
   --animate-fade-in: fade-in 0.5s ease-out;
   --animate-slide-up: slide-up 0.5s ease-out;
+  --animate-slide-down: slide-down 0.3s ease-out;
+  --animate-slide-in-right: slide-in-right 0.3s ease-out;
   --animate-bounce-light: bounce-light 1s infinite;
+  --animate-pulse-soft: pulse-soft 2s ease-in-out infinite;
+  --animate-scale-in: scale-in 0.2s ease-out;
 }
+
+/* ============================================
+   KEYFRAMES
+   ============================================ */
 
 @keyframes fade-in {
   0% { opacity: 0; }
@@ -71,9 +107,29 @@
   100% { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes slide-down {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-right {
+  0% { opacity: 0; transform: translateX(20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
 @keyframes bounce-light {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-5px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes scale-in {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
 /* ============================================
@@ -85,30 +141,73 @@ body {
   color: var(--color-primary-700);
   background-color: #ffffff;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
-  color: var(--color-primary);
+  line-height: 1.2;
 }
 
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+p {
+  line-height: 1.7;
+  color: var(--color-gray-600);
+}
+
+a {
+  color: var(--color-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-secondary-600);
+}
+
+/* Focus styles for accessibility */
 *:focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px var(--color-secondary), 0 0 0 4px white;
   border-radius: 4px;
 }
 
+/* Selection highlight */
+::selection {
+  background-color: var(--color-secondary-200);
+}
+
 /* ============================================
-   UTILITIES
+   CUSTOM UTILITIES
    ============================================ */
 
 @utility gradient-hero {
-  background: linear-gradient(180deg, #092846 0%, #0d3a5c 50%, #124a72 100%);
+  background: linear-gradient(180deg, #092845 0%, #0d3a5c 50%, #124a72 100%);
+}
+
+@utility gradient-hero-radial {
+  background: radial-gradient(ellipse at top, #124a72 0%, #092845 70%);
 }
 
 @utility gradient-orange {
   background: linear-gradient(135deg, #f48c17 0%, #f9a825 100%);
+}
+
+@utility gradient-orange-warm {
+  background: linear-gradient(135deg, #f48c17 0%, #ff6b35 100%);
+}
+
+@utility gradient-cta {
+  background: linear-gradient(135deg, #f48c17 0%, #e67e22 50%, #d35400 100%);
+}
+
+@utility gradient-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
 }
 
 @utility text-gradient {
@@ -118,9 +217,23 @@ h1, h2, h3, h4, h5, h6 {
   background-clip: text;
 }
 
+@utility text-gradient-orange {
+  background: linear-gradient(to right, var(--color-secondary-600), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 @utility glass {
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@utility glass-dark {
+  background-color: rgba(9, 40, 70, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 @utility no-scrollbar {
@@ -129,4 +242,259 @@ h1, h2, h3, h4, h5, h6 {
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+@utility hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+  }
+}
+
+@utility hover-scale {
+  transition: transform 0.2s ease;
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+@utility hover-glow {
+  transition: box-shadow 0.3s ease;
+  &:hover {
+    box-shadow: var(--shadow-glow-secondary);
+  }
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+
+@utility btn-primary {
+  background-color: var(--color-secondary);
+  color: white;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: var(--radius-xl);
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(244, 140, 23, 0.3);
+  &:hover {
+    background-color: var(--color-secondary-600);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(244, 140, 23, 0.4);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@utility btn-secondary {
+  color: white;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: var(--radius-xl);
+  transition: all 0.2s ease;
+  &:hover {
+    background-color: var(--color-primary-600);
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@utility btn-outline {
+  background-color: transparent;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: var(--radius-xl);
+  border: 2px solid var(--color-primary);
+  transition: all 0.2s ease;
+  &:hover {
+    color: white;
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@utility btn-ghost {
+  background-color: transparent;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: var(--radius-xl);
+  transition: all 0.2s ease;
+  &:hover {
+    background-color: var(--color-primary-50);
+  }
+}
+
+/* ============================================
+   CARD STYLES
+   ============================================ */
+
+@utility card-base {
+  background-color: white;
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--color-gray-100);
+  transition: all 0.2s ease;
+}
+
+@utility card-hover {
+  background-color: white;
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--color-gray-100);
+  transition: all 0.3s ease;
+  &:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-4px);
+    border-color: var(--color-secondary-200);
+  }
+}
+
+@utility card-featured {
+  background-color: white;
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-medium);
+  border: 2px solid var(--color-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ============================================
+   SECTION STYLES
+   ============================================ */
+
+@utility section-padding {
+  padding: 5rem 1.5rem;
+}
+
+@utility section-padding-lg {
+  padding: 6rem 1.5rem;
+}
+
+@utility container-narrow {
+  max-width: 768px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@utility container-wide {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@utility container-full {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================
+   BADGE STYLES
+   ============================================ */
+
+@utility badge-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  background-color: var(--color-primary-50);
+}
+
+@utility badge-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  background-color: var(--color-secondary-50);
+  color: var(--color-secondary-700);
+}
+
+@utility badge-success {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  background-color: var(--color-success-light);
+  color: #166534;
+}
+
+@utility badge-coming-soon {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-500);
+}
+
+/* ============================================
+   FORM STYLES
+   ============================================ */
+
+@utility input-base {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--radius-xl);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-primary-700);
+  background-color: white;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  &::placeholder {
+    color: var(--color-gray-400);
+  }
+  &:focus {
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 3px rgba(244, 140, 23, 0.1);
+    outline: none;
+  }
+  &:hover:not(:focus) {
+    border-color: var(--color-gray-300);
+  }
+}
+
+/* ============================================
+   RESPONSIVE HELPERS
+   ============================================ */
+
+@media (max-width: 768px) {
+  h1 { font-size: 1.875rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  
+  .section-padding {
+    padding: 3rem 1rem;
+  }
+  
+  .section-padding-lg {
+    padding: 4rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.625rem; }
+  h2 { font-size: 1.375rem; }
 }

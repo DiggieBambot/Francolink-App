@@ -84,7 +84,7 @@ export function StudentsList({ students, inviteLink }: StudentsListProps) {
       case 'C2':
       case 'C1': return 'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300';
       case 'B2':
-      case 'B1': return 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300';
+      case 'B1': return 'bg-primary-100 text-primary dark:bg-primary-900 dark:text-primary-300';
       case 'A2':
       case 'A1': 
       default: return 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300';
@@ -102,7 +102,7 @@ export function StudentsList({ students, inviteLink }: StudentsListProps) {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search students..."
-            className="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+            className="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-secondary"
           />
         </div>
         <div className="flex gap-2">
@@ -116,7 +116,7 @@ export function StudentsList({ students, inviteLink }: StudentsListProps) {
               onClick={() => setSortBy(option.id as any)}
               className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 sortBy === option.id
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-primary text-white'
                   : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
               }`}
             >
@@ -142,7 +142,7 @@ export function StudentsList({ students, inviteLink }: StudentsListProps) {
           {inviteLink && students.length === 0 && (
             <button
               onClick={handleCopyLink}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-800 transition-colors"
             >
               {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
               {copied ? 'Copied!' : 'Copy Invite Link'}
@@ -169,7 +169,7 @@ export function StudentsList({ students, inviteLink }: StudentsListProps) {
                   </div>
 
                   {/* Avatar */}
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-semibold text-lg overflow-hidden">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-600 flex items-center justify-center text-white font-semibold text-lg overflow-hidden">
                     {student.avatar_url ? (
                       <img src={student.avatar_url} alt="" className="w-full h-full object-cover" />
                     ) : (

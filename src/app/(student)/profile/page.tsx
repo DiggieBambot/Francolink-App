@@ -109,8 +109,8 @@ export default async function ProfilePage() {
         />
         <StatCard
           icon={BookOpen}
-          iconColor="text-blue-500"
-          iconBg="bg-blue-100"
+          iconColor="text-secondary"
+          iconBg="bg-primary-100"
           label="Lessons Done"
           value={stats.lessonsCompleted.toString()}
         />
@@ -190,15 +190,15 @@ export default async function ProfilePage() {
             {/* Lessons Progress */}
             <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <BookOpen className="w-5 h-5 text-blue-600" />
+                <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
+                  <BookOpen className="w-5 h-5 text-primary" />
                 </div>
                 <div>
                   <p className="font-medium text-gray-900">Lessons Completed</p>
                   <p className="text-sm text-gray-500">Keep learning!</p>
                 </div>
               </div>
-              <span className="text-xl font-bold text-blue-600">
+              <span className="text-xl font-bold text-primary">
                 {stats.lessonsCompleted}
               </span>
             </div>

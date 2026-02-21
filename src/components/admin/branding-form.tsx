@@ -60,7 +60,7 @@ export function BrandingForm({ config }: BrandingFormProps) {
       {/* Branding Section */}
       <div className="bg-white rounded-xl shadow-soft border p-6">
         <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-          <Image className="w-5 h-5 text-blue-600" />
+          <Image className="w-5 h-5 text-primary" />
           Branding
         </h2>
         
@@ -73,7 +73,7 @@ export function BrandingForm({ config }: BrandingFormProps) {
               type="text"
               value={formData.app_name}
               onChange={(e) => setFormData({ ...formData, app_name: e.target.value })}
-              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-secondary"
             />
           </div>
           
@@ -85,7 +85,7 @@ export function BrandingForm({ config }: BrandingFormProps) {
               type="text"
               value={formData.app_tagline}
               onChange={(e) => setFormData({ ...formData, app_tagline: e.target.value })}
-              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-secondary"
             />
           </div>
 
@@ -98,7 +98,7 @@ export function BrandingForm({ config }: BrandingFormProps) {
               value={formData.logo_url}
               onChange={(e) => setFormData({ ...formData, logo_url: e.target.value })}
               placeholder="/logo.png"
-              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-secondary"
             />
           </div>
 
@@ -111,7 +111,7 @@ export function BrandingForm({ config }: BrandingFormProps) {
               value={formData.logo_icon_url}
               onChange={(e) => setFormData({ ...formData, logo_icon_url: e.target.value })}
               placeholder="/icon.png"
-              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-secondary"
             />
           </div>
 
@@ -124,7 +124,7 @@ export function BrandingForm({ config }: BrandingFormProps) {
               value={formData.favicon_url}
               onChange={(e) => setFormData({ ...formData, favicon_url: e.target.value })}
               placeholder="/favicon.ico"
-              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-secondary"
             />
           </div>
         </div>
@@ -153,7 +153,7 @@ export function BrandingForm({ config }: BrandingFormProps) {
                 type="text"
                 value={formData.primary_color}
                 onChange={(e) => setFormData({ ...formData, primary_color: e.target.value })}
-                className="flex-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                className="flex-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-secondary"
               />
             </div>
           </div>
@@ -173,7 +173,7 @@ export function BrandingForm({ config }: BrandingFormProps) {
                 type="text"
                 value={formData.secondary_color}
                 onChange={(e) => setFormData({ ...formData, secondary_color: e.target.value })}
-                className="flex-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                className="flex-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-secondary"
               />
             </div>
           </div>
@@ -193,7 +193,7 @@ export function BrandingForm({ config }: BrandingFormProps) {
                 type="text"
                 value={formData.accent_color}
                 onChange={(e) => setFormData({ ...formData, accent_color: e.target.value })}
-                className="flex-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                className="flex-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-secondary"
               />
             </div>
           </div>
@@ -216,7 +216,7 @@ export function BrandingForm({ config }: BrandingFormProps) {
               type="email"
               value={formData.support_email}
               onChange={(e) => setFormData({ ...formData, support_email: e.target.value })}
-              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-secondary"
             />
           </div>
 
@@ -228,7 +228,7 @@ export function BrandingForm({ config }: BrandingFormProps) {
               type="text"
               value={formData.company_name}
               onChange={(e) => setFormData({ ...formData, company_name: e.target.value })}
-              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-secondary"
             />
           </div>
         </div>
@@ -237,7 +237,7 @@ export function BrandingForm({ config }: BrandingFormProps) {
       {/* Social Links */}
       <div className="bg-white rounded-xl shadow-soft border p-6">
         <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-          <Globe className="w-5 h-5 text-blue-600" />
+          <Globe className="w-5 h-5 text-primary" />
           Social Media
         </h2>
         
@@ -251,7 +251,7 @@ export function BrandingForm({ config }: BrandingFormProps) {
               value={formData.facebook_url}
               onChange={(e) => setFormData({ ...formData, facebook_url: e.target.value })}
               placeholder="https://facebook.com/..."
-              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-secondary"
             />
           </div>
 
@@ -264,7 +264,7 @@ export function BrandingForm({ config }: BrandingFormProps) {
               value={formData.twitter_url}
               onChange={(e) => setFormData({ ...formData, twitter_url: e.target.value })}
               placeholder="https://twitter.com/..."
-              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-secondary"
             />
           </div>
 
@@ -277,7 +277,7 @@ export function BrandingForm({ config }: BrandingFormProps) {
               value={formData.instagram_url}
               onChange={(e) => setFormData({ ...formData, instagram_url: e.target.value })}
               placeholder="https://instagram.com/..."
-              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-secondary"
             />
           </div>
         </div>
@@ -288,7 +288,7 @@ export function BrandingForm({ config }: BrandingFormProps) {
         <button
           type="submit"
           disabled={isLoading}
-          className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
+          className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-800 disabled:opacity-50 transition-colors"
         >
           <Save className="w-5 h-5" />
           {isLoading ? 'Saving...' : 'Save All Settings'}

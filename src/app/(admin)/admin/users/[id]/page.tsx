@@ -164,7 +164,7 @@ export default async function AdminUserDetailPage({ params }: PageProps) {
               <p className="text-sm text-gray-500">Total XP</p>
             </div>
             <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
-              <div className="flex items-center gap-2 text-blue-600 mb-1">
+              <div className="flex items-center gap-2 text-primary mb-1">
                 <BookOpen className="w-5 h-5" />
                 <span className="text-2xl font-bold">{lessonsCompleted || 0}</span>
               </div>

@@ -185,7 +185,7 @@ export default function LessonContent({
           )}
 
           {content.key_points && content.key_points.length > 0 && (
-            <div className="bg-blue-50 rounded-xl p-6 mb-6">
+            <div className="bg-primary-50 rounded-xl p-6 mb-6">
               <h2 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
                 <BookOpen className="w-5 h-5 text-primary" />
                 What you&apos;ll learn

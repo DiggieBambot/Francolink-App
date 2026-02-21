@@ -1,9 +1,6 @@
-// src/app/(tutor)/layout.tsx
-
-import { Metadata } from 'next';
-import Link from 'next/link';
-import { redirect } from 'next/navigation';
-import { createClient } from '@/lib/supabase/server';
+import Link from "next/link";
+import { redirect } from "next/navigation";
+import { createClient } from "@/lib/supabase/server";
 import {
   LayoutDashboard,
   Users,
@@ -11,15 +8,16 @@ import {
   Video,
   Calendar,
   Settings,
-  GraduationCap,
-  ChevronRight,
-  DollarSign
-} from 'lucide-react';
-import { TutorSidebar } from '@/components/tutor/tutor-sidebar';
+  DollarSign,
+  ArrowLeft,
+} from "lucide-react";
+import { TutorSidebar } from "@/components/tutor/tutor-sidebar";
+import { MobileSidebar } from "@/components/shared/mobile-sidebar";
+import { Flame } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: 'Tutor Dashboard | FrancoLink',
-  description: 'Tutor dashboard for FrancoLink',
+export const metadata = {
+  title: "Tutor Dashboard | Franco Link",
+  description: "Manage your students and lessons on Franco Link",
 };
 
 export default async function TutorLayout({
@@ -28,88 +26,112 @@ export default async function TutorLayout({
   children: React.ReactNode;
 }) {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect('/login');
+    redirect("/login");
   }
 
-  // Check if user is tutor or admin
   const { data: userData } = await supabase
-    .from('users')
-    .select('role, name, email, avatar_url, commission_balance, tutor_plan')
-    .eq('id', user.id)
+    .from("users")
+    .select("role, name, email, avatar_url, commission_balance, tutor_plan")
+    .eq("id", user.id)
     .single();
 
-  if (userData?.role !== 'TUTOR' && userData?.role !== 'ADMIN') {
-    redirect('/dashboard');
+  if (userData?.role !== "TUTOR" && userData?.role !== "ADMIN") {
+    redirect("/dashboard");
   }
 
   const navigation = [
-    { name: 'Dashboard', href: '/tutor', icon: LayoutDashboard },
-    { name: 'My Students', href: '/tutor/students', icon: Users },
-    { name: 'Lessons', href: '/tutor/lessons', icon: BookOpen },
-    { name: 'Live Sessions', href: '/tutor/sessions', icon: Video },
-    { name: 'Schedule', href: '/tutor/schedule', icon: Calendar },
-    { name: 'Commissions', href: '/tutor/commissions', icon: DollarSign },
-    { name: 'Settings', href: '/tutor/settings', icon: Settings },
+    { name: "Dashboard", href: "/tutor", icon: LayoutDashboard },
+    { name: "My Students", href: "/tutor/students", icon: Users },
+    { name: "Lessons", href: "/tutor/lessons", icon: BookOpen },
+    { name: "Live Sessions", href: "/tutor/sessions", icon: Video },
+    { name: "Schedule", href: "/tutor/schedule", icon: Calendar },
+    { name: "Commissions", href: "/tutor/commissions", icon: DollarSign },
+    { name: "Settings", href: "/tutor/settings", icon: Settings },
   ];
 
-  return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur">
-        <div className="flex h-16 items-center px-4">
-          <div className="flex items-center gap-4">
-            <Link href="/tutor" className="flex items-center gap-2">
-              <GraduationCap className="w-6 h-6 text-primary" />
-              <span className="font-bold text-lg">Tutor Portal</span>
-            </Link>
-            <ChevronRight className="w-4 h-4 text-muted-foreground" />
-            <span className="text-muted-foreground">FrancoLink</span>
-          </div>
+  const commissionBalance = Number(userData?.commission_balance || 0);
 
-          <div className="ml-auto flex items-center gap-4">
-            {/* Commission Balance Badge */}
-            {userData?.commission_balance !== null && userData?.commission_balance > 0 && (
-              <Link 
+  const sidebarContent = (
+    <>
+      {/* Logo */}
+      <div className="h-16 flex items-center px-5 border-b border-gray-100">
+        <Link href="/tutor" className="flex items-center gap-2.5 group">
+          <div className="w-9 h-9 bg-primary rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+            <span className="text-white font-extrabold text-sm tracking-tight">
+              FL
+            </span>
+          </div>
+          <div>
+            <span className="text-lg font-heading font-extrabold text-primary leading-none">
+              Franco Link
+            </span>
+            <span className="block text-[10px] text-gray-400 font-medium tracking-wide uppercase">
+              Tutor Portal
+            </span>
+          </div>
+        </Link>
+      </div>
+
+      <TutorSidebar
+        navigation={navigation}
+        userName={userData?.name || "Tutor"}
+        userEmail={userData?.email || user.email || ""}
+        avatarUrl={userData?.avatar_url}
+        tutorPlan={userData?.tutor_plan}
+      />
+    </>
+  );
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Desktop Sidebar */}
+      <aside className="hidden lg:flex fixed inset-y-0 left-0 w-64 bg-white border-r border-gray-100 flex-col z-50 shadow-sm">
+        {sidebarContent}
+      </aside>
+
+      {/* Mobile Header */}
+      <header className="lg:hidden sticky top-0 z-40 bg-white border-b border-gray-100 shadow-sm">
+        <div className="flex items-center justify-between h-14 px-4">
+          <div className="flex items-center gap-3">
+            <MobileSidebar>{sidebarContent}</MobileSidebar>
+            <Link href="/tutor" className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-primary rounded-xl flex items-center justify-center">
+                <span className="text-white font-extrabold text-xs">FL</span>
+              </div>
+              <span className="text-base font-heading font-extrabold text-primary">
+                Tutor Portal
+              </span>
+            </Link>
+          </div>
+          <div className="flex items-center gap-3">
+            {commissionBalance > 0 && (
+              <Link
                 href="/tutor/commissions"
-                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 rounded-full text-sm font-medium hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
+                className="flex items-center gap-1 bg-green-50 text-green-700 px-2.5 py-1 rounded-lg text-xs font-bold"
               >
-                <DollarSign className="w-4 h-4" />
-                {Number(userData.commission_balance).toFixed(2)}
+                <DollarSign className="w-3.5 h-3.5" />
+                {commissionBalance.toFixed(2)}
               </Link>
             )}
-            
-            <span className="text-sm text-muted-foreground hidden sm:block">
-              {userData?.name || user.email}
-            </span>
             <Link
               href="/dashboard"
-              className="text-sm text-muted-foreground hover:text-foreground"
+              className="flex items-center gap-1 text-xs font-medium text-gray-500 hover:text-primary transition-colors"
             >
-              ← Student View
+              <ArrowLeft className="w-3.5 h-3.5" />
+              Student
             </Link>
           </div>
         </div>
       </header>
 
-      <div className="flex h-[calc(100vh-4rem)]">
-        {/* Sidebar */}
-        <TutorSidebar 
-          navigation={navigation} 
-          userName={userData?.name || 'Tutor'}
-          userEmail={userData?.email || user.email || ''}
-          avatarUrl={userData?.avatar_url}
-          tutorPlan={userData?.tutor_plan}
-        />
-
-        {/* Main Content */}
-        <main className="flex-1 overflow-y-auto">
-          <div className="container py-6 px-8">
-            {children}
-          </div>
-        </main>
+      {/* Main Content */}
+      <div className="lg:pl-64">
+        <main className="min-h-screen p-4 sm:p-6 lg:p-8">{children}</main>
       </div>
     </div>
   );

@@ -41,7 +41,7 @@ const statusConfig = {
   completed: { 
     label: 'Completed', 
     icon: CheckCircle, 
-    color: 'text-blue-600 bg-blue-50' 
+    color: 'text-primary bg-primary-50' 
   },
   cancelled: { 
     label: 'Cancelled', 
@@ -95,7 +95,7 @@ export function SessionsList({ sessions }: SessionsListProps) {
         </div>
         <button
           onClick={() => setIsModalOpen(true)}
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-800 transition-colors"
         >
           <Plus className="w-5 h-5" />
           New Session
@@ -110,7 +110,7 @@ export function SessionsList({ sessions }: SessionsListProps) {
             onClick={() => setFilter(status)}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
               filter === status
-                ? 'bg-blue-600 text-white'
+                ? 'bg-primary text-white'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
           >
@@ -131,7 +131,7 @@ export function SessionsList({ sessions }: SessionsListProps) {
           </p>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-800"
           >
             Create Session
           </button>
@@ -192,7 +192,7 @@ export function SessionsList({ sessions }: SessionsListProps) {
                     session.status === 'active'
                       ? 'bg-green-600 text-white hover:bg-green-700'
                       : session.status === 'scheduled'
-                      ? 'bg-blue-600 text-white hover:bg-blue-700'
+                      ? 'bg-primary text-white hover:bg-primary-800'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >

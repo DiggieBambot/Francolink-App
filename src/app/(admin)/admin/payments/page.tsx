@@ -227,8 +227,8 @@ export default async function AdminPaymentsPage() {
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-blue-100 rounded-lg">
-                  <Calendar className="w-5 h-5 text-blue-600" />
+                <div className="p-2 bg-primary-100 rounded-lg">
+                  <Calendar className="w-5 h-5 text-primary" />
                 </div>
                 <span className="font-medium text-gray-900">Monthly</span>
               </div>

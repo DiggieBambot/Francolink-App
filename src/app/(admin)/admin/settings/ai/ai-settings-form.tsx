@@ -412,8 +412,8 @@ export function AISettingsForm({ initialSettings }: AISettingsFormProps) {
       {settingsByGroup.features && (
         <div className="rounded-lg border border-border bg-card p-6">
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 rounded-lg bg-blue-500/10">
-              <Shield className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+            <div className="p-2 rounded-lg bg-primary-500/10">
+              <Shield className="w-5 h-5 text-primary dark:text-primary-400" />
             </div>
             <h2 className="text-xl font-semibold text-foreground">Features</h2>
           </div>

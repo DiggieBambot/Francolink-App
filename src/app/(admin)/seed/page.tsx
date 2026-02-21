@@ -79,7 +79,7 @@ export default function SeedPage() {
                   ? "bg-green-50 text-green-800"
                   : status.includes("Error") || status.includes("failed")
                   ? "bg-red-50 text-red-800"
-                  : "bg-blue-50 text-blue-800"
+                  : "bg-primary-50 text-primary-800"
               }`}
             >
               <p className="font-medium">{status}</p>

@@ -58,9 +58,9 @@ export default async function DraftsPage() {
           <div className="text-2xl font-bold text-yellow-900 dark:text-yellow-100">{counts.pending}</div>
           <div className="text-sm text-yellow-700 dark:text-yellow-300">Pending</div>
         </div>
-        <div className="p-4 bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg">
-          <div className="text-2xl font-bold text-blue-900 dark:text-blue-100">{counts.processing}</div>
-          <div className="text-sm text-blue-700 dark:text-blue-300">Processing</div>
+        <div className="p-4 bg-primary-50 dark:bg-primary-900 border border-primary-200 dark:border-primary-800 rounded-lg">
+          <div className="text-2xl font-bold text-primary-900 dark:text-primary-100">{counts.processing}</div>
+          <div className="text-sm text-primary dark:text-primary-300">Processing</div>
         </div>
         <div className="p-4 bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-lg">
           <div className="text-2xl font-bold text-green-900 dark:text-green-100">{counts.review}</div>

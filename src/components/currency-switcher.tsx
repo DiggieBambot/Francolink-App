@@ -43,9 +43,9 @@ export function CurrencySwitcher() {
               key={c.code}
               onClick={() => { setCurrency(c.code); setOpen(false); }}
               className={`w-full flex items-center gap-3 px-4 py-2.5
-                         text-sm hover:bg-blue-50 transition-colors
+                         text-sm hover:bg-primary-50 transition-colors
                          ${c.code === currency
-                           ? 'bg-blue-50 text-blue-700 font-medium'
+                           ? 'bg-primary-50 text-primary font-medium'
                            : 'text-gray-700'}`}
             >
               <span className="font-mono w-8">{c.symbol}</span>

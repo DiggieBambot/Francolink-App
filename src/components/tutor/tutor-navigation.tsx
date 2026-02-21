@@ -68,7 +68,7 @@ export function TutorNavigation() {
             className={`
               flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors
               ${isActive 
-                ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' 
+                ? 'bg-primary-50 dark:bg-primary-900/20 text-primary dark:text-primary-400' 
                 : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
               }
             `}

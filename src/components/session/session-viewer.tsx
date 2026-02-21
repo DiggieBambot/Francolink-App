@@ -269,7 +269,7 @@ export function SessionViewer({
             />
           </svg>
           {/* Cursor Label */}
-          <span className="absolute left-6 top-4 bg-blue-600 text-white text-xs px-2 py-0.5 rounded whitespace-nowrap">
+          <span className="absolute left-6 top-4 bg-primary text-white text-xs px-2 py-0.5 rounded whitespace-nowrap">
             Tutor
           </span>
         </div>

@@ -1,4 +1,3 @@
-// src/lib/config.ts
 import { createClient } from '@/lib/supabase/server';
 import { createClient as createBrowserClient } from '@/lib/supabase/client';
 
@@ -32,22 +31,31 @@ export interface AppConfig {
 }
 
 const DEFAULT_CONFIG: AppConfig = {
-  app_name: 'FrancoLink',
-  app_tagline: 'Master French with Expert Tutors',
+  // Branding
+  app_name: 'Franco Link',
+  app_tagline: '#1 Best Online Language Learning Platform',
   logo_url: '/logo.png',
   logo_icon_url: '/icon.png',
   favicon_url: '/favicon.ico',
-  primary_color: '#3B82F6',
-  secondary_color: '#8B5CF6',
-  accent_color: '#10B981',
-  dark_mode_enabled: true,
-  support_email: 'support@francolink.com',
-  company_name: 'FrancoLink Inc.',
+  
+  // Theme - Final Confirmed Colors
+  primary_color: '#092845',
+  secondary_color: '#f48c17',
+  accent_color: '#dd3333',
+  dark_mode_enabled: false,
+  
+  // Contact
+  support_email: 'support@francolink.net',
+  company_name: 'Franco Link',
+  
+  // Social
   facebook_url: '',
   twitter_url: '',
   instagram_url: '',
-  meta_title: 'FrancoLink - Learn French Online',
-  meta_description: 'Learn French with expert tutors.',
+  
+  // SEO
+  meta_title: 'Franco Link - #1 Best Online Language Learning Platform',
+  meta_description: 'Join 5,000+ students learning English, French, Spanish and more with highly trained and certified tutors. Learn any language for free with the best online language learning platform.',
   og_image: '/og-image.png'
 };
 
@@ -70,7 +78,6 @@ export async function getAppConfig(): Promise<AppConfig> {
     settings.forEach(setting => {
       const key = setting.key as keyof AppConfig;
       if (key in config) {
-        // Convert boolean strings
         if (setting.value === 'true') config[key] = true;
         else if (setting.value === 'false') config[key] = false;
         else config[key] = setting.value;

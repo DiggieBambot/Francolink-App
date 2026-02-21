@@ -199,7 +199,7 @@ export function TutorLessonViewer({ lesson, students }: TutorLessonViewerProps) 
           onClick={() => setShowTeacherNotes(!showTeacherNotes)}
           className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-colors ${
             showTeacherNotes
-              ? 'bg-blue-100 dark:bg-blue-900 border-blue-300 dark:border-blue-700 text-blue-800 dark:text-blue-200'
+              ? 'bg-primary-100 dark:bg-primary-900 border-primary-300 dark:border-primary-700 text-primary-800 dark:text-primary-200'
               : 'bg-background border-border text-muted-foreground hover:text-foreground'
           }`}
         >
@@ -271,7 +271,7 @@ export function TutorLessonViewer({ lesson, students }: TutorLessonViewerProps) 
           {content.objectives && content.objectives.length > 0 && (
             <div className="p-4 bg-card border border-border rounded-lg">
               <div className="flex items-center gap-2 mb-3">
-                <Target className="w-5 h-5 text-blue-600" />
+                <Target className="w-5 h-5 text-primary" />
                 <h3 className="font-semibold text-foreground">Objectives</h3>
               </div>
               <ul className="space-y-2">
@@ -287,16 +287,16 @@ export function TutorLessonViewer({ lesson, students }: TutorLessonViewerProps) 
 
           {/* Teacher Notes (Toggleable) */}
           {showTeacherNotes && content.tutorNotes && (
-            <div className="p-4 bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg">
+            <div className="p-4 bg-primary-50 dark:bg-primary-900 border border-primary-200 dark:border-primary-800 rounded-lg">
               <div className="flex items-center gap-2 mb-3">
-                <GraduationCap className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                <h3 className="font-semibold text-blue-900 dark:text-blue-100">Teacher Notes</h3>
+                <GraduationCap className="w-5 h-5 text-primary dark:text-primary-400" />
+                <h3 className="font-semibold text-primary-900 dark:text-primary-100">Teacher Notes</h3>
               </div>
 
               {content.tutorNotes.overview && (
                 <div className="mb-4">
-                  <h4 className="text-sm font-medium text-blue-800 dark:text-blue-200 mb-1">Overview</h4>
-                  <p className="text-sm text-blue-700 dark:text-blue-300">
+                  <h4 className="text-sm font-medium text-primary-800 dark:text-primary-200 mb-1">Overview</h4>
+                  <p className="text-sm text-primary dark:text-primary-300">
                     {getTranslation(content.tutorNotes.overview, uiLanguage)}
                   </p>
                 </div>
@@ -304,13 +304,13 @@ export function TutorLessonViewer({ lesson, students }: TutorLessonViewerProps) 
 
               {content.tutorNotes.commonMistakes && content.tutorNotes.commonMistakes.length > 0 && (
                 <div className="mb-4">
-                  <h4 className="text-sm font-medium text-blue-800 dark:text-blue-200 mb-2 flex items-center gap-1">
+                  <h4 className="text-sm font-medium text-primary-800 dark:text-primary-200 mb-2 flex items-center gap-1">
                     <AlertCircle className="w-4 h-4" />
                     Common Mistakes
                   </h4>
                   <ul className="space-y-1">
                     {content.tutorNotes.commonMistakes.map((mistake, idx) => (
-                      <li key={idx} className="text-sm text-blue-700 dark:text-blue-300 pl-4 border-l-2 border-blue-300 dark:border-blue-600">
+                      <li key={idx} className="text-sm text-primary dark:text-primary-300 pl-4 border-l-2 border-primary-300 dark:border-primary">
                         {getTranslation(mistake, uiLanguage)}
                       </li>
                     ))}
@@ -320,13 +320,13 @@ export function TutorLessonViewer({ lesson, students }: TutorLessonViewerProps) 
 
               {content.tutorNotes.extensionActivities && content.tutorNotes.extensionActivities.length > 0 && (
                 <div>
-                  <h4 className="text-sm font-medium text-blue-800 dark:text-blue-200 mb-2 flex items-center gap-1">
+                  <h4 className="text-sm font-medium text-primary-800 dark:text-primary-200 mb-2 flex items-center gap-1">
                     <Lightbulb className="w-4 h-4" />
                     Extension Activities
                   </h4>
                   <ul className="space-y-1">
                     {content.tutorNotes.extensionActivities.map((activity, idx) => (
-                      <li key={idx} className="text-sm text-blue-700 dark:text-blue-300 pl-4 border-l-2 border-blue-300 dark:border-blue-600">
+                      <li key={idx} className="text-sm text-primary dark:text-primary-300 pl-4 border-l-2 border-primary-300 dark:border-primary">
                         {getTranslation(activity, uiLanguage)}
                       </li>
                     ))}

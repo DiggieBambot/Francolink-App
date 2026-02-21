@@ -1,72 +1,75 @@
-// src/components/student/student-navigation.tsx
-'use client';
+"use client";
 
-import { usePathname } from 'next/navigation';
-import { useTranslations, useLocale } from 'next-intl';
-import { Link } from '@/i18n/routing'; // Use next-intl's Link
-import { 
-  Home, 
-  BookOpen, 
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import {
+  Home,
+  BookOpen,
   Trophy,
   Video,
   Settings,
   Target,
   Brain,
-  LucideIcon
-} from 'lucide-react';
+  LucideIcon,
+} from "lucide-react";
 
 interface NavItem {
-  labelKey: string;
+  label: string;
   href: string;
   icon: LucideIcon;
 }
 
 const navigationItems: NavItem[] = [
-  { labelKey: 'dashboard', href: '/dashboard', icon: Home },
-  { labelKey: 'learn', href: '/learn', icon: BookOpen },
-  { labelKey: 'practice', href: '/student/practice', icon: Target },
-  { labelKey: 'sessions', href: '/student/sessions', icon: Video },
-  { labelKey: 'leaderboard', href: '/student/leaderboard', icon: Trophy },
-  { labelKey: 'placement_test', href: '/placement-test', icon: Brain },
-  { labelKey: 'settings', href: '/settings', icon: Settings },
+  { label: "Dashboard", href: "/dashboard", icon: Home },
+  { label: "Learn", href: "/learn", icon: BookOpen },
+  { label: "Practice", href: "/student/practice", icon: Target },
+  { label: "Sessions", href: "/student/sessions", icon: Video },
+  { label: "Leaderboard", href: "/student/leaderboard", icon: Trophy },
+  { label: "Placement Test", href: "/placement-test", icon: Brain },
+  { label: "Settings", href: "/settings", icon: Settings },
 ];
 
 export function StudentNavigation() {
   const pathname = usePathname();
-  const locale = useLocale();
-  const t = useTranslations('student_nav');
 
   const isActive = (href: string): boolean => {
-    // Remove locale prefix from pathname for comparison
-    const pathWithoutLocale = pathname.replace(`/${locale}`, '') || '/';
-    
-    if (href === '/dashboard') {
-      return pathWithoutLocale === '/dashboard' || pathname === '/dashboard';
+    if (href === "/dashboard") {
+      return pathname === "/dashboard";
     }
-    
-    return pathWithoutLocale.startsWith(href);
+    return pathname.startsWith(href);
   };
 
   return (
     <nav className="space-y-1">
+      <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider px-3 mb-3">
+        Menu
+      </p>
       {navigationItems.map((item) => {
         const active = isActive(item.href);
         const Icon = item.icon;
-        
+
         return (
           <Link
             key={item.href}
             href={item.href}
             className={`
-              flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors
-              ${active 
-                ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' 
-                : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+              flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all
+              ${
+                active
+                  ? "bg-primary text-white shadow-sm"
+                  : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
               }
             `}
           >
-            <Icon className={`w-5 h-5 flex-shrink-0 ${active ? 'text-blue-600 dark:text-blue-400' : ''}`} />
-            <span>{t(item.labelKey)}</span>
+            <Icon
+              className={`w-[18px] h-[18px] flex-shrink-0 ${
+                active ? "text-white" : "text-gray-400"
+              }`}
+            />
+            <span>{item.label}</span>
+            {active && (
+              <div className="ml-auto w-1.5 h-1.5 bg-white rounded-full" />
+            )}
           </Link>
         );
       })}

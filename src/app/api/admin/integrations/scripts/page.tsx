@@ -42,12 +42,12 @@ export default async function AdminScriptsPage() {
       </div>
 
       {/* Info Box */}
-      <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
+      <div className="bg-primary-50 border border-primary-200 rounded-xl p-4 mb-6">
         <div className="flex items-start gap-3">
-          <Code className="w-5 h-5 text-blue-600 mt-0.5" />
+          <Code className="w-5 h-5 text-primary mt-0.5" />
           <div>
-            <h3 className="font-medium text-blue-800">Script Injection Points</h3>
-            <ul className="text-sm text-blue-700 mt-1 space-y-1">
+            <h3 className="font-medium text-primary-800">Script Injection Points</h3>
+            <ul className="text-sm text-primary mt-1 space-y-1">
               <li>
                 <strong>Head:</strong> Loads before page content (analytics, meta tags)
               </li>

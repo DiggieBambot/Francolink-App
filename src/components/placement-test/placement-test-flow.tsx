@@ -239,12 +239,12 @@ export default function PlacementTestFlow({ userId, userName }: PlacementTestFlo
     B1: {
       title: "Intermediate",
       description: "Great progress! You can handle most everyday situations. We'll work on more complex grammar and vocabulary.",
-      color: "bg-blue-500"
+      color: "bg-primary-500"
     },
     B2: {
       title: "Upper Intermediate",
       description: "Impressive! You communicate effectively in French. We'll refine your skills with nuanced expressions.",
-      color: "bg-blue-600"
+      color: "bg-primary"
     },
     C1: {
       title: "Advanced",
@@ -279,8 +279,8 @@ export default function PlacementTestFlow({ userId, userName }: PlacementTestFlo
           
           <div className="space-y-4">
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <Target className="w-5 h-5 text-blue-600" />
+              <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Target className="w-5 h-5 text-primary" />
               </div>
               <div>
                 <h3 className="font-medium text-gray-900">Adaptive Questions</h3>
@@ -361,7 +361,7 @@ export default function PlacementTestFlow({ userId, userName }: PlacementTestFlo
               currentQuestion.level === "A1" || currentQuestion.level === "A2" 
                 ? "bg-green-100 text-green-700"
                 : currentQuestion.level === "B1" || currentQuestion.level === "B2"
-                  ? "bg-blue-100 text-blue-700"
+                  ? "bg-primary-100 text-primary"
                   : "bg-purple-100 text-purple-700"
             }`}>
               {currentQuestion.level}

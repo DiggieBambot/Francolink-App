@@ -45,7 +45,7 @@ export default async function TutorLessonsPage() {
       <div className="grid gap-4 md:grid-cols-3">
         <div className="p-4 bg-card border border-border rounded-lg">
           <div className="flex items-center gap-3">
-            <BookOpen className="w-5 h-5 text-blue-600" />
+            <BookOpen className="w-5 h-5 text-primary" />
             <div>
               <div className="text-2xl font-bold">{drafts?.length || 0}</div>
               <div className="text-sm text-muted-foreground">Total Lessons</div>
@@ -97,7 +97,7 @@ export default async function TutorLessonsPage() {
                         <span className={`
                           text-xs px-2 py-1 rounded-full font-medium
                           ${lesson.level === 'A1' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : ''}
-                          ${lesson.level === 'A2' || lesson.level === 'B1' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200' : ''}
+                          ${lesson.level === 'A2' || lesson.level === 'B1' ? 'bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200' : ''}
                           ${lesson.level === 'B2' || lesson.level === 'C1' ? 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200' : ''}
                         `}>
                           {lesson.level}

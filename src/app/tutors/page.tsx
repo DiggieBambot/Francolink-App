@@ -21,7 +21,7 @@ export default async function TutorsPage() {
       {/* Header */}
       <div className="bg-white border-b">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="text-2xl font-bold text-blue-600">
+          <Link href="/" className="text-2xl font-bold text-primary">
             FrancoLink
           </Link>
           <div className="flex gap-4">
@@ -29,7 +29,7 @@ export default async function TutorsPage() {
               // Logged in - show dashboard link
               <Link 
                 href="/dashboard" 
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-800"
               >
                 Dashboard
               </Link>
@@ -39,7 +39,7 @@ export default async function TutorsPage() {
                 <Link href="/login" className="px-4 py-2 text-gray-600 hover:text-gray-900">
                   Login
                 </Link>
-                <Link href="/signup" className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                <Link href="/signup" className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-800">
                   Sign Up
                 </Link>
               </>
@@ -66,14 +66,14 @@ export default async function TutorsPage() {
               <div key={tutor.id} className="bg-white rounded-xl shadow-sm border p-6 hover:shadow-lg transition-all">
                 {/* Avatar */}
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-2xl font-bold text-white">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary-600 flex items-center justify-center text-2xl font-bold text-white">
                     {tutor.name?.charAt(0) || 'T'}
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg text-gray-900">
                       {tutor.name || 'French Tutor'}
                     </h3>
-                    <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-xs font-medium rounded">
+                    <span className="px-2 py-0.5 bg-primary-100 text-primary text-xs font-medium rounded">
                       {tutor.tutor_plan || 'Basic'}
                     </span>
                   </div>
@@ -99,7 +99,7 @@ export default async function TutorsPage() {
                 {/* Join Button */}
                 <Link
                   href={`/join/${tutor.tutor_invite_code}`}
-                  className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium"
+                  className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-800 font-medium"
                 >
                   Join Class
                   <ChevronRight className="w-4 h-4" />
@@ -112,7 +112,7 @@ export default async function TutorsPage() {
             <Users className="w-16 h-16 text-gray-300 mx-auto mb-4" />
             <h2 className="text-2xl font-semibold text-gray-900 mb-2">No Tutors Available</h2>
             <p className="text-gray-500 mb-4">Check back soon!</p>
-            <Link href="/signup/tutor" className="text-blue-600 hover:underline">
+            <Link href="/signup/tutor" className="text-primary hover:underline">
               Become a Tutor →
             </Link>
           </div>

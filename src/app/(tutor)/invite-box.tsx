@@ -21,7 +21,7 @@ export function InviteBox({ inviteCode }: InviteBoxProps) {
   };
 
   return (
-    <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl p-6 text-white shadow-lg h-full">
+    <div className="bg-gradient-to-br from-primary to-primary-800 rounded-xl p-6 text-white shadow-lg h-full">
       <h2 className="text-xl font-bold mb-2">Grow Your Class</h2>
       <p className="mb-6 opacity-90 text-sm">
         Share your unique invite link with students. When they join and upgrade, 
@@ -29,12 +29,12 @@ export function InviteBox({ inviteCode }: InviteBoxProps) {
       </p>
       
       <div className="bg-white/10 backdrop-blur rounded-lg p-3 flex items-center gap-3 mb-4 border border-white/20">
-        <code className="font-mono text-xs sm:text-sm truncate flex-1 text-blue-50">
+        <code className="font-mono text-xs sm:text-sm truncate flex-1 text-primary-50">
           {inviteLink}
         </code>
         <button 
           onClick={handleCopy}
-          className="flex items-center gap-1.5 px-3 py-1.5 bg-white text-blue-700 rounded-md text-xs font-bold hover:bg-blue-50 transition-all active:scale-95 shadow-sm"
+          className="flex items-center gap-1.5 px-3 py-1.5 bg-white text-primary rounded-md text-xs font-bold hover:bg-primary-50 transition-all active:scale-95 shadow-sm"
         >
           {copied ? (
             <>

@@ -57,8 +57,8 @@ function DashboardContent({ profile }: { profile: any }) {
             {t("your_tutor")}
           </h2>
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-              <span className="text-blue-600 font-semibold">
+            <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+              <span className="text-primary font-semibold">
                 {profile.tutor.name?.charAt(0) || "T"}
               </span>
             </div>
@@ -73,7 +73,7 @@ function DashboardContent({ profile }: { profile: any }) {
           <p className="text-gray-600 mb-4">{t("no_tutor")}</p>
           <a
             href="/tutors"
-            className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
+            className="inline-block bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-800"
           >
             {t("find_tutor")}
           </a>

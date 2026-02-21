@@ -1,13 +1,11 @@
-// src/middleware.ts
 import { type NextRequest, NextResponse } from "next/server";
 import { updateSession } from "@/lib/supabase/middleware";
 import createIntlMiddleware from "next-intl/middleware";
 import { routing } from "@/i18n/routing";
 
-// Create intl middleware
 const intlMiddleware = createIntlMiddleware(routing);
 
-// Only these patterns skip intl entirely
+// Routes that skip intl entirely (static files, api)
 const SKIP_INTL = [
   "/api/",
   "/_next/",
@@ -16,26 +14,69 @@ const SKIP_INTL = [
   "/sitemap.xml",
 ];
 
+// App routes that should NOT go through intl
+// These are your (auth), (student), (tutor), (admin) route groups
+const APP_ROUTES = [
+  "/login",
+  "/signup",
+  "/forgot-password",
+  "/reset-password",
+  "/callback",
+  "/onboarding",
+  "/join",
+  "/dashboard",
+  "/learn",
+  "/profile",
+  "/settings",
+  "/placement-test",
+  "/checkout",
+  "/student",
+  "/messages",
+  "/progress",
+  "/practice",
+  "/lessons",
+  "/upgrade-plus",
+  "/admin",
+  "/tutor",
+  "/tutors",
+  "/pricing",
+  "/about",
+  "/contact",
+];
+
 export default async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // 1. Skip static/api routes
+  // 1. Skip static/api routes entirely
   if (SKIP_INTL.some((p) => pathname.startsWith(p))) {
     return NextResponse.next();
   }
 
-  // 2. Run Supabase auth first (refresh session)
+  // 2. App routes — run auth middleware only, skip intl
+  const isAppRoute = APP_ROUTES.some(
+    (route) => pathname === route || pathname.startsWith(route + "/")
+  );
+
+  if (isAppRoute) {
+    return await updateSession(request);
+  }
+
+  // 3. Everything else (/, /en, /fr, /en/..., /fr/...) — run intl + auth
   const authResponse = await updateSession(request);
 
-  // If auth wants redirect, do it
-  if (authResponse?.status && authResponse.status >= 300 && authResponse.status < 400) {
+  // If auth wants a redirect, do it
+  if (
+    authResponse?.status &&
+    authResponse.status >= 300 &&
+    authResponse.status < 400
+  ) {
     return authResponse;
   }
 
-  // 3. Run intl middleware for ALL routes now
+  // Run intl middleware for locale routes
   const intlResponse = intlMiddleware(request);
 
-  // 4. Merge auth cookies
+  // Merge auth cookies into intl response
   if (authResponse) {
     const cookies = authResponse.headers.getSetCookie();
     cookies.forEach((cookie) => {

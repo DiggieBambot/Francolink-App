@@ -112,7 +112,7 @@ export function CommissionDashboard() {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full" />
+        <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full" />
       </div>
     );
   }
@@ -168,15 +168,15 @@ export function CommissionDashboard() {
           </p>
         </div>
 
-        <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-6 text-white shadow-lg">
+        <div className="bg-gradient-to-br from-primary to-primary-600 rounded-xl p-6 text-white shadow-lg">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm text-blue-100">Available Balance</span>
-            <CreditCard className="w-5 h-5 text-blue-100" />
+            <span className="text-sm text-primary-100">Available Balance</span>
+            <CreditCard className="w-5 h-5 text-primary-100" />
           </div>
           <p className="text-3xl font-bold">
             {formatCurrency(summary.available_balance)}
           </p>
-          <p className="text-sm text-blue-100 mt-1">
+          <p className="text-sm text-primary-100 mt-1">
             Ready to withdraw
           </p>
         </div>
@@ -197,7 +197,7 @@ export function CommissionDashboard() {
         <div className="bg-white rounded-xl border p-6">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-gray-500">Commission Rate</span>
-            <Users className="w-5 h-5 text-blue-600" />
+            <Users className="w-5 h-5 text-primary" />
           </div>
           <p className="text-2xl font-bold text-gray-900">
             {(settings.rate * 100).toFixed(0)}%
@@ -266,12 +266,12 @@ export function CommissionDashboard() {
       )}
 
       {summary.available_balance > 0 && summary.available_balance < settings.minPayoutAmount && (
-        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-8">
+        <div className="bg-primary-50 border border-primary-200 rounded-xl p-4 mb-8">
           <div className="flex items-start gap-3">
-            <AlertCircle className="w-5 h-5 text-blue-600 mt-0.5" />
+            <AlertCircle className="w-5 h-5 text-primary mt-0.5" />
             <div>
-              <h4 className="font-medium text-blue-900">Almost there!</h4>
-              <p className="text-sm text-blue-700 mt-1">
+              <h4 className="font-medium text-primary-900">Almost there!</h4>
+              <p className="text-sm text-primary mt-1">
                 You need {formatCurrency(settings.minPayoutAmount - summary.available_balance)} more 
                 to reach the minimum withdrawal amount of {formatCurrency(settings.minPayoutAmount)}.
               </p>
@@ -291,7 +291,7 @@ export function CommissionDashboard() {
             onClick={() => setActiveTab(tab.id as any)}
             className={`px-4 py-3 font-medium text-sm transition-colors border-b-2 -mb-px ${
               activeTab === tab.id
-                ? 'text-blue-600 border-blue-600'
+                ? 'text-primary border-primary'
                 : 'text-gray-500 border-transparent hover:text-gray-700'
             }`}
           >
@@ -306,7 +306,7 @@ export function CommissionDashboard() {
           <h3 className="font-semibold text-gray-900 mb-4">How It Works</h3>
           <div className="space-y-4">
             <div className="flex gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold">
+              <div className="flex-shrink-0 w-8 h-8 bg-primary-100 text-primary rounded-full flex items-center justify-center font-bold">
                 1
               </div>
               <div>
@@ -317,7 +317,7 @@ export function CommissionDashboard() {
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold">
+              <div className="flex-shrink-0 w-8 h-8 bg-primary-100 text-primary rounded-full flex items-center justify-center font-bold">
                 2
               </div>
               <div>
@@ -328,7 +328,7 @@ export function CommissionDashboard() {
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold">
+              <div className="flex-shrink-0 w-8 h-8 bg-primary-100 text-primary rounded-full flex items-center justify-center font-bold">
                 3
               </div>
               <div>

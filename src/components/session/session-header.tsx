@@ -67,7 +67,7 @@ export function SessionHeader({
         );
       case 'completed':
         return (
-          <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+          <span className="px-3 py-1 bg-primary-100 text-primary rounded-full text-sm font-medium">
             Completed
           </span>
         );
@@ -127,7 +127,7 @@ export function SessionHeader({
           onClick={onToggleChat}
           className={`p-2 rounded-lg transition-colors ${
             isChatOpen 
-              ? 'bg-blue-100 text-blue-600' 
+              ? 'bg-primary-100 text-primary' 
               : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
           }`}
           title={isChatOpen ? 'Hide Chat' : 'Show Chat'}

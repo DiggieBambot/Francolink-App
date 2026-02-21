@@ -88,7 +88,7 @@ export default function StudentSessionPage({ params }: Props) {
     return (
       <div className="h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full mx-auto mb-4" />
+          <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full mx-auto mb-4" />
           <p className="text-gray-500">Joining session...</p>
         </div>
       </div>
@@ -123,10 +123,10 @@ export default function StudentSessionPage({ params }: Props) {
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Session Not Started</h2>
           <p className="text-gray-500 mb-4">Please wait for your tutor to start the session.</p>
-          <div className="animate-pulse flex items-center justify-center gap-2 text-blue-600">
-            <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-            <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-            <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+          <div className="animate-pulse flex items-center justify-center gap-2 text-primary">
+            <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+            <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+            <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
           </div>
         </div>
       </div>

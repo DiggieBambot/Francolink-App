@@ -81,7 +81,7 @@ export default async function StudentPracticePage() {
 
   const getColorClasses = (color: string) => {
     const colors: Record<string, string> = {
-      blue: 'bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-800',
+      blue: 'bg-primary-100 dark:bg-primary-900 text-primary dark:text-primary-400 border-primary-200 dark:border-primary-800',
       purple: 'bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-400 border-purple-200 dark:border-purple-800',
       green: 'bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 border-green-200 dark:border-green-800',
       orange: 'bg-orange-100 dark:bg-orange-900 text-orange-600 dark:text-orange-400 border-orange-200 dark:border-orange-800',
@@ -101,18 +101,18 @@ export default async function StudentPracticePage() {
       </div>
 
       {/* Daily Goal Banner */}
-      <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-6 mb-8 text-white">
+      <div className="bg-gradient-to-r from-primary to-primary-600 rounded-xl p-6 mb-8 text-white">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-xl font-bold mb-2">Daily Practice Goal</h2>
-            <p className="text-blue-100">Complete 3 exercises to maintain your streak!</p>
+            <p className="text-primary-100">Complete 3 exercises to maintain your streak!</p>
           </div>
           <div className="text-center">
             <div className="flex items-center gap-2 mb-1">
               <Zap className="w-6 h-6" />
               <span className="text-3xl font-bold">{profile?.current_streak || 0}</span>
             </div>
-            <p className="text-sm text-blue-100">day streak</p>
+            <p className="text-sm text-primary-100">day streak</p>
           </div>
         </div>
         <div className="mt-4">
@@ -186,7 +186,7 @@ export default async function StudentPracticePage() {
               <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${getColorClasses(category.color)}`}>
                 <Icon className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-primary dark:group-hover:text-primary-400 transition-colors">
                 {category.title}
               </h3>
               <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">

@@ -99,8 +99,8 @@ export default async function JoinPage({ params }: PageProps) {
   return (
     <div className="min-h-screen bg-background flex flex-col md:flex-row">
       {/* Left Side - Tutor Info */}
-      <div className="w-full md:w-1/2 bg-blue-600 p-12 text-white flex flex-col justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-blue-700/20 pattern-grid-lg opacity-20"></div>
+      <div className="w-full md:w-1/2 bg-primary p-12 text-white flex flex-col justify-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-primary-700/20 pattern-grid-lg opacity-20"></div>
         <div className="max-w-md mx-auto relative z-10">
           <div className="mb-10">
             <div className="w-24 h-24 rounded-full bg-white/20 border-4 border-white/30 flex items-center justify-center text-4xl font-bold mb-6 overflow-hidden shadow-xl">
@@ -113,26 +113,26 @@ export default async function JoinPage({ params }: PageProps) {
             <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
               Join {tutor.name || 'Your Tutor'}'s <br/>French Class
             </h1>
-            <p className="text-blue-100 text-lg leading-relaxed">
+            <p className="text-primary-100 text-lg leading-relaxed">
               Start your journey to fluency with personalized lessons, live sessions, and interactive tools.
             </p>
           </div>
 
           <div className="space-y-5">
             <div className="flex items-center gap-4 bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/10">
-              <div className="p-2 bg-white text-blue-600 rounded-lg shadow-sm">
+              <div className="p-2 bg-white text-primary rounded-lg shadow-sm">
                 <Check className="w-5 h-5" />
               </div>
               <span className="font-medium">Access assigned lessons & homework</span>
             </div>
             <div className="flex items-center gap-4 bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/10">
-              <div className="p-2 bg-white text-blue-600 rounded-lg shadow-sm">
+              <div className="p-2 bg-white text-primary rounded-lg shadow-sm">
                 <Star className="w-5 h-5" />
               </div>
               <span className="font-medium">Join live whiteboard sessions</span>
             </div>
             <div className="flex items-center gap-4 bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/10">
-              <div className="p-2 bg-white text-blue-600 rounded-lg shadow-sm">
+              <div className="p-2 bg-white text-primary rounded-lg shadow-sm">
                 <User className="w-5 h-5" />
               </div>
               <span className="font-medium">Track your progress automatically</span>

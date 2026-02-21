@@ -109,7 +109,7 @@ export function TutorSettingsForm({ profile, userEmail }: TutorSettingsFormProps
       {/* Profile Section */}
       <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
         <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-          <User className="w-5 h-5 text-blue-600" />
+          <User className="w-5 h-5 text-primary" />
           Profile Information
         </h2>
         
@@ -123,7 +123,7 @@ export function TutorSettingsForm({ profile, userEmail }: TutorSettingsFormProps
                 type="text"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-secondary"
               />
             </div>
             <div>
@@ -145,7 +145,7 @@ export function TutorSettingsForm({ profile, userEmail }: TutorSettingsFormProps
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-secondary"
               />
             </div>
             <div>
@@ -157,7 +157,7 @@ export function TutorSettingsForm({ profile, userEmail }: TutorSettingsFormProps
                 value={formData.avatar_url}
                 onChange={(e) => setFormData({ ...formData, avatar_url: e.target.value })}
                 placeholder="https://..."
-                className="w-full px-3 py-2 border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-secondary"
               />
             </div>
           </div>
@@ -165,7 +165,7 @@ export function TutorSettingsForm({ profile, userEmail }: TutorSettingsFormProps
           <button
             type="submit"
             disabled={isLoading}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
+            className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-800 disabled:opacity-50 transition-colors"
           >
             <Save className="w-4 h-4" />
             {isLoading ? 'Saving...' : 'Save Changes'}
@@ -228,7 +228,7 @@ export function TutorSettingsForm({ profile, userEmail }: TutorSettingsFormProps
               Student limit: {profile?.student_limit || 'Unlimited'}
             </p>
           </div>
-          <button className="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors">
+          <button className="px-4 py-2 border border-primary text-primary rounded-lg hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-colors">
             Upgrade Plan
           </button>
         </div>

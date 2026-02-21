@@ -64,7 +64,7 @@ export default async function PricingPage() {
 
         <div className="p-4 bg-card border border-border rounded-lg">
           <div className="flex items-center gap-3">
-            <Users className="w-5 h-5 text-blue-600" />
+            <Users className="w-5 h-5 text-primary" />
             <div>
               <div className="text-2xl font-bold text-foreground">
                 {tutorCounts?.length || 0}
@@ -138,8 +138,8 @@ export default async function PricingPage() {
           className="p-6 bg-card border border-border rounded-lg hover:border-foreground/20 hover:shadow-md transition-all"
         >
           <div className="flex items-start justify-between mb-4">
-            <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-lg">
-              <Users className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+            <div className="p-3 bg-primary-100 dark:bg-primary-900 rounded-lg">
+              <Users className="w-6 h-6 text-primary dark:text-primary-400" />
             </div>
             <span className="text-sm text-muted-foreground">
               {tutorPlans?.length || 0} plans

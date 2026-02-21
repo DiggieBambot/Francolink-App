@@ -59,7 +59,7 @@ export function DraftsList({ initialDrafts }: DraftsListProps) {
       processing: { 
         icon: Loader2, 
         label: `Processing ${progress}%`, 
-        className: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
+        className: 'bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200',
         animate: true 
       },
       review: { 

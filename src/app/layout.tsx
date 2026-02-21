@@ -1,10 +1,19 @@
-// src/app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Mulish, Roboto } from "next/font/google";
 import { getAppConfig } from "@/lib/config";
 
-const inter = Inter({ subsets: ["latin"] });
+const mulish = Mulish({
+  subsets: ["latin"],
+  variable: "--font-mulish",
+  display: "swap",
+});
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  variable: "--font-roboto",
+  display: "swap",
+});
 
 export async function generateMetadata(): Promise<Metadata> {
   const config = await getAppConfig();
@@ -14,6 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: config.meta_description,
     icons: {
       icon: config.favicon_url,
+      apple: "/apple-touch-icon.png",
     },
   };
 }
@@ -26,17 +36,23 @@ export default async function RootLayout({
   const config = await getAppConfig();
 
   return (
-    <html suppressHydrationWarning>
+    <html lang="en" dir="ltr" suppressHydrationWarning>
       <head>
-        <style>{`
-          :root {
-            --primary-color: ${config.primary_color};
-            --secondary-color: ${config.secondary_color};
-            --accent-color: ${config.accent_color};
-          }
-        `}</style>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              :root {
+                --color-primary: ${config.primary_color};
+                --color-secondary: ${config.secondary_color};
+                --color-accent: ${config.accent_color};
+              }
+            `,
+          }}
+        />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={`${roboto.variable} ${mulish.variable} font-body`}>
+        {children}
+      </body>
     </html>
   );
 }

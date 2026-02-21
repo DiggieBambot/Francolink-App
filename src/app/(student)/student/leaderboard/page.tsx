@@ -80,7 +80,7 @@ export default async function StudentLeaderboardPage() {
 
       {/* Current User Card */}
       {currentUserRank >= 0 && (
-        <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-6 mb-8 text-white">
+        <div className="bg-gradient-to-r from-primary to-primary-600 rounded-xl p-6 mb-8 text-white">
           <div className="flex items-center gap-4">
             <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center text-2xl font-bold overflow-hidden">
               {currentProfile?.avatar_url ? (
@@ -90,7 +90,7 @@ export default async function StudentLeaderboardPage() {
               )}
             </div>
             <div className="flex-1">
-              <p className="text-blue-100 text-sm">Your Rank</p>
+              <p className="text-primary-100 text-sm">Your Rank</p>
               <p className="text-3xl font-bold">#{currentUserRank + 1}</p>
             </div>
             <div className="text-right">
@@ -98,7 +98,7 @@ export default async function StudentLeaderboardPage() {
                 <Trophy className="w-5 h-5" />
                 <span className="text-2xl font-bold">{currentProfile?.total_xp || 0}</span>
               </div>
-              <p className="text-blue-100 text-sm">Total XP</p>
+              <p className="text-primary-100 text-sm">Total XP</p>
             </div>
           </div>
         </div>
@@ -122,7 +122,7 @@ export default async function StudentLeaderboardPage() {
                   key={learner.id}
                   className={`p-4 flex items-center gap-4 transition-colors ${
                     isCurrentUser 
-                      ? 'bg-blue-50 dark:bg-blue-900/20' 
+                      ? 'bg-primary-50 dark:bg-primary-900/20' 
                       : 'hover:bg-gray-50 dark:hover:bg-gray-700/50'
                   }`}
                 >
@@ -130,7 +130,7 @@ export default async function StudentLeaderboardPage() {
                   {getRankBadge(index)}
 
                   {/* Avatar */}
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-semibold overflow-hidden">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-600 flex items-center justify-center text-white font-semibold overflow-hidden">
                     {learner.avatar_url ? (
                       <img src={learner.avatar_url} alt="" className="w-full h-full object-cover" />
                     ) : (
@@ -142,7 +142,7 @@ export default async function StudentLeaderboardPage() {
                   <div className="flex-1 min-w-0">
                     <h3 className={`font-medium truncate ${
                       isCurrentUser 
-                        ? 'text-blue-600 dark:text-blue-400' 
+                        ? 'text-primary dark:text-primary-400' 
                         : 'text-gray-900 dark:text-white'
                     }`}>
                       {learner.name || 'Anonymous'}

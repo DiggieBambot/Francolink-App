@@ -1,11 +1,10 @@
-// src/components/shared/user-menu.tsx
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { LogOut, Settings, ChevronDown, User } from 'lucide-react';
-import { createClient } from '@/lib/supabase/client';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { LogOut, Settings, ChevronUp, User, DollarSign } from "lucide-react";
+import { createClient } from "@/lib/supabase/client";
 
 interface UserMenuProps {
   user: {
@@ -26,78 +25,95 @@ export function UserMenu({ user }: UserMenuProps) {
   const handleSignOut = async () => {
     setIsLoggingOut(true);
     await supabase.auth.signOut();
-    router.push('/login');
+    router.push("/login");
   };
 
   return (
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center gap-3 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+        className="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer"
       >
-        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-semibold flex-shrink-0 overflow-hidden">
+        <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-primary-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0 overflow-hidden shadow-sm">
           {user.avatar_url ? (
-            <img src={user.avatar_url} alt="" className="w-full h-full object-cover" />
+            <img
+              src={user.avatar_url}
+              alt=""
+              className="w-full h-full object-cover"
+            />
           ) : (
-            user.name?.charAt(0)?.toUpperCase() || 'U'
+            user.name?.charAt(0)?.toUpperCase() || "U"
           )}
         </div>
         <div className="flex-1 text-left min-w-0">
-          <p className="text-sm font-medium text-gray-900 dark:text-white truncate">
-            {user.name || 'User'}
+          <p className="text-sm font-semibold text-gray-900 truncate">
+            {user.name || "User"}
           </p>
-          <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
-            {user.email}
-          </p>
+          <p className="text-[11px] text-gray-400 truncate">{user.email}</p>
         </div>
-        <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronUp
+          className={`w-4 h-4 text-gray-400 transition-transform ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
       </button>
 
       {isOpen && (
         <>
-          <div 
-            className="fixed inset-0 z-10" 
+          <div
+            className="fixed inset-0 z-10"
             onClick={() => setIsOpen(false)}
           />
-          <div className="absolute bottom-full left-0 right-0 mb-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg py-2 z-20">
+          <div className="absolute bottom-full left-0 right-0 mb-2 bg-white border border-gray-100 rounded-xl shadow-medium py-1.5 z-20">
             {/* Commission balance for tutors */}
-            {user.role === 'TUTOR' && user.commission_balance !== null && user.commission_balance !== undefined && (
-              <div className="px-4 py-2 border-b border-gray-200 dark:border-gray-700">
-                <p className="text-xs text-gray-500 dark:text-gray-400">Commission Balance</p>
-                <p className="text-sm font-semibold text-green-600 dark:text-green-400">
-                  ${Number(user.commission_balance).toFixed(2)}
-                </p>
-              </div>
-            )}
+            {user.role === "TUTOR" &&
+              user.commission_balance !== null &&
+              user.commission_balance !== undefined && (
+                <div className="px-4 py-2.5 border-b border-gray-100">
+                  <p className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                    Commission Balance
+                  </p>
+                  <div className="flex items-center gap-1.5 mt-0.5">
+                    <DollarSign className="w-3.5 h-3.5 text-green-600" />
+                    <p className="text-sm font-bold text-green-600">
+                      {Number(user.commission_balance).toFixed(2)}
+                    </p>
+                  </div>
+                </div>
+              )}
 
             <Link
-              href={user.role === 'TUTOR' ? '/tutor/settings' : '/settings'}
+              href={user.role === "TUTOR" ? "/tutor/settings" : "/settings"}
               onClick={() => setIsOpen(false)}
-              className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
             >
-              <Settings className="w-4 h-4" />
-              <span>Settings</span>
+              <Settings className="w-4 h-4 text-gray-400" />
+              <span className="font-medium">Settings</span>
             </Link>
 
-            {user.role === 'TUTOR' && (
+            {user.role === "TUTOR" && (
               <Link
                 href="/dashboard"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
               >
-                <User className="w-4 h-4" />
-                <span>Student View</span>
+                <User className="w-4 h-4 text-gray-400" />
+                <span className="font-medium">Student View</span>
               </Link>
             )}
 
-            <button
-              onClick={handleSignOut}
-              disabled={isLoggingOut}
-              className="w-full flex items-center gap-3 px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-700 disabled:opacity-50"
-            >
-              <LogOut className="w-4 h-4" />
-              <span>{isLoggingOut ? 'Signing out...' : 'Sign Out'}</span>
-            </button>
+            <div className="border-t border-gray-100 mt-1 pt-1">
+              <button
+                onClick={handleSignOut}
+                disabled={isLoggingOut}
+                className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 disabled:opacity-50 transition-colors cursor-pointer"
+              >
+                <LogOut className="w-4 h-4" />
+                <span className="font-medium">
+                  {isLoggingOut ? "Signing out..." : "Sign Out"}
+                </span>
+              </button>
+            </div>
           </div>
         </>
       )}

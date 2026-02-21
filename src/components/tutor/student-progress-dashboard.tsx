@@ -81,7 +81,7 @@ export function StudentProgressDashboard({ students }: StudentProgressDashboardP
   const getLevelBadgeColor = (level: number) => {
     if (level >= 20) return 'bg-purple-100 text-purple-700 border-purple-200';
     if (level >= 10) return 'bg-yellow-100 text-yellow-700 border-yellow-200';
-    if (level >= 5) return 'bg-blue-100 text-blue-700 border-blue-200';
+    if (level >= 5) return 'bg-primary-100 text-primary border-primary-200';
     return 'bg-gray-100 text-gray-700 border-gray-200';
   };
 
@@ -114,7 +114,7 @@ export function StudentProgressDashboard({ students }: StudentProgressDashboardP
         <div className="bg-white rounded-xl border p-5">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-gray-500">Total Students</span>
-            <Users className="w-5 h-5 text-blue-600" />
+            <Users className="w-5 h-5 text-primary" />
           </div>
           <p className="text-2xl font-bold text-gray-900">{students.length}</p>
         </div>
@@ -153,7 +153,7 @@ export function StudentProgressDashboard({ students }: StudentProgressDashboardP
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search students..."
-            className="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+            className="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-secondary"
           />
         </div>
         <div className="flex gap-2">
@@ -167,7 +167,7 @@ export function StudentProgressDashboard({ students }: StudentProgressDashboardP
               onClick={() => setSortBy(option.id as any)}
               className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 sortBy === option.id
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-primary text-white'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
@@ -211,7 +211,7 @@ export function StudentProgressDashboard({ students }: StudentProgressDashboardP
                   </div>
 
                   {/* Avatar */}
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-semibold text-lg">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-600 flex items-center justify-center text-white font-semibold text-lg">
                     {student.full_name?.charAt(0) || student.email.charAt(0).toUpperCase()}
                   </div>
 
@@ -235,7 +235,7 @@ export function StudentProgressDashboard({ students }: StudentProgressDashboardP
                       </div>
                       <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
                         <div 
-                          className="h-full bg-gradient-to-r from-blue-500 to-purple-600 rounded-full transition-all"
+                          className="h-full bg-gradient-to-r from-primary to-primary-600 rounded-full transition-all"
                           style={{ width: `${getProgressToNextLevel(student.xp, student.level)}%` }}
                         />
                       </div>

@@ -124,8 +124,8 @@ export default async function AdminIntegrationsPage() {
                 </span>
               </p>
             </div>
-            <div className="p-2 bg-blue-100 rounded-lg">
-              <Code className="w-5 h-5 text-blue-600" />
+            <div className="p-2 bg-primary-100 rounded-lg">
+              <Code className="w-5 h-5 text-primary" />
             </div>
           </div>
         </div>
@@ -173,8 +173,8 @@ export default async function AdminIntegrationsPage() {
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <div className="p-3 bg-blue-100 rounded-xl">
-                <Code className="w-6 h-6 text-blue-600" />
+              <div className="p-3 bg-primary-100 rounded-xl">
+                <Code className="w-6 h-6 text-primary" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900">Custom Scripts</h3>

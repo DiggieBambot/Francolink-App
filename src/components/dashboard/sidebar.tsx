@@ -108,7 +108,7 @@ export function Sidebar({ user }: SidebarProps) {
     // Free users: show upsell to pricing page (both plans)
     return (
       <div className="p-4 border-t border-gray-100">
-        <div className="bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl p-4 text-white">
+        <div className="bg-gradient-to-r from-purple-500 to-primary-600 rounded-xl p-4 text-white">
           <div className="flex items-center gap-2 mb-2">
             <Crown className="w-5 h-5" />
             <span className="font-heading font-bold">Go Premium</span>

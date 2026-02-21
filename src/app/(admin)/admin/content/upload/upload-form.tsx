@@ -264,8 +264,8 @@ export function UploadForm() {
 
       {/* Processing Status */}
       {processingStatus && (
-        <div className="rounded-lg border border-blue-300 bg-blue-50 dark:border-blue-800 dark:bg-blue-950 p-4">
-          <div className="flex items-center gap-2 text-blue-700 dark:text-blue-300">
+        <div className="rounded-lg border border-primary-300 bg-primary-50 dark:border-primary-800 dark:bg-primary-900 p-4">
+          <div className="flex items-center gap-2 text-primary dark:text-primary-300">
             <Loader2 className="w-5 h-5 animate-spin flex-shrink-0" />
             <p className="text-sm font-medium">{processingStatus}</p>
           </div>
@@ -359,7 +359,7 @@ export function UploadForm() {
                 <span className={`
                   text-xs px-2 py-0.5 rounded-full font-medium
                   ${tierKey === 'beginner' ? 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300' : ''}
-                  ${tierKey === 'intermediate' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300' : ''}
+                  ${tierKey === 'intermediate' ? 'bg-primary-100 text-primary dark:bg-primary-900 dark:text-primary-300' : ''}
                   ${tierKey === 'advanced' ? 'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300' : ''}
                 `}>
                   {tierInfo.shortName}

@@ -135,7 +135,7 @@ export function SessionControls({
           onClick={() => setTool('pen')}
           className={`p-2 rounded-lg transition-colors ${
             tool === 'pen' 
-              ? 'bg-white shadow text-blue-600' 
+              ? 'bg-white shadow text-primary' 
               : 'hover:bg-white/50'
           }`}
           title="Pen"
@@ -210,7 +210,7 @@ export function SessionControls({
                       onClick={() => setWidth(w.value)}
                       className={`flex-1 py-1 text-xs rounded ${
                         width === w.value 
-                          ? 'bg-blue-100 text-blue-700' 
+                          ? 'bg-primary-100 text-primary' 
                           : 'bg-gray-100 hover:bg-gray-200'
                       }`}
                     >

@@ -318,7 +318,7 @@ export function DraftViewer({ draft }: DraftViewerProps) {
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-2">
-                            <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full capitalize">
+                            <span className="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-xs rounded-full capitalize">
                               {exercise.type.replace('_', ' ')}
                             </span>
                             {exercise.pageNumber && (

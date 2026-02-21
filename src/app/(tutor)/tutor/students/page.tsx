@@ -80,20 +80,20 @@ export default async function TutorStudentsPage() {
         
         {/* Invite Link Box */}
         {inviteLink && (
-          <div className="flex items-center gap-2 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-3">
-            <UserPlus className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+          <div className="flex items-center gap-2 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 rounded-lg p-3">
+            <UserPlus className="w-5 h-5 text-primary dark:text-primary-400" />
             <div className="text-sm">
-              <p className="text-blue-900 dark:text-blue-100 font-medium">Invite Link</p>
-              <p className="text-blue-600 dark:text-blue-400 text-xs truncate max-w-[200px]">
+              <p className="text-primary-900 dark:text-primary-100 font-medium">Invite Link</p>
+              <p className="text-primary dark:text-primary-400 text-xs truncate max-w-[200px]">
                 {inviteLink}
               </p>
             </div>
             <button
               onClick={() => navigator.clipboard.writeText(inviteLink)}
-              className="p-2 hover:bg-blue-100 dark:hover:bg-blue-800 rounded-lg transition-colors"
+              className="p-2 hover:bg-primary-100 dark:hover:bg-primary-800 rounded-lg transition-colors"
               title="Copy link"
             >
-              <Copy className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+              <Copy className="w-4 h-4 text-primary dark:text-primary-400" />
             </button>
           </div>
         )}
@@ -104,7 +104,7 @@ export default async function TutorStudentsPage() {
         <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-gray-500 dark:text-gray-400">Total Students</span>
-            <Users className="w-5 h-5 text-blue-600" />
+            <Users className="w-5 h-5 text-primary" />
           </div>
           <p className="text-2xl font-bold text-gray-900 dark:text-white">{totalStudents}</p>
         </div>

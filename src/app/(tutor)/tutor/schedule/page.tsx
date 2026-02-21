@@ -103,7 +103,7 @@ export default async function TutorSchedulePage() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'active': return 'bg-green-100 text-green-700 border-green-200';
-      case 'scheduled': return 'bg-blue-100 text-blue-700 border-blue-200';
+      case 'scheduled': return 'bg-primary-100 text-primary border-primary-200';
       case 'completed': return 'bg-gray-100 text-gray-700 border-gray-200';
       default: return 'bg-gray-100 text-gray-700 border-gray-200';
     }
@@ -121,7 +121,7 @@ export default async function TutorSchedulePage() {
         </div>
         <Link
           href="/tutor/sessions"
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-800 transition-colors"
         >
           <Plus className="w-5 h-5" />
           New Session
@@ -132,8 +132,8 @@ export default async function TutorSchedulePage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
           <div className="flex items-center gap-4">
-            <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-xl">
-              <Calendar className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+            <div className="p-3 bg-primary-100 dark:bg-primary-900 rounded-xl">
+              <Calendar className="w-6 h-6 text-primary dark:text-primary-400" />
             </div>
             <div>
               <p className="text-sm text-gray-500 dark:text-gray-400">Today's Sessions</p>
@@ -179,7 +179,7 @@ export default async function TutorSchedulePage() {
           <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
             <div className="p-4 border-b border-gray-200 dark:border-gray-700">
               <h2 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                <Calendar className="w-5 h-5 text-blue-600" />
+                <Calendar className="w-5 h-5 text-primary" />
                 Today - {now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
               </h2>
             </div>
@@ -223,7 +223,7 @@ export default async function TutorSchedulePage() {
                           className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                             session.status === 'active'
                               ? 'bg-green-600 text-white hover:bg-green-700'
-                              : 'bg-blue-600 text-white hover:bg-blue-700'
+                              : 'bg-primary text-white hover:bg-primary-800'
                           }`}
                         >
                           {session.status === 'active' ? 'Join' : 'Open'}
@@ -239,7 +239,7 @@ export default async function TutorSchedulePage() {
                 <p className="text-gray-500 dark:text-gray-400">No sessions scheduled for today</p>
                 <Link
                   href="/tutor/sessions"
-                  className="inline-flex items-center gap-2 mt-4 text-blue-600 hover:underline"
+                  className="inline-flex items-center gap-2 mt-4 text-primary hover:underline"
                 >
                   <Plus className="w-4 h-4" />
                   Schedule a session
@@ -292,7 +292,7 @@ export default async function TutorSchedulePage() {
             <div className="p-4 border-t border-gray-200 dark:border-gray-700">
               <Link
                 href="/tutor/sessions"
-                className="block text-center text-sm text-blue-600 hover:underline"
+                className="block text-center text-sm text-primary hover:underline"
               >
                 View all sessions
               </Link>

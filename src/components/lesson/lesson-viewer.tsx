@@ -143,10 +143,10 @@ export function LessonViewer({ lesson, user, language, level }: LessonViewerProp
       <main className="max-w-6xl mx-auto px-4 py-6">
         {/* Learning Objectives */}
         {content.objectives && content.objectives.length > 0 && (
-          <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg">
+          <div className="mb-6 p-4 bg-primary-50 dark:bg-primary-900 border border-primary-200 dark:border-primary-800 rounded-lg">
             <div className="flex items-center gap-2 mb-3">
-              <BookOpen className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-              <h2 className="font-semibold text-blue-900 dark:text-blue-100">
+              <BookOpen className="w-5 h-5 text-primary dark:text-primary-400" />
+              <h2 className="font-semibold text-primary-900 dark:text-primary-100">
                 {uiLanguage === 'fr' ? 'Objectifs d\'apprentissage' :
                  uiLanguage === 'de' ? 'Lernziele' :
                  uiLanguage === 'es' ? 'Objetivos de aprendizaje' :
@@ -155,7 +155,7 @@ export function LessonViewer({ lesson, user, language, level }: LessonViewerProp
             </div>
             <ul className="space-y-2">
               {content.objectives.map((obj, idx) => (
-                <li key={idx} className="flex items-start gap-2 text-sm text-blue-800 dark:text-blue-200">
+                <li key={idx} className="flex items-start gap-2 text-sm text-primary-800 dark:text-primary-200">
                   <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5" />
                   <span>{getTranslation(obj, uiLanguage)}</span>
                 </li>
