@@ -1,5 +1,6 @@
 // src/app/api/admin/content/process/route.ts
-
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 import { SupportedLanguage, HtmlLessonContent } from '@/types/lesson-content';
