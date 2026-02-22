@@ -17,7 +17,7 @@ export async function updateSession(request: NextRequest) {
           return request.cookies.getAll();
         },
         setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) =>
+          cookiesToSet.forEach(({ name, value }) =>
             request.cookies.set(name, value)
           );
           supabaseResponse = NextResponse.next({
@@ -47,7 +47,10 @@ export async function updateSession(request: NextRequest) {
     '/about',
     '/pricing',
     '/contact',
+    '/terms',
+    '/privacy',
     '/api/webhooks',
+    '/auth/callback',
   ];
 
   const isPublicRoute = publicRoutes.some(route => 
@@ -75,6 +78,11 @@ export async function updateSession(request: NextRequest) {
       .eq('id', user.id)
       .single();
 
+    // If user doesn't exist in DB yet, redirect to onboarding
+    if (!userData) {
+      return NextResponse.redirect(new URL('/onboarding', request.url));
+    }
+
     // If logged in but not ADMIN -> redirect to dashboard
     if (userData?.role !== 'ADMIN') {
       return NextResponse.redirect(new URL('/dashboard', request.url));
@@ -98,6 +106,11 @@ export async function updateSession(request: NextRequest) {
       .eq('id', user.id)
       .single();
 
+    // If user doesn't exist in DB yet, redirect to onboarding
+    if (!userData) {
+      return NextResponse.redirect(new URL('/onboarding', request.url));
+    }
+
     // Tutors and Admins can access tutor dashboard
     if (userData?.role !== 'TUTOR' && userData?.role !== 'ADMIN') {
       return NextResponse.redirect(new URL('/dashboard', request.url));
@@ -106,7 +119,17 @@ export async function updateSession(request: NextRequest) {
     return supabaseResponse;
   }
 
-  // 3. Handle Protected Student Routes
+  // 3. Handle Onboarding Route
+  if (pathname === '/onboarding' || pathname.startsWith('/onboarding/')) {
+    // Allow authenticated users to access onboarding
+    if (user) {
+      return supabaseResponse;
+    }
+    // Not logged in -> redirect to signup
+    return NextResponse.redirect(new URL('/signup', request.url));
+  }
+
+  // 4. Handle Protected Student Routes
   const protectedRoutes = [
     '/dashboard',
     '/learn',
@@ -119,32 +142,56 @@ export async function updateSession(request: NextRequest) {
     '/progress',
     '/practice',
     '/lessons',
+    '/upgrade-plus',
   ];
 
   const isProtectedRoute = protectedRoutes.some(route => 
     pathname.startsWith(route)
   );
 
-  if (isProtectedRoute && !user) {
-    const redirectUrl = new URL('/login', request.url);
-    redirectUrl.searchParams.set('redirect', pathname);
-    return NextResponse.redirect(redirectUrl);
-  }
+  if (isProtectedRoute) {
+    if (!user) {
+      const redirectUrl = new URL('/login', request.url);
+      redirectUrl.searchParams.set('redirect', pathname);
+      return NextResponse.redirect(redirectUrl);
+    }
 
-  // 4. Handle Auth Routes (Login/Signup)
-  const authRoutes = ['/login', '/signup'];
-  const isAuthRoute = authRoutes.some(route => 
-    pathname === route || pathname.startsWith(route + '/')
-  );
-  
-  if (isAuthRoute && user) {
-    // If already logged in, redirect based on role
+    // Check if user exists in database
     const { data: userData } = await supabase
       .from('users')
       .select('role')
       .eq('id', user.id)
       .single();
 
+    // If user is authenticated but not in database, redirect to onboarding
+    if (!userData) {
+      return NextResponse.redirect(new URL('/onboarding', request.url));
+    }
+
+    // User exists, allow access
+    return supabaseResponse;
+  }
+
+  // 5. Handle Auth Routes (Login/Signup)
+  const authRoutes = ['/login', '/signup', '/forgot-password', '/reset-password'];
+  const isAuthRoute = authRoutes.some(route => 
+    pathname === route || pathname.startsWith(route + '/')
+  );
+  
+  if (isAuthRoute && user) {
+    // If already logged in, check their role and redirect
+    const { data: userData } = await supabase
+      .from('users')
+      .select('role')
+      .eq('id', user.id)
+      .single();
+
+    // If user doesn't exist in DB yet, send to onboarding
+    if (!userData) {
+      return NextResponse.redirect(new URL('/onboarding', request.url));
+    }
+
+    // Redirect based on role
     if (userData?.role === 'ADMIN') {
       return NextResponse.redirect(new URL('/admin', request.url));
     }

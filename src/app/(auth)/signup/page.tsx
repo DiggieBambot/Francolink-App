@@ -15,45 +15,52 @@ export default function SignupPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+const handleSignup = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setError("");
+  setIsLoading(true);
 
-  const handleSignup = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError("");
-    setIsLoading(true);
+  if (password.length < 6) {
+    setError("Password must be at least 6 characters");
+    setIsLoading(false);
+    return;
+  }
 
-    if (password.length < 6) {
-      setError("Password must be at least 6 characters");
+  try {
+    const supabase = createClient();
+
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          name,
+          full_name: name,
+        },
+        emailRedirectTo: `${window.location.origin}/auth/callback`,
+      },
+    });
+
+    if (error) {
+      setError(error.message);
       setIsLoading(false);
       return;
     }
 
-    try {
-      const supabase = createClient();
-
-      const { error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            name,
-            full_name: name,
-          },
-        },
-      });
-
-      if (error) {
-        setError(error.message);
-        return;
-      }
-
-      // Redirect to onboarding
-      router.push("/onboarding");
-      router.refresh();
-    } catch {
-      setError("Something went wrong. Please try again.");
-    } finally {
-      setIsLoading(false);
+    // Check if email confirmation is required
+    if (data.user && !data.session) {
+      // Email confirmation is required
+      setError("");
+      alert("Please check your email to confirm your account!");
+      window.location.href = "/login";
+    } else if (data.session) {
+      // No email confirmation needed, redirect to onboarding
+      window.location.href = "/onboarding";
     }
+  } catch {
+    setError("Something went wrong. Please try again.");
+    setIsLoading(false);
+  }
   };
 
   const handleGoogleSignup = async () => {

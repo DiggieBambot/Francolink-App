@@ -15,33 +15,38 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError("");
-    setIsLoading(true);
+ const handleLogin = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setError("");
+  setIsLoading(true);
 
-    try {
-      const supabase = createClient();
+  try {
+    const supabase = createClient();
 
-      const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
 
-      if (error) {
-        setError(error.message);
-        return;
-      }
+    if (error) {
+      setError(error.message);
+      setIsLoading(false);
+      return;
+    }
 
-      router.push("/dashboard");
-      router.refresh();
-    } catch {
-      setError("Something went wrong. Please try again.");
-    } finally {
+    // Wait for session to be set
+    if (data.session) {
+      // Force a hard navigation to ensure cookies are sent
+      window.location.href = "/dashboard";
+    } else {
+      setError("Login successful but no session created. Please try again.");
       setIsLoading(false);
     }
-  };
-
+  } catch {
+    setError("Something went wrong. Please try again.");
+    setIsLoading(false);
+  }
+};
   const handleGoogleLogin = async () => {
     setError("");
     setIsLoading(true);
@@ -52,7 +57,7 @@ export default function LoginPage() {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
-          redirectTo: `${window.location.origin}/auth/callback`,
+          redirectTo: `https://app.francolink.net/auth/callback`,
         },
       });
 
