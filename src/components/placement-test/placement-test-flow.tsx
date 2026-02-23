@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui";
 import { 
-  placementQuestions, 
+  getQuestionsByLanguage,
   getLevelFromScore,
   type PlacementQuestion 
 } from "@/lib/placement-test/questions";
@@ -27,6 +27,7 @@ import {
 interface PlacementTestFlowProps {
   userId: string;
   userName: string;
+  language: string;
 }
 
 type TestPhase = "intro" | "testing" | "saving" | "complete";
@@ -44,9 +45,30 @@ interface TestState {
 const MAX_QUESTIONS = 15;
 const MIN_QUESTIONS = 10;
 
-export default function PlacementTestFlow({ userId, userName }: PlacementTestFlowProps) {
+// Language display names
+const languageNames: Record<string, string> = {
+  fr: "French",
+  es: "Spanish",
+  en: "English",
+  de: "German",
+};
+
+// Language flags
+const languageFlags: Record<string, string> = {
+  fr: "🇫🇷",
+  es: "🇪🇸",
+  en: "🇬🇧",
+  de: "🇩🇪",
+};
+
+export default function PlacementTestFlow({ userId, userName, language }: PlacementTestFlowProps) {
   const router = useRouter();
   const supabase = createClient();
+  
+  // Get questions for the selected language
+  const placementQuestions = getQuestionsByLanguage(language);
+  const languageName = languageNames[language] || "French";
+  const languageFlag = languageFlags[language] || "🌍";
   
   const [phase, setPhase] = useState<TestPhase>("intro");
   const [testState, setTestState] = useState<TestState>({
@@ -85,7 +107,7 @@ export default function PlacementTestFlow({ userId, userName }: PlacementTestFlo
     }
 
     return availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
-  }, []);
+  }, [placementQuestions]);
 
   // Start the test
   const startTest = () => {
@@ -152,7 +174,8 @@ export default function PlacementTestFlow({ userId, userName }: PlacementTestFlo
           placement_test_taken: true,
           placement_test_level: level,
           placement_test_score: score,
-          placement_test_taken_at: new Date().toISOString()
+          placement_test_taken_at: new Date().toISOString(),
+          learning_language: language
         })
         .eq("id", userId);
 
@@ -210,14 +233,16 @@ export default function PlacementTestFlow({ userId, userName }: PlacementTestFlo
           placement_test_taken: true,
           placement_test_level: "A1",
           placement_test_score: 0,
-          placement_test_taken_at: new Date().toISOString()
+          placement_test_taken_at: new Date().toISOString(),
+          learning_language: language
         })
         .eq("id", userId);
     } catch (error) {
       console.error("Error skipping placement test:", error);
     }
     
-    router.push("/learn/french/a1");
+    // Dynamic language route
+    router.push(`/learn/${language}/a1`);
   };
 
   const correctCount = testState.answersCorrect.filter(Boolean).length;
@@ -228,32 +253,32 @@ export default function PlacementTestFlow({ userId, userName }: PlacementTestFlo
   const levelDescriptions: Record<string, { title: string; description: string; color: string }> = {
     A1: {
       title: "Beginner",
-      description: "You're starting your French journey! We'll begin with the basics: greetings, numbers, and essential phrases.",
+      description: `You're starting your ${languageName} journey! We'll begin with the basics: greetings, numbers, and essential phrases.`,
       color: "bg-green-500"
     },
     A2: {
       title: "Elementary",
-      description: "You have some French basics! We'll build on your foundation with everyday conversations and simple grammar.",
+      description: `You have some ${languageName} basics! We'll build on your foundation with everyday conversations and simple grammar.`,
       color: "bg-green-600"
     },
     B1: {
       title: "Intermediate",
-      description: "Great progress! You can handle most everyday situations. We'll work on more complex grammar and vocabulary.",
+      description: `Great progress! You can handle most everyday situations. We'll work on more complex grammar and vocabulary.`,
       color: "bg-primary-500"
     },
     B2: {
       title: "Upper Intermediate",
-      description: "Impressive! You communicate effectively in French. We'll refine your skills with nuanced expressions.",
+      description: `Impressive! You communicate effectively in ${languageName}. We'll refine your skills with nuanced expressions.`,
       color: "bg-primary"
     },
     C1: {
       title: "Advanced",
-      description: "Excellent! You're highly proficient. We'll focus on sophisticated language and cultural nuances.",
+      description: `Excellent! You're highly proficient. We'll focus on sophisticated language and cultural nuances.`,
       color: "bg-purple-500"
     },
     C2: {
       title: "Mastery",
-      description: "Outstanding! You have near-native proficiency. We'll polish your skills with literary and academic French.",
+      description: `Outstanding! You have near-native proficiency. We'll polish your skills with literary and academic ${languageName}.`,
       color: "bg-purple-600"
     }
   };
@@ -264,13 +289,13 @@ export default function PlacementTestFlow({ userId, userName }: PlacementTestFlo
       <div className="max-w-2xl mx-auto px-4 py-12">
         <div className="text-center mb-8">
           <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-            <Brain className="w-10 h-10 text-primary" />
+            <span className="text-4xl">{languageFlag}</span>
           </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            French Placement Test
+            {languageName} Placement Test
           </h1>
           <p className="text-gray-600">
-            Hi {userName}! Let&apos;s find your French level.
+            Hi {userName}! Let&apos;s find your {languageName} level.
           </p>
         </div>
 
@@ -515,7 +540,7 @@ export default function PlacementTestFlow({ userId, userName }: PlacementTestFlo
             Recommended for you
           </div>
           <h3 className="text-xl font-bold text-gray-900 mb-1">
-            French {finalLevel} Course
+            {languageName} {finalLevel} Course
           </h3>
           <p className="text-gray-600 text-sm">
             Start with content matched to your current level.
@@ -524,18 +549,18 @@ export default function PlacementTestFlow({ userId, userName }: PlacementTestFlo
 
         <div className="space-y-3">
           <Button 
-            onClick={() => router.push(`/learn/french/${finalLevel.toLowerCase()}`)}
+            onClick={() => router.push(`/learn/${language}/${finalLevel.toLowerCase()}`)}
             className="w-full gap-2"
             size="lg"
           >
-            Start French {finalLevel}
+            Start {languageName} {finalLevel}
             <ArrowRight className="w-5 h-5" />
           </Button>
           
           {finalLevel !== "A1" && (
             <Button 
               variant="outline"
-              onClick={() => router.push("/learn/french/a1")}
+              onClick={() => router.push(`/learn/${language}/a1`)}
               className="w-full"
             >
               Start from A1 instead

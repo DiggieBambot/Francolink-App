@@ -1,3 +1,5 @@
+// src/app/(student)/dashboard/page.tsx
+
 import { createClient } from "@/lib/supabase/server";
 import {
   Flame,
@@ -24,6 +26,14 @@ import { JoinTutorCode } from "@/components/dashboard/join-tutor-code";
 import { formatNumber } from "@/lib/utils";
 import { getLessonUsage } from "@/lib/utils/lesson-limits";
 import Link from "next/link";
+
+// Language display names and flags
+const languageConfig: Record<string, { name: string; flag: string }> = {
+  fr: { name: "French", flag: "🇫🇷" },
+  es: { name: "Spanish", flag: "🇪🇸" },
+  en: { name: "English", flag: "🇬🇧" },
+  de: { name: "German", flag: "🇩🇪" },
+};
 
 function calculateCurrentLevel(completedLessons: any[]): string {
   if (!completedLessons || completedLessons.length === 0) return "A1";
@@ -53,6 +63,10 @@ export default async function DashboardPage() {
     .select("*")
     .eq("id", user?.id)
     .single();
+
+  // Get user's learning language (default to French for backwards compatibility)
+  const userLanguage = profile?.learning_language || "fr";
+  const languageInfo = languageConfig[userLanguage] || languageConfig.fr;
 
   let tutor = null;
   if (profile?.referred_by_tutor_id) {
@@ -118,11 +132,12 @@ export default async function DashboardPage() {
     currentLevel: currentLevel,
   };
 
+  // Dynamic placeholder course based on user's language
   const placeholderCourses = [
     {
-      id: "french-a1",
-      title: "French Foundations",
-      flag: "🇫🇷",
+      id: `${userLanguage}-a1`,
+      title: `${languageInfo.name} Foundations`,
+      flag: languageInfo.flag,
       level: "A1",
       progress: 0,
       totalLessons: 40,
@@ -156,7 +171,7 @@ export default async function DashboardPage() {
           Welcome back, {firstName}! 👋
         </h1>
         <p className="text-gray-500 mt-1 text-sm">
-          Ready to continue your language journey?
+          Ready to continue your {languageInfo.name} journey?
         </p>
       </div>
 
@@ -239,16 +254,16 @@ export default async function DashboardPage() {
           ============================================ */}
       {!hasPlacementTest && (
         <Link
-          href="/placement-test"
+          href={`/placement-test?lang=${userLanguage}`}
           className="group block bg-gradient-to-r from-primary via-primary to-primary-800 rounded-2xl p-5 hover:shadow-medium transition-all"
         >
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center group-hover:bg-white/20 transition-colors">
-              <Brain className="w-6 h-6 text-white" />
+              <span className="text-2xl">{languageInfo.flag}</span>
             </div>
             <div className="flex-1">
               <div className="font-heading font-bold text-white">
-                Take the Placement Test
+                Take the {languageInfo.name} Placement Test
               </div>
               <div className="text-sm text-white/70">
                 Find your level in 5–10 minutes
@@ -304,7 +319,10 @@ export default async function DashboardPage() {
         {/* Left Column — 2/3 */}
         <div className="lg:col-span-2 space-y-6">
           {/* Continue Learning */}
-          <ContinueLearning />
+          <ContinueLearning 
+          userLanguage={userLanguage}
+          userLevel={profile?.placement_test_level?.toLowerCase() || "a1"}
+          />
 
           {/* Your Courses */}
           <div>
@@ -360,9 +378,9 @@ export default async function DashboardPage() {
             <div className="space-y-2">
               {[
                 {
-                  href: `/learn/french/${stats.currentLevel.toLowerCase()}`,
-                  icon: "📚",
-                  label: "Continue Learning",
+                  href: `/learn/${userLanguage}/${stats.currentLevel.toLowerCase()}`,
+                  icon: languageInfo.flag,
+                  label: `Continue ${languageInfo.name}`,
                   bg: "bg-primary-50 hover:bg-primary-100",
                 },
                 {

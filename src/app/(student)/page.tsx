@@ -1,3 +1,5 @@
+// src/app/(student)/page.tsx
+
 import Link from "next/link";
 import { Navbar, Footer, WaveDivider } from "@/components/layout";
 import { Button, Card } from "@/components/ui";
@@ -11,12 +13,12 @@ import {
 } from "lucide-react";
 
 const languages = [
-  { name: "English", flag: "🇬🇧", href: "/learn/english", coming: false },
-  { name: "Spanish", flag: "🇪🇸", href: "/learn/spanish", coming: false },
-  { name: "French", flag: "🇫🇷", href: "/learn/french", coming: false },
-  { name: "Italian", flag: "🇮🇹", href: "/learn/italian", coming: true },
-  { name: "German", flag: "🇩🇪", href: "/learn/german", coming: true },
-  { name: "Portuguese", flag: "🇵🇹", href: "/learn/portuguese", coming: true },
+  { name: "English", flag: "🇬🇧", code: "en", href: "/learn/en/a1", coming: false },
+  { name: "Spanish", flag: "🇪🇸", code: "es", href: "/learn/es/a1", coming: false },
+  { name: "French", flag: "🇫🇷", code: "fr", href: "/learn/fr/a1", coming: false },
+  { name: "German", flag: "🇩🇪", code: "de", href: "/learn/de/a1", coming: false },
+  { name: "Italian", flag: "🇮🇹", code: "it", href: "/learn/it/a1", coming: true },
+  { name: "Portuguese", flag: "🇵🇹", code: "pt", href: "/learn/pt/a1", coming: true },
 ];
 
 const features = [
@@ -43,7 +45,7 @@ const features = [
 const benefits = [
   "Helping engage remote employees",
   "Flexible delivery options (1:1 or group, online/face-to-face)",
-  "Courses in English, French, Spanish (others on request)",
+  "Courses in English, French, Spanish, German (others on request)",
   "Timetabled approach with flexible scheduling",
 ];
 
@@ -54,38 +56,38 @@ export default function HomePage() {
 
       <main className="flex-1">
         {/* ===== HERO SECTION ===== */}
-<section className="relative bg-white pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 text-primary">
-          Highly Trained and Certified Tutors
-        </h1>
-        <p className="text-2xl md:text-3xl text-secondary font-heading font-semibold mb-4">
-          Learn any Language for free!!
-        </p>
-        <p className="text-lg text-gray-600 mb-8">
-          Join 500+ students online and start your language learning
-          journey today.
-        </p>
-        <Link href="#languages">
-          <Button size="lg">
-            Choose your language
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
-        </Link>
-      </div>
+        <section className="relative bg-white pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 text-primary">
+                  Highly Trained and Certified Tutors
+                </h1>
+                <p className="text-2xl md:text-3xl text-secondary font-heading font-semibold mb-4">
+                  Learn any Language for free!!
+                </p>
+                <p className="text-lg text-gray-600 mb-8">
+                  Join 500+ students online and start your language learning
+                  journey today.
+                </p>
+                <Link href="#languages">
+                  <Button size="lg">
+                    Choose your language
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </Link>
+              </div>
 
-      <div className="relative aspect-video rounded-2xl overflow-hidden shadow-hard bg-primary">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <Sparkles className="w-16 h-16 text-secondary animate-pulse" />
-        </div>
-      </div>
-    </div>
-  </div>
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-hard bg-primary">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Sparkles className="w-16 h-16 text-secondary animate-pulse" />
+                </div>
+              </div>
+            </div>
+          </div>
 
-  <WaveDivider position="bottom" color="#f9fafb" />
-</section>
+          <WaveDivider position="bottom" color="#f9fafb" />
+        </section>
 
         {/* ===== LANGUAGE SELECTION ===== */}
         <section id="languages" className="py-20 bg-white">
@@ -180,7 +182,7 @@ export default function HomePage() {
               <div className="space-y-4">
                 <Card className="border-l-4 border-secondary">
                   <p className="text-gray-700 italic mb-4">
-                    &quot;The French lessons have been incredible. I went from
+                    &quot;The lessons have been incredible. I went from
                     knowing nothing to having real conversations in just 3
                     months!&quot;
                   </p>
@@ -197,7 +199,7 @@ export default function HomePage() {
                 </Card>
                 <Card className="border-l-4 border-secondary">
                   <p className="text-gray-700 italic mb-4">
-                    &quot;I finally have the confidence to use French in my
+                    &quot;I finally have the confidence to use my new language in my
                     professional life.&quot;
                   </p>
                   <p className="font-semibold text-primary">

@@ -15,6 +15,14 @@ import {
 import { formatNumber } from "@/lib/utils";
 import ProfileHeader from "@/components/profile/profile-header";
 
+// Language configuration
+const languageConfig: Record<string, { name: string; flag: string }> = {
+  fr: { name: "French", flag: "🇫🇷" },
+  es: { name: "Spanish", flag: "🇪🇸" },
+  en: { name: "English", flag: "🇬🇧" },
+  de: { name: "German", flag: "🇩🇪" },
+};
+
 export default async function ProfilePage() {
   const supabase = await createClient();
 
@@ -27,6 +35,10 @@ export default async function ProfilePage() {
     .select("*")
     .eq("id", user.id)
     .single();
+
+  // Get user's learning language
+  const userLanguage = profile?.learning_language || "fr";
+  const langInfo = languageConfig[userLanguage] || languageConfig.fr;
 
   // Get completed lessons count
   const { count: lessonsCompleted } = await supabase
@@ -91,6 +103,23 @@ export default async function ProfilePage() {
         accountAgeDays={accountAgeDays}
       />
 
+      {/* Learning Language Badge */}
+      <div className="bg-white rounded-2xl shadow-soft p-4 mb-6 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <span className="text-3xl">{langInfo.flag}</span>
+          <div>
+            <p className="text-sm text-gray-500">Currently Learning</p>
+            <p className="font-bold text-primary">{langInfo.name}</p>
+          </div>
+        </div>
+        <Link 
+          href="/settings" 
+          className="text-sm text-secondary hover:underline"
+        >
+          Change
+        </Link>
+      </div>
+
       {/* Stats Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
         <StatCard
@@ -129,7 +158,7 @@ export default async function ProfilePage() {
         <div className="bg-white rounded-2xl shadow-soft p-6">
           <h2 className="text-lg font-heading font-bold text-primary mb-4 flex items-center gap-2">
             <Brain className="w-5 h-5" />
-            Placement Test
+            {langInfo.name} Placement Test
           </h2>
 
           {stats.placementLevel ? (
@@ -152,9 +181,9 @@ export default async function ProfilePage() {
                 <Brain className="w-10 h-10 text-gray-400" />
               </div>
               <p className="text-gray-600 mb-4">
-                Take the placement test to find your level
+                Take the placement test to find your {langInfo.name} level
               </p>
-              <Link href="/placement-test">
+              <Link href={`/placement-test?lang=${userLanguage}`}>
                 <button className="px-4 py-2 bg-primary text-white rounded-xl hover:bg-primary/90 transition cursor-pointer">
                   Take Test
                 </button>
@@ -203,12 +232,12 @@ export default async function ProfilePage() {
               </span>
             </div>
 
-            {/* Continue Button */}
+            {/* Continue Button - Dynamic language */}
             <Link
-              href={`/learn/french/${(stats.placementLevel || "A1").toLowerCase()}`}
+              href={`/learn/${userLanguage}/${(stats.placementLevel || "A1").toLowerCase()}`}
               className="block w-full py-3 bg-primary text-white text-center font-medium rounded-xl hover:bg-primary/90 transition"
             >
-              Continue Learning
+              Continue {langInfo.name}
             </Link>
           </div>
         </div>

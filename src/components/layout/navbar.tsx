@@ -1,3 +1,5 @@
+// src/components/layout/navbar.tsx
+
 "use client";
 
 import { useState } from "react";
@@ -13,9 +15,10 @@ const navItems = [
     label: "Learning Resources",
     href: "#",
     children: [
-      { label: "🇫🇷 French", href: "/learn/french" },
-      { label: "🇪🇸 Spanish", href: "/learn/spanish" },
-      { label: "🇬🇧 English", href: "/learn/english" },
+      { label: "🇫🇷 French", href: "/learn/fr/a1" },
+      { label: "🇪🇸 Spanish", href: "/learn/es/a1" },
+      { label: "🇬🇧 English", href: "/learn/en/a1" },
+      { label: "🇩🇪 German", href: "/learn/de/a1" },
     ],
   },
 ];

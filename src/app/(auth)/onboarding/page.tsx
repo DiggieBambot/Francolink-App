@@ -13,6 +13,7 @@ const languages = [
   { code: "fr", name: "French", flag: "🇫🇷" },
   { code: "es", name: "Spanish", flag: "🇪🇸" },
   { code: "en", name: "English", flag: "🇬🇧" },
+  { code: "de", name: "German", flag: "🇩🇪" },
 ];
 
 const levels = [
@@ -29,6 +30,14 @@ const goals = [
   { value: 30, label: "30 min/day", description: "Intense" },
 ];
 
+// Language display names for UI
+const languageNames: Record<string, string> = {
+  fr: "French",
+  es: "Spanish",
+  en: "English",
+  de: "German",
+};
+
 export default function OnboardingPage() {
   const router = useRouter();
   const supabase = createClient();
@@ -42,15 +51,15 @@ export default function OnboardingPage() {
     setIsLoading(true);
 
     try {
-      // Get current user
       const { data: { user } } = await supabase.auth.getUser();
 
       if (user) {
-        // Update user profile
+        // Save daily goal AND learning language to database
         await supabase
           .from("users")
           .update({
             daily_goal_minutes: selectedGoal,
+            learning_language: selectedLanguage,
           })
           .eq("id", user.id);
       }
@@ -78,11 +87,13 @@ export default function OnboardingPage() {
             placement_test_taken: true,
             placement_test_level: "A1",
             placement_test_score: 0,
+            learning_language: selectedLanguage,
           })
           .eq("id", user.id);
       }
 
-      router.push("/learn/french/a1");
+      // Redirect to the selected language, not hardcoded French
+      router.push(`/learn/${selectedLanguage}/a1`);
       router.refresh();
     } catch (error) {
       console.error("Error:", error);
@@ -90,6 +101,13 @@ export default function OnboardingPage() {
       setIsLoading(false);
     }
   };
+
+  const handleTakePlacementTest = () => {
+    // Pass language as query parameter
+    router.push(`/placement-test?lang=${selectedLanguage}`);
+  };
+
+  const selectedLanguageName = languageNames[selectedLanguage] || "your language";
 
   return (
     <Card className="w-full max-w-lg">
@@ -257,12 +275,12 @@ export default function OnboardingPage() {
             How would you like to start?
           </h1>
           <p className="text-gray-600 text-center mb-8">
-            Take a quick test or start from the beginning
+            Take a quick {selectedLanguageName} test or start from the beginning
           </p>
 
           <div className="space-y-4">
             <button
-              onClick={() => router.push("/placement-test")}
+              onClick={handleTakePlacementTest}
               className="w-full p-6 bg-white border-2 border-primary rounded-xl hover:bg-primary/5 transition text-left"
             >
               <div className="flex items-center gap-4">
@@ -270,7 +288,7 @@ export default function OnboardingPage() {
                   <Brain className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <div className="font-bold text-gray-900">Take Placement Test</div>
+                  <div className="font-bold text-gray-900">Take {selectedLanguageName} Placement Test</div>
                   <div className="text-sm text-gray-500">Find your level (5-10 min)</div>
                 </div>
               </div>
@@ -289,7 +307,7 @@ export default function OnboardingPage() {
                   <div className="font-bold text-gray-900">
                     {isLoading ? "Setting up..." : "Start from Beginning"}
                   </div>
-                  <div className="text-sm text-gray-500">Begin with A1 basics</div>
+                  <div className="text-sm text-gray-500">Begin with {selectedLanguageName} A1 basics</div>
                 </div>
               </div>
             </button>

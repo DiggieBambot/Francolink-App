@@ -8,6 +8,18 @@ import { getLessonUsage } from "@/lib/utils/lesson-limits";
 import { isPaidPlan, canAccessLevel, type CEFRLevel } from "@/lib/config/subscription";
 import { DailyLessonLimit } from "@/components/dashboard/daily-lesson-limit";
 
+// Language configuration
+const languageConfig: Record<string, { name: string; flag: string }> = {
+  fr: { name: "French", flag: "🇫🇷" },
+  french: { name: "French", flag: "🇫🇷" },
+  es: { name: "Spanish", flag: "🇪🇸" },
+  spanish: { name: "Spanish", flag: "🇪🇸" },
+  en: { name: "English", flag: "🇬🇧" },
+  english: { name: "English", flag: "🇬🇧" },
+  de: { name: "German", flag: "🇩🇪" },
+  german: { name: "German", flag: "🇩🇪" },
+};
+
 interface PageProps {
   params: Promise<{
     language: string;
@@ -18,6 +30,9 @@ interface PageProps {
 export default async function CoursePage({ params }: PageProps) {
   const { language, level } = await params;
   const supabase = await createClient();
+
+  // Get language info for display
+  const langInfo = languageConfig[language.toLowerCase()] || { name: "Language", flag: "🌍" };
 
   // Get current user
   const { data: { user } } = await supabase.auth.getUser();
@@ -62,7 +77,9 @@ export default async function CoursePage({ params }: PageProps) {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Course Not Found</h1>
-          <p className="text-gray-600 mb-4">The course you&apos;re looking for doesn&apos;t exist.</p>
+          <p className="text-gray-600 mb-4">
+            The {langInfo.name} {level.toUpperCase()} course doesn&apos;t exist yet.
+          </p>
           <Link href="/learn" className="text-primary hover:underline">
             ← Back to Languages
           </Link>
@@ -141,8 +158,9 @@ export default async function CoursePage({ params }: PageProps) {
           </Link>
           
           <div className="flex items-start gap-6">
+            {/* Dynamic flag based on language */}
             <div className="w-20 h-20 bg-white/10 rounded-xl flex items-center justify-center text-4xl">
-              🇫🇷
+              {langInfo.flag}
             </div>
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-1">

@@ -1,15 +1,18 @@
+// src/components/dashboard/course-card.tsx
+
 import Link from "next/link";
 import { ProgressBar } from "@/components/ui/progress-bar";
 import { ChevronRight } from "lucide-react";
 
 interface CourseCardProps {
-  id: string;
+  id: string;           // Should be format: "fr-a1" or just "fr"
   title: string;
   flag: string;
   level: string;
   progress: number;
   totalLessons: number;
   completedLessons: number;
+  language?: string;    // Optional: explicit language code
 }
 
 export function CourseCard({
@@ -20,10 +23,23 @@ export function CourseCard({
   progress,
   totalLessons,
   completedLessons,
+  language,
 }: CourseCardProps) {
+  // Build the correct href
+  // If language is provided, use it; otherwise parse from id
+  let href = `/learn/${id}`;
+  
+  if (language && level) {
+    href = `/learn/${language}/${level.toLowerCase()}`;
+  } else if (id.includes("-")) {
+    // id format: "fr-a1" or "french-a1"
+    const [lang, lvl] = id.split("-");
+    href = `/learn/${lang}/${lvl}`;
+  }
+
   return (
     <Link
-      href={`/learn/${id}`}
+      href={href}
       className="block bg-white rounded-2xl shadow-soft p-6 hover:shadow-medium hover:-translate-y-1 transition-all"
     >
       <div className="flex items-start justify-between mb-4">

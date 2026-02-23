@@ -1,27 +1,49 @@
+// src/components/dashboard/continue-learning.tsx
+
 import Link from "next/link";
 import { Play, Clock } from "lucide-react";
 import { Button } from "@/components/ui";
 import { ProgressBar } from "@/components/ui/progress-bar";
+import { createClient } from "@/lib/supabase/server";
+
+// Language config for display
+const languageConfig: Record<string, { name: string; flag: string }> = {
+  fr: { name: "French", flag: "🇫🇷" },
+  es: { name: "Spanish", flag: "🇪🇸" },
+  en: { name: "English", flag: "🇬🇧" },
+  de: { name: "German", flag: "🇩🇪" },
+};
 
 interface ContinueLearningProps {
   course?: {
     id: string;
     title: string;
     language: string;
+    level: string;
     flag: string;
     currentLesson: string;
     progress: number;
     estimatedMinutes: number;
   };
+  userLanguage?: string;
+  userLevel?: string;
 }
 
-export function ContinueLearning({ course }: ContinueLearningProps) {
+export function ContinueLearning({ 
+  course, 
+  userLanguage = "fr",
+  userLevel = "a1" 
+}: ContinueLearningProps) {
+  // Get language info
+  const langInfo = languageConfig[userLanguage] || languageConfig.fr;
+  
   const defaultCourse = {
-    id: "french-a1",
-    title: "French Foundations",
-    language: "French",
-    flag: "🇫🇷",
-    currentLesson: "Greetings & Introductions",
+    id: `${userLanguage}-${userLevel}`,
+    title: `${langInfo.name} Foundations`,
+    language: langInfo.name,
+    level: userLevel.toUpperCase(),
+    flag: langInfo.flag,
+    currentLesson: "Getting Started",
     progress: 0,
     estimatedMinutes: 10,
   };
@@ -56,7 +78,7 @@ export function ContinueLearning({ course }: ContinueLearningProps) {
         </div>
 
         <div className="flex flex-col items-center gap-2">
-          <Link href={`/learn/${displayCourse.id}`}>
+          <Link href={`/learn/${userLanguage}/${userLevel}`}>
             <Button size="lg" className="gap-2">
               <Play className="w-5 h-5" />
               Continue
