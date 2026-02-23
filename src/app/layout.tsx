@@ -2,7 +2,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Mulish, Roboto } from "next/font/google";
 import { getAppConfig } from "@/lib/config";
-
+export const dynamic = 'force-dynamic';
+export const dynamicParams = true;
 const mulish = Mulish({
   subsets: ["latin"],
   variable: "--font-mulish",

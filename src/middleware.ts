@@ -7,6 +7,7 @@ const intlMiddleware = createIntlMiddleware(routing);
 
 // Routes that skip intl entirely (static files, api)
 const SKIP_INTL = [
+  "/auth/",
   "/api/",
   "/_next/",
   "/favicon.ico",
@@ -17,6 +18,7 @@ const SKIP_INTL = [
 // App routes that should NOT go through intl
 // These are your (auth), (student), (tutor), (admin) route groups
 const APP_ROUTES = [
+  "/auth",
   "/login",
   "/signup",
   "/forgot-password",
@@ -46,11 +48,13 @@ const APP_ROUTES = [
 
 export default async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-
-  // 1. Skip static/api routes entirely
-  if (SKIP_INTL.some((p) => pathname.startsWith(p))) {
-    return NextResponse.next();
+if (SKIP_INTL.some((p) => pathname.startsWith(p))) {
+  // Auth routes still need session handling for cookies
+  if (pathname.startsWith('/auth/')) {
+    return await updateSession(request);
   }
+  return NextResponse.next();
+}
 
   // 2. App routes — run auth middleware only, skip intl
   const isAppRoute = APP_ROUTES.some(

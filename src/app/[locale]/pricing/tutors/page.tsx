@@ -1,6 +1,6 @@
 // src/app/[locale]/pricing/tutors/page.tsx
 'use client';
-
+export const dynamic = 'force-dynamic';
 import { useCurrency } from '@/context/currency-context';
 import { CurrencySwitcher } from '@/components/currency-switcher';
 import { useTranslations } from 'next-intl';

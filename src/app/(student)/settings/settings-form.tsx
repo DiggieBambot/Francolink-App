@@ -318,7 +318,7 @@ export default function SettingsForm({ user }: SettingsFormProps) {
         {!showDeleteConfirm ? (
           <Button
             onClick={() => setShowDeleteConfirm(true)}
-            variant="outline"
+            variant="ghost"
             className="border-red-300 text-red-600 hover:bg-red-50 gap-2"
           >
             <Trash2 className="w-4 h-4" />
@@ -335,7 +335,7 @@ export default function SettingsForm({ user }: SettingsFormProps) {
             </Button>
             <Button
               onClick={() => setShowDeleteConfirm(false)}
-              variant="outline"
+              variant="ghost"
             >
               Cancel
             </Button>

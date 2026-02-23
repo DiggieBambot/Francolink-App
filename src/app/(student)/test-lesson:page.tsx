@@ -19,7 +19,9 @@ export default function TestLessonPage() {
     is_premium: false,
     content: {
       type: 'html' as const,
-      version: '2.0' as const,
+      version: '2.0' as const, 
+
+      htmlContent: '<div>Your HTML content here</div>',
       title: {
         fr: 'Discutez de vos récents achats',
         en: 'Discussing Your Recent Purchases',

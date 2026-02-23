@@ -135,7 +135,7 @@ export default async function LessonPage({ params }: PageProps) {
             </Link>
             <div className="flex-1 min-w-0">
               <p className="text-sm text-gray-500 truncate">
-                {lesson.unit?.title}
+                {(lesson.unit as any)?.title}
               </p>
               <h1 className="font-bold text-gray-900 truncate">
                 {lesson.title}
