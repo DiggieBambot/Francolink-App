@@ -1,10 +1,9 @@
 // src/app/api/seed/french-a1/route.ts
 
 import { createClient } from "@supabase/supabase-js";
-import { frenchA1Course, frenchA1Vocabulary } from "@/lib/seed/french-a1";
+import { frenchA1Course } from "@/lib/seed/french-a1";
 import { NextResponse } from "next/server";
 
-// Use service role key for seeding (bypasses RLS)
 const supabaseAdmin = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_ROLE_KEY!
@@ -12,277 +11,229 @@ const supabaseAdmin = createClient(
 
 export async function POST(request: Request) {
   try {
-    // Verify this is an authorized request (simple check - improve for production)
-    const authHeader = request.headers.get("authorization");
-    if (authHeader !== `Bearer ${process.env.SUPABASE_SERVICE_ROLE_KEY}`) {
-      // For development, we'll allow it. In production, add proper auth.
-      console.log("Warning: No auth header, proceeding anyway for development");
-    }
-
     console.log("🌱 Starting French A1 seed...");
 
-    // Step 1: Get or verify French language exists
-    const { data: languages, error: langError } = await supabaseAdmin
+    // 1. Find or create French language
+    let { data: language } = await supabaseAdmin
       .from("languages")
       .select("id")
       .eq("code", "fr")
       .single();
 
-    if (langError || !languages) {
-      // Insert French language if it doesn't exist
-      const { data: newLang, error: insertLangError } = await supabaseAdmin
+    if (!language) {
+      const { data: newLang, error: langError } = await supabaseAdmin
         .from("languages")
-        .upsert({
+        .insert({
           code: "fr",
           name: "French",
           native_name: "Français",
           flag_emoji: "🇫🇷",
           is_active: true,
-        }, { onConflict: "code" })
+        })
         .select("id")
         .single();
-
-      if (insertLangError) {
-        throw new Error(`Failed to insert language: ${insertLangError.message}`);
-      }
-      
-      console.log("✅ French language created");
+      if (langError) throw langError;
+      language = newLang;
     }
 
-    // Get French language ID
-    const { data: frenchLang } = await supabaseAdmin
-      .from("languages")
-      .select("id")
-      .eq("code", "fr")
-      .single();
+    console.log("✅ Language:", language!.id);
 
-    if (!frenchLang) {
-      throw new Error("Could not find French language");
-    }
-
-    const languageId = frenchLang.id;
-    console.log(`✅ French language ID: ${languageId}`);
-
-    // Step 2: Check if course already exists
+    // 2. Delete existing course data to avoid duplicates
     const { data: existingCourse } = await supabaseAdmin
       .from("courses")
       .select("id")
-      .eq("slug", frenchA1Course.course.slug)
+      .eq("slug", "fr-a1")
       .single();
 
     if (existingCourse) {
-      console.log("⚠️ French A1 course already exists. Deleting and recreating...");
-      
-      // Delete existing course (cascade will handle related records)
-      await supabaseAdmin
-        .from("courses")
-        .delete()
-        .eq("id", existingCourse.id);
+      const { data: existingUnits } = await supabaseAdmin
+        .from("units")
+        .select("id")
+        .eq("course_id", existingCourse.id);
+
+      if (existingUnits && existingUnits.length > 0) {
+        const unitIds = existingUnits.map((u: any) => u.id);
+
+        const { data: existingLessons } = await supabaseAdmin
+          .from("lessons")
+          .select("id")
+          .in("unit_id", unitIds);
+
+        if (existingLessons && existingLessons.length > 0) {
+          const lessonIds = existingLessons.map((l: any) => l.id);
+
+          await supabaseAdmin.from("exercises").delete().in("lesson_id", lessonIds);
+          await supabaseAdmin.from("vocabulary").delete().in("lesson_id", lessonIds);
+          
+          // Try to delete lesson_progress if it exists
+          try {
+            await supabaseAdmin.from("lesson_progress").delete().in("lesson_id", lessonIds);
+          } catch (e) {
+            // Table might not exist, ignore
+          }
+        }
+
+        await supabaseAdmin.from("lessons").delete().in("unit_id", unitIds);
+      }
+
+      await supabaseAdmin.from("units").delete().eq("course_id", existingCourse.id);
+      await supabaseAdmin.from("courses").delete().eq("id", existingCourse.id);
+
+      console.log("🗑️ Deleted old course data");
     }
 
-    // Step 3: Insert the course
+    // 3. Create the course
     const { data: course, error: courseError } = await supabaseAdmin
       .from("courses")
       .insert({
-        language_id: languageId,
-        ...frenchA1Course.course,
+        language_id: language!.id,
+        title: frenchA1Course.course.title,
+        slug: frenchA1Course.course.slug,
+        description: frenchA1Course.course.description,
+        level: frenchA1Course.course.level,
+        estimated_hours: frenchA1Course.course.estimated_hours,
+        total_lessons: frenchA1Course.course.total_lessons,
+        image_url: frenchA1Course.course.image_url,
+        is_published: frenchA1Course.course.is_published,
+        is_premium: frenchA1Course.course.is_premium,
       })
       .select("id")
       .single();
 
-    if (courseError) {
-      throw new Error(`Failed to insert course: ${courseError.message}`);
-    }
+    if (courseError) throw courseError;
+    console.log("✅ Course created:", course.id);
 
-    console.log(`✅ Course created: ${course.id}`);
-
-    // Step 4: Insert units and lessons
     let totalLessons = 0;
     let totalExercises = 0;
+    let totalVocab = 0;
 
+    // 4. Loop through units
     for (const unitData of frenchA1Course.units) {
-      const { lessons, ...unitInfo } = unitData;
-
-      // Insert unit
       const { data: unit, error: unitError } = await supabaseAdmin
         .from("units")
         .insert({
           course_id: course.id,
-          ...unitInfo,
+          title: unitData.unit.title,
+          description: unitData.unit.description,
+          order_index: unitData.unit.order_index,
+          is_premium: unitData.unit.is_premium,
         })
         .select("id")
         .single();
 
-      if (unitError) {
-        throw new Error(`Failed to insert unit "${unitInfo.title}": ${unitError.message}`);
-      }
+      if (unitError) throw unitError;
+      console.log(`✅ Unit created: ${unitData.unit.title}`);
 
-      console.log(`  ✅ Unit created: ${unitInfo.title}`);
-
-      // Insert lessons for this unit
-      for (const lessonData of lessons) {
-        const { exercises, vocabulary, ...lessonInfo } = lessonData;
-
-        // Insert lesson
+      // 5. Loop through lessons
+      for (const lessonData of unitData.lessons) {
+        // Match YOUR lessons schema exactly
         const { data: lesson, error: lessonError } = await supabaseAdmin
           .from("lessons")
           .insert({
             unit_id: unit.id,
-            ...lessonInfo,
+            title: lessonData.metadata.title,
+            slug: lessonData.metadata.slug,
+            description: lessonData.content.introduction?.text?.substring(0, 500) || "",
+            lesson_type: lessonData.metadata.type,
+            content: lessonData.content,
+            estimated_minutes: lessonData.metadata.estimatedMinutes,
+            xp_reward: lessonData.metadata.xpReward,
+            order_index: lessonData.metadata.lesson,
+            is_premium: false,
+            is_active: true,
+            category: null,
+            content_version: "1.0",
           })
           .select("id")
           .single();
 
         if (lessonError) {
-          throw new Error(`Failed to insert lesson "${lessonInfo.title}": ${lessonError.message}`);
+          console.error(`❌ Lesson error:`, lessonError);
+          throw lessonError;
         }
-
         totalLessons++;
-        console.log(`    ✅ Lesson created: ${lessonInfo.title}`);
+        console.log(`  ✅ Lesson ${lessonData.metadata.lesson}: ${lessonData.metadata.title}`);
 
-        // Insert exercises for this lesson
-        if (exercises && exercises.length > 0) {
-          const exercisesToInsert = exercises.map((ex) => ({
+        // 6. Insert exercises - match YOUR exercises schema
+        if (lessonData.exercises && lessonData.exercises.length > 0) {
+          const exerciseRows = lessonData.exercises.map((ex: any) => ({
             lesson_id: lesson.id,
-            ...ex,
+            exercise_type: ex.exercise_type,
+            difficulty: ex.difficulty || "MEDIUM",
+            question: ex.question,
+            content: ex.content,
+            explanation: ex.explanation || null,
+            hint: ex.hint || null,
+            xp_reward: ex.xp_reward || 5,
+            order_index: ex.order_index,
+            is_active: true,
           }));
 
-          const { error: exerciseError } = await supabaseAdmin
+          const { error: exError } = await supabaseAdmin
             .from("exercises")
-            .insert(exercisesToInsert);
+            .insert(exerciseRows);
 
-          if (exerciseError) {
-            throw new Error(`Failed to insert exercises for "${lessonInfo.title}": ${exerciseError.message}`);
+          if (exError) {
+            console.error(`  ❌ Exercise error:`, exError.message);
+          } else {
+            totalExercises += exerciseRows.length;
+            console.log(`    ✅ ${exerciseRows.length} exercises`);
           }
-
-          totalExercises += exercises.length;
-          console.log(`      ✅ ${exercises.length} exercises created`);
         }
 
-        // Insert vocabulary for this lesson (into vocabulary table)
-        if (vocabulary && vocabulary.length > 0) {
-          const vocabToInsert = vocabulary.map((v) => ({
-            language_id: languageId,
-            word: v.french,
-            translation: v.english,
-            pronunciation: v.pronunciation,
-            category: lessonInfo.slug,
-            difficulty: 1,
+        // 7. Insert vocabulary - match YOUR vocabulary schema (no gender, difficulty, tags)
+        if (lessonData.content.vocabulary && lessonData.content.vocabulary.length > 0) {
+          const vocabRows = lessonData.content.vocabulary.map((v: any) => ({
+            language_id: language!.id,
+            lesson_id: lesson.id,
+            word: v.term,
+            translation: v.translation,
+            pronunciation: v.pronunciation || null,
+            part_of_speech: v.partOfSpeech || null,
+            example_sentence: v.exampleSentence?.original || null,
+            example_translation: v.exampleSentence?.translation || null,
+            image_url: v.image || null,
+            audio_url: v.audio || null,
+            // Removed: gender, difficulty, tags (not in your schema)
           }));
 
           const { error: vocabError } = await supabaseAdmin
             .from("vocabulary")
-            .upsert(vocabToInsert, { onConflict: "language_id,word" });
+            .insert(vocabRows);
 
           if (vocabError) {
-            console.warn(`Warning: Could not insert vocabulary: ${vocabError.message}`);
+            console.error(`  ⚠️ Vocab error:`, vocabError.message);
+          } else {
+            totalVocab += vocabRows.length;
+            console.log(`    ✅ ${vocabRows.length} vocabulary words`);
           }
         }
       }
     }
 
-    // Step 5: Insert general vocabulary
-    const generalVocab = frenchA1Vocabulary.map((v) => ({
-      language_id: languageId,
-      word: v.word,
-      translation: v.translation,
-      pronunciation: v.pronunciation,
-      category: v.category,
-      difficulty: v.difficulty,
-    }));
+    // 8. Update course total_lessons count
+    await supabaseAdmin
+      .from("courses")
+      .update({ total_lessons: totalLessons })
+      .eq("id", course.id);
 
-    const { error: generalVocabError } = await supabaseAdmin
-      .from("vocabulary")
-      .upsert(generalVocab, { onConflict: "language_id,word" });
-
-    if (generalVocabError) {
-      console.warn(`Warning: Could not insert general vocabulary: ${generalVocabError.message}`);
-    }
-
-    console.log("\n🎉 Seed completed successfully!");
-    console.log(`   📚 1 course`);
-    console.log(`   📖 ${frenchA1Course.units.length} units`);
-    console.log(`   📝 ${totalLessons} lessons`);
-    console.log(`   ❓ ${totalExercises} exercises`);
-    console.log(`   📖 ${frenchA1Vocabulary.length}+ vocabulary words`);
+    console.log("🎉 Seed complete!");
 
     return NextResponse.json({
       success: true,
-      message: "French A1 course seeded successfully",
+      message: "French A1 seeded successfully!",
       stats: {
         course: 1,
         units: frenchA1Course.units.length,
         lessons: totalLessons,
         exercises: totalExercises,
-        vocabulary: frenchA1Vocabulary.length,
+        vocabulary: totalVocab,
       },
     });
-  } catch (error) {
-    console.error("❌ Seed failed:", error);
+  } catch (error: any) {
+    console.error("❌ Seed error:", error);
     return NextResponse.json(
-      {
-        success: false,
-        error: error instanceof Error ? error.message : "Unknown error",
-      },
-      { status: 500 }
-    );
-  }
-}
-
-// GET method to check status
-export async function GET() {
-  try {
-    const { data: course, error } = await supabaseAdmin
-      .from("courses")
-      .select(`
-        id,
-        title,
-        slug,
-        units:units(
-          id,
-          title,
-          lessons:lessons(
-            id,
-            title,
-            exercises:exercises(count)
-          )
-        )
-      `)
-      .eq("slug", "french-a1")
-      .single();
-
-    if (error || !course) {
-      return NextResponse.json({
-        exists: false,
-        message: "French A1 course not found. Run POST to seed.",
-      });
-    }
-
-    const lessonCount = course.units.reduce(
-      (acc: number, unit: any) => acc + unit.lessons.length,
-      0
-    );
-
-    const exerciseCount = course.units.reduce(
-      (acc: number, unit: any) =>
-        acc + unit.lessons.reduce((lacc: number, lesson: any) => lacc + (lesson.exercises[0]?.count || 0), 0),
-      0
-    );
-
-    return NextResponse.json({
-      exists: true,
-      course: {
-        id: course.id,
-        title: course.title,
-        slug: course.slug,
-        units: course.units.length,
-        lessons: lessonCount,
-        exercises: exerciseCount,
-      },
-    });
-  } catch (error) {
-    return NextResponse.json(
-      { error: error instanceof Error ? error.message : "Unknown error" },
+      { error: error.message || "Seed failed" },
       { status: 500 }
     );
   }

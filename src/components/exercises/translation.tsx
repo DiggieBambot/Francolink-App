@@ -1,87 +1,157 @@
 // src/components/exercises/translation.tsx
-
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Volume2 } from "lucide-react";
 import { Button } from "@/components/ui";
 
 interface TranslationProps {
   exercise: {
+    id: string;
     question: string;
     content: {
-      source_language: string;
-      target_language: string;
-      correct_answers: string[];
+      correctAnswer: string;
+      acceptableAnswers?: string[];
+      direction?: "to_target" | "to_english";
     };
     hint?: string;
+    explanation?: string;
   };
-  onSubmit: (correct: boolean) => void;
-  disabled: boolean;
+  language?: string;
+  onSubmit: (correct: boolean, userAnswer?: any, correctAnswer?: any) => void;
+  disabled?: boolean;
 }
 
-export default function Translation({ exercise, onSubmit, disabled }: TranslationProps) {
-  const [answer, setAnswer] = useState("");
-  const [showHint, setShowHint] = useState(false);
+export default function Translation({
+  exercise,
+  language = "fr-FR",
+  onSubmit,
+  disabled,
+}: TranslationProps) {
+  const { content } = exercise;
+  const [inputValue, setInputValue] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
 
-  const handleSubmit = () => {
-    const userAnswer = answer.trim().toLowerCase();
-    const correctAnswers = exercise.content.correct_answers.map(a => a.toLowerCase());
-    const correct = correctAnswers.some(ca => 
-      userAnswer === ca || 
-      userAnswer.replace(/[.,!?]/g, "") === ca.replace(/[.,!?]/g, "")
-    );
-    onSubmit(correct);
+  // Reset state when exercise changes
+  useEffect(() => {
+    setInputValue("");
+    setSubmitted(false);
+    setIsCorrect(false);
+  }, [exercise.id]);
+
+  const normalizeText = (text: string): string => {
+    return text
+      .toLowerCase()
+      .trim()
+      .replace(/[.,!?;:'"¿¡]/g, "")
+      .replace(/\s+/g, " ");
   };
 
-  const langNames: Record<string, string> = {
-    en: "English",
-    fr: "French",
-    es: "Spanish"
+  const checkAnswer = (answer: string): boolean => {
+    const normalized = normalizeText(answer);
+    
+    // Check main answer
+    if (normalized === normalizeText(content.correctAnswer)) {
+      return true;
+    }
+    
+    // Check acceptable alternatives
+    if (content.acceptableAnswers) {
+      return content.acceptableAnswers.some(
+        alt => normalizeText(alt) === normalized
+      );
+    }
+    
+    return false;
+  };
+
+  const speak = (text: string) => {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+    
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    const voices = window.speechSynthesis.getVoices();
+    const langVoice = voices.find(v => v.lang.startsWith(language.split('-')[0]));
+    if (langVoice) utterance.voice = langVoice;
+    utterance.lang = language;
+    utterance.rate = 0.85;
+    window.speechSynthesis.speak(utterance);
+  };
+
+  const handleSubmit = () => {
+    if (!inputValue.trim()) return;
+
+    const correct = checkAnswer(inputValue);
+    setIsCorrect(correct);
+    setSubmitted(true);
+    onSubmit(correct, inputValue, content.correctAnswer);
   };
 
   return (
-    <div>
-      <h2 className="text-xl font-bold text-gray-900 mb-2">
+    <div className="space-y-4">
+      {/* Question */}
+      <h3 className="text-lg font-semibold text-gray-900">
         {exercise.question}
-      </h2>
-      <p className="text-gray-500 mb-6">
-        Translate to {langNames[exercise.content.target_language] || exercise.content.target_language}
-      </p>
+      </h3>
 
-      <div className="mb-6">
+      {/* Input area */}
+      <div>
         <textarea
-          value={answer}
-          onChange={(e) => setAnswer(e.target.value)}
-          disabled={disabled}
-          placeholder="Type your translation..."
-          className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-primary focus:outline-none resize-none"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          disabled={disabled || submitted}
+          placeholder="Type your translation here..."
           rows={3}
+          className={`w-full p-4 rounded-xl border-2 resize-none transition-all focus:outline-none ${
+            submitted
+              ? isCorrect
+                ? "bg-green-50 border-green-500 text-green-800"
+                : "bg-red-50 border-red-500 text-red-800"
+              : "bg-gray-50 border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20"
+          }`}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && !e.shiftKey && !submitted && inputValue.trim()) {
+              e.preventDefault();
+              handleSubmit();
+            }
+          }}
         />
       </div>
 
-      {/* Hint */}
-      {exercise.hint && !showHint && !disabled && (
-        <button
-          onClick={() => setShowHint(true)}
-          className="text-sm text-primary hover:underline mb-4"
-        >
-          Need a hint?
-        </button>
-      )}
-      {showHint && (
-        <p className="text-sm text-gray-600 bg-gray-50 p-3 rounded-lg mb-4">
-          💡 {exercise.hint}
-        </p>
+      {/* Correct answer (shown if wrong) */}
+      {submitted && !isCorrect && (
+        <div className="p-4 bg-green-50 border border-green-200 rounded-xl">
+          <div className="flex items-start justify-between gap-2">
+            <div>
+              <p className="text-xs text-green-600 font-medium mb-1">Correct answer:</p>
+              <p className="text-green-800 font-medium">{content.correctAnswer}</p>
+            </div>
+            {content.direction === "to_target" && (
+              <button
+                onClick={() => speak(content.correctAnswer)}
+                className="p-2 bg-green-100 hover:bg-green-200 rounded-full transition-colors flex-shrink-0"
+              >
+                <Volume2 className="w-4 h-4 text-green-700" />
+              </button>
+            )}
+          </div>
+        </div>
       )}
 
-      {/* Submit */}
-      {!disabled && (
+      {/* Hint */}
+      {exercise.hint && !submitted && (
+        <p className="text-sm text-gray-500 italic">💡 {exercise.hint}</p>
+      )}
+
+      {/* Submit button */}
+      {!submitted && (
         <Button
           onClick={handleSubmit}
-          disabled={!answer.trim()}
+          disabled={!inputValue.trim() || disabled}
           className="w-full"
         >
-          Check Answer
+          Check Translation
         </Button>
       )}
     </div>

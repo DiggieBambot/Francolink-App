@@ -157,9 +157,12 @@ h4 { font-size: 1.25rem; }
 
 p {
   line-height: 1.7;
+}
+.prose p,
+.marketing p,
+main > p {
   color: var(--color-gray-600);
 }
-
 a {
   color: var(--color-secondary);
   text-decoration: none;
@@ -498,3 +501,53 @@ a:hover {
   h1 { font-size: 1.625rem; }
   h2 { font-size: 1.375rem; }
 }
+/* Add to src/app/globals.css */
+
+/* 3D flip card utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+/* ============================================
+   COMPONENT OVERRIDES
+   Fix: global `p { color: var(--color-gray-600) }` rule
+   overrides inline styles inside navy-background components.
+   These selectors are specific enough to win without !important.
+   ============================================ */
+
+/* Dialogue viewer — navy bubbles */
+.dv-bubble-navy p,
+.dv-bubble-navy .dv-text,
+.dv-bubble-navy .dv-speaker,
+.dv-bubble-navy .dv-transl {
+  color: inherit;
+}
+.dv-bubble-navy .dv-text    { color: #ffffff; }
+.dv-bubble-navy .dv-speaker { color: rgba(255, 255, 255, 0.8); }
+.dv-bubble-navy .dv-transl  { color: #fdba74; }
+
+/* Dialogue viewer — white bubbles */
+.dv-bubble-white p,
+.dv-bubble-white .dv-text,
+.dv-bubble-white .dv-speaker,
+.dv-bubble-white .dv-transl {
+  color: inherit;
+}
+.dv-bubble-white .dv-text    { color: #111827; }
+.dv-bubble-white .dv-speaker { color: #6b7280; }
+.dv-bubble-white .dv-transl  { color: #f97316; }
+
+/* Flashcard — navy faces (front & back) */
+.fc-face p { color: inherit; }

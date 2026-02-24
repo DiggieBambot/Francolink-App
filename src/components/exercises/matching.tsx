@@ -1,126 +1,229 @@
 // src/components/exercises/matching.tsx
-
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Check, X } from "lucide-react";
 import { Button } from "@/components/ui";
 
 interface MatchingProps {
   exercise: {
+    id: string;
     question: string;
     content: {
       pairs: { left: string; right: string }[];
     };
     hint?: string;
+    explanation?: string;
   };
-  onSubmit: (correct: boolean) => void;
-  disabled: boolean;
+  onSubmit: (correct: boolean, userAnswer?: any, correctAnswer?: any) => void;
+  disabled?: boolean;
 }
 
-export default function Matching({ exercise, onSubmit, disabled }: MatchingProps) {
-  const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
-  const [matches, setMatches] = useState<Record<string, string>>({});
-  const [showHint, setShowHint] = useState(false);
+export default function Matching({
+  exercise,
+  onSubmit,
+  disabled,
+}: MatchingProps) {
+  const { content } = exercise;
+  
+  // Shuffle right side on mount
+  const [shuffledRight, setShuffledRight] = useState<string[]>([]);
+  const [selectedLeft, setSelectedLeft] = useState<number | null>(null);
+  const [selectedRight, setSelectedRight] = useState<number | null>(null);
+  const [matches, setMatches] = useState<Record<number, number>>({}); // leftIndex -> rightIndex
+  const [submitted, setSubmitted] = useState(false);
+  const [results, setResults] = useState<Record<number, boolean>>({});
 
-  const pairs = exercise.content.pairs;
-  const leftItems = pairs.map(p => p.left);
-  const rightItems = [...pairs.map(p => p.right)].sort(() => Math.random() - 0.5);
+  // Reset and shuffle when exercise changes
+  useEffect(() => {
+    const rightItems = content.pairs.map(p => p.right);
+    const shuffled = [...rightItems].sort(() => Math.random() - 0.5);
+    setShuffledRight(shuffled);
+    setSelectedLeft(null);
+    setSelectedRight(null);
+    setMatches({});
+    setSubmitted(false);
+    setResults({});
+  }, [exercise.id, content.pairs]);
 
-  const handleLeftClick = (item: string) => {
-    if (disabled || matches[item]) return;
-    setSelectedLeft(item);
+  const handleLeftSelect = (index: number) => {
+    if (disabled || submitted) return;
+    
+    // If already matched, unmatch it
+    if (matches[index] !== undefined) {
+      const newMatches = { ...matches };
+      delete newMatches[index];
+      setMatches(newMatches);
+      return;
+    }
+    
+    setSelectedLeft(index);
+    
+    // If right is already selected, make the match
+    if (selectedRight !== null) {
+      setMatches(prev => ({ ...prev, [index]: selectedRight }));
+      setSelectedLeft(null);
+      setSelectedRight(null);
+    }
   };
 
-  const handleRightClick = (item: string) => {
-    if (disabled || !selectedLeft || Object.values(matches).includes(item)) return;
-    setMatches(prev => ({ ...prev, [selectedLeft]: item }));
-    setSelectedLeft(null);
+  const handleRightSelect = (index: number) => {
+    if (disabled || submitted) return;
+    
+    // If already matched to something, don't allow
+    if (Object.values(matches).includes(index)) return;
+    
+    setSelectedRight(index);
+    
+    // If left is already selected, make the match
+    if (selectedLeft !== null) {
+      setMatches(prev => ({ ...prev, [selectedLeft]: index }));
+      setSelectedLeft(null);
+      setSelectedRight(null);
+    }
   };
 
   const handleSubmit = () => {
-    const allMatched = leftItems.every(left => matches[left]);
-    if (!allMatched) return;
+    const newResults: Record<number, boolean> = {};
+    let allCorrect = true;
 
-    const allCorrect = pairs.every(pair => matches[pair.left] === pair.right);
-    onSubmit(allCorrect);
+    content.pairs.forEach((pair, leftIndex) => {
+      const rightIndex = matches[leftIndex];
+      if (rightIndex === undefined) {
+        newResults[leftIndex] = false;
+        allCorrect = false;
+      } else {
+        const selectedRight = shuffledRight[rightIndex];
+        const isCorrect = selectedRight === pair.right;
+        newResults[leftIndex] = isCorrect;
+        if (!isCorrect) allCorrect = false;
+      }
+    });
+
+    setResults(newResults);
+    setSubmitted(true);
+    onSubmit(allCorrect, matches, content.pairs);
   };
 
-  const isComplete = leftItems.every(left => matches[left]);
+  const allMatched = Object.keys(matches).length === content.pairs.length;
+
+  const getLeftStyle = (index: number) => {
+    const isMatched = matches[index] !== undefined;
+    const isSelected = selectedLeft === index;
+
+    if (submitted) {
+      if (results[index]) {
+        return "bg-green-50 border-green-500 text-green-800";
+      } else {
+        return "bg-red-50 border-red-500 text-red-800";
+      }
+    }
+
+    if (isMatched) {
+      return "bg-primary/20 border-primary text-primary";
+    }
+    if (isSelected) {
+      return "bg-primary/10 border-primary text-primary ring-2 ring-primary/30";
+    }
+    return "bg-gray-50 border-gray-200 text-gray-700 hover:bg-gray-100";
+  };
+
+  const getRightStyle = (index: number) => {
+    const isMatched = Object.values(matches).includes(index);
+    const isSelected = selectedRight === index;
+    const matchedLeftIndex = Object.entries(matches).find(([_, r]) => r === index)?.[0];
+
+    if (submitted && matchedLeftIndex !== undefined) {
+      if (results[parseInt(matchedLeftIndex)]) {
+        return "bg-green-50 border-green-500 text-green-800";
+      } else {
+        return "bg-red-50 border-red-500 text-red-800";
+      }
+    }
+
+    if (isMatched) {
+      return "bg-primary/20 border-primary text-primary";
+    }
+    if (isSelected) {
+      return "bg-primary/10 border-primary text-primary ring-2 ring-primary/30";
+    }
+    return "bg-gray-50 border-gray-200 text-gray-700 hover:bg-gray-100";
+  };
 
   return (
-    <div>
-      <h2 className="text-xl font-bold text-gray-900 mb-6">
+    <div className="space-y-4">
+      {/* Question */}
+      <h3 className="text-lg font-semibold text-gray-900">
         {exercise.question}
-      </h2>
+      </h3>
 
-      <div className="grid grid-cols-2 gap-4 mb-6">
+      {/* Instructions */}
+      {!submitted && (
+        <p className="text-sm text-gray-500">
+          Tap one item on the left, then tap its match on the right.
+        </p>
+      )}
+
+      {/* Matching columns */}
+      <div className="grid grid-cols-2 gap-3">
         {/* Left column */}
         <div className="space-y-2">
-          {leftItems.map((item) => (
+          {content.pairs.map((pair, index) => (
             <button
-              key={item}
-              onClick={() => handleLeftClick(item)}
-              disabled={disabled || !!matches[item]}
-              className={`w-full p-3 text-left rounded-lg border-2 transition-all ${
-                matches[item]
-                  ? "border-green-300 bg-green-50 text-green-800"
-                  : selectedLeft === item
-                    ? "border-primary bg-primary/5"
-                    : "border-gray-200 hover:border-gray-300"
-              } ${disabled ? "cursor-not-allowed" : "cursor-pointer"}`}
+              key={`left-${index}`}
+              onClick={() => handleLeftSelect(index)}
+              disabled={disabled || submitted}
+              className={`w-full p-3 rounded-xl text-left font-medium transition-all border-2 ${getLeftStyle(index)}`}
             >
-              {item}
+              <div className="flex items-center justify-between">
+                <span>{pair.left}</span>
+                {submitted && (
+                  results[index] ? (
+                    <Check className="w-5 h-5 text-green-600" />
+                  ) : (
+                    <X className="w-5 h-5 text-red-600" />
+                  )
+                )}
+              </div>
             </button>
           ))}
         </div>
 
         {/* Right column */}
         <div className="space-y-2">
-          {rightItems.map((item) => {
-            const isMatched = Object.values(matches).includes(item);
-            return (
-              <button
-                key={item}
-                onClick={() => handleRightClick(item)}
-                disabled={disabled || isMatched || !selectedLeft}
-                className={`w-full p-3 text-left rounded-lg border-2 transition-all ${
-                  isMatched
-                    ? "border-green-300 bg-green-50 text-green-800"
-                    : selectedLeft && !isMatched
-                      ? "border-secondary hover:bg-secondary/5"
-                      : "border-gray-200"
-                } ${disabled || !selectedLeft ? "cursor-not-allowed" : "cursor-pointer"}`}
-              >
-                {item}
-              </button>
-            );
-          })}
+          {shuffledRight.map((item, index) => (
+            <button
+              key={`right-${index}`}
+              onClick={() => handleRightSelect(index)}
+              disabled={disabled || submitted || Object.values(matches).includes(index)}
+              className={`w-full p-3 rounded-xl text-left font-medium transition-all border-2 ${getRightStyle(index)}`}
+            >
+              {item}
+            </button>
+          ))}
         </div>
       </div>
 
-      {/* Hint */}
-      {exercise.hint && !showHint && !disabled && (
-        <button
-          onClick={() => setShowHint(true)}
-          className="text-sm text-primary hover:underline mb-4"
-        >
-          Need a hint?
-        </button>
-      )}
-      {showHint && (
-        <p className="text-sm text-gray-600 bg-gray-50 p-3 rounded-lg mb-4">
-          💡 {exercise.hint}
+      {/* Match count */}
+      {!submitted && (
+        <p className="text-center text-sm text-gray-500">
+          {Object.keys(matches).length} of {content.pairs.length} matched
         </p>
       )}
 
-      {/* Submit */}
-      {!disabled && (
+      {/* Hint */}
+      {exercise.hint && !submitted && (
+        <p className="text-sm text-gray-500 italic">💡 {exercise.hint}</p>
+      )}
+
+      {/* Submit button */}
+      {!submitted && (
         <Button
           onClick={handleSubmit}
-          disabled={!isComplete}
+          disabled={!allMatched || disabled}
           className="w-full"
         >
-          Check Answer
+          Check Matches
         </Button>
       )}
     </div>

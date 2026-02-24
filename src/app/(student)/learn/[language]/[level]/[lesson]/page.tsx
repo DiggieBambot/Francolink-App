@@ -4,7 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import LessonContent from "@/components/learning/lesson-content";
+import LessonFlow from "@/components/learning/lesson-flow";
 import { checkLessonAccess } from "@/lib/utils/lesson-limits";
 import { UpgradeModal } from "@/components/ui/upgrade-modal";
 import type { CEFRLevel } from "@/lib/config/subscription";
@@ -146,7 +146,7 @@ export default async function LessonPage({ params }: PageProps) {
       </header>
 
       {/* Lesson Content */}
-      <LessonContent
+      <LessonFlow
         lesson={lesson}
         exercises={exercises}
         userId={user.id}
