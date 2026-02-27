@@ -1,3 +1,4 @@
+import { PWAInstallPrompt } from "@/components/shared/pwa-install-prompt";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Mulish, Roboto } from "next/font/google";
@@ -39,6 +40,16 @@ export default async function RootLayout({
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <head>
+        <meta name="theme-color" content="#1e3a5f" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="FrancoLink" />
+        <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+        <meta name="theme-color" content="#1e3a5f" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="FrancoLink" />
+        <link rel="apple-touch-icon" href="/icons/icon-192.png" />
         <style
           dangerouslySetInnerHTML={{
             __html: `
@@ -52,6 +63,7 @@ export default async function RootLayout({
         />
       </head>
       <body className={`${roboto.variable} ${mulish.variable} font-body`}>
+        <PWAInstallPrompt />
         {children}
       </body>
     </html>

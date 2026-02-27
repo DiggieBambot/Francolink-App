@@ -19,6 +19,7 @@ import {
   Flame,
   Zap,
   Sparkles,
+  Bot,
 } from "lucide-react";
 import { Logo } from "@/components/layout";
 import { cn, formatNumber } from "@/lib/utils";
@@ -42,6 +43,7 @@ const navItems = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/learn", label: "Learn", icon: BookOpen },
   { href: "/practice", label: "Practice", icon: Target },
+  { href: "/student/ai-tutor", label: "AI Tutor", icon: Bot },
   { href: "/leaderboard", label: "Leaderboard", icon: Trophy },
   { href: "/profile", label: "Profile", icon: User },
   { href: "/settings", label: "Settings", icon: Settings },

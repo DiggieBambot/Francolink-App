@@ -45,6 +45,8 @@ export default async function LessonPage({ params }: PageProps) {
       unit:units (
         id,
         title,
+        order_index,
+        is_premium,
         course:courses (
           id,
           title,
@@ -92,8 +94,11 @@ export default async function LessonPage({ params }: PageProps) {
   // ═══════════════════════════════════════════════════════════════
   // ██  ACCESS GATE  █████████████████████████████████████████████
   // ═══════════════════════════════════════════════════════════════
+  const unit = lesson.unit as any;
   const access = await checkLessonAccess(supabase, user.id, {
     isLessonPremium: lesson.is_premium ?? false,
+    isUnitPremium: unit?.is_premium ?? false,
+    unitOrder: unit?.order_index ?? 1,
     courseLevel: level.toUpperCase() as CEFRLevel,
   });
 

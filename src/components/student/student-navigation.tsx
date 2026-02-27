@@ -8,8 +8,8 @@ import {
   Trophy,
   Video,
   Settings,
-  Target,
   Brain,
+  Bot,
   LucideIcon,
 } from "lucide-react";
 
@@ -22,7 +22,7 @@ interface NavItem {
 const navigationItems: NavItem[] = [
   { label: "Dashboard", href: "/dashboard", icon: Home },
   { label: "Learn", href: "/learn", icon: BookOpen },
-  { label: "Practice", href: "/student/practice", icon: Target },
+  { label: "AI Tutor", href: "/student/ai-tutor", icon: Bot },
   { label: "Sessions", href: "/student/sessions", icon: Video },
   { label: "Leaderboard", href: "/student/leaderboard", icon: Trophy },
   { label: "Placement Test", href: "/placement-test", icon: Brain },

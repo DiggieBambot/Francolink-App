@@ -142,37 +142,77 @@ export default function LessonFlow({
   };
 
   // Handle exercise submission
+  //
+  // SPEAK exercises call onSubmit TWICE:
+  //   1st call → "Check Pronunciation" button: just record the result, don't advance yet
+  //   2nd call → "Continue" button: now actually advance to the next exercise
+  //
+  // All other exercise types call onSubmit ONCE and auto-advance after 800ms.
   const handleExerciseSubmit = (correct: boolean, userAnswer?: any, correctAnswer?: any) => {
     const xp = correct ? currentExercise.xp_reward : 0;
-    
-    setAnswers(prev => ({
-      ...prev,
-      [currentExercise.id]: { correct, xp, userAnswer, correctAnswer }
-    }));
+    const isSpeak = currentExercise.exercise_type === "SPEAK";
+    const alreadyAnswered = answers[currentExercise.id] !== undefined;
 
-    // Collect wrong answers for review
-    if (!correct) {
-      setWrongAnswers(prev => [...prev, {
-        exercise: currentExercise,
-        userAnswer,
-        correctAnswer
-      }]);
+    if (isSpeak && !alreadyAnswered) {
+      // 1st SPEAK call — record result only, wait for Continue button
+      setAnswers(prev => ({
+        ...prev,
+        [currentExercise.id]: { correct, xp, userAnswer, correctAnswer }
+      }));
+      if (!correct) {
+        setWrongAnswers(prev => [...prev, {
+          exercise: currentExercise,
+          userAnswer,
+          correctAnswer
+        }]);
+      }
+      return;
     }
 
-    // Brief delay then move to next
-    setTimeout(() => {
+    // For non-SPEAK exercises, record the answer now
+    if (!isSpeak) {
+      setAnswers(prev => ({
+        ...prev,
+        [currentExercise.id]: { correct, xp, userAnswer, correctAnswer }
+      }));
+      if (!correct) {
+        setWrongAnswers(prev => [...prev, {
+          exercise: currentExercise,
+          userAnswer,
+          correctAnswer
+        }]);
+      }
+    }
+
+    // Advance to next exercise (or finish)
+    // For SPEAK: the recorded correct value is in answers already; use it
+    const resolvedCorrect = isSpeak ? (answers[currentExercise.id]?.correct ?? correct) : correct;
+
+    const advance = () => {
       if (currentExerciseIndex < totalExercises - 1) {
         setCurrentExerciseIndex(prev => prev + 1);
         setPhaseProgress(((currentExerciseIndex + 2) / totalExercises) * 100);
       } else {
-        // All exercises done
-        if (wrongAnswers.length > 0 || !correct) {
+        // All exercises done — build final answer map to check for any wrong answers
+        const finalAnswers = isSpeak
+          ? { ...answers } // already recorded in first call
+          : { ...answers, [currentExercise.id]: { correct, xp } };
+        const hasWrong = Object.values(finalAnswers).some(a => !a.correct);
+        if (hasWrong) {
           setCurrentPhase("wrong-review");
         } else {
           completeLesson();
         }
       }
-    }, 800);
+    };
+
+    // SPEAK advances immediately (user already waited through the Check + Continue flow)
+    // Other exercises get a brief 800ms delay so user sees the feedback flash
+    if (isSpeak) {
+      advance();
+    } else {
+      setTimeout(advance, 800);
+    }
   };
 
   // Complete lesson
@@ -233,7 +273,7 @@ export default function LessonFlow({
       exercise: currentExercise,
       onSubmit: handleExerciseSubmit,
       disabled: false,
-      showFeedbackInline: true, // Show ✓/✗ but not full explanation
+      showFeedbackInline: true,
     };
 
     switch (currentExercise.exercise_type) {
@@ -251,9 +291,6 @@ export default function LessonFlow({
         return <Reorder {...props} language={ttsLanguage} />;
       case "LISTENING":
         return <Listening {...props} language={ttsLanguage} />;
-        return <SpeakExercise {...props} language={ttsLanguage} />;
-      case "LISTENING":
-        return <Translation {...props} />;
       default:
         return <div>Unknown exercise type</div>;
     }
@@ -512,7 +549,6 @@ export default function LessonFlow({
   }
 
   // ═══════════════════════════════════════════════════════════════
-  // ═══════════════════════════════════════════════════════════════
   // RENDER: DIALOGUE PHASE
   // ═══════════════════════════════════════════════════════════════
   if (currentPhase === "dialogue") {
@@ -555,6 +591,7 @@ export default function LessonFlow({
     );
   }
 
+  // ═══════════════════════════════════════════════════════════════
   // RENDER: CULTURE PHASE
   // ═══════════════════════════════════════════════════════════════
   if (currentPhase === "culture") {

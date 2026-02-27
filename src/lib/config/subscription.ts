@@ -16,7 +16,7 @@ export interface PlanConfig {
 export const PLANS: Record<PlanKey, PlanConfig> = {
   FREE: {
     name: "Free",
-    dailyLessonLimit: 3,
+    dailyLessonLimit: 1,
     accessibleLevels: ["A1", "A2", "B1", "B2"],
     hasAiTutor: false,
     aiMinutesPerDay: 0,

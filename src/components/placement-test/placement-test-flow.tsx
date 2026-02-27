@@ -28,6 +28,7 @@ interface PlacementTestFlowProps {
   userId: string;
   userName: string;
   language: string;
+  languageShortCode?: string;
 }
 
 type TestPhase = "intro" | "testing" | "saving" | "complete";
@@ -47,6 +48,10 @@ const MIN_QUESTIONS = 10;
 
 // Language display names
 const languageNames: Record<string, string> = {
+  french: "French",
+  spanish: "Spanish",
+  english: "English",
+  german: "German",
   fr: "French",
   es: "Spanish",
   en: "English",
@@ -55,18 +60,22 @@ const languageNames: Record<string, string> = {
 
 // Language flags
 const languageFlags: Record<string, string> = {
+  french: "🇫🇷",
+  spanish: "🇪🇸",
+  english: "🇬🇧",
+  german: "🇩🇪",
   fr: "🇫🇷",
   es: "🇪🇸",
   en: "🇬🇧",
   de: "🇩🇪",
 };
 
-export default function PlacementTestFlow({ userId, userName, language }: PlacementTestFlowProps) {
+export default function PlacementTestFlow({ userId, userName, language, languageShortCode }: PlacementTestFlowProps) {
   const router = useRouter();
   const supabase = createClient();
   
   // Get questions for the selected language
-  const placementQuestions = getQuestionsByLanguage(language);
+  const placementQuestions = getQuestionsByLanguage(languageShortCode || language);
   const languageName = languageNames[language] || "French";
   const languageFlag = languageFlags[language] || "🌍";
   

@@ -1,0 +1,407 @@
+export const frenchA1U8L8 = {
+  metadata: {
+    course: "fr-a1",
+    unit: 8,
+    lesson: 8,
+    title: "Final A1 Review",
+    slug: "final-a1-review",
+    type: "REVIEW",
+    estimatedMinutes: 15,
+    xpReward: 30,
+  },
+
+  content: {
+    introduction: {
+      text: "Congratulations — this is the final lesson of French A1! In this comprehensive review, you'll consolidate everything you've learned across all 8 units: greetings, introductions, daily routines, food, navigation, making plans, describing people, work, hobbies, and health. You're ready to move toward A2!",
+      image: "/images/lessons/final-a1-review.svg",
+      culturalNote: "🇫🇷 You've come an incredible way! You now have the foundation to navigate daily life in France — from ordering at a café to visiting a doctor. The French will appreciate your effort, and remember: 'C'est en forgeant qu'on devient forgeron' (Practice makes perfect — literally: it's by forging that one becomes a blacksmith)!",
+    },
+
+    vocabulary: [
+      {
+        term: "Bonjour / Au revoir",
+        translation: "Hello / Goodbye",
+        pronunciation: "bohn-ZHOOR / oh ruh-VWAHR",
+        partOfSpeech: "phrase",
+        image: "/images/vocab/greetings-review.svg",
+        exampleSentence: {
+          original: "Bonjour ! Comment allez-vous ? Au revoir !",
+          translation: "Hello! How are you? Goodbye!",
+        },
+        tip: "Unit 1 Review: Always greet and say goodbye — it's essential French politeness.",
+      },
+      {
+        term: "Je m'appelle...",
+        translation: "My name is...",
+        pronunciation: "zhuh mah-PEL",
+        partOfSpeech: "expression",
+        image: "/images/vocab/name-review.svg",
+        exampleSentence: {
+          original: "Je m'appelle Sophie. Et vous ?",
+          translation: "My name is Sophie. And you?",
+        },
+        tip: "Unit 2 Review: Reflexive verb 's'appeler' for introductions.",
+      },
+      {
+        term: "Je mange / Je bois",
+        translation: "I eat / I drink",
+        pronunciation: "zhuh MAHNZH / zhuh BWAH",
+        partOfSpeech: "verb",
+        image: "/images/vocab/food-review.svg",
+        exampleSentence: {
+          original: "Je mange du fromage et je bois du café.",
+          translation: "I eat cheese and I drink coffee.",
+        },
+        tip: "Unit 4 Review: Partitive articles — du, de la, des for some.",
+      },
+      {
+        term: "Où est... ?",
+        translation: "Where is... ?",
+        pronunciation: "oo EH",
+        partOfSpeech: "expression",
+        image: "/images/vocab/directions-review.svg",
+        exampleSentence: {
+          original: "Où est la gare, s'il vous plaît ?",
+          translation: "Where is the train station, please?",
+        },
+        tip: "Unit 3/5 Review: Asking for directions and navigating.",
+      },
+      {
+        term: "Ma famille",
+        translation: "My family",
+        pronunciation: "mah fah-MEE-yuh",
+        partOfSpeech: "noun",
+        image: "/images/vocab/family-review.svg",
+        exampleSentence: {
+          original: "Ma famille est grande. J'ai deux frères.",
+          translation: "My family is big. I have two brothers.",
+        },
+        tip: "Unit 6 Review: Possessives and family vocabulary.",
+      },
+      {
+        term: "Je travaille",
+        translation: "I work",
+        pronunciation: "zhuh trah-VAH-yuh",
+        partOfSpeech: "verb",
+        image: "/images/vocab/work-review.svg",
+        exampleSentence: {
+          original: "Je travaille dans un bureau. Je suis comptable.",
+          translation: "I work in an office. I'm an accountant.",
+        },
+        tip: "Unit 7 Review: Professions without articles + workplace vocabulary.",
+      },
+      {
+        term: "J'ai mal à...",
+        translation: "I have pain in... / My... hurts",
+        pronunciation: "zhay mahl ah",
+        partOfSpeech: "expression",
+        image: "/images/vocab/health-review.svg",
+        exampleSentence: {
+          original: "J'ai mal à la tête. J'ai besoin d'un médecin.",
+          translation: "I have a headache. I need a doctor.",
+        },
+        tip: "Unit 8 Review: Health vocabulary and the avoir mal à structure.",
+      },
+      {
+        term: "Il fait beau / Il pleut",
+        translation: "It's nice out / It's raining",
+        pronunciation: "eel fay BOH / eel PLUH",
+        partOfSpeech: "expression",
+        image: "/images/vocab/weather-review.svg",
+        exampleSentence: {
+          original: "Il fait beau aujourd'hui. On se promène ?",
+          translation: "It's nice out today. Shall we take a walk?",
+        },
+        tip: "Review: Weather expressions use 'il fait' + adjective or specific verbs.",
+      },
+    ],
+
+    grammar: [
+      {
+        title: "A1 Grammar Summary",
+        explanation: "Throughout A1, you've mastered: present tense (regular -er, -ir, -re verbs and key irregulars), articles (definite, indefinite, partitive), possessive adjectives, adjective agreement, basic negation (ne...pas, ne...jamais), reflexive verbs, 'aller + infinitive' for future, 'avoir mal à' for pain, and imperative for commands.",
+        examples: [
+          {
+            original: "Je suis français. J'habite à Paris. Je travaille dans un bureau.",
+            translation: "I'm French. I live in Paris. I work in an office.",
+            breakdown: "être (irregular) + habiter (-er) + travailler (-er) — three key verb types",
+          },
+          {
+            original: "Ma mère est grande et gentille. Elle a les cheveux bruns.",
+            translation: "My mother is tall and kind. She has brown hair.",
+            breakdown: "Possessives + être for qualities + avoir for features + adjective agreement",
+          },
+          {
+            original: "Je ne travaille jamais le dimanche. Je me repose et je fais du sport.",
+            translation: "I never work on Sundays. I rest and do sports.",
+            breakdown: "Negation (ne...jamais) + reflexive (se reposer) + faire du sport",
+          },
+        ],
+        commonMistakes: [
+          "❌ Je suis un médecin (article with être + profession)",
+          "✅ Je suis médecin (no article after être + profession)",
+          "❌ Elle est les cheveux blonds (wrong verb for features)",
+          "✅ Elle a les cheveux blonds (avoir for physical features)",
+          "❌ J'ai mal à le dos (no contraction)",
+          "✅ J'ai mal au dos (à + le = au)",
+        ],
+      },
+    ],
+
+    dialogue: {
+      title: "A Day in the Life — Complete A1 Conversation",
+      context: "Sophie and Hugo have a wide-ranging conversation covering many A1 topics.",
+      image: "/images/dialogues/day-in-life.svg",
+      lines: [
+        {
+          speaker: "hugo",
+          text: "Bonjour, Sophie ! Comment vas-tu ?",
+          translation: "Hello, Sophie! How are you?",
+        },
+        {
+          speaker: "sophie",
+          text: "Salut, Hugo ! Ça va bien, merci. Je suis un peu fatiguée — j'ai mal à la tête.",
+          translation: "Hi, Hugo! I'm well, thanks. I'm a little tired — I have a headache.",
+        },
+        {
+          speaker: "hugo",
+          text: "Tu travailles trop ! Qu'est-ce que tu fais dans la vie, déjà ?",
+          translation: "You work too much! What do you do for a living, again?",
+        },
+        {
+          speaker: "sophie",
+          text: "Je suis professeure. Je travaille de huit heures à seize heures. Et toi ?",
+          translation: "I'm a teacher. I work from 8 to 4. And you?",
+        },
+        {
+          speaker: "hugo",
+          text: "Je suis ingénieur chez Renault. Et ta famille, ça va ?",
+          translation: "I'm an engineer at Renault. And your family, how are they?",
+        },
+        {
+          speaker: "sophie",
+          text: "Oui ! Mon frère est grand et drôle. Ma sœur est petite mais très courageuse.",
+          translation: "Yes! My brother is tall and funny. My sister is small but very brave.",
+        },
+        {
+          speaker: "hugo",
+          text: "On va manger quelque chose ? J'ai faim !",
+          translation: "Shall we go eat something? I'm hungry!",
+        },
+        {
+          speaker: "sophie",
+          text: "Bonne idée ! Je voudrais un sandwich au fromage et un café, s'il vous plaît.",
+          translation: "Good idea! I'd like a cheese sandwich and a coffee, please.",
+        },
+        {
+          speaker: "hugo",
+          text: "Et après, on se promène dans le parc ?",
+          translation: "And after, shall we walk in the park?",
+        },
+        {
+          speaker: "sophie",
+          text: "Oui ! Il fait beau aujourd'hui. Parfait pour une promenade !",
+          translation: "Yes! It's nice out today. Perfect for a walk!",
+        },
+      ],
+      comprehensionQuestions: [
+        {
+          question: "What is Sophie's problem?",
+          options: ["She's hungry", "She has a headache", "She's lost", "She's late"],
+          correctIndex: 1,
+        },
+        {
+          question: "What do they plan to do after eating?",
+          options: ["Go to work", "Watch a movie", "Walk in the park", "Visit the doctor"],
+          correctIndex: 2,
+        },
+      ],
+    },
+
+    culture: {
+      title: "Your A1 Journey Complete!",
+      text: "You've completed the entire French A1 curriculum! You can now greet people, introduce yourself, describe your family and friends, order food, ask for directions, talk about your work and hobbies, navigate the healthcare system, and have basic conversations. Remember: the French deeply appreciate anyone who makes an effort to speak their language. Even with basic skills, you'll find that doors open, smiles appear, and connections are made. As the French say: 'Petit à petit, l'oiseau fait son nid' (Little by little, the bird builds its nest). You've built a strong nest — now it's time to fly toward A2!",
+      image: "/images/culture/a1-complete.svg",
+      funFact: "🎉 The French proverb 'Petit à petit, l'oiseau fait son nid' (Little by little, the bird builds its nest) perfectly describes language learning. You've built your nest — 64 lessons, hundreds of words, and real communication skills. Félicitations ! 🇫🇷",
+    },
+
+    summary: {
+      keyPoints: [
+        "Greetings: Bonjour, Bonsoir, Salut, Au revoir (Unit 1)",
+        "Introductions: Je m'appelle, J'habite à, Je suis (Unit 2)",
+        "Navigation: Où est...? Tournez à droite/gauche (Unit 3/5)",
+        "Food: Du/de la/des + partitive, commander au restaurant (Unit 4)",
+        "People: Possessives, être/avoir for descriptions, adjective agreement (Unit 6)",
+        "Work: Professions without articles, -er verbs, time expressions (Unit 7)",
+        "Health: Avoir mal à, symptoms, doctor and pharmacy vocabulary (Unit 8)",
+        "Key grammar: Present tense, negation, reflexive verbs, imperative, aller + infinitive",
+      ],
+      practicePrompt: "Write a complete paragraph about yourself in French covering ALL A1 topics: your name, where you live, your family, your job, your hobbies, your daily routine, and how you feel today. Use everything you've learned! Félicitations pour avoir terminé le niveau A1 ! 🎉",
+    },
+  },
+
+  exercises: [
+    {
+      exercise_type: "MULTIPLE_CHOICE",
+      question: "Which sentence correctly states a profession?",
+      content: {
+        options: [
+          "Je suis un médecin",
+          "Je suis médecin",
+          "J'ai médecin",
+          "Je fais médecin",
+        ],
+        correctIndex: 1,
+      },
+      hint: "No article after être + profession",
+      explanation: "'Je suis médecin' — no article needed. This rule applies to all professions.",
+      difficulty: "EASY",
+      xp_reward: 2,
+      order_index: 1,
+    },
+    {
+      exercise_type: "MULTIPLE_CHOICE",
+      question: "How do you describe someone's hair in French?",
+      content: {
+        options: [
+          "Elle est les cheveux blonds",
+          "Elle a les cheveux blonds",
+          "Elle fait les cheveux blonds",
+          "Elle va les cheveux blonds",
+        ],
+        correctIndex: 1,
+      },
+      hint: "Use 'avoir' for physical features",
+      explanation: "'Elle a les cheveux blonds' — use 'avoir' for hair and eyes, 'être' for height and build.",
+      difficulty: "EASY",
+      xp_reward: 2,
+      order_index: 2,
+    },
+    {
+      exercise_type: "MATCHING",
+      question: "Match the French essentials with their uses:",
+      content: {
+        pairs: [
+          { left: "Où est la gare ?", right: "Asking for directions" },
+          { left: "J'ai mal au ventre", right: "Describing pain" },
+          { left: "Je voudrais un café", right: "Ordering food" },
+          { left: "Je suis ingénieur", right: "Stating profession" },
+        ],
+      },
+      hint: "Think about which situation each phrase belongs to",
+      explanation: "Four key A1 skills: navigation, health, food, and work — all essential for daily life.",
+      difficulty: "MEDIUM",
+      xp_reward: 5,
+      order_index: 3,
+    },
+    {
+      exercise_type: "FILL_BLANK",
+      question: "Complete the sentence:",
+      content: {
+        sentence: "Ma sœur est grande et ___.",
+        answer: "gentille",
+        options: ["gentil", "gentille", "gentils", "gentilles"],
+        caseSensitive: false,
+      },
+      hint: "'Sœur' is feminine singular",
+      explanation: "'Gentille' — feminine agreement. All A1 adjectives must agree with their noun.",
+      difficulty: "MEDIUM",
+      xp_reward: 3,
+      order_index: 4,
+    },
+    {
+      exercise_type: "FILL_BLANK",
+      question: "Complete the sentence:",
+      content: {
+        sentence: "Je ne travaille ___ le dimanche.",
+        answer: "jamais",
+        options: ["toujours", "souvent", "jamais", "parfois"],
+        caseSensitive: false,
+      },
+      hint: "'Ne...' indicates negation",
+      explanation: "'Ne...jamais' = never. Frequency adverbs go after the verb.",
+      difficulty: "MEDIUM",
+      xp_reward: 3,
+      order_index: 5,
+    },
+    {
+      exercise_type: "TRANSLATION",
+      question: "Translate to French: 'I'm going to the doctor because I have a headache.'",
+      content: {
+        correctAnswer: "Je vais chez le médecin parce que j'ai mal à la tête.",
+        acceptableAnswers: [
+          "Je vais chez le médecin parce que j'ai mal à la tête",
+          "je vais chez le médecin parce que j'ai mal à la tête",
+        ],
+        direction: "to_target",
+      },
+      hint: "chez for people, parce que for because, avoir mal à for pain",
+      explanation: "Combines navigation (chez), connector (parce que), and health (avoir mal à) — full A1 integration!",
+      difficulty: "HARD",
+      xp_reward: 4,
+      order_index: 6,
+    },
+    {
+      exercise_type: "REORDER",
+      question: "Put the words in order:",
+      content: {
+        words: ["suis", "et", "je", "français", "Paris", "j'habite", "à"],
+        correctOrder: ["je", "suis", "français", "et", "j'habite", "à", "Paris"],
+        translation: "I am French and I live in Paris",
+      },
+      hint: "Two connected sentences about identity and location",
+      explanation: "Correct order: Je suis français et j'habite à Paris. Identity + location — core A1 skills.",
+      difficulty: "HARD",
+      xp_reward: 4,
+      order_index: 7,
+    },
+    {
+      exercise_type: "LISTENING",
+      question: "Listen and select the correct answer:",
+      content: {
+        ttsText: "Je m'appelle Sophie. Je suis professeure. J'habite à Paris avec ma famille. J'aime mon travail et je fais du sport le week-end.",
+        ttsLang: "fr-FR",
+        options: [
+          "Sophie is a teacher in Paris. She lives with her family and does sports on weekends.",
+          "Sophie is a doctor in Lyon. She lives alone and reads on weekends.",
+          "Sophie is a student in Paris. She lives with friends and cooks on weekends.",
+          "Sophie is an engineer in Marseille. She lives with her family and travels on weekends.",
+        ],
+        correctIndex: 0,
+      },
+      hint: "Listen for 'professeure', 'Paris', 'famille', 'sport', 'week-end'",
+      explanation: "A complete self-introduction covering name, job, location, family, and hobbies — everything from A1!",
+      difficulty: "MEDIUM",
+      xp_reward: 4,
+      order_index: 8,
+    },
+    {
+      exercise_type: "SPEAK",
+      question: "Introduce yourself completely in French:",
+      content: {
+        targetText: "Bonjour ! Je m'appelle Sophie. Je suis professeure et j'habite à Paris.",
+        targetTranslation: "Hello! My name is Sophie. I'm a teacher and I live in Paris.",
+        acceptableVariants: ["bonjour je m'appelle sophie je suis professeure et j'habite à paris"],
+      },
+      hint: "Greeting + name + profession + location — the complete A1 introduction",
+      explanation: "Great! A complete self-introduction using everything from Units 1-2.",
+      difficulty: "MEDIUM",
+      xp_reward: 5,
+      order_index: 9,
+    },
+    {
+      exercise_type: "SPEAK",
+      question: "Describe your complete situation in French:",
+      content: {
+        targetText: "J'aime mon travail. Ma famille est grande et sympa. Le week-end, je me repose et je fais du sport.",
+        targetTranslation: "I like my job. My family is big and nice. On weekends, I rest and do sports.",
+        acceptableVariants: ["j'aime mon travail ma famille est grande et sympa le week-end je me repose et je fais du sport"],
+      },
+      hint: "Opinion + family description + weekend activities — combine all A1 skills!",
+      explanation: "Félicitations ! 🎉 You've completed French A1! You used opinions, descriptions, reflexive verbs, and activities in one natural statement!",
+      difficulty: "HARD",
+      xp_reward: 5,
+      order_index: 10,
+    },
+  ],
+};

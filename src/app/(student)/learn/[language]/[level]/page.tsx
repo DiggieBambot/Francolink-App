@@ -98,15 +98,22 @@ export default async function CoursePage({ params }: PageProps) {
     progress?.filter(p => p.status === "COMPLETED").map(p => p.lesson_id) || []
   );
 
-  // ═══════════════════════════════════════════════════════════════
-  // ██  FETCH LESSON USAGE & PLAN INFO  ███████████████████████████
-  // ═══════════════════════════════════════════════════════════════
+  // Fetch lesson usage & plan info
   const usage = await getLessonUsage(supabase, user.id);
   const cefrLevel = level.toUpperCase() as CEFRLevel;
   const userPlan = usage.plan;
   const levelAccessible = canAccessLevel(userPlan, cefrLevel);
   const userIsPaid = isPaidPlan(userPlan);
-  // ═══════════════════════════════════════════════════════════════
+
+  // Check if user is ADMIN or TESTER — bypass ALL locks
+  const { data: userProfile } = await supabase
+    .from("users")
+    .select("role")
+    .eq("id", user.id)
+    .maybeSingle();
+  const isTester =
+    userProfile?.role?.toUpperCase() === "ADMIN" ||
+    userProfile?.role?.toUpperCase() === "TESTER";
 
   // Sort units and lessons by order_index
   const sortedUnits = [...(course.units || [])].sort((a, b) => a.order_index - b.order_index);
@@ -114,7 +121,7 @@ export default async function CoursePage({ params }: PageProps) {
     unit.lessons = [...(unit.lessons || [])].sort((a, b) => a.order_index - b.order_index);
   });
 
-  // Calculate which lessons are unlocked (progression-based)
+  // Calculate which lessons are unlocked (progression-based) — skipped for testers
   const unlockedLessons = new Set<string>();
   let previousCompleted = true;
 
@@ -127,38 +134,86 @@ export default async function CoursePage({ params }: PageProps) {
       } else if (completedLessons.has(lesson.id)) {
         unlockedLessons.add(lesson.id);
       }
-      
       if (unit.order_index === 1 && index === 0) {
         unlockedLessons.add(lesson.id);
       }
     });
-    
     const allCompleted = unit.lessons.every(l => completedLessons.has(l.id));
     previousCompleted = allCompleted;
   });
 
-  // Calculate progress
+  // Pre-calculate all progress values
   const totalLessons = sortedUnits.reduce((acc, u) => acc + u.lessons.length, 0);
   const completedCount = sortedUnits.reduce(
-    (acc, u) => acc + u.lessons.filter(l => completedLessons.has(l.id)).length, 
+    (acc, u) => acc + u.lessons.filter(l => completedLessons.has(l.id)).length,
     0
   );
   const progressPercent = totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0;
+
+  // Pre-calculate unit data
+  const unitData = sortedUnits.map((unit, unitIndex) => {
+    const unitLessonsCompleted = unit.lessons.filter(l => completedLessons.has(l.id)).length;
+    const unitProgress = unit.lessons.length > 0
+      ? Math.round((unitLessonsCompleted / unit.lessons.length) * 100)
+      : 0;
+    const isUnitComplete = unitProgress === 100;
+
+    const lessonsData = unit.lessons.map((lesson, lessonIndex) => {
+      const isCompleted = completedLessons.has(lesson.id);
+
+      // ✅ TESTER/ADMIN: unlock everything, no locks at all
+      if (isTester) {
+        return {
+          ...lesson,
+          lessonNumber: lessonIndex + 1,
+          isCompleted,
+          isUnlocked: true,
+          isNext: !isCompleted,
+          isPremiumLocked: false,
+        };
+      }
+
+      const isProgressUnlocked = unlockedLessons.has(lesson.id);
+      const isPremiumLocked =
+        !levelAccessible ||
+        (lesson.is_premium && !userIsPaid) ||
+        (unit.is_premium && !userIsPaid);
+      const isUnlocked = isProgressUnlocked && !isPremiumLocked;
+      const isNext = isUnlocked && !isCompleted;
+
+      return {
+        ...lesson,
+        lessonNumber: lessonIndex + 1,
+        isCompleted,
+        isUnlocked,
+        isNext,
+        isPremiumLocked,
+      };
+    });
+
+    return {
+      ...unit,
+      unitIndex,
+      unitLessonsCompleted,
+      unitProgress,
+      isUnitComplete,
+      lessonsData,
+    };
+  });
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Course Header */}
       <div className="bg-primary text-white">
         <div className="max-w-4xl mx-auto px-4 py-8">
-          <Link 
-            href="/learn" 
+          <Link
+            href="/learn"
             className="text-white/80 hover:text-white text-sm mb-4 inline-block"
           >
             ← Back to Languages
           </Link>
-          
+
           <div className="flex items-start gap-6">
-            {/* Dynamic flag based on language */}
             <div className="w-20 h-20 bg-white/10 rounded-xl flex items-center justify-center text-4xl">
               {langInfo.flag}
             </div>
@@ -167,11 +222,15 @@ export default async function CoursePage({ params }: PageProps) {
                 <span className="bg-white/20 text-white text-xs font-medium px-2 py-1 rounded">
                   {course.level}
                 </span>
-                {/* Show if level is locked for free users */}
-                {!levelAccessible && (
+                {!levelAccessible && !isTester && (
                   <span className="bg-amber-500/20 text-amber-200 text-xs font-medium px-2 py-1 rounded flex items-center gap-1">
                     <Crown className="w-3 h-3" />
                     Premium Level
+                  </span>
+                )}
+                {isTester && (
+                  <span className="bg-green-500/20 text-green-200 text-xs font-medium px-2 py-1 rounded">
+                    Tester Mode 🧪
                   </span>
                 )}
               </div>
@@ -191,7 +250,7 @@ export default async function CoursePage({ params }: PageProps) {
               <span>{progressPercent}%</span>
             </div>
             <div className="h-3 bg-white/20 rounded-full overflow-hidden">
-              <div 
+              <div
                 className="h-full bg-secondary rounded-full transition-all duration-500"
                 style={{ width: `${progressPercent}%` }}
               />
@@ -218,104 +277,76 @@ export default async function CoursePage({ params }: PageProps) {
 
       {/* Units & Lessons */}
       <div className="max-w-4xl mx-auto px-4 py-8">
-        {/* ═══════════════════════════════════════════════════════════ */}
-        {/* ██  DAILY LESSON LIMIT WIDGET  ████████████████████████████ */}
-        {/* ═══════════════════════════════════════════════════════════ */}
         {usage.isLimited && (
           <div className="mb-6">
             <DailyLessonLimit usage={usage} />
           </div>
         )}
-        {/* ═══════════════════════════════════════════════════════════ */}
 
         <div className="space-y-6">
-          {sortedUnits.map((unit, unitIndex) => {
-            const unitLessonsCompleted = unit.lessons.filter(l => completedLessons.has(l.id)).length;
-            const unitProgress = unit.lessons.length > 0 
-              ? Math.round((unitLessonsCompleted / unit.lessons.length) * 100) 
-              : 0;
-
-            return (
-              <div key={unit.id} className="bg-white rounded-2xl shadow-sm overflow-hidden">
-                {/* Unit Header */}
-                <div className="p-6 border-b border-gray-100">
-                  <div className="flex items-center gap-4">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-lg font-bold ${
-                      unitProgress === 100 
-                        ? "bg-green-100 text-green-600" 
-                        : "bg-primary/10 text-primary"
-                    }`}>
-                      {unitProgress === 100 ? <CheckCircle className="w-6 h-6" /> : unitIndex + 1}
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2">
-                        <h2 className="text-lg font-bold text-gray-900">{unit.title}</h2>
-                        {/* Unit premium badge */}
-                        {unit.is_premium && !userIsPaid && (
-                          <span className="bg-amber-100 text-amber-700 text-xs font-medium px-2 py-0.5 rounded-full flex items-center gap-1">
-                            <Crown className="w-3 h-3" />
-                            Premium
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-sm text-gray-500">{unit.description}</p>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-sm font-medium text-gray-900">
-                        {unitLessonsCompleted}/{unit.lessons.length}
-                      </div>
-                      <div className="text-xs text-gray-500">lessons</div>
-                    </div>
+          {unitData.map((unit) => (
+            <div key={unit.id} className="bg-white rounded-2xl shadow-sm overflow-hidden">
+              {/* Unit Header */}
+              <div className="p-6 border-b border-gray-100">
+                <div className="flex items-center gap-4">
+                  <div className={
+                    unit.isUnitComplete
+                      ? "w-12 h-12 rounded-xl flex items-center justify-center text-lg font-bold bg-green-100 text-green-600"
+                      : "w-12 h-12 rounded-xl flex items-center justify-center text-lg font-bold bg-primary/10 text-primary"
+                  }>
+                    {unit.isUnitComplete ? <CheckCircle className="w-6 h-6" /> : unit.unitIndex + 1}
                   </div>
-                  
-                  {/* Unit Progress Bar */}
-                  <div className="mt-4 h-2 bg-gray-100 rounded-full overflow-hidden">
-                    <div 
-                      className={`h-full rounded-full transition-all duration-500 ${
-                        unitProgress === 100 ? "bg-green-500" : "bg-primary"
-                      }`}
-                      style={{ width: `${unitProgress}%` }}
-                    />
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2">
+                      <h2 className="text-lg font-bold text-gray-900">{unit.title}</h2>
+                      {unit.is_premium && !userIsPaid && !isTester && (
+                        <span className="bg-amber-100 text-amber-700 text-xs font-medium px-2 py-0.5 rounded-full flex items-center gap-1">
+                          <Crown className="w-3 h-3" />
+                          Premium
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-sm text-gray-500">{unit.description}</p>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-sm font-medium text-gray-900">
+                      {unit.unitLessonsCompleted}/{unit.lessonsData.length}
+                    </div>
+                    <div className="text-xs text-gray-500">lessons</div>
                   </div>
                 </div>
 
-                {/* Lessons */}
-                <div className="divide-y divide-gray-50">
-                  {unit.lessons.map((lesson, lessonIndex) => {
-                    const isCompleted = completedLessons.has(lesson.id);
-                    const isProgressUnlocked = unlockedLessons.has(lesson.id);
-                    
-                    // ═══════════════════════════════════════════════════
-                    // ██  PREMIUM LOCK LOGIC  ███████████████████████████
-                    // ═══════════════════════════════════════════════════
-                    const isPremiumLocked = 
-                      !levelAccessible ||                           // Level locked (C1/C2 for free)
-                      (lesson.is_premium && !userIsPaid) ||         // Lesson is premium
-                      (unit.is_premium && !userIsPaid);             // Unit is premium
-                    
-                    // Lesson is only truly unlocked if both progression AND premium checks pass
-                    const isUnlocked = isProgressUnlocked && !isPremiumLocked;
-                    const isNext = isUnlocked && !isCompleted;
-                    // ═══════════════════════════════════════════════════
-
-                    return (
-                      <LessonRow
-                        key={lesson.id}
-                        lesson={lesson}
-                        lessonNumber={lessonIndex + 1}
-                        isCompleted={isCompleted}
-                        isUnlocked={isUnlocked}
-                        isNext={isNext}
-                        isPremiumLocked={isPremiumLocked}
-                        language={language}
-                        level={level}
-                      />
-                    );
-                  })}
+                {/* Unit Progress Bar */}
+                <div className="mt-4 h-2 bg-gray-100 rounded-full overflow-hidden">
+                  <div
+                    className={
+                      unit.isUnitComplete
+                        ? "h-full rounded-full transition-all duration-500 bg-green-500"
+                        : "h-full rounded-full transition-all duration-500 bg-primary"
+                    }
+                    style={{ width: `${unit.unitProgress}%` }}
+                  />
                 </div>
               </div>
-            );
-          })}
+
+              {/* Lessons */}
+              <div className="divide-y divide-gray-50">
+                {unit.lessonsData.map((lesson) => (
+                  <LessonRow
+                    key={lesson.id}
+                    lesson={lesson}
+                    lessonNumber={lesson.lessonNumber}
+                    isCompleted={lesson.isCompleted}
+                    isUnlocked={lesson.isUnlocked}
+                    isNext={lesson.isNext}
+                    isPremiumLocked={lesson.isPremiumLocked}
+                    language={language}
+                    level={level}
+                  />
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -323,16 +354,16 @@ export default async function CoursePage({ params }: PageProps) {
 }
 
 // Lesson Row Component
-function LessonRow({ 
-  lesson, 
-  lessonNumber, 
-  isCompleted, 
+function LessonRow({
+  lesson,
+  lessonNumber,
+  isCompleted,
   isUnlocked,
   isNext,
   isPremiumLocked,
   language,
   level
-}: { 
+}: {
   lesson: any;
   lessonNumber: number;
   isCompleted: boolean;
@@ -348,26 +379,40 @@ function LessonRow({
       case "GRAMMAR": return "📝";
       case "REVIEW": return "🔄";
       case "CONVERSATION": return "💬";
+      case "CULTURE": return "🏛️";
+      case "LISTENING": return "🎧";
+      case "SPEAKING": return "🗣️";
+      case "READING": return "📖";
       default: return "📖";
     }
   };
 
+  const statusIconClass = isCompleted
+    ? "w-10 h-10 rounded-full flex items-center justify-center bg-green-100 text-green-600"
+    : isNext
+      ? "w-10 h-10 rounded-full flex items-center justify-center bg-secondary text-white"
+      : isUnlocked
+        ? "w-10 h-10 rounded-full flex items-center justify-center bg-primary/10 text-primary"
+        : isPremiumLocked
+          ? "w-10 h-10 rounded-full flex items-center justify-center bg-amber-100 text-amber-600"
+          : "w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 text-gray-400";
+
+  const titleClass = isUnlocked ? "font-medium truncate text-gray-900" : "font-medium truncate text-gray-400";
+  const descClass = isUnlocked ? "text-sm truncate text-gray-500" : "text-sm truncate text-gray-400";
+  const timeClass = isUnlocked ? "flex items-center gap-1 text-gray-500" : "flex items-center gap-1 text-gray-400";
+  const xpClass = isCompleted
+    ? "flex items-center gap-1 text-green-600"
+    : isUnlocked
+      ? "flex items-center gap-1 text-secondary"
+      : "flex items-center gap-1 text-gray-400";
+  const rowClass = isUnlocked
+    ? "flex items-center gap-4 p-4 transition-colors hover:bg-gray-50"
+    : "flex items-center gap-4 p-4 transition-colors opacity-60";
+
   const content = (
-    <div className={`flex items-center gap-4 p-4 transition-colors ${
-      isUnlocked ? "hover:bg-gray-50" : "opacity-60"
-    }`}>
+    <div className={rowClass}>
       {/* Status Icon */}
-      <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-        isCompleted 
-          ? "bg-green-100 text-green-600" 
-          : isNext
-            ? "bg-secondary text-white"
-            : isUnlocked
-              ? "bg-primary/10 text-primary"
-              : isPremiumLocked
-                ? "bg-amber-100 text-amber-600"
-                : "bg-gray-100 text-gray-400"
-      }`}>
+      <div className={statusIconClass}>
         {isCompleted ? (
           <CheckCircle className="w-5 h-5" />
         ) : isPremiumLocked ? (
@@ -383,12 +428,9 @@ function LessonRow({
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2">
           <span className="text-lg">{getLessonTypeIcon(lesson.lesson_type)}</span>
-          <h3 className={`font-medium truncate ${
-            isUnlocked ? "text-gray-900" : "text-gray-400"
-          }`}>
+          <h3 className={titleClass}>
             {lesson.title}
           </h3>
-          {/* Premium badge on lesson */}
           {isPremiumLocked && (
             <span className="bg-amber-100 text-amber-700 text-xs font-medium px-1.5 py-0.5 rounded flex items-center gap-0.5">
               <Lock className="w-3 h-3" />
@@ -396,24 +438,18 @@ function LessonRow({
             </span>
           )}
         </div>
-        <p className={`text-sm truncate ${
-          isUnlocked ? "text-gray-500" : "text-gray-400"
-        }`}>
+        <p className={descClass}>
           {lesson.description}
         </p>
       </div>
 
       {/* Lesson Meta */}
       <div className="flex items-center gap-4 text-sm">
-        <div className={`flex items-center gap-1 ${
-          isUnlocked ? "text-gray-500" : "text-gray-400"
-        }`}>
+        <div className={timeClass}>
           <Clock className="w-4 h-4" />
           <span>{lesson.estimated_minutes}m</span>
         </div>
-        <div className={`flex items-center gap-1 ${
-          isCompleted ? "text-green-600" : isUnlocked ? "text-secondary" : "text-gray-400"
-        }`}>
+        <div className={xpClass}>
           <Trophy className="w-4 h-4" />
           <span>+{lesson.xp_reward} XP</span>
         </div>

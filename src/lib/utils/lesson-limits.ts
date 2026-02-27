@@ -1,5 +1,3 @@
-// src/lib/utils/lesson-limits.ts
-
 import { SupabaseClient } from "@supabase/supabase-js";
 import {
   PLANS,
@@ -77,25 +75,48 @@ async function getEffectiveLessonsToday(
   return 0;
 }
 
+// ─── Role Check Helper ────────────────────────────────────────────
+
+async function isPrivilegedRole(
+  supabase: SupabaseClient,
+  userId: string
+): Promise<boolean> {
+  const { data: profile } = await supabase
+    .from("users")
+    .select("role")
+    .eq("id", userId)
+    .maybeSingle();
+
+  const role = profile?.role?.toUpperCase();
+  return role === "ADMIN" || role === "TESTER";
+}
+
 // ─── Core API ────────────────────────────────────────────────────
 
-/**
- * Check whether a user can access a specific lesson.
- * Call from the lesson page before rendering content.
- */
 export async function checkLessonAccess(
   supabase: SupabaseClient,
   userId: string,
   options: {
     isLessonPremium?: boolean;
+    isUnitPremium?: boolean;
+    unitOrder?: number;
     courseLevel?: CEFRLevel;
   } = {}
 ): Promise<AccessCheckResult> {
-  const { isLessonPremium = false, courseLevel } = options;
+  const { isLessonPremium = false, isUnitPremium = false, unitOrder = 1, courseLevel } = options;
+
+  // ADMIN / TESTER bypass — full access, no limits
+  if (await isPrivilegedRole(supabase, userId)) {
+    return {
+      allowed: true,
+      remainingToday: Infinity,
+      dailyLimit: Infinity,
+    };
+  }
 
   const userData = await fetchUserLimitsData(supabase, userId);
 
-  // Can't read user data — fail open (don't lock people out due to a bug)
+  // Can't read user data — fail open
   if (!userData) {
     return { allowed: true, remainingToday: Infinity, dailyLimit: Infinity };
   }
@@ -108,7 +129,7 @@ export async function checkLessonAccess(
     return { allowed: true, remainingToday: Infinity, dailyLimit: Infinity };
   }
 
-  // From here on, user is FREE
+  // FREE users logic
   const lessonsToday = await getEffectiveLessonsToday(
     supabase,
     userId,
@@ -118,7 +139,7 @@ export async function checkLessonAccess(
 
   const remaining = Math.max(0, planConfig.dailyLessonLimit - lessonsToday);
 
-  // Check 1: Level locked (C1/C2 not accessible on FREE)
+  // Level locked
   if (courseLevel && !planConfig.accessibleLevels.includes(courseLevel)) {
     return {
       allowed: false,
@@ -129,29 +150,46 @@ export async function checkLessonAccess(
     };
   }
 
-  // Check 2: Premium-flagged lesson
-  if (isLessonPremium) {
+  // Unit 1 is always free — only check daily limit
+  if (unitOrder === 1) {
+    if (lessonsToday >= planConfig.dailyLessonLimit) {
+      return {
+        allowed: false,
+        reason: "daily_limit_reached",
+        message: `You've completed your ${planConfig.dailyLessonLimit} free lesson for today. Come back tomorrow or upgrade for unlimited access.`,
+        remainingToday: 0,
+        dailyLimit: planConfig.dailyLessonLimit,
+      };
+    }
     return {
-      allowed: false,
-      reason: "premium_content",
-      message: "This lesson is part of our Premium curriculum.",
+      allowed: true,
       remainingToday: remaining,
       dailyLimit: planConfig.dailyLessonLimit,
     };
   }
 
-  // Check 3: Daily limit
+  // Unit 2+ requires premium for free users
+  if (unitOrder >= 2 || isLessonPremium || isUnitPremium) {
+    return {
+      allowed: false,
+      reason: "premium_content",
+      message: "Unit 2 and beyond require a Premium subscription. Upgrade to continue learning!",
+      remainingToday: remaining,
+      dailyLimit: planConfig.dailyLessonLimit,
+    };
+  }
+
+  // Daily limit (fallback)
   if (lessonsToday >= planConfig.dailyLessonLimit) {
     return {
       allowed: false,
       reason: "daily_limit_reached",
-      message: `You've completed all ${planConfig.dailyLessonLimit} free lessons for today. Come back tomorrow or upgrade for unlimited access.`,
+      message: `You've completed your ${planConfig.dailyLessonLimit} free lesson for today. Come back tomorrow or upgrade for unlimited access.`,
       remainingToday: 0,
       dailyLimit: planConfig.dailyLessonLimit,
     };
   }
 
-  // All clear
   return {
     allowed: true,
     remainingToday: remaining,
@@ -159,14 +197,15 @@ export async function checkLessonAccess(
   };
 }
 
-/**
- * Increment lessons_today after a successful lesson completion.
- * Call alongside streak update when score ≥ 70%.
- */
+// ─── Increment After Completion ──────────────────────────────────
+
 export async function incrementLessonCount(
   supabase: SupabaseClient,
   userId: string
 ): Promise<void> {
+  // Don't increment for admins/testers
+  if (await isPrivilegedRole(supabase, userId)) return;
+
   const today = getToday();
 
   const { data: user } = await supabase
@@ -190,18 +229,27 @@ export async function incrementLessonCount(
   }
 }
 
-/**
- * Get the user's daily lesson usage for UI display.
- * Use in Dashboard, course pages, etc.
- */
+// ─── Usage For Dashboard UI ─────────────────────────────────────
+
 export async function getLessonUsage(
   supabase: SupabaseClient,
   userId: string
 ): Promise<LessonUsage> {
+  // ADMIN / TESTER bypass — show unlimited in UI
+  if (await isPrivilegedRole(supabase, userId)) {
+    return {
+      used: 0,
+      limit: Infinity,
+      remaining: Infinity,
+      plan: "PREMIUM_PLUS",
+      isLimited: false,
+    };
+  }
+
   const userData = await fetchUserLimitsData(supabase, userId);
 
   if (!userData) {
-    return { used: 0, limit: 3, remaining: 3, plan: "FREE", isLimited: true };
+    return { used: 0, limit: 1, remaining: 1, plan: "FREE", isLimited: true };
   }
 
   const { plan } = userData;

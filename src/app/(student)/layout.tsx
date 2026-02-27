@@ -1,3 +1,4 @@
+import { AITutorFab } from "@/components/student/ai-tutor-fab";
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { StudentNavigation } from "@/components/student/student-navigation";
@@ -24,12 +25,12 @@ export default async function StudentLayout({
   const { data: profile } = await supabase
     .from("users")
     .select(
-      "role, name, email, avatar_url, total_xp, current_level, current_streak"
+      "role, name, email, avatar_url, total_xp, current_level, current_streak, placement_test_level, subscription_plan"
     )
     .eq("id", user.id)
     .single();
 
-  const level = profile?.current_level || "A1";
+  const level = profile?.placement_test_level || profile?.current_level || "A1";
   const xp = profile?.total_xp || 0;
   const streak = profile?.current_streak || 0;
 
@@ -157,6 +158,9 @@ export default async function StudentLayout({
           </div>
         </div>
       </header>
+
+      {/* AI Tutor Floating Button */}
+      <AITutorFab plan={profile?.subscription_plan || "FREE"} />
 
       {/* Main Content */}
       <div className="lg:pl-64">

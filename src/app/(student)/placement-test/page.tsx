@@ -7,6 +7,14 @@ import PlacementTestFlow from "@/components/placement-test/placement-test-flow";
 // Valid languages
 const validLanguages = ["fr", "es", "en", "de"];
 
+// Map short codes to URL slugs used in course slugs
+const languageSlugMap: Record<string, string> = {
+  fr: "french",
+  es: "spanish",
+  en: "english",
+  de: "german",
+};
+
 interface PlacementTestPageProps {
   searchParams: Promise<{ lang?: string }>;
 }
@@ -37,15 +45,20 @@ export default async function PlacementTestPage({ searchParams }: PlacementTestP
   if (userData?.placement_test_taken) {
     const level = userData.placement_test_level?.toLowerCase() || "a1";
     const userLanguage = userData.learning_language || "fr";
-    redirect(`/learn/${userLanguage}/${level}`);
+    const languageSlug = languageSlugMap[userLanguage] || userLanguage;
+    redirect(`/learn/${languageSlug}/${level}`);
   }
+
+  // Convert short code to full slug for routing
+  const languageSlug = languageSlugMap[language] || language;
 
   return (
     <div className="min-h-screen bg-gray-50">
       <PlacementTestFlow 
         userId={user.id} 
         userName={userData?.name || "there"}
-        language={language}
+        language={languageSlug}
+        languageShortCode={language}
       />
     </div>
   );

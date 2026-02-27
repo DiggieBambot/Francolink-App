@@ -1,0 +1,450 @@
+export const frenchA1U7L1 = {
+  metadata: {
+    course: "fr-a1",
+    unit: 7,
+    lesson: 1,
+    title: "Jobs & Professions",
+    slug: "jobs-and-professions",
+    type: "VOCABULARY",
+    estimatedMinutes: 15,
+    xpReward: 20,
+  },
+
+  content: {
+    introduction: {
+      text: "In this lesson, you'll learn how to talk about jobs and professions in French. You'll discover that many profession nouns have masculine and feminine forms, and you'll learn the key phrase 'Qu'est-ce que tu fais dans la vie?' — the most common way to ask someone what they do for a living.",
+      culturalNote: "🇫🇷 In France, asking about someone's profession is very common in social situations. However, the French tend to define themselves by their interests and personality rather than their job title alone — unlike in some other cultures.",
+    },
+
+    vocabulary: [
+      {
+        term: "un médecin",
+        translation: "a doctor",
+        pronunciation: "uhn mayd-SAHN",
+        partOfSpeech: "noun",
+        gender: "masculine",
+        exampleSentence: {
+          original: "Mon père est médecin.",
+          translation: "My father is a doctor.",
+        },
+        tip: "No article after 'être' for professions: 'Il est médecin' (not 'Il est un médecin').",
+      },
+      {
+        term: "un professeur / une professeure",
+        translation: "a teacher / professor",
+        pronunciation: "uhn proh-feh-SUR / ewn proh-feh-SUR",
+        partOfSpeech: "noun",
+        gender: "masculine",
+        exampleSentence: {
+          original: "Elle est professeure de français.",
+          translation: "She is a French teacher.",
+        },
+        tip: "The feminine 'professeure' is increasingly used in modern French. Some still use 'professeur' for both.",
+      },
+      {
+        term: "un avocat / une avocate",
+        translation: "a lawyer",
+        pronunciation: "uhn ah-voh-KAH / ewn ah-voh-KAT",
+        partOfSpeech: "noun",
+        gender: "masculine",
+        exampleSentence: {
+          original: "Mon frère est avocat.",
+          translation: "My brother is a lawyer.",
+        },
+        tip: "'Avocat' also means 'avocado' in French! Context tells you which one.",
+      },
+      {
+        term: "un infirmier / une infirmière",
+        translation: "a nurse",
+        pronunciation: "uhn ahn-feer-MYAY / ewn ahn-feer-MYEHR",
+        partOfSpeech: "noun",
+        gender: "masculine",
+        exampleSentence: {
+          original: "Ma sœur est infirmière.",
+          translation: "My sister is a nurse.",
+        },
+        tip: "The feminine form changes the ending: -ier → -ière.",
+      },
+      {
+        term: "un ingénieur / une ingénieure",
+        translation: "an engineer",
+        pronunciation: "uhn ahn-zhay-NYUR / ewn ahn-zhay-NYUR",
+        partOfSpeech: "noun",
+        gender: "masculine",
+        exampleSentence: {
+          original: "Il est ingénieur chez Renault.",
+          translation: "He is an engineer at Renault.",
+        },
+        tip: "The feminine form simply adds an 'e': ingénieure.",
+      },
+      {
+        term: "un serveur / une serveuse",
+        translation: "a waiter / waitress",
+        pronunciation: "uhn sehr-VUR / ewn sehr-VUHZ",
+        partOfSpeech: "noun",
+        gender: "masculine",
+        exampleSentence: {
+          original: "Le serveur est très sympa.",
+          translation: "The waiter is very friendly.",
+        },
+        tip: "Masculine: -eur, Feminine: -euse. Same pattern as many French professions.",
+      },
+      {
+        term: "un boulanger / une boulangère",
+        translation: "a baker",
+        pronunciation: "uhn boo-lahn-ZHAY / ewn boo-lahn-ZHEHR",
+        partOfSpeech: "noun",
+        gender: "masculine",
+        exampleSentence: {
+          original: "Le boulanger fait du pain chaque matin.",
+          translation: "The baker makes bread every morning.",
+        },
+        tip: "Masculine: -er, Feminine: -ère. The baker is an iconic profession in France!",
+      },
+      {
+        term: "un vendeur / une vendeuse",
+        translation: "a salesperson",
+        pronunciation: "uhn vahn-DUR / ewn vahn-DUHZ",
+        partOfSpeech: "noun",
+        gender: "masculine",
+        exampleSentence: {
+          original: "La vendeuse est très aimable.",
+          translation: "The saleswoman is very friendly.",
+        },
+        tip: "Same -eur → -euse pattern as 'serveur/serveuse'.",
+      },
+      {
+        term: "un étudiant / une étudiante",
+        translation: "a student",
+        pronunciation: "uhn ay-tew-DYAHN / ewn ay-tew-DYAHNT",
+        partOfSpeech: "noun",
+        gender: "masculine",
+        exampleSentence: {
+          original: "Je suis étudiante en médecine.",
+          translation: "I am a medical student.",
+        },
+        tip: "Add 'e' for feminine. The final 't' becomes pronounced in the feminine form.",
+      },
+      {
+        term: "un comptable",
+        translation: "an accountant",
+        pronunciation: "uhn kohn-TAH-bluh",
+        partOfSpeech: "noun",
+        gender: "masculine",
+        exampleSentence: {
+          original: "Ma mère est comptable.",
+          translation: "My mother is an accountant.",
+        },
+        tip: "Same form for masculine and feminine — already ends in 'e'.",
+      },
+      {
+        term: "un chef cuisinier / une chef cuisinière",
+        translation: "a chef",
+        pronunciation: "uhn shef kwee-zee-NYAY / ewn shef kwee-zee-NYEHR",
+        partOfSpeech: "noun",
+        gender: "masculine",
+        exampleSentence: {
+          original: "Le chef cuisinier prépare un repas délicieux.",
+          translation: "The chef prepares a delicious meal.",
+        },
+        tip: "In casual French, just 'un chef' or 'un cuisinier' is common.",
+      },
+      {
+        term: "travailler",
+        translation: "to work",
+        pronunciation: "trah-vah-YAY",
+        partOfSpeech: "verb",
+        exampleSentence: {
+          original: "Je travaille dans un bureau.",
+          translation: "I work in an office.",
+        },
+        tip: "Regular -er verb. One of the most common verbs for discussing work.",
+      },
+    ],
+
+    grammar: [
+      {
+        title: "Professions Without Articles After 'être'",
+        explanation: "In French, when stating someone's profession after 'être', you do NOT use an article (un/une). This is different from English. However, if you add an adjective, you need the article back.",
+        examples: [
+          {
+            original: "Il est médecin.",
+            translation: "He is a doctor.",
+            breakdown: "Il est (he is) + médecin (doctor) — NO article",
+          },
+          {
+            original: "Elle est avocate.",
+            translation: "She is a lawyer.",
+            breakdown: "Elle est (she is) + avocate (lawyer) — NO article",
+          },
+          {
+            original: "C'est un bon médecin.",
+            translation: "He's a good doctor.",
+            breakdown: "C'est (it's/he's) + un bon médecin — article returns with adjective",
+          },
+        ],
+        commonMistakes: [
+          "❌ Il est un médecin (wrong — no article with être + profession)",
+          "✅ Il est médecin (correct — no article needed)",
+          "❌ Elle est une avocate (wrong — no article with être + profession)",
+          "✅ Elle est avocate (correct)",
+        ],
+      },
+      {
+        title: "Asking About Professions",
+        explanation: "The most common way to ask about someone's job is 'Qu'est-ce que tu fais dans la vie ?' (informal) or 'Que faites-vous dans la vie ?' (formal). You can also ask 'Quel est ton/votre métier ?'",
+        examples: [
+          {
+            original: "Qu'est-ce que tu fais dans la vie ?",
+            translation: "What do you do for a living?",
+            breakdown: "Qu'est-ce que (what) + tu fais (you do) + dans la vie (in life)",
+          },
+          {
+            original: "Je suis professeur. Et toi ?",
+            translation: "I'm a teacher. And you?",
+            breakdown: "Je suis (I am) + professeur (teacher) — natural response",
+          },
+        ],
+        commonMistakes: [
+          "❌ Qu'est-ce que tu es ? (too direct, sounds like 'What are you?')",
+          "✅ Qu'est-ce que tu fais dans la vie ? (natural and polite)",
+        ],
+      },
+    ],
+
+    dialogue: {
+      title: "At a Dinner Party",
+      image: "/images/dialogues/dinner-party-jobs.svg",
+      context: "Sophie and Thomas meet at a dinner party and talk about their jobs.",
+      lines: [
+        {
+          speaker: "thomas",
+          text: "Bonsoir ! Qu'est-ce que tu fais dans la vie ?",
+          translation: "Good evening! What do you do for a living?",
+        },
+        {
+          speaker: "sophie",
+          text: "Je suis professeure de français. Et toi ?",
+          translation: "I'm a French teacher. And you?",
+        },
+        {
+          speaker: "thomas",
+          text: "Je suis ingénieur. Je travaille chez Airbus.",
+          translation: "I'm an engineer. I work at Airbus.",
+        },
+        {
+          speaker: "sophie",
+          text: "C'est intéressant ! Tu aimes ton travail ?",
+          translation: "That's interesting! Do you like your job?",
+        },
+        {
+          speaker: "thomas",
+          text: "Oui, beaucoup. Et ta sœur, elle travaille aussi ?",
+          translation: "Yes, a lot. And your sister, does she work too?",
+        },
+        {
+          speaker: "sophie",
+          text: "Oui, elle est infirmière à l'hôpital.",
+          translation: "Yes, she's a nurse at the hospital.",
+        },
+        {
+          speaker: "thomas",
+          text: "C'est un métier difficile mais important.",
+          translation: "That's a difficult but important job.",
+        },
+        {
+          speaker: "sophie",
+          text: "Oui, elle est très courageuse !",
+          translation: "Yes, she is very brave!",
+        },
+      ],
+      comprehensionQuestions: [
+        {
+          question: "What does Sophie do for a living?",
+          options: ["She is a nurse", "She is a French teacher", "She is an engineer", "She is a lawyer"],
+          correctIndex: 1,
+        },
+        {
+          question: "Where does Thomas work?",
+          options: ["At a hospital", "At a school", "At Airbus", "At a bakery"],
+          correctIndex: 2,
+        },
+      ],
+    },
+
+    culture: {
+      title: "Work Culture in France",
+      text: "France has a unique relationship with work. The legal workweek is 35 hours, and employees typically receive five weeks of paid vacation per year. Lunch breaks are taken seriously — many workers enjoy a full hour for lunch, often at a restaurant or café. The French generally value work-life balance, and discussing work at social events is common but usually brief. Quality of life outside of work is considered essential.",
+      funFact: "🎉 France's 35-hour workweek was introduced in 2000. While some employees work more, they receive extra days off called 'RTT' (Réduction du Temps de Travail) — meaning many French workers get additional vacation days beyond the standard five weeks!",
+    },
+
+    summary: {
+      keyPoints: [
+        "Common professions: médecin, professeur, avocat, infirmier, ingénieur",
+        "No article after 'être' + profession: Il est médecin (not 'un médecin')",
+        "Feminine forms: -eur → -euse, -ier → -ière, -er → -ère",
+        "Ask about jobs: 'Qu'est-ce que tu fais dans la vie ?'",
+        "'Travailler' = to work (regular -er verb)",
+        "Some professions don't change: comptable, médecin",
+      ],
+      practicePrompt: "Describe your job (or dream job) in French. Try: 'Je suis... Je travaille dans/à/chez...' Then describe a family member's job.",
+    },
+  },
+
+  exercises: [
+    {
+      exercise_type: "MULTIPLE_CHOICE",
+      question: "How do you say 'He is a doctor' in French?",
+      content: {
+        options: [
+          "Il est un médecin",
+          "Il est médecin",
+          "Il a médecin",
+          "Il fait médecin",
+        ],
+        correctIndex: 1,
+      },
+      hint: "No article after 'être' + profession",
+      explanation: "'Il est médecin' — in French, you drop the article when stating a profession after 'être'.",
+      difficulty: "EASY",
+      xp_reward: 2,
+      order_index: 1,
+    },
+    {
+      exercise_type: "MULTIPLE_CHOICE",
+      question: "What is the feminine form of 'serveur'?",
+      content: {
+        options: ["Serveure", "Serveuse", "Servrice", "Servante"],
+        correctIndex: 1,
+      },
+      hint: "The -eur → -euse pattern",
+      explanation: "'Serveur' → 'serveuse'. The -eur ending changes to -euse for many professions.",
+      difficulty: "EASY",
+      xp_reward: 2,
+      order_index: 2,
+    },
+    {
+      exercise_type: "MATCHING",
+      question: "Match the French professions with their meanings:",
+      content: {
+        pairs: [
+          { left: "un avocat", right: "a lawyer" },
+          { left: "une infirmière", right: "a nurse (f)" },
+          { left: "un boulanger", right: "a baker" },
+          { left: "un comptable", right: "an accountant" },
+        ],
+      },
+      hint: "Think about the workplace for each profession",
+      explanation: "Avocat = lawyer, infirmière = nurse (f), boulanger = baker, comptable = accountant.",
+      difficulty: "EASY",
+      xp_reward: 5,
+      order_index: 3,
+    },
+    {
+      exercise_type: "FILL_BLANK",
+      question: "Complete the sentence:",
+      content: {
+        sentence: "Ma mère est ___. Elle travaille à l'hôpital.",
+        answer: "infirmière",
+        options: ["infirmier", "infirmière", "infirmières", "infirmiers"],
+        caseSensitive: false,
+      },
+      hint: "'Ma mère' is feminine singular",
+      explanation: "'Infirmière' is the feminine form. Ma mère est infirmière = My mother is a nurse.",
+      difficulty: "MEDIUM",
+      xp_reward: 3,
+      order_index: 4,
+    },
+    {
+      exercise_type: "FILL_BLANK",
+      question: "Complete the sentence:",
+      content: {
+        sentence: "Qu'est-ce que tu ___ dans la vie ?",
+        answer: "fais",
+        options: ["fais", "fait", "faire", "es"],
+        caseSensitive: false,
+      },
+      hint: "'Tu' takes which form of 'faire'?",
+      explanation: "'Qu'est-ce que tu fais dans la vie ?' — 'fais' is the 'tu' form of 'faire'.",
+      difficulty: "MEDIUM",
+      xp_reward: 3,
+      order_index: 5,
+    },
+    {
+      exercise_type: "TRANSLATION",
+      question: "Translate to French: 'She is a lawyer.'",
+      content: {
+        correctAnswer: "Elle est avocate.",
+        acceptableAnswers: ["Elle est avocate", "elle est avocate"],
+        direction: "to_target",
+      },
+      hint: "No article after 'être' + profession, and use feminine form",
+      explanation: "'Elle est avocate.' — no article, feminine form of 'avocat'.",
+      difficulty: "MEDIUM",
+      xp_reward: 4,
+      order_index: 6,
+    },
+    {
+      exercise_type: "REORDER",
+      question: "Put the words in order:",
+      content: {
+        words: ["dans", "fais", "la", "tu", "vie", "qu'est-ce que"],
+        correctOrder: ["qu'est-ce que", "tu", "fais", "dans", "la", "vie"],
+        translation: "What do you do for a living?",
+      },
+      hint: "Start with the question phrase",
+      explanation: "Correct order: Qu'est-ce que tu fais dans la vie ? (What do you do for a living?)",
+      difficulty: "MEDIUM",
+      xp_reward: 4,
+      order_index: 7,
+    },
+    {
+      exercise_type: "LISTENING",
+      question: "Listen and select the correct answer:",
+      content: {
+        ttsText: "Je suis boulanger. Je travaille très tôt le matin.",
+        ttsLang: "fr-FR",
+        options: [
+          "I'm a baker. I work very early in the morning.",
+          "I'm a teacher. I work in the afternoon.",
+          "I'm a doctor. I work at the hospital.",
+          "I'm a waiter. I work in the evening.",
+        ],
+        correctIndex: 0,
+      },
+      hint: "Listen for 'boulanger' and 'tôt le matin'",
+      explanation: "'Je suis boulanger. Je travaille très tôt le matin.' = I'm a baker. I work very early in the morning.",
+      difficulty: "MEDIUM",
+      xp_reward: 4,
+      order_index: 8,
+    },
+    {
+      exercise_type: "SPEAK",
+      question: "Say this sentence out loud:",
+      content: {
+        targetText: "Je suis professeur de français.",
+        targetTranslation: "I am a French teacher.",
+        acceptableVariants: ["je suis professeur de français"],
+      },
+      hint: "No article — just 'je suis' + profession",
+      explanation: "Great! 'Je suis professeur de français' — no article needed after 'être' + profession.",
+      difficulty: "MEDIUM",
+      xp_reward: 5,
+      order_index: 9,
+    },
+    {
+      exercise_type: "SPEAK",
+      question: "Say this sentence out loud:",
+      content: {
+        targetText: "Qu'est-ce que tu fais dans la vie ?",
+        targetTranslation: "What do you do for a living?",
+        acceptableVariants: ["qu'est-ce que tu fais dans la vie"],
+      },
+      hint: "This is the most important question for this lesson — practice it well!",
+      explanation: "Excellent! This is the most natural way to ask about someone's profession in French.",
+      difficulty: "HARD",
+      xp_reward: 5,
+      order_index: 10,
+    },
+  ],
+};

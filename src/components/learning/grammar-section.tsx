@@ -1,8 +1,8 @@
 // src/components/learning/grammar-section.tsx
 "use client";
 
-import { useState } from "react";
-import { Volume2, AlertCircle, CheckCircle, ChevronDown, ChevronUp } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Volume2, AlertCircle, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui";
 
 interface GrammarExample {
@@ -37,22 +37,67 @@ export default function GrammarSection({
 }: GrammarSectionProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [expandedMistakes, setExpandedMistakes] = useState(false);
+  const [speakingId, setSpeakingId] = useState<string | null>(null);
+  const speakingIdRef = useRef<string | null>(null);
 
   const totalPoints = grammar.length;
   const currentPoint = grammar[currentIndex];
   const isLastPoint = currentIndex === totalPoints - 1;
 
-  const speak = (text: string) => {
-    if (typeof window !== "undefined" && "speechSynthesis" in window) {
+  // Preload voices
+  useEffect(() => {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+    window.speechSynthesis.getVoices();
+    window.speechSynthesis.onvoiceschanged = () => {
+      window.speechSynthesis.getVoices();
+    };
+    return () => {
+      window.speechSynthesis.onvoiceschanged = null;
       window.speechSynthesis.cancel();
+    };
+  }, []);
+
+  const speak = (text: string, id: string) => {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+
+    if (speakingIdRef.current === id) {
+      window.speechSynthesis.cancel();
+      speakingIdRef.current = null;
+      setSpeakingId(null);
+      return;
+    }
+
+    try {
+      window.speechSynthesis.cancel();
+
       const utterance = new SpeechSynthesisUtterance(text);
+      const voices = window.speechSynthesis.getVoices();
+      const langVoice = voices.find(v => v.lang.startsWith(language.split("-")[0]));
+
+      if (langVoice) utterance.voice = langVoice;
+
       utterance.lang = language;
       utterance.rate = 0.85;
+      utterance.pitch = 1;
+      utterance.volume = 1;
+
+      utterance.onstart = () => { speakingIdRef.current = id; setSpeakingId(id); };
+      utterance.onend = () => { speakingIdRef.current = null; setSpeakingId(null); };
+      utterance.onerror = () => { speakingIdRef.current = null; setSpeakingId(null); };
+
       window.speechSynthesis.speak(utterance);
+    } catch (error) {
+      console.error("TTS error:", error);
+      speakingIdRef.current = null;
+      setSpeakingId(null);
     }
   };
 
   const goToNext = () => {
+    window.speechSynthesis?.cancel();
+    speakingIdRef.current = null;
+    setSpeakingId(null);
+
     if (currentIndex < totalPoints - 1) {
       const newIndex = currentIndex + 1;
       setCurrentIndex(newIndex);
@@ -65,6 +110,10 @@ export default function GrammarSection({
   };
 
   const goToPrevious = () => {
+    window.speechSynthesis?.cancel();
+    speakingIdRef.current = null;
+    setSpeakingId(null);
+
     if (currentIndex > 0) {
       const newIndex = currentIndex - 1;
       setCurrentIndex(newIndex);
@@ -122,30 +171,39 @@ export default function GrammarSection({
             <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
               Examples
             </h3>
-            {currentPoint.examples.map((example, index) => (
-              <div
-                key={index}
-                className="bg-gray-50 rounded-xl p-4"
-              >
-                <div className="flex items-start justify-between gap-2 mb-1">
-                  <p className="text-lg font-medium text-gray-900">
-                    {example.original}
-                  </p>
-                  <button
-                    onClick={() => speak(example.original)}
-                    className="p-2 bg-primary/10 hover:bg-primary/20 rounded-full transition-colors flex-shrink-0"
-                  >
-                    <Volume2 className="w-4 h-4 text-primary" />
-                  </button>
+            {currentPoint.examples.map((example, index) => {
+              const exampleId = `ex-${currentIndex}-${index}`;
+              const isPlaying = speakingId === exampleId;
+
+              return (
+                <div key={index} className="bg-gray-50 rounded-xl p-4">
+                  <div className="flex items-start justify-between gap-2 mb-1">
+                    <p className="text-lg font-medium text-gray-900">
+                      {example.original}
+                    </p>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        speak(example.original, exampleId); console.log("CLICKED SPEAK:", example.original, exampleId);
+                      }}
+                      className={`p-2 rounded-full transition-colors flex-shrink-0 ${
+                        isPlaying
+                          ? "bg-primary text-white"
+                          : "bg-primary/10 hover:bg-primary/20 text-primary"
+                      }`}
+                    >
+                      <Volume2 className={`w-4 h-4 ${isPlaying ? "animate-pulse" : ""}`} />
+                    </button>
+                  </div>
+                  <p className="text-gray-600">{example.translation}</p>
+                  {example.breakdown && (
+                    <p className="text-sm text-primary mt-2 italic">
+                      💡 {example.breakdown}
+                    </p>
+                  )}
                 </div>
-                <p className="text-gray-600">{example.translation}</p>
-                {example.breakdown && (
-                  <p className="text-sm text-primary mt-2 italic">
-                    💡 {example.breakdown}
-                  </p>
-                )}
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Table (if exists) */}
@@ -171,10 +229,7 @@ export default function GrammarSection({
                   {currentPoint.table.rows.map((row, rowIndex) => (
                     <tr key={rowIndex} className="border-b border-gray-100 last:border-0">
                       {row.map((cell, cellIndex) => (
-                        <td
-                          key={cellIndex}
-                          className="px-4 py-2 text-gray-700"
-                        >
+                        <td key={cellIndex} className="px-4 py-2 text-gray-700">
                           {cell}
                         </td>
                       ))}
@@ -202,7 +257,7 @@ export default function GrammarSection({
                   <ChevronDown className="w-5 h-5 text-gray-400" />
                 )}
               </button>
-              
+
               {expandedMistakes && (
                 <div className="mt-3 space-y-2">
                   {currentPoint.commonMistakes.map((mistake, index) => (

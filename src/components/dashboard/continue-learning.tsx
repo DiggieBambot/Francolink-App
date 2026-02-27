@@ -12,6 +12,10 @@ const languageConfig: Record<string, { name: string; flag: string }> = {
   es: { name: "Spanish", flag: "🇪🇸" },
   en: { name: "English", flag: "🇬🇧" },
   de: { name: "German", flag: "🇩🇪" },
+  french: { name: "French", flag: "🇫🇷" },
+  spanish: { name: "Spanish", flag: "🇪🇸" },
+  english: { name: "English", flag: "🇬🇧" },
+  german: { name: "German", flag: "🇩🇪" },
 };
 
 interface ContinueLearningProps {

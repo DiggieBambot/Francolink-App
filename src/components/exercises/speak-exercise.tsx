@@ -39,6 +39,17 @@ export default function SpeakExercise({
   const { content } = exercise;
   const targetText = content.targetText || "";
 
+  // Reset state when exercise changes (fixes exercise 12 not showing fresh)
+  useEffect(() => {
+    setTranscript("");
+    setSubmitted(false);
+    setIsCorrect(false);
+    setIsListening(false);
+    if (recognitionRef.current) {
+      recognitionRef.current.abort();
+    }
+  }, [exercise.id]);
+
   // Check browser support
   useEffect(() => {
     const SpeechRecognition = 
@@ -153,13 +164,14 @@ export default function SpeakExercise({
     return matches / Math.max(words1.length, words2.length);
   };
 
-  // Submit answer
+  // Submit answer — only records result, does NOT advance (lesson-flow handles advancing)
   const handleSubmit = () => {
     if (!transcript.trim()) return;
     
     const correct = compareText(transcript, targetText);
     setIsCorrect(correct);
     setSubmitted(true);
+    // First call: just records the result in lesson-flow, does not advance
     onSubmit(correct, transcript, targetText);
   };
 
@@ -309,6 +321,7 @@ export default function SpeakExercise({
             <RotateCcw className="w-4 h-4" />
             Try Again
           </Button>
+          {/* Second call: this is what actually advances to next exercise */}
           <Button
             onClick={() => onSubmit(isCorrect, transcript, targetText)}
             className="flex-1"

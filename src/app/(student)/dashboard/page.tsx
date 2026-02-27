@@ -29,10 +29,18 @@ import Link from "next/link";
 
 // Language display names and flags
 const languageConfig: Record<string, { name: string; flag: string }> = {
+  french: { name: "French", flag: "🇫🇷" },
+  spanish: { name: "Spanish", flag: "🇪🇸" },
+  english: { name: "English", flag: "🇬🇧" },
+  german: { name: "German", flag: "🇩🇪" },
   fr: { name: "French", flag: "🇫🇷" },
   es: { name: "Spanish", flag: "🇪🇸" },
   en: { name: "English", flag: "🇬🇧" },
   de: { name: "German", flag: "🇩🇪" },
+  french: { name: "French", flag: "🇫🇷" },
+  spanish: { name: "Spanish", flag: "🇪🇸" },
+  english: { name: "English", flag: "🇬🇧" },
+  german: { name: "German", flag: "🇩🇪" },
 };
 
 function calculateCurrentLevel(completedLessons: any[]): string {
@@ -129,7 +137,7 @@ export default async function DashboardPage() {
     lastActivityDate: profile?.last_activity_date || null,
     totalXp: profile?.total_xp || 0,
     lessonsCompleted: lessonsCompleted,
-    currentLevel: currentLevel,
+    currentLevel: profile?.placement_test_level || currentLevel,
   };
 
   // Dynamic placeholder course based on user's language

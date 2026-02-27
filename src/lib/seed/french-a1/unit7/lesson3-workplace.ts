@@ -1,0 +1,418 @@
+export const frenchA1U7L3 = {
+  metadata: {
+    course: "fr-a1",
+    unit: 7,
+    lesson: 3,
+    title: "Workplace Vocabulary",
+    slug: "workplace-vocabulary",
+    type: "VOCABULARY",
+    estimatedMinutes: 15,
+    xpReward: 20,
+  },
+
+  content: {
+    introduction: {
+      text: "In this lesson, you'll learn essential vocabulary for the workplace. Whether you're talking about your office, your boss, or your daily tasks, these words will help you navigate professional conversations in French.",
+      culturalNote: "🇫🇷 The French workplace has its own etiquette. Using 'vous' with colleagues you don't know well is standard, and addressing your boss by their first name only happens when they explicitly invite it. 'Bonjour' to everyone when arriving is essential!",
+    },
+
+    vocabulary: [
+      {
+        term: "un bureau",
+        translation: "an office / a desk",
+        pronunciation: "uhn bew-ROH",
+        partOfSpeech: "noun",
+        gender: "masculine",
+        exampleSentence: {
+          original: "Je travaille dans un bureau.",
+          translation: "I work in an office.",
+        },
+        tip: "'Bureau' means both 'office' (the room) and 'desk' (the furniture). Context matters!",
+      },
+      {
+        term: "une entreprise",
+        translation: "a company / a business",
+        pronunciation: "ewn ahn-truh-PREEZ",
+        partOfSpeech: "noun",
+        gender: "feminine",
+        exampleSentence: {
+          original: "Mon entreprise est grande.",
+          translation: "My company is big.",
+        },
+        tip: "Also called 'une société' in formal contexts.",
+      },
+      {
+        term: "un collègue",
+        translation: "a colleague",
+        pronunciation: "uhn koh-LEG",
+        partOfSpeech: "noun",
+        gender: "masculine",
+        exampleSentence: {
+          original: "Mes collègues sont sympas.",
+          translation: "My colleagues are nice.",
+        },
+        tip: "Same form for masculine and feminine: un/une collègue.",
+      },
+      {
+        term: "un patron / une patronne",
+        translation: "a boss",
+        pronunciation: "uhn pah-TROHN / ewn pah-TROHN",
+        partOfSpeech: "noun",
+        gender: "masculine",
+        exampleSentence: {
+          original: "Mon patron est sérieux mais gentil.",
+          translation: "My boss is serious but kind.",
+        },
+        tip: "More informal than 'directeur'. 'Chef' is also used for boss in casual speech.",
+      },
+      {
+        term: "une réunion",
+        translation: "a meeting",
+        pronunciation: "ewn ray-ew-NYOHN",
+        partOfSpeech: "noun",
+        gender: "feminine",
+        exampleSentence: {
+          original: "J'ai une réunion à dix heures.",
+          translation: "I have a meeting at ten.",
+        },
+        tip: "Can also mean 'gathering' in non-work contexts.",
+      },
+      {
+        term: "un ordinateur",
+        translation: "a computer",
+        pronunciation: "uhn or-dee-nah-TUR",
+        partOfSpeech: "noun",
+        gender: "masculine",
+        exampleSentence: {
+          original: "Je travaille sur mon ordinateur.",
+          translation: "I work on my computer.",
+        },
+        tip: "The French rejected 'computer' and created their own word! Shortened to 'ordi' in casual speech.",
+      },
+      {
+        term: "un e-mail / un courriel",
+        translation: "an email",
+        pronunciation: "uhn ee-MEYL / uhn koo-RYEL",
+        partOfSpeech: "noun",
+        gender: "masculine",
+        exampleSentence: {
+          original: "J'envoie un e-mail à mon collègue.",
+          translation: "I send an email to my colleague.",
+        },
+        tip: "'Courriel' is the official French word, but 'e-mail' or 'mail' is more common in daily speech.",
+      },
+      {
+        term: "un salaire",
+        translation: "a salary",
+        pronunciation: "uhn sah-LEHR",
+        partOfSpeech: "noun",
+        gender: "masculine",
+        exampleSentence: {
+          original: "Son salaire est bon.",
+          translation: "His/Her salary is good.",
+        },
+        tip: "Discussing salaries is generally taboo in French culture — be careful with this word!",
+      },
+      {
+        term: "un emploi",
+        translation: "a job / employment",
+        pronunciation: "uhn ahm-PLWAH",
+        partOfSpeech: "noun",
+        gender: "masculine",
+        exampleSentence: {
+          original: "Il cherche un emploi.",
+          translation: "He's looking for a job.",
+        },
+        tip: "More formal than 'un travail'. Used in job listings: 'offre d'emploi' = job offer.",
+      },
+      {
+        term: "un stage",
+        translation: "an internship",
+        pronunciation: "uhn STAHZH",
+        partOfSpeech: "noun",
+        gender: "masculine",
+        exampleSentence: {
+          original: "Elle fait un stage dans une entreprise.",
+          translation: "She's doing an internship at a company.",
+        },
+        tip: "False friend! 'Un stage' is NOT a stage/platform — it means internship or training course.",
+      },
+      {
+        term: "envoyer",
+        translation: "to send",
+        pronunciation: "ahn-vwah-YAY",
+        partOfSpeech: "verb",
+        exampleSentence: {
+          original: "J'envoie un e-mail chaque matin.",
+          translation: "I send an email every morning.",
+        },
+        tip: "Irregular in some forms: j'envoie, tu envoies, il envoie, nous envoyons.",
+      },
+    ],
+
+    grammar: [
+      {
+        title: "Prepositions of Place for Work",
+        explanation: "When talking about where you work, use specific prepositions: 'dans' (in), 'à' (at), 'chez' (at someone's company), 'pour' (for). The choice depends on the type of workplace.",
+        examples: [
+          {
+            original: "Je travaille dans un bureau.",
+            translation: "I work in an office.",
+            breakdown: "dans (in) + un bureau (an office) — physical space",
+          },
+          {
+            original: "Elle travaille à l'hôpital.",
+            translation: "She works at the hospital.",
+            breakdown: "à (at) + l'hôpital — institution/specific place",
+          },
+          {
+            original: "Il travaille chez Renault.",
+            translation: "He works at Renault.",
+            breakdown: "chez (at) + company name — for named companies",
+          },
+        ],
+        commonMistakes: [
+          "❌ Je travaille en un bureau (wrong preposition)",
+          "✅ Je travaille dans un bureau (correct — 'dans' for physical spaces)",
+          "❌ Il travaille à Renault (less natural for companies)",
+          "✅ Il travaille chez Renault (correct — 'chez' for named companies)",
+        ],
+      },
+    ],
+
+    dialogue: {
+      title: "The New Office",
+      image: "/images/dialogues/new-office.svg",
+      context: "Marie shows her new colleague Jean around the office.",
+      lines: [
+        {
+          speaker: "marie",
+          text: "Bienvenue dans notre entreprise, Jean !",
+          translation: "Welcome to our company, Jean!",
+        },
+        {
+          speaker: "jean",
+          text: "Merci, Marie ! C'est un grand bureau.",
+          translation: "Thanks, Marie! It's a big office.",
+        },
+        {
+          speaker: "marie",
+          text: "Oui. Voici ton ordinateur et ton bureau.",
+          translation: "Yes. Here's your computer and your desk.",
+        },
+        {
+          speaker: "jean",
+          text: "Parfait. Et les réunions sont à quelle heure ?",
+          translation: "Perfect. And what time are the meetings?",
+        },
+        {
+          speaker: "marie",
+          text: "On a une réunion chaque lundi à neuf heures.",
+          translation: "We have a meeting every Monday at nine.",
+        },
+        {
+          speaker: "jean",
+          text: "Et le patron, comment est-il ?",
+          translation: "And the boss, what's he like?",
+        },
+        {
+          speaker: "marie",
+          text: "Il est sérieux mais sympa. Il envoie beaucoup d'e-mails !",
+          translation: "He's serious but friendly. He sends a lot of emails!",
+        },
+        {
+          speaker: "jean",
+          text: "D'accord ! Je suis content d'être ici.",
+          translation: "Okay! I'm happy to be here.",
+        },
+      ],
+      comprehensionQuestions: [
+        {
+          question: "When are the meetings?",
+          options: ["Every Friday at 10", "Every Monday at 9", "Every day at 8", "Every Wednesday at 2"],
+          correctIndex: 1,
+        },
+        {
+          question: "How is the boss described?",
+          options: ["Funny and lazy", "Serious but friendly", "Quiet and shy", "Strict and mean"],
+          correctIndex: 1,
+        },
+      ],
+    },
+
+    culture: {
+      title: "French Office Etiquette",
+      text: "French office culture follows specific unwritten rules. When you arrive at work, you must say 'Bonjour' to every colleague you pass — not doing so is considered extremely rude. The 'vous' form is used with superiors and new colleagues until someone suggests switching to 'tu'. Lunch is never eaten at your desk if possible. At the end of the day, saying 'Bonne soirée' (Have a good evening) or 'À demain' (See you tomorrow) is expected.",
+      funFact: "🎉 In French offices, the 'bise' (cheek kiss) between colleagues was very common before 2020. While it's become less universal, many French workers still greet close colleagues with a quick handshake or bise each morning!",
+    },
+
+    summary: {
+      keyPoints: [
+        "Key workplace nouns: bureau, entreprise, collègue, patron, réunion",
+        "Technology: ordinateur, e-mail/courriel, envoyer",
+        "Work prepositions: dans (physical space), à (institution), chez (company name)",
+        "'Un stage' = internship (false friend — not 'stage'!)",
+        "'Bureau' means both 'office' and 'desk'",
+        "Discussing salaries is taboo in French culture",
+      ],
+      practicePrompt: "Describe your workplace (or school) in French. Try: 'Je travaille dans... J'ai un ordinateur. Mes collègues sont... Mon patron est...'",
+    },
+  },
+
+  exercises: [
+    {
+      exercise_type: "MULTIPLE_CHOICE",
+      question: "What does 'un bureau' mean?",
+      content: {
+        options: ["A boss", "An office / a desk", "A meeting", "A company"],
+        correctIndex: 1,
+      },
+      hint: "This word has two related meanings",
+      explanation: "'Un bureau' means both 'an office' (the room) and 'a desk' (the furniture).",
+      difficulty: "EASY",
+      xp_reward: 2,
+      order_index: 1,
+    },
+    {
+      exercise_type: "MULTIPLE_CHOICE",
+      question: "Which preposition do you use with a company name?",
+      content: {
+        options: ["dans", "à", "chez", "pour"],
+        correctIndex: 2,
+      },
+      hint: "Think about 'Il travaille ___ Renault'",
+      explanation: "'Chez' is used before company names: Il travaille chez Renault.",
+      difficulty: "EASY",
+      xp_reward: 2,
+      order_index: 2,
+    },
+    {
+      exercise_type: "MATCHING",
+      question: "Match the French workplace words with their meanings:",
+      content: {
+        pairs: [
+          { left: "une réunion", right: "a meeting" },
+          { left: "un collègue", right: "a colleague" },
+          { left: "un ordinateur", right: "a computer" },
+          { left: "un stage", right: "an internship" },
+        ],
+      },
+      hint: "Watch out for the false friend!",
+      explanation: "Réunion = meeting, collègue = colleague, ordinateur = computer, stage = internship (not stage!).",
+      difficulty: "EASY",
+      xp_reward: 5,
+      order_index: 3,
+    },
+    {
+      exercise_type: "FILL_BLANK",
+      question: "Complete the sentence:",
+      content: {
+        sentence: "Je travaille ___ un bureau à Paris.",
+        answer: "dans",
+        options: ["dans", "chez", "à", "en"],
+        caseSensitive: false,
+      },
+      hint: "Use the preposition for physical spaces",
+      explanation: "'Dans un bureau' — use 'dans' for physical spaces like an office.",
+      difficulty: "MEDIUM",
+      xp_reward: 3,
+      order_index: 4,
+    },
+    {
+      exercise_type: "FILL_BLANK",
+      question: "Complete the sentence:",
+      content: {
+        sentence: "J'ai une ___ avec mon patron à dix heures.",
+        answer: "réunion",
+        options: ["réunion", "bureau", "entreprise", "collègue"],
+        caseSensitive: false,
+      },
+      hint: "A scheduled work gathering with your boss",
+      explanation: "'Une réunion' = a meeting. J'ai une réunion = I have a meeting.",
+      difficulty: "MEDIUM",
+      xp_reward: 3,
+      order_index: 5,
+    },
+    {
+      exercise_type: "TRANSLATION",
+      question: "Translate to French: 'My colleagues are very nice.'",
+      content: {
+        correctAnswer: "Mes collègues sont très sympas.",
+        acceptableAnswers: [
+          "Mes collègues sont très sympas",
+          "mes collègues sont très sympas",
+          "Mes collègues sont très gentils.",
+          "Mes collègues sont très gentils",
+        ],
+        direction: "to_target",
+      },
+      hint: "Use the plural possessive and remember 'collègue' is the same for both genders",
+      explanation: "'Mes collègues sont très sympas.' — 'mes' for plural, 'sympas' informal plural of 'sympa'.",
+      difficulty: "MEDIUM",
+      xp_reward: 4,
+      order_index: 6,
+    },
+    {
+      exercise_type: "REORDER",
+      question: "Put the words in order:",
+      content: {
+        words: ["e-mail", "j'envoie", "collègue", "à", "un", "mon"],
+        correctOrder: ["j'envoie", "un", "e-mail", "à", "mon", "collègue"],
+        translation: "I send an email to my colleague",
+      },
+      hint: "Verb first, then what you send, then to whom",
+      explanation: "Correct order: J'envoie un e-mail à mon collègue. (I send an email to my colleague.)",
+      difficulty: "MEDIUM",
+      xp_reward: 4,
+      order_index: 7,
+    },
+    {
+      exercise_type: "LISTENING",
+      question: "Listen and select the correct answer:",
+      content: {
+        ttsText: "J'ai une réunion avec mon patron à quatorze heures dans la grande salle.",
+        ttsLang: "fr-FR",
+        options: [
+          "I have a meeting with my boss at 2 PM in the big room",
+          "I have a meeting with my colleague at noon in the office",
+          "I have an email from my boss at 4 PM",
+          "I have a meeting with my boss at 4 PM in the small room",
+        ],
+        correctIndex: 0,
+      },
+      hint: "Listen for 'réunion', 'patron', and 'quatorze heures'",
+      explanation: "'J'ai une réunion avec mon patron à quatorze heures' = I have a meeting with my boss at 2 PM.",
+      difficulty: "MEDIUM",
+      xp_reward: 4,
+      order_index: 8,
+    },
+    {
+      exercise_type: "SPEAK",
+      question: "Say this sentence out loud:",
+      content: {
+        targetText: "Je travaille dans un bureau avec mes collègues.",
+        targetTranslation: "I work in an office with my colleagues.",
+        acceptableVariants: ["je travaille dans un bureau avec mes collègues"],
+      },
+      hint: "Focus on 'dans un bureau' — the preposition for physical spaces",
+      explanation: "Great! You used the correct preposition 'dans' for a physical workspace.",
+      difficulty: "MEDIUM",
+      xp_reward: 5,
+      order_index: 9,
+    },
+    {
+      exercise_type: "SPEAK",
+      question: "Say this sentence out loud:",
+      content: {
+        targetText: "Mon patron envoie beaucoup d'e-mails.",
+        targetTranslation: "My boss sends a lot of emails.",
+        acceptableVariants: ["mon patron envoie beaucoup d'e-mails"],
+      },
+      hint: "Take it step by step: mon patron... envoie... beaucoup d'e-mails",
+      explanation: "Excellent! 'Envoie' is the third person singular of 'envoyer'.",
+      difficulty: "HARD",
+      xp_reward: 5,
+      order_index: 10,
+    },
+  ],
+};
