@@ -556,3 +556,35 @@ a:hover {
 
 /* Flashcard — navy faces (front & back) */
 .fc-face p { color: inherit; }
+/* ============================================
+   PWA / MOBILE APP STYLES
+   ============================================ */
+
+/* Safe area padding for notched phones */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* Prevent overscroll bounce (native feel) */
+html {
+  overscroll-behavior: none;
+}
+
+/* Smooth scrolling */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+/* Standalone PWA adjustments */
+@media (display-mode: standalone) {
+  body {
+    -webkit-user-select: none;
+    user-select: auto;
+  }
+}

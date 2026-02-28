@@ -14,7 +14,7 @@ export function AITutorFab({ plan }: AITutorFabProps) {
   const [showTooltip, setShowTooltip] = useState(false);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-24 right-4 lg:bottom-6 lg:right-6 z-50">
       {/* Tooltip */}
       {showTooltip && !isPaid && (
         <div className="absolute bottom-16 right-0 bg-gray-900 text-white text-xs rounded-lg px-3 py-2 whitespace-nowrap shadow-lg">

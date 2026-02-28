@@ -1,3 +1,4 @@
+import { MobileBottomNav } from "@/components/shared/mobile-bottom-nav";
 import { AITutorFab } from "@/components/student/ai-tutor-fab";
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
@@ -159,13 +160,19 @@ export default async function StudentLayout({
         </div>
       </header>
 
+      {/* Mobile Bottom Navigation */}
+      <MobileBottomNav plan={profile?.subscription_plan || "FREE"} />
+
+      {/* Mobile Bottom Navigation */}
+
       {/* AI Tutor Floating Button */}
       <AITutorFab plan={profile?.subscription_plan || "FREE"} />
 
       {/* Main Content */}
       <div className="lg:pl-64">
-        <main className="min-h-screen p-4 sm:p-6 lg:p-8">{children}</main>
+        <main className="min-h-screen p-4 sm:p-6 lg:p-8 pb-24 lg:pb-8">{children}</main>
       </div>
+      {/* Mobile Bottom Navigation */}
     </div>
   );
 }
