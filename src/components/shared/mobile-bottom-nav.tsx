@@ -1,5 +1,4 @@
 "use client";
-
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Home, BookOpen, Bot, Trophy, User } from "lucide-react";
@@ -24,44 +23,48 @@ export function MobileBottomNav({ plan = "FREE" }: MobileBottomNavProps) {
     return pathname.startsWith(href);
   };
 
-  // Hide bottom nav on lesson pages (full-screen experience)
   const hideOnPaths = ["/learn/", "/placement-test"];
   const shouldHide = hideOnPaths.some(
     (p) => pathname.includes(p) && pathname.split("/").length > 3
   );
+
   if (shouldHide) return null;
 
   return (
-    <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 pb-[env(safe-area-inset-bottom)]">
+    <nav
+      className="lg:hidden fixed bottom-0 left-0 right-0 z-50 pb-[env(safe-area-inset-bottom)]"
+      style={{ backgroundColor: "#0f1f3d" }}
+    >
       <div className="flex items-center justify-around h-16 px-2">
         {tabs.map((tab) => {
           const active = isActive(tab.href);
           const Icon = tab.icon;
-
           return (
             <Link
               key={tab.href}
               href={tab.href}
-              className={`flex flex-col items-center justify-center gap-0.5 flex-1 py-1 rounded-xl transition-colors ${
-                active ? "text-primary" : "text-gray-400"
-              }`}
+              className="flex flex-col items-center justify-center gap-0.5 flex-1 py-1 transition-colors"
             >
               <div
-                className={`p-1.5 rounded-xl transition-all ${
-                  active ? "bg-primary/10" : ""
-                }`}
+                className="p-1.5 rounded-xl transition-all"
+                style={
+                  active
+                    ? {
+                        border: "2px solid #f59e0b",
+                        backgroundColor: "rgba(245, 158, 11, 0.15)",
+                      }
+                    : { border: "2px solid transparent" }
+                }
               >
                 <Icon
-                  className={`w-5 h-5 ${
-                    active ? "text-primary" : "text-gray-400"
-                  }`}
+                  className="w-5 h-5"
+                  style={{ color: active ? "#f59e0b" : "#94a3b8" }}
                   strokeWidth={active ? 2.5 : 2}
                 />
               </div>
               <span
-                className={`text-[10px] font-medium leading-none ${
-                  active ? "text-primary" : "text-gray-400"
-                }`}
+                className="text-[10px] font-medium leading-none mt-0.5"
+                style={{ color: active ? "#f59e0b" : "#94a3b8" }}
               >
                 {tab.label}
               </span>
