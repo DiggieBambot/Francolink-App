@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { Button, Input } from "@/components/ui";
+import { NotificationSettings } from "@/components/notifications/notification-settings";
 import { 
   User, 
   Mail, 
@@ -304,6 +305,9 @@ export default function SettingsForm({ user }: SettingsFormProps) {
         </div>
       </div>
 
+      {/* Notification Settings */}
+      <NotificationSettings />
+
       {/* Danger Zone */}
       <div className="bg-white rounded-2xl shadow-soft p-6 border-2 border-red-100">
         <h2 className="text-lg font-heading font-bold text-red-600 mb-4 flex items-center gap-2">
@@ -345,3 +349,7 @@ export default function SettingsForm({ user }: SettingsFormProps) {
     </div>
   );
 }
+
+// Note: Import and add NotificationSettings at top of file
+
+// Note: Import and add NotificationSettings at top of file

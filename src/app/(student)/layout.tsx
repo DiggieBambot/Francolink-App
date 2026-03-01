@@ -1,5 +1,6 @@
 import { MobileBottomNav } from "@/components/shared/mobile-bottom-nav";
 import { AITutorFab } from "@/components/student/ai-tutor-fab";
+import { PushPrompt } from "@/components/notifications/push-prompt";
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { StudentNavigation } from "@/components/student/student-navigation";
@@ -164,6 +165,8 @@ export default async function StudentLayout({
       <MobileBottomNav plan={profile?.subscription_plan || "FREE"} />
 
       {/* Mobile Bottom Navigation */}
+
+      <PushPrompt />
 
       {/* AI Tutor Floating Button */}
       <AITutorFab plan={profile?.subscription_plan || "FREE"} />
