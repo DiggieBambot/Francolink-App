@@ -124,7 +124,17 @@ export default async function StudentLayout({
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    // ── safe-area-inset: prevents content going behind iPhone notch/home bar ──
+    <div
+      className="bg-gray-50"
+      style={{
+        minHeight: "100dvh",                          // dvh = dynamic viewport height (PWA safe)
+        paddingTop: "env(safe-area-inset-top)",
+        paddingBottom: "env(safe-area-inset-bottom)",
+        paddingLeft: "env(safe-area-inset-left)",
+        paddingRight: "env(safe-area-inset-right)",
+      }}
+    >
       {/* Desktop Sidebar */}
       <aside className="hidden lg:flex fixed inset-y-0 left-0 w-64 bg-white border-r border-gray-100 flex-col z-50 shadow-sm">
         {sidebarContent}
@@ -164,8 +174,6 @@ export default async function StudentLayout({
       {/* Mobile Bottom Navigation */}
       <MobileBottomNav plan={profile?.subscription_plan || "FREE"} />
 
-      {/* Mobile Bottom Navigation */}
-
       <PushPrompt />
 
       {/* AI Tutor Floating Button */}
@@ -173,9 +181,11 @@ export default async function StudentLayout({
 
       {/* Main Content */}
       <div className="lg:pl-64">
-        <main className="min-h-screen p-4 sm:p-6 lg:p-8 pb-24 lg:pb-8">{children}</main>
+        {/* pb-24 for mobile bottom nav + extra for home bar */}
+        <main className="min-h-screen p-4 sm:p-6 lg:p-8 pb-28 lg:pb-8">
+          {children}
+        </main>
       </div>
-      {/* Mobile Bottom Navigation */}
     </div>
   );
 }
