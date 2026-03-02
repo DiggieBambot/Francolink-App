@@ -7,6 +7,7 @@ import { CheckCircle, Lock, Play, BookOpen, Clock, Trophy, Crown } from "lucide-
 import { getLessonUsage } from "@/lib/utils/lesson-limits";
 import { isPaidPlan, canAccessLevel, type CEFRLevel } from "@/lib/config/subscription";
 import { DailyLessonLimit } from "@/components/dashboard/daily-lesson-limit";
+import { CertificateBanner } from "@/components/learning/certificate-banner";
 
 // Language configuration
 const languageConfig: Record<string, { name: string; flag: string }> = {
@@ -31,14 +32,11 @@ export default async function CoursePage({ params }: PageProps) {
   const { language, level } = await params;
   const supabase = await createClient();
 
-  // Get language info for display
   const langInfo = languageConfig[language.toLowerCase()] || { name: "Language", flag: "🌍" };
 
-  // Get current user
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/login");
 
-  // Fetch course with units and lessons (including is_premium)
   const { data: course, error } = await supabase
     .from("courses")
     .select(`
@@ -88,7 +86,6 @@ export default async function CoursePage({ params }: PageProps) {
     );
   }
 
-  // Fetch user's lesson progress
   const { data: progress } = await supabase
     .from("lesson_progress")
     .select("lesson_id, status, score")
@@ -98,14 +95,12 @@ export default async function CoursePage({ params }: PageProps) {
     progress?.filter(p => p.status === "COMPLETED").map(p => p.lesson_id) || []
   );
 
-  // Fetch lesson usage & plan info
   const usage = await getLessonUsage(supabase, user.id);
   const cefrLevel = level.toUpperCase() as CEFRLevel;
   const userPlan = usage.plan;
   const levelAccessible = canAccessLevel(userPlan, cefrLevel);
   const userIsPaid = isPaidPlan(userPlan);
 
-  // Check if user is ADMIN or TESTER — bypass ALL locks
   const { data: userProfile } = await supabase
     .from("users")
     .select("role")
@@ -115,13 +110,11 @@ export default async function CoursePage({ params }: PageProps) {
     userProfile?.role?.toUpperCase() === "ADMIN" ||
     userProfile?.role?.toUpperCase() === "TESTER";
 
-  // Sort units and lessons by order_index
   const sortedUnits = [...(course.units || [])].sort((a, b) => a.order_index - b.order_index);
   sortedUnits.forEach(unit => {
     unit.lessons = [...(unit.lessons || [])].sort((a, b) => a.order_index - b.order_index);
   });
 
-  // Calculate which lessons are unlocked (progression-based) — skipped for testers
   const unlockedLessons = new Set<string>();
   let previousCompleted = true;
 
@@ -142,7 +135,6 @@ export default async function CoursePage({ params }: PageProps) {
     previousCompleted = allCompleted;
   });
 
-  // Pre-calculate all progress values
   const totalLessons = sortedUnits.reduce((acc, u) => acc + u.lessons.length, 0);
   const completedCount = sortedUnits.reduce(
     (acc, u) => acc + u.lessons.filter(l => completedLessons.has(l.id)).length,
@@ -150,7 +142,6 @@ export default async function CoursePage({ params }: PageProps) {
   );
   const progressPercent = totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0;
 
-  // Pre-calculate unit data
   const unitData = sortedUnits.map((unit, unitIndex) => {
     const unitLessonsCompleted = unit.lessons.filter(l => completedLessons.has(l.id)).length;
     const unitProgress = unit.lessons.length > 0
@@ -161,7 +152,6 @@ export default async function CoursePage({ params }: PageProps) {
     const lessonsData = unit.lessons.map((lesson, lessonIndex) => {
       const isCompleted = completedLessons.has(lesson.id);
 
-      // ✅ TESTER/ADMIN: unlock everything, no locks at all
       if (isTester) {
         return {
           ...lesson,
@@ -282,6 +272,13 @@ export default async function CoursePage({ params }: PageProps) {
             <DailyLessonLimit usage={usage} />
           </div>
         )}
+
+        {/* ── Certificate Banner — visible only when level is 100% complete ── */}
+        <CertificateBanner
+          language={language}
+          level={level.toUpperCase()}
+          progressPercent={progressPercent}
+        />
 
         <div className="space-y-6">
           {unitData.map((unit) => (
@@ -411,7 +408,6 @@ function LessonRow({
 
   const content = (
     <div className={rowClass}>
-      {/* Status Icon */}
       <div className={statusIconClass}>
         {isCompleted ? (
           <CheckCircle className="w-5 h-5" />
@@ -424,7 +420,6 @@ function LessonRow({
         )}
       </div>
 
-      {/* Lesson Info */}
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2">
           <span className="text-lg">{getLessonTypeIcon(lesson.lesson_type)}</span>
@@ -443,7 +438,6 @@ function LessonRow({
         </p>
       </div>
 
-      {/* Lesson Meta */}
       <div className="flex items-center gap-4 text-sm">
         <div className={timeClass}>
           <Clock className="w-4 h-4" />
@@ -455,7 +449,6 @@ function LessonRow({
         </div>
       </div>
 
-      {/* Next indicator */}
       {isNext && (
         <span className="bg-secondary text-white text-xs font-medium px-2 py-1 rounded-full">
           Next

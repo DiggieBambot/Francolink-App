@@ -20,7 +20,6 @@ export async function updateSession(request: NextRequest) {
           cookiesToSet.forEach(({ name, value, options }) =>
             supabaseResponse.cookies.set(name, value, {
               ...options,
-              // CRITICAL: keep user signed in for PWA
               httpOnly: true,
               secure: process.env.NODE_ENV === "production",
               sameSite: "lax",
@@ -39,6 +38,7 @@ export async function updateSession(request: NextRequest) {
   const publicRoutes = [
     '/tutors', '/join', '/about', '/pricing', '/contact',
     '/terms', '/privacy', '/api/webhooks', '/auth/callback',
+    '/admin/login',  // ← ADD THIS
   ];
 
   const isPublicRoute = publicRoutes.some(route =>
@@ -48,13 +48,11 @@ export async function updateSession(request: NextRequest) {
 
   if (pathname.startsWith('/admin')) {
     if (!user) {
-      const redirectUrl = new URL('/login', request.url);
-      redirectUrl.searchParams.set('redirect', pathname);
-      return NextResponse.redirect(redirectUrl);
+      return NextResponse.redirect(new URL('/admin/login', request.url));  // ← was /login
     }
     const { data: userData } = await supabase.from('users').select('role').eq('id', user.id).single();
     if (!userData) return NextResponse.redirect(new URL('/onboarding', request.url));
-    if (userData?.role !== 'ADMIN') return NextResponse.redirect(new URL('/dashboard', request.url));
+    if (userData?.role !== 'ADMIN') return NextResponse.redirect(new URL('/admin/login', request.url));  // ← was /dashboard
     return supabaseResponse;
   }
 

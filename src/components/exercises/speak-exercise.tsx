@@ -10,14 +10,16 @@ interface SpeakExerciseProps {
     id: string;
     question: string;
     content: {
-      targetText: string;        // What they should say
-      targetTranslation?: string; // English translation
-      acceptableVariants?: string[]; // Other acceptable answers
+      targetText: string;
+      targetTranslation?: string;
+      acceptableVariants?: string[];
     };
     hint?: string;
+    explanation?: string;
   };
   language?: string;
   onSubmit: (correct: boolean, userAnswer?: any, correctAnswer?: any) => void;
+  onMicStart?: () => void; // ← new: called when mic activates (for sound)
   disabled?: boolean;
 }
 
@@ -25,6 +27,7 @@ export default function SpeakExercise({
   exercise,
   language = "fr-FR",
   onSubmit,
+  onMicStart,
   disabled,
 }: SpeakExerciseProps) {
   const [isListening, setIsListening] = useState(false);
@@ -33,29 +36,25 @@ export default function SpeakExercise({
   const [submitted, setSubmitted] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
-  
-  const recognitionRef = useRef<any>(null);
 
+  const recognitionRef = useRef<any>(null);
   const { content } = exercise;
   const targetText = content.targetText || "";
 
-  // Reset state when exercise changes (fixes exercise 12 not showing fresh)
+  // Reset when exercise changes
   useEffect(() => {
     setTranscript("");
     setSubmitted(false);
     setIsCorrect(false);
     setIsListening(false);
-    if (recognitionRef.current) {
-      recognitionRef.current.abort();
-    }
+    if (recognitionRef.current) recognitionRef.current.abort();
   }, [exercise.id]);
 
-  // Check browser support
+  // Setup speech recognition
   useEffect(() => {
-    const SpeechRecognition = 
-      (window as any).SpeechRecognition || 
-      (window as any).webkitSpeechRecognition;
-    
+    const SpeechRecognition =
+      (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+
     if (!SpeechRecognition) {
       setIsSupported(false);
       return;
@@ -68,136 +67,92 @@ export default function SpeakExercise({
 
     recognition.onresult = (event: any) => {
       const results = event.results;
-      const latestResult = results[results.length - 1];
-      const transcriptText = latestResult[0].transcript;
-      setTranscript(transcriptText);
+      const latest = results[results.length - 1];
+      setTranscript(latest[0].transcript);
     };
 
-    recognition.onend = () => {
-      setIsListening(false);
-    };
-
-    recognition.onerror = (event: any) => {
-      console.error("Speech recognition error:", event.error);
-      setIsListening(false);
-    };
+    recognition.onend = () => setIsListening(false);
+    recognition.onerror = () => setIsListening(false);
 
     recognitionRef.current = recognition;
-
-    return () => {
-      recognition.abort();
-    };
+    return () => recognition.abort();
   }, [language]);
 
-  // Play the target text
   const playTarget = () => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-
     window.speechSynthesis.cancel();
-    
     const utterance = new SpeechSynthesisUtterance(targetText);
     const voices = window.speechSynthesis.getVoices();
-    const langVoice = voices.find(v => v.lang.startsWith(language.split('-')[0]));
+    const langVoice = voices.find((v) => v.lang.startsWith(language.split("-")[0]));
     if (langVoice) utterance.voice = langVoice;
-    
     utterance.lang = language;
     utterance.rate = 0.85;
     utterance.onstart = () => setIsSpeaking(true);
     utterance.onend = () => setIsSpeaking(false);
-    
     window.speechSynthesis.speak(utterance);
   };
 
-  // Start listening
   const startListening = () => {
     if (!recognitionRef.current || isListening) return;
-    
     setTranscript("");
     setIsListening(true);
+    onMicStart?.(); // ← trigger mic_on sound in parent
     recognitionRef.current.start();
   };
 
-  // Stop listening
   const stopListening = () => {
     if (!recognitionRef.current) return;
-    
     recognitionRef.current.stop();
     setIsListening(false);
   };
 
-  // Compare answers (fuzzy matching)
   const compareText = (spoken: string, target: string): boolean => {
-    const normalize = (text: string) => 
-      text.toLowerCase()
-        .replace(/[.,!?;:'"]/g, '')
-        .replace(/\s+/g, ' ')
-        .trim();
-    
-    const normalizedSpoken = normalize(spoken);
-    const normalizedTarget = normalize(target);
-    
-    // Exact match
-    if (normalizedSpoken === normalizedTarget) return true;
-    
-    // Check acceptable variants
+    const normalize = (t: string) =>
+      t.toLowerCase().replace(/[.,!?;:'"]/g, "").replace(/\s+/g, " ").trim();
+    const ns = normalize(spoken);
+    const nt = normalize(target);
+    if (ns === nt) return true;
     if (content.acceptableVariants) {
-      for (const variant of content.acceptableVariants) {
-        if (normalizedSpoken === normalize(variant)) return true;
+      for (const v of content.acceptableVariants) {
+        if (ns === normalize(v)) return true;
       }
     }
-    
-    // Fuzzy match - allow 80% similarity
-    const similarity = calculateSimilarity(normalizedSpoken, normalizedTarget);
-    return similarity >= 0.8;
+    return calculateSimilarity(ns, nt) >= 0.8;
   };
 
-  // Simple similarity calculation
-  const calculateSimilarity = (str1: string, str2: string): number => {
-    const words1 = str1.split(' ');
-    const words2 = str2.split(' ');
-    
+  const calculateSimilarity = (s1: string, s2: string): number => {
+    const w1 = s1.split(" ");
+    const w2 = s2.split(" ");
     let matches = 0;
-    for (const word of words1) {
-      if (words2.includes(word)) matches++;
-    }
-    
-    return matches / Math.max(words1.length, words2.length);
+    for (const w of w1) if (w2.includes(w)) matches++;
+    return matches / Math.max(w1.length, w2.length);
   };
 
-  // Submit answer — only records result, does NOT advance (lesson-flow handles advancing)
   const handleSubmit = () => {
     if (!transcript.trim()) return;
-    
     const correct = compareText(transcript, targetText);
     setIsCorrect(correct);
     setSubmitted(true);
-    // First call: just records the result in lesson-flow, does not advance
+    // 1st call — records result, shows inline feedback, does NOT advance
     onSubmit(correct, transcript, targetText);
   };
 
-  // Reset
   const handleRetry = () => {
     setTranscript("");
     setSubmitted(false);
     setIsCorrect(false);
   };
 
-  // Not supported fallback
   if (!isSupported) {
     return (
       <div className="space-y-4">
-        <h3 className="text-lg font-semibold text-gray-900">
-          {exercise.question}
-        </h3>
+        <h3 className="text-lg font-semibold text-gray-900">{exercise.question}</h3>
         <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-xl">
           <p className="text-yellow-800">
-            😔 Speech recognition is not supported in your browser. 
-            Please try Chrome or Edge for the best experience.
+            😔 Speech recognition is not supported in your browser. Please try Chrome or Edge.
           </p>
         </div>
-        <Button onClick={() => onSubmit(true)} className="w-full">
-          Skip this exercise
-        </Button>
+        <Button onClick={() => onSubmit(true)} className="w-full">Skip this exercise</Button>
       </div>
     );
   }
@@ -205,15 +160,10 @@ export default function SpeakExercise({
   return (
     <div className="space-y-4">
       {/* Question */}
-      <h3 className="text-lg font-semibold text-gray-900">
-        {exercise.question}
-      </h3>
+      <h3 className="text-lg font-semibold text-gray-900">{exercise.question}</h3>
 
-      {/* Target phrase card */}
-      <div 
-        className="p-4 rounded-xl"
-        style={{ background: "linear-gradient(135deg, #0f2744, #0a1e35)" }}
-      >
+      {/* Target phrase */}
+      <div className="p-4 rounded-xl" style={{ background: "linear-gradient(135deg, #0f2744, #0a1e35)" }}>
         <div className="flex items-center justify-between">
           <div>
             <p className="text-white font-medium text-lg">{targetText}</p>
@@ -226,25 +176,28 @@ export default function SpeakExercise({
             disabled={isSpeaking}
             className="p-3 bg-white/20 hover:bg-white/30 rounded-full transition-all"
           >
-            <Volume2 
-              className={`w-5 h-5 text-white ${isSpeaking ? 'animate-pulse' : ''}`} 
-            />
+            <Volume2 className={`w-5 h-5 text-white ${isSpeaking ? "animate-pulse" : ""}`} />
           </button>
         </div>
       </div>
 
-      {/* Microphone area */}
+      {/* Mic area */}
       {!submitted && (
         <div className="flex flex-col items-center py-6">
           {/* Mic button */}
           <button
             onClick={isListening ? stopListening : startListening}
             disabled={disabled}
-            className={`w-20 h-20 rounded-full flex items-center justify-center transition-all ${
-              isListening 
-                ? 'bg-red-500 animate-pulse scale-110' 
-                : 'bg-primary hover:bg-primary-600'
+            className={`w-20 h-20 rounded-full flex items-center justify-center transition-all shadow-lg ${
+              isListening
+                ? "bg-red-500 scale-110 shadow-red-200 shadow-xl"
+                : "bg-primary hover:bg-primary/90 hover:scale-105"
             }`}
+            style={
+              isListening
+                ? { animation: "mic-pulse 1s ease-in-out infinite" }
+                : {}
+            }
           >
             {isListening ? (
               <MicOff className="w-8 h-8 text-white" />
@@ -252,12 +205,17 @@ export default function SpeakExercise({
               <Mic className="w-8 h-8 text-white" />
             )}
           </button>
-          
-          <p className="text-sm text-gray-500 mt-3">
-            {isListening ? "Listening... Tap to stop" : "Tap to speak"}
+
+          {/* Listening ring animation */}
+          {isListening && (
+            <div className="absolute w-24 h-24 rounded-full border-4 border-red-400 opacity-50 animate-ping pointer-events-none" />
+          )}
+
+          <p className="text-sm text-gray-500 mt-4">
+            {isListening ? "🎙️ Listening... Tap to stop" : "Tap to speak"}
           </p>
 
-          {/* Transcript */}
+          {/* Live transcript */}
           {transcript && (
             <div className="mt-4 p-3 bg-gray-100 rounded-xl w-full text-center">
               <p className="text-gray-500 text-xs mb-1">You said:</p>
@@ -267,29 +225,46 @@ export default function SpeakExercise({
         </div>
       )}
 
-      {/* Result */}
+      {/* Result feedback */}
       {submitted && (
-        <div className={`p-4 rounded-xl ${
-          isCorrect ? 'bg-green-50 border-2 border-green-200' : 'bg-red-50 border-2 border-red-200'
-        }`}>
+        <div
+          className={`p-4 rounded-xl border-2 ${
+            isCorrect ? "bg-green-50 border-green-300" : "bg-red-50 border-red-300"
+          }`}
+        >
           <div className="flex items-start gap-3">
-            <div className={`p-2 rounded-full ${isCorrect ? 'bg-green-100' : 'bg-red-100'}`}>
+            <div className={`p-2 rounded-full flex-shrink-0 ${isCorrect ? "bg-green-100" : "bg-red-100"}`}>
               {isCorrect ? (
                 <CheckCircle className="w-6 h-6 text-green-600" />
               ) : (
                 <XCircle className="w-6 h-6 text-red-600" />
               )}
             </div>
-            <div>
-              <p className={`font-bold ${isCorrect ? 'text-green-800' : 'text-red-800'}`}>
-                {isCorrect ? "Great pronunciation!" : "Not quite right"}
+            <div className="flex-1">
+              <p className={`font-bold ${isCorrect ? "text-green-800" : "text-red-800"}`}>
+                {isCorrect ? "Great pronunciation! 🎉" : "Not quite right"}
               </p>
-              <p className={`text-sm mt-1 ${isCorrect ? 'text-green-700' : 'text-red-700'}`}>
-                You said: "{transcript}"
+              <p className={`text-sm mt-1 ${isCorrect ? "text-green-700" : "text-red-700"}`}>
+                You said: &quot;{transcript}&quot;
               </p>
+
+              {/* Show correct answer on wrong */}
               {!isCorrect && (
-                <p className="text-sm text-green-700 mt-1">
-                  Expected: "{targetText}"
+                <div className="mt-2 bg-white rounded-lg px-3 py-2 border border-red-200">
+                  <p className="text-xs text-gray-500 mb-0.5">Correct answer:</p>
+                  <p className="text-green-700 font-semibold text-sm">&quot;{targetText}&quot;</p>
+                </div>
+              )}
+
+              {/* Hint */}
+              {exercise.hint && !isCorrect && (
+                <p className="text-xs text-gray-500 italic mt-2">💡 {exercise.hint}</p>
+              )}
+
+              {/* Explanation */}
+              {exercise.explanation && !isCorrect && (
+                <p className="text-xs text-blue-700 mt-1 bg-blue-50 rounded px-2 py-1">
+                  📖 {exercise.explanation}
                 </p>
               )}
             </div>
@@ -297,39 +272,35 @@ export default function SpeakExercise({
         </div>
       )}
 
-      {/* Hint */}
+      {/* Hint before submission */}
       {exercise.hint && !submitted && (
         <p className="text-sm text-gray-500 italic">💡 {exercise.hint}</p>
       )}
 
       {/* Actions */}
       {!submitted ? (
-        <Button
-          onClick={handleSubmit}
-          disabled={!transcript.trim() || disabled}
-          className="w-full"
-        >
+        <Button onClick={handleSubmit} disabled={!transcript.trim() || disabled} className="w-full">
           Check Pronunciation
         </Button>
       ) : (
         <div className="flex gap-3">
-          <Button
-            onClick={handleRetry}
-            variant="outline"
-            className="flex-1 gap-2"
-          >
+          <Button onClick={handleRetry} variant="outline" className="flex-1 gap-2">
             <RotateCcw className="w-4 h-4" />
             Try Again
           </Button>
-          {/* Second call: this is what actually advances to next exercise */}
-          <Button
-            onClick={() => onSubmit(isCorrect, transcript, targetText)}
-            className="flex-1"
-          >
+          {/* 2nd call — advances to next exercise */}
+          <Button onClick={() => onSubmit(isCorrect, transcript, targetText)} className="flex-1">
             Continue
           </Button>
         </div>
       )}
+
+      <style>{`
+        @keyframes mic-pulse {
+          0%, 100% { box-shadow: 0 0 0 0 rgba(239,68,68,0.4); }
+          50% { box-shadow: 0 0 0 16px rgba(239,68,68,0); }
+        }
+      `}</style>
     </div>
   );
 }

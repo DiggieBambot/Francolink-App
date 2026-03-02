@@ -1,7 +1,7 @@
 {
   "name": "FrancoLink - Language Learning",
   "short_name": "FrancoLink",
-  "description": "Learn French, Spanish, English, and German with interactive lessons and AI tutoring",
+  "description": "Learn French, Spanish, English, and German",
   "start_url": "/dashboard",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -23,7 +23,10 @@
     }
   ],
   "screenshots": [],
-  "categories": ["education", "language"],
+  "categories": [
+    "education",
+    "language"
+  ],
   "lang": "en",
   "dir": "ltr"
 }
