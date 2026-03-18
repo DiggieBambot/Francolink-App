@@ -23,6 +23,7 @@ interface VocabularyWord {
 interface VocabularyCardsProps {
   vocabulary: VocabularyWord[];
   language?: string;
+  level?: string;
   onComplete: () => void;
   onProgress: (progress: number) => void;
 }
@@ -30,6 +31,7 @@ interface VocabularyCardsProps {
 export default function VocabularyCards({
   vocabulary,
   language = "fr-FR",
+  level = "A1",
   onComplete,
   onProgress,
 }: VocabularyCardsProps) {

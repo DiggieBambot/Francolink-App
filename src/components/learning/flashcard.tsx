@@ -17,6 +17,7 @@ interface FlashcardProps {
   tip?: string;
   image?: string;
   language?: string;
+  level?: string;
 }
 
 export default function Flashcard({
@@ -29,6 +30,7 @@ export default function Flashcard({
   tip,
   image,
   language = "fr-FR",
+  level = "A1",
 }: FlashcardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [imageError, setImageError] = useState(false);
@@ -95,11 +97,20 @@ export default function Flashcard({
     if (exampleSentence) speak(exampleSentence.original);
   };
 
-  // Hard-coded colors — no Tailwind custom color dependency
-  const navyGradient = "linear-gradient(135deg, #0f2744, #0a1e35)";
+  // Level-aware colors
+  const levelMap: Record<string, { gradient: string; accent: string; accentLight: string }> = {
+    A1: { gradient: "linear-gradient(135deg, #1e3a6e, #1a3060)", accent: "#3B82F6", accentLight: "#93C5FD" },
+    A2: { gradient: "linear-gradient(135deg, #0e3a45, #0a2d38)", accent: "#06B6D4", accentLight: "#67E8F9" },
+    B1: { gradient: "linear-gradient(135deg, #3d2e00, #2e2200)", accent: "#F59E0B", accentLight: "#FCD34D" },
+    B2: { gradient: "linear-gradient(135deg, #3d1a00, #2e1300)", accent: "#F97316", accentLight: "#FDBA74" },
+    C1: { gradient: "linear-gradient(135deg, #3d0000, #2e0000)", accent: "#EF4444", accentLight: "#FCA5A5" },
+    C2: { gradient: "linear-gradient(135deg, #2d0a4e, #200739)", accent: "#A855F7", accentLight: "#D8B4FE" },
+  };
+  const lv = levelMap[level?.toUpperCase()] || levelMap["B2"];
+  const navyGradient = lv.gradient;
   const panelBg = "rgba(255,255,255,0.15)";
-  const orange = "#f97316";
-  const orangeLight = "#fdba74";
+  const orange = lv.accent;
+  const orangeLight = lv.accentLight;
 
   return (
     <>

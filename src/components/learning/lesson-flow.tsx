@@ -31,6 +31,8 @@ import Translation from "@/components/exercises/translation";
 import SpeakExercise from "@/components/exercises/speak-exercise";
 import Reorder from "@/components/exercises/reorder";
 import Listening from "@/components/exercises/listening";
+import Writing from "@/components/exercises/writing";
+import ErrorCorrection from "@/components/exercises/error-correction";
 import { updateStreak } from "@/lib/utils/streak";
 import { incrementLessonCount } from "@/lib/utils/lesson-limits";
 import { useSoundEngine } from "@/hooks/use-sound-engine";
@@ -494,6 +496,8 @@ export default function LessonFlow({
           );
         case "REORDER":
           return <Reorder {...props} language={ttsLanguage} />;
+        case "WRITING":
+        case "ERROR_CORRECTION":
         case "LISTENING":
           return <Listening {...props} language={ttsLanguage} />;
         default:
