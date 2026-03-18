@@ -128,11 +128,12 @@ export default function VocabularyCards({
           tip={currentWord.tip}
           image={currentWord.image}
           language={language}
+          level={level}
         />
       </div>
 
       {/* Navigation */}
-      <div className="mt-6 px-4">
+      <div className="mt-6 px-4 pb-safe">
         <div className="flex items-center justify-center gap-3 mb-4">
           <button
             onClick={goToPrevious}
