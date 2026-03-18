@@ -551,7 +551,7 @@ export default function LessonFlow({
             <button onClick={() => setShowExitConfirm(true)} className="p-2 hover:bg-gray-100 rounded-full">
               <X className="w-5 h-5 text-gray-500" />
             </button>
-            <LessonProgressBar currentPhase={currentPhase} phases={phases} phaseProgress={0} />
+            <LessonProgressBar currentPhase={currentPhase} phases={phases} phaseProgress={0} level={level} />
             <div className="w-9" />
           </div>
         </div>
@@ -652,7 +652,7 @@ export default function LessonFlow({
               <X className="w-5 h-5 text-gray-500" />
             </button>
             <div className="flex-1">
-              <LessonProgressBar currentPhase={currentPhase} phases={phases} phaseProgress={phaseProgress} />
+              <LessonProgressBar currentPhase={currentPhase} phases={phases} phaseProgress={phaseProgress} level={level} />
             </div>
           </div>
         </div>
@@ -686,7 +686,7 @@ export default function LessonFlow({
               <X className="w-5 h-5 text-gray-500" />
             </button>
             <div className="flex-1">
-              <LessonProgressBar currentPhase={currentPhase} phases={phases} phaseProgress={phaseProgress} />
+              <LessonProgressBar currentPhase={currentPhase} phases={phases} phaseProgress={phaseProgress} level={level} />
             </div>
           </div>
         </div>
@@ -711,7 +711,7 @@ export default function LessonFlow({
               <X className="w-5 h-5 text-gray-500" />
             </button>
             <div className="flex-1">
-              <LessonProgressBar currentPhase={currentPhase} phases={phases} phaseProgress={phaseProgress} />
+              <LessonProgressBar currentPhase={currentPhase} phases={phases} phaseProgress={phaseProgress} level={level} />
             </div>
           </div>
         </div>
@@ -744,7 +744,7 @@ export default function LessonFlow({
               <X className="w-5 h-5 text-gray-500" />
             </button>
             <div className="flex-1">
-              <LessonProgressBar currentPhase={currentPhase} phases={phases} phaseProgress={100} />
+              <LessonProgressBar currentPhase={currentPhase} phases={phases} phaseProgress={100} level={level} />
             </div>
           </div>
         </div>
@@ -781,7 +781,7 @@ export default function LessonFlow({
               <X className="w-5 h-5 text-gray-500" />
             </button>
             <div className="flex-1">
-              <LessonProgressBar currentPhase={currentPhase} phases={phases} phaseProgress={0} />
+              <LessonProgressBar currentPhase={currentPhase} phases={phases} phaseProgress={0} level={level} />
             </div>
           </div>
         </div>
@@ -825,7 +825,7 @@ export default function LessonFlow({
               <X className="w-5 h-5 text-gray-500" />
             </button>
             <div className="flex-1">
-              <LessonProgressBar currentPhase={currentPhase} phases={phases} phaseProgress={exerciseProgress} />
+              <LessonProgressBar currentPhase={currentPhase} phases={phases} phaseProgress={exerciseProgress} level={level} />
             </div>
           </div>
         </div>
