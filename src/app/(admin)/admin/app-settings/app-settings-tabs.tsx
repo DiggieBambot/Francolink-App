@@ -6,7 +6,8 @@ import { ThemeTab } from './tabs/theme-tab';
 import { PricingTab } from './tabs/pricing-tab';
 import { PwaTab } from './tabs/pwa-tab';
 import { ApiKeysTab } from './tabs/api-keys-tab';
-import { Palette, Image, DollarSign, Smartphone, Key } from 'lucide-react';
+import { StripeTab } from './tabs/stripe-tab';
+import { Palette, Image, DollarSign, Smartphone, Key, CreditCard } from 'lucide-react';
 
 const TABS = [
   { id: 'branding', label: 'Branding', icon: Image },
@@ -14,6 +15,7 @@ const TABS = [
   { id: 'pricing', label: 'Pricing Plans', icon: DollarSign },
   { id: 'pwa', label: 'PWA', icon: Smartphone },
   { id: 'api', label: 'API Keys', icon: Key },
+  { id: 'stripe', label: 'Stripe', icon: CreditCard },
 ];
 
 interface Props {
@@ -54,6 +56,7 @@ export function AppSettingsTabs({ settings, rawSettings }: Props) {
       {activeTab === 'pricing' && <PricingTab getSetting={getSetting} rawSettings={rawSettings} />}
       {activeTab === 'pwa' && <PwaTab getSetting={getSetting} rawSettings={rawSettings} />}
       {activeTab === 'api' && <ApiKeysTab getSetting={getSetting} rawSettings={rawSettings} />}
+      {activeTab === 'stripe' && <StripeTab getSetting={getSetting} rawSettings={rawSettings} />}
     </div>
   );
 }

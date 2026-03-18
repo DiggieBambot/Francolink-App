@@ -31,6 +31,7 @@ export async function POST(request: NextRequest) {
     const { settings } = body as { settings: Record<string, string> };
 
     const getCategoryFromKey = (key: string): string => {
+      if (key.includes('::')) return key.split('::')[0];
       if (key.startsWith('app_')) return 'branding';
       if (key.startsWith('theme_')) return 'theme';
       if (key.startsWith('pwa_')) return 'pwa';
@@ -39,12 +40,15 @@ export async function POST(request: NextRequest) {
       return 'general';
     };
 
-    const upserts = Object.entries(settings).map(([key, value]) => ({
-      key, value: String(value), category: getCategoryFromKey(key),
-      updated_at: new Date().toISOString(),
-    }));
+    const upserts = Object.entries(settings).map(([rawKey, value]) => {
+      const hasCategory = rawKey.includes('::');
+      const category = getCategoryFromKey(rawKey);
+      const key = hasCategory ? rawKey.split('::')[1] : rawKey;
+      return { key, value: String(value), category, updated_at: new Date().toISOString() };
+    });
 
-    const { error } = await supabase.from('app_settings').upsert(upserts, { onConflict: 'key' });
+    const { error } = await supabase.from('app_settings')
+      .upsert(upserts, { onConflict: 'category,key' });
     if (error) return NextResponse.json({ error: 'Failed to save' }, { status: 500 });
 
     return NextResponse.json({ success: true });
