@@ -546,7 +546,7 @@ export default function LessonFlow({
   if (currentPhase === "intro") {
     return (
       <div className="min-h-screen bg-gray-50">
-        <div className="sticky top-0 bg-white border-b border-gray-100 px-4 py-3 z-10">
+        <div className="sticky top-0 bg-white border-b border-gray-100 px-4 py-3 z-10 lesson-header">
           <div className="max-w-3xl mx-auto flex items-center justify-between">
             <button onClick={() => setShowExitConfirm(true)} className="p-2 hover:bg-gray-100 rounded-full">
               <X className="w-5 h-5 text-gray-500" />
@@ -646,7 +646,7 @@ export default function LessonFlow({
   if (currentPhase === "vocabulary") {
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col">
-        <div className="sticky top-0 bg-white border-b border-gray-100 px-4 py-3 z-10">
+        <div className="sticky top-0 bg-white border-b border-gray-100 px-4 py-3 z-10 lesson-header">
           <div className="max-w-3xl mx-auto flex items-center gap-4">
             <button onClick={() => setShowExitConfirm(true)} className="p-2 hover:bg-gray-100 rounded-full">
               <X className="w-5 h-5 text-gray-500" />
@@ -680,7 +680,7 @@ export default function LessonFlow({
   if (currentPhase === "grammar") {
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col">
-        <div className="sticky top-0 bg-white border-b border-gray-100 px-4 py-3 z-10">
+        <div className="sticky top-0 bg-white border-b border-gray-100 px-4 py-3 z-10 lesson-header">
           <div className="max-w-3xl mx-auto flex items-center gap-4">
             <button onClick={() => setShowExitConfirm(true)} className="p-2 hover:bg-gray-100 rounded-full">
               <X className="w-5 h-5 text-gray-500" />
@@ -705,7 +705,7 @@ export default function LessonFlow({
   if (currentPhase === "dialogue") {
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col">
-        <div className="sticky top-0 bg-white border-b border-gray-100 px-4 py-3 z-10">
+        <div className="sticky top-0 bg-white border-b border-gray-100 px-4 py-3 z-10 lesson-header">
           <div className="max-w-3xl mx-auto flex items-center gap-4">
             <button onClick={() => setShowExitConfirm(true)} className="p-2 hover:bg-gray-100 rounded-full">
               <X className="w-5 h-5 text-gray-500" />
@@ -738,7 +738,7 @@ export default function LessonFlow({
     const culture = content.culture;
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col">
-        <div className="sticky top-0 bg-white border-b border-gray-100 px-4 py-3 z-10">
+        <div className="sticky top-0 bg-white border-b border-gray-100 px-4 py-3 z-10 lesson-header">
           <div className="max-w-3xl mx-auto flex items-center gap-4">
             <button onClick={() => setShowExitConfirm(true)} className="p-2 hover:bg-gray-100 rounded-full">
               <X className="w-5 h-5 text-gray-500" />
@@ -775,7 +775,7 @@ export default function LessonFlow({
   if (currentPhase === "practice-intro") {
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col">
-        <div className="sticky top-0 bg-white border-b border-gray-100 px-4 py-3 z-10">
+        <div className="sticky top-0 bg-white border-b border-gray-100 px-4 py-3 z-10 lesson-header">
           <div className="max-w-3xl mx-auto flex items-center gap-4">
             <button onClick={() => setShowExitConfirm(true)} className="p-2 hover:bg-gray-100 rounded-full">
               <X className="w-5 h-5 text-gray-500" />
@@ -819,7 +819,7 @@ export default function LessonFlow({
     const exerciseProgress = ((currentExerciseIndex + 1) / totalExercises) * 100;
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col">
-        <div className="sticky top-0 bg-white border-b border-gray-100 px-4 py-3 z-10">
+        <div className="sticky top-0 bg-white border-b border-gray-100 px-4 py-3 z-10 lesson-header">
           <div className="max-w-3xl mx-auto flex items-center gap-4">
             <button onClick={() => setShowExitConfirm(true)} className="p-2 hover:bg-gray-100 rounded-full">
               <X className="w-5 h-5 text-gray-500" />
@@ -852,7 +852,7 @@ export default function LessonFlow({
   if (currentPhase === "wrong-review") {
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col">
-        <div className="sticky top-0 bg-white border-b border-gray-100 px-4 py-3 z-10">
+        <div className="sticky top-0 bg-white border-b border-gray-100 px-4 py-3 z-10 lesson-header">
           <div className="max-w-3xl mx-auto">
             <h2 className="font-bold text-gray-900">Review Your Mistakes</h2>
           </div>

@@ -588,3 +588,65 @@ html {
     user-select: auto;
   }
 }
+
+/* ============================================
+   LESSON MOBILE POLISH
+   ============================================ */
+
+/* Flashcard — full height on small screens */
+@media (max-width: 640px) {
+  .fc-scene {
+    aspect-ratio: auto !important;
+    height: 72vw !important;
+    max-height: 420px;
+  }
+
+  /* Bigger tap targets for nav buttons */
+  .fc-nav-btn {
+    min-width: 48px;
+    min-height: 48px;
+  }
+
+  /* Lesson sticky header — respect notch */
+  .lesson-header {
+    padding-top: max(0.75rem, env(safe-area-inset-top));
+  }
+
+  /* Course header text scaling */
+  .course-hero h1 {
+    font-size: 1.5rem;
+  }
+
+  /* Unit number orb smaller on mobile */
+  .unit-orb {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0.875rem;
+  }
+
+  /* Bottom action bar safe area */
+  .lesson-bottom-bar {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  /* Vocabulary card buttons */
+  .vocab-action-btn {
+    min-height: 48px;
+    font-size: 1rem;
+  }
+}
+
+/* Prevent text overflow on lesson titles */
+.lesson-row-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+/* Smooth card flip on iOS */
+.fc-card {
+  -webkit-transform-style: preserve-3d;
+  will-change: transform;
+}
+
