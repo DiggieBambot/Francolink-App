@@ -153,6 +153,12 @@ export default function LessonContent({
         return <FillBlank {...props} />;
       case "TRANSLATION":
         return <Translation {...props} />;
+      case "SPEAK":
+      case "LISTENING":
+      case "REORDER":
+      case "WRITING":
+      case "ERROR_CORRECTION":
+        return <div>{currentExercise.question}</div>;
       default:
         return <div>Unknown exercise type: {currentExercise.exercise_type}</div>;
     }

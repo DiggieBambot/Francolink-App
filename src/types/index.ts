@@ -16,7 +16,11 @@ export type ExerciseType =
   | "FILL_BLANK"
   | "MATCHING"
   | "TRANSLATION"
-  | "REORDER";
+  | "REORDER"
+  | "SPEAK"
+  | "LISTENING"
+  | "WRITING"
+  | "ERROR_CORRECTION";
 export type Difficulty = "EASY" | "MEDIUM" | "HARD";
 export type ProgressStatus = "NOT_STARTED" | "IN_PROGRESS" | "COMPLETED";
 

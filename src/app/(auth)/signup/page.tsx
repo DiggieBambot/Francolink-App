@@ -37,7 +37,7 @@ const handleSignup = async (e: React.FormEvent) => {
           name,
           full_name: name,
         },
-        emailRedirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/auth/callback`,
+        emailRedirectTo: `${window.location.origin}/auth/callback`
       },
     });
 

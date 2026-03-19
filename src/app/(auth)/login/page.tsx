@@ -15,61 +15,29 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
- const handleLogin = async (e: React.FormEvent) => {
-  e.preventDefault();
+ const handleGoogleLogin = async () => {
   setError("");
   setIsLoading(true);
 
   try {
     const supabase = createClient();
 
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}/auth/callback`,
+      },
     });
 
     if (error) {
       setError(error.message);
-      setIsLoading(false);
-      return;
-    }
-
-    // Wait for session to be set
-    if (data.session) {
-      // Force a hard navigation to ensure cookies are sent
-      window.location.href = "/dashboard";
-    } else {
-      setError("Login successful but no session created. Please try again.");
-      setIsLoading(false);
     }
   } catch {
     setError("Something went wrong. Please try again.");
+  } finally {
     setIsLoading(false);
   }
 };
-  const handleGoogleLogin = async () => {
-    setError("");
-    setIsLoading(true);
-
-    try {
-      const supabase = createClient();
-
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-        options: {
-          redirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/auth/callback`,
-        },
-      });
-
-      if (error) {
-        setError(error.message);
-      }
-    } catch {
-      setError("Something went wrong. Please try again.");
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   return (
     <Card className="w-full max-w-md">
