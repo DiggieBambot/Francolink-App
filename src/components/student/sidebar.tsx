@@ -60,8 +60,7 @@ export function Sidebar({ user }: SidebarProps) {
   const handleLogout = async () => {
     const supabase = createClient();
     await supabase.auth.signOut();
-    router.push("/");
-    router.refresh();
+    window.location.href = "/login";
   };
 
   // Render the subscription section based on plan

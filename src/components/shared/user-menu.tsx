@@ -25,7 +25,7 @@ export function UserMenu({ user }: UserMenuProps) {
   const handleSignOut = async () => {
     setIsLoggingOut(true);
     await supabase.auth.signOut();
-    router.push("/login");
+    window.location.href = "/login";
   };
 
   return (

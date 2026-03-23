@@ -44,7 +44,7 @@ export function TutorSidebar({
   const handleSignOut = async () => {
     setIsLoggingOut(true);
     await supabase.auth.signOut();
-    router.push("/login");
+    window.location.href = "/login";
   };
 
   const planLabel =
