@@ -1,4 +1,5 @@
 "use client";
+import { useInworldTTS } from "@/hooks/use-inworld-tts";
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
@@ -48,7 +49,7 @@ export default function AITutorPage() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const recognitionRef = useRef<any>(null);
-  const synthRef = useRef<SpeechSynthesisUtterance | null>(null);
+  const { speak: inworldSpeak, stop: inworldStop, isSpeaking: inworldSpeaking } = useInworldTTS({ language: "fr-FR", speed: 0.9 });
 
   const fetchUsage = useCallback(async () => {
     try {
@@ -120,49 +121,30 @@ export default function AITutorPage() {
   };
 
   const speakText = (text: string, messageId: string) => {
-    if (typeof window === "undefined" || !window.speechSynthesis) return;
-
-    // Stop any current speech
-    window.speechSynthesis.cancel();
-
+    // Toggle off if already speaking
     if (isSpeaking) {
+      inworldStop();
       setIsSpeaking(false);
-      setMessages((prev) =>
-        prev.map((m) => ({ ...m, isPlaying: false }))
-      );
+      setMessages((prev) => prev.map((m) => ({ ...m, isPlaying: false })));
       return;
     }
 
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "fr-FR";
-    utterance.rate = 0.9;
-    utterance.pitch = 1;
+    // Set playing state
+    setMessages((prev) =>
+      prev.map((m) =>
+        m.id === messageId ? { ...m, isPlaying: true } : { ...m, isPlaying: false }
+      )
+    );
+    setIsSpeaking(true);
 
-    // Try to find a French voice
-    const voices = window.speechSynthesis.getVoices();
-    const frenchVoice = voices.find(
-      (v) => v.lang.startsWith("fr") && v.name.includes("Female")
-    ) || voices.find((v) => v.lang.startsWith("fr"));
-    if (frenchVoice) utterance.voice = frenchVoice;
-
-    utterance.onstart = () => {
-      setIsSpeaking(true);
-      setMessages((prev) =>
-        prev.map((m) =>
-          m.id === messageId ? { ...m, isPlaying: true } : { ...m, isPlaying: false }
-        )
-      );
-    };
-
-    utterance.onend = () => {
+    // Speak via Inworld TTS then clear state when done
+    inworldSpeak(text).then(() => {
       setIsSpeaking(false);
-      setMessages((prev) =>
-        prev.map((m) => ({ ...m, isPlaying: false }))
-      );
-    };
-
-    synthRef.current = utterance;
-    window.speechSynthesis.speak(utterance);
+      setMessages((prev) => prev.map((m) => ({ ...m, isPlaying: false })));
+    }).catch(() => {
+      setIsSpeaking(false);
+      setMessages((prev) => prev.map((m) => ({ ...m, isPlaying: false })));
+    });
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {

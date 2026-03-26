@@ -2,6 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useInworldTTS } from "@/hooks/use-inworld-tts";
 import { Volume2, Lightbulb } from "lucide-react";
 
 interface FlashcardProps {
@@ -34,56 +35,7 @@ export default function Flashcard({
 }: FlashcardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [imageError, setImageError] = useState(false);
-  const [isSpeaking, setIsSpeaking] = useState(false);
-
-  // Load voices on mount (needed for some browsers)
-  useEffect(() => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    
-    const loadVoices = () => {
-      window.speechSynthesis.getVoices();
-    };
-    
-    loadVoices();
-    window.speechSynthesis.onvoiceschanged = loadVoices;
-    
-    return () => {
-      window.speechSynthesis.onvoiceschanged = null;
-    };
-  }, []);
-
-  const speak = (text: string) => {
-    if (typeof window === "undefined") return;
-    
-    if (!("speechSynthesis" in window)) {
-      alert("Sorry, your browser doesn't support text-to-speech.");
-      return;
-    }
-    
-    try {
-      window.speechSynthesis.cancel();
-      
-      const utterance = new SpeechSynthesisUtterance(text);
-      const voices = window.speechSynthesis.getVoices();
-      const langVoice = voices.find(v => v.lang.startsWith(language.split('-')[0]));
-      
-      if (langVoice) utterance.voice = langVoice;
-      
-      utterance.lang = language;
-      utterance.rate = 0.85;
-      utterance.pitch = 1;
-      utterance.volume = 1;
-      
-      utterance.onstart = () => setIsSpeaking(true);
-      utterance.onend = () => setIsSpeaking(false);
-      utterance.onerror = () => setIsSpeaking(false);
-      
-      window.speechSynthesis.speak(utterance);
-    } catch (error) {
-      console.error("TTS error:", error);
-      setIsSpeaking(false);
-    }
-  };
+  const { speak, isSpeaking } = useInworldTTS({ language });
 
   const handleFlip = () => setIsFlipped(!isFlipped);
   
