@@ -248,6 +248,10 @@ export default function LessonFlow({
     "xp" | "streak" | "leaderboard" | "perfect" | null
   >(null);
 
+  // When a FREE user finishes their daily lesson, show an upgrade CTA on
+  // the completion screen so they can keep practicing today.
+  const [showFreeDailyLimitCTA, setShowFreeDailyLimitCTA] = useState(false);
+
   const currentExercise = exercises[currentExerciseIndex];
   const totalExercises = exercises.length;
   const correctAnswers = Object.values(answers).filter((a) => a.correct).length;
@@ -441,6 +445,21 @@ export default function LessonFlow({
         }
 
         await incrementLessonCount(supabase, userId);
+
+        // If this completion put a FREE user at their daily cap, flag the
+        // upgrade CTA on the completion screen.
+        try {
+          const { data: planRow } = await supabase
+            .from("users")
+            .select("subscription_plan, lessons_today")
+            .eq("id", userId)
+            .single();
+          if (planRow && (planRow.subscription_plan ?? "FREE") === "FREE") {
+            setShowFreeDailyLimitCTA(true);
+          }
+        } catch {
+          // non-critical
+        }
 
         // Leaderboard check (basic: if top XP changed)
         try {
@@ -962,6 +981,29 @@ export default function LessonFlow({
               <div className="text-sm text-gray-500">XP</div>
             </div>
           </div>
+
+          {passed && showFreeDailyLimitCTA && (
+            <div className="mb-6 rounded-2xl border border-secondary/30 bg-gradient-to-br from-secondary/10 via-amber-50 to-white p-5 text-left">
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-xl bg-secondary/15 flex items-center justify-center flex-shrink-0">
+                  <Sparkles className="w-5 h-5 text-secondary" />
+                </div>
+                <div className="flex-1">
+                  <p className="font-bold text-gray-900">You've used your free daily lesson 🎯</p>
+                  <p className="text-sm text-gray-600 mt-1">
+                    Upgrade to Premium for <span className="font-semibold">unlimited lessons today</span> — keep your momentum going.
+                  </p>
+                  <Button
+                    onClick={() => router.push("/pricing")}
+                    className="mt-3 w-full"
+                  >
+                    See Premium plans
+                  </Button>
+                </div>
+              </div>
+            </div>
+          )}
+
           <div className="space-y-3">
             {passed ? (
               <Button onClick={() => router.push(`/learn/${language}/${level}`)} className="w-full">

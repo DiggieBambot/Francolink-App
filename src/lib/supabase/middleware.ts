@@ -71,7 +71,7 @@ export async function updateSession(request: NextRequest) {
   }
 
   const protectedRoutes = [
-    '/dashboard', '/learn', '/profile', '/settings', '/placement-test',
+    '/dashboard', '/learn', '/profile', '/settings', '/notifications', '/placement-test',
     '/checkout', '/student', '/messages', '/progress', '/practice',
     '/lessons', '/upgrade-plus',
   ];

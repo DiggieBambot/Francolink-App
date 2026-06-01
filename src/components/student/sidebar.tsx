@@ -20,6 +20,7 @@ import {
   Zap,
   Sparkles,
   Bot,
+  Bell,
 } from "lucide-react";
 import { Logo } from "@/components/layout";
 import { cn, formatNumber } from "@/lib/utils";
@@ -46,6 +47,7 @@ const navItems = [
   { href: "/student/ai-tutor", label: "AI Tutor", icon: Bot },
   { href: "/leaderboard", label: "Leaderboard", icon: Trophy },
   { href: "/profile", label: "Profile", icon: User },
+  { href: "/notifications", label: "Notifications", icon: Bell },
   { href: "/settings", label: "Settings", icon: Settings },
 ];
 

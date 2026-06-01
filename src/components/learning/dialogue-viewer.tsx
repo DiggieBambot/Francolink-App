@@ -146,7 +146,7 @@ export default function DialogueViewer({
       setCurrentLine(nextLine);
       if (!revealedLines.includes(nextLine)) {
         setRevealedLines(prev => [...prev, nextLine]);
-        setTimeout(() => speak(lines[nextLine].text, nextLine), 300);
+        // Audio plays only when the user taps the speaker icon — no autoplay.
       }
     }
   };

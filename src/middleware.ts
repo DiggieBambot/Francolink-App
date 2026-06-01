@@ -30,6 +30,7 @@ const APP_ROUTES = [
   "/learn",
   "/profile",
   "/settings",
+  "/notifications",
   "/placement-test",
   "/checkout",
   "/student",
