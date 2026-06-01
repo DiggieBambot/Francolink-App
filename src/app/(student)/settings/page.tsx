@@ -28,13 +28,14 @@ export default async function SettingsPage() {
         </p>
       </div>
 
-      <SettingsForm 
+      <SettingsForm
         user={{
           id: user.id,
           email: user.email || "",
           name: profile?.name || "",
           dailyGoalMinutes: profile?.daily_goal_minutes || 15,
           nativeLanguage: profile?.native_language || "en",
+          avatarUrl: profile?.avatar_url || null,
         }}
       />
     </div>

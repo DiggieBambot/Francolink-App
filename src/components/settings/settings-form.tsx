@@ -2,21 +2,22 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { Button, Input } from "@/components/ui";
-import { 
-  User, 
-  Mail, 
-  Target, 
-  Lock, 
-  Globe, 
-  Save, 
+import {
+  User,
+  Mail,
+  Target,
+  Lock,
+  Globe,
+  Save,
   Loader2,
   CheckCircle,
   AlertTriangle,
-  Trash2
+  Trash2,
+  Camera,
 } from "lucide-react";
 
 interface SettingsFormProps {
@@ -26,6 +27,7 @@ interface SettingsFormProps {
     name: string;
     dailyGoalMinutes: number;
     nativeLanguage: string;
+    avatarUrl?: string | null;
   };
 }
 
@@ -37,6 +39,61 @@ export default function SettingsForm({ user }: SettingsFormProps) {
   const [name, setName] = useState(user.name);
   const [dailyGoal, setDailyGoal] = useState(user.dailyGoalMinutes);
   const [nativeLanguage, setNativeLanguage] = useState(user.nativeLanguage);
+  const [avatarUrl, setAvatarUrl] = useState<string | null>(user.avatarUrl ?? null);
+  const [avatarBusy, setAvatarBusy] = useState<"" | "uploading" | "removing">("");
+  const avatarInputRef = useRef<HTMLInputElement>(null);
+
+  const initials = (name || user.email || "?")
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((s) => s[0]?.toUpperCase())
+    .join("") || "?";
+
+  const handleAvatarSelect = () => avatarInputRef.current?.click();
+
+  const handleAvatarUpload = async (file: File) => {
+    setError(null);
+    setSuccess(null);
+    if (file.size > 4 * 1024 * 1024) {
+      setError("Image must be 4 MB or smaller");
+      return;
+    }
+    setAvatarBusy("uploading");
+    try {
+      const fd = new FormData();
+      fd.append("file", file);
+      const res = await fetch("/api/profile/avatar", { method: "POST", body: fd });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Upload failed");
+      setAvatarUrl(data.url);
+      setSuccess("Profile picture updated");
+      router.refresh();
+    } catch (e: any) {
+      setError(e?.message || "Upload failed");
+    } finally {
+      setAvatarBusy("");
+      if (avatarInputRef.current) avatarInputRef.current.value = "";
+    }
+  };
+
+  const handleAvatarRemove = async () => {
+    setError(null);
+    setSuccess(null);
+    setAvatarBusy("removing");
+    try {
+      const res = await fetch("/api/profile/avatar", { method: "DELETE" });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Remove failed");
+      setAvatarUrl(null);
+      setSuccess("Profile picture removed");
+      router.refresh();
+    } catch (e: any) {
+      setError(e?.message || "Remove failed");
+    } finally {
+      setAvatarBusy("");
+    }
+  };
 
   // Password change
   const [currentPassword, setCurrentPassword] = useState("");
@@ -159,6 +216,64 @@ export default function SettingsForm({ user }: SettingsFormProps) {
         </h2>
 
         <div className="space-y-4">
+          {/* Profile Picture */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Profile Picture
+            </label>
+            <div className="flex items-center gap-4">
+              <div className="relative w-20 h-20 rounded-full overflow-hidden bg-gradient-to-br from-primary/80 to-primary flex items-center justify-center flex-shrink-0">
+                {avatarUrl ? (
+                  <img
+                    src={avatarUrl}
+                    alt="Your avatar"
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <span className="text-white text-xl font-bold">{initials}</span>
+                )}
+                {avatarBusy && (
+                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                    <Loader2 className="w-5 h-5 text-white animate-spin" />
+                  </div>
+                )}
+              </div>
+              <div className="flex flex-col gap-2">
+                <input
+                  ref={avatarInputRef}
+                  type="file"
+                  accept="image/png,image/jpeg,image/webp,image/gif"
+                  className="hidden"
+                  onChange={(e) => {
+                    const f = e.target.files?.[0];
+                    if (f) handleAvatarUpload(f);
+                  }}
+                />
+                <button
+                  type="button"
+                  onClick={handleAvatarSelect}
+                  disabled={!!avatarBusy}
+                  className="flex items-center gap-2 px-3 py-2 border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50 disabled:opacity-60"
+                >
+                  <Camera className="w-4 h-4" />
+                  {avatarUrl ? "Change photo" : "Upload photo"}
+                </button>
+                {avatarUrl && (
+                  <button
+                    type="button"
+                    onClick={handleAvatarRemove}
+                    disabled={!!avatarBusy}
+                    className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-50 rounded-lg disabled:opacity-60"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                    Remove
+                  </button>
+                )}
+                <p className="text-xs text-gray-500">PNG, JPG, WebP or GIF. Max 4 MB.</p>
+              </div>
+            </div>
+          </div>
+
           {/* Name */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">

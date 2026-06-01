@@ -10,6 +10,7 @@ import {
   Settings,
   Brain,
   Bot,
+  Bell,
   LucideIcon,
 } from "lucide-react";
 
@@ -26,6 +27,7 @@ const navigationItems: NavItem[] = [
   { label: "Sessions", href: "/student/sessions", icon: Video },
   { label: "Leaderboard", href: "/student/leaderboard", icon: Trophy },
   { label: "Placement Test", href: "/placement-test", icon: Brain },
+  { label: "Notifications", href: "/notifications", icon: Bell },
   { label: "Settings", href: "/settings", icon: Settings },
 ];
 
