@@ -19,7 +19,22 @@ config({ path: ".env.local" });
 const APPLY = process.argv.includes("--apply");
 const VOICE_ARG = process.argv.find((a) => a.startsWith("--voice="));
 const LIMIT_ARG = process.argv.find((a) => a.startsWith("--limit="));
+const SCOPE_ARG = process.argv.find((a) => a.startsWith("--scope="));
 const LIMIT = LIMIT_ARG ? parseInt(LIMIT_ARG.split("=")[1], 10) : Infinity;
+
+// Scope: comma-separated source names to include. Sources:
+//   vocab.term, vocab.example, dialogue.line, grammar.example
+// Default: all four.
+const ALL_SCOPES = new Set(["vocab.term", "vocab.example", "dialogue.line", "grammar.example"]);
+const SCOPE = SCOPE_ARG
+  ? new Set(SCOPE_ARG.split("=")[1].split(",").map((s) => s.trim()).filter(Boolean))
+  : ALL_SCOPES;
+for (const s of SCOPE) {
+  if (!ALL_SCOPES.has(s)) {
+    console.error(`Unknown scope: ${s}. Valid: ${[...ALL_SCOPES].join(", ")}`);
+    process.exit(1);
+  }
+}
 
 const VOICES = VOICE_ARG ? [VOICE_ARG.split("=")[1]] : ["Hélène", "Alain"];
 const SPEED = 1.0;
@@ -189,10 +204,12 @@ async function main() {
   for (const l of publishedLessons) {
     const items = extractFromLesson(l);
     for (const it of items) {
+      if (!SCOPE.has(it.source)) continue;
       allItems.push(it);
       sourceCount[it.source] = (sourceCount[it.source] || 0) + 1;
     }
   }
+  console.log(`Scope: ${[...SCOPE].join(", ")}`);
   console.log("Text sources (raw):");
   for (const [k, v] of Object.entries(sourceCount).sort((a, b) => b[1] - a[1])) {
     console.log(`  ${k.padEnd(20)} ${v}`);

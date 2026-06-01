@@ -11,6 +11,27 @@ export function NotificationSettings() {
   const [notifyReminders, setNotifyReminders] = useState(true);
   const [notifyStreak, setNotifyStreak] = useState(true);
   const [saved, setSaved] = useState(false);
+  const [testStatus, setTestStatus] = useState<"" | "sending" | "sent" | "failed">("");
+
+  const sendTest = async () => {
+    setTestStatus("sending");
+    try {
+      const res = await fetch("/api/notifications/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: "Test from FrancoLink",
+          body: "If you see this, push is working ✓",
+          url: "/dashboard",
+        }),
+      });
+      const data = await res.json();
+      setTestStatus(res.ok && data.ok ? "sent" : "failed");
+    } catch {
+      setTestStatus("failed");
+    }
+    setTimeout(() => setTestStatus(""), 4000);
+  };
 
   useEffect(() => {
     const loadPrefs = async () => {
@@ -113,6 +134,20 @@ export function NotificationSettings() {
             className="w-full bg-primary text-white py-3 rounded-xl font-bold hover:bg-primary-800 transition-all"
           >
             {saved ? "✓ Saved!" : "Save Preferences"}
+          </button>
+
+          <button
+            onClick={sendTest}
+            disabled={testStatus === "sending"}
+            className="w-full border border-gray-200 text-gray-700 py-2.5 rounded-xl font-medium text-sm hover:bg-gray-50 transition-all disabled:opacity-60"
+          >
+            {testStatus === "sending"
+              ? "Sending test…"
+              : testStatus === "sent"
+              ? "✓ Test sent — check your notifications"
+              : testStatus === "failed"
+              ? "✗ Test failed — check console / DevTools"
+              : "Send test notification"}
           </button>
         </>
       )}

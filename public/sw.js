@@ -1,4 +1,4 @@
-const CACHE_NAME = 'francolink-v3';
+const CACHE_NAME = 'francolink-v4';
 
 const STATIC_ASSETS = [
   '/',
@@ -27,6 +27,47 @@ self.addEventListener('activate', (event) => {
     )
   );
   self.clients.claim();
+});
+
+// Push — receive a server-sent notification and display it.
+// Expected payload (JSON):
+//   { title, body, icon?, badge?, url?, tag? }
+// On Android/desktop the system tray uses these fields. iOS Safari (16.4+) uses
+// title + body. The browser refuses to subscribe in the first place unless a
+// push handler is registered — so this listener is what unblocks subscription.
+self.addEventListener('push', (event) => {
+  let data = {};
+  try {
+    if (event.data) data = event.data.json();
+  } catch {
+    if (event.data) data = { body: event.data.text() };
+  }
+  const title = data.title || 'FrancoLink';
+  const options = {
+    body: data.body || '',
+    icon: data.icon || '/icons/icon-192.png',
+    badge: data.badge || '/icons/icon-192.png',
+    tag: data.tag,
+    data: { url: data.url || '/' },
+  };
+  event.waitUntil(self.registration.showNotification(title, options));
+});
+
+// Notification click — focus an existing tab on the target URL or open one.
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+  const url = (event.notification.data && event.notification.data.url) || '/';
+  event.waitUntil(
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then((list) => {
+      for (const client of list) {
+        if ('focus' in client) {
+          client.navigate(url).catch(() => {});
+          return client.focus();
+        }
+      }
+      if (clients.openWindow) return clients.openWindow(url);
+    })
+  );
 });
 
 // Fetch — network first, fallback to cache, fallback to / for navigation
