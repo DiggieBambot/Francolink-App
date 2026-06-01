@@ -1,7 +1,7 @@
 // src/hooks/use-sound-engine.ts
 "use client";
 
-import { useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import { useSoundSettings } from "./use-sound-settings";
 
 type SoundType =
@@ -16,17 +16,65 @@ type SoundType =
   | "phase_change"
   | "perfect";
 
+// iOS Safari quirks this engine works around:
+//   1. AudioContext starts in "suspended" state. ctx.resume() is async; if you
+//      don't await it before scheduling oscillators, the early oscillators
+//      drop silently.
+//   2. The context can only be unlocked from inside a user-gesture event
+//      handler. We install a one-shot pointerdown listener that runs a silent
+//      buffer to "warm" the context the first time the user taps anywhere.
+//   3. The hardware mute switch silences Web Audio entirely. There is no
+//      JavaScript workaround — only swapping to <audio> playback (media route)
+//      can sidestep it, at the cost of needing audio files.
+
 export function useSoundEngine() {
   const ctxRef = useRef<AudioContext | null>(null);
+  const unlockedRef = useRef(false);
   const { soundEnabled } = useSoundSettings();
 
-  const getCtx = useCallback((): AudioContext | null => {
+  // Unlock the AudioContext on the first user gesture anywhere on the page.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const unlock = async () => {
+      if (unlockedRef.current) return;
+      try {
+        const Ctor = (window.AudioContext || (window as any).webkitAudioContext) as typeof AudioContext;
+        if (!ctxRef.current) ctxRef.current = new Ctor();
+        if (ctxRef.current.state === "suspended") await ctxRef.current.resume();
+        // Play a 1-sample silent buffer to fully unlock on iOS.
+        const buffer = ctxRef.current.createBuffer(1, 1, 22050);
+        const src = ctxRef.current.createBufferSource();
+        src.buffer = buffer;
+        src.connect(ctxRef.current.destination);
+        src.start(0);
+        unlockedRef.current = true;
+      } catch {
+        // Will retry on next user gesture.
+      }
+    };
+    const opts: AddEventListenerOptions = { once: false, passive: true };
+    window.addEventListener("pointerdown", unlock, opts);
+    window.addEventListener("touchstart", unlock, opts);
+    window.addEventListener("keydown", unlock, opts);
+    return () => {
+      window.removeEventListener("pointerdown", unlock);
+      window.removeEventListener("touchstart", unlock);
+      window.removeEventListener("keydown", unlock);
+    };
+  }, []);
+
+  const getCtx = useCallback(async (): Promise<AudioContext | null> => {
     if (typeof window === "undefined") return null;
     if (!ctxRef.current || ctxRef.current.state === "closed") {
-      ctxRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+      const Ctor = (window.AudioContext || (window as any).webkitAudioContext) as typeof AudioContext;
+      ctxRef.current = new Ctor();
     }
     if (ctxRef.current.state === "suspended") {
-      ctxRef.current.resume();
+      try {
+        await ctxRef.current.resume();
+      } catch {
+        return null;
+      }
     }
     return ctxRef.current;
   }, []);
@@ -59,7 +107,7 @@ export function useSoundEngine() {
     gain: number = 0.05,
     highpass: number = 800
   ) => {
-    const bufferSize = ctx.sampleRate * duration;
+    const bufferSize = Math.max(1, Math.floor(ctx.sampleRate * duration));
     const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
     const data = buffer.getChannelData(0);
     for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
@@ -78,11 +126,12 @@ export function useSoundEngine() {
     source.stop(startTime + duration);
   }, []);
 
-  const play = useCallback((sound: SoundType) => {
-    if (!soundEnabled) return; // ← respects toggle
-    const ctx = getCtx();
+  const play = useCallback(async (sound: SoundType): Promise<void> => {
+    if (!soundEnabled) return;
+    const ctx = await getCtx();
     if (!ctx) return;
-    const t = ctx.currentTime;
+    // Read currentTime AFTER ctx is confirmed "running" — schedules accurately.
+    const t = ctx.currentTime + 0.001;
 
     switch (sound) {
       case "correct":
