@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { useSettingsSave, SaveBar } from '../use-settings-save';
-import { Upload, RefreshCw, CheckCircle } from 'lucide-react';
+import { Upload } from 'lucide-react';
 
 interface Props {
   getSetting: (key: string) => string;
@@ -23,41 +23,9 @@ export function PwaTab({ getSetting }: Props) {
   const [uploading192, setUploading192] = useState(false);
   const [uploading512, setUploading512] = useState(false);
   const [uploadedMsg, setUploadedMsg] = useState('');
-  const [regenerating, setRegenerating] = useState(false);
-  const [regenerated, setRegenerated] = useState(false);
   const icon192Ref = useRef<HTMLInputElement>(null);
   const icon512Ref = useRef<HTMLInputElement>(null);
   const { save, saving, saved, error } = useSettingsSave();
-
-  const regenerateManifest = async (overrides?: { icon192?: string; icon512?: string }) => {
-    setRegenerating(true);
-    try {
-      const res = await fetch('/api/admin/app-settings/manifest', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: pwaName,
-          short_name: pwaShortName,
-          description: pwaDescription,
-          start_url: startUrl,
-          display,
-          orientation,
-          theme_color: themeColor,
-          background_color: bgColor,
-          icon_192: overrides?.icon192 ?? icon192,
-          icon_512: overrides?.icon512 ?? icon512,
-        }),
-      });
-      if (res.ok) {
-        setRegenerated(true);
-        setTimeout(() => setRegenerated(false), 3000);
-      }
-    } catch (e) {
-      console.error('Manifest regen failed', e);
-    } finally {
-      setRegenerating(false);
-    }
-  };
 
   const uploadIcon = async (file: File, size: 192 | 512) => {
     if (size === 192) setUploading192(true); else setUploading512(true);
@@ -70,15 +38,9 @@ export function PwaTab({ getSetting }: Props) {
       const data = await res.json();
       if (data.url) {
         // Update state with new URL
-        if (size === 192) {
-          setIcon192(data.url);
-          // Auto-regenerate manifest with new icon
-          await regenerateManifest({ icon192: data.url });
-        } else {
-          setIcon512(data.url);
-          await regenerateManifest({ icon512: data.url });
-        }
-        setUploadedMsg(`Icon ${size}×${size} uploaded & manifest updated ✓`);
+        if (size === 192) setIcon192(data.url);
+        else setIcon512(data.url);
+        setUploadedMsg(`Icon ${size}×${size} uploaded ✓ — click "Save PWA Settings" to apply`);
         setTimeout(() => setUploadedMsg(''), 4000);
       } else {
         console.error('Upload failed:', data.error);
@@ -177,7 +139,7 @@ export function PwaTab({ getSetting }: Props) {
 
       <section className="bg-white border rounded-xl p-6">
         <h2 className="text-lg font-semibold mb-1">App Icons</h2>
-        <p className="text-sm text-gray-500 mb-2">PNG format required. Uploading automatically updates manifest.json.</p>
+        <p className="text-sm text-gray-500 mb-2">PNG format required. After uploading, click Save below to apply.</p>
 
         {uploadedMsg && (
           <div className="flex items-center gap-2 text-green-700 bg-green-50 border border-green-200 rounded-lg px-4 py-2.5 text-sm mb-4">
@@ -218,16 +180,10 @@ export function PwaTab({ getSetting }: Props) {
       </section>
 
       <section className="bg-white border rounded-xl p-6">
-        <h2 className="text-lg font-semibold mb-1">Manifest File</h2>
-        <p className="text-sm text-gray-500 mb-4">
-          Manually regenerate <code className="bg-gray-100 px-1 rounded">public/manifest.json</code> if you changed colors or text above.
+        <h2 className="text-lg font-semibold mb-1">Manifest</h2>
+        <p className="text-sm text-gray-500">
+          The PWA manifest is served at <code className="bg-gray-100 px-1 rounded">/manifest.webmanifest</code> and reads these settings on every request. Save below and your changes are live immediately — no regeneration step.
         </p>
-        <button onClick={() => regenerateManifest()} disabled={regenerating}
-          className="flex items-center gap-2 px-5 py-2.5 bg-gray-800 text-white rounded-lg text-sm font-medium hover:bg-gray-900 disabled:opacity-50">
-          <RefreshCw className={`w-4 h-4 ${regenerating ? 'animate-spin' : ''}`} />
-          {regenerating ? 'Regenerating...' : 'Regenerate manifest.json'}
-        </button>
-        {regenerated && <p className="text-green-600 text-sm mt-2 flex items-center gap-1"><CheckCircle className="w-4 h-4" /> manifest.json updated</p>}
       </section>
 
       <SaveBar saving={saving} saved={saved} error={error} onSave={handleSave} label="Save PWA Settings" />

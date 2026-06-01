@@ -1,10 +1,7 @@
-const CACHE_NAME = 'francolink-v2';
+const CACHE_NAME = 'francolink-v3';
 
-// Assets to cache on install — removed /offline since it doesn't exist
 const STATIC_ASSETS = [
   '/',
-  '/dashboard',
-  '/manifest.json',
 ];
 
 // Install — cache only what exists

@@ -15,11 +15,6 @@ export function PWAInstallPrompt() {
   const [showIOSGuide, setShowIOSGuide] = useState(false);
 
   useEffect(() => {
-    // Register service worker
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/sw.js").catch(() => {});
-    }
-
     // Check if already installed
     const isStandalone =
       window.matchMedia("(display-mode: standalone)").matches ||
