@@ -70,7 +70,7 @@ export async function POST(request: NextRequest) {
 
   const { data: sub, error: subErr } = await supabase
     .from("push_subscriptions")
-    .select("subscription")
+    .select("subscription, updated_at")
     .eq("user_id", targetUserId)
     .maybeSingle();
 
@@ -81,6 +81,17 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, reason: "no_subscription" }, { status: 200 });
   }
 
+  // Classify the gateway from the endpoint host so the client can show
+  // "Sent to iOS" or "Sent to Chrome" etc.
+  const endpoint: string = (sub.subscription as any)?.endpoint || "";
+  const host = endpoint.replace(/^https?:\/\//, "").split("/")[0];
+  let gateway: "ios" | "chrome_or_android" | "firefox" | "edge_windows" | "unknown" = "unknown";
+  let gatewayLabel = "unknown gateway";
+  if (host.includes("apple")) { gateway = "ios"; gatewayLabel = "iOS"; }
+  else if (host.includes("fcm.googleapis")) { gateway = "chrome_or_android"; gatewayLabel = "Chrome / Android"; }
+  else if (host.includes("mozilla") || host.includes("autopush")) { gateway = "firefox"; gatewayLabel = "Firefox"; }
+  else if (host.includes("windows") || host.includes("notify.windows")) { gateway = "edge_windows"; gatewayLabel = "Edge / Windows"; }
+
   const payload = JSON.stringify({
     title,
     body: text,
@@ -90,7 +101,13 @@ export async function POST(request: NextRequest) {
 
   try {
     await webpush.sendNotification(sub.subscription as any, payload, { TTL: 60 * 60 });
-    return NextResponse.json({ ok: true, delivered: 1 });
+    return NextResponse.json({
+      ok: true,
+      delivered: 1,
+      gateway,
+      gateway_label: gatewayLabel,
+      subscription_updated_at: sub.updated_at,
+    });
   } catch (err: any) {
     // 410 Gone or 404 → subscription is dead. Clean up.
     const statusCode = err?.statusCode;
