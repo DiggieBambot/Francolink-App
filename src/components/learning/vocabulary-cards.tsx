@@ -18,6 +18,7 @@ interface VocabularyWord {
   };
   tip?: string;
   image?: string;
+  gif?: string;
 }
 
 interface VocabularyCardsProps {
@@ -127,6 +128,7 @@ export default function VocabularyCards({
           exampleSentence={currentWord.exampleSentence}
           tip={currentWord.tip}
           image={currentWord.image}
+          gif={currentWord.gif}
           language={language}
           level={level}
         />

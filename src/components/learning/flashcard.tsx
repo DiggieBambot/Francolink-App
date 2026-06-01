@@ -17,6 +17,7 @@ interface FlashcardProps {
   };
   tip?: string;
   image?: string;
+  gif?: string;
   language?: string;
   level?: string;
 }
@@ -30,12 +31,17 @@ export default function Flashcard({
   exampleSentence,
   tip,
   image,
+  gif,
   language = "fr-FR",
   level = "A1",
 }: FlashcardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [gifError, setGifError] = useState(false);
   const { speak, isSpeaking } = useInworldTTS({ language });
+  // Prefer GIF (animation) over still image when available and not errored.
+  const visualUrl = gif && !gifError ? gif : (image && !imageError ? image : null);
+  const visualIsGif = !!visualUrl && visualUrl === gif;
 
   const handleFlip = () => setIsFlipped(!isFlipped);
   
@@ -109,17 +115,20 @@ export default function Flashcard({
             className="fc-face flex flex-col items-center justify-center p-6"
             style={{ background: navyGradient }}
           >
-            {/* Image (only if exists and loads) */}
-            {image && !imageError && (
+            {/* Visual: prefer animated GIF for verbs, fall back to still image */}
+            {visualUrl && (
               <div
                 className="w-20 h-20 mb-4 rounded-2xl flex items-center justify-center overflow-hidden"
                 style={{ background: "rgba(255,255,255,0.2)" }}
               >
                 <img
-                  src={image}
+                  src={visualUrl}
                   alt={term}
                   className="w-full h-full object-cover"
-                  onError={() => setImageError(true)}
+                  onError={() => {
+                    if (visualIsGif) setGifError(true);
+                    else setImageError(true);
+                  }}
                 />
               </div>
             )}
