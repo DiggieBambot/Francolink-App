@@ -257,6 +257,9 @@ export default function SettingsForm({ user }: SettingsFormProps) {
         </Button>
       </div>
 
+      {/* Notification Settings */}
+      <NotificationSettings />
+
       {/* Change Password */}
       <div className="bg-white rounded-2xl shadow-soft p-6">
         <h2 className="text-lg font-heading font-bold text-primary mb-6 flex items-center gap-2">
@@ -304,9 +307,6 @@ export default function SettingsForm({ user }: SettingsFormProps) {
           </Button>
         </div>
       </div>
-
-      {/* Notification Settings */}
-      <NotificationSettings />
 
       {/* Danger Zone */}
       <div className="bg-white rounded-2xl shadow-soft p-6 border-2 border-red-100">
