@@ -17,14 +17,11 @@ export async function updateSession(request: NextRequest) {
             request.cookies.set(name, value)
           );
           supabaseResponse = NextResponse.next({ request });
+          // Pass Supabase's cookie options through unchanged. The previous code
+          // forced httpOnly: true, which hid auth cookies from the browser SDK
+          // and made every client-side supabase.auth.getUser() return null.
           cookiesToSet.forEach(({ name, value, options }) =>
-            supabaseResponse.cookies.set(name, value, {
-              ...options,
-              httpOnly: true,
-              secure: process.env.NODE_ENV === "production",
-              sameSite: "lax",
-              maxAge: 60 * 60 * 24 * 365,
-            })
+            supabaseResponse.cookies.set(name, value, options)
           );
         },
       },
