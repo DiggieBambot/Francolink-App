@@ -2,6 +2,21 @@
 import { useState, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
 
+export type SubscribeReason =
+  | "no_serviceworker"
+  | "no_pushmanager"
+  | "no_vapid_key"
+  | "permission_denied"
+  | "permission_default"
+  | "subscribe_failed"
+  | "no_auth_user"
+  | "upsert_failed"
+  | "unexpected";
+
+export type SubscribeResult =
+  | { ok: true }
+  | { ok: false; reason: SubscribeReason; detail: string };
+
 export function usePushNotifications() {
   const [permission, setPermission] = useState<NotificationPermission>("default");
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -22,22 +37,19 @@ export function usePushNotifications() {
     setIsSubscribed(!!sub);
   };
 
-  const subscribe = async (notificationTime = "09:00") => {
+  const subscribe = async (notificationTime = "09:00"): Promise<SubscribeResult> => {
     setIsLoading(true);
     let step = "init";
     try {
       if (!("serviceWorker" in navigator)) {
-        console.error("[push] no service worker support");
-        return false;
+        return { ok: false, reason: "no_serviceworker", detail: "This browser does not support service workers." };
       }
       if (!("PushManager" in window)) {
-        console.error("[push] no PushManager (probably iOS Safari without PWA install)");
-        return false;
+        return { ok: false, reason: "no_pushmanager", detail: "This browser does not support web push. On iPhone, you must Add to Home Screen first and open the app from there (requires iOS 16.4 or later)." };
       }
       const vapidKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY;
       if (!vapidKey) {
-        console.error("[push] NEXT_PUBLIC_VAPID_PUBLIC_KEY missing on client");
-        return false;
+        return { ok: false, reason: "no_vapid_key", detail: "App is missing its push key." };
       }
 
       step = "register-sw";
@@ -48,26 +60,35 @@ export function usePushNotifications() {
       step = "permission";
       const perm = await Notification.requestPermission();
       setPermission(perm);
+      if (perm === "denied") {
+        return { ok: false, reason: "permission_denied", detail: "You blocked notifications. Re-enable them in your browser/OS notification settings for this site." };
+      }
       if (perm !== "granted") {
-        console.warn(`[push] permission=${perm}`);
-        return false;
+        return { ok: false, reason: "permission_default", detail: "You dismissed the notification prompt without choosing. Tap Enable again and tap Allow when iOS asks." };
       }
 
       step = "subscribe";
       let sub = await reg.pushManager.getSubscription();
       if (!sub) {
-        sub = await reg.pushManager.subscribe({
-          userVisibleOnly: true,
-          applicationServerKey: urlBase64ToUint8Array(vapidKey),
-        });
+        try {
+          sub = await reg.pushManager.subscribe({
+            userVisibleOnly: true,
+            applicationServerKey: urlBase64ToUint8Array(vapidKey),
+          });
+        } catch (subErr: any) {
+          return {
+            ok: false,
+            reason: "subscribe_failed",
+            detail: `${subErr?.name || "Error"}: ${subErr?.message || "Browser rejected the subscription."}`,
+          };
+        }
       }
 
       step = "auth-user";
       const supabase = createClient();
       const { data: { user }, error: userErr } = await supabase.auth.getUser();
       if (userErr || !user) {
-        console.error("[push] no auth user:", userErr?.message);
-        return false;
+        return { ok: false, reason: "no_auth_user", detail: "Not signed in (try logging out and back in)." };
       }
 
       step = "upsert";
@@ -83,15 +104,17 @@ export function usePushNotifications() {
           updated_at: new Date().toISOString(),
         }, { onConflict: "user_id" });
       if (upErr) {
-        console.error("[push] upsert failed:", upErr.message, upErr);
-        return false;
+        return { ok: false, reason: "upsert_failed", detail: `Database error: ${upErr.message}` };
       }
 
       setIsSubscribed(true);
-      return true;
+      return { ok: true };
     } catch (err: any) {
-      console.error(`[push] failed at step "${step}":`, err?.name, err?.message, err);
-      return false;
+      return {
+        ok: false,
+        reason: "unexpected",
+        detail: `${err?.name || "Error"} at "${step}": ${err?.message || String(err)}`,
+      };
     } finally {
       setIsLoading(false);
     }

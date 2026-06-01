@@ -8,6 +8,7 @@ export function PushPrompt() {
   const [dismissed, setDismissed] = useState(false);
   const [show, setShow] = useState(false);
   const [result, setResult] = useState<"success" | "denied" | "error" | null>(null);
+  const [errorDetail, setErrorDetail] = useState<string>("");
 
   // Check if VAPID key is configured — if not, don't show the prompt at all
   const vapidConfigured = !!process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY;
@@ -37,13 +38,18 @@ export function PushPrompt() {
   if (!vapidConfigured) return null;
 
   const handleSubscribe = async () => {
-    const ok = await subscribe();
-    if (ok === true) {
+    const r = await subscribe();
+    if (r.ok) {
       setResult("success");
-    } else if (Notification.permission === "denied") {
+      setErrorDetail("");
+      return;
+    }
+    if (r.reason === "permission_denied" || Notification.permission === "denied") {
       setResult("denied");
+      setErrorDetail("");
     } else {
       setResult("error");
+      setErrorDetail(r.detail);
     }
   };
 
@@ -100,9 +106,9 @@ export function PushPrompt() {
               <AlertCircle className="w-5 h-5 text-amber-600" />
             </div>
             <div>
-              <p className="font-bold text-gray-900">Couldn't enable notifications</p>
-              <p className="text-sm text-gray-500 mt-0.5">
-                Something went wrong. Please try again later.
+              <p className="font-bold text-gray-900">Couldn&apos;t enable notifications</p>
+              <p className="text-sm text-gray-700 mt-0.5 leading-snug">
+                {errorDetail || "Something went wrong. Please try again later."}
               </p>
               <button onClick={handleDismiss} className="text-sm text-primary font-medium mt-2">
                 Dismiss

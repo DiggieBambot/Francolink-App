@@ -13,6 +13,15 @@ export function NotificationSettings() {
   const [saved, setSaved] = useState(false);
   const [testStatus, setTestStatus] = useState<"" | "sending" | "sent" | "failed">("");
   const [testDetail, setTestDetail] = useState<string>("");
+  const [enableError, setEnableError] = useState<string>("");
+
+  const handleEnable = async () => {
+    setEnableError("");
+    const result = await subscribe(time);
+    if (!result.ok) {
+      setEnableError(result.detail);
+    }
+  };
 
   const sendTest = async () => {
     setTestStatus("sending");
@@ -111,7 +120,7 @@ export function NotificationSettings() {
           </div>
         </div>
         <button
-          onClick={() => isSubscribed ? unsubscribe() : subscribe(time)}
+          onClick={() => isSubscribed ? unsubscribe() : handleEnable()}
           disabled={isLoading}
           className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${
             isSubscribed
@@ -122,6 +131,13 @@ export function NotificationSettings() {
           {isLoading ? "..." : isSubscribed ? "Disable" : "Enable"}
         </button>
       </div>
+
+      {enableError && (
+        <div className="rounded-xl border border-red-200 bg-red-50 p-3 text-sm">
+          <p className="font-semibold text-red-700 mb-0.5">Couldn&apos;t enable notifications</p>
+          <p className="text-red-700 leading-snug">{enableError}</p>
+        </div>
+      )}
 
       {isSubscribed && (
         <>
