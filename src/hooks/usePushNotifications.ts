@@ -24,43 +24,73 @@ export function usePushNotifications() {
 
   const subscribe = async (notificationTime = "09:00") => {
     setIsLoading(true);
+    let step = "init";
     try {
-      // Register service worker
+      if (!("serviceWorker" in navigator)) {
+        console.error("[push] no service worker support");
+        return false;
+      }
+      if (!("PushManager" in window)) {
+        console.error("[push] no PushManager (probably iOS Safari without PWA install)");
+        return false;
+      }
+      const vapidKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY;
+      if (!vapidKey) {
+        console.error("[push] NEXT_PUBLIC_VAPID_PUBLIC_KEY missing on client");
+        return false;
+      }
+
+      step = "register-sw";
       const reg = await navigator.serviceWorker.register("/sw.js");
+      step = "sw-ready";
       await navigator.serviceWorker.ready;
 
-      // Request permission
+      step = "permission";
       const perm = await Notification.requestPermission();
       setPermission(perm);
-      if (perm !== "granted") return false;
+      if (perm !== "granted") {
+        console.warn(`[push] permission=${perm}`);
+        return false;
+      }
 
-      // Subscribe to push
-      const sub = await reg.pushManager.subscribe({
-        userVisibleOnly: true,
-        applicationServerKey: urlBase64ToUint8Array(
-          process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!
-        ),
-      });
+      step = "subscribe";
+      let sub = await reg.pushManager.getSubscription();
+      if (!sub) {
+        sub = await reg.pushManager.subscribe({
+          userVisibleOnly: true,
+          applicationServerKey: urlBase64ToUint8Array(vapidKey),
+        });
+      }
 
-      // Save to Supabase
+      step = "auth-user";
       const supabase = createClient();
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) return false;
+      const { data: { user }, error: userErr } = await supabase.auth.getUser();
+      if (userErr || !user) {
+        console.error("[push] no auth user:", userErr?.message);
+        return false;
+      }
 
-      await supabase.from("push_subscriptions").upsert({
-        user_id: user.id,
-        subscription: sub.toJSON(),
-        notification_time: notificationTime,
-        notify_messages: true,
-        notify_reminders: true,
-        notify_streak: true,
-        updated_at: new Date().toISOString(),
-      }, { onConflict: "user_id" });
+      step = "upsert";
+      const { error: upErr } = await supabase
+        .from("push_subscriptions")
+        .upsert({
+          user_id: user.id,
+          subscription: sub.toJSON(),
+          notification_time: notificationTime,
+          notify_messages: true,
+          notify_reminders: true,
+          notify_streak: true,
+          updated_at: new Date().toISOString(),
+        }, { onConflict: "user_id" });
+      if (upErr) {
+        console.error("[push] upsert failed:", upErr.message, upErr);
+        return false;
+      }
 
       setIsSubscribed(true);
       return true;
-    } catch (err) {
-      console.error("Push subscription error:", err);
+    } catch (err: any) {
+      console.error(`[push] failed at step "${step}":`, err?.name, err?.message, err);
       return false;
     } finally {
       setIsLoading(false);
