@@ -4,6 +4,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Mic, MicOff, Volume2, RotateCcw, CheckCircle, XCircle } from "lucide-react";
 import { Button } from "@/components/ui";
+import { useInworldTTS } from "@/hooks/use-inworld-tts";
 
 interface SpeakExerciseProps {
   exercise: {
@@ -35,11 +36,11 @@ export default function SpeakExercise({
   const [isSupported, setIsSupported] = useState(true);
   const [submitted, setSubmitted] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
-  const [isSpeaking, setIsSpeaking] = useState(false);
 
   const recognitionRef = useRef<any>(null);
   const { content } = exercise;
   const targetText = content.targetText || "";
+  const { speak: ttsSpeak, isSpeaking } = useInworldTTS({ language });
 
   // Reset when exercise changes
   useEffect(() => {
@@ -79,17 +80,8 @@ export default function SpeakExercise({
   }, [language]);
 
   const playTarget = () => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(targetText);
-    const voices = window.speechSynthesis.getVoices();
-    const langVoice = voices.find((v) => v.lang.startsWith(language.split("-")[0]));
-    if (langVoice) utterance.voice = langVoice;
-    utterance.lang = language;
-    utterance.rate = 0.85;
-    utterance.onstart = () => setIsSpeaking(true);
-    utterance.onend = () => setIsSpeaking(false);
-    window.speechSynthesis.speak(utterance);
+    if (!targetText) return;
+    ttsSpeak(targetText);
   };
 
   const startListening = () => {

@@ -4,6 +4,7 @@
 import { useState, useEffect } from "react";
 import { Volume2 } from "lucide-react";
 import { Button } from "@/components/ui";
+import { useInworldTTS } from "@/hooks/use-inworld-tts";
 
 interface ListeningProps {
   exercise: {
@@ -35,11 +36,12 @@ export default function Listening({
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
   const [playCount, setPlayCount] = useState(0);
 
   const textToSpeak = content.ttsText || content.audioText || "";
   const speakLang = content.ttsLang || language;
+  const { speak, stop, isSpeaking } = useInworldTTS({ language: speakLang });
+  const isPlaying = isSpeaking;
 
   // Reset on exercise change
   useEffect(() => {
@@ -47,43 +49,13 @@ export default function Listening({
     setSubmitted(false);
     setIsCorrect(false);
     setPlayCount(0);
-    setIsPlaying(false);
-  }, [exercise.id]);
+    stop();
+  }, [exercise.id, stop]);
 
-  const playAudio = () => {
+  const playAudio = async () => {
     if (!textToSpeak) return;
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) {
-      alert("Your browser doesn't support audio. Please use Chrome.");
-      return;
-    }
-
-    // Cancel any ongoing speech
-    window.speechSynthesis.cancel();
-
-    // Create utterance
-    const utterance = new SpeechSynthesisUtterance(textToSpeak);
-    utterance.lang = speakLang;
-    utterance.volume = 1;
-    utterance.rate = 0.85;
-    utterance.pitch = 1;
-
-    // Find a voice for the language
-    const voices = window.speechSynthesis.getVoices();
-    const langCode = speakLang.split("-")[0];
-    const voice = voices.find(v => v.lang.startsWith(langCode));
-    if (voice) utterance.voice = voice;
-
-    // Events
-    utterance.onstart = () => setIsPlaying(true);
-    utterance.onend = () => {
-      setIsPlaying(false);
-      setPlayCount(p => p + 1);
-    };
-    utterance.onerror = () => setIsPlaying(false);
-
-    // Speak
-    setIsPlaying(true);
-    window.speechSynthesis.speak(utterance);
+    await speak(textToSpeak);
+    setPlayCount((p) => p + 1);
   };
 
   const handleSelect = (index: number) => {

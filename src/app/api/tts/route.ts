@@ -5,16 +5,21 @@ import { createClient } from "@/lib/supabase/server";
 const FRENCH_VOICE = "Hélène";
 const BUCKET = "tts-cache";
 
-function textToFilename(text: string, voice: string, speed: number): string {
-  const clean = text
+function asciiSlug(s: string, maxLen: number): string {
+  return s
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9]/g, "-")
     .replace(/-+/g, "-")
     .replace(/^-|-$/g, "")
-    .slice(0, 60);
-  return `${clean}_${voice}_${speed}.wav`;
+    .slice(0, maxLen);
+}
+
+function textToFilename(text: string, voice: string, speed: number): string {
+  // Supabase Storage object keys must be ASCII-safe. Sanitize both text and voice
+  // ("H\u00e9l\u00e8ne" \u2192 "helene") so the same filename is reachable from both server and prewarm.
+  return `${asciiSlug(text, 60)}_${asciiSlug(voice, 20)}_${speed}.wav`;
 }
 
 export async function POST(request: NextRequest) {

@@ -1,9 +1,10 @@
 // src/components/learning/grammar-section.tsx
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { Volume2, AlertCircle, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui";
+import { useInworldTTS } from "@/hooks/use-inworld-tts";
 
 interface GrammarExample {
   original: string;
@@ -44,59 +45,31 @@ export default function GrammarSection({
   const currentPoint = grammar[currentIndex];
   const isLastPoint = currentIndex === totalPoints - 1;
 
-  // Preload voices
-  useEffect(() => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    window.speechSynthesis.getVoices();
-    window.speechSynthesis.onvoiceschanged = () => {
-      window.speechSynthesis.getVoices();
-    };
-    return () => {
-      window.speechSynthesis.onvoiceschanged = null;
-      window.speechSynthesis.cancel();
-    };
-  }, []);
+  const { speak: ttsSpeak, stop: ttsStop } = useInworldTTS({ language });
 
-  const speak = (text: string, id: string) => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+  const clearSpeaking = () => {
+    speakingIdRef.current = null;
+    setSpeakingId(null);
+  };
 
+  const speak = async (text: string, id: string) => {
     if (speakingIdRef.current === id) {
-      window.speechSynthesis.cancel();
-      speakingIdRef.current = null;
-      setSpeakingId(null);
+      ttsStop();
+      clearSpeaking();
       return;
     }
-
+    speakingIdRef.current = id;
+    setSpeakingId(id);
     try {
-      window.speechSynthesis.cancel();
-
-      const utterance = new SpeechSynthesisUtterance(text);
-      const voices = window.speechSynthesis.getVoices();
-      const langVoice = voices.find(v => v.lang.startsWith(language.split("-")[0]));
-
-      if (langVoice) utterance.voice = langVoice;
-
-      utterance.lang = language;
-      utterance.rate = 0.85;
-      utterance.pitch = 1;
-      utterance.volume = 1;
-
-      utterance.onstart = () => { speakingIdRef.current = id; setSpeakingId(id); };
-      utterance.onend = () => { speakingIdRef.current = null; setSpeakingId(null); };
-      utterance.onerror = () => { speakingIdRef.current = null; setSpeakingId(null); };
-
-      window.speechSynthesis.speak(utterance);
-    } catch (error) {
-      console.error("TTS error:", error);
-      speakingIdRef.current = null;
-      setSpeakingId(null);
+      await ttsSpeak(text);
+    } finally {
+      if (speakingIdRef.current === id) clearSpeaking();
     }
   };
 
   const goToNext = () => {
-    window.speechSynthesis?.cancel();
-    speakingIdRef.current = null;
-    setSpeakingId(null);
+    ttsStop();
+    clearSpeaking();
 
     if (currentIndex < totalPoints - 1) {
       const newIndex = currentIndex + 1;
@@ -110,9 +83,8 @@ export default function GrammarSection({
   };
 
   const goToPrevious = () => {
-    window.speechSynthesis?.cancel();
-    speakingIdRef.current = null;
-    setSpeakingId(null);
+    ttsStop();
+    clearSpeaking();
 
     if (currentIndex > 0) {
       const newIndex = currentIndex - 1;

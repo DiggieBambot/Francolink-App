@@ -1,9 +1,10 @@
 // src/components/learning/dialogue-viewer.tsx
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Volume2, ChevronRight, Play } from "lucide-react";
 import { Button } from "@/components/ui";
+import { useInworldTTS } from "@/hooks/use-inworld-tts";
 
 interface DialogueLine {
   speaker: string;
@@ -112,57 +113,31 @@ export default function DialogueViewer({
   const [showTranslation, setShowTranslation] = useState<Set<number>>(new Set());
   const [speakingIndex, setSpeakingIndex] = useState<number | null>(null);
 
+  const { speak: ttsSpeak, stop: ttsStop } = useInworldTTS({ language });
+
   const isComplete = revealedLines.length === lines.length;
 
   // Colors
   const navyGradient = "linear-gradient(135deg, #0f2744, #0a1e35)";
   const orangeLight = "#fdba74";
 
-  useEffect(() => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    const loadVoices = () => { window.speechSynthesis.getVoices(); };
-    loadVoices();
-    window.speechSynthesis.onvoiceschanged = loadVoices;
-    return () => { window.speechSynthesis.onvoiceschanged = null; };
-  }, []);
-
-  const speak = (text: string, index: number) => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-
+  const speak = async (text: string, index: number) => {
+    setSpeakingIndex(index);
     try {
-      window.speechSynthesis.cancel();
-      
-      const utterance = new SpeechSynthesisUtterance(text);
-      const voices = window.speechSynthesis.getVoices();
-      const langVoice = voices.find(v => v.lang.startsWith(language.split('-')[0]));
-      if (langVoice) utterance.voice = langVoice;
-      
-      utterance.lang = language;
-      utterance.rate = 0.85;
-      utterance.onstart = () => setSpeakingIndex(index);
-      utterance.onend = () => setSpeakingIndex(null);
-      utterance.onerror = () => setSpeakingIndex(null);
-
-      window.speechSynthesis.speak(utterance);
-    } catch (error) {
-      console.error("TTS error:", error);
+      await ttsSpeak(text);
+    } finally {
       setSpeakingIndex(null);
     }
   };
 
   // Play all revealed lines in sequence
-  const playAll = () => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    
-    window.speechSynthesis.cancel();
-    
-    let delay = 0;
-    revealedLines.forEach((lineIndex) => {
-      setTimeout(() => {
-        speak(lines[lineIndex].text, lineIndex);
-      }, delay);
-      delay += lines[lineIndex].text.length * 80 + 800;
-    });
+  const playAll = async () => {
+    ttsStop();
+    for (const lineIndex of revealedLines) {
+      setSpeakingIndex(lineIndex);
+      await ttsSpeak(lines[lineIndex].text);
+    }
+    setSpeakingIndex(null);
   };
 
   const handleNext = () => {

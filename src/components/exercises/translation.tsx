@@ -4,6 +4,7 @@
 import { useState, useEffect } from "react";
 import { Volume2 } from "lucide-react";
 import { Button } from "@/components/ui";
+import { useInworldTTS } from "@/hooks/use-inworld-tts";
 
 interface TranslationProps {
   exercise: {
@@ -66,18 +67,7 @@ export default function Translation({
     return false;
   };
 
-  const speak = (text: string) => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
-    const voices = window.speechSynthesis.getVoices();
-    const langVoice = voices.find(v => v.lang.startsWith(language.split('-')[0]));
-    if (langVoice) utterance.voice = langVoice;
-    utterance.lang = language;
-    utterance.rate = 0.85;
-    window.speechSynthesis.speak(utterance);
-  };
+  const { speak } = useInworldTTS({ language });
 
   const handleSubmit = () => {
     if (!inputValue.trim()) return;
