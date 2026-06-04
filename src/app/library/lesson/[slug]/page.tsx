@@ -10,6 +10,7 @@ import { createClient } from "@/lib/supabase/server";
 import { getPublishedLessonBySlug } from "@/lib/lessons/public-queries";
 import { LessonRenderer } from "@/components/lesson-v2/lesson-renderer";
 import { GuestCTA } from "@/components/library/guest-cta";
+import { PublicShell } from "@/components/layout/public-shell";
 
 export const dynamic = "force-dynamic";
 
@@ -48,6 +49,7 @@ export default async function PublicLessonPage({
   const view = isTutor ? "tutor" : "student";
 
   return (
+    <PublicShell>
     <div className="min-h-screen bg-slate-50">
       <GuestCTA />
       <div className="border-b bg-white">
@@ -62,5 +64,6 @@ export default async function PublicLessonPage({
       </div>
       <LessonRenderer lesson={found.lesson} initialView={view} lockedView={view} />
     </div>
+    </PublicShell>
   );
 }

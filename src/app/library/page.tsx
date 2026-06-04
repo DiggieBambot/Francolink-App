@@ -5,6 +5,7 @@ import { getPublishedLessons } from "@/lib/lessons/public-queries";
 import { CATEGORIES } from "@/lib/lessons/categories";
 import { getLevelTheme } from "@/lib/lessons/level-theme";
 import { GuestCTA } from "@/components/library/guest-cta";
+import { PublicShell } from "@/components/layout/public-shell";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -27,6 +28,7 @@ export default async function LibraryPage() {
   }
 
   return (
+    <PublicShell>
     <div className="min-h-screen bg-slate-50">
       <GuestCTA />
       {/* Header */}
@@ -131,5 +133,6 @@ export default async function LibraryPage() {
         ) : null}
       </main>
     </div>
+    </PublicShell>
   );
 }

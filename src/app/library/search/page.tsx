@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { getPublishedLessons } from "@/lib/lessons/public-queries";
 import { LessonCard } from "@/components/library/lesson-card";
+import { PublicShell } from "@/components/layout/public-shell";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Search | FrancoLink" };
@@ -24,6 +25,7 @@ export default async function SearchPage({
     : [];
 
   return (
+    <PublicShell>
     <div className="min-h-screen bg-slate-50">
       <header className="border-b bg-white">
         <div className="mx-auto max-w-6xl px-6 py-8">
@@ -58,5 +60,6 @@ export default async function SearchPage({
         ) : null}
       </main>
     </div>
+    </PublicShell>
   );
 }

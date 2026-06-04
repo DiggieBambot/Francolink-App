@@ -4,6 +4,7 @@
 import Link from "next/link";
 import { GraduationCap, Users, ArrowRight, Check } from "lucide-react";
 import { STUDENT_BENEFITS, TUTOR_BENEFITS, COMMISSION } from "@/lib/benefits";
+import { PublicShell } from "@/components/layout/public-shell";
 
 export const metadata = {
   title: "Get started | FrancoLink",
@@ -12,6 +13,7 @@ export const metadata = {
 
 export default function GetStartedPage() {
   return (
+    <PublicShell>
     <div className="min-h-screen bg-slate-50">
       <div className="mx-auto max-w-5xl px-6 py-14">
         <div className="mb-10 text-center">
@@ -103,5 +105,6 @@ export default function GetStartedPage() {
         </p>
       </div>
     </div>
+    </PublicShell>
   );
 }

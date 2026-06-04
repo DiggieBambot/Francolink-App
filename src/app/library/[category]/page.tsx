@@ -7,6 +7,7 @@ import { getPublishedLessons } from "@/lib/lessons/public-queries";
 import { CATEGORY_BY_SLUG } from "@/lib/lessons/categories";
 import { getLevelTheme } from "@/lib/lessons/level-theme";
 import { LessonCard } from "@/components/library/lesson-card";
+import { PublicShell } from "@/components/layout/public-shell";
 
 export const dynamic = "force-dynamic";
 
@@ -36,6 +37,7 @@ export default async function CategoryPage({
   const shown = level ? inCat.filter((l) => l.level === level) : inCat;
 
   return (
+    <PublicShell>
     <div className="min-h-screen bg-slate-50">
       <header className={`bg-gradient-to-br ${cat.gradient}`}>
         <div className="mx-auto max-w-6xl px-6 py-10">
@@ -92,5 +94,6 @@ export default async function CategoryPage({
         )}
       </main>
     </div>
+    </PublicShell>
   );
 }

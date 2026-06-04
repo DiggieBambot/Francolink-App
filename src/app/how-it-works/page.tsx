@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { GraduationCap, Users, ArrowRight, Check } from "lucide-react";
 import { STUDENT_BENEFITS, TUTOR_BENEFITS, COMMISSION } from "@/lib/benefits";
+import { PublicShell } from "@/components/layout/public-shell";
 
 export const metadata = {
   title: "How FrancoLink works | For students & tutors",
@@ -12,6 +13,7 @@ export const metadata = {
 
 export default function HowItWorksPage() {
   return (
+    <PublicShell>
     <div className="min-h-screen bg-slate-50">
       {/* Hero */}
       <header className="bg-gradient-to-br from-blue-600 to-indigo-700">
@@ -133,5 +135,6 @@ export default function HowItWorksPage() {
         </div>
       </section>
     </div>
+    </PublicShell>
   );
 }
