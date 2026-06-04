@@ -40,9 +40,9 @@ async function createSessionAction(formData: FormData) {
 export default async function NewSessionPage({
   searchParams,
 }: {
-  searchParams: Promise<{ error?: string }>;
+  searchParams: Promise<{ error?: string; lesson?: string }>;
 }) {
-  const { error } = await searchParams;
+  const { error, lesson: lessonSlug } = await searchParams;
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/login?next=/tutor/sessions/new");
@@ -139,6 +139,7 @@ export default async function NewSessionPage({
             <select
               name="lesson_id"
               required
+              defaultValue={lessons.find((l) => l.slug === lessonSlug)?.id || ""}
               className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm focus:border-emerald-500 focus:outline-none"
             >
               <option value="">— choose a lesson —</option>
