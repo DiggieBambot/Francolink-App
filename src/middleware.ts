@@ -43,6 +43,8 @@ const APP_ROUTES = [
   "/preview",
   "/room",
   "/library",
+  "/how-it-works",
+  "/get-started",
   "/tutor",
   "/tutors",
   "/pricing",

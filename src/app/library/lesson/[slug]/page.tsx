@@ -9,6 +9,7 @@ import { ArrowLeft } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { getPublishedLessonBySlug } from "@/lib/lessons/public-queries";
 import { LessonRenderer } from "@/components/lesson-v2/lesson-renderer";
+import { GuestCTA } from "@/components/library/guest-cta";
 
 export const dynamic = "force-dynamic";
 
@@ -48,6 +49,7 @@ export default async function PublicLessonPage({
 
   return (
     <div className="min-h-screen bg-slate-50">
+      <GuestCTA />
       <div className="border-b bg-white">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-2 text-sm">
           <Link href="/library" className="inline-flex items-center gap-1 text-slate-600 hover:text-slate-900">

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getPublishedLessons } from "@/lib/lessons/public-queries";
 import { CATEGORIES } from "@/lib/lessons/categories";
 import { getLevelTheme } from "@/lib/lessons/level-theme";
+import { GuestCTA } from "@/components/library/guest-cta";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -27,6 +28,7 @@ export default async function LibraryPage() {
 
   return (
     <div className="min-h-screen bg-slate-50">
+      <GuestCTA />
       {/* Header */}
       <header className="border-b bg-white">
         <div className="mx-auto max-w-6xl px-6 py-12 text-center">
