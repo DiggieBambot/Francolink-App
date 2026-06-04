@@ -73,7 +73,7 @@ export default async function PublicLessonPage({
             ) : (
               <Link
                 href="/how-it-works#students"
-                className="inline-flex items-center gap-1 rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white hover:bg-blue-700"
+                className="inline-flex items-center gap-1 rounded-full bg-primary-600 px-3 py-1 text-xs font-semibold text-white hover:bg-primary-700"
               >
                 <GraduationCap className="h-3.5 w-3.5" /> Learn with a tutor
               </Link>

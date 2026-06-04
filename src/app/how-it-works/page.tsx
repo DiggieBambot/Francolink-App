@@ -16,7 +16,7 @@ export default function HowItWorksPage() {
     <PublicShell>
     <div className="min-h-screen bg-slate-50">
       {/* Hero */}
-      <header className="bg-gradient-to-br from-blue-600 to-indigo-700">
+      <header className="bg-gradient-to-br from-primary-500 to-primary-700">
         <div className="mx-auto max-w-5xl px-6 py-16 text-center text-white">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">How FrancoLink works</h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-white/90">
@@ -25,7 +25,7 @@ export default function HowItWorksPage() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
               href="#students"
-              className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-blue-700 hover:bg-blue-50"
+              className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-primary-700 hover:bg-primary-50"
             >
               <GraduationCap className="h-4 w-4" /> I want to learn
             </a>
@@ -42,7 +42,7 @@ export default function HowItWorksPage() {
       {/* Students */}
       <section id="students" className="mx-auto max-w-5xl scroll-mt-8 px-6 py-16">
         <div className="mb-8 flex items-center gap-3">
-          <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-blue-100 text-blue-700">
+          <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary-100 text-primary-700">
             <GraduationCap className="h-6 w-6" />
           </span>
           <div>
@@ -62,7 +62,7 @@ export default function HowItWorksPage() {
         <div className="mt-8 flex flex-wrap gap-3">
           <Link
             href="/signup"
-            className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-700"
+            className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-5 py-3 text-sm font-semibold text-white hover:bg-primary-700"
           >
             Sign up as a student <ArrowRight className="h-4 w-4" />
           </Link>

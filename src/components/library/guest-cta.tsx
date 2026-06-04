@@ -19,7 +19,7 @@ export async function GuestCTA({ variant = "bar" }: { variant?: "bar" | "card" }
 
   if (variant === "card") {
     return (
-      <div className="rounded-2xl border bg-gradient-to-br from-blue-50 to-indigo-50 p-6">
+      <div className="rounded-2xl border bg-gradient-to-br from-primary-50 to-primary-50 p-6">
         <h3 className="text-lg font-bold text-slate-900">Ready to learn French?</h3>
         <p className="mt-1 text-sm text-slate-600">
           Sign up free to save progress and connect with a tutor for live lessons.
@@ -27,7 +27,7 @@ export async function GuestCTA({ variant = "bar" }: { variant?: "bar" | "card" }
         <div className="mt-4 flex flex-wrap gap-3">
           <Link
             href="/signup"
-            className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+            className="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700"
           >
             <GraduationCap className="h-4 w-4" /> Sign up free
           </Link>
@@ -43,14 +43,14 @@ export async function GuestCTA({ variant = "bar" }: { variant?: "bar" | "card" }
   }
 
   return (
-    <div className="border-b bg-blue-600 text-white">
+    <div className="border-b bg-primary-600 text-white">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-4 gap-y-1 px-6 py-2 text-sm">
         <span className="font-medium">
           Free to browse — sign up to save progress &amp; learn live with a tutor.
         </span>
         <Link
           href="/get-started"
-          className="inline-flex items-center gap-1 rounded-full bg-white px-3 py-0.5 text-xs font-semibold text-blue-700 hover:bg-blue-50"
+          className="inline-flex items-center gap-1 rounded-full bg-white px-3 py-0.5 text-xs font-semibold text-primary-700 hover:bg-primary-50"
         >
           Get started <ArrowRight className="h-3 w-3" />
         </Link>
