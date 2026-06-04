@@ -33,7 +33,7 @@ export async function GuestCTA({ variant = "bar" }: { variant?: "bar" | "card" }
           </Link>
           <Link
             href="/how-it-works#tutors"
-            className="inline-flex items-center gap-2 rounded-lg border bg-white px-4 py-2 text-sm font-semibold text-emerald-700 hover:bg-emerald-50"
+            className="inline-flex items-center gap-2 rounded-lg border bg-white px-4 py-2 text-sm font-semibold text-secondary-700 hover:bg-secondary-50"
           >
             <Users className="h-4 w-4" /> Teach & earn
           </Link>

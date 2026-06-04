@@ -55,14 +55,14 @@ export default function GetStartedPage() {
           </div>
 
           {/* Tutor */}
-          <div className="flex flex-col rounded-2xl border-2 border-emerald-200 bg-white p-7 shadow-sm">
+          <div className="flex flex-col rounded-2xl border-2 border-secondary-200 bg-white p-7 shadow-sm">
             <div className="flex items-center gap-3">
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-secondary-100 text-secondary-700">
                 <Users className="h-6 w-6" />
               </span>
               <div>
                 <h2 className="text-xl font-bold text-slate-900">I want to teach & earn</h2>
-                <p className="text-sm text-emerald-700">
+                <p className="text-sm text-secondary-700">
                   {COMMISSION.firstMonthPct}% then {COMMISSION.recurringPct}% commission
                 </p>
               </div>
@@ -70,7 +70,7 @@ export default function GetStartedPage() {
             <ul className="mt-5 space-y-3 text-sm">
               {TUTOR_BENEFITS.map((b) => (
                 <li key={b.title} className="flex gap-2">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-secondary-600" />
                   <span>
                     <strong className="text-slate-900">{b.title}.</strong>{" "}
                     <span className="text-slate-600">{b.body}</span>
@@ -80,7 +80,7 @@ export default function GetStartedPage() {
             </ul>
             <Link
               href="/signup/tutor"
-              className="mt-6 inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-600 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-700"
+              className="mt-6 inline-flex items-center justify-center gap-2 rounded-lg bg-secondary-600 px-5 py-3 text-sm font-semibold text-white hover:bg-secondary-700"
             >
               Become a tutor <ArrowRight className="h-4 w-4" />
             </Link>

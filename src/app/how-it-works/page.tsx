@@ -79,7 +79,7 @@ export default function HowItWorksPage() {
       <section id="tutors" className="scroll-mt-8 bg-white">
         <div className="mx-auto max-w-5xl px-6 py-16">
           <div className="mb-8 flex items-center gap-3">
-            <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700">
+            <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-secondary-100 text-secondary-700">
               <Users className="h-6 w-6" />
             </span>
             <div>
@@ -98,19 +98,19 @@ export default function HowItWorksPage() {
           </div>
 
           {/* Commission math */}
-          <div className="mt-8 rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
-            <h3 className="font-semibold text-emerald-900">How tutor earnings work</h3>
-            <ol className="mt-3 space-y-2 text-sm text-emerald-950">
+          <div className="mt-8 rounded-2xl border border-secondary-200 bg-secondary-50 p-6">
+            <h3 className="font-semibold text-secondary-900">How tutor earnings work</h3>
+            <ol className="mt-3 space-y-2 text-sm text-secondary-900">
               <li className="flex gap-2">
-                <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-secondary-600" />
                 Share your unique invite link with your students.
               </li>
               <li className="flex gap-2">
-                <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-secondary-600" />
                 They sign up under you and study live with you — for free.
               </li>
               <li className="flex gap-2">
-                <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-secondary-600" />
                 When a student subscribes for solo practice, you earn{" "}
                 <strong>{COMMISSION.firstMonthPct}% the first month</strong> and{" "}
                 <strong>{COMMISSION.recurringPct}% every month after</strong>.
@@ -121,7 +121,7 @@ export default function HowItWorksPage() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/signup/tutor"
-              className="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-700"
+              className="inline-flex items-center gap-2 rounded-lg bg-secondary-600 px-5 py-3 text-sm font-semibold text-white hover:bg-secondary-700"
             >
               Become a tutor <ArrowRight className="h-4 w-4" />
             </Link>
