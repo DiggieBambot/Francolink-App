@@ -1,0 +1,52 @@
+"use client";
+
+import { createContext, useContext } from "react";
+
+export interface RoomPresence {
+  user_id: string;
+  role: "tutor" | "student";
+  name: string;
+  avatar_seed?: string;
+}
+
+export interface LessonRoomContextValue {
+  sessionId: string;
+  currentUserId: string;
+  currentRole: "tutor" | "student";
+  canHighlight: boolean;
+  highlights: Set<string>;
+  toggleHighlight: (anchor: { id: string; text: string; sectionIdx: number }) => void;
+  presence: RoomPresence[];
+  /** Broadcast a TTS play event to peers (called by SpeakButton inside a room). */
+  broadcastSpeak: (text: string) => void;
+  /** Last incoming speak event from a peer — drives auto-play on receivers. */
+  incomingSpeak: { text: string; at: number; from: string } | null;
+  /** Translations currently revealed to the student (tutor-controlled). Key is text content. */
+  revealedTranslations: Set<string>;
+  /** Tutor-only: toggle a translation's visibility for the student. */
+  toggleTranslation: (key: string) => void;
+  /** Live student answers for interactive exercises. Tutor reads to watch progress. */
+  studentAnswers: Record<string, { state: unknown; updatedAt: number }>;
+  /** Student broadcasts a change in their answer for one exercise anchor. */
+  reportAnswer: (anchor: string, state: unknown) => void;
+  /** Tutor-driven current step. When set, both sides scroll to it. */
+  currentSectionIdx: number | null;
+  /** Tutor-only: broadcast a new current step. */
+  setCurrentSectionIdx: (idx: number) => void;
+}
+
+const LessonRoomContext = createContext<LessonRoomContextValue | null>(null);
+
+export function LessonRoomProvider({
+  value,
+  children,
+}: {
+  value: LessonRoomContextValue;
+  children: React.ReactNode;
+}) {
+  return <LessonRoomContext.Provider value={value}>{children}</LessonRoomContext.Provider>;
+}
+
+export function useLessonRoom(): LessonRoomContextValue | null {
+  return useContext(LessonRoomContext);
+}

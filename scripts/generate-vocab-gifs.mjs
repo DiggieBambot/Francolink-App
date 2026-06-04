@@ -1,16 +1,16 @@
 // scripts/generate-vocab-gifs.mjs
 //
-// Adds an animated GIF to verb-like vocab items using the Tenor v2 API.
+// Adds an animated GIF to verb-like vocab items using the GIPHY v1 API.
 // GIFs are downloaded once and cached in Supabase Storage so we never hotlink
-// Tenor's CDN at runtime.
+// GIPHY's CDN at runtime.
 //
 // Usage:
 //   node scripts/generate-vocab-gifs.mjs               # dry-run (counts only)
 //   node scripts/generate-vocab-gifs.mjs --apply       # actually fetch + upload
-//   node scripts/generate-vocab-gifs.mjs --apply --limit=20
+//   node scripts/generate-vocab-gifs.mjs --apply --limit=10
 //
 // Requires:
-//   TENOR_API_KEY=... in .env.local  (Google Cloud → Tenor API → Credentials)
+//   GIPHY_API_KEY=... in .env.local  (developers.giphy.com → create app)
 //
 // Resume-safe: skips any item where vocab.gif is already set.
 
@@ -32,9 +32,9 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
-const TENOR_KEY = process.env.TENOR_API_KEY;
-if (APPLY && !TENOR_KEY) {
-  console.error("Missing TENOR_API_KEY in .env.local");
+const GIPHY_KEY = process.env.GIPHY_API_KEY;
+if (APPLY && !GIPHY_KEY) {
+  console.error("Missing GIPHY_API_KEY in .env.local");
   process.exit(1);
 }
 
@@ -71,39 +71,55 @@ function isVerbish(pos) {
   return tokens.includes("verb");
 }
 
-async function tenorSearch(query) {
-  const url = new URL("https://tenor.googleapis.com/v2/search");
+async function giphySearch(query) {
+  // Stickers endpoint: cleaner, illustration-style, mostly transparent
+  // backgrounds — much better fit for vocab flashcards than reaction GIFs.
+  const url = new URL("https://api.giphy.com/v1/stickers/search");
+  url.searchParams.set("api_key", GIPHY_KEY);
   url.searchParams.set("q", query);
-  url.searchParams.set("key", TENOR_KEY);
-  url.searchParams.set("client_key", "francolink");
-  url.searchParams.set("limit", "6");
-  url.searchParams.set("media_filter", "tinygif,gif");
-  url.searchParams.set("contentfilter", "high");
-  url.searchParams.set("locale", "en_US");
+  url.searchParams.set("limit", "8");
+  url.searchParams.set("rating", "g");
+  url.searchParams.set("lang", "en");
   const res = await fetch(url, { headers: { Accept: "application/json" } });
   if (!res.ok) {
     const txt = await res.text();
-    const err = new Error(`Tenor ${res.status}: ${txt.slice(0, 200)}`);
+    const err = new Error(`GIPHY ${res.status}: ${txt.slice(0, 200)}`);
     err.status = res.status;
     throw err;
   }
   return res.json();
 }
 
+// GIPHY image renditions we care about, in preference order. Each has a
+// .url + .width + .height + .size (string of bytes).
+// Picking a ~200px tall rendition is plenty for the 80px flashcard slot.
+const PREFERRED_RENDITIONS = [
+  "fixed_height_small",     // ~100px tall
+  "fixed_height",           // ~200px tall
+  "fixed_width_small",      // ~100px wide
+  "downsized_small",        // <= 200KB mp4 — skip non-gif
+];
+
 function pickBestResult(results) {
   if (!Array.isArray(results) || results.length === 0) return null;
-  // Prefer the first result whose tinygif has sane dimensions and small size.
   for (const r of results) {
-    const tiny = r?.media_formats?.tinygif;
-    if (!tiny?.url) continue;
-    const [w, h] = tiny.dims || [];
-    if (!w || !h) continue;
-    if (w < 100 || h < 100) continue; // too small to be useful
-    if ((tiny.size || 0) > 1_500_000) continue; // > 1.5 MB tinygif → skip
-    return { url: tiny.url, dims: tiny.dims, size: tiny.size };
+    const images = r?.images || {};
+    for (const key of PREFERRED_RENDITIONS) {
+      const rend = images[key];
+      if (!rend?.url) continue;
+      const url = rend.url;
+      // Only accept .gif (downsized_small is mp4)
+      if (!url.includes(".gif")) continue;
+      const w = parseInt(rend.width, 10) || 0;
+      const h = parseInt(rend.height, 10) || 0;
+      const size = parseInt(rend.size, 10) || 0;
+      if (w < 80 || h < 80) continue;
+      if (size > 1_500_000) continue;
+      return { url, dims: [w, h], size };
+    }
   }
-  // fall back to first available regardless
-  const first = results[0]?.media_formats?.tinygif?.url;
+  // last-resort: original.url from first result
+  const first = results[0]?.images?.original?.url;
   return first ? { url: first } : null;
 }
 
@@ -175,8 +191,8 @@ async function main() {
     const query = cleanQuery(e.translation);
     process.stdout.write(`${tag} "${e.term}" (${query})… `);
     try {
-      const data = await tenorSearch(query);
-      const best = pickBestResult(data?.results);
+      const data = await giphySearch(query);
+      const best = pickBestResult(data?.data);
       if (!best) {
         console.log("— no match");
         skipped++;
