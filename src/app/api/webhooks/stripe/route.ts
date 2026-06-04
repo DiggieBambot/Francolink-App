@@ -131,47 +131,81 @@ async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
     return;
   }
 
-  const commissionRateStr = await getAppSetting('commission_rate');
-  const commissionRate = parseFloat(commissionRateStr || '0.10');
+  // Commission model: 10% on the student's FIRST paid month, 5% on every month
+  // after. Detect "first" from the Stripe billing_reason, falling back to the
+  // commission ledger (no prior entry for this student → treat as first).
+  const billingReason = (invoice as Stripe.Invoice & { billing_reason?: string }).billing_reason;
+  let isFirst = billingReason === 'subscription_create';
+  if (!isFirst && billingReason !== 'subscription_cycle') {
+    // Unknown reason → decide from ledger history.
+    const { count } = await supabase
+      .from('commission_ledger')
+      .select('*', { count: 'exact', head: true })
+      .eq('tutor_id', user.referred_by_tutor_id)
+      .eq('student_id', user.id);
+    isFirst = (count ?? 0) === 0;
+  }
 
-  // Calculate commission
-  const grossAmount = invoice.amount_paid / 100; // Convert from cents to dollars
-  const commissionAmount = grossAmount * commissionRate;
+  const firstRate = parseFloat((await getAppSetting('commission_rate_first_month')) || '0.10');
+  const recurringRate = parseFloat((await getAppSetting('commission_rate_recurring')) || '0.05');
+  const commissionRate = isFirst ? firstRate : recurringRate;
 
-  console.log(`Calculating commission: ${grossAmount} x ${commissionRate} = ${commissionAmount}`);
+  const grossAmount = invoice.amount_paid / 100; // cents → dollars
+  const commissionAmount = Math.round(grossAmount * commissionRate * 100) / 100;
 
-  // Update tutor's commission_balance
+  console.log(
+    `Commission (${isFirst ? 'first month' : 'recurring'}): ${grossAmount} x ${commissionRate} = ${commissionAmount}`
+  );
+
+  // Subscription id + period (for the ledger row).
+  const subId =
+    typeof (invoice as Stripe.Invoice & { subscription?: string }).subscription === 'string'
+      ? (invoice as Stripe.Invoice & { subscription?: string }).subscription
+      : null;
+  const line = invoice.lines?.data?.[0];
+  const periodStart = line?.period?.start ? new Date(line.period.start * 1000).toISOString() : null;
+  const periodEnd = line?.period?.end ? new Date(line.period.end * 1000).toISOString() : null;
+
+  // 1) Write an immutable ledger entry.
+  const { error: ledgerError } = await supabase.from('commission_ledger').insert({
+    tutor_id: user.referred_by_tutor_id,
+    student_id: user.id,
+    subscription_id: subId,
+    amount: commissionAmount,
+    commission_rate: commissionRate,
+    period_start: periodStart,
+    period_end: periodEnd,
+    status: 'paid',
+  });
+  if (ledgerError) {
+    console.error('Error writing commission_ledger:', ledgerError.message);
+    // Don't return — still try to update the running balance below.
+  }
+
+  // 2) Update the tutor's running balance.
   const { data: tutor, error: tutorFetchError } = await supabase
     .from('users')
     .select('commission_balance')
     .eq('id', user.referred_by_tutor_id)
     .single();
-
   if (tutorFetchError) {
     console.error('Error fetching tutor:', tutorFetchError);
     return;
   }
-
   const currentBalance = parseFloat(tutor?.commission_balance || '0');
-  const newBalance = currentBalance + commissionAmount;
-
+  const newBalance = Math.round((currentBalance + commissionAmount) * 100) / 100;
   const { error: updateError } = await supabase
     .from('users')
-    .update({ 
-      commission_balance: newBalance 
-    })
+    .update({ commission_balance: newBalance })
     .eq('id', user.referred_by_tutor_id);
-
   if (updateError) {
     console.error('Error updating commission balance:', updateError);
     return;
   }
 
-  console.log(`✅ Commission added: $${commissionAmount.toFixed(2)} to tutor ${user.referred_by_tutor_id}`);
-  console.log(`   New balance: $${newBalance.toFixed(2)}`);
-
-  // Optional: Log to commission_ledger if you want detailed history
-  // We'll create this table next
+  console.log(
+    `✅ Commission $${commissionAmount.toFixed(2)} (${isFirst ? '10%' : '5%'}) → tutor ${user.referred_by_tutor_id}. New balance: $${newBalance.toFixed(2)}`
+  );
 }
 
 /**

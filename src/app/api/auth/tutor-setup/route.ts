@@ -17,16 +17,23 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    // Generate unique invite code
-    const { data: codeData, error: codeError } = await supabase
-      .rpc('generate_tutor_invite_code');
-
-    if (codeError) {
-      console.error('Code generation error:', codeError);
-      throw new Error('Failed to generate invite code');
+    // Generate a unique invite code in app code (no DB function dependency).
+    let inviteCode = '';
+    for (let attempt = 0; attempt < 10; attempt++) {
+      const candidate = Math.random().toString(36).slice(2, 10).toUpperCase(); // 8 chars
+      const { data: clash } = await supabase
+        .from('users')
+        .select('id')
+        .eq('tutor_invite_code', candidate)
+        .maybeSingle();
+      if (!clash) {
+        inviteCode = candidate;
+        break;
+      }
     }
-
-    const inviteCode = codeData;
+    if (!inviteCode) {
+      throw new Error('Failed to generate a unique invite code');
+    }
 
     // Fetch plan limits
     const { data: planDetails } = await supabase
