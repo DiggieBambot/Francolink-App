@@ -8,6 +8,7 @@ import { LessonRenderer } from "./lesson-renderer";
 import { IncomingTtsAutoplay } from "./incoming-tts-autoplay";
 import { SectionSync } from "./section-sync";
 import { StepControls } from "./step-controls";
+import type { ChatMessage } from "./lesson-room-context";
 
 interface DemoRoomProps {
   lesson: Lesson;
@@ -30,6 +31,17 @@ export function DemoRoom({ lesson }: DemoRoomProps) {
   >({});
   const [currentSectionIdx, setCurrentSectionIdxState] = useState<number | null>(null);
   const setCurrentSectionIdx = useCallback((idx: number) => setCurrentSectionIdxState(idx), []);
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
+  const pushChat = useCallback(
+    (from: string, name: string, role: "tutor" | "student", text: string) => {
+      if (!text.trim()) return;
+      setChatMessages((prev) => [
+        ...prev,
+        { id: crypto.randomUUID(), from, name, role, text: text.trim(), at: Date.now() },
+      ]);
+    },
+    []
+  );
 
   // Single-active highlight: clicking word A then B leaves only B marked.
   // Clicking the same word again clears it.
@@ -100,6 +112,8 @@ export function DemoRoom({ lesson }: DemoRoomProps) {
               reportAnswer: tutorReportAnswer,
               currentSectionIdx,
               setCurrentSectionIdx,
+              chatMessages,
+              sendChat: (t: string) => pushChat("demo-tutor", "Demo Tutor", "tutor", t),
             }}
           >
             <IncomingTtsAutoplay />
@@ -131,6 +145,8 @@ export function DemoRoom({ lesson }: DemoRoomProps) {
               reportAnswer,
               currentSectionIdx,
               setCurrentSectionIdx: () => {}, // student can't advance
+              chatMessages,
+              sendChat: (t: string) => pushChat("demo-student", "Demo Student", "student", t),
             }}
           >
             <IncomingTtsAutoplay />

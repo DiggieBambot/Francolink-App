@@ -33,6 +33,19 @@ export interface LessonRoomContextValue {
   currentSectionIdx: number | null;
   /** Tutor-only: broadcast a new current step. */
   setCurrentSectionIdx: (idx: number) => void;
+  /** Live chat messages in the room. */
+  chatMessages: ChatMessage[];
+  /** Send a chat message. */
+  sendChat: (text: string) => void;
+}
+
+export interface ChatMessage {
+  id: string;
+  from: string;
+  name: string;
+  role: "tutor" | "student";
+  text: string;
+  at: number;
 }
 
 const LessonRoomContext = createContext<LessonRoomContextValue | null>(null);

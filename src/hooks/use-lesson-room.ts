@@ -36,6 +36,9 @@ export function useLessonRoom({
     { text: string; at: number; from: string } | null
   >(null);
   const [revealedTranslations, setRevealedTranslations] = useState<Set<string>>(new Set());
+  const [chatMessages, setChatMessages] = useState<
+    { id: string; from: string; name: string; role: "tutor" | "student"; text: string; at: number }[]
+  >([]);
   const [studentAnswers, setStudentAnswers] = useState<
     Record<string, { state: unknown; updatedAt: number }>
   >({});
@@ -78,6 +81,27 @@ export function useLessonRoom({
     channel.on("broadcast", { event: "section:current" }, ({ payload }) => {
       const idx = (payload as { idx?: number }).idx;
       if (typeof idx === "number") setCurrentSectionIdxState(idx);
+    });
+
+    channel.on("broadcast", { event: "chat:message" }, ({ payload }) => {
+      const m = payload as {
+        id?: string; from?: string; name?: string; role?: "tutor" | "student"; text?: string; at?: number;
+      };
+      if (!m?.text) return;
+      setChatMessages((prev) => {
+        if (m.id && prev.some((x) => x.id === m.id)) return prev; // dedupe own echo
+        return [
+          ...prev,
+          {
+            id: m.id || crypto.randomUUID(),
+            from: m.from || "",
+            name: m.name || "Someone",
+            role: m.role || "student",
+            text: m.text!,
+            at: m.at || Date.now(),
+          },
+        ];
+      });
     });
 
     channel.on("broadcast", { event: "exercise:answer" }, ({ payload }) => {
@@ -203,6 +227,30 @@ export function useLessonRoom({
     [currentRole]
   );
 
+  // Anyone can chat. Broadcast + optimistic local + best-effort persist.
+  const sendChat = useCallback(
+    (text: string) => {
+      const trimmed = text.trim();
+      if (!trimmed) return;
+      const msg = {
+        id: crypto.randomUUID(),
+        from: currentUserId,
+        name: currentName,
+        role: currentRole,
+        text: trimmed,
+        at: Date.now(),
+      };
+      setChatMessages((prev) => [...prev, msg]);
+      void channelRef.current?.send({ type: "broadcast", event: "chat:message", payload: msg });
+      // Best-effort persistence (table may not exist yet → ignore errors).
+      void supabase
+        .from("tutor_lesson_messages")
+        .insert({ session_id: sessionId, sender_id: currentUserId, sender_name: currentName, sender_role: currentRole, text: trimmed })
+        .then(undefined, () => {});
+    },
+    [currentUserId, currentName, currentRole, sessionId, supabase]
+  );
+
   return {
     highlights,
     presence,
@@ -215,5 +263,7 @@ export function useLessonRoom({
     reportAnswer,
     currentSectionIdx,
     setCurrentSectionIdx,
+    chatMessages,
+    sendChat,
   };
 }

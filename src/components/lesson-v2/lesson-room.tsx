@@ -7,6 +7,7 @@ import { Avatar } from "./avatar";
 import { IncomingTtsAutoplay } from "./incoming-tts-autoplay";
 import { SectionSync } from "./section-sync";
 import { StepControls } from "./step-controls";
+import { ToolsRail } from "./room/tools-rail";
 import { Users, Sparkles } from "lucide-react";
 import type { Lesson } from "@/lib/lessons/types";
 
@@ -39,6 +40,8 @@ export function LessonRoom({
     reportAnswer,
     currentSectionIdx,
     setCurrentSectionIdx,
+    chatMessages,
+    sendChat,
   } = useLessonRoom({
     sessionId,
     currentUserId,
@@ -65,6 +68,8 @@ export function LessonRoom({
         reportAnswer,
         currentSectionIdx,
         setCurrentSectionIdx,
+        chatMessages,
+        sendChat,
       }}
     >
       {/* Floating presence + room badge */}
@@ -100,12 +105,16 @@ export function LessonRoom({
       <IncomingTtsAutoplay />
       <SectionSync />
       <StepControls totalSteps={lesson.sections.length} />
+      <ToolsRail />
 
-      <LessonRenderer
-        lesson={lesson}
-        initialView={currentRole}
-        lockedView={currentRole}
-      />
+      {/* Right padding leaves room for the tools rail on wide screens. */}
+      <div className="lg:pr-[340px]">
+        <LessonRenderer
+          lesson={lesson}
+          initialView={currentRole}
+          lockedView={currentRole}
+        />
+      </div>
     </LessonRoomProvider>
   );
 }
