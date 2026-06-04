@@ -157,12 +157,12 @@ export function CommissionDashboard() {
         <div className="bg-white rounded-xl border p-6">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-gray-500">Total Earned</span>
-            <DollarSign className="w-5 h-5 text-green-600" />
+            <DollarSign className="w-5 h-5 text-secondary-600" />
           </div>
           <p className="text-2xl font-bold text-gray-900">
             {formatCurrency(summary.total_earned)}
           </p>
-          <p className="text-sm text-green-600 mt-1 flex items-center gap-1">
+          <p className="text-sm text-secondary-600 mt-1 flex items-center gap-1">
             <ArrowUpRight className="w-4 h-4" />
             {formatCurrency(summary.this_month)} this month
           </p>
@@ -210,16 +210,16 @@ export function CommissionDashboard() {
 
       {/* Withdrawal Section */}
       {summary.available_balance >= settings.minPayoutAmount && (
-        <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-6 mb-8">
+        <div className="bg-gradient-to-r from-secondary-50 to-emerald-50 border border-secondary-200 rounded-xl p-6 mb-8">
           <div className="flex items-start gap-4">
-            <div className="p-3 bg-green-100 rounded-xl">
-              <Download className="w-6 h-6 text-green-600" />
+            <div className="p-3 bg-secondary-100 rounded-xl">
+              <Download className="w-6 h-6 text-secondary-600" />
             </div>
             <div className="flex-1">
-              <h3 className="font-semibold text-green-900 mb-1">
+              <h3 className="font-semibold text-secondary-900 mb-1">
                 Request Withdrawal
               </h3>
-              <p className="text-sm text-green-700 mb-4">
+              <p className="text-sm text-secondary-700 mb-4">
                 You have {formatCurrency(summary.available_balance)} available for withdrawal.
                 Minimum: {formatCurrency(settings.minPayoutAmount)}
               </p>
@@ -235,13 +235,13 @@ export function CommissionDashboard() {
                     min={settings.minPayoutAmount}
                     max={summary.available_balance}
                     step="0.01"
-                    className="w-full pl-8 pr-4 py-2 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                    className="w-full pl-8 pr-4 py-2 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500"
                   />
                 </div>
                 <button
                   onClick={handleWithdraw}
                   disabled={isWithdrawing}
-                  className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium"
+                  className="px-6 py-2 bg-secondary-600 text-white rounded-lg hover:bg-secondary-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium"
                 >
                   {isWithdrawing ? 'Processing...' : 'Request Withdrawal'}
                 </button>
@@ -255,7 +255,7 @@ export function CommissionDashboard() {
               )}
               
               {withdrawSuccess && (
-                <div className="mt-3 flex items-center gap-2 text-green-700 text-sm">
+                <div className="mt-3 flex items-center gap-2 text-secondary-700 text-sm">
                   <CheckCircle className="w-4 h-4" />
                   {withdrawSuccess}
                 </div>
@@ -339,7 +339,7 @@ export function CommissionDashboard() {
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center font-bold">
+              <div className="flex-shrink-0 w-8 h-8 bg-secondary-100 text-secondary-600 rounded-full flex items-center justify-center font-bold">
                 4
               </div>
               <div>
@@ -389,7 +389,7 @@ export function CommissionDashboard() {
                     <td className="px-4 py-3 text-sm text-gray-500">
                       {(entry.commission_rate * 100).toFixed(0)}%
                     </td>
-                    <td className="px-4 py-3 text-sm font-medium text-green-600">
+                    <td className="px-4 py-3 text-sm font-medium text-secondary-600">
                       +{formatCurrency(entry.commission_amount)}
                     </td>
                   </tr>
