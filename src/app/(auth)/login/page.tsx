@@ -21,12 +21,20 @@ export default function LoginPage() {
     setIsLoading(true);
     try {
       const supabase = createClient();
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      const { data: signInData, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) {
         setError(error.message);
         return;
       }
-      router.push("/dashboard");
+      // Route by role so tutors/admins land in the right area.
+      let dest = "/dashboard";
+      const uid = signInData.user?.id;
+      if (uid) {
+        const { data: profile } = await supabase.from("users").select("role").eq("id", uid).maybeSingle();
+        if (profile?.role === "TUTOR") dest = "/tutor";
+        else if (profile?.role === "ADMIN") dest = "/admin";
+      }
+      router.push(dest);
       router.refresh();
     } catch {
       setError("Something went wrong. Please try again.");
