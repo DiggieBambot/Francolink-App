@@ -9,8 +9,9 @@ import { IncomingTtsAutoplay } from "./incoming-tts-autoplay";
 import { SectionSync } from "./section-sync";
 import { StepControls } from "./step-controls";
 import { ToolsRail } from "./room/tools-rail";
-import { LessonPicker, type PickerLesson } from "./room/lesson-picker";
-import { Users, Sparkles, BookOpen, RefreshCw } from "lucide-react";
+import { LessonBrowser } from "./room/lesson-browser";
+import type { PickerLesson } from "./room/lesson-picker";
+import { Users, Sparkles, BookOpen, RefreshCw, UserPlus, Check } from "lucide-react";
 import type { Lesson } from "@/lib/lessons/types";
 
 interface LessonRoomProps {
@@ -22,6 +23,7 @@ interface LessonRoomProps {
   currentRole: "tutor" | "student";
   currentName: string;
   initialHighlights: { anchor_id: string; text: string }[];
+  initialChat?: { id: string; from: string; name: string; role: "tutor" | "student"; text: string; at: number }[];
 }
 
 export function LessonRoom({
@@ -33,14 +35,28 @@ export function LessonRoom({
   currentRole,
   currentName,
   initialHighlights,
+  initialChat = [],
 }: LessonRoomProps) {
-  const room = useLessonRoom({ sessionId, currentUserId, currentRole, currentName, initialHighlights });
+  const room = useLessonRoom({ sessionId, currentUserId, currentRole, currentName, initialHighlights, initialChatMessages: initialChat });
 
   const [lesson, setLesson] = useState<Lesson | null>(initialLesson);
   const [lessonId, setLessonId] = useState<string | null>(initialLessonId);
   const [pickerOpen, setPickerOpen] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
+  const [inviteCopied, setInviteCopied] = useState(false);
   const lastIncoming = useRef(0);
+
+  async function copyInvite() {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setInviteCopied(true);
+      setToast("Room link copied — send it to your student");
+      window.setTimeout(() => setInviteCopied(false), 2000);
+      window.setTimeout(() => setToast(null), 2500);
+    } catch {
+      /* ignore */
+    }
+  }
 
   async function loadLesson(id: string) {
     try {
@@ -54,12 +70,20 @@ export function LessonRoom({
     }
   }
 
-  function pick(l: PickerLesson) {
+  async function pickBySlug(slug: string, title: string) {
     setPickerOpen(false);
-    room.broadcastLessonChange(l.id, l.title);
-    void loadLesson(l.id);
-    setToast(`You opened “${l.title}”`);
-    window.setTimeout(() => setToast(null), 2500);
+    try {
+      const res = await fetch(`/api/lessons/by-slug/${slug}`);
+      if (!res.ok) return;
+      const data = await res.json();
+      setLesson(data.lesson as Lesson);
+      setLessonId(data.id as string);
+      room.broadcastLessonChange(data.id, data.title || title);
+      setToast(`You opened “${data.title || title}”`);
+      window.setTimeout(() => setToast(null), 2500);
+    } catch {
+      /* ignore */
+    }
   }
 
   useEffect(() => {
@@ -94,6 +118,7 @@ export function LessonRoom({
         sendChat: room.sendChat,
         incomingLessonChange: room.incomingLessonChange,
         broadcastLessonChange: room.broadcastLessonChange,
+        openLessonPicker: () => setPickerOpen(true),
       }}
     >
       {/* Top bar: presence + change-lesson */}
@@ -112,6 +137,15 @@ export function LessonRoom({
           ))}
           {room.presence.length === 0 ? <span className="text-xs text-slate-400">connecting…</span> : null}
         </div>
+        <span className="h-4 w-px bg-slate-200" />
+        <button
+          onClick={copyInvite}
+          className="inline-flex items-center gap-1 rounded-full bg-secondary px-2.5 py-0.5 text-xs font-semibold text-white hover:bg-secondary-600"
+          title="Copy this room link and send it to your student"
+        >
+          {inviteCopied ? <Check className="h-3 w-3" /> : <UserPlus className="h-3 w-3" />}
+          {inviteCopied ? "Copied!" : "Invite"}
+        </button>
         {lesson ? (
           <>
             <span className="h-4 w-px bg-slate-200" />
@@ -167,7 +201,7 @@ export function LessonRoom({
       )}
 
       {pickerOpen ? (
-        <LessonPicker lessons={lessonList} currentId={lessonId} onPick={pick} onClose={() => setPickerOpen(false)} />
+        <LessonBrowser onPick={pickBySlug} onClose={() => setPickerOpen(false)} />
       ) : null}
     </LessonRoomProvider>
   );

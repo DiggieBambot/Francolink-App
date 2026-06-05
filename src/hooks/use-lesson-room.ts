@@ -11,6 +11,9 @@ interface UseLessonRoomArgs {
   currentRole: "tutor" | "student";
   currentName: string;
   initialHighlights?: { anchor_id: string }[];
+  initialChatMessages?: {
+    id: string; from: string; name: string; role: "tutor" | "student"; text: string; at: number;
+  }[];
 }
 
 interface HighlightAnchor {
@@ -25,6 +28,7 @@ export function useLessonRoom({
   currentRole,
   currentName,
   initialHighlights = [],
+  initialChatMessages = [],
 }: UseLessonRoomArgs) {
   const supabase = createBrowserClient();
   const channelRef = useRef<RealtimeChannel | null>(null);
@@ -38,7 +42,7 @@ export function useLessonRoom({
   const [revealedTranslations, setRevealedTranslations] = useState<Set<string>>(new Set());
   const [chatMessages, setChatMessages] = useState<
     { id: string; from: string; name: string; role: "tutor" | "student"; text: string; at: number }[]
-  >([]);
+  >(initialChatMessages);
   const [studentAnswers, setStudentAnswers] = useState<
     Record<string, { state: unknown; updatedAt: number }>
   >({});
@@ -136,7 +140,10 @@ export function useLessonRoom({
     });
 
     return () => {
-      void channel.unsubscribe();
+      // removeChannel (not just unsubscribe) so React StrictMode's double-mount
+      // in dev doesn't leave a stale channel on the same topic that can swallow
+      // incoming broadcasts on the re-subscribed channel.
+      void supabase.removeChannel(channel);
       channelRef.current = null;
     };
   }, [sessionId, currentUserId, currentRole, currentName, supabase]);
@@ -192,21 +199,21 @@ export function useLessonRoom({
   const toggleTranslation = useCallback(
     async (key: string) => {
       if (currentRole !== "tutor") return;
-      let nextKeys: string[] = [];
-      setRevealedTranslations((prev) => {
-        const next = new Set(prev);
-        if (next.has(key)) next.delete(key);
-        else next.add(key);
-        nextKeys = Array.from(next);
-        return next;
-      });
+      // Compute the next set SYNCHRONOUSLY from current state so the broadcast
+      // payload is correct. (Deriving it inside a setState updater races the
+      // send() below — the updater may not have run yet.)
+      const next = new Set(revealedTranslations);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      const nextKeys = Array.from(next);
+      setRevealedTranslations(next);
       await channelRef.current?.send({
         type: "broadcast",
         event: "translation:set",
         payload: { keys: nextKeys },
       });
     },
-    [currentRole]
+    [currentRole, revealedTranslations]
   );
 
   // Student-only: broadcast a change in their exercise answer.
@@ -251,13 +258,15 @@ export function useLessonRoom({
       };
       setChatMessages((prev) => [...prev, msg]);
       void channelRef.current?.send({ type: "broadcast", event: "chat:message", payload: msg });
-      // Best-effort persistence (table may not exist yet → ignore errors).
-      void supabase
-        .from("tutor_lesson_messages")
-        .insert({ session_id: sessionId, sender_id: currentUserId, sender_name: currentName, sender_role: currentRole, text: trimmed })
-        .then(undefined, () => {});
+      // Persist via the service-backed API route so a link-joined student's
+      // messages are saved too (member-only RLS would block a direct insert).
+      void fetch(`/api/space/${sessionId}/chat`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ text: trimmed, name: currentName, role: currentRole }),
+      }).catch(() => {});
     },
-    [currentUserId, currentName, currentRole, sessionId, supabase]
+    [currentUserId, currentName, currentRole, sessionId]
   );
 
   // Either member: change the current lesson. Persists via API + broadcasts.

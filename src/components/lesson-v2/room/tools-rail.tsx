@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useState } from "react";
-import { MessageSquare, PenTool, Users, X, PanelRightOpen } from "lucide-react";
+import { MessageSquare, PenTool, Users, X, PanelRightOpen, BookOpen, Copy, Check } from "lucide-react";
 import { useLessonRoom } from "../lesson-room-context";
 import { Avatar } from "../avatar";
 import { ChatPanel } from "./chat-panel";
@@ -19,9 +19,20 @@ export function ToolsRail() {
   const room = useLessonRoom();
   const [open, setOpen] = useState(true);
   const [tab, setTab] = useState<Tab>("chat");
+  const [linkCopied, setLinkCopied] = useState(false);
   if (!room) return null;
 
   const unread = room.chatMessages.length;
+
+  async function copyRoomLink() {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setLinkCopied(true);
+      setTimeout(() => setLinkCopied(false), 2000);
+    } catch {
+      /* ignore */
+    }
+  }
 
   if (!open) {
     return (
@@ -77,7 +88,34 @@ export function ToolsRail() {
           <WhiteboardPanel sessionId={room.sessionId} userId={room.currentUserId} />
         ) : null}
         {tab === "people" ? (
-          <div className="space-y-2 p-4">
+          <div className="space-y-4 overflow-y-auto p-4">
+            {/* Change the lesson (either side) */}
+            <button
+              type="button"
+              onClick={() => room.openLessonPicker()}
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-700"
+            >
+              <BookOpen className="h-4 w-4" /> Change lesson
+            </button>
+
+            {/* Invite link for this room */}
+            <div className="rounded-lg border border-secondary-200 bg-secondary-50/60 p-3">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-secondary-700">
+                Invite to this room
+              </p>
+              <p className="mb-2 text-xs text-slate-500">
+                Send this link to bring someone in.
+              </p>
+              <button
+                type="button"
+                onClick={copyRoomLink}
+                className="flex w-full items-center justify-center gap-2 rounded-md bg-secondary px-3 py-2 text-sm font-semibold text-white hover:bg-secondary-600"
+              >
+                {linkCopied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                {linkCopied ? "Link copied!" : "Copy room link"}
+              </button>
+            </div>
+
             <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-400">In this room</h3>
             {room.presence.length === 0 ? (
               <p className="text-sm text-slate-400">Connecting…</p>

@@ -32,20 +32,8 @@ export default async function TutorSignupPage({ searchParams }: PageProps) {
     .order('sort_order');
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background p-4">
-      <div className="w-full max-w-md space-y-8">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold">Create Tutor Account</h1>
-          <p className="mt-2 text-muted-foreground">
-            Start teaching with FrancoLink
-          </p>
-        </div>
-
-        <TutorSignupForm 
-          selectedPlan={plan || 'FREE'} 
-          plans={plans || []} 
-        />
-      </div>
+    <div className="w-full max-w-md">
+      <TutorSignupForm selectedPlan={plan || 'FREE'} plans={plans || []} />
     </div>
   );
 }

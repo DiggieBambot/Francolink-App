@@ -5,8 +5,10 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Loader2, AlertCircle, Check } from 'lucide-react';
+import { Loader2, AlertCircle, Check, GraduationCap, ArrowLeft, User, Mail, Lock } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
+import { Card, Input, Button } from '@/components/ui';
+import { GoogleButton } from '@/components/auth/google-button';
 
 interface Plan {
   key: string;
@@ -89,121 +91,97 @@ export function TutorSignupForm({ selectedPlan, plans }: Props) {
   };
 
   return (
-    <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-8 shadow-lg">
-      <form onSubmit={handleSubmit} className="space-y-6">
+    <Card className="w-full max-w-md">
+      <div className="mb-7 text-center">
+        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary-100 text-secondary-700">
+          <GraduationCap className="h-6 w-6" />
+        </div>
+        <h1 className="font-heading text-2xl font-bold text-primary">Become a tutor</h1>
+        <p className="mt-1 text-gray-600">Teach, bring your students, and earn commission</p>
+      </div>
+
+      <GoogleButton label="Sign up with Google" />
+
+      <div className="my-6 flex items-center">
+        <div className="flex-1 border-t border-gray-200" />
+        <span className="px-4 text-sm text-gray-500">or</span>
+        <div className="flex-1 border-t border-gray-200" />
+      </div>
+
+      <form onSubmit={handleSubmit} className="space-y-4">
         {error && (
-          <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg flex items-center gap-2 text-red-700 dark:text-red-400 text-sm">
-            <AlertCircle className="w-4 h-4 flex-shrink-0" />
+          <div className="flex items-center gap-2 rounded-lg bg-error-light p-3 text-sm text-error">
+            <AlertCircle className="h-4 w-4 flex-shrink-0" />
             <span>{error}</span>
           </div>
         )}
 
-        <div>
-          <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
-            Full Name
-          </label>
-          <input
-            type="text"
-            required
-            value={formData.fullName}
-            onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-            className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
-            placeholder="Marie Dubois"
-          />
+        <div className="relative">
+          <User className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
+          <Input type="text" required value={formData.fullName} onChange={(e) => setFormData({ ...formData, fullName: e.target.value })} className="pl-10" placeholder="Your name" />
+        </div>
+        <div className="relative">
+          <Mail className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
+          <Input type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="pl-10" placeholder="Email address" />
+        </div>
+        <div className="relative">
+          <Lock className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
+          <Input type="password" required minLength={8} value={formData.password} onChange={(e) => setFormData({ ...formData, password: e.target.value })} className="pl-10" placeholder="Password (min. 8 characters)" />
         </div>
 
-        <div>
-          <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
-            Email Address
-          </label>
-          <input
-            type="email"
-            required
-            value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
-            placeholder="marie@example.com"
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
-            Password
-          </label>
-          <input
-            type="password"
-            required
-            minLength={8}
-            value={formData.password}
-            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-            className="w-full px-4 py-2 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
-            placeholder="••••••••"
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-3">
-            Selected Plan
-          </label>
-          <div className="grid grid-cols-1 gap-3">
-            {plans.map((plan) => (
-              <div
-                key={plan.key}
-                onClick={() => setFormData({ ...formData, plan: plan.key })}
-                className={`p-4 border rounded-lg cursor-pointer flex items-center justify-between transition-all ${
-                  formData.plan === plan.key
-                    ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20 ring-1 ring-secondary'
-                    : 'border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/50'
-                }`}
-              >
-                <div>
-                  <div className={`font-semibold ${
-                    formData.plan === plan.key 
-                      ? 'text-primary dark:text-primary-300' 
-                      : 'text-zinc-900 dark:text-zinc-100'
-                  }`}>
-                    {plan.name}
-                  </div>
-                  <div className={`text-sm ${
-                    formData.plan === plan.key 
-                      ? 'text-primary dark:text-primary-400' 
-                      : 'text-zinc-500 dark:text-zinc-400'
-                  }`}>
-                    {plan.price_monthly === 0 ? 'Free' : `$${plan.price_monthly}/month`}
-                  </div>
-                </div>
-                {formData.plan === plan.key && (
-                  <div className="bg-primary rounded-full p-1">
-                    <Check className="w-3 h-3 text-white" />
-                  </div>
-                )}
-              </div>
-            ))}
+        {plans.length > 0 ? (
+          <div>
+            <label className="mb-2 block text-sm font-medium text-gray-700">Choose your plan</label>
+            <div className="grid grid-cols-1 gap-2.5">
+              {plans.map((plan) => {
+                const active = formData.plan === plan.key;
+                return (
+                  <button
+                    type="button"
+                    key={plan.key}
+                    onClick={() => setFormData({ ...formData, plan: plan.key })}
+                    className={`flex items-center justify-between rounded-xl border-2 p-4 text-left transition-all ${
+                      active ? "border-secondary bg-secondary-50" : "border-gray-100 hover:border-gray-200 hover:bg-gray-50"
+                    }`}
+                  >
+                    <div>
+                      <div className={`font-heading font-bold ${active ? "text-secondary-700" : "text-primary"}`}>{plan.name}</div>
+                      <div className={`text-sm ${active ? "text-secondary-700" : "text-gray-500"}`}>
+                        {plan.price_monthly === 0 ? "Free" : `$${plan.price_monthly}/month`}
+                      </div>
+                    </div>
+                    {active && (
+                      <span className="rounded-full bg-secondary p-1">
+                        <Check className="h-3 w-3 text-white" />
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
           </div>
-        </div>
+        ) : null}
 
-        <button
-          type="submit"
-          disabled={isLoading}
-          className="w-full py-3 bg-primary hover:bg-primary-800 text-white rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2 shadow-sm"
-        >
-          {isLoading ? (
-            <>
-              <Loader2 className="w-4 h-4 animate-spin" />
-              <span>Creating Account...</span>
-            </>
-          ) : (
-            'Create Tutor Account'
-          )}
-        </button>
+        <Button type="submit" className="w-full" disabled={isLoading}>
+          {isLoading ? (<><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Creating account...</>) : "Create tutor account"}
+        </Button>
 
-        <p className="text-center text-sm text-zinc-500 dark:text-zinc-400">
-          Already have an account?{' '}
-          <Link href="/login" className="text-primary dark:text-primary-400 hover:underline font-medium">
-            Log in
-          </Link>
+        <p className="text-center text-xs text-gray-500">
+          By signing up, you agree to our{" "}
+          <Link href="/terms" className="text-secondary hover:underline">Terms</Link> and{" "}
+          <Link href="/privacy" className="text-secondary hover:underline">Privacy Policy</Link>
         </p>
       </form>
-    </div>
+
+      <p className="mt-6 text-center text-gray-600">
+        Already have an account?{" "}
+        <Link href="/login/tutor" className="font-semibold text-secondary hover:underline">Log in</Link>
+      </p>
+      <p className="mt-3 text-center">
+        <Link href="/signup" className="inline-flex items-center gap-1 text-xs font-medium text-gray-400 hover:text-gray-600">
+          <ArrowLeft className="h-3 w-3" /> Want to learn instead? Sign up as a student
+        </Link>
+      </p>
+    </Card>
   );
 }

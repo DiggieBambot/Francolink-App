@@ -1,5 +1,6 @@
 // src/app/(tutor)/tutor/students/page.tsx
 import { createClient } from '@/lib/supabase/server';
+import { createClient as createServiceClient } from '@supabase/supabase-js';
 import { CopyButton } from '@/components/tutor/copy-button';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
@@ -19,15 +20,26 @@ import {
   Copy
 } from 'lucide-react';
 import { StudentsList } from '@/components/tutor/students-list';
+import { PendingRequests } from '@/components/tutor/pending-requests';
+import { getOrCreateTutorRoom } from '@/lib/lessons/lesson-space';
+import { ClassroomLink } from '@/components/tutor/classroom-link';
 
 export default async function TutorStudentsPage() {
   const supabase = await createClient();
-  
+
   const { data: { user } } = await supabase.auth.getUser();
-  
+
   if (!user) {
     redirect('/login');
   }
+
+  // Listing a tutor's own students/requests is server-side aggregation — use the
+  // service client so RLS on users/tutor_students can't silently hide rows.
+  const svc = createServiceClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { auth: { persistSession: false } }
+  );
 
   // Get tutor's invite code
   const { data: tutorData } = await supabase
@@ -37,7 +49,7 @@ export default async function TutorStudentsPage() {
     .single();
 
   // Fetch tutor's students with progress
-  const { data: students } = await supabase
+  const { data: students } = await svc
     .from('users')
     .select(`
       id,
@@ -54,6 +66,43 @@ export default async function TutorStudentsPage() {
     .eq('referred_by_tutor_id', user.id)
     .order('total_xp', { ascending: false });
 
+  // Pending join requests: a relationship row exists, but the student isn't
+  // attributed to this tutor yet (referred_by_tutor_id !== this tutor).
+  const { data: rels } = await svc
+    .from('tutor_students')
+    .select('student_id, assigned_at')
+    .eq('tutor_id', user.id);
+
+  const candidateIds = (rels || [])
+    .map((r) => r.student_id)
+    .filter((id) => id && id !== user.id);
+
+  let pendingRequests: {
+    id: string;
+    name: string | null;
+    email: string;
+    avatar_url: string | null;
+    requested_at: string | null;
+  }[] = [];
+
+  if (candidateIds.length > 0) {
+    const { data: candidates } = await svc
+      .from('users')
+      .select('id, name, email, avatar_url, referred_by_tutor_id')
+      .in('id', candidateIds);
+
+    const assignedAt = new Map((rels || []).map((r) => [r.student_id, r.assigned_at]));
+    pendingRequests = (candidates || [])
+      .filter((c) => c.referred_by_tutor_id !== user.id)
+      .map((c) => ({
+        id: c.id,
+        name: c.name,
+        email: c.email,
+        avatar_url: c.avatar_url,
+        requested_at: assignedAt.get(c.id) || null,
+      }));
+  }
+
   // Calculate stats
   const totalStudents = students?.length || 0;
   const activeToday = students?.filter(s => {
@@ -64,9 +113,14 @@ export default async function TutorStudentsPage() {
   const payingStudents = students?.filter(s => s.subscription_plan !== 'FREE' && s.subscription_plan).length || 0;
   const totalXP = students?.reduce((sum, s) => sum + (s.total_xp || 0), 0) || 0;
 
-  const inviteLink = tutorData?.tutor_invite_code 
-    ? `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/join/${tutorData.tutor_invite_code}`
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+  const inviteLink = tutorData?.tutor_invite_code
+    ? `${appUrl}/join/${tutorData.tutor_invite_code}`
     : null;
+
+  // The tutor's reusable classroom (Meet-style). The link itself is built
+  // client-side from the current host so it works on localhost and in prod.
+  const room = await getOrCreateTutorRoom(user.id);
 
   return (
     <div className="p-4 md:p-8 max-w-7xl mx-auto">
@@ -93,6 +147,9 @@ export default async function TutorStudentsPage() {
           </div>
         )}
       </div>
+
+      {/* Live classroom link (Meet-style) */}
+      <ClassroomLink roomId={room.id} />
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
@@ -129,8 +186,11 @@ export default async function TutorStudentsPage() {
         </div>
       </div>
 
+      {/* Pending join requests */}
+      <PendingRequests requests={pendingRequests} />
+
       {/* Students List */}
-      <StudentsList students={students || []} inviteLink={inviteLink} />
+      <StudentsList students={students || []} inviteLink={inviteLink} roomId={room.id} />
     </div>
   );
 }

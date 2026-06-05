@@ -70,6 +70,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Already connected to THIS tutor
+    if (student?.referred_by_tutor_id === tutor.id) {
+      return NextResponse.json(
+        { error: `You're already connected with ${tutor.name || 'this tutor'}.` },
+        { status: 400 }
+      );
+    }
+
+    // Connected to a DIFFERENT tutor
     if (student?.referred_by_tutor_id) {
       return NextResponse.json(
         { error: 'You already have a tutor assigned. Please contact support to change tutors.' },
@@ -77,25 +86,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Update student to link to tutor
-    const { error: updateError } = await supabaseService
-      .from('users')
-      .update({ 
-        referred_by_tutor_id: tutor.id,
-        updated_at: new Date().toISOString()
-      })
-      .eq('id', user.id);
-
-    if (updateError) {
-      console.error('❌ Error updating student:', updateError);
-      return NextResponse.json(
-        { error: 'Failed to join tutor' },
-        { status: 500 }
-      );
-    }
-
-    // Create tutor-student relationship (if table exists)
-    await supabaseService
+    // Create a PENDING join request. We do NOT set referred_by_tutor_id yet —
+    // that happens when the tutor accepts. The relationship row marks the request;
+    // "pending" = row exists but the student's referred_by_tutor_id is not this tutor.
+    const { error: relError } = await supabaseService
       .from('tutor_students')
       .upsert({
         tutor_id: tutor.id,
@@ -106,11 +100,20 @@ export async function POST(request: NextRequest) {
         onConflict: 'tutor_id,student_id'
       });
 
-    console.log('✅ Student successfully joined tutor');
+    if (relError) {
+      console.error('❌ Error creating join request:', relError);
+      return NextResponse.json(
+        { error: 'Failed to send join request' },
+        { status: 500 }
+      );
+    }
 
-    return NextResponse.json({ 
+    console.log('✅ Join request created (pending tutor approval)');
+
+    return NextResponse.json({
       success: true,
-      message: `Successfully joined ${tutor.name || 'your tutor'}'s class!`,
+      pending: true,
+      message: `Request sent to ${tutor.name || 'your tutor'}. You'll be connected once they accept.`,
       tutor: {
         id: tutor.id,
         name: tutor.name,

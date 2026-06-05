@@ -1,17 +1,19 @@
-import Link from "next/link";
 import Image from "next/image";
 import { Clock, Layers } from "lucide-react";
 import { getLevelTheme } from "@/lib/lessons/level-theme";
 import type { CatalogueLesson } from "@/lib/lessons/public-queries";
+import { PickLink } from "./pick-link";
 
 export function LessonCard({ lesson }: { lesson: CatalogueLesson }) {
   const t = getLevelTheme(lesson.level);
   return (
-    <Link
+    <PickLink
       href={`/library/lesson/${lesson.slug}`}
-      className="group flex flex-col overflow-hidden rounded-2xl border bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+      slug={lesson.slug}
+      title={lesson.title}
+      className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-soft ring-1 ring-gray-100 transition duration-300 hover:-translate-y-1 hover:shadow-medium"
     >
-      <div className="relative aspect-[16/10] w-full bg-slate-100">
+      <div className="relative aspect-[16/10] w-full bg-gray-100">
         {lesson.hero_image_url ? (
           <Image
             src={lesson.hero_image_url}
@@ -30,11 +32,11 @@ export function LessonCard({ lesson }: { lesson: CatalogueLesson }) {
         </span>
       </div>
       <div className="flex flex-1 flex-col p-4">
-        <h3 className="line-clamp-2 font-semibold text-slate-900">{lesson.title}</h3>
+        <h3 className="line-clamp-2 font-heading font-bold text-primary">{lesson.title}</h3>
         {lesson.title_translation ? (
-          <p className="mt-0.5 line-clamp-1 text-xs text-slate-500">{lesson.title_translation}</p>
+          <p className="mt-0.5 line-clamp-1 text-xs text-gray-500">{lesson.title_translation}</p>
         ) : null}
-        <div className="mt-auto flex items-center gap-3 pt-3 text-xs text-slate-500">
+        <div className="mt-auto flex items-center gap-3 pt-3 text-xs text-gray-500">
           {lesson.duration_minutes ? (
             <span className="inline-flex items-center gap-1">
               <Clock className="h-3 w-3" /> {lesson.duration_minutes} min
@@ -45,6 +47,6 @@ export function LessonCard({ lesson }: { lesson: CatalogueLesson }) {
           </span>
         </div>
       </div>
-    </Link>
+    </PickLink>
   );
 }

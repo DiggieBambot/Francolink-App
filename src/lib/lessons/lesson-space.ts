@@ -17,6 +17,34 @@ export interface LessonSpace {
   tutor_lesson_id: string | null;
 }
 
+/**
+ * Find or create a tutor's reusable "classroom" — a Google-Meet-style room the
+ * tutor opens and shares a link to. There is no fixed student: anyone the tutor
+ * sends the link to joins as the student. We model "no student yet" as
+ * student_id === tutor_id (the column is NOT NULL), and role in the room is
+ * decided by "are you the tutor who created it?".
+ */
+export async function getOrCreateTutorRoom(tutorId: string): Promise<LessonSpace> {
+  const s = service();
+  const { data: existing } = await s
+    .from("tutor_lesson_sessions")
+    .select("id, tutor_id, student_id, tutor_lesson_id")
+    .eq("tutor_id", tutorId)
+    .eq("student_id", tutorId) // sentinel: open classroom, no claimed student
+    .order("created_at", { ascending: true })
+    .limit(1)
+    .maybeSingle();
+  if (existing) return existing as LessonSpace;
+
+  const { data: created, error } = await s
+    .from("tutor_lesson_sessions")
+    .insert({ tutor_id: tutorId, student_id: tutorId, status: "active", started_at: new Date().toISOString() })
+    .select("id, tutor_id, student_id, tutor_lesson_id")
+    .single();
+  if (error) throw new Error("create room: " + error.message);
+  return created as LessonSpace;
+}
+
 /** Find or create the single persistent lesson space for a (tutor, student) pair. */
 export async function getOrCreateLessonSpace(tutorId: string, studentId: string): Promise<LessonSpace> {
   const s = service();

@@ -3,10 +3,19 @@
 
 import { notFound, redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { LessonRoom } from "@/components/lesson-v2/lesson-room";
 import type { Lesson } from "@/lib/lessons/types";
 
 export const dynamic = "force-dynamic";
+
+function service() {
+  return createServiceClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { auth: { persistSession: false } }
+  );
+}
 
 export default async function RoomPage({
   params,
@@ -19,26 +28,20 @@ export default async function RoomPage({
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect(`/login?next=/room/${id}`);
 
-  const { data: session, error: sessionErr } = await supabase
+  // Read the session with the service client so a student opening a shared link
+  // can load it (the link is the access key — Google-Meet style). RLS would
+  // otherwise hide an open classroom from a not-yet-member student.
+  const svc = service();
+  const { data: session, error: sessionErr } = await svc
     .from("tutor_lesson_sessions")
     .select("id, tutor_id, student_id, tutor_lesson_id, status, title")
     .eq("id", id)
     .single();
   if (sessionErr || !session) notFound();
 
-  // Authorize: must be the tutor or the student of this session.
+  // Role is decided by "did you create this room?". Everyone else who has the
+  // link joins as the student. No pre-approval needed.
   const isTutor = session.tutor_id === user.id;
-  const isStudent = session.student_id === user.id;
-  if (!isTutor && !isStudent) {
-    return (
-      <div className="mx-auto max-w-md px-6 py-16 text-center">
-        <h1 className="mb-2 text-xl font-bold">You&apos;re not in this session</h1>
-        <p className="text-sm text-slate-600">
-          This session is between someone else and their tutor / student.
-        </p>
-      </div>
-    );
-  }
   const currentRole: "tutor" | "student" = isTutor ? "tutor" : "student";
 
   // Current lesson (may be null — either party picks one in-room).
@@ -52,19 +55,40 @@ export default async function RoomPage({
     lesson = (row?.content as Lesson) ?? null;
   }
 
-  // Lightweight published-lesson list for the in-room picker.
+  // Lightweight published-lesson list for the in-room picker (with thumbnail).
   const { data: lessonList } = await supabase
     .from("tutor_lessons")
-    .select("id, slug, title, level")
+    .select("id, slug, title, level, duration_minutes, topic_tags, hero_image:content->>hero_image_url")
     .eq("status", "published")
     .order("level")
     .order("title");
 
-  // Load persisted highlights so a refresh restores them.
-  const { data: highlights } = await supabase
+  // Load persisted highlights so a refresh restores them (service: a joined
+  // student isn't an RLS "member" of an open classroom).
+  const { data: highlights } = await svc
     .from("tutor_lesson_highlights")
     .select("anchor_id, text")
     .eq("session_id", id);
+
+  // Chat history: keep the last 30 days for this room, restore it on entry, and
+  // sweep anything older (service so a link-joined student loads it too).
+  const cutoff = new Date(Date.now() - 30 * 86400_000).toISOString();
+  void svc.from("tutor_lesson_messages").delete().eq("session_id", id).lt("created_at", cutoff);
+  const { data: msgRows } = await svc
+    .from("tutor_lesson_messages")
+    .select("id, sender_id, sender_name, sender_role, text, created_at")
+    .eq("session_id", id)
+    .gte("created_at", cutoff)
+    .order("created_at", { ascending: true })
+    .limit(500);
+  const initialChat = (msgRows || []).map((m) => ({
+    id: m.id as string,
+    from: (m.sender_id as string) || "",
+    name: (m.sender_name as string) || "Someone",
+    role: (m.sender_role === "tutor" ? "tutor" : "student") as "tutor" | "student",
+    text: m.text as string,
+    at: new Date(m.created_at as string).getTime(),
+  }));
 
   // Display name for presence.
   const { data: profile } = await supabase
@@ -84,6 +108,7 @@ export default async function RoomPage({
       currentRole={currentRole}
       currentName={name}
       initialHighlights={highlights || []}
+      initialChat={initialChat}
     />
   );
 }

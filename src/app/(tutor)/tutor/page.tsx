@@ -57,15 +57,6 @@ export default async function TutorDashboardPage() {
     .order("updated_at", { ascending: false })
     .limit(5);
 
-  // A student to open a quick space with.
-  const { data: firstStudent } = await supabase
-    .from("tutor_students")
-    .select("student_id")
-    .eq("tutor_id", user.id)
-    .eq("status", "active")
-    .limit(1)
-    .maybeSingle();
-
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
   const inviteLink = me?.tutor_invite_code ? `${appUrl}/join/${me.tutor_invite_code}` : null;
   const planLabel = me?.tutor_plan === "PREMIUM" ? "Premium" : me?.tutor_plan === "PREMIUM_PLUS" ? "Premium+" : "Basic";
@@ -142,21 +133,15 @@ export default async function TutorDashboardPage() {
 
         <div className="flex flex-col gap-3 rounded-2xl border bg-white p-5">
           <div className="text-sm font-semibold text-slate-700">Quick actions</div>
-          {firstStudent ? (
-            <Link
-              href={`/space/open?partner=${firstStudent.student_id}`}
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-700"
-            >
-              <Sparkles className="h-4 w-4" /> Open a lesson space
-            </Link>
-          ) : (
-            <Link
-              href="/tutor/students"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-700"
-            >
-              <Users className="h-4 w-4" /> Invite your first student
-            </Link>
-          )}
+          <Link
+            href="/space/new"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-700"
+          >
+            <Sparkles className="h-4 w-4" /> Start a session
+          </Link>
+          <p className="-mt-1 text-center text-xs text-slate-400">
+            Opens your classroom — invite a student from inside with the room link.
+          </p>
           <Link href="/library" className="inline-flex items-center justify-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">
             <BookOpen className="h-4 w-4" /> Browse lessons
           </Link>

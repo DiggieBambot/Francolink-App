@@ -13,6 +13,19 @@ interface Props {
 }
 
 export function FreeResponseSectionComp({ section, view, theme }: Props) {
+  // Tolerate both shapes: free_response uses `questions: string[]`, while many
+  // `discussion` sections use `items: [{ question, question_translation }]`.
+  const items = (section as { items?: { question?: string; question_translation?: string }[] }).items;
+  const questions: string[] = Array.isArray(section.questions)
+    ? section.questions
+    : Array.isArray(items)
+      ? items.map((it) => it?.question || "").filter(Boolean)
+      : [];
+  const questionTranslations: (string | undefined)[] = Array.isArray(section.question_translations)
+    ? section.question_translations
+    : Array.isArray(items)
+      ? items.map((it) => it?.question_translation)
+      : [];
   return (
     <SectionCard theme={theme}>
       <SectionHeader
@@ -40,7 +53,7 @@ export function FreeResponseSectionComp({ section, view, theme }: Props) {
       ) : null}
 
       <ol className="space-y-2">
-        {section.questions.map((q, i) => (
+        {questions.map((q, i) => (
           <li
             key={i}
             className="rounded-lg border bg-slate-50 px-3 py-2"
@@ -50,9 +63,9 @@ export function FreeResponseSectionComp({ section, view, theme }: Props) {
               <span className="flex-1 text-sm text-slate-900">{q}</span>
               <SpeakButton text={q} size="sm" />
             </div>
-            {section.question_translations?.[i] ? (
+            {questionTranslations?.[i] ? (
               <div className="ml-6">
-                <RevealTranslation text={section.question_translations[i]} />
+                <RevealTranslation text={questionTranslations[i]!} />
               </div>
             ) : null}
           </li>

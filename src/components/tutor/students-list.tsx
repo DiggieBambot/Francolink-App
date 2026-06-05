@@ -33,12 +33,26 @@ interface Student {
 interface StudentsListProps {
   students: Student[];
   inviteLink: string | null;
+  roomId: string;
 }
 
-export function StudentsList({ students, inviteLink }: StudentsListProps) {
+export function StudentsList({ students, inviteLink, roomId }: StudentsListProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState<'xp' | 'streak' | 'recent'>('xp');
   const [copied, setCopied] = useState(false);
+  const [invitedId, setInvitedId] = useState<string | null>(null);
+
+  const inviteToRoom = async (studentId: string) => {
+    try {
+      // Build from the current host so the link works locally and in prod.
+      const roomLink = `${window.location.origin}/room/${roomId}`;
+      await navigator.clipboard.writeText(roomLink);
+      setInvitedId(studentId);
+      setTimeout(() => setInvitedId(null), 2000);
+    } catch {
+      /* ignore */
+    }
+  };
 
   const handleCopyLink = async () => {
     if (inviteLink) {
@@ -224,13 +238,18 @@ export function StudentsList({ students, inviteLink }: StudentsListProps) {
                     </div>
                   </div>
 
-                  {/* Action: open the shared lesson space with this student */}
-                  <a
-                    href={`/space/open?partner=${student.id}`}
+                  {/* Action: copy the classroom link to send to this student */}
+                  <button
+                    onClick={() => inviteToRoom(student.id)}
+                    title="Copy your classroom link to send to this student"
                     className="inline-flex items-center gap-1.5 rounded-lg bg-primary-600 px-3 py-2 text-sm font-semibold text-white hover:bg-primary-700"
                   >
-                    <BookOpen className="w-4 h-4" /> Lesson space
-                  </a>
+                    {invitedId === student.id ? (
+                      <><Check className="w-4 h-4" /> Link copied</>
+                    ) : (
+                      <><BookOpen className="w-4 h-4" /> Invite to class</>
+                    )}
+                  </button>
                 </div>
               </div>
             ))}

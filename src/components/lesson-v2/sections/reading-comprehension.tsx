@@ -1,3 +1,4 @@
+import { Fragment, type ReactNode } from "react";
 import Image from "next/image";
 import { SpeakButton } from "../speak-button";
 import { SectionHeader } from "../section-header";
@@ -27,6 +28,17 @@ export function ReadingComprehensionSectionComp({
     .map((p) => p.trim())
     .filter(Boolean);
 
+  // Render **vocabulary** markers as bold (lesson words highlighted in the text).
+  const renderBold = (text: string): ReactNode =>
+    text.split(/(\*\*[^*]+\*\*)/g).map((seg, i) =>
+      seg.startsWith("**") && seg.endsWith("**") ? (
+        <strong key={i} className="font-bold text-primary">{seg.slice(2, -2)}</strong>
+      ) : (
+        <Fragment key={i}>{seg}</Fragment>
+      )
+    );
+  const stripBold = (text: string) => text.replace(/\*\*/g, "");
+
   return (
     <SectionCard theme={theme}>
       <SectionHeader
@@ -39,45 +51,77 @@ export function ReadingComprehensionSectionComp({
       />
 
       {section.image_url ? (
-        <div className="relative mb-4 aspect-[16/9] w-full overflow-hidden rounded-xl bg-slate-200">
-          <Image
-            src={section.image_url}
-            alt={section.title || "Reading passage"}
-            fill
-            sizes="(max-width: 768px) 100vw, 720px"
-            className="object-cover"
-          />
-        </div>
+        <figure className="mb-6">
+          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-gray-100 shadow-soft">
+            <Image
+              src={section.image_url}
+              alt={section.title || "Reading passage"}
+              fill
+              sizes="(max-width: 768px) 100vw, 720px"
+              className="object-cover"
+            />
+          </div>
+          {section.image_hint ? (
+            <figcaption className="mt-2 text-center text-xs italic text-gray-400">{section.image_hint}</figcaption>
+          ) : null}
+        </figure>
       ) : null}
 
-      <article className="rounded-xl border bg-amber-50/30 p-5 leading-relaxed text-slate-800">
-        <div className="mb-3 flex items-center justify-end gap-2">
+      {/* Magazine-style reading column */}
+      <article className="mx-auto max-w-[68ch]">
+        <div className="mb-2 flex items-center justify-end">
           <SpeakButton text={section.passage} size="md" />
         </div>
-        <div className="space-y-4 text-base">
-          {paragraphs.map((p, i) => (
-            <p key={i} className="relative">
-              <Highlightable
-                id={`s${sectionIdx}/p${i}/passage`}
-                text={p}
-                sectionIdx={sectionIdx}
-              >
-                {p}
-              </Highlightable>
-              {p.length > 100 ? (
-                <span className="absolute right-0 top-0 -mr-2">
-                  <SpeakButton text={p} size="sm" />
-                </span>
-              ) : null}
-            </p>
-          ))}
-        </div>
+        {paragraphs.map((p, i) => (
+          <p
+            key={i}
+            className={`group relative mb-5 text-[1.075rem] leading-8 text-gray-800 ${
+              i === 0
+                ? "first-letter:float-left first-letter:mr-2.5 first-letter:font-heading first-letter:text-5xl first-letter:font-extrabold first-letter:leading-[0.8] first-letter:text-primary"
+                : ""
+            }`}
+          >
+            <Highlightable id={`s${sectionIdx}/p${i}/passage`} text={stripBold(p)} sectionIdx={sectionIdx}>
+              {renderBold(p)}
+            </Highlightable>
+            <span className="ml-1 inline-block align-middle opacity-0 transition group-hover:opacity-100">
+              <SpeakButton text={p} size="sm" />
+            </span>
+          </p>
+        ))}
         {section.passage_translation ? (
-          <div className="mt-4 border-t border-amber-200 pt-3">
+          <div className="mt-5 border-t border-gray-100 pt-4">
             <RevealTranslation text={section.passage_translation} size="sm" />
           </div>
         ) : null}
       </article>
+
+      {/* Comprehension questions (answers shown in tutor view only) */}
+      {(() => {
+        const questions = (section as { questions?: { question: string; answer?: string }[] }).questions;
+        if (!questions?.length) return null;
+        return (
+          <div className="mx-auto mt-8 max-w-[68ch]">
+            <h4 className="mb-3 font-heading text-lg font-bold text-primary">Compréhension</h4>
+            <ol className="space-y-3">
+              {questions.map((q, i) => (
+                <li key={i} className="rounded-xl border border-gray-100 bg-white p-4 shadow-soft">
+                  <p className="font-medium text-gray-800">
+                    <span className="mr-2 font-bold text-primary">{i + 1}.</span>
+                    {q.question}
+                  </p>
+                  {view === "tutor" && q.answer ? (
+                    <p className="mt-2 rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-900">
+                      <span className="font-semibold">Réponse : </span>
+                      {q.answer}
+                    </p>
+                  ) : null}
+                </li>
+              ))}
+            </ol>
+          </div>
+        );
+      })()}
 
       <TutorNotes view={view} instruction={section.tutor_instruction} />
     </SectionCard>

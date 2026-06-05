@@ -61,7 +61,7 @@ export function LessonRenderer({ lesson, initialView = "tutor", lockedView }: Le
   const theme = getLevelTheme(lesson.level);
 
   return (
-    <div className="min-h-screen bg-slate-50 pb-16">
+    <div className="min-h-screen bg-gray-50 pb-16">
       {/* Hero */}
       <header className="relative">
         <div className="relative h-52 w-full overflow-hidden bg-slate-200 sm:h-72">
@@ -102,6 +102,12 @@ export function LessonRenderer({ lesson, initialView = "tutor", lockedView }: Le
 
               {/* Meta pills on the right (wraps below title on mobile) */}
               <div className="flex flex-wrap items-center gap-1.5 text-xs">
+                {(lesson as { country?: { flag?: string; name?: string } }).country?.flag ? (
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-bold text-primary shadow">
+                    <span className="text-sm leading-none">{(lesson as { country?: { flag?: string } }).country!.flag}</span>
+                    {(lesson as { country?: { name?: string } }).country?.name}
+                  </span>
+                ) : null}
                 <span className={`rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide shadow ${theme.pill}`}>
                   {lesson.level}
                 </span>

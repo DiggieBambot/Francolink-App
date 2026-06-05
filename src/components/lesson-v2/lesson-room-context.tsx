@@ -41,6 +41,8 @@ export interface LessonRoomContextValue {
   incomingLessonChange: { lessonId: string; title: string; by: string; at: number } | null;
   /** Change the shared current lesson (persists + broadcasts). */
   broadcastLessonChange: (lessonId: string, title: string) => void;
+  /** Open the lesson picker (lets either side switch the lesson). */
+  openLessonPicker: () => void;
 }
 
 export interface ChatMessage {

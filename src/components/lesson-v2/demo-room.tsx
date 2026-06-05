@@ -116,6 +116,7 @@ export function DemoRoom({ lesson }: DemoRoomProps) {
               sendChat: (t: string) => pushChat("demo-tutor", "Demo Tutor", "tutor", t),
               incomingLessonChange: null,
               broadcastLessonChange: () => {},
+              openLessonPicker: () => {},
             }}
           >
             <IncomingTtsAutoplay />
@@ -151,6 +152,7 @@ export function DemoRoom({ lesson }: DemoRoomProps) {
               sendChat: (t: string) => pushChat("demo-student", "Demo Student", "student", t),
               incomingLessonChange: null,
               broadcastLessonChange: () => {},
+              openLessonPicker: () => {},
             }}
           >
             <IncomingTtsAutoplay />

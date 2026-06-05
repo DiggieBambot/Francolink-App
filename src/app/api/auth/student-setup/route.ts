@@ -76,19 +76,21 @@ export async function POST(request: NextRequest) {
     // 2. Update user record (don't upsert - just update existing auth user)
     console.log('📝 Updating student profile...');
     
+    // NOTE: we do NOT set referred_by_tutor_id here. The student's request is
+    // PENDING until the tutor accepts it from the People tab. referred_by_tutor_id
+    // is set on accept (that's also what drives commission attribution).
     const { error: updateError } = await supabase
       .from('users')
       .update({
         name,
         role: 'USER',
-        referred_by_tutor_id: tutorId,
         updated_at: new Date().toISOString(),
       })
       .eq('id', userId);
 
     if (updateError) {
       console.error('❌ User update error:', updateError);
-      
+
       // If update fails, try insert (new user)
       const { error: insertError } = await supabase
         .from('users')
@@ -97,7 +99,6 @@ export async function POST(request: NextRequest) {
           email,
           name,
           role: 'USER',
-          referred_by_tutor_id: tutorId,
           created_at: new Date().toISOString(),
           updated_at: new Date().toISOString(),
         });

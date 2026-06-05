@@ -8,6 +8,7 @@ import { SectionHeader } from "../section-header";
 import { TutorNotes } from "../tutor-notes";
 import { Highlightable } from "../highlightable";
 import { RevealTranslation } from "../reveal-translation";
+import { useLessonRoom } from "../lesson-room-context";
 import { SectionCard } from "../section-card";
 import { VocabFocusOverlay } from "../vocab-focus-overlay";
 import type {
@@ -27,6 +28,9 @@ interface Props {
 export function VocabularySection({ section, view, sectionIdx = 0, theme }: Props) {
   const [focusIdx, setFocusIdx] = useState<number | null>(null);
   const withExamples = section.kind === "vocabulary_with_examples";
+  // In a live room, clicking a card must NOT open the zoom modal — it would
+  // steal clicks meant to highlight the word. Zoom stays for self-study only.
+  const inRoom = !!useLessonRoom();
   return (
     <SectionCard theme={theme}>
       <SectionHeader
@@ -42,11 +46,15 @@ export function VocabularySection({ section, view, sectionIdx = 0, theme }: Prop
         {section.items.map((item, i) => (
           <li
             key={i}
-            onClick={() => setFocusIdx(i)}
-            className="group relative flex cursor-pointer gap-4 rounded-2xl border bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
+            onClick={inRoom ? undefined : () => setFocusIdx(i)}
+            className={`group relative flex gap-4 rounded-2xl border bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg ${
+              inRoom ? "" : "cursor-pointer"
+            }`}
           >
             <span
-              className="pointer-events-none absolute right-2 top-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-slate-900/80 text-white opacity-0 transition group-hover:opacity-100"
+              className={`pointer-events-none absolute right-2 top-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-slate-900/80 text-white opacity-0 transition group-hover:opacity-100 ${
+                inRoom ? "hidden" : ""
+              }`}
               aria-hidden
               title="Tap to enlarge"
             >

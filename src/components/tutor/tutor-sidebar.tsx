@@ -114,8 +114,8 @@ export function TutorSidebar({
           Quick Actions
         </p>
         <Link
-          href="/tutor/sessions"
-          className="flex items-center justify-center gap-2 w-full px-4 py-2.5 bg-secondary text-white rounded-xl font-semibold hover:bg-secondary-600 transition-colors shadow-sm text-sm"
+          href="/space/new"
+          className="flex items-center justify-center gap-2 w-full px-4 py-2.5 bg-secondary !text-white rounded-xl font-semibold hover:bg-secondary-600 transition-colors shadow-sm text-sm"
         >
           <Video className="w-4 h-4" />
           Start Session

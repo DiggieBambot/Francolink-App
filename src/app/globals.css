@@ -168,14 +168,18 @@ p {
 main > p {
   color: var(--color-gray-600);
 }
-a {
-  color: var(--color-secondary);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  color: var(--color-secondary-600);
+/* In @layer base so Tailwind text-* utilities (e.g. text-white on link buttons)
+   reliably override the default link colour. Unlayered rules would otherwise win
+   over utilities and turn white button text orange. */
+@layer base {
+  a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  a:hover {
+    color: var(--color-secondary-600);
+  }
 }
 
 /* Focus styles for accessibility */

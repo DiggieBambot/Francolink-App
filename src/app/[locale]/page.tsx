@@ -10,6 +10,7 @@ import {
   Play, Shield, Clock, MessageCircle,
 } from "lucide-react";
 import { LANGUAGES } from "@/lib/constants";
+import { Navbar } from "@/components/layout/navbar";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -26,62 +27,9 @@ function HomeContent() {
 
   return (
     <div className="min-h-screen bg-white font-body">
-      {/* NAVBAR - fixed with safe area support */}
-      <header
-        className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm"
-        style={{ paddingTop: "env(safe-area-inset-top)" }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 bg-primary rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
-              <span className="text-white font-extrabold text-sm tracking-tight">FL</span>
-            </div>
-            <div className="hidden sm:block">
-              <span className="text-lg font-heading font-extrabold text-primary leading-none">Franco Link</span>
-              <span className="block text-[10px] text-gray-400 font-medium tracking-wide uppercase">Language Learning</span>
-            </div>
-          </Link>
-
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-1">
-            {[
-              { href: "#languages", label: t("nav.languages") },
-              { href: "#features", label: t("nav.about") },
-              { href: "/pricing", label: t("nav.pricing"), isLink: true },
-              { href: "/tutors", label: t("nav.tutors"), isLink: true },
-            ].map((item) =>
-              item.isLink ? (
-                <Link key={item.href} href={item.href} className="text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary-50 px-4 py-2 rounded-lg transition-all">
-                  {item.label}
-                </Link>
-              ) : (
-                <a key={item.href} href={item.href} className="text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary-50 px-4 py-2 rounded-lg transition-all">
-                  {item.label}
-                </a>
-              )
-            )}
-          </nav>
-
-          {/* Right side */}
-          <div className="flex items-center gap-1.5">
-            <div className="hidden sm:flex items-center gap-1">
-              <CurrencySwitcher />
-              <LanguageSwitcher />
-            </div>
-            <div className="w-px h-6 bg-gray-200 mx-1 hidden sm:block" />
-            <Link href="/login" className="text-sm font-medium text-gray-700 hover:text-primary px-3 py-2 rounded-lg hover:bg-gray-50 transition-all">
-              {t("common.login")}
-            </Link>
-            <Link href="/signup" className="text-sm font-bold bg-primary text-white px-4 py-2 rounded-xl hover:bg-primary-800 transition-all shadow-sm hover:shadow-md whitespace-nowrap">
-              {t("common.signup")}
-            </Link>
-          </div>
-        </div>
-      </header>
-
-      {/* Spacer to push content below fixed header + safe area */}
-      <div style={{ height: "calc(4rem + env(safe-area-inset-top))" }} />
+      <Navbar />
+      {/* Spacer to push content below the fixed navbar */}
+      <div className="h-16 md:h-20" />
 
       {/* HERO SECTION */}
       <section className="relative bg-primary-50 overflow-hidden">
@@ -107,14 +55,14 @@ function HomeContent() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <Link href="/signup" className="inline-flex items-center justify-center gap-2.5 bg-primary text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-primary-800 transition-all shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0">
-                {t("landing.cta")}
-                <ArrowRight className="w-5 h-5" />
+              <Link href="/signup/student" className="inline-flex items-center justify-center gap-2.5 bg-primary text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-primary-800 transition-all shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0">
+                <BookOpen className="w-5 h-5" />
+                Start learning
               </Link>
-              <a href="#how-it-works" className="inline-flex items-center justify-center gap-2.5 bg-white text-primary px-8 py-4 rounded-xl text-lg font-semibold border border-gray-200 hover:border-primary-200 hover:bg-primary-50 transition-all shadow-sm">
-                <Play className="w-4 h-4" />
-                {t("landing.cta_secondary")}
-              </a>
+              <Link href="/signup/tutor" className="inline-flex items-center justify-center gap-2.5 bg-secondary text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-secondary-600 transition-all shadow-lg shadow-secondary/20 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0">
+                <GraduationCap className="w-5 h-5" />
+                Become a tutor
+              </Link>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-3xl mx-auto">

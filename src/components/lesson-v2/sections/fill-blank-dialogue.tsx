@@ -62,7 +62,18 @@ function isAnswerCorrect(
   return valid.some((v) => normalize(v) === normalize(ans));
 }
 
+// Some lessons use a different shape: each exchange IS a blank, with
+//   { speaker: "sentence with ____", text: "<answer>", blank: true }
+// (instead of inline "(1)" markers). Detect that and render a drag-and-drop fill.
+function isBlankPerExchange(section: FillBlankDialogueSection | FillBlankDialogueExtendedSection): boolean {
+  const ex = section.exchanges;
+  return Array.isArray(ex) && ex.length > 0 && ex.every((e) => (e as { blank?: unknown }).blank === true);
+}
+
 export function FillBlankDialogueSectionComp({ section, view, sectionIdx = 0, theme }: Props) {
+  if (isBlankPerExchange(section)) {
+    return <DragDropFill section={section} view={view} sectionIdx={sectionIdx} theme={theme} />;
+  }
   const ext = section.kind === "fill_in_blank_dialogue_extended" ? section : null;
   const room = useLessonRoom();
   const anchor = `s${sectionIdx}/fill_in_blank`;
@@ -328,6 +339,160 @@ export function FillBlankDialogueSectionComp({ section, view, sectionIdx = 0, th
             </ul>
           </div>
         ) : null}
+      </TutorNotes>
+    </SectionCard>
+  );
+}
+
+type BlankEx = { speaker?: string; text?: string; translation?: string; avatar_seed?: string };
+
+/** Drag-and-drop fill-in for the "blank per exchange" schema. Answers are hidden;
+ *  the student drags (or taps) pool words into each sentence's blank. */
+function DragDropFill({ section, view, sectionIdx = 0, theme }: Props) {
+  const room = useLessonRoom();
+  const anchor = `s${sectionIdx}/fill_in_blank`;
+  const isTutorObserving = room?.currentRole === "tutor";
+  const [local, setLocal] = useState<Record<number, string | undefined>>({});
+  const remote =
+    (isTutorObserving ? (room?.studentAnswers[anchor]?.state as Record<number, string | undefined> | undefined) : undefined) || {};
+  const filled = isTutorObserving ? remote : local;
+
+  useEffect(() => {
+    if (!room || room.currentRole !== "student") return;
+    room.reportAnswer(anchor, local);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [local]);
+
+  const blanks = (section.exchanges as unknown as BlankEx[]) || [];
+  const pool = section.answer_pool?.length ? section.answer_pool : blanks.map((b) => b.text || "");
+  const used: Record<string, number> = {};
+  for (const w of Object.values(filled)) if (typeof w === "string") used[w] = (used[w] || 0) + 1;
+  const remaining = (w: string) => pool.filter((x) => x === w).length - (used[w] || 0);
+
+  const place = (i: number, w: string) => { if (!isTutorObserving) setLocal((p) => ({ ...p, [i]: w })); };
+  const clear = (i: number) => { if (!isTutorObserving) setLocal((p) => { const n = { ...p }; delete n[i]; return n; }); };
+  const placeNext = (w: string) => { const i = blanks.findIndex((_, idx) => !filled[idx]); if (i >= 0) place(i, w); };
+  const correctOf = (i: number) => filled[i] != null && normalize(String(filled[i])) === normalize(String(blanks[i]?.text || ""));
+  const allFilled = blanks.length > 0 && blanks.every((_, i) => filled[i]);
+  const allCorrect = allFilled && blanks.every((_, i) => correctOf(i));
+
+  return (
+    <SectionCard theme={theme}>
+      <SectionHeader
+        view={view}
+        number={section.number}
+        kind={section.kind}
+        title={section.title}
+        student_instruction={section.student_instruction}
+        theme={theme}
+      />
+
+      {section.example ? (
+        <div className="mb-4 rounded-lg bg-gray-100 p-3 text-sm">
+          <div className="text-[10px] font-semibold uppercase text-gray-500">Example</div>
+          <div className="mt-1 italic">{section.example.tutor_line}</div>
+          <div className="mt-1 text-gray-600">→ {section.example.student_line}</div>
+        </div>
+      ) : null}
+
+      <div className="space-y-2.5">
+        {blanks.map((b, i) => {
+          const sentence = b.speaker || "";
+          const [before, after = ""] = sentence.split(/_{2,}/);
+          const speak = `${before} ${filled[i] || ""} ${after}`.replace(/_{2,}/g, " ");
+          return (
+            <div key={i} className="rounded-xl border border-gray-100 bg-white p-3.5 shadow-soft">
+              <div className="flex items-start gap-2.5">
+                <Avatar seed={b.avatar_seed || "S"} size={30} />
+                <div className="flex-1 text-sm leading-7 text-gray-800">
+                  {before}
+                  {filled[i] ? (
+                    <button
+                      type="button"
+                      onClick={() => clear(i)}
+                      disabled={isTutorObserving}
+                      className={`mx-1 inline-flex items-center rounded-md px-2 py-0.5 text-sm font-semibold ${
+                        correctOf(i) ? "bg-emerald-200 text-emerald-900" : "bg-rose-200 text-rose-900"
+                      } ${isTutorObserving ? "cursor-default" : "hover:opacity-80"}`}
+                    >
+                      {filled[i]}
+                    </button>
+                  ) : (
+                    <span
+                      onDragOver={(e) => e.preventDefault()}
+                      onDrop={(e) => {
+                        e.preventDefault();
+                        const w = e.dataTransfer.getData("text/plain");
+                        if (w) place(i, w);
+                      }}
+                      className="mx-1 inline-flex min-w-[72px] items-center justify-center rounded-md border-2 border-dashed border-primary-300 bg-primary-50/60 px-2 py-0.5 text-xs font-semibold text-primary-400"
+                    >
+                      déposez ici
+                    </span>
+                  )}
+                  {after}
+                  <span className="ml-1 inline-block align-middle">
+                    <SpeakButton text={speak} size="sm" />
+                  </span>
+                  {b.translation ? (
+                    <span className="ml-2 align-middle">
+                      <RevealTranslation text={b.translation} size="sm" />
+                    </span>
+                  ) : null}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Draggable answer pool */}
+      <div className="mt-5 rounded-xl border border-gray-100 bg-gray-50/70 p-3">
+        <div className="flex items-center justify-between">
+          <div className="text-[10px] font-semibold uppercase tracking-wide text-gray-500">
+            Answer pool {isTutorObserving ? "(read-only)" : "— drag a word into a blank (or tap)"}
+          </div>
+          {allFilled ? (
+            <span className={`inline-flex items-center gap-1 text-xs font-semibold ${allCorrect ? "text-emerald-700" : "text-rose-600"}`}>
+              {allCorrect ? (<><Check className="h-3.5 w-3.5" /> All correct</>) : <>Some answers don&apos;t match</>}
+            </span>
+          ) : Object.keys(filled).length > 0 && !isTutorObserving ? (
+            <button type="button" onClick={() => setLocal({})} className="inline-flex items-center gap-1 text-[11px] font-medium text-gray-500 hover:text-gray-800">
+              <RotateCcw className="h-3 w-3" /> Reset
+            </button>
+          ) : null}
+        </div>
+        <div className="mt-2 flex flex-wrap gap-2">
+          {pool.map((a, i) => {
+            const disabled = remaining(a) <= 0 || isTutorObserving;
+            return (
+              <button
+                key={i}
+                type="button"
+                draggable={!disabled}
+                onDragStart={(e) => e.dataTransfer.setData("text/plain", a)}
+                onClick={() => !disabled && placeNext(a)}
+                disabled={disabled}
+                className={`inline-flex items-center rounded-full border px-3.5 py-1.5 text-sm shadow-sm transition ${
+                  disabled
+                    ? "cursor-not-allowed border-gray-200 bg-gray-100 text-gray-400"
+                    : "cursor-grab border-gray-200 bg-white text-gray-900 hover:-translate-y-0.5 hover:shadow-md active:cursor-grabbing"
+                }`}
+              >
+                {a}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      <TutorNotes view={view} instruction={section.tutor_instruction}>
+        <div className="text-xs">
+          <span className="font-semibold uppercase">Answers: </span>
+          {blanks.map((b, i) => (
+            <span key={i}>{i > 0 ? " · " : ""}{i + 1}. {b.text}</span>
+          ))}
+        </div>
       </TutorNotes>
     </SectionCard>
   );
