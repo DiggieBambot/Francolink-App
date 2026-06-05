@@ -1,5 +1,6 @@
 // src/app/(tutor)/tutor/students/page.tsx
 import { createClient } from '@/lib/supabase/server';
+import { CopyButton } from '@/components/tutor/copy-button';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { 
@@ -88,13 +89,7 @@ export default async function TutorStudentsPage() {
                 {inviteLink}
               </p>
             </div>
-            <button
-              onClick={() => navigator.clipboard.writeText(inviteLink)}
-              className="p-2 hover:bg-primary-100 dark:hover:bg-primary-800 rounded-lg transition-colors"
-              title="Copy link"
-            >
-              <Copy className="w-4 h-4 text-primary dark:text-primary-400" />
-            </button>
+            <CopyButton text={inviteLink} />
           </div>
         )}
       </div>

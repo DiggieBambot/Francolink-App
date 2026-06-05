@@ -2,15 +2,24 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Video, LogOut, ChevronUp, Settings, User } from "lucide-react";
+import {
+  Video, LogOut, ChevronUp, Settings, User,
+  LayoutDashboard, Users, BookOpen, Calendar, DollarSign,
+  type LucideIcon,
+} from "lucide-react";
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
-import type { LucideIcon } from "lucide-react";
+
+// Icons are looked up by name here (client side) because Server Components
+// cannot pass component functions as props to Client Components.
+const ICONS: Record<string, LucideIcon> = {
+  LayoutDashboard, Users, BookOpen, Video, Calendar, DollarSign, Settings,
+};
 
 interface NavigationItem {
   name: string;
   href: string;
-  icon: LucideIcon;
+  icon: string;
 }
 
 interface TutorSidebarProps {
@@ -69,7 +78,7 @@ export function TutorSidebar({
           Menu
         </p>
         {navigation.map((item) => {
-          const Icon = item.icon;
+          const Icon = ICONS[item.icon] ?? LayoutDashboard;
           const active = isActive(item.href);
 
           return (

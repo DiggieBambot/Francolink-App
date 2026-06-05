@@ -44,14 +44,16 @@ export default async function TutorLayout({
     redirect("/dashboard");
   }
 
+  // Icons are passed by NAME (string) — Server Components can't hand component
+  // functions to the client TutorSidebar.
   const navigation = [
-    { name: "Dashboard", href: "/tutor", icon: LayoutDashboard },
-    { name: "My Students", href: "/tutor/students", icon: Users },
-    { name: "Lessons", href: "/tutor/lessons", icon: BookOpen },
-    { name: "Live Sessions", href: "/tutor/sessions", icon: Video },
-    { name: "Schedule", href: "/tutor/schedule", icon: Calendar },
-    { name: "Commissions", href: "/tutor/commissions", icon: DollarSign },
-    { name: "Settings", href: "/tutor/settings", icon: Settings },
+    { name: "Dashboard", href: "/tutor", icon: "LayoutDashboard" },
+    { name: "My Students", href: "/tutor/students", icon: "Users" },
+    { name: "Lessons", href: "/tutor/lessons", icon: "BookOpen" },
+    { name: "Live Sessions", href: "/tutor/sessions", icon: "Video" },
+    { name: "Schedule", href: "/tutor/schedule", icon: "Calendar" },
+    { name: "Commissions", href: "/tutor/commisions", icon: "DollarSign" },
+    { name: "Settings", href: "/tutor/settings", icon: "Settings" },
   ];
 
   const commissionBalance = Number(userData?.commission_balance || 0);
