@@ -37,6 +37,10 @@ export interface LessonRoomContextValue {
   chatMessages: ChatMessage[];
   /** Send a chat message. */
   sendChat: (text: string) => void;
+  /** Incoming lesson switch from the other participant. */
+  incomingLessonChange: { lessonId: string; title: string; by: string; at: number } | null;
+  /** Change the shared current lesson (persists + broadcasts). */
+  broadcastLessonChange: (lessonId: string, title: string) => void;
 }
 
 export interface ChatMessage {

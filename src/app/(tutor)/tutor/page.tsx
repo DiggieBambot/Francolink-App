@@ -2,236 +2,201 @@ import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import {
-  Users,
-  DollarSign,
-  TrendingUp,
-  Video,
-  BookOpen,
-  ArrowRight,
-  ArrowUpRight,
-  Calendar,
+  Users, BookOpen, ArrowRight, Wallet, TrendingUp, Link2, GraduationCap, Sparkles,
 } from "lucide-react";
+import { CopyButton } from "@/components/tutor/copy-button";
+
+export const dynamic = "force-dynamic";
+
+function money(n: number) {
+  return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(n || 0);
+}
 
 export default async function TutorDashboardPage() {
   const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) redirect("/login");
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    redirect("/login");
-  }
-
-  const { data: tutorData } = await supabase
+  const { data: me } = await supabase
     .from("users")
-    .select("commission_balance, tutor_plan, name")
+    .select("name, tutor_plan, commission_balance, tutor_invite_code")
     .eq("id", user.id)
     .single();
 
-  const { count: totalStudents } = await supabase
-    .from("users")
-    .select("*", { count: "exact", head: true })
-    .eq("referred_by_tutor_id", user.id);
-
-  const { count: payingStudents } = await supabase
-    .from("users")
-    .select("*", { count: "exact", head: true })
-    .eq("referred_by_tutor_id", user.id)
-    .neq("subscription_plan", "FREE");
-
-  const { count: activeSessions } = await supabase
-    .from("tutor_sessions")
+  // Students (connected) + paying.
+  const { count: studentCount } = await supabase
+    .from("tutor_students")
     .select("*", { count: "exact", head: true })
     .eq("tutor_id", user.id)
     .eq("status", "active");
-
-  const { count: upcomingSessions } = await supabase
-    .from("tutor_sessions")
+  const { count: payingCount } = await supabase
+    .from("users")
     .select("*", { count: "exact", head: true })
+    .eq("referred_by_tutor_id", user.id)
+    .not("subscription_plan", "in", '("FREE","free")');
+
+  // Earnings: lifetime + this month, from the ledger.
+  const { data: ledger } = await supabase
+    .from("commission_ledger")
+    .select("amount, created_at")
+    .eq("tutor_id", user.id);
+  const lifetime = (ledger || []).reduce((s, r) => s + parseFloat(String(r.amount || 0)), 0);
+  const monthStart = new Date();
+  monthStart.setDate(1);
+  monthStart.setHours(0, 0, 0, 0);
+  const thisMonth = (ledger || [])
+    .filter((r) => new Date(r.created_at) >= monthStart)
+    .reduce((s, r) => s + parseFloat(String(r.amount || 0)), 0);
+  const balance = parseFloat(String(me?.commission_balance || "0"));
+
+  // Recent lesson spaces.
+  const { data: spaces } = await supabase
+    .from("tutor_lesson_sessions")
+    .select("id, student_id, tutor_lesson_id, updated_at, users:student_id(name, email), tutor_lessons:tutor_lesson_id(title)")
     .eq("tutor_id", user.id)
-    .eq("status", "scheduled");
+    .order("updated_at", { ascending: false })
+    .limit(5);
 
-  const commissionBalance = parseFloat(tutorData?.commission_balance || "0");
-  const conversionRate = totalStudents
-    ? Math.round(((payingStudents || 0) / totalStudents) * 100)
-    : 0;
+  // A student to open a quick space with.
+  const { data: firstStudent } = await supabase
+    .from("tutor_students")
+    .select("student_id")
+    .eq("tutor_id", user.id)
+    .eq("status", "active")
+    .limit(1)
+    .maybeSingle();
 
-  const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(amount);
-  };
-
-  const firstName = tutorData?.name?.split(" ")[0] || "Tutor";
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+  const inviteLink = me?.tutor_invite_code ? `${appUrl}/join/${me.tutor_invite_code}` : null;
+  const planLabel = me?.tutor_plan === "PREMIUM" ? "Premium" : me?.tutor_plan === "PREMIUM_PLUS" ? "Premium+" : "Basic";
 
   return (
-    <div className="space-y-8 max-w-7xl mx-auto">
-      {/* Header */}
-      <div>
-        <h1 className="text-2xl md:text-3xl font-heading font-extrabold text-primary">
-          Welcome back, {firstName}! 👋
-        </h1>
-        <p className="text-gray-500 mt-1 text-sm">
-          Here&apos;s what&apos;s happening with your students
-        </p>
+    <div className="space-y-6">
+      {/* Greeting */}
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <h1 className="text-2xl font-bold text-slate-900">
+            Welcome back{me?.name ? `, ${me.name.split(" ")[0]}` : ""} 👋
+          </h1>
+          <p className="text-sm text-slate-500">Here&apos;s your teaching at a glance.</p>
+        </div>
+        <span className="rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-700">
+          {planLabel} tutor
+        </span>
       </div>
 
-      {/* Stats Grid */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        {/* Total Students */}
-        <div className="bg-white rounded-2xl shadow-soft border border-gray-100 p-6">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Students
-            </span>
-            <div className="w-9 h-9 bg-primary-50 rounded-xl flex items-center justify-center">
-              <Users className="w-4 h-4 text-primary" />
-            </div>
+      {/* Earnings + students stat row */}
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="rounded-2xl border border-secondary-200 bg-gradient-to-br from-secondary-50 to-white p-5">
+          <div className="flex items-center gap-2 text-secondary-700">
+            <Wallet className="h-4 w-4" />
+            <span className="text-xs font-semibold uppercase tracking-wide">Balance</span>
           </div>
-          <p className="text-3xl font-heading font-extrabold text-primary">
-            {totalStudents || 0}
-          </p>
-          <p className="text-xs text-gray-400 mt-1 font-medium">
-            {payingStudents || 0} paying
-          </p>
+          <p className="mt-2 text-2xl font-bold text-slate-900">{money(balance)}</p>
+          <p className="text-xs text-slate-500">available to withdraw</p>
         </div>
-
-        {/* Commission Balance */}
-        <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl p-6 text-white shadow-lg relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full blur-2xl" />
-          <div className="relative">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-medium text-green-100 uppercase tracking-wider">
-                Balance
-              </span>
-              <div className="w-9 h-9 bg-white/15 rounded-xl flex items-center justify-center">
-                <DollarSign className="w-4 h-4 text-white" />
-              </div>
-            </div>
-            <p className="text-3xl font-heading font-extrabold">
-              {formatCurrency(commissionBalance)}
-            </p>
-            <Link
-              href="/tutor/commissions"
-              className="text-xs text-green-100 hover:text-white mt-1 inline-flex items-center gap-1 font-medium"
-            >
-              View details
-              <ArrowUpRight className="w-3 h-3" />
-            </Link>
+        <div className="rounded-2xl border bg-white p-5">
+          <div className="flex items-center gap-2 text-secondary-700">
+            <TrendingUp className="h-4 w-4" />
+            <span className="text-xs font-semibold uppercase tracking-wide">This month</span>
           </div>
+          <p className="mt-2 text-2xl font-bold text-slate-900">{money(thisMonth)}</p>
+          <p className="text-xs text-slate-500">{money(lifetime)} lifetime</p>
         </div>
-
-        {/* Sessions */}
-        <div className="bg-white rounded-2xl shadow-soft border border-gray-100 p-6">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Sessions
-            </span>
-            <div className="w-9 h-9 bg-purple-50 rounded-xl flex items-center justify-center">
-              <Video className="w-4 h-4 text-purple-600" />
-            </div>
+        <div className="rounded-2xl border bg-white p-5">
+          <div className="flex items-center gap-2 text-primary-700">
+            <Users className="h-4 w-4" />
+            <span className="text-xs font-semibold uppercase tracking-wide">Students</span>
           </div>
-          <p className="text-3xl font-heading font-extrabold text-primary">
-            {activeSessions || 0}
-          </p>
-          <p className="text-xs text-gray-400 mt-1 font-medium">
-            {upcomingSessions || 0} upcoming
-          </p>
+          <p className="mt-2 text-2xl font-bold text-slate-900">{studentCount || 0}</p>
+          <p className="text-xs text-slate-500">{payingCount || 0} paying</p>
         </div>
-
-        {/* Conversion Rate */}
-        <div className="bg-white rounded-2xl shadow-soft border border-gray-100 p-6">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Conversion
-            </span>
-            <div className="w-9 h-9 bg-secondary-50 rounded-xl flex items-center justify-center">
-              <TrendingUp className="w-4 h-4 text-secondary" />
-            </div>
+        <div className="rounded-2xl border bg-white p-5">
+          <div className="flex items-center gap-2 text-primary-700">
+            <GraduationCap className="h-4 w-4" />
+            <span className="text-xs font-semibold uppercase tracking-wide">Commission</span>
           </div>
-          <p className="text-3xl font-heading font-extrabold text-primary">
-            {conversionRate}%
-          </p>
-          <p className="text-xs text-gray-400 mt-1 font-medium">
-            students paying
-          </p>
+          <p className="mt-2 text-2xl font-bold text-slate-900">10% / 5%</p>
+          <p className="text-xs text-slate-500">first month / recurring</p>
         </div>
       </div>
 
-      {/* Quick Actions */}
-      <div>
-        <h2 className="text-lg font-heading font-bold text-primary mb-4">
-          Quick Actions
-        </h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {[
-            {
-              href: "/tutor/sessions",
-              icon: Video,
-              title: "Live Sessions",
-              desc: "Manage your teaching sessions",
-              iconBg: "bg-primary-50",
-              iconColor: "text-primary",
-            },
-            {
-              href: "/tutor/students",
-              icon: Users,
-              title: "My Students",
-              desc: "Track student progress",
-              iconBg: "bg-purple-50",
-              iconColor: "text-purple-600",
-            },
-            {
-              href: "/tutor/commissions",
-              icon: DollarSign,
-              title: "Commissions",
-              desc: "View earnings & withdraw",
-              iconBg: "bg-green-50",
-              iconColor: "text-green-600",
-            },
-            {
-              href: "/tutor/lessons",
-              icon: BookOpen,
-              title: "Lessons",
-              desc: "Browse and manage lesson content",
-              iconBg: "bg-secondary-50",
-              iconColor: "text-secondary-700",
-            },
-            {
-              href: "/tutor/schedule",
-              icon: Calendar,
-              title: "Schedule",
-              desc: "Set your availability",
-              iconBg: "bg-blue-50",
-              iconColor: "text-blue-600",
-            },
-          ].map((action) => (
-            <Link
-              key={action.href}
-              href={action.href}
-              className="group bg-white rounded-2xl shadow-soft border border-gray-100 p-6 hover:shadow-medium hover:-translate-y-0.5 transition-all"
-            >
-              <div className="flex items-center gap-4">
-                <div
-                  className={`p-3 ${action.iconBg} rounded-xl group-hover:scale-110 transition-transform`}
-                >
-                  <action.icon className={`w-5 h-5 ${action.iconColor}`} />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-heading font-bold text-primary text-sm">
-                    {action.title}
-                  </h3>
-                  <p className="text-xs text-gray-400 mt-0.5">
-                    {action.desc}
-                  </p>
-                </div>
-                <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-secondary group-hover:translate-x-0.5 transition-all" />
-              </div>
-            </Link>
-          ))}
+      {/* Invite + quick actions */}
+      <div className="grid gap-4 lg:grid-cols-3">
+        <div className="rounded-2xl border bg-white p-5 lg:col-span-2">
+          <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-slate-700">
+            <Link2 className="h-4 w-4 text-secondary-600" /> Your invite link
+          </div>
+          <p className="mb-3 text-sm text-slate-500">
+            Share this with students. When they join and subscribe, you earn 10% then 5% every month.
+          </p>
+          {inviteLink ? (
+            <div className="flex items-center gap-2 rounded-lg border bg-slate-50 p-2">
+              <span className="flex-1 truncate text-sm text-slate-700">{inviteLink}</span>
+              <CopyButton text={inviteLink} />
+            </div>
+          ) : (
+            <p className="text-sm text-slate-400">No invite code yet — refresh your profile.</p>
+          )}
         </div>
+
+        <div className="flex flex-col gap-3 rounded-2xl border bg-white p-5">
+          <div className="text-sm font-semibold text-slate-700">Quick actions</div>
+          {firstStudent ? (
+            <Link
+              href={`/space/open?partner=${firstStudent.student_id}`}
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-700"
+            >
+              <Sparkles className="h-4 w-4" /> Open a lesson space
+            </Link>
+          ) : (
+            <Link
+              href="/tutor/students"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-700"
+            >
+              <Users className="h-4 w-4" /> Invite your first student
+            </Link>
+          )}
+          <Link href="/library" className="inline-flex items-center justify-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+            <BookOpen className="h-4 w-4" /> Browse lessons
+          </Link>
+          <Link href="/tutor/commisions" className="inline-flex items-center justify-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+            <Wallet className="h-4 w-4" /> Earnings &amp; payouts
+          </Link>
+        </div>
+      </div>
+
+      {/* Recent spaces */}
+      <div className="rounded-2xl border bg-white p-5">
+        <div className="mb-3 flex items-center justify-between">
+          <h2 className="text-sm font-semibold text-slate-700">Recent lesson spaces</h2>
+          <Link href="/tutor/students" className="text-xs font-medium text-primary-700 hover:underline">
+            All students →
+          </Link>
+        </div>
+        {spaces && spaces.length > 0 ? (
+          <ul className="divide-y">
+            {spaces.map((sp) => {
+              const u = sp.users as unknown as { name?: string; email?: string } | null;
+              const l = sp.tutor_lessons as unknown as { title?: string } | null;
+              return (
+                <li key={sp.id} className="flex items-center justify-between py-2.5">
+                  <div>
+                    <div className="text-sm font-medium text-slate-900">{u?.name || u?.email || "Student"}</div>
+                    <div className="text-xs text-slate-500">{l?.title || "No lesson yet"}</div>
+                  </div>
+                  <Link href={`/room/${sp.id}`} className="inline-flex items-center gap-1 rounded-lg bg-primary-50 px-3 py-1.5 text-xs font-semibold text-primary-700 hover:bg-primary-100">
+                    Open <ArrowRight className="h-3 w-3" />
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        ) : (
+          <p className="py-6 text-center text-sm text-slate-400">
+            No lesson spaces yet. Invite a student and open one.
+          </p>
+        )}
       </div>
     </div>
   );

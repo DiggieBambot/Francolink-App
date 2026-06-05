@@ -41,24 +41,24 @@ export default async function RoomPage({
   }
   const currentRole: "tutor" | "student" = isTutor ? "tutor" : "student";
 
-  // Load the lesson content.
-  if (!session.tutor_lesson_id) {
-    return (
-      <div className="mx-auto max-w-md px-6 py-16 text-center">
-        <h1 className="mb-2 text-xl font-bold">No lesson attached</h1>
-        <p className="text-sm text-slate-600">
-          The tutor hasn&apos;t selected a lesson for this session yet.
-        </p>
-      </div>
-    );
+  // Current lesson (may be null — either party picks one in-room).
+  let lesson: Lesson | null = null;
+  if (session.tutor_lesson_id) {
+    const { data: row } = await supabase
+      .from("tutor_lessons")
+      .select("content")
+      .eq("id", session.tutor_lesson_id)
+      .maybeSingle();
+    lesson = (row?.content as Lesson) ?? null;
   }
-  const { data: row, error: lessonErr } = await supabase
+
+  // Lightweight published-lesson list for the in-room picker.
+  const { data: lessonList } = await supabase
     .from("tutor_lessons")
-    .select("content")
-    .eq("id", session.tutor_lesson_id)
-    .single();
-  if (lessonErr || !row) notFound();
-  const lesson = row.content as Lesson;
+    .select("id, slug, title, level")
+    .eq("status", "published")
+    .order("level")
+    .order("title");
 
   // Load persisted highlights so a refresh restores them.
   const { data: highlights } = await supabase
@@ -69,17 +69,16 @@ export default async function RoomPage({
   // Display name for presence.
   const { data: profile } = await supabase
     .from("users")
-    .select("first_name, last_name, email")
+    .select("name, email")
     .eq("id", user.id)
     .maybeSingle();
-  const name =
-    [profile?.first_name, profile?.last_name].filter(Boolean).join(" ") ||
-    profile?.email?.split("@")[0] ||
-    "User";
+  const name = profile?.name || profile?.email?.split("@")[0] || "User";
 
   return (
     <LessonRoom
-      lesson={lesson}
+      initialLesson={lesson}
+      initialLessonId={session.tutor_lesson_id}
+      lessonList={lessonList || []}
       sessionId={id}
       currentUserId={user.id}
       currentRole={currentRole}

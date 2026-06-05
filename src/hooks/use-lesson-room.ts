@@ -43,6 +43,9 @@ export function useLessonRoom({
     Record<string, { state: unknown; updatedAt: number }>
   >({});
   const [currentSectionIdx, setCurrentSectionIdxState] = useState<number | null>(null);
+  const [incomingLessonChange, setIncomingLessonChange] = useState<
+    { lessonId: string; title: string; by: string; at: number } | null
+  >(null);
 
   // Subscribe to the session channel for presence + highlight broadcasts.
   useEffect(() => {
@@ -81,6 +84,12 @@ export function useLessonRoom({
     channel.on("broadcast", { event: "section:current" }, ({ payload }) => {
       const idx = (payload as { idx?: number }).idx;
       if (typeof idx === "number") setCurrentSectionIdxState(idx);
+    });
+
+    channel.on("broadcast", { event: "lesson:change" }, ({ payload }) => {
+      const p = payload as { lessonId?: string; title?: string; by?: string };
+      if (!p?.lessonId || p.by === currentUserId) return;
+      setIncomingLessonChange({ lessonId: p.lessonId, title: p.title || "a lesson", by: p.by || "", at: Date.now() });
     });
 
     channel.on("broadcast", { event: "chat:message" }, ({ payload }) => {
@@ -251,6 +260,23 @@ export function useLessonRoom({
     [currentUserId, currentName, currentRole, sessionId, supabase]
   );
 
+  // Either member: change the current lesson. Persists via API + broadcasts.
+  const broadcastLessonChange = useCallback(
+    async (lessonId: string, title: string) => {
+      await fetch(`/api/space/${sessionId}/lesson`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ lessonId }),
+      }).catch(() => {});
+      void channelRef.current?.send({
+        type: "broadcast",
+        event: "lesson:change",
+        payload: { lessonId, title, by: currentUserId, byName: currentName },
+      });
+    },
+    [sessionId, currentUserId, currentName]
+  );
+
   return {
     highlights,
     presence,
@@ -265,5 +291,7 @@ export function useLessonRoom({
     setCurrentSectionIdx,
     chatMessages,
     sendChat,
+    incomingLessonChange,
+    broadcastLessonChange,
   };
 }

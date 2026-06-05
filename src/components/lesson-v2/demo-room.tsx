@@ -114,6 +114,8 @@ export function DemoRoom({ lesson }: DemoRoomProps) {
               setCurrentSectionIdx,
               chatMessages,
               sendChat: (t: string) => pushChat("demo-tutor", "Demo Tutor", "tutor", t),
+              incomingLessonChange: null,
+              broadcastLessonChange: () => {},
             }}
           >
             <IncomingTtsAutoplay />
@@ -147,6 +149,8 @@ export function DemoRoom({ lesson }: DemoRoomProps) {
               setCurrentSectionIdx: () => {}, // student can't advance
               chatMessages,
               sendChat: (t: string) => pushChat("demo-student", "Demo Student", "student", t),
+              incomingLessonChange: null,
+              broadcastLessonChange: () => {},
             }}
           >
             <IncomingTtsAutoplay />

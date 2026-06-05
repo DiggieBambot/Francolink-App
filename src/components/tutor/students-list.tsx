@@ -224,10 +224,13 @@ export function StudentsList({ students, inviteLink }: StudentsListProps) {
                     </div>
                   </div>
 
-                  {/* Action */}
-                  <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg transition-colors">
-                    <ChevronRight className="w-5 h-5 text-gray-400" />
-                  </button>
+                  {/* Action: open the shared lesson space with this student */}
+                  <a
+                    href={`/space/open?partner=${student.id}`}
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-primary-600 px-3 py-2 text-sm font-semibold text-white hover:bg-primary-700"
+                  >
+                    <BookOpen className="w-4 h-4" /> Lesson space
+                  </a>
                 </div>
               </div>
             ))}
