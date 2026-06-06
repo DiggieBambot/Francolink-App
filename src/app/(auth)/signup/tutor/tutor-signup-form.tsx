@@ -96,7 +96,7 @@ export function TutorSignupForm({ selectedPlan, plans }: Props) {
         <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary-100 text-secondary-700">
           <GraduationCap className="h-6 w-6" />
         </div>
-        <h1 className="font-heading text-2xl font-bold text-primary">Become a tutor</h1>
+        <h1 className="font-heading text-2xl font-bold text-primary">Sign up as a Tutor</h1>
         <p className="mt-1 text-gray-600">Teach, bring your students, and earn commission</p>
       </div>
 

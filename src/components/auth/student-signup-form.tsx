@@ -113,7 +113,7 @@ export function StudentSignupForm() {
       </p>
       <p className="mt-3 text-center">
         <Link href="/signup" className="inline-flex items-center gap-1 text-xs font-medium text-gray-400 hover:text-gray-600">
-          <ArrowLeft className="h-3 w-3" /> Want to teach instead? Become a tutor
+          <ArrowLeft className="h-3 w-3" /> Want to teach instead? Sign up as a Tutor
         </Link>
       </p>
     </Card>

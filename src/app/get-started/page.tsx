@@ -82,7 +82,7 @@ export default function GetStartedPage() {
               href="/signup/tutor"
               className="mt-6 inline-flex items-center justify-center gap-2 rounded-lg bg-secondary-600 px-5 py-3 text-sm font-semibold !text-white hover:bg-secondary-700"
             >
-              Become a tutor <ArrowRight className="h-4 w-4" />
+              Sign up as a Tutor <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>

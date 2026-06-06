@@ -61,7 +61,7 @@ function HomeContent() {
               </Link>
               <Link href="/signup/tutor" className="inline-flex items-center justify-center gap-2.5 bg-secondary text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-secondary-600 transition-all shadow-lg shadow-secondary/20 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0">
                 <GraduationCap className="w-5 h-5" />
-                Become a tutor
+                Sign up as a Tutor
               </Link>
             </div>
 
