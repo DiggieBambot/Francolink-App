@@ -5,6 +5,7 @@ import {
   Users, BookOpen, ArrowRight, Wallet, TrendingUp, Link2, GraduationCap, Sparkles,
 } from "lucide-react";
 import { CopyButton } from "@/components/tutor/copy-button";
+import { TutorGuideButton } from "@/components/tutor/tutor-guide";
 
 export const dynamic = "force-dynamic";
 
@@ -71,9 +72,12 @@ export default async function TutorDashboardPage() {
           </h1>
           <p className="text-sm text-slate-500">Here&apos;s your teaching at a glance.</p>
         </div>
-        <span className="rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-700">
-          {planLabel} tutor
-        </span>
+        <div className="flex items-center gap-2">
+          <TutorGuideButton />
+          <span className="rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-700">
+            {planLabel} tutor
+          </span>
+        </div>
       </div>
 
       {/* Earnings + students stat row */}
