@@ -1,6 +1,13 @@
 // src/app/api/tts/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { createClient as createUserClient } from "@/lib/supabase/server";
+import { createClient } from "@supabase/supabase-js";
+
+// Service-role client for cache writes (user session can't write to storage)
+const adminSupabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+);
 
 const BUCKET = "tts-cache";
 
@@ -57,13 +64,12 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "text is required" }, { status: 400 });
     }
 
-    const supabase = await createClient();
     const filename = textToFilename(text, voice, speed);
     const cacheFolder = getCacheFolder(language);
     const storagePath = `${cacheFolder}/${filename}`;
 
-    // 1. Check cache first
-    const { data: cached } = await supabase.storage
+    // 1. Check cache first (public bucket — admin client works fine)
+    const { data: cached } = await adminSupabase.storage
       .from(BUCKET)
       .download(storagePath);
 
@@ -107,9 +113,9 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "No audio returned" }, { status: 500 });
     }
 
-    // 3. Save to cache in background (don't await — return fast)
+    // 3. Save to cache in background with service-role client (user session can't write to storage)
     const audioBuffer = Buffer.from(audioBase64, "base64");
-    supabase.storage
+    adminSupabase.storage
       .from(BUCKET)
       .upload(storagePath, audioBuffer, {
         contentType: "audio/wav",
