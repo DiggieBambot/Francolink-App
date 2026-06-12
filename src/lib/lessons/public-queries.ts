@@ -48,7 +48,7 @@ function toCatalogue(row: {
     language: row.language,
     duration_minutes: row.duration_minutes,
     topic_tags: row.topic_tags || [],
-    category: categoryForLesson(row.source_url, row.topic_tags),
+    category: categoryForLesson(row.language, row.source_url, row.topic_tags),
     hero_image_url: row.content?.hero_image_url,
     section_count: row.content?.sections?.length || 0,
   };

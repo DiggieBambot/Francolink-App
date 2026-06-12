@@ -14,7 +14,7 @@ export interface LiteLesson {
   title_translation?: string;
   level: string;
   hero_image_url?: string;
-  duration_minutes?: number;
+  duration_minutes?: number | null;
   section_count: number;
 }
 

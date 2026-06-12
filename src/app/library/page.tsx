@@ -4,28 +4,38 @@ import Link from "next/link";
 import Image from "next/image";
 import { Search } from "lucide-react";
 import { getPublishedLessons } from "@/lib/lessons/public-queries";
-import { CATEGORIES } from "@/lib/lessons/categories";
+import { categoriesForLanguage } from "@/lib/lessons/categories";
 import { getLevelTheme } from "@/lib/lessons/level-theme";
 import { GuestCTA } from "@/components/library/guest-cta";
 import { PublicShell } from "@/components/layout/public-shell";
 import { Container, Eyebrow } from "@/components/ui";
 import { LevelExplorer } from "@/components/library/level-explorer";
+import { LanguageTabs } from "@/components/library/language-tabs";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Lesson Materials | FrancoLink",
-  description: "Free French lesson materials — search by level or topic.",
+  description: "Free lesson materials — French & English. Search by level or topic.",
 };
 
 const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
 
-export default async function LibraryPage() {
+export default async function LibraryPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ lang?: string }>;
+}) {
+  const { lang: rawLang } = await searchParams;
+  const lang = rawLang === "en" ? "en" : "fr";
   const lessons = await getPublishedLessons();
 
-  // Aggregate per category: count, levels present, and a cover photo (first
-  // lesson in the category that has a hero image).
+  // Filter lessons by selected language
+  const langLessons = lessons.filter((l) => l.language === lang);
+  const categories = categoriesForLanguage(lang);
+
+  // Aggregate per category
   const byCat = new Map<string, { count: number; levels: Set<string>; cover?: string }>();
-  for (const l of lessons) {
+  for (const l of langLessons) {
     const e = byCat.get(l.category) || { count: 0, levels: new Set<string>() };
     e.count++;
     e.levels.add(l.level);
@@ -34,7 +44,7 @@ export default async function LibraryPage() {
   }
 
   // Lightweight lessons for the client-side level filter.
-  const lite = lessons.map((l) => ({
+  const lite = langLessons.map((l) => ({
     id: l.id,
     slug: l.slug,
     title: l.title,
@@ -44,6 +54,10 @@ export default async function LibraryPage() {
     duration_minutes: l.duration_minutes,
     section_count: l.section_count,
   }));
+
+  // Count per language for the tabs
+  const frCount = lessons.filter((l) => l.language === "fr").length;
+  const enCount = lessons.filter((l) => l.language === "en").length;
 
   return (
     <PublicShell>
@@ -69,7 +83,7 @@ export default async function LibraryPage() {
                 <input
                   name="q"
                   type="text"
-                  placeholder="e.g. business, voyage, famille…"
+                  placeholder={lang === "en" ? "e.g. business, travel, interview…" : "e.g. business, voyage, famille…"}
                   className="flex-1 bg-transparent py-3 text-sm outline-none placeholder:text-gray-400"
                 />
               </div>
@@ -83,11 +97,16 @@ export default async function LibraryPage() {
           </Container>
         </header>
 
+        {/* Language tabs */}
+        <Container className="max-w-6xl pt-8">
+          <LanguageTabs activeLang={lang} frCount={frCount} enCount={enCount} />
+        </Container>
+
         {/* Draggable level filter + category grid (categories when "All") */}
         <Container className="max-w-6xl py-12">
           <LevelExplorer lessons={lite}>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {CATEGORIES.map((cat) => {
+            {categories.map((cat) => {
               const agg = byCat.get(cat.slug);
               const count = agg?.count || 0;
               const levels = agg ? LEVELS.filter((l) => agg.levels.has(l)) : [];
@@ -98,8 +117,6 @@ export default async function LibraryPage() {
                   href={`/library/${cat.slug}`}
                   className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-soft ring-1 ring-gray-100 transition duration-300 hover:-translate-y-1 hover:shadow-medium"
                 >
-                  {/* Photo header with a colored backdrop so it's never blank
-                      (and the white title stays readable while the photo loads) */}
                   <div className={`relative h-44 w-full overflow-hidden bg-gradient-to-br ${cat.gradient}`}>
                     {cover ? (
                       <Image
@@ -122,7 +139,6 @@ export default async function LibraryPage() {
                     </div>
                   </div>
 
-                  {/* Body */}
                   <div className="flex flex-1 flex-col p-5">
                     <p className="text-sm leading-relaxed text-gray-600">{cat.description}</p>
                     {levels.length ? (
@@ -147,9 +163,9 @@ export default async function LibraryPage() {
           </div>
           </LevelExplorer>
 
-          {lessons.length === 0 ? (
+          {langLessons.length === 0 ? (
             <p className="mt-10 text-center text-sm text-gray-500">
-              No published lessons yet. Publish lessons from the admin panel to populate the catalogue.
+              No published {lang === "en" ? "English" : "French"} lessons yet. Check back soon!
             </p>
           ) : null}
         </Container>
