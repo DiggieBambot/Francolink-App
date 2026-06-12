@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ArrowRight, BookOpen } from "lucide-react";
+import { ArrowRight, BookOpen, Brain } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
+import { langCode } from "@/lib/utils/language";
 
 const LEVEL_META: Record<string, { color: string; icon: string; fallbackDesc: string }> = {
   A1: { color: "bg-green-100 text-green-700", icon: "🌱", fallbackDesc: "Start here! Learn greetings, basic phrases, and survival skills." },
@@ -26,6 +27,19 @@ export default async function LevelSelectPage({ params }: PageProps) {
   const flag = LANG_FLAGS[language.toLowerCase()] || "🌍";
 
   const supabase = await createClient();
+  const code = langCode(language); // "english" → "en"
+
+  // Auto-register this language for the logged-in student
+  const { data: { user } } = await supabase.auth.getUser();
+  if (user) {
+    // Upsert — creates the row if it doesn't exist, does nothing if it does
+    await supabase
+      .from("user_languages")
+      .upsert(
+        { user_id: user.id, language_code: code, is_active: false },
+        { onConflict: "user_id,language_code", ignoreDuplicates: true }
+      );
+  }
 
   // Fetch courses for this language by slug prefix
   const { data: courses } = await supabase
@@ -34,6 +48,18 @@ export default async function LevelSelectPage({ params }: PageProps) {
     .like("slug", `${language}-%`)
     .eq("is_published", true)
     .order("level");
+
+  // Check if student has taken placement for this language
+  let needsPlacement = false;
+  if (user) {
+    const { data: langData } = await supabase
+      .from("user_languages")
+      .select("placement_taken")
+      .eq("user_id", user.id)
+      .eq("language_code", code)
+      .single();
+    needsPlacement = !langData?.placement_taken;
+  }
 
   const levels = (courses || []).map((c) => {
     const meta = LEVEL_META[c.level] || LEVEL_META.A1;
@@ -58,6 +84,29 @@ export default async function LevelSelectPage({ params }: PageProps) {
           Learning <span className="font-semibold text-primary">{langName}</span>
         </p>
       </div>
+
+      {/* Placement test prompt for new language */}
+      {needsPlacement && levels.length > 0 && (
+        <Link
+          href={`/placement-test?lang=${code}`}
+          className="group block bg-gradient-to-r from-primary via-primary to-primary-800 rounded-2xl p-5 mb-8 hover:shadow-lg transition-all"
+        >
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center group-hover:bg-white/20 transition-colors">
+              <Brain className="w-6 h-6 text-white" />
+            </div>
+            <div className="flex-1">
+              <div className="font-heading font-bold text-white">
+                Not sure where to start?
+              </div>
+              <div className="text-sm text-white/70">
+                Take a 5-minute placement test to find your {langName} level
+              </div>
+            </div>
+            <ArrowRight className="w-5 h-5 text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all" />
+          </div>
+        </Link>
+      )}
 
       {levels.length === 0 ? (
         <div className="text-center py-12">
