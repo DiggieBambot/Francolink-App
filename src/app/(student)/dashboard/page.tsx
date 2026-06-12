@@ -25,23 +25,8 @@ import { DailyLessonLimit } from "@/components/dashboard/daily-lesson-limit";
 import { JoinTutorCode } from "@/components/dashboard/join-tutor-code";
 import { formatNumber } from "@/lib/utils";
 import { getLessonUsage } from "@/lib/utils/lesson-limits";
+import { langSlug, LANGUAGE_INFO } from "@/lib/utils/language";
 import Link from "next/link";
-
-// Language display names and flags
-const languageConfig: Record<string, { name: string; flag: string }> = {
-  french: { name: "French", flag: "🇫🇷" },
-  spanish: { name: "Spanish", flag: "🇪🇸" },
-  english: { name: "English", flag: "🇬🇧" },
-  german: { name: "German", flag: "🇩🇪" },
-  fr: { name: "French", flag: "🇫🇷" },
-  es: { name: "Spanish", flag: "🇪🇸" },
-  en: { name: "English", flag: "🇬🇧" },
-  de: { name: "German", flag: "🇩🇪" },
-  french: { name: "French", flag: "🇫🇷" },
-  spanish: { name: "Spanish", flag: "🇪🇸" },
-  english: { name: "English", flag: "🇬🇧" },
-  german: { name: "German", flag: "🇩🇪" },
-};
 
 function calculateCurrentLevel(completedLessons: any[]): string {
   if (!completedLessons || completedLessons.length === 0) return "A1";
@@ -74,7 +59,16 @@ export default async function DashboardPage() {
 
   // Get user's learning language (default to French for backwards compatibility)
   const userLanguage = profile?.learning_language || "fr";
-  const languageInfo = languageConfig[userLanguage] || languageConfig.fr;
+  const languageInfo = LANGUAGE_INFO[userLanguage] || LANGUAGE_INFO.fr;
+  const userLanguageSlug = langSlug(userLanguage);
+
+  // Get per-language placement info for the active language
+  const { data: activeLangData } = await supabase
+    .from("user_languages")
+    .select("placement_taken, placement_level")
+    .eq("user_id", user?.id)
+    .eq("language_code", userLanguage)
+    .single();
 
   let tutor = null;
   if (profile?.referred_by_tutor_id) {
@@ -137,13 +131,13 @@ export default async function DashboardPage() {
     lastActivityDate: profile?.last_activity_date || null,
     totalXp: profile?.total_xp || 0,
     lessonsCompleted: lessonsCompleted,
-    currentLevel: profile?.placement_test_level || currentLevel,
+    currentLevel: activeLangData?.placement_level || profile?.placement_test_level || currentLevel,
   };
 
   // Dynamic placeholder course based on user's language
   const placeholderCourses = [
     {
-      id: `${userLanguage}-a1`,
+      id: `${userLanguageSlug}-a1`,
       title: `${languageInfo.name} Foundations`,
       flag: languageInfo.flag,
       level: "A1",
@@ -166,8 +160,17 @@ export default async function DashboardPage() {
         }))
       : placeholderCourses;
 
-  const hasPlacementTest = profile?.placement_test_taken === true;
+  // Per-language placement check — show banner if this language hasn't been tested
+  const hasPlacementTest = activeLangData?.placement_taken === true;
   const firstName = profile?.name?.split(" ")[0] || "Learner";
+
+  // Collect unique languages from enrollments for multi-language awareness
+  const enrolledLanguages = new Set<string>();
+  for (const e of enrollments || []) {
+    const langName = (e.courses as any)?.languages?.name;
+    if (langName) enrolledLanguages.add(langName);
+  }
+  const isMultiLanguage = enrolledLanguages.size > 1;
 
   return (
     <div className="space-y-8 max-w-7xl mx-auto">
@@ -179,7 +182,9 @@ export default async function DashboardPage() {
           Welcome back, {firstName}! 👋
         </h1>
         <p className="text-gray-500 mt-1 text-sm">
-          Ready to continue your {languageInfo.name} journey?
+          {isMultiLanguage
+            ? "Ready to continue your language learning?"
+            : `Ready to continue your ${languageInfo.name} journey?`}
         </p>
       </div>
 
@@ -327,9 +332,9 @@ export default async function DashboardPage() {
         {/* Left Column — 2/3 */}
         <div className="lg:col-span-2 space-y-6">
           {/* Continue Learning */}
-          <ContinueLearning 
-          userLanguage={userLanguage}
-          userLevel={profile?.placement_test_level?.toLowerCase() || "a1"}
+          <ContinueLearning
+          userLanguage={userLanguageSlug}
+          userLevel={(activeLangData?.placement_level || profile?.placement_test_level || "A1").toLowerCase()}
           />
 
           {/* Your Courses */}
@@ -351,14 +356,17 @@ export default async function DashboardPage() {
                 <CourseCard key={course.id} {...course} />
               ))}
 
-              <button className="flex flex-col items-center justify-center bg-white rounded-2xl shadow-soft border-2 border-dashed border-gray-200 p-6 hover:border-secondary hover:bg-secondary-50/50 transition-all cursor-pointer min-h-[160px] group">
+              <Link
+                href="/learn"
+                className="flex flex-col items-center justify-center bg-white rounded-2xl shadow-soft border-2 border-dashed border-gray-200 p-6 hover:border-secondary hover:bg-secondary-50/50 transition-all cursor-pointer min-h-[160px] group"
+              >
                 <div className="w-12 h-12 bg-gray-100 group-hover:bg-secondary-100 rounded-full flex items-center justify-center mb-3 transition-colors">
                   <Plus className="w-6 h-6 text-gray-400 group-hover:text-secondary transition-colors" />
                 </div>
                 <span className="font-heading font-semibold text-gray-500 group-hover:text-secondary transition-colors">
                   Add New Language
                 </span>
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -386,7 +394,7 @@ export default async function DashboardPage() {
             <div className="space-y-2">
               {[
                 {
-                  href: `/learn/${userLanguage}/${stats.currentLevel.toLowerCase()}`,
+                  href: `/learn/${userLanguageSlug}/${stats.currentLevel.toLowerCase()}`,
                   icon: languageInfo.flag,
                   label: `Continue ${languageInfo.name}`,
                   bg: "bg-primary-50 hover:bg-primary-100",

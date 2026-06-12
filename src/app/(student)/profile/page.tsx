@@ -13,15 +13,8 @@ import {
   Brain,
 } from "lucide-react";
 import { formatNumber } from "@/lib/utils";
+import { langSlug, LANGUAGE_INFO } from "@/lib/utils/language";
 import ProfileHeader from "@/components/profile/profile-header";
-
-// Language configuration
-const languageConfig: Record<string, { name: string; flag: string }> = {
-  fr: { name: "French", flag: "🇫🇷" },
-  es: { name: "Spanish", flag: "🇪🇸" },
-  en: { name: "English", flag: "🇬🇧" },
-  de: { name: "German", flag: "🇩🇪" },
-};
 
 export default async function ProfilePage() {
   const supabase = await createClient();
@@ -38,7 +31,8 @@ export default async function ProfilePage() {
 
   // Get user's learning language
   const userLanguage = profile?.learning_language || "fr";
-  const langInfo = languageConfig[userLanguage] || languageConfig.fr;
+  const langInfo = LANGUAGE_INFO[userLanguage] || LANGUAGE_INFO.fr;
+  const userLanguageSlug = langSlug(userLanguage);
 
   // Get completed lessons count
   const { count: lessonsCompleted } = await supabase
@@ -234,7 +228,7 @@ export default async function ProfilePage() {
 
             {/* Continue Button - Dynamic language */}
             <Link
-              href={`/learn/${userLanguage}/${(stats.placementLevel || "A1").toLowerCase()}`}
+              href={`/learn/${userLanguageSlug}/${(stats.placementLevel || "A1").toLowerCase()}`}
               className="block w-full py-3 bg-primary text-white text-center font-medium rounded-xl hover:bg-primary/90 transition"
             >
               Continue {langInfo.name}

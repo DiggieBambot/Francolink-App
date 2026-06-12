@@ -175,16 +175,39 @@ export default function PlacementTestFlow({ userId, userName, language, language
   // Save results to database
   const saveResults = async (score: number, level: string) => {
     setPhase("saving");
-    
+    const langCode = languageShortCode || language;
+    const now = new Date().toISOString();
+
     try {
+      // 1. Upsert into user_languages (per-language placement)
+      await supabase
+        .from("user_languages")
+        .upsert({
+          user_id: userId,
+          language_code: langCode,
+          is_active: true,
+          placement_taken: true,
+          placement_level: level,
+          placement_score: score,
+          placement_taken_at: now,
+        }, { onConflict: "user_id,language_code" });
+
+      // Deactivate other languages
+      await supabase
+        .from("user_languages")
+        .update({ is_active: false })
+        .eq("user_id", userId)
+        .neq("language_code", langCode);
+
+      // 2. Also update the users table (backwards compat + active language)
       const { error } = await supabase
         .from("users")
         .update({
           placement_test_taken: true,
           placement_test_level: level,
           placement_test_score: score,
-          placement_test_taken_at: new Date().toISOString(),
-          learning_language: language
+          placement_test_taken_at: now,
+          learning_language: langCode,
         })
         .eq("id", userId);
 
@@ -194,7 +217,7 @@ export default function PlacementTestFlow({ userId, userName, language, language
     } catch (error) {
       console.error("Error saving placement test results:", error);
     }
-    
+
     setPhase("complete");
   };
 
@@ -234,16 +257,39 @@ export default function PlacementTestFlow({ userId, userName, language, language
   // Skip placement test (start from A1)
   const skipTest = async () => {
     setPhase("saving");
-    
+    const langCode = languageShortCode || language;
+    const now = new Date().toISOString();
+
     try {
+      // Upsert into user_languages
+      await supabase
+        .from("user_languages")
+        .upsert({
+          user_id: userId,
+          language_code: langCode,
+          is_active: true,
+          placement_taken: true,
+          placement_level: "A1",
+          placement_score: 0,
+          placement_taken_at: now,
+        }, { onConflict: "user_id,language_code" });
+
+      // Deactivate other languages
+      await supabase
+        .from("user_languages")
+        .update({ is_active: false })
+        .eq("user_id", userId)
+        .neq("language_code", langCode);
+
+      // Also update users table
       await supabase
         .from("users")
         .update({
           placement_test_taken: true,
           placement_test_level: "A1",
           placement_test_score: 0,
-          placement_test_taken_at: new Date().toISOString(),
-          learning_language: language
+          placement_test_taken_at: now,
+          learning_language: langCode,
         })
         .eq("id", userId);
     } catch (error) {

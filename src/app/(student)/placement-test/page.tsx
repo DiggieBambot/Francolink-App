@@ -26,26 +26,33 @@ export default async function PlacementTestPage({ searchParams }: PlacementTestP
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/login");
 
-  // Check if user already took the placement test
+  // Get user profile
   const { data: userData } = await supabase
     .from("users")
-    .select("id, name, placement_test_taken, placement_test_level, learning_language")
+    .select("id, name, learning_language")
     .eq("id", user.id)
     .single();
 
   // Get language from query params, fallback to user's saved language, then default to French
   let language = params.lang || userData?.learning_language || "fr";
-  
+
   // Validate language
   if (!validLanguages.includes(language)) {
     language = "fr";
   }
 
-  // If already taken, redirect to their recommended course in the correct language
-  if (userData?.placement_test_taken) {
-    const level = userData.placement_test_level?.toLowerCase() || "a1";
-    const userLanguage = userData.learning_language || "fr";
-    const languageSlug = languageSlugMap[userLanguage] || userLanguage;
+  // Check if user already took the placement test for THIS specific language
+  const { data: langPlacement } = await supabase
+    .from("user_languages")
+    .select("placement_taken, placement_level")
+    .eq("user_id", user.id)
+    .eq("language_code", language)
+    .single();
+
+  // If already taken for this language, redirect to their course
+  if (langPlacement?.placement_taken) {
+    const level = langPlacement.placement_level?.toLowerCase() || "a1";
+    const languageSlug = languageSlugMap[language] || language;
     redirect(`/learn/${languageSlug}/${level}`);
   }
 

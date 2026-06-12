@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { StudentNavigation } from "@/components/student/student-navigation";
 import { UserMenu } from "@/components/shared/user-menu";
 import { MobileSidebar } from "@/components/shared/mobile-sidebar";
+import { LanguageSwitcher } from "@/components/student/language-switcher";
 import Link from "next/link";
 import { Flame, Zap } from "lucide-react";
 
@@ -27,10 +28,19 @@ export default async function StudentLayout({
   const { data: profile } = await supabase
     .from("users")
     .select(
-      "role, name, email, avatar_url, total_xp, current_level, current_streak, placement_test_level, subscription_plan"
+      "role, name, email, avatar_url, total_xp, current_level, current_streak, placement_test_level, subscription_plan, learning_language"
     )
     .eq("id", user.id)
     .single();
+
+  // Fetch user's languages for the switcher
+  const { data: userLanguages } = await supabase
+    .from("user_languages")
+    .select("language_code, is_active, placement_taken, placement_level")
+    .eq("user_id", user.id)
+    .order("created_at");
+
+  const activeLanguage = profile?.learning_language || "fr";
 
   const level = profile?.placement_test_level || profile?.current_level || "A1";
   const xp = profile?.total_xp || 0;
@@ -104,6 +114,17 @@ export default async function StudentLayout({
         </div>
       </div>
 
+      {/* Language Switcher */}
+      {(userLanguages && userLanguages.length > 0) && (
+        <div className="px-4 py-3 border-b border-gray-100">
+          <LanguageSwitcher
+            activeLanguage={activeLanguage}
+            userLanguages={userLanguages}
+            userId={user.id}
+          />
+        </div>
+      )}
+
       {/* Navigation */}
       <div className="flex-1 overflow-y-auto px-3 py-4">
         <StudentNavigation />
@@ -154,7 +175,14 @@ export default async function StudentLayout({
               </span>
             </Link>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            {(userLanguages && userLanguages.length > 0) && (
+              <LanguageSwitcher
+                activeLanguage={activeLanguage}
+                userLanguages={userLanguages}
+                userId={user.id}
+              />
+            )}
             <div className="flex items-center gap-1 bg-orange-50 px-2 py-1 rounded-lg">
               <Flame className="w-3.5 h-3.5 text-orange-500" />
               <span className="text-xs font-bold text-orange-600">

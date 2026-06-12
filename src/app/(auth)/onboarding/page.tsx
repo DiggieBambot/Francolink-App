@@ -38,6 +38,14 @@ const languageNames: Record<string, string> = {
   de: "German",
 };
 
+// Map short codes to URL slugs for routing
+const languageSlugs: Record<string, string> = {
+  fr: "french",
+  es: "spanish",
+  en: "english",
+  de: "german",
+};
+
 export default function OnboardingPage() {
   const router = useRouter();
   const supabase = createClient();
@@ -62,6 +70,16 @@ export default function OnboardingPage() {
             learning_language: selectedLanguage,
           })
           .eq("id", user.id);
+
+        // Create user_languages row for the selected language
+        await supabase
+          .from("user_languages")
+          .upsert({
+            user_id: user.id,
+            language_code: selectedLanguage,
+            is_active: true,
+            placement_taken: false,
+          }, { onConflict: "user_id,language_code" });
       }
 
       // Move to step 4 (placement test choice)
@@ -90,10 +108,24 @@ export default function OnboardingPage() {
             learning_language: selectedLanguage,
           })
           .eq("id", user.id);
+
+        // Create/update user_languages row
+        await supabase
+          .from("user_languages")
+          .upsert({
+            user_id: user.id,
+            language_code: selectedLanguage,
+            is_active: true,
+            placement_taken: true,
+            placement_level: "A1",
+            placement_score: 0,
+            placement_taken_at: new Date().toISOString(),
+          }, { onConflict: "user_id,language_code" });
       }
 
-      // Redirect to the selected language, not hardcoded French
-      router.push(`/learn/${selectedLanguage}/a1`);
+      // Redirect to the selected language using slug for route
+      const slug = languageSlugs[selectedLanguage] || selectedLanguage;
+      router.push(`/learn/${slug}/a1`);
       router.refresh();
     } catch (error) {
       console.error("Error:", error);
