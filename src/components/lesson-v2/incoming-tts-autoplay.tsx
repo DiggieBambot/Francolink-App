@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { useInworldTTS } from "@/hooks/use-inworld-tts";
 import { useLessonRoom } from "./lesson-room-context";
+import { useLessonTTSLocale } from "./lesson-language-context";
 
 /**
  * Mount-once inside a LessonRoomProvider. Watches the room's incomingSpeak
@@ -11,7 +12,8 @@ import { useLessonRoom } from "./lesson-room-context";
  */
 export function IncomingTtsAutoplay() {
   const room = useLessonRoom();
-  const tts = useInworldTTS({ language: "fr-FR" });
+  const ttsLocale = useLessonTTSLocale();
+  const tts = useInworldTTS({ language: ttsLocale });
   const lastAt = useRef(0);
 
   useEffect(() => {

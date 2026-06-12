@@ -3,6 +3,7 @@
 import { Volume2, Loader2 } from "lucide-react";
 import { useInworldTTS } from "@/hooks/use-inworld-tts";
 import { useLessonRoom } from "./lesson-room-context";
+import { useLessonTTSLocale } from "./lesson-language-context";
 
 interface SpeakButtonProps {
   text: string;
@@ -13,7 +14,8 @@ interface SpeakButtonProps {
 }
 
 export function SpeakButton({ text, size = "md", variant = "icon", className = "", voice }: SpeakButtonProps) {
-  const tts = useInworldTTS({ language: "fr-FR", voice });
+  const ttsLocale = useLessonTTSLocale();
+  const tts = useInworldTTS({ language: ttsLocale, voice });
   const room = useLessonRoom();
 
   const dim = size === "sm" ? 14 : size === "lg" ? 20 : 16;

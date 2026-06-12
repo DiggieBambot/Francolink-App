@@ -15,6 +15,7 @@ import { ImageQuestionPromptsSectionComp } from "./sections/image-question-promp
 import { FreeResponseSectionComp } from "./sections/free-response";
 import { GenericActivitySection } from "./sections/generic-activity";
 import { StepperSidebar } from "./stepper-sidebar";
+import { LessonLanguageProvider } from "./lesson-language-context";
 
 interface LessonRendererProps {
   lesson: Lesson;
@@ -61,6 +62,7 @@ export function LessonRenderer({ lesson, initialView = "tutor", lockedView }: Le
   const theme = getLevelTheme(lesson.level);
 
   return (
+    <LessonLanguageProvider language={lesson.language || "fr"}>
     <div className="min-h-screen bg-gray-50 pb-16">
       {/* Hero */}
       <header className="relative">
@@ -244,5 +246,6 @@ export function LessonRenderer({ lesson, initialView = "tutor", lockedView }: Le
         </main>
       </div>
     </div>
+    </LessonLanguageProvider>
   );
 }

@@ -50,6 +50,7 @@ export default async function LibraryPage({
     title: l.title,
     title_translation: l.title_translation,
     level: l.level,
+    language: l.language,
     hero_image_url: l.hero_image_url,
     duration_minutes: l.duration_minutes,
     section_count: l.section_count,

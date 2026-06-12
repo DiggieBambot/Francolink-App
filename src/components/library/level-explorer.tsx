@@ -13,6 +13,7 @@ export interface LiteLesson {
   title: string;
   title_translation?: string;
   level: string;
+  language?: string;
   hero_image_url?: string;
   duration_minutes?: number | null;
   section_count: number;
@@ -202,7 +203,7 @@ function FilteredCard({ lesson }: { lesson: LiteLesson }) {
             className="object-cover transition group-hover:scale-[1.03]"
           />
         ) : (
-          <div className="flex h-full items-center justify-center text-3xl opacity-40">🇫🇷</div>
+          <div className="flex h-full items-center justify-center text-3xl opacity-40">{lesson.language === "en" ? "🇬🇧" : "🇫🇷"}</div>
         )}
         <span className={`absolute left-2 top-2 rounded px-1.5 py-0.5 text-[10px] font-bold uppercase text-white shadow ${t.accentBg}`}>
           {lesson.level}
