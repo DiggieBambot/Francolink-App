@@ -8,9 +8,20 @@ import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { hydrateImages } from "@/lib/lessons/hydrate-images";
+
+export const maxDuration = 300; // 5 minutes max for batch processing
 import type { Lesson } from "@/lib/lessons/types";
 
-async function assertAdmin() {
+async function assertAdmin(req: Request) {
+  // Allow service-role key as bearer token for script access
+  const authHeader = req.headers.get("authorization");
+  if (authHeader?.startsWith("Bearer ")) {
+    const token = authHeader.slice(7);
+    if (token === process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      return { ok: true as const };
+    }
+  }
+
   const supabase = await createClient();
   const {
     data: { user },
@@ -27,7 +38,7 @@ async function assertAdmin() {
 }
 
 export async function POST(req: Request) {
-  const auth = await assertAdmin();
+  const auth = await assertAdmin(req);
   if (!("ok" in auth))
     return NextResponse.json({ error: auth.error }, { status: auth.status });
 
