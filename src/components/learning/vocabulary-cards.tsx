@@ -8,13 +8,15 @@ import { Button } from "@/components/ui";
 
 interface VocabularyWord {
   term: string;
-  translation: string;
+  translation?: string;
+  definition?: string;
   pronunciation?: string;
   partOfSpeech?: string;
   gender?: string;
   exampleSentence?: {
     original: string;
-    translation: string;
+    translation?: string;
+    simplified?: string;
   };
   tip?: string;
   image?: string;
@@ -121,11 +123,14 @@ export default function VocabularyCards({
         <Flashcard
           key={currentIndex}
           term={currentWord.term}
-          translation={currentWord.translation}
+          translation={currentWord.translation || currentWord.definition || ""}
           pronunciation={currentWord.pronunciation}
           partOfSpeech={currentWord.partOfSpeech}
           gender={currentWord.gender}
-          exampleSentence={currentWord.exampleSentence}
+          exampleSentence={currentWord.exampleSentence ? {
+            original: currentWord.exampleSentence.original,
+            translation: currentWord.exampleSentence.translation || currentWord.exampleSentence.simplified || "",
+          } : undefined}
           tip={currentWord.tip}
           image={currentWord.image}
           gif={currentWord.gif}

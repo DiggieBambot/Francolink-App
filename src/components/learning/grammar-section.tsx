@@ -167,7 +167,7 @@ export default function GrammarSection({
                       <Volume2 className={`w-4 h-4 ${isPlaying ? "animate-pulse" : ""}`} />
                     </button>
                   </div>
-                  <p className="text-gray-600">{example.translation}</p>
+                  <p className="text-gray-600">{example.translation || example.simplified || ""}</p>
                   {example.breakdown && (
                     <p className="text-sm text-primary mt-2 italic">
                       💡 {example.breakdown}

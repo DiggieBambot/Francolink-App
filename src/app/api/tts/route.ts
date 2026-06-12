@@ -2,14 +2,39 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 
-const FRENCH_VOICE = "Hélène";
 const BUCKET = "tts-cache";
+
+// Map language codes to appropriate native TTS voices (Inworld TTS)
+const LANGUAGE_VOICES: Record<string, string> = {
+  fr: "Hélène",
+  en: "Olivia",
+  es: "Sofia",
+  de: "Julia",
+};
+
+// Map language codes to cache folder names
+const LANGUAGE_FOLDERS: Record<string, string> = {
+  fr: "french",
+  en: "english",
+  es: "spanish",
+  de: "german",
+};
+
+function getDefaultVoice(language: string): string {
+  const langCode = language.split("-")[0].toLowerCase();
+  return LANGUAGE_VOICES[langCode] || LANGUAGE_VOICES.fr;
+}
+
+function getCacheFolder(language: string): string {
+  const langCode = language.split("-")[0].toLowerCase();
+  return LANGUAGE_FOLDERS[langCode] || langCode;
+}
 
 function asciiSlug(s: string, maxLen: number): string {
   return s
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[̀-ͯ]/g, "")
     .replace(/[^a-z0-9]/g, "-")
     .replace(/-+/g, "-")
     .replace(/^-|-$/g, "")
@@ -17,14 +42,16 @@ function asciiSlug(s: string, maxLen: number): string {
 }
 
 function textToFilename(text: string, voice: string, speed: number): string {
-  // Supabase Storage object keys must be ASCII-safe. Sanitize both text and voice
-  // ("H\u00e9l\u00e8ne" \u2192 "helene") so the same filename is reachable from both server and prewarm.
   return `${asciiSlug(text, 60)}_${asciiSlug(voice, 20)}_${speed}.wav`;
 }
 
 export async function POST(request: NextRequest) {
   try {
-    const { text, voice = FRENCH_VOICE, language = "fr", speed = 1.0 } = await request.json();
+    const body = await request.json();
+    const language = body.language || "fr";
+    const text = body.text;
+    const voice = body.voice || getDefaultVoice(language);
+    const speed = body.speed || 1.0;
 
     if (!text) {
       return NextResponse.json({ error: "text is required" }, { status: 400 });
@@ -32,7 +59,8 @@ export async function POST(request: NextRequest) {
 
     const supabase = await createClient();
     const filename = textToFilename(text, voice, speed);
-    const storagePath = `french/${filename}`;
+    const cacheFolder = getCacheFolder(language);
+    const storagePath = `${cacheFolder}/${filename}`;
 
     // 1. Check cache first
     const { data: cached } = await supabase.storage
