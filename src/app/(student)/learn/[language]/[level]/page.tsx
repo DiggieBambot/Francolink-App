@@ -12,15 +12,15 @@ import { getLevelTheme } from "@/lib/level-colors";
 import { LevelBadge } from "@/components/ui/LevelBadge";
 
 // Language configuration
-const languageConfig: Record<string, { name: string; flag: string }> = {
-  fr: { name: "French", flag: "🇫🇷" },
-  french: { name: "French", flag: "🇫🇷" },
-  es: { name: "Spanish", flag: "🇪🇸" },
-  spanish: { name: "Spanish", flag: "🇪🇸" },
-  en: { name: "English", flag: "🇬🇧" },
-  english: { name: "English", flag: "🇬🇧" },
-  de: { name: "German", flag: "🇩🇪" },
-  german: { name: "German", flag: "🇩🇪" },
+const languageConfig: Record<string, { name: string; flag: string; slug: string }> = {
+  fr: { name: "French", flag: "🇫🇷", slug: "french" },
+  french: { name: "French", flag: "🇫🇷", slug: "french" },
+  es: { name: "Spanish", flag: "🇪🇸", slug: "spanish" },
+  spanish: { name: "Spanish", flag: "🇪🇸", slug: "spanish" },
+  en: { name: "English", flag: "🇬🇧", slug: "english" },
+  english: { name: "English", flag: "🇬🇧", slug: "english" },
+  de: { name: "German", flag: "🇩🇪", slug: "german" },
+  german: { name: "German", flag: "🇩🇪", slug: "german" },
 };
 
 interface PageProps {
@@ -34,7 +34,8 @@ export default async function CoursePage({ params }: PageProps) {
   const { language, level } = await params;
   const supabase = await createClient();
 
-  const langInfo = languageConfig[language.toLowerCase()] || { name: "Language", flag: "🌍" };
+  const langInfo = languageConfig[language.toLowerCase()] || { name: "Language", flag: "🌍", slug: language.toLowerCase() };
+  const courseSlug = `${langInfo.slug}-${level}`;
 
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/login");
@@ -69,7 +70,7 @@ export default async function CoursePage({ params }: PageProps) {
         )
       )
     `)
-    .eq("slug", `${language}-${level}`)
+    .eq("slug", courseSlug)
     .single();
 
   if (error || !course) {
