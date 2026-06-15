@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Check, RotateCcw, Eye, EyeOff, Radio } from "lucide-react";
+import { useSoundEngine } from "@/hooks/use-sound-engine";
 import { SpeakButton } from "../speak-button";
 import { SectionHeader } from "../section-header";
 import { TutorNotes } from "../tutor-notes";
@@ -49,6 +50,7 @@ interface BuilderProps {
 type Token = { id: number; text: string };
 
 function WordOrderBuilder({ item, idx, view, theme, sectionIdx }: BuilderProps) {
+  const { play } = useSoundEngine();
   const room = useLessonRoom();
   const anchor = `s${sectionIdx}/i${idx}/word_order`;
   // In a live room the tutor watches the student's state read-only.
@@ -81,6 +83,13 @@ function WordOrderBuilder({ item, idx, view, theme, sectionIdx }: BuilderProps) 
   const isCorrect =
     isComplete && !!correctPhrase && normalize(builtPhrase) === normalize(correctPhrase);
 
+  const completionPlayed = useRef(false);
+  useEffect(() => {
+    if (!isComplete || completionPlayed.current || isTutorObserving) return;
+    completionPlayed.current = true;
+    play(isCorrect ? "correct" : "incorrect");
+  }, [isComplete, isCorrect, isTutorObserving, play]);
+
   // Quality check: scrambled must contain exactly the same tokens as correct.
   // If not, this exercise was generated badly and is unsolvable.
   const tokensOk = !correctPhrase || tokensMatch(item.scrambled, correctPhrase);
@@ -95,11 +104,13 @@ function WordOrderBuilder({ item, idx, view, theme, sectionIdx }: BuilderProps) 
 
   const moveToBuilt = (t: Token) => {
     if (isTutorObserving) return;
+    play("tap");
     setLocalPool((p) => p.filter((x) => x.id !== t.id));
     setLocalBuilt((b) => [...b, t]);
   };
   const moveToPool = (t: Token) => {
     if (isTutorObserving) return;
+    play("tap");
     setLocalBuilt((b) => b.filter((x) => x.id !== t.id));
     setLocalPool((p) => [...p, t]);
   };

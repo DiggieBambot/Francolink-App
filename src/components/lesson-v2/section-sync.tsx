@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useLessonRoom } from "./lesson-room-context";
+import { useSoundEngine } from "@/hooks/use-sound-engine";
 
 /**
  * Mount-once inside a LessonRoomProvider. Watches `currentSectionIdx` and
@@ -10,10 +11,14 @@ import { useLessonRoom } from "./lesson-room-context";
  */
 export function SectionSync() {
   const room = useLessonRoom();
+  const { play } = useSoundEngine();
+  const initialMount = useRef(true);
   useEffect(() => {
     if (!room || room.currentSectionIdx == null) return;
     const el = document.getElementById(`section-${room.currentSectionIdx}`);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, [room?.currentSectionIdx]);
+    if (initialMount.current) { initialMount.current = false; return; }
+    play("phase_change");
+  }, [room?.currentSectionIdx, play]);
   return null;
 }

@@ -1,7 +1,8 @@
 "use client";
 
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { Check, RotateCcw, Radio } from "lucide-react";
+import { useSoundEngine } from "@/hooks/use-sound-engine";
 import { SpeakButton } from "../speak-button";
 import { SectionHeader } from "../section-header";
 import { TutorNotes } from "../tutor-notes";
@@ -74,6 +75,7 @@ export function FillBlankDialogueSectionComp({ section, view, sectionIdx = 0, th
   if (isBlankPerExchange(section)) {
     return <DragDropFill section={section} view={view} sectionIdx={sectionIdx} theme={theme} />;
   }
+  const { play } = useSoundEngine();
   const ext = section.kind === "fill_in_blank_dialogue_extended" ? section : null;
   const room = useLessonRoom();
   const anchor = `s${sectionIdx}/fill_in_blank`;
@@ -118,6 +120,7 @@ export function FillBlankDialogueSectionComp({ section, view, sectionIdx = 0, th
     if (isTutorObserving) return;
     const next = orderedBlanks.find((n) => !answers[n]);
     if (next == null) return;
+    play("tap");
     setLocalAnswers((prev) => ({ ...prev, [next]: poolItem }));
   };
 
@@ -141,6 +144,13 @@ export function FillBlankDialogueSectionComp({ section, view, sectionIdx = 0, th
   const allCorrect =
     allFilled &&
     orderedBlanks.every((n) => isAnswerCorrect(n, answers[n]!, section.valid_answers_by_blank));
+
+  const completionPlayed = useRef(false);
+  useEffect(() => {
+    if (!allFilled || completionPlayed.current || isTutorObserving) return;
+    completionPlayed.current = true;
+    play(allCorrect ? "correct" : "incorrect");
+  }, [allFilled, allCorrect, isTutorObserving, play]);
 
   return (
     <SectionCard theme={theme}>
@@ -349,6 +359,7 @@ type BlankEx = { speaker?: string; text?: string; translation?: string; avatar_s
 /** Drag-and-drop fill-in for the "blank per exchange" schema. Answers are hidden;
  *  the student drags (or taps) pool words into each sentence's blank. */
 function DragDropFill({ section, view, sectionIdx = 0, theme }: Props) {
+  const { play } = useSoundEngine();
   const room = useLessonRoom();
   const anchor = `s${sectionIdx}/fill_in_blank`;
   const isTutorObserving = room?.currentRole === "tutor";
@@ -369,12 +380,19 @@ function DragDropFill({ section, view, sectionIdx = 0, theme }: Props) {
   for (const w of Object.values(filled)) if (typeof w === "string") used[w] = (used[w] || 0) + 1;
   const remaining = (w: string) => pool.filter((x) => x === w).length - (used[w] || 0);
 
-  const place = (i: number, w: string) => { if (!isTutorObserving) setLocal((p) => ({ ...p, [i]: w })); };
+  const place = (i: number, w: string) => { if (!isTutorObserving) { play("tap"); setLocal((p) => ({ ...p, [i]: w })); } };
   const clear = (i: number) => { if (!isTutorObserving) setLocal((p) => { const n = { ...p }; delete n[i]; return n; }); };
   const placeNext = (w: string) => { const i = blanks.findIndex((_, idx) => !filled[idx]); if (i >= 0) place(i, w); };
   const correctOf = (i: number) => filled[i] != null && normalize(String(filled[i])) === normalize(String(blanks[i]?.text || ""));
   const allFilled = blanks.length > 0 && blanks.every((_, i) => filled[i]);
   const allCorrect = allFilled && blanks.every((_, i) => correctOf(i));
+
+  const completionPlayed = useRef(false);
+  useEffect(() => {
+    if (!allFilled || completionPlayed.current || isTutorObserving) return;
+    completionPlayed.current = true;
+    play(allCorrect ? "correct" : "incorrect");
+  }, [allFilled, allCorrect, isTutorObserving, play]);
 
   return (
     <SectionCard theme={theme}>

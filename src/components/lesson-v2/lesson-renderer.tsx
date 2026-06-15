@@ -16,6 +16,7 @@ import { FreeResponseSectionComp } from "./sections/free-response";
 import { GenericActivitySection } from "./sections/generic-activity";
 import { StepperSidebar } from "./stepper-sidebar";
 import { LessonLanguageProvider } from "./lesson-language-context";
+import { SoundToggle } from "@/components/ui/sound-toggle";
 
 interface LessonRendererProps {
   lesson: Lesson;
@@ -158,7 +159,10 @@ export function LessonRenderer({ lesson, initialView = "tutor", lockedView }: Le
                 <BookOpenCheck className="h-4 w-4" /> Tutor
               </button>
             </div>
-            <span className="text-xs text-slate-500">{totalSteps} steps</span>
+            <div className="flex items-center gap-2">
+              <SoundToggle size="sm" />
+              <span className="text-xs text-slate-500">{totalSteps} steps</span>
+            </div>
           </div>
         </div>
       ) : null}
