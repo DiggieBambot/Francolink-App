@@ -52,7 +52,7 @@ export function TutorSidebar({
 
   const handleSignOut = async () => {
     setIsLoggingOut(true);
-    await supabase.auth.signOut();
+    await supabase.auth.signOut({ scope: "local" });
     window.location.href = "/login";
   };
 

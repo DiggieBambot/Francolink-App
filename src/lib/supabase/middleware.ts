@@ -92,7 +92,8 @@ export async function updateSession(request: NextRequest) {
   const authRoutes = ['/login', '/signup', '/forgot-password', '/reset-password'];
   const isAuthRoute = authRoutes.some(route => pathname === route || pathname.startsWith(route + '/'));
 
-  if (isAuthRoute && user) {
+  // Allow logged-in users to access /signup/tutor (role upgrade)
+  if (isAuthRoute && user && !pathname.startsWith('/signup/tutor')) {
     const { data: userData } = await supabase.from('users').select('role').eq('id', user.id).single();
     if (!userData) return NextResponse.redirect(new URL('/onboarding', request.url));
     if (userData?.role === 'ADMIN') return NextResponse.redirect(new URL('/admin', request.url));

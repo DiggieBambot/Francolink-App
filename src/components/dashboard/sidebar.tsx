@@ -57,7 +57,7 @@ export function Sidebar({ user }: SidebarProps) {
 
   const handleLogout = async () => {
     const supabase = createClient();
-    await supabase.auth.signOut();
+    await supabase.auth.signOut({ scope: "local" });
     window.location.href = "/login";
   };
 

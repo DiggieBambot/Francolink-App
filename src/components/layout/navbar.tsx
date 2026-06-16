@@ -56,7 +56,7 @@ export function Navbar() {
 
   async function logout() {
     const supabase = createClient();
-    await supabase.auth.signOut();
+    await supabase.auth.signOut({ scope: "local" });
     setAuthed(false);
     window.location.href = "/";
   }
