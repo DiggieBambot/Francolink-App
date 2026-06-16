@@ -1,143 +1,148 @@
-// src/app/(tutor)/tutor/lessons/page.tsx
+import { createClient } from "@/lib/supabase/server";
+import Link from "next/link";
+import { BookOpen, Clock, Tag } from "lucide-react";
 
-import { createClient } from '@/lib/supabase/server';
-import Link from 'next/link';
-import { BookOpen, Clock, Users, FileText } from 'lucide-react';
+const LEVEL_COLORS: Record<string, string> = {
+  A1: "bg-emerald-100 text-emerald-800",
+  A2: "bg-teal-100 text-teal-800",
+  B1: "bg-primary-100 text-primary-800",
+  B2: "bg-indigo-100 text-indigo-800",
+  C1: "bg-purple-100 text-purple-800",
+  C2: "bg-rose-100 text-rose-800",
+};
 
 export default async function TutorLessonsPage() {
   const supabase = await createClient();
 
-  // Fetch all available lessons (from drafts that are ready)
-  const { data: drafts } = await supabase
-    .from('lesson_drafts')
-    .select('*')
-    .eq('status', 'review')
-    .order('created_at', { ascending: false });
+  const { data: lessons } = await supabase
+    .from("tutor_lessons")
+    .select("id, slug, title, level, language, topic_tags, duration_minutes, created_at")
+    .eq("status", "published")
+    .order("level", { ascending: true })
+    .order("title", { ascending: true });
 
-  // Group by category
-  const lessonsByCategory = drafts?.reduce((acc, draft) => {
-    const category = draft.category || 'uncategorized';
-    if (!acc[category]) acc[category] = [];
-    acc[category].push(draft);
-    return acc;
-  }, {} as Record<string, typeof drafts>);
+  // Group by level
+  const byLevel: Record<string, typeof lessons> = {};
+  for (const l of lessons || []) {
+    const lvl = l.level || "Other";
+    if (!byLevel[lvl]) byLevel[lvl] = [];
+    byLevel[lvl]!.push(l);
+  }
 
-  const categoryLabels: Record<string, string> = {
-    daily_conversations: '💬 Daily Conversations',
-    business: '💼 Business French',
-    travel_culture: '✈️ Travel & Culture',
-    kids: '🧒 French for Kids',
-    grammar: '📝 Grammar',
-    vocabulary: '📚 Vocabulary',
-    uncategorized: '📁 Other',
-  };
+  const levelOrder = ["A1", "A2", "B1", "B2", "C1", "C2"];
+  const sortedLevels = Object.keys(byLevel).sort(
+    (a, b) => (levelOrder.indexOf(a) ?? 99) - (levelOrder.indexOf(b) ?? 99)
+  );
+
+  const totalMinutes = (lessons || []).reduce(
+    (s, l) => s + (l.duration_minutes || 0),
+    0
+  );
 
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold text-foreground">Lesson Library</h1>
-        <p className="text-muted-foreground mt-1">
-          Browse lessons and view teaching materials
+        <h1 className="text-2xl font-bold text-slate-900">Lesson Library</h1>
+        <p className="text-sm text-slate-500 mt-1">
+          Teaching materials — open any lesson to review content, see tutor notes, and start a live session with a student.
         </p>
       </div>
 
       {/* Stats */}
-      <div className="grid gap-4 md:grid-cols-3">
-        <div className="p-4 bg-card border border-border rounded-lg">
-          <div className="flex items-center gap-3">
-            <BookOpen className="w-5 h-5 text-primary" />
-            <div>
-              <div className="text-2xl font-bold">{drafts?.length || 0}</div>
-              <div className="text-sm text-muted-foreground">Total Lessons</div>
-            </div>
+      <div className="grid gap-4 sm:grid-cols-3">
+        <div className="rounded-2xl border bg-white p-5 flex items-center gap-3">
+          <BookOpen className="w-5 h-5 text-primary-600 shrink-0" />
+          <div>
+            <div className="text-2xl font-bold text-slate-900">{lessons?.length || 0}</div>
+            <div className="text-xs text-slate-500">Published lessons</div>
           </div>
         </div>
-        <div className="p-4 bg-card border border-border rounded-lg">
-          <div className="flex items-center gap-3">
-            <FileText className="w-5 h-5 text-green-600" />
-            <div>
-              <div className="text-2xl font-bold">
-                {Object.keys(lessonsByCategory || {}).length}
-              </div>
-              <div className="text-sm text-muted-foreground">Categories</div>
-            </div>
+        <div className="rounded-2xl border bg-white p-5 flex items-center gap-3">
+          <Tag className="w-5 h-5 text-secondary-600 shrink-0" />
+          <div>
+            <div className="text-2xl font-bold text-slate-900">{sortedLevels.length}</div>
+            <div className="text-xs text-slate-500">CEFR levels</div>
           </div>
         </div>
-        <div className="p-4 bg-card border border-border rounded-lg">
-          <div className="flex items-center gap-3">
-            <Clock className="w-5 h-5 text-purple-600" />
-            <div>
-              <div className="text-2xl font-bold">
-                {drafts?.reduce((acc, d) => acc + (d.content?.estimatedMinutes || 0), 0)} min
-              </div>
-              <div className="text-sm text-muted-foreground">Total Content</div>
-            </div>
+        <div className="rounded-2xl border bg-white p-5 flex items-center gap-3">
+          <Clock className="w-5 h-5 text-purple-600 shrink-0" />
+          <div>
+            <div className="text-2xl font-bold text-slate-900">{totalMinutes}</div>
+            <div className="text-xs text-slate-500">total minutes</div>
           </div>
         </div>
       </div>
 
-      {/* Lessons by Category */}
-      {lessonsByCategory && Object.keys(lessonsByCategory).length > 0 ? (
-        <div className="space-y-8">
-          {Object.entries(lessonsByCategory).map(([category, lessons]) => (
-            <div key={category}>
-              <h2 className="text-xl font-semibold text-foreground mb-4">
-                {categoryLabels[category] || category}
-              </h2>
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {lessons?.map((lesson) => {
-                  const content = lesson.content as any;
-                  return (
-                    <Link
-                      key={lesson.id}
-                      href={`/tutor/lessons/${lesson.id}`}
-                      className="p-5 bg-card border border-border rounded-lg hover:border-foreground/20 hover:shadow-md transition-all"
-                    >
-                      <div className="flex items-start justify-between mb-3">
-                        <span className={`
-                          text-xs px-2 py-1 rounded-full font-medium
-                          ${lesson.level === 'A1' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : ''}
-                          ${lesson.level === 'A2' || lesson.level === 'B1' ? 'bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200' : ''}
-                          ${lesson.level === 'B2' || lesson.level === 'C1' ? 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200' : ''}
-                        `}>
-                          {lesson.level}
-                        </span>
-                        <span className="text-xs text-muted-foreground">
-                          {content?.pageCount || 0} pages
-                        </span>
-                      </div>
-
-                      <h3 className="font-semibold text-foreground mb-2 line-clamp-2">
-                        {content?.title?.en || content?.title?.fr || lesson.original_file_name}
-                      </h3>
-
-                      <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
-                        {content?.subtitle?.en || content?.subtitle?.fr || 'No description'}
-                      </p>
-
-                      <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                        <span className="flex items-center gap-1">
-                          <Clock className="w-3 h-3" />
-                          {content?.estimatedMinutes || 15} min
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <BookOpen className="w-3 h-3" />
-                          {content?.vocabulary?.length || 0} words
-                        </span>
-                      </div>
-                    </Link>
-                  );
-                })}
+      {/* Lessons by level */}
+      {sortedLevels.length > 0 ? (
+        <div className="space-y-10">
+          {sortedLevels.map((level) => (
+            <section key={level}>
+              <div className="flex items-center gap-3 mb-4">
+                <span
+                  className={`text-xs font-bold px-2.5 py-1 rounded-full ${LEVEL_COLORS[level] || "bg-slate-100 text-slate-700"}`}
+                >
+                  {level}
+                </span>
+                <h2 className="text-base font-semibold text-slate-700">
+                  {byLevel[level]?.length} lesson{byLevel[level]?.length !== 1 ? "s" : ""}
+                </h2>
               </div>
-            </div>
+
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {byLevel[level]?.map((lesson) => (
+                  <Link
+                    key={lesson.id}
+                    href={`/tutor/lessons/${lesson.id}`}
+                    className="group rounded-2xl border bg-white p-5 hover:shadow-md hover:border-primary-200 transition-all"
+                  >
+                    <div className="flex items-start justify-between gap-2 mb-3">
+                      <span
+                        className={`text-xs font-semibold px-2 py-0.5 rounded-full ${LEVEL_COLORS[lesson.level] || "bg-slate-100 text-slate-700"}`}
+                      >
+                        {lesson.level}
+                      </span>
+                      {lesson.duration_minutes ? (
+                        <span className="flex items-center gap-1 text-xs text-slate-400">
+                          <Clock className="w-3 h-3" />
+                          {lesson.duration_minutes} min
+                        </span>
+                      ) : null}
+                    </div>
+
+                    <h3 className="font-semibold text-slate-900 mb-2 line-clamp-2 group-hover:text-primary-700 transition-colors">
+                      {lesson.title}
+                    </h3>
+
+                    {(lesson.topic_tags || []).length > 0 && (
+                      <div className="flex flex-wrap gap-1 mt-2">
+                        {(lesson.topic_tags || []).slice(0, 3).map((tag: string) => (
+                          <span
+                            key={tag}
+                            className="text-[10px] px-1.5 py-0.5 bg-slate-100 text-slate-600 rounded-full"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                        {(lesson.topic_tags || []).length > 3 && (
+                          <span className="text-[10px] text-slate-400">
+                            +{(lesson.topic_tags || []).length - 3}
+                          </span>
+                        )}
+                      </div>
+                    )}
+                  </Link>
+                ))}
+              </div>
+            </section>
           ))}
         </div>
       ) : (
-        <div className="text-center py-12 bg-card border border-border rounded-lg">
-          <BookOpen className="w-12 h-12 mx-auto text-muted-foreground mb-3" />
-          <p className="text-muted-foreground">No lessons available yet</p>
-          <p className="text-sm text-muted-foreground mt-1">
-            Lessons will appear here after admin uploads them
+        <div className="rounded-2xl border border-dashed bg-white py-16 text-center">
+          <BookOpen className="w-10 h-10 mx-auto text-slate-300 mb-3" />
+          <p className="text-slate-500 font-medium">No lessons published yet</p>
+          <p className="text-sm text-slate-400 mt-1">
+            The admin publishes lesson materials here from the admin panel.
           </p>
         </div>
       )}
