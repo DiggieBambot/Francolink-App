@@ -9,7 +9,7 @@ interface LogoProps {
 }
 
 export function Logo({ className, size = "md", showText = true }: LogoProps) {
-  const heights = { sm: 28, md: 36, lg: 48 };
+  const heights = { sm: 32, md: 44, lg: 56 };
   const h = heights[size];
 
   return (
@@ -17,7 +17,7 @@ export function Logo({ className, size = "md", showText = true }: LogoProps) {
       <Image
         src={showText ? "/logo-new.png" : "/logo-icon.png"}
         alt="Francolink"
-        width={showText ? Math.round(h * 3.5) : h}
+        width={showText ? Math.round(h * 5.5) : h}
         height={h}
         className="group-hover:scale-[1.02] transition-transform"
         priority

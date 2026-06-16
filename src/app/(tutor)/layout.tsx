@@ -64,7 +64,7 @@ export default async function TutorLayout({
       {/* Logo */}
       <div className="h-16 flex items-center px-5 border-b border-gray-100">
         <Link href="/tutor" className="flex items-center group">
-          <Image src="/logo-new.png" alt="Francolink" width={126} height={36} className="group-hover:scale-[1.02] transition-transform" priority />
+          <Image src="/logo-new.png" alt="Francolink" width={242} height={44} className="group-hover:scale-[1.02] transition-transform" priority />
         </Link>
       </div>
 
@@ -91,7 +91,7 @@ export default async function TutorLayout({
           <div className="flex items-center gap-3">
             <MobileSidebar>{sidebarContent}</MobileSidebar>
             <Link href="/tutor" className="flex items-center">
-              <Image src="/logo-new.png" alt="Francolink" width={112} height={32} priority />
+              <Image src="/logo-new.png" alt="Francolink" width={176} height={32} priority />
             </Link>
           </div>
           <div className="flex items-center gap-3">
