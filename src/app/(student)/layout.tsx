@@ -51,16 +51,8 @@ export default async function StudentLayout({
     <>
       {/* Logo */}
       <div className="h-16 flex items-center px-5 border-b border-gray-100">
-        <Link href="/dashboard" className="flex items-center gap-2.5 group">
-          <Image src="/logo-icon.png" alt="Francolink" width={36} height={36} className="group-hover:scale-105 transition-transform" />
-          <div>
-            <span className="text-lg font-heading font-extrabold text-primary leading-none">
-              franco<span className="text-secondary">link</span><span className="text-secondary">.</span>
-            </span>
-            <span className="block text-[10px] text-gray-400 font-medium tracking-wide uppercase">
-              Learn · Speak · Connect
-            </span>
-          </div>
+        <Link href="/dashboard" className="flex items-center group">
+          <Image src="/logo-new.png" alt="Francolink" width={126} height={36} className="group-hover:scale-[1.02] transition-transform" priority />
         </Link>
       </div>
 
@@ -163,11 +155,8 @@ export default async function StudentLayout({
         <div className="flex items-center justify-between h-14 px-4">
           <div className="flex items-center gap-3">
             <MobileSidebar>{sidebarContent}</MobileSidebar>
-            <Link href="/dashboard" className="flex items-center gap-2">
-              <Image src="/logo-icon.png" alt="Francolink" width={32} height={32} />
-              <span className="text-base font-heading font-extrabold text-primary">
-                franco<span className="text-secondary">link</span><span className="text-secondary">.</span>
-              </span>
+            <Link href="/dashboard" className="flex items-center">
+              <Image src="/logo-new.png" alt="Francolink" width={112} height={32} priority />
             </Link>
           </div>
           <div className="flex items-center gap-2">

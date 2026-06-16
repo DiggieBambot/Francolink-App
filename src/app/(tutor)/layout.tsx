@@ -63,16 +63,8 @@ export default async function TutorLayout({
     <>
       {/* Logo */}
       <div className="h-16 flex items-center px-5 border-b border-gray-100">
-        <Link href="/tutor" className="flex items-center gap-2.5 group">
-          <Image src="/logo-icon.png" alt="Francolink" width={36} height={36} className="group-hover:scale-105 transition-transform" />
-          <div>
-            <span className="text-lg font-heading font-extrabold text-primary leading-none">
-              franco<span className="text-secondary">link</span><span className="text-secondary">.</span>
-            </span>
-            <span className="block text-[10px] text-gray-400 font-medium tracking-wide uppercase">
-              Tutor Portal
-            </span>
-          </div>
+        <Link href="/tutor" className="flex items-center group">
+          <Image src="/logo-new.png" alt="Francolink" width={126} height={36} className="group-hover:scale-[1.02] transition-transform" priority />
         </Link>
       </div>
 
@@ -98,13 +90,8 @@ export default async function TutorLayout({
         <div className="flex items-center justify-between h-14 px-4">
           <div className="flex items-center gap-3">
             <MobileSidebar>{sidebarContent}</MobileSidebar>
-            <Link href="/tutor" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-primary rounded-xl flex items-center justify-center">
-                <span className="text-white font-extrabold text-xs">FL</span>
-              </div>
-              <span className="text-base font-heading font-extrabold text-primary">
-                Tutor Portal
-              </span>
+            <Link href="/tutor" className="flex items-center">
+              <Image src="/logo-new.png" alt="Francolink" width={112} height={32} priority />
             </Link>
           </div>
           <div className="flex items-center gap-3">

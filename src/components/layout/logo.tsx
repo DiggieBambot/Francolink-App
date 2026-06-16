@@ -9,43 +9,19 @@ interface LogoProps {
 }
 
 export function Logo({ className, size = "md", showText = true }: LogoProps) {
-  const sizes = {
-    sm: { icon: 32, brand: "text-base" },
-    md: { icon: 36, brand: "text-lg" },
-    lg: { icon: 44, brand: "text-2xl" },
-  };
-
-  const s = sizes[size];
+  const heights = { sm: 28, md: 36, lg: 48 };
+  const h = heights[size];
 
   return (
-    <Link href="/" className={cn("flex items-center gap-2.5 group", className)}>
+    <Link href="/" className={cn("flex items-center group", className)}>
       <Image
-        src="/logo-icon.png"
-        alt="FrancoLink"
-        width={s.icon}
-        height={s.icon}
-        className="group-hover:scale-105 transition-transform"
+        src={showText ? "/logo-new.png" : "/logo-icon.png"}
+        alt="Francolink"
+        width={showText ? Math.round(h * 3.5) : h}
+        height={h}
+        className="group-hover:scale-[1.02] transition-transform"
         priority
       />
-      {showText && (
-        <div>
-          <span
-            className={cn(
-              s.brand,
-              "font-heading font-extrabold text-primary leading-none"
-            )}
-          >
-            franco
-            <span className="text-secondary">link</span>
-            <span className="text-secondary">.</span>
-          </span>
-          {size !== "sm" && (
-            <span className="block text-[10px] text-gray-400 font-medium tracking-wide uppercase">
-              Learn · Speak · Connect
-            </span>
-          )}
-        </div>
-      )}
     </Link>
   );
 }

@@ -23,16 +23,8 @@ export default function AuthLayout({
         <div className="relative flex flex-col justify-between p-10 w-full">
           {/* Logo */}
           <div>
-            <Link href="/" className="flex items-center gap-2.5">
-              <Image src="/logo-icon.png" alt="Francolink" width={40} height={40} className="rounded-xl" />
-              <div>
-                <span className="text-xl font-heading font-extrabold text-white leading-none">
-                  franco<span className="text-white/70">link</span><span className="text-white/70">.</span>
-                </span>
-                <span className="block text-[10px] text-white/50 font-medium tracking-wide uppercase">
-                  Learn · Speak · Connect
-                </span>
-              </div>
+            <Link href="/" className="flex items-center">
+              <Image src="/logo-new.png" alt="Francolink" width={160} height={46} className="brightness-0 invert opacity-90" priority />
             </Link>
           </div>
 
