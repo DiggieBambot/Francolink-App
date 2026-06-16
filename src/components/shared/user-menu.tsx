@@ -113,7 +113,7 @@ export function UserMenu({ user }: UserMenuProps) {
               </Link>
             ) : (
               <Link
-                href="/signup/tutor"
+                href="/become-tutor"
                 onClick={() => setIsOpen(false)}
                 className="flex items-center gap-3 px-4 py-2.5 text-sm text-secondary hover:bg-secondary-50 transition-colors"
               >

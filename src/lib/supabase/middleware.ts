@@ -73,7 +73,7 @@ export async function updateSession(request: NextRequest) {
   const protectedRoutes = [
     '/dashboard', '/learn', '/profile', '/settings', '/notifications', '/placement-test',
     '/checkout', '/student', '/messages', '/progress', '/practice',
-    '/lessons', '/upgrade-plus',
+    '/lessons', '/upgrade-plus', '/become-tutor',
   ];
 
   const isProtectedRoute = protectedRoutes.some(route => pathname.startsWith(route));
