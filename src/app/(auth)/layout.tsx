@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Logo } from "@/components/layout";
 import Link from "next/link";
 import { Shield, CheckCircle, Users } from "lucide-react";
@@ -23,17 +24,13 @@ export default function AuthLayout({
           {/* Logo */}
           <div>
             <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-10 h-10 bg-white/15 rounded-xl flex items-center justify-center border border-white/10">
-                <span className="text-white font-heading font-extrabold text-base">
-                  FL
-                </span>
-              </div>
+              <Image src="/logo-icon.png" alt="Francolink" width={40} height={40} className="rounded-xl" />
               <div>
                 <span className="text-xl font-heading font-extrabold text-white leading-none">
-                  Franco Link
+                  franco<span className="text-white/70">link</span><span className="text-white/70">.</span>
                 </span>
                 <span className="block text-[10px] text-white/50 font-medium tracking-wide uppercase">
-                  Language Learning
+                  Learn · Speak · Connect
                 </span>
               </div>
             </Link>
@@ -82,7 +79,7 @@ export default function AuthLayout({
 
           {/* Footer */}
           <p className="text-white/30 text-xs">
-            © {new Date().getFullYear()} Franco Link. All rights reserved.
+            © {new Date().getFullYear()} Francolink. All rights reserved.
           </p>
         </div>
       </div>
@@ -103,7 +100,7 @@ export default function AuthLayout({
 
         {/* Mobile Footer */}
         <footer className="lg:hidden p-4 text-center text-xs text-gray-400">
-          © {new Date().getFullYear()} Franco Link. All rights reserved.
+          © {new Date().getFullYear()} Francolink. All rights reserved.
         </footer>
       </div>
     </div>

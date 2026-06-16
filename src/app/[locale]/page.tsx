@@ -305,10 +305,10 @@ function HomeContent() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 mb-12">
             <div className="col-span-2 md:col-span-1">
               <div className="flex items-center gap-2.5 mb-5">
-                <div className="w-9 h-9 bg-secondary rounded-xl flex items-center justify-center">
-                  <span className="text-white font-extrabold text-sm">FL</span>
-                </div>
-                <span className="text-lg font-heading font-bold">Franco Link</span>
+                <img src="/logo-icon.png" alt="Francolink" className="w-9 h-9" />
+                <span className="text-lg font-heading font-bold">
+                  franco<span className="text-secondary">link</span><span className="text-secondary">.</span>
+                </span>
               </div>
               <p className="text-sm text-white/50 leading-relaxed max-w-xs">{t("footer.description")}</p>
             </div>

@@ -7,6 +7,7 @@ import { StudentNavigation } from "@/components/student/student-navigation";
 import { UserMenu } from "@/components/shared/user-menu";
 import { MobileSidebar } from "@/components/shared/mobile-sidebar";
 import { LanguageSwitcher } from "@/components/student/language-switcher";
+import Image from "next/image";
 import Link from "next/link";
 import { Flame, Zap } from "lucide-react";
 
@@ -51,17 +52,13 @@ export default async function StudentLayout({
       {/* Logo */}
       <div className="h-16 flex items-center px-5 border-b border-gray-100">
         <Link href="/dashboard" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 bg-primary rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
-            <span className="text-white font-extrabold text-sm tracking-tight">
-              FL
-            </span>
-          </div>
+          <Image src="/logo-icon.png" alt="Francolink" width={36} height={36} className="group-hover:scale-105 transition-transform" />
           <div>
             <span className="text-lg font-heading font-extrabold text-primary leading-none">
-              Franco Link
+              franco<span className="text-secondary">link</span><span className="text-secondary">.</span>
             </span>
             <span className="block text-[10px] text-gray-400 font-medium tracking-wide uppercase">
-              Language Learning
+              Learn · Speak · Connect
             </span>
           </div>
         </Link>
@@ -167,11 +164,9 @@ export default async function StudentLayout({
           <div className="flex items-center gap-3">
             <MobileSidebar>{sidebarContent}</MobileSidebar>
             <Link href="/dashboard" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-primary rounded-xl flex items-center justify-center">
-                <span className="text-white font-extrabold text-xs">FL</span>
-              </div>
+              <Image src="/logo-icon.png" alt="Francolink" width={32} height={32} />
               <span className="text-base font-heading font-extrabold text-primary">
-                Franco Link
+                franco<span className="text-secondary">link</span><span className="text-secondary">.</span>
               </span>
             </Link>
           </div>

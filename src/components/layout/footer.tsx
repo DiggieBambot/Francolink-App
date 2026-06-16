@@ -7,7 +7,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <Logo />
           <p className="text-primary-200 text-sm">
-            ©{new Date().getFullYear()} By Franco Link. All Rights Reserved.
+            ©{new Date().getFullYear()} By Francolink. All Rights Reserved.
           </p>
         </div>
       </div>

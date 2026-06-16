@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
@@ -16,8 +17,8 @@ import { MobileSidebar } from "@/components/shared/mobile-sidebar";
 import { Flame } from "lucide-react";
 
 export const metadata = {
-  title: "Tutor Dashboard | Franco Link",
-  description: "Manage your students and lessons on Franco Link",
+  title: "Tutor Dashboard | Francolink",
+  description: "Manage your students and lessons on Francolink",
 };
 
 export default async function TutorLayout({
@@ -63,14 +64,10 @@ export default async function TutorLayout({
       {/* Logo */}
       <div className="h-16 flex items-center px-5 border-b border-gray-100">
         <Link href="/tutor" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 bg-primary rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
-            <span className="text-white font-extrabold text-sm tracking-tight">
-              FL
-            </span>
-          </div>
+          <Image src="/logo-icon.png" alt="Francolink" width={36} height={36} className="group-hover:scale-105 transition-transform" />
           <div>
             <span className="text-lg font-heading font-extrabold text-primary leading-none">
-              Franco Link
+              franco<span className="text-secondary">link</span><span className="text-secondary">.</span>
             </span>
             <span className="block text-[10px] text-gray-400 font-medium tracking-wide uppercase">
               Tutor Portal
