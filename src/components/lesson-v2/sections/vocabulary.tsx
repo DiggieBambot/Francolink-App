@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { Maximize2 } from "lucide-react";
 import { SpeakButton } from "../speak-button";
@@ -32,6 +33,7 @@ export function VocabularySection({ section, view, sectionIdx = 0, theme }: Prop
   // steal clicks meant to highlight the word. Zoom stays for self-study only.
   const inRoom = !!useLessonRoom();
   return (
+    <>
     <SectionCard theme={theme}>
       <SectionHeader
         view={view}
@@ -142,11 +144,18 @@ export function VocabularySection({ section, view, sectionIdx = 0, theme }: Prop
         </p>
       </TutorNotes>
 
+    </SectionCard>
+
+    {/* Portal to document.body so SectionCard's overflow:hidden + transition
+        stacking context cannot clip the fixed overlay */}
+    {focusIdx != null && typeof document !== "undefined" && createPortal(
       <VocabFocusOverlay
-        item={focusIdx != null ? section.items[focusIdx] : null}
+        item={section.items[focusIdx]}
         onClose={() => setFocusIdx(null)}
         theme={theme}
-      />
-    </SectionCard>
+      />,
+      document.body
+    )}
+    </>
   );
 }

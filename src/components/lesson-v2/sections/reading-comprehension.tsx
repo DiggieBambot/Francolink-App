@@ -1,6 +1,7 @@
 import { Fragment, type ReactNode } from "react";
 import Image from "next/image";
 import { SpeakButton } from "../speak-button";
+import { ReadAloud } from "../read-aloud";
 import { SectionHeader } from "../section-header";
 import { TutorNotes } from "../tutor-notes";
 import { SectionCard } from "../section-card";
@@ -67,28 +68,25 @@ export function ReadingComprehensionSectionComp({
         </figure>
       ) : null}
 
-      {/* Magazine-style reading column */}
+      {/* Magazine-style reading column with word-by-word highlight */}
       <article className="mx-auto max-w-[68ch]">
-        <div className="mb-2 flex items-center justify-end">
-          <SpeakButton text={section.passage} size="md" />
+        <ReadAloud text={stripBold(section.passage)} />
+        <div className="mt-4 space-y-5">
+          {paragraphs.map((p, i) => (
+            <p
+              key={i}
+              className={`group relative text-[1.075rem] leading-8 text-gray-800 ${
+                i === 0
+                  ? "first-letter:float-left first-letter:mr-2.5 first-letter:font-heading first-letter:text-5xl first-letter:font-extrabold first-letter:leading-[0.8] first-letter:text-primary"
+                  : ""
+              }`}
+            >
+              <Highlightable id={`s${sectionIdx}/p${i}/passage`} text={stripBold(p)} sectionIdx={sectionIdx}>
+                {renderBold(p)}
+              </Highlightable>
+            </p>
+          ))}
         </div>
-        {paragraphs.map((p, i) => (
-          <p
-            key={i}
-            className={`group relative mb-5 text-[1.075rem] leading-8 text-gray-800 ${
-              i === 0
-                ? "first-letter:float-left first-letter:mr-2.5 first-letter:font-heading first-letter:text-5xl first-letter:font-extrabold first-letter:leading-[0.8] first-letter:text-primary"
-                : ""
-            }`}
-          >
-            <Highlightable id={`s${sectionIdx}/p${i}/passage`} text={stripBold(p)} sectionIdx={sectionIdx}>
-              {renderBold(p)}
-            </Highlightable>
-            <span className="ml-1 inline-block align-middle opacity-0 transition group-hover:opacity-100">
-              <SpeakButton text={p} size="sm" />
-            </span>
-          </p>
-        ))}
         {section.passage_translation ? (
           <div className="mt-5 border-t border-gray-100 pt-4">
             <RevealTranslation text={section.passage_translation} size="sm" />

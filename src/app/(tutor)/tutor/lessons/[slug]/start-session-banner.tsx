@@ -20,25 +20,27 @@ export function StartSessionBanner({ lessonId, lessonTitle, students }: Props) {
   const router = useRouter();
   const [selectedStudent, setSelectedStudent] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleStart = async () => {
     if (!selectedStudent) return;
     setLoading(true);
+    setError("");
     try {
-      const res = await fetch("/api/tutor/sessions", {
+      const res = await fetch("/api/tutor/start-room", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ studentId: selectedStudent, lessonId }),
       });
       const data = await res.json();
-      if (res.ok) {
-        router.push(`/tutor/sessions/${data.sessionId}`);
+      if (res.ok && data.roomId) {
+        router.push(`/room/${data.roomId}`);
       } else {
-        alert(data.error || "Failed to start session");
+        setError(data.error || "Failed to start session");
+        setLoading(false);
       }
     } catch {
-      alert("Failed to start session");
-    } finally {
+      setError("Network error — please try again");
       setLoading(false);
     }
   };
@@ -47,10 +49,9 @@ export function StartSessionBanner({ lessonId, lessonTitle, students }: Props) {
     <div className="bg-emerald-50 border-b border-emerald-200 px-4 sm:px-6 lg:px-8 py-3">
       <div className="flex flex-wrap items-center gap-3">
         <Video className="w-4 h-4 text-emerald-700 shrink-0" />
-        <span className="text-sm font-medium text-emerald-900">
-          Teach this lesson live
-        </span>
-        <div className="flex items-center gap-2 ml-auto">
+        <span className="text-sm font-medium text-emerald-900">Teach this lesson live</span>
+        {error && <span className="text-xs text-red-600">{error}</span>}
+        <div className="flex items-center gap-2 ml-auto flex-wrap">
           {students.length > 0 ? (
             <>
               <select
