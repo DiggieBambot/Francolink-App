@@ -1,16 +1,20 @@
 // src/app/api/auth/tutor-setup/route.ts
 
-import { createClient } from '@/lib/supabase/server';
+import { createClient as createServiceRoleClient } from '@supabase/supabase-js';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = await createClient();
-    
-    // We use the service role key to bypass RLS for initial setup if needed
-    // But since we're using createClient() which uses cookie auth, 
-    // we rely on the fact that the user is authenticated from the signup step
-    
+    // Use the service-role client so the tutor role is written reliably even
+    // when email confirmation is on and the user has no session yet at this
+    // point (cookie-auth would be blocked by RLS and silently leave role=null,
+    // which is what made new tutors land on the student dashboard).
+    const supabase = createServiceRoleClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!,
+      { auth: { persistSession: false } }
+    );
+
     const { userId, email, name, plan } = await request.json();
 
     if (!userId || !email) {
@@ -35,15 +39,16 @@ export async function POST(request: NextRequest) {
       throw new Error('Failed to generate a unique invite code');
     }
 
-    // Fetch plan limits
+    // Fetch plan limits (tutor_plans may be empty — fall back to defaults).
     const { data: planDetails } = await supabase
       .from('tutor_plans')
-      .select('student_limit, session_limit')
+      .select('student_limit')
       .eq('key', plan)
-      .single();
+      .maybeSingle();
 
-    // Create/Update user record
-    // We update because Supabase Auth might have already created a basic record
+    // Create/Update user record. We upsert because Supabase Auth may have
+    // already created a basic record.
+    // NB: the users table has no `monthly_session_limit` column.
     const { error: updateError } = await supabase
       .from('users')
       .upsert({
@@ -54,13 +59,13 @@ export async function POST(request: NextRequest) {
         tutor_plan: plan,
         tutor_invite_code: inviteCode,
         student_limit: planDetails?.student_limit || 5,
-        monthly_session_limit: planDetails?.session_limit || 10,
+        commission_balance: 0,
         created_at: new Date().toISOString(),
       });
 
     if (updateError) {
       console.error('User update error:', updateError);
-      throw new Error('Failed to create tutor profile');
+      throw new Error('Failed to create tutor profile: ' + updateError.message);
     }
 
     return NextResponse.json({ success: true, inviteCode });

@@ -34,7 +34,7 @@ export async function updateSession(request: NextRequest) {
 
   const publicRoutes = [
     '/tutors', '/join', '/about', '/pricing', '/contact',
-    '/terms', '/privacy', '/api/webhooks', '/auth/callback',
+    '/terms', '/privacy', '/api/webhooks', '/auth/callback', '/auth/signout',
     '/admin/login',  // ← ADD THIS
   ];
 

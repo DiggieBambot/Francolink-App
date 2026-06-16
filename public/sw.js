@@ -1,4 +1,4 @@
-const CACHE_NAME = 'francolink-v4';
+const CACHE_NAME = 'francolink-v5';
 
 const STATIC_ASSETS = [
   '/',
@@ -70,41 +70,58 @@ self.addEventListener('notificationclick', (event) => {
   );
 });
 
-// Fetch — network first, fallback to cache, fallback to / for navigation
+// Fetch strategy
+// --------------
+// Auth, API, and dynamic pages must ALWAYS hit the network so sign-in/out and
+// freshly-deployed routes are never served stale from cache (this was causing
+// "sign out doesn't work" and new pages 404-ing from an old cached shell).
+//
+// - Only immutable, content-hashed build assets (/_next/static/) are cached
+//   (cache-first) — they're safe because their URL changes when content does.
+// - Everything else is network-first, with cache used only as an offline
+//   fallback. Navigations fall back to the cached "/" shell when offline.
 self.addEventListener('fetch', (event) => {
-  // Skip non-GET, chrome-extension, and API requests
-  if (
-    event.request.method !== 'GET' ||
-    event.request.url.includes('/api/') ||
-    event.request.url.startsWith('chrome-extension')
-  ) return;
+  const { request } = event;
+  if (request.method !== 'GET') return;
 
-  if (event.request.mode === 'navigate') {
+  const url = new URL(request.url);
+
+  // Never intercept auth, API, supabase, or cross-origin/extension requests.
+  if (
+    url.origin !== self.location.origin ||
+    url.pathname.startsWith('/api/') ||
+    url.pathname.startsWith('/auth/') ||
+    url.pathname.startsWith('/admin/login') ||
+    url.href.includes('supabase')
+  ) {
+    return;
+  }
+
+  // Immutable hashed build assets → cache-first (fast, never stale by URL).
+  if (url.pathname.startsWith('/_next/static/')) {
     event.respondWith(
-      fetch(event.request).catch(() =>
-        caches.match(event.request)
-          .then((cached) => cached || caches.match('/'))
+      caches.match(request).then((cached) =>
+        cached ||
+        fetch(request).then((response) => {
+          if (response.ok) {
+            const clone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
+          }
+          return response;
+        })
       )
     );
     return;
   }
 
-  // For other assets — cache first, then network
+  // Everything else (documents, RSC, data) → network-first.
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      if (cached) return cached;
-      return fetch(event.request).then((response) => {
-        // Only cache successful same-origin responses
-        if (
-          response.ok &&
-          response.type === 'basic' &&
-          !event.request.url.includes('supabase')
-        ) {
-          const clone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
-        }
-        return response;
-      }).catch(() => caches.match('/'));
-    })
+    fetch(request).catch(() =>
+      caches.match(request).then((cached) => {
+        if (cached) return cached;
+        if (request.mode === 'navigate') return caches.match('/');
+        return new Response('', { status: 504, statusText: 'Offline' });
+      })
+    )
   );
 });

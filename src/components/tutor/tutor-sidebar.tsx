@@ -52,8 +52,8 @@ export function TutorSidebar({
 
   const handleSignOut = async () => {
     setIsLoggingOut(true);
-    await supabase.auth.signOut({ scope: "local" });
-    window.location.href = "/login";
+    try { await supabase.auth.signOut({ scope: "local" }); } catch {}
+    window.location.href = "/auth/signout";
   };
 
   const planLabel =

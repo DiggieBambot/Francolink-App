@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createServerClient } from "@supabase/ssr";
+import { createClient as createServiceRoleClient } from "@supabase/supabase-js";
 
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = new URL(request.url);
@@ -22,10 +23,13 @@ export async function GET(request: NextRequest) {
         },
         setAll(cookiesToSet) {
           cookiesToSet.forEach(({ name, value, options }) => {
+            // Pass Supabase's options through unchanged. Forcing httpOnly here
+            // hid the auth cookies from the browser SDK (navbar getUser() → null)
+            // and made client-side sign-out unable to clear them. Keep them
+            // readable by the client; sign-out goes through /auth/signout which
+            // clears them server-side regardless.
             response.cookies.set(name, value, {
               ...options,
-              // Force secure cookie settings for PWA
-              httpOnly: true,
               secure: process.env.NODE_ENV === "production",
               sameSite: "lax",
               maxAge: 60 * 60 * 24 * 365, // 1 year - keeps user signed in
@@ -54,13 +58,25 @@ export async function GET(request: NextRequest) {
         .eq("id", user.id)
         .maybeSingle();
 
-      // Google OAuth tutor signup: user chose tutor path but role isn't set yet
-      if (next.startsWith("/tutor") && (!profile || profile.role === "STUDENT")) {
+      // Google OAuth tutor signup: user chose the tutor path but isn't a tutor
+      // yet. Students are role "USER" here (not "STUDENT"); upgrade anyone who
+      // isn't already a TUTOR/ADMIN. Brand-new Google users may have no row yet,
+      // so upsert (create-or-update) rather than update.
+      const alreadyPrivileged = profile?.role === "TUTOR" || profile?.role === "ADMIN";
+      if (next.startsWith("/tutor") && !alreadyPrivileged) {
+        // Privileged writes need the service-role client (RLS would block a
+        // self role-change, and a new user has no row for RLS to match).
+        const admin = createServiceRoleClient(
+          process.env.NEXT_PUBLIC_SUPABASE_URL!,
+          process.env.SUPABASE_SERVICE_ROLE_KEY!,
+          { auth: { persistSession: false } }
+        );
+
         // Generate unique invite code
         let inviteCode = "";
         for (let attempt = 0; attempt < 10; attempt++) {
           const candidate = Math.random().toString(36).slice(2, 10).toUpperCase();
-          const { data: clash } = await supabase
+          const { data: clash } = await admin
             .from("users")
             .select("id")
             .eq("tutor_invite_code", candidate)
@@ -68,21 +84,22 @@ export async function GET(request: NextRequest) {
           if (!clash) { inviteCode = candidate; break; }
         }
 
-        const { data: planDetails } = await supabase
+        const { data: planDetails } = await admin
           .from("tutor_plans")
-          .select("student_limit, session_limit")
+          .select("student_limit")
           .eq("key", "FREE")
-          .single();
+          .maybeSingle();
 
-        if (profile) {
-          await supabase.from("users").update({
-            role: "TUTOR",
-            tutor_plan: "FREE",
-            tutor_invite_code: inviteCode,
-            student_limit: planDetails?.student_limit || 5,
-            monthly_session_limit: planDetails?.session_limit || 10,
-          }).eq("id", user.id);
-        }
+        await admin.from("users").upsert({
+          id: user.id,
+          email: user.email,
+          name: user.user_metadata?.full_name || user.user_metadata?.name || user.email?.split("@")[0],
+          role: "TUTOR",
+          tutor_plan: "FREE",
+          tutor_invite_code: inviteCode,
+          student_limit: planDetails?.student_limit || 5,
+          commission_balance: 0,
+        });
 
         response.headers.set("location", `${origin}/tutor`);
       } else if (!searchParams.get("next")) {

@@ -26,8 +26,10 @@ export function UserMenu({ user }: UserMenuProps) {
 
   const handleSignOut = async () => {
     setIsLoggingOut(true);
-    await supabase.auth.signOut({ scope: "local" });
-    window.location.href = "/login";
+    // Clear the client session best-effort, then hand off to the server route
+    // which reliably expires the auth cookies (incl. httpOnly) and redirects.
+    try { await supabase.auth.signOut({ scope: "local" }); } catch {}
+    window.location.href = "/auth/signout";
   };
 
   return (
