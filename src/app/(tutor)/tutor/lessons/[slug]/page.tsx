@@ -7,18 +7,18 @@ import { StartSessionBanner } from "./start-session-banner";
 import type { Lesson } from "@/lib/lessons/types";
 
 interface PageProps {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }
 
 export default async function TutorLessonPage({ params }: PageProps) {
-  const { id } = await params;
+  const { slug } = await params;
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
   const { data: row, error } = await supabase
     .from("tutor_lessons")
-    .select("id, title, level, content")
-    .eq("id", id)
+    .select("id, slug, title, level, content")
+    .eq("slug", slug)
     .eq("status", "published")
     .single();
 
