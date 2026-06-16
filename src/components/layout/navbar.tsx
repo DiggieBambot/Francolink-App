@@ -58,8 +58,7 @@ export function Navbar() {
     const supabase = createClient();
     await supabase.auth.signOut();
     setAuthed(false);
-    router.push("/");
-    router.refresh();
+    window.location.href = "/";
   }
 
   return (

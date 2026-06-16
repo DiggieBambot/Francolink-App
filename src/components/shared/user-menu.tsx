@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
-import { LogOut, Settings, ChevronUp, User, DollarSign } from "lucide-react";
+import { LogOut, Settings, ChevronUp, User, DollarSign, GraduationCap, BookOpen } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 
 interface UserMenuProps {
@@ -18,8 +18,10 @@ interface UserMenuProps {
 
 export function UserMenu({ user }: UserMenuProps) {
   const router = useRouter();
+  const pathname = usePathname();
   const supabase = createClient();
   const [isOpen, setIsOpen] = useState(false);
+  const onTutorSide = pathname.startsWith("/tutor");
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   const handleSignOut = async () => {
@@ -91,14 +93,32 @@ export function UserMenu({ user }: UserMenuProps) {
               <span className="font-medium">Settings</span>
             </Link>
 
-            {user.role === "TUTOR" && (
+            {user.role === "TUTOR" || user.role === "ADMIN" ? (
               <Link
-                href="/dashboard"
+                href={onTutorSide ? "/dashboard" : "/tutor"}
                 onClick={() => setIsOpen(false)}
                 className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
               >
-                <User className="w-4 h-4 text-gray-400" />
-                <span className="font-medium">Student View</span>
+                {onTutorSide ? (
+                  <>
+                    <BookOpen className="w-4 h-4 text-gray-400" />
+                    <span className="font-medium">Student Dashboard</span>
+                  </>
+                ) : (
+                  <>
+                    <GraduationCap className="w-4 h-4 text-gray-400" />
+                    <span className="font-medium">Tutor Dashboard</span>
+                  </>
+                )}
+              </Link>
+            ) : (
+              <Link
+                href="/signup/tutor"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center gap-3 px-4 py-2.5 text-sm text-secondary hover:bg-secondary-50 transition-colors"
+              >
+                <GraduationCap className="w-4 h-4" />
+                <span className="font-medium">Become a Tutor</span>
               </Link>
             )}
 

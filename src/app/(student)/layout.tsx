@@ -126,7 +126,7 @@ export default async function StudentLayout({
             name: profile?.name || "Student",
             email: profile?.email || user.email || "",
             avatar_url: profile?.avatar_url,
-            role: "STUDENT",
+            role: profile?.role || "STUDENT",
           }}
         />
       </div>
