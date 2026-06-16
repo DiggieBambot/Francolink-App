@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -9,30 +10,23 @@ interface LogoProps {
 
 export function Logo({ className, size = "md", showText = true }: LogoProps) {
   const sizes = {
-    sm: { box: "w-8 h-8", text: "text-sm", brand: "text-base" },
-    md: { box: "w-9 h-9", text: "text-sm", brand: "text-lg" },
-    lg: { box: "w-11 h-11", text: "text-lg", brand: "text-2xl" },
+    sm: { icon: 32, brand: "text-base" },
+    md: { icon: 36, brand: "text-lg" },
+    lg: { icon: 44, brand: "text-2xl" },
   };
 
   const s = sizes[size];
 
   return (
     <Link href="/" className={cn("flex items-center gap-2.5 group", className)}>
-      <div
-        className={cn(
-          s.box,
-          "bg-primary rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow"
-        )}
-      >
-        <span
-          className={cn(
-            s.text,
-            "text-white font-heading font-extrabold tracking-tight"
-          )}
-        >
-          FL
-        </span>
-      </div>
+      <Image
+        src="/logo-icon.png"
+        alt="FrancoLink"
+        width={s.icon}
+        height={s.icon}
+        className="group-hover:scale-105 transition-transform"
+        priority
+      />
       {showText && (
         <div>
           <span
@@ -41,12 +35,13 @@ export function Logo({ className, size = "md", showText = true }: LogoProps) {
               "font-heading font-extrabold text-primary leading-none"
             )}
           >
-            Franco{" "}
-            <span className="text-secondary">Link</span>
+            franco
+            <span className="text-secondary">link</span>
+            <span className="text-secondary">.</span>
           </span>
           {size !== "sm" && (
             <span className="block text-[10px] text-gray-400 font-medium tracking-wide uppercase">
-              Language Learning
+              Learn · Speak · Connect
             </span>
           )}
         </div>

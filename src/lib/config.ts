@@ -32,10 +32,10 @@ export interface AppConfig {
 
 const DEFAULT_CONFIG: AppConfig = {
   // Branding
-  app_name: 'Franco Link',
-  app_tagline: '#1 Best Online Language Learning Platform',
-  logo_url: '/logo.png',
-  logo_icon_url: '/icon.png',
+  app_name: 'Francolink',
+  app_tagline: 'Learn · Speak · Connect',
+  logo_url: '/logo-wordmark.png',
+  logo_icon_url: '/logo-icon.png',
   favicon_url: '/favicon.ico',
   
   // Theme - Final Confirmed Colors
@@ -46,7 +46,7 @@ const DEFAULT_CONFIG: AppConfig = {
   
   // Contact
   support_email: 'support@francolink.net',
-  company_name: 'Franco Link',
+  company_name: 'Francolink',
   
   // Social
   facebook_url: '',
@@ -54,7 +54,7 @@ const DEFAULT_CONFIG: AppConfig = {
   instagram_url: '',
   
   // SEO
-  meta_title: 'Franco Link - #1 Best Online Language Learning Platform',
+  meta_title: 'Francolink - #1 Best Online Language Learning Platform',
   meta_description: 'Join 5,000+ students learning English, French, Spanish and more with highly trained and certified tutors. Learn any language for free with the best online language learning platform.',
   og_image: '/og-image.png'
 };
