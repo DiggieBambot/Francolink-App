@@ -112,6 +112,8 @@ export function DemoRoom({ lesson }: DemoRoomProps) {
               reportAnswer: tutorReportAnswer,
               currentSectionIdx,
               setCurrentSectionIdx,
+              incomingScroll: null,
+              broadcastScroll: () => {},
               chatMessages,
               sendChat: (t: string) => pushChat("demo-tutor", "Demo Tutor", "tutor", t),
               incomingLessonChange: null,
@@ -148,6 +150,8 @@ export function DemoRoom({ lesson }: DemoRoomProps) {
               reportAnswer,
               currentSectionIdx,
               setCurrentSectionIdx: () => {}, // student can't advance
+              incomingScroll: null,
+              broadcastScroll: () => {},
               chatMessages,
               sendChat: (t: string) => pushChat("demo-student", "Demo Student", "student", t),
               incomingLessonChange: null,

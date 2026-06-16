@@ -7,6 +7,7 @@ import { LessonRenderer } from "./lesson-renderer";
 import { Avatar } from "./avatar";
 import { IncomingTtsAutoplay } from "./incoming-tts-autoplay";
 import { SectionSync } from "./section-sync";
+import { ScrollSync } from "./scroll-sync";
 import { StepControls } from "./step-controls";
 import { ToolsRail } from "./room/tools-rail";
 import { LessonBrowser } from "./room/lesson-browser";
@@ -114,6 +115,8 @@ export function LessonRoom({
         reportAnswer: room.reportAnswer,
         currentSectionIdx: room.currentSectionIdx,
         setCurrentSectionIdx: room.setCurrentSectionIdx,
+        incomingScroll: room.incomingScroll,
+        broadcastScroll: room.broadcastScroll,
         chatMessages: room.chatMessages,
         sendChat: room.sendChat,
         incomingLessonChange: room.incomingLessonChange,
@@ -173,6 +176,7 @@ export function LessonRoom({
 
       <IncomingTtsAutoplay />
       <SectionSync />
+      <ScrollSync />
       <ToolsRail />
 
       {lesson ? (

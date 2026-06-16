@@ -33,6 +33,10 @@ export interface LessonRoomContextValue {
   currentSectionIdx: number | null;
   /** Tutor-only: broadcast a new current step. */
   setCurrentSectionIdx: (idx: number) => void;
+  /** Last incoming scroll position from the tutor (student follows it). */
+  incomingScroll: { idx: number; frac: number; at: number } | null;
+  /** Tutor-only: broadcast the current scroll position (section + intra fraction). */
+  broadcastScroll: (idx: number, frac: number) => void;
   /** Live chat messages in the room. */
   chatMessages: ChatMessage[];
   /** Send a chat message. */

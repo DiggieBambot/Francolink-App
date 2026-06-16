@@ -47,6 +47,9 @@ export function useLessonRoom({
     Record<string, { state: unknown; updatedAt: number }>
   >({});
   const [currentSectionIdx, setCurrentSectionIdxState] = useState<number | null>(null);
+  const [incomingScroll, setIncomingScroll] = useState<
+    { idx: number; frac: number; at: number } | null
+  >(null);
   const [incomingLessonChange, setIncomingLessonChange] = useState<
     { lessonId: string; title: string; by: string; at: number } | null
   >(null);
@@ -88,6 +91,12 @@ export function useLessonRoom({
     channel.on("broadcast", { event: "section:current" }, ({ payload }) => {
       const idx = (payload as { idx?: number }).idx;
       if (typeof idx === "number") setCurrentSectionIdxState(idx);
+    });
+
+    channel.on("broadcast", { event: "scroll:position" }, ({ payload }) => {
+      const p = payload as { idx?: number; frac?: number; from?: string };
+      if (typeof p?.idx !== "number" || p.from === currentUserId) return;
+      setIncomingScroll({ idx: p.idx, frac: typeof p.frac === "number" ? p.frac : 0, at: Date.now() });
     });
 
     channel.on("broadcast", { event: "lesson:change" }, ({ payload }) => {
@@ -243,6 +252,20 @@ export function useLessonRoom({
     [currentRole]
   );
 
+  // Tutor-only: broadcast the current scroll position (topmost section + the
+  // fraction scrolled within it) so the student's view follows the tutor.
+  const broadcastScroll = useCallback(
+    (idx: number, frac: number) => {
+      if (currentRole !== "tutor") return;
+      void channelRef.current?.send({
+        type: "broadcast",
+        event: "scroll:position",
+        payload: { idx, frac, from: currentUserId },
+      });
+    },
+    [currentRole, currentUserId]
+  );
+
   // Anyone can chat. Broadcast + optimistic local + best-effort persist.
   const sendChat = useCallback(
     (text: string) => {
@@ -298,6 +321,8 @@ export function useLessonRoom({
     reportAnswer,
     currentSectionIdx,
     setCurrentSectionIdx,
+    incomingScroll,
+    broadcastScroll,
     chatMessages,
     sendChat,
     incomingLessonChange,
