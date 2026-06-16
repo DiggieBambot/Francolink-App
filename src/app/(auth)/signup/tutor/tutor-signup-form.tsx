@@ -100,7 +100,7 @@ export function TutorSignupForm({ selectedPlan, plans }: Props) {
         <p className="mt-1 text-gray-600">Teach, bring your students, and earn commission</p>
       </div>
 
-      <GoogleButton label="Sign up with Google" />
+      <GoogleButton label="Sign up with Google" next="/tutor" />
 
       <div className="my-6 flex items-center">
         <div className="flex-1 border-t border-gray-200" />

@@ -45,26 +45,56 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  // If no explicit next was requested, route by role so tutors/admins land in
-  // their own area instead of the student dashboard. (Override the Location
-  // header on the existing response so the freshly-set session cookies persist.)
-  if (!searchParams.get("next")) {
-    try {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (user) {
-        const { data: profile } = await supabase
-          .from("users")
-          .select("role")
-          .eq("id", user.id)
-          .maybeSingle();
+  try {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      const { data: profile } = await supabase
+        .from("users")
+        .select("role")
+        .eq("id", user.id)
+        .maybeSingle();
+
+      // Google OAuth tutor signup: user chose tutor path but role isn't set yet
+      if (next.startsWith("/tutor") && (!profile || profile.role === "STUDENT")) {
+        // Generate unique invite code
+        let inviteCode = "";
+        for (let attempt = 0; attempt < 10; attempt++) {
+          const candidate = Math.random().toString(36).slice(2, 10).toUpperCase();
+          const { data: clash } = await supabase
+            .from("users")
+            .select("id")
+            .eq("tutor_invite_code", candidate)
+            .maybeSingle();
+          if (!clash) { inviteCode = candidate; break; }
+        }
+
+        const { data: planDetails } = await supabase
+          .from("tutor_plans")
+          .select("student_limit, session_limit")
+          .eq("key", "FREE")
+          .single();
+
+        if (profile) {
+          await supabase.from("users").update({
+            role: "TUTOR",
+            tutor_plan: "FREE",
+            tutor_invite_code: inviteCode,
+            student_limit: planDetails?.student_limit || 5,
+            monthly_session_limit: planDetails?.session_limit || 10,
+          }).eq("id", user.id);
+        }
+
+        response.headers.set("location", `${origin}/tutor`);
+      } else if (!searchParams.get("next")) {
+        // No explicit next: route by role
         let dest = "/dashboard";
         if (profile?.role === "TUTOR") dest = "/tutor";
         else if (profile?.role === "ADMIN") dest = "/admin";
         response.headers.set("location", `${origin}${dest}`);
       }
-    } catch {
-      // fall back to the default /dashboard redirect already set
     }
+  } catch {
+    // fall back to the default redirect already set
   }
 
   return response;

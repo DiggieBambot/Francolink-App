@@ -21,7 +21,10 @@ export default async function TutorSignupPage({ searchParams }: PageProps) {
   // Check if already logged in
   const { data: { user } } = await supabase.auth.getUser();
   if (user) {
-    redirect('/dashboard');
+    const { data: profile } = await supabase.from('users').select('role').eq('id', user.id).maybeSingle();
+    if (profile?.role === 'TUTOR') redirect('/tutor');
+    else if (profile?.role === 'ADMIN') redirect('/admin');
+    else redirect('/dashboard');
   }
 
   // Fetch plans to confirm selection
