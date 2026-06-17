@@ -1,0 +1,362 @@
+{
+  "lesson": {
+    "title": "Irregular Verbs — Ir, Hacer, Tener",
+    "type": "GRAMMAR",
+    "slug": "es-a1-irregular-verbs"
+  },
+  "unit": "Free Time & Hobbies",
+  "unitOrder": 7,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about three important irregular verbs in Spanish: 'ir' (to go), 'hacer' (to do/make), and 'tener' (to have). You will practice their conjugations in the present tense and see how they are used in everyday conversations.",
+      "culturalNote": "In many Spanish-speaking countries, people often use the verb 'ir' to express plans and activities, such as going out with friends or visiting places."
+    },
+    "vocabulary": [
+      {
+        "term": "ir",
+        "translation": "to go",
+        "definition": "A common verb used to indicate movement or direction.",
+        "pronunciation": "eer",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Yo voy al parque.",
+          "translation": "I go to the park."
+        },
+        "tip": "Think of 'ir' as the verb for traveling or moving towards a place."
+      },
+      {
+        "term": "hacer",
+        "translation": "to do/make",
+        "definition": "Used for performing actions or creating something.",
+        "pronunciation": "ah-ser",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ella hace la tarea.",
+          "translation": "She does the homework."
+        },
+        "tip": "Remember 'hacer' when you think of activities or tasks."
+      },
+      {
+        "term": "tener",
+        "translation": "to have",
+        "definition": "Used to express possession or necessity.",
+        "pronunciation": "teh-nehr",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Nosotros tenemos un perro.",
+          "translation": "We have a dog."
+        },
+        "tip": "Use 'tener' for anything you own or when talking about age."
+      },
+      {
+        "term": "parque",
+        "translation": "park",
+        "definition": "A place for recreation and nature.",
+        "pronunciation": "par-keh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El parque es bonito.",
+          "translation": "The park is beautiful."
+        },
+        "tip": "Think of parks as fun places to visit."
+      },
+      {
+        "term": "tarea",
+        "translation": "homework",
+        "definition": "Work assigned to students to be completed outside of class.",
+        "pronunciation": "tah-reh-ah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo tarea para mañana.",
+          "translation": "I have homework for tomorrow."
+        },
+        "tip": "Remember 'tarea' when you think of school assignments."
+      },
+      {
+        "term": "perro",
+        "translation": "dog",
+        "definition": "A common domestic animal, often kept as a pet.",
+        "pronunciation": "peh-rroh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El perro juega en el jardín.",
+          "translation": "The dog plays in the garden."
+        },
+        "tip": "Think of dogs as loyal companions."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Irregular Verbs in Spanish",
+        "explanation": "Spanish has several irregular verbs that do not follow standard patterns. In this lesson, we focus on 'ir', 'hacer', and 'tener'. Each verb changes its form depending on the subject. Learn their present tense conjugations to use them correctly.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Conjugation (Present Tense)"
+          ],
+          "rows": [
+            [
+              "ir",
+              "voy, vas, va, vamos, van"
+            ],
+            [
+              "hacer",
+              "hago, haces, hace, hacemos, hacen"
+            ],
+            [
+              "tener",
+              "tengo, tienes, tiene, tenemos, tienen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo hago un sandwich.",
+            "translation": "I make a sandwich.",
+            "breakdown": "The verb 'hacer' is conjugated as 'hago' for 'I' (yo)."
+          },
+          {
+            "original": "Ellos van al cine.",
+            "translation": "They go to the cinema.",
+            "breakdown": "The verb 'ir' is conjugated as 'van' for 'they' (ellos)."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Yo ir' instead of 'Yo voy'. Correct form is 'voy'.",
+          "Using 'haces' with 'ella' instead of 'hace'. Correct form is 'hace'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Weekend Outing",
+      "context": "A conversation between friends discussing their weekend plans.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué haces el fin de semana?",
+          "translation": "What are you doing this weekend?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Voy al cine con mis amigos.",
+          "translation": "I am going to the cinema with my friends.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué bien! ¿Qué película ves?",
+          "translation": "That's great! What movie are you watching?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Veo una comedia.",
+          "translation": "I am watching a comedy.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Quieres hacer algo después?",
+          "translation": "Do you want to do something afterwards?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, tengo tiempo. ¿Qué hacemos?",
+          "translation": "Yes, I have time. What shall we do?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Podemos ir al parque.",
+          "translation": "We can go to the park.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Perfecto, voy al parque después.",
+          "translation": "Perfect, I will go to the park later.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Weekend Activities in Latin America",
+      "text": "In many Latin American countries, weekends are a time for family and friends to gather. Going to the park or cinema is a popular way to spend time together. It's common for families to enjoy picnics or attend local events.",
+      "funFact": "In Mexico, many people celebrate the weekend by going to 'tianguis', which are open-air markets with food, clothing, and crafts."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned the present tense conjugations of 'ir', 'hacer', and 'tener'.",
+        "Practiced using these verbs in simple sentences.",
+        "Engaged in a dialogue about weekend plans.",
+        "Explored cultural insights related to weekend activities."
+      ],
+      "nextSteps": "Practice conjugating these verbs with different subjects and create your own sentences. Try to use them in conversations with friends."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'ir' mean in English?",
+      "content": {
+        "options": [
+          "to have",
+          "to go",
+          "to do"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Ir' means 'to go' in English.",
+      "hint": "Think about movement.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence is correct?",
+      "content": {
+        "options": [
+          "Yo tengo un perro.",
+          "Yo hace un perro.",
+          "Yo ir un perro."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct sentence is 'Yo tengo un perro.' which means 'I have a dog.'",
+      "hint": "Remember the verb for 'to have'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ella ___ la tarea.'",
+      "content": {
+        "sentence": "Ella ___ la tarea.",
+        "correctAnswer": "hace",
+        "acceptableAnswers": [
+          "hace"
+        ],
+        "options": [
+          "hace",
+          "tiene",
+          "va"
+        ]
+      },
+      "explanation": "The correct verb is 'hace', which means 'does'.",
+      "hint": "Think about homework.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Nosotros ___ al parque.'",
+      "content": {
+        "sentence": "Nosotros ___ al parque.",
+        "correctAnswer": "vamos",
+        "acceptableAnswers": [
+          "vamos"
+        ],
+        "options": [
+          "vamos",
+          "tenemos",
+          "hacemos"
+        ]
+      },
+      "explanation": "'Vamos' is the correct form of 'ir' to say 'we go'.",
+      "hint": "Think about going to a place.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I go to the park.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I go to the park.'",
+        "correctAnswer": "Voy al parque.",
+        "acceptableAnswers": [
+          "Voy al parque."
+        ]
+      },
+      "explanation": "The correct translation for 'I go to the park' is 'Voy al parque'.",
+      "hint": "The verb for 'to go' is important here.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct option.",
+      "content": {
+        "ttsText": "Voy al parque con mi perro.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I go to the park with my dog.",
+          "I have a dog.",
+          "I do homework."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The audio describes going to the park, which matches the first option.",
+      "hint": "Listen carefully for the location.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I have homework.'",
+      "content": {
+        "targetText": "Tengo tarea.",
+        "context": "Translate and say this sentence.",
+        "acceptableVariants": [
+          "Tengo tarea."
+        ]
+      },
+      "explanation": "The sentence 'I have homework' translates to 'Tengo tarea' in Spanish.",
+      "hint": "Remember the verb for 'to have'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct form of 'tener' for 'he'?",
+      "content": {
+        "options": [
+          "tengo",
+          "tiene",
+          "tenemos"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Tiene' is the correct form of 'tener' for 'he'.",
+      "hint": "Think about the subject pronoun.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ellos ___ un perro.'",
+      "content": {
+        "sentence": "Ellos ___ un perro.",
+        "correctAnswer": "tienen",
+        "acceptableAnswers": [
+          "tienen"
+        ],
+        "options": [
+          "tienen",
+          "tiene",
+          "hacen"
+        ]
+      },
+      "explanation": "'Tienen' is the correct form of 'tener' for 'they'.",
+      "hint": "Think about possession.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

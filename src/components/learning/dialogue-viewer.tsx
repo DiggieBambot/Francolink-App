@@ -18,6 +18,10 @@ interface DialogueProps {
   title: string;
   context: string;
   lines: DialogueLine[];
+  /** Optional speakers array. If lines[].speaker is a numeric index, we
+   *  resolve it to speakers[idx] so older content that stored speakers as
+   *  `{ speaker: 0, ... }` keeps rendering. */
+  speakers?: string[];
   image?: string;
   language?: string;
   onComplete: () => void;
@@ -103,11 +107,22 @@ const getAvatar = (speaker: string, speakerType?: string, index?: number) => {
 export default function DialogueViewer({
   title,
   context,
-  lines,
+  lines: rawLines,
+  speakers,
   image,
   language = "fr-FR",
   onComplete,
 }: DialogueProps) {
+  // Normalize lines: if `speaker` is a numeric index (older content shape),
+  // look it up in the `speakers` array so the rest of the component can
+  // always treat speaker as a string name.
+  const lines: DialogueLine[] = rawLines.map((l) => {
+    if (typeof l.speaker === "number" || /^\d+$/.test(String(l.speaker))) {
+      const idx = Number(l.speaker);
+      return { ...l, speaker: speakers?.[idx] || `Speaker ${idx + 1}` };
+    }
+    return l;
+  });
   const [currentLine, setCurrentLine] = useState(0);
   const [revealedLines, setRevealedLines] = useState<number[]>([0]);
   const [showTranslation, setShowTranslation] = useState<Set<number>>(new Set());

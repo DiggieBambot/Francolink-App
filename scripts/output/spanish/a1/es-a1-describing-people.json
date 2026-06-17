@@ -1,0 +1,361 @@
+{
+  "lesson": {
+    "title": "Describing People",
+    "type": "VOCABULARY",
+    "slug": "es-a1-describing-people"
+  },
+  "unit": "People & Family",
+  "unitOrder": 2,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to describing people in Spanish. You will be able to describe physical characteristics and personality traits using basic sentences.",
+      "culturalNote": "In many Spanish-speaking cultures, family and physical appearance play an important role in social interactions."
+    },
+    "vocabulary": [
+      {
+        "term": "el hombre",
+        "translation": "the man",
+        "definition": "A male adult.",
+        "pronunciation": "el om-bre",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El hombre es alto.",
+          "translation": "The man is tall."
+        },
+        "tip": "Remember that 'el' is used for masculine nouns."
+      },
+      {
+        "term": "la mujer",
+        "translation": "the woman",
+        "definition": "A female adult.",
+        "pronunciation": "la mu-her",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La mujer es amable.",
+          "translation": "The woman is kind."
+        },
+        "tip": "Use 'la' for feminine nouns."
+      },
+      {
+        "term": "alto/alta",
+        "translation": "tall",
+        "definition": "Describes someone who is tall.",
+        "pronunciation": "al-to/al-ta",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Él es alto.",
+          "translation": "He is tall."
+        },
+        "tip": "Use 'alto' for males and 'alta' for females."
+      },
+      {
+        "term": "bajo/baja",
+        "translation": "short",
+        "definition": "Describes someone who is short.",
+        "pronunciation": "ba-ho/ba-ha",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Ella es baja.",
+          "translation": "She is short."
+        },
+        "tip": "Remember to match the gender: 'bajo' for males and 'baja' for females."
+      },
+      {
+        "term": "amable",
+        "translation": "kind",
+        "definition": "Describes someone who is friendly or nice.",
+        "pronunciation": "a-ma-ble",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "El niño es amable.",
+          "translation": "The boy is kind."
+        },
+        "tip": "This adjective is the same for both genders."
+      },
+      {
+        "term": "simpático/simpática",
+        "translation": "nice/friendly",
+        "definition": "Describes someone who is pleasant to be around.",
+        "pronunciation": "sim-pa-ti-co/sim-pa-ti-ca",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Ella es simpática.",
+          "translation": "She is nice."
+        },
+        "tip": "Use 'simpático' for males and 'simpática' for females."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'ser' to Describe People",
+        "explanation": "In Spanish, we use the verb 'ser' to describe characteristics that are more permanent, like physical traits and personality. For example, 'Él es alto' means 'He is tall.'",
+        "table": {
+          "headers": [
+            "Subject",
+            "Conjugation of 'ser'"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "soy"
+            ],
+            [
+              "Tú",
+              "eres"
+            ],
+            [
+              "Él/Ella",
+              "es"
+            ],
+            [
+              "Nosotros",
+              "somos"
+            ],
+            [
+              "Ellos",
+              "son"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ella es simpática.",
+            "translation": "She is nice.",
+            "breakdown": "'Ella' is the subject, 'es' is the conjugation of 'ser' for 'she', and 'simpática' describes her."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'ser' and 'estar'. Remember that 'ser' is for descriptions and 'estar' for states.",
+          "Saying 'Yo soy amable' instead of 'Soy amable'. You don't need 'yo' when it’s clear."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Meeting New People",
+      "context": "At a family gathering",
+      "speakers": [
+        "Maria",
+        "Carlos"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, ¿cómo te llamas?",
+          "translation": "Hello, what is your name?",
+          "note": "A common way to greet someone."
+        },
+        {
+          "speaker": 1,
+          "text": "Me llamo Carlos. ¿Y tú?",
+          "translation": "My name is Carlos. And you?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Soy María. Encantada de conocerte.",
+          "translation": "I am Maria. Nice to meet you.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Igualmente. ¿Eres alta?",
+          "translation": "Likewise. Are you tall?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "No, soy baja.",
+          "translation": "No, I am short.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Está bien. Yo soy alto.",
+          "translation": "That's okay. I am tall.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Eres simpático?",
+          "translation": "Are you nice?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, soy simpático.",
+          "translation": "Yes, I am nice.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Family and Appearance",
+      "text": "In many Spanish-speaking countries, family gatherings are important and often include discussions about family members' characteristics. Describing someone's appearance is a common topic.",
+      "funFact": "In some cultures, people may compliment others on their looks more freely than in English-speaking cultures."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary to describe people.",
+        "Practiced using 'ser' for descriptions.",
+        "Engaged in a dialogue about meeting new people.",
+        "Gained insights into cultural aspects of describing people."
+      ],
+      "nextSteps": "Practice describing your own family and friends using the vocabulary and grammar from this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'man'?",
+      "content": {
+        "options": [
+          "la mujer",
+          "el hombre",
+          "el niño",
+          "la chica"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'el hombre', which means 'man' in Spanish.",
+      "hint": "It's a masculine term.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'tall' in Spanish?",
+      "content": {
+        "options": [
+          "alto",
+          "bajo",
+          "amable",
+          "simpático"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Alto' means 'tall' in Spanish, used for masculine nouns.",
+      "hint": "Think about height.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ella es muy ___.'",
+      "content": {
+        "sentence": "Ella es muy ___.",
+        "correctAnswer": "amable",
+        "acceptableAnswers": [
+          "simpatica",
+          "alta",
+          "baja"
+        ],
+        "options": [
+          "amable",
+          "simpática",
+          "alta",
+          "baja"
+        ]
+      },
+      "explanation": "The word 'amable' means 'kind', which fits well in the sentence.",
+      "hint": "It describes a person's character.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'El hombre es ___.'",
+      "content": {
+        "sentence": "El hombre es ___.",
+        "correctAnswer": "alto",
+        "acceptableAnswers": [
+          "bajo",
+          "amable",
+          "simpatico"
+        ],
+        "options": [
+          "alto",
+          "bajo",
+          "amable",
+          "simpático"
+        ]
+      },
+      "explanation": "The word 'alto' describes the man's height.",
+      "hint": "Think about a person's height.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct Spanish sentence: 'mujer alta la es'",
+      "content": {
+        "words": [
+          "mujer",
+          "alta",
+          "la",
+          "es"
+        ],
+        "correctOrder": [
+          "la",
+          "mujer",
+          "es",
+          "alta"
+        ],
+        "translation": "The woman is tall."
+      },
+      "explanation": "The correct order gives a proper sentence structure.",
+      "hint": "Start with the article.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The woman is kind.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The woman is kind.'",
+        "correctAnswer": "La mujer es amable.",
+        "acceptableAnswers": [
+          "La mujer es simpática."
+        ]
+      },
+      "explanation": "Both 'amable' and 'simpática' can mean 'kind' in this context.",
+      "hint": "Focus on the subject and the adjective.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'El hombre es simpático.'",
+      "content": {
+        "ttsText": "El hombre es simpático.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The man is kind.",
+          "The woman is nice.",
+          "The man is nice.",
+          "The woman is kind."
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "The correct answer translates directly from the audio.",
+      "hint": "Listen for the word 'hombre'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'The tall woman is kind.'",
+      "content": {
+        "targetText": "La mujer alta es amable.",
+        "context": "You are describing someone.",
+        "acceptableVariants": [
+          "La mujer es alta y amable."
+        ]
+      },
+      "explanation": "The sentence describes a tall woman who is kind.",
+      "hint": "Remember the adjective order in Spanish.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

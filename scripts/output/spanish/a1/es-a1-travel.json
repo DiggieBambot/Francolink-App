@@ -1,0 +1,400 @@
+{
+  "lesson": {
+    "title": "Travel & Transport",
+    "type": "VOCABULARY",
+    "slug": "es-a1-travel"
+  },
+  "unit": "Travel & Weather",
+  "unitOrder": 8,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to travel and transport in Spanish. You will discover essential words and phrases to help you navigate your travels in Spanish-speaking countries.",
+      "culturalNote": "In many Spanish-speaking countries, public transport is a popular way to travel, and it often reflects the local culture and lifestyle."
+    },
+    "vocabulary": [
+      {
+        "term": "el viaje",
+        "translation": "the trip",
+        "definition": "A journey from one place to another.",
+        "pronunciation": "el vee-ah-hey",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Hago un viaje a México.",
+          "translation": "I am taking a trip to Mexico."
+        },
+        "tip": "Remember that 'viaje' ends in '-e,' which is common for nouns in Spanish."
+      },
+      {
+        "term": "el autobús",
+        "translation": "the bus",
+        "definition": "A large vehicle for public transport.",
+        "pronunciation": "el ow-toh-boos",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El autobús llega a las cinco.",
+          "translation": "The bus arrives at five."
+        },
+        "tip": "Think of 'bus' in English, it sounds similar!"
+      },
+      {
+        "term": "el tren",
+        "translation": "the train",
+        "definition": "A vehicle that runs on tracks.",
+        "pronunciation": "el tren",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El tren sale a las tres.",
+          "translation": "The train leaves at three."
+        },
+        "tip": "The word 'tren' is short and easy to remember."
+      },
+      {
+        "term": "el avión",
+        "translation": "the airplane",
+        "definition": "A vehicle for air travel.",
+        "pronunciation": "el ah-byohn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El avión vuela a España.",
+          "translation": "The airplane flies to Spain."
+        },
+        "tip": "The word 'avión' has a clear 'v' sound."
+      },
+      {
+        "term": "la estación",
+        "translation": "the station",
+        "definition": "A place where transport vehicles stop.",
+        "pronunciation": "la es-tah-syon",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La estación de tren está cerca.",
+          "translation": "The train station is nearby."
+        },
+        "tip": "Remember 'estación' sounds like 'station' in English."
+      },
+      {
+        "term": "el taxi",
+        "translation": "the taxi",
+        "definition": "A car for hire.",
+        "pronunciation": "el tah-ksy",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tomamos un taxi al hotel.",
+          "translation": "We take a taxi to the hotel."
+        },
+        "tip": "It's the same word in English and Spanish!"
+      },
+      {
+        "term": "el coche",
+        "translation": "the car",
+        "definition": "A personal vehicle.",
+        "pronunciation": "el koh-cheh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo un coche rojo.",
+          "translation": "I have a red car."
+        },
+        "tip": "'Coche' sounds like 'coach' in English."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'ir' (to go) for transport",
+        "explanation": "In Spanish, we use the verb 'ir' to talk about going places. The structure is simple: Subject + ir + a + destination. For example, 'Yo voy a la playa' means 'I go to the beach.'",
+        "table": {
+          "headers": [
+            "Subject",
+            "Conjugation of 'ir'"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "voy"
+            ],
+            [
+              "Tú",
+              "vas"
+            ],
+            [
+              "Él/Ella",
+              "va"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Nosotros vamos al cine.",
+            "translation": "We go to the cinema.",
+            "breakdown": "Subject 'nosotros' + verb 'vamos' + preposition 'a' + destination 'el cine'."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Yo ir a la playa' - correct it to 'Yo voy a la playa.'",
+          "Using the wrong subject - remember to match the subject with the verb form."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Bus Station",
+      "context": "This conversation takes place at a bus station.",
+      "speakers": [
+        "Juan",
+        "María"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, ¿dónde está la estación de autobuses?",
+          "translation": "Hello, where is the bus station?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Está cerca, a dos cuadras.",
+          "translation": "It's nearby, two blocks away.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Gracias. ¿A qué hora sale el autobús a Lima?",
+          "translation": "Thank you. What time does the bus to Lima leave?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sale a las seis de la tarde.",
+          "translation": "It leaves at six in the afternoon.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Perfecto. ¿Cuánto cuesta el boleto?",
+          "translation": "Perfect. How much is the ticket?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "El boleto cuesta veinte dólares.",
+          "translation": "The ticket costs twenty dollars.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Está bien, voy a comprarlo.",
+          "translation": "Okay, I will buy it.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¡Buen viaje!",
+          "translation": "Have a good trip!",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Public Transport in Latin America",
+      "text": "Public transport is widely used in many Latin American cities. Buses, taxis, and metro systems are common and provide an affordable way to travel around.",
+      "funFact": "In some cities, you can find colorful buses called 'collectivos' that serve as shared taxis!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to travel and transport.",
+        "Practiced using the verb 'ir' for destinations.",
+        "Engaged in a dialogue at a bus station.",
+        "Gained cultural insights about public transport."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and try to create your own dialogue about travel."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'el autobús' in English?",
+      "content": {
+        "options": [
+          "the bus",
+          "the train",
+          "the plane"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El autobús' translates to 'the bus' in English.",
+      "hint": "Think of public transport.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la estación' mean?",
+      "content": {
+        "options": [
+          "the station",
+          "the taxi",
+          "the car"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La estación' means 'the station' in English.",
+      "hint": "It's where you catch trains or buses.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Voy a viajar en ___.'",
+      "content": {
+        "sentence": "Voy a viajar en ___.",
+        "correctAnswer": "avión",
+        "acceptableAnswers": [
+          "avión",
+          "coche",
+          "autobús"
+        ],
+        "options": [
+          "autobús",
+          "tren",
+          "avión",
+          "coche"
+        ]
+      },
+      "explanation": "The correct answer is 'avión', which means 'plane'.",
+      "hint": "Think of flying.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Tomé un ___ para llegar a mi destino.'",
+      "content": {
+        "sentence": "Tomé un ___ para llegar a mi destino.",
+        "correctAnswer": "taxi",
+        "acceptableAnswers": [
+          "taxi",
+          "autobús"
+        ],
+        "options": [
+          "taxi",
+          "tren",
+          "coche",
+          "avión"
+        ]
+      },
+      "explanation": "The correct answer is 'taxi', which is a type of transport.",
+      "hint": "It's a car you hire.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'coche / un / tengo / nuevo'.",
+      "content": {
+        "words": [
+          "coche",
+          "un",
+          "tengo",
+          "nuevo"
+        ],
+        "correctOrder": [
+          "tengo",
+          "un",
+          "coche",
+          "nuevo"
+        ],
+        "translation": "I have a new car."
+      },
+      "explanation": "The correct order forms a proper sentence in Spanish.",
+      "hint": "Start with the verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I am going on a trip.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I am going on a trip.'",
+        "correctAnswer": "Voy de viaje.",
+        "acceptableAnswers": [
+          "Voy a viajar."
+        ]
+      },
+      "explanation": "'I am going on a trip' translates to 'Voy de viaje' in Spanish.",
+      "hint": "Think about the verb 'ir'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation for 'el tren'.",
+      "content": {
+        "ttsText": "el tren",
+        "ttsLang": "es-ES",
+        "options": [
+          "the bus",
+          "the train",
+          "the taxi"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El tren' translates to 'the train'.",
+      "hint": "It's a common form of travel.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I want to take a taxi.'",
+      "content": {
+        "targetText": "Quiero tomar un taxi.",
+        "context": "You want to take a taxi.",
+        "acceptableVariants": [
+          "Quiero un taxi.",
+          "Voy a tomar un taxi."
+        ]
+      },
+      "explanation": "The sentence means you want to travel by taxi.",
+      "hint": "Use 'quiero' for 'I want'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'El ___ es rápido para viajar.'",
+      "content": {
+        "sentence": "El ___ es rápido para viajar.",
+        "correctAnswer": "avión",
+        "acceptableAnswers": [
+          "avión",
+          "tren"
+        ],
+        "options": [
+          "taxi",
+          "coche",
+          "avión",
+          "autobús"
+        ]
+      },
+      "explanation": "The correct answer is 'avión', as planes are fast.",
+      "hint": "Think of the fastest mode of transport.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'the car'?",
+      "content": {
+        "options": [
+          "el coche",
+          "el tren",
+          "el autobús"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El coche' translates to 'the car'.",
+      "hint": "It's a common vehicle.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    }
+  ]
+}

@@ -1,0 +1,322 @@
+[
+  {
+    "title": "Hello & Goodbye (Saludos)",
+    "type": "CONVERSATION",
+    "slug": "es-a1-greetings",
+    "unit": "First Words & Greetings",
+    "unitOrder": 1,
+    "lessonOrder": 1
+  },
+  {
+    "title": "The Spanish Alphabet & Sounds",
+    "type": "VOCABULARY",
+    "slug": "es-a1-alphabet",
+    "unit": "First Words & Greetings",
+    "unitOrder": 1,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Introducing Yourself",
+    "type": "CONVERSATION",
+    "slug": "es-a1-introductions",
+    "unit": "First Words & Greetings",
+    "unitOrder": 1,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Numbers 0–20",
+    "type": "VOCABULARY",
+    "slug": "es-a1-numbers",
+    "unit": "First Words & Greetings",
+    "unitOrder": 1,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 1 Review",
+    "type": "REVIEW",
+    "slug": "es-a1-unit1-review",
+    "unit": "First Words & Greetings",
+    "unitOrder": 1,
+    "lessonOrder": 5
+  },
+  {
+    "title": "My Family (La Familia)",
+    "type": "VOCABULARY",
+    "slug": "es-a1-family",
+    "unit": "People & Family",
+    "unitOrder": 2,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Ser vs Estar (To Be)",
+    "type": "GRAMMAR",
+    "slug": "es-a1-ser-estar",
+    "unit": "People & Family",
+    "unitOrder": 2,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Describing People",
+    "type": "VOCABULARY",
+    "slug": "es-a1-describing-people",
+    "unit": "People & Family",
+    "unitOrder": 2,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Possessives (Mi, Tu, Su)",
+    "type": "GRAMMAR",
+    "slug": "es-a1-possessives",
+    "unit": "People & Family",
+    "unitOrder": 2,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 2 Review",
+    "type": "REVIEW",
+    "slug": "es-a1-unit2-review",
+    "unit": "People & Family",
+    "unitOrder": 2,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Present Tense — Regular Verbs",
+    "type": "GRAMMAR",
+    "slug": "es-a1-present-regular",
+    "unit": "Daily Life & Routines",
+    "unitOrder": 3,
+    "lessonOrder": 1
+  },
+  {
+    "title": "My Daily Routine",
+    "type": "CONVERSATION",
+    "slug": "es-a1-daily-routine",
+    "unit": "Daily Life & Routines",
+    "unitOrder": 3,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Telling the Time",
+    "type": "VOCABULARY",
+    "slug": "es-a1-telling-time",
+    "unit": "Daily Life & Routines",
+    "unitOrder": 3,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Reflexive Verbs (Levantarse)",
+    "type": "GRAMMAR",
+    "slug": "es-a1-reflexives",
+    "unit": "Daily Life & Routines",
+    "unitOrder": 3,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 3 Review",
+    "type": "REVIEW",
+    "slug": "es-a1-unit3-review",
+    "unit": "Daily Life & Routines",
+    "unitOrder": 3,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Food & Drinks (La Comida)",
+    "type": "VOCABULARY",
+    "slug": "es-a1-food",
+    "unit": "Food & Dining",
+    "unitOrder": 4,
+    "lessonOrder": 1
+  },
+  {
+    "title": "I Like It — Gustar",
+    "type": "GRAMMAR",
+    "slug": "es-a1-gustar",
+    "unit": "Food & Dining",
+    "unitOrder": 4,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Ordering at a Café",
+    "type": "CONVERSATION",
+    "slug": "es-a1-ordering-cafe",
+    "unit": "Food & Dining",
+    "unitOrder": 4,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Quantities & Containers",
+    "type": "VOCABULARY",
+    "slug": "es-a1-quantities",
+    "unit": "Food & Dining",
+    "unitOrder": 4,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 4 Review",
+    "type": "REVIEW",
+    "slug": "es-a1-unit4-review",
+    "unit": "Food & Dining",
+    "unitOrder": 4,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Places in Town",
+    "type": "VOCABULARY",
+    "slug": "es-a1-places-town",
+    "unit": "Shopping & Around Town",
+    "unitOrder": 5,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Asking for Directions",
+    "type": "CONVERSATION",
+    "slug": "es-a1-directions",
+    "unit": "Shopping & Around Town",
+    "unitOrder": 5,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Numbers 21–1000 & Prices",
+    "type": "VOCABULARY",
+    "slug": "es-a1-numbers-prices",
+    "unit": "Shopping & Around Town",
+    "unitOrder": 5,
+    "lessonOrder": 3
+  },
+  {
+    "title": "At the Shop",
+    "type": "CONVERSATION",
+    "slug": "es-a1-at-the-shop",
+    "unit": "Shopping & Around Town",
+    "unitOrder": 5,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 5 Review",
+    "type": "REVIEW",
+    "slug": "es-a1-unit5-review",
+    "unit": "Shopping & Around Town",
+    "unitOrder": 5,
+    "lessonOrder": 5
+  },
+  {
+    "title": "My Home (La Casa)",
+    "type": "VOCABULARY",
+    "slug": "es-a1-home",
+    "unit": "Home & Everyday Objects",
+    "unitOrder": 6,
+    "lessonOrder": 1
+  },
+  {
+    "title": "There Is / There Are (Hay)",
+    "type": "GRAMMAR",
+    "slug": "es-a1-hay",
+    "unit": "Home & Everyday Objects",
+    "unitOrder": 6,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Prepositions of Place",
+    "type": "GRAMMAR",
+    "slug": "es-a1-prepositions",
+    "unit": "Home & Everyday Objects",
+    "unitOrder": 6,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Colours & Everyday Objects",
+    "type": "VOCABULARY",
+    "slug": "es-a1-colours",
+    "unit": "Home & Everyday Objects",
+    "unitOrder": 6,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 6 Review",
+    "type": "REVIEW",
+    "slug": "es-a1-unit6-review",
+    "unit": "Home & Everyday Objects",
+    "unitOrder": 6,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Hobbies & Free Time",
+    "type": "VOCABULARY",
+    "slug": "es-a1-hobbies",
+    "unit": "Free Time & Hobbies",
+    "unitOrder": 7,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Irregular Verbs — Ir, Hacer, Tener",
+    "type": "GRAMMAR",
+    "slug": "es-a1-irregular-verbs",
+    "unit": "Free Time & Hobbies",
+    "unitOrder": 7,
+    "lessonOrder": 2
+  },
+  {
+    "title": "How Often? (Frequency)",
+    "type": "GRAMMAR",
+    "slug": "es-a1-frequency",
+    "unit": "Free Time & Hobbies",
+    "unitOrder": 7,
+    "lessonOrder": 3
+  },
+  {
+    "title": "What Do You Do for Fun?",
+    "type": "CONVERSATION",
+    "slug": "es-a1-fun-conversation",
+    "unit": "Free Time & Hobbies",
+    "unitOrder": 7,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 7 Review",
+    "type": "REVIEW",
+    "slug": "es-a1-unit7-review",
+    "unit": "Free Time & Hobbies",
+    "unitOrder": 7,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Travel & Transport",
+    "type": "VOCABULARY",
+    "slug": "es-a1-travel",
+    "unit": "Travel & Weather",
+    "unitOrder": 8,
+    "lessonOrder": 1
+  },
+  {
+    "title": "The Weather (El Tiempo)",
+    "type": "VOCABULARY",
+    "slug": "es-a1-weather",
+    "unit": "Travel & Weather",
+    "unitOrder": 8,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Near Future — Ir a + Infinitive",
+    "type": "GRAMMAR",
+    "slug": "es-a1-near-future",
+    "unit": "Travel & Weather",
+    "unitOrder": 8,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Planning a Trip",
+    "type": "CONVERSATION",
+    "slug": "es-a1-planning-trip",
+    "unit": "Travel & Weather",
+    "unitOrder": 8,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Final Review & Celebration",
+    "type": "REVIEW",
+    "slug": "es-a1-final-review",
+    "unit": "Travel & Weather",
+    "unitOrder": 8,
+    "lessonOrder": 5
+  }
+]

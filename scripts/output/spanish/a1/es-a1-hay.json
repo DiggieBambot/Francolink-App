@@ -1,0 +1,336 @@
+{
+  "lesson": {
+    "title": "There Is / There Are (Hay)",
+    "type": "GRAMMAR",
+    "slug": "es-a1-hay"
+  },
+  "unit": "Home & Everyday Objects",
+  "unitOrder": 6,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to express existence in Spanish using 'hay,' which means 'there is' or 'there are.' You will practice vocabulary related to home and everyday objects.",
+      "culturalNote": "In many Spanish-speaking cultures, homes often reflect the personality of the family, with unique decorations and personal touches that tell a story."
+    },
+    "vocabulary": [
+      {
+        "term": "la casa",
+        "translation": "the house",
+        "definition": "A building where people live.",
+        "pronunciation": "lah kah-sah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La casa es grande.",
+          "translation": "The house is big."
+        },
+        "tip": "Remember that 'casa' is feminine, so it uses 'la.'"
+      },
+      {
+        "term": "el sofá",
+        "translation": "the sofa",
+        "definition": "A comfortable seat for several people.",
+        "pronunciation": "el soh-fah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El sofá es nuevo.",
+          "translation": "The sofa is new."
+        },
+        "tip": "Note that 'sofá' is masculine, so it uses 'el.'"
+      },
+      {
+        "term": "la mesa",
+        "translation": "the table",
+        "definition": "A piece of furniture with a flat top supported by legs.",
+        "pronunciation": "lah meh-sah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Hay una mesa en la cocina.",
+          "translation": "There is a table in the kitchen."
+        },
+        "tip": "Remember that 'mesa' is feminine, so it uses 'la.'"
+      },
+      {
+        "term": "la silla",
+        "translation": "the chair",
+        "definition": "A seat with a back for one person.",
+        "pronunciation": "lah see-yah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Hay dos sillas en la sala.",
+          "translation": "There are two chairs in the living room."
+        },
+        "tip": "The word 'silla' is also feminine."
+      },
+      {
+        "term": "el dormitorio",
+        "translation": "the bedroom",
+        "definition": "A room for sleeping.",
+        "pronunciation": "el dor-mee-toh-ree-oh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El dormitorio tiene una cama.",
+          "translation": "The bedroom has a bed."
+        },
+        "tip": "'Dormitorio' is masculine, so it uses 'el.'"
+      },
+      {
+        "term": "la cocina",
+        "translation": "the kitchen",
+        "definition": "A room where food is prepared.",
+        "pronunciation": "lah koh-see-nah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Hay una cocina moderna.",
+          "translation": "There is a modern kitchen."
+        },
+        "tip": "'Cocina' is feminine, so it uses 'la.'"
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'hay' to express existence",
+        "explanation": "'Hay' is the Spanish word for 'there is' and 'there are.' It is used to state the existence of something. For singular nouns, 'hay' means 'there is,' and for plural nouns, it means 'there are.'",
+        "table": {
+          "headers": [
+            "Singular",
+            "Plural"
+          ],
+          "rows": [
+            [
+              "Hay una casa.",
+              "Hay dos casas."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Hay un perro en el jardín.",
+            "translation": "There is a dog in the garden.",
+            "breakdown": "'Hay' indicates the existence of one dog, which is singular."
+          },
+          {
+            "original": "Hay tres gatos en la casa.",
+            "translation": "There are three cats in the house.",
+            "breakdown": "'Hay' indicates the existence of three cats, which is plural."
+          }
+        ],
+        "commonMistakes": [
+          "'Hay' is always used in the singular form, even when talking about plural items. Example: 'Hay dos mesas' (There are two tables).",
+          "Do not use 'es' or 'son' for existence. Use 'hay' instead."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At home",
+      "context": "A conversation between two friends in a living room.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, Luis. ¿Qué hay en tu casa?",
+          "translation": "Hi, Luis. What is there in your house?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, Ana. Hay un sofá y una mesa.",
+          "translation": "Hi, Ana. There is a sofa and a table."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Hay sillas también?",
+          "translation": "Are there chairs too?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, hay cuatro sillas en la cocina.",
+          "translation": "Yes, there are four chairs in the kitchen."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y en el dormitorio?",
+          "translation": "And in the bedroom?"
+        },
+        {
+          "speaker": 1,
+          "text": "En el dormitorio hay una cama.",
+          "translation": "In the bedroom, there is a bed."
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué bonito! ¿Hay un jardín?",
+          "translation": "How nice! Is there a garden?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, hay un jardín pequeño.",
+          "translation": "Yes, there is a small garden."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Homes in Latin America",
+      "text": "In many Latin American countries, homes are often colorful and vibrant, reflecting local culture and traditions. It is common to see homes decorated with art and crafts that represent the region.",
+      "funFact": "In Mexico, some houses have a courtyard called a 'patio,' where families gather and socialize."
+    },
+    "summary": {
+      "keyPoints": [
+        "'Hay' means 'there is' or 'there are.'",
+        "Use 'hay' for both singular and plural nouns.",
+        "Vocabulary related to home includes items like 'la mesa' (the table) and 'el sofá' (the sofa).",
+        "Practice using 'hay' to describe your own home."
+      ],
+      "nextSteps": "Practice making sentences with 'hay' about your home or everyday objects around you."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'hay' mean in English?",
+      "content": {
+        "options": [
+          "there is",
+          "there are",
+          "there was",
+          "there will be"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Hay' translates to 'there is' in English when referring to a singular object.",
+      "hint": "Think about 'hay' being used for one item.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence is correct? Choose the right form of 'hay'.",
+      "content": {
+        "options": [
+          "Hay un sofá.",
+          "Hay sofá.",
+          "Hay sofas.",
+          "Hay la sofá."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct form is 'Hay un sofá', indicating that there is one sofa.",
+      "hint": "Look for the article 'un' before the noun.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: '___ una mesa en la cocina.'",
+      "content": {
+        "sentence": "___ una mesa en la cocina.",
+        "correctAnswer": "Hay",
+        "acceptableAnswers": [
+          "Hay"
+        ],
+        "options": [
+          "Es",
+          "Hay",
+          "Está",
+          "Fue"
+        ]
+      },
+      "explanation": "The correct word is 'Hay', which means 'there is'.",
+      "hint": "Think about how to say there is in Spanish.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: '___ dos sillas en el dormitorio.'",
+      "content": {
+        "sentence": "___ dos sillas en el dormitorio.",
+        "correctAnswer": "Hay",
+        "acceptableAnswers": [
+          "Hay"
+        ],
+        "options": [
+          "Hay",
+          "Es",
+          "Está",
+          "Fue"
+        ]
+      },
+      "explanation": "'Hay' is used for plural objects, like 'dos sillas'.",
+      "hint": "Look for the plural noun in the sentence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'silla / una / hay'.",
+      "content": {
+        "words": [
+          "silla",
+          "una",
+          "hay"
+        ],
+        "correctOrder": [
+          "hay",
+          "una",
+          "silla"
+        ],
+        "translation": "there is a chair"
+      },
+      "explanation": "The correct order is 'hay una silla', which means 'there is a chair'.",
+      "hint": "Remember the structure for stating existence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'There are two chairs in the kitchen.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'There are two chairs in the kitchen.'",
+        "correctAnswer": "Hay dos sillas en la cocina.",
+        "acceptableAnswers": [
+          "Hay dos sillas en la cocina."
+        ]
+      },
+      "explanation": "The translation correctly uses 'hay' for plural objects.",
+      "hint": "Focus on how to express plurality in Spanish.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Hay un sofá en la casa.",
+        "ttsLang": "es-ES",
+        "options": [
+          "There is a sofa in the house.",
+          "There are sofas in the house.",
+          "There is a house with a sofa.",
+          "There is a chair in the house."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence translates to 'There is a sofa in the house.'",
+      "hint": "Pay attention to the singular form.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'There are three chairs in the living room.'",
+      "content": {
+        "targetText": "Hay tres sillas en la sala.",
+        "context": "Translate and say this sentence in Spanish.",
+        "acceptableVariants": [
+          "Hay tres sillas en la sala."
+        ]
+      },
+      "explanation": "The correct sentence conveys the number of chairs in the living room.",
+      "hint": "Remember to use 'hay' for the existence of multiple items.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

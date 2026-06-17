@@ -1,0 +1,355 @@
+{
+  "lesson": {
+    "title": "Introducing Yourself",
+    "type": "CONVERSATION",
+    "slug": "es-a1-introductions"
+  },
+  "unit": "First Words & Greetings",
+  "unitOrder": 1,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to introduce yourself in Spanish, including your name, age, and where you are from. You will also practice common greetings.",
+      "culturalNote": "In many Spanish-speaking countries, it is common to greet people with a kiss on the cheek or a handshake, depending on the level of familiarity."
+    },
+    "vocabulary": [
+      {
+        "term": "Hola",
+        "translation": "Hello",
+        "definition": "A common greeting.",
+        "pronunciation": "OH-lah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Hola, ¿cómo estás?",
+          "translation": "Hello, how are you?"
+        },
+        "tip": "Use 'Hola' to greet someone at any time."
+      },
+      {
+        "term": "Me llamo",
+        "translation": "My name is",
+        "definition": "A phrase used to introduce yourself.",
+        "pronunciation": "meh YAH-mo",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Me llamo Juan.",
+          "translation": "My name is Juan."
+        },
+        "tip": "Always follow 'Me llamo' with your name."
+      },
+      {
+        "term": "Tengo",
+        "translation": "I have",
+        "definition": "Used to express possession, often used to talk about age.",
+        "pronunciation": "TEN-go",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Tengo veinte años.",
+          "translation": "I am twenty years old."
+        },
+        "tip": "Remember to use 'Tengo' to talk about your age."
+      },
+      {
+        "term": "Soy de",
+        "translation": "I am from",
+        "definition": "Used to indicate your origin.",
+        "pronunciation": "SOY deh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Soy de México.",
+          "translation": "I am from Mexico."
+        },
+        "tip": "Use 'Soy de' followed by your country."
+      },
+      {
+        "term": "¿Cómo te llamas?",
+        "translation": "What is your name?",
+        "definition": "A question to ask someone their name.",
+        "pronunciation": "KOH-moh tay YAH-mas",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "¿Cómo te llamas?",
+          "translation": "What is your name?"
+        },
+        "tip": "Use this question to start a conversation."
+      },
+      {
+        "term": "Mucho gusto",
+        "translation": "Nice to meet you",
+        "definition": "A polite expression used when meeting someone.",
+        "pronunciation": "MOO-choh GOOS-toh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Mucho gusto, Juan.",
+          "translation": "Nice to meet you, Juan."
+        },
+        "tip": "'Mucho gusto' is a great way to be polite!"
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'ser' for introductions",
+        "explanation": "'Ser' is used to describe who someone is. In introductions, we often use 'soy' (I am) for our identity and origin. For example, 'Soy estudiante' means 'I am a student.'",
+        "table": {
+          "headers": [
+            "Subject",
+            "Conjugation"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "soy"
+            ],
+            [
+              "Tú",
+              "eres"
+            ],
+            [
+              "Él/Ella",
+              "es"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Soy profesor.",
+            "translation": "I am a teacher.",
+            "breakdown": "'Soy' indicates the speaker's profession."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'ser' and 'estar': Remember, 'ser' is for identity and origin.",
+          "Using the wrong form: Make sure to use 'soy' for 'I am'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Introducing Yourself",
+      "context": "At a social gathering.",
+      "speakers": [
+        "Carlos",
+        "Sofia"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, me llamo Carlos.",
+          "translation": "Hello, my name is Carlos."
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, Carlos. ¿Cómo te llamas?",
+          "translation": "Hello, Carlos. What is your name?"
+        },
+        {
+          "speaker": 0,
+          "text": "Me llamo Sofia.",
+          "translation": "My name is Sofia."
+        },
+        {
+          "speaker": 1,
+          "text": "Mucho gusto, Sofia.",
+          "translation": "Nice to meet you, Sofia."
+        },
+        {
+          "speaker": 0,
+          "text": "Mucho gusto. ¿Cuántos años tienes?",
+          "translation": "Nice to meet you. How old are you?"
+        },
+        {
+          "speaker": 1,
+          "text": "Tengo veinticinco años.",
+          "translation": "I am twenty-five years old."
+        },
+        {
+          "speaker": 0,
+          "text": "Soy de Argentina.",
+          "translation": "I am from Argentina."
+        },
+        {
+          "speaker": 1,
+          "text": "Yo soy de Colombia.",
+          "translation": "I am from Colombia."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Greetings in Spanish Culture",
+      "text": "In Spanish-speaking cultures, greetings can vary significantly. In some places, people greet each other with a hug or a kiss on the cheek, while in others, a handshake is common.",
+      "funFact": "In Argentina, it is common to greet with a kiss on the right cheek, even among new acquaintances."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned how to introduce yourself using 'Me llamo'.",
+        "Practiced asking and answering questions about age.",
+        "Explored the use of 'ser' in introductions.",
+        "Familiarized with common greetings."
+      ],
+      "nextSteps": "Practice introducing yourself to a friend using the vocabulary and phrases from this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'Hola' mean in English?",
+      "content": {
+        "options": [
+          "Goodbye",
+          "Hello",
+          "Thank you",
+          "Please"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Hola' is the Spanish word for 'Hello'.",
+      "hint": "It’s a common greeting.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase means 'My name is' in Spanish?",
+      "content": {
+        "options": [
+          "Soy de",
+          "Me llamo",
+          "Tengo",
+          "¿Cómo te llamas?"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Me llamo' translates to 'My name is'.",
+      "hint": "Think of introducing yourself.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Yo ___ de España.'",
+      "content": {
+        "sentence": "Yo ___ de España.",
+        "correctAnswer": "soy",
+        "acceptableAnswers": [
+          "soy"
+        ],
+        "options": [
+          "tengo",
+          "soy",
+          "me llamo"
+        ]
+      },
+      "explanation": "'Soy' means 'I am' and is used to indicate where you are from.",
+      "hint": "It’s about identity.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Tengo ___ años.'",
+      "content": {
+        "sentence": "Tengo ___ años.",
+        "correctAnswer": "veinte",
+        "acceptableAnswers": [
+          "veinte",
+          "diez",
+          "treinta"
+        ],
+        "options": [
+          "veinte",
+          "diez",
+          "treinta"
+        ]
+      },
+      "explanation": "'Tengo' means 'I have', and you mention your age in this structure.",
+      "hint": "Think about your age.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I am from Mexico.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I am from Mexico.'",
+        "correctAnswer": "Soy de México.",
+        "acceptableAnswers": [
+          "Soy de México."
+        ]
+      },
+      "explanation": "The phrase 'I am from' translates to 'Soy de' in Spanish.",
+      "hint": "Start with 'Soy de'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and select the correct translation: 'Mucho gusto.'",
+      "content": {
+        "ttsText": "Mucho gusto.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Nice to meet you.",
+          "Goodbye.",
+          "Hello.",
+          "Thank you."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Mucho gusto' means 'Nice to meet you.'",
+      "hint": "It’s a polite expression.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'My name is John.'",
+      "content": {
+        "targetText": "Me llamo John.",
+        "context": "Introduce yourself.",
+        "acceptableVariants": [
+          "Me llamo John."
+        ]
+      },
+      "explanation": "This is the correct way to introduce your name in Spanish.",
+      "hint": "Start with 'Me llamo'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct response to '¿Cómo te llamas?'?",
+      "content": {
+        "options": [
+          "Me llamo...",
+          "Tengo...",
+          "Soy de...",
+          "Mucho gusto."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct response to '¿Cómo te llamas?' is 'Me llamo...'.",
+      "hint": "You’re giving your name.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: '___ dos hermanas.'",
+      "content": {
+        "sentence": "___ dos hermanas.",
+        "correctAnswer": "Tengo",
+        "acceptableAnswers": [
+          "Tengo"
+        ],
+        "options": [
+          "Tengo",
+          "Soy",
+          "Me llamo"
+        ]
+      },
+      "explanation": "'Tengo' means 'I have', which fits the context of having siblings.",
+      "hint": "Which verb means 'I have'?",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,369 @@
+{
+  "lesson": {
+    "title": "Unit 1 Review",
+    "type": "REVIEW",
+    "slug": "es-a1-unit1-review"
+  },
+  "unit": "First Words & Greetings",
+  "unitOrder": 1,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will review the first words and greetings in Spanish. You will practice vocabulary related to introductions, ask and answer simple questions, and understand basic sentence structures.",
+      "culturalNote": "In many Spanish-speaking countries, greetings are very important. A friendly 'Hola' or 'Buenos días' can set a positive tone for any conversation."
+    },
+    "vocabulary": [
+      {
+        "term": "hola",
+        "translation": "hello",
+        "definition": "A common greeting used at any time of the day.",
+        "pronunciation": "OH-lah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Hola, ¿cómo estás?",
+          "translation": "Hello, how are you?"
+        },
+        "tip": "Remember to use 'Hola' to start any conversation!"
+      },
+      {
+        "term": "adiós",
+        "translation": "goodbye",
+        "definition": "A farewell term used when parting.",
+        "pronunciation": "ah-DEE-ohs",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Adiós, hasta luego.",
+          "translation": "Goodbye, see you later."
+        },
+        "tip": "Say 'Adiós' when you leave a conversation."
+      },
+      {
+        "term": "gracias",
+        "translation": "thank you",
+        "definition": "A polite expression of gratitude.",
+        "pronunciation": "GRAH-syas",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Gracias por tu ayuda.",
+          "translation": "Thank you for your help."
+        },
+        "tip": "Use 'gracias' whenever someone helps you."
+      },
+      {
+        "term": "por favor",
+        "translation": "please",
+        "definition": "A polite expression used to make requests.",
+        "pronunciation": "por fah-BOR",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "¿Me pasas la sal, por favor?",
+          "translation": "Can you pass me the salt, please?"
+        },
+        "tip": "Include 'por favor' to be polite!"
+      },
+      {
+        "term": "¿cómo te llamas?",
+        "translation": "what is your name?",
+        "definition": "A question used to ask someone's name.",
+        "pronunciation": "KOH-moh tay YAH-mas",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "¿Cómo te llamas?",
+          "translation": "What is your name?"
+        },
+        "tip": "This is a useful question when meeting someone new."
+      },
+      {
+        "term": "me llamo",
+        "translation": "my name is",
+        "definition": "A phrase used to introduce oneself.",
+        "pronunciation": "may YAH-mo",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Me llamo Juan.",
+          "translation": "My name is Juan."
+        },
+        "tip": "Use 'me llamo' followed by your name to introduce yourself."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Basic Sentence Structure",
+        "explanation": "In Spanish, the basic sentence structure is Subject + Verb + Object. This is similar to English. For example, 'Yo soy estudiante' means 'I am a student.'",
+        "table": {
+          "headers": [
+            "Subject",
+            "Verb"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "soy"
+            ],
+            [
+              "Tú",
+              "eres"
+            ],
+            [
+              "Él/Ella",
+              "es"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo soy profesor.",
+            "translation": "I am a teacher.",
+            "breakdown": "Subject (Yo) + Verb (soy) + Object (profesor)"
+          }
+        ],
+        "commonMistakes": [
+          "Don't forget to include the subject. In Spanish, 'Yo soy' is necessary, unlike in English where you can say 'Am a teacher.'",
+          "Make sure to conjugate the verb correctly. For example, use 'eres' for 'tú' (you) instead of 'soy'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Meeting Someone New",
+      "context": "A casual meeting at a café.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, ¿cómo te llamas?",
+          "translation": "Hello, what is your name?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, me llamo Luis. ¿Y tú?",
+          "translation": "Hello, my name is Luis. And you?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Me llamo Ana. Mucho gusto.",
+          "translation": "My name is Ana. Nice to meet you.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Mucho gusto, Ana. ¿Cómo estás?",
+          "translation": "Nice to meet you, Ana. How are you?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Estoy bien, gracias. ¿Y tú?",
+          "translation": "I am good, thank you. And you?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Estoy bien también. ¿De dónde eres?",
+          "translation": "I am good too. Where are you from?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Soy de México. ¿Y tú?",
+          "translation": "I am from Mexico. And you?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Soy de Colombia. ¡Qué bien!",
+          "translation": "I am from Colombia. How nice!",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Greetings in Spanish Culture",
+      "text": "In many Spanish-speaking countries, greetings are often warm and friendly. It's common to greet with a handshake or a kiss on the cheek, depending on the country.",
+      "funFact": "In some cultures, like in Argentina, it is customary to greet friends with a kiss on the cheek, even if you just met!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned important greetings in Spanish.",
+        "Practiced asking and answering basic questions.",
+        "Reviewed the basic sentence structure.",
+        "Practiced a dialogue for introductions."
+      ],
+      "nextSteps": "Practice using the vocabulary in conversations and try to create your own dialogues with friends or language partners."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'hola' mean in English?",
+      "content": {
+        "options": [
+          "Goodbye",
+          "Hello",
+          "Please",
+          "Thank you"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Hola' is the Spanish word for 'Hello'.",
+      "hint": "It's a common greeting.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'thank you' in Spanish?",
+      "content": {
+        "options": [
+          "gracias",
+          "por favor",
+          "adiós",
+          "hola"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Gracias' translates to 'thank you' in English.",
+      "hint": "Use this to express gratitude.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: '____ te llamas?'",
+      "content": {
+        "sentence": "¿____ te llamas?",
+        "correctAnswer": "cómo",
+        "acceptableAnswers": [
+          "como"
+        ],
+        "options": [
+          "qué",
+          "cómo",
+          "dónde",
+          "por qué"
+        ]
+      },
+      "explanation": "The correct word is 'cómo' which means 'how'.",
+      "hint": "It's a question word.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Me llamo ____. '",
+      "content": {
+        "sentence": "Me llamo ____.",
+        "correctAnswer": "Juan",
+        "acceptableAnswers": [
+          "Maria",
+          "Pedro",
+          "Sofia"
+        ],
+        "options": [
+          "Juan",
+          "Maria",
+          "Pedro",
+          "Sofia"
+        ]
+      },
+      "explanation": "You fill in your name in this sentence.",
+      "hint": "This is how you introduce yourself.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Please, thank you.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'Please, thank you.'",
+        "correctAnswer": "Por favor, gracias.",
+        "acceptableAnswers": [
+          "Por favor, gracias"
+        ]
+      },
+      "explanation": "In Spanish, 'Please' is 'Por favor' and 'thank you' is 'gracias'.",
+      "hint": "These are polite expressions.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Adiós'",
+      "content": {
+        "ttsText": "Adiós",
+        "ttsLang": "es-ES",
+        "options": [
+          "Hello",
+          "Goodbye",
+          "Please",
+          "Thank you"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Adiós' means 'Goodbye' in English.",
+      "hint": "It's used when parting.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'My name is Maria.'",
+      "content": {
+        "targetText": "Me llamo Maria.",
+        "context": "Introduce yourself.",
+        "acceptableVariants": [
+          "Me llamo Maria",
+          "Soy Maria"
+        ]
+      },
+      "explanation": "The phrase 'Me llamo' is used to introduce yourself in Spanish.",
+      "hint": "Start with 'Me llamo'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Adiós, ____.'",
+      "content": {
+        "sentence": "Adiós, ____.",
+        "correctAnswer": "amigo",
+        "acceptableAnswers": [
+          "amiga",
+          "hermano",
+          "hermana"
+        ],
+        "options": [
+          "amigo",
+          "amiga",
+          "hermano",
+          "hermana"
+        ]
+      },
+      "explanation": "You can say 'Adiós, amigo' to say goodbye to a friend.",
+      "hint": "It's a friendly term.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'por favor' mean in English?",
+      "content": {
+        "options": [
+          "Please",
+          "Thank you",
+          "Hello",
+          "Goodbye"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Por favor' translates to 'please' in English.",
+      "hint": "It's a polite request.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    }
+  ]
+}

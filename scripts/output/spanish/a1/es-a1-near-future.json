@@ -1,0 +1,340 @@
+{
+  "lesson": {
+    "title": "Near Future — Ir a + Infinitive",
+    "type": "GRAMMAR",
+    "slug": "es-a1-near-future"
+  },
+  "unit": "Travel & Weather",
+  "unitOrder": 8,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to express plans for the near future in Spanish using the structure 'ir a + infinitive'. This will help you talk about your travel plans and what you want to do.",
+      "culturalNote": "In many Spanish-speaking countries, people often plan trips or outings with friends and family. It's common to say 'vamos a' when inviting someone to do something together."
+    },
+    "vocabulary": [
+      {
+        "term": "el viaje",
+        "translation": "the trip",
+        "definition": "A journey or travel.",
+        "pronunciation": "el vee-ah-he",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Voy a hacer el viaje.",
+          "translation": "I am going to take the trip."
+        },
+        "tip": "Remember, 'viaje' is masculine, so use 'el'."
+      },
+      {
+        "term": "la playa",
+        "translation": "the beach",
+        "definition": "A sandy area by the sea.",
+        "pronunciation": "la plah-yah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Voy a ir a la playa.",
+          "translation": "I am going to go to the beach."
+        },
+        "tip": "Use 'la' because 'playa' is feminine."
+      },
+      {
+        "term": "el clima",
+        "translation": "the weather",
+        "definition": "The state of the atmosphere at a specific time.",
+        "pronunciation": "el klee-mah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El clima es bueno.",
+          "translation": "The weather is nice."
+        },
+        "tip": "Remember to use 'el' as 'clima' is masculine."
+      },
+      {
+        "term": "ir",
+        "translation": "to go",
+        "definition": "To move from one place to another.",
+        "pronunciation": "eer",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Quiero ir al cine.",
+          "translation": "I want to go to the cinema."
+        },
+        "tip": "This verb is irregular. Make sure to practice its conjugations."
+      },
+      {
+        "term": "hacer",
+        "translation": "to do/make",
+        "definition": "To perform an action or create something.",
+        "pronunciation": "ah-ser",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Voy a hacer una comida.",
+          "translation": "I am going to make a meal."
+        },
+        "tip": "Another irregular verb, practice this one as well."
+      },
+      {
+        "term": "la ciudad",
+        "translation": "the city",
+        "definition": "A large town or urban area.",
+        "pronunciation": "la syoo-dad",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Voy a visitar la ciudad.",
+          "translation": "I am going to visit the city."
+        },
+        "tip": "Use 'la' because 'ciudad' is feminine."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Near Future: Ir a + Infinitive",
+        "explanation": "In Spanish, to talk about the near future, we use the structure 'ir a' followed by an infinitive verb. 'Ir' means 'to go'. For example, 'Voy a comer' means 'I am going to eat'. You conjugate 'ir' according to the subject.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Conjugation"
+          ],
+          "rows": [
+            [
+              "yo",
+              "voy"
+            ],
+            [
+              "tú",
+              "vas"
+            ],
+            [
+              "él/ella/usted",
+              "va"
+            ],
+            [
+              "nosotros",
+              "vamos"
+            ],
+            [
+              "ellos/ellas/ustedes",
+              "van"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Voy a viajar a México.",
+            "translation": "I am going to travel to Mexico.",
+            "breakdown": "Here, 'voy' is the first person singular form of 'ir', and 'viajar' is the infinitive verb."
+          },
+          {
+            "original": "Vamos a comer pizza.",
+            "translation": "We are going to eat pizza.",
+            "breakdown": "'Vamos' is the first person plural form of 'ir', and 'comer' is the infinitive verb."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'yo ir' instead of 'voy': 'Ir' should be conjugated.",
+          "Using the wrong infinitive: Ensure the verb is in its infinitive form."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Trip",
+      "context": "Two friends discussing their plans for the weekend.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué vas a hacer este fin de semana?",
+          "translation": "What are you going to do this weekend?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Voy a ir a la playa.",
+          "translation": "I am going to go to the beach.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué bien! ¿Vas a hacer algo más?",
+          "translation": "How nice! Are you going to do anything else?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, voy a visitar a mis abuelos.",
+          "translation": "Yes, I am going to visit my grandparents.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Cómo está el clima?",
+          "translation": "How is the weather?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "El clima es muy bueno.",
+          "translation": "The weather is very nice.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Voy a hacer un viaje también.",
+          "translation": "I am going to take a trip too.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¡Genial! ¿Adónde vas?",
+          "translation": "Great! Where are you going?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Voy a ir a la ciudad.",
+          "translation": "I am going to go to the city.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Traveling in Spanish-speaking Countries",
+      "text": "Traveling is an essential part of life in many Spanish-speaking countries. People often enjoy exploring their own region or traveling to different countries during vacations.",
+      "funFact": "Did you know that the largest Spanish-speaking city in the world is Mexico City?"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned to express future plans using 'ir a + infinitive'.",
+        "Practiced vocabulary related to travel and weather.",
+        "Engaged in a dialogue about weekend plans.",
+        "Gained cultural insight into travel in Spanish-speaking countries."
+      ],
+      "nextSteps": "Practice forming sentences with 'ir a + infinitive' using your own travel plans. Try to incorporate new vocabulary you learned."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence means 'We are going to the beach'?",
+      "content": {
+        "options": [
+          "Vamos a la ciudad.",
+          "Vamos a la playa.",
+          "Vamos a hacer un viaje."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer translates to 'We are going to the beach'.",
+      "hint": "Look for the word 'playa'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'ir a hacer un viaje' mean?",
+      "content": {
+        "options": [
+          "to go to the city",
+          "to go on a trip",
+          "to go to the beach"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Ir a hacer un viaje' translates to 'to go on a trip'.",
+      "hint": "Focus on the phrase 'hacer un viaje'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Yo ___ a la playa este fin de semana.'",
+      "content": {
+        "sentence": "Yo ___ a la playa este fin de semana.",
+        "correctAnswer": "voy",
+        "acceptableAnswers": [
+          "voy"
+        ],
+        "options": [
+          "voy",
+          "iré",
+          "fui"
+        ]
+      },
+      "explanation": "'Voy' is the correct form of 'ir' in the near future.",
+      "hint": "Think about how to say 'I go'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ellos ___ a hacer un viaje a Madrid.'",
+      "content": {
+        "sentence": "Ellos ___ a hacer un viaje a Madrid.",
+        "correctAnswer": "van",
+        "acceptableAnswers": [
+          "van"
+        ],
+        "options": [
+          "van",
+          "irán",
+          "fueron"
+        ]
+      },
+      "explanation": "'Van' is the correct form for 'they are going' in this context.",
+      "hint": "Consider the subject 'ellos'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I am going to the city.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I am going to the city.'",
+        "correctAnswer": "Voy a la ciudad.",
+        "acceptableAnswers": [
+          "Voy a la ciudad."
+        ]
+      },
+      "explanation": "The correct answer directly translates the English sentence.",
+      "hint": "Remember 'the city' is 'la ciudad'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct sentence: 'Vamos a hacer un viaje.'",
+      "content": {
+        "ttsText": "Vamos a hacer un viaje.",
+        "ttsLang": "es-ES",
+        "options": [
+          "We are going to take a trip.",
+          "We are going to the beach.",
+          "We are going to the city."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The audio translates to 'We are going to take a trip.'",
+      "hint": "Listen for the phrase 'hacer un viaje'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'They are going to the beach.'",
+      "content": {
+        "targetText": "Ellos van a la playa.",
+        "context": "Translate and say the sentence: 'They are going to the beach.'",
+        "acceptableVariants": [
+          "Ellos van a la playa."
+        ]
+      },
+      "explanation": "The sentence 'Ellos van a la playa' is the correct translation.",
+      "hint": "Remember 'they' is 'ellos'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    }
+  ]
+}

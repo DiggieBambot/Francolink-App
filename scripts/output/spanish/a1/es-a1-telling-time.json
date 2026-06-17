@@ -1,0 +1,396 @@
+{
+  "lesson": {
+    "title": "Telling the Time",
+    "type": "VOCABULARY",
+    "slug": "es-a1-telling-time"
+  },
+  "unit": "Daily Life & Routines",
+  "unitOrder": 3,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to tell the time in Spanish. You will also practice vocabulary related to daily routines and simple sentences to describe what time it is.",
+      "culturalNote": "In many Spanish-speaking countries, it's common to use a 24-hour clock, especially in formal settings like public transportation."
+    },
+    "vocabulary": [
+      {
+        "term": "la hora",
+        "translation": "the hour",
+        "definition": "A term used to indicate time.",
+        "pronunciation": "lah OR-ah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "¿Qué hora es?",
+          "translation": "What time is it?"
+        },
+        "tip": "Remember that 'hora' is feminine in Spanish, so use 'la' as the article."
+      },
+      {
+        "term": "es",
+        "translation": "it is",
+        "definition": "The third person singular form of 'ser' used for telling time.",
+        "pronunciation": "es",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Es la una.",
+          "translation": "It is one o'clock."
+        },
+        "tip": "Use 'es' only with one o'clock; for other hours, use 'son'."
+      },
+      {
+        "term": "son",
+        "translation": "they are",
+        "definition": "The third person plural form of 'ser' used for telling time (except one o'clock).",
+        "pronunciation": "son",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Son las tres.",
+          "translation": "It is three o'clock."
+        },
+        "tip": "'Son' is used for all hours except one o'clock."
+      },
+      {
+        "term": "y",
+        "translation": "and",
+        "definition": "A conjunction used to add minutes to the hour.",
+        "pronunciation": "ee",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Es la una y cinco.",
+          "translation": "It is one o'clock and five minutes."
+        },
+        "tip": "Use 'y' to combine the hour with the minutes."
+      },
+      {
+        "term": "menos",
+        "translation": "minus",
+        "definition": "A term used to indicate minutes before the next hour.",
+        "pronunciation": "men-os",
+        "partOfSpeech": "preposition",
+        "exampleSentence": {
+          "original": "Son las dos menos diez.",
+          "translation": "It is ten minutes to two."
+        },
+        "tip": "'Menos' is used to express time before the next hour."
+      },
+      {
+        "term": "la mañana",
+        "translation": "the morning",
+        "definition": "A term used to refer to the morning.",
+        "pronunciation": "lah mah-nyah-nah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo clase en la mañana.",
+          "translation": "I have class in the morning."
+        },
+        "tip": "Use this term to specify activities that occur in the morning."
+      },
+      {
+        "term": "la tarde",
+        "translation": "the afternoon",
+        "definition": "A term used to refer to the afternoon.",
+        "pronunciation": "lah tar-deh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Trabajo en la tarde.",
+          "translation": "I work in the afternoon."
+        },
+        "tip": "Use this term for events or activities in the afternoon."
+      },
+      {
+        "term": "la noche",
+        "translation": "the night",
+        "definition": "A term used to refer to the night.",
+        "pronunciation": "lah noh-cheh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ceno en la noche.",
+          "translation": "I have dinner at night."
+        },
+        "tip": "This is used for activities that happen during the night."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Telling Time in Spanish",
+        "explanation": "To tell the time in Spanish, use 'es' for one o'clock and 'son' for all other hours. You can add minutes using 'y' for adding minutes and 'menos' for subtracting minutes. The structure is simple: 'Es la' or 'Son las' followed by the hour and any additional minutes.",
+        "table": {
+          "headers": [
+            "Hour",
+            "Structure"
+          ],
+          "rows": [
+            [
+              "1:00",
+              "Es la una."
+            ],
+            [
+              "2:00",
+              "Son las dos."
+            ],
+            [
+              "3:10",
+              "Son las tres y diez."
+            ],
+            [
+              "1:50",
+              "Es la dos menos diez."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es la una y cinco.",
+            "translation": "It is one o'clock and five minutes.",
+            "breakdown": "We use 'Es' because it's one o'clock. We add 'y' for five minutes."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'es' for hours other than one o'clock: Correct to 'son'.",
+          "Misusing 'y' and 'menos': Remember 'y' adds minutes and 'menos' subtracts."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Asking for the Time",
+      "context": "In a classroom during a break.",
+      "speakers": [
+        "Student A",
+        "Student B"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué hora es?",
+          "translation": "What time is it?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Son las dos y media.",
+          "translation": "It is two thirty.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿A qué hora es la clase?",
+          "translation": "What time is the class?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "La clase es a las tres.",
+          "translation": "The class is at three.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y la comida?",
+          "translation": "And the food?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "La comida es a la una.",
+          "translation": "The food is at one.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Gracias!",
+          "translation": "Thank you!",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "De nada!",
+          "translation": "You're welcome!",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Time in Spanish Culture",
+      "text": "In many Spanish-speaking countries, people often say the time using the 24-hour format, especially in formal contexts. This can be seen in timetables for transportation, making it useful to know both formats.",
+      "funFact": "In Spain, it's common to have dinner very late, often around 9 PM or later!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary for telling time",
+        "Used 'es' and 'son' for different hours",
+        "Learned to add and subtract minutes",
+        "Practiced a dialogue for asking the time"
+      ],
+      "nextSteps": "Practice telling the time with a clock and use the vocabulary in daily conversations."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la hora' mean in English?",
+      "content": {
+        "options": [
+          "the hour",
+          "the time",
+          "the morning",
+          "the evening"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La hora' translates to 'the hour' in English, referring to a specific time.",
+      "hint": "Think about what we refer to when we ask for the time.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase means 'It is 3:00' in Spanish?",
+      "content": {
+        "options": [
+          "Es tres",
+          "Son las tres",
+          "Es la tres",
+          "Son tres horas"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "In Spanish, we say 'Son las tres' to indicate the time is 3:00.",
+      "hint": "Remember to use 'son' for times after 1 o'clock.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Es ___ de la mañana.'",
+      "content": {
+        "sentence": "Es ___ de la mañana.",
+        "correctAnswer": "siete",
+        "acceptableAnswers": [
+          "siete",
+          "ocho",
+          "nueve"
+        ],
+        "options": [
+          "tres",
+          "siete",
+          "diez",
+          "quince"
+        ]
+      },
+      "explanation": "To fill in the blank with a time, we can use 'siete' which means seven.",
+      "hint": "Think about morning times.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Son las cinco y ___.'",
+      "content": {
+        "sentence": "Son las cinco y ___.",
+        "correctAnswer": "cuarenta",
+        "acceptableAnswers": [
+          "cuarenta",
+          "cinco",
+          "diez"
+        ],
+        "options": [
+          "treinta",
+          "cuarenta",
+          "cincuenta",
+          "sesenta"
+        ]
+      },
+      "explanation": "The phrase means 'It is five and forty' or 'five forty'.",
+      "hint": "Think about how to express minutes past the hour.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'noche / la / es / diez'",
+      "content": {
+        "words": [
+          "noche",
+          "la",
+          "es",
+          "diez"
+        ],
+        "correctOrder": [
+          "es",
+          "diez",
+          "la",
+          "noche"
+        ],
+        "translation": "It is ten o'clock at night."
+      },
+      "explanation": "The correct order forms a proper sentence indicating the time.",
+      "hint": "Start with the verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'It is afternoon.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'It is afternoon.'",
+        "correctAnswer": "Es la tarde.",
+        "acceptableAnswers": [
+          "Es tarde."
+        ]
+      },
+      "explanation": "The correct translation indicates that it is the afternoon.",
+      "hint": "Remember to use 'es' for times.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct time in Spanish.",
+      "content": {
+        "ttsText": "Son las seis y media.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Son las cinco",
+          "Son las seis y media",
+          "Son las siete"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The audio indicates the time as six thirty.",
+      "hint": "Listen for 'media', which means half past.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'It is one o'clock.'",
+      "content": {
+        "targetText": "Es la una.",
+        "context": "You need to express that it is one o'clock.",
+        "acceptableVariants": [
+          "Es una",
+          "Es la una"
+        ]
+      },
+      "explanation": "The phrase 'Es la una' is how you say one o'clock in Spanish.",
+      "hint": "Use 'la' for one o'clock.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'It is midnight.'",
+      "content": {
+        "targetText": "Es la medianoche.",
+        "context": "You need to express that it is midnight.",
+        "acceptableVariants": [
+          "Es medianoche"
+        ]
+      },
+      "explanation": "The phrase 'Es la medianoche' expresses midnight in Spanish.",
+      "hint": "Think about how we say midnight in English.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,388 @@
+{
+  "lesson": {
+    "title": "Unit 4 Review",
+    "type": "REVIEW",
+    "slug": "es-a1-unit4-review"
+  },
+  "unit": "Food & Dining",
+  "unitOrder": 4,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this review lesson, you will consolidate your knowledge of food and dining vocabulary and simple grammatical structures in Spanish. You will practice essential phrases and sentences that will help you in everyday situations at restaurants or while cooking.",
+      "culturalNote": "In many Spanish-speaking countries, meals are an important social event, often lasting several hours and involving family and friends."
+    },
+    "vocabulary": [
+      {
+        "term": "la comida",
+        "translation": "the food",
+        "definition": "refers to any type of food or meal",
+        "pronunciation": "lah koh-MEE-dah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La comida es deliciosa.",
+          "translation": "The food is delicious."
+        },
+        "tip": "Remember that 'comida' is feminine, so use 'la'."
+      },
+      {
+        "term": "el restaurante",
+        "translation": "the restaurant",
+        "definition": "a place where meals are served to customers",
+        "pronunciation": "el res-tau-RAHN-teh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Voy al restaurante.",
+          "translation": "I go to the restaurant."
+        },
+        "tip": "Use 'el' for masculine nouns like 'restaurante'."
+      },
+      {
+        "term": "el menú",
+        "translation": "the menu",
+        "definition": "a list of food and drink items available",
+        "pronunciation": "el meh-NOO",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El menú está en la mesa.",
+          "translation": "The menu is on the table."
+        },
+        "tip": "Remember that 'menú' is masculine, so use 'el'."
+      },
+      {
+        "term": "la bebida",
+        "translation": "the drink",
+        "definition": "any liquid for consumption",
+        "pronunciation": "lah beh-BEE-dah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Quiero una bebida.",
+          "translation": "I want a drink."
+        },
+        "tip": "The word 'bebida' is feminine, so use 'la'."
+      },
+      {
+        "term": "el postre",
+        "translation": "the dessert",
+        "definition": "a sweet dish served at the end of a meal",
+        "pronunciation": "el POS-treh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El postre es chocolate.",
+          "translation": "The dessert is chocolate."
+        },
+        "tip": "Remember that 'postre' is masculine, so use 'el'."
+      },
+      {
+        "term": "me gusta",
+        "translation": "I like",
+        "definition": "used to express liking something",
+        "pronunciation": "meh GOOS-tah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Me gusta la pizza.",
+          "translation": "I like pizza."
+        },
+        "tip": "Use 'me gustan' for plural items, like 'las pizzas'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'gustar' (to like)",
+        "explanation": "'Gustar' is used to express likes and dislikes. The structure is different from English; you say what you like, and then you say who likes it. For example, 'Me gusta el helado' means 'I like ice cream'. If you like more than one thing, use 'gustan'.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Verb Form"
+          ],
+          "rows": [
+            [
+              "Singular (el)",
+              "gusta"
+            ],
+            [
+              "Plural (los)",
+              "gustan"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Me gusta el café.",
+            "translation": "I like coffee.",
+            "breakdown": "'Me' indicates the person liking, 'gusta' is used because 'café' is singular."
+          },
+          {
+            "original": "Me gustan las frutas.",
+            "translation": "I like fruits.",
+            "breakdown": "'Me' indicates the person liking, 'gustan' is used because 'frutas' is plural."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Yo gusto' instead of 'Me gusta'. Remember, we use 'gustar' differently in Spanish.",
+          "Using 'gustan' for singular items. Use it only for plural."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Restaurant",
+      "context": "A conversation between two friends at a restaurant.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, Ana. ¿Qué te gusta comer?",
+          "translation": "Hello, Ana. What do you like to eat?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Me gusta la pasta. ¿Y a ti?",
+          "translation": "I like pasta. And you?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "A mí me gusta el pollo.",
+          "translation": "I like chicken.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¿Quieres compartir un plato?",
+          "translation": "Do you want to share a dish?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, buena idea. ¿Qué hay en el menú?",
+          "translation": "Yes, good idea. What is there on the menu?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hay pizza, ensalada y postre.",
+          "translation": "There is pizza, salad, and dessert.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Me gusta la pizza. ¿Te gusta?",
+          "translation": "I like pizza. Do you like it?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, me gusta mucho.",
+          "translation": "Yes, I like it a lot.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Dining Traditions",
+      "text": "In many Spanish-speaking countries, lunch is often the main meal of the day, and families usually gather to enjoy it together. Dinner is typically lighter and served later in the evening.",
+      "funFact": "In Spain, it is common to eat dinner after 9 PM!"
+    },
+    "summary": {
+      "keyPoints": [
+        "You learned vocabulary related to food and dining.",
+        "You practiced using 'gustar' to express likes.",
+        "You engaged in a realistic conversation about ordering food.",
+        "You explored cultural dining habits in Spanish-speaking countries."
+      ],
+      "nextSteps": "Practice the vocabulary and try to use 'gustar' in sentences. Next, you can learn about drinks and snacks in Unit 5."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'el menú' in English?",
+      "content": {
+        "options": [
+          "the food",
+          "the menu",
+          "the drink",
+          "the dessert"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El menú' translates to 'the menu' in English.",
+      "hint": "It's what you look at to choose your food.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'me gusta' mean?",
+      "content": {
+        "options": [
+          "I eat",
+          "I like",
+          "I drink",
+          "I have"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Me gusta' means 'I like' in English.",
+      "hint": "You say this when you enjoy something.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Me gusta ___ postre.'",
+      "content": {
+        "sentence": "Me gusta ___ postre.",
+        "correctAnswer": "el",
+        "acceptableAnswers": [
+          "el"
+        ],
+        "options": [
+          "la",
+          "el",
+          "los",
+          "las"
+        ]
+      },
+      "explanation": "The correct article 'el' is used for singular masculine nouns like 'postre'.",
+      "hint": "Think about how to say 'the dessert'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Yo quiero ___ bebida.'",
+      "content": {
+        "sentence": "Yo quiero ___ bebida.",
+        "correctAnswer": "una",
+        "acceptableAnswers": [
+          "una"
+        ],
+        "options": [
+          "una",
+          "el",
+          "los",
+          "la"
+        ]
+      },
+      "explanation": "'Una' is the correct article for a singular feminine noun like 'bebida'.",
+      "hint": "It's the feminine article.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'comida la me gusta'",
+      "content": {
+        "words": [
+          "comida",
+          "la",
+          "me",
+          "gusta"
+        ],
+        "correctOrder": [
+          "me",
+          "gusta",
+          "la",
+          "comida"
+        ],
+        "translation": "I like the food"
+      },
+      "explanation": "The correct order expresses the subject and verb before the object.",
+      "hint": "Start with 'me gusta'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I want a drink.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I want a drink.'",
+        "correctAnswer": "Quiero una bebida.",
+        "acceptableAnswers": [
+          "Quiero una bebida"
+        ]
+      },
+      "explanation": "The translation captures the meaning accurately with correct grammar.",
+      "hint": "Think about how to say 'I want'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'La comida es deliciosa.'",
+      "content": {
+        "ttsText": "La comida es deliciosa.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The food is delicious.",
+          "The drink is delicious.",
+          "The dessert is delicious.",
+          "The menu is delicious."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation conveys that the food is delicious.",
+      "hint": "Focus on the word for food.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'I like dessert.'",
+      "content": {
+        "targetText": "Me gusta el postre.",
+        "context": "Translate and say this sentence in Spanish.",
+        "acceptableVariants": [
+          "Me gusta el postre"
+        ]
+      },
+      "explanation": "The phrase is a direct translation and is grammatically correct.",
+      "hint": "Start with 'Me gusta'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'el postre' in English?",
+      "content": {
+        "options": [
+          "the appetizer",
+          "the main course",
+          "the dessert",
+          "the drink"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'El postre' translates to 'the dessert' in English.",
+      "hint": "It's something sweet you eat after the meal.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Voy a un ___.'",
+      "content": {
+        "sentence": "Voy a un ___.",
+        "correctAnswer": "restaurante",
+        "acceptableAnswers": [
+          "restaurante"
+        ],
+        "options": [
+          "menú",
+          "restaurante",
+          "postre",
+          "bebida"
+        ]
+      },
+      "explanation": "The correct word is 'restaurante', which fits the context of going somewhere.",
+      "hint": "Think about where you eat.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

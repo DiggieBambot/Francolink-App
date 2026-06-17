@@ -1,0 +1,330 @@
+{
+  "lesson": {
+    "title": "At the Shop",
+    "type": "CONVERSATION",
+    "slug": "es-a1-at-the-shop"
+  },
+  "unit": "Shopping & Around Town",
+  "unitOrder": 5,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn basic vocabulary and phrases related to shopping in Spanish. You will practice conversations that can occur in a shop, helping you navigate everyday situations.",
+      "culturalNote": "In many Spanish-speaking countries, it is common to greet shopkeepers and say goodbye when leaving, reflecting the importance of personal interactions."
+    },
+    "vocabulary": [
+      {
+        "term": "la tienda",
+        "translation": "the shop",
+        "definition": "A place where goods are sold.",
+        "pronunciation": "lah tee-en-dah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Voy a la tienda.",
+          "translation": "I am going to the shop."
+        },
+        "tip": "Remember that 'tienda' ends with 'da', just like 'shop' ends with 'p'."
+      },
+      {
+        "term": "el precio",
+        "translation": "the price",
+        "definition": "The amount of money required to buy something.",
+        "pronunciation": "el preh-syo",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "¿Cuál es el precio?",
+          "translation": "What is the price?"
+        },
+        "tip": "Think of 'precio' as 'price' – they both start with 'pr'."
+      },
+      {
+        "term": "comprar",
+        "translation": "to buy",
+        "definition": "The action of purchasing something.",
+        "pronunciation": "kom-prar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Quiero comprar pan.",
+          "translation": "I want to buy bread."
+        },
+        "tip": "The verb 'comprar' is similar to 'to compare' in that you compare prices before buying."
+      },
+      {
+        "term": "la caja",
+        "translation": "the cash register",
+        "definition": "Where payments are made in a shop.",
+        "pronunciation": "lah kah-hah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Pago en la caja.",
+          "translation": "I pay at the cash register."
+        },
+        "tip": "Think of 'caja' as a box where money is kept."
+      },
+      {
+        "term": "el cambio",
+        "translation": "the change",
+        "definition": "The money returned to you after a purchase.",
+        "pronunciation": "el kahm-byoh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "¿Dónde está el cambio?",
+          "translation": "Where is the change?"
+        },
+        "tip": "Remember that 'cambio' also means 'change' in terms of coins."
+      },
+      {
+        "term": "la bolsa",
+        "translation": "the bag",
+        "definition": "A container used to carry purchased items.",
+        "pronunciation": "lah bol-sah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Necesito una bolsa.",
+          "translation": "I need a bag."
+        },
+        "tip": "Think of 'bolsa' as a 'hold' for your items."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'quiero' for Wants",
+        "explanation": "'Quiero' means 'I want' in Spanish. It's a key verb used when expressing desires. It is followed by a noun or an infinitive verb. For example, 'Quiero comprar' means 'I want to buy.'",
+        "table": {
+          "headers": [
+            "Subject",
+            "Verb"
+          ],
+          "rows": [
+            [
+              "Yo (I)",
+              "quiero (want)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo quiero una camisa.",
+            "translation": "I want a shirt.",
+            "breakdown": "The subject is 'Yo' (I), followed by 'quiero' (want) and 'una camisa' (a shirt)."
+          }
+        ],
+        "commonMistakes": [
+          "'Quiero' does not mean 'quieres' (you want) when referring to yourself.",
+          "Remember to use the correct article: 'una' for feminine and 'un' for masculine nouns."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Buying a T-shirt",
+      "context": "In a clothing shop.",
+      "speakers": [
+        "Customer",
+        "Shopkeeper"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, ¿cuánto cuesta esta camiseta?",
+          "translation": "Hello, how much does this t-shirt cost?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, cuesta veinte dólares.",
+          "translation": "Hello, it costs twenty dollars."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Puedo pagar con tarjeta?",
+          "translation": "Can I pay with a card?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, aceptamos tarjeta.",
+          "translation": "Yes, we accept cards."
+        },
+        {
+          "speaker": 0,
+          "text": "Quiero comprar la camiseta.",
+          "translation": "I want to buy the t-shirt."
+        },
+        {
+          "speaker": 1,
+          "text": "Muy bien. Aquí está la caja.",
+          "translation": "Very well. Here is the cash register."
+        },
+        {
+          "speaker": 0,
+          "text": "Gracias. ¿Dónde está el cambio?",
+          "translation": "Thank you. Where is the change?"
+        },
+        {
+          "speaker": 1,
+          "text": "Aquí está su cambio.",
+          "translation": "Here is your change."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Shopping Etiquette",
+      "text": "In many Spanish-speaking countries, it is common to greet the shopkeeper when you enter a store and say goodbye when you leave. This shows respect and friendliness.",
+      "funFact": "In some countries, shops may close for a few hours during the afternoon for a siesta!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned key vocabulary related to shopping.",
+        "Practiced using 'quiero' to express wants.",
+        "Engaged in a practical dialogue for shopping situations.",
+        "Explored cultural norms around shopping."
+      ],
+      "nextSteps": "Practice the vocabulary and try to create your own dialogues about shopping. Next, you will learn about transportation vocabulary."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la tienda' mean?",
+      "content": {
+        "options": [
+          "the shop",
+          "the price",
+          "the bag",
+          "the change"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La tienda' means 'the shop' in Spanish.",
+      "hint": "Think about where you buy things.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'el precio' in English?",
+      "content": {
+        "options": [
+          "the price",
+          "the purchase",
+          "the cashier",
+          "the change"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El precio' translates to 'the price' in English.",
+      "hint": "It's what you pay for an item.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Yo voy a ___ en la tienda.",
+      "content": {
+        "sentence": "Yo voy a ___ en la tienda.",
+        "correctAnswer": "comprar",
+        "acceptableAnswers": [
+          "comprar"
+        ],
+        "options": [
+          "vender",
+          "comprar",
+          "mirar"
+        ]
+      },
+      "explanation": "The correct verb is 'comprar', which means 'to buy'.",
+      "hint": "Think about what you do when you want an item.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Me gustaría una ___ para mis compras.",
+      "content": {
+        "sentence": "Me gustaría una ___ para mis compras.",
+        "correctAnswer": "bolsa",
+        "acceptableAnswers": [
+          "bolsa"
+        ],
+        "options": [
+          "caja",
+          "bolsa",
+          "tienda"
+        ]
+      },
+      "explanation": "You need a 'bolsa' (bag) for your shopping.",
+      "hint": "It's what you carry your items in.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Put the words in the correct order: precio el es alto.",
+      "content": {
+        "words": [
+          "precio",
+          "el",
+          "es",
+          "alto"
+        ],
+        "correctOrder": [
+          "el",
+          "precio",
+          "es",
+          "alto"
+        ],
+        "translation": "The price is high."
+      },
+      "explanation": "The correct order describes the price.",
+      "hint": "Start with the article.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I need change.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I need change.'",
+        "correctAnswer": "Necesito cambio.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The correct translation is 'Necesito cambio.'",
+      "hint": "Think about what you get after a purchase.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Voy a la tienda.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I go to the shop.",
+          "I buy at the shop.",
+          "I see the shop.",
+          "I like the shop."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'I go to the shop.'",
+      "hint": "Focus on the verb 'ir'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'Where is the cashier?'",
+      "content": {
+        "targetText": "¿Dónde está la caja?",
+        "context": "You are in a shop and want to know where to pay.",
+        "acceptableVariants": [
+          "¿Dónde está la caja?",
+          "¿Dónde está la caja, por favor?"
+        ]
+      },
+      "explanation": "The correct phrase asks for the location of the cashier.",
+      "hint": "Remember 'caja' means cashier.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

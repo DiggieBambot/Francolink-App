@@ -1,0 +1,379 @@
+{
+  "lesson": {
+    "title": "Unit 3 Review",
+    "type": "REVIEW",
+    "slug": "es-a1-unit3-review"
+  },
+  "unit": "Daily Life & Routines",
+  "unitOrder": 3,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will review vocabulary and grammar related to daily life and routines in Spanish. You will practice common phrases and engage in a dialogue that reflects everyday situations.",
+      "culturalNote": "In many Spanish-speaking countries, families often share meals together, which is a key part of daily life."
+    },
+    "vocabulary": [
+      {
+        "term": "la mañana",
+        "translation": "the morning",
+        "definition": "the early part of the day",
+        "pronunciation": "lah mah-nyah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me despierto en la mañana.",
+          "translation": "I wake up in the morning."
+        },
+        "tip": "Remember that 'mañana' can also mean 'tomorrow'!"
+      },
+      {
+        "term": "el desayuno",
+        "translation": "breakfast",
+        "definition": "the first meal of the day",
+        "pronunciation": "el deh-sah-yoo-noh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Como el desayuno a las ocho.",
+          "translation": "I eat breakfast at eight."
+        },
+        "tip": "In many cultures, breakfast foods vary greatly!"
+      },
+      {
+        "term": "trabajar",
+        "translation": "to work",
+        "definition": "to engage in a job or activity",
+        "pronunciation": "trah-bah-har",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Yo trabajo en una oficina.",
+          "translation": "I work in an office."
+        },
+        "tip": "The verb 'trabajar' is regular in the present tense."
+      },
+      {
+        "term": "la tarde",
+        "translation": "the afternoon",
+        "definition": "the time period between noon and evening",
+        "pronunciation": "lah tar-deh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Voy al parque en la tarde.",
+          "translation": "I go to the park in the afternoon."
+        },
+        "tip": "In some countries, people take a siesta in the afternoon!"
+      },
+      {
+        "term": "cenar",
+        "translation": "to have dinner",
+        "definition": "to eat the last meal of the day",
+        "pronunciation": "seh-nar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ceno a las siete.",
+          "translation": "I have dinner at seven."
+        },
+        "tip": "Dinner times can vary; in Spain, it's often much later!"
+      },
+      {
+        "term": "la noche",
+        "translation": "the night",
+        "definition": "the time after sunset",
+        "pronunciation": "lah noh-cheh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me gusta salir en la noche.",
+          "translation": "I like to go out at night."
+        },
+        "tip": "Nightlife is vibrant in many Spanish-speaking cities!"
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Present Tense Verbs",
+        "explanation": "In Spanish, regular verbs are conjugated differently based on their endings. There are three main types: -ar, -er, and -ir verbs. For example, 'hablar' (to talk) is an -ar verb, 'comer' (to eat) is an -er verb, and 'vivir' (to live) is an -ir verb.",
+        "table": {
+          "headers": [
+            "-ar verbs",
+            "-er verbs"
+          ],
+          "rows": [
+            [
+              "hablar (yo hablo)",
+              "comer (yo como)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo hablo español.",
+            "translation": "I speak Spanish.",
+            "breakdown": "Yo (I) + hablo (speak) + español (Spanish)."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'tú' and 'usted' forms",
+          "Forget to conjugate the verb correctly"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Daily Routine Conversation",
+      "context": "A conversation between two friends discussing their daily routines.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿A qué hora te despiertas?",
+          "translation": "What time do you wake up?"
+        },
+        {
+          "speaker": 1,
+          "text": "Me despierto a las seis.",
+          "translation": "I wake up at six."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué comes para el desayuno?",
+          "translation": "What do you eat for breakfast?"
+        },
+        {
+          "speaker": 1,
+          "text": "Como huevos y pan.",
+          "translation": "I eat eggs and bread."
+        },
+        {
+          "speaker": 0,
+          "text": "¿A qué hora trabajas?",
+          "translation": "What time do you work?"
+        },
+        {
+          "speaker": 1,
+          "text": "Trabajo a las ocho y media.",
+          "translation": "I work at eight thirty."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué haces en la tarde?",
+          "translation": "What do you do in the afternoon?"
+        },
+        {
+          "speaker": 1,
+          "text": "Voy al gimnasio.",
+          "translation": "I go to the gym."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Cenas con tu familia?",
+          "translation": "Do you have dinner with your family?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, ceno con ellos.",
+          "translation": "Yes, I have dinner with them."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Family Meals in Spanish Culture",
+      "text": "In many Spanish-speaking countries, dinner is often a time for families to gather and share stories from their day. This practice helps to strengthen family bonds.",
+      "funFact": "In Spain, it's common to have dinner as late as 9 or 10 PM!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Review of daily routine vocabulary.",
+        "Understanding present tense conjugation.",
+        "Practicing dialogue for everyday situations.",
+        "Cultural insights about family meals."
+      ],
+      "nextSteps": "Practice speaking about your own daily routine and try to use the vocabulary learned in this unit."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la mañana' mean in English?",
+      "content": {
+        "options": [
+          "the morning",
+          "the evening",
+          "the night"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La mañana' translates to 'the morning' in English.",
+      "hint": "Think about the time of day when you wake up.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which activity is related to 'trabajar'?",
+      "content": {
+        "options": [
+          "to eat",
+          "to work",
+          "to sleep"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Trabajar' means 'to work' in English.",
+      "hint": "It's something you do for a job.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Yo ___ el desayuno a las ocho.",
+      "content": {
+        "sentence": "Yo ___ el desayuno a las ocho.",
+        "correctAnswer": "como",
+        "acceptableAnswers": [
+          "como",
+          "tomo"
+        ],
+        "options": [
+          "como",
+          "duermo",
+          "estudio"
+        ]
+      },
+      "explanation": "The correct verb is 'como', meaning 'I eat'.",
+      "hint": "Think about the action of having a meal.",
+      "difficulty": "EASY",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ellos ___ en la tarde.",
+      "content": {
+        "sentence": "Ellos ___ en la tarde.",
+        "correctAnswer": "trabajan",
+        "acceptableAnswers": [
+          "trabajan",
+          "estudian"
+        ],
+        "options": [
+          "comen",
+          "trabajan",
+          "cenan"
+        ]
+      },
+      "explanation": "The correct verb is 'trabajan', meaning 'they work'.",
+      "hint": "Consider what people usually do during the day.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: cena / ellos / en / la / noche.",
+      "content": {
+        "words": [
+          "cena",
+          "ellos",
+          "en",
+          "la",
+          "noche"
+        ],
+        "correctOrder": [
+          "ellos",
+          "cena",
+          "en",
+          "la",
+          "noche"
+        ],
+        "translation": "They have dinner at night."
+      },
+      "explanation": "The correct order forms the sentence: 'Ellos cenan en la noche.'",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I have dinner at eight.'",
+      "content": {
+        "correctAnswer": "Ceno a las ocho.",
+        "acceptableAnswers": [
+          "Ceno a las ocho",
+          "Yo ceno a las ocho."
+        ]
+      },
+      "explanation": "The correct translation is 'Ceno a las ocho.'",
+      "hint": "Remember to use the first-person form of the verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Trabajo en la mañana.'",
+      "content": {
+        "ttsText": "Trabajo en la mañana.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I work in the morning.",
+          "I eat in the morning.",
+          "I sleep in the morning."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation means 'I work in the morning.'",
+      "hint": "Focus on the verb at the beginning.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I work in the afternoon.'",
+      "content": {
+        "targetText": "Trabajo en la tarde.",
+        "context": "Translate and pronounce the sentence.",
+        "acceptableVariants": [
+          "Yo trabajo en la tarde."
+        ]
+      },
+      "explanation": "The correct sentence is 'Trabajo en la tarde.'",
+      "hint": "Start with the verb.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What time do you usually have breakfast?",
+      "content": {
+        "options": [
+          "la mañana",
+          "la tarde",
+          "la noche"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "Breakfast is typically associated with 'la mañana', meaning 'the morning'.",
+      "hint": "Think about what meal is first in the day.",
+      "difficulty": "HARD",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ellas ___ en la noche.",
+      "content": {
+        "sentence": "Ellas ___ en la noche.",
+        "correctAnswer": "cenan",
+        "acceptableAnswers": [
+          "cenan",
+          "comen"
+        ],
+        "options": [
+          "cenan",
+          "trabajan",
+          "dormir"
+        ]
+      },
+      "explanation": "The correct answer is 'cenan', which means 'they have dinner'.",
+      "hint": "Consider the evening meal.",
+      "difficulty": "HARD",
+      "xp_reward": 4
+    }
+  ]
+}

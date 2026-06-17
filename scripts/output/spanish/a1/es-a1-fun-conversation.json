@@ -1,0 +1,388 @@
+{
+  "lesson": {
+    "title": "What Do You Do for Fun?",
+    "type": "CONVERSATION",
+    "slug": "es-a1-fun-conversation"
+  },
+  "unit": "Free Time & Hobbies",
+  "unitOrder": 7,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to ask and answer questions about hobbies and free time activities in Spanish. You will practice using simple sentences to express what you enjoy doing.",
+      "culturalNote": "In many Spanish-speaking countries, people often socialize with friends and family during their free time, enjoying activities like playing soccer or going to the park."
+    },
+    "vocabulary": [
+      {
+        "term": "el deporte",
+        "translation": "the sport",
+        "definition": "An activity involving physical exertion and skill.",
+        "pronunciation": "el deh-por-teh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me gusta el deporte.",
+          "translation": "I like sports."
+        },
+        "tip": "Remember that 'deporte' is masculine, so use 'el' before it."
+      },
+      {
+        "term": "la música",
+        "translation": "the music",
+        "definition": "Artistic form using sound and rhythm.",
+        "pronunciation": "la moo-see-kah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me encanta la música.",
+          "translation": "I love music."
+        },
+        "tip": "'Música' is feminine, so use 'la' before it."
+      },
+      {
+        "term": "ver películas",
+        "translation": "to watch movies",
+        "definition": "To view films for entertainment.",
+        "pronunciation": "ber peh-lee-koo-lahs",
+        "partOfSpeech": "verb phrase",
+        "exampleSentence": {
+          "original": "Me gusta ver películas.",
+          "translation": "I like to watch movies."
+        },
+        "tip": "Use 'ver' for 'to watch' and remember the plural form 'películas'."
+      },
+      {
+        "term": "leer libros",
+        "translation": "to read books",
+        "definition": "To engage with written text.",
+        "pronunciation": "le-er lee-bros",
+        "partOfSpeech": "verb phrase",
+        "exampleSentence": {
+          "original": "Me gusta leer libros.",
+          "translation": "I like to read books."
+        },
+        "tip": "Remember 'libros' is plural; it's 'libro' for a single book."
+      },
+      {
+        "term": "salir con amigos",
+        "translation": "to go out with friends",
+        "definition": "To socialize or spend time outside with friends.",
+        "pronunciation": "sah-leer kon ah-mee-gos",
+        "partOfSpeech": "verb phrase",
+        "exampleSentence": {
+          "original": "A veces salgo con amigos.",
+          "translation": "Sometimes I go out with friends."
+        },
+        "tip": "The phrase 'salir con' means 'to go out with'—easy to remember!"
+      },
+      {
+        "term": "jugar videojuegos",
+        "translation": "to play video games",
+        "definition": "To engage in electronic games.",
+        "pronunciation": "hoo-gar vee-dee-oh-hweh-gos",
+        "partOfSpeech": "verb phrase",
+        "exampleSentence": {
+          "original": "Me gusta jugar videojuegos.",
+          "translation": "I like to play video games."
+        },
+        "tip": "Remember to use 'jugar' for 'to play' and 'videojuegos' for 'video games'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'Me gusta' and 'Me encantan'",
+        "explanation": "In Spanish, to express likes, we use 'me gusta' for singular nouns and 'me encantan' for plural nouns. 'Gusta' comes from the verb 'gustar,' which is used to say what you like.",
+        "table": {
+          "headers": [
+            "Singular",
+            "Plural"
+          ],
+          "rows": [
+            [
+              "Me gusta la música.",
+              "Me gustan los deportes."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Me gusta el deporte.",
+            "translation": "I like the sport.",
+            "breakdown": "'Me gusta' is used here because 'deporte' is singular."
+          },
+          {
+            "original": "Me gustan las películas.",
+            "translation": "I like the movies.",
+            "breakdown": "'Me gustan' is used because 'películas' is plural."
+          }
+        ],
+        "commonMistakes": [
+          "'Me gusta las películas.' should be 'Me gustan las películas.' (plural mistake)",
+          "'Me encantan el deporte.' should be 'Me encanta el deporte.' (singular mistake)"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking About Hobbies",
+      "context": "A casual conversation between two friends at a cafe.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, Luis. ¿Qué haces en tu tiempo libre?",
+          "translation": "Hi, Luis. What do you do in your free time?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, Ana. Me gusta jugar videojuegos.",
+          "translation": "Hi, Ana. I like to play video games.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué divertido! ¿Te gusta ver películas también?",
+          "translation": "How fun! Do you like to watch movies too?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, me encanta ver películas.",
+          "translation": "Yes, I love to watch movies.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Yo prefiero leer libros.",
+          "translation": "I prefer to read books.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¿Qué libros te gustan?",
+          "translation": "What books do you like?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Me gustan las novelas de misterio.",
+          "translation": "I like mystery novels.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "A mí también. ¿Vamos a la biblioteca?",
+          "translation": "Me too. Shall we go to the library?",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Leisure Activities in Latin America",
+      "text": "In many Latin American countries, soccer is a popular pastime, and people often gather in parks to play or watch games. Additionally, music and dance are integral parts of cultural celebrations.",
+      "funFact": "In Argentina, it’s common to enjoy a 'asado' (barbecue) with friends and family during the weekend."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary for free time activities.",
+        "Practiced using 'me gusta' and 'me encantan'.",
+        "Engaged in a dialogue about hobbies.",
+        "Explored cultural aspects of leisure in Spanish-speaking countries."
+      ],
+      "nextSteps": "Practice by writing sentences about your own hobbies. You can also listen to Spanish music or watch a movie to enhance your learning."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'salir con amigos' mean?",
+      "content": {
+        "options": [
+          "to play sports",
+          "to go out with friends",
+          "to read books",
+          "to listen to music"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Salí con amigos' translates to 'to go out with friends' in English.",
+      "hint": "Think about social activities.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is NOT a hobby mentioned?",
+      "content": {
+        "options": [
+          "ver películas",
+          "jugar videojuegos",
+          "hacer tareas",
+          "leer libros"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Hacer tareas' means 'to do homework', which is not a hobby.",
+      "hint": "Consider what you do for fun.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Me gusta ___ música.'",
+      "content": {
+        "sentence": "Me gusta ___ música.",
+        "correctAnswer": "escuchar",
+        "acceptableAnswers": [
+          "oír",
+          "escuchar"
+        ],
+        "options": [
+          "ver",
+          "escuchar",
+          "leer",
+          "salir"
+        ]
+      },
+      "explanation": "The correct verb is 'escuchar', which means 'to listen'.",
+      "hint": "Think about enjoying sounds.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Yo ___ videojuegos los fines de semana.'",
+      "content": {
+        "sentence": "Yo ___ videojuegos los fines de semana.",
+        "correctAnswer": "juego",
+        "acceptableAnswers": [
+          "jugar",
+          "juego"
+        ],
+        "options": [
+          "hago",
+          "juego",
+          "veo",
+          "salgo"
+        ]
+      },
+      "explanation": "'Juego' means 'I play', which fits the sentence correctly.",
+      "hint": "It's the first person form of 'jugar'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'leer libros me gusta'.",
+      "content": {
+        "words": [
+          "leer",
+          "libros",
+          "me",
+          "gusta"
+        ],
+        "correctOrder": [
+          "me",
+          "gusta",
+          "leer",
+          "libros"
+        ],
+        "translation": "I like to read books."
+      },
+      "explanation": "The correct order expresses a personal preference.",
+      "hint": "Think about who likes to read.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I play sports.'",
+      "content": {
+        "correctAnswer": "Yo juego deportes.",
+        "acceptableAnswers": [
+          "Juego deportes.",
+          "Yo hago deporte."
+        ],
+        "prompt": "Translate to Spanish: 'I play sports.'"
+      },
+      "explanation": "The translation 'Yo juego deportes' accurately conveys the meaning.",
+      "hint": "Think about the verb for 'to play'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct option.",
+      "content": {
+        "ttsText": "Me gusta ver películas.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I like to read books.",
+          "I like to watch movies.",
+          "I like to play sports."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The spoken sentence means 'I like to watch movies'.",
+      "hint": "Focus on the verb 'ver'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'I like to go out with friends.'",
+      "content": {
+        "targetText": "Me gusta salir con amigos.",
+        "context": "Translate and say your favorite activity.",
+        "acceptableVariants": [
+          "Me gusta salir con amigos.",
+          "A mí me gusta salir con amigos."
+        ]
+      },
+      "explanation": "Both variations are acceptable for expressing preferences.",
+      "hint": "Remember the verb for 'to go out'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'ver películas' in English?",
+      "content": {
+        "options": [
+          "to read books",
+          "to watch movies",
+          "to play sports",
+          "to listen to music"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Ver películas' translates to 'to watch movies'.",
+      "hint": "Think about what you do at the cinema.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Los fines de semana, yo ___ con amigos.'",
+      "content": {
+        "sentence": "Los fines de semana, yo ___ con amigos.",
+        "correctAnswer": "salgo",
+        "acceptableAnswers": [
+          "salgo",
+          "salir"
+        ],
+        "options": [
+          "salgo",
+          "juego",
+          "leo",
+          "veo"
+        ]
+      },
+      "explanation": "'Salgo' means 'I go out', which fits the sentence.",
+      "hint": "Consider the weekend activities.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

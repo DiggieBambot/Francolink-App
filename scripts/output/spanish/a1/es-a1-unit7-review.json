@@ -1,0 +1,371 @@
+{
+  "lesson": {
+    "title": "Unit 7 Review",
+    "type": "REVIEW",
+    "slug": "es-a1-unit7-review"
+  },
+  "unit": "Free Time & Hobbies",
+  "unitOrder": 7,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will review vocabulary and grammar related to free time and hobbies. You will practice speaking through a dialogue and learn useful expressions to describe activities you enjoy.",
+      "culturalNote": "In many Spanish-speaking countries, hobbies like soccer and dancing are very popular and are often social activities that bring people together."
+    },
+    "vocabulary": [
+      {
+        "term": "el libro",
+        "translation": "the book",
+        "definition": "a written work or story",
+        "pronunciation": "el LEE-bro",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me gusta leer el libro.",
+          "translation": "I like to read the book."
+        },
+        "tip": "Remember that 'el' means 'the' for masculine nouns."
+      },
+      {
+        "term": "la música",
+        "translation": "the music",
+        "definition": "sounds organized in a way that is pleasing",
+        "pronunciation": "la MOO-sika",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Escucho la música todos los días.",
+          "translation": "I listen to the music every day."
+        },
+        "tip": "'La' is used for feminine nouns like 'música'."
+      },
+      {
+        "term": "jugar",
+        "translation": "to play",
+        "definition": "to engage in a game or activity",
+        "pronunciation": "hoo-GAR",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Me gusta jugar al fútbol.",
+          "translation": "I like to play soccer."
+        },
+        "tip": "Think of 'jugar' as similar to 'juggling' which is a playful activity."
+      },
+      {
+        "term": "la película",
+        "translation": "the movie",
+        "definition": "a film or motion picture",
+        "pronunciation": "la peh-LEE-kula",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Vimos la película anoche.",
+          "translation": "We watched the movie last night."
+        },
+        "tip": "'Película' has the same root as 'picture'."
+      },
+      {
+        "term": "cocinar",
+        "translation": "to cook",
+        "definition": "to prepare food",
+        "pronunciation": "ko-see-NAR",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Me gusta cocinar pasta.",
+          "translation": "I like to cook pasta."
+        },
+        "tip": "Remember 'cocinar' has the same first syllable as 'cook'."
+      },
+      {
+        "term": "el deporte",
+        "translation": "the sport",
+        "definition": "an activity involving physical exertion",
+        "pronunciation": "el deh-POR-te",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El deporte es divertido.",
+          "translation": "The sport is fun."
+        },
+        "tip": "'Deporte' sounds like 'sport' in English."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'gustar' (to like)",
+        "explanation": "'Gustar' is used to express likes and dislikes. The structure is different from English. Instead of saying 'I like,' you say 'It pleases me.' For example, 'Me gusta' means 'It pleases me.' Use 'gustan' for plural nouns.",
+        "table": {
+          "headers": [
+            "Singular",
+            "Plural"
+          ],
+          "rows": [
+            [
+              "Me gusta el libro.",
+              "Me gustan los libros."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Me gusta la música.",
+            "translation": "I like the music.",
+            "breakdown": "'Me' is the indirect object pronoun for 'to me,' 'gusta' is the verb form for singular nouns, and 'la música' is 'the music.'"
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Yo gusto la música.' - Correct form is 'Me gusta la música.'",
+          "Using 'gustan' with singular nouns - Use 'gusta' instead."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking about Hobbies",
+      "context": "Two friends discussing their free time activities.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, Luis. ¿Qué te gusta hacer en tu tiempo libre?",
+          "translation": "Hi, Luis. What do you like to do in your free time?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, Ana. Me gusta jugar al fútbol.",
+          "translation": "Hi, Ana. I like to play soccer."
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué divertido! A mí me gusta escuchar música.",
+          "translation": "How fun! I like to listen to music."
+        },
+        {
+          "speaker": 1,
+          "text": "¿Qué tipo de música te gusta?",
+          "translation": "What type of music do you like?"
+        },
+        {
+          "speaker": 0,
+          "text": "Me gusta la música pop. ¿Y a ti?",
+          "translation": "I like pop music. And you?"
+        },
+        {
+          "speaker": 1,
+          "text": "Me gusta la música rock.",
+          "translation": "I like rock music."
+        },
+        {
+          "speaker": 0,
+          "text": "Perfecto. También me gusta ver películas.",
+          "translation": "Perfect. I also like to watch movies."
+        },
+        {
+          "speaker": 1,
+          "text": "A mí me gusta cocinar. ¿Quieres cocinar juntos?",
+          "translation": "I like to cook. Do you want to cook together?"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Popular Hobbies in Latin America",
+      "text": "In Latin America, soccer is not just a sport; it's a passion that unites communities. Many people gather to watch games, creating a festive atmosphere.",
+      "funFact": "The largest soccer tournament in Latin America is the Copa Libertadores, which features teams from across the continent."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review vocabulary for hobbies and free time activities.",
+        "Understand the structure of 'gustar'.",
+        "Practice a dialogue about hobbies.",
+        "Learn about cultural aspects of hobbies in Spanish-speaking countries."
+      ],
+      "nextSteps": "Continue practicing vocabulary with exercises and try to use 'gustar' in your conversations."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'el libro' in English?",
+      "content": {
+        "options": [
+          "the book",
+          "the movie",
+          "the music",
+          "the sport"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El libro' translates to 'the book' in English.",
+      "hint": "Think about reading.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'to play'?",
+      "content": {
+        "options": [
+          "cocinar",
+          "jugar",
+          "escuchar",
+          "ver"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Jugar' means 'to play' in Spanish.",
+      "hint": "It is an activity often done with games.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Me gusta ___ música.'",
+      "content": {
+        "sentence": "Me gusta ___ música.",
+        "correctAnswer": "la",
+        "acceptableAnswers": [
+          "la"
+        ],
+        "options": [
+          "el",
+          "la",
+          "los",
+          "las"
+        ]
+      },
+      "explanation": "The correct article for 'música' is 'la' because it is feminine.",
+      "hint": "Think about the gender of the word.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Yo ___ (cocinar) el sábado.'",
+      "content": {
+        "sentence": "Yo ___ el sábado.",
+        "correctAnswer": "cocino",
+        "acceptableAnswers": [
+          "cocino"
+        ],
+        "options": [
+          "cociné",
+          "cocino",
+          "cocinar",
+          "cocinando"
+        ]
+      },
+      "explanation": "The correct conjugation of 'cocinar' for 'yo' is 'cocino'.",
+      "hint": "This is the present tense.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'deporte / me / gusta / el'",
+      "content": {
+        "words": [
+          "deporte",
+          "me",
+          "gusta",
+          "el"
+        ],
+        "correctOrder": [
+          "me",
+          "gusta",
+          "el",
+          "deporte"
+        ],
+        "translation": "I like the sport."
+      },
+      "explanation": "The correct order expresses the subject and the verb properly.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I like to watch the movie.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I like to watch the movie.'",
+        "correctAnswer": "Me gusta ver la película.",
+        "acceptableAnswers": [
+          "Me gusta mirar la película."
+        ]
+      },
+      "explanation": "The correct translation captures both the verb and the noun.",
+      "hint": "Think about your favorite movie.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct meaning: 'Me gusta jugar al fútbol.'",
+      "content": {
+        "ttsText": "Me gusta jugar al fútbol.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I like to play soccer.",
+          "I like to watch soccer.",
+          "I like music.",
+          "I like to read."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence expresses a liking for playing soccer.",
+      "hint": "Think about sports.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I like to cook.'",
+      "content": {
+        "targetText": "Me gusta cocinar.",
+        "context": "Translate the sentence into Spanish.",
+        "acceptableVariants": [
+          "Me gusta cocinar."
+        ]
+      },
+      "explanation": "This is a direct translation of the sentence.",
+      "hint": "Remember the structure for expressing likes.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la música' refer to?",
+      "content": {
+        "options": [
+          "the book",
+          "the sport",
+          "the music",
+          "the movie"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'La música' translates to 'the music' in English.",
+      "hint": "Think about sounds and rhythm.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ella quiere ver ___ película.'",
+      "content": {
+        "sentence": "Ella quiere ver ___ película.",
+        "correctAnswer": "la",
+        "acceptableAnswers": [
+          "la"
+        ],
+        "options": [
+          "el",
+          "la",
+          "los",
+          "las"
+        ]
+      },
+      "explanation": "The article 'la' is correct because 'película' is feminine.",
+      "hint": "Consider the gender of the noun.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    }
+  ]
+}

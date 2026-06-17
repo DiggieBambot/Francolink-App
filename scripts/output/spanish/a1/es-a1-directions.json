@@ -1,0 +1,328 @@
+{
+  "lesson": {
+    "title": "Asking for Directions",
+    "type": "CONVERSATION",
+    "slug": "es-a1-directions"
+  },
+  "unit": "Shopping & Around Town",
+  "unitOrder": 5,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to ask for directions in Spanish. You will practice vocabulary related to locations and common questions used when navigating a city.",
+      "culturalNote": "In many Spanish-speaking countries, it is common for locals to offer help with directions, even if you don't ask."
+    },
+    "vocabulary": [
+      {
+        "term": "la tienda",
+        "translation": "the store",
+        "definition": "A place where you buy things.",
+        "pronunciation": "lah tee-EN-dah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La tienda está cerca.",
+          "translation": "The store is nearby."
+        },
+        "tip": "Remember that 'la' indicates that it is a feminine noun."
+      },
+      {
+        "term": "la calle",
+        "translation": "the street",
+        "definition": "A public road in a city or town.",
+        "pronunciation": "lah KAH-yeh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La calle es larga.",
+          "translation": "The street is long."
+        },
+        "tip": "Use 'la' for feminine nouns like 'calle'."
+      },
+      {
+        "term": "derecha",
+        "translation": "right",
+        "definition": "The direction opposite of left.",
+        "pronunciation": "deh-REH-chah",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Gira a la derecha.",
+          "translation": "Turn right."
+        },
+        "tip": "D and R are pronounced strongly, so don't forget to emphasize them."
+      },
+      {
+        "term": "izquierda",
+        "translation": "left",
+        "definition": "The direction opposite of right.",
+        "pronunciation": "ees-KEH-ahr-dah",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Gira a la izquierda.",
+          "translation": "Turn left."
+        },
+        "tip": "Remember that 'izquierda' starts with a vowel sound."
+      },
+      {
+        "term": "sigue",
+        "translation": "continue",
+        "definition": "To keep going in a direction.",
+        "pronunciation": "SEE-geh",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Sigue recto.",
+          "translation": "Continue straight."
+        },
+        "tip": "This verb is often used in giving directions."
+      },
+      {
+        "term": "cerca",
+        "translation": "near",
+        "definition": "A short distance away.",
+        "pronunciation": "SER-kah",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "La estación está cerca.",
+          "translation": "The station is near."
+        },
+        "tip": "Use this to describe proximity."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'estar' for Locations",
+        "explanation": "'Estar' is used to indicate location in Spanish. It describes where someone or something is situated. The structure is: Subject + 'estar' + location.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Estar Conjugation"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "estoy"
+            ],
+            [
+              "Tú",
+              "estás"
+            ],
+            [
+              "Él/Ella",
+              "está"
+            ],
+            [
+              "Nosotros",
+              "estamos"
+            ],
+            [
+              "Ellos",
+              "están"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "La tienda está aquí.",
+            "translation": "The store is here.",
+            "breakdown": "'La tienda' (the store) is the subject, 'está' is the form of 'estar', and 'aquí' (here) is the location."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'ser' and 'estar' - use 'estar' for locations.",
+          "Forgetting to match the subject with the correct form of 'estar'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Asking for Directions",
+      "context": "A tourist is asking a local for directions to a store.",
+      "speakers": [
+        "Tourist",
+        "Local"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, ¿dónde está la tienda?",
+          "translation": "Hello, where is the store?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Está cerca, siga recto.",
+          "translation": "It is nearby, continue straight.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Gracias. ¿Está a la derecha?",
+          "translation": "Thank you. Is it on the right?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "No, está a la izquierda.",
+          "translation": "No, it is on the left.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Perfecto. ¿Cuánto tiempo se tarda?",
+          "translation": "Perfect. How long does it take?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Solo cinco minutos.",
+          "translation": "Only five minutes.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Muy bien, gracias por su ayuda.",
+          "translation": "Very good, thank you for your help.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¡De nada! Que tenga un buen día.",
+          "translation": "You're welcome! Have a nice day.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Cultural Insight: Local Etiquette",
+      "text": "In Spanish-speaking countries, people often greet each other with a friendly 'Hola' or 'Buenos días'. It's polite to say thank you when someone helps you with directions.",
+      "funFact": "In some cities, like Buenos Aires, locals are known for their warm hospitality and willingness to assist tourists."
+    },
+    "summary": {
+      "keyPoints": [
+        "You learned vocabulary related to asking for directions.",
+        "You practiced the verb 'estar' for locations.",
+        "You engaged in a dialogue for real-life practice.",
+        "You discovered cultural insights about hospitality."
+      ],
+      "nextSteps": "Practice asking for directions with a friend or in a language exchange. Review the vocabulary and try to create your own sentences."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la tienda' mean in English?",
+      "content": {
+        "options": [
+          "the store",
+          "the street",
+          "the right"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La tienda' translates to 'the store' in English.",
+      "hint": "Think about where you buy things.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which direction does 'izquierda' refer to?",
+      "content": {
+        "options": [
+          "right",
+          "left",
+          "straight"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Izquierda' means 'left' in English.",
+      "hint": "It's the opposite of derecha.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'El banco está ___ de la tienda.'",
+      "content": {
+        "sentence": "El banco está ___ de la tienda.",
+        "correctAnswer": "cerca",
+        "acceptableAnswers": [
+          "cerca"
+        ],
+        "options": [
+          "lejos",
+          "cerca",
+          "dentro"
+        ]
+      },
+      "explanation": "'Cerca' means 'near' which fits the context of the sentence.",
+      "hint": "It indicates proximity.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: '___ la calle y sigue todo recto.'",
+      "content": {
+        "sentence": "___ la calle y sigue todo recto.",
+        "correctAnswer": "Sigue",
+        "acceptableAnswers": [
+          "sigue"
+        ],
+        "options": [
+          "dobla",
+          "sigue",
+          "ve"
+        ]
+      },
+      "explanation": "'Sigue' means 'continue', which makes sense in this context.",
+      "hint": "It's a command to keep going.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Turn right at the store.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'Turn right at the store.'",
+        "correctAnswer": "Gira a la derecha en la tienda.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation accurately conveys the instruction in Spanish.",
+      "hint": "Focus on the commands for directions.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Sigue por esta calle.'",
+      "content": {
+        "ttsText": "Sigue por esta calle.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Continue down this street.",
+          "Turn left at this street.",
+          "Go to the store."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation captures the meaning of the Spanish sentence.",
+      "hint": "What does 'sigue' mean?",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say: 'Where is the store?'",
+      "content": {
+        "targetText": "¿Dónde está la tienda?",
+        "context": "You are asking someone for directions.",
+        "acceptableVariants": [
+          "¿Dónde queda la tienda?",
+          "¿Dónde está la tienda, por favor?"
+        ]
+      },
+      "explanation": "This sentence is commonly used when asking for directions.",
+      "hint": "Use a polite tone when asking.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

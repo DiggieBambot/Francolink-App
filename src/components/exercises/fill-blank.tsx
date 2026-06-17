@@ -11,6 +11,8 @@ interface FillBlankProps {
     content: {
       sentence?: string;
       answer?: string;
+      /** Some generated content uses `correctAnswer` instead of `answer`. */
+      correctAnswer?: string;
       options?: string[];
       caseSensitive?: boolean;
     };
@@ -25,7 +27,9 @@ export default function FillBlank({ exercise, onSubmit, disabled }: FillBlankPro
   const { content } = exercise;
   
   const sentence = content.sentence || "";
-  const correctAnswer = content.answer || "";
+  // Accept both `answer` (the original field) and `correctAnswer` (used by
+  // some generators) so older + newer content both work.
+  const correctAnswer = content.answer || content.correctAnswer || "";
   const options = content.options || [];
   const caseSensitive = content.caseSensitive ?? false;
 

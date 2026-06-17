@@ -1,0 +1,350 @@
+{
+  "lesson": {
+    "title": "My Home (La Casa)",
+    "type": "VOCABULARY",
+    "slug": "es-a1-home"
+  },
+  "unit": "Home & Everyday Objects",
+  "unitOrder": 6,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to your home (la casa) in Spanish. This includes common rooms, furniture, and everyday objects found in a house.",
+      "culturalNote": "In many Spanish-speaking countries, family life is often centered around the home, and gatherings with relatives are common."
+    },
+    "vocabulary": [
+      {
+        "term": "la casa",
+        "translation": "the house",
+        "definition": "A building where people live.",
+        "pronunciation": "lah KAH-sah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Yo vivo en la casa.",
+          "translation": "I live in the house."
+        },
+        "tip": "Remember that 'casa' is feminine, so use 'la'."
+      },
+      {
+        "term": "el cuarto",
+        "translation": "the room",
+        "definition": "A separate area within a house.",
+        "pronunciation": "el KWAR-toh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El cuarto es grande.",
+          "translation": "The room is big."
+        },
+        "tip": "'Cuarto' can refer to any room. Remember it's masculine."
+      },
+      {
+        "term": "la cocina",
+        "translation": "the kitchen",
+        "definition": "A room where food is prepared.",
+        "pronunciation": "lah koh-SEE-nah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La cocina tiene una estufa.",
+          "translation": "The kitchen has a stove."
+        },
+        "tip": "Cocina is feminine, so say 'la cocina'."
+      },
+      {
+        "term": "el baño",
+        "translation": "the bathroom",
+        "definition": "A room with a toilet and sink.",
+        "pronunciation": "el BAH-nyoh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El baño está limpio.",
+          "translation": "The bathroom is clean."
+        },
+        "tip": "Remember: 'baño' is masculine."
+      },
+      {
+        "term": "la sala",
+        "translation": "the living room",
+        "definition": "A room for relaxing and socializing.",
+        "pronunciation": "lah SAH-lah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La sala tiene un sofá.",
+          "translation": "The living room has a sofa."
+        },
+        "tip": "It's feminine, so use 'la' with sala."
+      },
+      {
+        "term": "el sofá",
+        "translation": "the sofa",
+        "definition": "A comfortable seat for multiple people.",
+        "pronunciation": "el soh-FAH",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El sofá es azul.",
+          "translation": "The sofa is blue."
+        },
+        "tip": "Sofá is masculine."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'ser' and 'estar'",
+        "explanation": "'Ser' and 'estar' are two verbs that mean 'to be' in Spanish. Use 'ser' for permanent characteristics and 'estar' for temporary states or locations.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "ser",
+              "for descriptions like color, personality"
+            ],
+            [
+              "estar",
+              "for locations, emotions"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "La casa es grande.",
+            "translation": "The house is big.",
+            "breakdown": "Here, 'es' (from 'ser') describes a characteristic of the house."
+          },
+          {
+            "original": "El sofá está en la sala.",
+            "translation": "The sofa is in the living room.",
+            "breakdown": "In this case, 'está' (from 'estar') indicates the location of the sofa."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'ser' instead of 'estar' for location. Correct: 'El baño está aquí.'",
+          "Using 'estar' instead of 'ser' for characteristics. Correct: 'La casa es roja.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At Home",
+      "context": "A conversation between two friends at home.",
+      "speakers": [
+        "Ana",
+        "Juan"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, Juan. ¿Dónde está la cocina?",
+          "translation": "Hi, Juan. Where is the kitchen?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "La cocina está a la derecha.",
+          "translation": "The kitchen is to the right.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y el baño?",
+          "translation": "And the bathroom?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "El baño está al fondo.",
+          "translation": "The bathroom is at the back.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Me gusta tu sala.",
+          "translation": "I like your living room.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Gracias. El sofá es nuevo.",
+          "translation": "Thank you. The sofa is new.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Tienes una televisión?",
+          "translation": "Do you have a TV?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, está en la sala.",
+          "translation": "Yes, it is in the living room.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Family Life in Spanish-speaking Countries",
+      "text": "Family gatherings and meals are important aspects of life in many Spanish-speaking cultures. It's common for extended families to live together or nearby.",
+      "funFact": "In some countries, Sunday family dinners are a cherished tradition."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to parts of the house.",
+        "Practiced using 'ser' and 'estar'.",
+        "Engaged in a dialogue about home.",
+        "Explored cultural aspects of family life."
+      ],
+      "nextSteps": "Practice the vocabulary with flashcards and try to create your own sentences using 'ser' and 'estar'."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'the kitchen' in Spanish?",
+      "content": {
+        "options": [
+          "la cocina",
+          "el baño",
+          "la sala",
+          "el cuarto"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'la cocina', which means 'the kitchen' in English.",
+      "hint": "Think about where you cook food.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'the living room' in Spanish?",
+      "content": {
+        "options": [
+          "el cuarto",
+          "la sala",
+          "la cocina",
+          "el baño"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'la sala', which refers to 'the living room' in English.",
+      "hint": "It's a place where you relax and watch TV.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Yo estoy en ___ (the bathroom)'.",
+      "content": {
+        "sentence": "Yo estoy en ___ (the bathroom)",
+        "correctAnswer": "el baño",
+        "acceptableAnswers": [
+          "el baño"
+        ],
+        "options": [
+          "la cocina",
+          "el baño",
+          "la sala",
+          "el cuarto"
+        ]
+      },
+      "explanation": "'el baño' means 'the bathroom', which fits in the sentence.",
+      "hint": "Where do you wash your hands?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Mi casa tiene un ___ (sofa)'.",
+      "content": {
+        "sentence": "Mi casa tiene un ___ (sofa)",
+        "correctAnswer": "sofá",
+        "acceptableAnswers": [
+          "sofá"
+        ],
+        "options": [
+          "silla",
+          "mesa",
+          "sofá",
+          "cama"
+        ]
+      },
+      "explanation": "'sofá' means 'sofa' and is the correct answer for the sentence.",
+      "hint": "It's where you sit in the living room.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'casa / nueva / mi / es'.",
+      "content": {
+        "words": [
+          "casa",
+          "nueva",
+          "mi",
+          "es"
+        ],
+        "correctOrder": [
+          "mi",
+          "casa",
+          "es",
+          "nueva"
+        ],
+        "translation": "My house is new."
+      },
+      "explanation": "The correct order forms the sentence 'Mi casa es nueva'.",
+      "hint": "Start with 'my'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I like my room'.",
+      "content": {
+        "prompt": "Translate to Spanish: 'I like my room'.",
+        "correctAnswer": "Me gusta mi cuarto.",
+        "acceptableAnswers": [
+          "Me gusta mi cuarto"
+        ]
+      },
+      "explanation": "The correct translation is 'Me gusta mi cuarto' which expresses liking for 'my room'.",
+      "hint": "Think about 'my room' in Spanish.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "La cocina es grande.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The kitchen is big.",
+          "The bathroom is small.",
+          "The room is nice.",
+          "The house is old."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The Spanish sentence means 'The kitchen is big.'",
+      "hint": "Focus on the word for 'kitchen'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I have a big house'.",
+      "content": {
+        "targetText": "Tengo una casa grande.",
+        "context": "Translate and speak this sentence.",
+        "acceptableVariants": [
+          "Tengo una casa grande"
+        ]
+      },
+      "explanation": "The phrase translates to 'I have a big house'.",
+      "hint": "Start with 'I have'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

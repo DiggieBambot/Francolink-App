@@ -741,6 +741,7 @@ export default function LessonFlow({
             title={content.dialogue.title}
             context={content.dialogue.context}
             lines={content.dialogue.lines}
+            speakers={content.dialogue.speakers}
             image={content.dialogue.image}
             language={ttsLanguage}
             onComplete={goToNextPhase}

@@ -1,0 +1,531 @@
+{
+  "lesson": {
+    "title": "Numbers 0–20",
+    "type": "VOCABULARY",
+    "slug": "es-a1-numbers"
+  },
+  "unit": "First Words & Greetings",
+  "unitOrder": 1,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn the numbers from 0 to 20 in Spanish. Understanding these numbers is essential for everyday conversations, such as counting, telling time, and shopping.",
+      "culturalNote": "In many Spanish-speaking countries, numbers are used in various cultural contexts, like in traditional games and sports."
+    },
+    "vocabulary": [
+      {
+        "term": "cero",
+        "translation": "zero",
+        "definition": "The number 0.",
+        "pronunciation": "SER-oh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Cero es un número.",
+          "translation": "Zero is a number."
+        },
+        "tip": "Remember, 'cero' sounds like 'zero' in English."
+      },
+      {
+        "term": "uno",
+        "translation": "one",
+        "definition": "The number 1.",
+        "pronunciation": "OO-noh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo uno.",
+          "translation": "I have one."
+        },
+        "tip": "'Uno' is similar to 'one' in English."
+      },
+      {
+        "term": "dos",
+        "translation": "two",
+        "definition": "The number 2.",
+        "pronunciation": "DOHS",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Hay dos gatos.",
+          "translation": "There are two cats."
+        },
+        "tip": "'Dos' is easy to remember because it sounds like 'dose'."
+      },
+      {
+        "term": "tres",
+        "translation": "three",
+        "definition": "The number 3.",
+        "pronunciation": "TRES",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo tres libros.",
+          "translation": "I have three books."
+        },
+        "tip": "'Tres' is similar to 'trespass' in English."
+      },
+      {
+        "term": "cuatro",
+        "translation": "four",
+        "definition": "The number 4.",
+        "pronunciation": "KWAT-roh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Cuatro es un número par.",
+          "translation": "Four is an even number."
+        },
+        "tip": "Think of 'cuatro' as 'quad' for four."
+      },
+      {
+        "term": "cinco",
+        "translation": "five",
+        "definition": "The number 5.",
+        "pronunciation": "SEEN-koh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Cinco son mis dedos.",
+          "translation": "Five are my fingers."
+        },
+        "tip": "'Cinco' rhymes with 'bingo'!"
+      },
+      {
+        "term": "seis",
+        "translation": "six",
+        "definition": "The number 6.",
+        "pronunciation": "SACE",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Seis es menos que siete.",
+          "translation": "Six is less than seven."
+        },
+        "tip": "Remember 'seis' has a soft 's' sound."
+      },
+      {
+        "term": "siete",
+        "translation": "seven",
+        "definition": "The number 7.",
+        "pronunciation": "SYE-teh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Siete días en una semana.",
+          "translation": "Seven days in a week."
+        },
+        "tip": "Think of 'siete' and 'seven' as both starting with 's'."
+      },
+      {
+        "term": "ocho",
+        "translation": "eight",
+        "definition": "The number 8.",
+        "pronunciation": "OH-choh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ocho es un número impar.",
+          "translation": "Eight is an even number."
+        },
+        "tip": "'Ocho' sounds like 'ocho' in Italian too!"
+      },
+      {
+        "term": "nueve",
+        "translation": "nine",
+        "definition": "The number 9.",
+        "pronunciation": "NWEH-beh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Nueve es un número interesante.",
+          "translation": "Nine is an interesting number."
+        },
+        "tip": "'Nueve' has a 'w' sound similar to 'new'."
+      },
+      {
+        "term": "diez",
+        "translation": "ten",
+        "definition": "The number 10.",
+        "pronunciation": "DYEZ",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Diez es un número redondo.",
+          "translation": "Ten is a round number."
+        },
+        "tip": "'Diez' rhymes with 'yes'."
+      },
+      {
+        "term": "once",
+        "translation": "eleven",
+        "definition": "The number 11.",
+        "pronunciation": "ON-seh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Hay once personas.",
+          "translation": "There are eleven people."
+        },
+        "tip": "'Once' sounds like 'once' in English."
+      },
+      {
+        "term": "doce",
+        "translation": "twelve",
+        "definition": "The number 12.",
+        "pronunciation": "DOH-seh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Doce meses en un año.",
+          "translation": "Twelve months in a year."
+        },
+        "tip": "'Doce' is similar to 'dozen'."
+      },
+      {
+        "term": "trece",
+        "translation": "thirteen",
+        "definition": "The number 13.",
+        "pronunciation": "TREH-seh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Trece es un número impar.",
+          "translation": "Thirteen is an odd number."
+        },
+        "tip": "'Trece' has a 'tr' sound like 'tree'."
+      },
+      {
+        "term": "catorce",
+        "translation": "fourteen",
+        "definition": "The number 14.",
+        "pronunciation": "kah-TOR-seh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Catorce es mi número favorito.",
+          "translation": "Fourteen is my favorite number."
+        },
+        "tip": "'Catorce' sounds like 'cat' and 'fourteen'."
+      },
+      {
+        "term": "quince",
+        "translation": "fifteen",
+        "definition": "The number 15.",
+        "pronunciation": "KEEN-seh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Quince es un número importante.",
+          "translation": "Fifteen is an important number."
+        },
+        "tip": "'Quince' sounds like 'quinceañera', a special birthday."
+      },
+      {
+        "term": "dieciséis",
+        "translation": "sixteen",
+        "definition": "The number 16.",
+        "pronunciation": "dye-see-SAYS",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Dieciséis es un buen número.",
+          "translation": "Sixteen is a good number."
+        },
+        "tip": "'Dieciséis' combines 'diez' (ten) and 'seis' (six)."
+      },
+      {
+        "term": "diecisiete",
+        "translation": "seventeen",
+        "definition": "The number 17.",
+        "pronunciation": "dye-see-SYEH-teh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Diecisiete es un número especial.",
+          "translation": "Seventeen is a special number."
+        },
+        "tip": "'Diecisiete' combines 'diez' (ten) and 'siete' (seven)."
+      },
+      {
+        "term": "dieciocho",
+        "translation": "eighteen",
+        "definition": "The number 18.",
+        "pronunciation": "dye-see-OH-choh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Dieciocho años es un buen momento.",
+          "translation": "Eighteen years is a good time."
+        },
+        "tip": "'Dieciocho' combines 'diez' (ten) and 'ocho' (eight)."
+      },
+      {
+        "term": "diecinueve",
+        "translation": "nineteen",
+        "definition": "The number 19.",
+        "pronunciation": "dye-see-NWEH-beh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Diecinueve es un número mayor.",
+          "translation": "Nineteen is a larger number."
+        },
+        "tip": "'Diecinueve' combines 'diez' (ten) and 'nueve' (nine)."
+      },
+      {
+        "term": "veinte",
+        "translation": "twenty",
+        "definition": "The number 20.",
+        "pronunciation": "BAYN-teh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Veinte es un número redondo.",
+          "translation": "Twenty is a round number."
+        },
+        "tip": "'Veinte' sounds like 'vein' in English."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Numbers in Spanish",
+        "explanation": "In Spanish, numbers are used in the same way as in English. You can use them to count, tell time, or indicate quantity. The numbers 0-20 are the foundation for all higher numbers. For example, twenty-one is 'veintiuno', which combines 'veinte' and 'uno'.",
+        "table": {
+          "headers": [
+            "Spanish",
+            "English"
+          ],
+          "rows": [
+            [
+              "uno",
+              "one"
+            ],
+            [
+              "dos",
+              "two"
+            ],
+            [
+              "tres",
+              "three"
+            ],
+            [
+              "cuatro",
+              "four"
+            ],
+            [
+              "cinco",
+              "five"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Tengo tres manzanas.",
+            "translation": "I have three apples.",
+            "breakdown": "Here, 'tres' (three) indicates the quantity of apples."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'uno' for '1' in counting can be confusing; remember to use 'un' before masculine nouns.",
+          "Confusing 'seis' (six) with 'siete' (seven); practice their pronunciation."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Counting at the Market",
+      "context": "A conversation between a customer and a vendor at a local market.",
+      "speakers": [
+        "Customer",
+        "Vendor"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, ¿cuánto cuesta esto?",
+          "translation": "Hello, how much does this cost?"
+        },
+        {
+          "speaker": 1,
+          "text": "Cuesta cinco pesos.",
+          "translation": "It costs five pesos."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y esto?",
+          "translation": "And this?"
+        },
+        {
+          "speaker": 1,
+          "text": "Esto cuesta tres pesos.",
+          "translation": "This costs three pesos."
+        },
+        {
+          "speaker": 0,
+          "text": "Perfecto. Quiero dos.",
+          "translation": "Perfect. I want two."
+        },
+        {
+          "speaker": 1,
+          "text": "Muy bien. Son diez pesos en total.",
+          "translation": "Very well. It's ten pesos in total."
+        },
+        {
+          "speaker": 0,
+          "text": "Aquí tienes diez pesos.",
+          "translation": "Here you have ten pesos."
+        },
+        {
+          "speaker": 1,
+          "text": "Gracias. ¡Que tengas un buen día!",
+          "translation": "Thank you. Have a nice day!"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Numbers in Latin American Culture",
+      "text": "In many Latin American countries, numbers play an important role in everyday life, from shopping to celebrations. For example, during birthdays, it's common to count the number of years the birthday person has lived.",
+      "funFact": "In Mexico, the number 13 is considered lucky, while in some cultures it is viewed as unlucky."
+    },
+    "summary": {
+      "keyPoints": [
+        "You learned numbers 0-20 in Spanish.",
+        "Numbers are used for counting and indicating quantity.",
+        "Practice the pronunciation of each number.",
+        "Use numbers in everyday conversations."
+      ],
+      "nextSteps": "Practice counting objects around you and use numbers in simple sentences."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'seven'?",
+      "content": {
+        "options": [
+          "seis",
+          "siete",
+          "ocho",
+          "nueve"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'siete', which means 'seven' in Spanish.",
+      "hint": "Think of the number that comes after six.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which number is 'twelve' in Spanish?",
+      "content": {
+        "options": [
+          "once",
+          "doce",
+          "trece",
+          "catorce"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Doce' is the Spanish word for 'twelve'.",
+      "hint": "It's one more than eleven.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Tengo ___ galletas.'",
+      "content": {
+        "sentence": "Tengo ___ galletas.",
+        "correctAnswer": "dos",
+        "acceptableAnswers": [
+          "uno",
+          "dos",
+          "tres"
+        ],
+        "options": [
+          "uno",
+          "dos",
+          "tres",
+          "cuatro"
+        ]
+      },
+      "explanation": "The correct answer is 'dos', which means 'two'.",
+      "hint": "Think of the number between one and three.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Hay ___ libros en la mesa.'",
+      "content": {
+        "sentence": "Hay ___ libros en la mesa.",
+        "correctAnswer": "cuatro",
+        "acceptableAnswers": [
+          "tres",
+          "cuatro",
+          "cinco"
+        ],
+        "options": [
+          "tres",
+          "cuatro",
+          "cinco",
+          "seis"
+        ]
+      },
+      "explanation": "The correct answer is 'cuatro', meaning 'four'.",
+      "hint": "It's the number after three.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'tengo cinco perros'",
+      "content": {
+        "words": [
+          "cinco",
+          "perros",
+          "tengo"
+        ],
+        "correctOrder": [
+          "tengo",
+          "cinco",
+          "perros"
+        ],
+        "translation": "I have five dogs."
+      },
+      "explanation": "The correct order is 'tengo cinco perros', which means 'I have five dogs'.",
+      "hint": "Start with the verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I have fourteen apples.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I have fourteen apples.'",
+        "correctAnswer": "Tengo catorce manzanas.",
+        "acceptableAnswers": [
+          "Yo tengo catorce manzanas."
+        ]
+      },
+      "explanation": "The correct translation is 'Tengo catorce manzanas'.",
+      "hint": "Remember to include the word for 'I have'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and select the correct number: 'tres'",
+      "content": {
+        "ttsText": "tres",
+        "ttsLang": "es-ES",
+        "options": [
+          "two",
+          "three",
+          "four",
+          "five"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "You heard 'tres', which is 'three' in English.",
+      "hint": "Listen closely to the pronunciation.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'I have eight friends.'",
+      "content": {
+        "targetText": "Tengo ocho amigos.",
+        "context": "Translate and say this sentence in Spanish.",
+        "acceptableVariants": [
+          "Yo tengo ocho amigos."
+        ]
+      },
+      "explanation": "The correct way to say it is 'Tengo ocho amigos'.",
+      "hint": "Start with the verb for 'I have'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

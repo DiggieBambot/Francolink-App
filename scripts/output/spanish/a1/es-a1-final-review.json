@@ -1,0 +1,347 @@
+{
+  "lesson": {
+    "title": "Final Review & Celebration",
+    "type": "REVIEW",
+    "slug": "es-a1-final-review"
+  },
+  "unit": "Travel & Weather",
+  "unitOrder": 8,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this final review lesson, you will consolidate your knowledge of vocabulary and grammar related to travel and weather in Spanish. You will also practice a dialogue that incorporates these themes.",
+      "culturalNote": "Spanish-speaking countries often have diverse climates, and travel varies greatly depending on the region. For example, beach vacations are popular in coastal areas."
+    },
+    "vocabulary": [
+      {
+        "term": "el viaje",
+        "translation": "the trip",
+        "definition": "a journey from one place to another",
+        "pronunciation": "el VEE-ah-he",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El viaje es muy divertido.",
+          "translation": "The trip is very fun."
+        },
+        "tip": "Think of 'viaje' as similar to 'voyage.'"
+      },
+      {
+        "term": "el clima",
+        "translation": "the weather",
+        "definition": "the state of the atmosphere",
+        "pronunciation": "el KLEE-ma",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El clima hoy es soleado.",
+          "translation": "The weather today is sunny."
+        },
+        "tip": "Remember 'clima' when discussing weather conditions."
+      },
+      {
+        "term": "la playa",
+        "translation": "the beach",
+        "definition": "a place by the sea for recreation",
+        "pronunciation": "la PLA-ya",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Vamos a la playa.",
+          "translation": "We are going to the beach."
+        },
+        "tip": "Picture yourself relaxing on the 'playa.'"
+      },
+      {
+        "term": "hacer sol",
+        "translation": "to be sunny",
+        "definition": "to have sunshine",
+        "pronunciation": "a-CER sol",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Hoy hace sol.",
+          "translation": "Today it is sunny."
+        },
+        "tip": "Think of 'hacer' as 'to make' or 'to do' in this context."
+      },
+      {
+        "term": "la maleta",
+        "translation": "the suitcase",
+        "definition": "a bag used for carrying clothes and personal items",
+        "pronunciation": "la ma-LE-ta",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi maleta es grande.",
+          "translation": "My suitcase is big."
+        },
+        "tip": "Remember 'maleta' for packing your things."
+      },
+      {
+        "term": "el hotel",
+        "translation": "the hotel",
+        "definition": "a place where people stay when traveling",
+        "pronunciation": "el o-TEL",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El hotel es cómodo.",
+          "translation": "The hotel is comfortable."
+        },
+        "tip": "Think of 'hotel' as similar in both languages."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'ser' and 'estar'",
+        "explanation": "In Spanish, there are two verbs that mean 'to be': 'ser' and 'estar'. Use 'ser' for permanent traits and 'estar' for temporary states or locations. For example, 'Soy estudiante' (I am a student) uses 'ser', and 'Estoy en la playa' (I am at the beach) uses 'estar'.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "ser",
+              "permanent characteristics"
+            ],
+            [
+              "estar",
+              "temporary states/locations"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ella es alta.",
+            "translation": "She is tall.",
+            "breakdown": "'Es' indicates a permanent characteristic."
+          },
+          {
+            "original": "Estamos en el hotel.",
+            "translation": "We are at the hotel.",
+            "breakdown": "'Estamos' indicates a temporary location."
+          }
+        ],
+        "commonMistakes": [
+          "'Soy cansado' should be 'Estoy cansado' (I am tired).",
+          "'Es médico' is correct, but 'Está médico' is not."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Travel Agency",
+      "context": "This conversation takes place at a travel agency while planning a vacation.",
+      "speakers": [
+        "María (customer)",
+        "Carlos (agent)"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, quiero planear un viaje.",
+          "translation": "Hello, I want to plan a trip."
+        },
+        {
+          "speaker": 1,
+          "text": "¡Hola! ¿A dónde quieres ir?",
+          "translation": "Hello! Where do you want to go?"
+        },
+        {
+          "speaker": 0,
+          "text": "Quiero ir a la playa.",
+          "translation": "I want to go to the beach."
+        },
+        {
+          "speaker": 1,
+          "text": "¿Qué clima prefieres?",
+          "translation": "What weather do you prefer?"
+        },
+        {
+          "speaker": 0,
+          "text": "Prefiero el clima soleado.",
+          "translation": "I prefer sunny weather."
+        },
+        {
+          "speaker": 1,
+          "text": "¿Te gustaría un hotel cerca de la playa?",
+          "translation": "Would you like a hotel near the beach?"
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, por favor. ¿Cuánto cuesta?",
+          "translation": "Yes, please. How much does it cost?"
+        },
+        {
+          "speaker": 1,
+          "text": "El viaje cuesta mil dólares.",
+          "translation": "The trip costs one thousand dollars."
+        },
+        {
+          "speaker": 0,
+          "text": "Está bien. Quiero hacer la reserva.",
+          "translation": "Okay. I want to make the reservation."
+        },
+        {
+          "speaker": 1,
+          "text": "Perfecto, vamos a reservar.",
+          "translation": "Perfect, let's make the reservation."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Travel in Latin America",
+      "text": "Traveling in Latin America offers many beautiful landscapes, from beaches to mountains. Each country has unique attractions, making it a diverse travel experience.",
+      "funFact": "Did you know that Mexico has the largest pyramid in the world? The Great Pyramid of Cholula is even larger than the Great Pyramid of Giza!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Review vocabulary related to travel and weather.",
+        "Understand the difference between 'ser' and 'estar'.",
+        "Practice a dialogue about planning a trip.",
+        "Learn cultural insights about travel in Spanish-speaking countries."
+      ],
+      "nextSteps": "Continue practicing vocabulary and grammar, and consider planning a real or imaginary trip to apply what you've learned!"
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'el viaje' in English?",
+      "content": {
+        "options": [
+          "The trip",
+          "The beach",
+          "The hotel"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El viaje' means 'the trip' in English.",
+      "hint": "Think about traveling.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase means 'it's sunny'?",
+      "content": {
+        "options": [
+          "hace sol",
+          "hace frío",
+          "está lloviendo"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Hace sol' translates to 'it's sunny'.",
+      "hint": "Look for the word 'sol'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Nosotros vamos a ___ (the beach).",
+      "content": {
+        "sentence": "Nosotros vamos a ___.",
+        "correctAnswer": "la playa",
+        "acceptableAnswers": [
+          "playa"
+        ],
+        "options": [
+          "la playa",
+          "el hotel",
+          "el viaje"
+        ]
+      },
+      "explanation": "The correct answer is 'la playa', which means 'the beach'.",
+      "hint": "Think about a place to relax by the water.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Yo tengo una ___ (suitcase).",
+      "content": {
+        "sentence": "Yo tengo una ___.",
+        "correctAnswer": "maleta",
+        "acceptableAnswers": [
+          "la maleta"
+        ],
+        "options": [
+          "mochila",
+          "maleta",
+          "cartera"
+        ]
+      },
+      "explanation": "'Maleta' means 'suitcase' in Spanish.",
+      "hint": "Use it to carry your clothes when you travel.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: (hotel, en, el, estamos)",
+      "content": {
+        "words": [
+          "en",
+          "el",
+          "hotel",
+          "estamos"
+        ],
+        "correctOrder": [
+          "estamos",
+          "en",
+          "el",
+          "hotel"
+        ],
+        "translation": "We are in the hotel."
+      },
+      "explanation": "The correct order makes a complete sentence in Spanish.",
+      "hint": "Start with the verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The weather is nice.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The weather is nice.'",
+        "correctAnswer": "El clima es agradable.",
+        "acceptableAnswers": [
+          "El clima está bien"
+        ]
+      },
+      "explanation": "'El clima es agradable' is the correct translation.",
+      "hint": "Think about how to describe the weather.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Vamos a la playa.'",
+      "content": {
+        "ttsText": "Vamos a la playa.",
+        "ttsLang": "es-ES",
+        "options": [
+          "We are going to the beach.",
+          "We are in the hotel.",
+          "It is sunny."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'We are going to the beach.'",
+      "hint": "Listen for the word 'playa'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the Spanish sentence: 'I have a suitcase.'",
+      "content": {
+        "targetText": "Tengo una maleta.",
+        "context": "Translate and say this sentence in Spanish.",
+        "acceptableVariants": [
+          "Tengo la maleta."
+        ]
+      },
+      "explanation": "You are practicing the verb 'tener' and the noun 'maleta'.",
+      "hint": "Focus on the verb at the beginning.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

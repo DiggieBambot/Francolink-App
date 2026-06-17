@@ -1,0 +1,389 @@
+{
+  "lesson": {
+    "title": "I Like It — Gustar",
+    "type": "GRAMMAR",
+    "slug": "es-a1-gustar"
+  },
+  "unit": "Food & Dining",
+  "unitOrder": 4,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to use the verb 'gustar' to express likes in Spanish, particularly related to food and dining. You will also explore some vocabulary related to common foods.",
+      "culturalNote": "In many Spanish-speaking countries, meals are a time for gathering with family and friends, and expressing likes and dislikes about food is very common."
+    },
+    "vocabulary": [
+      {
+        "term": "la comida",
+        "translation": "food",
+        "definition": "any substance that can be consumed",
+        "pronunciation": "lah koh-MEE-dah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me gusta la comida.",
+          "translation": "I like food."
+        },
+        "tip": "Remember that 'comida' is feminine, so use 'la'."
+      },
+      {
+        "term": "el arroz",
+        "translation": "rice",
+        "definition": "a common staple food",
+        "pronunciation": "el ah-ROTH",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me gusta el arroz.",
+          "translation": "I like rice."
+        },
+        "tip": "Use 'el' because 'arroz' is masculine."
+      },
+      {
+        "term": "la fruta",
+        "translation": "fruit",
+        "definition": "the sweet product of a plant",
+        "pronunciation": "lah FROO-tah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me gusta la fruta.",
+          "translation": "I like fruit."
+        },
+        "tip": "Remember that 'fruta' is feminine."
+      },
+      {
+        "term": "el pollo",
+        "translation": "chicken",
+        "definition": "a type of meat from a bird",
+        "pronunciation": "el POH-yoh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me gusta el pollo.",
+          "translation": "I like chicken."
+        },
+        "tip": "Use 'el' because 'pollo' is masculine."
+      },
+      {
+        "term": "la ensalada",
+        "translation": "salad",
+        "definition": "a dish made of mixed vegetables",
+        "pronunciation": "lah en-sah-LAH-dah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me gusta la ensalada.",
+          "translation": "I like salad."
+        },
+        "tip": "Remember 'ensalada' is feminine."
+      },
+      {
+        "term": "el postre",
+        "translation": "dessert",
+        "definition": "a sweet course served at the end of a meal",
+        "pronunciation": "el POHS-treh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me gusta el postre.",
+          "translation": "I like dessert."
+        },
+        "tip": "Use 'el' because 'postre' is masculine."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'gustar' (to like)",
+        "explanation": "'Gustar' is used to express likes and dislikes. In Spanish, it usually takes the form of 'me gusta' (I like) followed by a singular noun or 'me gustan' (I like) followed by plural nouns. Remember, 'gustar' literally means 'to be pleasing to'.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Conjugation"
+          ],
+          "rows": [
+            [
+              "yo (I)",
+              "gusto"
+            ],
+            [
+              "tú (you)",
+              "gustas"
+            ],
+            [
+              "él/ella (he/she)",
+              "gusta"
+            ],
+            [
+              "nosotros (we)",
+              "gustamos"
+            ],
+            [
+              "vosotros (you all)",
+              "gustáis"
+            ],
+            [
+              "ellos/ellas (they)",
+              "gustan"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Me gusta el pollo.",
+            "translation": "I like chicken.",
+            "breakdown": "'Me' indicates the subject (I), and 'gusta' is used because 'pollo' is singular."
+          },
+          {
+            "original": "Me gustan las frutas.",
+            "translation": "I like fruits.",
+            "breakdown": "'Me' indicates the subject (I), and 'gustan' is used because 'frutas' is plural."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Yo gusto' instead of 'Me gusta'.",
+          "Using 'gustar' without the correct subject pronoun."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Restaurant",
+      "context": "A conversation between two friends at a restaurant.",
+      "speakers": [
+        "Laura",
+        "Carlos"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Te gusta la comida aquí?",
+          "translation": "Do you like the food here?",
+          "note": "Laura is asking Carlos about the restaurant."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, me gusta mucho.",
+          "translation": "Yes, I like it a lot."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y qué te gusta comer?",
+          "translation": "And what do you like to eat?"
+        },
+        {
+          "speaker": 1,
+          "text": "Me gusta el pollo y la ensalada.",
+          "translation": "I like chicken and salad."
+        },
+        {
+          "speaker": 0,
+          "text": "A mí me gusta el arroz.",
+          "translation": "I like rice."
+        },
+        {
+          "speaker": 1,
+          "text": "¿Te gusta el postre?",
+          "translation": "Do you like dessert?"
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, me gusta el postre.",
+          "translation": "Yes, I like dessert."
+        },
+        {
+          "speaker": 1,
+          "text": "¡Perfecto! Vamos a pedirlo.",
+          "translation": "Perfect! Let's order it."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Dining in Latin America",
+      "text": "In many Latin American countries, dining is a social event where families and friends gather to enjoy food together. Meals can be long and relaxed, with multiple courses.",
+      "funFact": "In Mexico, it's common to have a dessert called 'flan', a creamy caramel custard, after meals."
+    },
+    "summary": {
+      "keyPoints": [
+        "You can use 'gustar' to express what you like.",
+        "Remember to match 'gustar' with the noun's number.",
+        "Practice using food vocabulary when ordering.",
+        "Dining is an important social occasion in Spanish-speaking cultures."
+      ],
+      "nextSteps": "Practice using 'gustar' with your favorite foods and try to create sentences about what you like."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'me gusta la fruta' mean?",
+      "content": {
+        "options": [
+          "I like the fruit",
+          "I eat the fruit",
+          "I have fruit"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The phrase 'me gusta la fruta' translates directly to 'I like the fruit'.",
+      "hint": "Focus on the verb 'gustar'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which food is 'el pollo'?",
+      "content": {
+        "options": [
+          "the rice",
+          "the chicken",
+          "the salad"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El pollo' means 'the chicken' in Spanish.",
+      "hint": "Think of what food you eat that is a bird.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'A mí ____ el arroz.'",
+      "content": {
+        "sentence": "A mí ___ el arroz.",
+        "correctAnswer": "me gusta",
+        "acceptableAnswers": [
+          "me encanta"
+        ],
+        "options": [
+          "me gusta",
+          "me encanta",
+          "no me gusta"
+        ]
+      },
+      "explanation": "The correct phrase 'me gusta' indicates that you like rice.",
+      "hint": "Remember to use 'me gusta' for liking something.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Me gusta ____ la ensalada.'",
+      "content": {
+        "sentence": "Me gusta ____ la ensalada.",
+        "correctAnswer": "comer",
+        "acceptableAnswers": [
+          "mucho",
+          "también"
+        ],
+        "options": [
+          "comer",
+          "beber",
+          "ver"
+        ]
+      },
+      "explanation": "The verb 'comer' (to eat) fits in the sentence to express liking salad.",
+      "hint": "Think about what you do with food.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to make a correct sentence: 'gusta postre me el'.",
+      "content": {
+        "words": [
+          "gusta",
+          "postre",
+          "me",
+          "el"
+        ],
+        "correctOrder": [
+          "me",
+          "gusta",
+          "el",
+          "postre"
+        ],
+        "translation": "I like the dessert."
+      },
+      "explanation": "The correct order forms the sentence 'me gusta el postre', meaning 'I like the dessert.'",
+      "hint": "Think about the subject and the verb placement.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I like the dessert.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I like the dessert.'",
+        "correctAnswer": "Me gusta el postre.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation directly reflects the structure of 'I like' in Spanish.",
+      "hint": "Remember the verb 'gustar' when talking about likes.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Me gusta el pollo.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I like the chicken.",
+          "I eat the chicken.",
+          "I have chicken."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence 'Me gusta el pollo' translates to 'I like the chicken.'",
+      "hint": "Listen carefully for the word 'gusta'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'I like fruit.'",
+      "content": {
+        "targetText": "Me gusta la fruta.",
+        "context": "Translate your preference for fruit into Spanish.",
+        "acceptableVariants": [
+          "Me gusta la fruta."
+        ]
+      },
+      "explanation": "Saying 'Me gusta la fruta.' expresses that you enjoy fruit in Spanish.",
+      "hint": "Start with 'Me gusta' for likes.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Nosotros ____ comer el arroz.'",
+      "content": {
+        "sentence": "Nosotros ____ comer el arroz.",
+        "correctAnswer": "gustamos",
+        "acceptableAnswers": [
+          "nos gusta"
+        ],
+        "options": [
+          "gustamos",
+          "gustan",
+          "nos gusta"
+        ]
+      },
+      "explanation": "The phrase 'nos gusta' means 'we like', which fits the sentence.",
+      "hint": "Remember the subject pronoun.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is 'la comida'?",
+      "content": {
+        "options": [
+          "the meal",
+          "the dessert",
+          "the drink"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La comida' translates to 'the meal' in English.",
+      "hint": "Think about what you eat during a day.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,384 @@
+{
+  "lesson": {
+    "title": "The Weather (El Tiempo)",
+    "type": "VOCABULARY",
+    "slug": "es-a1-weather"
+  },
+  "unit": "Travel & Weather",
+  "unitOrder": 8,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn basic vocabulary related to the weather in Spanish. You will also practice simple sentences to describe different weather conditions.",
+      "culturalNote": "In many Latin American countries, the weather plays a significant role in daily life, with different regions experiencing diverse climates."
+    },
+    "vocabulary": [
+      {
+        "term": "el sol",
+        "translation": "the sun",
+        "definition": "The star at the center of our solar system that provides light and warmth.",
+        "pronunciation": "el sol",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Hoy hace sol.",
+          "translation": "Today it is sunny."
+        },
+        "tip": "Remember that 'sol' means 'sun' in Spanish, like in 'solar.'"
+      },
+      {
+        "term": "la lluvia",
+        "translation": "the rain",
+        "definition": "Water that falls from the clouds in drops.",
+        "pronunciation": "la hoo-vee-ah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me gusta la lluvia.",
+          "translation": "I like the rain."
+        },
+        "tip": "Think of the word 'liquid' to remember 'lluvia' means 'rain'."
+      },
+      {
+        "term": "el viento",
+        "translation": "the wind",
+        "definition": "Air that moves outside.",
+        "pronunciation": "el vyen-toh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El viento es fuerte.",
+          "translation": "The wind is strong."
+        },
+        "tip": "Associate 'viento' with 'vent', where air flows."
+      },
+      {
+        "term": "la nieve",
+        "translation": "the snow",
+        "definition": "Frozen water crystals that fall from the sky.",
+        "pronunciation": "la nyeh-veh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La nieve es blanca.",
+          "translation": "The snow is white."
+        },
+        "tip": "Both 'nieve' and 'white' start with 'n' for snow's color."
+      },
+      {
+        "term": "hace frío",
+        "translation": "it's cold",
+        "definition": "A phrase to indicate low temperatures.",
+        "pronunciation": "ah-seh free-oh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Hoy hace frío.",
+          "translation": "Today it is cold."
+        },
+        "tip": "Remember 'hace' means 'it makes' or 'it is' to describe weather."
+      },
+      {
+        "term": "hace calor",
+        "translation": "it's hot",
+        "definition": "A phrase to indicate high temperatures.",
+        "pronunciation": "ah-seh kah-lor",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "En verano hace calor.",
+          "translation": "In summer it is hot."
+        },
+        "tip": "Think of 'calor' as related to 'calorie', which indicates heat."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Describing Weather in Spanish",
+        "explanation": "In Spanish, we often use the verb 'hacer' to describe the weather. The structure is 'hace + adjective'. For example, 'hace frío' means 'it's cold'. This is different from English, where we use 'it is'.",
+        "table": {
+          "headers": [
+            "Spanish",
+            "English"
+          ],
+          "rows": [
+            [
+              "hace frío",
+              "it's cold"
+            ],
+            [
+              "hace calor",
+              "it's hot"
+            ],
+            [
+              "hace sol",
+              "it's sunny"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Hoy hace sol.",
+            "translation": "Today it is sunny.",
+            "breakdown": "'Hoy' means 'today', 'hace' is used for weather, and 'sol' means 'sun'."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'es' instead of 'hace'. ('Es frío' is incorrect, use 'hace frío')",
+          "Forgetting to use 'hace' before the weather adjective."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking About the Weather",
+      "context": "Two friends are chatting at a coffee shop.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Cómo está el tiempo hoy?",
+          "translation": "How is the weather today?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hace frío y está nublado.",
+          "translation": "It is cold and cloudy.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Te gusta la lluvia?",
+          "translation": "Do you like the rain?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "No, no me gusta la lluvia.",
+          "translation": "No, I don't like the rain.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué tiempo prefieres?",
+          "translation": "What weather do you prefer?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Prefiero el sol y el calor.",
+          "translation": "I prefer the sun and the heat.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "A mí también. ¿Vamos al parque?",
+          "translation": "Me too. Shall we go to the park?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, buena idea.",
+          "translation": "Yes, good idea.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Weather and Festivals in Latin America",
+      "text": "In many Latin American countries, festivals are often planned around the weather. For example, during the rainy season, people may celebrate with colorful parades.",
+      "funFact": "Did you know that in some regions, there are festivals specifically to celebrate the arrival of the first rain?"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to weather.",
+        "Practiced using 'hace' for weather descriptions.",
+        "Engaged in a dialogue about personal weather preferences.",
+        "Gained cultural insights about weather in Latin America."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and try to describe the weather in your area."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'el sol' mean in English?",
+      "content": {
+        "options": [
+          "the moon",
+          "the sun",
+          "the rain",
+          "the wind"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El sol' translates to 'the sun' in English.",
+      "hint": "Think of the bright ball in the sky.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which option means 'it is cold' in Spanish?",
+      "content": {
+        "options": [
+          "hace calor",
+          "hace frío",
+          "la lluvia",
+          "el viento"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Hace frío' means 'it is cold'.",
+      "hint": "It's the opposite of hot.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Hoy ___ lluvia.'",
+      "content": {
+        "sentence": "Hoy ___ lluvia.",
+        "correctAnswer": "hay",
+        "acceptableAnswers": [
+          "hay"
+        ],
+        "options": [
+          "hace",
+          "hay",
+          "tengo"
+        ]
+      },
+      "explanation": "The correct word is 'hay', meaning 'there is'.",
+      "hint": "Think about indicating presence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'En invierno, hace ___.'",
+      "content": {
+        "sentence": "En invierno, hace ___.",
+        "correctAnswer": "frío",
+        "acceptableAnswers": [
+          "frío"
+        ],
+        "options": [
+          "calor",
+          "frío",
+          "lluvia"
+        ]
+      },
+      "explanation": "In winter, it is usually cold, hence 'hace frío'.",
+      "hint": "What do we associate with winter?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'nieve hace la en invierno'.",
+      "content": {
+        "words": [
+          "nieve",
+          "hace",
+          "la",
+          "en",
+          "invierno"
+        ],
+        "correctOrder": [
+          "hace",
+          "nieve",
+          "la",
+          "en",
+          "invierno"
+        ],
+        "translation": "It snows in winter."
+      },
+      "explanation": "The correct order describes the weather condition in winter.",
+      "hint": "Start with the verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'It is hot.'",
+      "content": {
+        "correctAnswer": "Hace calor.",
+        "acceptableAnswers": [
+          "Hace calor"
+        ]
+      },
+      "explanation": "The phrase 'It is hot' translates directly to 'Hace calor'.",
+      "hint": "Remember the phrase structure.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'El viento sopla.'",
+      "content": {
+        "ttsText": "El viento sopla.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The wind blows.",
+          "It is sunny.",
+          "It snows."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'The wind blows.'",
+      "hint": "Focus on the action described.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'It is raining.'",
+      "content": {
+        "targetText": "Está lloviendo.",
+        "context": "You are describing the weather.",
+        "acceptableVariants": [
+          "Está lloviendo."
+        ]
+      },
+      "explanation": "The correct phrase for 'It is raining' is 'Está lloviendo'.",
+      "hint": "Think about how you would describe rain.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la nieve' mean in English?",
+      "content": {
+        "options": [
+          "the rain",
+          "the snow",
+          "the sun",
+          "the cold"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'La nieve' translates to 'the snow'.",
+      "hint": "Think of what falls from the sky in winter.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Cuando hay viento, hace ___.'",
+      "content": {
+        "sentence": "Cuando hay viento, hace ___.",
+        "correctAnswer": "frío",
+        "acceptableAnswers": [
+          "frío"
+        ],
+        "options": [
+          "calor",
+          "frío",
+          "nieve"
+        ]
+      },
+      "explanation": "Wind often makes it feel colder, hence 'hace frío'.",
+      "hint": "Consider how wind affects temperature.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

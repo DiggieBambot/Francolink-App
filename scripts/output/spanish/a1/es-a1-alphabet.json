@@ -1,0 +1,447 @@
+{
+  "lesson": {
+    "title": "The Spanish Alphabet & Sounds",
+    "type": "VOCABULARY",
+    "slug": "es-a1-alphabet"
+  },
+  "unit": "First Words & Greetings",
+  "unitOrder": 1,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn the Spanish alphabet and the sounds of each letter. Understanding these basics will help you pronounce Spanish words correctly and introduce yourself in conversations.",
+      "culturalNote": "Spanish is spoken in many countries, each with its own accents and dialects. Learning the alphabet is crucial for reading and writing in Spanish."
+    },
+    "vocabulary": [
+      {
+        "term": "el alfabeto",
+        "translation": "the alphabet",
+        "definition": "The set of letters in Spanish.",
+        "pronunciation": "el al-fa-be-to",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El alfabeto tiene veintiocho letras.",
+          "translation": "The alphabet has twenty-eight letters."
+        },
+        "tip": "Remember that 'alfabeto' is similar to 'alphabet' in English."
+      },
+      {
+        "term": "la letra",
+        "translation": "the letter",
+        "definition": "A single character in the alphabet.",
+        "pronunciation": "la le-tra",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La letra A es la primera letra del alfabeto.",
+          "translation": "The letter A is the first letter of the alphabet."
+        },
+        "tip": "Think of 'letra' as 'letter' in English."
+      },
+      {
+        "term": "el sonido",
+        "translation": "the sound",
+        "definition": "A noise made by a letter or group of letters.",
+        "pronunciation": "el so-ni-do",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El sonido de la letra C puede ser suave o fuerte.",
+          "translation": "The sound of the letter C can be soft or hard."
+        },
+        "tip": "Associate 'sonido' with 'sound' to remember its meaning."
+      },
+      {
+        "term": "la vocal",
+        "translation": "the vowel",
+        "definition": "A letter that represents a sound without a consonant.",
+        "pronunciation": "la vo-cal",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Las vocales son A, E, I, O, U.",
+          "translation": "The vowels are A, E, I, O, U."
+        },
+        "tip": "Vowels are essential in forming words; remember the 5 vowels!"
+      },
+      {
+        "term": "el saludo",
+        "translation": "the greeting",
+        "definition": "A word or gesture to say hello.",
+        "pronunciation": "el sa-lu-do",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Un saludo común es 'Hola'.",
+          "translation": "A common greeting is 'Hello'."
+        },
+        "tip": "'Saludo' sounds like 'salute,' which is also a form of greeting."
+      },
+      {
+        "term": "¿Cómo te llamas?",
+        "translation": "What is your name?",
+        "definition": "A common way to ask someone their name.",
+        "pronunciation": "¿Co-mo te ya-mas?",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "¿Cómo te llamas? Me llamo Carlos.",
+          "translation": "What is your name? My name is Carlos."
+        },
+        "tip": "Use this phrase to introduce yourself to others."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Spanish Alphabet",
+        "explanation": "The Spanish alphabet consists of 28 letters. Each letter has a name and a sound. Some letters, like 'C' and 'G', can have different sounds depending on the letters that follow them.",
+        "table": {
+          "headers": [
+            "Letter",
+            "Name"
+          ],
+          "rows": [
+            [
+              "A",
+              "a"
+            ],
+            [
+              "B",
+              "be"
+            ],
+            [
+              "C",
+              "ce"
+            ],
+            [
+              "D",
+              "de"
+            ],
+            [
+              "E",
+              "e"
+            ],
+            [
+              "F",
+              "efe"
+            ],
+            [
+              "G",
+              "ge"
+            ],
+            [
+              "H",
+              "hache"
+            ],
+            [
+              "I",
+              "i"
+            ],
+            [
+              "J",
+              "jota"
+            ],
+            [
+              "K",
+              "ka"
+            ],
+            [
+              "L",
+              "ele"
+            ],
+            [
+              "M",
+              "eme"
+            ],
+            [
+              "N",
+              "ene"
+            ],
+            [
+              "Ñ",
+              "eñe"
+            ],
+            [
+              "O",
+              "o"
+            ],
+            [
+              "P",
+              "pe"
+            ],
+            [
+              "Q",
+              "cu"
+            ],
+            [
+              "R",
+              "ere"
+            ],
+            [
+              "S",
+              "ese"
+            ],
+            [
+              "T",
+              "te"
+            ],
+            [
+              "U",
+              "u"
+            ],
+            [
+              "V",
+              "uve"
+            ],
+            [
+              "W",
+              "uve doble"
+            ],
+            [
+              "X",
+              "equis"
+            ],
+            [
+              "Y",
+              "ye"
+            ],
+            [
+              "Z",
+              "zeta"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "La letra G tiene dos sonidos.",
+            "translation": "The letter G has two sounds.",
+            "breakdown": "In Spanish, the letter G can sound like 'g' in 'go' or 'h' in 'hello' depending on the following letter."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'b' and 'v' sounds. Remember they are pronounced similarly in many Spanish dialects.",
+          "Not pronouncing the 'h' in words. 'H' is silent in Spanish."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Introducing Yourself",
+      "context": "A casual meeting at a language exchange event.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, ¿cómo te llamas?",
+          "translation": "Hello, what is your name?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, me llamo Luis. ¿Y tú?",
+          "translation": "Hello, my name is Luis. And you?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Me llamo Ana. Mucho gusto.",
+          "translation": "My name is Ana. Nice to meet you.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Mucho gusto, Ana. ¿De dónde eres?",
+          "translation": "Nice to meet you, Ana. Where are you from?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Soy de México. ¿Y tú?",
+          "translation": "I am from Mexico. And you?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Soy de Argentina.",
+          "translation": "I am from Argentina.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué bien! ¿Te gusta aprender español?",
+          "translation": "How nice! Do you like learning Spanish?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, me gusta mucho.",
+          "translation": "Yes, I like it a lot.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Diversity of Spanish-speaking Countries",
+      "text": "Spanish is the official language in 21 countries, each with distinct accents and dialects. This diversity enriches the language and makes learning it exciting.",
+      "funFact": "In Spain, the letter 'ñ' is a unique letter not found in the English alphabet, adding to the richness of the language."
+    },
+    "summary": {
+      "keyPoints": [
+        "The Spanish alphabet has 28 letters.",
+        "Each letter has its own sound.",
+        "Common greetings are essential for conversations.",
+        "Practice introducing yourself using simple phrases."
+      ],
+      "nextSteps": "Practice the Spanish alphabet and try to introduce yourself to someone in Spanish."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'alphabet'?",
+      "content": {
+        "options": [
+          "el alfabeto",
+          "la letra",
+          "el sonido",
+          "la vocal"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'el alfabeto', which means 'alphabet' in Spanish.",
+      "hint": "Think of the letters in a language.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is a greeting in Spanish?",
+      "content": {
+        "options": [
+          "¿Cómo te llamas?",
+          "la letra",
+          "la vocal",
+          "el sonido"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The phrase '¿Cómo te llamas?' means 'What is your name?' and is used as a greeting.",
+      "hint": "It's a common way to ask someone's name.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Yo ___ español.'",
+      "content": {
+        "sentence": "Yo ___ español.",
+        "correctAnswer": "hablo",
+        "acceptableAnswers": [
+          "hablo",
+          "hablas"
+        ],
+        "options": [
+          "hablo",
+          "escucho",
+          "leo",
+          "escribo"
+        ]
+      },
+      "explanation": "The correct answer is 'hablo', which means 'I speak'.",
+      "hint": "Think of how you introduce your language skills.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'La ___ es importante.'",
+      "content": {
+        "sentence": "La ___ es importante.",
+        "correctAnswer": "letra",
+        "acceptableAnswers": [
+          "letra"
+        ],
+        "options": [
+          "vocal",
+          "letra",
+          "sonido",
+          "saludo"
+        ]
+      },
+      "explanation": "The correct answer is 'letra', which means 'letter'.",
+      "hint": "It's a part of the alphabet.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'llamas / ¿Cómo / te / ?'",
+      "content": {
+        "words": [
+          "llamas",
+          "¿Cómo",
+          "te",
+          "?"
+        ],
+        "correctOrder": [
+          "¿Cómo",
+          "te",
+          "llamas",
+          "?"
+        ],
+        "translation": "How do you call yourself?"
+      },
+      "explanation": "The correct order forms the question '¿Cómo te llamas?', which means 'What is your name?'.",
+      "hint": "It's a common way to ask for someone's name.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I have a letter.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I have a letter.'",
+        "correctAnswer": "Tengo una letra.",
+        "acceptableAnswers": [
+          "Tengo una letra."
+        ]
+      },
+      "explanation": "The correct answer is 'Tengo una letra.', meaning 'I have a letter.'",
+      "hint": "Think about possession and the word for letter.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "¿Cómo te llamas?",
+        "ttsLang": "es-ES",
+        "options": [
+          "How are you?",
+          "What is your name?",
+          "Where are you from?",
+          "What time is it?"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The phrase '¿Cómo te llamas?' translates to 'What is your name?'.",
+      "hint": "It's a common introduction question.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say 'Hello, my name is Maria.' in Spanish.",
+      "content": {
+        "targetText": "Hola, me llamo María.",
+        "context": "Introduce yourself to someone.",
+        "acceptableVariants": [
+          "Hola, soy María.",
+          "Hola, mi nombre es María."
+        ]
+      },
+      "explanation": "Both 'Hola, me llamo María.' and 'Hola, soy María.' are correct ways to introduce yourself.",
+      "hint": "Start with 'Hola' for greeting.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

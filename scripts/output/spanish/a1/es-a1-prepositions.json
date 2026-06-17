@@ -1,0 +1,357 @@
+{
+  "lesson": {
+    "title": "Prepositions of Place",
+    "type": "GRAMMAR",
+    "slug": "es-a1-prepositions"
+  },
+  "unit": "Home & Everyday Objects",
+  "unitOrder": 6,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about prepositions of place in Spanish, which are essential for describing where things are in your home. You will also practice using these prepositions in simple sentences.",
+      "culturalNote": "In many Spanish-speaking homes, it is common to have a 'salón' (living room) that serves as the main gathering place for family and friends."
+    },
+    "vocabulary": [
+      {
+        "term": "el sofá",
+        "translation": "the sofa",
+        "definition": "A piece of furniture for sitting.",
+        "pronunciation": "el soh-fah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El sofá está en la sala.",
+          "translation": "The sofa is in the living room."
+        },
+        "tip": "Remember that 'sofá' has an accent on the 'a'!"
+      },
+      {
+        "term": "la mesa",
+        "translation": "the table",
+        "definition": "A flat surface supported by legs, used for eating or working.",
+        "pronunciation": "lah meh-sah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La mesa está detrás del sofá.",
+          "translation": "The table is behind the sofa."
+        },
+        "tip": "'Mesa' is feminine, so use 'la'!"
+      },
+      {
+        "term": "la silla",
+        "translation": "the chair",
+        "definition": "A piece of furniture for sitting, usually with four legs.",
+        "pronunciation": "lah see-yah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La silla está al lado de la mesa.",
+          "translation": "The chair is next to the table."
+        },
+        "tip": "Think of 'silla' as a seat; it helps to remember its function."
+      },
+      {
+        "term": "el dormitorio",
+        "translation": "the bedroom",
+        "definition": "A room used for sleeping.",
+        "pronunciation": "el dor-mi-to-rio",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El dormitorio está arriba.",
+          "translation": "The bedroom is upstairs."
+        },
+        "tip": "'Dormitorio' comes from 'dormir', which means to sleep."
+      },
+      {
+        "term": "la cocina",
+        "translation": "the kitchen",
+        "definition": "The room where food is prepared.",
+        "pronunciation": "lah koh-see-nah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La cocina está a la derecha.",
+          "translation": "The kitchen is to the right."
+        },
+        "tip": "Remember that 'cocina' sounds like 'cook'!"
+      },
+      {
+        "term": "debajo de",
+        "translation": "under",
+        "definition": "A preposition used to indicate a position lower than something else.",
+        "pronunciation": "deh-bah-ho deh",
+        "partOfSpeech": "preposition",
+        "exampleSentence": {
+          "original": "El gato está debajo de la mesa.",
+          "translation": "The cat is under the table."
+        },
+        "tip": "Think of 'debajo' as 'down below' to remember it."
+      },
+      {
+        "term": "encima de",
+        "translation": "on top of",
+        "definition": "A preposition used to indicate a position above something else.",
+        "pronunciation": "en-see-ma deh",
+        "partOfSpeech": "preposition",
+        "exampleSentence": {
+          "original": "El libro está encima de la mesa.",
+          "translation": "The book is on top of the table."
+        },
+        "tip": "Visualize something being placed 'on top' to remember 'encima'."
+      },
+      {
+        "term": "al lado de",
+        "translation": "next to",
+        "definition": "A preposition used to indicate a position beside something else.",
+        "pronunciation": "ahl lah-do deh",
+        "partOfSpeech": "preposition",
+        "exampleSentence": {
+          "original": "La silla está al lado de la mesa.",
+          "translation": "The chair is next to the table."
+        },
+        "tip": "Think of 'lado' as 'side' to help you remember."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Prepositions of Place",
+        "explanation": "In Spanish, prepositions of place describe where something is. Common prepositions include 'en' (in), 'debajo de' (under), and 'encima de' (on top of). These words help provide context for everyday objects in your home.",
+        "table": {
+          "headers": [
+            "Spanish Preposition",
+            "English Translation"
+          ],
+          "rows": [
+            [
+              "en",
+              "in"
+            ],
+            [
+              "debajo de",
+              "under"
+            ],
+            [
+              "encima de",
+              "on top of"
+            ],
+            [
+              "al lado de",
+              "next to"
+            ],
+            [
+              "detrás de",
+              "behind"
+            ],
+            [
+              "delante de",
+              "in front of"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "El perro está delante de la casa.",
+            "translation": "The dog is in front of the house.",
+            "breakdown": "Here, 'delante de' indicates the position of the dog relative to the house."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'en' for 'on top of' – use 'encima de' instead.",
+          "Confusing 'debajo de' and 'delante de' – 'debajo' means 'under' and 'delante' means 'in front of'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At Home",
+      "context": "A conversation in a living room between two friends.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Dónde está el sofá?",
+          "translation": "Where is the sofa?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "El sofá está en la sala.",
+          "translation": "The sofa is in the living room.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y la mesa?",
+          "translation": "And the table?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "La mesa está al lado del sofá.",
+          "translation": "The table is next to the sofa.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Dónde está el gato?",
+          "translation": "Where is the cat?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "El gato está debajo de la mesa.",
+          "translation": "The cat is under the table.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y la cocina?",
+          "translation": "And the kitchen?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "La cocina está a la derecha.",
+          "translation": "The kitchen is to the right.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Family Gatherings in Spanish Culture",
+      "text": "In many Spanish-speaking countries, family gatherings are very important. Homes are often designed with large living rooms to accommodate family and friends. Meals together are a significant part of these gatherings.",
+      "funFact": "In Mexico, it is common to have family dinners that can last several hours, with lots of conversations and laughter."
+    },
+    "summary": {
+      "keyPoints": [
+        "Prepositions of place help describe the location of objects.",
+        "Common prepositions include 'en', 'debajo de', and 'encima de'.",
+        "Practice using these prepositions in sentences.",
+        "Remember the gender of nouns when using articles."
+      ],
+      "nextSteps": "Practice describing objects in your home using the prepositions learned. Try to create sentences about where things are!"
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Where is the sofa?",
+      "content": {
+        "options": [
+          "El sofá está debajo de la mesa.",
+          "El sofá está en el dormitorio.",
+          "El sofá está encima de la silla."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer describes the sofa's position relative to the table.",
+      "hint": "Look for the phrase that indicates position.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which preposition means 'next to'?",
+      "content": {
+        "options": [
+          "debajo de",
+          "encima de",
+          "al lado de"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Al lado de' means 'next to' in Spanish.",
+      "hint": "Think about where you would place something next to another object.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: El gato está _____ de la silla.",
+      "content": {
+        "sentence": "El gato está ___ de la silla.",
+        "correctAnswer": "debajo",
+        "acceptableAnswers": [
+          "debajo",
+          "encima"
+        ],
+        "options": [
+          "debajo",
+          "encima"
+        ]
+      },
+      "explanation": "The cat is underneath the chair, which is indicated by 'debajo'.",
+      "hint": "Think about where the cat could be in relation to the chair.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: La mesa está _____ de la cocina.",
+      "content": {
+        "sentence": "La mesa está ___ de la cocina.",
+        "correctAnswer": "en",
+        "acceptableAnswers": [
+          "en"
+        ],
+        "options": [
+          "en",
+          "debajo",
+          "al lado"
+        ]
+      },
+      "explanation": "The correct preposition here is 'en', meaning 'in' the kitchen.",
+      "hint": "Think about where the table is located.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The chair is in the bedroom.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The chair is in the bedroom.'",
+        "correctAnswer": "La silla está en el dormitorio.",
+        "acceptableAnswers": [
+          "La silla está en el dormitorio"
+        ]
+      },
+      "explanation": "The translation correctly conveys the location of the chair.",
+      "hint": "Remember the words for 'chair' and 'bedroom'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct position.",
+      "content": {
+        "ttsText": "El libro está encima de la mesa.",
+        "ttsLang": "es-ES",
+        "options": [
+          "El libro está debajo de la mesa.",
+          "El libro está encima de la mesa.",
+          "El libro está al lado de la mesa."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The spoken sentence indicates that the book is on top of the table.",
+      "hint": "Listen for the position word.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'The kitchen is next to the bedroom.'",
+      "content": {
+        "targetText": "La cocina está al lado del dormitorio.",
+        "context": "Translate and say this sentence.",
+        "acceptableVariants": [
+          "La cocina está al lado del dormitorio."
+        ]
+      },
+      "explanation": "The sentence correctly describes the location of the kitchen relative to the bedroom.",
+      "hint": "Use the correct preposition for 'next to'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

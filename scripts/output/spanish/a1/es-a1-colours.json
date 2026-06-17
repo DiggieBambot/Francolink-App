@@ -1,0 +1,357 @@
+{
+  "lesson": {
+    "title": "Colours & Everyday Objects",
+    "type": "VOCABULARY",
+    "slug": "es-a1-colours"
+  },
+  "unit": "Home & Everyday Objects",
+  "unitOrder": 6,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to colors and everyday objects found at home. You will also practice simple sentences to describe these objects in Spanish.",
+      "culturalNote": "In many Spanish-speaking countries, the color of a home can be very vibrant, reflecting local culture and traditions."
+    },
+    "vocabulary": [
+      {
+        "term": "el libro",
+        "translation": "the book",
+        "definition": "A collection of written or printed pages.",
+        "pronunciation": "el LEE-bro",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El libro es azul.",
+          "translation": "The book is blue."
+        },
+        "tip": "Remember, 'el' is used for masculine nouns."
+      },
+      {
+        "term": "la mesa",
+        "translation": "the table",
+        "definition": "A piece of furniture with a flat top and one or more legs.",
+        "pronunciation": "la MEH-sah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La mesa es blanca.",
+          "translation": "The table is white."
+        },
+        "tip": "Use 'la' for feminine nouns like 'mesa'."
+      },
+      {
+        "term": "la silla",
+        "translation": "the chair",
+        "definition": "A seat typically having four legs and a back.",
+        "pronunciation": "la SEE-yah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La silla es roja.",
+          "translation": "The chair is red."
+        },
+        "tip": "Remember, 'silla' is feminine."
+      },
+      {
+        "term": "el sofá",
+        "translation": "the sofa",
+        "definition": "A comfortable seat for several people.",
+        "pronunciation": "el soh-FAH",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El sofá es verde.",
+          "translation": "The sofa is green."
+        },
+        "tip": "Note that 'sofá' is masculine."
+      },
+      {
+        "term": "la lámpara",
+        "translation": "the lamp",
+        "definition": "A device that provides light.",
+        "pronunciation": "la LAM-pah-rah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La lámpara es amarilla.",
+          "translation": "The lamp is yellow."
+        },
+        "tip": "Lámpara is feminine; use 'la'."
+      },
+      {
+        "term": "el color",
+        "translation": "the color",
+        "definition": "The property of an object that gives it a particular appearance.",
+        "pronunciation": "el koh-LOR",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El color es azul.",
+          "translation": "The color is blue."
+        },
+        "tip": "Use 'el' as 'color' is masculine."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'ser' to Describe Objects",
+        "explanation": "In Spanish, to describe what something is like, we use the verb 'ser'. For example, 'El libro es azul' means 'The book is blue'. This is how you indicate color and identity.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Conjugation of 'ser'"
+          ],
+          "rows": [
+            [
+              "Yo (I)",
+              "soy"
+            ],
+            [
+              "Tú (You)",
+              "eres"
+            ],
+            [
+              "Él/Ella (He/She)",
+              "es"
+            ],
+            [
+              "Nosotros (We)",
+              "somos"
+            ],
+            [
+              "Ellos (They)",
+              "son"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "La silla es roja.",
+            "translation": "The chair is red.",
+            "breakdown": "Here, 'la silla' is the subject, and 'es' links it to the color 'roja'."
+          }
+        ],
+        "commonMistakes": [
+          "'El libro son azul' should be 'El libro es azul'.",
+          "'La mesa es blancas' should be 'La mesa es blanca'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At Home",
+      "context": "A conversation between two friends in a living room.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué color es el sofá?",
+          "translation": "What color is the sofa?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "El sofá es verde.",
+          "translation": "The sofa is green.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y la mesa?",
+          "translation": "And the table?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "La mesa es blanca.",
+          "translation": "The table is white.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Dónde está el libro?",
+          "translation": "Where is the book?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "El libro está en la mesa.",
+          "translation": "The book is on the table.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué color es el libro?",
+          "translation": "What color is the book?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "El libro es azul.",
+          "translation": "The book is blue.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Colorful Homes",
+      "text": "In many Latin American countries, homes are often painted in bright colors. This tradition brings vibrancy and life to neighborhoods and reflects cultural heritage.",
+      "funFact": "In Mexico, there are towns like Guanajuato known for their colorful buildings and streets."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary for colors and everyday objects.",
+        "Practiced using 'ser' to describe objects.",
+        "Engaged in a dialogue about colors and objects at home.",
+        "Explored cultural aspects of colors in Spanish-speaking countries."
+      ],
+      "nextSteps": "Practice using these words in sentences and try to describe objects around you in Spanish."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'la silla' in English?",
+      "content": {
+        "options": [
+          "the chair",
+          "the table",
+          "the lamp"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "La silla translates to 'the chair' in English.",
+      "hint": "Think of where you sit.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'the sofa'?",
+      "content": {
+        "options": [
+          "el libro",
+          "la lámpara",
+          "el sofá"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "El sofá translates to 'the sofa' in English.",
+      "hint": "It's a piece of furniture you relax on.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'La ___ es roja.'",
+      "content": {
+        "sentence": "La ___ es roja.",
+        "correctAnswer": "mesa",
+        "acceptableAnswers": [
+          "mesa",
+          "lámpara"
+        ],
+        "options": [
+          "mesa",
+          "silla",
+          "sofá",
+          "lámpara"
+        ]
+      },
+      "explanation": "The correct answer is 'mesa', meaning 'table' in English.",
+      "hint": "Think of a flat surface in a dining room.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'El libro es ___.'",
+      "content": {
+        "sentence": "El libro es ___.",
+        "correctAnswer": "azul",
+        "acceptableAnswers": [
+          "azul",
+          "rojo",
+          "verde"
+        ],
+        "options": [
+          "azul",
+          "rojo",
+          "verde",
+          "negro"
+        ]
+      },
+      "explanation": "The answer refers to the color of the book.",
+      "hint": "It's a common color for many objects.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'lámpara la color es'.",
+      "content": {
+        "words": [
+          "lámpara",
+          "la",
+          "color",
+          "es"
+        ],
+        "correctOrder": [
+          "la",
+          "lámpara",
+          "es",
+          "color"
+        ],
+        "translation": "The lamp is color."
+      },
+      "explanation": "The correct order forms a meaningful sentence in Spanish.",
+      "hint": "Start with the article.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The book is green.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The book is green.'",
+        "correctAnswer": "El libro es verde.",
+        "acceptableAnswers": [
+          "El libro es verde"
+        ]
+      },
+      "explanation": "The translation correctly states the color of the book.",
+      "hint": "Remember the structure: 'El libro es [color]'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'la silla' ",
+      "content": {
+        "ttsText": "la silla",
+        "ttsLang": "es-ES",
+        "options": [
+          "the chair",
+          "the table",
+          "the lamp"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "You heard 'la silla', which means 'the chair'.",
+      "hint": "Focus on the word that means a place to sit.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'The lamp is yellow.'",
+      "content": {
+        "targetText": "La lámpara es amarilla.",
+        "context": "Translate and pronounce the sentence.",
+        "acceptableVariants": [
+          "La lámpara es amarilla"
+        ]
+      },
+      "explanation": "You correctly stated the color of the lamp.",
+      "hint": "Start with 'La lámpara'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

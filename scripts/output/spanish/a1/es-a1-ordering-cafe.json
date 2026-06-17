@@ -1,0 +1,347 @@
+{
+  "lesson": {
+    "title": "Ordering at a Café",
+    "type": "CONVERSATION",
+    "slug": "es-a1-ordering-cafe"
+  },
+  "unit": "Food & Dining",
+  "unitOrder": 4,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to order food and drinks at a café in Spanish. You'll practice useful vocabulary and phrases for making your order and interacting with the staff.",
+      "culturalNote": "In many Spanish-speaking countries, cafés are popular social spots where people gather to enjoy coffee and pastries."
+    },
+    "vocabulary": [
+      {
+        "term": "el café",
+        "translation": "the coffee",
+        "definition": "a popular beverage made from roasted coffee beans",
+        "pronunciation": "el kah-feh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Yo quiero el café.",
+          "translation": "I want the coffee."
+        },
+        "tip": "Remember that 'el' is used for masculine nouns."
+      },
+      {
+        "term": "la leche",
+        "translation": "the milk",
+        "definition": "a white liquid produced by mammals, commonly used in coffee",
+        "pronunciation": "lah leh-cheh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me gusta la leche en el café.",
+          "translation": "I like milk in my coffee."
+        },
+        "tip": "Use 'la' for feminine nouns, like 'leche'."
+      },
+      {
+        "term": "el té",
+        "translation": "the tea",
+        "definition": "a beverage made by steeping leaves in hot water",
+        "pronunciation": "el teh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ella quiere el té.",
+          "translation": "She wants the tea."
+        },
+        "tip": "Remember that 'té' is masculine, so use 'el'."
+      },
+      {
+        "term": "un croissant",
+        "translation": "a croissant",
+        "definition": "a buttery, flaky pastry, often eaten for breakfast",
+        "pronunciation": "oon kwah-sahn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Quiero un croissant con mi café.",
+          "translation": "I want a croissant with my coffee."
+        },
+        "tip": "Use 'un' for masculine singular nouns."
+      },
+      {
+        "term": "por favor",
+        "translation": "please",
+        "definition": "a polite expression used when asking for something",
+        "pronunciation": "por fah-vor",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Dame un té, por favor.",
+          "translation": "Give me a tea, please."
+        },
+        "tip": "Always use 'por favor' to sound polite."
+      },
+      {
+        "term": "gracias",
+        "translation": "thank you",
+        "definition": "an expression of gratitude",
+        "pronunciation": "grah-syahs",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Gracias por el café.",
+          "translation": "Thank you for the coffee."
+        },
+        "tip": "Use 'gracias' to express appreciation."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'Quiero' to Express Wants",
+        "explanation": "In Spanish, to say what you want, use the verb 'querer' (to want) in the first person. 'Quiero' means 'I want'. You can follow it with a noun to specify what you want.",
+        "table": {
+          "headers": [
+            "Spanish",
+            "English"
+          ],
+          "rows": [
+            [
+              "Quiero un café.",
+              "I want a coffee."
+            ],
+            [
+              "Quiero un croissant.",
+              "I want a croissant."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Quiero la leche.",
+            "translation": "I want the milk.",
+            "breakdown": "'Quiero' (I want) + 'la leche' (the milk)."
+          }
+        ],
+        "commonMistakes": [
+          "'Yo quiero' is often shortened to just 'Quiero' in conversation.",
+          "Don't forget to use the correct article ('el' or 'la') with nouns."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Ordering at a Café",
+      "context": "This conversation takes place at a café.",
+      "speakers": [
+        "Customer",
+        "Barista"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, yo quiero un café, por favor.",
+          "translation": "Hello, I want a coffee, please."
+        },
+        {
+          "speaker": 1,
+          "text": "Claro, ¿con leche?",
+          "translation": "Sure, with milk?"
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, con leche, gracias.",
+          "translation": "Yes, with milk, thank you."
+        },
+        {
+          "speaker": 1,
+          "text": "¿Quieres algo más?",
+          "translation": "Do you want anything else?"
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, quiero un croissant.",
+          "translation": "Yes, I want a croissant."
+        },
+        {
+          "speaker": 1,
+          "text": "Perfecto. ¿Algo más?",
+          "translation": "Perfect. Anything else?"
+        },
+        {
+          "speaker": 0,
+          "text": "No, eso es todo.",
+          "translation": "No, that's all."
+        },
+        {
+          "speaker": 1,
+          "text": "Está bien. Son cinco dólares.",
+          "translation": "Okay. It is five dollars."
+        },
+        {
+          "speaker": 0,
+          "text": "Aquí tienes.",
+          "translation": "Here you go."
+        },
+        {
+          "speaker": 1,
+          "text": "Gracias. Que tengas un buen día.",
+          "translation": "Thank you. Have a good day."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Café Culture in Latin America",
+      "text": "Cafés in Latin America are not just places to grab a drink; they often serve as social hubs where friends and family gather. It's common to find people enjoying their time over coffee and pastries.",
+      "funFact": "In Colombia, coffee is so important that the country celebrates a National Coffee Day every year!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned basic vocabulary for ordering food and drinks.",
+        "Practiced using 'Quiero' to express what you want.",
+        "Engaged in a realistic café dialogue.",
+        "Gained insight into café culture in Latin America."
+      ],
+      "nextSteps": "Practice ordering different items and try using the phrases in real life. Next, we will learn about dining etiquette in Spanish-speaking countries."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'el café' in English?",
+      "content": {
+        "options": [
+          "the tea",
+          "the coffee",
+          "the milk",
+          "the croissant"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El café' translates to 'the coffee' in English.",
+      "hint": "Think of your morning drink.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'thank you' in Spanish?",
+      "content": {
+        "options": [
+          "por favor",
+          "gracias",
+          "de nada",
+          "hola"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Gracias' means 'thank you' in Spanish.",
+      "hint": "It's what you say after receiving help.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Yo quiero un ___ por favor.'",
+      "content": {
+        "sentence": "Yo quiero un ___ por favor.",
+        "correctAnswer": "croissant",
+        "acceptableAnswers": [
+          "croissant"
+        ],
+        "options": [
+          "croissant",
+          "té",
+          "café",
+          "leche"
+        ]
+      },
+      "explanation": "The sentence means 'I want a croissant, please.'",
+      "hint": "It's a type of pastry.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Me gusta el ___ con leche.'",
+      "content": {
+        "sentence": "Me gusta el ___ con leche.",
+        "correctAnswer": "té",
+        "acceptableAnswers": [
+          "té"
+        ],
+        "options": [
+          "café",
+          "té",
+          "agua",
+          "leche"
+        ]
+      },
+      "explanation": "The sentence means 'I like tea with milk.'",
+      "hint": "It can be hot or iced.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'croissant / por favor / un / quiero'",
+      "content": {
+        "words": [
+          "croissant",
+          "por",
+          "favor",
+          "un",
+          "quiero"
+        ],
+        "correctOrder": [
+          "quiero",
+          "un",
+          "croissant",
+          "por",
+          "favor"
+        ],
+        "translation": "I want a croissant, please."
+      },
+      "explanation": "The correct order forms a polite request.",
+      "hint": "Start with the verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I want tea.'",
+      "content": {
+        "correctAnswer": "Quiero té.",
+        "acceptableAnswers": [
+          "Quiero un té."
+        ]
+      },
+      "explanation": "The translation is a direct expression of desire.",
+      "hint": "Remember the verb 'want' in Spanish.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Quiero un café, por favor.'",
+      "content": {
+        "ttsText": "Quiero un café, por favor.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I want a coffee, please.",
+          "I want tea, please.",
+          "I want a croissant, please."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence translates to 'I want a coffee, please.'",
+      "hint": "Focus on the word 'café'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I would like milk, please.'",
+      "content": {
+        "targetText": "Me gustaría leche, por favor.",
+        "context": "Requesting a drink at a café.",
+        "acceptableVariants": [
+          "Quisiera leche, por favor."
+        ]
+      },
+      "explanation": "Both sentences express a polite request for milk.",
+      "hint": "Use 'me gustaría' or 'quisiera'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

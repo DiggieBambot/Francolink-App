@@ -1,0 +1,363 @@
+{
+  "lesson": {
+    "title": "Reflexive Verbs (Levantarse)",
+    "type": "GRAMMAR",
+    "slug": "es-a1-reflexives"
+  },
+  "unit": "Daily Life & Routines",
+  "unitOrder": 3,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about reflexive verbs in Spanish, specifically the verb 'levantarse' (to get up). You will understand how to use reflexive verbs in daily routines.",
+      "culturalNote": "In many Spanish-speaking countries, the daily routine often includes a mid-afternoon siesta, which reflects the importance of rest in the culture."
+    },
+    "vocabulary": [
+      {
+        "term": "el despertador",
+        "translation": "the alarm clock",
+        "definition": "A device that wakes you up.",
+        "pronunciation": "el des-per-ta-dor",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El despertador suena a las siete.",
+          "translation": "The alarm clock rings at seven."
+        },
+        "tip": "Remember that 'el' is the masculine article for nouns."
+      },
+      {
+        "term": "la ducha",
+        "translation": "the shower",
+        "definition": "A place where you wash yourself with water.",
+        "pronunciation": "la du-cha",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me gusta tomar una ducha por la mañana.",
+          "translation": "I like to take a shower in the morning."
+        },
+        "tip": "'La' is the feminine article, so it is used with feminine nouns."
+      },
+      {
+        "term": "levantarse",
+        "translation": "to get up",
+        "definition": "To rise from bed or a sitting position.",
+        "pronunciation": "le-van-tar-se",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Yo me levanto a las seis.",
+          "translation": "I get up at six."
+        },
+        "tip": "Reflexive verbs use reflexive pronouns like 'me', 'te', 'se', etc."
+      },
+      {
+        "term": "vestirse",
+        "translation": "to get dressed",
+        "definition": "To put on clothes.",
+        "pronunciation": "ves-tir-se",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ella se viste rápidamente.",
+          "translation": "She gets dressed quickly."
+        },
+        "tip": "Note the 'se' at the end of the verb; this indicates it is reflexive."
+      },
+      {
+        "term": "el desayuno",
+        "translation": "the breakfast",
+        "definition": "The first meal of the day.",
+        "pronunciation": "el de-sa-yuno",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Voy a preparar el desayuno.",
+          "translation": "I am going to make breakfast."
+        },
+        "tip": "Remember that 'el' is used for masculine nouns like 'desayuno'."
+      },
+      {
+        "term": "el espejo",
+        "translation": "the mirror",
+        "definition": "A reflective surface to see yourself.",
+        "pronunciation": "el es-pe-jo",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Miro en el espejo cada mañana.",
+          "translation": "I look in the mirror every morning."
+        },
+        "tip": "Try to visualize the reflection to remember 'espejo'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Reflexive Verbs in Spanish",
+        "explanation": "Reflexive verbs are used when the subject and the object are the same. For example, 'me levanto' means 'I get up (myself)'. You use reflexive pronouns like 'me', 'te', 'se', etc. before the verb.",
+        "table": {
+          "headers": [
+            "Pronoun",
+            "Conjugation"
+          ],
+          "rows": [
+            [
+              "yo",
+              "me levanto"
+            ],
+            [
+              "tú",
+              "te levantas"
+            ],
+            [
+              "él/ella",
+              "se levanta"
+            ],
+            [
+              "nosotros",
+              "nos levantamos"
+            ],
+            [
+              "vosotros",
+              "os levantáis"
+            ],
+            [
+              "ellos/ellas",
+              "se levantan"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo me levanto a las seis.",
+            "translation": "I get up at six.",
+            "breakdown": "The subject 'yo' (I) uses the reflexive pronoun 'me' before the verb 'levanto' (get up)."
+          },
+          {
+            "original": "Nosotros nos levantamos tarde.",
+            "translation": "We get up late.",
+            "breakdown": "The subject 'nosotros' (we) uses 'nos' before the verb 'levantamos'."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Yo levanto' instead of 'Yo me levanto' is incorrect because it's missing the reflexive pronoun.",
+          "Using 'se' for 'yo' is incorrect; use 'me' instead."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Morning Routine",
+      "context": "A conversation between two friends in the morning.",
+      "speakers": [
+        "Carlos",
+        "Marta"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¡Hola, Marta! ¿A qué hora te levantas?",
+          "translation": "Hello, Marta! What time do you get up?",
+          "note": "Carlos greets Marta."
+        },
+        {
+          "speaker": 1,
+          "text": "¡Hola, Carlos! Me levanto a las siete.",
+          "translation": "Hello, Carlos! I get up at seven.",
+          "note": "Marta responds with her routine."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Te duchas después?",
+          "translation": "Do you shower afterwards?",
+          "note": "Carlos asks about Marta's routine."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, me ducho después del desayuno.",
+          "translation": "Yes, I shower after breakfast.",
+          "note": "Marta shares her next step."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué comes en el desayuno?",
+          "translation": "What do you eat for breakfast?",
+          "note": "Carlos is curious about her breakfast."
+        },
+        {
+          "speaker": 1,
+          "text": "Como huevos y pan.",
+          "translation": "I eat eggs and bread.",
+          "note": "Marta explains her breakfast."
+        },
+        {
+          "speaker": 0,
+          "text": "¡Delicioso! ¿A qué hora trabajas?",
+          "translation": "Delicious! What time do you work?",
+          "note": "Carlos compliments her breakfast."
+        },
+        {
+          "speaker": 1,
+          "text": "Trabajo a las nueve.",
+          "translation": "I work at nine.",
+          "note": "Marta tells Carlos her work time."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Daily Life in Spanish-speaking Countries",
+      "text": "In many Spanish-speaking countries, routines can vary significantly based on the time of day. For example, lunch is often eaten later in the afternoon, and dinner may be served after 8 PM.",
+      "funFact": "In Spain, it's common to take a siesta after lunch, a short nap that helps people recharge for the rest of the day."
+    },
+    "summary": {
+      "keyPoints": [
+        "Reflexive verbs indicate actions done to oneself.",
+        "Use reflexive pronouns like 'me', 'te', 'nos', etc.",
+        "Common reflexive verbs include 'levantarse', 'vestirse', and 'ducharse'.",
+        "Daily routines often involve reflexive verbs."
+      ],
+      "nextSteps": "Practice using reflexive verbs in your own daily routine. Try to write sentences about what you do each morning."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'levantarse' mean?",
+      "content": {
+        "options": [
+          "to wake up",
+          "to dress oneself",
+          "to take a shower",
+          "to eat breakfast"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Levantarse' means 'to wake up' in English.",
+      "hint": "Think about the first action in the morning.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is a reflexive verb?",
+      "content": {
+        "options": [
+          "comer",
+          "levantarse",
+          "beber",
+          "correr"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Levantarse' is a reflexive verb, meaning the action is performed by the subject on itself.",
+      "hint": "Look for the 'se' at the end.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Yo ___ a las seis de la mañana.'",
+      "content": {
+        "sentence": "Yo ___ a las seis de la mañana.",
+        "correctAnswer": "me levanto",
+        "acceptableAnswers": [
+          "me levanto"
+        ],
+        "options": [
+          "me despierto",
+          "me levanto",
+          "me visto"
+        ]
+      },
+      "explanation": "The correct answer is 'me levanto' because it means 'I wake up'.",
+      "hint": "Think about the time you get up.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ella ___ para la escuela.'",
+      "content": {
+        "sentence": "Ella ___ para la escuela.",
+        "correctAnswer": "se viste",
+        "acceptableAnswers": [
+          "se viste"
+        ],
+        "options": [
+          "se levanta",
+          "se ducha",
+          "se viste"
+        ]
+      },
+      "explanation": "'Se viste' means 'she gets dressed' which fits the context of preparing for school.",
+      "hint": "Consider what she does after waking up.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'ducha la se después'.",
+      "content": {
+        "words": [
+          "ducha",
+          "la",
+          "se",
+          "después"
+        ],
+        "correctOrder": [
+          "se",
+          "ducha",
+          "la",
+          "después"
+        ],
+        "translation": "She takes a shower afterwards."
+      },
+      "explanation": "The correct order is 'se ducha la después', which translates to 'She takes a shower afterwards'.",
+      "hint": "Think about the routine after waking up.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I eat breakfast after I wake up.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I eat breakfast after I wake up.'",
+        "correctAnswer": "Desayuno después de levantarme.",
+        "acceptableAnswers": [
+          "Desayuno después de levantarme."
+        ]
+      },
+      "explanation": "The translation captures the sequence of actions relating to daily routines.",
+      "hint": "Focus on the verbs in the sentence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation.",
+      "content": {
+        "ttsText": "Me levanto a las siete.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I wake up at seven.",
+          "I eat breakfast at seven.",
+          "I dress at seven."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The phrase 'Me levanto a las siete' translates to 'I wake up at seven'.",
+      "hint": "Listen carefully for the time.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in Spanish: 'I take a shower after breakfast.'",
+      "content": {
+        "targetText": "Me ducho después del desayuno.",
+        "context": "Translate and say the sentence aloud.",
+        "acceptableVariants": [
+          "Me ducho después del desayuno."
+        ]
+      },
+      "explanation": "This sentence describes a common morning routine.",
+      "hint": "Remember to use the reflexive verb.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,402 @@
+{
+  "lesson": {
+    "title": "Planning a Trip",
+    "type": "CONVERSATION",
+    "slug": "es-a1-planning-trip"
+  },
+  "unit": "Travel & Weather",
+  "unitOrder": 8,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary and phrases useful for planning a trip in Spanish. You will also practice a simple dialogue about travel plans.",
+      "culturalNote": "In many Spanish-speaking countries, people often plan trips around festivals and holidays, which can be a great way to experience local culture."
+    },
+    "vocabulary": [
+      {
+        "term": "el viaje",
+        "translation": "the trip",
+        "definition": "a journey from one place to another",
+        "pronunciation": "el vee-ah-he",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Yo quiero hacer un viaje.",
+          "translation": "I want to take a trip."
+        },
+        "tip": "Remember that 'viaje' is masculine, so use 'el' before it."
+      },
+      {
+        "term": "la maleta",
+        "translation": "the suitcase",
+        "definition": "a case used to carry clothes and personal items",
+        "pronunciation": "la mah-leh-tah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ella tiene una maleta grande.",
+          "translation": "She has a big suitcase."
+        },
+        "tip": "Think of 'maleta' as 'luggage' to remember it."
+      },
+      {
+        "term": "el destino",
+        "translation": "the destination",
+        "definition": "the place where someone is going",
+        "pronunciation": "el des-tee-no",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Nuestro destino es la playa.",
+          "translation": "Our destination is the beach."
+        },
+        "tip": "'Destino' sounds like 'destination' in English!"
+      },
+      {
+        "term": "el pasaporte",
+        "translation": "the passport",
+        "definition": "a document for international travel",
+        "pronunciation": "el pah-sah-por-tay",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Necesito mi pasaporte.",
+          "translation": "I need my passport."
+        },
+        "tip": "Think of your passport as essential for international trips."
+      },
+      {
+        "term": "el hotel",
+        "translation": "the hotel",
+        "definition": "a place to stay while traveling",
+        "pronunciation": "el oh-tel",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Reservamos un hotel bonito.",
+          "translation": "We booked a nice hotel."
+        },
+        "tip": "Hotel is the same in both languages, just remember the pronunciation."
+      },
+      {
+        "term": "el vuelo",
+        "translation": "the flight",
+        "definition": "a trip made by air",
+        "pronunciation": "el vway-lo",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi vuelo sale a las tres.",
+          "translation": "My flight leaves at three."
+        },
+        "tip": "Use 'vuelo' when talking about air travel."
+      },
+      {
+        "term": "el mapa",
+        "translation": "the map",
+        "definition": "a visual representation of an area",
+        "pronunciation": "el mah-pah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo un mapa de la ciudad.",
+          "translation": "I have a map of the city."
+        },
+        "tip": "Think of 'mapa' as a helpful tool for navigation."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'Querer' (to want)",
+        "explanation": "In Spanish, we use the verb 'querer' to express desires. It is an irregular verb, and its conjugation changes with the subject. Here are some forms: Yo quiero (I want), Tú quieres (You want), Él/Ella quiere (He/She wants).",
+        "table": {
+          "headers": [
+            "Subject",
+            "Conjugation"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "quiero"
+            ],
+            [
+              "Tú",
+              "quieres"
+            ],
+            [
+              "Él/Ella",
+              "quiere"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo quiero ir al hotel.",
+            "translation": "I want to go to the hotel.",
+            "breakdown": "Yo (I) + quiero (want) + ir (to go) + al hotel (to the hotel)."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Yo quiere' instead of 'Yo quiero'. (Remember: 'yo' uses 'quiero')",
+          "Using 'tú quiero' instead of 'tú quieres'. (Remember: 'tú' uses 'quieres')"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Trip",
+      "context": "Two friends are discussing their upcoming trip over coffee.",
+      "speakers": [
+        "María",
+        "Juan"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Dónde quieres ir?",
+          "translation": "Where do you want to go?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Quiero ir a la playa.",
+          "translation": "I want to go to the beach.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Cuándo es el viaje?",
+          "translation": "When is the trip?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "El viaje es en julio.",
+          "translation": "The trip is in July.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Tienes la maleta?",
+          "translation": "Do you have the suitcase?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, tengo la maleta.",
+          "translation": "Yes, I have the suitcase.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y el pasaporte?",
+          "translation": "And the passport?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, tengo mi pasaporte.",
+          "translation": "Yes, I have my passport.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Vamos a reservar el hotel.",
+          "translation": "Let's book the hotel.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Buena idea. Busquemos un hotel bonito.",
+          "translation": "Good idea. Let's find a nice hotel.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Traveling in Latin America",
+      "text": "In Latin America, many people travel during the summer and winter holidays. Popular destinations include beaches, mountains, and cultural cities.",
+      "funFact": "Did you know that Carnival in Brazil attracts millions of tourists every year?"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to travel.",
+        "Practiced using the verb 'querer'.",
+        "Engaged in a simple conversation about trip planning.",
+        "Gained cultural insights into travel in Latin America."
+      ],
+      "nextSteps": "Practice the vocabulary and create your own travel dialogue using the new words."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'the trip' in Spanish?",
+      "content": {
+        "options": [
+          "el viaje",
+          "la maleta",
+          "el destino"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'el viaje', which translates to 'the trip'.",
+      "hint": "Think of travel.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What do you need to travel internationally?",
+      "content": {
+        "options": [
+          "el pasaporte",
+          "el mapa",
+          "el vuelo"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "You need 'el pasaporte' (the passport) to travel internationally.",
+      "hint": "It's a document.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Yo tengo una ___ para el viaje.",
+      "content": {
+        "sentence": "Yo tengo una ___ para el viaje.",
+        "correctAnswer": "maleta",
+        "acceptableAnswers": [
+          "maleta"
+        ],
+        "options": [
+          "maleta",
+          "mapa",
+          "pasaporte"
+        ]
+      },
+      "explanation": "The correct word is 'maleta', meaning 'suitcase'.",
+      "hint": "It's what you pack.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: El ___ sale a las cinco de la tarde.",
+      "content": {
+        "sentence": "El ___ sale a las cinco de la tarde.",
+        "correctAnswer": "vuelo",
+        "acceptableAnswers": [
+          "vuelo"
+        ],
+        "options": [
+          "hotel",
+          "vuelo",
+          "destino"
+        ]
+      },
+      "explanation": "The correct answer is 'vuelo', which means 'flight'.",
+      "hint": "It's related to flying.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: mapa / el / destino / el",
+      "content": {
+        "words": [
+          "el",
+          "mapa",
+          "destino"
+        ],
+        "correctOrder": [
+          "el",
+          "mapa",
+          "destino"
+        ],
+        "translation": "the map of the destination"
+      },
+      "explanation": "The correct order is 'el mapa destino', meaning 'the map of the destination'.",
+      "hint": "Think about what comes first.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I want to go to the hotel.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I want to go to the hotel.'",
+        "correctAnswer": "Quiero ir al hotel.",
+        "acceptableAnswers": [
+          "Quiero ir al hotel"
+        ]
+      },
+      "explanation": "The translation is correct as 'Quiero ir al hotel' means 'I want to go to the hotel'.",
+      "hint": "Remember 'hotel' stays the same.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct option.",
+      "content": {
+        "ttsText": "El vuelo sale a las siete de la mañana.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The flight leaves at seven in the morning.",
+          "The train leaves at seven in the morning.",
+          "The flight leaves at five in the afternoon."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The audio says 'El vuelo sale a las siete de la mañana', which translates to 'The flight leaves at seven in the morning.'",
+      "hint": "Focus on the time mentioned.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'I have a map for my trip.'",
+      "content": {
+        "targetText": "Tengo un mapa para mi viaje.",
+        "context": "Translate 'I have a map for my trip.' into Spanish.",
+        "acceptableVariants": [
+          "Tengo un mapa para mi viaje."
+        ]
+      },
+      "explanation": "This is correct as it translates directly from English to Spanish.",
+      "hint": "Remember 'mapa' means map.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'the destination' in Spanish?",
+      "content": {
+        "options": [
+          "el destino",
+          "el vuelo",
+          "la maleta"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El destino' means 'the destination'.",
+      "hint": "Think of where you are going.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Necesito un ___ para viajar.",
+      "content": {
+        "sentence": "Necesito un ___ para viajar.",
+        "correctAnswer": "pasaporte",
+        "acceptableAnswers": [
+          "pasaporte"
+        ],
+        "options": [
+          "pasaporte",
+          "hotel",
+          "vuelo"
+        ]
+      },
+      "explanation": "The correct answer is 'pasaporte', which is essential for traveling.",
+      "hint": "It's a travel document.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

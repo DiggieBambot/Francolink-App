@@ -1,0 +1,392 @@
+{
+  "lesson": {
+    "title": "Food & Drinks (La Comida)",
+    "type": "VOCABULARY",
+    "slug": "es-a1-food"
+  },
+  "unit": "Food & Dining",
+  "unitOrder": 4,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn basic vocabulary related to food and drinks in Spanish. You will be able to name common foods and beverages, as well as use them in simple sentences.",
+      "culturalNote": "In many Spanish-speaking countries, meals are often enjoyed with family and friends, highlighting the importance of social gatherings around food."
+    },
+    "vocabulary": [
+      {
+        "term": "la manzana",
+        "translation": "the apple",
+        "definition": "A common fruit, often eaten fresh.",
+        "pronunciation": "lah mahn-zah-nah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me gusta la manzana.",
+          "translation": "I like the apple."
+        },
+        "tip": "Remember that 'la' indicates a feminine noun in Spanish."
+      },
+      {
+        "term": "el pan",
+        "translation": "the bread",
+        "definition": "A staple food made from flour and water.",
+        "pronunciation": "el pahn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Quiero el pan.",
+          "translation": "I want the bread."
+        },
+        "tip": "Use 'el' for masculine nouns like 'pan'."
+      },
+      {
+        "term": "la leche",
+        "translation": "the milk",
+        "definition": "A white liquid produced by mammals, often consumed as a drink.",
+        "pronunciation": "lah leh-cheh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Bebo la leche.",
+          "translation": "I drink the milk."
+        },
+        "tip": "Remember 'leche' is feminine and always uses 'la'."
+      },
+      {
+        "term": "el agua",
+        "translation": "the water",
+        "definition": "A clear liquid essential for life, often consumed as a drink.",
+        "pronunciation": "el ah-gwah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Necesito el agua.",
+          "translation": "I need the water."
+        },
+        "tip": "Although 'agua' is feminine, it uses 'el' because it starts with a stressed 'a'."
+      },
+      {
+        "term": "la carne",
+        "translation": "the meat",
+        "definition": "Animal flesh that is eaten as food.",
+        "pronunciation": "lah kahr-neh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me gusta la carne.",
+          "translation": "I like the meat."
+        },
+        "tip": "Remember that 'carne' is feminine."
+      },
+      {
+        "term": "el pollo",
+        "translation": "the chicken",
+        "definition": "A common type of meat from chickens.",
+        "pronunciation": "el poh-yoh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Quiero el pollo.",
+          "translation": "I want the chicken."
+        },
+        "tip": "Use 'el' for masculine nouns like 'pollo'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'Gustar' (To Like)",
+        "explanation": "'Gustar' is a verb that means 'to like' in Spanish. It is often used with the indirect object pronoun (me, te, le) to indicate who likes something. The structure is 'A mí me gusta...' for singular nouns and 'A mí me gustan...' for plural nouns.",
+        "table": {
+          "headers": [
+            "Pronoun",
+            "Structure"
+          ],
+          "rows": [
+            [
+              "Yo (I)",
+              "A mí me gusta..."
+            ],
+            [
+              "Tú (You)",
+              "A ti te gusta..."
+            ],
+            [
+              "Él/Ella (He/She)",
+              "A él/ella le gusta..."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "A mí me gusta la manzana.",
+            "translation": "I like the apple.",
+            "breakdown": "This sentence uses 'gustar' to express that I like the apple."
+          }
+        ],
+        "commonMistakes": [
+          "'Me gusta' is used for singular nouns. Remember, 'me gustan' is used for plural nouns. (Correct: Me gustan las manzanas.)",
+          "'Gustar' must agree with the noun. If you like multiple things, use the plural form."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Restaurant",
+      "context": "In a restaurant ordering food.",
+      "speakers": [
+        "Waiter",
+        "Customer"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¡Hola! ¿Qué deseas comer?",
+          "translation": "Hello! What do you want to eat?"
+        },
+        {
+          "speaker": 1,
+          "text": "Quiero el pollo, por favor.",
+          "translation": "I want the chicken, please."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y de beber?",
+          "translation": "And to drink?"
+        },
+        {
+          "speaker": 1,
+          "text": "Bebo la leche.",
+          "translation": "I drink the milk."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Te gusta la carne?",
+          "translation": "Do you like meat?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, me gusta la carne.",
+          "translation": "Yes, I like meat."
+        },
+        {
+          "speaker": 0,
+          "text": "Perfecto. ¿Algo más?",
+          "translation": "Perfect. Anything else?"
+        },
+        {
+          "speaker": 1,
+          "text": "No, gracias.",
+          "translation": "No, thank you."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Dining Culture in Spanish-Speaking Countries",
+      "text": "In many Spanish-speaking countries, family meals are a central part of life. Traditional dishes vary greatly between regions, reflecting local ingredients and customs.",
+      "funFact": "In Mexico, it is common to eat tortillas with most meals, serving as bread and utensils!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary for common foods and drinks.",
+        "Practiced using 'gustar' with food items.",
+        "Engaged in a simple restaurant dialogue.",
+        "Gained cultural insights about dining practices."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and try to have conversations about food with friends or language partners."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'la manzana' in English?",
+      "content": {
+        "options": [
+          "the bread",
+          "the apple",
+          "the milk",
+          "the water"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'La manzana' translates to 'the apple' in English.",
+      "hint": "Think of a fruit.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'el pollo'?",
+      "content": {
+        "options": [
+          "the chicken",
+          "the meat",
+          "the bread",
+          "the water"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El pollo' translates to 'the chicken' in English.",
+      "hint": "It's a common type of meat.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Yo bebo ___ (water).",
+      "content": {
+        "sentence": "Yo bebo ___.",
+        "correctAnswer": "agua",
+        "acceptableAnswers": [
+          "agua"
+        ],
+        "options": [
+          "leche",
+          "agua",
+          "carne",
+          "manzana"
+        ]
+      },
+      "explanation": "The correct word to fill in is 'agua', which means 'water'.",
+      "hint": "It's essential for life.",
+      "difficulty": "EASY",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Me gusta comer ___ (meat).",
+      "content": {
+        "sentence": "Me gusta comer ___.",
+        "correctAnswer": "carne",
+        "acceptableAnswers": [
+          "carne"
+        ],
+        "options": [
+          "pollo",
+          "carne",
+          "manzana",
+          "pan"
+        ]
+      },
+      "explanation": "The correct word is 'carne', which means 'meat'.",
+      "hint": "It's a protein source.",
+      "difficulty": "EASY",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: (la, manzana, quiero)",
+      "content": {
+        "words": [
+          "quiero",
+          "la",
+          "manzana"
+        ],
+        "correctOrder": [
+          "quiero",
+          "la",
+          "manzana"
+        ],
+        "translation": "I want the apple."
+      },
+      "explanation": "The correct order forms a simple sentence in Spanish.",
+      "hint": "Start with the verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I drink milk'.",
+      "content": {
+        "prompt": "Translate to Spanish: 'I drink milk'.",
+        "correctAnswer": "Bebo leche.",
+        "acceptableAnswers": [
+          "Bebo leche."
+        ]
+      },
+      "explanation": "The correct translation for 'I drink milk' is 'Bebo leche'.",
+      "hint": "Think of the verb 'to drink'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "What does this mean? (Listen and choose)",
+      "content": {
+        "ttsText": "Quiero pollo.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I want chicken.",
+          "I want bread.",
+          "I want water.",
+          "I want apple."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'I want chicken'.",
+      "hint": "Listen for the word 'pollo'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I have an apple'.",
+      "content": {
+        "targetText": "Tengo una manzana.",
+        "context": "Translate and say the sentence in Spanish.",
+        "acceptableVariants": [
+          "Tengo una manzana."
+        ]
+      },
+      "explanation": "The correct way to say 'I have an apple' in Spanish is 'Tengo una manzana'.",
+      "hint": "Start with 'Tengo'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'el pan' mean?",
+      "content": {
+        "options": [
+          "the milk",
+          "the bread",
+          "the chicken",
+          "the water"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El pan' translates to 'the bread' in English.",
+      "hint": "It is often eaten with meals.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ella quiere ___ (chicken).",
+      "content": {
+        "sentence": "Ella quiere ___.",
+        "correctAnswer": "pollo",
+        "acceptableAnswers": [
+          "pollo"
+        ],
+        "options": [
+          "carne",
+          "pan",
+          "pollo",
+          "manzana"
+        ]
+      },
+      "explanation": "The correct answer is 'pollo', which means 'chicken'.",
+      "hint": "Think of a popular dish.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I want bread'.",
+      "content": {
+        "prompt": "Translate to Spanish: 'I want bread'.",
+        "correctAnswer": "Quiero pan.",
+        "acceptableAnswers": [
+          "Quiero pan."
+        ]
+      },
+      "explanation": "The correct translation is 'Quiero pan'.",
+      "hint": "The verb means 'to want'.",
+      "difficulty": "HARD",
+      "xp_reward": 4
+    }
+  ]
+}

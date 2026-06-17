@@ -1,0 +1,332 @@
+{
+  "lesson": {
+    "title": "Ser vs Estar (To Be)",
+    "type": "GRAMMAR",
+    "slug": "es-a1-ser-estar"
+  },
+  "unit": "People & Family",
+  "unitOrder": 2,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn the difference between the verbs 'ser' and 'estar', both of which mean 'to be' in English. Understanding these two verbs is essential for describing people, their characteristics, and their states.",
+      "culturalNote": "In many Spanish-speaking countries, people often greet each other with a friendly '¿Cómo estás?' which uses 'estar' to ask about someone's state."
+    },
+    "vocabulary": [
+      {
+        "term": "el nombre",
+        "translation": "the name",
+        "definition": "Used to refer to a person's name.",
+        "pronunciation": "el nom-bre",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi nombre es Juan.",
+          "translation": "My name is Juan."
+        },
+        "tip": "Remember that 'el' indicates that 'nombre' is masculine."
+      },
+      {
+        "term": "la familia",
+        "translation": "the family",
+        "definition": "A group of people related by blood or marriage.",
+        "pronunciation": "la fa-mi-lia",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo una familia grande.",
+          "translation": "I have a big family."
+        },
+        "tip": "'La' indicates that 'familia' is feminine."
+      },
+      {
+        "term": "alto/a",
+        "translation": "tall",
+        "definition": "An adjective used to describe height.",
+        "pronunciation": "al-toh/al-tah",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Ella es alta.",
+          "translation": "She is tall."
+        },
+        "tip": "Use 'alto' for males and 'alta' for females."
+      },
+      {
+        "term": "bajo/a",
+        "translation": "short",
+        "definition": "An adjective used to describe height.",
+        "pronunciation": "ba-ho/ba-hah",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Él es bajo.",
+          "translation": "He is short."
+        },
+        "tip": "Use 'bajo' for males and 'baja' for females."
+      },
+      {
+        "term": "contento/a",
+        "translation": "happy",
+        "definition": "An adjective describing a positive emotional state.",
+        "pronunciation": "con-ten-to/con-ten-tah",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Estoy contento.",
+          "translation": "I am happy."
+        },
+        "tip": "Use 'contento' for males and 'contenta' for females."
+      },
+      {
+        "term": "triste",
+        "translation": "sad",
+        "definition": "An adjective describing a negative emotional state.",
+        "pronunciation": "tris-teh",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Ella está triste.",
+          "translation": "She is sad."
+        },
+        "tip": "The form 'triste' is the same for both genders."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'Ser' and 'Estar'",
+        "explanation": "'Ser' is used for permanent characteristics and identity, while 'estar' is used for temporary states and locations. For example, use 'ser' to describe someone's profession or origin, and 'estar' to describe feelings or locations.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "Ser",
+              "Permanent characteristics (e.g., identity, origin)"
+            ],
+            [
+              "Estar",
+              "Temporary states (e.g., emotions, locations)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ella es doctora.",
+            "translation": "She is a doctor.",
+            "breakdown": "'Es' indicates a permanent characteristic (profession)."
+          },
+          {
+            "original": "Estoy en casa.",
+            "translation": "I am at home.",
+            "breakdown": "'Estoy' indicates a temporary location."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Yo soy feliz' instead of 'Yo estoy feliz' when describing a temporary emotion.",
+          "Using 'está' for permanent characteristics, like 'Él está alto' instead of 'Él es alto'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Introducing Family Members",
+      "context": "A family gathering where two friends are discussing their families.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, Luis. ¿Cómo estás?",
+          "translation": "Hello, Luis. How are you?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, Ana. Estoy bien, gracias. ¿Y tú?",
+          "translation": "Hello, Ana. I am fine, thank you. And you?"
+        },
+        {
+          "speaker": 0,
+          "text": "Estoy contenta. ¿Quién es tu hermano?",
+          "translation": "I am happy. Who is your brother?"
+        },
+        {
+          "speaker": 1,
+          "text": "Él es Carlos. Es alto y simpático.",
+          "translation": "He is Carlos. He is tall and nice."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y tu hermana?",
+          "translation": "And your sister?"
+        },
+        {
+          "speaker": 1,
+          "text": "Mi hermana es Laura. Ella es baja.",
+          "translation": "My sister is Laura. She is short."
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué bien! Mi familia es pequeña.",
+          "translation": "How nice! My family is small."
+        },
+        {
+          "speaker": 1,
+          "text": "La mía es grande. ¡Me gusta!",
+          "translation": "Mine is big. I like it!"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Family in Spanish-speaking Cultures",
+      "text": "Family is very important in many Spanish-speaking cultures. It's common for families to gather for meals and celebrations. Respect for family members, especially elders, is highly valued.",
+      "funFact": "In some Latin American countries, it is common to have large family gatherings every Sunday."
+    },
+    "summary": {
+      "keyPoints": [
+        "Use 'ser' for permanent characteristics and 'estar' for temporary states.",
+        "Remember the difference in usage based on identity, feelings, and location.",
+        "Practice using 'ser' and 'estar' with family vocabulary.",
+        "Pay attention to gender agreement in adjectives."
+      ],
+      "nextSteps": "Practice forming sentences using 'ser' and 'estar' with different adjectives and vocabulary related to family."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct form of 'to be' for describing a permanent characteristic?",
+      "content": {
+        "options": [
+          "ser",
+          "estar"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Ser' is used for permanent characteristics such as identity or physical traits.",
+      "hint": "Think about how you describe someone's traits.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence is correct? 'Ella ___ contenta.'",
+      "content": {
+        "options": [
+          "es",
+          "está"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Estar' is used to express temporary states such as emotions.",
+      "hint": "Consider how you feel.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Mi hermano ___ alto.'",
+      "content": {
+        "sentence": "Mi hermano ___ alto.",
+        "correctAnswer": "es",
+        "acceptableAnswers": [
+          "es"
+        ],
+        "options": [
+          "es",
+          "está"
+        ]
+      },
+      "explanation": "'Ser' is used for describing physical characteristics like height.",
+      "hint": "Think about his permanent trait.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ellos ___ muy contentos hoy.'",
+      "content": {
+        "sentence": "Ellos ___ muy contentos hoy.",
+        "correctAnswer": "están",
+        "acceptableAnswers": [
+          "están"
+        ],
+        "options": [
+          "son",
+          "están"
+        ]
+      },
+      "explanation": "'Estar' is used for temporary states, such as feelings today.",
+      "hint": "It's about how they feel right now.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'alto / su / es / hermano'",
+      "content": {
+        "words": [
+          "alto",
+          "su",
+          "es",
+          "hermano"
+        ],
+        "correctOrder": [
+          "su",
+          "hermano",
+          "es",
+          "alto"
+        ],
+        "translation": "His brother is tall."
+      },
+      "explanation": "The correct order provides a clear statement about his brother's height.",
+      "hint": "Start with 'su hermano'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'My family is big.'",
+      "content": {
+        "correctAnswer": "Mi familia es grande.",
+        "acceptableAnswers": [
+          "Mi familia es grande."
+        ]
+      },
+      "explanation": "The sentence uses 'ser' to describe a permanent characteristic of the family.",
+      "hint": "Remember to use 'es' for descriptions.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ella está triste.'",
+      "content": {
+        "ttsText": "Ella está triste.",
+        "ttsLang": "es-ES",
+        "options": [
+          "She is sad.",
+          "She is tall."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The phrase means 'She is sad,' using 'estar' for a temporary state.",
+      "hint": "Focus on the emotion.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the sentence in Spanish: 'I am happy.'",
+      "content": {
+        "targetText": "Estoy contento/a.",
+        "context": "Responding about your feelings.",
+        "acceptableVariants": [
+          "Estoy contento.",
+          "Estoy contenta."
+        ]
+      },
+      "explanation": "This uses 'estar' for a temporary emotional state.",
+      "hint": "Use 'estoy' for 'I am'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

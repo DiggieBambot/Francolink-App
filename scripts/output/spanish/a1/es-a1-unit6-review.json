@@ -1,0 +1,341 @@
+{
+  "lesson": {
+    "title": "Unit 6 Review",
+    "type": "REVIEW",
+    "slug": "es-a1-unit6-review"
+  },
+  "unit": "Home & Everyday Objects",
+  "unitOrder": 6,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this Unit 6 Review, you will revisit vocabulary and grammar related to home and everyday objects. You will also practice a dialogue that incorporates the key concepts learned in this unit.",
+      "culturalNote": "Many Spanish-speaking homes are vibrant and colorful, reflecting the culture and personality of the family. Art and decorations often play a significant role in home aesthetics."
+    },
+    "vocabulary": [
+      {
+        "term": "la casa",
+        "translation": "the house",
+        "definition": "A structure for living, typically for a family.",
+        "pronunciation": "lah kah-sah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La casa es grande.",
+          "translation": "The house is big."
+        },
+        "tip": "Remember 'la' for feminine nouns like 'casa'."
+      },
+      {
+        "term": "el sofá",
+        "translation": "the sofa",
+        "definition": "A comfortable seat for multiple people.",
+        "pronunciation": "el soh-fah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El sofá es azul.",
+          "translation": "The sofa is blue."
+        },
+        "tip": "Think of 'sofa' in English; it sounds similar!"
+      },
+      {
+        "term": "la cocina",
+        "translation": "the kitchen",
+        "definition": "A room where food is prepared.",
+        "pronunciation": "lah koh-see-nah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La cocina tiene muchos utensilios.",
+          "translation": "The kitchen has many utensils."
+        },
+        "tip": "Cocina means both kitchen and to cook!"
+      },
+      {
+        "term": "el dormitorio",
+        "translation": "the bedroom",
+        "definition": "A room for sleeping.",
+        "pronunciation": "el dor-mi-toh-ree-oh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El dormitorio es pequeño.",
+          "translation": "The bedroom is small."
+        },
+        "tip": "Remember, 'dormir' means to sleep in Spanish."
+      },
+      {
+        "term": "la mesa",
+        "translation": "the table",
+        "definition": "A piece of furniture with a flat top.",
+        "pronunciation": "lah meh-sah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La mesa está en la cocina.",
+          "translation": "The table is in the kitchen."
+        },
+        "tip": "Think of 'mesa' as a place to set things."
+      },
+      {
+        "term": "el libro",
+        "translation": "the book",
+        "definition": "A set of written or printed pages.",
+        "pronunciation": "el lee-broh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El libro está en el sofá.",
+          "translation": "The book is on the sofa."
+        },
+        "tip": "Remember, 'libro' is related to 'library'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'ser' and 'estar'",
+        "explanation": "'Ser' is used for permanent characteristics, while 'estar' is used for temporary states. For example, you say 'Ella es alta' (She is tall) using 'ser' because height is permanent, but 'Ella está cansada' (She is tired) uses 'estar' because tiredness is temporary.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "ser",
+              "Permanent characteristics"
+            ],
+            [
+              "estar",
+              "Temporary states"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "La casa es grande.",
+            "translation": "The house is big.",
+            "breakdown": "'Es' indicates a permanent quality of the house."
+          },
+          {
+            "original": "El sofá está sucio.",
+            "translation": "The sofa is dirty.",
+            "breakdown": "'Está' indicates a temporary state of the sofa."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'está' when describing a permanent feature. Correct: 'La casa es grande.'",
+          "Using 'ser' for emotions. Correct: 'Estoy feliz.' (I am happy.)"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At Home",
+      "context": "A conversation between two friends visiting each other at home.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¡Hola, Ana! ¿Cómo estás?",
+          "translation": "Hi, Ana! How are you?"
+        },
+        {
+          "speaker": 1,
+          "text": "¡Hola, Carlos! Estoy bien, gracias. ¿Y tú?",
+          "translation": "Hi, Carlos! I'm good, thank you. And you?"
+        },
+        {
+          "speaker": 0,
+          "text": "Estoy feliz. ¿Puedo ver tu casa?",
+          "translation": "I'm happy. Can I see your house?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, claro. Esta es la cocina.",
+          "translation": "Yes, of course. This is the kitchen."
+        },
+        {
+          "speaker": 0,
+          "text": "Es bonita. ¿Dónde está el sofá?",
+          "translation": "It's nice. Where is the sofa?"
+        },
+        {
+          "speaker": 1,
+          "text": "El sofá está en el dormitorio.",
+          "translation": "The sofa is in the bedroom."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Tienes un libro en el sofá?",
+          "translation": "Do you have a book on the sofa?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, tengo un libro interesante.",
+          "translation": "Yes, I have an interesting book."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Home Life in Latin America",
+      "text": "In many Latin American countries, family is central to home life. It's common for families to gather in the living room or kitchen to share meals and spend time together.",
+      "funFact": "In some cultures, it's traditional to decorate homes with colorful papel picado, which are decorative paper cutouts."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review vocabulary related to home and everyday objects.",
+        "Understand the difference between 'ser' and 'estar'.",
+        "Practice a dialogue about visiting a friend's home.",
+        "Recognize cultural aspects of home life in Spanish-speaking countries."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and try to have your own dialogue with a partner."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'la cocina' in English?",
+      "content": {
+        "options": [
+          "the bedroom",
+          "the kitchen",
+          "the living room"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'La cocina' translates to 'the kitchen' in English.",
+      "hint": "Think about where you cook.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is 'el sofá'?",
+      "content": {
+        "options": [
+          "the sofa",
+          "the table",
+          "the book"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El sofá' means 'the sofa' in English.",
+      "hint": "It's a piece of furniture you sit on.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'En el ___ hay un libro.'",
+      "content": {
+        "sentence": "En el ___ hay un libro.",
+        "correctAnswer": "dormitorio",
+        "acceptableAnswers": [
+          "dormitorio"
+        ],
+        "options": [
+          "sofá",
+          "dormitorio",
+          "cocina"
+        ]
+      },
+      "explanation": "The correct answer is 'dormitorio' because it is a place where you might find a book.",
+      "hint": "Think about where you sleep.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'El libro está en la ___.'",
+      "content": {
+        "sentence": "El libro está en la ___.",
+        "correctAnswer": "mesa",
+        "acceptableAnswers": [
+          "mesa"
+        ],
+        "options": [
+          "cocina",
+          "mesa",
+          "dormitorio"
+        ]
+      },
+      "explanation": "'Mesa' is the correct answer because it means 'table' where a book can be placed.",
+      "hint": "It's a piece of furniture where you eat or work.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct Spanish sentence: 'cocina la en está el libro'",
+      "content": {
+        "words": [
+          "cocina",
+          "la",
+          "en",
+          "está",
+          "el",
+          "libro"
+        ],
+        "correctOrder": [
+          "el",
+          "libro",
+          "está",
+          "en",
+          "la",
+          "cocina"
+        ],
+        "translation": "The book is in the kitchen."
+      },
+      "explanation": "The correct order forms a meaningful sentence describing the location of the book.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The sofa is in the living room.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The sofa is in the living room.'",
+        "correctAnswer": "El sofá está en la sala.",
+        "acceptableAnswers": [
+          "El sofá está en la sala."
+        ]
+      },
+      "explanation": "The translation correctly identifies the furniture and its location.",
+      "hint": "Remember 'sofa' and 'living room' in Spanish.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'El libro está en la mesa.'",
+      "content": {
+        "ttsText": "El libro está en la mesa.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The book is on the table.",
+          "The book is in the bedroom.",
+          "The sofa is in the kitchen."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation corresponds to the Spanish sentence you heard.",
+      "hint": "Focus on where the book is.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'I live in a house.'",
+      "content": {
+        "targetText": "Vivo en una casa.",
+        "context": "Translate and say this sentence in Spanish.",
+        "acceptableVariants": [
+          "Yo vivo en una casa."
+        ]
+      },
+      "explanation": "The correct sentence reflects a simple statement about where you live.",
+      "hint": "Start with 'Vivo' for 'I live'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

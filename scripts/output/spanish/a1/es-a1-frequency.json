@@ -1,0 +1,399 @@
+{
+  "lesson": {
+    "title": "How Often? (Frequency)",
+    "type": "GRAMMAR",
+    "slug": "es-a1-frequency"
+  },
+  "unit": "Free Time & Hobbies",
+  "unitOrder": 7,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to express frequency in Spanish. You will discover key vocabulary and structures to talk about how often you do activities in your free time.",
+      "culturalNote": "In many Spanish-speaking countries, free time activities like soccer or family gatherings are very important, and discussing them often includes talking about frequency."
+    },
+    "vocabulary": [
+      {
+        "term": "siempre",
+        "translation": "always",
+        "definition": "used to express something that happens all the time",
+        "pronunciation": "see-em-pre",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Siempre voy al cine.",
+          "translation": "I always go to the cinema."
+        },
+        "tip": "Think of 'siempre' as similar to 'always' in English."
+      },
+      {
+        "term": "a veces",
+        "translation": "sometimes",
+        "definition": "used to describe something that happens occasionally",
+        "pronunciation": "ah beh-ses",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "A veces juego videojuegos.",
+          "translation": "Sometimes I play video games."
+        },
+        "tip": "Remember 'a veces' means 'at times'."
+      },
+      {
+        "term": "nunca",
+        "translation": "never",
+        "definition": "used to express an action that does not happen at any time",
+        "pronunciation": "noon-kah",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Nunca leo libros.",
+          "translation": "I never read books."
+        },
+        "tip": "You can think of 'nunca' as 'never' in English."
+      },
+      {
+        "term": "frecuentemente",
+        "translation": "frequently",
+        "definition": "used to indicate something that happens often",
+        "pronunciation": "fre-kwehn-teh-men-teh",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Frecuentemente voy al parque.",
+          "translation": "I frequently go to the park."
+        },
+        "tip": "It’s similar to 'often', which is another way to express frequency."
+      },
+      {
+        "term": "de vez en cuando",
+        "translation": "once in a while",
+        "definition": "used to express something that happens occasionally",
+        "pronunciation": "deh behs en kwahn-doh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "De vez en cuando voy a la playa.",
+          "translation": "Once in a while, I go to the beach."
+        },
+        "tip": "This phrase is a bit longer but easy to remember!"
+      },
+      {
+        "term": "todos los días",
+        "translation": "every day",
+        "definition": "used to indicate something that happens daily",
+        "pronunciation": "toh-dohs los dee-as",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Voy al gimnasio todos los días.",
+          "translation": "I go to the gym every day."
+        },
+        "tip": "Think of this as your daily routine."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Frequency Adverbs",
+        "explanation": "In Spanish, we use adverbs to describe how often we do something. Common adverbs include 'siempre' (always), 'a veces' (sometimes), and 'nunca' (never). These adverbs usually come before the verb in a sentence.",
+        "table": {
+          "headers": [
+            "Frequency",
+            "Spanish Example"
+          ],
+          "rows": [
+            [
+              "Always",
+              "Siempre voy al cine."
+            ],
+            [
+              "Sometimes",
+              "A veces juego fútbol."
+            ],
+            [
+              "Never",
+              "Nunca como pizza."
+            ],
+            [
+              "Frequently",
+              "Frecuentemente leo libros."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Siempre estudio español.",
+            "translation": "I always study Spanish.",
+            "breakdown": "The adverb 'siempre' comes before the verb 'estudio'."
+          },
+          {
+            "original": "Nunca voy a la piscina.",
+            "translation": "I never go to the pool.",
+            "breakdown": "'Nunca' indicates that the action does not happen."
+          }
+        ],
+        "commonMistakes": [
+          "Do not place the frequency adverb at the end of the sentence. For example, say 'Siempre estudio' not 'Estudio siempre.'",
+          "Avoid using 'nunca' without a verb. Always include it in a complete sentence."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking About Hobbies",
+      "context": "A conversation between two friends discussing their hobbies and how often they do them.",
+      "speakers": [
+        "Juan",
+        "María"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué haces en tu tiempo libre?",
+          "translation": "What do you do in your free time?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "A veces juego al fútbol.",
+          "translation": "Sometimes I play soccer.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Vas al cine?",
+          "translation": "Do you go to the cinema?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, voy al cine siempre.",
+          "translation": "Yes, I always go to the cinema.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y qué más haces?",
+          "translation": "And what else do you do?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Frecuentemente leo libros.",
+          "translation": "I frequently read books.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Nunca ves televisión?",
+          "translation": "Do you never watch television?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "No, nunca veo televisión.",
+          "translation": "No, I never watch television.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Leisure Activities in Spanish-Speaking Countries",
+      "text": "In many Spanish-speaking countries, social activities and family gatherings are very important. People often spend weekends enjoying outdoor activities or cultural events.",
+      "funFact": "In Spain, it’s common to have a 'siesta' in the afternoon, which influences how often people engage in activities."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to frequency.",
+        "Understood how to use frequency adverbs in sentences.",
+        "Practiced a dialogue about hobbies and frequency.",
+        "Explored cultural aspects of leisure activities."
+      ],
+      "nextSteps": "Practice using frequency adverbs in your own sentences about your hobbies."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "How do you say 'sometimes' in Spanish?",
+      "content": {
+        "options": [
+          "siempre",
+          "a veces",
+          "nunca",
+          "frecuentemente"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'A veces' means 'sometimes' in Spanish.",
+      "hint": "Look for the phrase that indicates an occasional action.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'never'?",
+      "content": {
+        "options": [
+          "frecuentemente",
+          "de vez en cuando",
+          "nunca",
+          "todos los días"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Nunca' translates to 'never', indicating that something does not happen at all.",
+      "hint": "Think about the opposite of 'always'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Yo ___ voy al cine.",
+      "content": {
+        "sentence": "Yo ___ voy al cine.",
+        "correctAnswer": "siempre",
+        "acceptableAnswers": [
+          "siempre",
+          "nunca",
+          "a veces"
+        ],
+        "options": [
+          "siempre",
+          "a veces",
+          "frecuentemente",
+          "nunca"
+        ]
+      },
+      "explanation": "The sentence means 'I always go to the movies'.",
+      "hint": "What word means 'always'?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Ella _____ lee libros.",
+      "content": {
+        "sentence": "Ella _____ lee libros.",
+        "correctAnswer": "frecuentemente",
+        "acceptableAnswers": [
+          "frecuentemente",
+          "a veces",
+          "nunca"
+        ],
+        "options": [
+          "siempre",
+          "frecuentemente",
+          "nunca",
+          "de vez en cuando"
+        ]
+      },
+      "explanation": "This means 'She frequently reads books'.",
+      "hint": "Choose a word that indicates a common activity.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: (de vez en cuando, juego, videojuegos)",
+      "content": {
+        "words": [
+          "juego",
+          "de vez en cuando",
+          "videojuegos"
+        ],
+        "correctOrder": [
+          "juego",
+          "videojuegos",
+          "de vez en cuando"
+        ],
+        "translation": "I play video games sometimes."
+      },
+      "explanation": "The correct order forms the sentence: 'I play video games sometimes'.",
+      "hint": "Start with the verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I play sports every day.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I play sports every day.'",
+        "correctAnswer": "Juego deportes todos los días.",
+        "acceptableAnswers": []
+      },
+      "explanation": "This sentence means you play sports every day.",
+      "hint": "Look for the phrase for 'every day'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: ¿Cuándo juegas al fútbol?",
+      "content": {
+        "ttsText": "¿Cuándo juegas al fútbol?",
+        "ttsLang": "es-ES",
+        "options": [
+          "When do you play football?",
+          "I play football regularly.",
+          "I never play football.",
+          "I always play football."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The question asks about when someone plays football.",
+      "hint": "Listen for the word 'cuando'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I sometimes watch movies.'",
+      "content": {
+        "targetText": "A veces veo películas.",
+        "context": "Translate and say this sentence in Spanish.",
+        "acceptableVariants": [
+          "A veces miro películas.",
+          "A veces veo films."
+        ]
+      },
+      "explanation": "Both variations convey the same idea of watching movies sometimes.",
+      "hint": "Use 'a veces' for 'sometimes'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase means 'every day'?",
+      "content": {
+        "options": [
+          "de vez en cuando",
+          "todos los días",
+          "frecuentemente",
+          "nunca"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Todos los días' means 'every day'.",
+      "hint": "It's about daily activities.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Ellos _____ van al gimnasio.",
+      "content": {
+        "sentence": "Ellos _____ van al gimnasio.",
+        "correctAnswer": "frecuentemente",
+        "acceptableAnswers": [
+          "frecuentemente",
+          "nunca",
+          "a veces"
+        ],
+        "options": [
+          "siempre",
+          "frecuentemente",
+          "nunca",
+          "de vez en cuando"
+        ]
+      },
+      "explanation": "The sentence means 'They frequently go to the gym'.",
+      "hint": "Think of a word that shows a common routine.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,352 @@
+{
+  "lesson": {
+    "title": "Places in Town",
+    "type": "VOCABULARY",
+    "slug": "es-a1-places-town"
+  },
+  "unit": "Shopping & Around Town",
+  "unitOrder": 5,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to places in town, such as shops, parks, and restaurants. You will also practice using these words in simple sentences.",
+      "culturalNote": "In many Spanish-speaking countries, markets are very popular for shopping fresh produce and local goods."
+    },
+    "vocabulary": [
+      {
+        "term": "el supermercado",
+        "translation": "the supermarket",
+        "definition": "A large store that sells food and other products.",
+        "pronunciation": "el soo-per-MER-ca-do",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Yo voy al supermercado.",
+          "translation": "I go to the supermarket."
+        },
+        "tip": "Remember that 'el' indicates that 'supermercado' is masculine."
+      },
+      {
+        "term": "la tienda",
+        "translation": "the store",
+        "definition": "A place where you buy things.",
+        "pronunciation": "la tee-EN-da",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ella está en la tienda.",
+          "translation": "She is in the store."
+        },
+        "tip": "Use 'la' for feminine nouns like 'tienda'."
+      },
+      {
+        "term": "el parque",
+        "translation": "the park",
+        "definition": "An outdoor area with grass, trees, and sometimes playgrounds.",
+        "pronunciation": "el PAR-keh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Nosotros vamos al parque.",
+          "translation": "We go to the park."
+        },
+        "tip": "Pay attention to the masculine article 'el' for 'parque'."
+      },
+      {
+        "term": "el restaurante",
+        "translation": "the restaurant",
+        "definition": "A place where you can buy and eat food.",
+        "pronunciation": "el res-tau-RAN-teh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me gusta el restaurante.",
+          "translation": "I like the restaurant."
+        },
+        "tip": "Remember that 'el' is used for masculine nouns like 'restaurante'."
+      },
+      {
+        "term": "la farmacia",
+        "translation": "the pharmacy",
+        "definition": "A store where you can buy medicine.",
+        "pronunciation": "la far-MA-seea",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Voy a la farmacia.",
+          "translation": "I go to the pharmacy."
+        },
+        "tip": "Use 'la' for feminine nouns like 'farmacia'."
+      },
+      {
+        "term": "el cine",
+        "translation": "the cinema",
+        "definition": "A place where you watch movies.",
+        "pronunciation": "el SEE-neh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ellos van al cine.",
+          "translation": "They go to the cinema."
+        },
+        "tip": "Remember 'el' is used for masculine nouns such as 'cine'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'ir' (to go)",
+        "explanation": "In Spanish, we use the verb 'ir' to talk about going to places. The structure is 'subject + ir + a + place'. For example, 'Yo voy a la farmacia' means 'I go to the pharmacy.'",
+        "table": {
+          "headers": [
+            "Subject",
+            "Conjugation of 'ir'"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "voy"
+            ],
+            [
+              "Tú",
+              "vas"
+            ],
+            [
+              "Él/Ella",
+              "va"
+            ],
+            [
+              "Nosotros",
+              "vamos"
+            ],
+            [
+              "Ellos",
+              "van"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo voy al parque.",
+            "translation": "I go to the park.",
+            "breakdown": "Subject 'Yo' + verb 'voy' + preposition 'a' + place 'el parque'."
+          }
+        ],
+        "commonMistakes": [
+          "'Yo vas' is incorrect; it should be 'Yo voy.'",
+          "'Nosotros va' is incorrect; it should be 'Nosotros vamos.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Shopping in Town",
+      "context": "Two friends are talking about their plans to go shopping.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Dónde está el supermercado?",
+          "translation": "Where is the supermarket?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Está cerca del parque.",
+          "translation": "It is near the park.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Vamos al supermercado?",
+          "translation": "Shall we go to the supermarket?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, vamos. Necesito comida.",
+          "translation": "Yes, let's go. I need food.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Después, ¿vamos al cine?",
+          "translation": "Afterwards, shall we go to the cinema?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Buena idea. Me gusta el cine.",
+          "translation": "Good idea. I like the cinema.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Perfecto. Vamos ya.",
+          "translation": "Perfect. Let's go now.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, vamos.",
+          "translation": "Yes, let's go.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Shopping Culture in Latin America",
+      "text": "In many Latin American countries, local markets are an integral part of daily life. They offer fresh produce, traditional crafts, and a sense of community.",
+      "funFact": "In Mexico, the 'tianguis' is an open-air market that takes place weekly, where you can find everything from food to clothing."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary for places in town.",
+        "Practiced using 'ir' to talk about going to places.",
+        "Engaged in a dialogue about shopping.",
+        "Explored cultural aspects of shopping in Spanish-speaking countries."
+      ],
+      "nextSteps": "Review the vocabulary and practice forming sentences using 'ir' with different places."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'el supermercado' in English?",
+      "content": {
+        "options": [
+          "the supermarket",
+          "the pharmacy",
+          "the restaurant"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El supermercado' translates to 'the supermarket' in English.",
+      "hint": "It's a place where you buy groceries.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la farmacia' mean?",
+      "content": {
+        "options": [
+          "the park",
+          "the pharmacy",
+          "the cinema"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'La farmacia' means 'the pharmacy' where you can buy medicine.",
+      "hint": "You go here to get medicine.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Yo voy al ___ (supermarket).",
+      "content": {
+        "sentence": "Yo voy al ___",
+        "correctAnswer": "supermercado",
+        "acceptableAnswers": [
+          "supermercado"
+        ],
+        "options": [
+          "restaurante",
+          "supermercado",
+          "cine"
+        ]
+      },
+      "explanation": "The correct answer is 'supermercado', meaning supermarket.",
+      "hint": "This is where you buy food.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Quiero ir al ___ (cinema).",
+      "content": {
+        "sentence": "Quiero ir al ___",
+        "correctAnswer": "cine",
+        "acceptableAnswers": [
+          "cine"
+        ],
+        "options": [
+          "parque",
+          "cine",
+          "tienda"
+        ]
+      },
+      "explanation": "'Cine' means cinema in English, where you watch movies.",
+      "hint": "You watch films here.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to make a correct Spanish sentence: 'al parque voy yo'.",
+      "content": {
+        "words": [
+          "voy",
+          "al",
+          "parque",
+          "yo"
+        ],
+        "correctOrder": [
+          "yo",
+          "voy",
+          "al",
+          "parque"
+        ],
+        "translation": "I go to the park."
+      },
+      "explanation": "The correct order makes a clear statement in Spanish.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The restaurant is near.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The restaurant is near.'",
+        "correctAnswer": "El restaurante está cerca.",
+        "acceptableAnswers": [
+          "El restaurante está cerca."
+        ]
+      },
+      "explanation": "The translation captures the meaning accurately.",
+      "hint": "Focus on 'restaurant' and 'near'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct place: 'Voy al cine.'",
+      "content": {
+        "ttsText": "Voy al cine.",
+        "ttsLang": "es-ES",
+        "options": [
+          "el supermercado",
+          "el cine",
+          "la farmacia"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "You hear 'cine', which means cinema.",
+      "hint": "Listen for the word 'cine'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'I want to go to the park.'",
+      "content": {
+        "targetText": "Quiero ir al parque.",
+        "context": "Translate and say this sentence in Spanish.",
+        "acceptableVariants": [
+          "Quiero ir al parque."
+        ]
+      },
+      "explanation": "This is the correct way to express your desire to go to the park in Spanish.",
+      "hint": "Start with 'Quiero'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

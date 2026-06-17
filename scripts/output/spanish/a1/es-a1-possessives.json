@@ -1,0 +1,375 @@
+{
+  "lesson": {
+    "title": "Possessives (Mi, Tu, Su)",
+    "type": "GRAMMAR",
+    "slug": "es-a1-possessives"
+  },
+  "unit": "People & Family",
+  "unitOrder": 2,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to use possessive adjectives in Spanish: 'mi' (my), 'tu' (your), and 'su' (his/her/your formal). You will practice using them to describe relationships within families.",
+      "culturalNote": "In many Spanish-speaking cultures, family is very important, and possessives are commonly used to express closeness."
+    },
+    "vocabulary": [
+      {
+        "term": "mi hermano",
+        "translation": "my brother",
+        "definition": "the male sibling of the speaker",
+        "pronunciation": "mee ehr-mah-no",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi hermano es alto.",
+          "translation": "My brother is tall."
+        },
+        "tip": "Remember 'mi' means 'my'; it's used for things that belong to you."
+      },
+      {
+        "term": "tu hermana",
+        "translation": "your sister",
+        "definition": "the female sibling of the listener",
+        "pronunciation": "too ehr-mah-na",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tu hermana es simpática.",
+          "translation": "Your sister is nice."
+        },
+        "tip": "'Tu' is informal and used for friends or family."
+      },
+      {
+        "term": "su madre",
+        "translation": "his/her mother",
+        "definition": "the female parent of someone",
+        "pronunciation": "soo mah-dray",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Su madre es doctora.",
+          "translation": "His/her mother is a doctor."
+        },
+        "tip": "'Su' can mean 'his,' 'her,' or 'your' (formal)."
+      },
+      {
+        "term": "mi padre",
+        "translation": "my father",
+        "definition": "the male parent of the speaker",
+        "pronunciation": "mee pah-dray",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi padre trabaja mucho.",
+          "translation": "My father works a lot."
+        },
+        "tip": "Use 'mi' for possession related to yourself."
+      },
+      {
+        "term": "tu amigo",
+        "translation": "your friend",
+        "definition": "a male friend of the listener",
+        "pronunciation": "too ah-mee-go",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tu amigo es divertido.",
+          "translation": "Your friend is funny."
+        },
+        "tip": "Use 'tu' for informal settings."
+      },
+      {
+        "term": "su familia",
+        "translation": "his/her family",
+        "definition": "the group of relatives of someone",
+        "pronunciation": "soo fah-mee-lee-ah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Su familia es grande.",
+          "translation": "His/her family is big."
+        },
+        "tip": "'Su' is used in formal contexts or when referring to someone else's family."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Possessive Adjectives",
+        "explanation": "Possessive adjectives in Spanish indicate ownership. 'Mi' means 'my,' 'tu' means 'your' (informal), and 'su' means 'his,' 'her,' or 'your' (formal). They come before the noun they describe.",
+        "table": {
+          "headers": [
+            "Possessive",
+            "Translation"
+          ],
+          "rows": [
+            [
+              "mi",
+              "my"
+            ],
+            [
+              "tu",
+              "your"
+            ],
+            [
+              "su",
+              "his/her/your (formal)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Mi casa es bonita.",
+            "translation": "My house is pretty.",
+            "breakdown": "'Mi' shows that the house belongs to the speaker."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'tu' with 'su'. Remember, 'tu' is informal, while 'su' is formal or for third person.",
+          "Omitting the noun after the possessive. Always include the noun, like 'mi perro' (my dog)."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking about Family",
+      "context": "A conversation between friends discussing their families.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Quién es tu madre?",
+          "translation": "Who is your mother?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Mi madre es Carla.",
+          "translation": "My mother is Carla.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y tu padre?",
+          "translation": "And your father?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Su nombre es Juan.",
+          "translation": "His name is Juan.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Tienes hermanos?",
+          "translation": "Do you have siblings?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, tengo un hermano.",
+          "translation": "Yes, I have a brother.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Cómo se llama?",
+          "translation": "What is his name?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Se llama Miguel.",
+          "translation": "His name is Miguel.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Importance of Family in Latin America",
+      "text": "Family is a central part of life in many Latin American countries. People often refer to their close relatives in conversations, showing affection and respect through the use of possessive adjectives.",
+      "funFact": "In many cultures, it is common for extended families to live together or very close to each other."
+    },
+    "summary": {
+      "keyPoints": [
+        "Possessive adjectives are used to show ownership.",
+        "Remember the difference between 'mi,' 'tu,' and 'su.'",
+        "Practice using possessives with family-related vocabulary.",
+        "Use possessives before nouns."
+      ],
+      "nextSteps": "Practice forming sentences with possessive adjectives about your own family or friends."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'mi hermano' mean in English?",
+      "content": {
+        "options": [
+          "my brother",
+          "your brother",
+          "his brother"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Mi hermano' translates to 'my brother' in English.",
+      "hint": "Look for the word 'my' in the translation.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'your sister'?",
+      "content": {
+        "options": [
+          "tu hermana",
+          "su hermana",
+          "mi hermana"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Tu hermana' translates to 'your sister' in English.",
+      "hint": "Focus on the word 'tu'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: '___ madre es amable.'",
+      "content": {
+        "sentence": "___ madre es amable.",
+        "correctAnswer": "mi",
+        "acceptableAnswers": [
+          "mi"
+        ],
+        "options": [
+          "mi",
+          "tu",
+          "su"
+        ]
+      },
+      "explanation": "The correct answer is 'mi', meaning 'my'.",
+      "hint": "Think about whose mother is being referred to.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: '___ amigo es divertido.'",
+      "content": {
+        "sentence": "___ amigo es divertido.",
+        "correctAnswer": "tu",
+        "acceptableAnswers": [
+          "tu"
+        ],
+        "options": [
+          "mi",
+          "tu",
+          "su"
+        ]
+      },
+      "explanation": "'Tu amigo' means 'your friend', which fits the sentence.",
+      "hint": "The sentence refers to someone else's friend.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'su, familia, es, grande'.",
+      "content": {
+        "words": [
+          "su",
+          "familia",
+          "es",
+          "grande"
+        ],
+        "correctOrder": [
+          "su",
+          "familia",
+          "es",
+          "grande"
+        ],
+        "translation": "His family is big."
+      },
+      "explanation": "The correct order forms a grammatically correct sentence.",
+      "hint": "Start with the possessive pronoun.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Your brother is tall.'",
+      "content": {
+        "correctAnswer": "Tu hermano es alto.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The correct translation uses 'tu' for 'your'.",
+      "hint": "Think about the possessive form.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Mi padre es doctor.'",
+      "content": {
+        "ttsText": "Mi padre es doctor.",
+        "ttsLang": "es-ES",
+        "options": [
+          "My father is a doctor.",
+          "Your father is a doctor.",
+          "His father is a doctor."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'My father is a doctor.'",
+      "hint": "Listen for the word 'mi'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'Her mother is nice.'",
+      "content": {
+        "targetText": "Su madre es amable.",
+        "context": "Translate the sentence to Spanish.",
+        "acceptableVariants": []
+      },
+      "explanation": "The correct translation uses 'su' for 'her'.",
+      "hint": "Remember the possessive form for 'her'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'su hermana' mean?",
+      "content": {
+        "options": [
+          "her sister",
+          "my sister",
+          "your sister"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Su hermana' translates to 'her sister'.",
+      "hint": "Focus on the possessive pronoun.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: '___ familia es pequeña.'",
+      "content": {
+        "sentence": "___ familia es pequeña.",
+        "correctAnswer": "su",
+        "acceptableAnswers": [
+          "su"
+        ],
+        "options": [
+          "mi",
+          "tu",
+          "su"
+        ]
+      },
+      "explanation": "'Su familia' means 'his/her family', fitting the context.",
+      "hint": "Think about who the family belongs to.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

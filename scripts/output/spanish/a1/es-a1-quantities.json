@@ -1,0 +1,345 @@
+{
+  "lesson": {
+    "title": "Quantities & Containers",
+    "type": "VOCABULARY",
+    "slug": "es-a1-quantities"
+  },
+  "unit": "Food & Dining",
+  "unitOrder": 4,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to quantities and containers in Spanish. This includes words for different types of food and how to express amounts.",
+      "culturalNote": "In many Spanish-speaking countries, people often use fresh ingredients and local markets for their meals."
+    },
+    "vocabulary": [
+      {
+        "term": "el litro",
+        "translation": "liter",
+        "definition": "A unit of measurement for liquids.",
+        "pronunciation": "el LEE-tro",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Necesito un litro de leche.",
+          "translation": "I need a liter of milk."
+        },
+        "tip": "Think of how a liter is used in cooking or buying drinks."
+      },
+      {
+        "term": "la botella",
+        "translation": "bottle",
+        "definition": "A container for liquids, typically made of glass or plastic.",
+        "pronunciation": "la bo-TAY-ya",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo una botella de agua.",
+          "translation": "I have a bottle of water."
+        },
+        "tip": "Remember that 'botella' is feminine, so use 'la'."
+      },
+      {
+        "term": "el paquete",
+        "translation": "package",
+        "definition": "A container or wrapping for items, often used for foods.",
+        "pronunciation": "el pa-KE-te",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Voy a comprar un paquete de arroz.",
+          "translation": "I am going to buy a package of rice."
+        },
+        "tip": "Think of packages you see at the grocery store."
+      },
+      {
+        "term": "la bolsa",
+        "translation": "bag",
+        "definition": "A flexible container made of plastic or paper.",
+        "pronunciation": "la BOL-sa",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Necesito una bolsa para las frutas.",
+          "translation": "I need a bag for the fruits."
+        },
+        "tip": "Remember that 'bolsa' is also feminine."
+      },
+      {
+        "term": "la cucharada",
+        "translation": "tablespoon",
+        "definition": "A unit of measurement for volume, often used in cooking.",
+        "pronunciation": "la koo-cha-RA-da",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Agrega dos cucharadas de azúcar.",
+          "translation": "Add two tablespoons of sugar."
+        },
+        "tip": "Visualize how you use a tablespoon in the kitchen."
+      },
+      {
+        "term": "la taza",
+        "translation": "cup",
+        "definition": "A unit of measurement for volume, usually for liquids.",
+        "pronunciation": "la TA-sa",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Quiero una taza de café.",
+          "translation": "I want a cup of coffee."
+        },
+        "tip": "Think of your favorite coffee mug!"
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Quantities in Spanish",
+        "explanation": "In Spanish, we use specific words to indicate quantities. For example, 'un' is used for masculine singular nouns, while 'una' is used for feminine singular nouns. Words like 'dos' (two) and 'tres' (three) are used for numbers.",
+        "table": {
+          "headers": [
+            "Singular (Masculine)",
+            "Singular (Feminine)"
+          ],
+          "rows": [
+            [
+              "un litro",
+              "una botella"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Tengo un litro de leche.",
+            "translation": "I have a liter of milk.",
+            "breakdown": "Here, 'un' is used with the masculine noun 'litro'."
+          },
+          {
+            "original": "Quiero una botella de agua.",
+            "translation": "I want a bottle of water.",
+            "breakdown": "Here, 'una' is used with the feminine noun 'botella'."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'una' with 'el litro' instead of 'un'.",
+          "Saying 'el botella' instead of 'la botella'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Shopping for Groceries",
+      "context": "In a grocery store between a customer and a shopkeeper.",
+      "speakers": [
+        "Customer",
+        "Shopkeeper"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, ¿tiene leche?",
+          "translation": "Hello, do you have milk?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, tengo leche. ¿Cuánto quiere?",
+          "translation": "Yes, I have milk. How much do you want?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Quiero un litro, por favor.",
+          "translation": "I want a liter, please.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Aquí está. ¿Algo más?",
+          "translation": "Here it is. Anything else?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, necesito una botella de agua.",
+          "translation": "Yes, I need a bottle of water.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Claro, son dos dólares.",
+          "translation": "Sure, it is two dollars.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Aquí está.",
+          "translation": "Here it is.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Gracias, que tenga buen día.",
+          "translation": "Thank you, have a good day.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Shopping in Spanish-speaking Countries",
+      "text": "In many Spanish-speaking countries, shopping often involves visiting local markets. These markets offer fresh produce and a variety of goods, and they create a lively atmosphere.",
+      "funFact": "In Mexico, it's common to buy ingredients for meals from local markets every day."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to quantities and containers.",
+        "Understood how to use masculine and feminine articles.",
+        "Practiced a dialogue for shopping.",
+        "Gained cultural insights into shopping in Spanish-speaking countries."
+      ],
+      "nextSteps": "Practice using these words in your daily life and try to create your own sentences with quantities."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'the bottle' in Spanish?",
+      "content": {
+        "options": [
+          "el paquete",
+          "la bolsa",
+          "la botella",
+          "la taza"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'La botella' is the correct translation for 'the bottle'.",
+      "hint": "It's a common container for liquids.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'liter' in Spanish?",
+      "content": {
+        "options": [
+          "el litro",
+          "la cucharada",
+          "el paquete",
+          "la bolsa"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El litro' is the Spanish word for 'liter'.",
+      "hint": "Think of measuring liquids.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Necesito un ___ de arroz.",
+      "content": {
+        "sentence": "Necesito un ___ de arroz.",
+        "correctAnswer": "paquete",
+        "acceptableAnswers": [
+          "paquete"
+        ],
+        "options": [
+          "litro",
+          "botella",
+          "paquete",
+          "taza"
+        ]
+      },
+      "explanation": "A 'paquete' is a common way to buy rice.",
+      "hint": "It's a type of container.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Yo quiero una ___ de agua.",
+      "content": {
+        "sentence": "Yo quiero una ___ de agua.",
+        "correctAnswer": "botella",
+        "acceptableAnswers": [
+          "botella"
+        ],
+        "options": [
+          "taza",
+          "bolsa",
+          "botella",
+          "cucharada"
+        ]
+      },
+      "explanation": "You would use a 'botella' to hold water.",
+      "hint": "It's often made of plastic or glass.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Put the following words in the correct order: taza / de / café / una",
+      "content": {
+        "words": [
+          "taza",
+          "de",
+          "café",
+          "una"
+        ],
+        "correctOrder": [
+          "una",
+          "taza",
+          "de",
+          "café"
+        ],
+        "translation": "a cup of coffee"
+      },
+      "explanation": "The correct order describes a common beverage.",
+      "hint": "Start with 'una'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I need a bag of flour.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I need a bag of flour.'",
+        "correctAnswer": "Necesito una bolsa de harina.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation captures both the quantity and the container.",
+      "hint": "Remember the word for 'bag'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Quiero dos litros de leche.'",
+      "content": {
+        "ttsText": "Quiero dos litros de leche.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I want two liters of milk.",
+          "I want a bottle of milk.",
+          "I have two liters of milk.",
+          "I need two bags of milk."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation directly matches the Spanish sentence.",
+      "hint": "Focus on the quantity and the type of container.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the Spanish sentence for: 'I have a tablespoon of sugar.'",
+      "content": {
+        "targetText": "Tengo una cucharada de azúcar.",
+        "context": "Translate this sentence into Spanish.",
+        "acceptableVariants": [
+          "Tengo una cuchara de azúcar.",
+          "Tengo una cucharada de azúcar."
+        ]
+      },
+      "explanation": "The correct sentence uses 'cucharada' to refer to the quantity.",
+      "hint": "Think about measuring ingredients.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

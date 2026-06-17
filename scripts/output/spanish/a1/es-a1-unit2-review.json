@@ -1,0 +1,352 @@
+{
+  "lesson": {
+    "title": "Unit 2 Review",
+    "type": "REVIEW",
+    "slug": "es-a1-unit2-review"
+  },
+  "unit": "People & Family",
+  "unitOrder": 2,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this Unit 2 Review, you will revisit vocabulary and grammar related to people and family. You will practice your speaking and understanding through a dialogue that incorporates the words and structures you have learned.",
+      "culturalNote": "In many Spanish-speaking cultures, family plays a central role in daily life, often gathering for meals and celebrations."
+    },
+    "vocabulary": [
+      {
+        "term": "la familia",
+        "translation": "the family",
+        "definition": "A group of people related by blood or marriage.",
+        "pronunciation": "lah fah-mee-lyah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi familia es grande.",
+          "translation": "My family is big."
+        },
+        "tip": "Remember that 'familia' is feminine, so use 'la'."
+      },
+      {
+        "term": "el padre",
+        "translation": "the father",
+        "definition": "Male parent.",
+        "pronunciation": "el pah-dreh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El padre de Ana es amable.",
+          "translation": "Ana's father is kind."
+        },
+        "tip": "Remember 'padre' is masculine, so use 'el'."
+      },
+      {
+        "term": "la madre",
+        "translation": "the mother",
+        "definition": "Female parent.",
+        "pronunciation": "lah mah-dreh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La madre de Juan es profesora.",
+          "translation": "Juan's mother is a teacher."
+        },
+        "tip": "Remember 'madre' is feminine, so use 'la'."
+      },
+      {
+        "term": "el hermano",
+        "translation": "the brother",
+        "definition": "Male sibling.",
+        "pronunciation": "el ehr-mah-noh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo un hermano.",
+          "translation": "I have a brother."
+        },
+        "tip": "Use 'el' for masculine nouns like 'hermano'."
+      },
+      {
+        "term": "la hermana",
+        "translation": "the sister",
+        "definition": "Female sibling.",
+        "pronunciation": "lah ehr-mah-nah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ella tiene una hermana.",
+          "translation": "She has a sister."
+        },
+        "tip": "Remember to use 'la' for feminine nouns like 'hermana'."
+      },
+      {
+        "term": "el amigo",
+        "translation": "the friend (male)",
+        "definition": "A male companion or friend.",
+        "pronunciation": "el ah-mee-go",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi amigo juega al fútbol.",
+          "translation": "My friend plays soccer."
+        },
+        "tip": "Use 'el' for male nouns like 'amigo'."
+      },
+      {
+        "term": "la amiga",
+        "translation": "the friend (female)",
+        "definition": "A female companion or friend.",
+        "pronunciation": "lah ah-mee-gah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi amiga es divertida.",
+          "translation": "My friend is funny."
+        },
+        "tip": "Remember to use 'la' for female nouns like 'amiga'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'ser' and 'estar'",
+        "explanation": "'Ser' and 'estar' both mean 'to be' in Spanish but are used differently. 'Ser' is used for permanent characteristics, like identity and origin, while 'estar' is used for temporary states or locations.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Use"
+          ],
+          "rows": [
+            [
+              "ser",
+              "Permanent states (identity, characteristics)"
+            ],
+            [
+              "estar",
+              "Temporary states (feelings, locations)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ella es alta.",
+            "translation": "She is tall.",
+            "breakdown": "'Es' (from 'ser') is used here because being tall is a permanent characteristic."
+          },
+          {
+            "original": "Él está cansado.",
+            "translation": "He is tired.",
+            "breakdown": "'Está' (from 'estar') is used here because being tired is a temporary state."
+          }
+        ],
+        "commonMistakes": [
+          "'Yo soy cansado' should be 'Yo estoy cansado' because tiredness is temporary.",
+          "'Ella está alta' should be 'Ella es alta' because height is a permanent characteristic."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking about Family and Friends",
+      "context": "In a park, two friends are discussing their families.",
+      "speakers": [
+        "Carlos",
+        "María"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, María. ¿Cómo está tu familia?",
+          "translation": "Hello, María. How is your family?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, Carlos. Mi familia está bien, gracias.",
+          "translation": "Hello, Carlos. My family is fine, thank you."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Tienes hermanos?",
+          "translation": "Do you have siblings?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, tengo un hermano y una hermana.",
+          "translation": "Yes, I have a brother and a sister."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Cómo se llaman?",
+          "translation": "What are their names?"
+        },
+        {
+          "speaker": 1,
+          "text": "Mi hermano se llama Luis y mi hermana se llama Ana.",
+          "translation": "My brother's name is Luis and my sister's name is Ana."
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué bien! ¿Y tu amigo Juan, cómo está?",
+          "translation": "That's great! And how is your friend Juan?"
+        },
+        {
+          "speaker": 1,
+          "text": "Juan está bien. Es muy divertido.",
+          "translation": "Juan is fine. He is very funny."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Family Values in Latin America",
+      "text": "Family is very important in Latin American cultures. It is common for families to gather frequently for meals and celebrations, often including extended family members.",
+      "funFact": "In many Latin American countries, it is customary to greet family with a warm hug or kiss on the cheek."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review vocabulary related to family and friends.",
+        "Understand the difference between 'ser' and 'estar'.",
+        "Practice speaking through a dialogue.",
+        "Learn cultural aspects of family in Spanish-speaking countries."
+      ],
+      "nextSteps": "Continue practicing vocabulary and try creating your own sentences using 'ser' and 'estar'."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'el padre' in English?",
+      "content": {
+        "options": [
+          "the mother",
+          "the father",
+          "the brother",
+          "the sister"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct translation of 'el padre' is 'the father'.",
+      "hint": "Think about who usually has the role of a parent.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'sister'?",
+      "content": {
+        "options": [
+          "la madre",
+          "la amiga",
+          "la hermana",
+          "el amigo"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'La hermana' translates to 'the sister' in English.",
+      "hint": "It starts with 'herma'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Yo tengo ___ hermano.'",
+      "content": {
+        "sentence": "Yo tengo ___ hermano.",
+        "correctAnswer": "un",
+        "acceptableAnswers": [
+          "un",
+          "una"
+        ],
+        "options": [
+          "una",
+          "un"
+        ]
+      },
+      "explanation": "The correct answer is 'un' as it refers to a male sibling.",
+      "hint": "Think about the gender of the word 'hermano'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ella es mi ___.'",
+      "content": {
+        "sentence": "Ella es mi ___.",
+        "correctAnswer": "hermana",
+        "acceptableAnswers": [
+          "hermana",
+          "amiga"
+        ],
+        "options": [
+          "hermana",
+          "amiga"
+        ]
+      },
+      "explanation": "'Hermana' means 'sister', and 'amiga' means 'friend'.",
+      "hint": "Think about a female sibling or friend.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'madre mi es la'",
+      "content": {
+        "words": [
+          "madre",
+          "mi",
+          "es",
+          "la"
+        ],
+        "correctOrder": [
+          "la",
+          "madre",
+          "es",
+          "mi"
+        ],
+        "translation": "My mother is"
+      },
+      "explanation": "The correct order forms the sentence 'La madre es mi'.",
+      "hint": "Start with 'la' to indicate 'the'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I have a friend.'",
+      "content": {
+        "correctAnswer": "Tengo un amigo.",
+        "acceptableAnswers": [
+          "Tengo una amiga."
+        ],
+        "prompt": "Translate to Spanish: 'I have a friend.'"
+      },
+      "explanation": "The correct translation is 'Tengo un amigo.' if the friend is male, or 'Tengo una amiga.' if female.",
+      "hint": "Think about the gender of 'friend'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Mi hermana es mi amiga.'",
+      "content": {
+        "ttsText": "Mi hermana es mi amiga.",
+        "ttsLang": "es-ES",
+        "options": [
+          "My sister is my friend.",
+          "My brother is my friend.",
+          "My mother is my friend."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'My sister is my friend.'",
+      "hint": "Focus on the word 'hermana'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'I have a sister.'",
+      "content": {
+        "targetText": "Tengo una hermana.",
+        "context": "Translate and say this sentence in Spanish.",
+        "acceptableVariants": [
+          "Tengo una hermana",
+          "Yo tengo una hermana"
+        ]
+      },
+      "explanation": "The correct sentence is 'Tengo una hermana.'",
+      "hint": "Use 'tengo' for 'I have'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

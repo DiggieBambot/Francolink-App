@@ -1,0 +1,375 @@
+{
+  "lesson": {
+    "title": "Unit 5 Review",
+    "type": "REVIEW",
+    "slug": "es-a1-unit5-review"
+  },
+  "unit": "Shopping & Around Town",
+  "unitOrder": 5,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this Unit 5 Review, you will revisit vocabulary and grammar related to shopping and navigating around town. You will practice using simple phrases and sentences to communicate effectively in everyday situations.",
+      "culturalNote": "Shopping culture in Spanish-speaking countries often includes vibrant markets and street vendors, where you can find unique local products."
+    },
+    "vocabulary": [
+      {
+        "term": "la tienda",
+        "translation": "the store",
+        "definition": "A place where you buy goods.",
+        "pronunciation": "lah tee-en-dah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Voy a la tienda.",
+          "translation": "I am going to the store."
+        },
+        "tip": "Remember that 'la' is used for feminine nouns."
+      },
+      {
+        "term": "el dinero",
+        "translation": "the money",
+        "definition": "Currency used to buy things.",
+        "pronunciation": "el dee-neh-roh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo poco dinero.",
+          "translation": "I have little money."
+        },
+        "tip": "Use 'el' for masculine nouns like 'dinero'."
+      },
+      {
+        "term": "la comida",
+        "translation": "the food",
+        "definition": "What you eat.",
+        "pronunciation": "lah koh-mee-dah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me gusta la comida mexicana.",
+          "translation": "I like Mexican food."
+        },
+        "tip": "Remember to use 'la' for feminine nouns."
+      },
+      {
+        "term": "dónde",
+        "translation": "where",
+        "definition": "Used to ask for a location.",
+        "pronunciation": "don-deh",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "¿Dónde está la tienda?",
+          "translation": "Where is the store?"
+        },
+        "tip": "'Dónde' is often used in questions."
+      },
+      {
+        "term": "barato",
+        "translation": "cheap",
+        "definition": "Something that costs little money.",
+        "pronunciation": "bah-rah-toh",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Este libro es barato.",
+          "translation": "This book is cheap."
+        },
+        "tip": "Adjectives in Spanish agree in gender and number with nouns."
+      },
+      {
+        "term": "caro",
+        "translation": "expensive",
+        "definition": "Something that costs a lot of money.",
+        "pronunciation": "kah-roh",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Ese vestido es caro.",
+          "translation": "That dress is expensive."
+        },
+        "tip": "Remember the difference between 'barato' (cheap) and 'caro' (expensive)."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'ser' and 'estar'",
+        "explanation": "'Ser' and 'estar' both mean 'to be' in Spanish, but they are used in different contexts. 'Ser' is used for permanent characteristics and identities, while 'estar' is used for temporary states and locations.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "ser",
+              "For identity, origin, and characteristics"
+            ],
+            [
+              "estar",
+              "For location and temporary conditions"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ella es alta.",
+            "translation": "She is tall.",
+            "breakdown": "'Es' indicates a permanent characteristic (height)."
+          },
+          {
+            "original": "Ella está en la tienda.",
+            "translation": "She is in the store.",
+            "breakdown": "'Está' indicates a temporary location."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'ser' for location instead of 'estar'. Correct: 'Estoy en casa.'",
+          "Using 'estar' for permanent traits. Correct: 'Él es médico.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Shopping at the Market",
+      "context": "A conversation between two friends at a local market.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, Luis. ¿Dónde está la tienda de frutas?",
+          "translation": "Hello, Luis. Where is the fruit store?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, Ana. La tienda está cerca de aquí.",
+          "translation": "Hello, Ana. The store is close to here."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Es cara la fruta?",
+          "translation": "Is the fruit expensive?"
+        },
+        {
+          "speaker": 1,
+          "text": "No, es barata. ¡Vamos!",
+          "translation": "No, it's cheap. Let's go!"
+        },
+        {
+          "speaker": 0,
+          "text": "Perfecto. Tengo un poco de dinero.",
+          "translation": "Perfect. I have a little money."
+        },
+        {
+          "speaker": 1,
+          "text": "¿Qué tipo de fruta quieres?",
+          "translation": "What kind of fruit do you want?"
+        },
+        {
+          "speaker": 0,
+          "text": "Quiero manzanas y naranjas.",
+          "translation": "I want apples and oranges."
+        },
+        {
+          "speaker": 1,
+          "text": "Muy bien. Aquí está la tienda.",
+          "translation": "Very good. Here is the store."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Shopping in Latin America",
+      "text": "Shopping in Latin America often involves visiting vibrant local markets. These markets are not only places to buy food, but also to socialize and experience local culture.",
+      "funFact": "In many Latin American countries, haggling is a common practice in markets, so don't be afraid to negotiate prices!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Review of vocabulary related to shopping",
+        "Understanding 'ser' and 'estar'",
+        "Practice common phrases for shopping",
+        "Cultural insights on markets"
+      ],
+      "nextSteps": "Continue practicing vocabulary and try to create your own dialogues about shopping scenarios."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la tienda' mean in English?",
+      "content": {
+        "options": [
+          "the store",
+          "the money",
+          "the food",
+          "the town"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La tienda' translates to 'the store' in English.",
+      "hint": "Think about where you go to buy things.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'expensive'?",
+      "content": {
+        "options": [
+          "barato",
+          "caro",
+          "dónde",
+          "dinero"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Caro' means 'expensive' in English.",
+      "hint": "It's the opposite of 'barato'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: '¿___ está la tienda?'",
+      "content": {
+        "sentence": "¿___ está la tienda?",
+        "correctAnswer": "Dónde",
+        "acceptableAnswers": [
+          "Dónde"
+        ],
+        "options": [
+          "Dónde",
+          "Caro",
+          "Dinero"
+        ]
+      },
+      "explanation": "The word 'dónde' means 'where', which fits the question.",
+      "hint": "You're asking for a location.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'La comida es muy ___.'.",
+      "content": {
+        "sentence": "La comida es muy ___.",
+        "correctAnswer": "barata",
+        "acceptableAnswers": [
+          "barato",
+          "barata"
+        ],
+        "options": [
+          "caro",
+          "barato",
+          "barata"
+        ]
+      },
+      "explanation": "'Barata' means 'cheap', which describes the food in the sentence.",
+      "hint": "Think about the cost of the food.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: 'dinero / tengo / mucho'.",
+      "content": {
+        "words": [
+          "dinero",
+          "tengo",
+          "mucho"
+        ],
+        "correctOrder": [
+          "tengo",
+          "mucho",
+          "dinero"
+        ],
+        "translation": "I have a lot of money."
+      },
+      "explanation": "The correct order expresses possession in Spanish.",
+      "hint": "Start with the verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The food is expensive.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The food is expensive.'",
+        "correctAnswer": "La comida es cara.",
+        "acceptableAnswers": [
+          "La comida es cara"
+        ]
+      },
+      "explanation": "The translation correctly conveys the meaning of the sentence.",
+      "hint": "Focus on the words for food and price.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'El dinero es importante.'",
+      "content": {
+        "ttsText": "El dinero es importante.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The food is important.",
+          "The money is important.",
+          "The store is important."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The audio clearly states that money is important.",
+      "hint": "Listen for 'dinero'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the sentence: 'I need to go to the store.'",
+      "content": {
+        "targetText": "Necesito ir a la tienda.",
+        "context": "Translate and say the sentence in Spanish.",
+        "acceptableVariants": [
+          "Necesito ir a la tienda"
+        ]
+      },
+      "explanation": "This sentence expresses a need to visit the store.",
+      "hint": "Focus on 'necesito' for 'I need'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'food'?",
+      "content": {
+        "options": [
+          "dinero",
+          "comida",
+          "tienda",
+          "caro"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Comida' translates to 'food' in English.",
+      "hint": "Think about what you eat.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: '¿Cuánto ___ la comida?'.",
+      "content": {
+        "sentence": "¿Cuánto ___ la comida?",
+        "correctAnswer": "cuesta",
+        "acceptableAnswers": [
+          "cuesta"
+        ],
+        "options": [
+          "vale",
+          "cuesta",
+          "es"
+        ]
+      },
+      "explanation": "The word 'cuesta' means 'costs', which fits the question.",
+      "hint": "You're asking for the price.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,380 @@
+{
+  "lesson": {
+    "title": "Hello & Goodbye (Saludos)",
+    "type": "CONVERSATION",
+    "slug": "es-a1-greetings"
+  },
+  "unit": "First Words & Greetings",
+  "unitOrder": 1,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn basic Spanish greetings and farewells. You will be able to say hello and goodbye in different contexts.",
+      "culturalNote": "In many Spanish-speaking countries, it's common to greet with a kiss on the cheek, even when meeting someone for the first time."
+    },
+    "vocabulary": [
+      {
+        "term": "hola",
+        "translation": "hello",
+        "definition": "a common greeting",
+        "pronunciation": "OH-lah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Hola, ¿cómo estás?",
+          "translation": "Hello, how are you?"
+        },
+        "tip": "Use 'hola' in both formal and informal settings."
+      },
+      {
+        "term": "adiós",
+        "translation": "goodbye",
+        "definition": "a common farewell",
+        "pronunciation": "ah-DYOS",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Adiós, hasta luego.",
+          "translation": "Goodbye, see you later."
+        },
+        "tip": "'Adiós' is used for long-term farewells."
+      },
+      {
+        "term": "buenos días",
+        "translation": "good morning",
+        "definition": "a greeting used in the morning",
+        "pronunciation": "BWEH-nos DEE-as",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "¡Buenos días! ¿Cómo amaneciste?",
+          "translation": "Good morning! How did you wake up?"
+        },
+        "tip": "Use 'buenos días' until around noon."
+      },
+      {
+        "term": "buenas tardes",
+        "translation": "good afternoon",
+        "definition": "a greeting used in the afternoon",
+        "pronunciation": "BWEH-nas TAR-des",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Buenas tardes, ¿qué tal?",
+          "translation": "Good afternoon, how are you?"
+        },
+        "tip": "Use 'buenas tardes' from noon until evening."
+      },
+      {
+        "term": "buenas noches",
+        "translation": "good evening/night",
+        "definition": "a greeting used in the evening or at night",
+        "pronunciation": "BWEH-nas NO-ches",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Buenas noches, que descanses.",
+          "translation": "Good night, rest well."
+        },
+        "tip": "Use 'buenas noches' when greeting in the evening or saying goodnight."
+      },
+      {
+        "term": "hasta luego",
+        "translation": "see you later",
+        "definition": "a casual way to say goodbye",
+        "pronunciation": "AH-stah LWEH-go",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Nos vemos, hasta luego.",
+          "translation": "See you, see you later."
+        },
+        "tip": "'Hasta luego' is informal and friendly."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Greetings and Farewells",
+        "explanation": "In Spanish, greetings and farewells are important in social interactions. You can use 'hola' for hello at any time of the day. For goodbyes, 'adiós' is common, but you can also say 'hasta luego' for a more casual farewell.",
+        "table": {
+          "headers": [
+            "Spanish",
+            "English"
+          ],
+          "rows": [
+            [
+              "hola",
+              "hello"
+            ],
+            [
+              "adiós",
+              "goodbye"
+            ],
+            [
+              "buenos días",
+              "good morning"
+            ],
+            [
+              "buenas tardes",
+              "good afternoon"
+            ],
+            [
+              "buenas noches",
+              "good evening/night"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Hola, ¿cómo te llamas?",
+            "translation": "Hello, what is your name?",
+            "breakdown": "This sentence uses 'hola' to greet someone and asks for their name."
+          },
+          {
+            "original": "Adiós, que tengas buen día.",
+            "translation": "Goodbye, have a good day.",
+            "breakdown": "'Adiós' is used here to say goodbye politely."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'buenas tardes' and 'buenas noches' - remember to use 'buenas tardes' until evening.",
+          "Using 'adiós' for short departures - prefer 'hasta luego' for casual situations."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Meeting a Friend",
+      "context": "This conversation happens at a café in the morning.",
+      "speakers": [
+        "Juan",
+        "María"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¡Hola, María!",
+          "translation": "Hello, María!",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¡Hola, Juan! ¿Cómo estás?",
+          "translation": "Hello, Juan! How are you?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Estoy bien, gracias. ¿Y tú?",
+          "translation": "I am good, thank you. And you?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Estoy bien también.",
+          "translation": "I am good too.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué haces hoy?",
+          "translation": "What are you doing today?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Voy al cine esta tarde.",
+          "translation": "I am going to the movies this afternoon.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué bien! ¿A qué hora?",
+          "translation": "How nice! What time?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "A las cinco. ¿Quieres venir?",
+          "translation": "At five o'clock. Do you want to come?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, ¡me encantaría! Hasta luego.",
+          "translation": "Yes, I would love to! See you later.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hasta luego, Juan.",
+          "translation": "See you later, Juan.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Greetings in Spanish Culture",
+      "text": "In many Spanish-speaking countries, greetings are an important part of social interaction. People often greet friends and family with a warm hug or a kiss on the cheek.",
+      "funFact": "In some regions, such as Argentina, it is common to greet with a single kiss on the cheek, while in others, like Spain, two kisses are customary."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned basic greetings and farewells in Spanish.",
+        "Understanding the context for using different greetings.",
+        "Practiced a simple dialogue using greetings.",
+        "Recognized cultural aspects of greetings in Spanish-speaking countries."
+      ],
+      "nextSteps": "Practice these greetings with a friend or in front of a mirror. Next, you will learn how to introduce yourself in Spanish."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct translation of 'good morning' in Spanish?",
+      "content": {
+        "options": [
+          "buenas tardes",
+          "buenas noches",
+          "buenos días"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Buenos días' means 'good morning' in Spanish.",
+      "hint": "Think about morning greetings.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase means 'goodbye' in Spanish?",
+      "content": {
+        "options": [
+          "hola",
+          "adiós",
+          "hasta luego"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Adiós' is the Spanish word for 'goodbye'.",
+      "hint": "It’s a common way to part ways.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: '____ tardes' (good afternoon)",
+      "content": {
+        "sentence": "____ tardes",
+        "correctAnswer": "buenas",
+        "acceptableAnswers": [
+          "buenas"
+        ],
+        "options": [
+          "buenas",
+          "buenos"
+        ]
+      },
+      "explanation": "'Buenas' is the correct form to use with 'tardes' (afternoons).",
+      "hint": "Think of the time of day.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Hola, ______!' (Hello, friend!)",
+      "content": {
+        "sentence": "Hola, ______!",
+        "correctAnswer": "amigo",
+        "acceptableAnswers": [
+          "amigo",
+          "amiga"
+        ],
+        "options": [
+          "amigo",
+          "amiga",
+          "hermano"
+        ]
+      },
+      "explanation": "'Amigo' means 'friend'. You can use 'amiga' for a female friend.",
+      "hint": "It’s a common way to greet a friend.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'See you later!'",
+      "content": {
+        "prompt": "Translate to Spanish: 'See you later!'",
+        "correctAnswer": "¡Hasta luego!",
+        "acceptableAnswers": []
+      },
+      "explanation": "'¡Hasta luego!' is the correct way to say 'See you later!' in Spanish.",
+      "hint": "Think of a common farewell.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the greeting and choose the correct option.",
+      "content": {
+        "ttsText": "¡Buenas noches!",
+        "ttsLang": "es-ES",
+        "options": [
+          "Good night!",
+          "Good morning!",
+          "Good afternoon!"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'Good night!' based on the greeting heard.",
+      "hint": "It's a phrase used at night.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in Spanish: 'Good morning, everyone!'",
+      "content": {
+        "targetText": "¡Buenos días a todos!",
+        "context": "You are greeting a group in the morning.",
+        "acceptableVariants": [
+          "¡Buenos días a todos!",
+          "¡Buen día a todos!"
+        ]
+      },
+      "explanation": "The correct way to greet a group in the morning is '¡Buenos días a todos!'.",
+      "hint": "Remember to greet everyone.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'buenas noches' mean?",
+      "content": {
+        "options": [
+          "good night",
+          "good evening",
+          "good morning"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Buenas noches' translates to 'good night' in English.",
+      "hint": "Think about greetings used at night.",
+      "difficulty": "HARD",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: '____ días' (good day)",
+      "content": {
+        "sentence": "____ días",
+        "correctAnswer": "buenos",
+        "acceptableAnswers": [
+          "buenos"
+        ],
+        "options": [
+          "buenos",
+          "buenas"
+        ]
+      },
+      "explanation": "'Buenos' is the correct form for 'días' (days).",
+      "hint": "It's a common greeting for daytime.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

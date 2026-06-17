@@ -1,0 +1,359 @@
+{
+  "lesson": {
+    "title": "My Family (La Familia)",
+    "type": "VOCABULARY",
+    "slug": "es-a1-family"
+  },
+  "unit": "People & Family",
+  "unitOrder": 2,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to family members in Spanish. You will be able to introduce your family and describe your relationships.",
+      "culturalNote": "In many Spanish-speaking cultures, family is central to social life, and gatherings often include extended family members."
+    },
+    "vocabulary": [
+      {
+        "term": "el padre",
+        "translation": "the father",
+        "definition": "male parent",
+        "pronunciation": "el pah-dray",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi padre es médico.",
+          "translation": "My father is a doctor."
+        },
+        "tip": "Remember 'padre' is similar to 'pater' in Latin languages."
+      },
+      {
+        "term": "la madre",
+        "translation": "the mother",
+        "definition": "female parent",
+        "pronunciation": "lah mah-dray",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi madre es profesora.",
+          "translation": "My mother is a teacher."
+        },
+        "tip": "Think of 'madre' as similar to 'mater' in Latin languages."
+      },
+      {
+        "term": "el hermano",
+        "translation": "the brother",
+        "definition": "male sibling",
+        "pronunciation": "el air-mah-no",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo un hermano.",
+          "translation": "I have a brother."
+        },
+        "tip": "Remember that 'hermano' is related to 'hermana' for sister."
+      },
+      {
+        "term": "la hermana",
+        "translation": "the sister",
+        "definition": "female sibling",
+        "pronunciation": "lah air-mah-nah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi hermana es estudiante.",
+          "translation": "My sister is a student."
+        },
+        "tip": "'Hermana' and 'hermano' are easy to remember together."
+      },
+      {
+        "term": "el abuelo",
+        "translation": "the grandfather",
+        "definition": "male grandparent",
+        "pronunciation": "el ah-bweh-lo",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi abuelo es viejo.",
+          "translation": "My grandfather is old."
+        },
+        "tip": "Think of 'abuelo' as 'abuelito' for a more affectionate term."
+      },
+      {
+        "term": "la abuela",
+        "translation": "the grandmother",
+        "definition": "female grandparent",
+        "pronunciation": "lah ah-bweh-lah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La abuela hace galletas.",
+          "translation": "The grandmother makes cookies."
+        },
+        "tip": "Just like 'abuelo', 'abuela' is a warm term in family."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'ser' to Describe Family",
+        "explanation": "'Ser' is used to describe relationships and characteristics. When talking about family, we use 'ser' to say who someone is in relation to us.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Ser Conjugation"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "soy"
+            ],
+            [
+              "Tú",
+              "eres"
+            ],
+            [
+              "Él/Ella",
+              "es"
+            ],
+            [
+              "Nosotros",
+              "somos"
+            ],
+            [
+              "Ellos/Ellas",
+              "son"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo soy el hijo de mi padre.",
+            "translation": "I am the son of my father.",
+            "breakdown": "Subject 'Yo' + 'soy' (I am) + 'el hijo' (the son) + 'de mi padre' (of my father)."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'estar' instead of 'ser' for relationships (e.g., 'Yo estoy el hijo' is incorrect; it should be 'Yo soy el hijo').",
+          "Confusing 'mi' (my) and 'mis' (my plural); use 'mi' for singular family members."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Meeting a New Friend",
+      "context": "A casual meeting between two students at school.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, soy Carlos.",
+          "translation": "Hi, I am Carlos."
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, Carlos. Soy Ana.",
+          "translation": "Hi, Carlos. I am Ana."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Tienes hermanos?",
+          "translation": "Do you have siblings?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, tengo una hermana.",
+          "translation": "Yes, I have a sister."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Cómo se llama tu hermana?",
+          "translation": "What is your sister's name?"
+        },
+        {
+          "speaker": 1,
+          "text": "Se llama Lucia.",
+          "translation": "Her name is Lucia."
+        },
+        {
+          "speaker": 0,
+          "text": "Tengo un hermano. Se llama Miguel.",
+          "translation": "I have a brother. His name is Miguel."
+        },
+        {
+          "speaker": 1,
+          "text": "¿Y tus padres?",
+          "translation": "And your parents?"
+        },
+        {
+          "speaker": 0,
+          "text": "Mis padres son muy amables.",
+          "translation": "My parents are very kind."
+        },
+        {
+          "speaker": 1,
+          "text": "¡Qué bien! Mis abuelos también son amables.",
+          "translation": "That's great! My grandparents are also kind."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Importance of Family in Hispanic Culture",
+      "text": "Family is often considered the cornerstone of social life in many Spanish-speaking countries. Family gatherings are frequent and important, providing a sense of belonging and support.",
+      "funFact": "In Mexico, the Day of the Dead (Día de los Muertos) celebrates and honors deceased family members, showcasing the deep connection to family even after death."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary for family members.",
+        "Practiced using 'ser' to describe relationships.",
+        "Engaged in a dialogue about family.",
+        "Explored cultural significance of family."
+      ],
+      "nextSteps": "Practice introducing your family in Spanish and use the vocabulary in sentences. Next, you will learn about pets and animals."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'la madre' in English?",
+      "content": {
+        "options": [
+          "the father",
+          "the mother",
+          "the sister",
+          "the brother"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'La madre' translates to 'the mother' in English.",
+      "hint": "Think of a parent.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'the grandfather' in Spanish?",
+      "content": {
+        "options": [
+          "el hermano",
+          "el abuelo",
+          "la hermana",
+          "la abuela"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El abuelo' means 'the grandfather' in Spanish.",
+      "hint": "It's a male grandparent.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Yo tengo un ___.'",
+      "content": {
+        "sentence": "Yo tengo un ___.",
+        "correctAnswer": "hermano",
+        "acceptableAnswers": [
+          "hermano",
+          "hermana"
+        ],
+        "options": [
+          "padre",
+          "hermano",
+          "abuelo",
+          "madre"
+        ]
+      },
+      "explanation": "The sentence means 'I have a brother/sister.'",
+      "hint": "Think of a sibling.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ella es mi ___.'",
+      "content": {
+        "sentence": "Ella es mi ___.",
+        "correctAnswer": "madre",
+        "acceptableAnswers": [
+          "madre",
+          "hermana"
+        ],
+        "options": [
+          "abuela",
+          "madre",
+          "hermano",
+          "padre"
+        ]
+      },
+      "explanation": "The sentence means 'She is my mother/sister.'",
+      "hint": "It's a female parent or sibling.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'abuela mi es'",
+      "content": {
+        "words": [
+          "abuela",
+          "mi",
+          "es"
+        ],
+        "correctOrder": [
+          "mi",
+          "abuela",
+          "es"
+        ],
+        "translation": "She is my grandmother."
+      },
+      "explanation": "The correct order forms the sentence 'She is my grandmother.'",
+      "hint": "Start with 'my'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I have a sister.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I have a sister.'",
+        "correctAnswer": "Tengo una hermana.",
+        "acceptableAnswers": [
+          "Tengo una hermana"
+        ]
+      },
+      "explanation": "The translation is accurate and uses the correct vocabulary.",
+      "hint": "Think of the word for 'sister'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "What does this Spanish sentence mean? 'El padre es alto.'",
+      "content": {
+        "ttsText": "El padre es alto.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The father is tall.",
+          "The mother is tall.",
+          "The brother is tall.",
+          "The sister is tall."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'The father is tall.'",
+      "hint": "Listen for the word for 'father'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in Spanish: 'She is my grandmother.'",
+      "content": {
+        "targetText": "Ella es mi abuela.",
+        "context": "Translate 'She is my grandmother.' into Spanish.",
+        "acceptableVariants": [
+          "Ella es mi abuela"
+        ]
+      },
+      "explanation": "This is the correct translation of the given English sentence.",
+      "hint": "Remember the word for 'grandmother'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

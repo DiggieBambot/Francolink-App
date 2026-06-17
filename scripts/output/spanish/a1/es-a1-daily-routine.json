@@ -1,0 +1,350 @@
+{
+  "lesson": {
+    "title": "My Daily Routine",
+    "type": "CONVERSATION",
+    "slug": "es-a1-daily-routine"
+  },
+  "unit": "Daily Life & Routines",
+  "unitOrder": 3,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary and phrases related to daily routines in Spanish. You will also practice a simple conversation about your daily activities.",
+      "culturalNote": "In many Spanish-speaking countries, lunch is often the main meal of the day and is usually served later than in the United States."
+    },
+    "vocabulary": [
+      {
+        "term": "la mañana",
+        "translation": "the morning",
+        "definition": "The early part of the day.",
+        "pronunciation": "lah ma-nyah-nah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me levanto en la mañana.",
+          "translation": "I get up in the morning."
+        },
+        "tip": "Think of 'mañana' as 'tomorrow' in English, which is also related to morning."
+      },
+      {
+        "term": "el desayuno",
+        "translation": "breakfast",
+        "definition": "The first meal of the day.",
+        "pronunciation": "el deh-sah-yoo-noh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Como el desayuno a las ocho.",
+          "translation": "I eat breakfast at eight."
+        },
+        "tip": "Remember that 'desayuno' starts with 'de-' which means it's before lunch."
+      },
+      {
+        "term": "ir a trabajar",
+        "translation": "to go to work",
+        "definition": "To leave for your job.",
+        "pronunciation": "eer ah trah-bah-har",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Voy a trabajar a las nueve.",
+          "translation": "I go to work at nine."
+        },
+        "tip": "The verb 'ir' means 'to go.'"
+      },
+      {
+        "term": "la casa",
+        "translation": "the house",
+        "definition": "A place where people live.",
+        "pronunciation": "lah kah-sah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Vuelvo a casa a las cinco.",
+          "translation": "I return home at five."
+        },
+        "tip": "Think of 'casa' as 'castle' in English, both are places to live."
+      },
+      {
+        "term": "cenar",
+        "translation": "to have dinner",
+        "definition": "To eat the last meal of the day.",
+        "pronunciation": "seh-nar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ceno a las siete.",
+          "translation": "I have dinner at seven."
+        },
+        "tip": "Cenar sounds like 'senior,' and dinner is often a time for family."
+      },
+      {
+        "term": "dormir",
+        "translation": "to sleep",
+        "definition": "To rest at night.",
+        "pronunciation": "dor-meer",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Duermo a las diez.",
+          "translation": "I sleep at ten."
+        },
+        "tip": "Remember 'dormir' like 'dormitory' where people sleep."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Present Tense Verbs",
+        "explanation": "In Spanish, the present tense is used to describe actions happening now. For regular verbs, there are different endings for -ar, -er, and -ir verbs. Here are the endings for each type:",
+        "table": {
+          "headers": [
+            "Verb Type",
+            "Endings"
+          ],
+          "rows": [
+            [
+              "-ar",
+              "-o, -as, -a, -amos, -an"
+            ],
+            [
+              "-er",
+              "-o, -es, -e, -emos, -en"
+            ],
+            [
+              "-ir",
+              "-o, -es, -e, -imos, -en"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo como el desayuno.",
+            "translation": "I eat breakfast.",
+            "breakdown": "Yo (I) + como (eat) + el desayuno (breakfast)."
+          },
+          {
+            "original": "Ella duerme a las diez.",
+            "translation": "She sleeps at ten.",
+            "breakdown": "Ella (she) + duerme (sleeps) + a las diez (at ten)."
+          }
+        ],
+        "commonMistakes": [
+          "Using the wrong verb ending: 'Yo comé' instead of 'Yo como'.",
+          "Forgetting to include the subject: 'Como el desayuno' instead of 'Yo como el desayuno'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "A Daily Conversation",
+      "context": "Two friends discussing their daily routines.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¡Hola, Luis! ¿Cómo estás?",
+          "translation": "Hello, Luis! How are you?"
+        },
+        {
+          "speaker": 1,
+          "text": "¡Hola, Ana! Estoy bien, gracias. ¿Y tú?",
+          "translation": "Hello, Ana! I am fine, thank you. And you?"
+        },
+        {
+          "speaker": 0,
+          "text": "Estoy cansada. Me levanté temprano.",
+          "translation": "I am tired. I got up early."
+        },
+        {
+          "speaker": 1,
+          "text": "¿A qué hora te levantaste?",
+          "translation": "What time did you get up?"
+        },
+        {
+          "speaker": 0,
+          "text": "A las seis. ¿Y tú?",
+          "translation": "At six. And you?"
+        },
+        {
+          "speaker": 1,
+          "text": "Me levanté a las siete.",
+          "translation": "I got up at seven."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué hiciste esta mañana?",
+          "translation": "What did you do this morning?"
+        },
+        {
+          "speaker": 1,
+          "text": "Comí el desayuno y fui a trabajar.",
+          "translation": "I ate breakfast and went to work."
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué bien! Yo también tengo que ir a trabajar.",
+          "translation": "That's nice! I also have to go to work."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Daily Life in Spain vs. Latin America",
+      "text": "In Spain, it is common to have a siesta, or a short nap after lunch. This is less common in many Latin American countries. However, family meals are important in both cultures.",
+      "funFact": "In some Latin American countries, people often eat dinner much later than in the United States, sometimes after 9 PM."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to daily routines.",
+        "Practiced the present tense of regular verbs.",
+        "Engaged in a conversation about daily activities.",
+        "Gained cultural insights about meal times."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and try to write about your own daily routine in Spanish."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la mañana' mean in English?",
+      "content": {
+        "options": [
+          "the morning",
+          "the evening",
+          "the night"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La mañana' translates to 'the morning' in English.",
+      "hint": "Think about the time of day.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which one is 'breakfast' in Spanish?",
+      "content": {
+        "options": [
+          "el desayuno",
+          "la cena",
+          "el almuerzo"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El desayuno' is the Spanish word for 'breakfast'.",
+      "hint": "It's the first meal of the day.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Yo ___ a trabajar a las ocho.",
+      "content": {
+        "sentence": "Yo ___ a trabajar a las ocho.",
+        "correctAnswer": "voy",
+        "acceptableAnswers": [
+          "voy",
+          "ir"
+        ],
+        "options": [
+          "voy",
+          "comer",
+          "leer"
+        ]
+      },
+      "explanation": "The correct verb is 'voy', which means 'I go'.",
+      "hint": "Think about going somewhere.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: En la noche, yo ___.",
+      "content": {
+        "sentence": "En la noche, yo ___.",
+        "correctAnswer": "duermo",
+        "acceptableAnswers": [
+          "duermo",
+          "dormir"
+        ],
+        "options": [
+          "ceno",
+          "duermo",
+          "leo"
+        ]
+      },
+      "explanation": "'Duermo' means 'I sleep', which is what you do at night.",
+      "hint": "What do you do when you are tired?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: casa / voy / a / la.",
+      "content": {
+        "words": [
+          "casa",
+          "voy",
+          "a",
+          "la"
+        ],
+        "correctOrder": [
+          "voy",
+          "a",
+          "la",
+          "casa"
+        ],
+        "translation": "I go home."
+      },
+      "explanation": "The correct sentence is 'Voy a la casa', meaning 'I go home'.",
+      "hint": "Think about the subject and the destination.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I have dinner.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I have dinner.'",
+        "correctAnswer": "Ceno.",
+        "acceptableAnswers": [
+          "Ceno",
+          "Yo ceno"
+        ]
+      },
+      "explanation": "'Ceno' is the correct translation for 'I have dinner'.",
+      "hint": "It's a verb in the present tense.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Voy a trabajar.'",
+      "content": {
+        "ttsText": "Voy a trabajar.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I go to work.",
+          "I eat breakfast.",
+          "I sleep."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation of 'Voy a trabajar' is 'I go to work.'",
+      "hint": "Focus on the action of going.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in Spanish: 'I sleep at night.'",
+      "content": {
+        "targetText": "Duermo por la noche.",
+        "context": "Translate and say the sentence.",
+        "acceptableVariants": [
+          "Duermo por la noche",
+          "Yo duermo por la noche"
+        ]
+      },
+      "explanation": "The sentence 'Duermo por la noche' means 'I sleep at night'.",
+      "hint": "Remember to use the verb for sleeping.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

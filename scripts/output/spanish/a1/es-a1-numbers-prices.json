@@ -1,0 +1,375 @@
+{
+  "lesson": {
+    "title": "Numbers 21–1000 & Prices",
+    "type": "VOCABULARY",
+    "slug": "es-a1-numbers-prices"
+  },
+  "unit": "Shopping & Around Town",
+  "unitOrder": 5,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to count from 21 to 1000 in Spanish and how to express prices. You will also practice vocabulary related to shopping and everyday situations.",
+      "culturalNote": "In many Spanish-speaking countries, bargaining at markets is common, so knowing numbers and prices is especially useful!"
+    },
+    "vocabulary": [
+      {
+        "term": "veintiuno",
+        "translation": "twenty-one",
+        "definition": "The number after twenty.",
+        "pronunciation": "bain-tee-oo-no",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo veintiuno años.",
+          "translation": "I am twenty-one years old."
+        },
+        "tip": "Remember that 'veinti' means twenty in all numbers from 21 to 29."
+      },
+      {
+        "term": "treinta",
+        "translation": "thirty",
+        "definition": "The number after twenty-nine.",
+        "pronunciation": "trayn-tah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ella tiene treinta libros.",
+          "translation": "She has thirty books."
+        },
+        "tip": "The pattern continues; 'cuarenta' means forty, 'cincuenta' means fifty, etc."
+      },
+      {
+        "term": "cincuenta",
+        "translation": "fifty",
+        "definition": "The number after forty-nine.",
+        "pronunciation": "seen-kwen-tah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El precio es cincuenta dólares.",
+          "translation": "The price is fifty dollars."
+        },
+        "tip": "Use 'dólares' for prices in many Latin American countries."
+      },
+      {
+        "term": "ochenta",
+        "translation": "eighty",
+        "definition": "The number after seventy-nine.",
+        "pronunciation": "oh-chen-tah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Necesito ochenta pesos.",
+          "translation": "I need eighty pesos."
+        },
+        "tip": "Notice how the 'enta' suffix is common in tens."
+      },
+      {
+        "term": "noventa",
+        "translation": "ninety",
+        "definition": "The number after eighty-nine.",
+        "pronunciation": "noh-ven-tah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Hay noventa estudiantes en la clase.",
+          "translation": "There are ninety students in the class."
+        },
+        "tip": "Use 'cien' for one hundred, and 'doscientos' for two hundred."
+      },
+      {
+        "term": "cien",
+        "translation": "one hundred",
+        "definition": "The number one hundred.",
+        "pronunciation": "syen",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Cien es un número grande.",
+          "translation": "One hundred is a big number."
+        },
+        "tip": "After one hundred, use 'doscientos' for two hundred, 'trescientos' for three hundred, etc."
+      },
+      {
+        "term": "mil",
+        "translation": "one thousand",
+        "definition": "The number one thousand.",
+        "pronunciation": "meel",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Hay mil razones para comprar.",
+          "translation": "There are one thousand reasons to buy."
+        },
+        "tip": "In Spanish, 'mil' is used for thousand, no need to say 'uno mil' for one thousand."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "How to Form Numbers",
+        "explanation": "In Spanish, numbers from 21 to 29 are formed with 'veinti' plus the unit. For example, 'veintidós' means twenty-two. For numbers like thirty, forty, etc., they are standalone words. From 31 to 99, combine the tens with the units using 'y'. For example, 'treinta y uno' means thirty-one.",
+        "table": {
+          "headers": [
+            "Number in Spanish",
+            "Number in English"
+          ],
+          "rows": [
+            [
+              "veintiuno",
+              "twenty-one"
+            ],
+            [
+              "treinta",
+              "thirty"
+            ],
+            [
+              "cincuenta",
+              "fifty"
+            ],
+            [
+              "noventa",
+              "ninety"
+            ],
+            [
+              "cien",
+              "one hundred"
+            ],
+            [
+              "mil",
+              "one thousand"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Cincuenta y cinco es un número alto.",
+            "translation": "Fifty-five is a high number.",
+            "breakdown": "Here, 'cincuenta y cinco' shows how to combine tens and units."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'uno mil' instead of 'mil' for one thousand.",
+          "Forgetting to use 'y' in numbers like 'treinta y dos' (thirty-two)."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Shopping for Groceries",
+      "context": "In a supermarket",
+      "speakers": [
+        "Customer",
+        "Cashier"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola. ¿Cuánto cuesta esto?",
+          "translation": "Hello. How much does this cost?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Esto cuesta diez dólares.",
+          "translation": "This costs ten dollars.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y eso?",
+          "translation": "And that?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Eso cuesta quince dólares.",
+          "translation": "That costs fifteen dollars.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Quiero comprar dos.",
+          "translation": "I want to buy two.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Son treinta dólares en total.",
+          "translation": "It is thirty dollars in total.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Aquí tienes.",
+          "translation": "Here you go.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Gracias. Que tengas un buen día.",
+          "translation": "Thank you. Have a nice day.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Shopping Culture in Latin America",
+      "text": "In many Latin American countries, markets are vibrant places where you can buy fresh produce and local goods. Bargaining is common, so knowing your numbers can help you get the best price!",
+      "funFact": "In Mexico, there are mercados (markets) where you can find everything from food to handmade crafts."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned numbers from 21 to 1000.",
+        "Practiced vocabulary related to shopping.",
+        "Understood how to express prices.",
+        "Engaged in a real-life dialogue about shopping."
+      ],
+      "nextSteps": "Practice counting in Spanish and try to create sentences about prices. Next, we will explore food vocabulary!"
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'eighty'?",
+      "content": {
+        "options": [
+          "cincuenta",
+          "ochenta",
+          "noventa",
+          "veintiuno"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'ochenta', which means eighty in Spanish.",
+      "hint": "It's a number that comes after seventy.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which number is 'mil' in English?",
+      "content": {
+        "options": [
+          "thousand",
+          "hundred",
+          "twenty",
+          "ninety"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Mil' translates to 'thousand' in English.",
+      "hint": "It's a large number.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Tengo ___ años' (I am ___ years old).",
+      "content": {
+        "sentence": "Tengo ___ años",
+        "correctAnswer": "veintiuno",
+        "acceptableAnswers": [
+          "veintiuno",
+          "21"
+        ],
+        "options": [
+          "veintiuno",
+          "cincuenta",
+          "ochenta",
+          "cien"
+        ]
+      },
+      "explanation": "The correct answer is 'veintiuno', which means twenty-one.",
+      "hint": "It's the first number after twenty.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'El precio es ___ euros' (The price is ___ euros).",
+      "content": {
+        "sentence": "El precio es ___ euros",
+        "correctAnswer": "cien",
+        "acceptableAnswers": [
+          "cien",
+          "100"
+        ],
+        "options": [
+          "cincuenta",
+          "cien",
+          "ochenta",
+          "noventa"
+        ]
+      },
+      "explanation": "'Cien' means 'hundred' and is the correct answer for this price.",
+      "hint": "It's the number 100.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'mil / cuesta / euros / este / coche'",
+      "content": {
+        "words": [
+          "mil",
+          "cuesta",
+          "euros",
+          "este",
+          "coche"
+        ],
+        "correctOrder": [
+          "este",
+          "coche",
+          "cuesta",
+          "mil",
+          "euros"
+        ],
+        "translation": "This car costs a thousand euros."
+      },
+      "explanation": "The correct order forms a coherent sentence in Spanish.",
+      "hint": "Start with 'this car'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I want fifty apples.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I want fifty apples.'",
+        "correctAnswer": "Quiero cincuenta manzanas.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The correct translation captures the desire for fifty apples.",
+      "hint": "Remember the word for fifty.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct number: 'noventa'.",
+      "content": {
+        "ttsText": "noventa",
+        "ttsLang": "es-ES",
+        "options": [
+          "seventy",
+          "eighty",
+          "ninety",
+          "hundred"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Noventa' is the Spanish word for ninety.",
+      "hint": "It starts with 'n'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the Spanish number for 30.",
+      "content": {
+        "targetText": "treinta",
+        "context": "You need to say the number thirty in Spanish.",
+        "acceptableVariants": [
+          "treinta"
+        ]
+      },
+      "explanation": "The correct answer is 'treinta', which means thirty.",
+      "hint": "It’s a round number between twenty and forty.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    }
+  ]
+}

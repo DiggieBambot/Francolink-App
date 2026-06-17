@@ -1,0 +1,333 @@
+{
+  "lesson": {
+    "title": "Present Tense — Regular Verbs",
+    "type": "GRAMMAR",
+    "slug": "es-a1-present-regular"
+  },
+  "unit": "Daily Life & Routines",
+  "unitOrder": 3,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to conjugate regular verbs in the present tense in Spanish. You will practice using these verbs in simple sentences about daily life and routines.",
+      "culturalNote": "In many Spanish-speaking countries, daily routines often include a siesta, a short nap taken in the afternoon, especially in warmer regions."
+    },
+    "vocabulary": [
+      {
+        "term": "el desayuno",
+        "translation": "breakfast",
+        "definition": "The first meal of the day.",
+        "pronunciation": "el deh-sah-yoo-no",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Yo como el desayuno.",
+          "translation": "I eat breakfast."
+        },
+        "tip": "Remember 'desayuno' comes from 'des-' (to undo) + 'ayuno' (fasting)."
+      },
+      {
+        "term": "trabajar",
+        "translation": "to work",
+        "definition": "To perform a job or task.",
+        "pronunciation": "trah-bah-har",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Él trabaja en una oficina.",
+          "translation": "He works in an office."
+        },
+        "tip": "The verb 'trabajar' is regular in the present tense."
+      },
+      {
+        "term": "estudiar",
+        "translation": "to study",
+        "definition": "To learn or review material.",
+        "pronunciation": "es-too-dee-ar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Nosotros estudiamos español.",
+          "translation": "We study Spanish."
+        },
+        "tip": "Notice the 'ar' ending; this is a regular verb."
+      },
+      {
+        "term": "leer",
+        "translation": "to read",
+        "definition": "To look at and comprehend written text.",
+        "pronunciation": "leh-er",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ella lee un libro.",
+          "translation": "She reads a book."
+        },
+        "tip": "The verb 'leer' is an irregular verb in the present tense but common in daily life."
+      },
+      {
+        "term": "cocinar",
+        "translation": "to cook",
+        "definition": "To prepare food by heating it.",
+        "pronunciation": "koh-see-nar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Yo cocino la cena.",
+          "translation": "I cook dinner."
+        },
+        "tip": "Another regular 'ar' verb."
+      },
+      {
+        "term": "jugar",
+        "translation": "to play",
+        "definition": "To engage in activity for enjoyment.",
+        "pronunciation": "hoo-gar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Los niños juegan en el parque.",
+          "translation": "The children play in the park."
+        },
+        "tip": "This is also a regular verb, but remember it has a spelling change in the present tense."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Present Tense of Regular Verbs",
+        "explanation": "In Spanish, regular verbs are categorized into three groups based on their endings: -ar, -er, and -ir. To conjugate these verbs in the present tense, you remove the ending and add the appropriate endings based on the subject. For example, 'hablar' (to speak) becomes 'hablo' for 'I speak'.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Ending"
+          ],
+          "rows": [
+            [
+              "Yo (I)",
+              "-o"
+            ],
+            [
+              "Tú (You)",
+              "-as/-es"
+            ],
+            [
+              "Él/Ella (He/She)",
+              "-a/-e"
+            ],
+            [
+              "Nosotros (We)",
+              "-amos/-emos"
+            ],
+            [
+              "Ellos (They)",
+              "-an/-en"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo trabajo en la oficina.",
+            "translation": "I work in the office.",
+            "breakdown": "Subject: Yo (I) + Verb: trabajo (work) + Prepositional Phrase: en la oficina (in the office)."
+          },
+          {
+            "original": "Ellos estudian todos los días.",
+            "translation": "They study every day.",
+            "breakdown": "Subject: Ellos (They) + Verb: estudian (study) + Adverbial Phrase: todos los días (every day)."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'tú' and 'usted' forms. Remember, 'tú' is informal and 'usted' is formal.",
+          "Using the wrong endings for the subject. Always double-check the verb conjugation."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Morning Routine",
+      "context": "A conversation between two friends about their morning routines.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿A qué hora te levantas?",
+          "translation": "What time do you get up?",
+          "note": "Carlos asks Ana about her wake-up time."
+        },
+        {
+          "speaker": 1,
+          "text": "Me levanto a las siete.",
+          "translation": "I get up at seven."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué haces después?",
+          "translation": "What do you do after?"
+        },
+        {
+          "speaker": 1,
+          "text": "Primero, yo desayuno.",
+          "translation": "First, I have breakfast."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué comes para el desayuno?",
+          "translation": "What do you eat for breakfast?"
+        },
+        {
+          "speaker": 1,
+          "text": "Como huevos y pan.",
+          "translation": "I eat eggs and bread."
+        },
+        {
+          "speaker": 0,
+          "text": "¿A qué hora trabajas?",
+          "translation": "What time do you work?"
+        },
+        {
+          "speaker": 1,
+          "text": "Trabajo a las nueve.",
+          "translation": "I work at nine."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Daily Routines in Latin America",
+      "text": "In many Latin American cultures, meals are significant social events. People often gather with family or friends to enjoy meals together, which emphasizes the importance of community.",
+      "funFact": "In countries like Spain and Argentina, it's common to have dinner very late, sometimes after 9 PM!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Regular verbs in Spanish have predictable conjugation patterns.",
+        "The present tense is used for actions happening now.",
+        "Daily routines are a great context to practice verb conjugations.",
+        "Listening to conversations can help improve your understanding."
+      ],
+      "nextSteps": "Practice conjugating more regular verbs and create sentences about your daily routine."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'el desayuno' mean in English?",
+      "content": {
+        "options": [
+          "breakfast",
+          "lunch",
+          "dinner",
+          "snack"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El desayuno' translates to 'breakfast' in English.",
+      "hint": "Think about the first meal of the day.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is the correct present tense form of 'estudiar' for 'yo'?",
+      "content": {
+        "options": [
+          "estudia",
+          "estudias",
+          "estudió",
+          "estudio"
+        ],
+        "correctIndex": 3
+      },
+      "explanation": "The correct form is 'estudio', which means 'I study'.",
+      "hint": "Remember to conjugate for 'yo'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Yo ___ (leer) un libro.'",
+      "content": {
+        "sentence": "Yo ___ un libro.",
+        "correctAnswer": "leo",
+        "acceptableAnswers": [
+          "leo"
+        ],
+        "options": [
+          "leí",
+          "leo",
+          "leeré",
+          "lea"
+        ]
+      },
+      "explanation": "The correct answer is 'leo', which is the present tense form for 'yo'.",
+      "hint": "Think about how to say 'I read'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ellos ___ (jugar) en el parque.'",
+      "content": {
+        "sentence": "Ellos ___ en el parque.",
+        "correctAnswer": "juegan",
+        "acceptableAnswers": [
+          "juegan"
+        ],
+        "options": [
+          "juegan",
+          "juegue",
+          "jugamos",
+          "jugaré"
+        ]
+      },
+      "explanation": "The correct answer is 'juegan' for the present tense form of 'they play'.",
+      "hint": "Think about how to say 'they play'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'They work every day.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'They work every day.'",
+        "correctAnswer": "Ellos trabajan todos los días.",
+        "acceptableAnswers": [
+          "Ellos trabajan cada día."
+        ]
+      },
+      "explanation": "The correct translation includes the present tense 'trabajan'.",
+      "hint": "Remember the word for 'they'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Yo estudio español.'",
+      "content": {
+        "ttsText": "Yo estudio español.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I study Spanish.",
+          "I read Spanish.",
+          "I cook Spanish.",
+          "I play Spanish."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'I study Spanish'.",
+      "hint": "Focus on the verb 'estudio'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in Spanish: 'I cook dinner.'",
+      "content": {
+        "targetText": "Yo cocino la cena.",
+        "context": "Translate and say this sentence in Spanish.",
+        "acceptableVariants": [
+          "Yo cocino la cena",
+          "Cocino la cena"
+        ]
+      },
+      "explanation": "The correct sentence is 'Yo cocino la cena', which means 'I cook dinner'.",
+      "hint": "Use the verb for cooking.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}
