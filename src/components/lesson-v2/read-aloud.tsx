@@ -17,34 +17,25 @@ interface ReadAloudProps {
  * only when the backend request fails.
  */
 export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
-  const [activeIdx, setActiveIdx] = useState<number | null>(null);
+  // How far the read has progressed, as a character offset into `text`.
+  // Everything before this offset is washed in a mild yellow (a trailing
+  // highlight that sweeps across the passage) rather than a single jumping word.
+  const [progressChar, setProgressChar] = useState(0);
   const [speaking, setSpeaking] = useState(false);
   const [loading, setLoading] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const rafRef = useRef<number | null>(null);
 
-  // Split into tokens preserving whitespace; record each word's char offset.
+  // Split into tokens preserving whitespace; record each token's char offset.
   const tokens = text.split(/(\s+)/);
-  const wordBoundaries: number[] = [];
+  const tokenStarts: number[] = [];
   {
     let charPos = 0;
     for (const tok of tokens) {
-      if (!/^\s+$/.test(tok)) wordBoundaries.push(charPos);
+      tokenStarts.push(charPos);
       charPos += tok.length;
     }
   }
-
-  const wordAtChar = useCallback(
-    (charIndex: number) => {
-      let idx = -1;
-      for (let i = 0; i < wordBoundaries.length; i++) {
-        if (wordBoundaries[i] <= charIndex) idx = i;
-        else break;
-      }
-      return idx;
-    },
-    [wordBoundaries]
-  );
 
   const cleanup = useCallback(() => {
     if (rafRef.current != null) {
@@ -63,7 +54,7 @@ export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
 
   const stop = useCallback(() => {
     cleanup();
-    setActiveIdx(null);
+    setProgressChar(0);
     setSpeaking(false);
     setLoading(false);
   }, [cleanup]);
@@ -92,12 +83,12 @@ export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
     };
     utter.onboundary = (e) => {
       if (e.name && e.name !== "word") return;
-      setActiveIdx(wordAtChar(e.charIndex));
+      setProgressChar(e.charIndex);
     };
     utter.onend = () => stop();
     utter.onerror = () => stop();
     window.speechSynthesis.speak(utter);
-  }, [text, lang, wordAtChar, stop]);
+  }, [text, lang, stop]);
 
   const speak = useCallback(async () => {
     stop();
@@ -124,8 +115,8 @@ export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
       const audioEl = new Audio(url);
       audioRef.current = audioEl;
 
-      // Drive the word highlight from playback progress: map elapsed fraction
-      // to a character offset, then to the word at that offset.
+      // Sweep the trailing highlight from playback progress: map elapsed
+      // fraction to a character offset; everything before it is washed.
       const tick = () => {
         const a = audioRef.current;
         if (!a || !a.duration || Number.isNaN(a.duration)) {
@@ -133,7 +124,7 @@ export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
           return;
         }
         const frac = Math.min(1, a.currentTime / a.duration);
-        setActiveIdx(wordAtChar(Math.floor(frac * trimmed.length)));
+        setProgressChar(frac * text.length);
         rafRef.current = requestAnimationFrame(tick);
       };
 
@@ -155,21 +146,14 @@ export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
     } catch {
       speakFallback();
     }
-  }, [text, lang, wordAtChar, stop, speakFallback]);
+  }, [text, lang, stop, speakFallback]);
 
-  // Map token index back to word index for coloring.
-  let wordIdx = -1;
+  // Wash every token whose start falls before the current read position, so
+  // the highlight reads as one continuous band that sweeps across the passage.
   const renderedTokens = tokens.map((tok, ti) => {
-    const isWord = !/^\s+$/.test(tok);
-    if (isWord) wordIdx++;
-    const isActive = isWord && wordIdx === activeIdx;
+    const washed = speaking && tokenStarts[ti] < progressChar;
     return (
-      <span
-        key={ti}
-        className={
-          isActive ? "rounded bg-yellow-300 px-0.5 text-slate-900 transition-colors" : undefined
-        }
-      >
+      <span key={ti} className={washed ? "bg-yellow-200/60" : undefined}>
         {tok}
       </span>
     );
