@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Volume2, ChevronRight, Play } from "lucide-react";
 import { Button } from "@/components/ui";
 import { useInworldTTS } from "@/hooks/use-inworld-tts";
+import { pickVoiceForSpeaker } from "@/lib/learn/speaker-voice";
 
 interface DialogueLine {
   speaker: string;
@@ -136,10 +137,15 @@ export default function DialogueViewer({
   const navyGradient = "linear-gradient(135deg, #0f2744, #0a1e35)";
   const orangeLight = "#fdba74";
 
+  // Pick a voice matched to the line's speaker so a "Juan" line plays in a
+  // male voice and a "María" line in a female one. Falls back to the
+  // language default when the name's gender can't be guessed.
+  const voiceForLine = (i: number) => pickVoiceForSpeaker(lines[i]?.speaker, language);
+
   const speak = async (text: string, index: number) => {
     setSpeakingIndex(index);
     try {
-      await ttsSpeak(text);
+      await ttsSpeak(text, { voice: voiceForLine(index) });
     } finally {
       setSpeakingIndex(null);
     }
@@ -150,7 +156,7 @@ export default function DialogueViewer({
     ttsStop();
     for (const lineIndex of revealedLines) {
       setSpeakingIndex(lineIndex);
-      await ttsSpeak(lines[lineIndex].text);
+      await ttsSpeak(lines[lineIndex].text, { voice: voiceForLine(lineIndex) });
     }
     setSpeakingIndex(null);
   };
@@ -178,13 +184,14 @@ export default function DialogueViewer({
     });
   };
 
-  // Assign speakers to sides and track their index
-  const speakers = [...new Set(lines.map(l => l.speaker))];
+  // Distinct speakers actually appearing in the dialogue (used to lay out
+  // left/right sides). Renamed from `speakers` to avoid shadowing the prop.
+  const uniqueSpeakers = [...new Set(lines.map(l => l.speaker))];
   const getSpeakerSide = (speaker: string) => {
-    return speakers.indexOf(speaker) % 2 === 0 ? 'left' : 'right';
+    return uniqueSpeakers.indexOf(speaker) % 2 === 0 ? 'left' : 'right';
   };
   const getSpeakerIndex = (speaker: string) => {
-    return speakers.indexOf(speaker);
+    return uniqueSpeakers.indexOf(speaker);
   };
 
   return (

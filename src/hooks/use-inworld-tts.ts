@@ -29,7 +29,7 @@ export function useInworldTTS(options: UseInworldTTSOptions = {}) {
   }, []);
 
   const speak = useCallback(
-    async (text: string): Promise<void> => {
+    async (text: string, overrides?: { voice?: string }): Promise<void> => {
       stop();
       const trimmed = text.trim();
       if (!trimmed) return;
@@ -44,7 +44,7 @@ export function useInworldTTS(options: UseInworldTTSOptions = {}) {
           body: JSON.stringify({
             text: trimmed,
             language,
-            voice: options.voice,
+            voice: overrides?.voice ?? options.voice,
             speed: options.speed || 1.0,
           }),
         });

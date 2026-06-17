@@ -11,12 +11,15 @@ const adminSupabase = createClient(
 
 const BUCKET = "tts-cache";
 
-// Map language codes to appropriate native TTS voices (Inworld TTS)
+// Default voice per language for TTS calls that don't pass an explicit voice.
+// Voice IDs verified against /tts/v1/voices — each one actually supports its
+// target language. (Previously `de` defaulted to "Julia" which is English-only,
+// so German TTS was silently falling back to browser speech.)
 const LANGUAGE_VOICES: Record<string, string> = {
   fr: "Hélène",
   en: "Olivia",
   es: "Sofia",
-  de: "Julia",
+  de: "Johanna",
 };
 
 // Map language codes to cache folder names
