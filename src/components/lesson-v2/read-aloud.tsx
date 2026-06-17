@@ -1,41 +1,40 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
+import { Fragment, type ReactNode, useState, useRef, useCallback, useEffect } from "react";
 import { Volume2, Square, Loader2 } from "lucide-react";
 
 interface ReadAloudProps {
-  /** The full text to be read aloud, word by word. */
+  /** The full raw passage (may contain **bold** markers and blank-line paragraph breaks). */
   text: string;
   lang?: string;
 }
 
+const stripBold = (t: string) => t.replace(/\*\*/g, "");
+
 /**
- * Renders a passage of text with word-by-word highlighting while it is read
- * aloud. Primary path uses the reliable backend TTS (`/api/tts`, the same
- * engine SpeakButton uses) and animates the highlight from audio playback
- * time. Falls back to the browser Web Speech API (with onboundary highlight)
- * only when the backend request fails.
+ * Reading-passage player. Renders the passage as proper paragraphs (drop-cap
+ * on the first, **bold** markers honoured) and reads it aloud via the reliable
+ * backend TTS (`/api/tts`), washing a mild yellow highlight across the text as
+ * a continuous sweep keyed to playback progress. Web Speech API is only the
+ * fallback when the backend call fails.
+ *
+ * This is the single source of truth for the passage — the section component
+ * should not render the paragraphs again separately.
  */
 export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
-  // How far the read has progressed, as a character offset into `text`.
-  // Everything before this offset is washed in a mild yellow (a trailing
-  // highlight that sweeps across the passage) rather than a single jumping word.
+  // Read progress as a character offset into the *plain* (bold-stripped) text,
+  // which is what the TTS engine receives.
   const [progressChar, setProgressChar] = useState(0);
   const [speaking, setSpeaking] = useState(false);
   const [loading, setLoading] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const rafRef = useRef<number | null>(null);
 
-  // Split into tokens preserving whitespace; record each token's char offset.
-  const tokens = text.split(/(\s+)/);
-  const tokenStarts: number[] = [];
-  {
-    let charPos = 0;
-    for (const tok of tokens) {
-      tokenStarts.push(charPos);
-      charPos += tok.length;
-    }
-  }
+  const plain = stripBold(text);
+  const rawParagraphs = text
+    .split(/\n\s*\n/)
+    .map((p) => p.trim())
+    .filter(Boolean);
 
   const cleanup = useCallback(() => {
     if (rafRef.current != null) {
@@ -59,7 +58,6 @@ export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
     setLoading(false);
   }, [cleanup]);
 
-  // Clean up on unmount.
   useEffect(() => () => cleanup(), [cleanup]);
 
   // Web Speech fallback — used only if the backend TTS call fails.
@@ -69,7 +67,7 @@ export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
       return;
     }
     window.speechSynthesis.cancel();
-    const utter = new SpeechSynthesisUtterance(text);
+    const utter = new SpeechSynthesisUtterance(plain);
     utter.lang = lang;
     utter.rate = 0.9;
     const voices = window.speechSynthesis.getVoices();
@@ -88,11 +86,11 @@ export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
     utter.onend = () => stop();
     utter.onerror = () => stop();
     window.speechSynthesis.speak(utter);
-  }, [text, lang, stop]);
+  }, [plain, lang, stop]);
 
   const speak = useCallback(async () => {
     stop();
-    const trimmed = text.trim();
+    const trimmed = plain.trim();
     if (!trimmed) return;
     setLoading(true);
 
@@ -115,8 +113,7 @@ export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
       const audioEl = new Audio(url);
       audioRef.current = audioEl;
 
-      // Sweep the trailing highlight from playback progress: map elapsed
-      // fraction to a character offset; everything before it is washed.
+      // Sweep the trailing highlight from playback progress.
       const tick = () => {
         const a = audioRef.current;
         if (!a || !a.duration || Number.isNaN(a.duration)) {
@@ -124,7 +121,7 @@ export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
           return;
         }
         const frac = Math.min(1, a.currentTime / a.duration);
-        setProgressChar(frac * text.length);
+        setProgressChar(frac * plain.length);
         rafRef.current = requestAnimationFrame(tick);
       };
 
@@ -146,21 +143,61 @@ export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
     } catch {
       speakFallback();
     }
-  }, [text, lang, stop, speakFallback]);
+  }, [plain, lang, stop, speakFallback]);
 
-  // Wash every token whose start falls before the current read position, so
-  // the highlight reads as one continuous band that sweeps across the passage.
-  const renderedTokens = tokens.map((tok, ti) => {
-    const washed = speaking && tokenStarts[ti] < progressChar;
+  // Render one raw paragraph: split into **bold** / plain segments, then into
+  // word+space tokens. Each token carries its global offset in the plain text
+  // (via the running `cursor`) so the sweep can wash everything read so far.
+  const cursorRef = { value: 0 };
+  const renderParagraph = (rawPara: string, key: number): ReactNode => {
+    const plainPara = stripBold(rawPara);
+    // Re-anchor the running cursor to this paragraph's position in `plain`.
+    const start = plain.indexOf(plainPara, cursorRef.value);
+    if (start >= 0) cursorRef.value = start;
+
+    const segments = rawPara.split(/(\*\*[^*]+\*\*)/g);
+    let local = cursorRef.value;
+    const nodes: ReactNode[] = [];
+
+    segments.forEach((seg, si) => {
+      if (!seg) return;
+      const bold = seg.startsWith("**") && seg.endsWith("**");
+      const segText = bold ? seg.slice(2, -2) : seg;
+      const tokens = segText.split(/(\s+)/);
+      tokens.forEach((tok, ti) => {
+        if (!tok) return;
+        const tokStart = local;
+        local += tok.length;
+        const washed = speaking && tokStart < progressChar;
+        nodes.push(
+          <span
+            key={`${si}-${ti}`}
+            className={`${washed ? "bg-yellow-200/60 " : ""}${bold ? "font-bold text-primary" : ""}`}
+          >
+            {tok}
+          </span>
+        );
+      });
+    });
+
+    cursorRef.value = local;
+
     return (
-      <span key={ti} className={washed ? "bg-yellow-200/60" : undefined}>
-        {tok}
-      </span>
+      <p
+        key={key}
+        className={`text-[1.075rem] leading-8 text-gray-800 ${
+          key === 0
+            ? "first-letter:float-left first-letter:mr-2.5 first-letter:font-heading first-letter:text-5xl first-letter:font-extrabold first-letter:leading-[0.8] first-letter:text-primary"
+            : ""
+        }`}
+      >
+        {nodes}
+      </p>
     );
-  });
+  };
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-4">
       <div className="flex items-center gap-2">
         <button
           type="button"
@@ -178,7 +215,12 @@ export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
         </button>
         {speaking && <span className="animate-pulse text-xs text-slate-400">Reading…</span>}
       </div>
-      <p className="text-base leading-relaxed text-slate-800">{renderedTokens}</p>
+
+      <div className="space-y-5">
+        {rawParagraphs.map((p, i) => (
+          <Fragment key={i}>{renderParagraph(p, i)}</Fragment>
+        ))}
+      </div>
     </div>
   );
 }

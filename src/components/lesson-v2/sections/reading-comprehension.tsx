@@ -1,12 +1,9 @@
-import { Fragment, type ReactNode } from "react";
 import Image from "next/image";
-import { SpeakButton } from "../speak-button";
 import { ReadAloud } from "../read-aloud";
 import { SectionHeader } from "../section-header";
 import { TutorNotes } from "../tutor-notes";
 import { SectionCard } from "../section-card";
 import { RevealTranslation } from "../reveal-translation";
-import { Highlightable } from "../highlightable";
 import type { LessonView, ReadingComprehensionSection } from "@/lib/lessons/types";
 import type { LevelTheme } from "@/lib/lessons/level-theme";
 
@@ -23,23 +20,6 @@ export function ReadingComprehensionSectionComp({
   sectionIdx = 0,
   theme,
 }: Props) {
-  // Split the passage into paragraphs for cleaner display + per-paragraph audio.
-  const paragraphs = section.passage
-    .split(/\n\s*\n/)
-    .map((p) => p.trim())
-    .filter(Boolean);
-
-  // Render **vocabulary** markers as bold (lesson words highlighted in the text).
-  const renderBold = (text: string): ReactNode =>
-    text.split(/(\*\*[^*]+\*\*)/g).map((seg, i) =>
-      seg.startsWith("**") && seg.endsWith("**") ? (
-        <strong key={i} className="font-bold text-primary">{seg.slice(2, -2)}</strong>
-      ) : (
-        <Fragment key={i}>{seg}</Fragment>
-      )
-    );
-  const stripBold = (text: string) => text.replace(/\*\*/g, "");
-
   return (
     <SectionCard theme={theme}>
       <SectionHeader
@@ -68,25 +48,10 @@ export function ReadingComprehensionSectionComp({
         </figure>
       ) : null}
 
-      {/* Magazine-style reading column with word-by-word highlight */}
+      {/* Magazine-style reading column — ReadAloud renders the paragraphs and
+          washes a highlight across them as it reads aloud. */}
       <article className="mx-auto max-w-[68ch]">
-        <ReadAloud text={stripBold(section.passage)} />
-        <div className="mt-4 space-y-5">
-          {paragraphs.map((p, i) => (
-            <p
-              key={i}
-              className={`group relative text-[1.075rem] leading-8 text-gray-800 ${
-                i === 0
-                  ? "first-letter:float-left first-letter:mr-2.5 first-letter:font-heading first-letter:text-5xl first-letter:font-extrabold first-letter:leading-[0.8] first-letter:text-primary"
-                  : ""
-              }`}
-            >
-              <Highlightable id={`s${sectionIdx}/p${i}/passage`} text={stripBold(p)} sectionIdx={sectionIdx}>
-                {renderBold(p)}
-              </Highlightable>
-            </p>
-          ))}
-        </div>
+        <ReadAloud text={section.passage} />
         {section.passage_translation ? (
           <div className="mt-5 border-t border-gray-100 pt-4">
             <RevealTranslation text={section.passage_translation} size="sm" />
