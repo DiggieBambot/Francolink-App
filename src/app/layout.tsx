@@ -52,10 +52,12 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [config.og_image],
     },
     // Google Search Console ownership verification (HTML-tag method).
-    // Renders <meta name="google-site-verification" …> when the env is set.
-    verification: process.env.GOOGLE_SITE_VERIFICATION
-      ? { google: process.env.GOOGLE_SITE_VERIFICATION }
-      : undefined,
+    // Public token — env overrides the committed default if ever needed.
+    verification: {
+      google:
+        process.env.GOOGLE_SITE_VERIFICATION ||
+        "3J3UfGXiUrquSNQL5SEm3N3XNetGLQ7PhWOZTsayyIo",
+    },
   };
 }
 
@@ -89,9 +91,7 @@ export default async function RootLayout({
         />
       </head>
       <body className={`${roboto.variable} ${mulish.variable} font-body`}>
-        {process.env.NEXT_PUBLIC_GA_ID ? (
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-        ) : null}
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || "G-YLH30JTCQT"} />
         <ServiceWorkerRegistrar />
         <PWAInstallPrompt />
         {children}
