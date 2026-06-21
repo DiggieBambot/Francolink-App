@@ -20,13 +20,35 @@ const roboto = Roboto({
 
 export async function generateMetadata(): Promise<Metadata> {
   const config = await getAppConfig();
+  const base = process.env.NEXT_PUBLIC_APP_URL || "https://app.francolink.net";
 
   return {
-    title: config.meta_title,
+    // Resolves relative canonical/OG/icon URLs to absolute ones (required for
+    // valid Open Graph + Twitter tags). Pages can override per-route.
+    metadataBase: new URL(base),
+    title: {
+      default: config.meta_title,
+      // Sub-pages set their own title; it renders as "Page Title | Francolink".
+      template: "%s | Francolink",
+    },
     description: config.meta_description,
     icons: {
       icon: config.favicon_url,
       apple: "/apple-touch-icon.png",
+    },
+    openGraph: {
+      type: "website",
+      siteName: "Francolink",
+      title: config.meta_title,
+      description: config.meta_description,
+      url: "/",
+      images: [config.og_image],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: config.meta_title,
+      description: config.meta_description,
+      images: [config.og_image],
     },
   };
 }
