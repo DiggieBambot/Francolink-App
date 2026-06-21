@@ -54,8 +54,8 @@ const DEFAULT_CONFIG: AppConfig = {
   instagram_url: '',
   
   // SEO
-  meta_title: 'Francolink - #1 Best Online Language Learning Platform',
-  meta_description: 'Join 5,000+ students learning English, French, Spanish and more with highly trained and certified tutors. Learn any language for free with the best online language learning platform.',
+  meta_title: 'Learn French, English & Spanish Online with Certified Tutors | Francolink',
+  meta_description: 'Learn a language with structured CEFR lessons, live certified tutors and an AI conversation partner you can practise with anytime. Start free with a 90-second placement test.',
   og_image: '/og-image.png'
 };
 
