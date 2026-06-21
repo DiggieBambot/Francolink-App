@@ -56,7 +56,7 @@ export async function generateMetadata(): Promise<Metadata> {
     verification: {
       google:
         process.env.GOOGLE_SITE_VERIFICATION ||
-        "3J3UfGXiUrquSNQL5SEm3N3XNetGLQ7PhWOZTsayyIo",
+        "q5OAsmmbxgyUdtqXHq3lU8kO1DuEaVi6eJMmX_f5HMI",
     },
   };
 }
