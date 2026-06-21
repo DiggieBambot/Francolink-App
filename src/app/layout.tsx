@@ -1,5 +1,6 @@
 import { PWAInstallPrompt } from "@/components/shared/pwa-install-prompt";
 import { ServiceWorkerRegistrar } from "@/components/shared/service-worker-registrar";
+import { GoogleAnalytics } from "@/components/shared/google-analytics";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Mulish, Roboto } from "next/font/google";
@@ -50,6 +51,11 @@ export async function generateMetadata(): Promise<Metadata> {
       description: config.meta_description,
       images: [config.og_image],
     },
+    // Google Search Console ownership verification (HTML-tag method).
+    // Renders <meta name="google-site-verification" …> when the env is set.
+    verification: process.env.GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+      : undefined,
   };
 }
 
@@ -83,6 +89,9 @@ export default async function RootLayout({
         />
       </head>
       <body className={`${roboto.variable} ${mulish.variable} font-body`}>
+        {process.env.NEXT_PUBLIC_GA_ID ? (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        ) : null}
         <ServiceWorkerRegistrar />
         <PWAInstallPrompt />
         {children}
