@@ -18,7 +18,12 @@ const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
 export async function generateMetadata({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
   const cat = CATEGORY_BY_SLUG[category];
-  return { title: cat ? `${cat.name} | FrancoLink` : "Lessons | FrancoLink" };
+  return {
+    title: cat ? `${cat.name} | FrancoLink` : "Lessons | FrancoLink",
+    // Canonicalise the ?level= filter variants back to the base category URL
+    // so Google doesn't treat each filter as duplicate content.
+    alternates: { canonical: `/library/${category}` },
+  };
 }
 
 export default async function CategoryPage({

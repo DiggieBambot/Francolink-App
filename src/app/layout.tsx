@@ -27,11 +27,9 @@ export async function generateMetadata(): Promise<Metadata> {
     // Resolves relative canonical/OG/icon URLs to absolute ones (required for
     // valid Open Graph + Twitter tags). Pages can override per-route.
     metadataBase: new URL(base),
-    title: {
-      default: config.meta_title,
-      // Sub-pages set their own title; it renders as "Page Title | Francolink".
-      template: "%s | Francolink",
-    },
+    // Pages set their own full title (codebase convention: "Page | FrancoLink"),
+    // so no title.template here — a template would double the brand suffix.
+    title: config.meta_title,
     description: config.meta_description,
     icons: {
       icon: config.favicon_url,
