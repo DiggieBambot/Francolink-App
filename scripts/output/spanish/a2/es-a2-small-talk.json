@@ -1,0 +1,397 @@
+{
+  "lesson": {
+    "title": "Small Talk",
+    "type": "CONVERSATION",
+    "slug": "es-a2-small-talk"
+  },
+  "unit": "Comparisons & Opinions",
+  "unitOrder": 7,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to engage in small talk in Spanish. You will practice vocabulary related to opinions and comparisons, enabling you to express your thoughts and feelings about everyday topics.",
+      "culturalNote": "In many Spanish-speaking cultures, small talk is a vital part of social interactions, often centered around family, food, and local events."
+    },
+    "vocabulary": [
+      {
+        "term": "el clima",
+        "translation": "the weather",
+        "definition": "The state of the atmosphere at a specific place and time.",
+        "pronunciation": "el KLEE-ma",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El clima hoy es muy bueno.",
+          "translation": "The weather today is very nice."
+        },
+        "tip": "Think of 'climate' to remember 'clima'!"
+      },
+      {
+        "term": "la comida",
+        "translation": "the food",
+        "definition": "Any substance consumed to provide nutritional support.",
+        "pronunciation": "la ko-MEE-da",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La comida mexicana es deliciosa.",
+          "translation": "Mexican food is delicious."
+        },
+        "tip": "Both 'comida' and 'food' start with 'C', linking them!"
+      },
+      {
+        "term": "interesante",
+        "translation": "interesting",
+        "definition": "A term used to describe something that captures attention.",
+        "pronunciation": "in-te-re-SAN-te",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Este libro es muy interesante.",
+          "translation": "This book is very interesting."
+        },
+        "tip": "It sounds similar in both languages; just add an 'e' at the end!"
+      },
+      {
+        "term": "me gusta",
+        "translation": "I like",
+        "definition": "A phrase used to express liking something.",
+        "pronunciation": "meh GOOS-ta",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Me gusta el chocolate.",
+          "translation": "I like chocolate."
+        },
+        "tip": "Remember it as 'Me gusta' - 'Me' means 'I'!"
+      },
+      {
+        "term": "prefiero",
+        "translation": "I prefer",
+        "definition": "A phrase used to indicate a choice over another.",
+        "pronunciation": "preh-FYE-roh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Prefiero el té al café.",
+          "translation": "I prefer tea over coffee."
+        },
+        "tip": "Think of 'prefer' in English to remember 'prefiero'!"
+      },
+      {
+        "term": "¿Qué opinas?",
+        "translation": "What do you think?",
+        "definition": "A question used to ask for someone's opinion.",
+        "pronunciation": "keh oh-PEE-nas",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "¿Qué opinas de la película?",
+          "translation": "What do you think of the movie?"
+        },
+        "tip": "Remember 'opinar' means 'to think' in Spanish!"
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Expressing Opinions in Spanish",
+        "explanation": "In Spanish, to express opinions, we often use phrases like 'me gusta' (I like) or 'prefiero' (I prefer). To ask someone for their opinion, you can say '¿Qué opinas?' (What do you think?). These phrases are useful in small talk and conversations.",
+        "table": {
+          "headers": [
+            "Phrase",
+            "Meaning"
+          ],
+          "rows": [
+            [
+              "me gusta",
+              "I like"
+            ],
+            [
+              "prefiero",
+              "I prefer"
+            ],
+            [
+              "¿Qué opinas?",
+              "What do you think?"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Me gusta la música.",
+            "translation": "I like music.",
+            "breakdown": "The subject 'I' (yo) is implied in 'me gusta'."
+          },
+          {
+            "original": "Prefiero las montañas.",
+            "translation": "I prefer the mountains.",
+            "breakdown": "'Prefiero' indicates a preference for mountains."
+          }
+        ],
+        "commonMistakes": [
+          "'Me gusta' should be used with singular nouns, not plural. For example, say 'Me gustan las frutas' for plural.",
+          "Don't forget to use the right verb conjugation for 'yo' (I)."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking About Weather and Food",
+      "context": "This conversation takes place at a café between two friends catching up.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¡Hola, Luis! ¿Cómo estás?",
+          "translation": "Hi, Luis! How are you?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¡Hola, Ana! Estoy bien, gracias. ¿Y tú?",
+          "translation": "Hi, Ana! I'm fine, thank you. And you?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "También estoy bien. ¿Qué opinas del clima hoy?",
+          "translation": "I'm also good. What do you think of the weather today?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Me gusta, es muy agradable.",
+          "translation": "I like it, it's very pleasant.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, es perfecto para un café al aire libre.",
+          "translation": "Yes, it's perfect for an outdoor coffee.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¿Qué comida te gusta más aquí?",
+          "translation": "What food do you like most here?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Me gusta la pasta, es deliciosa.",
+          "translation": "I like the pasta, it's delicious.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "A mí también. Prefiero la pasta con salsa roja.",
+          "translation": "Me too. I prefer pasta with red sauce.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Food and Weather in Latin America",
+      "text": "In many Latin American countries, food and weather are common topics of conversation. People often discuss their favorite dishes and the climate, as it can greatly influence daily life and activities.",
+      "funFact": "Did you know that in some regions, it's considered polite to ask about someone's family before discussing other topics?"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned key vocabulary for small talk.",
+        "Practiced expressing opinions using 'me gusta' and 'prefiero'.",
+        "Engaged in a dialogue about weather and food.",
+        "Understood cultural relevance of small talk in Spanish-speaking countries."
+      ],
+      "nextSteps": "Practice using the vocabulary in different contexts and try to have a small talk with a Spanish-speaking friend or through language exchange!"
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'el clima' mean in English?",
+      "content": {
+        "options": [
+          "the food",
+          "the weather",
+          "the conversation",
+          "the opinion"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El clima' translates to 'the weather' in English.",
+      "hint": "Think about what affects outdoor activities.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase means 'I prefer' in Spanish?",
+      "content": {
+        "options": [
+          "me gusta",
+          "prefiero",
+          "no me gusta",
+          "me encanta"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Prefiero' is the correct translation for 'I prefer'.",
+      "hint": "It starts with 'p'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'A mí ___ la pizza.'",
+      "content": {
+        "sentence": "A mí ___ la pizza.",
+        "correctAnswer": "me gusta",
+        "acceptableAnswers": [
+          "me encanta",
+          "me agrada"
+        ],
+        "options": [
+          "me gusta",
+          "me encanta",
+          "prefiero",
+          "no me gusta"
+        ]
+      },
+      "explanation": "'Me gusta' means 'I like' in Spanish, making the sentence complete.",
+      "hint": "It expresses enjoyment.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'El clima hoy es muy ___.''",
+      "content": {
+        "sentence": "El clima hoy es muy ___.",
+        "correctAnswer": "interesante",
+        "acceptableAnswers": [
+          "bonito",
+          "malo",
+          "frío"
+        ],
+        "options": [
+          "interesante",
+          "agradable",
+          "frío",
+          "caliente"
+        ]
+      },
+      "explanation": "Using 'interesante' completes the description of today's weather.",
+      "hint": "It means 'interesting'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'prefiero comida la italiana'.",
+      "content": {
+        "words": [
+          "prefiero",
+          "comida",
+          "la",
+          "italiana"
+        ],
+        "correctOrder": [
+          "prefiero",
+          "la",
+          "comida",
+          "italiana"
+        ],
+        "translation": "I prefer Italian food."
+      },
+      "explanation": "The correct order forms a proper sentence stating a preference.",
+      "hint": "Think about what comes first in English.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'What do you think?'",
+      "content": {
+        "prompt": "Translate to Spanish: 'What do you think?'",
+        "correctAnswer": "¿Qué opinas?",
+        "acceptableAnswers": [
+          "¿Qué piensas?",
+          "¿Qué crees?"
+        ]
+      },
+      "explanation": "'¿Qué opinas?' is the direct translation of 'What do you think?'.",
+      "hint": "It starts with '¿Qué'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Hoy hace buen clima.'",
+      "content": {
+        "ttsText": "Hoy hace buen clima.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Today is good weather.",
+          "Today is bad weather.",
+          "Today is cold."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation conveys that the weather today is good.",
+      "hint": "Listen for 'buen clima'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I like the weather today.'",
+      "content": {
+        "targetText": "Me gusta el clima hoy.",
+        "context": "Expressing your opinion about today's weather.",
+        "acceptableVariants": [
+          "Me gusta el clima de hoy.",
+          "Hoy me gusta el clima."
+        ]
+      },
+      "explanation": "This sentence expresses a positive opinion about the weather.",
+      "hint": "Start with 'Me gusta'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which option is a way to ask for someone's opinion in Spanish?",
+      "content": {
+        "options": [
+          "¿Te gusta?",
+          "¿Qué opinas?",
+          "¿Cómo estás?",
+          "¿Qué tal?"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "¿Qué opinas? is a direct way to ask for someone's opinion.",
+      "hint": "It starts with '¿Qué'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Prefiero el café, ___ me gusta el té.'",
+      "content": {
+        "sentence": "Prefiero el café, ___ me gusta el té.",
+        "correctAnswer": "pero",
+        "acceptableAnswers": [
+          "aunque",
+          "sin embargo"
+        ],
+        "options": [
+          "pero",
+          "y",
+          "o",
+          "también"
+        ]
+      },
+      "explanation": "The word 'pero' means 'but' and correctly connects contrasting preferences.",
+      "hint": "It’s a conjunction.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,353 @@
+{
+  "lesson": {
+    "title": "Unit 7 Review",
+    "type": "REVIEW",
+    "slug": "de-b1-unit7-review"
+  },
+  "unit": "Culture & Travel",
+  "unitOrder": 7,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will review key vocabulary and grammar points related to culture and travel in German. You will also practice a dialogue that incorporates these elements, reinforcing your language skills.",
+      "culturalNote": "German-speaking countries have a rich tradition of travel and cultural exchange, with many famous landmarks and festivals that attract millions of visitors each year."
+    },
+    "vocabulary": [
+      {
+        "term": "der Reiseführer",
+        "translation": "the travel guide",
+        "definition": "a book or person that provides information about a place",
+        "pronunciation": "dair RYE-zuh-fyoor-er",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe einen Reiseführer für Berlin gekauft.",
+          "translation": "I bought a travel guide for Berlin."
+        },
+        "tip": "Remember that 'der' indicates it's masculine."
+      },
+      {
+        "term": "die Kultur",
+        "translation": "the culture",
+        "definition": "the customs, arts, social institutions, and achievements of a particular nation or people",
+        "pronunciation": "dee Kool-TOOR",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Kultur in Deutschland ist sehr vielfältig.",
+          "translation": "The culture in Germany is very diverse."
+        },
+        "tip": "This noun is feminine, so it uses 'die'."
+      },
+      {
+        "term": "das Essen",
+        "translation": "the food",
+        "definition": "any nourishing substance that people eat or drink",
+        "pronunciation": "dahs ESS-en",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Essen in Österreich ist köstlich.",
+          "translation": "The food in Austria is delicious."
+        },
+        "tip": "This is a neuter noun; note the 'das'."
+      },
+      {
+        "term": "die Reise",
+        "translation": "the trip",
+        "definition": "a journey to a distant or unfamiliar place",
+        "pronunciation": "dee RYE-zuh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Reise nach Schweiz war sehr schön.",
+          "translation": "The trip to Switzerland was very beautiful."
+        },
+        "tip": "This noun is also feminine, remember 'die'."
+      },
+      {
+        "term": "der Flughafen",
+        "translation": "the airport",
+        "definition": "a place where aircraft regularly land and take off",
+        "pronunciation": "dair FLOO-kah-fen",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wir fliegen morgen vom Flughafen Frankfurt ab.",
+          "translation": "We are flying from Frankfurt airport tomorrow."
+        },
+        "tip": "Masculine noun; it takes 'der'."
+      },
+      {
+        "term": "die Sehenswürdigkeit",
+        "translation": "the sight/attraction",
+        "definition": "a place of interest to tourists",
+        "pronunciation": "dee ZAY-en-sver-dik-keit",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Sehenswürdigkeit in München ist das Schloss.",
+          "translation": "The attraction in Munich is the castle."
+        },
+        "tip": "Feminine noun; keep in mind 'die'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subordinate Clauses with 'dass', 'weil', and 'wenn'",
+        "explanation": "In German, subordinate clauses often begin with conjunctions like 'dass' (that), 'weil' (because), and 'wenn' (if/when). These clauses provide additional information and usually follow the main clause. The verb moves to the end of the subordinate clause.",
+        "table": {
+          "headers": [
+            "Conjunction",
+            "Example"
+          ],
+          "rows": [
+            [
+              "dass",
+              "Ich denke, dass Berlin groß ist. (I think that Berlin is big.)"
+            ],
+            [
+              "weil",
+              "Ich bleibe zu Hause, weil es regnet. (I stay at home because it is raining.)"
+            ],
+            [
+              "wenn",
+              "Wenn ich Zeit habe, besuche ich das Museum. (If I have time, I visit the museum.)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich glaube, dass die Kultur sehr interessant ist.",
+            "translation": "I believe that the culture is very interesting.",
+            "breakdown": "In this sentence, 'dass' introduces the subordinate clause and the verb 'ist' comes at the end."
+          }
+        ],
+        "commonMistakes": [
+          "Forgetting to place the verb at the end of the subordinate clause. Correct: 'Ich hoffe, dass du kommst.'",
+          "Using the wrong conjunction. Remember: 'weil' for reasons, 'wenn' for conditions."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Trip to Germany",
+      "context": "Lukas and Anna are discussing their upcoming trip to Germany over coffee.",
+      "speakers": [
+        "Lukas",
+        "Anna"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Ich kann es kaum erwarten, nach Deutschland zu reisen!",
+          "translation": "I can hardly wait to travel to Germany!",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe gehört, dass die Kultur dort sehr spannend ist.",
+          "translation": "Yes, I’ve heard that the culture there is very exciting.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Was möchtest du in Berlin sehen?",
+          "translation": "What would you like to see in Berlin?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich möchte das Brandenburger Tor und das Reichstagsgebäude besuchen.",
+          "translation": "I want to visit the Brandenburg Gate and the Reichstag building.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Klingt toll! Ich habe auch einen Reiseführer für Berlin gekauft.",
+          "translation": "Sounds great! I also bought a travel guide for Berlin.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hast du schon einen Plan gemacht?",
+          "translation": "Have you already made a plan?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, ich denke, wir sollten die Sehenswürdigkeiten an einem Tag besuchen.",
+          "translation": "Yes, I think we should visit the sights in one day.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das klingt nach einem guten Plan. Lass uns das Essen ausprobieren!",
+          "translation": "That sounds like a good plan. Let's try the food!",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Traveling in Germany",
+      "text": "Germany is known for its efficient public transportation, making it easy to explore different cities and regions. Many Germans enjoy traveling by train, which allows them to enjoy the scenic landscapes.",
+      "funFact": "Did you know that the Autobahn in Germany has stretches with no speed limit? It’s famous for allowing drivers to experience high speeds safely!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Subordinate clauses are essential for complex sentences.",
+        "Cultural insights enhance your understanding of the language.",
+        "Practice vocabulary related to culture and travel.",
+        "Engage in dialogues to improve speaking skills."
+      ],
+      "nextSteps": "Continue practicing with more dialogues and exercises focusing on subordinate clauses and travel vocabulary."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'the culture' in German?",
+      "content": {
+        "options": [
+          "die Kultur",
+          "das Essen",
+          "der Flughafen"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'The culture' translates to 'die Kultur' in German.",
+      "hint": "It's a feminine noun.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'the airport' in German?",
+      "content": {
+        "options": [
+          "der Flughafen",
+          "die Reise",
+          "die Sehenswürdigkeit"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'The airport' is 'der Flughafen' in German.",
+      "hint": "It's a masculine noun.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich möchte die ___ (sightseeing attraction) in Berlin besuchen.'",
+      "content": {
+        "sentence": "Ich möchte die ___ in Berlin besuchen.",
+        "correctAnswer": "Sehenswürdigkeit",
+        "acceptableAnswers": [
+          "Sehenswürdigkeit"
+        ],
+        "options": [
+          "Kultur",
+          "Reise",
+          "Sehenswürdigkeit"
+        ]
+      },
+      "explanation": "The correct word to fill in is 'Sehenswürdigkeit', which means 'sightseeing attraction'.",
+      "hint": "Think about what you visit when traveling.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Das ___ (food) hier ist sehr lecker.'",
+      "content": {
+        "sentence": "Das ___ hier ist sehr lecker.",
+        "correctAnswer": "Essen",
+        "acceptableAnswers": [
+          "Essen"
+        ],
+        "options": [
+          "Essen",
+          "Kultur",
+          "Reise"
+        ]
+      },
+      "explanation": "'Das Essen' means 'the food', and it fits the context of the sentence.",
+      "hint": "It's what you eat.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The tour guide is very helpful.'",
+      "content": {
+        "prompt": "Translate to German: 'The tour guide is very helpful.'",
+        "correctAnswer": "Der Reiseführer ist sehr hilfreich.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The sentence translates to 'Der Reiseführer ist sehr hilfreich.' in German.",
+      "hint": "Remember the article for 'tour guide'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich liebe das Essen in Italien.'",
+      "content": {
+        "ttsText": "Ich liebe das Essen in Italien.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I love the food in Italy.",
+          "I travel to Italy.",
+          "I enjoy the culture in Italy."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'I love the food in Italy.'",
+      "hint": "Focus on the word 'Essen'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in German: 'I want to explore the culture of Spain.'",
+      "content": {
+        "targetText": "Ich möchte die Kultur Spaniens erkunden.",
+        "context": "Translate and speak about wanting to explore a culture.",
+        "acceptableVariants": []
+      },
+      "explanation": "This sentence expresses a desire to explore a specific culture.",
+      "hint": "Remember to include the article for culture.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'the food' in German?",
+      "content": {
+        "options": [
+          "der Flughafen",
+          "das Essen",
+          "die Kultur"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'The food' translates to 'das Essen' in German.",
+      "hint": "It's a neuter noun.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Wir fliegen zum ___ (airport) morgen.'",
+      "content": {
+        "sentence": "Wir fliegen zum ___ morgen.",
+        "correctAnswer": "Flughafen",
+        "acceptableAnswers": [
+          "Flughafen"
+        ],
+        "options": [
+          "Flughafen",
+          "Essen",
+          "Kultur"
+        ]
+      },
+      "explanation": "'Flughafen' is the correct word for 'airport' in this context.",
+      "hint": "It's where you catch a flight.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

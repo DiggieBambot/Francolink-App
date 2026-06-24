@@ -1,0 +1,333 @@
+{
+  "lesson": {
+    "title": "Education & School Life",
+    "type": "VOCABULARY",
+    "slug": "de-a2-education"
+  },
+  "unit": "Work & Studies",
+  "unitOrder": 5,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to education and school life in German. This includes common terms for school subjects, school supplies, and classroom activities.",
+      "culturalNote": "In Germany, students often have a different school system compared to other countries, with different types of schools such as Gymnasium, Realschule, and Hauptschule."
+    },
+    "vocabulary": [
+      {
+        "term": "die Schule",
+        "translation": "the school",
+        "definition": "A place where students learn.",
+        "pronunciation": "dee SHOO-luh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Schule beginnt um acht Uhr.",
+          "translation": "School starts at eight o'clock."
+        },
+        "tip": "Remember that 'die Schule' is feminine (die), and its plural is 'die Schulen'."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A written work containing pages.",
+        "pronunciation": "dahs BOOK",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich lese ein Buch.",
+          "translation": "I am reading a book."
+        },
+        "tip": "The word 'das Buch' is neuter (das), and its plural is 'die Bücher'."
+      },
+      {
+        "term": "der Lehrer",
+        "translation": "the teacher (male)",
+        "definition": "A person who educates students.",
+        "pronunciation": "dehr LAY-rer",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Lehrer erklärt die Aufgabe.",
+          "translation": "The teacher explains the task."
+        },
+        "tip": "'Der Lehrer' is masculine (der), and the female form is 'die Lehrerin'."
+      },
+      {
+        "term": "die Schülerin",
+        "translation": "the student (female)",
+        "definition": "A female student.",
+        "pronunciation": "dee SHUE-lehr-in",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Schülerin macht ihre Hausaufgaben.",
+          "translation": "The student is doing her homework."
+        },
+        "tip": "'Die Schülerin' is feminine (die), and its plural form is 'die Schülerinnen'."
+      },
+      {
+        "term": "das Heft",
+        "translation": "the notebook",
+        "definition": "A book of blank pages for writing.",
+        "pronunciation": "dahs HEFT",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich schreibe im Heft.",
+          "translation": "I am writing in the notebook."
+        },
+        "tip": "'Das Heft' is neuter (das) and its plural is 'die Hefte'."
+      },
+      {
+        "term": "die Hausaufgaben",
+        "translation": "the homework",
+        "definition": "Assignments given to students to complete outside of class.",
+        "pronunciation": "dee HOWS-owf-gah-ben",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Hast du deine Hausaufgaben gemacht?",
+          "translation": "Did you do your homework?"
+        },
+        "tip": "This word is always plural: 'die Hausaufgaben'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Present Tense",
+        "explanation": "In German, the present tense is used to describe actions that are happening now or habitual actions. Regular verbs follow a specific pattern based on their endings: -en, -n, -eln. For example, 'machen' (to do) becomes 'ich mache', 'du machst', 'er/sie/es macht'.",
+        "table": {
+          "headers": [
+            "Subject Pronoun",
+            "Verb Conjugation"
+          ],
+          "rows": [
+            [
+              "ich",
+              "mache"
+            ],
+            [
+              "du",
+              "machst"
+            ],
+            [
+              "er/sie/es",
+              "macht"
+            ],
+            [
+              "wir",
+              "machen"
+            ],
+            [
+              "ihr",
+              "macht"
+            ],
+            [
+              "sie/Sie",
+              "machen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich mache meine Hausaufgaben.",
+            "translation": "I do my homework.",
+            "breakdown": "The subject 'ich' (I) is paired with the verb 'mache' (do), indicating the action performed by the subject."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'machen' with 'macht' for 'ich'. Remember: 'ich mache'.",
+          "Omitting the subject pronoun. Always include it in your sentences."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At School",
+      "context": "Two students talking during a break at school.",
+      "speakers": [
+        "Lukas",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Sophie, hast du das neue Buch gelesen?",
+          "translation": "Hello Sophie, have you read the new book?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe es gestern gelesen.",
+          "translation": "Yes, I read it yesterday.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Wie findest du es?",
+          "translation": "What do you think of it?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich finde es sehr interessant!",
+          "translation": "I find it very interesting!",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Hast du deine Hausaufgaben für Mathe gemacht?",
+          "translation": "Did you do your math homework?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe sie gemacht. Es war einfach.",
+          "translation": "Yes, I did it. It was easy.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Super! Ich habe noch nicht angefangen.",
+          "translation": "Great! I haven't started yet.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Komm, wir können zusammen lernen.",
+          "translation": "Come on, we can study together.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "School Traditions in Germany",
+      "text": "In Germany, it is common for students to have a 'Schultüte' on their first day of school. This is a large, cone-shaped bag filled with sweets and school supplies. It's a special tradition that helps children celebrate starting school.",
+      "funFact": "In some German-speaking countries, students receive a 'Zeugnis' (report card) at the end of each term, which includes grades and comments from their teachers."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to school and education.",
+        "Practiced using the present tense for common verbs.",
+        "Engaged in a dialogue about school life.",
+        "Explored cultural traditions in German-speaking countries."
+      ],
+      "nextSteps": "Review the vocabulary and practice forming sentences using the present tense. Try to create your own dialogue about school experiences."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'teacher'?",
+      "content": {
+        "options": [
+          "die Lehrerin",
+          "der Lehrer",
+          "das Buch"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'der Lehrer', which means 'teacher' in German.",
+      "hint": "Think about the role of the person who teaches.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'homework' in German?",
+      "content": {
+        "options": [
+          "die Schülerin",
+          "die Hausaufgaben",
+          "das Heft"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'die Hausaufgaben', which translates to 'homework'.",
+      "hint": "It's what students often do at home.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich habe ein ___.'",
+      "content": {
+        "sentence": "Ich habe ein ___.",
+        "correctAnswer": "Buch",
+        "acceptableAnswers": [
+          "Buch"
+        ],
+        "options": [
+          "Heft",
+          "Buch",
+          "Lehrer"
+        ]
+      },
+      "explanation": "The sentence means 'I have a book.' 'Buch' is the correct answer.",
+      "hint": "It's something you read.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Die ___ macht die Aufgaben.'",
+      "content": {
+        "sentence": "Die ___ macht die Aufgaben.",
+        "correctAnswer": "Schülerin",
+        "acceptableAnswers": [
+          "Schülerin"
+        ],
+        "options": [
+          "Lehrer",
+          "Schülerin",
+          "Hausaufgaben"
+        ]
+      },
+      "explanation": "The sentence means 'The student does the homework.' 'Schülerin' is the female form of student.",
+      "hint": "Think about a female student.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The student has a notebook.'",
+      "content": {
+        "prompt": "Translate to German: 'The student has a notebook.'",
+        "correctAnswer": "Die Schülerin hat ein Heft.",
+        "acceptableAnswers": [
+          "Die Schülerin hat ein Heft"
+        ]
+      },
+      "explanation": "The correct translation is 'Die Schülerin hat ein Heft.'",
+      "hint": "Remember the articles and the gender of the words.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Die Hausaufgaben sind schwer.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The homework is hard.",
+          "The book is large.",
+          "The teacher is nice."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'The homework is hard.'",
+      "hint": "Focus on the word 'Hausaufgaben'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I have a teacher.'",
+      "content": {
+        "targetText": "Ich habe einen Lehrer.",
+        "context": "Translate and say in German.",
+        "acceptableVariants": [
+          "Ich habe einen Lehrer."
+        ]
+      },
+      "explanation": "The correct German sentence is 'Ich habe einen Lehrer.'",
+      "hint": "Remember the article for 'teacher'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

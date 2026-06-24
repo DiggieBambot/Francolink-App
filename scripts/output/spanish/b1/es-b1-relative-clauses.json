@@ -1,0 +1,359 @@
+{
+  "lesson": {
+    "title": "Relative Clauses (Que, Quien, Cuyo)",
+    "type": "GRAMMAR",
+    "slug": "es-b1-relative-clauses"
+  },
+  "unit": "Environment & Society",
+  "unitOrder": 6,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about relative clauses in Spanish, specifically using 'que', 'quien', and 'cuyo'. These clauses will help you create more complex sentences and express relationships between ideas.",
+      "culturalNote": "Relative clauses are commonly used in everyday conversation in Spanish-speaking countries to provide additional information about people or things."
+    },
+    "vocabulary": [
+      {
+        "term": "el medio ambiente",
+        "translation": "the environment",
+        "definition": "The natural world, including plants, animals, and ecosystems.",
+        "pronunciation": "el MEH-dyoh ahm-BYEN-teh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El medio ambiente es muy importante.",
+          "translation": "The environment is very important."
+        },
+        "tip": "Remember that 'medio' means 'middle', so 'medio ambiente' refers to the surrounding environment."
+      },
+      {
+        "term": "la sociedad",
+        "translation": "society",
+        "definition": "A group of individuals living together in a more or less ordered community.",
+        "pronunciation": "lah so-see-eh-DAD",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La sociedad necesita cambios.",
+          "translation": "Society needs changes."
+        },
+        "tip": "Think of 'society' as a collective group that requires balance and harmony."
+      },
+      {
+        "term": "quien",
+        "translation": "who",
+        "definition": "Used to refer to people in relative clauses.",
+        "pronunciation": "kee-EN",
+        "partOfSpeech": "pronoun",
+        "exampleSentence": {
+          "original": "La persona que viene es mi amigo.",
+          "translation": "The person who is coming is my friend."
+        },
+        "tip": "Use 'quien' specifically for people; 'que' is more versatile."
+      },
+      {
+        "term": "cuyo",
+        "translation": "whose",
+        "definition": "Indicates possession in relative clauses.",
+        "pronunciation": "KOO-yoh",
+        "partOfSpeech": "pronoun",
+        "exampleSentence": {
+          "original": "El hombre cuyo coche es rojo es mi vecino.",
+          "translation": "The man whose car is red is my neighbor."
+        },
+        "tip": "Remember that 'cuyo' agrees in gender and number with the noun it modifies."
+      },
+      {
+        "term": "la contaminación",
+        "translation": "pollution",
+        "definition": "The presence of harmful substances in the environment.",
+        "pronunciation": "lah kohn-tah-mee-nah-SYON",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La contaminación afecta la salud.",
+          "translation": "Pollution affects health."
+        },
+        "tip": "Think of 'contaminación' as something that 'contaminates' or makes something unclean."
+      },
+      {
+        "term": "el recurso",
+        "translation": "resource",
+        "definition": "A source of supply or support.",
+        "pronunciation": "el reh-KOOR-so",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El agua es un recurso vital.",
+          "translation": "Water is a vital resource."
+        },
+        "tip": "Connect 'recurso' with the idea of resources being limited and needing to be managed."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Relative Clauses",
+        "explanation": "Relative clauses provide additional information about nouns. In Spanish, 'que' is used for both people and things, 'quien' is used for people, and 'cuyo' shows possession. These clauses help to combine sentences and express complex ideas.",
+        "table": {
+          "headers": [
+            "Relative Pronoun",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "que",
+              "for things and people"
+            ],
+            [
+              "quien",
+              "for people"
+            ],
+            [
+              "cuyo",
+              "to indicate possession"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "El libro que estoy leyendo es interesante.",
+            "translation": "The book that I am reading is interesting.",
+            "breakdown": "'que' connects the two ideas, giving more information about 'el libro'."
+          },
+          {
+            "original": "La mujer quien habla es mi profesora.",
+            "translation": "The woman who is speaking is my teacher.",
+            "breakdown": "'quien' specifies that we are talking about 'la mujer'."
+          },
+          {
+            "original": "El niño cuyo perro es grande está aquí.",
+            "translation": "The boy whose dog is big is here.",
+            "breakdown": "'cuyo' shows that the dog belongs to the boy."
+          }
+        ],
+        "commonMistakes": [
+          "'Quien' is often incorrectly used for things; remember to use 'que' for things.",
+          "'Cuyo' is sometimes misused; ensure it agrees with the noun it modifies in gender and number."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Environmental Issues",
+      "context": "A conversation between two friends about environmental problems.",
+      "speakers": [
+        "Carlos",
+        "María"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Has visto el documental que habla sobre la contaminación?",
+          "translation": "Have you seen the documentary that talks about pollution?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, es muy impactante. La contaminación afecta a muchas especies.",
+          "translation": "Yes, it’s very shocking. Pollution affects many species.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Yo creo que la sociedad necesita hacer más para proteger el medio ambiente.",
+          "translation": "I think society needs to do more to protect the environment.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Exacto, especialmente las empresas que generan más residuos.",
+          "translation": "Exactly, especially the companies that generate more waste.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Y también las personas cuyo comportamiento no es responsable.",
+          "translation": "And also the people whose behavior is not responsible.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, todos tenemos que colaborar para mejorar la situación.",
+          "translation": "Yes, we all have to collaborate to improve the situation.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué opinas de las iniciativas que están surgiendo?",
+          "translation": "What do you think about the initiatives that are emerging?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Creo que son un buen comienzo, pero necesitamos más apoyo.",
+          "translation": "I think they are a good start, but we need more support.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Environmental Awareness in Latin America",
+      "text": "Many Latin American countries are rich in biodiversity and have unique ecosystems. This makes environmental issues particularly important, as they affect not only wildlife but also local communities and their cultures.",
+      "funFact": "Did you know that the Amazon rainforest, which is often referred to as the 'lungs of the planet', is located in several Latin American countries?"
+    },
+    "summary": {
+      "keyPoints": [
+        "Relative clauses enhance sentence complexity.",
+        "Use 'que' for both things and people.",
+        "Use 'quien' specifically for people.",
+        "Use 'cuyo' to indicate possession."
+      ],
+      "nextSteps": "Practice creating sentences using each relative pronoun and review vocabulary related to the environment and society."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Choose the correct relative pronoun to complete the sentence: 'El recurso ___ utilizamos es renovable.'",
+      "content": {
+        "options": [
+          "que",
+          "quien",
+          "cuyo"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'que' because it refers to 'recurso' and is used for objects.",
+      "hint": "Consider what the sentence is referring to.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Choose the correct relative pronoun to complete the sentence: 'La persona ___ ayuda a la sociedad es importante.'",
+      "content": {
+        "options": [
+          "cuyo",
+          "quien",
+          "que"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'quien' because it refers to a person.",
+      "hint": "Think about how we refer to people.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence with the correct relative pronoun: 'La contaminación ___ afecta al medio ambiente es preocupante.'",
+      "content": {
+        "sentence": "La contaminación ___ afecta al medio ambiente es preocupante.",
+        "correctAnswer": "que",
+        "acceptableAnswers": [
+          "que"
+        ],
+        "options": [
+          "que",
+          "cuyo",
+          "quien"
+        ]
+      },
+      "explanation": "The correct answer is 'que' because it introduces a relative clause related to 'contaminación'.",
+      "hint": "This pronoun connects the clause to the subject.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence with the correct relative pronoun: 'El hombre ___ trabaja en el proyecto es ingeniero.'",
+      "content": {
+        "sentence": "El hombre ___ trabaja en el proyecto es ingeniero.",
+        "correctAnswer": "que",
+        "acceptableAnswers": [
+          "que"
+        ],
+        "options": [
+          "quien",
+          "que",
+          "cuyo"
+        ]
+      },
+      "explanation": "The correct answer is 'que' because it introduces a clause about the subject 'hombre'.",
+      "hint": "Use the pronoun that refers to the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'cuyo recurso el medio ambiente es importante'.",
+      "content": {
+        "words": [
+          "cuyo",
+          "recurso",
+          "el",
+          "medio",
+          "ambiente",
+          "es",
+          "importante"
+        ],
+        "correctOrder": [
+          "el",
+          "recurso",
+          "cuyo",
+          "es",
+          "importante",
+          "medio",
+          "ambiente"
+        ],
+        "translation": "The resource whose environment is important."
+      },
+      "explanation": "The correct order clarifies the relationship between the resource and the environment.",
+      "hint": "Start with the main subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The resource that we have is valuable.'",
+      "content": {
+        "correctAnswer": "El recurso que tenemos es valioso.",
+        "acceptableAnswers": [
+          "El recurso que tenemos es valioso."
+        ]
+      },
+      "explanation": "In Spanish, we use 'que' to connect the clause with the noun.",
+      "hint": "Focus on the relative pronoun used in the sentence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct option: 'La sociedad ___ vive en armonía es más feliz.'",
+      "content": {
+        "ttsText": "La sociedad que vive en armonía es más feliz.",
+        "ttsLang": "es-ES",
+        "options": [
+          "que",
+          "quien",
+          "cuyo"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'que' as it introduces a clause about the society.",
+      "hint": "Listen for the word that connects the clause.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in Spanish: 'The person whose ideas are innovative will help society.'",
+      "content": {
+        "targetText": "La persona cuyas ideas son innovadoras ayudará a la sociedad.",
+        "context": "Translate and say the sentence in Spanish.",
+        "acceptableVariants": [
+          "La persona cuyas ideas son innovadoras ayudará a la sociedad."
+        ]
+      },
+      "explanation": "Using 'cuyas' indicates possession in this context.",
+      "hint": "Think about how to express possession in Spanish.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

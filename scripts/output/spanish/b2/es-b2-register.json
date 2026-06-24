@@ -1,0 +1,333 @@
+{
+  "lesson": {
+    "title": "Formal vs Informal Register",
+    "type": "CONVERSATION",
+    "slug": "es-b2-register"
+  },
+  "unit": "Persuasion & Argument",
+  "unitOrder": 2,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to distinguish between formal and informal registers in Spanish conversation. You'll practice using appropriate language depending on the context and the relationship with the person you are speaking to.",
+      "culturalNote": "In many Spanish-speaking countries, using formal language is a sign of respect, especially when addressing elders or superiors."
+    },
+    "vocabulary": [
+      {
+        "term": "usted",
+        "translation": "you (formal)",
+        "definition": "used to address someone respectfully or in a formal context",
+        "pronunciation": "oo-sted",
+        "partOfSpeech": "pronoun",
+        "exampleSentence": {
+          "original": "¿Usted podría ayudarme con este problema?",
+          "translation": "Could you help me with this problem?"
+        },
+        "tip": "Remember that 'usted' is used in formal situations, while 'tú' is for informal ones."
+      },
+      {
+        "term": "tú",
+        "translation": "you (informal)",
+        "definition": "used to address friends, family, or those of the same age",
+        "pronunciation": "too",
+        "partOfSpeech": "pronoun",
+        "exampleSentence": {
+          "original": "¿Tú quieres ir al cine esta noche?",
+          "translation": "Do you want to go to the movies tonight?"
+        },
+        "tip": "Use 'tú' when you are on familiar terms with someone."
+      },
+      {
+        "term": "señor/señora",
+        "translation": "Mr./Mrs.",
+        "definition": "titles of respect when addressing adults",
+        "pronunciation": "sen-yor/sen-yo-ra",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El señor García es muy amable.",
+          "translation": "Mr. García is very kind."
+        },
+        "tip": "Always use these titles in formal contexts."
+      },
+      {
+        "term": "por favor",
+        "translation": "please",
+        "definition": "a polite way to request something",
+        "pronunciation": "por fa-vor",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "¿Me puede ayudar, por favor?",
+          "translation": "Can you help me, please?"
+        },
+        "tip": "Adding 'por favor' makes your requests more polite."
+      },
+      {
+        "term": "disculpe/disculpa",
+        "translation": "excuse me (formal/informal)",
+        "definition": "used to get someone's attention or to apologize",
+        "pronunciation": "dis-kul-peh/dis-kul-pa",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Disculpe, ¿me podría indicar la dirección?",
+          "translation": "Excuse me, could you show me the way?"
+        },
+        "tip": "'Disculpe' is more appropriate in formal situations."
+      },
+      {
+        "term": "encantado/encantada",
+        "translation": "nice to meet you (male/female)",
+        "definition": "a polite expression used when meeting someone for the first time",
+        "pronunciation": "en-kan-ta-do/en-kan-ta-da",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Encantado de conocerlo, señor.",
+          "translation": "Nice to meet you, sir."
+        },
+        "tip": "Use this phrase when you want to make a good impression."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Formal vs Informal Language",
+        "explanation": "In Spanish, the choice between formal and informal language is crucial. 'Usted' is used for formal situations, while 'tú' is for informal contexts. This distinction extends to verb conjugations and vocabulary. For example, in the present tense, you would use 'habla' for 'usted' and 'hablas' for 'tú'.",
+        "table": {
+          "headers": [
+            "Formal (Usted)",
+            "Informal (Tú)"
+          ],
+          "rows": [
+            [
+              "¿Cómo está usted?",
+              "¿Cómo estás tú?"
+            ],
+            [
+              "¿Usted tiene tiempo?",
+              "¿Tú tienes tiempo?"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "¿Cómo se siente usted hoy?",
+            "translation": "How do you feel today?",
+            "breakdown": "The verb 'sentir' is conjugated as 'siente' for 'usted' but 'sientes' for 'tú'."
+          }
+        ],
+        "commonMistakes": [
+          "'Usted' should not be used with close friends.",
+          "'Tú' should not be used with strangers or in professional settings."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Meeting a New Colleague",
+      "context": "This conversation takes place at a workplace during a lunch break.",
+      "speakers": [
+        "Laura (new colleague)",
+        "Carlos (senior colleague)"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, soy Laura. Encantada de conocerte.",
+          "translation": "Hi, I'm Laura. Nice to meet you.",
+          "note": "Informal greeting."
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, Laura. Soy Carlos. Encantado de conocerte también.",
+          "translation": "Hi, Laura. I'm Carlos. Nice to meet you too."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Cómo te va en el trabajo?",
+          "translation": "How is work going for you?"
+        },
+        {
+          "speaker": 1,
+          "text": "Va bien, gracias. ¿Y a ti?",
+          "translation": "It's going well, thank you. And you?"
+        },
+        {
+          "speaker": 0,
+          "text": "Me gusta mucho, aunque es un poco abrumador.",
+          "translation": "I like it a lot, although it's a bit overwhelming."
+        },
+        {
+          "speaker": 1,
+          "text": "Entiendo. Si necesitas ayuda, no dudes en decírmelo.",
+          "translation": "I understand. If you need help, don't hesitate to tell me."
+        },
+        {
+          "speaker": 0,
+          "text": "¡Gracias! Aprecio tu apoyo.",
+          "translation": "Thank you! I appreciate your support."
+        },
+        {
+          "speaker": 1,
+          "text": "De nada. Por cierto, ¿quieres almorzar juntos mañana?",
+          "translation": "You're welcome. By the way, do you want to have lunch together tomorrow?"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Politeness in Spanish-speaking Cultures",
+      "text": "In many Spanish-speaking countries, politeness is deeply valued in social interactions. Formal language is often used in business settings and when speaking to elders. This reflects a cultural emphasis on respect and hierarchy.",
+      "funFact": "In some regions, using informal language with someone you just met can be considered rude."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understand the difference between formal and informal registers.",
+        "Master the use of 'tú' and 'usted' in conversations.",
+        "Practice vocabulary related to formal and informal situations.",
+        "Recognize cultural nuances in communication."
+      ],
+      "nextSteps": "Review the vocabulary and practice creating dialogues using both formal and informal registers. Consider your audience when speaking in Spanish."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase is more formal?",
+      "content": {
+        "options": [
+          "¿Cómo estás?",
+          "¿Cómo está usted?"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The phrase '¿Cómo está usted?' uses the formal 'usted' instead of the informal 'tú'.",
+      "hint": "Consider the pronouns used.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct way to address a woman formally?",
+      "content": {
+        "options": [
+          "señorita",
+          "señora"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Señora' is the formal way to address a woman, while 'señorita' is informal.",
+      "hint": "Think about marital status.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Por favor, ______ me el libro.'",
+      "content": {
+        "sentence": "Por favor, ______ me el libro.",
+        "correctAnswer": "dé",
+        "acceptableAnswers": [
+          "da",
+          "déjame",
+          "dame"
+        ],
+        "options": [
+          "dé",
+          "da",
+          "dame",
+          "déjame"
+        ]
+      },
+      "explanation": "The correct form to request something politely is 'dé' (give).",
+      "hint": "Think about the command form.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Si ______ (usted) tiene alguna pregunta, no dude en preguntar.'",
+      "content": {
+        "sentence": "Si ______ (usted) tiene alguna pregunta, no dude en preguntar.",
+        "correctAnswer": "usted",
+        "acceptableAnswers": [
+          "tú"
+        ],
+        "options": [
+          "tú",
+          "usted"
+        ]
+      },
+      "explanation": "Using 'usted' is the formal way to address someone in this context.",
+      "hint": "Look for the formal pronoun.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a polite request: 'disculpa, tú, por favor, ven'.",
+      "content": {
+        "words": [
+          "disculpa",
+          "tú",
+          "por favor",
+          "ven"
+        ],
+        "correctOrder": [
+          "disculpa",
+          "tú",
+          "por favor",
+          "ven"
+        ],
+        "translation": "Excuse me, please come."
+      },
+      "explanation": "The polite request is formed by placing 'disculpa' first, followed by the subject and request.",
+      "hint": "Start with the polite word.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Please, excuse me.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'Please, excuse me.'",
+        "correctAnswer": "Por favor, disculpe.",
+        "acceptableAnswers": [
+          "Por favor, disculpa."
+        ]
+      },
+      "explanation": "Both 'disculpe' and 'disculpa' are correct, but 'disculpe' is more formal.",
+      "hint": "Think about the level of formality.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and identify the formal request.",
+      "content": {
+        "ttsText": "Por favor, ¿podría ayudarme?",
+        "ttsLang": "es-ES",
+        "options": [
+          "Por favor, ¿podrías ayudarme?",
+          "Por favor, ¿podría ayudarme?",
+          "Disculpa, ¿puedes ayudarme?"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The formal request uses 'podría' instead of 'podrías'.",
+      "hint": "Listen for the verb form.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'I would like to ask you a question.'",
+      "content": {
+        "targetText": "Me gustaría hacerle una pregunta.",
+        "context": "When speaking to someone formally.",
+        "acceptableVariants": [
+          "Quisiera hacerle una pregunta."
+        ]
+      },
+      "explanation": "Using 'me gustaría' or 'quisiera' shows politeness in a formal context.",
+      "hint": "Use the conditional form.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

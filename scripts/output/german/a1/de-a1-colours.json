@@ -1,0 +1,341 @@
+{
+  "lesson": {
+    "title": "Colours & Everyday Objects",
+    "type": "VOCABULARY",
+    "slug": "de-a1-colours"
+  },
+  "unit": "Home & Everyday Objects",
+  "unitOrder": 6,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to colors and everyday objects found in a home. You will also practice using these words in simple sentences, enhancing your ability to describe your surroundings.",
+      "culturalNote": "In Germany, colors can be very vibrant in home decor, reflecting a unique blend of modern and traditional styles."
+    },
+    "vocabulary": [
+      {
+        "term": "der Tisch",
+        "translation": "the table",
+        "definition": "A piece of furniture with a flat top and one or more legs.",
+        "pronunciation": "dehr tish",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Tisch ist rot.",
+          "translation": "The table is red."
+        },
+        "tip": "Remember, 'der' indicates that 'Tisch' is masculine."
+      },
+      {
+        "term": "die Lampe",
+        "translation": "the lamp",
+        "definition": "A device that produces light, typically used for illumination.",
+        "pronunciation": "dee lahm-peh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Lampe ist gelb.",
+          "translation": "The lamp is yellow."
+        },
+        "tip": "'Die' shows that 'Lampe' is feminine, and it can be pluralized as 'die Lampen'."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A set of written or printed pages bound together.",
+        "pronunciation": "dahs boo-h",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Buch ist blau.",
+          "translation": "The book is blue."
+        },
+        "tip": "'Das' indicates that 'Buch' is neuter."
+      },
+      {
+        "term": "die Wand",
+        "translation": "the wall",
+        "definition": "A vertical structure that defines and encloses a space.",
+        "pronunciation": "dee vahnd",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Wand ist grün.",
+          "translation": "The wall is green."
+        },
+        "tip": "'Die' means 'Wand' is feminine and can be pluralized as 'die Wände'."
+      },
+      {
+        "term": "der Stuhl",
+        "translation": "the chair",
+        "definition": "A piece of furniture for sitting, typically with four legs and a back.",
+        "pronunciation": "dehr shtool",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Stuhl ist schwarz.",
+          "translation": "The chair is black."
+        },
+        "tip": "'Der' indicates that 'Stuhl' is masculine."
+      },
+      {
+        "term": "das Fenster",
+        "translation": "the window",
+        "definition": "An opening in a wall that allows light and air in.",
+        "pronunciation": "dahs fen-ster",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Fenster ist grau.",
+          "translation": "The window is gray."
+        },
+        "tip": "'Das' shows that 'Fenster' is neuter and can be pluralized as 'die Fenster'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Noun Gender in German",
+        "explanation": "In German, every noun has a gender: masculine (der), feminine (die), or neuter (das). It is essential to learn the gender along with the noun because it affects articles and adjective endings in sentences.",
+        "table": {
+          "headers": [
+            "Noun",
+            "Gender"
+          ],
+          "rows": [
+            [
+              "Tisch",
+              "der"
+            ],
+            [
+              "Lampe",
+              "die"
+            ],
+            [
+              "Buch",
+              "das"
+            ],
+            [
+              "Wand",
+              "die"
+            ],
+            [
+              "Stuhl",
+              "der"
+            ],
+            [
+              "Fenster",
+              "das"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Der Tisch ist rot.",
+            "translation": "The table is red.",
+            "breakdown": "Here, 'der' tells us that 'Tisch' is masculine."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'der' and 'die' for masculine and feminine nouns. Remember: 'der' for masculine, 'die' for feminine.",
+          "Using incorrect articles with plural nouns. The plural article is always 'die' for all genders."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At Home",
+      "context": "Two friends, Lukas and Anna, are visiting each other at home.",
+      "speakers": [
+        "Lukas",
+        "Anna"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Anna! Wie geht's?",
+          "translation": "Hello Anna! How are you?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Lukas! Mir geht's gut. Und dir?",
+          "translation": "Hello Lukas! I'm fine. And you?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich habe einen neuen Tisch.",
+          "translation": "I have a new table.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Oh, schön! Ist der Tisch rot?",
+          "translation": "Oh, nice! Is the table red?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, der Tisch ist rot.",
+          "translation": "Yes, the table is red.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Und die Lampe? Welche Farbe hat sie?",
+          "translation": "And the lamp? What color is it?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Die Lampe ist gelb.",
+          "translation": "The lamp is yellow.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich liebe gelb! Hast du ein Buch?",
+          "translation": "I love yellow! Do you have a book?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, das Buch ist blau.",
+          "translation": "Yes, the book is blue.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Colors in German Homes",
+      "text": "In German-speaking countries, colors play a significant role in home decoration. Many people prefer bright, cheerful colors that reflect their personality. Color choice can also be influenced by local trends and styles.",
+      "funFact": "Did you know that in Germany, there are special terms for different shades of colors? For example, 'himmlischblau' means 'sky blue'!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to colors and everyday objects.",
+        "Practiced using nouns with their correct articles.",
+        "Explored the importance of noun gender in German.",
+        "Engaged in a dialogue about home and colors."
+      ],
+      "nextSteps": "Review the vocabulary and practice forming sentences using the new words. Try to describe objects in your own home using German!"
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'the table' in German?",
+      "content": {
+        "options": [
+          "der Tisch",
+          "die Lampe",
+          "das Buch"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'der Tisch', which means 'the table' in German.",
+      "hint": "It starts with 'T'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'die Lampe' mean in English?",
+      "content": {
+        "options": [
+          "the chair",
+          "the lamp",
+          "the wall"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Die Lampe' translates to 'the lamp' in English.",
+      "hint": "It provides light.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich sitze auf dem ___.'",
+      "content": {
+        "sentence": "Ich sitze auf dem ___.",
+        "correctAnswer": "Stuhl",
+        "acceptableAnswers": [
+          "Stuhl",
+          "der Stuhl"
+        ],
+        "options": [
+          "Tisch",
+          "Stuhl",
+          "Buch"
+        ]
+      },
+      "explanation": "The correct answer is 'Stuhl', which means 'chair' in German.",
+      "hint": "You use this to sit.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Das ___ ist grün.'",
+      "content": {
+        "sentence": "Das ___ ist grün.",
+        "correctAnswer": "Fenster",
+        "acceptableAnswers": [
+          "Fenster",
+          "das Fenster"
+        ],
+        "options": [
+          "Buch",
+          "Fenster",
+          "Lampe"
+        ]
+      },
+      "explanation": "The correct answer is 'Fenster', which means 'window' in German.",
+      "hint": "It lets in light.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The book is on the table.'",
+      "content": {
+        "prompt": "Translate to German: 'The book is on the table.'",
+        "correctAnswer": "Das Buch liegt auf dem Tisch.",
+        "acceptableAnswers": [
+          "Das Buch ist auf dem Tisch."
+        ]
+      },
+      "explanation": "The correct translation is 'Das Buch liegt auf dem Tisch', meaning 'The book is on the table.'",
+      "hint": "Use 'liegt' for 'is on'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Das Buch ist rot.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The book is red.",
+          "The lamp is red.",
+          "The window is red."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation of 'Das Buch ist rot' is 'The book is red'.",
+      "hint": "Focus on the color of the book.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the German sentence: 'Die Lampe ist hell.'",
+      "content": {
+        "targetText": "Die Lampe ist hell.",
+        "context": "You are describing the brightness of a lamp.",
+        "acceptableVariants": [
+          "Die Lampe ist hell."
+        ]
+      },
+      "explanation": "You should say 'Die Lampe ist hell', which means 'The lamp is bright'.",
+      "hint": "Think about how bright the lamp is.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

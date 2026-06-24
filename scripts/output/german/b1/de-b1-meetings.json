@@ -1,0 +1,331 @@
+{
+  "lesson": {
+    "title": "Meetings & Presentations",
+    "type": "CONVERSATION",
+    "slug": "de-b1-meetings"
+  },
+  "unit": "Work & Career",
+  "unitOrder": 3,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn essential vocabulary and phrases used during meetings and presentations in German. You will also practice constructing sentences using subordinate clauses and the Konjunktiv II for polite requests.",
+      "culturalNote": "In Germany, meetings are often well-structured and punctual. It is common to have a clear agenda that is followed closely."
+    },
+    "vocabulary": [
+      {
+        "term": "die Besprechung",
+        "translation": "the meeting",
+        "definition": "A gathering of people to discuss a specific topic.",
+        "pronunciation": "bee-SHPREH-khoong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Besprechung beginnt um neun Uhr.",
+          "translation": "The meeting starts at nine o'clock."
+        },
+        "tip": "Remember, 'die' indicates that this noun is feminine."
+      },
+      {
+        "term": "die Präsentation",
+        "translation": "the presentation",
+        "definition": "A formal display of information, often using slides.",
+        "pronunciation": "pray-zen-ta-TSEE-on",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Präsentation war sehr informativ.",
+          "translation": "The presentation was very informative."
+        },
+        "tip": "Also feminine, 'die' helps you remember it belongs to the feminine category."
+      },
+      {
+        "term": "der Vorschlag",
+        "translation": "the proposal",
+        "definition": "An idea or plan put forward for consideration.",
+        "pronunciation": "FORSH-lahg",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich mache einen Vorschlag für das nächste Meeting.",
+          "translation": "I am making a proposal for the next meeting."
+        },
+        "tip": "This is a masculine noun, so it uses 'der'."
+      },
+      {
+        "term": "die Entscheidung",
+        "translation": "the decision",
+        "definition": "The action of making a choice or coming to a conclusion.",
+        "pronunciation": "ein-SHY-dung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Entscheidung wird nächste Woche getroffen.",
+          "translation": "The decision will be made next week."
+        },
+        "tip": "Feminine noun, remember 'die' when using it."
+      },
+      {
+        "term": "der Teilnehmer",
+        "translation": "the participant",
+        "definition": "A person who takes part in something.",
+        "pronunciation": "TIE-lneh-mer",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Jeder Teilnehmer muss pünktlich sein.",
+          "translation": "Every participant must be on time."
+        },
+        "tip": "This is a masculine noun, and the plural is 'die Teilnehmer'."
+      },
+      {
+        "term": "das Protokoll",
+        "translation": "the minutes (of a meeting)",
+        "definition": "A written record of what was discussed and decided in a meeting.",
+        "pronunciation": "pro-to-KOL",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Protokoll wird nach der Besprechung verschickt.",
+          "translation": "The minutes will be sent after the meeting."
+        },
+        "tip": "Neutral noun, and it uses 'das'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subordinate Clauses with 'dass' and 'weil'",
+        "explanation": "In German, subordinate clauses are often introduced by 'dass' (that) or 'weil' (because). These clauses depend on the main clause for their meaning. For example, 'Ich denke, dass wir das Projekt erfolgreich abschließen werden.' (I think that we will complete the project successfully.)",
+        "table": {
+          "headers": [
+            "Main Clause",
+            "Subordinate Clause"
+          ],
+          "rows": [
+            [
+              "Ich glaube",
+              "dass wir das Meeting heute haben."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich glaube, dass wir die Präsentation verbessern können.",
+            "translation": "I believe that we can improve the presentation.",
+            "breakdown": "The main clause 'Ich glaube' (I believe) is followed by the subordinate clause introduced by 'dass' (that)."
+          }
+        ],
+        "commonMistakes": [
+          "'Ich denke, wir dass das wichtig ist.' should be 'Ich denke, dass das wichtig ist.'",
+          "'Ich weiß, weil er kommt.' should be 'Ich weiß, dass er kommt.'"
+        ]
+      },
+      {
+        "title": "Using Konjunktiv II for Politeness",
+        "explanation": "The Konjunktiv II is used in German to express hypothetical situations or polite requests. For example, instead of saying 'Könntest du das machen?' (Could you do that?), it is more polite to say 'Ich würde mich freuen, wenn du das machen könntest.' (I would be happy if you could do that.)",
+        "table": {
+          "headers": [
+            "Phrase",
+            "Hypothetical Request"
+          ],
+          "rows": [
+            [
+              "Könntest du das machen?",
+              "Ich würde mich freuen, wenn du das machen könntest."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich hätte gerne, dass du die Präsentation übernimmst.",
+            "translation": "I would like you to take over the presentation.",
+            "breakdown": "This uses the Konjunktiv II form 'hätte' (would have) to express a polite request."
+          }
+        ],
+        "commonMistakes": [
+          "'Ich möchte, dass du kommst.' should be 'Ich hätte gerne, dass du kommst.' for more politeness.",
+          "'Wenn ich wäre der Chef.' should be 'Wenn ich der Chef wäre.' for correct structure."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing the Meeting Agenda",
+      "context": "At a team meeting in an office.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Max, hast du die Agenda für die Besprechung vorbereitet?",
+          "translation": "Hello Max, have you prepared the agenda for the meeting?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe sie gestern fertiggestellt.",
+          "translation": "Yes, I finished it yesterday."
+        },
+        {
+          "speaker": 0,
+          "text": "Super! Was steht alles drauf?",
+          "translation": "Great! What is on it?"
+        },
+        {
+          "speaker": 1,
+          "text": "Wir müssen über das Budget und die neuen Projekte sprechen.",
+          "translation": "We need to talk about the budget and the new projects."
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt wichtig. Wer wird an der Besprechung teilnehmen?",
+          "translation": "That sounds important. Who will participate in the meeting?"
+        },
+        {
+          "speaker": 1,
+          "text": "Alle Teammitglieder, also auch Lena und Felix.",
+          "translation": "All team members, including Lena and Felix."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich hoffe, dass wir eine Entscheidung treffen können.",
+          "translation": "I hope that we can make a decision."
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich denke, dass wir das schaffen werden.",
+          "translation": "Yes, I think that we will manage that."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Meeting Etiquette in Germany",
+      "text": "In German-speaking countries, meetings are usually very organized and require punctuality. It is also common for participants to prepare in advance and to follow a strict agenda during discussions.",
+      "funFact": "A surprising fact is that in Germany, it’s common to greet everyone with a handshake at the beginning of a meeting."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to meetings and presentations.",
+        "Practiced using subordinate clauses with 'dass' and 'weil'.",
+        "Explored polite requests with the Konjunktiv II.",
+        "Engaged in a realistic dialogue simulating a work environment."
+      ],
+      "nextSteps": "Practice creating your own sentences with the vocabulary learned and try using subordinate clauses in your conversations."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'meeting'?",
+      "content": {
+        "options": [
+          "die Besprechung",
+          "die Präsentation",
+          "der Vorschlag"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'die Besprechung', which translates to 'meeting' in English.",
+      "hint": "Think about the context of work discussions.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'der Teilnehmer' mean in English?",
+      "content": {
+        "options": [
+          "the participant",
+          "the decision",
+          "the proposal"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Teilnehmer' means 'the participant', referring to someone who takes part in a meeting or presentation.",
+      "hint": "Consider who is involved in meetings.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Die ___ ist sehr wichtig für den Erfolg des Projekts.'",
+      "content": {
+        "sentence": "Die ___ ist sehr wichtig für den Erfolg des Projekts.",
+        "correctAnswer": "Präsentation",
+        "acceptableAnswers": [
+          "Präsentation"
+        ],
+        "options": [
+          "Besprechung",
+          "Präsentation",
+          "Entscheidung"
+        ]
+      },
+      "explanation": "The correct answer is 'Präsentation', as it refers to a presentation crucial for project success.",
+      "hint": "Think about what happens at the end of a project.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Wir müssen einen ___ machen, bevor wir fortfahren.'",
+      "content": {
+        "sentence": "Wir müssen einen ___ machen, bevor wir fortfahren.",
+        "correctAnswer": "Vorschlag",
+        "acceptableAnswers": [
+          "Vorschlag"
+        ],
+        "options": [
+          "Vorschlag",
+          "Teilnehmer",
+          "Protokoll"
+        ]
+      },
+      "explanation": "The term 'Vorschlag' means 'proposal', which is needed before proceeding.",
+      "hint": "What do you do when you have an idea to share?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The decision was made during the meeting.'",
+      "content": {
+        "prompt": "Translate to German: 'The decision was made during the meeting.'",
+        "correctAnswer": "Die Entscheidung wurde während der Besprechung getroffen.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The sentence correctly uses 'die Entscheidung' for 'the decision' and 'die Besprechung' for 'the meeting'.",
+      "hint": "Focus on the nouns and their articles.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Das Protokoll ist wichtig.'",
+      "content": {
+        "ttsText": "Das Protokoll ist wichtig.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The protocol is important.",
+          "The decision is important.",
+          "The proposal is important."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'The protocol is important.', which matches the listened sentence.",
+      "hint": "Listen for the word 'Protokoll'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in German: 'I will present my proposal at the meeting.'",
+      "content": {
+        "targetText": "Ich werde meinen Vorschlag in der Besprechung präsentieren.",
+        "context": "Translate and say this sentence in German.",
+        "acceptableVariants": [
+          "Ich werde meinen Vorschlag präsentieren.",
+          "Ich präsentiere meinen Vorschlag in der Besprechung."
+        ]
+      },
+      "explanation": "The sentence correctly conveys the idea of presenting a proposal in a meeting.",
+      "hint": "Remember to use the future tense.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

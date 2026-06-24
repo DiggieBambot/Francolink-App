@@ -1,0 +1,344 @@
+{
+  "lesson": {
+    "title": "Childhood Memories",
+    "type": "CONVERSATION",
+    "slug": "es-a2-childhood"
+  },
+  "unit": "Stories & Memories",
+  "unitOrder": 2,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to talk about childhood memories in Spanish. You will practice using the preterite and imperfect tenses to describe past events.",
+      "culturalNote": "In many Spanish-speaking countries, storytelling about childhood is a cherished tradition. Sharing these memories often strengthens family bonds."
+    },
+    "vocabulary": [
+      {
+        "term": "la infancia",
+        "translation": "childhood",
+        "definition": "The period of being a child.",
+        "pronunciation": "lah in-fan-sah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi infancia fue muy feliz.",
+          "translation": "My childhood was very happy."
+        },
+        "tip": "Think of 'infant' to remember 'infancia' relates to childhood."
+      },
+      {
+        "term": "el juego",
+        "translation": "game/play",
+        "definition": "An activity for enjoyment, often done by children.",
+        "pronunciation": "el hue-go",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me gustaba el juego de escondite.",
+          "translation": "I liked the game of hide and seek."
+        },
+        "tip": "Remember 'juego' with 'j' as in 'jump' for playful activities."
+      },
+      {
+        "term": "el recuerdo",
+        "translation": "memory",
+        "definition": "Something remembered from the past.",
+        "pronunciation": "el reh-kwehr-doh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo buenos recuerdos de mi infancia.",
+          "translation": "I have good memories of my childhood."
+        },
+        "tip": "Think of 'recollection' to remember 'recuerdo'."
+      },
+      {
+        "term": "el juguete",
+        "translation": "toy",
+        "definition": "An object for children to play with.",
+        "pronunciation": "el hoo-ge-teh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tenía muchos juguetes de niño.",
+          "translation": "I had many toys as a child."
+        },
+        "tip": "Relate 'juguete' to 'juggle', as in playing with various toys."
+      },
+      {
+        "term": "la historia",
+        "translation": "story/history",
+        "definition": "A narrative or account of past events.",
+        "pronunciation": "lah ees-tor-ee-ah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me gusta escuchar historias de mi abuela.",
+          "translation": "I like to listen to stories from my grandmother."
+        },
+        "tip": "Remember 'history' is part of 'historia'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Preterite vs. Imperfect",
+        "explanation": "In Spanish, we use the preterite tense for actions that are completed and the imperfect tense for ongoing or habitual actions in the past. For example, 'Yo comí' (I ate) is preterite, while 'Yo comía' (I used to eat) is imperfect.",
+        "table": {
+          "headers": [
+            "Tense",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "Preterite",
+              "Completed actions"
+            ],
+            [
+              "Imperfect",
+              "Ongoing actions or habits"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ayer jugué con mis amigos.",
+            "translation": "Yesterday I played with my friends.",
+            "breakdown": "Here 'jugué' is preterite, indicating a completed action."
+          },
+          {
+            "original": "Cuando era niño, jugaba todos los días.",
+            "translation": "When I was a child, I played every day.",
+            "breakdown": "In this case, 'jugaba' is imperfect, indicating an ongoing habit."
+          }
+        ],
+        "commonMistakes": [
+          "Using preterite for ongoing actions: Correct usage is 'Yo siempre iba' instead of 'Yo fui siempre'.",
+          "Using imperfect for completed actions: Correct usage is 'Ella compró un coche' instead of 'Ella compraba un coche'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking about Childhood",
+      "context": "A conversation between two friends reminiscing about their childhoods.",
+      "speakers": [
+        "Ana",
+        "Carlos"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué recuerdos tienes de tu infancia?",
+          "translation": "What memories do you have of your childhood?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Tengo muchos recuerdos felices. Solía jugar en el parque.",
+          "translation": "I have many happy memories. I used to play in the park.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Yo también. Me encantaba jugar con mis juguetes.",
+          "translation": "Me too. I loved playing with my toys.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¿Cuál era tu juguete favorito?",
+          "translation": "What was your favorite toy?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Mi juguete favorito era un robot. ¿Y el tuyo?",
+          "translation": "My favorite toy was a robot. What about yours?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "El mío era un coche de carreras.",
+          "translation": "Mine was a race car.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Qué divertido. ¿Jugabas solo o con amigos?",
+          "translation": "How fun. Did you play alone or with friends?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Siempre jugaba con mis amigos en la calle.",
+          "translation": "I always played with my friends in the street.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Childhood Games in Latin America",
+      "text": "In Latin America, children often play traditional games that have been passed down through generations. These games not only provide fun but also teach important social skills.",
+      "funFact": "Many children in Latin America play 'la cuerda' (jump rope) and 'las escondidas' (hide and seek) during their childhood."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to childhood memories.",
+        "Practiced using the preterite and imperfect tenses.",
+        "Engaged in a dialogue about childhood experiences.",
+        "Gained cultural insights into childhood traditions."
+      ],
+      "nextSteps": "Practice narrating your own childhood memories using the vocabulary and grammar from this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la infancia' mean?",
+      "content": {
+        "options": [
+          "Childhood",
+          "Adolescence",
+          "Adulthood",
+          "Old age"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La infancia' translates to 'childhood' in English.",
+      "hint": "Think of the early years of life.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'toy' in Spanish?",
+      "content": {
+        "options": [
+          "el juego",
+          "el recuerdo",
+          "el juguete",
+          "la historia"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'El juguete' is the Spanish word for 'toy'.",
+      "hint": "Think of something children play with.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Cuando era niño, me gustaba ___ en el parque.'",
+      "content": {
+        "sentence": "Cuando era niño, me gustaba ___ en el parque.",
+        "correctAnswer": "jugar",
+        "acceptableAnswers": [
+          "jugar"
+        ],
+        "options": [
+          "comer",
+          "jugar",
+          "leer",
+          "dormir"
+        ]
+      },
+      "explanation": "The correct verb is 'jugar', which means 'to play'.",
+      "hint": "Think about activities children enjoy.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Mis ___ de la infancia son muy especiales.'",
+      "content": {
+        "sentence": "Mis ___ de la infancia son muy especiales.",
+        "correctAnswer": "recuerdos",
+        "acceptableAnswers": [
+          "recuerdos"
+        ],
+        "options": [
+          "juguetes",
+          "recuerdos",
+          "juegos",
+          "historias"
+        ]
+      },
+      "explanation": "The word 'recuerdos' means 'memories', which fits the context.",
+      "hint": "Think of things you remember from childhood.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a sentence: 'juguetes / muchos / tenía / de / yo / infancia / mi'",
+      "content": {
+        "words": [
+          "juguetes",
+          "muchos",
+          "tenía",
+          "de",
+          "yo",
+          "infancia",
+          "mi"
+        ],
+        "correctOrder": [
+          "yo",
+          "tenía",
+          "muchos",
+          "juguetes",
+          "de",
+          "mi",
+          "infancia"
+        ],
+        "translation": "I had many toys from my childhood."
+      },
+      "explanation": "The correct order forms a coherent statement about childhood.",
+      "hint": "Start with 'yo' for 'I'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I remember my childhood stories.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I remember my childhood stories.'",
+        "correctAnswer": "Recuerdo mis historias de infancia.",
+        "acceptableAnswers": [
+          "Recuerdo mis historias de la infancia."
+        ]
+      },
+      "explanation": "The translation captures the meaning of the original sentence.",
+      "hint": "Focus on the words 'recuerdo' and 'infancia'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "En mi infancia, jugaba con mis amigos.",
+        "ttsLang": "es-ES",
+        "options": [
+          "In my childhood, I played with my friends.",
+          "In my adulthood, I played with my friends.",
+          "In my childhood, I read with my friends.",
+          "In my childhood, I worked with my friends."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'In my childhood, I played with my friends.'",
+      "hint": "Listen for the word 'infancia'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'What was your favorite toy as a child?'",
+      "content": {
+        "targetText": "¿Cuál era tu juguete favorito de niño?",
+        "context": "You are asking about someone's favorite toy from childhood.",
+        "acceptableVariants": [
+          "¿Cuál era tu juguete favorito cuando eras niño?"
+        ]
+      },
+      "explanation": "This question encourages discussion about childhood memories.",
+      "hint": "Remember to use 'favorito' for 'favorite'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,332 @@
+{
+  "lesson": {
+    "title": "Social Issues & Solutions",
+    "type": "CONVERSATION",
+    "slug": "es-b1-social-issues"
+  },
+  "unit": "Environment & Society",
+  "unitOrder": 6,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary and phrases related to social issues and solutions in Spanish. You will also practice using the present subjunctive to express opinions and conditions.",
+      "culturalNote": "Many Spanish-speaking countries face significant social issues, such as poverty and environmental concerns, which are often addressed in public discourse and community initiatives."
+    },
+    "vocabulary": [
+      {
+        "term": "la pobreza",
+        "translation": "poverty",
+        "definition": "A state where individuals lack sufficient income or resources.",
+        "pronunciation": "lah poh-BREH-thah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La pobreza es un problema grave en muchos países.",
+          "translation": "Poverty is a serious problem in many countries."
+        },
+        "tip": "Remember that 'la' indicates it's a feminine noun."
+      },
+      {
+        "term": "la educación",
+        "translation": "education",
+        "definition": "The process of receiving or giving systematic instruction.",
+        "pronunciation": "lah eh-doo-kah-SYON",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La educación es la clave para el desarrollo.",
+          "translation": "Education is the key to development."
+        },
+        "tip": "Think of 'education' in English to remember this term."
+      },
+      {
+        "term": "el medio ambiente",
+        "translation": "the environment",
+        "definition": "The natural world, especially as affected by human activity.",
+        "pronunciation": "el MEH-dyoh ahm-BYEN-teh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es importante cuidar el medio ambiente.",
+          "translation": "It is important to take care of the environment."
+        },
+        "tip": "Use 'medio' (middle) to remember 'environment' relates to surroundings."
+      },
+      {
+        "term": "la solución",
+        "translation": "solution",
+        "definition": "A means of solving a problem.",
+        "pronunciation": "lah soh-loo-SYON",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Necesitamos una solución para este problema.",
+          "translation": "We need a solution for this problem."
+        },
+        "tip": "Similar to 'solution' in English, which can help you remember."
+      },
+      {
+        "term": "la responsabilidad",
+        "translation": "responsibility",
+        "definition": "The state or fact of having a duty to deal with something.",
+        "pronunciation": "lah rehs-pon-sah-bee-lee-DAD",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Todos tenemos la responsabilidad de proteger el planeta.",
+          "translation": "We all have the responsibility to protect the planet."
+        },
+        "tip": "Think of 'responsibility' and link it to this Spanish word."
+      },
+      {
+        "term": "la igualdad",
+        "translation": "equality",
+        "definition": "The state of being equal, especially in status, rights, and opportunities.",
+        "pronunciation": "lah ee-gwahl-DAD",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La igualdad es fundamental para una sociedad justa.",
+          "translation": "Equality is fundamental for a just society."
+        },
+        "tip": "'Igual' means 'equal' in Spanish."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Present Subjunctive Usage",
+        "explanation": "The present subjunctive is used to express desires, doubts, or hypothetical situations. It often follows expressions like 'es importante que' (it's important that) or 'ojalá que' (I hope that).",
+        "table": {
+          "headers": [
+            "Subject",
+            "Verb (hablar)"
+          ],
+          "rows": [
+            [
+              "yo",
+              "hable"
+            ],
+            [
+              "tú",
+              "hables"
+            ],
+            [
+              "él/ella",
+              "hable"
+            ],
+            [
+              "nosotros",
+              "hablemos"
+            ],
+            [
+              "vosotros",
+              "habléis"
+            ],
+            [
+              "ellos",
+              "hablen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es importante que todos hablen sobre la pobreza.",
+            "translation": "It's important that everyone talks about poverty.",
+            "breakdown": "Here, 'hablen' is in the present subjunctive to express necessity."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: 'es importante que todos hablan' should be 'hablen'.",
+          "Confusing forms: Remember to use the correct endings for each subject."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Social Issues",
+      "context": "A conversation between two friends at a café discussing their views on social issues.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué piensas sobre la pobreza en nuestro país?",
+          "translation": "What do you think about poverty in our country?",
+          "note": "Ana is asking Luis for his opinion."
+        },
+        {
+          "speaker": 1,
+          "text": "Creo que es un problema muy serio.",
+          "translation": "I think it is a very serious problem."
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, y la educación podría ser parte de la solución.",
+          "translation": "Yes, and education could be part of the solution."
+        },
+        {
+          "speaker": 1,
+          "text": "Exacto. Es importante que el gobierno invierta más en educación.",
+          "translation": "Exactly. It's important that the government invests more in education."
+        },
+        {
+          "speaker": 0,
+          "text": "Ojalá que también haya más programas para ayudar a las familias.",
+          "translation": "I hope there are also more programs to help families."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, la responsabilidad es de todos nosotros.",
+          "translation": "Yes, the responsibility is on all of us."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y qué opinas sobre la igualdad de oportunidades?",
+          "translation": "And what do you think about equality of opportunities?"
+        },
+        {
+          "speaker": 1,
+          "text": "La igualdad es fundamental, pero todavía hay muchas desigualdades.",
+          "translation": "Equality is fundamental, but there are still many inequalities."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Social Initiatives in Latin America",
+      "text": "In many Latin American countries, social initiatives focus on education and community development to combat poverty. Non-profit organizations often play a key role in addressing these challenges.",
+      "funFact": "In Brazil, the 'Bolsa Família' program provides financial aid to low-income families, aiming to reduce poverty and encourage education."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to social issues and solutions.",
+        "Practiced using the present subjunctive for opinions.",
+        "Engaged in a dialogue about poverty and education.",
+        "Explored cultural insights about social issues in Latin America."
+      ],
+      "nextSteps": "Review the vocabulary and practice forming sentences using the present subjunctive. Try to create your own dialogue about social issues."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la pobreza' mean in English?",
+      "content": {
+        "options": [
+          "Education",
+          "Poverty",
+          "Environment",
+          "Responsibility"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'La pobreza' translates to 'poverty' in English.",
+      "hint": "Think about economic issues.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'equality' in Spanish?",
+      "content": {
+        "options": [
+          "la educación",
+          "la igualdad",
+          "la pobreza",
+          "el medio ambiente"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'La igualdad' is the Spanish term for 'equality'.",
+      "hint": "It's about fairness.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'La _____ es importante para el futuro de nuestro planeta.'",
+      "content": {
+        "sentence": "La _____ es importante para el futuro de nuestro planeta.",
+        "correctAnswer": "educación",
+        "acceptableAnswers": [
+          "educación"
+        ],
+        "options": [
+          "pobreza",
+          "educación",
+          "igualdad",
+          "responsabilidad"
+        ]
+      },
+      "explanation": "Education is crucial for the future of our planet.",
+      "hint": "It's about learning.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Es nuestra _____ cuidar del medio ambiente.'",
+      "content": {
+        "sentence": "Es nuestra _____ cuidar del medio ambiente.",
+        "correctAnswer": "responsabilidad",
+        "acceptableAnswers": [
+          "responsabilidad"
+        ],
+        "options": [
+          "educación",
+          "responsabilidad",
+          "igualdad",
+          "solución"
+        ]
+      },
+      "explanation": "Responsibility is key to protecting the environment.",
+      "hint": "Think about duty or obligation.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The environment is our responsibility.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The environment is our responsibility.'",
+        "correctAnswer": "El medio ambiente es nuestra responsabilidad.",
+        "acceptableAnswers": [
+          "El medio ambiente es nuestra responsabilidad."
+        ]
+      },
+      "explanation": "This sentence highlights the importance of environmental care.",
+      "hint": "Focus on the words 'environment' and 'responsibility.'",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "La igualdad es fundamental para una sociedad justa.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Equality is fundamental for a fair society.",
+          "Environment is essential for survival.",
+          "Education is key to success.",
+          "Poverty affects many people."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence emphasizes the importance of equality.",
+      "hint": "Listen for the word 'igualdad.'",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'What can we do to solve poverty?'",
+      "content": {
+        "targetText": "¿Qué podemos hacer para solucionar la pobreza?",
+        "context": "Ask about solutions to poverty.",
+        "acceptableVariants": [
+          "¿Qué podemos hacer para resolver la pobreza?",
+          "¿Cómo podemos solucionar la pobreza?"
+        ]
+      },
+      "explanation": "This question encourages discussion about solutions.",
+      "hint": "Focus on the word for 'solve.'",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

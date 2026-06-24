@@ -1,0 +1,371 @@
+{
+  "lesson": {
+    "title": "Unit 5 Review",
+    "type": "REVIEW",
+    "slug": "es-a2-unit5-review"
+  },
+  "unit": "Work & Studies",
+  "unitOrder": 5,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this unit review, you will consolidate your vocabulary and grammar related to work and studies. You will also practice a dialogue that uses these concepts in a realistic context.",
+      "culturalNote": "In many Spanish-speaking countries, the education system varies significantly. For example, in Mexico, students attend school until the age of 18 before going to university."
+    },
+    "vocabulary": [
+      {
+        "term": "el trabajo",
+        "translation": "the job",
+        "definition": "A position of employment or labor.",
+        "pronunciation": "el trah-bah-ho",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi trabajo es interesante.",
+          "translation": "My job is interesting."
+        },
+        "tip": "Remember that 'trabajo' can also mean 'work' in a general sense."
+      },
+      {
+        "term": "estudiar",
+        "translation": "to study",
+        "definition": "To learn about a subject.",
+        "pronunciation": "es-too-dee-ar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Yo estudio español todos los días.",
+          "translation": "I study Spanish every day."
+        },
+        "tip": "Estudiar is a regular verb in the present tense."
+      },
+      {
+        "term": "la universidad",
+        "translation": "the university",
+        "definition": "An institution of higher education.",
+        "pronunciation": "la oo-nee-ver-see-dad",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ella va a la universidad en septiembre.",
+          "translation": "She goes to university in September."
+        },
+        "tip": "In many Latin American countries, university is very competitive."
+      },
+      {
+        "term": "el profesor",
+        "translation": "the teacher (male)",
+        "definition": "A male educator.",
+        "pronunciation": "el pro-fe-sor",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El profesor enseña matemáticas.",
+          "translation": "The teacher teaches mathematics."
+        },
+        "tip": "For a female teacher, use 'la profesora'."
+      },
+      {
+        "term": "la clase",
+        "translation": "the class",
+        "definition": "A session of instruction.",
+        "pronunciation": "la klah-se",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo clase de historia en la mañana.",
+          "translation": "I have history class in the morning."
+        },
+        "tip": "Remember that classes are often named after the subject."
+      },
+      {
+        "term": "el examen",
+        "translation": "the exam",
+        "definition": "A test of knowledge.",
+        "pronunciation": "el eg-sah-men",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El examen es difícil.",
+          "translation": "The exam is difficult."
+        },
+        "tip": "Exams can be stressful; it's good to study ahead!"
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Preterite vs. Imperfect",
+        "explanation": "In Spanish, we use the preterite to talk about completed actions in the past, while we use the imperfect for ongoing actions or habits. For example, 'Yo estudié' (I studied) indicates a completed action, whereas 'Yo estudiaba' (I was studying) indicates a habitual action.",
+        "table": {
+          "headers": [
+            "Preterite",
+            "Imperfect"
+          ],
+          "rows": [
+            [
+              "Yo estudié",
+              "Yo estudiaba"
+            ],
+            [
+              "Tú comiste",
+              "Tú comías"
+            ],
+            [
+              "Él habló",
+              "Él hablaba"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ayer estudié para el examen.",
+            "translation": "Yesterday I studied for the exam.",
+            "breakdown": "The action of studying happened once and is completed."
+          },
+          {
+            "original": "Cuando era niño, estudiaba todos los días.",
+            "translation": "When I was a child, I studied every day.",
+            "breakdown": "This describes a habitual action in the past."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Yo estudiaba ayer' instead of 'Yo estudié ayer' for a completed action.",
+          "Using the preterite when describing background or ongoing actions."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the University",
+      "context": "This conversation takes place between two students discussing their studies and exams.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, Ana. ¿Cómo estás?",
+          "translation": "Hi, Ana. How are you?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, Carlos. Estoy bien, gracias. ¿Y tú?",
+          "translation": "Hi, Carlos. I'm fine, thank you. And you?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Estoy un poco nervioso por el examen.",
+          "translation": "I’m a little nervous about the exam.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, yo también. ¿Estudiaste ayer?",
+          "translation": "Yes, me too. Did you study yesterday?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, estudié todo el día.",
+          "translation": "Yes, I studied all day.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Eso es bueno. ¿Qué tema es más difícil para ti?",
+          "translation": "That's good. Which topic is most difficult for you?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "La gramática es difícil. ¿Y para ti?",
+          "translation": "Grammar is difficult. And for you?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "La historia es complicada. Pero creo que podemos hacerlo.",
+          "translation": "History is complicated. But I think we can do it.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Education in Latin America",
+      "text": "Education is highly valued in many Spanish-speaking countries. Students often face rigorous academic standards and competitive environments, especially in higher education. The importance of family support in education is also a common cultural aspect.",
+      "funFact": "In many countries, such as Argentina, students celebrate their graduation with a special party called 'fiesta de egresados'."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review vocabulary related to work and studies.",
+        "Understand the difference between preterite and imperfect.",
+        "Practice dialogue skills in everyday contexts.",
+        "Recognize cultural aspects of education in Spanish-speaking countries."
+      ],
+      "nextSteps": "Continue practicing your vocabulary and work on more dialogues to improve your fluency."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'work'?",
+      "content": {
+        "options": [
+          "la clase",
+          "el trabajo",
+          "la universidad",
+          "el examen"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'el trabajo', which means 'work' in Spanish.",
+      "hint": "Think about what you do to earn money.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'professor'?",
+      "content": {
+        "options": [
+          "la clase",
+          "el profesor",
+          "el examen",
+          "estudiar"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El profesor' translates to 'the professor' in English.",
+      "hint": "This is someone who teaches in a school or university.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Yo ___ en la universidad.'",
+      "content": {
+        "sentence": "Yo ___ en la universidad.",
+        "correctAnswer": "estudio",
+        "acceptableAnswers": [
+          "estudio",
+          "estudiar"
+        ],
+        "options": [
+          "trabajo",
+          "estudio",
+          "estudiar",
+          "examen"
+        ]
+      },
+      "explanation": "The correct answer is 'estudio', which means 'study'.",
+      "hint": "Think about what you do to learn.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'El examen es muy ___.'",
+      "content": {
+        "sentence": "El examen es muy ___.",
+        "correctAnswer": "difícil",
+        "acceptableAnswers": [
+          "difícil",
+          "fácil"
+        ],
+        "options": [
+          "fácil",
+          "difícil",
+          "aburrido",
+          "interesante"
+        ]
+      },
+      "explanation": "The sentence means 'The exam is very difficult.'",
+      "hint": "Think about how you feel about exams.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'universidad / en / estudia / ella'",
+      "content": {
+        "words": [
+          "universidad",
+          "en",
+          "estudia",
+          "ella"
+        ],
+        "correctOrder": [
+          "ella",
+          "estudia",
+          "en",
+          "universidad"
+        ],
+        "translation": "She studies at the university."
+      },
+      "explanation": "The correct order forms the sentence 'She studies at the university.'",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I have a class.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I have a class.'",
+        "correctAnswer": "Tengo una clase.",
+        "acceptableAnswers": [
+          "Tengo una clase"
+        ]
+      },
+      "explanation": "The translation is 'Tengo una clase.'",
+      "hint": "Remember the verb 'tener'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct answer: 'Estoy en la clase.'",
+      "content": {
+        "ttsText": "Estoy en la clase.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I am in the class.",
+          "I study at home.",
+          "I have a job.",
+          "I take an exam."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'I am in the class.'",
+      "hint": "Focus on the location mentioned.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'I work at the university.'",
+      "content": {
+        "targetText": "Trabajo en la universidad.",
+        "context": "You are describing where you work.",
+        "acceptableVariants": [
+          "Trabajo en la universidad."
+        ]
+      },
+      "explanation": "The phrase 'Trabajo en la universidad.' means 'I work at the university.'",
+      "hint": "Use the verb 'trabajar'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'The exam is easy.'",
+      "content": {
+        "targetText": "El examen es fácil.",
+        "context": "You are expressing your opinion about an exam.",
+        "acceptableVariants": [
+          "El examen es fácil."
+        ]
+      },
+      "explanation": "The phrase 'El examen es fácil.' means 'The exam is easy.'",
+      "hint": "Think about how you feel about tests.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

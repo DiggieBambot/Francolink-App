@@ -1,0 +1,390 @@
+{
+  "lesson": {
+    "title": "Collocations & Word Partnerships",
+    "type": "VOCABULARY",
+    "slug": "de-b2-collocations"
+  },
+  "unit": "Idioms & Expressions",
+  "unitOrder": 4,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn important German collocations and word partnerships that are commonly used in various contexts. Understanding these expressions will enhance your vocabulary and improve your fluency in conversations.",
+      "culturalNote": "German-speaking countries often use idiomatic expressions in everyday language, which can reflect cultural nuances and humor."
+    },
+    "vocabulary": [
+      {
+        "term": "der Einfluss",
+        "translation": "the influence",
+        "definition": "the power to affect something",
+        "pronunciation": "deyr in-flows",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Einfluss der sozialen Medien ist enorm.",
+          "translation": "The influence of social media is enormous."
+        },
+        "tip": "Remember, 'der Einfluss' is masculine; it’s helpful to associate it with 'influence'."
+      },
+      {
+        "term": "eine Entscheidung treffen",
+        "translation": "to make a decision",
+        "definition": "to choose something after consideration",
+        "pronunciation": "ine ein-shy-dung tref-en",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Es ist wichtig, eine Entscheidung zu treffen.",
+          "translation": "It is important to make a decision."
+        },
+        "tip": "This phrase literally translates to 'to hit a decision', which can help you remember it."
+      },
+      {
+        "term": "die Verantwortung",
+        "translation": "the responsibility",
+        "definition": "the state of being accountable",
+        "pronunciation": "dee fehr-antwortung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Verantwortung liegt bei jedem Einzelnen.",
+          "translation": "The responsibility lies with each individual."
+        },
+        "tip": "'Die Verantwortung' is feminine; think of it like 'the weight of responsibility'."
+      },
+      {
+        "term": "sich Gedanken machen",
+        "translation": "to think about something",
+        "definition": "to consider or reflect on a topic",
+        "pronunciation": "zikh geh-dank-en mahk-en",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Ich mache mir Gedanken über meine Zukunft.",
+          "translation": "I am thinking about my future."
+        },
+        "tip": "This expression emphasizes the action of 'making thoughts', which can aid retention."
+      },
+      {
+        "term": "die Herausforderung",
+        "translation": "the challenge",
+        "definition": "a difficult task or situation that requires effort",
+        "pronunciation": "dee heh-rau-sfor-dung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Herausforderung war größer als erwartet.",
+          "translation": "The challenge was greater than expected."
+        },
+        "tip": "'Die Herausforderung' is feminine; think of it as 'the challenge that tests you'."
+      },
+      {
+        "term": "die Möglichkeit",
+        "translation": "the possibility",
+        "definition": "a chance or option to do something",
+        "pronunciation": "dee möch-likh-kait",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es gibt viele Möglichkeiten, das Problem zu lösen.",
+          "translation": "There are many possibilities to solve the problem."
+        },
+        "tip": "'Die Möglichkeit' is feminine; associate it with 'the opportunity'."
+      },
+      {
+        "term": "ein Risiko eingehen",
+        "translation": "to take a risk",
+        "definition": "to engage in a venture with uncertain outcomes",
+        "pronunciation": "ine rih-zi-koh ain-gehn",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Manchmal muss man ein Risiko eingehen, um Erfolg zu haben.",
+          "translation": "Sometimes, you have to take a risk to achieve success."
+        },
+        "tip": "This phrase highlights the act of 'going into a risk', making it more vivid."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Genitive Case in Collocations",
+        "explanation": "In German, the genitive case is often used to show possession or close relationships between nouns. It is important to recognize genitive constructions in collocations, as they add depth to the language. For example, 'die Bedeutung des Lebens' (the meaning of life) uses the genitive 'des Lebens' to indicate possession.",
+        "table": {
+          "headers": [
+            "Noun Phrase",
+            "Genitive Form"
+          ],
+          "rows": [
+            [
+              "die Bedeutung",
+              "der Bedeutung"
+            ],
+            [
+              "der Einfluss",
+              "des Einflusses"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Die Bedeutung des Einflusses ist nicht zu unterschätzen.",
+            "translation": "The meaning of the influence should not be underestimated.",
+            "breakdown": "Here, 'des Einflusses' shows that the meaning pertains to 'the influence'."
+          }
+        ],
+        "commonMistakes": [
+          "Using nominative instead of genitive: Correct form is 'die Bedeutung des Einflusses'.",
+          "Confusing 'der' and 'des': Remember, 'des' is used for masculine and neuter nouns in genitive."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Making Decisions in a Team",
+      "context": "A team meeting discussing a project at work.",
+      "speakers": [
+        "Max",
+        "Lena"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Max: Was denkst du über die Herausforderung, die wir haben?",
+          "translation": "Max: What do you think about the challenge we have?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Lena: Ich denke, dass wir eine Entscheidung treffen müssen, bevor wir weiterarbeiten.",
+          "translation": "Lena: I think we need to make a decision before we continue working.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Max: Das stimmt. Wir sollten uns Gedanken machen über die besten Optionen.",
+          "translation": "Max: That's true. We should think about the best options.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Lena: Ich sehe mehrere Möglichkeiten, aber jede hat ihre Risiken.",
+          "translation": "Lena: I see several possibilities, but each has its risks.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Max: Ja, das Risiko einzugehen sollte gut überlegt sein.",
+          "translation": "Max: Yes, taking the risk should be well considered.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Lena: Vielleicht sollten wir die Vor- und Nachteile abwägen.",
+          "translation": "Lena: Perhaps we should weigh the pros and cons.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Max: Gute Idee! Der Einfluss unserer Entscheidung könnte groß sein.",
+          "translation": "Max: Good idea! The influence of our decision could be significant.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Lena: Lass uns alle Informationen sammeln und dann eine Entscheidung treffen.",
+          "translation": "Lena: Let's gather all the information and then make a decision.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Decision-Making in DACH Cultures",
+      "text": "In German-speaking countries, decision-making often involves thorough discussion and consensus. This reflects a cultural emphasis on collective responsibility and careful consideration of options.",
+      "funFact": "In Switzerland, it is common for companies to use a consensus-based approach in meetings, ensuring every voice is heard."
+    },
+    "summary": {
+      "keyPoints": [
+        "Collocations enhance your ability to speak naturally and fluently.",
+        "Understanding the genitive case is crucial for expressing relationships between nouns.",
+        "Common idiomatic expressions can enrich your vocabulary.",
+        "Practicing dialogues helps reinforce learned vocabulary in context."
+      ],
+      "nextSteps": "Practice using these collocations in sentences and try to create your own dialogues using the vocabulary learned."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct English translation for 'der Einfluss'?",
+      "content": {
+        "options": [
+          "the influence",
+          "the decision",
+          "the responsibility",
+          "the challenge"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Einfluss' translates to 'the influence' in English.",
+      "hint": "Think about what affects or alters something.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Choose the correct collocation: 'to take a __.'",
+      "content": {
+        "options": [
+          "decision",
+          "influence",
+          "responsibility",
+          "challenge"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct collocation is 'to take a decision'.",
+      "hint": "It's something you do when making choices.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Es ist wichtig, sich ___ Gedanken zu machen.'",
+      "content": {
+        "sentence": "Es ist wichtig, sich ___ Gedanken zu machen.",
+        "correctAnswer": "Gedanken",
+        "acceptableAnswers": [
+          "Gedanken"
+        ],
+        "options": [
+          "eine Entscheidung",
+          "Gedanken",
+          "eine Herausforderung"
+        ]
+      },
+      "explanation": "The phrase means 'to think about something' in English.",
+      "hint": "This refers to reflecting or contemplating.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Man muss manchmal ein ___ eingehen, um Erfolg zu haben.'",
+      "content": {
+        "sentence": "Man muss manchmal ein ___ eingehen, um Erfolg zu haben.",
+        "correctAnswer": "Risiko",
+        "acceptableAnswers": [
+          "Risiko"
+        ],
+        "options": [
+          "Risiko",
+          "Einfluss",
+          "Verantwortung"
+        ]
+      },
+      "explanation": "In this context, 'Risiko' means 'risk', often necessary for success.",
+      "hint": "This is often associated with taking chances.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'eine Entscheidung', 'treffen', 'wir', 'müssen'.",
+      "content": {
+        "words": [
+          "eine Entscheidung",
+          "treffen",
+          "wir",
+          "müssen"
+        ],
+        "correctOrder": [
+          "wir",
+          "müssen",
+          "eine Entscheidung",
+          "treffen"
+        ],
+        "translation": "We must make a decision."
+      },
+      "explanation": "The correct order forms a coherent sentence in German.",
+      "hint": "Start with the subject of the sentence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'You have a responsibility.'",
+      "content": {
+        "correctAnswer": "Du hast eine Verantwortung.",
+        "acceptableAnswers": [
+          "Du hast eine Verantwortung."
+        ]
+      },
+      "explanation": "This sentence expresses ownership of a duty.",
+      "hint": "Think about the word for 'responsibility'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Die Herausforderung ist groß.'",
+      "content": {
+        "ttsText": "Die Herausforderung ist groß.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The challenge is great.",
+          "The decision is great.",
+          "The influence is great."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence talks about a significant challenge.",
+      "hint": "Focus on the word for 'challenge'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence: 'Es ist eine Möglichkeit, neue Fähigkeiten zu lernen.'",
+      "content": {
+        "targetText": "Es ist eine Möglichkeit, neue Fähigkeiten zu lernen.",
+        "context": "You are discussing opportunities for personal development.",
+        "acceptableVariants": [
+          "Es ist eine Möglichkeit, neue Fähigkeiten zu lernen."
+        ]
+      },
+      "explanation": "This sentence discusses the chance to acquire new skills.",
+      "hint": "Focus on the word 'Möglichkeit'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Die Verantwortung für das Projekt liegt bei ___.'",
+      "content": {
+        "sentence": "Die Verantwortung für das Projekt liegt bei ___.",
+        "correctAnswer": "mir",
+        "acceptableAnswers": [
+          "mir"
+        ],
+        "options": [
+          "dir",
+          "mir",
+          "ihm"
+        ]
+      },
+      "explanation": "'Mir' indicates that the responsibility is with the speaker.",
+      "hint": "Think about who is responsible.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'eine Herausforderung' mean in English?",
+      "content": {
+        "options": [
+          "a challenge",
+          "an opportunity",
+          "a responsibility",
+          "an influence"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Eine Herausforderung' translates to 'a challenge' in English.",
+      "hint": "It often requires effort to overcome.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

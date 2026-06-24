@@ -1,0 +1,380 @@
+{
+  "lesson": {
+    "title": "Dealing with Problems",
+    "type": "CONVERSATION",
+    "slug": "de-a2-problems"
+  },
+  "unit": "Everyday Situations",
+  "unitOrder": 8,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to handle everyday problems in German. You will practice vocabulary related to common issues and learn useful phrases for asking for help and expressing your needs.",
+      "culturalNote": "In German-speaking countries, people value direct communication. It's common to address problems openly rather than avoiding them."
+    },
+    "vocabulary": [
+      {
+        "term": "der Fehler",
+        "translation": "the mistake",
+        "definition": "An error or wrong action.",
+        "pronunciation": "dehr Fay-luhr",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe einen Fehler gemacht.",
+          "translation": "I made a mistake."
+        },
+        "tip": "Remember that 'Fehler' is masculine, so it uses 'der'."
+      },
+      {
+        "term": "die Hilfe",
+        "translation": "the help",
+        "definition": "Assistance or support.",
+        "pronunciation": "dee Hil-fuh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich brauche Hilfe.",
+          "translation": "I need help."
+        },
+        "tip": "The word 'Hilfe' is feminine, so it uses 'die'."
+      },
+      {
+        "term": "das Problem",
+        "translation": "the problem",
+        "definition": "An issue that needs solving.",
+        "pronunciation": "dahs Pro-blehm",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Problem ist groß.",
+          "translation": "The problem is big."
+        },
+        "tip": "Remember that 'Problem' is neuter, so it uses 'das'."
+      },
+      {
+        "term": "der Vorschlag",
+        "translation": "the suggestion",
+        "definition": "An idea offered for consideration.",
+        "pronunciation": "dehr For-shlahg",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe einen Vorschlag.",
+          "translation": "I have a suggestion."
+        },
+        "tip": "The word 'Vorschlag' is masculine, so it uses 'der'."
+      },
+      {
+        "term": "lösen",
+        "translation": "to solve",
+        "definition": "To find a solution to a problem.",
+        "pronunciation": "luh-zen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Wir müssen das Problem lösen.",
+          "translation": "We must solve the problem."
+        },
+        "tip": "This verb can be used with accusative case for the object (das Problem)."
+      },
+      {
+        "term": "fragen",
+        "translation": "to ask",
+        "definition": "To inquire about something.",
+        "pronunciation": "frah-gen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Kann ich dich etwas fragen?",
+          "translation": "Can I ask you something?"
+        },
+        "tip": "Use the verb 'fragen' when you need information."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Modal Verbs",
+        "explanation": "In German, modal verbs like 'müssen' (must) and 'können' (can) are used to express necessity and ability. They are often combined with another verb in the infinitive form. Remember that the modal verb takes the second position in the sentence.",
+        "table": {
+          "headers": [
+            "Modal Verb",
+            "Meaning"
+          ],
+          "rows": [
+            [
+              "müssen",
+              "must"
+            ],
+            [
+              "können",
+              "can"
+            ],
+            [
+              "dürfen",
+              "may"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich muss jetzt gehen.",
+            "translation": "I must go now.",
+            "breakdown": "Here, 'muss' (must) is the modal verb, and 'gehen' (to go) is the infinitive."
+          }
+        ],
+        "commonMistakes": [
+          "Using the infinitive verb in the wrong position.",
+          "Forgetting to conjugate the modal verb."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Asking for Help",
+      "context": "In a café when a customer encounters a problem with their order.",
+      "speakers": [
+        "Lukas (Customer)",
+        "Sophie (Waitress)"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Entschuldigung, ich habe einen Fehler in meiner Bestellung.",
+          "translation": "Excuse me, I have a mistake in my order.",
+          "note": "Polite way to start the conversation."
+        },
+        {
+          "speaker": 1,
+          "text": "Oh, was ist das Problem?",
+          "translation": "Oh, what is the problem?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich habe einen Salat bestellt, aber ich habe eine Suppe bekommen.",
+          "translation": "I ordered a salad, but I received a soup."
+        },
+        {
+          "speaker": 1,
+          "text": "Es tut mir leid! Ich werde das sofort lösen.",
+          "translation": "I am sorry! I will solve that right away."
+        },
+        {
+          "speaker": 0,
+          "text": "Danke! Ich brauche wirklich Hilfe.",
+          "translation": "Thank you! I really need help."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich bringe Ihnen gleich den Salat.",
+          "translation": "I will bring you the salad right away."
+        },
+        {
+          "speaker": 0,
+          "text": "Wann kommt er?",
+          "translation": "When will it come?"
+        },
+        {
+          "speaker": 1,
+          "text": "In fünf Minuten, bitte warten.",
+          "translation": "In five minutes, please wait."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Politeness in Requests",
+      "text": "In German-speaking cultures, politeness is very important, especially when asking for help. Using phrases like 'Entschuldigung' (excuse me) can make a big difference in communication.",
+      "funFact": "Germans often appreciate straightforwardness, but they also expect courteous expressions."
+    },
+    "summary": {
+      "keyPoints": [
+        "Common vocabulary for dealing with problems",
+        "Using modal verbs for necessity",
+        "Asking for help politely",
+        "Understanding gender and cases in nouns"
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and try to create your own dialogues. Review the modal verbs and practice forming sentences with them."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'the problem'?",
+      "content": {
+        "options": [
+          "die Hilfe",
+          "der Fehler",
+          "das Problem",
+          "der Vorschlag"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "The correct answer is 'das Problem', which means 'the problem' in English.",
+      "hint": "Think about common issues.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'to solve' in German?",
+      "content": {
+        "options": [
+          "fragen",
+          "lösen",
+          "die Hilfe",
+          "der Vorschlag"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Lösen' means 'to solve', which is often used when dealing with problems.",
+      "hint": "It's related to fixing issues.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich brauche ___ (help).",
+      "content": {
+        "sentence": "Ich brauche ___.",
+        "correctAnswer": "die Hilfe",
+        "acceptableAnswers": [
+          "die Hilfe"
+        ],
+        "options": [
+          "der Fehler",
+          "die Hilfe",
+          "das Problem",
+          "der Vorschlag"
+        ]
+      },
+      "explanation": "The correct answer is 'die Hilfe', meaning 'help' in English.",
+      "hint": "It's something you ask for when you need support.",
+      "difficulty": "EASY",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Er hat einen ___ (error).",
+      "content": {
+        "sentence": "Er hat einen ___.",
+        "correctAnswer": "Fehler",
+        "acceptableAnswers": [
+          "Fehler"
+        ],
+        "options": [
+          "Fehler",
+          "Hilfe",
+          "Vorschlag",
+          "Problem"
+        ]
+      },
+      "explanation": "The correct answer is 'Fehler', which translates to 'error' in English.",
+      "hint": "It's a mistake.",
+      "difficulty": "EASY",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: Hilfe / die / ich / brauche.",
+      "content": {
+        "words": [
+          "Hilfe",
+          "die",
+          "ich",
+          "brauche"
+        ],
+        "correctOrder": [
+          "ich",
+          "brauche",
+          "die",
+          "Hilfe"
+        ],
+        "translation": "I need the help."
+      },
+      "explanation": "The correct order is 'ich brauche die Hilfe', which means 'I need the help'.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I have a suggestion.'",
+      "content": {
+        "prompt": "Translate to German: 'I have a suggestion.'",
+        "correctAnswer": "Ich habe einen Vorschlag.",
+        "acceptableAnswers": [
+          "Ich habe einen Vorschlag."
+        ]
+      },
+      "explanation": "'Ich habe einen Vorschlag' is the correct translation of 'I have a suggestion'.",
+      "hint": "Think about how to express ideas.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich kann das Problem lösen.'",
+      "content": {
+        "ttsText": "Ich kann das Problem lösen.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I can solve the problem.",
+          "I have a problem.",
+          "I need help."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'I can solve the problem.'",
+      "hint": "Focus on the verb in the sentence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'Can you help me with this problem?'",
+      "content": {
+        "targetText": "Kannst du mir bei diesem Problem helfen?",
+        "context": "You need assistance with an issue.",
+        "acceptableVariants": [
+          "Kannst du mir helfen?",
+          "Kannst du mir bei dem Problem helfen?"
+        ]
+      },
+      "explanation": "The target text is the correct way to ask for help with a problem in German.",
+      "hint": "Use the verb 'helfen' in your answer.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'to ask'?",
+      "content": {
+        "options": [
+          "fragen",
+          "löschen",
+          "finden",
+          "sagen"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Fragen' means 'to ask', which is essential when seeking help.",
+      "hint": "It starts with 'fr'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Wir müssen das ___ (problem) lösen.",
+      "content": {
+        "sentence": "Wir müssen das ___.",
+        "correctAnswer": "Problem",
+        "acceptableAnswers": [
+          "Problem"
+        ],
+        "options": [
+          "Problem",
+          "Hilfe",
+          "Fehler",
+          "Vorschlag"
+        ]
+      },
+      "explanation": "The correct answer is 'Problem', meaning 'problem' in English.",
+      "hint": "It's something that needs fixing.",
+      "difficulty": "HARD",
+      "xp_reward": 4
+    }
+  ]
+}

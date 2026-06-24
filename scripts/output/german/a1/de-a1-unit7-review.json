@@ -1,0 +1,349 @@
+{
+  "lesson": {
+    "title": "Unit 7 Review",
+    "type": "REVIEW",
+    "slug": "de-a1-unit7-review"
+  },
+  "unit": "Free Time & Modal Verbs",
+  "unitOrder": 7,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will review vocabulary and grammar related to free time activities and modal verbs in German. You will practice using simple sentences and dialogues to reinforce your learning.",
+      "culturalNote": "In Germany, people often enjoy outdoor activities during their free time, especially in the beautiful parks and nature reserves."
+    },
+    "vocabulary": [
+      {
+        "term": "der Sport",
+        "translation": "the sport",
+        "definition": "a physical activity or game",
+        "pronunciation": "dair shport",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich spiele gern Sport.",
+          "translation": "I like to play sports."
+        },
+        "tip": "Remember, 'der' indicates that 'Sport' is masculine."
+      },
+      {
+        "term": "die Musik",
+        "translation": "the music",
+        "definition": "sound that is organized to create a melody",
+        "pronunciation": "dee moo-ZEEK",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich höre gern Musik.",
+          "translation": "I like to listen to music."
+        },
+        "tip": "'Musik' is feminine, so it uses 'die'."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "a set of written or printed pages",
+        "pronunciation": "dahs boohk",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich lese ein Buch.",
+          "translation": "I am reading a book."
+        },
+        "tip": "'Buch' is neuter, so it takes 'das'."
+      },
+      {
+        "term": "können",
+        "translation": "can",
+        "definition": "to be able to or to know how to",
+        "pronunciation": "KERN-en",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich kann schwimmen.",
+          "translation": "I can swim."
+        },
+        "tip": "Use 'können' for abilities."
+      },
+      {
+        "term": "möchten",
+        "translation": "would like",
+        "definition": "to express desire or preference",
+        "pronunciation": "MURK-ten",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich möchte ein Eis.",
+          "translation": "I would like an ice cream."
+        },
+        "tip": "Use 'möchten' to express wishes."
+      },
+      {
+        "term": "der Freund",
+        "translation": "the friend (male)",
+        "definition": "a person with whom one has a bond of mutual affection",
+        "pronunciation": "dair froint",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Freund spielt Fußball.",
+          "translation": "My friend plays soccer."
+        },
+        "tip": "'Freund' is masculine; the plural is 'Freunde'."
+      },
+      {
+        "term": "die Freundin",
+        "translation": "the friend (female)",
+        "definition": "a female friend",
+        "pronunciation": "dee FROIN-din",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Meine Freundin tanzt gern.",
+          "translation": "My friend (female) likes to dance."
+        },
+        "tip": "'Freundin' is feminine; the plural is 'Freundinnen'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Modal Verbs (können and möchten)",
+        "explanation": "Modal verbs like 'können' (can) and 'möchten' (would like) are used to express ability and desire. They are often followed by an infinitive verb. Remember, the conjugation changes with the subject.",
+        "table": {
+          "headers": [
+            "Subject",
+            "können",
+            "möchten"
+          ],
+          "rows": [
+            [
+              "ich (I)",
+              "kann",
+              "möchte"
+            ],
+            [
+              "du (you)",
+              "kannst",
+              "möchtest"
+            ],
+            [
+              "er/sie/es (he/she/it)",
+              "kann",
+              "möchte"
+            ],
+            [
+              "wir (we)",
+              "können",
+              "möchten"
+            ],
+            [
+              "ihr (you plural)",
+              "könnt",
+              "möchtet"
+            ],
+            [
+              "sie/Sie (they/you formal)",
+              "können",
+              "möchten"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich kann tanzen.",
+            "translation": "I can dance.",
+            "breakdown": "Here, 'kann' is the conjugated form of 'können' for 'ich'."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Ich kann zu tanzen.' instead of 'Ich kann tanzen.' (do not use 'zu' with infinitives after modal verbs)",
+          "Using 'möchten' instead of 'möchte' for 'ich' (remember the correct conjugation)"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Weekend",
+      "context": "This conversation takes place between friends planning activities for the weekend.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Max, was möchtest du am Wochenende machen?",
+          "translation": "Hello Max, what would you like to do on the weekend?",
+          "note": "Lena is asking about weekend plans."
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Lena! Ich möchte ins Kino gehen.",
+          "translation": "Hello Lena! I would like to go to the cinema."
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt gut! Ich kann auch kommen.",
+          "translation": "That sounds good! I can come too."
+        },
+        {
+          "speaker": 1,
+          "text": "Was für einen Film möchtest du sehen?",
+          "translation": "What kind of movie would you like to see?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich möchte einen Actionfilm sehen.",
+          "translation": "I would like to see an action movie."
+        },
+        {
+          "speaker": 1,
+          "text": "Super! Wir können um 18 Uhr gehen.",
+          "translation": "Great! We can go at 6 PM."
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, das ist perfekt. Hast du die Tickets?",
+          "translation": "Yes, that’s perfect. Do you have the tickets?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe sie schon gekauft.",
+          "translation": "Yes, I have already bought them."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Leisure Activities in Germany",
+      "text": "In German-speaking countries, people enjoy a variety of leisure activities such as hiking, cycling, and visiting cultural events. Many cities have parks and open spaces where people can relax and enjoy nature.",
+      "funFact": "Germany is home to numerous beer gardens where people gather to enjoy food, drinks, and live music, especially during the summer."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review vocabulary related to free time activities.",
+        "Practice using modal verbs 'können' and 'möchten'.",
+        "Engage in a dialogue about weekend plans.",
+        "Understand the differences in noun genders and their articles."
+      ],
+      "nextSteps": "Practice speaking using the vocabulary and grammar from this unit. Try to create your own sentences using 'können' and 'möchten'."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'the sport'?",
+      "content": {
+        "options": [
+          "die Musik",
+          "der Sport",
+          "das Buch",
+          "der Freund"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'der Sport', which means 'the sport' in English.",
+      "hint": "Think about activities like football or tennis.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which modal verb means 'can' in German?",
+      "content": {
+        "options": [
+          "möchten",
+          "können",
+          "müssen",
+          "sollen"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Können' is the German modal verb for 'can'.",
+      "hint": "It is used to express ability.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Ich ___ (können) spielen.",
+      "content": {
+        "sentence": "Ich ___ spielen.",
+        "correctAnswer": "kann",
+        "acceptableAnswers": [
+          "kann"
+        ],
+        "options": [
+          "konnte",
+          "kann",
+          "könnte",
+          "können"
+        ]
+      },
+      "explanation": "'Kann' is the correct form of 'können' for the first person singular.",
+      "hint": "Think about the present tense.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Ich ___ (möchten) ein Buch.",
+      "content": {
+        "sentence": "Ich ___ ein Buch.",
+        "correctAnswer": "möchte",
+        "acceptableAnswers": [
+          "möchte"
+        ],
+        "options": [
+          "möchte",
+          "möchte",
+          "möchten",
+          "möchtest"
+        ]
+      },
+      "explanation": "'Möchte' is the correct form of 'möchten' for the first person singular.",
+      "hint": "This is used when you want something.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I like music.'",
+      "content": {
+        "prompt": "Translate to German: 'I like music.'",
+        "correctAnswer": "Ich mag Musik.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The sentence 'I like music' translates directly to 'Ich mag Musik'.",
+      "hint": "Think about the verb 'mag'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct option: 'Ich spiele Fußball.'",
+      "content": {
+        "ttsText": "Ich spiele Fußball.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I play football.",
+          "I read a book.",
+          "I listen to music.",
+          "I have a friend."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct option matches the spoken sentence in German about playing football.",
+      "hint": "Listen for the word 'Fußball'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in German: 'I want a friend.'",
+      "content": {
+        "targetText": "Ich möchte einen Freund.",
+        "context": "Translate and say the sentence in German.",
+        "acceptableVariants": [
+          "Ich möchte einen Freund",
+          "Ich will einen Freund"
+        ]
+      },
+      "explanation": "The phrase 'Ich möchte einen Freund' means 'I want a friend' in German.",
+      "hint": "Use the verb 'möchten' for wanting.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

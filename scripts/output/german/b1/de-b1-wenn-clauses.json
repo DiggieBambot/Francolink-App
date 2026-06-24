@@ -1,0 +1,321 @@
+{
+  "lesson": {
+    "title": "Wenn-Clauses (Conditionals)",
+    "type": "GRAMMAR",
+    "slug": "de-b1-wenn-clauses"
+  },
+  "unit": "Conditionals & Wishes",
+  "unitOrder": 4,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about 'Wenn-Clauses', or conditionals, in German. You'll understand how to form sentences that express conditions and hypothetical situations using the word 'wenn' (if).",
+      "culturalNote": "Conditionals are often used in everyday conversations in German-speaking countries, particularly in discussing plans and possibilities."
+    },
+    "vocabulary": [
+      {
+        "term": "der Fall",
+        "translation": "the case",
+        "definition": "a situation or condition",
+        "pronunciation": "dehr fahl",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Im Falle eines Notfalls rufen Sie bitte die Polizei.",
+          "translation": "In case of an emergency, please call the police."
+        },
+        "tip": "Remember that 'der Fall' is masculine; its plural form is 'die Fälle'."
+      },
+      {
+        "term": "die Bedingung",
+        "translation": "the condition",
+        "definition": "a prerequisite or requirement",
+        "pronunciation": "dee beh-DIN-goong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Bedingung für das Angebot ist eine Anmeldung.",
+          "translation": "The condition for the offer is a registration."
+        },
+        "tip": "'Die Bedingung' is feminine; the plural form is 'die Bedingungen'."
+      },
+      {
+        "term": "wenn",
+        "translation": "if",
+        "definition": "used to introduce a conditional clause",
+        "pronunciation": "ven",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Wenn es regnet, bleiben wir zu Hause.",
+          "translation": "If it rains, we will stay at home."
+        },
+        "tip": "'Wenn' is a key word for conditionals, always followed by a clause."
+      },
+      {
+        "term": "das Wetter",
+        "translation": "the weather",
+        "definition": "the state of the atmosphere",
+        "pronunciation": "dahs VEH-ter",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Wetter ist heute schön.",
+          "translation": "The weather is nice today."
+        },
+        "tip": "'Das Wetter' is neuter; it does not have a plural form."
+      },
+      {
+        "term": "die Möglichkeit",
+        "translation": "the possibility",
+        "definition": "a chance or option",
+        "pronunciation": "dee MÖG-likh-kite",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es gibt viele Möglichkeiten, das Problem zu lösen.",
+          "translation": "There are many possibilities to solve the problem."
+        },
+        "tip": "'Die Möglichkeit' is feminine; its plural form is 'die Möglichkeiten'."
+      },
+      {
+        "term": "der Vorschlag",
+        "translation": "the suggestion",
+        "definition": "an idea put forward for consideration",
+        "pronunciation": "dehr FORSH-lahg",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe einen Vorschlag für das Projekt.",
+          "translation": "I have a suggestion for the project."
+        },
+        "tip": "'Der Vorschlag' is masculine; its plural form is 'die Vorschläge'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Conditional Sentences (Wenn-Clauses)",
+        "explanation": "In German, conditional sentences often use 'wenn' to express an 'if' condition. The structure typically involves a main clause and a subordinate clause. For example, 'Wenn es regnet, bleiben wir zu Hause' means 'If it rains, we will stay at home.' The verb in the subordinate clause comes at the end.",
+        "table": {
+          "headers": [
+            "Main Clause",
+            "Subordinate Clause"
+          ],
+          "rows": [
+            [
+              "Wir bleiben zu Hause",
+              "Wenn es regnet"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich Zeit habe, gehe ich spazieren.",
+            "translation": "If I have time, I will go for a walk.",
+            "breakdown": "The sentence structure is 'Wenn' (if) + condition (ich Zeit habe) + main action (gehe ich spazieren)."
+          },
+          {
+            "original": "Wenn du das machst, bist du glücklich.",
+            "translation": "If you do that, you will be happy.",
+            "breakdown": "Here, 'Wenn' introduces the condition (du das machst) and the result (bist du glücklich)."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Wenn ich gehe, ich bin müde' instead of 'Wenn ich gehe, bin ich müde.' (The verb must be in the second position in the main clause.)",
+          "Mixing up 'wenn' and 'wann'. 'Wann' means 'when', while 'wenn' means 'if'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Trip",
+      "context": "Two friends discussing their plans for a weekend trip.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Wenn das Wetter schön ist, gehen wir nach Berlin.",
+          "translation": "If the weather is nice, we will go to Berlin.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das klingt gut! Was machen wir, wenn es regnet?",
+          "translation": "That sounds good! What do we do if it rains?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Dann bleiben wir einfach zu Hause und spielen Spiele.",
+          "translation": "Then we will just stay at home and play games.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich mag Spiele! Hast du einen Vorschlag?",
+          "translation": "I like games! Do you have a suggestion?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, ich habe 'Die Siedler von Catan'.",
+          "translation": "Yes, I have 'The Settlers of Catan'.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Perfekt! Wenn wir das spielen, haben wir viel Spaß.",
+          "translation": "Perfect! If we play that, we will have a lot of fun.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Genau! Und was ist mit dem Essen?",
+          "translation": "Exactly! And what about the food?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Wenn ich Zeit habe, kann ich Pizza machen.",
+          "translation": "If I have time, I can make pizza.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Weekend Getaways in Germany",
+      "text": "In Germany, many people enjoy weekend getaways to cities like Berlin, Munich, or Hamburg. These trips are often planned based on the weather, and locals frequently discuss their options using conditional sentences.",
+      "funFact": "Germany has over 1,500 castles, many of which are popular destinations for short trips."
+    },
+    "summary": {
+      "keyPoints": [
+        "Conditionals in German are formed using 'wenn'.",
+        "The verb in the subordinate clause goes at the end.",
+        "Use conditionals to express hypothetical situations.",
+        "Practice forming sentences with 'wenn' to improve fluency."
+      ],
+      "nextSteps": "Try creating your own conditional sentences and practice speaking them aloud. You can also listen for conditionals in German conversations or media."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the English term for 'der Fall'?",
+      "content": {
+        "options": [
+          "the case",
+          "the condition",
+          "the possibility",
+          "the proposal"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "In English, 'der Fall' translates to 'the case'.",
+      "hint": "Think about legal or situational contexts.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following sentences is a correct conditional?",
+      "content": {
+        "options": [
+          "If it rains, I will stay home.",
+          "If it rain, I stay home.",
+          "If it rains, I stay home.",
+          "If it raining, I will stay home."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct form uses the present simple 'rains' for the condition.",
+      "hint": "Look for the structure 'If + present, will + base verb'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Wenn das Wetter ___ (schlecht sein), bleiben wir zu Hause.'",
+      "content": {
+        "sentence": "Wenn das Wetter ___, bleiben wir zu Hause.",
+        "correctAnswer": "schlecht ist",
+        "acceptableAnswers": [
+          "schlecht sein",
+          "schlecht ist"
+        ],
+        "options": [
+          "schlecht sein",
+          "schlecht ist",
+          "schlecht war",
+          "schlecht werden"
+        ]
+      },
+      "explanation": "The verb 'ist' is needed to complete the conditional clause correctly.",
+      "hint": "Think about the present tense.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the correct form: 'Wenn ich ___ (ausgehen), sehe ich meine Freunde.'",
+      "content": {
+        "sentence": "Wenn ich ___, sehe ich meine Freunde.",
+        "correctAnswer": "ausgehe",
+        "acceptableAnswers": [
+          "ausgehe",
+          "ausgehen"
+        ],
+        "options": [
+          "ausgehe",
+          "ausgegangen",
+          "ausgehen",
+          "ausgehend"
+        ]
+      },
+      "explanation": "The correct form is the present tense 'ausgehe' for the first person singular.",
+      "hint": "Focus on the first-person singular form.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'If I had more time, I would travel more.'",
+      "content": {
+        "prompt": "Translate to German: 'If I had more time, I would travel more.'",
+        "correctAnswer": "Wenn ich mehr Zeit hätte, würde ich mehr reisen.",
+        "acceptableAnswers": []
+      },
+      "explanation": "This sentence uses the second conditional structure.",
+      "hint": "Remember to use 'hätte' and 'würde'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the German sentence and choose the correct translation.",
+      "content": {
+        "ttsText": "Wenn es morgen regnet, bleibe ich zu Hause.",
+        "ttsLang": "de-DE",
+        "options": [
+          "If it rains tomorrow, I will stay home.",
+          "If it rained tomorrow, I would stay home.",
+          "If it rains today, I will stay home.",
+          "If it rain tomorrow, I stay home."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence uses a first conditional structure.",
+      "hint": "Focus on the future action.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in German: 'If I were you, I would take the offer.'",
+      "content": {
+        "targetText": "Wenn ich du wäre, würde ich das Angebot annehmen.",
+        "context": "Translate and say this conditional sentence.",
+        "acceptableVariants": []
+      },
+      "explanation": "Using 'wäre' indicates the second conditional.",
+      "hint": "Use the subjunctive form for 'were'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

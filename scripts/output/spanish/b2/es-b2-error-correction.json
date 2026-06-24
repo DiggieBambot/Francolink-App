@@ -1,0 +1,340 @@
+{
+  "lesson": {
+    "title": "Advanced Error Correction",
+    "type": "GRAMMAR",
+    "slug": "es-b2-error-correction"
+  },
+  "unit": "Advanced Grammar Review",
+  "unitOrder": 1,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about advanced error correction techniques in Spanish, focusing on common mistakes that B2 learners make. By identifying and correcting these errors, you will improve your fluency and confidence in using the language.",
+      "culturalNote": "In many Spanish-speaking countries, there is a strong emphasis on formal language use, especially in professional settings. Understanding the nuances of grammar is crucial in these contexts."
+    },
+    "vocabulary": [
+      {
+        "term": "el error",
+        "translation": "the error",
+        "definition": "a mistake or inaccuracy in language use",
+        "pronunciation": "el eh-ror",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Cometí un error en la conjugación.",
+          "translation": "I made an error in the conjugation."
+        },
+        "tip": "Think of 'error' as similar to 'error' in English."
+      },
+      {
+        "term": "la corrección",
+        "translation": "the correction",
+        "definition": "the act of correcting a mistake",
+        "pronunciation": "la co-rek-sión",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La corrección del texto fue necesaria.",
+          "translation": "The correction of the text was necessary."
+        },
+        "tip": "Remember that 'corrección' comes from the verb 'corregir' (to correct)."
+      },
+      {
+        "term": "la gramática",
+        "translation": "the grammar",
+        "definition": "the system and structure of a language",
+        "pronunciation": "la gra-má-ti-ka",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es importante estudiar la gramática española.",
+          "translation": "It is important to study Spanish grammar."
+        },
+        "tip": "Think of 'gramática' as related to 'grammar' in English."
+      },
+      {
+        "term": "el subjuntivo",
+        "translation": "the subjunctive",
+        "definition": "a mood used to express doubt, wishes, and hypotheticals",
+        "pronunciation": "el sub-jun-ti-vo",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Espero que llegues a tiempo, aunque sea tarde.",
+          "translation": "I hope you arrive on time, even if it is late."
+        },
+        "tip": "The subjunctive often follows expressions of desire, doubt, or emotion."
+      },
+      {
+        "term": "el uso",
+        "translation": "the use",
+        "definition": "the way in which a word or phrase is used",
+        "pronunciation": "el u-so",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El uso correcto del subjuntivo es difícil.",
+          "translation": "The correct use of the subjunctive is difficult."
+        },
+        "tip": "Think of 'uso' as similar to 'use' in English."
+      },
+      {
+        "term": "la práctica",
+        "translation": "the practice",
+        "definition": "repeated exercise in an activity to improve skill",
+        "pronunciation": "la prác-ti-ca",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La práctica hace al maestro.",
+          "translation": "Practice makes perfect."
+        },
+        "tip": "Remember that 'práctica' relates to practicing skills."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Common Errors in Subjunctive Use",
+        "explanation": "The subjunctive mood is often used incorrectly by learners. One common mistake is to use the indicative when the subjunctive is required. For example, 'Espero que él llega' should be 'Espero que él llegue.' Remember that the subjunctive expresses desires, doubts, and hypothetical situations.",
+        "table": {
+          "headers": [
+            "When to Use Subjunctive",
+            "Example"
+          ],
+          "rows": [
+            [
+              "After expressions of desire",
+              "Espero que tú vengas. (I hope you come.)"
+            ],
+            [
+              "In hypothetical situations",
+              "Si tuviera dinero, viajaría. (If I had money, I would travel.)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es bueno que estudies todos los días.",
+            "translation": "It is good that you study every day.",
+            "breakdown": "Here, 'estudies' is subjunctive because it follows 'es bueno que.'"
+          },
+          {
+            "original": "Si yo fuera rico, compraría una casa.",
+            "translation": "If I were rich, I would buy a house.",
+            "breakdown": "'Fuera' is the imperfect subjunctive used for hypothetical situations."
+          }
+        ],
+        "commonMistakes": [
+          "'Espero que él llega' should be 'Espero que él llegue.'",
+          "'Si yo tengo tiempo, iré' should be 'Si yo tuviera tiempo, iría.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Language Learning Challenges",
+      "context": "A conversation between two friends, Maria and Carlos, discussing their experiences learning Spanish.",
+      "speakers": [
+        "Maria",
+        "Carlos"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué errores has encontrado en tu aprendizaje del español?",
+          "translation": "What errors have you found in your Spanish learning?"
+        },
+        {
+          "speaker": 1,
+          "text": "He tenido problemas con el subjuntivo, especialmente en la escritura.",
+          "translation": "I have had problems with the subjunctive, especially in writing."
+        },
+        {
+          "speaker": 0,
+          "text": "A mí también. A veces, dudo si debo usar el subjuntivo o no.",
+          "translation": "Me too. Sometimes, I doubt whether I should use the subjunctive or not."
+        },
+        {
+          "speaker": 1,
+          "text": "Exactamente, y creo que la práctica es clave para mejorar.",
+          "translation": "Exactly, and I think practice is key to improving."
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, he estado escribiendo más, pero aún cometo errores.",
+          "translation": "Yes, I have been writing more, but I still make mistakes."
+        },
+        {
+          "speaker": 1,
+          "text": "Es normal. Lo importante es aprender de esos errores.",
+          "translation": "It's normal. The important thing is to learn from those errors."
+        },
+        {
+          "speaker": 0,
+          "text": "Tienes razón. ¿Tienes algún consejo sobre cómo corregir mis errores?",
+          "translation": "You're right. Do you have any advice on how to correct my mistakes?"
+        },
+        {
+          "speaker": 1,
+          "text": "Podrías grabarte hablando y luego escuchar para identificar los errores.",
+          "translation": "You could record yourself speaking and then listen to identify the mistakes."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Language in Spanish-Speaking Countries",
+      "text": "In many Spanish-speaking countries, language is closely tied to identity and culture. Mastery of grammar is often seen as a sign of education and respect for the language. This cultural perspective emphasizes the importance of speaking correctly.",
+      "funFact": "Did you know that Spanish is the second most spoken language in the world, after Mandarin? This diversity means that language use can vary significantly across different regions."
+    },
+    "summary": {
+      "keyPoints": [
+        "Common mistakes in the use of the subjunctive.",
+        "Importance of practice in language learning.",
+        "Strategies for identifying and correcting errors.",
+        "Cultural significance of language mastery."
+      ],
+      "nextSteps": "Continue practicing the subjunctive through writing exercises and speaking with native speakers. Review previous vocabulary to reinforce your learning."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following sentences is correct?",
+      "content": {
+        "options": [
+          "Si yo fuera rico, viajaré por el mundo.",
+          "Si yo soy rico, viajaría por el mundo.",
+          "Si yo fuera rico, viajaría por el mundo."
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "The correct answer uses the subjunctive mood properly to express a hypothetical situation.",
+      "hint": "Think about how to express unreal situations.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Identify the error in this sentence: 'Es importante que tú estudias para el examen.'",
+      "content": {
+        "options": [
+          "El uso de 'estudias' es incorrecto.",
+          "No hay errores.",
+          "El uso de 'importante' es incorrecto."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct form should use the subjunctive: 'estudies'.",
+      "hint": "Look for the verb form that follows 'es importante que'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Si él ___ (saber) la verdad, estaría muy triste.'",
+      "content": {
+        "sentence": "Si él ___ la verdad, estaría muy triste.",
+        "correctAnswer": "supiera",
+        "acceptableAnswers": [
+          "supiese"
+        ],
+        "options": [
+          "sabe",
+          "supiera",
+          "sabía"
+        ]
+      },
+      "explanation": "The subjunctive form 'supiera' is needed to express a hypothetical condition.",
+      "hint": "Think about the past subjunctive form.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the correct form: 'Es necesario que ellos ___ (hacer) la tarea.'",
+      "content": {
+        "sentence": "Es necesario que ellos ___ la tarea.",
+        "correctAnswer": "hagan",
+        "acceptableAnswers": [
+          "hacen"
+        ],
+        "options": [
+          "hacen",
+          "hagan",
+          "hicieron"
+        ]
+      },
+      "explanation": "The subjunctive form 'hagan' is used after 'es necesario que'.",
+      "hint": "Focus on the correct subjunctive form.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: 'que / es / importante / estudiar / la gramática'.",
+      "content": {
+        "words": [
+          "que",
+          "es",
+          "importante",
+          "estudiar",
+          "la",
+          "gramática"
+        ],
+        "correctOrder": [
+          "es",
+          "importante",
+          "que",
+          "estudiar",
+          "la",
+          "gramática"
+        ],
+        "translation": "It is important to study grammar."
+      },
+      "explanation": "The correct order conveys the importance of studying grammar.",
+      "hint": "Start with the verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'They hope that she will come.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'They hope that she will come.'",
+        "correctAnswer": "Ellos esperan que ella venga.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The subjunctive form 'venga' is used after 'esperar que'.",
+      "hint": "Consider the verb 'esperar' and its structure.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Es mejor que tú vengas mañana.'",
+      "content": {
+        "ttsText": "Es mejor que tú vengas mañana.",
+        "ttsLang": "es-ES",
+        "options": [
+          "It's better that you come tomorrow.",
+          "It's best if you come tomorrow.",
+          "You should come tomorrow."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence translates to 'It's better that you come tomorrow,' using the subjunctive.",
+      "hint": "Focus on the meaning of 'mejor' and the verb form.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in Spanish: 'I wish you would help me.'",
+      "content": {
+        "targetText": "Ojalá me ayudaras.",
+        "context": "Translate the sentence expressing a wish.",
+        "acceptableVariants": [
+          "Ojalá que me ayudaras.",
+          "Ojalá tú me ayudaras."
+        ]
+      },
+      "explanation": "The subjunctive form 'ayudaras' is used to express a wish.",
+      "hint": "Think about how to express wishes in Spanish.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

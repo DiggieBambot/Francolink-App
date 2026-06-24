@@ -1,0 +1,316 @@
+{
+  "lesson": {
+    "title": "Final Review & Celebration",
+    "type": "REVIEW",
+    "slug": "es-b1-final-review"
+  },
+  "unit": "Future & Aspirations",
+  "unitOrder": 8,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will review vocabulary and grammar related to future aspirations and conditional sentences. You will also practice a dialogue that incorporates these elements and culminates in a celebration of your progress.",
+      "culturalNote": "In many Latin American cultures, celebrating achievements, whether big or small, is a way to foster community and support among friends and family."
+    },
+    "vocabulary": [
+      {
+        "term": "el futuro",
+        "translation": "the future",
+        "definition": "The time period that is yet to come.",
+        "pronunciation": "el foo-too-ro",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El futuro es incierto.",
+          "translation": "The future is uncertain."
+        },
+        "tip": "Think of 'future' as a time that hasn't happened yet, which helps to remember the meaning."
+      },
+      {
+        "term": "la aspiración",
+        "translation": "the aspiration",
+        "definition": "A hope or ambition of achieving something.",
+        "pronunciation": "la as-pee-ra-syon",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Su aspiración es ser médico.",
+          "translation": "His aspiration is to be a doctor."
+        },
+        "tip": "Connect 'aspiration' with 'inspiration' to remember that aspirations inspire you to achieve."
+      },
+      {
+        "term": "el sueño",
+        "translation": "the dream",
+        "definition": "A series of thoughts, images, or emotions occurring during sleep or a strongly desired goal.",
+        "pronunciation": "el sweh-nyo",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ella tiene un sueño de viajar por el mundo.",
+          "translation": "She has a dream of traveling the world."
+        },
+        "tip": "Dreams can be both what we experience at night or our ambitions—context is key!"
+      },
+      {
+        "term": "si tuviera",
+        "translation": "if I had",
+        "definition": "Used to express hypothetical situations.",
+        "pronunciation": "see too-vye-ra",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Si tuviera más tiempo, estudiaría más.",
+          "translation": "If I had more time, I would study more."
+        },
+        "tip": "Remember this structure for speaking about unreal situations in the past."
+      },
+      {
+        "term": "el logro",
+        "translation": "the achievement",
+        "definition": "Something accomplished, especially by hard work.",
+        "pronunciation": "el loh-gro",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi logro más grande fue terminar la universidad.",
+          "translation": "My greatest achievement was finishing college."
+        },
+        "tip": "Think of 'log' as a record; achievements are logged in your life experiences."
+      },
+      {
+        "term": "celebrar",
+        "translation": "to celebrate",
+        "definition": "To observe a day or an event with ceremonies of respect, festivity, or rejoicing.",
+        "pronunciation": "seh-leh-brar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Vamos a celebrar su cumpleaños.",
+          "translation": "We are going to celebrate her birthday."
+        },
+        "tip": "Link 'celebrate' with 'celebration' to remember its meaning."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Conditional Sentences",
+        "explanation": "Conditional sentences express what will happen if a certain condition is met. They often use the structure 'si + subjunctive + conditional'. For example, 'Si tuviera dinero, viajaría.' (If I had money, I would travel.) Make sure to practice forming these sentences by changing the verbs.",
+        "table": {
+          "headers": [
+            "Condition",
+            "Result"
+          ],
+          "rows": [
+            [
+              "Si tuviera tiempo",
+              "Viajaría a España"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Si supieras la verdad, estarías feliz.",
+            "translation": "If you knew the truth, you would be happy.",
+            "breakdown": "This sentence uses the past subjunctive 'supieras' and the conditional 'estarías'."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'si' without the subjunctive: Remember, it should be 'si tuviera', not 'si tengo'.",
+          "Confusing the condition with the result: Keep the 'si' clause separate from the outcome."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Celebrating Achievements",
+      "context": "At a café after their final exam.",
+      "speakers": [
+        "Carlos",
+        "Lucía"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¡Hola, Lucía! ¿Cómo te sientes después del examen?",
+          "translation": "Hi, Lucía! How do you feel after the exam?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¡Hola, Carlos! Estoy muy nerviosa, pero creo que lo hice bien.",
+          "translation": "Hi, Carlos! I’m very nervous, but I think I did well.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¡Eso es genial! Si pasamos, deberíamos celebrar.",
+          "translation": "That’s great! If we pass, we should celebrate.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, tengo muchas ganas de ir a cenar.",
+          "translation": "Yes, I’m really looking forward to going out for dinner.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué te gustaría hacer después de la universidad?",
+          "translation": "What would you like to do after university?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Si tuviera la oportunidad, viajaría a Europa.",
+          "translation": "If I had the opportunity, I would travel to Europe.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¡Eso suena increíble! Creo que deberíamos planear un viaje.",
+          "translation": "That sounds amazing! I think we should plan a trip.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¡Sí! Vamos a celebrar nuestros sueños.",
+          "translation": "Yes! Let’s celebrate our dreams.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Celebration of Achievements",
+      "text": "In many Spanish-speaking countries, achieving a significant goal, such as graduating or getting a job, is often celebrated with family and friends. These celebrations can include parties, special meals, or even public ceremonies.",
+      "funFact": "In Mexico, 'quinceañera' celebrations mark a girl's transition into womanhood and are often extravagant with music, food, and dance."
+    },
+    "summary": {
+      "keyPoints": [
+        "Conditional sentences express hypothetical situations.",
+        "Use the subjunctive after 'si' to form conditions.",
+        "Celebrating achievements is a common cultural practice.",
+        "Connecting vocabulary with personal aspirations enhances learning."
+      ],
+      "nextSteps": "Practice forming more conditional sentences and share your aspirations with a friend. Consider planning a celebration for an achievement, big or small."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'el futuro' mean in English?",
+      "content": {
+        "options": [
+          "the present",
+          "the future",
+          "the past",
+          "the dream"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El futuro' translates to 'the future' in English.",
+      "hint": "Think about time.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'aspiration' in Spanish?",
+      "content": {
+        "options": [
+          "el sueño",
+          "la aspiración",
+          "el logro",
+          "el deseo"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'La aspiración' directly translates to 'aspiration' in English.",
+      "hint": "It starts with an 'a'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Si ___ (tú) ___ (tener) un sueño, ¿cuál sería?",
+      "content": {
+        "sentence": "Si tú ___ un sueño, ¿cuál sería?",
+        "correctAnswer": "tuvieras",
+        "acceptableAnswers": [
+          "tuvieras"
+        ],
+        "options": [
+          "tuvieras",
+          "tenías",
+          "tienes"
+        ]
+      },
+      "explanation": "The correct form is 'tuvieras' because of the conditional 'si'.",
+      "hint": "Think about the subjunctive mood.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Mi mayor ___ es ser médico.",
+      "content": {
+        "sentence": "Mi mayor ___ es ser médico.",
+        "correctAnswer": "logro",
+        "acceptableAnswers": [
+          "logro"
+        ],
+        "options": [
+          "sueño",
+          "logro",
+          "aspiración"
+        ]
+      },
+      "explanation": "'Logro' means 'achievement,' which fits in the context of the sentence.",
+      "hint": "What is an achievement?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I want to celebrate my dreams.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I want to celebrate my dreams.'",
+        "correctAnswer": "Quiero celebrar mis sueños.",
+        "acceptableAnswers": [
+          "Quiero celebrar mis sueños."
+        ]
+      },
+      "explanation": "The translation accurately reflects the meaning of the English sentence.",
+      "hint": "Remember 'celebrar' means 'to celebrate'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Si tuviera un millón de euros, viajaría por el mundo.",
+        "ttsLang": "es-ES",
+        "options": [
+          "If I had a million euros, I would travel the world.",
+          "If I have a million euros, I travel the world.",
+          "If I had a million euros, I will travel the world."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation matches the conditional used in the Spanish sentence.",
+      "hint": "Focus on the condition.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'What is your biggest aspiration?'",
+      "content": {
+        "targetText": "¿Cuál es tu mayor aspiración?",
+        "context": "You are asking a friend about their goals.",
+        "acceptableVariants": [
+          "¿Cuál es tu aspiración más grande?",
+          "¿Qué es tu mayor aspiración?"
+        ]
+      },
+      "explanation": "The sentence accurately conveys the question about aspirations.",
+      "hint": "Start with '¿Cuál es...?'",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

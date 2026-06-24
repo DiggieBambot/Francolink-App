@@ -1,0 +1,347 @@
+{
+  "lesson": {
+    "title": "Dative Pronouns (mir, dir, ihm)",
+    "type": "GRAMMAR",
+    "slug": "de-a2-dative-pronouns"
+  },
+  "unit": "The Dative Case",
+  "unitOrder": 3,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about dative pronouns in German, specifically 'mir' (to me), 'dir' (to you), and 'ihm' (to him). Understanding these pronouns is essential for forming sentences that indicate the indirect object of an action.",
+      "culturalNote": "In German-speaking countries, it is common to express gratitude using the dative case. For example, people often say 'Danke dir!' (Thank you!) to express appreciation."
+    },
+    "vocabulary": [
+      {
+        "term": "der Lehrer",
+        "translation": "the teacher",
+        "definition": "A person who teaches, especially in a school.",
+        "pronunciation": "dehr LAY-rer",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Lehrer gibt mir das Buch.",
+          "translation": "The teacher gives me the book."
+        },
+        "tip": "Remember, 'Lehrer' is masculine (der)."
+      },
+      {
+        "term": "die Schülerin",
+        "translation": "the female student",
+        "definition": "A girl or woman who is studying at a school.",
+        "pronunciation": "dee SHOO-luh-rin",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Schülerin zeigt dir ihre Hausaufgaben.",
+          "translation": "The female student shows you her homework."
+        },
+        "tip": "'Schülerin' is feminine (die)."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A written or printed work consisting of pages.",
+        "pronunciation": "dahs BOOK",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich lese das Buch.",
+          "translation": "I read the book."
+        },
+        "tip": "'Buch' is neutral (das)."
+      },
+      {
+        "term": "der Freund",
+        "translation": "the friend",
+        "definition": "A person whom one knows and with whom one has a bond of mutual affection.",
+        "pronunciation": "dehr FROINT",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Freund hilft ihm mit der Aufgabe.",
+          "translation": "My friend helps him with the task."
+        },
+        "tip": "Remember, 'Freund' is masculine (der)."
+      },
+      {
+        "term": "die Aufgabe",
+        "translation": "the task",
+        "definition": "A piece of work assigned to someone.",
+        "pronunciation": "dee OWF-gah-buh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Aufgabe ist einfach.",
+          "translation": "The task is easy."
+        },
+        "tip": "'Aufgabe' is feminine (die)."
+      },
+      {
+        "term": "geben",
+        "translation": "to give",
+        "definition": "To hand something to someone.",
+        "pronunciation": "GAY-bin",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich gebe dir das Buch.",
+          "translation": "I give you the book."
+        },
+        "tip": "Common verb to remember for using dative pronouns."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Dative Pronouns",
+        "explanation": "In German, dative pronouns are used to indicate the indirect object of a verb. The dative pronouns are: 'mir' (to me), 'dir' (to you), and 'ihm' (to him). These pronouns are essential when you want to say who benefits from an action.",
+        "table": {
+          "headers": [
+            "Pronoun",
+            "Translation"
+          ],
+          "rows": [
+            [
+              "mir",
+              "to me"
+            ],
+            [
+              "dir",
+              "to you"
+            ],
+            [
+              "ihm",
+              "to him"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Kannst du mir helfen?",
+            "translation": "Can you help me?",
+            "breakdown": "'dir' is the dative pronoun for 'you', indicating the person receiving the action."
+          },
+          {
+            "original": "Ich gebe ihm das Buch.",
+            "translation": "I give him the book.",
+            "breakdown": "'ihm' is the dative pronoun for 'him', showing that he is the one receiving the book."
+          }
+        ],
+        "commonMistakes": [
+          "'mir' is often confused with 'mich' (accusative). Remember, 'mir' is dative.",
+          "'dir' is sometimes confused with 'dich' (accusative). Remember, 'dir' is dative."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Helping a Friend with Homework",
+      "context": "Two friends are discussing their homework at a café.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Max, kannst du mir helfen?",
+          "translation": "Hello Max, can you help me?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, was brauchst du?",
+          "translation": "Yes, what do you need?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich habe Schwierigkeiten mit der Aufgabe.",
+          "translation": "I have difficulties with the task.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Kein Problem! Ich zeige dir, wie es geht.",
+          "translation": "No problem! I will show you how it works.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Danke dir! Das wäre super.",
+          "translation": "Thank you! That would be great.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Gibt es noch etwas, das ich dir geben kann?",
+          "translation": "Is there anything else I can give you?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, kannst du mir das Buch leihen?",
+          "translation": "Yes, can you lend me the book?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Natürlich, hier ist es.",
+          "translation": "Of course, here it is.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Education",
+      "text": "Education is highly valued in German-speaking countries. Students often have a strong focus on their studies and regularly receive help from friends and family. This support system is crucial for academic success.",
+      "funFact": "In Germany, students often receive a special gift called a 'Schultüte' when they start school, which contains school supplies and treats."
+    },
+    "summary": {
+      "keyPoints": [
+        "Dative pronouns are essential for indicating the indirect object.",
+        "The main dative pronouns are 'mir', 'dir', and 'ihm'.",
+        "Use dative pronouns to express who benefits from an action.",
+        "Practicing with common verbs will improve your skills."
+      ],
+      "nextSteps": "Practice using dative pronouns in your own sentences and try to create dialogues with friends or language partners."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct dative pronoun for 'ich'?",
+      "content": {
+        "options": [
+          "mir",
+          "dir",
+          "ihm"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The dative pronoun for 'ich' (I) is 'mir'.",
+      "hint": "Think about the subject 'I'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Choose the correct dative pronoun for 'du':",
+      "content": {
+        "options": [
+          "mir",
+          "dir",
+          "ihm"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The dative pronoun for 'du' (you) is 'dir'.",
+      "hint": "Consider how you would refer to someone directly.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Der Lehrer gibt ___ die Aufgabe.",
+      "content": {
+        "sentence": "Der Lehrer gibt ___ die Aufgabe.",
+        "correctAnswer": "mir",
+        "acceptableAnswers": [
+          "mir"
+        ],
+        "options": [
+          "mir",
+          "dir",
+          "ihm"
+        ]
+      },
+      "explanation": "In this sentence, 'mir' indicates that the teacher is giving the task to me.",
+      "hint": "Think about who is receiving the task.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Ich gebe ___ das Buch.",
+      "content": {
+        "sentence": "Ich gebe ___ das Buch.",
+        "correctAnswer": "dir",
+        "acceptableAnswers": [
+          "dir"
+        ],
+        "options": [
+          "mir",
+          "dir",
+          "ihm"
+        ]
+      },
+      "explanation": "Here, 'dir' shows that I am giving the book to you.",
+      "hint": "Consider who you are giving the book to.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder these words to form a correct sentence: gibt, die Schülerin, ihm, das Buch.",
+      "content": {
+        "words": [
+          "gibt",
+          "die Schülerin",
+          "ihm",
+          "das Buch"
+        ],
+        "correctOrder": [
+          "die Schülerin",
+          "gibt",
+          "ihm",
+          "das Buch"
+        ],
+        "translation": "The student gives him the book."
+      },
+      "explanation": "The correct order forms a logical sentence in German.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I give the friend the book.'",
+      "content": {
+        "prompt": "Translate to German: 'I give the friend the book.'",
+        "correctAnswer": "Ich gebe dem Freund das Buch.",
+        "acceptableAnswers": []
+      },
+      "explanation": "In German, the dative 'dem Freund' indicates to whom the book is given.",
+      "hint": "Remember to use the correct article for 'friend'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct dative pronoun: 'Ich gebe ___ das Buch.'",
+      "content": {
+        "ttsText": "Ich gebe dir das Buch.",
+        "ttsLang": "de-DE",
+        "options": [
+          "mir",
+          "dir",
+          "ihm"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The sentence states that I am giving the book to you, hence 'dir'.",
+      "hint": "Focus on the pronoun that fits in the sentence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in German: 'I have a task for you.'",
+      "content": {
+        "targetText": "Ich habe eine Aufgabe für dich.",
+        "context": "Translate and say in German.",
+        "acceptableVariants": [
+          "Ich habe eine Aufgabe für dich."
+        ]
+      },
+      "explanation": "The sentence conveys that you have a task intended for someone, using the informal 'dich'.",
+      "hint": "Remember to use the correct article for 'task'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

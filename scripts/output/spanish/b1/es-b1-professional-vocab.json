@@ -1,0 +1,319 @@
+{
+  "lesson": {
+    "title": "Professional Vocabulary",
+    "type": "VOCABULARY",
+    "slug": "es-b1-professional-vocab"
+  },
+  "unit": "Work & Career",
+  "unitOrder": 3,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn essential professional vocabulary related to work and career in Spanish. You will be able to communicate more effectively in a workplace context.",
+      "culturalNote": "In many Latin American countries, networking is crucial for career advancement, and personal connections often play a significant role in job opportunities."
+    },
+    "vocabulary": [
+      {
+        "term": "el currículum",
+        "translation": "the resume",
+        "definition": "A document summarizing a person's education, work experience, and skills.",
+        "pronunciation": "el koo-ree-koo-lum",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es importante tener un buen currículum.",
+          "translation": "It is important to have a good resume."
+        },
+        "tip": "Remember that 'currículum' is similar in English; just think of it as the Spanish version."
+      },
+      {
+        "term": "la entrevista",
+        "translation": "the interview",
+        "definition": "A formal meeting to discuss job qualifications.",
+        "pronunciation": "la en-treh-vee-sta",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo una entrevista mañana.",
+          "translation": "I have an interview tomorrow."
+        },
+        "tip": "Think of interviews as opportunities to showcase your skills, just like in English."
+      },
+      {
+        "term": "el trabajo en equipo",
+        "translation": "teamwork",
+        "definition": "The collaborative effort of a group to achieve a common goal.",
+        "pronunciation": "el tra-bah-ho en eh-kee-po",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El trabajo en equipo es esencial para el éxito.",
+          "translation": "Teamwork is essential for success."
+        },
+        "tip": "Remember that teamwork is vital in most workplaces, just like in your own culture."
+      },
+      {
+        "term": "la experiencia laboral",
+        "translation": "work experience",
+        "definition": "The experience gained from working in a job or field.",
+        "pronunciation": "la ex-peh-ree-en-sia la-boh-ral",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo tres años de experiencia laboral.",
+          "translation": "I have three years of work experience."
+        },
+        "tip": "This term combines 'experience' and 'work'; think of it as what you have done in your jobs."
+      },
+      {
+        "term": "el sueldo",
+        "translation": "the salary",
+        "definition": "The amount of money paid to an employee for their work.",
+        "pronunciation": "el swel-do",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El sueldo es un factor importante al aceptar un trabajo.",
+          "translation": "The salary is an important factor when accepting a job."
+        },
+        "tip": "Think of 'sueldo' as your earnings; it’s a key point in job negotiations."
+      },
+      {
+        "term": "la promoción",
+        "translation": "the promotion",
+        "definition": "An advancement in job position or responsibilities.",
+        "pronunciation": "la pro-mo-ción",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ella recibió una promoción el mes pasado.",
+          "translation": "She received a promotion last month."
+        },
+        "tip": "Promotions lead to better opportunities, similar to how they work in English-speaking countries."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Subjunctive for Recommendations",
+        "explanation": "In Spanish, the subjunctive mood is used to express wishes, doubts, or recommendations. For example, when suggesting that someone apply for a job, you might say 'Espero que apliques para el trabajo.' This translates to 'I hope that you apply for the job.'",
+        "table": {
+          "headers": [
+            "Verb (present subjunctive)",
+            "Meaning"
+          ],
+          "rows": [
+            [
+              "aplicar (tú)",
+              "to apply"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es mejor que escribas un buen currículum.",
+            "translation": "It's better that you write a good resume.",
+            "breakdown": "The sentence uses the subjunctive 'escribas' to express a recommendation."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive (e.g., 'escribes' instead of 'escribas').",
+          "Forgetting to use 'que' before the subjunctive verb."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Job Applications",
+      "context": "A conversation between friends discussing job applications over coffee.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Has visto la nueva oferta de trabajo?",
+          "translation": "Have you seen the new job offer?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, estoy pensando en aplicar.",
+          "translation": "Yes, I am thinking of applying.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Espero que tengas un buen currículum.",
+          "translation": "I hope you have a good resume.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, lo estoy actualizando ahora.",
+          "translation": "Yes, I am updating it now.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Tienes experiencia laboral en ese campo?",
+          "translation": "Do you have work experience in that field?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, trabajé en una empresa similar el año pasado.",
+          "translation": "Yes, I worked at a similar company last year.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Eso es genial. ¡Buena suerte en la entrevista!",
+          "translation": "That's great. Good luck with the interview!",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Gracias, lo necesitaré.",
+          "translation": "Thank you, I will need it.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Networking in Latin America",
+      "text": "In many Latin American countries, personal connections and networking are vital for career success. Building relationships can often lead to better job opportunities than just applying online.",
+      "funFact": "In Mexico, it's common to have a 'cafecito' (coffee meeting) to discuss business, which emphasizes the importance of personal interaction."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned key professional vocabulary related to work and career.",
+        "Explored the use of the subjunctive for recommendations.",
+        "Practiced a dialogue about job applications.",
+        "Gained cultural insights into networking in Latin America."
+      ],
+      "nextSteps": "Practice using the vocabulary in different sentences and try to create your own dialogues. Consider applying for a job and prepare for the interview using the vocabulary learned."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'el currículum' in English?",
+      "content": {
+        "options": [
+          "The resume",
+          "The interview",
+          "The salary",
+          "The experience"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El currículum' translates to 'the resume' in English, which is a document used to apply for jobs.",
+      "hint": "Think about job applications.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la entrevista' mean?",
+      "content": {
+        "options": [
+          "The teamwork",
+          "The interview",
+          "The promotion",
+          "The work experience"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'La entrevista' refers to 'the interview', which is a conversation for a job position.",
+      "hint": "It's something you prepare for before getting hired.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Para conseguir un buen trabajo, necesitas un buen ___.'",
+      "content": {
+        "sentence": "Para conseguir un buen trabajo, necesitas un buen ___.",
+        "correctAnswer": "currículum",
+        "acceptableAnswers": [
+          "curriculum",
+          "currículum vitae"
+        ],
+        "options": [
+          "currículum",
+          "sueldo",
+          "entrevista"
+        ]
+      },
+      "explanation": "The correct answer is 'currículum', which is essential for job applications.",
+      "hint": "It's a document that lists your qualifications.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'El ___ es muy importante para el desarrollo de tu carrera.'",
+      "content": {
+        "sentence": "El ___ es muy importante para el desarrollo de tu carrera.",
+        "correctAnswer": "trabajo en equipo",
+        "acceptableAnswers": [
+          "trabajo en equipo",
+          "sueldo",
+          "currículum"
+        ],
+        "options": [
+          "trabajo en equipo",
+          "promoción",
+          "sueldo"
+        ]
+      },
+      "explanation": "'Trabajo en equipo' means teamwork, which is crucial for career development.",
+      "hint": "Think about collaborating with others.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I have work experience.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I have work experience.'",
+        "correctAnswer": "Tengo experiencia laboral.",
+        "acceptableAnswers": [
+          "Tengo experiencia en el trabajo."
+        ]
+      },
+      "explanation": "'Experience laboral' translates to 'work experience'.",
+      "hint": "Focus on the word 'experience'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'La promoción es un avance en tu carrera.'",
+      "content": {
+        "ttsText": "La promoción es un avance en tu carrera.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The salary is a step in your career.",
+          "The promotion is a step in your career.",
+          "The experience is a step in your career."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct translation refers to 'promotion' as a career advancement.",
+      "hint": "Listen for the word 'promoción'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'What is your salary?'",
+      "content": {
+        "targetText": "¿Cuál es tu sueldo?",
+        "context": "Asking about someone's salary in a professional context.",
+        "acceptableVariants": [
+          "¿Cuál es su sueldo?",
+          "¿Qué sueldo tienes?"
+        ]
+      },
+      "explanation": "The phrase translates to 'What is your salary?' and is a common question in job discussions.",
+      "hint": "Focus on the word 'sueldo'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

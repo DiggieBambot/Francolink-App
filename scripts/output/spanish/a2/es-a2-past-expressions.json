@@ -1,0 +1,341 @@
+{
+  "lesson": {
+    "title": "Past Time Expressions",
+    "type": "VOCABULARY",
+    "slug": "es-a2-past-expressions"
+  },
+  "unit": "Talking About the Past",
+  "unitOrder": 1,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about expressions used to talk about past events in Spanish. You will discover vocabulary related to time expressions and how to use them in sentences.",
+      "culturalNote": "In many Spanish-speaking countries, storytelling is an important cultural tradition. Understanding past time expressions can help you appreciate these stories better."
+    },
+    "vocabulary": [
+      {
+        "term": "ayer",
+        "translation": "yesterday",
+        "definition": "The day before today.",
+        "pronunciation": "ah-YER",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Ayer fui al cine.",
+          "translation": "Yesterday I went to the movies."
+        },
+        "tip": "Remember that 'ayer' always refers to the day before today."
+      },
+      {
+        "term": "anteayer",
+        "translation": "the day before yesterday",
+        "definition": "Two days ago.",
+        "pronunciation": "ahn-teh-AH-yer",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Anteayer llovió mucho.",
+          "translation": "The day before yesterday it rained a lot."
+        },
+        "tip": "Use 'anteayer' to talk about events that happened two days ago."
+      },
+      {
+        "term": "la semana pasada",
+        "translation": "last week",
+        "definition": "The week before the current one.",
+        "pronunciation": "lah seh-MAH-nah pah-SAH-dah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "La semana pasada fui a la playa.",
+          "translation": "Last week I went to the beach."
+        },
+        "tip": "Use this phrase to refer to events that occurred in the previous week."
+      },
+      {
+        "term": "el mes pasado",
+        "translation": "last month",
+        "definition": "The month before the current one.",
+        "pronunciation": "el mes pah-SAH-doh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "El mes pasado celebré mi cumpleaños.",
+          "translation": "Last month I celebrated my birthday."
+        },
+        "tip": "This can be used for events that happened in the previous month."
+      },
+      {
+        "term": "hace dos días",
+        "translation": "two days ago",
+        "definition": "Referring to an event that occurred two days in the past.",
+        "pronunciation": "AH-seh dos DEE-as",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Hice la tarea hace dos días.",
+          "translation": "I did the homework two days ago."
+        },
+        "tip": "Use 'hace' followed by a time expression to indicate how long ago something happened."
+      },
+      {
+        "term": "en 2010",
+        "translation": "in 2010",
+        "definition": "Referring to the year 2010.",
+        "pronunciation": "en dos mil DIEZ",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "En 2010 viajé a España.",
+          "translation": "In 2010 I traveled to Spain."
+        },
+        "tip": "Use this structure to talk about specific years."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Past Time Expressions",
+        "explanation": "Past time expressions help us specify when something happened. They can be used with different verb tenses, such as the preterite and imperfect. Remember to match the verb tense to the context of the sentence.",
+        "table": {
+          "headers": [
+            "Past Time Expression",
+            "Example"
+          ],
+          "rows": [
+            [
+              "ayer",
+              "Ayer comí pizza."
+            ],
+            [
+              "la semana pasada",
+              "La semana pasada estudié español."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ayer fui al parque.",
+            "translation": "Yesterday I went to the park.",
+            "breakdown": "Use 'ayer' with the preterite tense 'fui'."
+          },
+          {
+            "original": "Cuando era niño, jugaba afuera.",
+            "translation": "When I was a child, I played outside.",
+            "breakdown": "'Cuando' triggers the imperfect tense 'era' and 'jugaba'."
+          }
+        ],
+        "commonMistakes": [
+          "Incorrect: Ayer estoy feliz. Correction: Ayer estuve feliz.",
+          "Incorrect: La semana pasada yo juego. Correction: La semana pasada jugué."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking About Last Weekend",
+      "context": "A conversation between two friends discussing their past weekend.",
+      "speakers": [
+        "María",
+        "Carlos"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué hiciste el fin de semana pasado?",
+          "translation": "What did you do last weekend?"
+        },
+        {
+          "speaker": 1,
+          "text": "Fui a una fiesta el sábado.",
+          "translation": "I went to a party on Saturday."
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué divertido! ¿Y tú, qué hiciste?",
+          "translation": "How fun! And you, what did you do?"
+        },
+        {
+          "speaker": 1,
+          "text": "El domingo, fui al cine con amigos.",
+          "translation": "On Sunday, I went to the movies with friends."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué película viste?",
+          "translation": "What movie did you see?"
+        },
+        {
+          "speaker": 1,
+          "text": "Vi una comedia.",
+          "translation": "I saw a comedy."
+        },
+        {
+          "speaker": 0,
+          "text": "Me encanta la comedia. ¿Te gustó?",
+          "translation": "I love comedies. Did you like it?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, fue muy divertida.",
+          "translation": "Yes, it was very funny."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Celebrations in Spanish Culture",
+      "text": "In many Spanish-speaking countries, celebrations often include storytelling about past events. This can be a way to share family history or local legends, making past time expressions especially important.",
+      "funFact": "In Mexico, the Day of the Dead (Día de los Muertos) honors deceased loved ones through stories and memories."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned key past time expressions: ayer, anteayer, la semana pasada.",
+        "Understood how to use these expressions with different verbs.",
+        "Practiced dialogues to enhance conversational skills.",
+        "Gained cultural insights related to storytelling."
+      ],
+      "nextSteps": "Practice using these expressions in your own sentences and try to write about your last weekend!"
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'ayer' mean in English?",
+      "content": {
+        "options": [
+          "yesterday",
+          "last week",
+          "two days ago"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Ayer' translates to 'yesterday' in English.",
+      "hint": "It's the day before today.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which expression means 'the week before last'?",
+      "content": {
+        "options": [
+          "la semana pasada",
+          "hace dos días",
+          "anteayer"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La semana pasada' means 'last week' in English.",
+      "hint": "Think about the week before this one.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Yo fui al cine ___.'",
+      "content": {
+        "sentence": "Yo fui al cine ___.",
+        "correctAnswer": "ayer",
+        "acceptableAnswers": [
+          "ayer"
+        ],
+        "options": [
+          "hace dos días",
+          "anteayer",
+          "ayer"
+        ]
+      },
+      "explanation": "'Ayer' fits the sentence as it indicates the action happened yesterday.",
+      "hint": "It's the day before today.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Fui a España ___.'",
+      "content": {
+        "sentence": "Fui a España ___.",
+        "correctAnswer": "en 2010",
+        "acceptableAnswers": [
+          "en 2010"
+        ],
+        "options": [
+          "el mes pasado",
+          "en 2010",
+          "hace dos días"
+        ]
+      },
+      "explanation": "The phrase 'en 2010' indicates a specific year in the past.",
+      "hint": "Think of a year.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'mes pasado / el / fui / al / cine'.",
+      "content": {
+        "words": [
+          "mes",
+          "pasado",
+          "el",
+          "fui",
+          "al",
+          "cine"
+        ],
+        "correctOrder": [
+          "fui",
+          "al",
+          "cine",
+          "el",
+          "mes",
+          "pasado"
+        ],
+        "translation": "I went to the cinema last month."
+      },
+      "explanation": "The correct order forms a coherent sentence in Spanish.",
+      "hint": "Start with the verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I went two days ago.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I went two days ago.'",
+        "correctAnswer": "Fui hace dos días.",
+        "acceptableAnswers": [
+          "Fui hace dos días"
+        ]
+      },
+      "explanation": "The translation captures the exact time frame mentioned.",
+      "hint": "Think about the past time expression.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'anteayer'.",
+      "content": {
+        "ttsText": "anteayer",
+        "ttsLang": "es-ES",
+        "options": [
+          "the day before yesterday",
+          "last week",
+          "yesterday"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The term 'anteayer' specifically means 'the day before yesterday'.",
+      "hint": "It's two days ago.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'I visited my grandmother last week.'",
+      "content": {
+        "targetText": "Visité a mi abuela la semana pasada.",
+        "context": "Translate this English sentence into Spanish.",
+        "acceptableVariants": [
+          "Visité a mi abuela la semana pasada"
+        ]
+      },
+      "explanation": "The sentence correctly uses the past time expression.",
+      "hint": "Use the phrase for last week.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

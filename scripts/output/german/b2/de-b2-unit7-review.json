@@ -1,0 +1,320 @@
+{
+  "lesson": {
+    "title": "Unit 7 Review",
+    "type": "REVIEW",
+    "slug": "de-b2-unit7-review"
+  },
+  "unit": "Arts & Literature",
+  "unitOrder": 7,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this unit review, you will consolidate your knowledge of vocabulary and grammar related to arts and literature in German. You will also practice your conversational skills through a realistic dialogue.",
+      "culturalNote": "The German-speaking world has a rich literary tradition, with famous authors like Goethe and Kafka. Understanding their works can provide deep insights into the culture."
+    },
+    "vocabulary": [
+      {
+        "term": "der Künstler",
+        "translation": "the artist",
+        "definition": "A person who creates art, especially visual art.",
+        "pronunciation": "dur KÜNST-luhr",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Künstler hat ein beeindruckendes Gemälde geschaffen.",
+          "translation": "The artist created an impressive painting."
+        },
+        "tip": "Remember that 'Künstler' is masculine; its plural form is 'Künstler'."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A written work that is published or intended for publication.",
+        "pronunciation": "das BOOK",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe das Buch gestern gelesen.",
+          "translation": "I read the book yesterday."
+        },
+        "tip": "It’s neuter; the plural is 'die Bücher'."
+      },
+      {
+        "term": "die Literatur",
+        "translation": "the literature",
+        "definition": "Written works, especially those considered of superior or lasting artistic merit.",
+        "pronunciation": "dee li-te-ra-TUR",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Literatur des 19. Jahrhunderts ist sehr vielfältig.",
+          "translation": "The literature of the 19th century is very diverse."
+        },
+        "tip": "Feminine noun; no plural form as it refers to a collective."
+      },
+      {
+        "term": "die Ausstellung",
+        "translation": "the exhibition",
+        "definition": "A public display of works of art or items of interest.",
+        "pronunciation": "dee AUS-stel-lung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Ausstellung wurde von vielen Menschen besucht.",
+          "translation": "The exhibition was visited by many people."
+        },
+        "tip": "Feminine; plural is 'die Ausstellungen'."
+      },
+      {
+        "term": "der Roman",
+        "translation": "the novel",
+        "definition": "A long narrative work of fiction.",
+        "pronunciation": "der ro-MAN",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Roman handelt von einer faszinierenden Liebesgeschichte.",
+          "translation": "The novel is about a fascinating love story."
+        },
+        "tip": "Masculine noun; plural is 'die Romane'."
+      },
+      {
+        "term": "die Kritik",
+        "translation": "the critique",
+        "definition": "The analysis and judgment of the merits and faults of a literary or artistic work.",
+        "pronunciation": "dee kri-TIK",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Kritik des Buches war überwiegend positiv.",
+          "translation": "The critique of the book was mostly positive."
+        },
+        "tip": "Feminine noun; plural is 'die Kritiken'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Konjunktiv II (Subjunctive II)",
+        "explanation": "The Konjunktiv II is used to express hypothetical situations, wishes, or polite requests. It often involves using the simple past form of verbs, and in the case of irregular verbs, there can be significant changes. For example, 'sein' becomes 'wäre' (would be) and 'haben' becomes 'hätte' (would have).",
+        "table": {
+          "headers": [
+            "Verb",
+            "Konjunktiv II"
+          ],
+          "rows": [
+            [
+              "sein",
+              "wäre"
+            ],
+            [
+              "haben",
+              "hätte"
+            ],
+            [
+              "gehen",
+              "ginge"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich reich wäre, würde ich ein großes Haus kaufen.",
+            "translation": "If I were rich, I would buy a big house.",
+            "breakdown": "This sentence shows a hypothetical situation, indicating a condition that is not true."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: 'Ich hätte' instead of 'Ich habe'.",
+          "Confusing 'wäre' with 'war' when expressing a wish."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Recent Art Exhibition",
+      "context": "At a coffee shop after visiting an art exhibition.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hast du die Ausstellung im Museum gesehen?",
+          "translation": "Did you see the exhibition at the museum?",
+          "note": "Lena is asking about the exhibition."
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich fand die Werke des Künstlers faszinierend.",
+          "translation": "Yes, I found the works of the artist fascinating."
+        },
+        {
+          "speaker": 0,
+          "text": "Besonders das Gemälde mit den leuchtenden Farben!",
+          "translation": "Especially the painting with the bright colors!"
+        },
+        {
+          "speaker": 1,
+          "text": "Genau! Es hat eine besondere Atmosphäre geschaffen.",
+          "translation": "Exactly! It created a special atmosphere."
+        },
+        {
+          "speaker": 0,
+          "text": "Hast du die Kritik in der Zeitung gelesen?",
+          "translation": "Did you read the critique in the newspaper?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, die Kritiker waren überwiegend positiv.",
+          "translation": "Yes, the critics were mostly positive."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich denke, die Ausstellung hat die Bedeutung der modernen Kunst gut vermittelt.",
+          "translation": "I think the exhibition conveyed the importance of modern art well."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich stimme dir zu. Es war inspirierend!",
+          "translation": "I agree with you. It was inspiring!"
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Role of Art in German Culture",
+      "text": "Art plays a crucial role in German culture, from the Bauhaus movement to contemporary art. Cities like Berlin and Munich are known for their vibrant art scenes and numerous galleries.",
+      "funFact": "The famous artist Joseph Beuys once stated that 'everyone is an artist', emphasizing the importance of creativity in everyday life."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review vocabulary related to arts and literature.",
+        "Understand the use of Konjunktiv II for hypothetical situations.",
+        "Practice conversational skills through dialogues.",
+        "Recognize cultural significance of art in German-speaking countries."
+      ],
+      "nextSteps": "Practice forming sentences in Konjunktiv II and try to write a short critique of a book or painting you like."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'artist'?",
+      "content": {
+        "options": [
+          "der Künstler",
+          "die Kunst",
+          "das Buch",
+          "die Literatur"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'der Künstler', which translates to 'artist' in English.",
+      "hint": "Think about the word used for someone who creates art.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is a type of literary work?",
+      "content": {
+        "options": [
+          "die Ausstellung",
+          "der Roman",
+          "der Künstler",
+          "die Kritik"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Der Roman' is a type of literary work, specifically a novel.",
+      "hint": "It's a long fictional narrative.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich habe das ___ gelesen.'",
+      "content": {
+        "sentence": "Ich habe das ___ gelesen.",
+        "correctAnswer": "Buch",
+        "acceptableAnswers": [
+          "Buch"
+        ],
+        "options": [
+          "Buch",
+          "Bild",
+          "Kunst",
+          "Literatur"
+        ]
+      },
+      "explanation": "The correct answer is 'Buch', meaning 'book' in English.",
+      "hint": "It's an object you read.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Die ___ des Künstlers war sehr positiv.'",
+      "content": {
+        "sentence": "Die ___ des Künstlers war sehr positiv.",
+        "correctAnswer": "Kritik",
+        "acceptableAnswers": [
+          "Kritik"
+        ],
+        "options": [
+          "Kritik",
+          "Ausstellung",
+          "Literatur",
+          "Roman"
+        ]
+      },
+      "explanation": "The correct answer is 'Kritik', which means 'critique' or 'review'.",
+      "hint": "This often refers to opinions about art or books.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The literature is fascinating.'",
+      "content": {
+        "prompt": "Translate to German: 'The literature is fascinating.'",
+        "correctAnswer": "Die Literatur ist faszinierend.",
+        "acceptableAnswers": [
+          "Die Literatur ist interessant."
+        ]
+      },
+      "explanation": "The translation captures the essence of the sentence accurately.",
+      "hint": "Focus on the word for 'literature'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and select the correct option: 'Die Ausstellung ist sehr beeindruckend.'",
+      "content": {
+        "ttsText": "Die Ausstellung ist sehr beeindruckend.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The exhibition is very impressive.",
+          "The artist is very impressive.",
+          "The book is very fascinating.",
+          "The literature is very impressive."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer translates the German sentence into English accurately.",
+      "hint": "Listen for the word 'Ausstellung'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in German: 'I enjoy reading novels.'",
+      "content": {
+        "targetText": "Ich lese gerne Romane.",
+        "context": "Express your love for reading novels.",
+        "acceptableVariants": [
+          "Ich mag es, Romane zu lesen.",
+          "Ich liebe es, Romane zu lesen."
+        ]
+      },
+      "explanation": "Both acceptable variants convey the same meaning as the target text.",
+      "hint": "Remember the verb for 'enjoy'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

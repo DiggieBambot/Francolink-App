@@ -1,0 +1,356 @@
+{
+  "lesson": {
+    "title": "Unit 5 Review",
+    "type": "REVIEW",
+    "slug": "es-b1-unit5-review"
+  },
+  "unit": "Media & Communication",
+  "unitOrder": 5,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will review key vocabulary, grammar points, and phrases related to media and communication. You will also practice a dialogue that incorporates these elements to enhance your speaking skills.",
+      "culturalNote": "In many Spanish-speaking countries, social media plays a significant role in shaping public opinion and culture. This reflects the growing importance of communication in today's world."
+    },
+    "vocabulary": [
+      {
+        "term": "el periódico",
+        "translation": "the newspaper",
+        "definition": "A printed publication containing news, articles, and advertisements.",
+        "pronunciation": "el peh-ree-oh-dico",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Leo el periódico todos los días.",
+          "translation": "I read the newspaper every day."
+        },
+        "tip": "Remember that 'periódico' is masculine; use 'el'."
+      },
+      {
+        "term": "la televisión",
+        "translation": "the television",
+        "definition": "A device for receiving television broadcasts.",
+        "pronunciation": "la teh-leh-vee-sión",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La televisión está en la sala.",
+          "translation": "The television is in the living room."
+        },
+        "tip": "'Televisión' is feminine; remember to use 'la'."
+      },
+      {
+        "term": "la red social",
+        "translation": "the social network",
+        "definition": "An online platform where people can connect and share content.",
+        "pronunciation": "la red so-cial",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Uso la red social para comunicarme con mis amigos.",
+          "translation": "I use the social network to communicate with my friends."
+        },
+        "tip": "Notice 'red' is feminine; it's 'la red'."
+      },
+      {
+        "term": "el mensaje",
+        "translation": "the message",
+        "definition": "Information sent from one person to another.",
+        "pronunciation": "el men-saje",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Recibí un mensaje de mi hermano.",
+          "translation": "I received a message from my brother."
+        },
+        "tip": "Think of 'mensaje' as related to 'messaging' in English."
+      },
+      {
+        "term": "la comunicación",
+        "translation": "the communication",
+        "definition": "The act of sharing information.",
+        "pronunciation": "la co-mu-ni-ca-ción",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La comunicación es clave en cualquier relación.",
+          "translation": "Communication is key in any relationship."
+        },
+        "tip": "Remember 'comunicación' is feminine, so use 'la'."
+      },
+      {
+        "term": "compartir",
+        "translation": "to share",
+        "definition": "To let others have or use something.",
+        "pronunciation": "com-par-teer",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Es importante compartir información.",
+          "translation": "It's important to share information."
+        },
+        "tip": "This verb is regular; look at its conjugation patterns."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Present Subjunctive",
+        "explanation": "The present subjunctive is used to express desires, doubts, or hypothetical situations. It's formed from the present tense yo form of the verb, dropping the -o ending, and adding the appropriate subjunctive endings. For example, for -ar verbs, use -e, -es, -e, -emos, -éis, -en.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Verb (hablar)"
+          ],
+          "rows": [
+            [
+              "yo",
+              "hable"
+            ],
+            [
+              "tú",
+              "hables"
+            ],
+            [
+              "él/ella/usted",
+              "hable"
+            ],
+            [
+              "nosotros",
+              "hablemos"
+            ],
+            [
+              "vosotros",
+              "habléis"
+            ],
+            [
+              "ellos/ellas/ustedes",
+              "hablen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Espero que hables con tu amigo.",
+            "translation": "I hope that you talk to your friend.",
+            "breakdown": "This sentence uses the subjunctive 'hables' because it expresses a hope."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: Correct: 'Es posible que venga.' (It's possible that he comes.)",
+          "Forgetting to conjugate the verb: Correct: 'Quiero que estudies.' (I want you to study.)"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Media Preferences",
+      "context": "A conversation between two friends meeting at a café.",
+      "speakers": [
+        "María",
+        "Juan"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Prefieres ver televisión o leer un libro?",
+          "translation": "Do you prefer watching television or reading a book?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Prefiero leer un libro porque me gusta imaginar.",
+          "translation": "I prefer reading a book because I like to imagine.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Entiendo, pero la televisión ofrece muchas series interesantes.",
+          "translation": "I understand, but television offers many interesting series.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, pero a veces las series son muy largas.",
+          "translation": "Yes, but sometimes the series are very long.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Es verdad. ¿Cuál es tu serie favorita?",
+          "translation": "That's true. What is your favorite series?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Me gusta 'La Casa de Papel'. Es emocionante.",
+          "translation": "I like 'Money Heist'. It is exciting.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "He oído que es buena. ¿De qué trata?",
+          "translation": "I've heard it's good. What is it about?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Es sobre un grupo que planea un gran robo.",
+          "translation": "It's about a group that plans a big heist.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Role of Media in Society",
+      "text": "In many Spanish-speaking countries, media plays a crucial role in shaping public opinion and culture. News outlets often influence political and social discussions.",
+      "funFact": "In Colombia, there is a popular saying: 'La prensa es el cuarto poder,' meaning 'The press is the fourth power,' highlighting its importance in democracy."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review of essential vocabulary related to media and communication.",
+        "Understanding the present subjunctive and its usage.",
+        "Practice dialogue incorporating vocabulary and grammar.",
+        "Cultural insights into the role of media in Spanish-speaking societies."
+      ],
+      "nextSteps": "Practice forming sentences using the present subjunctive and try to have conversations about your media preferences."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'el periódico' in English?",
+      "content": {
+        "options": [
+          "the newspaper",
+          "the television",
+          "the social network"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El periódico' translates to 'the newspaper' in English.",
+      "hint": "It's a source of news.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'communication' in Spanish?",
+      "content": {
+        "options": [
+          "el mensaje",
+          "la comunicación",
+          "la red social"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'La comunicación' is the Spanish word for 'communication'.",
+      "hint": "Think about how we connect with others.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Yo ___ un mensaje.",
+      "content": {
+        "sentence": "Yo ___ un mensaje.",
+        "correctAnswer": "comparto",
+        "acceptableAnswers": [
+          "comparto",
+          "envío",
+          "recibo"
+        ],
+        "options": [
+          "comparto",
+          "envío",
+          "recibo"
+        ]
+      },
+      "explanation": "The correct verb in this context is 'comparto', meaning 'I share'.",
+      "hint": "Think about sharing information.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: La ___ social es muy popular hoy en día.",
+      "content": {
+        "sentence": "La ___ social es muy popular hoy en día.",
+        "correctAnswer": "red",
+        "acceptableAnswers": [
+          "red"
+        ],
+        "options": [
+          "red"
+        ]
+      },
+      "explanation": "The missing word is 'red', making the phrase 'La red social', which means 'The social network'.",
+      "hint": "Think about platforms like Facebook or Instagram.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: mensaje / el / importante / es",
+      "content": {
+        "words": [
+          "mensaje",
+          "el",
+          "importante",
+          "es"
+        ],
+        "correctOrder": [
+          "el",
+          "mensaje",
+          "es",
+          "importante"
+        ],
+        "translation": "The message is important."
+      },
+      "explanation": "The correct order forms a coherent sentence in Spanish.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I watch television every day.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I watch television every day.'",
+        "correctAnswer": "Veo la televisión todos los días.",
+        "acceptableAnswers": [
+          "Veo la televisión cada día."
+        ]
+      },
+      "explanation": "The correct translation conveys the same meaning in Spanish.",
+      "hint": "Remember the verb for 'to watch'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'La comunicación es clave.'",
+      "content": {
+        "ttsText": "La comunicación es clave.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Communication is key.",
+          "Communication is easy.",
+          "Communication is important."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The phrase translates to 'Communication is key.'",
+      "hint": "Focus on the word 'clave'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I want to share a message with you.'",
+      "content": {
+        "targetText": "Quiero compartir un mensaje contigo.",
+        "context": "Translate and pronounce this sentence in Spanish.",
+        "acceptableVariants": [
+          "Quiero compartir un mensaje a ti."
+        ]
+      },
+      "explanation": "The sentence expresses the intention to share a message.",
+      "hint": "Start with 'Quiero'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,326 @@
+{
+  "lesson": {
+    "title": "Unit 2 Review",
+    "type": "REVIEW",
+    "slug": "de-b1-unit2-review"
+  },
+  "unit": "Narrating the Past",
+  "unitOrder": 2,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this unit review, you will consolidate your understanding of narrating the past in German. You will revisit vocabulary and grammar points related to past narratives, including the use of subordinate clauses and the Konjunktiv II for politeness.",
+      "culturalNote": "In German-speaking countries, storytelling is a significant part of their culture. People often share personal anecdotes in social settings."
+    },
+    "vocabulary": [
+      {
+        "term": "der Urlaub",
+        "translation": "the vacation",
+        "definition": "A period during which one takes a break from work or school.",
+        "pronunciation": "dohr OOR-lahb",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe meinen Urlaub am Meer verbracht.",
+          "translation": "I spent my vacation by the sea."
+        },
+        "tip": "Remember that 'Urlaub' is masculine (der)."
+      },
+      {
+        "term": "die Erinnerung",
+        "translation": "the memory",
+        "definition": "A recollection of past events.",
+        "pronunciation": "dee eh-RIN-ner-ung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Erinnerung an meinen ersten Schultag ist sehr schön.",
+          "translation": "The memory of my first school day is very beautiful."
+        },
+        "tip": "Note that 'Erinnerung' is feminine (die)."
+      },
+      {
+        "term": "das Geschenk",
+        "translation": "the gift",
+        "definition": "An item given to someone without expecting anything in return.",
+        "pronunciation": "dahs ge-SHENK",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe ihr ein schönes Geschenk gekauft.",
+          "translation": "I bought her a beautiful gift."
+        },
+        "tip": "'Geschenk' is neuter (das), which is often confusing."
+      },
+      {
+        "term": "weil",
+        "translation": "because",
+        "definition": "A conjunction used to introduce a reason.",
+        "pronunciation": "vile",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Ich bleibe zu Hause, weil es regnet.",
+          "translation": "I stay at home because it is raining."
+        },
+        "tip": "Use 'weil' to explain reasons for actions."
+      },
+      {
+        "term": "wenn",
+        "translation": "if/when",
+        "definition": "A conjunction used to introduce a conditional clause.",
+        "pronunciation": "ven",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Wenn ich Zeit habe, gehe ich ins Kino.",
+          "translation": "If I have time, I will go to the cinema."
+        },
+        "tip": "'Wenn' is used for hypothetical situations."
+      },
+      {
+        "term": "hätte",
+        "translation": "would have",
+        "definition": "The Konjunktiv II form of 'haben', used for hypotheticals.",
+        "pronunciation": "HET-teh",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich hätte gerne ein neues Auto.",
+          "translation": "I would like a new car."
+        },
+        "tip": "Use 'hätte' to express wishes or polite requests."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subordinate Clauses with 'weil' and 'wenn'",
+        "explanation": "Subordinate clauses provide additional information in a sentence. 'Weil' introduces a reason, while 'wenn' is used for conditions. The verb in a subordinate clause goes to the end of the clause.",
+        "table": {
+          "headers": [
+            "Conjunction",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "weil",
+              "To give a reason"
+            ],
+            [
+              "wenn",
+              "To introduce a condition"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich gehe nicht aus, weil ich müde bin.",
+            "translation": "I am not going out because I am tired.",
+            "breakdown": "Here, 'weil' introduces the reason for not going out."
+          },
+          {
+            "original": "Wenn ich Zeit hätte, würde ich reisen.",
+            "translation": "If I had time, I would travel.",
+            "breakdown": "'Wenn' introduces a condition that affects the ability to travel."
+          }
+        ],
+        "commonMistakes": [
+          "Placing the verb in the wrong position in subordinate clauses",
+          "Confusing 'wenn' with 'als' (which is used for past events)"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Vacation",
+      "context": "Anna and Max are discussing their vacation plans over coffee.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Was hast du letzten Sommer gemacht?",
+          "translation": "What did you do last summer?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich bin nach Österreich gefahren. Es war sehr schön!",
+          "translation": "I went to Austria. It was very beautiful!",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt toll! Ich hätte auch gerne eine Reise gemacht.",
+          "translation": "That sounds great! I would have liked to go on a trip too.",
+          "note": "Use of Konjunktiv II for politeness."
+        },
+        {
+          "speaker": 1,
+          "text": "Warum bist du nicht weggefahren?",
+          "translation": "Why didn't you go away?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Weil ich viel arbeiten musste.",
+          "translation": "Because I had to work a lot.",
+          "note": "Use of 'weil' to explain reasons."
+        },
+        {
+          "speaker": 1,
+          "text": "Das verstehe ich. Wenn ich mehr Zeit hätte, würde ich reisen.",
+          "translation": "I understand. If I had more time, I would travel.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Was für Erinnerungen hast du aus deinem Urlaub?",
+          "translation": "What memories do you have from your vacation?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich habe viele Fotos gemacht und tolle Menschen getroffen.",
+          "translation": "I took many photos and met great people.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Storytelling",
+      "text": "In German-speaking cultures, storytelling is an integral part of social interactions. People often share experiences from their past during gatherings, which enhances connections among friends and family.",
+      "funFact": "Germany has a tradition of fairy tales, many of which were popularized by the Brothers Grimm."
+    },
+    "summary": {
+      "keyPoints": [
+        "Subordinate clauses with 'weil' and 'wenn'",
+        "Use of Konjunktiv II for politeness",
+        "Vocabulary related to memories and vacations",
+        "Practical application in dialogues"
+      ],
+      "nextSteps": "Practice using subordinate clauses in your own sentences and try to narrate a past experience."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'der Urlaub' mean in English?",
+      "content": {
+        "options": [
+          "The gift",
+          "The holiday",
+          "The memory",
+          "The reason"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Der Urlaub' translates to 'the holiday' in English.",
+      "hint": "It's a time when people often travel or relax.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'because' in German?",
+      "content": {
+        "options": [
+          "wenn",
+          "weil",
+          "das",
+          "die"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Weil' means 'because' in German, used to explain reasons.",
+      "hint": "Think about why you do something.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich habe viele __________ aus meinem Urlaub.",
+      "content": {
+        "sentence": "Ich habe viele __________ aus meinem Urlaub.",
+        "correctAnswer": "Erinnerungen",
+        "acceptableAnswers": [
+          "Erinnerungen",
+          "Erinnerung"
+        ],
+        "options": [
+          "Geschenke",
+          "Erinnerungen",
+          "Fotos"
+        ]
+      },
+      "explanation": "The sentence refers to memories from a holiday, so 'Erinnerungen' is correct.",
+      "hint": "Think about what you take back from a trip.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich hätte gerne ein __________ zu meinem Geburtstag.",
+      "content": {
+        "sentence": "Ich hätte gerne ein __________ zu meinem Geburtstag.",
+        "correctAnswer": "Geschenk",
+        "acceptableAnswers": [
+          "Geschenk"
+        ],
+        "options": [
+          "Urlaub",
+          "Geschenk",
+          "Erinnerung"
+        ]
+      },
+      "explanation": "You typically receive a 'Geschenk' (gift) for your birthday.",
+      "hint": "It's something you get on special occasions.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I would like to go on holiday.'",
+      "content": {
+        "prompt": "Translate to German: 'I would like to go on holiday.'",
+        "correctAnswer": "Ich möchte in den Urlaub fahren.",
+        "acceptableAnswers": [
+          "Ich will in den Urlaub fahren.",
+          "Ich würde gerne in den Urlaub fahren."
+        ]
+      },
+      "explanation": "The correct translation uses 'möchte' to express desire.",
+      "hint": "Think about how you express wishes.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich hätte mehr Zeit für Urlaub.'",
+      "content": {
+        "ttsText": "Ich hätte mehr Zeit für Urlaub.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I would have more time for holiday.",
+          "I would have less time for holiday.",
+          "I have more time for vacation."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'I would have more time for holiday.'",
+      "hint": "Focus on the word 'hätte' which indicates a wish.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in German: 'My favorite memory from the trip was the sunset.'",
+      "content": {
+        "targetText": "Meine Lieblings-Erinnerung von der Reise war der Sonnenuntergang.",
+        "context": "Describe a memory from a trip.",
+        "acceptableVariants": [
+          "Meine beste Erinnerung von der Reise war der Sonnenuntergang."
+        ]
+      },
+      "explanation": "The sentence expresses a cherished memory using appropriate vocabulary.",
+      "hint": "Use 'Erinnerung' for memory and 'Sonnenuntergang' for sunset.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

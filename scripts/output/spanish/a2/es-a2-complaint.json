@@ -1,0 +1,400 @@
+{
+  "lesson": {
+    "title": "Making a Complaint",
+    "type": "CONVERSATION",
+    "slug": "es-a2-complaint"
+  },
+  "unit": "City & Services",
+  "unitOrder": 6,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to make a complaint in Spanish, focusing on vocabulary and phrases used in everyday situations. You will practice a simple dialogue to help you communicate effectively when dealing with services in a city.",
+      "culturalNote": "In many Spanish-speaking countries, it is common for people to express their dissatisfaction directly but politely when dealing with services, which reflects the importance of personal interaction."
+    },
+    "vocabulary": [
+      {
+        "term": "la queja",
+        "translation": "the complaint",
+        "definition": "An expression of dissatisfaction.",
+        "pronunciation": "lah keh-hah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo una queja sobre el servicio.",
+          "translation": "I have a complaint about the service."
+        },
+        "tip": "Remember that 'queja' is feminine; use 'la' for 'the'."
+      },
+      {
+        "term": "el problema",
+        "translation": "the problem",
+        "definition": "An issue or difficulty.",
+        "pronunciation": "el proh-bleh-mah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Hay un problema con mi orden.",
+          "translation": "There is a problem with my order."
+        },
+        "tip": "‘Problema’ is a masculine noun; use 'el' for 'the'."
+      },
+      {
+        "term": "resolver",
+        "translation": "to resolve",
+        "definition": "To find a solution to a problem.",
+        "pronunciation": "reh-sohl-vehr",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Necesito resolver este problema.",
+          "translation": "I need to resolve this problem."
+        },
+        "tip": "‘Resolver’ is an irregular verb in the present tense."
+      },
+      {
+        "term": "disculpa",
+        "translation": "excuse me/sorry",
+        "definition": "A way to politely get someone's attention or apologize.",
+        "pronunciation": "dis-kool-pah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Disculpa, tengo una queja.",
+          "translation": "Excuse me, I have a complaint."
+        },
+        "tip": "Use 'disculpa' when speaking informally; for formal situations, use 'disculpe'."
+      },
+      {
+        "term": "la solución",
+        "translation": "the solution",
+        "definition": "The answer to a problem or issue.",
+        "pronunciation": "lah soh-loo-syohn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "¿Cuál es la solución?",
+          "translation": "What is the solution?"
+        },
+        "tip": "Remember that 'solución' is feminine; use 'la' for 'the'."
+      },
+      {
+        "term": "el servicio",
+        "translation": "the service",
+        "definition": "The assistance provided to customers.",
+        "pronunciation": "el ser-vee-syoh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El servicio no fue bueno.",
+          "translation": "The service was not good."
+        },
+        "tip": "‘Servicio’ is a masculine noun; use 'el' for 'the'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Preterite to Describe Past Events",
+        "explanation": "The preterite tense is used to talk about actions that were completed in the past. In complaints, you often describe a specific event. For example, 'Yo compré' (I bought) indicates a completed action.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Verb (comprar - to buy)"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "compré"
+            ],
+            [
+              "Tú",
+              "compraste"
+            ],
+            [
+              "Él/Ella/Usted",
+              "compró"
+            ],
+            [
+              "Nosotros",
+              "compramos"
+            ],
+            [
+              "Ellos/Ellas/Ustedes",
+              "compraron"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo compré un billete.",
+            "translation": "I bought a ticket.",
+            "breakdown": "Here, 'compré' indicates a completed action in the past."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing preterite and imperfect tenses. Remember to use preterite for completed actions.",
+          "Using incorrect forms of verbs. Always match the subject with the correct verb ending."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Making a Complaint at a Restaurant",
+      "context": "This conversation takes place at a restaurant where a customer is unhappy with their meal.",
+      "speakers": [
+        "Customer",
+        "Waiter"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Disculpa, tengo una queja.",
+          "translation": "Excuse me, I have a complaint.",
+          "note": "The customer starts the conversation."
+        },
+        {
+          "speaker": 1,
+          "text": "¿Cuál es el problema?",
+          "translation": "What is the problem?",
+          "note": "The waiter asks for details."
+        },
+        {
+          "speaker": 0,
+          "text": "La comida está fría.",
+          "translation": "The food is cold."
+        },
+        {
+          "speaker": 1,
+          "text": "Lo siento mucho. ¿Qué desea hacer?",
+          "translation": "I am very sorry. What would you like to do?"
+        },
+        {
+          "speaker": 0,
+          "text": "Quiero una solución, por favor.",
+          "translation": "I want a solution, please."
+        },
+        {
+          "speaker": 1,
+          "text": "Podemos calentarla o traerle otra comida.",
+          "translation": "We can heat it up or bring you another meal."
+        },
+        {
+          "speaker": 0,
+          "text": "Prefiero otra comida.",
+          "translation": "I prefer another meal."
+        },
+        {
+          "speaker": 1,
+          "text": "Está bien, lo haré de inmediato.",
+          "translation": "Okay, I will do it right away."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Politeness in Complaints",
+      "text": "In many Latin American cultures, politeness is crucial when making complaints. People often start with a polite phrase to ease the situation. This reflects the cultural value of maintaining respect in communication.",
+      "funFact": "In some places, it’s common to offer a small gift to customers as an apology for poor service."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to making complaints.",
+        "Practiced using the preterite tense for past actions.",
+        "Engaged in a realistic dialogue about a complaint.",
+        "Gained insights into cultural practices in Spanish-speaking countries."
+      ],
+      "nextSteps": "Practice making your own complaints using the vocabulary and grammar learned. Try to create dialogues based on different scenarios."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'la queja' in English?",
+      "content": {
+        "options": [
+          "the complaint",
+          "the service",
+          "the problem",
+          "the solution"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La queja' translates to 'the complaint' in English.",
+      "hint": "Think about customer service contexts.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'to resolve'?",
+      "content": {
+        "options": [
+          "resolver",
+          "disculpa",
+          "problema",
+          "solución"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Resolver' means 'to resolve' in Spanish.",
+      "hint": "It starts with 'res'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Necesito hacer una ___.'",
+      "content": {
+        "sentence": "Necesito hacer una ___.",
+        "correctAnswer": "queja",
+        "acceptableAnswers": [
+          "queja"
+        ],
+        "options": [
+          "queja",
+          "disculpa",
+          "solución"
+        ]
+      },
+      "explanation": "The sentence means 'I need to make a complaint.'",
+      "hint": "It starts with 'q'.",
+      "difficulty": "EASY",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'El ___ es muy lento.'",
+      "content": {
+        "sentence": "El ___ es muy lento.",
+        "correctAnswer": "servicio",
+        "acceptableAnswers": [
+          "servicio"
+        ],
+        "options": [
+          "servicio",
+          "problema",
+          "solución"
+        ]
+      },
+      "explanation": "The sentence translates to 'The service is very slow.'",
+      "hint": "Think about what you receive from a restaurant.",
+      "difficulty": "EASY",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: 'disculpa / una / quiero / pedir'",
+      "content": {
+        "words": [
+          "disculpa",
+          "una",
+          "quiero",
+          "pedir"
+        ],
+        "correctOrder": [
+          "quiero",
+          "pedir",
+          "una",
+          "disculpa"
+        ],
+        "translation": "I want to ask for an apology."
+      },
+      "explanation": "The correct order forms a polite request.",
+      "hint": "Start with the verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The solution is simple.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The solution is simple.'",
+        "correctAnswer": "La solución es simple.",
+        "acceptableAnswers": [
+          "La solución es simple."
+        ]
+      },
+      "explanation": "The Spanish sentence communicates the same idea.",
+      "hint": "Focus on 'solution' and 'simple'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'El problema es grave.'",
+      "content": {
+        "ttsText": "El problema es grave.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The problem is serious.",
+          "The solution is simple.",
+          "The service is bad."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'The problem is serious.'",
+      "hint": "Think about seriousness.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'I want to resolve the problem.'",
+      "content": {
+        "targetText": "Quiero resolver el problema.",
+        "context": "Expressing a desire to fix an issue.",
+        "acceptableVariants": [
+          "Quiero resolver el problema."
+        ]
+      },
+      "explanation": "This phrase shows a proactive approach to issues.",
+      "hint": "Start with 'Quiero'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'disculpa' mean?",
+      "content": {
+        "options": [
+          "sorry",
+          "service",
+          "problem",
+          "solution"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Disculpa' translates to 'sorry' in English.",
+      "hint": "It's an apology.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'La ___ es importante para los clientes.'",
+      "content": {
+        "sentence": "La ___ es importante para los clientes.",
+        "correctAnswer": "solución",
+        "acceptableAnswers": [
+          "solución"
+        ],
+        "options": [
+          "solución",
+          "queja",
+          "disculpa"
+        ]
+      },
+      "explanation": "The sentence means 'The solution is important for customers.'",
+      "hint": "Think about what customers want.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I have a complaint about the service.'",
+      "content": {
+        "targetText": "Tengo una queja sobre el servicio.",
+        "context": "Talking about a complaint.",
+        "acceptableVariants": [
+          "Tengo una queja sobre el servicio."
+        ]
+      },
+      "explanation": "This is how to express a complaint in Spanish.",
+      "hint": "Start with 'Tengo'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

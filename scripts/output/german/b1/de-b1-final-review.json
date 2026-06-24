@@ -1,0 +1,359 @@
+{
+  "lesson": {
+    "title": "Final Review & Celebration",
+    "type": "REVIEW",
+    "slug": "de-b1-final-review"
+  },
+  "unit": "Future & Aspirations",
+  "unitOrder": 8,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this final review lesson, you will consolidate your knowledge of future tenses and aspirations in German. You will also have the opportunity to practice vocabulary and structures that you have learned throughout the unit.",
+      "culturalNote": "In German-speaking countries, it is common to set New Year's resolutions or goals for the future, often reflecting a cultural emphasis on planning and self-improvement."
+    },
+    "vocabulary": [
+      {
+        "term": "die Zukunft",
+        "translation": "the future",
+        "definition": "A time period that comes after the present.",
+        "pronunciation": "dee TSOON-kooft",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich mache Pläne für die Zukunft.",
+          "translation": "I am making plans for the future."
+        },
+        "tip": "Remember that 'Zukunft' is feminine (die) and is often used in discussions about goals."
+      },
+      {
+        "term": "der Traum",
+        "translation": "the dream",
+        "definition": "An aspiration or desire one hopes to achieve.",
+        "pronunciation": "dehr trowm",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Traum ist es, Ärztin zu werden.",
+          "translation": "My dream is to become a doctor."
+        },
+        "tip": "'Traum' is masculine (der), and you can use it with 'werden' to express future ambitions."
+      },
+      {
+        "term": "das Ziel",
+        "translation": "the goal",
+        "definition": "An aim or desired result one works towards.",
+        "pronunciation": "dahs tseel",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe ein Ziel: meine Sprache zu verbessern.",
+          "translation": "I have a goal: to improve my language."
+        },
+        "tip": "'Ziel' is neuter (das), and it's often used with 'haben' to express possession of a goal."
+      },
+      {
+        "term": "wenn",
+        "translation": "if/when",
+        "definition": "A conjunction used to introduce conditional or temporal clauses.",
+        "pronunciation": "ven",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Wenn ich Zeit habe, gehe ich ins Kino.",
+          "translation": "If I have time, I will go to the cinema."
+        },
+        "tip": "Use 'wenn' to form sentences about conditions or future possibilities."
+      },
+      {
+        "term": "weil",
+        "translation": "because",
+        "definition": "A conjunction that introduces a reason.",
+        "pronunciation": "vile",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Ich lerne Deutsch, weil ich in Deutschland wohnen möchte.",
+          "translation": "I am learning German because I want to live in Germany."
+        },
+        "tip": "Use 'weil' to explain reasons; it often requires a change in sentence structure."
+      },
+      {
+        "term": "der Plan",
+        "translation": "the plan",
+        "definition": "A detailed proposal for achieving something.",
+        "pronunciation": "dehr plahn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wir haben einen Plan für den Urlaub.",
+          "translation": "We have a plan for the vacation."
+        },
+        "tip": "'Plan' is masculine (der) and commonly used in future contexts."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subordinate Clauses with 'weil' and 'wenn'",
+        "explanation": "In German, subordinate clauses can provide reasons or conditions. 'Weil' introduces a reason, while 'wenn' introduces a condition. Remember, the verb goes to the end of the clause in both cases.",
+        "table": {
+          "headers": [
+            "Subordinating Conjunction",
+            "Function"
+          ],
+          "rows": [
+            [
+              "weil",
+              "introduces a reason"
+            ],
+            [
+              "wenn",
+              "introduces a condition"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich gehe joggen, weil ich fit bleiben möchte.",
+            "translation": "I go jogging because I want to stay fit.",
+            "breakdown": "Main clause (Ich gehe joggen) + subordinate clause (weil ich fit bleiben möchte)."
+          },
+          {
+            "original": "Wenn ich Geld spare, kann ich reisen.",
+            "translation": "If I save money, I can travel.",
+            "breakdown": "Main clause (Ich kann reisen) + subordinate clause (wenn ich Geld spare)."
+          }
+        ],
+        "commonMistakes": [
+          "Incorrect word order in subordinate clauses: 'Weil ich fit bleiben möchte, ich gehe joggen.' (Correct is: 'Ich gehe joggen, weil ich fit bleiben möchte.')",
+          "Using 'wenn' incorrectly: 'Ich gehe, wenn ich Zeit habe.' is correct; avoid 'Ich gehe wenn Zeit habe.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Future Aspirations",
+      "context": "Two friends, Anna and Lukas, are meeting at a café to discuss their future plans.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Lukas, was sind deine Pläne für die Zukunft?",
+          "translation": "Hello Lukas, what are your plans for the future?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Anna! Ich möchte in ein anderes Land ziehen, wenn ich die Sprache besser spreche.",
+          "translation": "Hello Anna! I want to move to another country when I speak the language better.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt spannend! Hast du schon ein Ziel?",
+          "translation": "That sounds exciting! Do you already have a goal?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, mein Ziel ist es, in Deutschland zu studieren.",
+          "translation": "Yes, my goal is to study in Germany.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Schön! Ich träume davon, einmal eine eigene Firma zu gründen.",
+          "translation": "Nice! I dream of starting my own company one day.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist ein toller Traum! Was musst du dafür tun?",
+          "translation": "That is a great dream! What do you need to do for that?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich muss viel lernen und einen guten Plan machen.",
+          "translation": "I need to learn a lot and make a good plan.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich bin sicher, dass du es schaffen wirst!",
+          "translation": "I am sure that you will succeed!",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Planning for the Future in DACH Culture",
+      "text": "In German-speaking countries, people often set specific goals for their careers or personal development. This reflects a strong cultural emphasis on planning and achieving one's aspirations.",
+      "funFact": "In Switzerland, it's common to have apprenticeships as a way to prepare for future careers, emphasizing practical experience alongside education."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review of future-related vocabulary and phrases.",
+        "Understanding subordinate clauses with 'weil' and 'wenn'.",
+        "Importance of setting goals and dreams.",
+        "Cultural insights into aspirations in German-speaking countries."
+      ],
+      "nextSteps": "Practice creating your own sentences using the vocabulary and grammar points. Consider writing a short paragraph about your future aspirations in German."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'future'?",
+      "content": {
+        "options": [
+          "die Zukunft",
+          "der Traum",
+          "das Ziel"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'die Zukunft', which translates to 'future' in English.",
+      "hint": "Think about what you look forward to.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'goal' in German?",
+      "content": {
+        "options": [
+          "der Plan",
+          "das Ziel",
+          "der Traum"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Das Ziel' is the German word for 'goal'.",
+      "hint": "It's what you aim to achieve.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich habe einen ___ für die Zukunft.",
+      "content": {
+        "sentence": "Ich habe einen ___ für die Zukunft.",
+        "correctAnswer": "Plan",
+        "acceptableAnswers": [
+          "Plan"
+        ],
+        "options": [
+          "Ziel",
+          "Traum",
+          "Plan"
+        ]
+      },
+      "explanation": "The correct answer is 'Plan', which means 'plan' in English.",
+      "hint": "Think about how you prepare for the future.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Mein Traum ist es, ___ zu reisen.",
+      "content": {
+        "sentence": "Mein Traum ist es, ___ zu reisen.",
+        "correctAnswer": "viel",
+        "acceptableAnswers": [
+          "viel"
+        ],
+        "options": [
+          "wenig",
+          "viel",
+          "oft"
+        ]
+      },
+      "explanation": "'Viel' means 'a lot', which fits the context of traveling in your dreams.",
+      "hint": "What kind of traveling do you want to do?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I have a dream.'",
+      "content": {
+        "prompt": "Translate to German: 'I have a dream.'",
+        "correctAnswer": "Ich habe einen Traum.",
+        "acceptableAnswers": [
+          "Ich habe einen Traum."
+        ]
+      },
+      "explanation": "The correct translation is 'Ich habe einen Traum.' which directly translates back to 'I have a dream.'",
+      "hint": "What is the German word for 'dream'?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and identify the correct translation.",
+      "content": {
+        "ttsText": "Ich plane meine Zukunft.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I plan my future.",
+          "I dream of the future.",
+          "I have a goal."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'I plan my future.' which matches the German sentence.",
+      "hint": "Focus on the word 'plane'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in German: 'I want to achieve my goals.'",
+      "content": {
+        "targetText": "Ich möchte meine Ziele erreichen.",
+        "context": "Expressing aspirations.",
+        "acceptableVariants": [
+          "Ich will meine Ziele erreichen.",
+          "Ich möchte meine Ziele erreichen."
+        ]
+      },
+      "explanation": "Both sentences express the desire to achieve goals in German.",
+      "hint": "Use 'möchte' for 'want to'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'weil' mean in English?",
+      "content": {
+        "options": [
+          "if",
+          "because",
+          "when"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Weil' translates to 'because', used to give reasons.",
+      "hint": "It's often used to explain why.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich mache einen Plan, ___ ich meine Ziele erreichen möchte.",
+      "content": {
+        "sentence": "Ich mache einen Plan, ___ ich meine Ziele erreichen möchte.",
+        "correctAnswer": "weil",
+        "acceptableAnswers": [
+          "weil"
+        ],
+        "options": [
+          "wenn",
+          "weil",
+          "ob"
+        ]
+      },
+      "explanation": "'Weil' is correct here as it connects the plan with the reason for achieving goals.",
+      "hint": "Think about why you make plans.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,319 @@
+{
+  "lesson": {
+    "title": "Colloquial Expressions",
+    "type": "VOCABULARY",
+    "slug": "es-b2-colloquial"
+  },
+  "unit": "Idioms & Expressions",
+  "unitOrder": 4,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn several colloquial expressions in Spanish that are commonly used in everyday conversation. These expressions will help you sound more natural and fluent when speaking with native speakers.",
+      "culturalNote": "Colloquial expressions often reflect cultural nuances and humor, making them an essential part of communication in Spanish-speaking countries."
+    },
+    "vocabulary": [
+      {
+        "term": "dar en el clavo",
+        "translation": "to hit the nail on the head",
+        "definition": "to be exactly right about something",
+        "pronunciation": "dahr en el klah-voh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Tu análisis realmente dio en el clavo.",
+          "translation": "Your analysis really hit the nail on the head."
+        },
+        "tip": "Think of a hammer hitting a nail perfectly; this expression emphasizes accuracy."
+      },
+      {
+        "term": "estar en las nubes",
+        "translation": "to be in the clouds",
+        "definition": "to be daydreaming or not paying attention",
+        "pronunciation": "es-tahr en las noo-bes",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Durante la reunión, estaba en las nubes.",
+          "translation": "During the meeting, I was in the clouds."
+        },
+        "tip": "Imagine someone looking up at the sky, lost in thought."
+      },
+      {
+        "term": "no hay problema",
+        "translation": "no problem",
+        "definition": "used to indicate that something is not an issue",
+        "pronunciation": "noh eye pro-bleh-ma",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Si necesitas ayuda, no hay problema.",
+          "translation": "If you need help, no problem."
+        },
+        "tip": "A common phrase used in casual conversations to reassure someone."
+      },
+      {
+        "term": "a otra cosa, mariposa",
+        "translation": "to another thing, butterfly",
+        "definition": "let's move on or change the subject",
+        "pronunciation": "ah oh-trah koh-sah, mah-ree-poh-sah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Ya discutimos eso, a otra cosa, mariposa.",
+          "translation": "We already discussed that, let's move on, butterfly."
+        },
+        "tip": "The rhyme makes it memorable; think of it as a playful way to change topics."
+      },
+      {
+        "term": "más vale tarde que nunca",
+        "translation": "better late than never",
+        "definition": "it's better to do something late than not at all",
+        "pronunciation": "mahs vah-leh tahr-deh keh noon-kah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Decidí enviarle un regalo, más vale tarde que nunca.",
+          "translation": "I decided to send him a gift, better late than never."
+        },
+        "tip": "Use this when justifying a delayed action."
+      },
+      {
+        "term": "no todo lo que brilla es oro",
+        "translation": "not all that glitters is gold",
+        "definition": "things are not always as they seem",
+        "pronunciation": "noh toh-doh loh keh bree-yah es oh-roh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Ten cuidado, no todo lo que brilla es oro.",
+          "translation": "Be careful, not all that glitters is gold."
+        },
+        "tip": "Think of this as a cautionary expression about appearances."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Subjunctive in Colloquial Expressions",
+        "explanation": "In Spanish, the subjunctive mood is often used in expressions to convey uncertainty, wishes, or hypothetical situations. It is important to recognize when to use the present subjunctive or the imperfect subjunctive, especially in colloquial phrases. For instance, 'Espero que tú vengas' (I hope that you come) uses the present subjunctive.",
+        "table": {
+          "headers": [
+            "Subjunctive Mood",
+            "Usage Example"
+          ],
+          "rows": [
+            [
+              "Present Subjunctive",
+              "Espero que tú vengas."
+            ],
+            [
+              "Imperfect Subjunctive",
+              "Si yo fuera rico, viajaría."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Quiero que tú sepas la verdad.",
+            "translation": "I want you to know the truth.",
+            "breakdown": "This sentence uses the present subjunctive 'sepas' to express the desire for someone to know."
+          },
+          {
+            "original": "Si hubiera sabido, habría actuado diferente.",
+            "translation": "If I had known, I would have acted differently.",
+            "breakdown": "Here, 'hubiera sabido' is the imperfect subjunctive, indicating a hypothetical situation in the past."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: 'Espero que tú sabes' should be 'Espero que tú sepas'.",
+          "Confusing present and imperfect subjunctive: 'Si yo ser' should be 'Si yo fuera'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Weekend Plans",
+      "context": "Two friends meet at a café to discuss their plans for the weekend.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué planes tienes para el fin de semana?",
+          "translation": "What plans do you have for the weekend?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "No estoy seguro, pero quiero hacer algo divertido.",
+          "translation": "I'm not sure, but I want to do something fun.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Podríamos ir al cine, hay una película interesante.",
+          "translation": "We could go to the movies, there's an interesting film.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Eso suena bien, pero no tengo dinero.",
+          "translation": "That sounds good, but I don't have any money.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "No hay problema, yo invito esta vez.",
+          "translation": "No problem, I'll treat this time.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Eres un buen amigo, gracias.",
+          "translation": "You're a good friend, thank you.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "A otra cosa, mariposa, ¿quieres cenar después?",
+          "translation": "Let's move on, butterfly, do you want to have dinner afterwards?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Claro, eso sería genial.",
+          "translation": "Of course, that would be great.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Role of Colloquial Expressions in Daily Life",
+      "text": "Colloquial expressions are a vital part of communication in Spanish-speaking cultures. They often convey emotions and social nuances that are essential for effective conversation. Knowing these expressions can enhance your understanding of cultural contexts.",
+      "funFact": "In some Latin American countries, colloquial expressions can vary significantly, with unique phrases that reflect local customs and humor."
+    },
+    "summary": {
+      "keyPoints": [
+        "Colloquial expressions enhance fluency and naturalness in conversation.",
+        "Understanding and using the subjunctive mood is crucial for expressing wishes and hypotheticals.",
+        "Expressions like 'dar en el clavo' and 'a otra cosa, mariposa' enrich language use.",
+        "Cultural context is important for the effective use of idiomatic expressions."
+      ],
+      "nextSteps": "Practice using these expressions in your conversations and try to incorporate the subjunctive mood where appropriate. Consider learning more idioms to expand your vocabulary."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'dar en el clavo' mean?",
+      "content": {
+        "options": [
+          "To hit the nail on the head",
+          "To be in the clouds",
+          "To have no problem",
+          "To shine like gold"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Dar en el clavo' literally means to hit the nail on the head, which implies being exactly right about something.",
+      "hint": "Think about hitting a target accurately.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which expression means 'no problem'?",
+      "content": {
+        "options": [
+          "A otra cosa, mariposa",
+          "No hay problema",
+          "Más vale tarde que nunca",
+          "No todo lo que brilla es oro"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'No hay problema' translates directly to 'no problem' in English.",
+      "hint": "It's a direct translation.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'A veces, ___ en las nubes y no escucho a nadie.'",
+      "content": {
+        "sentence": "Yo estoy ___ en las nubes y no escucho a nadie.",
+        "correctAnswer": "en",
+        "acceptableAnswers": [],
+        "options": [
+          "en",
+          "en las",
+          "las",
+          "nubes"
+        ]
+      },
+      "explanation": "The correct phrase is 'estar en las nubes', meaning to be daydreaming or lost in thought.",
+      "hint": "Think about being distracted.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: '___ tarde que nunca, así que aquí estoy.'",
+      "content": {
+        "sentence": "Más vale ___ que nunca, así que aquí estoy.",
+        "correctAnswer": "tarde",
+        "acceptableAnswers": [],
+        "options": [
+          "tarde",
+          "temprano",
+          "ahora",
+          "nunca"
+        ]
+      },
+      "explanation": "'Más vale tarde que nunca' means it's better to do something late than never.",
+      "hint": "Consider the importance of timing.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Let's move on to something else.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'Let's move on to something else.'",
+        "correctAnswer": "A otra cosa, mariposa.",
+        "acceptableAnswers": []
+      },
+      "explanation": "'A otra cosa, mariposa' is a colloquial way to suggest changing the topic or moving on.",
+      "hint": "Think of a playful way to change subjects.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Estar en las nubes.'",
+      "content": {
+        "ttsText": "Estar en las nubes.",
+        "ttsLang": "es-ES",
+        "options": [
+          "To be lost in thought",
+          "To hit the nail on the head",
+          "To have no problem",
+          "To shine like gold"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Estar en las nubes' means to be daydreaming or distracted.",
+      "hint": "Think about someone not paying attention.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'It's better late than never.'",
+      "content": {
+        "targetText": "Más vale tarde que nunca.",
+        "context": "Translate this common idiom into Spanish.",
+        "acceptableVariants": []
+      },
+      "explanation": "This idiom conveys that it's preferable to do something late than not at all.",
+      "hint": "Focus on the concepts of time and opportunity.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

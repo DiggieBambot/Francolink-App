@@ -1,0 +1,360 @@
+{
+  "lesson": {
+    "title": "Social Issues & Solutions",
+    "type": "CONVERSATION",
+    "slug": "de-b1-social-issues"
+  },
+  "unit": "Environment & Society",
+  "unitOrder": 6,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about social issues related to the environment and possible solutions. You will practice speaking about these topics using appropriate vocabulary and grammar structures.",
+      "culturalNote": "Germany is known for its strong environmental policies, including the promotion of renewable energy and recycling programs."
+    },
+    "vocabulary": [
+      {
+        "term": "die Umwelt",
+        "translation": "the environment",
+        "definition": "The natural world, including land, water, and air.",
+        "pronunciation": "dee oom-velt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Umwelt ist wichtig für unsere Gesundheit.",
+          "translation": "The environment is important for our health."
+        },
+        "tip": "Remember, 'die' indicates that 'Umwelt' is feminine."
+      },
+      {
+        "term": "das Problem",
+        "translation": "the problem",
+        "definition": "A matter or situation regarded as unwelcome or harmful.",
+        "pronunciation": "dahs proh-blem",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Problem der Luftverschmutzung ist ernst.",
+          "translation": "The problem of air pollution is serious."
+        },
+        "tip": "The word 'Problem' is neuter, so use 'das'."
+      },
+      {
+        "term": "die Lösung",
+        "translation": "the solution",
+        "definition": "A means of solving a problem.",
+        "pronunciation": "dee löh-soong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Lösung für dieses Problem ist schwierig.",
+          "translation": "The solution to this problem is difficult."
+        },
+        "tip": "'Lösung' is feminine, so remember 'die'."
+      },
+      {
+        "term": "der Klimawandel",
+        "translation": "climate change",
+        "definition": "Long-term changes in temperature and typical weather patterns.",
+        "pronunciation": "der klee-mah-vahn-del",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Klimawandel betrifft uns alle.",
+          "translation": "Climate change affects us all."
+        },
+        "tip": "'Klimawandel' is masculine, hence 'der'."
+      },
+      {
+        "term": "recyceln",
+        "translation": "to recycle",
+        "definition": "To process used materials to make new products.",
+        "pronunciation": "ree-tsy-keln",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Wir sollten mehr recyceln.",
+          "translation": "We should recycle more."
+        },
+        "tip": "The verb is regular, so it follows typical conjugation patterns."
+      },
+      {
+        "term": "nachhaltig",
+        "translation": "sustainable",
+        "definition": "Able to be maintained at a certain rate or level.",
+        "pronunciation": "nahkh-hahl-tihg",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Nachhaltige Lösungen sind wichtig für die Zukunft.",
+          "translation": "Sustainable solutions are important for the future."
+        },
+        "tip": "Adjectives like 'nachhaltig' can be used to describe nouns."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subordinate Clauses with 'dass' and 'weil'",
+        "explanation": "In German, subordinate clauses provide additional information and often start with conjunctions like 'dass' (that) and 'weil' (because). When using these clauses, the verb moves to the end of the sentence.",
+        "table": {
+          "headers": [
+            "Conjunction",
+            "Example"
+          ],
+          "rows": [
+            [
+              "dass",
+              "Ich denke, dass wir mehr recyceln sollten."
+            ],
+            [
+              "weil",
+              "Die Umwelt leidet, weil wir zu viel Müll produzieren."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich glaube, dass der Klimawandel ein großes Problem ist.",
+            "translation": "I believe that climate change is a big problem.",
+            "breakdown": "'Ich glaube' (I believe) is the main clause, and 'dass der Klimawandel ein großes Problem ist' (that climate change is a big problem) is the subordinate clause."
+          },
+          {
+            "original": "Die Lösung ist schwierig, weil viele Menschen nicht helfen.",
+            "translation": "The solution is difficult because many people do not help.",
+            "breakdown": "'Die Lösung ist schwierig' (The solution is difficult) is the main clause, and 'weil viele Menschen nicht helfen' (because many people do not help) is the subordinate clause."
+          }
+        ],
+        "commonMistakes": [
+          "Placing the verb in the wrong position in a subordinate clause. Correct: 'Ich weiß, dass er kommt.' (I know that he is coming).",
+          "Using 'dass' instead of 'weil' or vice versa. Remember, use 'dass' for statements and 'weil' for reasons."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Environmental Issues",
+      "context": "At a café, discussing social issues related to the environment.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Max, was denkst du über den Klimawandel?",
+          "translation": "Hello Max, what do you think about climate change?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich finde, dass er ein großes Problem ist.",
+          "translation": "I think that it is a big problem.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, viele Menschen ignorieren es.",
+          "translation": "Yes, many people ignore it.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Genau, weil sie nicht wissen, wie ernst es ist.",
+          "translation": "Exactly, because they do not know how serious it is.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Welche Lösungen könnten wir vorschlagen?",
+          "translation": "What solutions could we suggest?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Wir sollten mehr recyceln und nachhaltige Energie nutzen.",
+          "translation": "We should recycle more and use sustainable energy.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt gut. Was können wir noch tun?",
+          "translation": "That sounds good. What else can we do?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Wir könnten mit anderen Menschen darüber sprechen.",
+          "translation": "We could talk to other people about it.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Environmental Awareness in Germany",
+      "text": "Germany has a strong culture of environmental awareness and sustainability. Many cities have implemented comprehensive recycling programs that encourage residents to separate their waste effectively.",
+      "funFact": "Germany is one of the world leaders in recycling, with a recycling rate of over 65%."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding social issues related to the environment.",
+        "Using subordinate clauses with 'dass' and 'weil'.",
+        "Discussing potential solutions.",
+        "Practicing vocabulary related to environmental topics."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and try to create your own dialogues about environmental issues."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is a solution to climate change?",
+      "content": {
+        "options": [
+          "recycling",
+          "polluting",
+          "deforestation",
+          "overconsumption"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "Recycling helps reduce waste and conserve resources, making it a solution to climate change.",
+      "hint": "Think about actions that help the environment.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'nachhaltig' mean in English?",
+      "content": {
+        "options": [
+          "unsustainable",
+          "sustainable",
+          "polluted",
+          "damaging"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Nachhaltig' translates to 'sustainable', referring to practices that do not deplete resources.",
+      "hint": "It relates to long-term environmental health.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Die ___ ist sehr wichtig für unsere Zukunft.'",
+      "content": {
+        "sentence": "Die ___ ist sehr wichtig für unsere Zukunft.",
+        "correctAnswer": "Umwelt",
+        "acceptableAnswers": [
+          "Umwelt"
+        ],
+        "options": [
+          "Natur",
+          "Umwelt",
+          "Wirtschaft"
+        ]
+      },
+      "explanation": "The environment ('Umwelt') is crucial for our future and sustainability.",
+      "hint": "Think about the planet we live on.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Um das Problem des Klimawandels zu lösen, müssen wir mehr ___.'",
+      "content": {
+        "sentence": "Um das Problem des Klimawandels zu lösen, müssen wir mehr ___.",
+        "correctAnswer": "recyceln",
+        "acceptableAnswers": [
+          "recyceln"
+        ],
+        "options": [
+          "produzieren",
+          "recyceln",
+          "verbrennen"
+        ]
+      },
+      "explanation": "Recycling ('recyceln') is an important action to help solve climate change.",
+      "hint": "It's an action we can take with waste.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'We need more sustainable solutions.'",
+      "content": {
+        "prompt": "Translate to German: 'We need more sustainable solutions.'",
+        "correctAnswer": "Wir brauchen mehr nachhaltige Lösungen.",
+        "acceptableAnswers": []
+      },
+      "explanation": "This sentence highlights the need for sustainable solutions in society.",
+      "hint": "Think about the word for 'sustainable'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct option: 'Wir müssen unsere Umwelt schützen.'",
+      "content": {
+        "ttsText": "Wir müssen unsere Umwelt schützen.",
+        "ttsLang": "de-DE",
+        "options": [
+          "We must protect our environment.",
+          "We must pollute our environment.",
+          "We must ignore our environment."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence emphasizes the importance of protecting the environment.",
+      "hint": "Focus on the word 'schützen'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in German: 'What solutions do you suggest for environmental problems?'",
+      "content": {
+        "targetText": "Welche Lösungen schlagen Sie für Umweltprobleme vor?",
+        "context": "Ask someone for their suggestions on environmental issues.",
+        "acceptableVariants": [
+          "Welche Lösungen hast du für Umweltprobleme?",
+          "Was sind deine Vorschläge für Umweltprobleme?"
+        ]
+      },
+      "explanation": "This question invites discussion about potential solutions to environmental issues.",
+      "hint": "Start with 'Welche Lösungen'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the main problem caused by climate change?",
+      "content": {
+        "options": [
+          "Increase in temperatures",
+          "Less recycling",
+          "More trees",
+          "Less biodiversity"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The main issue with climate change is the increase in global temperatures, which leads to various environmental problems.",
+      "hint": "Think about the effects of warming.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Eine mögliche Lösung für das Problem ist ___ erneuerbare Energien.'",
+      "content": {
+        "sentence": "Eine mögliche Lösung für das Problem ist ___ erneuerbare Energien.",
+        "correctAnswer": "die Nutzung von",
+        "acceptableAnswers": [
+          "die Nutzung von"
+        ],
+        "options": [
+          "die Zunahme von",
+          "die Nutzung von",
+          "die Reduzierung von"
+        ]
+      },
+      "explanation": "Using renewable energy ('die Nutzung von erneuerbaren Energien') is a viable solution to environmental issues.",
+      "hint": "It involves using energy sources that are sustainable.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

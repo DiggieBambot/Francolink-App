@@ -1,0 +1,360 @@
+{
+  "lesson": {
+    "title": "Unit 4 Review",
+    "type": "REVIEW",
+    "slug": "de-b2-unit4-review"
+  },
+  "unit": "Idioms & Expressions",
+  "unitOrder": 4,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this unit review, you will consolidate your knowledge of German idioms and expressions learned in Unit 4. You will practice vocabulary, grammar points, and engage in a dialogue that incorporates these elements.",
+      "culturalNote": "In Germany, idioms are often used in everyday conversations, making language more colorful and expressive. Understanding these expressions can greatly enhance your ability to communicate naturally."
+    },
+    "vocabulary": [
+      {
+        "term": "der Apfel fällt nicht weit vom Stamm",
+        "translation": "the apple doesn't fall far from the tree",
+        "definition": "This idiom means that children often resemble their parents.",
+        "pronunciation": "dehr ap-fel felt nikht vayt fohm shtrahm",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Der Apfel fällt nicht weit vom Stamm, wie man sieht.",
+          "translation": "The apple doesn't fall far from the tree, as one can see."
+        },
+        "tip": "Remember that 'der Apfel' is masculine; its plural form is 'die Äpfel'."
+      },
+      {
+        "term": "eine Hand wäscht die andere",
+        "translation": "one hand washes the other",
+        "definition": "This expression signifies mutual assistance.",
+        "pronunciation": "ey-nuh hant vesht dee an-deh-reh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Eine Hand wäscht die andere, besonders im Beruf.",
+          "translation": "One hand washes the other, especially in the workplace."
+        },
+        "tip": "The word 'die Hand' is feminine; its plural is 'die Hände'."
+      },
+      {
+        "term": "das ist mir Wurst",
+        "translation": "I don't care",
+        "definition": "This phrase indicates indifference.",
+        "pronunciation": "das ist meer vorst",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Ob du kommst oder nicht, das ist mir Wurst.",
+          "translation": "Whether you come or not, I don't care."
+        },
+        "tip": "Note that 'die Wurst' is feminine; its plural is 'die Würste'."
+      },
+      {
+        "term": "über den Tellerrand schauen",
+        "translation": "to think outside the box",
+        "definition": "This idiom encourages innovative thinking.",
+        "pronunciation": "ue-ber den tel-er-rant shau-en",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Manchmal muss man über den Tellerrand schauen.",
+          "translation": "Sometimes one must think outside the box."
+        },
+        "tip": "Remember 'der Teller' is masculine; its plural is 'die Teller'."
+      },
+      {
+        "term": "die Nase voll haben",
+        "translation": "to be fed up",
+        "definition": "This expression indicates annoyance or frustration.",
+        "pronunciation": "dee nah-ze voll hah-ben",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Ich habe die Nase voll von der ständigen Kritik.",
+          "translation": "I am fed up with the constant criticism."
+        },
+        "tip": "'die Nase' is feminine; its plural is 'die Nasen'."
+      },
+      {
+        "term": "den Nagel auf den Kopf treffen",
+        "translation": "to hit the nail on the head",
+        "definition": "This phrase means to describe a situation accurately.",
+        "pronunciation": "den nah-gel auf den kopf treh-fen",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Du hast den Nagel auf den Kopf getroffen.",
+          "translation": "You hit the nail on the head."
+        },
+        "tip": "Note that 'der Nagel' is masculine; its plural is 'die Nägel'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Konjunktiv II for Hypothetical Situations",
+        "explanation": "The Konjunktiv II is used to express hypothetical situations or wishes. It often employs the auxiliary verb 'würde' combined with the infinitive, or uses specific forms of irregular verbs. This mood is essential for polite requests and expressing desires.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Konjunktiv II Form"
+          ],
+          "rows": [
+            [
+              "sein",
+              "wäre"
+            ],
+            [
+              "haben",
+              "hätte"
+            ],
+            [
+              "werden",
+              "würde"
+            ],
+            [
+              "gehen",
+              "ginge"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich Zeit hätte, würde ich mehr reisen.",
+            "translation": "If I had time, I would travel more.",
+            "breakdown": "This sentence uses 'hätte' and 'würde' to express a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive mood, e.g., 'Wenn ich Zeit habe' instead of 'Wenn ich Zeit hätte'.",
+          "Confusing 'würde' with 'will' in future contexts."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Future Plans and Challenges",
+      "context": "A coffee shop conversation between two friends catching up.",
+      "speakers": [
+        "Klaus",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hey Sophie, hast du schon Pläne für den Sommer?",
+          "translation": "Hey Sophie, do you have any plans for the summer?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich möchte nach Italien reisen, wenn ich genug Geld spare.",
+          "translation": "Yes, I want to travel to Italy if I save enough money.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt toll! Aber was ist, wenn du nicht genug Geld hast?",
+          "translation": "That sounds great! But what if you don't have enough money?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Dann werde ich einfach zu Hause bleiben und über den Tellerrand schauen.",
+          "translation": "Then I will just stay at home and think outside the box.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist eine gute Einstellung. Ich habe auch die Nase voll von der Arbeit.",
+          "translation": "That's a good attitude. I'm also fed up with work.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich verstehe, manchmal muss man sich eine Auszeit nehmen.",
+          "translation": "I understand, sometimes you have to take a break.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, und ich hoffe, dass ich bald die Gelegenheit dazu habe.",
+          "translation": "Yes, and I hope I will have the opportunity soon.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Wenn ich Zeit hätte, würde ich dich besuchen und wir könnten gemeinsam planen.",
+          "translation": "If I had time, I would visit you and we could plan together.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Idioms in German Culture",
+      "text": "Idioms and expressions are an integral part of the German language and culture. They often reflect cultural values and humor, making conversations more engaging. Mastering these idioms can help you connect better with native speakers.",
+      "funFact": "In Germany, there are idioms for almost every situation, and many native speakers use them instinctively in everyday language."
+    },
+    "summary": {
+      "keyPoints": [
+        "Familiarize yourself with common German idioms and their meanings.",
+        "Practice using the Konjunktiv II for hypothetical situations.",
+        "Engage in dialogues to enhance conversational skills.",
+        "Understand the cultural significance of idioms in communication."
+      ],
+      "nextSteps": "Continue practicing vocabulary and grammar points from this unit, and try to incorporate idioms into your conversations for more natural speech."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does the idiom 'der Apfel fällt nicht weit vom Stamm' mean?",
+      "content": {
+        "options": [
+          "The apple doesn't fall far from the tree.",
+          "One hand washes the other.",
+          "It's all the same to me.",
+          "To think outside the box."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "This idiom indicates that children often resemble their parents.",
+      "hint": "Think about family resemblance.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which idiom means 'to help each other'?",
+      "content": {
+        "options": [
+          "den Nagel auf den Kopf treffen",
+          "eine Hand wäscht die andere",
+          "über den Tellerrand schauen",
+          "die Nase voll haben"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The idiom 'eine Hand wäscht die andere' means to assist one another.",
+      "hint": "Think about mutual assistance.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the idiom: 'Das ist mir ___.'",
+      "content": {
+        "sentence": "Das ist mir ___.",
+        "correctAnswer": "Wurst",
+        "acceptableAnswers": [
+          "wurst",
+          "Wurst"
+        ],
+        "options": [
+          "Käse",
+          "Wurst",
+          "Brot",
+          "Milch"
+        ]
+      },
+      "explanation": "This idiom means 'I don't care' or 'It's all the same to me'.",
+      "hint": "Think about food you don't mind having.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Ich habe die Nase ___.'",
+      "content": {
+        "sentence": "Ich habe die Nase ___.",
+        "correctAnswer": "voll",
+        "acceptableAnswers": [
+          "voll",
+          "Voll"
+        ],
+        "options": [
+          "leer",
+          "voll",
+          "grün",
+          "lang"
+        ]
+      },
+      "explanation": "This idiom means 'I am fed up' or 'I've had enough'.",
+      "hint": "Think about being tired of something.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form the idiom: 'den', 'auf', 'Nagel', 'Kopf', 'treffen', 'den'",
+      "content": {
+        "words": [
+          "den",
+          "auf",
+          "Nagel",
+          "Kopf",
+          "treffen",
+          "den"
+        ],
+        "correctOrder": [
+          "den",
+          "Nagel",
+          "auf",
+          "den",
+          "Kopf",
+          "treffen"
+        ],
+        "translation": "to hit the nail on the head"
+      },
+      "explanation": "The correct order forms an idiom meaning to accurately describe a situation.",
+      "hint": "Think about precision in statements.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'Look beyond your own perspective.'",
+      "content": {
+        "prompt": "Translate to German: 'Look beyond your own perspective.'",
+        "correctAnswer": "Über den Tellerrand schauen.",
+        "acceptableAnswers": [
+          "Über den Tellerrand schauen"
+        ]
+      },
+      "explanation": "This phrase encourages considering broader viewpoints.",
+      "hint": "It's about expanding your horizons.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the German sentence and choose the correct idiom:",
+      "content": {
+        "ttsText": "Der Apfel fällt nicht weit vom Stamm.",
+        "ttsLang": "de-DE",
+        "options": [
+          "das ist mir Wurst",
+          "der Apfel fällt nicht weit vom Stamm",
+          "eine Hand wäscht die andere",
+          "über den Tellerrand schauen"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "You heard 'Der Apfel fällt nicht weit vom Stamm', which refers to family resemblance.",
+      "hint": "Listen for the apple and the tree.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in German: 'I have had enough of this situation.'",
+      "content": {
+        "targetText": "Ich habe die Nase voll von dieser Situation.",
+        "context": "Expressing frustration in a conversation.",
+        "acceptableVariants": [
+          "Ich habe die Nase voll von dieser Situation.",
+          "Ich habe die Nase voll."
+        ]
+      },
+      "explanation": "This is a common expression to indicate being fed up.",
+      "hint": "Use the idiom about having a nose.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

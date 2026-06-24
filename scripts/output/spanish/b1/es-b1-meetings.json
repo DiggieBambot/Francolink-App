@@ -1,0 +1,351 @@
+{
+  "lesson": {
+    "title": "Meetings & Presentations",
+    "type": "CONVERSATION",
+    "slug": "es-b1-meetings"
+  },
+  "unit": "Work & Career",
+  "unitOrder": 3,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary and phrases related to meetings and presentations in a work context. You will also practice using the present subjunctive to express opinions and suggestions during discussions.",
+      "culturalNote": "In many Latin American countries, meetings often start with informal greetings and small talk, reflecting the importance of personal relationships in business."
+    },
+    "vocabulary": [
+      {
+        "term": "la reunión",
+        "translation": "the meeting",
+        "definition": "A gathering of people to discuss topics.",
+        "pronunciation": "lah reh-oo-nyohn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La reunión es a las tres.",
+          "translation": "The meeting is at three."
+        },
+        "tip": "Remember that 'reunión' is feminine; use 'la' or 'una'."
+      },
+      {
+        "term": "la presentación",
+        "translation": "the presentation",
+        "definition": "A formal display of information to an audience.",
+        "pronunciation": "lah preh-sen-tah-syohn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo una presentación mañana.",
+          "translation": "I have a presentation tomorrow."
+        },
+        "tip": "Think of 'presentación' as related to 'present' in English."
+      },
+      {
+        "term": "el objetivo",
+        "translation": "the objective",
+        "definition": "The goal or purpose of a meeting or presentation.",
+        "pronunciation": "el ob-heh-tee-voh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El objetivo de la reunión es mejorar la comunicación.",
+          "translation": "The objective of the meeting is to improve communication."
+        },
+        "tip": "Remember that 'objetivo' is masculine; use 'el' or 'un'."
+      },
+      {
+        "term": "discutir",
+        "translation": "to discuss",
+        "definition": "To talk about something in detail.",
+        "pronunciation": "dis-koo-teer",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Vamos a discutir el nuevo proyecto.",
+          "translation": "We are going to discuss the new project."
+        },
+        "tip": "This verb is regular; practice its conjugation."
+      },
+      {
+        "term": "la agenda",
+        "translation": "the agenda",
+        "definition": "A list of topics to be discussed in a meeting.",
+        "pronunciation": "lah ah-hen-dah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Revisa la agenda antes de la reunión.",
+          "translation": "Check the agenda before the meeting."
+        },
+        "tip": "Think of 'agenda' as similar in both languages."
+      },
+      {
+        "term": "la propuesta",
+        "translation": "the proposal",
+        "definition": "A plan or suggestion put forward for consideration.",
+        "pronunciation": "lah proh-pweh-stah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Presentamos una propuesta nueva.",
+          "translation": "We are presenting a new proposal."
+        },
+        "tip": "Remember that 'propuesta' is feminine; use 'la' or 'una'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Present Subjunctive in Suggestions",
+        "explanation": "The present subjunctive is used to express wishes, doubts, or suggestions. It often follows phrases like 'Es importante que...' (It is important that...) or 'Espero que...' (I hope that...). To form it, take the first person singular form of the verb in the present indicative, drop the 'o', and add the appropriate endings.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Present Subjunctive"
+          ],
+          "rows": [
+            [
+              "hablar",
+              "hable"
+            ],
+            [
+              "comer",
+              "coma"
+            ],
+            [
+              "vivir",
+              "viva"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es importante que hable sobre el proyecto.",
+            "translation": "It is important that I speak about the project.",
+            "breakdown": "Here, 'hable' is the subjunctive form of 'hablar'."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: 'Es importante que hablo...' should be 'Es importante que hable...'.",
+          "Confusing the subjunctive forms: Remember to change the endings based on the subject."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Project",
+      "context": "In a meeting room discussing a new project.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, Luis. ¿Estás listo para la reunión?",
+          "translation": "Hi, Luis. Are you ready for the meeting?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, tengo la agenda lista.",
+          "translation": "Yes, I have the agenda ready.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Perfecto. ¿Cuál es el objetivo principal?",
+          "translation": "Perfect. What is the main objective?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "El objetivo es presentar nuestra nueva propuesta.",
+          "translation": "The objective is to present our new proposal.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Espero que todos participen en la discusión.",
+          "translation": "I hope everyone participates in the discussion.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Es importante que escuchemos las opiniones de todos.",
+          "translation": "It is important that we listen to everyone's opinions.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, vamos a discutir los puntos clave primero.",
+          "translation": "Yes, let's discuss the key points first.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Perfecto, comencemos.",
+          "translation": "Perfect, let's begin.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Business Etiquette in Latin America",
+      "text": "In Latin America, building personal relationships before getting down to business is highly valued. It's common to start meetings with small talk to establish rapport. This can sometimes mean meetings take longer than expected.",
+      "funFact": "In some countries, it is customary to greet everyone with a handshake or a kiss on the cheek, depending on the familiarity with the person."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to meetings and presentations.",
+        "Practiced using the present subjunctive for suggestions.",
+        "Engaged in a practical dialogue about discussing a project.",
+        "Gained insight into cultural practices in Latin American business settings."
+      ],
+      "nextSteps": "Practice using the vocabulary in real-life scenarios and try to create your own dialogues using the present subjunctive."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'la reunión' in English?",
+      "content": {
+        "options": [
+          "the meeting",
+          "the presentation",
+          "the agenda",
+          "the proposal"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La reunión' translates to 'the meeting' in English.",
+      "hint": "Think about a gathering for discussion.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'el objetivo' mean?",
+      "content": {
+        "options": [
+          "the goal",
+          "the agenda",
+          "the discussion",
+          "the proposal"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El objetivo' means 'the goal' in English.",
+      "hint": "It's what you aim to achieve.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'En la reunión, necesitamos ___ la agenda.'",
+      "content": {
+        "sentence": "En la reunión, necesitamos ___ la agenda.",
+        "correctAnswer": "discutir",
+        "acceptableAnswers": [
+          "hablar de",
+          "discutir"
+        ],
+        "options": [
+          "presentar",
+          "discutir",
+          "proponer",
+          "revisar"
+        ]
+      },
+      "explanation": "'Discutir' means 'to discuss,' which fits the context of the sentence.",
+      "hint": "This is about talking about something.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'La ___ debe ser clara y concisa.'",
+      "content": {
+        "sentence": "La ___ debe ser clara y concisa.",
+        "correctAnswer": "presentación",
+        "acceptableAnswers": [
+          "reunión",
+          "propuesta"
+        ],
+        "options": [
+          "presentación",
+          "reunión",
+          "discusión",
+          "agenda"
+        ]
+      },
+      "explanation": "The sentence indicates that a 'presentation' must be clear and concise.",
+      "hint": "This is something you do to show information.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Put the words in the correct order: 'la, discutir, agenda, tenemos, que'.",
+      "content": {
+        "words": [
+          "la",
+          "discutir",
+          "agenda",
+          "tenemos",
+          "que"
+        ],
+        "correctOrder": [
+          "tenemos",
+          "que",
+          "discutir",
+          "la",
+          "agenda"
+        ],
+        "translation": "We have to discuss the agenda."
+      },
+      "explanation": "The correct order makes a complete and grammatically correct sentence.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I need to present the proposal.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I need to present the proposal.'",
+        "correctAnswer": "Necesito presentar la propuesta.",
+        "acceptableAnswers": []
+      },
+      "explanation": "This is the correct translation of the given sentence.",
+      "hint": "Think about what 'propuesta' means.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'El objetivo de la reunión es claro.'",
+      "content": {
+        "ttsText": "El objetivo de la reunión es claro.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The goal of the meeting is clear.",
+          "The proposal of the meeting is clear.",
+          "The agenda of the meeting is clear."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation matches the original Spanish sentence.",
+      "hint": "Focus on the word 'objetivo'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'We need to discuss the proposal.'",
+      "content": {
+        "targetText": "Necesitamos discutir la propuesta.",
+        "context": "Translate this English sentence to Spanish.",
+        "acceptableVariants": [
+          "Debemos discutir la propuesta.",
+          "Es necesario discutir la propuesta."
+        ]
+      },
+      "explanation": "Both provided responses are valid translations of the English sentence.",
+      "hint": "Remember 'necesitar' means 'to need'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

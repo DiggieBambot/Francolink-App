@@ -1,0 +1,320 @@
+{
+  "lesson": {
+    "title": "Advanced Narrative Tenses",
+    "type": "GRAMMAR",
+    "slug": "es-b2-narrative-tenses"
+  },
+  "unit": "Arts & Literature",
+  "unitOrder": 7,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, students will explore advanced narrative tenses in Spanish, focusing on how to use the preterite, imperfect, and pluperfect tenses to enhance storytelling. By the end of this lesson, learners will be able to craft more nuanced narratives and articulate past events with greater clarity.",
+      "culturalNote": "In Latin American literature, the use of narrative tenses is crucial for creating rich, immersive stories that often reflect the region's complex history."
+    },
+    "vocabulary": [
+      {
+        "term": "el narrador",
+        "translation": "the narrator",
+        "definition": "The voice that tells the story.",
+        "pronunciation": "el nar-ra-dor",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El narrador de la novela es muy intrigante.",
+          "translation": "The narrator of the novel is very intriguing."
+        },
+        "tip": "Think of 'narrator' as the guide through a story."
+      },
+      {
+        "term": "la trama",
+        "translation": "the plot",
+        "definition": "The sequence of events in a story.",
+        "pronunciation": "la tra-ma",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La trama de la película es fascinante.",
+          "translation": "The plot of the movie is fascinating."
+        },
+        "tip": "Trama sounds like 'drama', which can help you remember it relates to story events."
+      },
+      {
+        "term": "el conflicto",
+        "translation": "the conflict",
+        "definition": "The main problem or struggle in a story.",
+        "pronunciation": "el con-flic-to",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El conflicto entre los personajes es central en la narrativa.",
+          "translation": "The conflict between the characters is central to the narrative."
+        },
+        "tip": "Remember that conflicts drive stories forward."
+      },
+      {
+        "term": "el clímax",
+        "translation": "the climax",
+        "definition": "The most intense or important point of a story.",
+        "pronunciation": "el clí-max",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El clímax de la historia es sorprendente.",
+          "translation": "The climax of the story is surprising."
+        },
+        "tip": "Climax is a term used in both English and Spanish, making it easy to remember."
+      },
+      {
+        "term": "la resolución",
+        "translation": "the resolution",
+        "definition": "The part of the story where conflicts are resolved.",
+        "pronunciation": "la re-so-lu-ción",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La resolución del cuento fue inesperada.",
+          "translation": "The resolution of the tale was unexpected."
+        },
+        "tip": "Think of it as the 'solution' to the story's problems."
+      },
+      {
+        "term": "el pasado perfecto",
+        "translation": "the pluperfect",
+        "definition": "A tense used to describe an action completed before another past action.",
+        "pronunciation": "el pa-sa-do per-fec-to",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Cuando llegué, él ya había salido.",
+          "translation": "When I arrived, he had already left."
+        },
+        "tip": "Relate it to 'perfect' in English to remember its completed aspect."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Narrative Tenses in Spanish",
+        "explanation": "In Spanish, narrative tenses such as the preterite, imperfect, and pluperfect are essential for storytelling. The preterite is used for completed actions, the imperfect for background actions or descriptions, and the pluperfect to indicate an action that was completed prior to another past action. Mastering these tenses allows for more dynamic and engaging narratives.",
+        "table": {
+          "headers": [
+            "Tense",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "Preterite",
+              "Completed actions."
+            ],
+            [
+              "Imperfect",
+              "Ongoing actions or descriptions."
+            ],
+            [
+              "Pluperfect",
+              "Actions completed before another past action."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Cuando era niño, jugaba todos los días en el parque.",
+            "translation": "When I was a child, I played every day in the park.",
+            "breakdown": "The imperfect 'era' sets the scene, while 'jugaba' indicates a habitual action."
+          },
+          {
+            "original": "Ya había terminado mi tarea cuando me llamaste.",
+            "translation": "I had already finished my homework when you called me.",
+            "breakdown": "The pluperfect 'había terminado' shows the action completed before 'me llamaste'."
+          }
+        ],
+        "commonMistakes": [
+          "Using the preterite instead of the imperfect for habitual actions: 'Cuando era niño, jugaba' (correct, not 'jugué').",
+          "Confusing the pluperfect with the perfect: 'ya había salido' (correct, not 'he salido')."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Book",
+      "context": "A conversation between two friends at a café about a recent book they read.",
+      "speakers": [
+        "Claudia",
+        "Javier"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Has leído 'Cien años de soledad'?",
+          "translation": "Have you read 'One Hundred Years of Solitude'?",
+          "note": "Reference to a classic Latin American novel."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, lo leí el verano pasado. Me encantó.",
+          "translation": "Yes, I read it last summer. I loved it."
+        },
+        {
+          "speaker": 0,
+          "text": "La trama es tan compleja. ¿Cuál fue tu parte favorita?",
+          "translation": "The plot is so complex. What was your favorite part?"
+        },
+        {
+          "speaker": 1,
+          "text": "Creo que el final fue sorprendente. Nunca lo vi venir.",
+          "translation": "I think the ending was surprising. I never saw it coming."
+        },
+        {
+          "speaker": 0,
+          "text": "Exactamente, y el uso del tiempo pasado es impresionante.",
+          "translation": "Exactly, and the use of past tense is impressive."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, el autor logra transmitir nostalgia y realismo mágico.",
+          "translation": "Yes, the author manages to convey nostalgia and magical realism."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué opinas del narrador? A veces me confundía.",
+          "translation": "What do you think of the narrator? Sometimes I was confused."
+        },
+        {
+          "speaker": 1,
+          "text": "Es un poco complicado, pero eso hace la historia más interesante.",
+          "translation": "It's a bit complicated, but that makes the story more interesting."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Role of Narrative in Latin American Literature",
+      "text": "Narrative structure plays a critical role in Latin American literature, often blending reality with magical elements. Authors like Gabriel García Márquez and Julio Cortázar use narrative tenses to create rich tapestries of storytelling that reflect cultural and historical complexities.",
+      "funFact": "Gabriel García Márquez's 'Cien años de soledad' is considered one of the greatest works of literature, often cited for its innovative narrative style."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding the preterite for completed actions.",
+        "Using the imperfect for descriptions and ongoing actions.",
+        "Employing the pluperfect to indicate actions prior to another past action.",
+        "Crafting engaging narratives through the effective use of these tenses."
+      ],
+      "nextSteps": "Practice writing short stories using these narrative tenses, and try to incorporate vocabulary from this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence uses the past perfect tense correctly?",
+      "content": {
+        "options": [
+          "I had read the book before the class started.",
+          "I read the book before the class starts.",
+          "I have read the book before the class started."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The first sentence correctly uses the past perfect to indicate an action completed before another action in the past.",
+      "hint": "Look for actions that happened before another past action.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'el narrador' mean in English?",
+      "content": {
+        "options": [
+          "the plot",
+          "the narrator",
+          "the conflict"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El narrador' translates to 'the narrator' in English, referring to the person telling the story.",
+      "hint": "Think about who tells stories.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Si el autor ___ (escribir) el final diferente, la historia habría cambiado.",
+      "content": {
+        "sentence": "Si el autor ___ el final diferente, la historia habría cambiado.",
+        "correctAnswer": "hubiera escrito",
+        "acceptableAnswers": [
+          "hubiera escrito"
+        ],
+        "options": [
+          "escribir",
+          "hubiera escrito",
+          "escribió"
+        ]
+      },
+      "explanation": "The correct answer is 'hubiera escrito', which is the past perfect subjunctive used in conditional sentences.",
+      "hint": "Think about what could have happened if things were different.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the correct form: Cuando ella llegó, él ya ___ (terminar) su tarea.",
+      "content": {
+        "sentence": "Cuando ella llegó, él ya ___ su tarea.",
+        "correctAnswer": "había terminado",
+        "acceptableAnswers": [
+          "había terminado"
+        ],
+        "options": [
+          "terminó",
+          "había terminado",
+          "termina"
+        ]
+      },
+      "explanation": "The sentence requires the past perfect form 'había terminado' to show that the task was completed before she arrived.",
+      "hint": "Use the past perfect to show what happened before another action.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The climax of the story was unexpected.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The climax of the story was unexpected.'",
+        "correctAnswer": "El clímax de la historia fue inesperado.",
+        "acceptableAnswers": [
+          "El clímax de la historia fue inesperado."
+        ]
+      },
+      "explanation": "The translation captures the essence of the original sentence using the correct terms.",
+      "hint": "Focus on key terms like 'climax' and 'unexpected'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation: 'El conflicto de la historia es intrigante.'",
+      "content": {
+        "ttsText": "El conflicto de la historia es intrigante.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The conflict of the story is intriguing.",
+          "The resolution of the story is intriguing.",
+          "The narrator of the story is intriguing."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation matches the original meaning of the Spanish sentence.",
+      "hint": "Listen for the word 'conflicto'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in Spanish: 'I have already finished my book.'",
+      "content": {
+        "targetText": "Ya he terminado mi libro.",
+        "context": "Translate and pronounce the sentence in Spanish.",
+        "acceptableVariants": [
+          "He terminado mi libro ya.",
+          "Ya terminé mi libro."
+        ]
+      },
+      "explanation": "This sentence uses the present perfect to indicate a completed action.",
+      "hint": "Use 'ya' for 'already'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

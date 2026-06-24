@@ -1,0 +1,359 @@
+{
+  "lesson": {
+    "title": "Making Arrangements",
+    "type": "CONVERSATION",
+    "slug": "es-a2-arrangements"
+  },
+  "unit": "Making Plans & Future",
+  "unitOrder": 3,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to make arrangements in Spanish using simple future tense and common phrases. You will practice dialogues that help you plan events with friends or family.",
+      "culturalNote": "In many Spanish-speaking countries, it is common to plan gatherings and events in advance, emphasizing family and social connections."
+    },
+    "vocabulary": [
+      {
+        "term": "la reunión",
+        "translation": "the meeting",
+        "definition": "a gathering of people for a specific purpose",
+        "pronunciation": "lah reh-oo-nyohn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo una reunión mañana.",
+          "translation": "I have a meeting tomorrow."
+        },
+        "tip": "Remember 'reunión' because it sounds like 'reunion', which is similar in English."
+      },
+      {
+        "term": "el horario",
+        "translation": "the schedule",
+        "definition": "a plan for when events will happen",
+        "pronunciation": "el oh-rah-ree-oh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "¿Cuál es tu horario para esta semana?",
+          "translation": "What is your schedule for this week?"
+        },
+        "tip": "Think of 'horario' as related to 'hour' since it deals with time."
+      },
+      {
+        "term": "confirmar",
+        "translation": "to confirm",
+        "definition": "to make sure something is definite",
+        "pronunciation": "kohn-feer-mahr",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Voy a confirmar la cita.",
+          "translation": "I am going to confirm the appointment."
+        },
+        "tip": "The word 'confirmar' is similar to the English 'confirm'."
+      },
+      {
+        "term": "la cita",
+        "translation": "the appointment",
+        "definition": "a scheduled meeting at a specific time",
+        "pronunciation": "lah see-tah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo una cita con el médico.",
+          "translation": "I have an appointment with the doctor."
+        },
+        "tip": "'Cita' is like 'site' in English, where you meet someone."
+      },
+      {
+        "term": "mañana",
+        "translation": "tomorrow",
+        "definition": "the day after today",
+        "pronunciation": "mah-nyah-nah",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Nos vemos mañana.",
+          "translation": "See you tomorrow."
+        },
+        "tip": "Easy to remember as it sounds like 'manana' in English."
+      },
+      {
+        "term": "el lugar",
+        "translation": "the place",
+        "definition": "a specific area or location",
+        "pronunciation": "el loo-gahr",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "¿Dónde será el lugar de la reunión?",
+          "translation": "Where will the meeting take place?"
+        },
+        "tip": "'Lugar' sounds like 'location', which can help you remember it."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Simple Future Tense",
+        "explanation": "The simple future tense in Spanish is used to talk about what will happen. It is formed by adding specific endings to the infinitive of the verb. This tense is useful for making plans and arrangements.",
+        "table": {
+          "headers": [
+            "Pronoun",
+            "Ending"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "é"
+            ],
+            [
+              "Tú",
+              "ás"
+            ],
+            [
+              "Él/Ella/Usted",
+              "á"
+            ],
+            [
+              "Nosotros",
+              "emos"
+            ],
+            [
+              "Ellos/Ellas/Ustedes",
+              "án"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Mañana, yo iré al cine.",
+            "translation": "Tomorrow, I will go to the cinema.",
+            "breakdown": "The verb 'ir' (to go) is in the future tense with the ending 'é' for 'yo'."
+          }
+        ],
+        "commonMistakes": [
+          "Using present tense instead of future tense. Correct: 'Yo iré' instead of 'Yo voy'.",
+          "Forgetting to use the infinitive form before adding endings. Correct: 'hablaré' instead of 'hablo'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Making Plans for the Weekend",
+      "context": "A conversation between two friends discussing their weekend plans.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, Luis. ¿Qué planes tienes para el fin de semana?",
+          "translation": "Hi, Luis. What plans do you have for the weekend?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, Ana. No tengo muchos planes. ¿Y tú?",
+          "translation": "Hi, Ana. I don't have many plans. And you?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Quiero ir al cine. ¿Te gustaría venir?",
+          "translation": "I want to go to the cinema. Would you like to come?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, me encantaría. ¿A qué hora será?",
+          "translation": "Yes, I would love to. What time will it be?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "La película empieza a las siete.",
+          "translation": "The movie starts at seven.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Perfecto. ¿Dónde nos encontramos?",
+          "translation": "Perfect. Where shall we meet?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Podemos encontrarnos en la entrada del cine.",
+          "translation": "We can meet at the entrance of the cinema.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Está bien. Te veré allí.",
+          "translation": "Alright. I will see you there.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Planning Events in Latin America",
+      "text": "In Latin America, social gatherings often involve family and friends and can be a large affair. It's common to plan these events well in advance to ensure everyone can attend.",
+      "funFact": "In some countries, like Mexico, there are celebrations that last for days, involving music, food, and family gatherings!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to making arrangements.",
+        "Practiced the simple future tense for planning.",
+        "Engaged in a dialogue about weekend plans.",
+        "Explored cultural aspects of social gatherings in Spanish-speaking countries."
+      ],
+      "nextSteps": "Practice using vocabulary in different contexts and try making your own dialogues about future plans."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la reunión' mean in English?",
+      "content": {
+        "options": [
+          "The meeting",
+          "The hour",
+          "The schedule",
+          "The place"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La reunión' translates to 'the meeting' in English.",
+      "hint": "Think of a business or group gathering.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'the schedule'?",
+      "content": {
+        "options": [
+          "la cita",
+          "el horario",
+          "confirmar",
+          "el lugar"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El horario' means 'the schedule' in English.",
+      "hint": "It helps you plan your day.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Mañana tengo una ___ con el doctor.'",
+      "content": {
+        "sentence": "Mañana tengo una ___ con el doctor.",
+        "correctAnswer": "cita",
+        "acceptableAnswers": [
+          "cita"
+        ],
+        "options": [
+          "reunión",
+          "cita",
+          "horario",
+          "lugar"
+        ]
+      },
+      "explanation": "The correct answer is 'cita', which means 'appointment'.",
+      "hint": "Think about a scheduled meeting with a doctor.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Necesito ___ la reunión para el viernes.'",
+      "content": {
+        "sentence": "Necesito ___ la reunión para el viernes.",
+        "correctAnswer": "confirmar",
+        "acceptableAnswers": [
+          "confirmar"
+        ],
+        "options": [
+          "confirmar",
+          "horario",
+          "cita",
+          "lugar"
+        ]
+      },
+      "explanation": "You need to 'confirm' the meeting.",
+      "hint": "It's about making sure something is definite.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'lugar / es / el / la / reunión'",
+      "content": {
+        "words": [
+          "lugar",
+          "es",
+          "el",
+          "la",
+          "reunión"
+        ],
+        "correctOrder": [
+          "el",
+          "lugar",
+          "es",
+          "la",
+          "reunión"
+        ],
+        "translation": "The place is the meeting."
+      },
+      "explanation": "The correct order forms a meaningful sentence in Spanish.",
+      "hint": "Start with the article.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I will confirm the meeting tomorrow.'",
+      "content": {
+        "correctAnswer": "Confirmaré la reunión mañana.",
+        "acceptableAnswers": [
+          "Confirmaré la reunión mañana"
+        ],
+        "prompt": "Translate to Spanish: 'I will confirm the meeting tomorrow.'"
+      },
+      "explanation": "The sentence is future tense, indicating a plan.",
+      "hint": "Look for the future tense in Spanish.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Confirmamos la cita.'",
+      "content": {
+        "ttsText": "Confirmamos la cita.",
+        "ttsLang": "es-ES",
+        "options": [
+          "We confirm the appointment.",
+          "We confirm the meeting.",
+          "We confirm the schedule.",
+          "We confirm the place."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'We confirm the appointment.'",
+      "hint": "Listen for the word related to appointments.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I have a meeting at the place.'",
+      "content": {
+        "targetText": "Tengo una reunión en el lugar.",
+        "context": "Translate and pronounce this sentence.",
+        "acceptableVariants": [
+          "Tengo una reunión en el lugar."
+        ]
+      },
+      "explanation": "This sentence uses the vocabulary from the unit.",
+      "hint": "Think about where the meeting is.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

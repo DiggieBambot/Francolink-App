@@ -1,0 +1,366 @@
+{
+  "lesson": {
+    "title": "The Simple Future Tense",
+    "type": "GRAMMAR",
+    "slug": "es-a2-simple-future"
+  },
+  "unit": "Making Plans & Future",
+  "unitOrder": 3,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about the Simple Future Tense in Spanish, which is used to talk about plans and predictions. You will also practice vocabulary related to making future plans.",
+      "culturalNote": "In many Spanish-speaking cultures, discussing future plans is common in social settings, often accompanied by family gatherings or celebrations."
+    },
+    "vocabulary": [
+      {
+        "term": "el plan",
+        "translation": "the plan",
+        "definition": "a detailed proposal for doing or achieving something",
+        "pronunciation": "el plahn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo un plan para el fin de semana.",
+          "translation": "I have a plan for the weekend."
+        },
+        "tip": "Remember that 'plan' is masculine in Spanish."
+      },
+      {
+        "term": "ir a",
+        "translation": "to go to",
+        "definition": "used to express going somewhere",
+        "pronunciation": "ear ah",
+        "partOfSpeech": "verb phrase",
+        "exampleSentence": {
+          "original": "Voy a la tienda mañana.",
+          "translation": "I am going to the store tomorrow."
+        },
+        "tip": "Use 'ir a' followed by an infinitive verb to express future intentions."
+      },
+      {
+        "term": "mañana",
+        "translation": "tomorrow",
+        "definition": "the day after today",
+        "pronunciation": "mahn-yah-nah",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Mañana voy al cine.",
+          "translation": "Tomorrow I am going to the movies."
+        },
+        "tip": "This is a key word for talking about future events."
+      },
+      {
+        "term": "la semana",
+        "translation": "the week",
+        "definition": "a period of seven days",
+        "pronunciation": "lah seh-mah-nah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La semana que viene es mi cumpleaños.",
+          "translation": "Next week is my birthday."
+        },
+        "tip": "You can specify future events by mentioning the time period."
+      },
+      {
+        "term": "el próximo",
+        "translation": "the next",
+        "definition": "used to refer to the nearest time or event",
+        "pronunciation": "el prohk-see-mo",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "El próximo mes viajaré.",
+          "translation": "Next month I will travel."
+        },
+        "tip": "Use this word to indicate upcoming events."
+      },
+      {
+        "term": "voy a comer",
+        "translation": "I am going to eat",
+        "definition": "expression of intent to eat",
+        "pronunciation": "voy ah koh-mer",
+        "partOfSpeech": "verb phrase",
+        "exampleSentence": {
+          "original": "Voy a comer en un restaurante.",
+          "translation": "I am going to eat at a restaurant."
+        },
+        "tip": "Combine 'ir a' with an infinitive to express future actions."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Simple Future Tense",
+        "explanation": "The Simple Future Tense in Spanish is formed using the infinitive verb plus the appropriate endings. It is used to express actions that will happen in the future. The endings are the same for all regular verbs.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Ending"
+          ],
+          "rows": [
+            [
+              "yo",
+              "-é"
+            ],
+            [
+              "tú",
+              "-ás"
+            ],
+            [
+              "él/ella/usted",
+              "-á"
+            ],
+            [
+              "nosotros/nosotras",
+              "-emos"
+            ],
+            [
+              "vosotros/vosotras",
+              "-éis"
+            ],
+            [
+              "ellos/ellas/ustedes",
+              "-án"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo hablaré español.",
+            "translation": "I will speak Spanish.",
+            "breakdown": "The verb 'hablar' (to speak) is in the infinitive form, and the ending '-é' is added for 'yo' (I)."
+          },
+          {
+            "original": "Nosotros comeremos pizza.",
+            "translation": "We will eat pizza.",
+            "breakdown": "The verb 'comer' (to eat) is used with the ending '-emos' for 'nosotros' (we)."
+          }
+        ],
+        "commonMistakes": [
+          "Using the present tense instead of the future tense. Correction: Use 'voy a' plus the verb for future actions.",
+          "Incorrect verb endings. Correction: Ensure you use the correct ending for each subject."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Making Weekend Plans",
+      "context": "Two friends discussing their plans for the weekend.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué vas a hacer este fin de semana?",
+          "translation": "What are you going to do this weekend?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Voy a visitar a mis abuelos.",
+          "translation": "I am going to visit my grandparents.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¡Eso suena divertido! Yo voy a ir al cine.",
+          "translation": "That sounds fun! I am going to the movies.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¿Qué película vas a ver?",
+          "translation": "What movie are you going to see?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Voy a ver la nueva película de acción.",
+          "translation": "I am going to see the new action movie.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¿Te gustaría que fuéramos juntos?",
+          "translation": "Would you like us to go together?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, me encantaría. ¿A qué hora vamos?",
+          "translation": "Yes, I would love to. What time are we going?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Vamos a las siete.",
+          "translation": "We are going at seven.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Planning Family Gatherings",
+      "text": "In many Spanish-speaking countries, family gatherings are an important part of culture. Planning and discussing these events are common, often involving large meals and celebrations.",
+      "funFact": "In Mexico, families often gather for 'quinceañeras,' a celebration for girls turning fifteen, which includes elaborate planning."
+    },
+    "summary": {
+      "keyPoints": [
+        "The Simple Future Tense expresses intentions and plans.",
+        "It is formed by using the infinitive verb plus specific endings.",
+        "Common phrases include 'ir a' plus an infinitive for future plans.",
+        "Practice using vocabulary related to making plans."
+      ],
+      "nextSteps": "Try making your own sentences using the Simple Future Tense and practice talking about your future plans."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct way to say 'I am going to eat' in Spanish?",
+      "content": {
+        "options": [
+          "Voy a comer",
+          "Como",
+          "Comeré"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The phrase 'Voy a comer' correctly uses the simple future tense in Spanish.",
+      "hint": "Look for the phrase that starts with 'Voy a'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'tomorrow' in Spanish?",
+      "content": {
+        "options": [
+          "la semana",
+          "mañana",
+          "el próximo"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Mañana' translates to 'tomorrow' in English.",
+      "hint": "It's a word used to refer to the day after today.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'El próximo mes, yo ___ a España.'",
+      "content": {
+        "sentence": "El próximo mes, yo ___ a España.",
+        "correctAnswer": "voy",
+        "acceptableAnswers": [
+          "voy",
+          "iré"
+        ],
+        "options": [
+          "voy",
+          "como",
+          "tomo"
+        ]
+      },
+      "explanation": "'Voy' is the correct conjugation of 'ir' for the simple future in this context.",
+      "hint": "Think about the verb 'ir' in the future.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Mañana, nosotros ___ a la playa.'",
+      "content": {
+        "sentence": "Mañana, nosotros ___ a la playa.",
+        "correctAnswer": "vamos",
+        "acceptableAnswers": [
+          "vamos",
+          "iremos"
+        ],
+        "options": [
+          "vamos",
+          "comemos",
+          "salimos"
+        ]
+      },
+      "explanation": "'Vamos' is the correct form of 'ir' for 'we are going' in the future tense.",
+      "hint": "Use the first person plural form of 'ir'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: 'la semana / voy / a / el cine / ir'.",
+      "content": {
+        "words": [
+          "la semana",
+          "voy",
+          "a",
+          "el cine",
+          "ir"
+        ],
+        "correctOrder": [
+          "la semana",
+          "voy",
+          "a",
+          "ir",
+          "el cine"
+        ],
+        "translation": "next week I am going to the cinema"
+      },
+      "explanation": "The correct order forms a proper future tense sentence.",
+      "hint": "Start with the time expression.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I have a plan.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I have a plan.'",
+        "correctAnswer": "Tengo un plan.",
+        "acceptableAnswers": [
+          "Tengo un plan"
+        ]
+      },
+      "explanation": "The correct translation captures both the subject and the object.",
+      "hint": "Remember to use the verb 'tener'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Voy a estudiar mañana.'",
+      "content": {
+        "ttsText": "Voy a estudiar mañana.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I am going to study tomorrow.",
+          "I studied yesterday.",
+          "I will study next week."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation reflects the future tense and the time referenced.",
+      "hint": "Focus on the words 'estudiar' and 'mañana'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in Spanish: 'Next week, I am going to visit my friend.'",
+      "content": {
+        "targetText": "La próxima semana, voy a visitar a mi amigo.",
+        "context": "Translate this English sentence into Spanish.",
+        "acceptableVariants": [
+          "La próxima semana voy a visitar a mi amigo.",
+          "La semana que viene, voy a visitar a mi amigo."
+        ]
+      },
+      "explanation": "The sentence correctly uses the future tense in Spanish.",
+      "hint": "Focus on 'la próxima semana' for 'next week'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

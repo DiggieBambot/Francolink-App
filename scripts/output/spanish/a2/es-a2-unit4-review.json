@@ -1,0 +1,330 @@
+{
+  "lesson": {
+    "title": "Unit 4 Review",
+    "type": "REVIEW",
+    "slug": "es-a2-unit4-review"
+  },
+  "unit": "Health & Body",
+  "unitOrder": 4,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this review lesson, you will revisit key vocabulary and grammar related to health and body. You will practice using these words in context through dialogues and examples.",
+      "culturalNote": "In many Spanish-speaking countries, traditional medicine is still widely used alongside modern medicine. Herbal remedies and local practices often play a significant role in health."
+    },
+    "vocabulary": [
+      {
+        "term": "la salud",
+        "translation": "health",
+        "definition": "The state of being free from illness or injury.",
+        "pronunciation": "lah sah-lud",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es importante cuidar la salud.",
+          "translation": "It is important to take care of your health."
+        },
+        "tip": "Remember that 'salud' is often used in phrases like '¡Salud!' (Cheers!)"
+      },
+      {
+        "term": "el cuerpo",
+        "translation": "the body",
+        "definition": "The physical structure of a person or animal.",
+        "pronunciation": "el kwair-poh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El cuerpo humano tiene muchos órganos.",
+          "translation": "The human body has many organs."
+        },
+        "tip": "Think of 'cuerpo' as related to the word 'corporeal', which also refers to the body."
+      },
+      {
+        "term": "la cabeza",
+        "translation": "the head",
+        "definition": "The upper part of the body containing the brain, eyes, ears, nose, and mouth.",
+        "pronunciation": "lah kah-beh-sah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me duele la cabeza.",
+          "translation": "I have a headache."
+        },
+        "tip": "Remember 'cabeza' with the English word 'cab' (as in 'head of a vehicle')."
+      },
+      {
+        "term": "la medicina",
+        "translation": "medicine",
+        "definition": "A substance used for medical treatment.",
+        "pronunciation": "lah meh-dee-see-nah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Necesito medicina para el resfriado.",
+          "translation": "I need medicine for the cold."
+        },
+        "tip": "The word 'medicina' is similar in both Spanish and English."
+      },
+      {
+        "term": "el doctor",
+        "translation": "the doctor",
+        "definition": "A qualified practitioner of medicine.",
+        "pronunciation": "el dok-tor",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Voy al doctor mañana.",
+          "translation": "I am going to the doctor tomorrow."
+        },
+        "tip": "In Latin America, 'médico' is often used instead of 'doctor' in formal contexts."
+      },
+      {
+        "term": "la fiebre",
+        "translation": "fever",
+        "definition": "An abnormally high body temperature.",
+        "pronunciation": "lah fee-eh-breh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ella tiene fiebre.",
+          "translation": "She has a fever."
+        },
+        "tip": "Link 'fiebre' with 'fever' as they sound similar."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Preterite vs. Imperfect",
+        "explanation": "In Spanish, the preterite tense is used for actions that were completed in the past, while the imperfect tense describes ongoing actions or states. Use the preterite to talk about specific events and the imperfect for habitual actions.",
+        "table": {
+          "headers": [
+            "Tense",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "Preterite",
+              "Completed actions"
+            ],
+            [
+              "Imperfect",
+              "Habitual actions or descriptions"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ayer fui al médico.",
+            "translation": "Yesterday I went to the doctor.",
+            "breakdown": "Here, 'fui' (went) is preterite, indicating a completed action."
+          },
+          {
+            "original": "Cuando era niño, iba al médico cada año.",
+            "translation": "When I was a child, I went to the doctor every year.",
+            "breakdown": "In this case, 'era' (was) and 'iba' (went) are imperfect, indicating a habitual action."
+          }
+        ],
+        "commonMistakes": [
+          "Using the imperfect for a specific event: 'Ayer comí' (Yesterday I ate) is correct, not 'Ayer comía'.",
+          "Confusing the preterite and imperfect: 'Cuando era niño, fui al médico' should be 'Cuando era niño, iba al médico'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Doctor's Office",
+      "context": "A conversation between a patient and a doctor during a routine check-up.",
+      "speakers": [
+        "Doctor",
+        "Patient"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¡Hola! ¿Cómo te sientes hoy?",
+          "translation": "Hello! How do you feel today?",
+          "note": "The doctor greets the patient."
+        },
+        {
+          "speaker": 1,
+          "text": "No me siento bien. Tengo fiebre.",
+          "translation": "I don't feel well. I have a fever."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Cuándo comenzaste a sentirte mal?",
+          "translation": "When did you start feeling bad?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ayer. Me duele la cabeza y la garganta.",
+          "translation": "Yesterday. I have a headache and a sore throat."
+        },
+        {
+          "speaker": 0,
+          "text": "Entiendo. ¿Tomaste medicina?",
+          "translation": "I understand. Did you take any medicine?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, tomé un jarabe.",
+          "translation": "Yes, I took some syrup."
+        },
+        {
+          "speaker": 0,
+          "text": "Eso es bueno. Necesito examinarte.",
+          "translation": "That's good. I need to examine you."
+        },
+        {
+          "speaker": 1,
+          "text": "Está bien. ¿Qué debo hacer?",
+          "translation": "Okay. What should I do?"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Traditional Health Practices",
+      "text": "In many Spanish-speaking regions, traditional practices are combined with modern medicine. Healers may use herbs and rituals to treat ailments, reflecting the cultural heritage.",
+      "funFact": "In Mexico, there is a rich tradition of using 'curanderos' (folk healers) who utilize natural remedies and spiritual healing."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review of health-related vocabulary",
+        "Understanding preterite and imperfect tenses",
+        "Practice through a realistic dialogue",
+        "Cultural insights into health practices"
+      ],
+      "nextSteps": "Continue practicing vocabulary with flashcards and try to write your own dialogues using the vocabulary and grammar learned."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'el doctor' in English?",
+      "content": {
+        "options": [
+          "the doctor",
+          "the medicine",
+          "the body"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El doctor' translates to 'the doctor' in English.",
+      "hint": "Think about who helps you when you're sick.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'health'?",
+      "content": {
+        "options": [
+          "la fiebre",
+          "la salud",
+          "el cuerpo"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'La salud' means 'health' in Spanish.",
+      "hint": "It's something you want to have!",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Yo tengo ____.'",
+      "content": {
+        "sentence": "Yo tengo ___",
+        "correctAnswer": "fiebre",
+        "acceptableAnswers": [],
+        "options": [
+          "cabeza",
+          "fiebre",
+          "medicina"
+        ]
+      },
+      "explanation": "'Fiebre' means 'fever', which is something you can have.",
+      "hint": "It often means you are sick.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ella toma ____ cuando está enferma.'",
+      "content": {
+        "sentence": "Ella toma ____ cuando está enferma.",
+        "correctAnswer": "medicina",
+        "acceptableAnswers": [],
+        "options": [
+          "agua",
+          "medicina",
+          "jugo"
+        ]
+      },
+      "explanation": "In this context, 'medicina' means 'medicine', which is what you take when you're sick.",
+      "hint": "It's what the doctor gives you.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'la / cabeza / me / duele'",
+      "content": {
+        "words": [
+          "la",
+          "cabeza",
+          "me",
+          "duele"
+        ],
+        "correctOrder": [
+          "me",
+          "duele",
+          "la",
+          "cabeza"
+        ],
+        "translation": "My head hurts."
+      },
+      "explanation": "The correct order expresses that your head is hurting.",
+      "hint": "Think about how to say that something hurts.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I have a headache.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I have a headache.'",
+        "correctAnswer": "Tengo dolor de cabeza.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation captures the meaning accurately.",
+      "hint": "Remember 'tener' means 'to have'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation.",
+      "content": {
+        "ttsText": "Yo tengo fiebre.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I have a fever.",
+          "I have a headache.",
+          "I have a doctor."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The spoken sentence translates to 'I have a fever.'",
+      "hint": "Focus on the word 'fiebre'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in Spanish: 'I need to see the doctor.'",
+      "content": {
+        "targetText": "Necesito ver al doctor.",
+        "context": "Translate and say this sentence.",
+        "acceptableVariants": []
+      },
+      "explanation": "This sentence expresses a need to visit a doctor.",
+      "hint": "Remember 'necesito' means 'I need'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

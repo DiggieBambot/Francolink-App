@@ -1,0 +1,344 @@
+{
+  "lesson": {
+    "title": "Global Challenges",
+    "type": "VOCABULARY",
+    "slug": "de-b2-global-challenges"
+  },
+  "unit": "Global Issues & Mastery",
+  "unitOrder": 8,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to global challenges, including environmental issues, social justice, and economic disparities. You'll also practice using this vocabulary in context and understand how to discuss these topics in German.",
+      "culturalNote": "Germany is known for its strong environmental policies, particularly in renewable energy and recycling, which reflect the country's commitment to addressing global challenges."
+    },
+    "vocabulary": [
+      {
+        "term": "der Klimawandel",
+        "translation": "climate change",
+        "definition": "the long-term alteration of temperature and typical weather patterns in a place",
+        "pronunciation": "dehr klee-mah-vahn-dahl",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Klimawandel ist eine der größten Herausforderungen unserer Zeit.",
+          "translation": "Climate change is one of the greatest challenges of our time."
+        },
+        "tip": "Remember that 'der' is masculine; the plural is 'die Klimawandel' (rarely used)."
+      },
+      {
+        "term": "die Armut",
+        "translation": "poverty",
+        "definition": "the state of being extremely poor",
+        "pronunciation": "dee ahr-moot",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Armut betrifft viele Menschen weltweit.",
+          "translation": "Poverty affects many people worldwide."
+        },
+        "tip": "This noun is feminine; the plural is 'die Armut' (used in a general sense)."
+      },
+      {
+        "term": "die Ungleichheit",
+        "translation": "inequality",
+        "definition": "the state of not being equal, especially in status, rights, and opportunities",
+        "pronunciation": "dee oon-glykh-hite",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Ungleichheit zwischen den Geschlechtern ist ein bedeutendes Thema.",
+          "translation": "Inequality between genders is an important issue."
+        },
+        "tip": "Feminine noun; plural is 'die Ungleichheiten'."
+      },
+      {
+        "term": "die Migration",
+        "translation": "migration",
+        "definition": "the movement of people from one place to another",
+        "pronunciation": "dee mee-graht-syon",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Migration kann sowohl positive als auch negative Auswirkungen haben.",
+          "translation": "Migration can have both positive and negative impacts."
+        },
+        "tip": "Feminine noun; plural is 'die Migrationen', but it's often used in singular."
+      },
+      {
+        "term": "die Nachhaltigkeit",
+        "translation": "sustainability",
+        "definition": "the ability to be maintained at a certain rate or level",
+        "pronunciation": "dee nahkh-halt-ihg-kite",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Nachhaltigkeit ist entscheidend für unsere Zukunft.",
+          "translation": "Sustainability is crucial for our future."
+        },
+        "tip": "Feminine noun; plural is 'die Nachhaltigkeiten'."
+      },
+      {
+        "term": "die soziale Gerechtigkeit",
+        "translation": "social justice",
+        "definition": "the view that everyone deserves equal economic, political, and social rights",
+        "pronunciation": "dee zo-tsyah-lah geh-rekht-ihg-kite",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Soziale Gerechtigkeit ist ein wichtiges Ziel für viele Organisationen.",
+          "translation": "Social justice is an important goal for many organizations."
+        },
+        "tip": "This is a compound noun phrase; 'die' is feminine and 'Gerechtigkeit' is also feminine."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Konjunktiv II for Hypothetical Situations",
+        "explanation": "The Konjunktiv II is used in German to express hypothetical or unreal situations. It often conveys wishes, suggestions, or polite requests. In discussions about global challenges, it can be used to present alternative scenarios or express what could be done.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Konjunktiv II"
+          ],
+          "rows": [
+            [
+              "haben",
+              "hätte"
+            ],
+            [
+              "sein",
+              "wäre"
+            ],
+            [
+              "machen",
+              "machte"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn wir mehr recyceln würden, wäre die Umwelt sauberer.",
+            "translation": "If we recycled more, the environment would be cleaner.",
+            "breakdown": "This sentence uses 'würden' (would) to express a hypothetical action."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of Konjunktiv II in hypothetical statements.",
+          "Forgetting to use 'würden' with the infinitive for conditional sentences."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Global Challenges",
+      "context": "A conversation between two friends discussing global issues over coffee.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Max, was hältst du vom Klimawandel?",
+          "translation": "Max, what do you think about climate change?",
+          "note": "Anna is starting the discussion."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich finde, dass wir dringend handeln müssen.",
+          "translation": "I think we need to act urgently."
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, das stimmt. Die Ungleichheit ist auch ein großes Problem.",
+          "translation": "Yes, that's true. Inequality is also a major problem."
+        },
+        {
+          "speaker": 1,
+          "text": "Genau! Viele Menschen haben nicht die gleichen Chancen.",
+          "translation": "Exactly! Many people do not have the same opportunities."
+        },
+        {
+          "speaker": 0,
+          "text": "Denkst du, dass soziale Gerechtigkeit erreicht werden kann?",
+          "translation": "Do you think social justice can be achieved?"
+        },
+        {
+          "speaker": 1,
+          "text": "Es wäre möglich, wenn wir alle zusammenarbeiten.",
+          "translation": "It would be possible if we all worked together."
+        },
+        {
+          "speaker": 0,
+          "text": "Und was ist mit der Migration? Das ist ein komplexes Thema.",
+          "translation": "And what about migration? That is a complex issue."
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, Migration kann sowohl Chancen als auch Herausforderungen mit sich bringen.",
+          "translation": "Yes, migration can bring both opportunities and challenges."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Environmental Awareness in Germany",
+      "text": "In Germany, there is a strong emphasis on environmental awareness and sustainability. Many German cities are known for their extensive recycling programs and use of renewable energy sources. This cultural focus reflects a commitment to addressing global challenges.",
+      "funFact": "Germany's 'Green Party' was the first political party in the world to have environmental issues as a major focus in their platform."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to global challenges.",
+        "Practiced using Konjunktiv II for hypothetical discussions.",
+        "Engaged in a dialogue about important global issues.",
+        "Gained insight into German-speaking culture's approach to environmental challenges."
+      ],
+      "nextSteps": "Continue practicing the vocabulary in different contexts and explore more about the impact of global challenges in German-speaking countries."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'climate change'?",
+      "content": {
+        "options": [
+          "der Klimawandel",
+          "die Armut",
+          "die Migration",
+          "die Ungleichheit"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'der Klimawandel', which translates to 'climate change' in English.",
+      "hint": "Think about environmental issues.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which term refers to 'sustainability' in German?",
+      "content": {
+        "options": [
+          "die Nachhaltigkeit",
+          "die soziale Gerechtigkeit",
+          "die Ungleichheit",
+          "die Armut"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Nachhaltigkeit' is the German word for 'sustainability', an important concept in global issues.",
+      "hint": "It relates to ecological balance.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Die ___ ist ein bedeutendes Problem in vielen Ländern.'",
+      "content": {
+        "sentence": "Die ___ ist ein bedeutendes Problem in vielen Ländern.",
+        "correctAnswer": "Armut",
+        "acceptableAnswers": [
+          "Armut"
+        ],
+        "options": [
+          "Ungleichheit",
+          "Migration",
+          "Nachhaltigkeit",
+          "Armut"
+        ]
+      },
+      "explanation": "The word 'Armut' means 'poverty' and fits well in this context.",
+      "hint": "It's a major social issue.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Die ___ zwischen den Reichen und den Armen wächst.'",
+      "content": {
+        "sentence": "Die ___ zwischen den Reichen und den Armen wächst.",
+        "correctAnswer": "Ungleichheit",
+        "acceptableAnswers": [
+          "Ungleichheit"
+        ],
+        "options": [
+          "Migration",
+          "Nachhaltigkeit",
+          "Ungleichheit",
+          "Gerechtigkeit"
+        ]
+      },
+      "explanation": "'Ungleichheit' translates to 'inequality', which is a growing issue.",
+      "hint": "Think about disparities in wealth.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'sozialer, Gerechtigkeit, die, wichtig, ist.'",
+      "content": {
+        "words": [
+          "sozialer",
+          "Gerechtigkeit",
+          "die",
+          "wichtig",
+          "ist"
+        ],
+        "correctOrder": [
+          "die",
+          "sozialer",
+          "Gerechtigkeit",
+          "ist",
+          "wichtig"
+        ],
+        "translation": "Social justice is important."
+      },
+      "explanation": "The correct order forms a meaningful sentence about social justice.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'Migration is a complex issue.'",
+      "content": {
+        "prompt": "Translate to German: 'Migration is a complex issue.'",
+        "correctAnswer": "Die Migration ist ein komplexes Thema.",
+        "acceptableAnswers": [
+          "Die Migration ist ein komplexes Problem.",
+          "Die Migration ist ein schwieriges Thema."
+        ]
+      },
+      "explanation": "The translation accurately conveys the meaning of the original English sentence.",
+      "hint": "Think about how to express 'complex' in German.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the following sentence and choose the correct translation: 'Die Nachhaltigkeit ist entscheidend für die Zukunft.'",
+      "content": {
+        "ttsText": "Die Nachhaltigkeit ist entscheidend für die Zukunft.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Sustainability is crucial for the future.",
+          "Sustainability is unimportant for the future.",
+          "Sustainability is optional for the future."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation reflects the importance of sustainability for the future.",
+      "hint": "Focus on the word 'entscheidend'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in German: 'Social justice is necessary for a fair society.'",
+      "content": {
+        "targetText": "Soziale Gerechtigkeit ist notwendig für eine gerechte Gesellschaft.",
+        "context": "Translate and pronounce this sentence.",
+        "acceptableVariants": [
+          "Soziale Gerechtigkeit ist wichtig für eine gerechte Gesellschaft."
+        ]
+      },
+      "explanation": "This sentence emphasizes the role of social justice in society.",
+      "hint": "Use 'notwendig' or 'wichtig' for 'necessary'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,322 @@
+[
+  {
+    "title": "Subjunctive — All Uses",
+    "type": "GRAMMAR",
+    "slug": "es-b2-subjunctive-all",
+    "unit": "Advanced Grammar Review",
+    "unitOrder": 1,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Perfect Tenses (Compound)",
+    "type": "GRAMMAR",
+    "slug": "es-b2-perfect-tenses",
+    "unit": "Advanced Grammar Review",
+    "unitOrder": 1,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Imperfect Subjunctive",
+    "type": "GRAMMAR",
+    "slug": "es-b2-imperfect-subjunctive",
+    "unit": "Advanced Grammar Review",
+    "unitOrder": 1,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Advanced Error Correction",
+    "type": "GRAMMAR",
+    "slug": "es-b2-error-correction",
+    "unit": "Advanced Grammar Review",
+    "unitOrder": 1,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 1 Review",
+    "type": "REVIEW",
+    "slug": "es-b2-unit1-review",
+    "unit": "Advanced Grammar Review",
+    "unitOrder": 1,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Persuasive Language",
+    "type": "VOCABULARY",
+    "slug": "es-b2-persuasive-lang",
+    "unit": "Persuasion & Argument",
+    "unitOrder": 2,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Emphasis & Word Order",
+    "type": "GRAMMAR",
+    "slug": "es-b2-emphasis",
+    "unit": "Persuasion & Argument",
+    "unitOrder": 2,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Constructing an Argument",
+    "type": "CONVERSATION",
+    "slug": "es-b2-argument",
+    "unit": "Persuasion & Argument",
+    "unitOrder": 2,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Formal vs Informal Register",
+    "type": "CONVERSATION",
+    "slug": "es-b2-register",
+    "unit": "Persuasion & Argument",
+    "unitOrder": 2,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 2 Review",
+    "type": "REVIEW",
+    "slug": "es-b2-unit2-review",
+    "unit": "Persuasion & Argument",
+    "unitOrder": 2,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Negotiation Skills",
+    "type": "CONVERSATION",
+    "slug": "es-b2-negotiation",
+    "unit": "Professional Communication",
+    "unitOrder": 3,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Formal Writing Structures",
+    "type": "GRAMMAR",
+    "slug": "es-b2-formal-writing",
+    "unit": "Professional Communication",
+    "unitOrder": 3,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Presenting Complex Ideas",
+    "type": "CONVERSATION",
+    "slug": "es-b2-complex-ideas",
+    "unit": "Professional Communication",
+    "unitOrder": 3,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Workplace Diplomacy",
+    "type": "CONVERSATION",
+    "slug": "es-b2-diplomacy",
+    "unit": "Professional Communication",
+    "unitOrder": 3,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 3 Review",
+    "type": "REVIEW",
+    "slug": "es-b2-unit3-review",
+    "unit": "Professional Communication",
+    "unitOrder": 3,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Common Spanish Idioms",
+    "type": "VOCABULARY",
+    "slug": "es-b2-idioms",
+    "unit": "Idioms & Expressions",
+    "unitOrder": 4,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Colloquial Expressions",
+    "type": "VOCABULARY",
+    "slug": "es-b2-colloquial",
+    "unit": "Idioms & Expressions",
+    "unitOrder": 4,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Collocations & Word Partnerships",
+    "type": "VOCABULARY",
+    "slug": "es-b2-collocations",
+    "unit": "Idioms & Expressions",
+    "unitOrder": 4,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Refranes — Proverbs & Sayings",
+    "type": "VOCABULARY",
+    "slug": "es-b2-refranes",
+    "unit": "Idioms & Expressions",
+    "unitOrder": 4,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 4 Review",
+    "type": "REVIEW",
+    "slug": "es-b2-unit4-review",
+    "unit": "Idioms & Expressions",
+    "unitOrder": 4,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Analyzing Written Texts",
+    "type": "CONVERSATION",
+    "slug": "es-b2-analyze-texts",
+    "unit": "Critical Thinking",
+    "unitOrder": 5,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Concessive Structures (Aunque)",
+    "type": "GRAMMAR",
+    "slug": "es-b2-concessive",
+    "unit": "Critical Thinking",
+    "unitOrder": 5,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Identifying Bias & Tone",
+    "type": "CONVERSATION",
+    "slug": "es-b2-bias-tone",
+    "unit": "Critical Thinking",
+    "unitOrder": 5,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Summarizing & Paraphrasing",
+    "type": "CONVERSATION",
+    "slug": "es-b2-summarize",
+    "unit": "Critical Thinking",
+    "unitOrder": 5,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 5 Review",
+    "type": "REVIEW",
+    "slug": "es-b2-unit5-review",
+    "unit": "Critical Thinking",
+    "unitOrder": 5,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Science & Technology Vocabulary",
+    "type": "VOCABULARY",
+    "slug": "es-b2-science-vocab",
+    "unit": "Science & Innovation",
+    "unitOrder": 6,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Impersonal & Passive Reporting",
+    "type": "GRAMMAR",
+    "slug": "es-b2-impersonal",
+    "unit": "Science & Innovation",
+    "unitOrder": 6,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Discussing Innovation",
+    "type": "CONVERSATION",
+    "slug": "es-b2-innovation",
+    "unit": "Science & Innovation",
+    "unitOrder": 6,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Ethical Dilemmas",
+    "type": "CONVERSATION",
+    "slug": "es-b2-ethical",
+    "unit": "Science & Innovation",
+    "unitOrder": 6,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 6 Review",
+    "type": "REVIEW",
+    "slug": "es-b2-unit6-review",
+    "unit": "Science & Innovation",
+    "unitOrder": 6,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Arts & Literature Vocabulary",
+    "type": "VOCABULARY",
+    "slug": "es-b2-arts-vocab",
+    "unit": "Arts & Literature",
+    "unitOrder": 7,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Advanced Narrative Tenses",
+    "type": "GRAMMAR",
+    "slug": "es-b2-narrative-tenses",
+    "unit": "Arts & Literature",
+    "unitOrder": 7,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Film & Book Reviews",
+    "type": "CONVERSATION",
+    "slug": "es-b2-reviews",
+    "unit": "Arts & Literature",
+    "unitOrder": 7,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Expressing Nuanced Opinions",
+    "type": "CONVERSATION",
+    "slug": "es-b2-nuanced",
+    "unit": "Arts & Literature",
+    "unitOrder": 7,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 7 Review",
+    "type": "REVIEW",
+    "slug": "es-b2-unit7-review",
+    "unit": "Arts & Literature",
+    "unitOrder": 7,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Global Challenges",
+    "type": "VOCABULARY",
+    "slug": "es-b2-global-challenges",
+    "unit": "Global Issues & Mastery",
+    "unitOrder": 8,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Discourse Markers & Cohesion",
+    "type": "GRAMMAR",
+    "slug": "es-b2-discourse",
+    "unit": "Global Issues & Mastery",
+    "unitOrder": 8,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Panel Discussion Simulation",
+    "type": "CONVERSATION",
+    "slug": "es-b2-panel",
+    "unit": "Global Issues & Mastery",
+    "unitOrder": 8,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Formal Speech & Presentation",
+    "type": "CONVERSATION",
+    "slug": "es-b2-formal-speech",
+    "unit": "Global Issues & Mastery",
+    "unitOrder": 8,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Final Review & Celebration",
+    "type": "REVIEW",
+    "slug": "es-b2-final-review",
+    "unit": "Global Issues & Mastery",
+    "unitOrder": 8,
+    "lessonOrder": 5
+  }
+]

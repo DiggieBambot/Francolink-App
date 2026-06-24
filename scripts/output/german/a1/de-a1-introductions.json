@@ -1,0 +1,370 @@
+{
+  "lesson": {
+    "title": "Introducing Yourself",
+    "type": "CONVERSATION",
+    "slug": "de-a1-introductions"
+  },
+  "unit": "First Words & Greetings",
+  "unitOrder": 1,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to introduce yourself in German and ask basic questions about others. You will practice using simple sentences and vocabulary related to greetings and personal information.",
+      "culturalNote": "In Germany, it's common to greet people with a handshake. In Austria, a friendly kiss on the cheek is often used among friends."
+    },
+    "vocabulary": [
+      {
+        "term": "der Name",
+        "translation": "the name",
+        "definition": "A person's name.",
+        "pronunciation": "dehr Nah-meh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Name ist Anna.",
+          "translation": "My name is Anna."
+        },
+        "tip": "Remember, 'der' indicates it's a masculine noun."
+      },
+      {
+        "term": "die Stadt",
+        "translation": "the city",
+        "definition": "A large town or urban area.",
+        "pronunciation": "dee shtadt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich komme aus der Stadt.",
+          "translation": "I come from the city."
+        },
+        "tip": "'Die' indicates it's a feminine noun; it's useful for talking about places."
+      },
+      {
+        "term": "das Land",
+        "translation": "the country",
+        "definition": "A nation or area of land.",
+        "pronunciation": "dahs lahnd",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich komme aus dem Land.",
+          "translation": "I come from the country."
+        },
+        "tip": "'Das' indicates it's a neuter noun."
+      },
+      {
+        "term": "Hallo",
+        "translation": "Hello",
+        "definition": "A common greeting.",
+        "pronunciation": "hah-loh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Hallo, wie geht es dir?",
+          "translation": "Hello, how are you?"
+        },
+        "tip": "Use 'Hallo' in informal situations."
+      },
+      {
+        "term": "Ich heiße",
+        "translation": "I am called",
+        "definition": "Used to introduce your name.",
+        "pronunciation": "ikh high-suh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Ich heiße Lukas.",
+          "translation": "I am called Lukas."
+        },
+        "tip": "This phrase is used before stating your name."
+      },
+      {
+        "term": "Wie geht's?",
+        "translation": "How's it going?",
+        "definition": "A casual way to ask about someone's well-being.",
+        "pronunciation": "vee gates?",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Hallo, wie geht's?",
+          "translation": "Hello, how's it going?"
+        },
+        "tip": "A very informal and friendly greeting."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Introducing Yourself",
+        "explanation": "In German, when you introduce yourself, you use 'Ich heiße' followed by your name. Remember to use the correct gender articles for nouns. For example, 'der Name' for name, 'die Stadt' for city, and 'das Land' for country.",
+        "table": {
+          "headers": [
+            "Noun",
+            "Article"
+          ],
+          "rows": [
+            [
+              "Name",
+              "der"
+            ],
+            [
+              "Stadt",
+              "die"
+            ],
+            [
+              "Land",
+              "das"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich heiße Marie und ich komme aus der Stadt.",
+            "translation": "I am called Marie and I come from the city.",
+            "breakdown": "This sentence uses 'Ich heiße' to introduce Marie and 'ich komme aus' to indicate where she is from."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Ich bin Marie' instead of 'Ich heiße Marie' when introducing yourself. Use 'heißen' for names.",
+          "Using the wrong articles (e.g., saying 'die Name' instead of 'der Name'). Remember the gender!"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Meeting Someone New",
+      "context": "At a social gathering or an event.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo! Ich heiße Anna.",
+          "translation": "Hello! I am called Anna."
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo, Anna! Ich heiße Lukas.",
+          "translation": "Hello, Anna! I am called Lukas."
+        },
+        {
+          "speaker": 0,
+          "text": "Wie geht's, Lukas?",
+          "translation": "How's it going, Lukas?"
+        },
+        {
+          "speaker": 1,
+          "text": "Gut, danke! Und dir?",
+          "translation": "Good, thank you! And you?"
+        },
+        {
+          "speaker": 0,
+          "text": "Mir geht's auch gut.",
+          "translation": "I am also doing well."
+        },
+        {
+          "speaker": 1,
+          "text": "Woher kommst du?",
+          "translation": "Where do you come from?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich komme aus Deutschland.",
+          "translation": "I come from Germany."
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist schön! Ich komme aus Österreich.",
+          "translation": "That's nice! I come from Austria."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Social Greetings in German-Speaking Countries",
+      "text": "In German-speaking countries, greetings are important for making a good impression. It's common to use first names after a formal introduction. In Austria, people tend to be more formal initially.",
+      "funFact": "In Switzerland, it's customary to greet each person in a group with a handshake."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned how to introduce yourself using 'Ich heiße...'.",
+        "Practiced basic greetings like 'Hallo' and 'Wie geht's?'.",
+        "Discussed the importance of gendered articles with nouns.",
+        "Engaged in a dialogue about introducing oneself and asking about others."
+      ],
+      "nextSteps": "Practice introducing yourself and asking about others in German. Try using different names and cities!"
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'name'?",
+      "content": {
+        "options": [
+          "der Name",
+          "die Stadt",
+          "das Land"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'der Name', which means 'name' in German.",
+      "hint": "Think of how you introduce yourself.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase means 'How are you?' in German?",
+      "content": {
+        "options": [
+          "Hallo",
+          "Ich heiße",
+          "Wie geht's?"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Wie geht's?' is the correct way to ask 'How are you?' in German.",
+      "hint": "It's a common greeting.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich ___ Anna.'",
+      "content": {
+        "sentence": "Ich ___ Anna.",
+        "correctAnswer": "heiße",
+        "acceptableAnswers": [
+          "heiße"
+        ],
+        "options": [
+          "heiße",
+          "bin",
+          "habe"
+        ]
+      },
+      "explanation": "The correct answer is 'heiße', which means 'am called'.",
+      "hint": "It's how you introduce your name.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich komme aus ___.'",
+      "content": {
+        "sentence": "Ich komme aus ___.",
+        "correctAnswer": "Deutschland",
+        "acceptableAnswers": [
+          "Deutschland"
+        ],
+        "options": [
+          "Deutschland",
+          "Berlin",
+          "Frankreich"
+        ]
+      },
+      "explanation": "The correct answer is 'Deutschland', meaning 'Germany'.",
+      "hint": "It's the name of a country.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'heiße Ich Anna'.",
+      "content": {
+        "words": [
+          "heiße",
+          "Ich",
+          "Anna"
+        ],
+        "correctOrder": [
+          "Ich",
+          "heiße",
+          "Anna"
+        ],
+        "translation": "I am called Anna."
+      },
+      "explanation": "The correct order is 'Ich heiße Anna', which translates to 'I am called Anna'.",
+      "hint": "Start with 'I' in German.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I live in Berlin.'",
+      "content": {
+        "prompt": "Translate to German: 'I live in Berlin.'",
+        "correctAnswer": "Ich wohne in Berlin.",
+        "acceptableAnswers": [
+          "Ich lebe in Berlin."
+        ]
+      },
+      "explanation": "Both 'wohne' and 'lebe' translate to 'live', but 'wohne' is more common for residence.",
+      "hint": "Think of the word for 'live' in German.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Hallo, ich heiße Peter.'",
+      "content": {
+        "ttsText": "Hallo, ich heiße Peter.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Hello, my name is Peter.",
+          "Hi, I am Peter.",
+          "Greetings, my name is Peter."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'Hello, my name is Peter.'",
+      "hint": "Focus on the greeting.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in German: 'My name is John.'",
+      "content": {
+        "targetText": "Mein Name ist John.",
+        "context": "Introduce yourself in German.",
+        "acceptableVariants": [
+          "Ich heiße John."
+        ]
+      },
+      "explanation": "Both phrases are correct ways to introduce your name in German.",
+      "hint": "Remember to use 'mein' for 'my'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'die Stadt' mean in English?",
+      "content": {
+        "options": [
+          "the country",
+          "the city",
+          "the name"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Die Stadt' translates to 'the city' in English.",
+      "hint": "Think of urban places.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich komme aus ___.', where ___ is a country.",
+      "content": {
+        "sentence": "Ich komme aus ___.",
+        "correctAnswer": "Frankreich",
+        "acceptableAnswers": [
+          "Frankreich"
+        ],
+        "options": [
+          "Frankreich",
+          "Berlin",
+          "Spanien"
+        ]
+      },
+      "explanation": "The correct answer is 'Frankreich', which means 'France'.",
+      "hint": "It's another country in Europe.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

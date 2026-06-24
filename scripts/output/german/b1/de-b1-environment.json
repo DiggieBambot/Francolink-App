@@ -1,0 +1,367 @@
+{
+  "lesson": {
+    "title": "Environment & Nature",
+    "type": "VOCABULARY",
+    "slug": "de-b1-environment"
+  },
+  "unit": "Environment & Society",
+  "unitOrder": 6,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn important vocabulary related to the environment and nature in German. This will help you discuss ecological issues and express your opinions on environmental protection.",
+      "culturalNote": "Germany is known for its strong environmental policies, and many cities have extensive recycling programs and green spaces."
+    },
+    "vocabulary": [
+      {
+        "term": "die Umwelt",
+        "translation": "the environment",
+        "definition": "the natural world, as a whole or in a particular geographical area.",
+        "pronunciation": "dee OOM-velt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Umwelt ist sehr wichtig für unsere Gesundheit.",
+          "translation": "The environment is very important for our health."
+        },
+        "tip": "Remember that 'Umwelt' is feminine, so it uses 'die'."
+      },
+      {
+        "term": "der Klimawandel",
+        "translation": "climate change",
+        "definition": "the long-term alteration of temperature and typical weather patterns.",
+        "pronunciation": "dey KLEE-mah-vahn-dl",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Klimawandel betrifft uns alle.",
+          "translation": "Climate change affects us all."
+        },
+        "tip": "'Klimawandel' is masculine, so use 'der'."
+      },
+      {
+        "term": "die Natur",
+        "translation": "nature",
+        "definition": "the phenomena of the physical world collectively.",
+        "pronunciation": "dee nah-TOOR",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich liebe es, in der Natur zu sein.",
+          "translation": "I love being in nature."
+        },
+        "tip": "Remember that 'Natur' is feminine, so it uses 'die'."
+      },
+      {
+        "term": "der Umweltschutz",
+        "translation": "environmental protection",
+        "definition": "the practice of protecting the natural environment.",
+        "pronunciation": "dey OOM-velt-shoots",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Umweltschutz ist ein wichtiges Thema.",
+          "translation": "Environmental protection is an important topic."
+        },
+        "tip": "'Umweltschutz' is masculine, so use 'der'."
+      },
+      {
+        "term": "die Ressource",
+        "translation": "resource",
+        "definition": "a stock or supply of materials or assets.",
+        "pronunciation": "dee reh-SOOR-tsah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wasser ist eine wichtige Ressource.",
+          "translation": "Water is an important resource."
+        },
+        "tip": "'Ressource' is feminine, so it uses 'die'."
+      },
+      {
+        "term": "der Abfall",
+        "translation": "waste",
+        "definition": "material that is no longer wanted or needed.",
+        "pronunciation": "dey AHB-fahl",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wir sollten den Abfall reduzieren.",
+          "translation": "We should reduce waste."
+        },
+        "tip": "'Abfall' is masculine, so use 'der'."
+      },
+      {
+        "term": "die Verschmutzung",
+        "translation": "pollution",
+        "definition": "the presence of harmful substances in the environment.",
+        "pronunciation": "dee fer-SHMOO-tsung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Verschmutzung der Luft ist gefährlich.",
+          "translation": "Air pollution is dangerous."
+        },
+        "tip": "'Verschmutzung' is feminine, so it uses 'die'."
+      },
+      {
+        "term": "der Schutz",
+        "translation": "protection",
+        "definition": "the action of protecting something.",
+        "pronunciation": "dey shootz",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Schutz der Tiere ist wichtig.",
+          "translation": "The protection of animals is important."
+        },
+        "tip": "'Schutz' is masculine, so use 'der'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subordinate Clauses with 'weil'",
+        "explanation": "In German, you often use subordinate clauses to give reasons. The word 'weil' means 'because' and is used to introduce a reason. The verb in the subordinate clause moves to the end of the clause. This structure can help you explain why something happens.",
+        "table": {
+          "headers": [
+            "German Sentence",
+            "English Translation"
+          ],
+          "rows": [
+            [
+              "Ich recycle, weil ich die Umwelt schützen möchte.",
+              "I recycle because I want to protect the environment."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Er fährt mit dem Fahrrad, weil er die Natur liebt.",
+            "translation": "He rides his bike because he loves nature.",
+            "breakdown": "The main clause is 'Er fährt mit dem Fahrrad' (He rides his bike), and the reason is given in the subordinate clause 'weil er die Natur liebt' (because he loves nature)."
+          }
+        ],
+        "commonMistakes": [
+          "Incorrect: Ich recycle, ich die Umwelt schützen möchte. (Correct: Ich recycle, weil ich die Umwelt schützen möchte.)",
+          "Incorrect: Sie geht nicht schwimmen, weil es kalt ist. (Correct: Sie geht nicht schwimmen, weil es kalt ist.)"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Environmental Issues",
+      "context": "A conversation between two friends who are discussing local environmental problems.",
+      "speakers": [
+        "Max",
+        "Lena"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Lena, hast du die Nachrichten über den Klimawandel gesehen?",
+          "translation": "Hello Lena, did you see the news about climate change?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich finde es schrecklich, wie die Verschmutzung die Umwelt beeinflusst.",
+          "translation": "Yes, I think it's terrible how pollution affects the environment.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Stimmt! Wir sollten mehr für den Umweltschutz tun.",
+          "translation": "That's right! We should do more for environmental protection.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Genau! Vielleicht können wir eine Gruppe gründen, um die Leute zu informieren.",
+          "translation": "Exactly! Maybe we can start a group to inform people.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist eine gute Idee! Wir könnten auch ein Recycling-Projekt organisieren.",
+          "translation": "That's a good idea! We could also organize a recycling project.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, und wir sollten die Natur in unserer Umgebung aufräumen.",
+          "translation": "Yes, and we should clean up the nature around us.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich bin dabei! Lass uns nächste Woche planen.",
+          "translation": "I’m in! Let’s plan next week.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Super! Ich freue mich darauf!",
+          "translation": "Great! I’m looking forward to it!",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Environmental Awareness in German-speaking Countries",
+      "text": "In Germany, Austria, and Switzerland, there is a strong emphasis on environmental issues. Many cities are known for their green initiatives, such as extensive public transport systems and recycling programs.",
+      "funFact": "Germany is home to the world's first ecological village, known as the 'Ökodorf', which focuses on sustainable living."
+    },
+    "summary": {
+      "keyPoints": [
+        "You learned vocabulary related to the environment and nature.",
+        "You practiced using subordinate clauses with 'weil'.",
+        "You engaged in a dialogue about environmental issues.",
+        "You discovered cultural insights about environmental awareness in German-speaking countries."
+      ],
+      "nextSteps": "Review the vocabulary and practice using 'weil' in your own sentences. Try to write a short paragraph about an environmental issue you care about."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'die Umwelt' mean in English?",
+      "content": {
+        "options": [
+          "The environment",
+          "The nature",
+          "The climate",
+          "The resource"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Umwelt' translates to 'the environment' in English.",
+      "hint": "Think about the surroundings we live in.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which term refers to 'climate change' in German?",
+      "content": {
+        "options": [
+          "die Natur",
+          "der Klimawandel",
+          "der Schutz",
+          "der Abfall"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Der Klimawandel' is the term for 'climate change' in German.",
+      "hint": "It consists of two parts: 'Klim' and 'Wandel'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Der ___ ist wichtig für die Menschheit.'",
+      "content": {
+        "sentence": "Der ___ ist wichtig für die Menschheit.",
+        "correctAnswer": "Umweltschutz",
+        "acceptableAnswers": [
+          "Umweltschutz"
+        ],
+        "options": [
+          "Klimawandel",
+          "Umweltschutz",
+          "Abfall",
+          "Ressource"
+        ]
+      },
+      "explanation": "'Umweltschutz' means 'environmental protection', which is crucial for humanity.",
+      "hint": "It starts with 'U'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Wir müssen den ___ reduzieren.'",
+      "content": {
+        "sentence": "Wir müssen den ___ reduzieren.",
+        "correctAnswer": "Abfall",
+        "acceptableAnswers": [
+          "Abfall"
+        ],
+        "options": [
+          "Klimawandel",
+          "Abfall",
+          "Schutz",
+          "Verschmutzung"
+        ]
+      },
+      "explanation": "'Abfall' translates to 'waste', which we need to reduce.",
+      "hint": "Think about trash or garbage.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a meaningful sentence: 'schützen können wir die Umwelt'",
+      "content": {
+        "words": [
+          "die",
+          "Umwelt",
+          "wir",
+          "schützen",
+          "können"
+        ],
+        "correctOrder": [
+          "wir",
+          "können",
+          "die",
+          "Umwelt",
+          "schützen"
+        ],
+        "translation": "We can protect the environment."
+      },
+      "explanation": "The correct order conveys that we have the ability to protect the environment.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'Pollution is a big problem.'",
+      "content": {
+        "prompt": "Translate to German: 'Pollution is a big problem.'",
+        "correctAnswer": "Verschmutzung ist ein großes Problem.",
+        "acceptableAnswers": [
+          "Verschmutzung ist ein großes Problem"
+        ]
+      },
+      "explanation": "The word 'Verschmutzung' means 'pollution', and the sentence structure follows standard German syntax.",
+      "hint": "Think about environmental issues.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Die Natur ist schön.'",
+      "content": {
+        "ttsText": "Die Natur ist schön.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The nature is beautiful.",
+          "The environment is beautiful.",
+          "The climate is beautiful.",
+          "The pollution is beautiful."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'The nature is beautiful.' in English.",
+      "hint": "Focus on the beauty of nature.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'We need to protect our resources.'",
+      "content": {
+        "targetText": "Wir müssen unsere Ressourcen schützen.",
+        "context": "Translate this English sentence into German.",
+        "acceptableVariants": [
+          "Wir sollten unsere Ressourcen schützen."
+        ]
+      },
+      "explanation": "The correct phrase emphasizes the need to protect resources.",
+      "hint": "Remember the word for protect.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

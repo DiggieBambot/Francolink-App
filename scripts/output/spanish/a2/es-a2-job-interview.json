@@ -1,0 +1,364 @@
+{
+  "lesson": {
+    "title": "A Job Interview",
+    "type": "CONVERSATION",
+    "slug": "es-a2-job-interview"
+  },
+  "unit": "Work & Studies",
+  "unitOrder": 5,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary and phrases useful for a job interview in Spanish. You will also practice a simple dialogue that simulates a job interview scenario.",
+      "culturalNote": "In many Spanish-speaking countries, personal relationships are important in business. It's common to greet your interviewer warmly before starting the formalities."
+    },
+    "vocabulary": [
+      {
+        "term": "la entrevista",
+        "translation": "the interview",
+        "definition": "A formal meeting to discuss a job position.",
+        "pronunciation": "lah en-ter-vista",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo una entrevista mañana.",
+          "translation": "I have an interview tomorrow."
+        },
+        "tip": "Remember that 'entrevista' is feminine, so use 'la' not 'el'."
+      },
+      {
+        "term": "el currículum",
+        "translation": "the resume",
+        "definition": "A document listing qualifications and experience.",
+        "pronunciation": "el koo-ree-koo-lum",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Necesito enviar mi currículum.",
+          "translation": "I need to send my resume."
+        },
+        "tip": "The word 'currículum' is borrowed from Latin and remains the same in many languages."
+      },
+      {
+        "term": "la experiencia",
+        "translation": "the experience",
+        "definition": "Knowledge or skill gained through involvement in activities.",
+        "pronunciation": "lah ex-peri-en-cia",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo tres años de experiencia.",
+          "translation": "I have three years of experience."
+        },
+        "tip": "The word 'experiencia' is also used in English; just remember it's feminine."
+      },
+      {
+        "term": "el salario",
+        "translation": "the salary",
+        "definition": "The amount of money paid for work.",
+        "pronunciation": "el sah-lah-ree-oh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "¿Cuál es el salario para este puesto?",
+          "translation": "What is the salary for this position?"
+        },
+        "tip": "Remember that 'salario' refers to compensation for work."
+      },
+      {
+        "term": "las habilidades",
+        "translation": "the skills",
+        "definition": "Abilities to do tasks well.",
+        "pronunciation": "las ah-bil-i-da-des",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mis habilidades son muy fuertes.",
+          "translation": "My skills are very strong."
+        },
+        "tip": "Skills are important to mention in a job interview."
+      },
+      {
+        "term": "el puesto",
+        "translation": "the position",
+        "definition": "A specific job or role within a company.",
+        "pronunciation": "el pwes-toh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Estoy interesado en el puesto de gerente.",
+          "translation": "I am interested in the manager position."
+        },
+        "tip": "Use 'el puesto' to refer to job titles."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Asking Questions in Spanish",
+        "explanation": "In Spanish, questions can be formed by changing the intonation or using question words. Common question words include 'qué' (what), 'cuándo' (when), 'dónde' (where), 'por qué' (why), and 'cómo' (how). Remember to use an inverted question mark at the start of the sentence.",
+        "table": {
+          "headers": [
+            "Question Word",
+            "Meaning"
+          ],
+          "rows": [
+            [
+              "qué",
+              "what"
+            ],
+            [
+              "cómo",
+              "how"
+            ],
+            [
+              "dónde",
+              "where"
+            ],
+            [
+              "cuándo",
+              "when"
+            ],
+            [
+              "por qué",
+              "why"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "¿Qué experiencia tienes?",
+            "translation": "What experience do you have?",
+            "breakdown": "The question word 'qué' is at the beginning, followed by the subject and verb."
+          }
+        ],
+        "commonMistakes": [
+          "Forgetting to use the inverted question mark. Correct form: '¿Cómo estás?' instead of 'Cómo estás?'",
+          "Using 'que' instead of 'qué' for questions. 'Qué' has an accent."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Job Interview Dialogue",
+      "context": "This conversation takes place during a job interview.",
+      "speakers": [
+        "Interviewer",
+        "Candidate"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, gracias por venir a la entrevista.",
+          "translation": "Hello, thank you for coming to the interview."
+        },
+        {
+          "speaker": 1,
+          "text": "Gracias a usted por la oportunidad.",
+          "translation": "Thank you for the opportunity."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Cuál es tu nombre?",
+          "translation": "What is your name?"
+        },
+        {
+          "speaker": 1,
+          "text": "Me llamo Juan.",
+          "translation": "My name is Juan."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué experiencia tienes?",
+          "translation": "What experience do you have?"
+        },
+        {
+          "speaker": 1,
+          "text": "Tengo dos años de experiencia en ventas.",
+          "translation": "I have two years of experience in sales."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Cuáles son tus habilidades?",
+          "translation": "What are your skills?"
+        },
+        {
+          "speaker": 1,
+          "text": "Soy bueno en comunicación y trabajo en equipo.",
+          "translation": "I am good at communication and teamwork."
+        },
+        {
+          "speaker": 0,
+          "text": "Gracias, Juan. ¿Tienes alguna pregunta?",
+          "translation": "Thank you, Juan. Do you have any questions?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, ¿cuál es el salario para este puesto?",
+          "translation": "Yes, what is the salary for this position?"
+        },
+        {
+          "speaker": 0,
+          "text": "El salario es competitivo.",
+          "translation": "The salary is competitive."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Business Culture in Latin America",
+      "text": "In Latin America, personal connections often play a significant role in business dealings. It is common to establish rapport before discussing business matters. A warm greeting is essential.",
+      "funFact": "In some countries, such as Mexico, it is customary to exchange business cards at the beginning of a meeting."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to job interviews.",
+        "Practiced forming questions in Spanish.",
+        "Engaged in a simulated job interview dialogue.",
+        "Gained insight into the cultural aspects of business in Latin America."
+      ],
+      "nextSteps": "Practice your interview questions and consider preparing a mock interview with a friend. Review the vocabulary and grammar points to reinforce your learning."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'el currículum' in English?",
+      "content": {
+        "options": [
+          "the job",
+          "the resume",
+          "the salary",
+          "the experience"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El currículum' translates to 'the resume' in English, which is a document used in job applications.",
+      "hint": "Think about what you provide when applying for a job.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la entrevista' mean?",
+      "content": {
+        "options": [
+          "the interview",
+          "the job",
+          "the application",
+          "the salary"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La entrevista' means 'the interview', which is a meeting to discuss a job.",
+      "hint": "It's the meeting where you answer questions.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Tengo mucha ___ en ventas.'",
+      "content": {
+        "sentence": "Tengo mucha ___ en ventas.",
+        "correctAnswer": "experiencia",
+        "acceptableAnswers": [
+          "experiencia"
+        ],
+        "options": [
+          "habilidades",
+          "experiencia",
+          "entrevista",
+          "currículum"
+        ]
+      },
+      "explanation": "The correct word is 'experiencia', which means experience.",
+      "hint": "Think about what you gain from working.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Quiero saber sobre el ___ de este trabajo.'",
+      "content": {
+        "sentence": "Quiero saber sobre el ___ de este trabajo.",
+        "correctAnswer": "salario",
+        "acceptableAnswers": [
+          "salario"
+        ],
+        "options": [
+          "currículum",
+          "puesto",
+          "salario",
+          "entrevista"
+        ]
+      },
+      "explanation": "'Salario' means 'salary', which is the payment for work.",
+      "hint": "It's what you earn.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'entrevista la es importante'",
+      "content": {
+        "words": [
+          "entrevista",
+          "la",
+          "es",
+          "importante"
+        ],
+        "correctOrder": [
+          "la",
+          "entrevista",
+          "es",
+          "importante"
+        ],
+        "translation": "The interview is important."
+      },
+      "explanation": "The correct order forms a meaningful sentence about the importance of the interview.",
+      "hint": "Start with the article.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'What are your skills?'",
+      "content": {
+        "prompt": "Translate to Spanish: 'What are your skills?'",
+        "correctAnswer": "¿Cuáles son tus habilidades?",
+        "acceptableAnswers": [
+          "¿Cuáles son tus habilidades?"
+        ]
+      },
+      "explanation": "The translation correctly asks about skills.",
+      "hint": "Think about how to ask about abilities.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct option: 'Tengo habilidades en programación.'",
+      "content": {
+        "ttsText": "Tengo habilidades en programación.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I have skills in programming.",
+          "I have a job in programming.",
+          "I have a salary in programming.",
+          "I have an interview in programming."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'I have skills in programming.'",
+      "hint": "Listen for the word 'habilidades'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say: 'I am applying for a job.'",
+      "content": {
+        "targetText": "Estoy solicitando un trabajo.",
+        "context": "Translate and say this sentence in Spanish.",
+        "acceptableVariants": [
+          "Estoy aplicando para un trabajo."
+        ]
+      },
+      "explanation": "This sentence expresses the action of applying for a job.",
+      "hint": "Use the verb 'solicitar'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

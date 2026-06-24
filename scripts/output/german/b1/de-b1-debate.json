@@ -1,0 +1,330 @@
+{
+  "lesson": {
+    "title": "Debate & Discussion Skills",
+    "type": "CONVERSATION",
+    "slug": "de-b1-debate"
+  },
+  "unit": "Future & Aspirations",
+  "unitOrder": 8,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary and phrases useful for debating and discussing your future aspirations in German. You will practice using subordinate clauses and polite expressions to express your opinions and ideas.",
+      "culturalNote": "Debates and discussions are an important part of German culture, often found in educational settings and public discourse. Engaging in debate helps develop critical thinking and communication skills."
+    },
+    "vocabulary": [
+      {
+        "term": "die Meinung",
+        "translation": "the opinion",
+        "definition": "A view or judgment formed about something.",
+        "pronunciation": "dee MY-noong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe eine andere Meinung.",
+          "translation": "I have a different opinion."
+        },
+        "tip": "Remember that 'die Meinung' is feminine, so it takes 'die' as the article."
+      },
+      {
+        "term": "die Zukunft",
+        "translation": "the future",
+        "definition": "The time that will come after the present.",
+        "pronunciation": "dee TSU-kunft",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich mache mir Gedanken über die Zukunft.",
+          "translation": "I am thinking about the future."
+        },
+        "tip": "'Die Zukunft' is also feminine, always use 'die' with it."
+      },
+      {
+        "term": "die Diskussion",
+        "translation": "the discussion",
+        "definition": "A conversation or debate about a specific topic.",
+        "pronunciation": "dee dis-ku-SYON",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Diskussion war sehr interessant.",
+          "translation": "The discussion was very interesting."
+        },
+        "tip": "Another feminine noun; remember to use 'die' with 'Diskussion'."
+      },
+      {
+        "term": "der Vorschlag",
+        "translation": "the suggestion",
+        "definition": "An idea or plan put forward for consideration.",
+        "pronunciation": "der FOR-shlahg",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe einen Vorschlag für die Diskussion.",
+          "translation": "I have a suggestion for the discussion."
+        },
+        "tip": "'Der Vorschlag' is masculine, so it takes 'der' as the article."
+      },
+      {
+        "term": "wenn",
+        "translation": "if/when",
+        "definition": "Used to introduce conditional clauses.",
+        "pronunciation": "ven",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Wenn ich Zeit habe, komme ich.",
+          "translation": "If I have time, I'll come."
+        },
+        "tip": "A key conjunction for forming conditional sentences."
+      },
+      {
+        "term": "weil",
+        "translation": "because",
+        "definition": "A conjunction used to introduce a reason.",
+        "pronunciation": "vile",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Ich bleibe zu Hause, weil es regnet.",
+          "translation": "I stay at home because it is raining."
+        },
+        "tip": "Use 'weil' to provide a reason in your sentences."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subordinate Clauses with 'dass', 'weil', and 'wenn'",
+        "explanation": "In German, subordinate clauses are introduced by conjunctions like 'dass' (that), 'weil' (because), and 'wenn' (if/when). These clauses provide additional information about the main clause. Remember that the verb in the subordinate clause goes to the end of the clause.",
+        "table": {
+          "headers": [
+            "Conjunction",
+            "Example"
+          ],
+          "rows": [
+            [
+              "dass",
+              "Ich glaube, dass wir gewinnen können."
+            ],
+            [
+              "weil",
+              "Ich bleibe zu Hause, weil ich müde bin."
+            ],
+            [
+              "wenn",
+              "Wenn ich Zeit habe, besuche ich dich."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich denke, dass die Zukunft wichtig ist.",
+            "translation": "I think that the future is important.",
+            "breakdown": "Main clause: 'Ich denke' + subordinate clause: 'dass die Zukunft wichtig ist'."
+          }
+        ],
+        "commonMistakes": [
+          "'Ich denke, dass ich gehe.' → Correct: 'Ich denke, dass ich gehen werde.'",
+          "'Ich bleibe hier weil ich müde.' → Correct: 'Ich bleibe hier, weil ich müde bin.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Future Aspirations",
+      "context": "A conversation between two friends, Anna and Lukas, about their future plans.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Was möchtest du in der Zukunft machen?",
+          "translation": "What do you want to do in the future?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich möchte Ingenieur werden, weil ich Technik liebe.",
+          "translation": "I want to become an engineer because I love technology."
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt spannend! Was denkst du, wenn du deinen Abschluss hast?",
+          "translation": "That sounds exciting! What do you think you will do when you graduate?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich glaube, dass ich ein Praktikum machen werde.",
+          "translation": "I believe that I will do an internship."
+        },
+        {
+          "speaker": 0,
+          "text": "Gute Idee! Ich möchte reisen, wenn ich genug Geld habe.",
+          "translation": "Good idea! I want to travel when I have enough money."
+        },
+        {
+          "speaker": 1,
+          "text": "Wo möchtest du hinreisen?",
+          "translation": "Where do you want to travel?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich würde gerne nach Japan gehen, weil die Kultur interessant ist.",
+          "translation": "I would like to go to Japan because the culture is interesting."
+        },
+        {
+          "speaker": 1,
+          "text": "Das hört sich toll an! Vielleicht können wir zusammen reisen.",
+          "translation": "That sounds great! Maybe we can travel together."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Debating in German Culture",
+      "text": "Debating is an integral part of the German educational system, where students are encouraged to express their opinions and engage critically with topics. This helps develop articulate speakers and fosters democratic values.",
+      "funFact": "In Germany, schools often have debate clubs where students can practice their skills in a formal setting."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to opinions and future aspirations.",
+        "Practiced using subordinate clauses with 'dass', 'weil', and 'wenn'.",
+        "Engaged in a dialogue about future plans.",
+        "Explored cultural insights related to debating in German-speaking countries."
+      ],
+      "nextSteps": "Practice forming your own sentences using the new vocabulary and grammar points, and try to engage in discussions with others about your future aspirations."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'opinion'?",
+      "content": {
+        "options": [
+          "die Diskussion",
+          "die Meinung",
+          "der Vorschlag",
+          "die Zukunft"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'die Meinung', which means 'opinion' in German.",
+      "hint": "Think about what you express in a debate.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'future' in German?",
+      "content": {
+        "options": [
+          "die Zukunft",
+          "die Diskussion",
+          "der Vorschlag",
+          "wenn"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Zukunft' translates to 'the future' in English.",
+      "hint": "Consider what comes after the present.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich habe einen ___ über die Zukunft.",
+      "content": {
+        "sentence": "Ich habe einen ___ über die Zukunft.",
+        "correctAnswer": "Vorschlag",
+        "acceptableAnswers": [
+          "Vorschlag"
+        ],
+        "options": [
+          "Vorschlag",
+          "Meinung",
+          "Diskussion"
+        ]
+      },
+      "explanation": "The word 'Vorschlag' means 'proposal', fitting in the context of discussing the future.",
+      "hint": "Think of what you might give in a discussion.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Wir sollten diskutieren, ___ wir die besten Ideen finden.",
+      "content": {
+        "sentence": "Wir sollten diskutieren, ___ wir die besten Ideen finden.",
+        "correctAnswer": "weil",
+        "acceptableAnswers": [
+          "weil"
+        ],
+        "options": [
+          "wenn",
+          "weil",
+          "ob"
+        ]
+      },
+      "explanation": "'Weil' translates to 'because', which explains the reason for the discussion.",
+      "hint": "It's a conjunction used for reasoning.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'We should discuss our future plans.'",
+      "content": {
+        "prompt": "Translate to German: 'We should discuss our future plans.'",
+        "correctAnswer": "Wir sollten unsere Zukunftspläne diskutieren.",
+        "acceptableAnswers": [
+          "Wir sollten unsere Zukunftspläne besprechen."
+        ]
+      },
+      "explanation": "The translation captures the essence of the original sentence.",
+      "hint": "Think about how to express 'our future plans'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct sentence: 'Die Zukunft ist wichtig.'",
+      "content": {
+        "ttsText": "Die Zukunft ist wichtig.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Die Zukunft ist unwichtig.",
+          "Die Zukunft ist wichtig.",
+          "Die Vergangenheit ist wichtig."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The statement emphasizes the importance of the future.",
+      "hint": "Listen for the key word 'wichtig'.",
+      "difficulty": "HARD",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say: 'My future plans include studying abroad.'",
+      "content": {
+        "targetText": "Meine Zukunftspläne beinhalten ein Studium im Ausland.",
+        "context": "Translate and say your future plans.",
+        "acceptableVariants": [
+          "Ich plane, im Ausland zu studieren."
+        ]
+      },
+      "explanation": "This sentence expresses a common aspiration for learners.",
+      "hint": "Think about studying in a different country.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say: 'I think discussions are important for our future.'",
+      "content": {
+        "targetText": "Ich denke, Diskussionen sind wichtig für unsere Zukunft.",
+        "context": "Express your opinion about discussions.",
+        "acceptableVariants": [
+          "Ich finde Diskussionen wichtig für unsere Zukunft."
+        ]
+      },
+      "explanation": "This sentence articulates an opinion on the value of discussions.",
+      "hint": "Focus on the significance of dialogue.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

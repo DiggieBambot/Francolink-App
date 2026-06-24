@@ -1,0 +1,320 @@
+{
+  "lesson": {
+    "title": "Unit 3 Review",
+    "type": "REVIEW",
+    "slug": "de-b2-unit3-review"
+  },
+  "unit": "Professional Communication",
+  "unitOrder": 3,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this Unit 3 Review, you will revisit key vocabulary and grammar points related to professional communication in German. Additionally, you'll practice a dialogue that incorporates these elements, enhancing your conversational skills.",
+      "culturalNote": "In German-speaking countries, professional communication often emphasizes formality and clarity, especially in business settings. Understanding the nuances of language can significantly impact professional relationships."
+    },
+    "vocabulary": [
+      {
+        "term": "die Kommunikation",
+        "translation": "communication",
+        "definition": "the act of exchanging information",
+        "pronunciation": "dee koh-moo-nee-kah-tsyon",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Kommunikation in einem Unternehmen ist entscheidend.",
+          "translation": "Communication in a company is crucial."
+        },
+        "tip": "Remember that 'die' indicates it's feminine. The plural form is 'die Kommunikationen'."
+      },
+      {
+        "term": "der Kunde",
+        "translation": "customer",
+        "definition": "a person who purchases goods or services",
+        "pronunciation": "dehr koon-deh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Kunde ist König.",
+          "translation": "The customer is king."
+        },
+        "tip": "It’s a masculine noun, so it uses 'der'. The plural is 'die Kunden'."
+      },
+      {
+        "term": "die Präsentation",
+        "translation": "presentation",
+        "definition": "a formal display of information",
+        "pronunciation": "dee pray-zen-tah-tsyon",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Präsentation war sehr informativ.",
+          "translation": "The presentation was very informative."
+        },
+        "tip": "This is another feminine noun, 'die'. The plural is 'die Präsentationen'."
+      },
+      {
+        "term": "das Gespräch",
+        "translation": "conversation",
+        "definition": "a dialogue or discussion between two or more people",
+        "pronunciation": "dahs ge-shpräch",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Gespräch war sehr angenehm.",
+          "translation": "The conversation was very pleasant."
+        },
+        "tip": "It's a neuter noun ('das'), and its plural is 'die Gespräche'."
+      },
+      {
+        "term": "die Verhandlung",
+        "translation": "negotiation",
+        "definition": "discussion aimed at reaching an agreement",
+        "pronunciation": "dee fer-han-dloong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Verhandlung dauerte mehrere Stunden.",
+          "translation": "The negotiation lasted several hours."
+        },
+        "tip": "This is feminine ('die'), and the plural is 'die Verhandlungen'."
+      },
+      {
+        "term": "der Bericht",
+        "translation": "report",
+        "definition": "a detailed account or statement of a situation",
+        "pronunciation": "dehr beh-reecht",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Bericht wurde pünktlich eingereicht.",
+          "translation": "The report was submitted on time."
+        },
+        "tip": "It's masculine ('der'), and the plural is 'die Berichte'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Konjunktiv II (Subjunctive II) Usage",
+        "explanation": "The Konjunktiv II is used to express hypothetical situations or wishes. It often appears in conditional sentences or polite requests. For example, 'Wenn ich Zeit hätte, würde ich mehr reisen.' (If I had time, I would travel more.) Understanding its formation and usage can enhance your ability to discuss scenarios that are not real.",
+        "table": {
+          "headers": [
+            "Verb (Infinitive)",
+            "Konjunktiv II (Example)"
+          ],
+          "rows": [
+            [
+              "haben",
+              "hätte"
+            ],
+            [
+              "sein",
+              "wäre"
+            ],
+            [
+              "gehen",
+              "ginge"
+            ],
+            [
+              "machen",
+              "machte"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich reich wäre, würde ich die Welt bereisen.",
+            "translation": "If I were rich, I would travel the world.",
+            "breakdown": "This sentence shows a hypothetical condition (being rich) and its consequence (traveling the world) using the Konjunktiv II."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative mood instead of the subjunctive in hypothetical sentences, e.g., 'Wenn ich Zeit habe' (incorrect) vs. 'Wenn ich Zeit hätte' (correct).",
+          "Confusing 'würde' with 'will' in future contexts. Remember that 'würde' is used for hypotheticals."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Negotiating a Deal",
+      "context": "This conversation takes place during a business meeting between a salesperson and a potential client.",
+      "speakers": [
+        "Max (Salesperson)",
+        "Sophie (Client)"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Guten Tag, Frau Sophie. Ich freue mich, Sie kennenzulernen.",
+          "translation": "Good day, Ms. Sophie. I am pleased to meet you."
+        },
+        {
+          "speaker": 1,
+          "text": "Guten Tag, Max. Ich freue mich ebenfalls.",
+          "translation": "Good day, Max. I am pleased to meet you as well."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich möchte Ihnen unser neues Produkt vorstellen.",
+          "translation": "I would like to present our new product to you."
+        },
+        {
+          "speaker": 1,
+          "text": "Das klingt interessant. Was sind die Hauptmerkmale?",
+          "translation": "That sounds interesting. What are the main features?"
+        },
+        {
+          "speaker": 0,
+          "text": "Es hat eine verbesserte Benutzeroberfläche und ist sehr benutzerfreundlich.",
+          "translation": "It has an improved user interface and is very user-friendly."
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist wichtig für unsere Mitarbeiter. Wie sieht es mit den Kosten aus?",
+          "translation": "That is important for our employees. What about the costs?"
+        },
+        {
+          "speaker": 0,
+          "text": "Wir können Ihnen einen Rabatt anbieten, wenn Sie sich entscheiden, heute zu kaufen.",
+          "translation": "We can offer you a discount if you decide to buy today."
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist ein guter Anreiz. Ich werde das mit meinem Team besprechen.",
+          "translation": "That is a good incentive. I will discuss this with my team."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Professional Etiquette in Germany",
+      "text": "In German-speaking countries, punctuality and preparation are highly valued in professional settings. Meetings often start on time, and participants are expected to come well-prepared.",
+      "funFact": "In Germany, it is common to address colleagues with their title and last name until a more informal relationship is established."
+    },
+    "summary": {
+      "keyPoints": [
+        "Revisiting key vocabulary related to professional communication.",
+        "Understanding the use of the Konjunktiv II for hypothetical situations.",
+        "Practicing a dialogue that integrates vocabulary and grammar.",
+        "Recognizing cultural norms in professional settings."
+      ],
+      "nextSteps": "Practice using the vocabulary in your own sentences and try to create hypothetical situations using the Konjunktiv II. Engage in conversations to reinforce your learning."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'the customer'?",
+      "content": {
+        "options": [
+          "der Kunde",
+          "die Kommunikation",
+          "die Präsentation",
+          "das Gespräch"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct word 'der Kunde' translates to 'the customer' in English.",
+      "hint": "It's a masculine noun.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which term refers to 'the negotiation' in German?",
+      "content": {
+        "options": [
+          "die Verhandlung",
+          "der Bericht",
+          "die Präsentation",
+          "das Gespräch"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The term 'die Verhandlung' means 'the negotiation'.",
+      "hint": "It's a feminine noun.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Die ___ ist sehr wichtig für den Erfolg.'",
+      "content": {
+        "sentence": "Die ___ ist sehr wichtig für den Erfolg.",
+        "correctAnswer": "Präsentation",
+        "acceptableAnswers": [
+          "Präsentation"
+        ],
+        "options": [
+          "Kommunikation",
+          "Präsentation",
+          "Verhandlung",
+          "Bericht"
+        ]
+      },
+      "explanation": "The correct answer is 'Präsentation', which means 'presentation' in English.",
+      "hint": "Think about what is important for success in a business context.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Wir müssen das ___ schriftlich festhalten.'",
+      "content": {
+        "sentence": "Wir müssen das ___ schriftlich festhalten.",
+        "correctAnswer": "Gespräch",
+        "acceptableAnswers": [
+          "Gespräch"
+        ],
+        "options": [
+          "Bericht",
+          "Gespräch",
+          "Verhandlung",
+          "Kommunikation"
+        ]
+      },
+      "explanation": "The correct answer is 'Gespräch', which means 'conversation'.",
+      "hint": "Consider what needs to be documented after a discussion.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'Effective communication is key.'",
+      "content": {
+        "correctAnswer": "Effektive Kommunikation ist der Schlüssel.",
+        "acceptableAnswers": [
+          "Effektive Kommunikation ist der Schlüssel."
+        ]
+      },
+      "explanation": "The translation captures the essence of the original sentence.",
+      "hint": "Think about the noun for 'communication'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation.",
+      "content": {
+        "ttsText": "Die Verhandlung war erfolgreich.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The negotiation was successful.",
+          "The presentation was successful.",
+          "The report was successful."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation of 'Die Verhandlung war erfolgreich.' is 'The negotiation was successful.'",
+      "hint": "Focus on the word for negotiation.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in German: 'I need to prepare for the meeting.'",
+      "content": {
+        "targetText": "Ich muss mich auf das Meeting vorbereiten.",
+        "context": "Translate and say this sentence.",
+        "acceptableVariants": [
+          "Ich muss mich auf das Meeting vorbereiten."
+        ]
+      },
+      "explanation": "This sentence is a correct translation and uses proper grammar.",
+      "hint": "Think about the verbs for 'need' and 'prepare'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

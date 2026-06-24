@@ -1,0 +1,341 @@
+{
+  "lesson": {
+    "title": "Preterite — Irregular Verbs",
+    "type": "GRAMMAR",
+    "slug": "es-a2-preterite-irregular"
+  },
+  "unit": "Stories & Memories",
+  "unitOrder": 2,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about irregular verbs in the preterite tense, which is used to describe completed actions in the past. You will practice using these verbs in sentences to tell stories and share memories.",
+      "culturalNote": "In many Latin American cultures, storytelling is an important tradition, often passed down through generations, making the use of the preterite tense very relevant."
+    },
+    "vocabulary": [
+      {
+        "term": "ir",
+        "translation": "to go",
+        "definition": "to move from one place to another",
+        "pronunciation": "eer",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ayer fui al mercado.",
+          "translation": "Yesterday I went to the market."
+        },
+        "tip": "Remember that 'ir' is irregular in the preterite."
+      },
+      {
+        "term": "ser",
+        "translation": "to be",
+        "definition": "used to describe identity or characteristics",
+        "pronunciation": "sehr",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ella fue mi profesora.",
+          "translation": "She was my teacher."
+        },
+        "tip": "Like 'ir', 'ser' is also irregular in the preterite."
+      },
+      {
+        "term": "tener",
+        "translation": "to have",
+        "definition": "to possess or own something",
+        "pronunciation": "teh-nehr",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Tuve un perro cuando era niño.",
+          "translation": "I had a dog when I was a child."
+        },
+        "tip": "The preterite form of 'tener' changes significantly."
+      },
+      {
+        "term": "hacer",
+        "translation": "to do/make",
+        "definition": "to perform an action or create something",
+        "pronunciation": "ah-sehr",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Hice la tarea anoche.",
+          "translation": "I did the homework last night."
+        },
+        "tip": "‘Hacer’ is often used in many expressions, so practice it well."
+      },
+      {
+        "term": "ver",
+        "translation": "to see",
+        "definition": "to perceive with the eyes",
+        "pronunciation": "behr",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Vi una película interesante.",
+          "translation": "I saw an interesting movie."
+        },
+        "tip": "The preterite form of 'ver' is also irregular."
+      },
+      {
+        "term": "dar",
+        "translation": "to give",
+        "definition": "to present something to someone",
+        "pronunciation": "dahr",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Le di un regalo a mi amigo.",
+          "translation": "I gave a gift to my friend."
+        },
+        "tip": "Notice how 'dar' is conjugated differently in the preterite."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Irregular Preterite Verbs",
+        "explanation": "In Spanish, some verbs do not follow the regular conjugation patterns in the preterite tense. These verbs are called irregular verbs. For example, 'ir' (to go) and 'ser' (to be) have the same conjugation in the preterite: fui, fuiste, fue, fuimos, fueron.",
+        "table": {
+          "headers": [
+            "Verb (to go)",
+            "Conjugation in Preterite"
+          ],
+          "rows": [
+            [
+              "ir",
+              "fui, fuiste, fue, fuimos, fueron"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Fui al cine.",
+            "translation": "I went to the cinema.",
+            "breakdown": "Here 'fui' is the first person singular form of 'ir' in the preterite."
+          }
+        ],
+        "commonMistakes": [
+          "Using the wrong tense: Don't use the imperfect instead of the preterite when talking about completed actions.",
+          "Confusing 'ir' and 'ser': Remember that both share the same forms in the preterite."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "A Day at the Park",
+      "context": "Two friends talking about their weekend plans at a park.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué hiciste el fin de semana?",
+          "translation": "What did you do last weekend?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Fui al parque con mi familia.",
+          "translation": "I went to the park with my family.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué vieron en el parque?",
+          "translation": "What did you see at the park?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Vimos muchas flores y pájaros.",
+          "translation": "We saw many flowers and birds.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Tuvieron un buen tiempo?",
+          "translation": "Did you have a good time?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, tuvimos un día hermoso.",
+          "translation": "Yes, we had a beautiful day.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué más hicieron?",
+          "translation": "What else did you do?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hicimos un picnic en la hierba.",
+          "translation": "We had a picnic on the grass.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Celebrating Stories",
+      "text": "Storytelling is a cherished tradition in many Spanish-speaking cultures. Families often gather to share stories from their past, which helps keep memories alive and teaches younger generations about their heritage.",
+      "funFact": "In Mexico, the Day of the Dead celebrates the lives of those who have passed, and stories about them are shared during family gatherings."
+    },
+    "summary": {
+      "keyPoints": [
+        "Irregular verbs in the preterite don't follow normal conjugation rules.",
+        "Common irregular verbs include 'ir', 'ser', 'hacer', 'ver', 'dar', and 'tener'.",
+        "Use the preterite to talk about completed actions in the past.",
+        "Practice using these verbs in sentences about your own experiences."
+      ],
+      "nextSteps": "Try to write a short paragraph using at least three irregular verbs in the preterite tense. Share your paragraph with a friend or language partner."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the preterite form of 'ir' for the subject 'yo'?",
+      "content": {
+        "options": [
+          "fui",
+          "iba",
+          "iré"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Fui' is the correct preterite form of 'ir' for the first person singular.",
+      "hint": "Think about the past.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence is correct?",
+      "content": {
+        "options": [
+          "Ella tuvo un perro.",
+          "Ella tiene un perro.",
+          "Ella tenía un perro."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence 'Ella tuvo un perro.' uses the correct preterite form of 'tener'.",
+      "hint": "It's about a specific moment in the past.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Nosotros ___ (hacer) la tarea ayer.",
+      "content": {
+        "sentence": "Nosotros ___ la tarea ayer.",
+        "correctAnswer": "hicimos",
+        "acceptableAnswers": [
+          "hicieron",
+          "hizo"
+        ],
+        "options": [
+          "hicimos",
+          "hicieron",
+          "hizo"
+        ]
+      },
+      "explanation": "The correct answer is 'hicimos', which is the preterite form for 'nosotros'.",
+      "hint": "Think about what 'we did' yesterday.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Yo ___ (ver) una película la semana pasada.",
+      "content": {
+        "sentence": "Yo ___ una película la semana pasada.",
+        "correctAnswer": "vi",
+        "acceptableAnswers": [
+          "ver",
+          "veo"
+        ],
+        "options": [
+          "vi",
+          "veo",
+          "ver"
+        ]
+      },
+      "explanation": "'Vi' is the correct preterite form of 'ver' for 'yo'.",
+      "hint": "It’s about something you saw in the past.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: (ser / fue / ayer / un día / especial)",
+      "content": {
+        "words": [
+          "ayer",
+          "fue",
+          "un",
+          "día",
+          "especial"
+        ],
+        "correctOrder": [
+          "ayer",
+          "fue",
+          "un",
+          "día",
+          "especial"
+        ],
+        "translation": "Yesterday was a special day."
+      },
+      "explanation": "The correct order forms a meaningful sentence in Spanish.",
+      "hint": "Start with the time reference.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I gave her a gift.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I gave her a gift.'",
+        "correctAnswer": "Le di un regalo.",
+        "acceptableAnswers": [
+          "Di un regalo a ella."
+        ]
+      },
+      "explanation": "'Le di un regalo.' is the correct translation using the preterite form of 'dar'.",
+      "hint": "Remember to use the indirect object for 'her'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct answer.",
+      "content": {
+        "ttsText": "Ayer fui al cine.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I went to the cinema yesterday.",
+          "I went to the beach yesterday.",
+          "I saw a movie yesterday."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'Yesterday I went to the cinema.'",
+      "hint": "Focus on the action that happened yesterday.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the sentence: 'They had a great time last weekend.'",
+      "content": {
+        "targetText": "Ellos tuvieron un gran tiempo el fin de semana pasado.",
+        "context": "Translate and say this sentence in Spanish.",
+        "acceptableVariants": [
+          "Ellos tuvieron un buen tiempo el fin de semana pasado.",
+          "Ellos pasaron un buen rato el fin de semana pasado."
+        ]
+      },
+      "explanation": "The sentence conveys the enjoyment of the past weekend using the preterite form of 'tener'.",
+      "hint": "Use the verb for 'to have' in past tense.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

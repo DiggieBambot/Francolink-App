@@ -1,0 +1,326 @@
+{
+  "lesson": {
+    "title": "Polite Konjunktiv II",
+    "type": "GRAMMAR",
+    "slug": "de-b1-konjunktiv-polite"
+  },
+  "unit": "Conditionals & Wishes",
+  "unitOrder": 4,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to use the Konjunktiv II in German to express politeness, hypotheticals, and wishes. You will also explore how to form polite requests and conditional sentences effectively.",
+      "culturalNote": "In Germany, politeness is highly valued in communication, especially in formal settings. Using the Konjunktiv II can help you sound more respectful."
+    },
+    "vocabulary": [
+      {
+        "term": "der Wunsch",
+        "translation": "the wish",
+        "definition": "A desire or hope for something.",
+        "pronunciation": "dehr voonsh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe einen Wunsch.",
+          "translation": "I have a wish."
+        },
+        "tip": "Remember that 'der Wunsch' is masculine, so it uses 'einen' in the accusative."
+      },
+      {
+        "term": "die Bitte",
+        "translation": "the request",
+        "definition": "An act of asking someone for something.",
+        "pronunciation": "dee bi-teh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das ist meine Bitte.",
+          "translation": "That is my request."
+        },
+        "tip": "The word 'die Bitte' is feminine, so it changes to 'meiner' in the genitive."
+      },
+      {
+        "term": "das Beispiel",
+        "translation": "the example",
+        "definition": "A representative case or instance.",
+        "pronunciation": "das bye-shpeel",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Kannst du mir ein Beispiel geben?",
+          "translation": "Can you give me an example?"
+        },
+        "tip": "Note that 'das Beispiel' is neuter; it uses 'ein' in the nominative."
+      },
+      {
+        "term": "höflich",
+        "translation": "polite",
+        "definition": "Showing good manners and respect.",
+        "pronunciation": "huhf-likh",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Er ist sehr höflich.",
+          "translation": "He is very polite."
+        },
+        "tip": "Adjectives in German can describe nouns; remember to adjust endings based on the noun's gender."
+      },
+      {
+        "term": "wenn",
+        "translation": "if/when",
+        "definition": "Used to introduce conditional clauses.",
+        "pronunciation": "ven",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Wenn ich Zeit hätte, würde ich kommen.",
+          "translation": "If I had time, I would come."
+        },
+        "tip": "'Wenn' is essential for forming conditional sentences."
+      },
+      {
+        "term": "würde",
+        "translation": "would",
+        "definition": "The conditional form of the verb 'werden' used for hypotheticals.",
+        "pronunciation": "vur-deh",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich würde es machen.",
+          "translation": "I would do it."
+        },
+        "tip": "Use 'würde' + infinitive for polite suggestions or hypotheticals."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Polite Konjunktiv II",
+        "explanation": "The Konjunktiv II is used to express hypotheticals, wishes, and polite requests. It is formed from the simple past stem of the verb, usually adding 'e' endings. For example, 'ich hätte' (I would have) comes from 'haben'. To make requests polite, use 'würde' plus the infinitive.",
+        "table": {
+          "headers": [
+            "Subject Pronoun",
+            "Konjunktiv II Form"
+          ],
+          "rows": [
+            [
+              "ich",
+              "hätte"
+            ],
+            [
+              "du",
+              "hättest"
+            ],
+            [
+              "er/sie/es",
+              "hätte"
+            ],
+            [
+              "wir",
+              "hätten"
+            ],
+            [
+              "ihr",
+              "hättet"
+            ],
+            [
+              "sie/Sie",
+              "hätten"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich wünschte, ich hätte mehr Zeit.",
+            "translation": "I wish I had more time.",
+            "breakdown": "This sentence uses 'wünschte' to express a wish and 'hätte' for the hypothetical."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'würde' with the subjunctive forms of other verbs. Remember, 'würde' is used with the infinitive.",
+          "Omitting the 'e' in endings for the Konjunktiv II forms. Always ensure to add it for correct conjugation."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Making a Polite Request",
+      "context": "A conversation between two friends planning a trip.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Könntest du mir bitte helfen?",
+          "translation": "Could you please help me?",
+          "note": "Using 'könntest' makes the request polite."
+        },
+        {
+          "speaker": 1,
+          "text": "Natürlich, was brauchst du?",
+          "translation": "Of course, what do you need?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich würde gerne die Tickets kaufen.",
+          "translation": "I would like to buy the tickets."
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist kein Problem. Wo sollen wir hin?",
+          "translation": "That's no problem. Where should we go?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich wünschte, wir könnten nach Berlin fahren.",
+          "translation": "I wish we could go to Berlin."
+        },
+        {
+          "speaker": 1,
+          "text": "Das wäre toll! Ich hätte auch Lust darauf.",
+          "translation": "That would be great! I would also like that."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich würde sagen, wir planen es für nächste Woche.",
+          "translation": "I would say we plan it for next week."
+        },
+        {
+          "speaker": 1,
+          "text": "Einverstanden! Lass uns das machen.",
+          "translation": "Agreed! Let's do that."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Politeness in German Culture",
+      "text": "In German-speaking cultures, politeness is often reflected in language. Using the Konjunktiv II not only shows respect but also facilitates smoother social interactions. It's common to hear polite forms in both casual and formal settings.",
+      "funFact": "In Austria, the use of 'bitte' (please) is particularly emphasized, making requests even more courteous."
+    },
+    "summary": {
+      "keyPoints": [
+        "The Konjunktiv II is essential for polite requests and expressing wishes.",
+        "Using 'würde' plus the infinitive is key for forming polite hypotheticals.",
+        "Remember the correct endings for the Konjunktiv II forms.",
+        "Politeness is an important aspect of communication in German-speaking countries."
+      ],
+      "nextSteps": "Practice forming sentences with the Konjunktiv II and try using them in conversations to sound more polite."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence expresses a wish using Konjunktiv II?",
+      "content": {
+        "options": [
+          "Ich wünschte, ich hätte mehr Zeit.",
+          "Ich habe mehr Zeit.",
+          "Ich will mehr Zeit haben.",
+          "Ich habe gewünscht mehr Zeit."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer uses the subjunctive mood to express a wish.",
+      "hint": "Look for the word 'wünschte'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct form of 'würde' in this sentence: 'Wenn ich mehr Geld ___, würde ich reisen.'?",
+      "content": {
+        "options": [
+          "habe",
+          "hätte",
+          "hatte",
+          "haben"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Hätte' is the correct subjunctive form to express a hypothetical situation.",
+      "hint": "Think about the past conditional.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich ___ (der Wunsch) mehr Zeit zu haben.'",
+      "content": {
+        "sentence": "Ich ___ mehr Zeit zu haben.",
+        "correctAnswer": "hätte den Wunsch",
+        "acceptableAnswers": [
+          "hätte den Wunsch",
+          "habe den Wunsch"
+        ],
+        "options": [
+          "hätte den Wunsch",
+          "habe den Wunsch"
+        ]
+      },
+      "explanation": "The correct answer uses the subjunctive form to express a wish.",
+      "hint": "Focus on what you would like to have.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blanks: 'Wenn ich ein Tier ___ (haben), ___ (würde) ich einen Hund.'",
+      "content": {
+        "sentence": "Wenn ich ein Tier ___, ___ ich einen Hund.",
+        "correctAnswer": "hätte, würde",
+        "acceptableAnswers": [
+          "hätte, würde"
+        ],
+        "options": [
+          "hätte, würde"
+        ]
+      },
+      "explanation": "This structure uses conditional forms to express a hypothetical situation.",
+      "hint": "What would you do if you had a pet?",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I wish I could travel more.'",
+      "content": {
+        "prompt": "Translate to German: 'I wish I could travel more.'",
+        "correctAnswer": "Ich wünschte, ich könnte mehr reisen.",
+        "acceptableAnswers": [
+          "Ich wünschte, ich könnte mehr reisen."
+        ]
+      },
+      "explanation": "The translation uses the subjunctive form to express a wish.",
+      "hint": "Think about the phrase 'I wish'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Ich wünschte, ich hätte einen neuen Job.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I wish I had a new job.",
+          "I wish I will have a new job.",
+          "I want a new job."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence expresses a wish for a new job using the subjunctive.",
+      "hint": "Listen for the word 'wünschte'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in German: 'If I were rich, I would travel the world.'",
+      "content": {
+        "targetText": "Wenn ich reich wäre, würde ich die Welt bereisen.",
+        "context": "Translate and say this conditional sentence.",
+        "acceptableVariants": [
+          "Wenn ich reich wäre, wollte ich die Welt bereisen."
+        ]
+      },
+      "explanation": "The sentence uses conditional forms to describe a hypothetical situation.",
+      "hint": "Focus on 'If I were rich'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

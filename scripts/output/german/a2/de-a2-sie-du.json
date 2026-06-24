@@ -1,0 +1,323 @@
+{
+  "lesson": {
+    "title": "Formal You (Sie) vs Informal (Du)",
+    "type": "GRAMMAR",
+    "slug": "de-a2-sie-du"
+  },
+  "unit": "City & Services",
+  "unitOrder": 6,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn the difference between the formal 'Sie' and the informal 'Du' in German. This distinction is important in social interactions and helps you navigate various situations in German-speaking countries.",
+      "culturalNote": "In Germany, addressing someone formally or informally can reflect your relationship with them. It is common to use 'Sie' in professional settings and when meeting someone for the first time."
+    },
+    "vocabulary": [
+      {
+        "term": "der Freund",
+        "translation": "the friend",
+        "definition": "a person with whom one has a bond of mutual affection",
+        "pronunciation": "dehr froind",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Freund hilft mir.",
+          "translation": "My friend helps me."
+        },
+        "tip": "Freund is masculine (der). The plural is 'die Freunde'."
+      },
+      {
+        "term": "die Freundin",
+        "translation": "the female friend",
+        "definition": "a female person with whom one has a bond of mutual affection",
+        "pronunciation": "dee froin-din",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Meine Freundin ist hier.",
+          "translation": "My friend (female) is here."
+        },
+        "tip": "Freundin is feminine (die). The plural is 'die Freundinnen'."
+      },
+      {
+        "term": "der Kollege",
+        "translation": "the colleague",
+        "definition": "a person with whom one works in a profession",
+        "pronunciation": "dehr koh-leh-ge",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Kollege ist nett.",
+          "translation": "My colleague is nice."
+        },
+        "tip": "Kollege is masculine (der). The plural is 'die Kollegen'."
+      },
+      {
+        "term": "die Kollegin",
+        "translation": "the female colleague",
+        "definition": "a female person with whom one works in a profession",
+        "pronunciation": "dee koh-leh-gin",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Meine Kollegin arbeitet viel.",
+          "translation": "My colleague (female) works a lot."
+        },
+        "tip": "Kollegin is feminine (die). The plural is 'die Kolleginnen'."
+      },
+      {
+        "term": "Hallo",
+        "translation": "Hello",
+        "definition": "a common greeting in German",
+        "pronunciation": "hah-loh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Hallo, wie geht es dir?",
+          "translation": "Hello, how are you?"
+        },
+        "tip": "Use 'Hallo' in informal situations with friends or family."
+      },
+      {
+        "term": "Guten Tag",
+        "translation": "Good day",
+        "definition": "a formal greeting in German",
+        "pronunciation": "goo-ten tahk",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Guten Tag, Herr Müller.",
+          "translation": "Good day, Mr. Müller."
+        },
+        "tip": "Use 'Guten Tag' in formal situations with strangers or in business."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Formal vs Informal Address",
+        "explanation": "In German, you can address people formally using 'Sie' or informally using 'Du'. 'Sie' is used with strangers, in business, or when showing respect. 'Du' is used with friends, family, and people of the same age or younger.",
+        "table": {
+          "headers": [
+            "Formal (Sie)",
+            "Informal (Du)"
+          ],
+          "rows": [
+            [
+              "Used with strangers",
+              "Used with friends"
+            ],
+            [
+              "Polite and respectful",
+              "Casual and friendly"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Sprechen Sie Englisch?",
+            "translation": "Do you speak English? (formal)",
+            "breakdown": "'Sprechen' is the verb for 'to speak'. 'Sie' is the formal you."
+          },
+          {
+            "original": "Sprichst du Deutsch?",
+            "translation": "Do you speak German? (informal)",
+            "breakdown": "'Sprichst' is the informal conjugation of 'to speak'. 'Du' is the informal you."
+          }
+        ],
+        "commonMistakes": [
+          "'Sie' is often confused with 'sie' (she/they). Remember 'Sie' is formal you only when capitalized.",
+          "Using 'Du' too early can be considered rude. Wait for an invitation to use 'Du'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Meeting a New Colleague",
+      "context": "At work, Anna meets her new colleague, Lukas.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Guten Tag, ich bin Anna.",
+          "translation": "Good day, I am Anna.",
+          "note": "Anna uses formal language."
+        },
+        {
+          "speaker": 1,
+          "text": "Guten Tag, Anne. Ich bin Lukas.",
+          "translation": "Good day, Anna. I am Lukas."
+        },
+        {
+          "speaker": 0,
+          "text": "Freut mich, Sie kennenzulernen.",
+          "translation": "Nice to meet you.",
+          "note": "Formal expression."
+        },
+        {
+          "speaker": 1,
+          "text": "Freut mich auch. Sprechen Sie Englisch?",
+          "translation": "Nice to meet you too. Do you speak English?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, ich spreche Englisch.",
+          "translation": "Yes, I speak English."
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist gut! Arbeiten Sie hier lange?",
+          "translation": "That's good! Have you been working here long?"
+        },
+        {
+          "speaker": 0,
+          "text": "Nein, erst seit einer Woche.",
+          "translation": "No, only for a week."
+        },
+        {
+          "speaker": 1,
+          "text": "Ah, ich bin seit zwei Jahren hier.",
+          "translation": "Ah, I have been here for two years."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Understanding Formality in German Culture",
+      "text": "In German-speaking cultures, the level of formality is important and reflects social norms. It shows respect and professionalism, especially in work environments. Using 'Sie' indicates that you value the relationship with the other person.",
+      "funFact": "In Austria, it is common to use formal address even among younger people until a closer relationship is established."
+    },
+    "summary": {
+      "keyPoints": [
+        "Use 'Sie' in formal situations and 'Du' with friends.",
+        "Understanding the context is crucial for choosing the right form of address.",
+        "Incorrect usage can lead to misunderstandings.",
+        "Practice using both forms in different scenarios."
+      ],
+      "nextSteps": "Try to create conversations using both 'Sie' and 'Du' with different scenarios. Join language exchange groups or practice with friends."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which form of 'you' would you use when speaking to a friend?",
+      "content": {
+        "options": [
+          "Sie",
+          "Du",
+          "Ihnen",
+          "Euch"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "You use 'Du' when speaking informally to friends or peers.",
+      "hint": "Think about who you would use 'Du' with.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the formal way to address a colleague in German?",
+      "content": {
+        "options": [
+          "Du",
+          "Sie",
+          "Hallo",
+          "Guten Tag"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Sie' is the formal way of addressing someone, especially in a professional setting.",
+      "hint": "Consider the workplace context.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich ___ (have) einen Freund.",
+      "content": {
+        "sentence": "Ich ___ einen Freund.",
+        "correctAnswer": "habe",
+        "acceptableAnswers": [
+          "hab"
+        ],
+        "options": [
+          "habe",
+          "hat",
+          "haben",
+          "hatt"
+        ]
+      },
+      "explanation": "The correct verb form 'habe' fits the first-person singular.",
+      "hint": "Think about the verb 'to have' in German.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich spreche ___ (German).",
+      "content": {
+        "sentence": "Ich spreche ___ Deutsch.",
+        "correctAnswer": "das",
+        "acceptableAnswers": [
+          "der",
+          "die"
+        ],
+        "options": [
+          "das",
+          "der",
+          "die",
+          "den"
+        ]
+      },
+      "explanation": "'Deutsch' is a neuter noun, so we use 'das'.",
+      "hint": "Consider the gender of the noun.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'My friend is a colleague.'",
+      "content": {
+        "prompt": "Translate to German: 'My friend is a colleague.'",
+        "correctAnswer": "Mein Freund ist ein Kollege.",
+        "acceptableAnswers": [
+          "Meine Freundin ist eine Kollegin."
+        ]
+      },
+      "explanation": "The sentence correctly identifies the gender of the friend and colleague.",
+      "hint": "Pay attention to the gender used.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Hallo, wie geht es Ihnen?",
+        "ttsLang": "de-DE",
+        "options": [
+          "Hello, how are you?",
+          "Hi, how are you?",
+          "Good day, how are you?",
+          "Hey, what's up?"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence is a formal greeting asking how someone is.",
+      "hint": "Listen for the formal 'you'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in German: 'Good day, my friend.'",
+      "content": {
+        "targetText": "Guten Tag, mein Freund.",
+        "context": "You are greeting a male friend formally.",
+        "acceptableVariants": [
+          "Guten Tag, mein Freund",
+          "Guten Tag, mein Freund!"
+        ]
+      },
+      "explanation": "This greeting is polite and suitable for many situations.",
+      "hint": "Use the formal greeting.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

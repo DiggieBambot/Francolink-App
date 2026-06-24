@@ -1,0 +1,330 @@
+{
+  "lesson": {
+    "title": "Adjective Endings - Nominative & Accusative",
+    "type": "GRAMMAR",
+    "slug": "de-b1-adjective-endings"
+  },
+  "unit": "Culture & Travel",
+  "unitOrder": 7,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about adjective endings in the nominative and accusative cases in German. Understanding these endings will help you use adjectives correctly when describing nouns in different contexts.",
+      "culturalNote": "In German culture, adjectives play a crucial role in conveying specific meanings and emotions in language, especially in literature and poetry."
+    },
+    "vocabulary": [
+      {
+        "term": "der Tisch",
+        "translation": "the table",
+        "definition": "A piece of furniture with a flat top and legs.",
+        "pronunciation": "dehr tish",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Tisch ist groß.",
+          "translation": "The table is large."
+        },
+        "tip": "Remember that 'Tisch' is masculine (der)."
+      },
+      {
+        "term": "die Lampe",
+        "translation": "the lamp",
+        "definition": "A device that produces light.",
+        "pronunciation": "dee lahm-peh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Lampe ist hell.",
+          "translation": "The lamp is bright."
+        },
+        "tip": "Note that 'Lampe' is feminine (die)."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A written work consisting of pages.",
+        "pronunciation": "dahs book",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Buch ist interessant.",
+          "translation": "The book is interesting."
+        },
+        "tip": "'Buch' is neuter (das)."
+      },
+      {
+        "term": "die Stadt",
+        "translation": "the city",
+        "definition": "A large town.",
+        "pronunciation": "dee shtadt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Stadt ist schön.",
+          "translation": "The city is beautiful."
+        },
+        "tip": "'Stadt' is also feminine (die)."
+      },
+      {
+        "term": "der Hund",
+        "translation": "the dog",
+        "definition": "A domesticated carnivorous mammal.",
+        "pronunciation": "dehr hoond",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Hund ist freundlich.",
+          "translation": "The dog is friendly."
+        },
+        "tip": "'Hund' is masculine (der)."
+      },
+      {
+        "term": "die Blume",
+        "translation": "the flower",
+        "definition": "The reproductive structure of a flowering plant.",
+        "pronunciation": "dee bloo-meh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Blume ist bunt.",
+          "translation": "The flower is colorful."
+        },
+        "tip": "'Blume' is feminine (die)."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Adjective Endings in Nominative and Accusative",
+        "explanation": "In German, adjectives change their endings based on the gender, number, and case of the nouns they describe. In the nominative case, the endings are -e for feminine, -er for masculine, and -es for neuter. In the accusative case, the endings change slightly: -e for feminine, -en for masculine, and -es for neuter.",
+        "table": {
+          "headers": [
+            "Case",
+            "Masculine",
+            "Feminine",
+            "Neuter"
+          ],
+          "rows": [
+            [
+              "Nominative",
+              "-er",
+              "-e",
+              "-es"
+            ],
+            [
+              "Accusative",
+              "-en",
+              "-e",
+              "-es"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich sehe den großen Hund.",
+            "translation": "I see the big dog.",
+            "breakdown": "Here, 'großen' (big) has the accusative ending -en because 'Hund' (dog) is masculine and in the accusative case."
+          },
+          {
+            "original": "Die schöne Blume blüht.",
+            "translation": "The beautiful flower is blooming.",
+            "breakdown": "'Schöne' (beautiful) has the nominative ending -e because 'Blume' (flower) is feminine and in the nominative case."
+          }
+        ],
+        "commonMistakes": [
+          "Using the wrong adjective ending for the case. Remember: masculine often takes -en in accusative.",
+          "Forgetting the article when using adjectives. Always include der/die/das with nouns."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Shopping for Home Decor",
+      "context": "Anna and Lukas are in a home decor store discussing what to buy.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Ich finde die schöne Lampe toll.",
+          "translation": "I think the beautiful lamp is great.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, die Lampe ist wirklich schön.",
+          "translation": "Yes, the lamp is really beautiful.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Was hältst du von dem großen Tisch?",
+          "translation": "What do you think of the big table?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Der Tisch sieht modern aus.",
+          "translation": "The table looks modern.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich möchte auch ein interessantes Buch kaufen.",
+          "translation": "I also want to buy an interesting book.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das Buch liegt dort drüben.",
+          "translation": "The book is over there.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Hast du den freundlichen Verkäufer gesehen?",
+          "translation": "Did you see the friendly salesperson?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, er hat uns gut beraten.",
+          "translation": "Yes, he advised us well.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Adjectives in German Culture",
+      "text": "Adjectives in German are not just descriptors; they add richness to the language. In literature, adjectives help create vivid imagery and emotional depth, making stories more engaging.",
+      "funFact": "German has a unique way of forming compound adjectives, allowing for extensive descriptive phrases that can reflect cultural nuances."
+    },
+    "summary": {
+      "keyPoints": [
+        "Adjective endings depend on the gender and case of the noun.",
+        "In the nominative, masculine adjectives end in -er, feminine in -e, and neuter in -es.",
+        "In the accusative, masculine adjectives end in -en, while feminine and neuter remain the same.",
+        "Practice using adjectives in sentences to improve your fluency."
+      ],
+      "nextSteps": "Review the vocabulary and practice constructing sentences with adjectives, paying attention to their endings based on case and gender."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which adjective ending is correct for 'der Tisch' in the nominative case?",
+      "content": {
+        "options": [
+          "e",
+          "en",
+          "em"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "In the nominative case, masculine singular nouns take the ending '-e' for adjectives.",
+      "hint": "Think about the gender of the noun.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which adjective ending is correct for 'die Lampe' in the accusative case?",
+      "content": {
+        "options": [
+          "e",
+          "en",
+          "em"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "In the accusative case, feminine singular nouns take the ending '-e' for adjectives.",
+      "hint": "Remember it's feminine.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich habe ___ (die Blume).",
+      "content": {
+        "sentence": "Ich habe ___ (die Blume).",
+        "correctAnswer": "die schöne Blume",
+        "acceptableAnswers": [
+          "die Blume",
+          "eine schöne Blume",
+          "die rote Blume"
+        ],
+        "options": [
+          "die schöne Blume",
+          "eine Blume",
+          "die Blume"
+        ]
+      },
+      "explanation": "The correct form includes the article and the proper adjective ending.",
+      "hint": "Focus on the gender of the noun.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich sehe ___ (der Hund).",
+      "content": {
+        "sentence": "Ich sehe ___ (der Hund).",
+        "correctAnswer": "den großen Hund",
+        "acceptableAnswers": [
+          "den Hund",
+          "einen großen Hund"
+        ],
+        "options": [
+          "den großen Hund",
+          "einen Hund",
+          "den Hund"
+        ]
+      },
+      "explanation": "In the accusative case, masculine nouns require 'den' and the adjective takes the ending '-en'.",
+      "hint": "It's the accusative case.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The city is beautiful.'",
+      "content": {
+        "prompt": "Translate to German: 'The city is beautiful.'",
+        "correctAnswer": "Die Stadt ist schön.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation correctly reflects the structure of the German language.",
+      "hint": "Focus on the article and adjective agreement.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct sentence.",
+      "content": {
+        "ttsText": "Ich habe einen neuen Hund.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Ich habe einen neuen Hund.",
+          "Ich habe ein neuer Hund.",
+          "Ich habe die neuen Hund."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct sentence uses the right article and adjective ending.",
+      "hint": "Listen for the article and adjective.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in German: 'I have a nice lamp.'",
+      "content": {
+        "targetText": "Ich habe eine schöne Lampe.",
+        "context": "Translate and say the sentence in German.",
+        "acceptableVariants": [
+          "Ich habe eine Lampe",
+          "Ich habe eine schöne Lampe"
+        ]
+      },
+      "explanation": "The sentence correctly uses the article and adjective ending.",
+      "hint": "Remember to include the article.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,362 @@
+{
+  "lesson": {
+    "title": "Connectors & Sequencing",
+    "type": "GRAMMAR",
+    "slug": "es-b1-connectors"
+  },
+  "unit": "Narrating the Past",
+  "unitOrder": 2,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about connectors and sequencing words in Spanish to improve your narrative skills when telling stories about the past. These connectors will help you link ideas and events smoothly.",
+      "culturalNote": "In many Latin American cultures, storytelling is an important part of social gatherings, often involving elaborate narratives and the use of various connectors."
+    },
+    "vocabulary": [
+      {
+        "term": "primero",
+        "translation": "first",
+        "definition": "used to indicate the first step in a sequence",
+        "pronunciation": "pree-MER-oh",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Primero, fui al mercado.",
+          "translation": "First, I went to the market."
+        },
+        "tip": "Think of 'prime' as the first in a series."
+      },
+      {
+        "term": "después",
+        "translation": "afterwards",
+        "definition": "used to indicate something that happens after another event",
+        "pronunciation": "des-PWES",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Después, hice la cena.",
+          "translation": "Afterwards, I made dinner."
+        },
+        "tip": "Remember 'después' as 'despite' which often follows events."
+      },
+      {
+        "term": "luego",
+        "translation": "then",
+        "definition": "used to indicate a subsequent event",
+        "pronunciation": "LWE-go",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Luego, salí a caminar.",
+          "translation": "Then, I went out for a walk."
+        },
+        "tip": "Link 'luego' with 'next' as it indicates what's coming."
+      },
+      {
+        "term": "antes",
+        "translation": "before",
+        "definition": "used to indicate something that happens prior to another event",
+        "pronunciation": "AN-tes",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Antes de irme, llamé a mi madre.",
+          "translation": "Before leaving, I called my mother."
+        },
+        "tip": "Think of 'ante' as in 'antecedent' which means 'prior'."
+      },
+      {
+        "term": "finalmente",
+        "translation": "finally",
+        "definition": "used to indicate the last step in a sequence",
+        "pronunciation": "fee-nal-MEN-te",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Finalmente, terminé el proyecto.",
+          "translation": "Finally, I finished the project."
+        },
+        "tip": "Remember 'final' relates to the end of something."
+      },
+      {
+        "term": "aunque",
+        "translation": "although",
+        "definition": "used to introduce contrasting ideas",
+        "pronunciation": "OWN-ke",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Aunque estaba cansado, fui a la fiesta.",
+          "translation": "Although I was tired, I went to the party."
+        },
+        "tip": "Think of 'although' as a way to contrast two situations."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Connectors for Sequencing",
+        "explanation": "Connectors are words that help you link ideas and events in your narratives. In Spanish, words like 'primero', 'después', and 'finalmente' are essential for sequencing actions. Using these connectors correctly allows you to tell your stories more coherently and helps the listener follow your narrative.",
+        "table": {
+          "headers": [
+            "Connector",
+            "Meaning"
+          ],
+          "rows": [
+            [
+              "primero",
+              "first"
+            ],
+            [
+              "después",
+              "afterwards"
+            ],
+            [
+              "luego",
+              "then"
+            ],
+            [
+              "antes",
+              "before"
+            ],
+            [
+              "finalmente",
+              "finally"
+            ],
+            [
+              "aunque",
+              "although"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Primero, fui a la playa. Luego, comí un helado.",
+            "translation": "First, I went to the beach. Then, I ate an ice cream.",
+            "breakdown": "This sentence uses 'primero' to indicate the first action and 'luego' to show what happened next."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'antes' instead of 'después' when indicating a subsequent action. Correction: Use 'después' for actions that follow.",
+          "Forgetting to use connectors in longer narratives. Correction: Always include connectors to clarify the sequence."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Day Out",
+      "context": "Two friends are discussing their plans for a day out.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Primero, ¿qué te gustaría hacer?",
+          "translation": "First, what would you like to do?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Me gustaría ir al cine.",
+          "translation": "I would like to go to the cinema.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Perfecto. Luego, podemos comer algo.",
+          "translation": "Perfect. Then, we can eat something.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, tengo hambre. ¿Qué tal una pizza?",
+          "translation": "Yes, I am hungry. How about a pizza?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Me parece bien. ¿Y después del cine?",
+          "translation": "Sounds good to me. And after the cinema?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Podemos pasear por el parque.",
+          "translation": "We can walk in the park.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Antes de ir al parque, quiero comprar unas palomitas.",
+          "translation": "Before going to the park, I want to buy some popcorn.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¡Buena idea! Finalmente, podemos ver la puesta de sol.",
+          "translation": "Good idea! Finally, we can watch the sunset.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Art of Storytelling",
+      "text": "Storytelling is a cherished tradition in many Spanish-speaking cultures. From oral histories passed down through generations to modern narratives in literature and film, connectors play a key role in making these stories engaging and cohesive.",
+      "funFact": "In Mexico, there is an annual event called 'El Festival Internacional de Narración Oral' which celebrates storytelling and includes participants from around the world."
+    },
+    "summary": {
+      "keyPoints": [
+        "Connectors are essential for sequencing events in narratives.",
+        "Words like 'primero', 'luego', and 'finalmente' help clarify the order of actions.",
+        "Contrastive connectors like 'aunque' enhance storytelling.",
+        "Practicing connectors will improve your spoken and written narratives."
+      ],
+      "nextSteps": "Practice using these connectors in your own stories. Try narrating a past event using the vocabulary and connectors you've learned."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which connector means 'first' in Spanish?",
+      "content": {
+        "options": [
+          "después",
+          "primero",
+          "finalmente",
+          "aunque"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'primero', which translates to 'first' in English.",
+      "hint": "Think about the order of events.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'finally'?",
+      "content": {
+        "options": [
+          "luego",
+          "después",
+          "finalmente",
+          "antes"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Finalmente' is used to indicate the last point in a sequence.",
+      "hint": "It's the last step in a process.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Yo hice la tarea, ___ fui a jugar.",
+      "content": {
+        "sentence": "Yo hice la tarea, ___ fui a jugar.",
+        "correctAnswer": "después",
+        "acceptableAnswers": [
+          "después"
+        ],
+        "options": [
+          "primero",
+          "después",
+          "aunque",
+          "finalmente"
+        ]
+      },
+      "explanation": "'Después' indicates that one action follows another.",
+      "hint": "It's used for sequencing actions.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Antes de cenar, yo ___ mis manos.",
+      "content": {
+        "sentence": "Antes de cenar, yo ___ mis manos.",
+        "correctAnswer": "me lavo",
+        "acceptableAnswers": [
+          "me lavo"
+        ],
+        "options": [
+          "me lavo",
+          "me lavo",
+          "me lavo",
+          "me lavo"
+        ]
+      },
+      "explanation": "This sentence uses 'antes' to sequence the actions.",
+      "hint": "Think about what you do before a meal.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: después, almuerzo, fui, al, parque.",
+      "content": {
+        "words": [
+          "después",
+          "almuerzo",
+          "fui",
+          "al",
+          "parque"
+        ],
+        "correctOrder": [
+          "después",
+          "fui",
+          "al",
+          "parque",
+          "almuerzo"
+        ],
+        "translation": "After lunch, I went to the park."
+      },
+      "explanation": "The correct order reflects the sequence of actions.",
+      "hint": "Start with the connector.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Although it was raining, we went outside.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'Although it was raining, we went outside.'",
+        "correctAnswer": "Aunque estaba lloviendo, salimos.",
+        "acceptableAnswers": []
+      },
+      "explanation": "'Aunque' introduces the contrast in the sentence.",
+      "hint": "It's a common way to express contrast.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Primero, fui a la tienda.'",
+      "content": {
+        "ttsText": "Primero, fui a la tienda.",
+        "ttsLang": "es-ES",
+        "options": [
+          "First, I went to the store.",
+          "I went to the store first.",
+          "I went first to the store.",
+          "To the store, I went first."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation maintains the meaning and sequence of the original Spanish sentence.",
+      "hint": "Focus on the word 'primero'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in Spanish: 'I went to the movies after dinner.'",
+      "content": {
+        "targetText": "Fui al cine después de cenar.",
+        "context": "Translate and say the sentence in Spanish.",
+        "acceptableVariants": [
+          "Fui al cine después de cenar.",
+          "Después de cenar, fui al cine."
+        ]
+      },
+      "explanation": "This practice helps with both translation and speaking skills.",
+      "hint": "Remember the sequence of actions.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

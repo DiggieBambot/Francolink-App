@@ -1,0 +1,371 @@
+{
+  "lesson": {
+    "title": "Formal You (Usted)",
+    "type": "GRAMMAR",
+    "slug": "es-a2-usted"
+  },
+  "unit": "City & Services",
+  "unitOrder": 6,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to use the formal 'you' (Usted) in Spanish. This is important for polite conversations, especially when talking to strangers or in formal situations.",
+      "culturalNote": "In many Latin American countries, using 'Usted' is a sign of respect, especially towards elders or in professional settings."
+    },
+    "vocabulary": [
+      {
+        "term": "el servicio",
+        "translation": "the service",
+        "definition": "assistance provided to someone",
+        "pronunciation": "el ser-vi-sio",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El servicio es excelente.",
+          "translation": "The service is excellent."
+        },
+        "tip": "Think of 'service' as something you receive in restaurants or stores."
+      },
+      {
+        "term": "la ciudad",
+        "translation": "the city",
+        "definition": "a large town where many people live",
+        "pronunciation": "la ciu-dad",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La ciudad está muy limpia.",
+          "translation": "The city is very clean."
+        },
+        "tip": "Remember that cities have many services available."
+      },
+      {
+        "term": "¿Cómo está usted?",
+        "translation": "How are you?",
+        "definition": "a formal way to ask about someone's well-being",
+        "pronunciation": "¿Coh-moh es-tah oos-ted?",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "¿Cómo está usted hoy?",
+          "translation": "How are you today?"
+        },
+        "tip": "Use this phrase to show respect when speaking to someone you don't know well."
+      },
+      {
+        "term": "el policía",
+        "translation": "the police officer",
+        "definition": "a person who enforces the law",
+        "pronunciation": "el po-li-cí-a",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El policía me ayudó.",
+          "translation": "The police officer helped me."
+        },
+        "tip": "You can refer to police officers using 'Usted' to be polite."
+      },
+      {
+        "term": "la tienda",
+        "translation": "the store",
+        "definition": "a place where you can buy things",
+        "pronunciation": "la tien-da",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La tienda cierra a las siete.",
+          "translation": "The store closes at seven."
+        },
+        "tip": "When asking for help in a store, use 'Usted' to be respectful."
+      },
+      {
+        "term": "por favor",
+        "translation": "please",
+        "definition": "a polite way to ask for something",
+        "pronunciation": "por fa-vor",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "¿Me puede ayudar, por favor?",
+          "translation": "Can you help me, please?"
+        },
+        "tip": "Always good to use 'por favor' when speaking formally."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'Usted' in Spanish",
+        "explanation": "In Spanish, 'Usted' is the formal way to say 'you'. It is used in polite situations, such as when speaking to strangers or in business contexts. The verb forms change when using 'Usted', as they are conjugated in the third person.",
+        "table": {
+          "headers": [
+            "Subject Pronoun",
+            "Example Verb (hablar - to speak)"
+          ],
+          "rows": [
+            [
+              "Usted",
+              "habla"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Usted habla español.",
+            "translation": "You (formal) speak Spanish.",
+            "breakdown": "Here, 'habla' is the third person singular form of the verb 'hablar'."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'tú' instead of 'Usted' in formal settings. Correction: Always use 'Usted' when politeness is necessary.",
+          "Conjugating verbs incorrectly. Correction: Remember to use third person verb forms with 'Usted'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the City Information Center",
+      "context": "A conversation at a city information center between a tourist and an employee.",
+      "speakers": [
+        "Tourist",
+        "Employee"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, ¿cómo está usted?",
+          "translation": "Hello, how are you?",
+          "note": "A polite greeting."
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, estoy bien, gracias. ¿En qué puedo ayudarle?",
+          "translation": "Hello, I am fine, thank you. How can I help you?",
+          "note": "The employee uses 'le' for politeness."
+        },
+        {
+          "speaker": 0,
+          "text": "Quisiera un mapa de la ciudad, por favor.",
+          "translation": "I would like a map of the city, please."
+        },
+        {
+          "speaker": 1,
+          "text": "Claro, aquí tiene el mapa.",
+          "translation": "Of course, here you have the map."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Dónde está la tienda más cercana?",
+          "translation": "Where is the nearest store?"
+        },
+        {
+          "speaker": 1,
+          "text": "La tienda está a dos cuadras de aquí.",
+          "translation": "The store is two blocks from here."
+        },
+        {
+          "speaker": 0,
+          "text": "Gracias por su ayuda.",
+          "translation": "Thank you for your help."
+        },
+        {
+          "speaker": 1,
+          "text": "De nada. Que tenga un buen día.",
+          "translation": "You're welcome. Have a nice day."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Politeness in Latin America",
+      "text": "In many Latin American countries, using formal language is important in social interactions. It shows respect and helps to establish good relationships. In some cultures, failing to use formal speech can be seen as rude.",
+      "funFact": "In some regions, using 'Usted' is so common that it is often the default form of address even among friends."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned to use 'Usted' for formal situations.",
+        "Practiced vocabulary related to city services.",
+        "Engaged in a dialogue demonstrating formal speech.",
+        "Explored cultural aspects of politeness in Spanish-speaking countries."
+      ],
+      "nextSteps": "Practice using 'Usted' in different scenarios and continue studying vocabulary related to city services."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does '¿Cómo está usted?' mean?",
+      "content": {
+        "options": [
+          "How are you?",
+          "What is your name?",
+          "Where do you live?",
+          "What do you do?"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'¿Cómo está usted?' translates to 'How are you?' in English.",
+      "hint": "It's a question about someone's well-being.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'the police officer'?",
+      "content": {
+        "options": [
+          "el médico",
+          "el policía",
+          "el bombero",
+          "el profesor"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El policía' is the correct translation for 'the police officer'.",
+      "hint": "Think about the role of a police officer.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Usted va a ___.'",
+      "content": {
+        "sentence": "Usted va a ___.",
+        "correctAnswer": "la tienda",
+        "acceptableAnswers": [
+          "la tienda"
+        ],
+        "options": [
+          "el parque",
+          "la tienda",
+          "el museo",
+          "la casa"
+        ]
+      },
+      "explanation": "The correct answer is 'la tienda', meaning 'the store'.",
+      "hint": "Think about where you can buy things.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'El servicio de la ciudad es muy ___.'",
+      "content": {
+        "sentence": "El servicio de la ciudad es muy ___.",
+        "correctAnswer": "bueno",
+        "acceptableAnswers": [
+          "bueno"
+        ],
+        "options": [
+          "malo",
+          "bueno",
+          "caro",
+          "barato"
+        ]
+      },
+      "explanation": "'Bueno' means 'good', describing the service in a positive way.",
+      "hint": "Consider how you would feel about good services.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'usted / sirve / el / por favor / agua'.",
+      "content": {
+        "words": [
+          "usted",
+          "sirve",
+          "el",
+          "por favor",
+          "agua"
+        ],
+        "correctOrder": [
+          "usted",
+          "sirve",
+          "el",
+          "agua",
+          "por favor"
+        ],
+        "translation": "You serve the water, please."
+      },
+      "explanation": "The correct order makes a polite request.",
+      "hint": "Start with 'you' and think about serving.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Please help me.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'Please help me.'",
+        "correctAnswer": "Por favor, ayúdeme.",
+        "acceptableAnswers": [
+          "Por favor, ayúdame."
+        ]
+      },
+      "explanation": "'Por favor, ayúdeme' is a polite way to ask for help.",
+      "hint": "Use the formal 'you'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and identify the correct translation: 'El servicio es excelente.'",
+      "content": {
+        "ttsText": "El servicio es excelente.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The service is excellent.",
+          "The service is bad.",
+          "The service is okay.",
+          "The service is confusing."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'The service is excellent.'",
+      "hint": "Listen for a positive description.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'How are you, sir?'",
+      "content": {
+        "targetText": "¿Cómo está usted, señor?",
+        "context": "You are greeting a man politely.",
+        "acceptableVariants": [
+          "¿Cómo está usted, señor?"
+        ]
+      },
+      "explanation": "This is a polite way to ask a man how he is.",
+      "hint": "Use the formal 'usted'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'El ___ de la ciudad es importante.'",
+      "content": {
+        "sentence": "El ___ de la ciudad es importante.",
+        "correctAnswer": "servicio",
+        "acceptableAnswers": [
+          "servicio"
+        ],
+        "options": [
+          "gobierno",
+          "servicio",
+          "tráfico",
+          "clima"
+        ]
+      },
+      "explanation": "'Servicio' means service and is key to city living.",
+      "hint": "Think about what makes a city work.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to English: 'La tienda está cerrada.'",
+      "content": {
+        "prompt": "Translate to English: 'La tienda está cerrada.'",
+        "correctAnswer": "The store is closed.",
+        "acceptableAnswers": []
+      },
+      "explanation": "This sentence indicates that the store is not open.",
+      "hint": "Look for words related to business hours.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

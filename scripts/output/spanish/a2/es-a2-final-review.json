@@ -1,0 +1,378 @@
+{
+  "lesson": {
+    "title": "Final Review & Celebration",
+    "type": "REVIEW",
+    "slug": "es-a2-final-review"
+  },
+  "unit": "Everyday Situations",
+  "unitOrder": 8,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this final review lesson, you will consolidate your knowledge of everyday situations in Spanish. You will revisit vocabulary, grammar points, and practice a dialogue to celebrate your progress.",
+      "culturalNote": "Celebrating achievements is a significant part of Latin American culture, often marked with family gatherings and food."
+    },
+    "vocabulary": [
+      {
+        "term": "el coche",
+        "translation": "the car",
+        "definition": "a vehicle used for transportation",
+        "pronunciation": "el koh-che",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi coche es rojo.",
+          "translation": "My car is red."
+        },
+        "tip": "Remember that 'coche' is often used in Spain, while 'auto' is more common in Latin America."
+      },
+      {
+        "term": "la casa",
+        "translation": "the house",
+        "definition": "a building where people live",
+        "pronunciation": "la kah-sah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Vivo en una casa grande.",
+          "translation": "I live in a big house."
+        },
+        "tip": "Think of 'casa' as a cozy place where you feel at home."
+      },
+      {
+        "term": "hablar",
+        "translation": "to speak",
+        "definition": "to communicate verbally",
+        "pronunciation": "ah-blar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ella habla español.",
+          "translation": "She speaks Spanish."
+        },
+        "tip": "Remember, 'hablar' is a regular -ar verb."
+      },
+      {
+        "term": "comer",
+        "translation": "to eat",
+        "definition": "to consume food",
+        "pronunciation": "koh-mer",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Nosotros comemos pizza.",
+          "translation": "We eat pizza."
+        },
+        "tip": "Use 'comer' when discussing meals or food."
+      },
+      {
+        "term": "feliz",
+        "translation": "happy",
+        "definition": "feeling or showing pleasure",
+        "pronunciation": "feh-leez",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Estoy feliz hoy.",
+          "translation": "I am happy today."
+        },
+        "tip": "Think of 'feliz' as a word to express joy."
+      },
+      {
+        "term": "salir",
+        "translation": "to go out",
+        "definition": "to leave a place",
+        "pronunciation": "sah-leer",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Vamos a salir esta noche.",
+          "translation": "We are going out tonight."
+        },
+        "tip": "Use 'salir' when planning to go out with friends."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Preterite vs. Imperfect",
+        "explanation": "The preterite is used for completed actions in the past, while the imperfect is used for ongoing actions or descriptions. For example, 'Yo comí' (I ate) is preterite, and 'Yo comía' (I was eating) is imperfect.",
+        "table": {
+          "headers": [
+            "Preterite",
+            "Imperfect"
+          ],
+          "rows": [
+            [
+              "hablé",
+              "hablaba"
+            ],
+            [
+              "comí",
+              "comía"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ayer hablé con mi amigo.",
+            "translation": "Yesterday I talked to my friend.",
+            "breakdown": "This sentence shows a completed action in the past (preterite)."
+          },
+          {
+            "original": "Cuando era niño, jugaba en el parque.",
+            "translation": "When I was a child, I used to play in the park.",
+            "breakdown": "This sentence describes an ongoing action in the past (imperfect)."
+          }
+        ],
+        "commonMistakes": [
+          "'Yo comía' should not be used to describe a completed action, use 'Yo comí' instead.",
+          "'Yo hablé' should not be used to describe ongoing actions, use 'Yo hablaba' instead."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Celebration",
+      "context": "Two friends are planning a small celebration for passing their Spanish course.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¡Hola Ana! ¿Cómo estás?",
+          "translation": "Hello Ana! How are you?"
+        },
+        {
+          "speaker": 1,
+          "text": "¡Hola Carlos! Estoy feliz porque pasé el curso de español.",
+          "translation": "Hello Carlos! I am happy because I passed the Spanish course."
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué bien! Vamos a celebrar.",
+          "translation": "Great! Let's celebrate."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, ¿qué quieres hacer?",
+          "translation": "Yes, what do you want to do?"
+        },
+        {
+          "speaker": 0,
+          "text": "Podemos ir a un restaurante.",
+          "translation": "We can go to a restaurant."
+        },
+        {
+          "speaker": 1,
+          "text": "Me gusta esa idea. ¿Qué tipo de comida te gusta?",
+          "translation": "I like that idea. What type of food do you like?"
+        },
+        {
+          "speaker": 0,
+          "text": "Me gusta la comida italiana.",
+          "translation": "I like Italian food."
+        },
+        {
+          "speaker": 1,
+          "text": "Perfecto, vamos a un restaurante italiano.",
+          "translation": "Perfect, let's go to an Italian restaurant."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Celebrations in Latin America",
+      "text": "In many Latin American countries, celebrations often include family, food, and music. These gatherings are important for strengthening social bonds and sharing joy.",
+      "funFact": "In Mexico, it's common to celebrate birthdays with a piñata filled with candies and small toys."
+    },
+    "summary": {
+      "keyPoints": [
+        "You reviewed essential vocabulary related to everyday situations.",
+        "You learned about the difference between preterite and imperfect.",
+        "You practiced a dialogue about planning a celebration.",
+        "You explored cultural insights related to celebrations."
+      ],
+      "nextSteps": "Continue practicing your vocabulary and try writing your own dialogues about everyday situations. Engage with native speakers to enhance your skills."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'car'?",
+      "content": {
+        "options": [
+          "el coche",
+          "la casa",
+          "hablar",
+          "comer"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'el coche', which means 'car' in Spanish.",
+      "hint": "Think of vehicles.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'happy' in Spanish?",
+      "content": {
+        "options": [
+          "feliz",
+          "salir",
+          "casa",
+          "comer"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Feliz' means 'happy' in Spanish. It's used to describe emotions.",
+      "hint": "It's a feeling.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Yo ___ con mis amigos.'",
+      "content": {
+        "sentence": "Yo ___ con mis amigos.",
+        "correctAnswer": "hablo",
+        "acceptableAnswers": [
+          "hablo"
+        ],
+        "options": [
+          "salgo",
+          "como",
+          "hablo"
+        ]
+      },
+      "explanation": "The correct word is 'hablo', which means 'I speak'.",
+      "hint": "Think about communication.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Nosotros ___ a la playa.'",
+      "content": {
+        "sentence": "Nosotros ___ a la playa.",
+        "correctAnswer": "salimos",
+        "acceptableAnswers": [
+          "salimos",
+          "vamos"
+        ],
+        "options": [
+          "salimos",
+          "comemos",
+          "hablamos"
+        ]
+      },
+      "explanation": "'Salimos' means 'we leave' or 'we go out'.",
+      "hint": "Think about going out.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: 'feliz soy hoy muy'",
+      "content": {
+        "words": [
+          "feliz",
+          "soy",
+          "hoy",
+          "muy"
+        ],
+        "correctOrder": [
+          "soy",
+          "muy",
+          "feliz",
+          "hoy"
+        ],
+        "translation": "I am very happy today."
+      },
+      "explanation": "The correct order is 'Soy muy feliz hoy', which means 'I am very happy today'.",
+      "hint": "Start with the verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I want to eat.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I want to eat.'",
+        "correctAnswer": "Quiero comer.",
+        "acceptableAnswers": [
+          "Quiero comer"
+        ]
+      },
+      "explanation": "The translation is 'Quiero comer', where 'Quiero' means 'I want'.",
+      "hint": "Think about desires.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Voy a la casa.'",
+      "content": {
+        "ttsText": "Voy a la casa.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I go to the house.",
+          "I eat at home.",
+          "I speak with friends."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Voy a la casa' translates to 'I go to the house.'",
+      "hint": "Listen for the word 'casa'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'I am happy.'",
+      "content": {
+        "targetText": "Estoy feliz.",
+        "context": "Expressing feelings.",
+        "acceptableVariants": [
+          "Estoy feliz",
+          "Soy feliz"
+        ]
+      },
+      "explanation": "Both 'Estoy feliz' and 'Soy feliz' can express happiness, depending on the context.",
+      "hint": "Use the verb for temporary feelings.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'comer' mean?",
+      "content": {
+        "options": [
+          "to talk",
+          "to eat",
+          "to leave",
+          "to be happy"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Comer' means 'to eat' in Spanish.",
+      "hint": "Think about meals.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ellos ___ en la casa.'",
+      "content": {
+        "sentence": "Ellos ___ en la casa.",
+        "correctAnswer": "comen",
+        "acceptableAnswers": [
+          "comen"
+        ],
+        "options": [
+          "hablan",
+          "comen",
+          "salen"
+        ]
+      },
+      "explanation": "'Comen' means 'they eat' and fits the context of the sentence.",
+      "hint": "Think about what people do at home.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

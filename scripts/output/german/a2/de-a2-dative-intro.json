@@ -1,0 +1,347 @@
+{
+  "lesson": {
+    "title": "The Dative Case - Introduction",
+    "type": "GRAMMAR",
+    "slug": "de-a2-dative-intro"
+  },
+  "unit": "The Dative Case",
+  "unitOrder": 3,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about the dative case in German, including its forms and when to use it. You will also practice important vocabulary and simple sentences that use the dative case.",
+      "culturalNote": "In German-speaking countries, the dative case is commonly used in everyday speech, especially when giving or receiving something."
+    },
+    "vocabulary": [
+      {
+        "term": "der Mann",
+        "translation": "the man",
+        "definition": "A male human being.",
+        "pronunciation": "dare mahn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich gebe dem Mann das Buch.",
+          "translation": "I give the man the book."
+        },
+        "tip": "Remember that 'der' indicates that it's a masculine noun."
+      },
+      {
+        "term": "die Frau",
+        "translation": "the woman",
+        "definition": "An adult female human being.",
+        "pronunciation": "dee frow",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich schenke der Frau Blumen.",
+          "translation": "I give the woman flowers."
+        },
+        "tip": "'Die' indicates that it's a feminine noun."
+      },
+      {
+        "term": "das Kind",
+        "translation": "the child",
+        "definition": "A young human being.",
+        "pronunciation": "das kint",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich gebe dem Kind ein Spielzeug.",
+          "translation": "I give the child a toy."
+        },
+        "tip": "'Das' indicates that it's a neuter noun."
+      },
+      {
+        "term": "geben",
+        "translation": "to give",
+        "definition": "To hand over something.",
+        "pronunciation": "gay-ben",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Er gibt mir das Buch.",
+          "translation": "He gives me the book."
+        },
+        "tip": "Commonly used with dative objects."
+      },
+      {
+        "term": "schenken",
+        "translation": "to gift",
+        "definition": "To give something as a present.",
+        "pronunciation": "shenk-en",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Wir schenken dir ein Geschenk.",
+          "translation": "We gift you a present."
+        },
+        "tip": "Always use a dative pronoun with this verb."
+      },
+      {
+        "term": "helfen",
+        "translation": "to help",
+        "definition": "To assist someone.",
+        "pronunciation": "hel-fen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Kannst du mir helfen?",
+          "translation": "Can you help me?"
+        },
+        "tip": "This verb always requires a dative object."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Dative Case",
+        "explanation": "The dative case is used to indicate the indirect object of a sentence, typically the recipient of something. In German, the articles and adjective endings change in the dative case. The dative is commonly used with certain verbs like 'geben' (to give), 'schenken' (to gift), and 'helfen' (to help).",
+        "table": {
+          "headers": [
+            "Nominative",
+            "Dative"
+          ],
+          "rows": [
+            [
+              "der Mann",
+              "dem Mann"
+            ],
+            [
+              "die Frau",
+              "der Frau"
+            ],
+            [
+              "das Kind",
+              "dem Kind"
+            ],
+            [
+              "die Männer",
+              "den Männern"
+            ],
+            [
+              "die Frauen",
+              "den Frauen"
+            ],
+            [
+              "die Kinder",
+              "den Kindern"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich gebe dem Mann das Buch.",
+            "translation": "I give the man the book.",
+            "breakdown": "Here, 'dem Mann' is the dative form of 'der Mann' because he is receiving the book."
+          }
+        ],
+        "commonMistakes": [
+          "Using accusative instead of dative: 'Ich gebe den Mann das Buch.' (incorrect) should be 'Ich gebe dem Mann das Buch.'",
+          "Confusing 'der' and 'dem': 'Ich gebe der Mann das Buch.' (incorrect) should be 'Ich gebe dem Mann das Buch.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Gift Shop",
+      "context": "This conversation takes place at a gift shop where two friends are shopping.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Ich möchte ein Geschenk für meine Mutter kaufen.",
+          "translation": "I want to buy a gift for my mother."
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist eine gute Idee! Was schenkst du ihr?",
+          "translation": "That's a good idea! What are you gifting her?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich schenke ihr ein schönes Buch.",
+          "translation": "I am gifting her a nice book."
+        },
+        {
+          "speaker": 1,
+          "text": "Das Buch ist perfekt! Hast du das Geld?",
+          "translation": "The book is perfect! Do you have the money?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, ich habe 20 Euro.",
+          "translation": "Yes, I have 20 euros."
+        },
+        {
+          "speaker": 1,
+          "text": "Gut, dann können wir es kaufen.",
+          "translation": "Good, then we can buy it."
+        },
+        {
+          "speaker": 0,
+          "text": "Kannst du mir helfen, es zu finden?",
+          "translation": "Can you help me find it?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, lass uns fragen.",
+          "translation": "Yes, let's ask."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Gift-Giving in German Culture",
+      "text": "In German-speaking cultures, gift-giving is an important tradition, especially during birthdays and holidays. It is common to give gifts that are thoughtful and personalized.",
+      "funFact": "In Germany, it is customary to unwrap gifts in front of the giver to show appreciation."
+    },
+    "summary": {
+      "keyPoints": [
+        "The dative case is used for the indirect object of a sentence.",
+        "Certain verbs require the dative case (e.g., geben, schenken, helfen).",
+        "Articles change in the dative case depending on the gender of the noun.",
+        "Practice using dative forms in sentences with common verbs."
+      ],
+      "nextSteps": "Practice forming sentences using the dative case with the vocabulary learned. Try to write your own sentences or dialogues."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence uses the dative case correctly?",
+      "content": {
+        "options": [
+          "Ich gebe der Mann einen Apfel.",
+          "Ich gebe dem Mann einen Apfel.",
+          "Ich gebe das Mann einen Apfel."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct form is 'dem Mann' because 'Mann' is masculine and requires the dative article 'dem'.",
+      "hint": "Remember the dative articles for masculine nouns.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the dative form of 'die Frau'?",
+      "content": {
+        "options": [
+          "der Frau",
+          "die Frau",
+          "dem Frau"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'der Frau' is the correct dative form for the feminine noun 'Frau'.",
+      "hint": "Feminine nouns take 'der' in the dative case.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich ___ (geben) dem Kind ein Spielzeug.",
+      "content": {
+        "sentence": "Ich ___ dem Kind ein Spielzeug.",
+        "correctAnswer": "gebe",
+        "acceptableAnswers": [
+          "gebe"
+        ],
+        "options": [
+          "gebe",
+          "gibt",
+          "geben"
+        ]
+      },
+      "explanation": "The verb 'geben' must be conjugated to 'gebe' to match the subject 'Ich'.",
+      "hint": "Conjugate the verb for the first person singular.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich ___ (schenken) der Frau Blumen.",
+      "content": {
+        "sentence": "Ich ___ der Frau Blumen.",
+        "correctAnswer": "schenke",
+        "acceptableAnswers": [
+          "schenke"
+        ],
+        "options": [
+          "schenke",
+          "schenkt",
+          "schenken"
+        ]
+      },
+      "explanation": "The verb 'schenken' must be conjugated to 'schenke' to match the subject 'Ich'.",
+      "hint": "Conjugate the verb for the first person singular.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: (dem, helfen, Kind, ich)",
+      "content": {
+        "words": [
+          "Kind",
+          "helfen",
+          "dem",
+          "ich"
+        ],
+        "correctOrder": [
+          "ich",
+          "helfen",
+          "dem",
+          "Kind"
+        ],
+        "translation": "I help the child"
+      },
+      "explanation": "The correct order reflects the subject-verb-object structure in German.",
+      "hint": "Start with the subject 'ich'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I give the man a book.'",
+      "content": {
+        "correctAnswer": "Ich gebe dem Mann ein Buch.",
+        "acceptableAnswers": [
+          "Ich gebe dem Mann ein Buch."
+        ]
+      },
+      "explanation": "In German, the dative case is used for the indirect object, which is 'dem Mann'.",
+      "hint": "Focus on the dative article for masculine nouns.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct sentence.",
+      "content": {
+        "ttsText": "Ich gebe der Frau ein Geschenk.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Ich gebe dem Mann ein Geschenk.",
+          "Ich gebe der Frau ein Geschenk.",
+          "Ich gebe das Kind ein Geschenk."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "You heard 'Ich gebe der Frau ein Geschenk.', which correctly uses the dative case.",
+      "hint": "Listen carefully for the noun and its article.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this German sentence: 'I help the child.'",
+      "content": {
+        "targetText": "Ich helfe dem Kind.",
+        "context": "Translate and say the sentence in German.",
+        "acceptableVariants": [
+          "Ich helfe dem Kind."
+        ]
+      },
+      "explanation": "The sentence uses the correct dative case for 'Kind'.",
+      "hint": "Remember the dative article for neuter nouns.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    }
+  ]
+}

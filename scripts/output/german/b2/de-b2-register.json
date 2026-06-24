@@ -1,0 +1,349 @@
+{
+  "lesson": {
+    "title": "Formal vs Informal Register",
+    "type": "CONVERSATION",
+    "slug": "de-b2-register"
+  },
+  "unit": "Persuasion & Argument",
+  "unitOrder": 2,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about the differences between formal and informal registers in German conversation. Understanding when to use each register is crucial for effective communication in various social contexts.",
+      "culturalNote": "In Germany, addressing someone formally using 'Sie' is very important in professional settings, while 'du' is reserved for friends and family."
+    },
+    "vocabulary": [
+      {
+        "term": "der Unterschied",
+        "translation": "the difference",
+        "definition": "A distinction between two or more items.",
+        "pronunciation": "doer OON-tair-sheid",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es gibt einen großen Unterschied zwischen formalem und informellem Deutsch.",
+          "translation": "There is a big difference between formal and informal German."
+        },
+        "tip": "Remember, 'der Unterschied' is masculine (der) and its plural is 'die Unterschiede'."
+      },
+      {
+        "term": "die Anrede",
+        "translation": "the address (form of greeting)",
+        "definition": "The way in which someone is addressed, especially in formal settings.",
+        "pronunciation": "dee AHN-ray-duh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Anrede ist im formellen Deutsch sehr wichtig.",
+          "translation": "The address is very important in formal German."
+        },
+        "tip": "This is feminine (die) and its plural form is 'die Anreden'."
+      },
+      {
+        "term": "der Respekt",
+        "translation": "the respect",
+        "definition": "A feeling of deep admiration for someone or something.",
+        "pronunciation": "doer re-SPEKT",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Respekt zeigt man durch die richtige Anrede.",
+          "translation": "One shows respect through the correct form of address."
+        },
+        "tip": "'Der Respekt' is masculine (der) and does not change in the plural."
+      },
+      {
+        "term": "die Höflichkeit",
+        "translation": "the politeness",
+        "definition": "Behavior that shows respect and consideration for others.",
+        "pronunciation": "dee HERF-likh-kite",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Höflichkeit ist in der deutschen Kultur sehr wichtig.",
+          "translation": "Politeness is very important in German culture."
+        },
+        "tip": "'Die Höflichkeit' is feminine (die) and its plural is 'die Höflichkeiten'."
+      },
+      {
+        "term": "der Kontext",
+        "translation": "the context",
+        "definition": "The circumstances that form the setting for an event, statement, or idea.",
+        "pronunciation": "doer KONT-exht",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Kontext entscheidet oft, ob man formal oder informell spricht.",
+          "translation": "The context often decides whether one speaks formally or informally."
+        },
+        "tip": "'Der Kontext' is masculine (der) and its plural is 'die Kontexte'."
+      },
+      {
+        "term": "die Situation",
+        "translation": "the situation",
+        "definition": "A set of circumstances in which one finds oneself.",
+        "pronunciation": "dee zit-oo-AH-tsioon",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "In einer formellen Situation sollte man immer die Höflichkeit wahren.",
+          "translation": "In a formal situation, one should always maintain politeness."
+        },
+        "tip": "'Die Situation' is feminine (die) and its plural is 'die Situationen'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'Sie' vs. 'du'",
+        "explanation": "In German, 'Sie' is used for formal address, while 'du' is used for informal communication. The choice depends on the relationship between speakers and the context of the conversation. For instance, in a workplace or with strangers, you should use 'Sie' to show respect. Conversely, 'du' is used among friends or family.",
+        "table": {
+          "headers": [
+            "Formal (Sie)",
+            "Informal (du)"
+          ],
+          "rows": [
+            [
+              "Sie sind sehr freundlich.",
+              "Du bist sehr freundlich."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Könnten Sie mir bitte helfen?",
+            "translation": "Could you please help me?",
+            "breakdown": "Here, 'Sie' is used to show respect in a formal request."
+          },
+          {
+            "original": "Kannst du mir bitte helfen?",
+            "translation": "Can you please help me?",
+            "breakdown": "In this case, 'du' indicates a more casual and friendly request."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'du' with someone you don't know well. Correction: Always start with 'Sie'.",
+          "Mixing up formal and informal language in emails. Correction: Use 'Sie' for formal emails."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Job Offer",
+      "context": "This conversation takes place during a formal job interview.",
+      "speakers": [
+        "Max (interviewer)",
+        "Anna (candidate)"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Guten Tag, Anna. Vielen Dank, dass Sie gekommen sind.",
+          "translation": "Good day, Anna. Thank you for coming.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Guten Tag, Max. Ich freue mich, hier zu sein.",
+          "translation": "Good day, Max. I am happy to be here.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Könnten Sie mir bitte etwas über Ihre Erfahrungen erzählen?",
+          "translation": "Could you please tell me something about your experiences?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, gerne. Ich habe fünf Jahre in der Marketingabteilung gearbeitet.",
+          "translation": "Yes, gladly. I have worked five years in the marketing department.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt interessant. Was waren Ihre Hauptaufgaben?",
+          "translation": "That sounds interesting. What were your main tasks?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich war für die Planung und Durchführung von Kampagnen verantwortlich.",
+          "translation": "I was responsible for planning and executing campaigns.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Vielen Dank für die Informationen. Haben Sie Fragen an uns?",
+          "translation": "Thank you for the information. Do you have any questions for us?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, was sind die nächsten Schritte im Auswahlprozess?",
+          "translation": "Yes, what are the next steps in the selection process?",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Formalities in the German Workplace",
+      "text": "In the German-speaking world, formality in the workplace is highly valued. It is common to address colleagues and superiors with 'Sie' until a mutual agreement to switch to 'du' is reached. This reflects respect and professionalism.",
+      "funFact": "In Austria, it is common for people to remain formal even among friends in the workplace, which can differ from German norms."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understand the difference between formal and informal registers.",
+        "Use 'Sie' for formal situations and 'du' for informal contexts.",
+        "Recognize the importance of context in determining the appropriate form of address.",
+        "Be mindful of politeness and respect in communication."
+      ],
+      "nextSteps": "Practice using both forms of address in different contexts, and try role-playing conversations that require both formal and informal language."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the main difference between formal and informal language?",
+      "content": {
+        "options": [
+          "Formal language is used in casual conversations.",
+          "Informal language is used in professional settings.",
+          "Formal language often shows more respect and politeness.",
+          "Informal language is always incorrect."
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "Formal language is characterized by a higher level of respect and politeness, suitable for official contexts.",
+      "hint": "Think about how you address someone in a job interview versus a friend.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is an informal way to greet someone?",
+      "content": {
+        "options": [
+          "Dear Mr. Smith,",
+          "Hello, John!",
+          "To whom it may concern,",
+          "Greetings,"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The greeting 'Hello, John!' is informal and friendly, unlike the others which are more formal.",
+      "hint": "Consider how you would greet a friend vs. a boss.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence with the correct form: 'In formal contexts, one should always show ___.'",
+      "content": {
+        "sentence": "In formal contexts, one should always show ___.",
+        "correctAnswer": "Respekt",
+        "acceptableAnswers": [
+          "den Respekt",
+          "Respekt"
+        ],
+        "options": [
+          "Höflichkeit",
+          "Respekt",
+          "Freundschaft"
+        ]
+      },
+      "explanation": "Showing respect is crucial in formal communication.",
+      "hint": "What do we need to show in professional interactions?",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the correct word: 'The choice of words depends on the ___.''",
+      "content": {
+        "sentence": "The choice of words depends on the ___.",
+        "correctAnswer": "Kontext",
+        "acceptableAnswers": [
+          "Kontext",
+          "Situation"
+        ],
+        "options": [
+          "Kontext",
+          "Anrede",
+          "Höflichkeit"
+        ]
+      },
+      "explanation": "The context of the conversation influences the choice of words.",
+      "hint": "Think about the setting of the conversation.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'Sie / höflich / sollte / sein / immer'.",
+      "content": {
+        "words": [
+          "Sie",
+          "höflich",
+          "sollte",
+          "sein",
+          "immer"
+        ],
+        "correctOrder": [
+          "Sie",
+          "sollte",
+          "immer",
+          "höflich",
+          "sein"
+        ],
+        "translation": "She should always be polite."
+      },
+      "explanation": "In German, the verb typically comes in the second position.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'You should use formal language in a job interview.'",
+      "content": {
+        "prompt": "Translate to German: 'You should use formal language in a job interview.'",
+        "correctAnswer": "Du solltest formelle Sprache in einem Vorstellungsgespräch verwenden.",
+        "acceptableAnswers": [
+          "Man sollte formelle Sprache in einem Vorstellungsgespräch verwenden."
+        ]
+      },
+      "explanation": "Using formal language is essential in professional situations.",
+      "hint": "Think about the words for 'formal' and 'interview' in German.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation: 'Ich würde mich freuen, Sie zu treffen.'",
+      "content": {
+        "ttsText": "Ich würde mich freuen, Sie zu treffen.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I would be happy to meet you.",
+          "I would like to see you again.",
+          "I am happy to see you.",
+          "I would love to meet you."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The German sentence translates to a polite expression of eagerness to meet someone.",
+      "hint": "Listen for the phrase that expresses happiness about meeting.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Practice saying this polite request: 'Could you please send me the report by the end of the day?'",
+      "content": {
+        "targetText": "Könnten Sie mir bitte den Bericht bis zum Ende des Tages zusenden?",
+        "context": "You are requesting a report from a colleague in a formal setting.",
+        "acceptableVariants": [
+          "Könnten Sie mir bitte den Bericht senden?",
+          "Würden Sie mir bitte den Bericht zusenden?"
+        ]
+      },
+      "explanation": "Using 'Könnten Sie' makes the request more polite and formal.",
+      "hint": "Focus on the polite forms of address.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

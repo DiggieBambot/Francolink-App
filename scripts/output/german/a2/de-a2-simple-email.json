@@ -1,0 +1,376 @@
+{
+  "lesson": {
+    "title": "Writing a Simple Email",
+    "type": "CONVERSATION",
+    "slug": "de-a2-simple-email"
+  },
+  "unit": "Work & Studies",
+  "unitOrder": 5,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to write a simple email in German. You will practice useful vocabulary and phrases for everyday communication at work or school.",
+      "culturalNote": "In Germany, emails are a common form of communication in both professional and academic settings. It's important to be polite and formal, especially in the beginning."
+    },
+    "vocabulary": [
+      {
+        "term": "die E-Mail",
+        "translation": "the email",
+        "definition": "a message sent electronically",
+        "pronunciation": "dee AY-mail",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich schreibe eine E-Mail.",
+          "translation": "I am writing an email."
+        },
+        "tip": "E-Mail is feminine (die), and it's used in the singular form."
+      },
+      {
+        "term": "der Betreff",
+        "translation": "the subject",
+        "definition": "the title or topic of the email",
+        "pronunciation": "dehr beh-TREF",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Betreff ist wichtig.",
+          "translation": "The subject is important."
+        },
+        "tip": "Betreff is masculine (der) and usually appears at the top of an email."
+      },
+      {
+        "term": "die Anrede",
+        "translation": "the salutation",
+        "definition": "the greeting at the beginning of an email",
+        "pronunciation": "dee AHN-reh-deh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Anrede ist 'Sehr geehrte Frau Müller'.",
+          "translation": "The salutation is 'Dear Ms. Müller'."
+        },
+        "tip": "Anrede is feminine (die) and is followed by a comma."
+      },
+      {
+        "term": "der Schluss",
+        "translation": "the closing",
+        "definition": "the farewell at the end of an email",
+        "pronunciation": "dehr SHLOOS",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Schluss ist 'Mit freundlichen Grüßen'.",
+          "translation": "The closing is 'Kind regards'."
+        },
+        "tip": "Schluss is masculine (der) and concludes the email politely."
+      },
+      {
+        "term": "der Anhang",
+        "translation": "the attachment",
+        "definition": "a file sent with the email",
+        "pronunciation": "dehr AN-hang",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe einen Anhang hinzugefügt.",
+          "translation": "I have added an attachment."
+        },
+        "tip": "Anhang is masculine (der), and it's common to mention attachments in emails."
+      },
+      {
+        "term": "antworten",
+        "translation": "to answer",
+        "definition": "to respond to a message",
+        "pronunciation": "ANT-vor-ten",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich werde schnell antworten.",
+          "translation": "I will answer quickly."
+        },
+        "tip": "This verb is regular; in the past, it’s 'hat geantwortet'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Email Structure in German",
+        "explanation": "When writing an email in German, there are three main parts: the Anrede (salutation), the body of the email, and the Schluss (closing). The Anrede is followed by a comma, and the Schluss usually starts with 'Mit freundlichen Grüßen'.",
+        "table": {
+          "headers": [
+            "Part",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Anrede",
+              "Sehr geehrte Frau Müller,"
+            ],
+            [
+              "Body",
+              "Ich hoffe, es geht Ihnen gut."
+            ],
+            [
+              "Schluss",
+              "Mit freundlichen Grüßen,"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Sehr geehrte Frau Müller, Ich hoffe, es geht Ihnen gut. Mit freundlichen Grüßen, Max.",
+            "translation": "Dear Ms. Müller, I hope you are doing well. Kind regards, Max.",
+            "breakdown": "This example shows a complete email structure."
+          }
+        ],
+        "commonMistakes": [
+          "Forget to include a comma after the Anrede.",
+          "Using informal language in a formal email."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Writing an Email to a Teacher",
+      "context": "A student is writing an email to their teacher to ask for help with an assignment.",
+      "speakers": [
+        "Lukas",
+        "Frau Schmidt"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Sehr geehrte Frau Schmidt,",
+          "translation": "Dear Ms. Schmidt,",
+          "note": "Formal salutation."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich hoffe, es geht Ihnen gut.",
+          "translation": "I hope you are doing well."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich habe eine Frage zu meiner Hausaufgabe.",
+          "translation": "I have a question about my homework."
+        },
+        {
+          "speaker": 0,
+          "text": "Könnten Sie mir bitte helfen?",
+          "translation": "Could you please help me?"
+        },
+        {
+          "speaker": 0,
+          "text": "Vielen Dank im Voraus.",
+          "translation": "Thank you very much in advance."
+        },
+        {
+          "speaker": 0,
+          "text": "Mit freundlichen Grüßen,",
+          "translation": "Kind regards,"
+        },
+        {
+          "speaker": 0,
+          "text": "Lukas",
+          "translation": "Lukas",
+          "note": "Student's name."
+        },
+        {
+          "speaker": 1,
+          "text": "Lieber Lukas,",
+          "translation": "Dear Lukas,",
+          "note": "Teacher's response."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich helfe Ihnen gerne.",
+          "translation": "I am happy to help you."
+        },
+        {
+          "speaker": 1,
+          "text": "Kommen Sie bitte zu meinem Büro.",
+          "translation": "Please come to my office."
+        },
+        {
+          "speaker": 1,
+          "text": "Mit besten Grüßen,",
+          "translation": "Best regards,"
+        },
+        {
+          "speaker": 1,
+          "text": "Frau Schmidt",
+          "translation": "Ms. Schmidt",
+          "note": "Teacher's name."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Email Etiquette in German-Speaking Countries",
+      "text": "In German-speaking countries, it's essential to maintain a formal tone in emails, especially in professional settings. Using titles and proper salutations shows respect.",
+      "funFact": "The German word 'Sie' is used for formal 'you', while 'du' is used for informal situations."
+    },
+    "summary": {
+      "keyPoints": [
+        "Emails have a clear structure: Anrede, body, Schluss.",
+        "Use formal language in professional emails.",
+        "Include a subject line for clarity.",
+        "Be polite and express gratitude."
+      ],
+      "nextSteps": "Practice writing your own email using the vocabulary and structure learned in this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'der Betreff' mean in English?",
+      "content": {
+        "options": [
+          "The subject",
+          "The greeting",
+          "The closing",
+          "The attachment"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Betreff' means 'the subject' of an email.",
+      "hint": "Think about what the main topic of an email is called.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which part of an email is 'die Anrede'?",
+      "content": {
+        "options": [
+          "The greeting",
+          "The closing",
+          "The subject",
+          "The body"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Anrede' refers to the greeting in an email.",
+      "hint": "It is often the first line of an email.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich schreibe eine ___.'",
+      "content": {
+        "sentence": "Ich schreibe eine ___.",
+        "correctAnswer": "E-Mail",
+        "acceptableAnswers": [
+          "E-Mail"
+        ],
+        "options": [
+          "Nachricht",
+          "E-Mail",
+          "Antwort"
+        ]
+      },
+      "explanation": "The correct answer is 'E-Mail', which means 'email'.",
+      "hint": "Think about what you send electronically.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the correct word: 'Der ___ ist die letzte Zeile in einer E-Mail.'",
+      "content": {
+        "sentence": "Der ___ ist die letzte Zeile in einer E-Mail.",
+        "correctAnswer": "Schluss",
+        "acceptableAnswers": [
+          "Schluss"
+        ],
+        "options": [
+          "Betreff",
+          "Schluss",
+          "Anhang"
+        ]
+      },
+      "explanation": "'Der Schluss' refers to the closing part of an email.",
+      "hint": "It's what you say at the end.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'Please find the attachment.'",
+      "content": {
+        "prompt": "Translate to German: 'Please find the attachment.'",
+        "correctAnswer": "Bitte finden Sie den Anhang.",
+        "acceptableAnswers": [
+          "Bitte finden Sie den Anhang."
+        ]
+      },
+      "explanation": "The translation accurately conveys the request in formal German.",
+      "hint": "Remember the polite form when addressing someone.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation: 'Ich habe die E-Mail gesendet.'",
+      "content": {
+        "ttsText": "Ich habe die E-Mail gesendet.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I have sent the email.",
+          "I have received the email.",
+          "I will send the email."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation of the listened sentence is 'I have sent the email.'",
+      "hint": "Focus on the verb in the sentence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I will write you an email soon.'",
+      "content": {
+        "targetText": "Ich werde dir bald eine E-Mail schreiben.",
+        "context": "Translate the sentence into German.",
+        "acceptableVariants": [
+          "Ich schreibe dir bald eine E-Mail."
+        ]
+      },
+      "explanation": "This sentence expresses a future intention in German.",
+      "hint": "Use the future tense for your answer.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Die E-Mail hat einen ___.'",
+      "content": {
+        "sentence": "Die E-Mail hat einen ___.",
+        "correctAnswer": "Anhang",
+        "acceptableAnswers": [
+          "Anhang"
+        ],
+        "options": [
+          "Betreff",
+          "Schluss",
+          "Anhang"
+        ]
+      },
+      "explanation": "'Ein Anhang' refers to an attachment that can be included in an email.",
+      "hint": "Think about files you can send with your email.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct closing in a formal email?",
+      "content": {
+        "options": [
+          "Mit freundlichen Grüßen",
+          "Hallo",
+          "Tschüss",
+          "Liebe Grüße"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct formal closing is 'Mit freundlichen Grüßen'.",
+      "hint": "It’s a polite way to end an email.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,318 @@
+{
+  "lesson": {
+    "title": "Workplace Diplomacy",
+    "type": "CONVERSATION",
+    "slug": "de-b2-diplomacy"
+  },
+  "unit": "Professional Communication",
+  "unitOrder": 3,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn essential vocabulary and phrases for practicing workplace diplomacy in German. You will also explore strategies for navigating professional conversations while maintaining a respectful and diplomatic tone.",
+      "culturalNote": "In German-speaking cultures, direct communication is often valued, but politeness and diplomacy are crucial in professional settings. Understanding this balance can enhance your success in workplace interactions."
+    },
+    "vocabulary": [
+      {
+        "term": "der Kompromiss",
+        "translation": "the compromise",
+        "definition": "An agreement or settlement of a dispute that is reached by each side making concessions.",
+        "pronunciation": "der kom-pro-miss",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wir müssen einen Kompromiss finden.",
+          "translation": "We need to find a compromise."
+        },
+        "tip": "Kompromiss is masculine (der). Plural: die Kompromisse."
+      },
+      {
+        "term": "die Verhandlung",
+        "translation": "the negotiation",
+        "definition": "A discussion aimed at reaching an agreement.",
+        "pronunciation": "die fer-han-dlung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Verhandlung war sehr erfolgreich.",
+          "translation": "The negotiation was very successful."
+        },
+        "tip": "Verhandlung is feminine (die). Plural: die Verhandlungen."
+      },
+      {
+        "term": "der Vorschlag",
+        "translation": "the proposal",
+        "definition": "An idea or plan put forward for consideration.",
+        "pronunciation": "der for-shlag",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe einen Vorschlag für das Projekt.",
+          "translation": "I have a proposal for the project."
+        },
+        "tip": "Vorschlag is masculine (der). Plural: die Vorschläge."
+      },
+      {
+        "term": "die Rückmeldung",
+        "translation": "the feedback",
+        "definition": "Information about reactions to a product, a person's performance, etc.",
+        "pronunciation": "die rük-mel-dung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich würde mich über Ihre Rückmeldung freuen.",
+          "translation": "I would be happy to receive your feedback."
+        },
+        "tip": "Rückmeldung is feminine (die). Plural: die Rückmeldungen."
+      },
+      {
+        "term": "der Respekt",
+        "translation": "the respect",
+        "definition": "A feeling of deep admiration for someone or something.",
+        "pronunciation": "der re-spekt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Respekt ist in der Zusammenarbeit wichtig.",
+          "translation": "Respect is important in collaboration."
+        },
+        "tip": "Respekt is masculine (der). No plural form."
+      },
+      {
+        "term": "die Zusammenarbeit",
+        "translation": "the collaboration",
+        "definition": "The action of working with someone to produce or create something.",
+        "pronunciation": "die tsu-sam-men-ar-bait",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Unsere Zusammenarbeit war sehr produktiv.",
+          "translation": "Our collaboration was very productive."
+        },
+        "tip": "Zusammenarbeit is feminine (die). Plural: die Zusammenarbeiten."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Konjunktiv II for Polite Requests",
+        "explanation": "Konjunktiv II is often used in German to express hypothetical situations or polite requests. It allows speakers to sound less direct, making their requests appear more courteous. For example, instead of saying 'Give me the report,' one might say, 'Ich wäre Ihnen dankbar, wenn Sie mir den Bericht geben könnten.' (I would be grateful if you could give me the report.)",
+        "table": {
+          "headers": [
+            "Verb (infinitive)",
+            "Konjunktiv II"
+          ],
+          "rows": [
+            [
+              "geben",
+              "gäbe"
+            ],
+            [
+              "mögen",
+              "möchte"
+            ],
+            [
+              "sein",
+              "wäre"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich wäre froh, wenn wir einen Kompromiss finden könnten.",
+            "translation": "I would be happy if we could find a compromise.",
+            "breakdown": "The sentence uses Konjunktiv II ('wäre', 'könnten') to express a polite wish."
+          }
+        ],
+        "commonMistakes": [
+          "Mistake: 'Ich will, dass du mir hilfst.' Correction: 'Ich wäre dankbar, wenn du mir helfen könntest.'",
+          "Mistake: 'Gib mir den Bericht!' Correction: 'Ich wäre Ihnen dankbar, wenn Sie mir den Bericht geben könnten.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Negotiating a Project Deadline",
+      "context": "In a meeting between colleagues discussing the timeline for a new project.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Max, ich wollte mit dir über den Projektzeitplan sprechen.",
+          "translation": "Max, I wanted to talk to you about the project timeline."
+        },
+        {
+          "speaker": 1,
+          "text": "Klar, Lena. Was hast du im Sinn?",
+          "translation": "Sure, Lena. What do you have in mind?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich denke, wir sollten den Abgabetermin um eine Woche verschieben.",
+          "translation": "I think we should postpone the deadline by a week."
+        },
+        {
+          "speaker": 1,
+          "text": "Das könnte problematisch sein, da wir bereits einige Verpflichtungen haben.",
+          "translation": "That could be problematic since we already have some commitments."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich verstehe, aber ich glaube, dass es die Qualität des Projekts verbessern würde.",
+          "translation": "I understand, but I believe it would improve the quality of the project."
+        },
+        {
+          "speaker": 1,
+          "text": "Das macht Sinn. Hast du einen Vorschlag für den neuen Termin?",
+          "translation": "That makes sense. Do you have a proposal for the new date?"
+        },
+        {
+          "speaker": 0,
+          "text": "Wie wäre es mit dem 15. des Monats?",
+          "translation": "How about the 15th of the month?"
+        },
+        {
+          "speaker": 1,
+          "text": "Das klingt machbar. Lass uns das im Team besprechen.",
+          "translation": "That sounds feasible. Let's discuss it with the team."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Diplomacy in German Culture",
+      "text": "In German-speaking workplaces, diplomacy is often seen as essential for effective communication and collaboration. Employees are expected to express their opinions clearly while also respecting others' views, fostering a culture of mutual understanding.",
+      "funFact": "In Switzerland, the concept of 'Kompromiss' is particularly important due to the country's multilingual and multicultural society, where reaching agreements often requires careful negotiation."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding the importance of workplace diplomacy.",
+        "Mastering vocabulary related to negotiations and proposals.",
+        "Using Konjunktiv II for polite requests.",
+        "Engaging in realistic professional dialogues."
+      ],
+      "nextSteps": "Practice using the vocabulary in your own workplace scenarios and try to create dialogues that incorporate Konjunktiv II for polite requests."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'compromise'?",
+      "content": {
+        "options": [
+          "der Kompromiss",
+          "die Zusammenarbeit",
+          "der Vorschlag",
+          "die Rückmeldung"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'der Kompromiss', which translates to 'compromise' in English.",
+      "hint": "It starts with a 'K'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'die Rückmeldung' mean in English?",
+      "content": {
+        "options": [
+          "the proposal",
+          "the feedback",
+          "the respect",
+          "the collaboration"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Die Rückmeldung' translates to 'the feedback' in English.",
+      "hint": "Think about responses you receive.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Eine gute _____ ist wichtig für den Erfolg.'",
+      "content": {
+        "sentence": "Eine gute _____ ist wichtig für den Erfolg.",
+        "correctAnswer": "Zusammenarbeit",
+        "acceptableAnswers": [
+          "Zusammenarbeit"
+        ],
+        "options": [
+          "Kompromiss",
+          "Vorschlag",
+          "Rückmeldung",
+          "Zusammenarbeit"
+        ]
+      },
+      "explanation": "The correct answer is 'Zusammenarbeit', meaning 'collaboration'.",
+      "hint": "It refers to working together.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Wir müssen einen _____ finden.'",
+      "content": {
+        "sentence": "Wir müssen einen _____ finden.",
+        "correctAnswer": "Kompromiss",
+        "acceptableAnswers": [
+          "Kompromiss"
+        ],
+        "options": [
+          "Vorschlag",
+          "Kompromiss",
+          "Respekt",
+          "Rückmeldung"
+        ]
+      },
+      "explanation": "The correct answer is 'Kompromiss', which means 'compromise'.",
+      "hint": "It’s about reaching an agreement.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'We need to negotiate a proposal.'",
+      "content": {
+        "prompt": "Translate to German: 'We need to negotiate a proposal.'",
+        "correctAnswer": "Wir müssen einen Vorschlag verhandeln.",
+        "acceptableAnswers": [
+          "Wir müssen einen Vorschlag verhandeln."
+        ]
+      },
+      "explanation": "The translation highlights the importance of negotiation in professional settings.",
+      "hint": "Focus on 'verhandeln' for negotiate.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Wir respektieren die Meinungen anderer.'",
+      "content": {
+        "ttsText": "Wir respektieren die Meinungen anderer.",
+        "ttsLang": "de-DE",
+        "options": [
+          "We respect the opinions of others.",
+          "We negotiate the opinions of others.",
+          "We collaborate with others.",
+          "We need feedback from others."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'We respect the opinions of others.'",
+      "hint": "Think about respect.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'We must collaborate respectfully.'",
+      "content": {
+        "targetText": "Wir müssen respektvoll zusammenarbeiten.",
+        "context": "Expressing the importance of respectful collaboration.",
+        "acceptableVariants": [
+          "Wir müssen respektvoll zusammenarbeiten."
+        ]
+      },
+      "explanation": "This sentence emphasizes the need for respectful collaboration in the workplace.",
+      "hint": "Start with 'Wir müssen'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

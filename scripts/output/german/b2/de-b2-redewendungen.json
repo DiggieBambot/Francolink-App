@@ -1,0 +1,320 @@
+{
+  "lesson": {
+    "title": "Redewendungen - Sayings",
+    "type": "VOCABULARY",
+    "slug": "de-b2-redewendungen"
+  },
+  "unit": "Idioms & Expressions",
+  "unitOrder": 4,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn various German sayings (Redewendungen) that are commonly used in everyday conversation. These idiomatic expressions will enrich your vocabulary and help you sound more like a native speaker.",
+      "culturalNote": "Many German sayings often have historical or cultural roots, reflecting the values and experiences of German-speaking people. Understanding these can provide deeper insights into their culture."
+    },
+    "vocabulary": [
+      {
+        "term": "der Apfel fällt nicht weit vom Stamm",
+        "translation": "the apple doesn’t fall far from the tree",
+        "definition": "Children often resemble their parents in behavior or character.",
+        "pronunciation": "deh AHP-fel fellt niht vaht fohm shtrahm",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Der Apfel fällt nicht weit vom Stamm, das sieht man bei ihm.",
+          "translation": "The apple doesn’t fall far from the tree; you can see that in him."
+        },
+        "tip": "Use this phrase when discussing family traits or behaviors."
+      },
+      {
+        "term": "die Katze im Sack kaufen",
+        "translation": "to buy a cat in a sack",
+        "definition": "To buy something without inspecting it first; to make a risky purchase.",
+        "pronunciation": "dee KAHT-se im zak KOW-fen",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Ich möchte die Katze im Sack nicht kaufen, ohne sie vorher zu sehen.",
+          "translation": "I don't want to buy a cat in a sack without seeing it first."
+        },
+        "tip": "This saying emphasizes the importance of caution in decision-making."
+      },
+      {
+        "term": "den Nagel auf den Kopf treffen",
+        "translation": "to hit the nail on the head",
+        "definition": "To describe a situation or problem accurately.",
+        "pronunciation": "den NAH-gel owf den KOHF tref-fen",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Mit deiner Analyse hast du den Nagel auf den Kopf getroffen.",
+          "translation": "With your analysis, you hit the nail on the head."
+        },
+        "tip": "Use this idiom to affirm someone’s insight or accuracy."
+      },
+      {
+        "term": "das Kind beim Schopf packen",
+        "translation": "to take the child by the hair",
+        "definition": "To address a problem promptly and directly.",
+        "pronunciation": "das KINT biem SHOF-p pah-ken",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Wir müssen das Problem jetzt beim Schopf packen.",
+          "translation": "We need to tackle the problem directly now."
+        },
+        "tip": "This saying suggests a proactive approach to challenges."
+      },
+      {
+        "term": "mit dem Kopf durch die Wand",
+        "translation": "to go through the wall with your head",
+        "definition": "To be stubborn or to insist on something despite obstacles.",
+        "pronunciation": "mit dem KOPF doohrch dee VAND",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Manchmal versucht er, mit dem Kopf durch die Wand zu gehen.",
+          "translation": "Sometimes he tries to go through the wall with his head."
+        },
+        "tip": "Use this expression to describe someone who is unyielding."
+      },
+      {
+        "term": "die Zähne zusammenbeißen",
+        "translation": "to grit your teeth",
+        "definition": "To endure a difficult situation with determination.",
+        "pronunciation": "dee TSAY-neh tsu-ZAM-men-BY-sen",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "In schweren Zeiten muss man die Zähne zusammenbeißen.",
+          "translation": "In tough times, one must grit their teeth."
+        },
+        "tip": "This idiom conveys perseverance in challenging circumstances."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Konjunktiv II for Hypothetical Situations",
+        "explanation": "The Konjunktiv II is used to express hypothetical situations or wishes that are contrary to reality. It often appears in conditional sentences. To form the Konjunktiv II, you typically use the simple past stem of the verb plus the appropriate endings.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Konjunktiv II"
+          ],
+          "rows": [
+            [
+              "sein",
+              "ich wäre"
+            ],
+            [
+              "haben",
+              "ich hätte"
+            ],
+            [
+              "gehen",
+              "ich ginge"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich mehr Zeit hätte, würde ich mehr Deutsch lernen.",
+            "translation": "If I had more time, I would learn more German.",
+            "breakdown": "This sentence uses Konjunktiv II ('hätte') to express a hypothetical condition."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the Konjunktiv II in hypothetical sentences, e.g., 'Wenn ich mehr Zeit habe' instead of 'Wenn ich mehr Zeit hätte'.",
+          "Forgetting to use 'würde' with the infinitive for conditional sentences."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Family Resemblance",
+      "context": "Two friends, Anna and Lukas, are chatting over coffee about their families.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Ich habe neulich ein Bild von meinem Vater gesehen.",
+          "translation": "I recently saw a picture of my father.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Oh, wirklich? Und wie sieht er aus?",
+          "translation": "Oh, really? What does he look like?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Er sieht mir sehr ähnlich. Der Apfel fällt nicht weit vom Stamm.",
+          "translation": "He looks a lot like me. The apple doesn’t fall far from the tree.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das stimmt! Deine Schwester ist auch ganz nach euch geraten.",
+          "translation": "That's true! Your sister also turned out just like you.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, das ist manchmal witzig. Wir haben alle die gleichen Eigenschaften.",
+          "translation": "Yes, it's funny sometimes. We all have the same traits.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist wirklich interessant. Ich finde, Familienähnlichkeiten sind faszinierend.",
+          "translation": "That’s really interesting. I find family resemblances fascinating.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Genau, und manchmal denkt man, dass man die Katze im Sack kauft, wenn man jemanden neu trifft.",
+          "translation": "Exactly, and sometimes you think you’re buying a cat in a sack when you meet someone new.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist ein guter Punkt! Man weiß nie, was man bekommt.",
+          "translation": "That’s a good point! You never know what you're going to get.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Family and Traditions in German Culture",
+      "text": "Family plays a significant role in German culture, with many sayings reflecting familial relationships and traits. Many Germans feel a strong connection to their roots and often share stories about their ancestors.",
+      "funFact": "In Germany, there's a tradition called 'Familienfeiern,' where families gather to celebrate important milestones, strengthening family bonds."
+    },
+    "summary": {
+      "keyPoints": [
+        "You learned several important German sayings and their meanings.",
+        "Understanding these idioms will help you communicate more effectively in German.",
+        "The Konjunktiv II is essential for discussing hypothetical situations.",
+        "Cultural insights deepen your understanding of the language."
+      ],
+      "nextSteps": "Practice using these idioms in your conversations. Try to create your own sentences using Konjunktiv II."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does the German idiom 'der Apfel fällt nicht weit vom Stamm' mean in English?",
+      "content": {
+        "options": [
+          "The apple doesn't fall far from the tree",
+          "To buy a cat in a sack",
+          "To hit the nail on the head",
+          "To take the child by the hair"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "This idiom means that children often resemble their parents, either in behavior or characteristics.",
+      "hint": "Think about family resemblances.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following idioms means 'to bite the bullet' in German?",
+      "content": {
+        "options": [
+          "mit dem Kopf durch die Wand",
+          "die Zähne zusammenbeißen",
+          "die Katze im Sack kaufen",
+          "den Nagel auf den Kopf treffen"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The phrase 'die Zähne zusammenbeißen' is used when someone has to endure something difficult.",
+      "hint": "Think about enduring pain or difficulty.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Man muss manchmal ___ mit dem Kopf durch die Wand, um seine Ziele zu erreichen.",
+      "content": {
+        "sentence": "Man muss manchmal ___ mit dem Kopf durch die Wand, um seine Ziele zu erreichen.",
+        "correctAnswer": "gehen",
+        "acceptableAnswers": [
+          "gehen"
+        ],
+        "options": [
+          "gehen",
+          "laufen",
+          "springen"
+        ]
+      },
+      "explanation": "The phrase means to stubbornly pursue one's goals, even if it seems unreasonable.",
+      "hint": "Think of a strong-willed action.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the correct article: '___ Katze im Sack kaufen' means to buy something without checking it.",
+      "content": {
+        "sentence": "___ Katze im Sack kaufen",
+        "correctAnswer": "die",
+        "acceptableAnswers": [
+          "die"
+        ],
+        "options": [
+          "der",
+          "die",
+          "das"
+        ]
+      },
+      "explanation": "'Die Katze im Sack kaufen' warns against making hasty decisions.",
+      "hint": "Think about gender in German nouns.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'Grab the child by the hair.'",
+      "content": {
+        "prompt": "Translate to German: 'Grab the child by the hair.'",
+        "correctAnswer": "das Kind beim Schopf packen",
+        "acceptableAnswers": []
+      },
+      "explanation": "This idiom means to take decisive action in a situation.",
+      "hint": "Think about taking initiative.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct idiom.",
+      "content": {
+        "ttsText": "Die Zähne zusammenbeißen.",
+        "ttsLang": "de-DE",
+        "options": [
+          "die Katze im Sack kaufen",
+          "der Apfel fällt nicht weit vom Stamm",
+          "die Zähne zusammenbeißen",
+          "mit dem Kopf durch die Wand"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "The sentence refers to enduring difficulties.",
+      "hint": "Listen for words related to endurance.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following German sentence: 'Ich muss die Zähne zusammenbeißen, um das Projekt abzuschließen.'",
+      "content": {
+        "targetText": "Ich muss die Zähne zusammenbeißen, um das Projekt abzuschließen.",
+        "context": "You are discussing challenges at work.",
+        "acceptableVariants": []
+      },
+      "explanation": "This sentence illustrates the necessity of enduring difficulties to complete a task.",
+      "hint": "Focus on the action of enduring.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

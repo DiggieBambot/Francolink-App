@@ -1,0 +1,347 @@
+{
+  "lesson": {
+    "title": "Giving Opinions & Reasons",
+    "type": "CONVERSATION",
+    "slug": "de-b1-opinions"
+  },
+  "unit": "Expressing Opinions",
+  "unitOrder": 1,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to express opinions in German using phrases and structures like 'ich denke, dass...' and 'meiner Meinung nach...'. You will also understand how to give reasons using conjunctions like 'weil' and 'denn'.",
+      "culturalNote": "In Germany, expressing opinions is often encouraged in discussions, and it is common to back them up with logical reasoning."
+    },
+    "vocabulary": [
+      {
+        "term": "die Meinung",
+        "translation": "the opinion",
+        "definition": "A belief or judgment about something.",
+        "pronunciation": "dee MY-ning",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Was ist deine Meinung zu diesem Thema?",
+          "translation": "What is your opinion on this topic?"
+        },
+        "tip": "Remember, 'die' indicates that 'Meinung' is feminine."
+      },
+      {
+        "term": "denken",
+        "translation": "to think",
+        "definition": "To have a belief or opinion.",
+        "pronunciation": "DEN-ken",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich denke, dass es wichtig ist.",
+          "translation": "I think that it is important."
+        },
+        "tip": "It's a regular verb, so it conjugates like 'ich denke', 'du denkst', 'er/sie/es denkt'."
+      },
+      {
+        "term": "weil",
+        "translation": "because",
+        "definition": "A conjunction used to give reasons.",
+        "pronunciation": "vile",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Ich gehe ins Kino, weil ich den Film sehen will.",
+          "translation": "I am going to the cinema because I want to see the movie."
+        },
+        "tip": "Used to connect two clauses; the verb in the second clause goes to the end."
+      },
+      {
+        "term": "meiner Meinung nach",
+        "translation": "in my opinion",
+        "definition": "A phrase used to introduce your opinion.",
+        "pronunciation": "MY-ner MY-nung nahkh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Meiner Meinung nach ist das eine gute Idee.",
+          "translation": "In my opinion, that is a good idea."
+        },
+        "tip": "This phrase is very useful for formal discussions or debates."
+      },
+      {
+        "term": "der Grund",
+        "translation": "the reason",
+        "definition": "The explanation or justification for something.",
+        "pronunciation": "dehr GROONT",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Grund, warum ich das mache, ist einfach.",
+          "translation": "The reason why I do this is simple."
+        },
+        "tip": "Remember, 'der' indicates that 'Grund' is masculine."
+      },
+      {
+        "term": "denn",
+        "translation": "because",
+        "definition": "A conjunction used to introduce a reason, similar to 'weil'.",
+        "pronunciation": "den",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Ich kann nicht kommen, denn ich habe viel zu tun.",
+          "translation": "I cannot come because I have a lot to do."
+        },
+        "tip": "'Denn' is used when the verb order remains the same."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Conjunctions for Opinions",
+        "explanation": "In German, you can express opinions and provide reasons using conjunctions like 'weil' and 'denn'. 'Weil' introduces a subordinate clause, so the verb comes at the end. 'Denn' is used in main clauses, and the verb stays in the second position.",
+        "table": {
+          "headers": [
+            "Conjunction",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "weil",
+              "Subordinate clause (verb at the end)"
+            ],
+            [
+              "denn",
+              "Main clause (verb second)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich glaube, dass es regnen wird, weil es dunkel ist.",
+            "translation": "I believe that it will rain because it is dark.",
+            "breakdown": "The main clause 'Ich glaube' uses 'dass', and 'weil' introduces a reason with 'es dunkel ist' at the end."
+          },
+          {
+            "original": "Ich mache das, denn es ist wichtig.",
+            "translation": "I do this because it is important.",
+            "breakdown": "'Denn' connects two main clauses, keeping the verb in the second position."
+          }
+        ],
+        "commonMistakes": [
+          "'Weil' must be followed by a subordinate clause with the verb at the end.",
+          "'Denn' does not change the word order; the verb remains second."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Movie",
+      "context": "Anna and Lukas are discussing their opinions about a movie they watched recently.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Ich fand den Film sehr spannend.",
+          "translation": "I found the movie very exciting."
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, meiner Meinung nach war die Handlung interessant.",
+          "translation": "Yes, in my opinion, the plot was interesting."
+        },
+        {
+          "speaker": 0,
+          "text": "Warum denkst du das?",
+          "translation": "Why do you think that?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich denke, dass die Charaktere gut entwickelt waren.",
+          "translation": "I think that the characters were well-developed."
+        },
+        {
+          "speaker": 0,
+          "text": "Das stimmt, aber ich fand das Ende enttäuschend.",
+          "translation": "That's true, but I found the ending disappointing."
+        },
+        {
+          "speaker": 1,
+          "text": "Wegen der unerwarteten Wendungen?",
+          "translation": "Because of the unexpected twists?"
+        },
+        {
+          "speaker": 0,
+          "text": "Genau! Ich hätte mir ein anderes Ende gewünscht.",
+          "translation": "Exactly! I would have wished for a different ending."
+        },
+        {
+          "speaker": 1,
+          "text": "Meiner Meinung nach war es trotzdem ein guter Film.",
+          "translation": "In my opinion, it was still a good movie."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Expressing Opinions in Germany",
+      "text": "In German culture, discussing opinions openly is common and often encouraged, especially in educational settings and public debates. Germans appreciate logical reasoning and clear arguments.",
+      "funFact": "In Germany, there are even laws protecting the right to express one's opinion, reflecting the value placed on free speech."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned how to express opinions using 'meiner Meinung nach' and 'ich denke, dass...'.",
+        "Practiced giving reasons with 'weil' and 'denn'.",
+        "Understood the structure of subordinate and main clauses.",
+        "Engaged in a realistic dialogue about a movie."
+      ],
+      "nextSteps": "Practice giving your own opinions on various topics and try to use subordinate clauses with 'weil' and main clauses with 'denn'."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'meiner Meinung nach' mean in English?",
+      "content": {
+        "options": [
+          "In my opinion",
+          "I think",
+          "The reason",
+          "Because"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Meiner Meinung nach' translates to 'In my opinion' in English.",
+      "hint": "Focus on the phrase that expresses personal belief.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'reason' in German?",
+      "content": {
+        "options": [
+          "der Grund",
+          "die Meinung",
+          "denn",
+          "weil"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Grund' is the correct translation for 'reason' in German.",
+      "hint": "Look for the noun related to justification.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich denke, dass es wichtig ist, _____ (der Grund) zu verstehen.'",
+      "content": {
+        "sentence": "Ich denke, dass es wichtig ist, _____ zu verstehen.",
+        "correctAnswer": "den Grund",
+        "acceptableAnswers": [
+          "der Grund",
+          "die Gründe"
+        ],
+        "options": [
+          "der Grund",
+          "die Gründe",
+          "das Grund"
+        ]
+      },
+      "explanation": "The correct answer 'den Grund' fits the context of understanding a reason.",
+      "hint": "Think about the grammatical case needed here.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Ich finde das Buch interessant, _____ es viele neue Ideen enthält.'",
+      "content": {
+        "sentence": "Ich finde das Buch interessant, _____ es viele neue Ideen enthält.",
+        "correctAnswer": "weil",
+        "acceptableAnswers": [
+          "denn"
+        ],
+        "options": [
+          "weil",
+          "denn",
+          "aber"
+        ]
+      },
+      "explanation": "'Weil' is used here to give a reason for finding the book interesting.",
+      "hint": "Look for a conjunction that introduces a reason.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'das ist weil wichtig meine Meinung nach'",
+      "content": {
+        "words": [
+          "das",
+          "ist",
+          "weil",
+          "wichtig",
+          "meine",
+          "Meinung",
+          "nach"
+        ],
+        "correctOrder": [
+          "das",
+          "ist",
+          "meine",
+          "Meinung",
+          "nach",
+          "weil",
+          "wichtig"
+        ],
+        "translation": "That is important in my opinion because"
+      },
+      "explanation": "The correct order conveys a clear opinion with reasoning.",
+      "hint": "Identify the main subject and organize supporting clauses.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I think this movie is great.'",
+      "content": {
+        "prompt": "Translate to German: 'I think this movie is great.'",
+        "correctAnswer": "Ich denke, dass dieser Film großartig ist.",
+        "acceptableAnswers": [
+          "Ich finde diesen Film großartig."
+        ]
+      },
+      "explanation": "The translation captures the speaker's opinion about the movie.",
+      "hint": "Use the verb 'denken' in your translation.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich finde das Essen lecker.'",
+      "content": {
+        "ttsText": "Ich finde das Essen lecker.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I find the food tasty.",
+          "I think the food is bad.",
+          "I like the food.",
+          "The food is too spicy."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation expresses a positive opinion about the food.",
+      "hint": "Listen for the word that indicates a personal preference.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'In my opinion, it is better to study in a group.'",
+      "content": {
+        "targetText": "Meiner Meinung nach ist es besser, in einer Gruppe zu lernen.",
+        "context": "Express your opinion on studying methods.",
+        "acceptableVariants": [
+          "Ich denke, dass es besser ist, in einer Gruppe zu lernen."
+        ]
+      },
+      "explanation": "This sentence effectively conveys your opinion on study methods.",
+      "hint": "Start with 'Meiner Meinung nach' for a clear opinion.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

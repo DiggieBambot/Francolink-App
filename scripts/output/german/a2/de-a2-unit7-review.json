@@ -1,0 +1,360 @@
+{
+  "lesson": {
+    "title": "Unit 7 Review",
+    "type": "REVIEW",
+    "slug": "de-a2-unit7-review"
+  },
+  "unit": "Comparisons & Opinions",
+  "unitOrder": 7,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this review unit, you will consolidate your knowledge of comparisons and expressing opinions in German. You will practice using vocabulary, grammar points, and dialogues that reflect your learning in this unit.",
+      "culturalNote": "In German culture, making comparisons is a common way to express preferences, especially when discussing food, travel, and leisure activities."
+    },
+    "vocabulary": [
+      {
+        "term": "der Vergleich",
+        "translation": "the comparison",
+        "definition": "a statement that identifies similarities or differences between two or more things",
+        "pronunciation": "dehr fer-glykh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ein Vergleich ist sehr wichtig.",
+          "translation": "A comparison is very important."
+        },
+        "tip": "Remember that 'der Vergleich' is masculine; its plural form is 'die Vergleiche'."
+      },
+      {
+        "term": "besser",
+        "translation": "better",
+        "definition": "used to compare two things, indicating that one is superior to the other",
+        "pronunciation": "beh-ser",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Das Wetter ist besser als gestern.",
+          "translation": "The weather is better than yesterday."
+        },
+        "tip": "Use 'besser' for comparisons; the opposite is 'schlechter' (worse)."
+      },
+      {
+        "term": "mein Lieblingsessen",
+        "translation": "my favorite food",
+        "definition": "the food that one prefers above all others",
+        "pronunciation": "mine leeb-lings-eh-sen",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Mein Lieblingsessen ist Pizza.",
+          "translation": "My favorite food is pizza."
+        },
+        "tip": "Remember that 'das Essen' is neuter, and 'die Lieblings' is plural."
+      },
+      {
+        "term": "ich finde",
+        "translation": "I find",
+        "definition": "a phrase used to express personal opinions",
+        "pronunciation": "ikh fin-de",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Ich finde den Film interessant.",
+          "translation": "I find the movie interesting."
+        },
+        "tip": "Use 'ich finde' to share your opinion about anything."
+      },
+      {
+        "term": "schmecken",
+        "translation": "to taste",
+        "definition": "to have a particular flavor or taste",
+        "pronunciation": "shmeh-ken",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Das Essen schmeckt gut.",
+          "translation": "The food tastes good."
+        },
+        "tip": "The verb 'schmecken' is used with the dative case when talking about food."
+      },
+      {
+        "term": "der Urlaub",
+        "translation": "the vacation",
+        "definition": "a time of rest or travel away from home",
+        "pronunciation": "dehr oohr-lahb",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich mache Urlaub in den Bergen.",
+          "translation": "I am going on vacation in the mountains."
+        },
+        "tip": "Remember that 'der Urlaub' is masculine; its plural form is 'die Urlaube'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Comparisons",
+        "explanation": "In German, you use 'als' to make comparisons between two things. For example, 'größer als' means 'bigger than'. When expressing opinions, you can use 'ich finde' followed by an adjective. For example, 'Ich finde die Stadt schön' means 'I find the city beautiful'.",
+        "table": {
+          "headers": [
+            "Comparison Phrase",
+            "Meaning"
+          ],
+          "rows": [
+            [
+              "größer als",
+              "bigger than"
+            ],
+            [
+              "besser als",
+              "better than"
+            ],
+            [
+              "interessanter als",
+              "more interesting than"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Mein Haus ist größer als dein Haus.",
+            "translation": "My house is bigger than your house.",
+            "breakdown": "This sentence compares two houses using 'größer als'."
+          },
+          {
+            "original": "Ich finde das Buch besser als den Film.",
+            "translation": "I find the book better than the movie.",
+            "breakdown": "This sentence uses 'ich finde' to express an opinion."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'wie' instead of 'als' for comparisons: use 'als' for comparisons.",
+          "Forget to use the correct case with 'schmecken': remember to use dative."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Vacation",
+      "context": "Two friends discussing their vacation plans at a café",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Ich finde den Urlaub in den Bergen besser als am Strand.",
+          "translation": "I find vacation in the mountains better than at the beach.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Warum? Ich finde den Strand schöner.",
+          "translation": "Why? I find the beach more beautiful.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Die Berge sind ruhiger und ich kann wandern.",
+          "translation": "The mountains are quieter and I can hike.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das stimmt. Aber das Essen am Strand ist lecker.",
+          "translation": "That's true. But the food at the beach is delicious.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, ich liebe frische Meeresfrüchte.",
+          "translation": "Yes, I love fresh seafood.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Und der Sonnenuntergang am Strand ist schön.",
+          "translation": "And the sunset at the beach is beautiful.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das stimmt, aber ich brauche die Ruhe in den Bergen.",
+          "translation": "That's true, but I need the peace in the mountains.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Vielleicht können wir beide Orte besuchen?",
+          "translation": "Maybe we can visit both places?",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Vacation Traditions",
+      "text": "In Germany, Austria, and Switzerland, vacationing in the mountains is a popular tradition, especially in the summer and winter months. Many people enjoy hiking, skiing, and experiencing local cuisine while traveling in these regions.",
+      "funFact": "In Austria, there are over 700 ski areas, making it a top destination for winter sports enthusiasts."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understand how to make comparisons in German using 'als'.",
+        "Use 'ich finde' to express personal opinions.",
+        "Practice vocabulary related to food and vacation.",
+        "Engage in dialogues to enhance speaking skills."
+      ],
+      "nextSteps": "Review vocabulary and grammar points. Practice speaking with a partner or record yourself using comparisons and opinions."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'better' in German?",
+      "content": {
+        "options": [
+          "gut",
+          "besser",
+          "schlecht",
+          "schmecken"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Besser' is the correct translation of 'better' in German.",
+      "hint": "Think of a word that is used to compare qualities.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'mein Lieblingsessen' mean in English?",
+      "content": {
+        "options": [
+          "my favorite food",
+          "my favorite drink",
+          "my favorite place",
+          "my favorite movie"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Mein Lieblingsessen' translates to 'my favorite food' in English.",
+      "hint": "It's something you eat.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Ich finde, dass Pizza sehr ___.",
+      "content": {
+        "sentence": "Ich finde, dass Pizza sehr ___.",
+        "correctAnswer": "schmeckt",
+        "acceptableAnswers": [
+          "schmecken",
+          "schmeckt"
+        ],
+        "options": [
+          "schmeckt",
+          "schmecken",
+          "gut",
+          "lecker"
+        ]
+      },
+      "explanation": "'Schmeckt' is the correct form to complete the sentence in German.",
+      "hint": "Think about how food tastes.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Im Urlaub gehe ich gerne an den ___.",
+      "content": {
+        "sentence": "Im Urlaub gehe ich gerne an den ___.",
+        "correctAnswer": "Strand",
+        "acceptableAnswers": [
+          "Strand"
+        ],
+        "options": [
+          "Berg",
+          "Strand",
+          "Wald",
+          "See"
+        ]
+      },
+      "explanation": "'Strand' means 'beach' and fits the context of going on vacation.",
+      "hint": "It's a place by the water.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct German sentence: 'finde ich besser du als ihn'",
+      "content": {
+        "words": [
+          "besser",
+          "ich",
+          "finde",
+          "du",
+          "als",
+          "ihn"
+        ],
+        "correctOrder": [
+          "ich",
+          "finde",
+          "du",
+          "besser",
+          "als",
+          "ihn"
+        ],
+        "translation": "I think you are better than him."
+      },
+      "explanation": "The correct order forms a meaningful sentence in German.",
+      "hint": "Start with the subject.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I think swimming is fun.'",
+      "content": {
+        "prompt": "Translate to German: 'I think swimming is fun.'",
+        "correctAnswer": "Ich finde, dass Schwimmen Spaß macht.",
+        "acceptableAnswers": [
+          "Ich finde, dass Schwimmen macht Spaß."
+        ]
+      },
+      "explanation": "The sentence translates directly while using proper structure.",
+      "hint": "Remember to use 'dass' for the clause.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Mein Urlaub war toll!'",
+      "content": {
+        "ttsText": "Mein Urlaub war toll!",
+        "ttsLang": "de-DE",
+        "options": [
+          "My vacation was great!",
+          "My vacation was boring!",
+          "My vacation was short!",
+          "My vacation was expensive!"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence translates to 'My vacation was great!'",
+      "hint": "Focus on the adjective used.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in German: 'My favorite food is sushi.'",
+      "content": {
+        "targetText": "Mein Lieblingsessen ist Sushi.",
+        "context": "Translate and say what your favorite food is.",
+        "acceptableVariants": [
+          "Mein Lieblingsessen ist Sushi.",
+          "Sushi ist mein Lieblingsessen."
+        ]
+      },
+      "explanation": "This sentence correctly expresses your favorite food in German.",
+      "hint": "Use 'Mein Lieblingsessen' to start.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    }
+  ]
+}

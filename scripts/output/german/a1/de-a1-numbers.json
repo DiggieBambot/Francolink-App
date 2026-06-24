@@ -1,0 +1,552 @@
+{
+  "lesson": {
+    "title": "Numbers 0-20",
+    "type": "VOCABULARY",
+    "slug": "de-a1-numbers"
+  },
+  "unit": "First Words & Greetings",
+  "unitOrder": 1,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn the numbers from 0 to 20 in German. Understanding these numbers is essential for everyday conversations, such as counting and telling the time.",
+      "culturalNote": "In Germany, numbers are often used in various contexts, from ordering food to discussing prices, making them an essential part of daily life."
+    },
+    "vocabulary": [
+      {
+        "term": "null",
+        "translation": "zero",
+        "definition": "The number zero.",
+        "pronunciation": "nool",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe null Äpfel.",
+          "translation": "I have zero apples."
+        },
+        "tip": "Remember that 'null' is used just like in English."
+      },
+      {
+        "term": "eins",
+        "translation": "one",
+        "definition": "The number one.",
+        "pronunciation": "ines",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe ein Buch.",
+          "translation": "I have one book."
+        },
+        "tip": "Note that 'ein' is the masculine form of 'a' or 'one' (for der words)."
+      },
+      {
+        "term": "zwei",
+        "translation": "two",
+        "definition": "The number two.",
+        "pronunciation": "tsvai",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe zwei Stühle.",
+          "translation": "I have two chairs."
+        },
+        "tip": "The plural of 'Stuhl' (chair) is 'Stühle'."
+      },
+      {
+        "term": "drei",
+        "translation": "three",
+        "definition": "The number three.",
+        "pronunciation": "dry",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich sehe drei Katzen.",
+          "translation": "I see three cats."
+        },
+        "tip": "Remember that 'Katze' (cat) is feminine, so it's 'die Katze'."
+      },
+      {
+        "term": "vier",
+        "translation": "four",
+        "definition": "The number four.",
+        "pronunciation": "feer",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe vier Freunde.",
+          "translation": "I have four friends."
+        },
+        "tip": "The plural of 'Freund' (friend) is 'Freunde'."
+      },
+      {
+        "term": "fünf",
+        "translation": "five",
+        "definition": "The number five.",
+        "pronunciation": "fuenf",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe fünf Euro.",
+          "translation": "I have five euros."
+        },
+        "tip": "Euro is the same in plural, but note that the article changes in context."
+      },
+      {
+        "term": "sechs",
+        "translation": "six",
+        "definition": "The number six.",
+        "pronunciation": "zex",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe sechs Äpfel.",
+          "translation": "I have six apples."
+        },
+        "tip": "'Äpfel' is the plural of 'Apfel' (apple), which is masculine."
+      },
+      {
+        "term": "sieben",
+        "translation": "seven",
+        "definition": "The number seven.",
+        "pronunciation": "zeeben",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe sieben Bücher.",
+          "translation": "I have seven books."
+        },
+        "tip": "The plural of 'Buch' (book) is 'Bücher'."
+      },
+      {
+        "term": "acht",
+        "translation": "eight",
+        "definition": "The number eight.",
+        "pronunciation": "acht",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich sehe acht Vögel.",
+          "translation": "I see eight birds."
+        },
+        "tip": "'Vögel' is the plural of 'Vogel' (bird), which is masculine."
+      },
+      {
+        "term": "neun",
+        "translation": "nine",
+        "definition": "The number nine.",
+        "pronunciation": "noyn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe neun Blumen.",
+          "translation": "I have nine flowers."
+        },
+        "tip": "'Blume' (flower) is feminine, so it's 'die Blume'."
+      },
+      {
+        "term": "zehn",
+        "translation": "ten",
+        "definition": "The number ten.",
+        "pronunciation": "tsayn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe zehn Stifte.",
+          "translation": "I have ten pens."
+        },
+        "tip": "'Stift' (pen) is masculine, so it's 'der Stift'."
+      },
+      {
+        "term": "elf",
+        "translation": "eleven",
+        "definition": "The number eleven.",
+        "pronunciation": "elf",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich sehe elf Katzen.",
+          "translation": "I see eleven cats."
+        },
+        "tip": "Remember, 'Katze' (cat) is feminine."
+      },
+      {
+        "term": "zwölf",
+        "translation": "twelve",
+        "definition": "The number twelve.",
+        "pronunciation": "tsvelf",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe zwölf Eier.",
+          "translation": "I have twelve eggs."
+        },
+        "tip": "'Eier' is the plural of 'Ei' (egg), which is neuter."
+      },
+      {
+        "term": "dreizehn",
+        "translation": "thirteen",
+        "definition": "The number thirteen.",
+        "pronunciation": "dry-tsayn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe dreizehn Bücher.",
+          "translation": "I have thirteen books."
+        },
+        "tip": "Note the use of 'Bücher' (books) again."
+      },
+      {
+        "term": "vierzehn",
+        "translation": "fourteen",
+        "definition": "The number fourteen.",
+        "pronunciation": "feer-tsayn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe vierzehn Äpfel.",
+          "translation": "I have fourteen apples."
+        },
+        "tip": "Remember that 'Äpfel' (apples) is plural."
+      },
+      {
+        "term": "fünfzehn",
+        "translation": "fifteen",
+        "definition": "The number fifteen.",
+        "pronunciation": "fuenf-tsayn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe fünfzehn Euro.",
+          "translation": "I have fifteen euros."
+        },
+        "tip": "'Euro' remains the same in plural."
+      },
+      {
+        "term": "sechzehn",
+        "translation": "sixteen",
+        "definition": "The number sixteen.",
+        "pronunciation": "zex-tsayn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich sehe sechzehn Vögel.",
+          "translation": "I see sixteen birds."
+        },
+        "tip": "'Vögel' is plural."
+      },
+      {
+        "term": "siebzehn",
+        "translation": "seventeen",
+        "definition": "The number seventeen.",
+        "pronunciation": "zeeb-tsayn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe siebzehn Blumen.",
+          "translation": "I have seventeen flowers."
+        },
+        "tip": "'Blumen' is plural."
+      },
+      {
+        "term": "achtzehn",
+        "translation": "eighteen",
+        "definition": "The number eighteen.",
+        "pronunciation": "acht-tsayn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe achtzehn Stühle.",
+          "translation": "I have eighteen chairs."
+        },
+        "tip": "'Stühle' is plural."
+      },
+      {
+        "term": "neunzehn",
+        "translation": "nineteen",
+        "definition": "The number nineteen.",
+        "pronunciation": "noyn-tsayn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich sehe neunzehn Katzen.",
+          "translation": "I see nineteen cats."
+        },
+        "tip": "'Katzen' is plural."
+      },
+      {
+        "term": "zwanzig",
+        "translation": "twenty",
+        "definition": "The number twenty.",
+        "pronunciation": "tsvan-tsig",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe zwanzig Euro.",
+          "translation": "I have twenty euros."
+        },
+        "tip": "'Euro' remains the same in plural."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Numbers in German",
+        "explanation": "In German, numbers are typically used as nouns. When you count, you can combine these numbers with articles or other nouns. For example, 'ein' is used with masculine nouns, while 'eine' is used with feminine nouns.",
+        "table": {
+          "headers": [
+            "Number",
+            "German"
+          ],
+          "rows": [
+            [
+              "1",
+              "eins"
+            ],
+            [
+              "2",
+              "zwei"
+            ],
+            [
+              "3",
+              "drei"
+            ],
+            [
+              "4",
+              "vier"
+            ],
+            [
+              "5",
+              "fünf"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich habe zwei Katzen.",
+            "translation": "I have two cats.",
+            "breakdown": "'Ich habe' means 'I have'. 'zwei' means 'two'. 'Katzen' is the plural of 'Katze' (cat)."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'eine' for masculine nouns. Correct form is 'ein' for der words.",
+          "Confusing 'null' with 'nicht'. 'Null' means zero, 'nicht' means not."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Buying Apples",
+      "context": "In a small grocery store.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo, ich hätte gerne drei Äpfel.",
+          "translation": "Hello, I would like three apples.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das macht drei Euro.",
+          "translation": "That is three euros.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich habe fünf Euro.",
+          "translation": "I have five euros.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Möchten Sie eine Tüte?",
+          "translation": "Would you like a bag?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, bitte.",
+          "translation": "Yes, please.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hier sind Ihre Äpfel.",
+          "translation": "Here are your apples.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Danke schön!",
+          "translation": "Thank you very much!",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Gern geschehen!",
+          "translation": "You're welcome!",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Counting in Germany",
+      "text": "In Germany, people often use numbers in everyday situations, such as shopping or telling time. It's common to hear prices and quantities being discussed frequently.",
+      "funFact": "The largest carnival in Germany, known as 'Karneval', features parades and celebrations, and numbers play an important role in the event's organization and festivities."
+    },
+    "summary": {
+      "keyPoints": [
+        "You learned the numbers 0 to 20 in German.",
+        "Numbers can be combined with nouns to indicate quantity.",
+        "Articles change based on the gender of the noun.",
+        "Practice using numbers in simple sentences."
+      ],
+      "nextSteps": "Practice counting objects around you in German and try to use the numbers in short conversations."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'five'?",
+      "content": {
+        "options": [
+          "drei",
+          "fünf",
+          "sechs",
+          "vier"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'fünf', which means 'five' in German.",
+      "hint": "It's between four and six.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which number is 'neunzehn' in English?",
+      "content": {
+        "options": [
+          "eighteen",
+          "nineteen",
+          "seventeen",
+          "twenty"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Neunzehn' translates to 'nineteen' in English.",
+      "hint": "It's one less than twenty.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Ich habe ___ Äpfel. (I have ___ apples.)",
+      "content": {
+        "sentence": "Ich habe ___ Äpfel.",
+        "correctAnswer": "zwei",
+        "acceptableAnswers": [
+          "zwei"
+        ],
+        "options": [
+          "eins",
+          "zwei",
+          "drei",
+          "vier"
+        ]
+      },
+      "explanation": "The correct answer is 'zwei', meaning 'two', which fits the context.",
+      "hint": "Think of a pair.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Ich sehe ___ Vögel. (I see ___ birds.)",
+      "content": {
+        "sentence": "Ich sehe ___ Vögel.",
+        "correctAnswer": "drei",
+        "acceptableAnswers": [
+          "drei"
+        ],
+        "options": [
+          "ein",
+          "zwei",
+          "drei",
+          "vier"
+        ]
+      },
+      "explanation": "The word 'drei' means 'three', which completes the sentence correctly.",
+      "hint": "It's one more than two.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I have fourteen apples.'",
+      "content": {
+        "prompt": "Translate to German: 'I have fourteen apples.'",
+        "correctAnswer": "Ich habe vierzehn Äpfel.",
+        "acceptableAnswers": [
+          "Ich habe vierzehn Äpfel"
+        ]
+      },
+      "explanation": "The correct translation is 'Ich habe vierzehn Äpfel', which accurately conveys the sentence.",
+      "hint": "Remember the number and the noun.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and identify the number: 'achtzehn'",
+      "content": {
+        "ttsText": "achtzehn",
+        "ttsLang": "de-DE",
+        "options": [
+          "seventeen",
+          "eighteen",
+          "nineteen",
+          "twenty"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The audio says 'achtzehn', which translates to 'eighteen'.",
+      "hint": "It's between seventeen and nineteen.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the German number for 'six'.",
+      "content": {
+        "targetText": "sechs",
+        "context": "You are asked to say the German number for 'six'.",
+        "acceptableVariants": [
+          "sechs"
+        ]
+      },
+      "explanation": "'Sechs' is the correct German word for the number six.",
+      "hint": "It starts with an 's'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'twelve'?",
+      "content": {
+        "options": [
+          "zehn",
+          "elf",
+          "zwölf",
+          "dreizehn"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Zwölf' is the German word for 'twelve'.",
+      "hint": "It comes after eleven.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Ich bin ___ Jahre alt. (I am ___ years old.)",
+      "content": {
+        "sentence": "Ich bin ___ Jahre alt.",
+        "correctAnswer": "achtzehn",
+        "acceptableAnswers": [
+          "achtzehn"
+        ],
+        "options": [
+          "sechzehn",
+          "siebzehn",
+          "achtzehn",
+          "neunzehn"
+        ]
+      },
+      "explanation": "'Achtzehn' means 'eighteen' and fits the context of age.",
+      "hint": "It's the age of adulthood in many countries.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,313 @@
+{
+  "lesson": {
+    "title": "Polite Requests with Würden",
+    "type": "CONVERSATION",
+    "slug": "de-a2-polite-requests"
+  },
+  "unit": "City & Services",
+  "unitOrder": 6,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to make polite requests in German using 'würden'. We will practice vocabulary related to city services and engage in a conversation that demonstrates this grammar point.",
+      "culturalNote": "In Germany, politeness is very important in communication, especially when asking for favors or services. Using polite requests can lead to more positive interactions."
+    },
+    "vocabulary": [
+      {
+        "term": "die Bitte",
+        "translation": "the request",
+        "definition": "a formal or polite request",
+        "pronunciation": "dee BIT-eh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe eine Bitte an dich.",
+          "translation": "I have a request for you."
+        },
+        "tip": "Remember, 'die Bitte' is feminine, so it takes 'die' as the article."
+      },
+      {
+        "term": "der Service",
+        "translation": "the service",
+        "definition": "the assistance or service provided",
+        "pronunciation": "dehr SER-viss",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Service in diesem Restaurant ist ausgezeichnet.",
+          "translation": "The service in this restaurant is excellent."
+        },
+        "tip": "'Der Service' is masculine; remember that 'der' indicates its gender."
+      },
+      {
+        "term": "die Stadt",
+        "translation": "the city",
+        "definition": "a large human settlement",
+        "pronunciation": "dee SHTADT",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Stadt ist sehr schön.",
+          "translation": "The city is very beautiful."
+        },
+        "tip": "'Die Stadt' is feminine; note the plural form is 'die Städte'."
+      },
+      {
+        "term": "würden",
+        "translation": "would (conditional)",
+        "definition": "a modal verb used to make polite requests",
+        "pronunciation": "VER-den",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich würde gerne einen Kaffee bestellen.",
+          "translation": "I would like to order a coffee."
+        },
+        "tip": "Use 'würden' to sound polite and formal in requests."
+      },
+      {
+        "term": "der Tisch",
+        "translation": "the table",
+        "definition": "a piece of furniture with a flat top and legs",
+        "pronunciation": "dehr TISH",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Könnten Sie bitte den Tisch reservieren?",
+          "translation": "Could you please reserve the table?"
+        },
+        "tip": "'Der Tisch' is masculine; remember that the plural is 'die Tische'."
+      },
+      {
+        "term": "die Lampe",
+        "translation": "the lamp",
+        "definition": "a device for giving light",
+        "pronunciation": "dee LAM-peh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Könnten Sie die Lampe einschalten?",
+          "translation": "Could you turn on the lamp?"
+        },
+        "tip": "'Die Lampe' is feminine; the plural form is 'die Lampen'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Polite Requests with 'würden'",
+        "explanation": "In German, 'würden' is used to make polite requests. It is the subjunctive form of 'werden' and is often used to express wishes or polite actions. To create a polite request, structure your sentence with 'Ich würde' (I would) followed by the action you want.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Würden + Action"
+          ],
+          "rows": [
+            [
+              "Ich",
+              "würde gerne einen Kaffee bestellen. (I would like to order a coffee.)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Würden Sie mir bitte helfen?",
+            "translation": "Would you please help me?",
+            "breakdown": "'Würden' is used here to make the request more polite."
+          }
+        ],
+        "commonMistakes": [
+          "'Ich würden' is incorrect; it should be 'Ich würde'.",
+          "'Könnte' should not be mixed with 'würden'; use one modal verb at a time."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Making a Request in a Café",
+      "context": "A conversation in a café where one person is making polite requests to the staff.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Guten Tag! Ich hätte gern einen Kaffee.",
+          "translation": "Good day! I would like a coffee.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Guten Tag! Was für einen Kaffee möchten Sie?",
+          "translation": "Good day! What kind of coffee would you like?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich würde einen Cappuccino bestellen.",
+          "translation": "I would like to order a cappuccino.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Kommt sofort! Möchten Sie noch etwas dazu?",
+          "translation": "Coming right up! Would you like anything else?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, könnten Sie mir auch ein Stück Kuchen bringen?",
+          "translation": "Yes, could you bring me a piece of cake as well?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Natürlich! Ich bringe Ihnen das sofort.",
+          "translation": "Of course! I will bring that to you right away.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Vielen Dank!",
+          "translation": "Thank you very much!",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Gern geschehen!",
+          "translation": "You're welcome!",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "German Politeness in Communication",
+      "text": "In German-speaking cultures, politeness is highly valued, especially in public interactions. Using formal language, such as 'Sie' and polite requests, is common in service industries.",
+      "funFact": "In Austria, it is also common to greet people with 'Grüß Gott', which literally means 'God greet you'."
+    },
+    "summary": {
+      "keyPoints": [
+        "Use 'würden' for polite requests.",
+        "Remember the gender of nouns when using articles.",
+        "Practice making requests in different contexts.",
+        "Politeness is key in German culture."
+      ],
+      "nextSteps": "Try making your own polite requests using 'würden' in various situations, such as at a restaurant or when asking for help."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the polite way to ask for a table in a restaurant in German?",
+      "content": {
+        "options": [
+          "Ich möchte einen Tisch.",
+          "Ich will einen Tisch.",
+          "Gib mir einen Tisch."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The first option is a polite request using 'möchte', which is more appropriate in a restaurant setting.",
+      "hint": "Think about how to make requests politely.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase means 'Would you like to help me?' in German?",
+      "content": {
+        "options": [
+          "Würden Sie mir helfen?",
+          "Könnten Sie mir helfen?",
+          "Möchten Sie mir helfen?"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "All options are polite, but 'Würden Sie' specifically indicates a hypothetical situation, making it a polite request.",
+      "hint": "Look for the word 'würden' in the options.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich ___ einen Service anfragen.'",
+      "content": {
+        "sentence": "Ich ___ einen Service anfragen.",
+        "correctAnswer": "würde",
+        "acceptableAnswers": [
+          "würde"
+        ],
+        "options": [
+          "möchte",
+          "will",
+          "würde"
+        ]
+      },
+      "explanation": "'Würde' is correct here as it expresses a polite request.",
+      "hint": "Think about how to express a wish politely.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Könnten Sie bitte die ___ anschalten?'",
+      "content": {
+        "sentence": "Könnten Sie bitte die ___ anschalten?",
+        "correctAnswer": "Lampe",
+        "acceptableAnswers": [
+          "Lampe"
+        ],
+        "options": [
+          "Lampe",
+          "Tisch",
+          "Bitte"
+        ]
+      },
+      "explanation": "The correct answer is 'Lampe', as it relates to lighting, which fits the context.",
+      "hint": "Think about what you might ask someone to turn on.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I would like a table.'",
+      "content": {
+        "prompt": "Translate to German: 'I would like a table.'",
+        "correctAnswer": "Ich hätte gerne einen Tisch.",
+        "acceptableAnswers": [
+          "Ich möchte einen Tisch."
+        ]
+      },
+      "explanation": "Both translations are acceptable, but 'hätte gerne' emphasizes the polite request.",
+      "hint": "Consider how to express desire politely.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Würden Sie mir bitte helfen?'",
+      "content": {
+        "ttsText": "Würden Sie mir bitte helfen?",
+        "ttsLang": "de-DE",
+        "options": [
+          "Would you please help me?",
+          "Could you help me?",
+          "I would like help."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation captures the politeness of the original German sentence.",
+      "hint": "Listen for the polite request.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in German: 'Would you like to see the menu?'",
+      "content": {
+        "targetText": "Möchten Sie die Speisekarte sehen?",
+        "context": "You are at a restaurant asking the customer.",
+        "acceptableVariants": [
+          "Würden Sie die Speisekarte sehen wollen?"
+        ]
+      },
+      "explanation": "Both sentences express the same polite request, using 'möchten' or 'würden'.",
+      "hint": "Focus on how to make polite offers.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

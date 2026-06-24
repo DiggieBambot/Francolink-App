@@ -1,0 +1,348 @@
+{
+  "lesson": {
+    "title": "Media Vocabulary",
+    "type": "VOCABULARY",
+    "slug": "es-b1-media-vocab"
+  },
+  "unit": "Media & Communication",
+  "unitOrder": 5,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to media and communication in Spanish. You will also explore how to use these words in sentences and understand their meanings.",
+      "culturalNote": "In many Latin American countries, media plays a crucial role in shaping public opinion, especially during elections."
+    },
+    "vocabulary": [
+      {
+        "term": "el periódico",
+        "translation": "the newspaper",
+        "definition": "A publication that contains news articles, advertisements, and other information.",
+        "pronunciation": "el peh-ree-OHR-dih-koh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Leo el periódico todas las mañanas.",
+          "translation": "I read the newspaper every morning."
+        },
+        "tip": "Think of 'periodical' to remember this word."
+      },
+      {
+        "term": "la televisión",
+        "translation": "the television",
+        "definition": "An electronic device for receiving television broadcasts.",
+        "pronunciation": "lah teh-leh-vee-SYOHN",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Miro la televisión por la noche.",
+          "translation": "I watch television at night."
+        },
+        "tip": "The word is similar in English; just remember the accent on the 'o'."
+      },
+      {
+        "term": "la radio",
+        "translation": "the radio",
+        "definition": "A device used to receive audio broadcasts.",
+        "pronunciation": "lah RAH-dee-oh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Escucho la radio mientras conduzco.",
+          "translation": "I listen to the radio while driving."
+        },
+        "tip": "It’s the same in English; just remember it's feminine in Spanish."
+      },
+      {
+        "term": "el programa",
+        "translation": "the program",
+        "definition": "A show or broadcast on television or radio.",
+        "pronunciation": "el pro-GRAH-mah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El programa de noticias empieza a las ocho.",
+          "translation": "The news program starts at eight."
+        },
+        "tip": "Think of 'program' in English; they are the same!"
+      },
+      {
+        "term": "el anuncio",
+        "translation": "the advertisement",
+        "definition": "A public notice promoting a product or service.",
+        "pronunciation": "el ah-NOON-syoh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Vi un anuncio interesante en la televisión.",
+          "translation": "I saw an interesting advertisement on television."
+        },
+        "tip": "Remember 'announce' as they are related."
+      },
+      {
+        "term": "la prensa",
+        "translation": "the press",
+        "definition": "The media or newspaper industry as a whole.",
+        "pronunciation": "lah PREHN-sah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La prensa informa sobre los eventos importantes.",
+          "translation": "The press informs about important events."
+        },
+        "tip": "Think of 'to print' to remember this word."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Present Subjunctive",
+        "explanation": "The present subjunctive is used to express wishes, emotions, and uncertainty. It is often used in sentences that have two clauses: a main clause and a dependent clause. The main clause often contains verbs like 'esperar' (to hope) or 'dudar' (to doubt).",
+        "table": {
+          "headers": [
+            "Subject",
+            "Subjunctive Form"
+          ],
+          "rows": [
+            [
+              "yo",
+              "hable"
+            ],
+            [
+              "tú",
+              "hables"
+            ],
+            [
+              "él/ella",
+              "hable"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Espero que el programa sea interesante.",
+            "translation": "I hope that the program is interesting.",
+            "breakdown": "The main clause 'Espero' expresses a hope which governs the subjunctive 'sea'."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive. Correct: 'Espero que vengas'.",
+          "Forgetting to use 'que' before the subjunctive clause. Correct: 'Es importante que estudies'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Media Options",
+      "context": "A conversation between two friends about their favorite media.",
+      "speakers": [
+        "Carlos",
+        "Lucía"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué programa de televisión te gusta más?",
+          "translation": "Which television program do you like the most?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Me gusta mucho 'La Casa de Papel'.",
+          "translation": "I really like 'Money Heist'.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "He oído que es muy emocionante. ¿De qué trata?",
+          "translation": "I've heard it's very exciting. What is it about?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Es sobre un grupo que roba la Casa de la Moneda.",
+          "translation": "It's about a group that robs the Royal Mint.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Suena interesante. ¿Lo ves en la televisión o en línea?",
+          "translation": "Sounds interesting. Do you watch it on TV or online?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Lo veo en línea en Netflix.",
+          "translation": "I watch it online on Netflix.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Voy a buscarlo. También me gusta escuchar la radio.",
+          "translation": "I will look it up. I also like to listen to the radio.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Yo escucho la radio mientras cocino.",
+          "translation": "I listen to the radio while cooking.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Media in Latin America",
+      "text": "Media plays a significant role in shaping cultural identities in Latin America. News outlets often reflect local issues and concerns, making them an important part of society.",
+      "funFact": "In some countries, like Mexico, soap operas ('telenovelas') are extremely popular and have a huge influence on culture."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to media and communication.",
+        "Explored the present subjunctive for expressing hopes and emotions.",
+        "Practiced using new vocabulary in a dialogue.",
+        "Gained insight into media culture in Latin America."
+      ],
+      "nextSteps": "Practice using the new vocabulary in sentences and try forming your own sentences with the present subjunctive."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'el periódico' in English?",
+      "content": {
+        "options": [
+          "the newspaper",
+          "the radio",
+          "the television",
+          "the program"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El periódico' translates to 'the newspaper' in English.",
+      "hint": "Think of where you read news articles.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la radio' refer to?",
+      "content": {
+        "options": [
+          "the television",
+          "the radio",
+          "the newspaper",
+          "the announcement"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'La radio' is the Spanish word for 'the radio'.",
+      "hint": "It's a device for listening to music and news.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Yo escucho ___ todos los días.",
+      "content": {
+        "sentence": "Yo escucho ___ todos los días.",
+        "correctAnswer": "la radio",
+        "acceptableAnswers": [
+          "la radio"
+        ],
+        "options": [
+          "el periódico",
+          "la televisión",
+          "la radio"
+        ]
+      },
+      "explanation": "The correct answer is 'la radio' because it fits in the context of listening.",
+      "hint": "Consider what you might listen to daily.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ella mira ___ por la noche.",
+      "content": {
+        "sentence": "Ella mira ___ por la noche.",
+        "correctAnswer": "la televisión",
+        "acceptableAnswers": [
+          "la televisión"
+        ],
+        "options": [
+          "el programa",
+          "el anuncio",
+          "la televisión"
+        ]
+      },
+      "explanation": "The correct answer is 'la televisión' as it refers to what she watches.",
+      "hint": "What do people usually watch at night?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: programa / un / veo / en / la / televisión.",
+      "content": {
+        "words": [
+          "programa",
+          "un",
+          "veo",
+          "en",
+          "la",
+          "televisión"
+        ],
+        "correctOrder": [
+          "veo",
+          "un",
+          "programa",
+          "en",
+          "la",
+          "televisión"
+        ],
+        "translation": "I watch a program on television."
+      },
+      "explanation": "Reordering the words correctly gives a meaningful sentence.",
+      "hint": "Start with the verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The advertisement is on TV.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The advertisement is on TV.'",
+        "correctAnswer": "El anuncio está en la televisión.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The correct translation accurately reflects the meaning in Spanish.",
+      "hint": "Remember the words for advertisement and television.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'La prensa es importante.'",
+      "content": {
+        "ttsText": "La prensa es importante.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The press is important.",
+          "The newspaper is important.",
+          "The radio is important."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means that 'the press is important' in English.",
+      "hint": "Focus on the context of media.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'I read the newspaper every morning.'",
+      "content": {
+        "targetText": "Leo el periódico todas las mañanas.",
+        "context": "Practice saying what you do every morning.",
+        "acceptableVariants": [
+          "Leo el periódico cada mañana."
+        ]
+      },
+      "explanation": "This sentence expresses a daily routine.",
+      "hint": "Think of your morning habits.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

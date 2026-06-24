@@ -1,0 +1,341 @@
+{
+  "lesson": {
+    "title": "Film & Book Reviews",
+    "type": "CONVERSATION",
+    "slug": "es-b2-reviews"
+  },
+  "unit": "Arts & Literature",
+  "unitOrder": 7,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to discuss and review films and books in Spanish. You will practice using nuanced language and expressions to articulate your opinions and engage in conversations about arts and literature.",
+      "culturalNote": "Spanish-speaking countries have a rich literary and cinematic tradition, with authors like Gabriel García Márquez and filmmakers like Pedro Almodóvar who have made significant contributions to global arts."
+    },
+    "vocabulary": [
+      {
+        "term": "la crítica",
+        "translation": "the review",
+        "definition": "An evaluation or analysis of a film or book.",
+        "pronunciation": "lah kree-TEE-kah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La crítica de la película fue muy positiva.",
+          "translation": "The review of the film was very positive."
+        },
+        "tip": "Think of it as 'critique' in English, which has a similar meaning."
+      },
+      {
+        "term": "el argumento",
+        "translation": "the plot",
+        "definition": "The main storyline of a book or film.",
+        "pronunciation": "el ahr-goo-MEN-toh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El argumento de la novela es fascinante.",
+          "translation": "The plot of the novel is fascinating."
+        },
+        "tip": "Remember 'argument' in English, which also refers to the main idea being discussed."
+      },
+      {
+        "term": "el personaje",
+        "translation": "the character",
+        "definition": "A person or figure in a story.",
+        "pronunciation": "el per-so-NAH-he",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El personaje principal es muy complejo.",
+          "translation": "The main character is very complex."
+        },
+        "tip": "Think of 'personage' which refers to a character in a story."
+      },
+      {
+        "term": "la cinematografía",
+        "translation": "the cinematography",
+        "definition": "The art of capturing visual images for film.",
+        "pronunciation": "lah see-nay-mah-toh-GRAH-fee-ah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La cinematografía de esa película es impresionante.",
+          "translation": "The cinematography of that film is impressive."
+        },
+        "tip": "Cinematography shares its root with cinema, both related to film."
+      },
+      {
+        "term": "el tema",
+        "translation": "the theme",
+        "definition": "The underlying message or main idea of a work.",
+        "pronunciation": "el TEH-mah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El tema del amor es recurrente en sus obras.",
+          "translation": "The theme of love is recurring in his works."
+        },
+        "tip": "Relate it to 'theme' in English which has a similar meaning."
+      },
+      {
+        "term": "el final",
+        "translation": "the ending",
+        "definition": "The conclusion of a story.",
+        "pronunciation": "el fee-NAL",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El final de la película me sorprendió.",
+          "translation": "The ending of the film surprised me."
+        },
+        "tip": "Think of 'final' in English, indicating the last part of something."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subjunctive in Reviews",
+        "explanation": "In reviews, the subjunctive is often used to express opinions and feelings about a film or book. It is important to use this mood to convey uncertainty, desire, or subjective reactions. Common verbs that trigger the subjunctive are 'esperar que' (to hope that), 'dudar que' (to doubt that), and 'temer que' (to fear that).",
+        "table": {
+          "headers": [
+            "Verb (present subjunctive)",
+            "Example"
+          ],
+          "rows": [
+            [
+              "que sea",
+              "Espero que sea interesante."
+            ],
+            [
+              "que tenga",
+              "Dudo que tenga buen final."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Espero que la película sea emocionante.",
+            "translation": "I hope that the movie is exciting.",
+            "breakdown": "The use of 'sea' shows the subjunctive mood expressing hope."
+          }
+        ],
+        "commonMistakes": [
+          "'Espero que la película es emocionante.' should be 'Espero que la película sea emocionante.'",
+          "'Dudo que la historia tiene sentido.' should be 'Dudo que la historia tenga sentido.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Film and a Book",
+      "context": "Two friends are discussing a film they watched and a book they both recently read.",
+      "speakers": [
+        "Laura",
+        "Carlos"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Viste la película que estrenaron la semana pasada?",
+          "translation": "Did you see the movie that premiered last week?",
+          "note": "Asking about a recent movie."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, la vi. Me pareció que el argumento era muy original.",
+          "translation": "Yes, I saw it. I thought the plot was very original."
+        },
+        {
+          "speaker": 0,
+          "text": "A mí también me gustó, pero el final me sorprendió un poco.",
+          "translation": "I also liked it, but the ending surprised me a bit."
+        },
+        {
+          "speaker": 1,
+          "text": "Exacto, no esperaba eso. ¿Qué te pareció la cinematografía?",
+          "translation": "Exactly, I didn't expect that. What did you think of the cinematography?"
+        },
+        {
+          "speaker": 0,
+          "text": "Fue impresionante, especialmente las tomas de la ciudad.",
+          "translation": "It was impressive, especially the shots of the city."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, y los personajes estaban muy bien desarrollados.",
+          "translation": "Yes, and the characters were very well developed."
+        },
+        {
+          "speaker": 0,
+          "text": "Cambiando de tema, ¿leíste el libro que te recomendé?",
+          "translation": "Changing the subject, did you read the book I recommended?"
+        },
+        {
+          "speaker": 1,
+          "text": "No aún, pero espero que sea tan bueno como dices.",
+          "translation": "Not yet, but I hope it is as good as you say."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Literature and Film",
+      "text": "In many Spanish-speaking countries, literature and film are crucial for cultural identity and expression. Events like the Guadalajara International Book Fair and the Cannes Film Festival showcase the richness of Latin American arts.",
+      "funFact": "Gabriel García Márquez, a Colombian author, won the Nobel Prize in Literature in 1982 for his magical realism style, influencing many writers worldwide."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to film and book reviews.",
+        "Practiced using the subjunctive mood for opinions.",
+        "Engaged in a realistic dialogue about arts and literature.",
+        "Gained cultural insights into Spanish-speaking countries."
+      ],
+      "nextSteps": "Practice writing your own review of a film or book using the vocabulary and grammar from this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'la crítica' in English?",
+      "content": {
+        "options": [
+          "the critique",
+          "the character",
+          "the theme",
+          "the argument"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La crítica' translates to 'the critique' in English, which refers to a review or analysis of a film or book.",
+      "hint": "Think about reviews.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which term refers to 'the character' in a story?",
+      "content": {
+        "options": [
+          "el tema",
+          "el personaje",
+          "el argumento",
+          "la crítica"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El personaje' means 'the character', someone who plays a role in a film or book.",
+      "hint": "It's about who is in the story.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: El _____ de la película fue muy emocionante.",
+      "content": {
+        "sentence": "El _____ de la película fue muy emocionante.",
+        "correctAnswer": "final",
+        "acceptableAnswers": [
+          "final"
+        ],
+        "options": [
+          "tema",
+          "personaje",
+          "final",
+          "crítica"
+        ]
+      },
+      "explanation": "In this context, 'final' refers to the ending of the movie, which can often be exciting.",
+      "hint": "Think about the ending.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: La _____ de la novela es sobre la amistad.",
+      "content": {
+        "sentence": "La _____ de la novela es sobre la amistad.",
+        "correctAnswer": "temática",
+        "acceptableAnswers": [
+          "temática",
+          "tema"
+        ],
+        "options": [
+          "argumento",
+          "temática",
+          "crítica",
+          "personaje"
+        ]
+      },
+      "explanation": "Here, 'temática' refers to the theme or subject matter of the novel.",
+      "hint": "What is the story about?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: cinematografía / la / excelente / fue / película.",
+      "content": {
+        "words": [
+          "cinematografía",
+          "la",
+          "excelente",
+          "fue",
+          "película"
+        ],
+        "correctOrder": [
+          "la",
+          "película",
+          "fue",
+          "excelente",
+          "cinematografía"
+        ],
+        "translation": "The cinematography of the film was excellent."
+      },
+      "explanation": "The correct order forms a proper sentence in Spanish regarding the quality of the cinematography.",
+      "hint": "Start with 'la película'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The plot of the book is very interesting.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The plot of the book is very interesting.'",
+        "correctAnswer": "El argumento del libro es muy interesante.",
+        "acceptableAnswers": [
+          "El argumento del libro es bastante interesante."
+        ]
+      },
+      "explanation": "In this sentence, 'argumento' is used to refer to the plot of the book.",
+      "hint": "What is the story about?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'La crítica fue muy positiva.'",
+      "content": {
+        "ttsText": "La crítica fue muy positiva.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The review was very positive.",
+          "The character was very positive.",
+          "The theme was very positive.",
+          "The ending was very positive."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation indicates that the review received a positive reception.",
+      "hint": "Focus on the word 'crítica'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'I found the character development very compelling.'",
+      "content": {
+        "targetText": "Encontré el desarrollo del personaje muy atractivo.",
+        "context": "You are discussing your thoughts about a book or film.",
+        "acceptableVariants": [
+          "El desarrollo del personaje me pareció muy atractivo."
+        ]
+      },
+      "explanation": "Your sentence conveys your opinion about how well the characters were developed in the story.",
+      "hint": "Use 'desarrollo' and 'personaje'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

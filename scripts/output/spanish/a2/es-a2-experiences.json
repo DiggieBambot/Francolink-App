@@ -1,0 +1,422 @@
+{
+  "lesson": {
+    "title": "Describing Experiences",
+    "type": "CONVERSATION",
+    "slug": "es-a2-experiences"
+  },
+  "unit": "Comparisons & Opinions",
+  "unitOrder": 7,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to describe experiences in Spanish using simple past and future tenses. You will practice vocabulary related to personal experiences and opinions, and you will also engage in a dialogue to strengthen your conversational skills.",
+      "culturalNote": "In many Spanish-speaking countries, sharing personal experiences is an important part of socializing. People often enjoy storytelling, especially about travel and food."
+    },
+    "vocabulary": [
+      {
+        "term": "la experiencia",
+        "translation": "the experience",
+        "definition": "A personal event or occurrence that one has lived through.",
+        "pronunciation": "lah eks-peh-ree-EN-sah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi experiencia en la playa fue increíble.",
+          "translation": "My experience at the beach was incredible."
+        },
+        "tip": "Think of 'experience' as something memorable or important."
+      },
+      {
+        "term": "el viaje",
+        "translation": "the trip",
+        "definition": "A journey or travel to a different place.",
+        "pronunciation": "el VEE-ah-he",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El viaje a México fue muy divertido.",
+          "translation": "The trip to Mexico was very fun."
+        },
+        "tip": "Remember 'viaje' is related to 'viajar' which means to travel."
+      },
+      {
+        "term": "me gustó",
+        "translation": "I liked",
+        "definition": "A phrase used to express personal preference in the past.",
+        "pronunciation": "meh goos-TOH",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Me gustó la comida española.",
+          "translation": "I liked the Spanish food."
+        },
+        "tip": "Use 'me gustó' when talking about something you enjoyed in the past."
+      },
+      {
+        "term": "voy a",
+        "translation": "I am going to",
+        "definition": "A phrase used to express future intentions or plans.",
+        "pronunciation": "voy ah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Voy a visitar a mis amigos este fin de semana.",
+          "translation": "I am going to visit my friends this weekend."
+        },
+        "tip": "This structure is useful for talking about future activities."
+      },
+      {
+        "term": "fue",
+        "translation": "was",
+        "definition": "The third-person singular past form of 'ser' (to be).",
+        "pronunciation": "fweh",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "La fiesta fue muy buena.",
+          "translation": "The party was very good."
+        },
+        "tip": "Remember 'fue' is used for completed actions in the past."
+      },
+      {
+        "term": "interesante",
+        "translation": "interesting",
+        "definition": "Something that captures attention or curiosity.",
+        "pronunciation": "een-teh-reh-SAN-teh",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "El libro es muy interesante.",
+          "translation": "The book is very interesting."
+        },
+        "tip": "Think of 'interesante' as something that piques your interest."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Describing Past Experiences",
+        "explanation": "In Spanish, we use the preterite tense to describe actions that were completed in the past. For example, 'fue' is the past form of 'ser', meaning 'was'. To form sentences, you can combine this with expressions like 'me gustó' (I liked) to share your experiences.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Verb (ser)"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "fui"
+            ],
+            [
+              "Tú",
+              "fuiste"
+            ],
+            [
+              "Él/Ella",
+              "fue"
+            ],
+            [
+              "Nosotros",
+              "fuimos"
+            ],
+            [
+              "Ellos/Ellas",
+              "fueron"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ayer fui al cine.",
+            "translation": "Yesterday I went to the cinema.",
+            "breakdown": "The sentence uses 'fui' to indicate a completed action in the past."
+          }
+        ],
+        "commonMistakes": [
+          "Using present tense instead of preterite (correct to past tense).",
+          "Forgetting to use 'a' before places (e.g., 'fui al cine' not 'fui cine')."
+        ]
+      },
+      {
+        "title": "Talking About Future Plans",
+        "explanation": "To express future plans in Spanish, we often use the structure 'voy a' followed by an infinitive verb. This is similar to saying 'I am going to' in English. For example, 'Voy a comer' means 'I am going to eat'.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Structure"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "voy a + infinitive"
+            ],
+            [
+              "Tú",
+              "vas a + infinitive"
+            ],
+            [
+              "Él/Ella",
+              "va a + infinitive"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Mañana voy a estudiar.",
+            "translation": "Tomorrow I am going to study.",
+            "breakdown": "This sentence shows intention using 'voy a' for future activities."
+          }
+        ],
+        "commonMistakes": [
+          "Omitting the infinitive verb (e.g., 'voy a' + verb is necessary).",
+          "Confusing 'voy a' with other future forms (ensure you use the correct structure)."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking About a Recent Trip",
+      "context": "Two friends discussing their recent experiences over coffee.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, Luis. ¿Cómo fue tu viaje a Perú?",
+          "translation": "Hi, Luis. How was your trip to Peru?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¡Hola, Ana! Fue increíble. Vi muchas cosas interesantes.",
+          "translation": "Hi, Ana! It was incredible. I saw many interesting things.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué bien! ¿Qué te gustó más?",
+          "translation": "Great! What did you like the most?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Me gustó la comida. ¡Era deliciosa!",
+          "translation": "I liked the food. It was delicious!",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Vas a volver?",
+          "translation": "Are you going to go back?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, voy a regresar el próximo año.",
+          "translation": "Yes, I am going to return next year.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Eso suena genial. ¡Me encantaría ir contigo!",
+          "translation": "That sounds great. I would love to go with you!",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¡Claro! Sería divertido.",
+          "translation": "Of course! It would be fun.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Traveling in Latin America",
+      "text": "Travel is a significant part of life in many Latin American countries. People often share their travel stories and experiences with pride, showcasing the diverse cultures and landscapes of the region.",
+      "funFact": "Did you know that Peru is home to Machu Picchu, one of the New Seven Wonders of the World?"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to experiences and opinions.",
+        "Explored past tense usage for describing experiences.",
+        "Practiced future tense for expressing plans.",
+        "Engaged in a realistic dialogue about travel."
+      ],
+      "nextSteps": "Practice using the vocabulary and grammar points by writing about your own experiences. Try to describe a recent trip you took."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la experiencia' mean in English?",
+      "content": {
+        "options": [
+          "the experience",
+          "the trip",
+          "the opinion"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La experiencia' translates to 'the experience' in English.",
+      "hint": "Think about what you gain from activities.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase means 'I liked it'?",
+      "content": {
+        "options": [
+          "Me gustó",
+          "Fue interesante",
+          "Voy a viajar"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Me gustó' is the correct phrase for 'I liked it'.",
+      "hint": "Focus on the verb 'gustar'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'El viaje fue ___.'",
+      "content": {
+        "sentence": "El viaje fue ___.",
+        "correctAnswer": "interesante",
+        "acceptableAnswers": [
+          "divertido",
+          "fantástico"
+        ],
+        "options": [
+          "interesante",
+          "aburrido",
+          "largo",
+          "corto"
+        ]
+      },
+      "explanation": "The correct word to describe a good trip is 'interesante'.",
+      "hint": "Think about how you would describe a fun trip.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Voy a ___ a España.'",
+      "content": {
+        "sentence": "Voy a ___.",
+        "correctAnswer": "viajar",
+        "acceptableAnswers": [
+          "visitar",
+          "explorar"
+        ],
+        "options": [
+          "viajar",
+          "comer",
+          "dormir",
+          "nadar"
+        ]
+      },
+      "explanation": "The correct verb is 'viajar', meaning 'to travel'.",
+      "hint": "What do you do when you go to another country?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a sentence: 'interesante fue el viaje'.",
+      "content": {
+        "words": [
+          "interesante",
+          "fue",
+          "el",
+          "viaje"
+        ],
+        "correctOrder": [
+          "el",
+          "viaje",
+          "fue",
+          "interesante"
+        ],
+        "translation": "The trip was interesting."
+      },
+      "explanation": "The correct order forms the sentence 'El viaje fue interesante'.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I will travel to Mexico.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I will travel to Mexico.'",
+        "correctAnswer": "Voy a viajar a México.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation captures the future intention to travel.",
+      "hint": "Use 'Voy a' for future intentions.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Me gustó el viaje.'",
+      "content": {
+        "ttsText": "Me gustó el viaje.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I liked the trip.",
+          "The trip was boring.",
+          "I will travel."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'I liked the trip.'",
+      "hint": "Focus on the phrase 'Me gustó'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'The experience was interesting.'",
+      "content": {
+        "targetText": "La experiencia fue interesante.",
+        "context": "Describe a recent experience.",
+        "acceptableVariants": []
+      },
+      "explanation": "This sentence effectively communicates your opinion about the experience.",
+      "hint": "Use 'La experiencia' at the beginning.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'I will travel soon.'",
+      "content": {
+        "targetText": "Voy a viajar pronto.",
+        "context": "Talk about your future plans.",
+        "acceptableVariants": []
+      },
+      "explanation": "This sentence expresses a future intention to travel.",
+      "hint": "Start with 'Voy a'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'La experiencia en el museo fue ___.'",
+      "content": {
+        "sentence": "La experiencia en el museo fue ___.",
+        "correctAnswer": "interesante",
+        "acceptableAnswers": [
+          "increíble",
+          "educativa"
+        ],
+        "options": [
+          "interesante",
+          "mala",
+          "divertida",
+          "aburrida"
+        ]
+      },
+      "explanation": "'Interesante' is a suitable description for a museum experience.",
+      "hint": "Think about what you learn at a museum.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

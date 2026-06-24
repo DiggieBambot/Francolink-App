@@ -1,0 +1,362 @@
+{
+  "lesson": {
+    "title": "Unit 1 Review",
+    "type": "REVIEW",
+    "slug": "de-a1-unit1-review"
+  },
+  "unit": "First Words & Greetings",
+  "unitOrder": 1,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this review lesson, you will consolidate your knowledge of first words and greetings in German. You will revisit key vocabulary, basic phrases, and essential grammar points that you have learned in this unit.",
+      "culturalNote": "In Germany, it is common to greet people with 'Guten Tag' (Good day) throughout the day, showing politeness and respect."
+    },
+    "vocabulary": [
+      {
+        "term": "der Tisch",
+        "translation": "the table",
+        "definition": "A piece of furniture with a flat surface.",
+        "pronunciation": "dare tish",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Tisch ist groß.",
+          "translation": "The table is big."
+        },
+        "tip": "Remember, 'der' indicates that 'Tisch' is masculine."
+      },
+      {
+        "term": "die Lampe",
+        "translation": "the lamp",
+        "definition": "A device that provides light.",
+        "pronunciation": "dee lam-puh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Lampe ist schön.",
+          "translation": "The lamp is beautiful."
+        },
+        "tip": "'Die' shows that 'Lampe' is feminine."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A collection of pages bound together.",
+        "pronunciation": "dahs boo-k",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Buch ist interessant.",
+          "translation": "The book is interesting."
+        },
+        "tip": "'Das' means 'the' for neuter nouns like 'Buch'."
+      },
+      {
+        "term": "Hallo",
+        "translation": "Hello",
+        "definition": "A common greeting.",
+        "pronunciation": "hah-loh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Hallo, wie geht's?",
+          "translation": "Hello, how are you?"
+        },
+        "tip": "Use 'Hallo' in informal situations."
+      },
+      {
+        "term": "Guten Morgen",
+        "translation": "Good morning",
+        "definition": "A greeting used in the morning.",
+        "pronunciation": "goo-ten mor-gen",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Guten Morgen, Anna!",
+          "translation": "Good morning, Anna!"
+        },
+        "tip": "Use 'Guten Morgen' until around noon."
+      },
+      {
+        "term": "Guten Abend",
+        "translation": "Good evening",
+        "definition": "A greeting used in the evening.",
+        "pronunciation": "goo-ten ah-bend",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Guten Abend, Herr Müller.",
+          "translation": "Good evening, Mr. Müller."
+        },
+        "tip": "Use 'Guten Abend' after 5 PM."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Articles in German",
+        "explanation": "In German, nouns have genders: masculine (der), feminine (die), and neuter (das). The article must match the noun's gender. For example, 'der Tisch' is masculine, 'die Lampe' is feminine, and 'das Buch' is neuter.",
+        "table": {
+          "headers": [
+            "Gender",
+            "Article"
+          ],
+          "rows": [
+            [
+              "Masculine",
+              "der"
+            ],
+            [
+              "Feminine",
+              "die"
+            ],
+            [
+              "Neuter",
+              "das"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Das Buch ist neu.",
+            "translation": "The book is new.",
+            "breakdown": "Here, 'das' is used because 'Buch' is neuter."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'die' for masculine nouns, e.g., 'die Tisch' should be 'der Tisch'.",
+          "Confusing 'das' with feminine nouns, e.g., 'das Lampe' should be 'die Lampe'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Meeting a Friend",
+      "context": "This conversation takes place in a park where two friends meet and greet each other.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo, Max!",
+          "translation": "Hello, Max!",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo, Lena! Wie geht's?",
+          "translation": "Hello, Lena! How are you?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Mir geht's gut, danke. Und dir?",
+          "translation": "I’m fine, thank you. And you?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Mir geht's auch gut. Was machst du heute?",
+          "translation": "I’m also fine. What are you doing today?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich lese ein Buch im Park.",
+          "translation": "I’m reading a book in the park.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das klingt schön! Welches Buch?",
+          "translation": "That sounds nice! Which book?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das Buch ist sehr interessant.",
+          "translation": "The book is very interesting.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich möchte auch lesen! Kann ich mitkommen?",
+          "translation": "I want to read too! Can I come with you?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, gerne! Lass uns gehen.",
+          "translation": "Yes, of course! Let’s go.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "German Greetings",
+      "text": "Greetings are an essential part of German culture. Using the correct greeting shows respect and friendliness. Germans often use formal greetings in professional settings and informal greetings among friends.",
+      "funFact": "In Switzerland, it's common to greet people with a kiss on the cheek, even in casual situations."
+    },
+    "summary": {
+      "keyPoints": [
+        "Nouns in German have genders: der, die, das.",
+        "Common greetings are important for social interactions.",
+        "Practice using articles with nouns.",
+        "Review basic conversational phrases."
+      ],
+      "nextSteps": "Practice greeting your friends in German and use the vocabulary in sentences. Prepare for the next unit on numbers and basic expressions."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'the table'?",
+      "content": {
+        "options": [
+          "der Tisch",
+          "die Lampe",
+          "das Buch"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'der Tisch', which means 'the table' in German.",
+      "hint": "Remember the article 'der' for masculine nouns.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which greeting means 'Good evening' in German?",
+      "content": {
+        "options": [
+          "Guten Morgen",
+          "Hallo",
+          "Guten Abend"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Guten Abend' is the correct answer, meaning 'Good evening' in German.",
+      "hint": "It is used in the evening!",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich habe ein ___.'",
+      "content": {
+        "sentence": "Ich habe ein ___.",
+        "correctAnswer": "Buch",
+        "acceptableAnswers": [
+          "Buch"
+        ],
+        "options": [
+          "Tisch",
+          "Buch",
+          "Lampe"
+        ]
+      },
+      "explanation": "The correct answer is 'Buch' which means 'book' in German.",
+      "hint": "Think of something you read.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Die ___ ist schön.'",
+      "content": {
+        "sentence": "Die ___ ist schön.",
+        "correctAnswer": "Lampe",
+        "acceptableAnswers": [
+          "Lampe"
+        ],
+        "options": [
+          "Tisch",
+          "Lampe",
+          "Buch"
+        ]
+      },
+      "explanation": "The correct answer is 'Lampe', which means 'lamp' in German.",
+      "hint": "It's something that gives light.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'Hello'",
+      "content": {
+        "correctAnswer": "Hallo",
+        "acceptableAnswers": [
+          "Hallo"
+        ]
+      },
+      "explanation": "'Hallo' is the German translation for 'Hello'.",
+      "hint": "It's a common greeting.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Die Lampe ist auf dem Tisch.'",
+      "content": {
+        "ttsText": "Die Lampe ist auf dem Tisch.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The lamp is on the table.",
+          "The book is on the table.",
+          "The table is beautiful."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'The lamp is on the table.'",
+      "hint": "Listen for 'Lampe' and 'Tisch'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the German phrase for 'Good morning'.",
+      "content": {
+        "targetText": "Guten Morgen",
+        "context": "You are greeting someone in the morning.",
+        "acceptableVariants": [
+          "Guten Morgen"
+        ]
+      },
+      "explanation": "The phrase 'Guten Morgen' means 'Good morning' in German.",
+      "hint": "It is used to greet people in the morning.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'das Buch' mean in English?",
+      "content": {
+        "options": [
+          "the lamp",
+          "the table",
+          "the book"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Das Buch' translates to 'the book' in English.",
+      "hint": "Think of something you read.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich sehe den ___.'",
+      "content": {
+        "sentence": "Ich sehe den ___.",
+        "correctAnswer": "Tisch",
+        "acceptableAnswers": [
+          "Tisch"
+        ],
+        "options": [
+          "Tisch",
+          "Lampe",
+          "Buch"
+        ]
+      },
+      "explanation": "The correct answer is 'Tisch', meaning 'table'.",
+      "hint": "It's a piece of furniture.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

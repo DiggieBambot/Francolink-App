@@ -1,0 +1,354 @@
+{
+  "lesson": {
+    "title": "Writing a Simple Email",
+    "type": "CONVERSATION",
+    "slug": "es-a2-simple-email"
+  },
+  "unit": "Work & Studies",
+  "unitOrder": 5,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to write a simple email in Spanish. You will practice vocabulary and structures commonly used in work and study contexts.",
+      "culturalNote": "In many Spanish-speaking countries, email is a standard way of communication in professional settings, similar to English-speaking cultures."
+    },
+    "vocabulary": [
+      {
+        "term": "el correo electrónico",
+        "translation": "the email",
+        "definition": "a message sent electronically",
+        "pronunciation": "el koh-reh-oh eh-lehk-troh-niko",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Voy a enviar el correo electrónico mañana.",
+          "translation": "I am going to send the email tomorrow."
+        },
+        "tip": "Remember that 'correo' means 'mail' and 'electrónico' means 'electronic'."
+      },
+      {
+        "term": "el asunto",
+        "translation": "the subject",
+        "definition": "the main topic of the email",
+        "pronunciation": "el ah-soon-toh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El asunto del correo es importante.",
+          "translation": "The subject of the email is important."
+        },
+        "tip": "Think of 'asunto' as the 'topic' of your email."
+      },
+      {
+        "term": "la firma",
+        "translation": "the signature",
+        "definition": "the name at the end of an email",
+        "pronunciation": "la feer-mah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "No olvides añadir tu firma.",
+          "translation": "Don't forget to add your signature."
+        },
+        "tip": "Your 'firma' personalizes the email."
+      },
+      {
+        "term": "Saludos",
+        "translation": "Regards",
+        "definition": "A common greeting used in emails",
+        "pronunciation": "sah-loo-dohs",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Saludos, Juan.",
+          "translation": "Regards, Juan."
+        },
+        "tip": "Use 'Saludos' for a friendly tone."
+      },
+      {
+        "term": "estimado/a",
+        "translation": "dear",
+        "definition": "a polite way to address someone in emails",
+        "pronunciation": "es-tee-mah-doh/dah",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Estimado Señor Pérez,",
+          "translation": "Dear Mr. Pérez,"
+        },
+        "tip": "Use 'estimado' for men and 'estimada' for women."
+      },
+      {
+        "term": "la respuesta",
+        "translation": "the reply",
+        "definition": "the answer to an email",
+        "pronunciation": "la rehs-pwehs-tah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Espero tu respuesta pronto.",
+          "translation": "I hope for your reply soon."
+        },
+        "tip": "A good email often leads to a quick 'respuesta'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Simple Future Tense",
+        "explanation": "In Spanish, the simple future tense is used to talk about actions that will happen. It is formed by adding specific endings to the infinitive verb. This tense is very common for professional emails when making promises or plans.",
+        "table": {
+          "headers": [
+            "Pronoun",
+            "Ending"
+          ],
+          "rows": [
+            [
+              "yo",
+              "-é"
+            ],
+            [
+              "tú",
+              "-ás"
+            ],
+            [
+              "él/ella",
+              "-á"
+            ],
+            [
+              "nosotros",
+              "-emos"
+            ],
+            [
+              "vosotros",
+              "-éis"
+            ],
+            [
+              "ellos",
+              "-án"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Enviaré el informe mañana.",
+            "translation": "I will send the report tomorrow.",
+            "breakdown": "The verb 'enviar' (to send) is in the future tense for the first person singular."
+          }
+        ],
+        "commonMistakes": [
+          "Don't confuse the future tense with the present tense; 'enviaré' is future, while 'envío' is present.",
+          "Make sure to use the correct endings based on the subject pronoun."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Writing a Simple Email",
+      "context": "A conversation between a student and a teacher about writing an email.",
+      "speakers": [
+        "Student",
+        "Teacher"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, profesor. ¿Cómo se escribe un correo electrónico?",
+          "translation": "Hello, teacher. How do you write an email?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hola. Primero, necesitas un saludo. Por ejemplo, 'Estimado/a'.",
+          "translation": "Hello. First, you need a greeting. For example, 'Dear'.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y qué más debo incluir?",
+          "translation": "What else should I include?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Debes escribir el asunto y el mensaje.",
+          "translation": "You should write the subject and the message.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Cómo escribo el mensaje?",
+          "translation": "How do I write the message?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Escribe tus ideas claramente y termina con 'Saludos'.",
+          "translation": "Write your ideas clearly and end with 'Regards'.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Puedo usar 'Gracias' al final?",
+          "translation": "Can I use 'Thank you' at the end?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, 'Gracias' también es muy bueno.",
+          "translation": "Yes, 'Thank you' is also very good.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Email Etiquette in Spanish-speaking Countries",
+      "text": "In many Spanish-speaking countries, formal email etiquette is important in professional settings. People often use polite greetings and closings. It's common to address the recipient formally, especially when the relationship is professional.",
+      "funFact": "In some cultures, it's customary to include a small personal note at the beginning of an email before getting to the main topic."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to writing emails.",
+        "Practiced using the simple future tense.",
+        "Understood the structure of a formal email.",
+        "Explored cultural aspects of email writing."
+      ],
+      "nextSteps": "Practice writing your own email using the vocabulary and structures learned in this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'el asunto' mean in English?",
+      "content": {
+        "options": [
+          "The subject",
+          "The signature",
+          "The email",
+          "The greeting"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El asunto' translates to 'the subject' in English, referring to the main topic of an email.",
+      "hint": "Think about what you write at the top of an email.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is a common closing in an email?",
+      "content": {
+        "options": [
+          "Estimado",
+          "Saludos",
+          "Hola",
+          "Gracias"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Saludos' is a common closing that translates to 'regards' in English.",
+      "hint": "It's a way to say goodbye in an email.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the email phrase: 'Por favor, envíame una _____.'",
+      "content": {
+        "sentence": "Por favor, envíame una _____.",
+        "correctAnswer": "respuesta",
+        "acceptableAnswers": [
+          "respuesta"
+        ],
+        "options": [
+          "respuesta",
+          "firma",
+          "asunto",
+          "saludo"
+        ]
+      },
+      "explanation": "The correct word is 'respuesta', which means 'response' in English.",
+      "hint": "Think about what you expect after you send an email.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'No olvides tu _____ al final del correo.'",
+      "content": {
+        "sentence": "No olvides tu _____.",
+        "correctAnswer": "firma",
+        "acceptableAnswers": [
+          "firma"
+        ],
+        "options": [
+          "asunto",
+          "saludo",
+          "respuesta",
+          "firma"
+        ]
+      },
+      "explanation": "'Firma' means 'signature', which is important to include in emails.",
+      "hint": "It's what you write at the end of your email.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Please send me an email.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'Please send me an email.'",
+        "correctAnswer": "Por favor, envíame un correo electrónico.",
+        "acceptableAnswers": [
+          "Por favor, mándame un correo electrónico."
+        ]
+      },
+      "explanation": "The translation captures the polite request for an email.",
+      "hint": "Think about how to ask someone nicely.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation: 'Gracias por tu correo.'",
+      "content": {
+        "ttsText": "Gracias por tu correo.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Thank you for your email.",
+          "I need your email.",
+          "Please send your email.",
+          "What is your email?"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'Thank you for your email.' in English.",
+      "hint": "Think about expressing gratitude.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I will reply to your email tomorrow.'",
+      "content": {
+        "targetText": "Responderé tu correo mañana.",
+        "context": "You are telling someone when you will respond to their email.",
+        "acceptableVariants": [
+          "Responderé a tu correo mañana.",
+          "Mañana responderé tu correo."
+        ]
+      },
+      "explanation": "This sentence indicates a future action regarding an email response.",
+      "hint": "Use 'responderé' for 'I will reply'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'What is the subject of the email?'.",
+      "content": {
+        "targetText": "¿Cuál es el asunto del correo?",
+        "context": "You are asking someone about the subject line of their email.",
+        "acceptableVariants": [
+          "¿Cuál es el asunto del correo electrónico?"
+        ]
+      },
+      "explanation": "This question asks for the main topic of an email.",
+      "hint": "The word 'asunto' means 'subject'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

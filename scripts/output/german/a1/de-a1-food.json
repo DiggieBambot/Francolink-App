@@ -1,0 +1,369 @@
+{
+  "lesson": {
+    "title": "Food & Drinks (Essen & Trinken)",
+    "type": "VOCABULARY",
+    "slug": "de-a1-food"
+  },
+  "unit": "Food & Drink",
+  "unitOrder": 4,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to food and drinks in German. You will also practice simple sentences using the verbs 'können' (can) and 'möchten' (would like).",
+      "culturalNote": "In Germany, meals are often enjoyed together as a family, and breakfast plays a significant role in starting the day."
+    },
+    "vocabulary": [
+      {
+        "term": "das Brot",
+        "translation": "the bread",
+        "definition": "A staple food made from flour and water.",
+        "pronunciation": "das Broht",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich esse das Brot.",
+          "translation": "I eat the bread."
+        },
+        "tip": "Remember, 'das' indicates that 'Brot' is neuter (neutral gender)."
+      },
+      {
+        "term": "die Butter",
+        "translation": "the butter",
+        "definition": "A dairy product made from churning cream.",
+        "pronunciation": "dee Boo-ter",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich möchte die Butter.",
+          "translation": "I would like the butter."
+        },
+        "tip": "'Die' indicates that 'Butter' is feminine."
+      },
+      {
+        "term": "der Käse",
+        "translation": "the cheese",
+        "definition": "A dairy product made from curdled or cultured milk.",
+        "pronunciation": "der Kay-zeh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich kaufe den Käse.",
+          "translation": "I buy the cheese."
+        },
+        "tip": "'Der' indicates that 'Käse' is masculine."
+      },
+      {
+        "term": "die Apfel",
+        "translation": "the apple",
+        "definition": "A common fruit that is usually round and red, green, or yellow.",
+        "pronunciation": "dee Ap-fel",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Apfel ist rot.",
+          "translation": "The apple is red."
+        },
+        "tip": "'Die' indicates that 'Apfel' is feminine in the plural form, while 'der' is for singular."
+      },
+      {
+        "term": "das Wasser",
+        "translation": "the water",
+        "definition": "A clear, colorless liquid essential for life.",
+        "pronunciation": "das Vah-ser",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich trinke das Wasser.",
+          "translation": "I drink the water."
+        },
+        "tip": "'Das' indicates that 'Wasser' is neuter."
+      },
+      {
+        "term": "die Milch",
+        "translation": "the milk",
+        "definition": "A white liquid produced by mammals.",
+        "pronunciation": "dee Milch",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich möchte die Milch.",
+          "translation": "I would like the milk."
+        },
+        "tip": "'Die' indicates that 'Milch' is feminine."
+      },
+      {
+        "term": "der Kaffee",
+        "translation": "the coffee",
+        "definition": "A beverage made from roasted coffee beans.",
+        "pronunciation": "der Kah-fee",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich trinke den Kaffee.",
+          "translation": "I drink the coffee."
+        },
+        "tip": "'Der' indicates that 'Kaffee' is masculine."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'können' and 'möchten'",
+        "explanation": "'Können' means 'can', and 'möchten' means 'would like'. These verbs are used to express ability or desire. For example, 'Ich kann essen' means 'I can eat', and 'Ich möchte essen' means 'I would like to eat'. Note that 'möchten' is a polite way to express wishes.",
+        "table": {
+          "headers": [
+            "Verb",
+            "English Meaning"
+          ],
+          "rows": [
+            [
+              "können",
+              "can"
+            ],
+            [
+              "möchten",
+              "would like"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich kann trinken.",
+            "translation": "I can drink.",
+            "breakdown": "The subject 'Ich' (I) + verb 'kann' (can) + object 'trinken' (to drink)."
+          },
+          {
+            "original": "Ich möchte essen.",
+            "translation": "I would like to eat.",
+            "breakdown": "The subject 'Ich' (I) + verb 'möchte' (would like) + object 'essen' (to eat)."
+          }
+        ],
+        "commonMistakes": [
+          "'Ich möchte es' instead of 'Ich möchte das': Use the correct article.",
+          "'Ich kann essen' without a specific object: Always specify if possible."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Ordering Food and Drinks",
+      "context": "In a café in Germany.",
+      "speakers": [
+        "Max",
+        "Lena"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo, ich möchte einen Kaffee.",
+          "translation": "Hello, I would like a coffee."
+        },
+        {
+          "speaker": 1,
+          "text": "Guten Tag, was möchten Sie noch?",
+          "translation": "Good day, what would you like else?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich möchte ein Stück Kuchen.",
+          "translation": "I would like a piece of cake."
+        },
+        {
+          "speaker": 1,
+          "text": "Haben Sie einen Apfel?",
+          "translation": "Do you have an apple?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, ich habe einen Apfel.",
+          "translation": "Yes, I have an apple."
+        },
+        {
+          "speaker": 1,
+          "text": "Möchten Sie auch Wasser?",
+          "translation": "Would you like water too?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, ich möchte Wasser.",
+          "translation": "Yes, I would like water."
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist alles?",
+          "translation": "Is that all?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, das ist alles. Danke!",
+          "translation": "Yes, that is all. Thank you!"
+        }
+      ]
+    },
+    "culture": {
+      "title": "German Dining Etiquette",
+      "text": "In Germany, it's customary to say 'Guten Appetit' before starting a meal, which means 'Enjoy your meal'. Meals are often enjoyed at a leisurely pace.",
+      "funFact": "Germany has over 1,500 different types of bread, showcasing its rich baking tradition."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to food and drinks.",
+        "Practiced using 'können' and 'möchten'.",
+        "Engaged in a dialogue about ordering food.",
+        "Gained insights into German dining culture."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and try to create your own dialogue about food and drinks."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'the bread' in German?",
+      "content": {
+        "options": [
+          "das Wasser",
+          "das Brot",
+          "der Käse",
+          "die Butter"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Das Brot' is the correct translation for 'the bread' in German.",
+      "hint": "Think about what you eat with butter.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'cheese' in German?",
+      "content": {
+        "options": [
+          "der Käse",
+          "die Milch",
+          "das Wasser",
+          "das Brot"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Käse' is the German word for 'cheese'.",
+      "hint": "It's a common ingredient on sandwiches.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich trinke ___ (the water).",
+      "content": {
+        "sentence": "Ich trinke ___.",
+        "correctAnswer": "das Wasser",
+        "acceptableAnswers": [
+          "das Wasser"
+        ],
+        "options": [
+          "der Wasser",
+          "das Wasser",
+          "die Wasser"
+        ]
+      },
+      "explanation": "'Das Wasser' is the correct form for 'the water' in German.",
+      "hint": "Remember the article for water.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich esse ___ (the cheese).",
+      "content": {
+        "sentence": "Ich esse ___.",
+        "correctAnswer": "den Käse",
+        "acceptableAnswers": [
+          "den Käse"
+        ],
+        "options": [
+          "der Käse",
+          "die Käse",
+          "den Käse"
+        ]
+      },
+      "explanation": "'Den Käse' is the correct accusative form for 'the cheese' in German.",
+      "hint": "Think about the correct article for cheese in the accusative case.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I drink milk.'",
+      "content": {
+        "prompt": "Translate to German: 'I drink milk.'",
+        "correctAnswer": "Ich trinke Milch.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation for 'I drink milk.' is 'Ich trinke Milch.'",
+      "hint": "Focus on the verb 'trinken'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Ich liebe Kaffee.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I love coffee.",
+          "I hate coffee.",
+          "I drink milk.",
+          "I eat bread."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation of 'Ich liebe Kaffee.' is 'I love coffee.'",
+      "hint": "Listen for the word 'liebe'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in German: 'I have an apple.'",
+      "content": {
+        "targetText": "Ich habe einen Apfel.",
+        "context": "Translate and say what you have.",
+        "acceptableVariants": [
+          "Ich habe einen Apfel."
+        ]
+      },
+      "explanation": "The sentence 'Ich habe einen Apfel.' means 'I have an apple.'",
+      "hint": "Use the verb 'haben'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'butter' in German?",
+      "content": {
+        "options": [
+          "die Butter",
+          "das Wasser",
+          "die Milch",
+          "der Käse"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Butter' is the German word for 'butter'.",
+      "hint": "It's often spread on bread.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich möchte ___ (the milk).",
+      "content": {
+        "sentence": "Ich möchte ___.",
+        "correctAnswer": "die Milch",
+        "acceptableAnswers": [
+          "die Milch"
+        ],
+        "options": [
+          "die Milch",
+          "das Milch",
+          "der Milch"
+        ]
+      },
+      "explanation": "'Die Milch' is the correct form for 'the milk' in German.",
+      "hint": "Remember the article for milk.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

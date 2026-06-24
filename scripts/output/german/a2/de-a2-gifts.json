@@ -1,0 +1,315 @@
+{
+  "lesson": {
+    "title": "Giving & Receiving Gifts",
+    "type": "CONVERSATION",
+    "slug": "de-a2-gifts"
+  },
+  "unit": "The Dative Case",
+  "unitOrder": 3,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to give and receive gifts in German while using the dative case. You'll practice relevant vocabulary and phrases to help you interact in social situations involving gift-giving.",
+      "culturalNote": "In German-speaking countries, it's common to bring a small gift when invited to someone's home as a gesture of appreciation."
+    },
+    "vocabulary": [
+      {
+        "term": "das Geschenk",
+        "translation": "the gift",
+        "definition": "an item given to someone without the expectation of payment",
+        "pronunciation": "dahs geh-SHENK",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe ein Geschenk für dich.",
+          "translation": "I have a gift for you."
+        },
+        "tip": "Remember that 'Geschenk' is neuter (das) and its plural form is 'Geschenke'."
+      },
+      {
+        "term": "der Geburtstag",
+        "translation": "the birthday",
+        "definition": "the anniversary of the day on which a person was born",
+        "pronunciation": "dehr ge-BURT-stahg",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wann ist dein Geburtstag?",
+          "translation": "When is your birthday?"
+        },
+        "tip": "Birthday is masculine (der); use 'Geburtstage' for plural."
+      },
+      {
+        "term": "der Freund",
+        "translation": "the friend",
+        "definition": "a person with whom one has a bond of mutual affection",
+        "pronunciation": "dehr froint",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Freund hat mir ein Buch geschenkt.",
+          "translation": "My friend gave me a book."
+        },
+        "tip": "Friend is masculine (der); plural is 'Freunde'."
+      },
+      {
+        "term": "die Überraschung",
+        "translation": "the surprise",
+        "definition": "an unexpected event or gift",
+        "pronunciation": "dee oo-beh-RAH-shung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Überraschung war sehr schön.",
+          "translation": "The surprise was very nice."
+        },
+        "tip": "'Überraschung' is feminine (die); its plural is 'Überraschungen'."
+      },
+      {
+        "term": "schenken",
+        "translation": "to give (as a gift)",
+        "definition": "to present someone with something",
+        "pronunciation": "SHEN-ken",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich schenke meiner Mutter Blumen.",
+          "translation": "I give my mother flowers."
+        },
+        "tip": "The verb 'schenken' requires the dative case for the recipient."
+      },
+      {
+        "term": "zeigen",
+        "translation": "to show",
+        "definition": "to make visible or to demonstrate",
+        "pronunciation": "TSY-gen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich zeige dir mein neues Geschenk.",
+          "translation": "I show you my new gift."
+        },
+        "tip": "'Zeigen' also requires the dative case for the person being shown."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Dative Case",
+        "explanation": "In German, the dative case is used to indicate the indirect object of a sentence, often the recipient of a gift. This is important when using verbs like 'schenken' (to give) and 'zeigen' (to show). The dative case changes the articles and sometimes the noun endings.",
+        "table": {
+          "headers": [
+            "Noun (Singular)",
+            "Dative Article"
+          ],
+          "rows": [
+            [
+              "der Freund",
+              "dem Freund"
+            ],
+            [
+              "die Freundin",
+              "der Freundin"
+            ],
+            [
+              "das Geschenk",
+              "dem Geschenk"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich gebe dem Freund das Geschenk.",
+            "translation": "I give the gift to the friend.",
+            "breakdown": "Here, 'dem Freund' is in the dative case because he is the recipient of the gift."
+          }
+        ],
+        "commonMistakes": [
+          "Using accusative instead of dative with 'schenken': Correct: Ich schenke dem Freund das Buch.",
+          "Omitting the dative article: Correct: Ich zeige der Freundin das Geschenk."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At a Birthday Party",
+      "context": "Anna and Lukas are at a birthday party for their friend Max.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Lukas! Hast du das Geschenk für Max?",
+          "translation": "Hello Lukas! Do you have the gift for Max?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe es. Es ist eine Überraschung.",
+          "translation": "Yes, I have it. It's a surprise."
+        },
+        {
+          "speaker": 0,
+          "text": "Was hast du ihm geschenkt?",
+          "translation": "What did you give him?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich habe ihm ein Buch geschenkt.",
+          "translation": "I gave him a book."
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist toll! Max liebt Bücher.",
+          "translation": "That's great! Max loves books."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich zeige dir das Buch später.",
+          "translation": "I will show you the book later."
+        },
+        {
+          "speaker": 0,
+          "text": "Gute Idee! Lass uns Max jetzt gratulieren.",
+          "translation": "Good idea! Let's congratulate Max now."
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, lass uns gehen!",
+          "translation": "Yes, let's go!"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Gift-Giving Traditions",
+      "text": "In Germany, it is customary to give gifts on birthdays and during holidays. It's common to wrap gifts nicely and include a card. In Austria, gifts are especially important during 'Nikolaus' on December 6th, where children receive small presents.",
+      "funFact": "In Switzerland, it's typical to give a small gift to the host when invited to a dinner party, such as flowers or chocolates."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to giving and receiving gifts.",
+        "Practiced dative case with verbs like 'schenken' and 'zeigen'.",
+        "Engaged in a realistic dialogue about a birthday party.",
+        "Explored cultural aspects of gift-giving in German-speaking countries."
+      ],
+      "nextSteps": "Practice using the dative case with different verbs in sentences. Try writing your own dialogues about gift-giving."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'gift'?",
+      "content": {
+        "options": [
+          "das Geschenk",
+          "der Freund",
+          "die Überraschung",
+          "der Geburtstag"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'das Geschenk', which means 'gift' in English.",
+      "hint": "Look for the word that means 'gift'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'to give'?",
+      "content": {
+        "options": [
+          "schenken",
+          "zeigen",
+          "überraschen",
+          "empfangen"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Schenken' means 'to give' in German.",
+      "hint": "Think about the action of giving a gift.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich ____ meinem Freund ein Geschenk. (schenken)",
+      "content": {
+        "sentence": "Ich ___ meinem Freund ein Geschenk.",
+        "correctAnswer": "schenke",
+        "acceptableAnswers": [
+          "schenke"
+        ],
+        "options": [
+          "schenke",
+          "schenke",
+          "schenkt"
+        ]
+      },
+      "explanation": "The correct form is 'schenke', which is the first person singular of 'schenken'.",
+      "hint": "Use the first person form of the verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Am ____ habe ich Geburtstag. (der Geburtstag)",
+      "content": {
+        "sentence": "Am ___ habe ich Geburtstag.",
+        "correctAnswer": "Geburtstag",
+        "acceptableAnswers": [
+          "Geburtstag"
+        ],
+        "options": [
+          "Geburtstag",
+          "Tag",
+          "Jahr"
+        ]
+      },
+      "explanation": "The correct answer is 'Geburtstag', which means 'birthday'.",
+      "hint": "Think about when you would celebrate.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I have a surprise for you.'",
+      "content": {
+        "prompt": "Translate to German: 'I have a surprise for you.'",
+        "correctAnswer": "Ich habe eine Überraschung für dich.",
+        "acceptableAnswers": [
+          "Ich habe eine Überraschung für Sie."
+        ]
+      },
+      "explanation": "The correct translation is 'Ich habe eine Überraschung für dich.'",
+      "hint": "Think about how to say 'surprise' in German.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich schenke dir ein Geschenk.'",
+      "content": {
+        "ttsText": "Ich schenke dir ein Geschenk.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I give you a gift.",
+          "I show you a gift.",
+          "I receive a gift from you."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'I give you a gift.'",
+      "hint": "Listen for the verb 'schenken'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I am giving a gift to my friend.'",
+      "content": {
+        "targetText": "Ich schenke meinem Freund ein Geschenk.",
+        "context": "Translate and say this sentence.",
+        "acceptableVariants": [
+          "Ich gebe meinem Freund ein Geschenk."
+        ]
+      },
+      "explanation": "The sentence translates to 'I am giving a gift to my friend.'",
+      "hint": "Use the verb 'schenken' for 'giving'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

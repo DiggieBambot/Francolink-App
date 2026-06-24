@@ -1,0 +1,355 @@
+{
+  "lesson": {
+    "title": "Constructing an Argument",
+    "type": "CONVERSATION",
+    "slug": "es-b2-argument"
+  },
+  "unit": "Persuasion & Argument",
+  "unitOrder": 2,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to construct an argument in Spanish, focusing on key vocabulary and structures to express your opinions persuasively. You will also practice a dialogue that simulates a real-life situation where you need to convince someone.",
+      "culturalNote": "In many Spanish-speaking countries, debating skills are highly valued, especially in academic settings. Engaging in discussions is often seen as a way to demonstrate knowledge and critical thinking."
+    },
+    "vocabulary": [
+      {
+        "term": "el argumento",
+        "translation": "the argument",
+        "definition": "a statement or reason in support of a claim",
+        "pronunciation": "el ar-gumen-toh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Su argumento es muy convincente.",
+          "translation": "His argument is very convincing."
+        },
+        "tip": "Remember that 'argumento' is masculine in Spanish."
+      },
+      {
+        "term": "convencer",
+        "translation": "to convince",
+        "definition": "to persuade someone to believe or do something",
+        "pronunciation": "kon-ven-ser",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Debo convencer a mis amigos de ir al cine.",
+          "translation": "I have to convince my friends to go to the movies."
+        },
+        "tip": "Think of 'convince' in English, which sounds similar."
+      },
+      {
+        "term": "la evidencia",
+        "translation": "the evidence",
+        "definition": "the facts or information indicating whether a belief or proposition is true",
+        "pronunciation": "la e-vi-den-cia",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La evidencia apoya su punto de vista.",
+          "translation": "The evidence supports his viewpoint."
+        },
+        "tip": "Remember 'evidence' in English is uncountable; in Spanish, it's feminine."
+      },
+      {
+        "term": "el punto de vista",
+        "translation": "the point of view",
+        "definition": "a particular attitude or way of considering a matter",
+        "pronunciation": "el pun-to de vis-ta",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Desde mi punto de vista, es una mala decisión.",
+          "translation": "From my point of view, it is a bad decision."
+        },
+        "tip": "Use this phrase to introduce your perspective in discussions."
+      },
+      {
+        "term": "refutar",
+        "translation": "to refute",
+        "definition": "to prove a statement or theory to be wrong or false",
+        "pronunciation": "re-fu-tar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Es importante refutar argumentos débiles.",
+          "translation": "It is important to refute weak arguments."
+        },
+        "tip": "This verb has a clear connection to the idea of debate."
+      },
+      {
+        "term": "la persuasión",
+        "translation": "the persuasion",
+        "definition": "the act of convincing someone to do or believe something",
+        "pronunciation": "la per-sua-sion",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La persuasión es clave en una buena discusión.",
+          "translation": "Persuasion is key in a good discussion."
+        },
+        "tip": "Think of 'persuasion' in English and its importance in communication."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Subjunctive to Express Opinions",
+        "explanation": "In Spanish, it's common to use the subjunctive mood to express opinions, desires, or uncertainty. When you want to say that you hope or wish for something regarding someone's actions, the subjunctive is required. This helps to convey a sense of subjectivity or doubt.",
+        "table": {
+          "headers": [
+            "Present Subjunctive",
+            "Imperfect Subjunctive"
+          ],
+          "rows": [
+            [
+              "que hable (that he/she speaks)",
+              "que hablara (that he/she spoke)"
+            ],
+            [
+              "que escriba (that he/she writes)",
+              "que escribiera (that he/she wrote)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Espero que él convenza a todos.",
+            "translation": "I hope that he convinces everyone.",
+            "breakdown": "The verb 'convenir' (to convince) is in the subjunctive because it expresses a hope."
+          },
+          {
+            "original": "Si tuviera más tiempo, refutara sus argumentos.",
+            "translation": "If I had more time, I would refute his arguments.",
+            "breakdown": "Here, 'refutara' is in the imperfect subjunctive because it expresses a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive in expressions of desire. Correction: Use 'Espero que...' instead of 'Espero que... (indicative).'",
+          "Confusing the present subjunctive with the imperfect subjunctive. Correction: Use 'hable' for present and 'hablara' for imperfect."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "A Debate about Social Media",
+      "context": "A coffee shop where two friends discuss the impact of social media on society.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Creo que las redes sociales tienen un impacto negativo en la sociedad.",
+          "translation": "I believe that social media has a negative impact on society.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "En mi opinión, eso no es del todo cierto.",
+          "translation": "In my opinion, that's not entirely true.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Por qué piensas eso?",
+          "translation": "Why do you think that?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Pienso que pueden conectar a las personas, especialmente en tiempos difíciles.",
+          "translation": "I think they can connect people, especially in tough times.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Es cierto, pero también hay mucha desinformación.",
+          "translation": "That's true, but there's also a lot of misinformation.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "De acuerdo, pero eso depende de cómo se use la plataforma.",
+          "translation": "I agree, but that depends on how the platform is used.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Entonces, ¿crees que la educación sobre el uso de redes sociales es suficiente?",
+          "translation": "So, do you think education about social media use is sufficient?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "No creo que sea suficiente, necesitamos más recursos.",
+          "translation": "I don't think it's enough; we need more resources.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Debating Culture in Latin America",
+      "text": "In many Latin American countries, public speaking and debating are essential skills taught in schools. Students often participate in debates to develop their reasoning and argumentative skills.",
+      "funFact": "In countries like Mexico and Argentina, there are national debate competitions that attract participants from different educational institutions."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned key vocabulary related to constructing arguments.",
+        "Practiced using the subjunctive mood to express opinions.",
+        "Engaged in a dialogue about a relevant topic.",
+        "Explored cultural aspects of debating in Spanish-speaking countries."
+      ],
+      "nextSteps": "Continue practicing your vocabulary and try to create your own arguments using the subjunctive. Engage in discussions with friends or language partners."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'argument'?",
+      "content": {
+        "options": [
+          "la evidencia",
+          "el argumento",
+          "la persuasión",
+          "el punto de vista"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'el argumento', which translates to 'argument' in English.",
+      "hint": "Think of what you use to support your opinion.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which term refers to 'to convince' in Spanish?",
+      "content": {
+        "options": [
+          "refutar",
+          "convencer",
+          "persuadir",
+          "argumentar"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Convencer' means 'to convince' in Spanish.",
+      "hint": "This verb is used when you want to change someone's mind.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'El ____ es fundamental para una buena discusión.'",
+      "content": {
+        "sentence": "El ____ es fundamental para una buena discusión.",
+        "correctAnswer": "argumento",
+        "acceptableAnswers": [
+          "argumentos"
+        ],
+        "options": [
+          "punto de vista",
+          "argumento",
+          "evidencia",
+          "persuasión"
+        ]
+      },
+      "explanation": "The word 'argumento' fits the context as it refers to what is essential in a discussion.",
+      "hint": "It's the noun form of the word for argument.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Para convencer a alguien, debes presentar ____.'",
+      "content": {
+        "sentence": "Para convencer a alguien, debes presentar ____. ",
+        "correctAnswer": "evidencia",
+        "acceptableAnswers": [
+          "pruebas"
+        ],
+        "options": [
+          "opiniones",
+          "evidencia",
+          "argumentos",
+          "puntos de vista"
+        ]
+      },
+      "explanation": "In this context, 'evidencia' is necessary to support your argument.",
+      "hint": "Think of what you need to prove your point.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct Spanish sentence: 'punto de vista/mi/considerar/siempre/debes.'",
+      "content": {
+        "words": [
+          "punto",
+          "de",
+          "vista",
+          "mi",
+          "considerar",
+          "siempre",
+          "debes"
+        ],
+        "correctOrder": [
+          "siempre",
+          "debes",
+          "considerar",
+          "mi",
+          "punto",
+          "de",
+          "vista"
+        ],
+        "translation": "You should always consider my point of view."
+      },
+      "explanation": "The sentence structure in Spanish requires the subject to come before the verb.",
+      "hint": "Start with 'siempre debes'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'To refute an argument is important.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'To refute an argument is important.'",
+        "correctAnswer": "Refutar un argumento es importante.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation captures the essence of the original English sentence.",
+      "hint": "Focus on the verbs.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and identify the correct sentence: 'La persuasión es clave en la negociación.'",
+      "content": {
+        "ttsText": "La persuasión es clave en la negociación.",
+        "ttsLang": "es-ES",
+        "options": [
+          "La persuasión es clave en la negociación.",
+          "La evidencia es clave en la discusión.",
+          "El argumento es débil.",
+          "Convencer es fácil."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The spoken sentence emphasizes the importance of persuasion.",
+      "hint": "Listen for the word 'persuasión'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in Spanish: 'I need to refute your argument.'",
+      "content": {
+        "targetText": "Necesito refutar tu argumento.",
+        "context": "Translate and say this sentence in Spanish.",
+        "acceptableVariants": [
+          "Debo refutar tu argumento.",
+          "Necesito refutar el argumento que presentaste."
+        ]
+      },
+      "explanation": "Both sentences convey the same idea but may vary in structure.",
+      "hint": "Remember the word for 'refute'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

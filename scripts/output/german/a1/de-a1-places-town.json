@@ -1,0 +1,388 @@
+{
+  "lesson": {
+    "title": "Places in Town",
+    "type": "VOCABULARY",
+    "slug": "de-a1-places-town"
+  },
+  "unit": "Shopping & Around Town",
+  "unitOrder": 5,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to places in town, which is essential for navigating your surroundings in German-speaking countries. You will also practice using simple sentences to express what you want to do or where you want to go.",
+      "culturalNote": "In many German-speaking cities, local markets are very popular. They often feature fresh produce, handmade crafts, and regional specialties."
+    },
+    "vocabulary": [
+      {
+        "term": "der Supermarkt",
+        "translation": "the supermarket",
+        "definition": "A large shop where you can buy food and household goods.",
+        "pronunciation": "dehr zoo-pehr-mahrkt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich gehe in den Supermarkt.",
+          "translation": "I am going to the supermarket."
+        },
+        "tip": "Remember that 'Supermarkt' is masculine (der). In the accusative case, it becomes 'den Supermarkt'."
+      },
+      {
+        "term": "die Bäckerei",
+        "translation": "the bakery",
+        "definition": "A place where bread and pastries are made and sold.",
+        "pronunciation": "dee BEH-keh-rye",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich kaufe Brötchen in der Bäckerei.",
+          "translation": "I buy rolls at the bakery."
+        },
+        "tip": "'Bäckerei' is feminine (die). Its plural form is 'Bäckereien'."
+      },
+      {
+        "term": "das Geschäft",
+        "translation": "the shop/store",
+        "definition": "A place where goods are sold.",
+        "pronunciation": "dahs geh-SHEFT",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Geschäft ist geöffnet.",
+          "translation": "The shop is open."
+        },
+        "tip": "'Geschäft' is neuter (das). The plural form is 'Geschäfte'."
+      },
+      {
+        "term": "der Park",
+        "translation": "the park",
+        "definition": "A public green space for recreation.",
+        "pronunciation": "dehr park",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wir gehen im Park spazieren.",
+          "translation": "We are walking in the park."
+        },
+        "tip": "'Park' is masculine (der). It stays the same in the plural: 'Parks'."
+      },
+      {
+        "term": "die Schule",
+        "translation": "the school",
+        "definition": "An institution for educating children.",
+        "pronunciation": "dee SHOO-leh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Schule ist dort.",
+          "translation": "The school is over there."
+        },
+        "tip": "'Schule' is feminine (die). Its plural form is 'Schulen'."
+      },
+      {
+        "term": "das Restaurant",
+        "translation": "the restaurant",
+        "definition": "A place where meals are served to customers.",
+        "pronunciation": "dahs rehs-tow-RAHNT",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich möchte ins Restaurant gehen.",
+          "translation": "I would like to go to the restaurant."
+        },
+        "tip": "'Restaurant' is neuter (das) and does not change in the plural: 'Restaurants'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'können' and 'möchten'",
+        "explanation": "'Können' means 'can' and is used to express ability, while 'möchten' means 'would like' and expresses a desire. Both verbs are modal verbs, which means they modify other verbs. In sentences, they are often followed by an infinitive verb.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Meaning"
+          ],
+          "rows": [
+            [
+              "können",
+              "can"
+            ],
+            [
+              "möchten",
+              "would like"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich kann Deutsch sprechen.",
+            "translation": "I can speak German.",
+            "breakdown": "Here, 'kann' is the conjugated form of 'können' for 'ich', followed by the infinitive 'sprechen' (to speak)."
+          },
+          {
+            "original": "Ich möchte einen Kaffee.",
+            "translation": "I would like a coffee.",
+            "breakdown": "'Möchte' is the form of 'möchten' for 'ich', followed by the noun 'einen Kaffee' (a coffee)."
+          }
+        ],
+        "commonMistakes": [
+          "'Ich kann gehen.' is correct, but 'Ich möchte gehen.' means 'I would like to go.'",
+          "'Ich kann ein Apfel.' is incorrect. It should be 'Ich kann einen Apfel.' (a masculine noun in accusative)."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Supermarket",
+      "context": "Two friends, Anna and Lukas, are at the supermarket discussing what they need to buy.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Lukas! Was brauchen wir?",
+          "translation": "Hello Lukas! What do we need?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Wir brauchen Brot und Milch.",
+          "translation": "We need bread and milk.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Okay. Ich möchte auch Obst.",
+          "translation": "Okay. I would also like some fruit.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Gute Idee! Wo ist die Bäckerei?",
+          "translation": "Good idea! Where is the bakery?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Die Bäckerei ist dort, neben dem Supermarkt.",
+          "translation": "The bakery is over there, next to the supermarket.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Super! Lass uns gehen.",
+          "translation": "Great! Let's go.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, ich kann die Brötchen kaufen.",
+          "translation": "Yes, I can buy the rolls.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Perfekt! Dann gehe ich zur Milch.",
+          "translation": "Perfect! Then I will go for the milk.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Shopping Culture in Germany",
+      "text": "In Germany, supermarkets are usually closed on Sundays. This means that people often do their shopping on Saturdays. Additionally, many towns have weekly markets where local produce can be bought fresh.",
+      "funFact": "Did you know that Germany has over 300 varieties of bread? Each region has its own specialties, making bakery visits a delight!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary for common places in town.",
+        "Practiced using 'können' and 'möchten'.",
+        "Engaged in a dialogue about shopping.",
+        "Gained insights into German shopping culture."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and try forming your own dialogues about shopping in town."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'the supermarket' in German?",
+      "content": {
+        "options": [
+          "das Geschäft",
+          "der Supermarkt",
+          "die Bäckerei",
+          "der Park"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'der Supermarkt', which means 'the supermarket' in English.",
+      "hint": "It's a place where you buy groceries.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which place is 'die Schule'?",
+      "content": {
+        "options": [
+          "the bakery",
+          "the school",
+          "the restaurant",
+          "the park"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Die Schule' means 'the school' where students learn.",
+      "hint": "Students go here to study.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich gehe zur ___ (the bakery).",
+      "content": {
+        "sentence": "Ich gehe zur ___ (die Bäckerei).",
+        "correctAnswer": "Bäckerei",
+        "acceptableAnswers": [
+          "Bäckerei"
+        ],
+        "options": [
+          "Schule",
+          "Bäckerei",
+          "Restaurant",
+          "Park"
+        ]
+      },
+      "explanation": "The correct answer is 'Bäckerei', which means 'bakery' in English.",
+      "hint": "Think of where you buy bread.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Das ___ ist schön (the park).",
+      "content": {
+        "sentence": "Das ___ ist schön (der Park).",
+        "correctAnswer": "Park",
+        "acceptableAnswers": [
+          "Park"
+        ],
+        "options": [
+          "Restaurant",
+          "Schule",
+          "Park",
+          "Supermarkt"
+        ]
+      },
+      "explanation": "'Der Park' is the correct answer, meaning 'the park', which is a nice place to relax.",
+      "hint": "It's a place with trees and grass.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'zur', 'gehe', 'Bäckerei', 'ich'.",
+      "content": {
+        "words": [
+          "zur",
+          "gehe",
+          "Bäckerei",
+          "ich"
+        ],
+        "correctOrder": [
+          "ich",
+          "gehe",
+          "zur",
+          "Bäckerei"
+        ],
+        "translation": "I go to the bakery."
+      },
+      "explanation": "The correct order forms the sentence 'Ich gehe zur Bäckerei', which means 'I go to the bakery'.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'the restaurant'",
+      "content": {
+        "prompt": "Translate to German: 'the restaurant'",
+        "correctAnswer": "das Restaurant",
+        "acceptableAnswers": [
+          "das Restaurant"
+        ]
+      },
+      "explanation": "'Das Restaurant' is the correct translation for 'the restaurant'.",
+      "hint": "It's where you can eat meals.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'der Supermarkt'.",
+      "content": {
+        "ttsText": "der Supermarkt",
+        "ttsLang": "de-DE",
+        "options": [
+          "the school",
+          "the supermarket",
+          "the park",
+          "the restaurant"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "You heard 'der Supermarkt', which translates to 'the supermarket'.",
+      "hint": "It’s a place to buy food.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the German word for 'the park'.",
+      "content": {
+        "targetText": "der Park",
+        "context": "Say the German word for 'the park'.",
+        "acceptableVariants": [
+          "Park"
+        ]
+      },
+      "explanation": "You should say 'der Park', which means 'the park' in English.",
+      "hint": "It's a green place where people relax.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'das Geschäft' mean?",
+      "content": {
+        "options": [
+          "the school",
+          "the store",
+          "the bakery",
+          "the restaurant"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Das Geschäft' translates to 'the store' in English.",
+      "hint": "It’s where you buy various items.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich kaufe Brot in der ___ (the bakery).",
+      "content": {
+        "sentence": "Ich kaufe Brot in der ___ (die Bäckerei).",
+        "correctAnswer": "Bäckerei",
+        "acceptableAnswers": [
+          "Bäckerei"
+        ],
+        "options": [
+          "Schule",
+          "Bäckerei",
+          "Park",
+          "Restaurant"
+        ]
+      },
+      "explanation": "The correct answer is 'Bäckerei', as that is where you buy bread.",
+      "hint": "Think about where you get fresh bread.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

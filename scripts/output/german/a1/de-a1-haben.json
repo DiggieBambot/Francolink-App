@@ -1,0 +1,419 @@
+{
+  "lesson": {
+    "title": "The Verb Haben (To Have)",
+    "type": "GRAMMAR",
+    "slug": "de-a1-haben"
+  },
+  "unit": "Daily Life & Verbs",
+  "unitOrder": 3,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about the German verb 'haben' (to have) and how to use it in simple sentences. You will also expand your vocabulary related to daily life.",
+      "culturalNote": "In Germany, having a pet is quite common, and many people express affection for their animals using the verb 'haben'."
+    },
+    "vocabulary": [
+      {
+        "term": "der Hund",
+        "translation": "the dog",
+        "definition": "A common pet in German-speaking countries.",
+        "pronunciation": "dare hoond",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe einen Hund.",
+          "translation": "I have a dog."
+        },
+        "tip": "Remember, 'Hund' is masculine (der Hund)."
+      },
+      {
+        "term": "die Katze",
+        "translation": "the cat",
+        "definition": "Another popular pet.",
+        "pronunciation": "dee kaht-seh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Sie hat eine Katze.",
+          "translation": "She has a cat."
+        },
+        "tip": "Notice the feminine article 'die' for 'Katze'."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A written or printed work.",
+        "pronunciation": "dahs booḱ",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe ein Buch.",
+          "translation": "I have a book."
+        },
+        "tip": "'Buch' is neuter, so use 'das'."
+      },
+      {
+        "term": "der Stift",
+        "translation": "the pen",
+        "definition": "An instrument for writing.",
+        "pronunciation": "dare shtift",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Hast du den Stift?",
+          "translation": "Do you have the pen?"
+        },
+        "tip": "'Stift' is masculine (der Stift)."
+      },
+      {
+        "term": "die Uhr",
+        "translation": "the clock",
+        "definition": "A device for telling time.",
+        "pronunciation": "dee ohr",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe die Uhr.",
+          "translation": "I have the clock."
+        },
+        "tip": "'Uhr' is feminine, so it takes 'die'."
+      },
+      {
+        "term": "haben",
+        "translation": "to have",
+        "definition": "A verb used to indicate possession.",
+        "pronunciation": "hah-ben",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Wir haben Zeit.",
+          "translation": "We have time."
+        },
+        "tip": "This verb is irregular in conjugation."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Verb 'Haben'",
+        "explanation": "'Haben' is an irregular verb that means 'to have'. It is used to express possession or relationships. Here's how to conjugate 'haben' in the present tense:",
+        "table": {
+          "headers": [
+            "Subject",
+            "Conjugation"
+          ],
+          "rows": [
+            [
+              "ich",
+              "habe"
+            ],
+            [
+              "du",
+              "hast"
+            ],
+            [
+              "er/sie/es",
+              "hat"
+            ],
+            [
+              "wir",
+              "haben"
+            ],
+            [
+              "ihr",
+              "habt"
+            ],
+            [
+              "sie/Sie",
+              "haben"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich habe einen Hund.",
+            "translation": "I have a dog.",
+            "breakdown": "'Ich' is the subject, 'habe' is the first-person singular form of 'haben'."
+          },
+          {
+            "original": "Er hat eine Katze.",
+            "translation": "He has a cat.",
+            "breakdown": "'Er' is the subject, 'hat' is the third-person singular form of 'haben'."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Ich habe' instead of 'Ich hat' (correct form: 'Ich habe').",
+          "Confusing 'habe' with 'hat' in the wrong person (always match the subject to the correct form)."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking about Pets",
+      "context": "At a friend's house during a casual visit.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hast du ein Haustier?",
+          "translation": "Do you have a pet?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe einen Hund.",
+          "translation": "Yes, I have a dog.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Wie heißt dein Hund?",
+          "translation": "What is your dog's name?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Mein Hund heißt Bello.",
+          "translation": "My dog's name is Bello.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Hast du auch eine Katze?",
+          "translation": "Do you also have a cat?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Nein, ich habe keine Katze.",
+          "translation": "No, I don't have a cat.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist schade!",
+          "translation": "That's a pity!",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, aber ich habe ein Buch über Katzen.",
+          "translation": "Yes, but I have a book about cats.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Pets in Germany",
+      "text": "Pets play an important role in many German households. Dogs and cats are the most common pets, and many people enjoy taking them to parks or on vacations.",
+      "funFact": "In Germany, there are even dog cafés where you can enjoy a drink while your dog plays!"
+    },
+    "summary": {
+      "keyPoints": [
+        "The verb 'haben' means 'to have' and is used to express possession.",
+        "It is an irregular verb with different forms depending on the subject.",
+        "Familiarize yourself with common nouns and their articles.",
+        "Practice making sentences using 'haben' with various objects."
+      ],
+      "nextSteps": "Practice using 'haben' in sentences about your own possessions. Try creating short dialogues with a partner."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct form of 'haben' for 'ich'?",
+      "content": {
+        "options": [
+          "habe",
+          "hat",
+          "haben"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Ich habe' means 'I have' in German, which is the correct form for the first person singular.",
+      "hint": "Think about the subject pronoun.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence is correct?",
+      "content": {
+        "options": [
+          "Du hat einen Hund.",
+          "Du hast einen Hund.",
+          "Du haben einen Hund."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Du hast' is the correct form for 'you have' in informal situations.",
+      "hint": "Remember the second person singular.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Wir ___ ein Buch.'",
+      "content": {
+        "sentence": "Wir ___ ein Buch.",
+        "correctAnswer": "haben",
+        "acceptableAnswers": [
+          "haben"
+        ],
+        "options": [
+          "hat",
+          "haben",
+          "habe"
+        ]
+      },
+      "explanation": "'Wir haben' translates to 'We have'.",
+      "hint": "Think about the subject 'wir'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Er ___ eine Katze.'",
+      "content": {
+        "sentence": "Er ___ eine Katze.",
+        "correctAnswer": "hat",
+        "acceptableAnswers": [
+          "hat"
+        ],
+        "options": [
+          "habe",
+          "hat",
+          "haben"
+        ]
+      },
+      "explanation": "'Er hat' means 'He has', which is the correct form for the third person singular.",
+      "hint": "Focus on the subject 'er'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'Stift / einen / habe / ich'.",
+      "content": {
+        "words": [
+          "Stift",
+          "einen",
+          "habe",
+          "ich"
+        ],
+        "correctOrder": [
+          "ich",
+          "habe",
+          "einen",
+          "Stift"
+        ],
+        "translation": "I have a pen."
+      },
+      "explanation": "The correct order is subject, verb, article, and noun.",
+      "hint": "Start with 'ich'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'They have a dog.'",
+      "content": {
+        "correctAnswer": "Sie haben einen Hund.",
+        "acceptableAnswers": [
+          "Sie haben einen Hund."
+        ]
+      },
+      "explanation": "The sentence translates directly, keeping the structure and meaning.",
+      "hint": "Think about the subject 'sie'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich habe eine Uhr.'",
+      "content": {
+        "ttsText": "Ich habe eine Uhr.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I have a book.",
+          "I have a clock.",
+          "I have a dog."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct translation of the sentence is 'I have a clock.'",
+      "hint": "Focus on the word 'Uhr'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in German: 'I have a cat.'",
+      "content": {
+        "targetText": "Ich habe eine Katze.",
+        "context": "Translate and say the sentence in German.",
+        "acceptableVariants": [
+          "Ich habe eine Katze."
+        ]
+      },
+      "explanation": "This is a direct translation and practice for speaking.",
+      "hint": "Remember to use the correct article for 'Katze'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct form of 'haben' for 'sie' (plural)?",
+      "content": {
+        "options": [
+          "habt",
+          "habe",
+          "haben"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Sie haben' means 'they have', which is the correct form for the third person plural.",
+      "hint": "Think about the plural pronoun.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Du ___ einen Hund.'",
+      "content": {
+        "sentence": "Du ___ einen Hund.",
+        "correctAnswer": "hast",
+        "acceptableAnswers": [
+          "hast"
+        ],
+        "options": [
+          "hast",
+          "habe",
+          "haben"
+        ]
+      },
+      "explanation": "'Du hast' means 'You have' in the singular informal form.",
+      "hint": "Focus on the subject 'du'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'habe / ich / ein / Buch'.",
+      "content": {
+        "words": [
+          "habe",
+          "ich",
+          "ein",
+          "Buch"
+        ],
+        "correctOrder": [
+          "ich",
+          "habe",
+          "ein",
+          "Buch"
+        ],
+        "translation": "I have a book."
+      },
+      "explanation": "The correct order is subject, verb, article, and noun.",
+      "hint": "Start with 'ich'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

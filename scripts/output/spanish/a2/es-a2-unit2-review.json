@@ -1,0 +1,387 @@
+{
+  "lesson": {
+    "title": "Unit 2 Review",
+    "type": "REVIEW",
+    "slug": "es-a2-unit2-review"
+  },
+  "unit": "Stories & Memories",
+  "unitOrder": 2,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this review lesson, you will revisit important vocabulary and grammar from Unit 2: Stories & Memories. You will also practice through dialogue and cultural insights to enhance your understanding of everyday conversations.",
+      "culturalNote": "In many Latin American countries, storytelling is an important tradition, often shared during family gatherings or festivals."
+    },
+    "vocabulary": [
+      {
+        "term": "el recuerdo",
+        "translation": "the memory",
+        "definition": "an image or thought of something that happened in the past",
+        "pronunciation": "el reh-kwe-rdo",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo un recuerdo de mi infancia.",
+          "translation": "I have a memory of my childhood."
+        },
+        "tip": "Think of 'recollecting' memories to remember this word."
+      },
+      {
+        "term": "la historia",
+        "translation": "the story",
+        "definition": "a narrative or account of events",
+        "pronunciation": "la ees-toh-rya",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ella cuenta una historia interesante.",
+          "translation": "She tells an interesting story."
+        },
+        "tip": "The word 'history' in English can help you remember 'historia'."
+      },
+      {
+        "term": "recordar",
+        "translation": "to remember",
+        "definition": "to bring a thought or memory back to mind",
+        "pronunciation": "reh-kor-dar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Voy a recordar ese día.",
+          "translation": "I am going to remember that day."
+        },
+        "tip": "Think of 'record' as in recording memories."
+      },
+      {
+        "term": "el pasado",
+        "translation": "the past",
+        "definition": "the time before now",
+        "pronunciation": "el pah-sah-doh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El pasado es importante para aprender.",
+          "translation": "The past is important to learn."
+        },
+        "tip": "Past events are part of your 'history'."
+      },
+      {
+        "term": "la celebración",
+        "translation": "the celebration",
+        "definition": "a joyful gathering or event to commemorate something",
+        "pronunciation": "la seh-leh-bra-syon",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tenemos una celebración el sábado.",
+          "translation": "We have a celebration on Saturday."
+        },
+        "tip": "Think of 'celebrate' in English to remember this word."
+      },
+      {
+        "term": "el cumpleaños",
+        "translation": "the birthday",
+        "definition": "the anniversary of the day someone was born",
+        "pronunciation": "el koom-pleh-ahn-yohs",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi cumpleaños es en marzo.",
+          "translation": "My birthday is in March."
+        },
+        "tip": "The word 'cumple' sounds like 'complete', as in completing another year."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Preterite vs. Imperfect",
+        "explanation": "In Spanish, the preterite tense describes actions that were completed in the past, while the imperfect tense describes ongoing or habitual actions in the past. Use the preterite for events that occurred at a specific time and the imperfect for background information or repeated actions.",
+        "table": {
+          "headers": [
+            "Preterite",
+            "Imperfect"
+          ],
+          "rows": [
+            [
+              "hablé (I spoke)",
+              "hablaba (I was speaking)"
+            ],
+            [
+              "comí (I ate)",
+              "comía (I was eating)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ayer hablé con mi amigo.",
+            "translation": "Yesterday I spoke with my friend.",
+            "breakdown": "Here, 'hablé' indicates a completed action that happened yesterday."
+          },
+          {
+            "original": "Cuando era niño, jugaba en el parque.",
+            "translation": "When I was a child, I played in the park.",
+            "breakdown": "'Jugaba' indicates a habitual action in the past."
+          }
+        ],
+        "commonMistakes": [
+          "Using the preterite for habitual actions. Correct: 'Cuando era niño, iba al cine.' (When I was a child, I went to the movies.)",
+          "Confusing the two tenses. Correct: 'Ayer comí pizza.' (Yesterday I ate pizza.)"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "A Birthday Celebration",
+      "context": "This conversation takes place during a birthday party.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¡Hola, Ana! ¿Cómo estás?",
+          "translation": "Hello, Ana! How are you?",
+          "note": "Carlos greets Ana."
+        },
+        {
+          "speaker": 1,
+          "text": "¡Hola, Carlos! Estoy muy bien, gracias. ¿Y tú?",
+          "translation": "Hello, Carlos! I am very well, thank you. And you?"
+        },
+        {
+          "speaker": 0,
+          "text": "Estoy feliz porque es el cumpleaños de mi hermana.",
+          "translation": "I am happy because it is my sister's birthday."
+        },
+        {
+          "speaker": 1,
+          "text": "¡Qué bien! ¿Cómo va la celebración?",
+          "translation": "That's great! How is the celebration going?"
+        },
+        {
+          "speaker": 0,
+          "text": "Va muy bien. Hay mucha comida y música.",
+          "translation": "It is going very well. There is a lot of food and music."
+        },
+        {
+          "speaker": 1,
+          "text": "Me encanta la música. ¿Quién toca?",
+          "translation": "I love the music. Who is playing?"
+        },
+        {
+          "speaker": 0,
+          "text": "Mi primo está tocando la guitarra.",
+          "translation": "My cousin is playing the guitar."
+        },
+        {
+          "speaker": 1,
+          "text": "¡Genial! ¿Puedo bailar?",
+          "translation": "Great! Can I dance?"
+        },
+        {
+          "speaker": 0,
+          "text": "¡Claro! Vamos a bailar juntos.",
+          "translation": "Of course! Let's dance together."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Spanish-Speaking Celebrations",
+      "text": "Birthdays are celebrated with great enthusiasm in many Spanish-speaking countries. Friends and family gather to share food, music, and stories, making it a memorable occasion.",
+      "funFact": "In Mexico, it's traditional to break a piñata during birthday celebrations, which adds to the fun!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Review of vocabulary related to stories and memories.",
+        "Understanding the differences between preterite and imperfect tenses.",
+        "Practice through dialogue and cultural insights.",
+        "Importance of storytelling in Hispanic culture."
+      ],
+      "nextSteps": "Practice using preterite and imperfect in sentences and try writing your own story using the vocabulary from this unit."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'memory'?",
+      "content": {
+        "options": [
+          "la historia",
+          "el recuerdo",
+          "el pasado",
+          "la celebración"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'el recuerdo', which means 'memory' in Spanish.",
+      "hint": "Think about what you cherish from the past.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'celebration' in Spanish?",
+      "content": {
+        "options": [
+          "el cumpleaños",
+          "la historia",
+          "la celebración",
+          "el recuerdo"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'La celebración' is the Spanish term for 'celebration'.",
+      "hint": "It’s often associated with parties and events.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Hoy es mi ___.'",
+      "content": {
+        "sentence": "Hoy es mi ___.",
+        "correctAnswer": "cumpleaños",
+        "acceptableAnswers": [
+          "cumpleaños"
+        ],
+        "options": [
+          "celebración",
+          "cumpleaños",
+          "historia",
+          "recuerdo"
+        ]
+      },
+      "explanation": "The correct answer is 'cumpleaños', meaning 'birthday'.",
+      "hint": "It's a special day that celebrates the day you were born.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Debo ___ mis recuerdos.'",
+      "content": {
+        "sentence": "Debo ___ mis recuerdos.",
+        "correctAnswer": "recordar",
+        "acceptableAnswers": [
+          "recordar"
+        ],
+        "options": [
+          "celebrar",
+          "recordar",
+          "contar",
+          "escuchar"
+        ]
+      },
+      "explanation": "'Recordar' means 'to remember', which fits perfectly in this context.",
+      "hint": "Think about what you do with memories.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'celebración la es hoy'.",
+      "content": {
+        "words": [
+          "celebración",
+          "la",
+          "es",
+          "hoy"
+        ],
+        "correctOrder": [
+          "hoy",
+          "es",
+          "la",
+          "celebración"
+        ],
+        "translation": "Today is the celebration."
+      },
+      "explanation": "The correct order forms a proper sentence in Spanish.",
+      "hint": "Start with 'hoy' for 'today'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I remember the past.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I remember the past.'",
+        "correctAnswer": "Recuerdo el pasado.",
+        "acceptableAnswers": [
+          "Recuerdo el pasado."
+        ]
+      },
+      "explanation": "'Recuerdo el pasado' is the correct translation for 'I remember the past.'",
+      "hint": "Think about how to express memory in Spanish.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation.",
+      "content": {
+        "ttsText": "Hoy es un día de celebración.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Today is a day of celebration.",
+          "Tomorrow is a day of celebration.",
+          "Yesterday was a day of celebration.",
+          "Today is a sad day."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'Today is a day of celebration.'",
+      "hint": "Pay attention to the word 'hoy'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in Spanish: 'I have a nice memory.'",
+      "content": {
+        "targetText": "Tengo un buen recuerdo.",
+        "context": "Translate and say a sentence about a memory.",
+        "acceptableVariants": [
+          "Tengo un buen recuerdo",
+          "Yo tengo un buen recuerdo"
+        ]
+      },
+      "explanation": "The correct sentence expresses a nice memory in Spanish.",
+      "hint": "Start with 'Tengo' for 'I have'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the English translation of 'el pasado'?",
+      "content": {
+        "options": [
+          "the past",
+          "the future",
+          "the present",
+          "the memory"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El pasado' translates to 'the past' in English.",
+      "hint": "Think about time periods.",
+      "difficulty": "HARD",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Me gusta recordar ___ buenos.'",
+      "content": {
+        "sentence": "Me gusta recordar ___.",
+        "correctAnswer": "memorias",
+        "acceptableAnswers": [
+          "memorias"
+        ],
+        "options": [
+          "momentos",
+          "memorias",
+          "historias",
+          "celebraciones"
+        ]
+      },
+      "explanation": "'Memorias' fits the context of remembering good things.",
+      "hint": "What do you like to remember?",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

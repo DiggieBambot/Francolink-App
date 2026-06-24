@@ -1,0 +1,343 @@
+{
+  "lesson": {
+    "title": "The Body & Health",
+    "type": "VOCABULARY",
+    "slug": "es-a2-body-health"
+  },
+  "unit": "Health & Body",
+  "unitOrder": 4,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to the body and health in Spanish. You will be able to describe parts of the body and common health issues.",
+      "culturalNote": "In many Spanish-speaking countries, it's common to use natural remedies for minor ailments. This reflects a deep connection to traditional medicine."
+    },
+    "vocabulary": [
+      {
+        "term": "la cabeza",
+        "translation": "the head",
+        "definition": "The upper part of the body where the brain is located.",
+        "pronunciation": "lah keh-BAH-dah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me duele la cabeza.",
+          "translation": "My head hurts."
+        },
+        "tip": "Remember 'cabeza' sounds like 'cabbage' to help you remember it refers to the head."
+      },
+      {
+        "term": "el brazo",
+        "translation": "the arm",
+        "definition": "The limb between the shoulder and the elbow.",
+        "pronunciation": "el BRAH-tho",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Él se rompió el brazo.",
+          "translation": "He broke his arm."
+        },
+        "tip": "Think of 'bra' which can hold up arms in clothing to remember 'brazo' means arm."
+      },
+      {
+        "term": "la pierna",
+        "translation": "the leg",
+        "definition": "The limb used for standing and walking.",
+        "pronunciation": "lah PYER-nah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo un dolor en la pierna.",
+          "translation": "I have pain in my leg."
+        },
+        "tip": "Connect 'pierna' with 'pier' where legs stand on water, helping you remember it means leg."
+      },
+      {
+        "term": "la salud",
+        "translation": "the health",
+        "definition": "A person's overall physical and mental condition.",
+        "pronunciation": "lah sah-LOOD",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La salud es muy importante.",
+          "translation": "Health is very important."
+        },
+        "tip": "Think of 'salad' which is healthy food to remember 'salud' means health."
+      },
+      {
+        "term": "el médico",
+        "translation": "the doctor",
+        "definition": "A person qualified to treat people's illnesses.",
+        "pronunciation": "el MEH-dee-koh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Voy al médico mañana.",
+          "translation": "I am going to the doctor tomorrow."
+        },
+        "tip": "Remember 'medic' in English is similar to 'médico' in Spanish, both relate to health."
+      },
+      {
+        "term": "la medicina",
+        "translation": "the medicine",
+        "definition": "A substance used to treat illness.",
+        "pronunciation": "lah meh-dee-SEE-nah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Necesito medicina para el dolor.",
+          "translation": "I need medicine for the pain."
+        },
+        "tip": "Think of 'medicine' in English to help remember 'medicina' in Spanish."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'tener' to express symptoms",
+        "explanation": "In Spanish, we use the verb 'tener' (to have) to express symptoms. For example, 'tengo dolor' means 'I have pain.' This is different from English where we often say 'I am sick.'",
+        "table": {
+          "headers": [
+            "Spanish",
+            "English"
+          ],
+          "rows": [
+            [
+              "tengo",
+              "I have"
+            ],
+            [
+              "tienes",
+              "you have"
+            ],
+            [
+              "tiene",
+              "he/she has"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Tengo fiebre.",
+            "translation": "I have a fever.",
+            "breakdown": "Here, 'tengo' shows possession of the symptom 'fiebre' (fever)."
+          }
+        ],
+        "commonMistakes": [
+          "'Yo soy' instead of 'Yo tengo' for symptoms. (Correction: Use 'tengo')",
+          "'Ella es' instead of 'Ella tiene' for symptoms. (Correction: Use 'tiene')"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Doctor's Office",
+      "context": "This conversation takes place at a doctor's office.",
+      "speakers": [
+        "Patient",
+        "Doctor"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, doctor. Me duele la cabeza.",
+          "translation": "Hello, doctor. My head hurts."
+        },
+        {
+          "speaker": 1,
+          "text": "¿Desde cuándo te duele?",
+          "translation": "Since when does it hurt?"
+        },
+        {
+          "speaker": 0,
+          "text": "Desde ayer. También tengo fiebre.",
+          "translation": "Since yesterday. I also have a fever."
+        },
+        {
+          "speaker": 1,
+          "text": "Voy a examinarte.",
+          "translation": "I will examine you."
+        },
+        {
+          "speaker": 0,
+          "text": "Gracias, doctor.",
+          "translation": "Thank you, doctor."
+        },
+        {
+          "speaker": 1,
+          "text": "Es importante descansar y tomar medicina.",
+          "translation": "It's important to rest and take medicine."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Cuántos días debo descansar?",
+          "translation": "How many days should I rest?"
+        },
+        {
+          "speaker": 1,
+          "text": "Descansa por tres días.",
+          "translation": "Rest for three days."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Traditional Medicine in Latin America",
+      "text": "In many Latin American countries, traditional medicine plays a significant role alongside modern healthcare. Herbal remedies and practices passed down through generations are still common.",
+      "funFact": "In Mexico, the use of plants like 'aloe vera' and 'chamomile' for healing is widespread and often recommended by local healers."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to the body and health.",
+        "Used 'tener' to talk about symptoms.",
+        "Practiced a dialogue at the doctor’s office.",
+        "Gained cultural insights into health practices."
+      ],
+      "nextSteps": "Practice using the new vocabulary in sentences and try to create your own dialogues about health."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'the arm'?",
+      "content": {
+        "options": [
+          "la cabeza",
+          "el brazo",
+          "la pierna",
+          "la salud"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'el brazo', which means 'the arm' in English.",
+      "hint": "It's a body part used for lifting.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'the doctor' in Spanish?",
+      "content": {
+        "options": [
+          "el médico",
+          "la medicina",
+          "la cabeza",
+          "la salud"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'el médico', which translates to 'the doctor'.",
+      "hint": "This person helps you when you are sick.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Yo voy al ___ cuando estoy enfermo.'",
+      "content": {
+        "sentence": "Yo voy al ___ cuando estoy enfermo.",
+        "correctAnswer": "médico",
+        "acceptableAnswers": [
+          "médico"
+        ],
+        "options": [
+          "médico",
+          "cuerpo",
+          "salud",
+          "medicina"
+        ]
+      },
+      "explanation": "You go to 'el médico' when you are sick.",
+      "hint": "Think of a person who treats illnesses.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Ella toma ___ para sentirse mejor.'",
+      "content": {
+        "sentence": "Ella toma ___ para sentirse mejor.",
+        "correctAnswer": "medicina",
+        "acceptableAnswers": [
+          "medicina"
+        ],
+        "options": [
+          "medicina",
+          "cabeza",
+          "salud",
+          "pierna"
+        ]
+      },
+      "explanation": "The correct word is 'medicina', meaning 'medicine'.",
+      "hint": "It's what you take to help with sickness.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'salud, buena, es, la, importante'",
+      "content": {
+        "words": [
+          "salud",
+          "buena",
+          "es",
+          "la",
+          "importante"
+        ],
+        "correctOrder": [
+          "la",
+          "salud",
+          "es",
+          "buena",
+          "importante"
+        ],
+        "translation": "Good health is important."
+      },
+      "explanation": "The correct order forms a meaningful sentence in Spanish about health.",
+      "hint": "Think about the importance of health.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I have a headache.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I have a headache.'",
+        "correctAnswer": "Tengo dolor de cabeza.",
+        "acceptableAnswers": [
+          "Tengo dolor de cabeza."
+        ]
+      },
+      "explanation": "The correct translation is 'Tengo dolor de cabeza.', which literally means 'I have pain of head.'",
+      "hint": "Think about what you say when your head hurts.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Me duele la pierna.'",
+      "content": {
+        "ttsText": "Me duele la pierna.",
+        "ttsLang": "es-ES",
+        "options": [
+          "My leg hurts.",
+          "I have a headache.",
+          "I feel sick.",
+          "I see a doctor."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'My leg hurts.'",
+      "hint": "Focus on the word 'pierna'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I take medicine every day.'",
+      "content": {
+        "targetText": "Tomo medicina todos los días.",
+        "context": "Translate the phrase about your health routine.",
+        "acceptableVariants": [
+          "Tomo medicina cada día."
+        ]
+      },
+      "explanation": "Both sentences convey the same meaning about taking medicine daily.",
+      "hint": "Remember to use the verb 'tomar'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,354 @@
+{
+  "lesson": {
+    "title": "Prepositions of Place",
+    "type": "GRAMMAR",
+    "slug": "de-a1-prepositions"
+  },
+  "unit": "Home & Everyday Objects",
+  "unitOrder": 6,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about prepositions of place in German. You will also practice vocabulary related to home and everyday objects. By the end of this lesson, you should be able to describe where things are in your home using simple sentences.",
+      "culturalNote": "In German-speaking countries, many homes are designed to be functional and cozy, often with a focus on efficient use of space."
+    },
+    "vocabulary": [
+      {
+        "term": "der Tisch",
+        "translation": "the table",
+        "definition": "A piece of furniture with a flat top and legs.",
+        "pronunciation": "dare tish",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Tisch ist in der Küche.",
+          "translation": "The table is in the kitchen."
+        },
+        "tip": "Remember, 'der' indicates that 'Tisch' is masculine."
+      },
+      {
+        "term": "die Lampe",
+        "translation": "the lamp",
+        "definition": "A device that produces light.",
+        "pronunciation": "dee lahm-peh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Lampe ist auf dem Tisch.",
+          "translation": "The lamp is on the table."
+        },
+        "tip": "'Die' shows that 'Lampe' is feminine."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A set of written or printed pages.",
+        "pronunciation": "dahs boo-k",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Buch liegt neben dem Tisch.",
+          "translation": "The book is next to the table."
+        },
+        "tip": "'Das' indicates that 'Buch' is neuter."
+      },
+      {
+        "term": "die Wand",
+        "translation": "the wall",
+        "definition": "A vertical structure that defines a space.",
+        "pronunciation": "dee vahnd",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Wand ist blau.",
+          "translation": "The wall is blue."
+        },
+        "tip": "'Die' indicates that 'Wand' is feminine."
+      },
+      {
+        "term": "die Tür",
+        "translation": "the door",
+        "definition": "A movable barrier used to close off an entrance.",
+        "pronunciation": "dee tü-ahr",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Tür ist offen.",
+          "translation": "The door is open."
+        },
+        "tip": "'Die' shows that 'Tür' is feminine."
+      },
+      {
+        "term": "das Sofa",
+        "translation": "the sofa",
+        "definition": "A comfortable seat for multiple people.",
+        "pronunciation": "dahs soh-fah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Sofa steht vor der Wand.",
+          "translation": "The sofa is in front of the wall."
+        },
+        "tip": "'Das' indicates that 'Sofa' is neuter."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Prepositions of Place",
+        "explanation": "Prepositions of place tell us where something is located. In German, common prepositions include 'in' (in), 'auf' (on), 'neben' (next to), 'vor' (in front of), and 'hinter' (behind). These prepositions help to form sentences that describe the location of objects.",
+        "table": {
+          "headers": [
+            "German Preposition",
+            "English Translation"
+          ],
+          "rows": [
+            [
+              "in",
+              "in"
+            ],
+            [
+              "auf",
+              "on"
+            ],
+            [
+              "neben",
+              "next to"
+            ],
+            [
+              "vor",
+              "in front of"
+            ],
+            [
+              "hinter",
+              "behind"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Das Buch ist auf dem Tisch.",
+            "translation": "The book is on the table.",
+            "breakdown": "Here, 'auf' indicates the position of the book in relation to the table."
+          },
+          {
+            "original": "Die Lampe steht neben dem Sofa.",
+            "translation": "The lamp is next to the sofa.",
+            "breakdown": "'Neben' shows that the lamp is beside the sofa."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'in' for objects that are on a surface. Correct: 'auf' for on the table.",
+          "Saying 'die Tisch' instead of 'der Tisch' for the table."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Finding Objects in the Room",
+      "context": "Two friends, Anna and Lukas, are in Anna's living room looking for objects.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Wo ist das Buch?",
+          "translation": "Where is the book?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das Buch ist auf dem Tisch.",
+          "translation": "The book is on the table.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Wo ist die Lampe?",
+          "translation": "Where is the lamp?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Die Lampe ist neben dem Sofa.",
+          "translation": "The lamp is next to the sofa.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Wo ist die Tür?",
+          "translation": "Where is the door?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Die Tür ist hinter dem Sofa.",
+          "translation": "The door is behind the sofa.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Wo ist die Wand?",
+          "translation": "Where is the wall?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Die Wand ist vor dem Fenster.",
+          "translation": "The wall is in front of the window.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Home and Living Spaces in Germany",
+      "text": "German homes often reflect a mix of modern and traditional styles. Many apartments are designed to maximize space and light. In Germany, it's common to have a small balcony or terrace to enjoy the outdoors.",
+      "funFact": "In Germany, many homes have a 'Hausordnung' or house rules that tenants must follow, especially in apartment buildings."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to home objects.",
+        "Practiced using prepositions of place.",
+        "Formulated simple sentences to describe locations.",
+        "Engaged in a dialogue about finding objects."
+      ],
+      "nextSteps": "Practice using prepositions of place with other objects in your home. Try describing the location of items using new vocabulary."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Where is the lamp?",
+      "content": {
+        "options": [
+          "The lamp is on the table.",
+          "The lamp is under the table.",
+          "The lamp is in the book."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer describes the position of the lamp accurately.",
+      "hint": "Think about where you usually place a lamp.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which object is against the wall?",
+      "content": {
+        "options": [
+          "The sofa",
+          "The book",
+          "The lamp"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "Sofas are commonly placed against walls for space saving.",
+      "hint": "Consider where you would put a sofa in a room.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "The book is ___ the table.",
+      "content": {
+        "sentence": "Das Buch ist ___ dem Tisch.",
+        "correctAnswer": "auf",
+        "acceptableAnswers": [
+          "auf",
+          "über"
+        ],
+        "options": [
+          "in",
+          "auf",
+          "unter"
+        ]
+      },
+      "explanation": "The correct preposition describes the position of the book on the table.",
+      "hint": "Think about the word for 'on'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "There is a door ___ the room.",
+      "content": {
+        "sentence": "Es gibt eine Tür ___ dem Zimmer.",
+        "correctAnswer": "in",
+        "acceptableAnswers": [
+          "in"
+        ],
+        "options": [
+          "in",
+          "auf",
+          "neben"
+        ]
+      },
+      "explanation": "The preposition 'in' indicates that the door is part of the room's structure.",
+      "hint": "Think about where doors are located.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: die Lampe, auf, dem Tisch, ist",
+      "content": {
+        "words": [
+          "die Lampe",
+          "auf",
+          "dem Tisch",
+          "ist"
+        ],
+        "correctOrder": [
+          "die Lampe",
+          "ist",
+          "auf",
+          "dem Tisch"
+        ],
+        "translation": "The lamp is on the table."
+      },
+      "explanation": "The correct order forms a grammatically correct sentence.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The book is on the sofa.'",
+      "content": {
+        "prompt": "Translate to German: 'The book is on the sofa.'",
+        "correctAnswer": "Das Buch ist auf dem Sofa.",
+        "acceptableAnswers": []
+      },
+      "explanation": "This sentence uses the correct preposition for location.",
+      "hint": "Remember the articles for 'book' and 'sofa'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct answer.",
+      "content": {
+        "ttsText": "Das Sofa ist neben der Tür.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The sofa is next to the door.",
+          "The sofa is behind the door.",
+          "The sofa is in front of the door."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer matches the sentence you heard.",
+      "hint": "Listen for the position of the sofa.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say: 'The lamp is on the table.'",
+      "content": {
+        "targetText": "Die Lampe ist auf dem Tisch.",
+        "context": "Translate and say this German sentence.",
+        "acceptableVariants": []
+      },
+      "explanation": "This exercise practices speaking the correct sentence structure.",
+      "hint": "Focus on the articles and prepositions.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

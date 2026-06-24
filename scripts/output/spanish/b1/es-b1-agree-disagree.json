@@ -1,0 +1,367 @@
+{
+  "lesson": {
+    "title": "Agreeing & Disagreeing",
+    "type": "CONVERSATION",
+    "slug": "es-b1-agree-disagree"
+  },
+  "unit": "Expressing Opinions",
+  "unitOrder": 1,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to agree and disagree in Spanish using various phrases and expressions. This will help you express your opinions more effectively in conversations.",
+      "culturalNote": "In many Spanish-speaking cultures, agreeing with someone is often seen as a way to build rapport, while disagreeing is approached with politeness."
+    },
+    "vocabulary": [
+      {
+        "term": "de acuerdo",
+        "translation": "agreed",
+        "definition": "Used to express agreement.",
+        "pronunciation": "deh ah-KUER-do",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Estoy de acuerdo contigo.",
+          "translation": "I agree with you."
+        },
+        "tip": "Remember that you can use this phrase for strong agreement."
+      },
+      {
+        "term": "no estoy de acuerdo",
+        "translation": "I disagree",
+        "definition": "Used to express disagreement.",
+        "pronunciation": "noh es-TOY deh ah-KUER-do",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "No estoy de acuerdo con esa opinión.",
+          "translation": "I disagree with that opinion."
+        },
+        "tip": "Use this phrase to politely disagree."
+      },
+      {
+        "term": "me parece que",
+        "translation": "it seems to me that",
+        "definition": "Used to introduce an opinion.",
+        "pronunciation": "meh pah-REH-seh keh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Me parece que deberíamos empezar temprano.",
+          "translation": "It seems to me that we should start early."
+        },
+        "tip": "This phrase can help soften your opinion."
+      },
+      {
+        "term": "en mi opinión",
+        "translation": "in my opinion",
+        "definition": "A phrase to express personal views.",
+        "pronunciation": "en mee oh-peen-YON",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "En mi opinión, las redes sociales son muy útiles.",
+          "translation": "In my opinion, social media is very useful."
+        },
+        "tip": "Use this phrase to clearly state your opinion."
+      },
+      {
+        "term": "pienso que",
+        "translation": "I think that",
+        "definition": "A common phrase to express a thought.",
+        "pronunciation": "PYEN-so keh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Pienso que deberíamos ser más amables.",
+          "translation": "I think we should be kinder."
+        },
+        "tip": "This phrase is direct and expresses your belief clearly."
+      },
+      {
+        "term": "es cierto que",
+        "translation": "it's true that",
+        "definition": "Used to confirm a fact.",
+        "pronunciation": "es SYER-toh keh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Es cierto que necesitamos más tiempo.",
+          "translation": "It's true that we need more time."
+        },
+        "tip": "This phrase can reinforce your agreement with a statement."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Subjunctive for Opinions",
+        "explanation": "In Spanish, when expressing opinions or desires that involve uncertainty, we often use the subjunctive mood. This is common with phrases like 'me parece que' or 'es importante que'. The subjunctive helps convey that the statement is subjective.",
+        "table": {
+          "headers": [
+            "Phrase",
+            "Subjunctive Example"
+          ],
+          "rows": [
+            [
+              "Es importante que",
+              "escribas tu opinión"
+            ],
+            [
+              "Me parece que",
+              "deberías estudiar más"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es importante que todos participen.",
+            "translation": "It's important that everyone participates.",
+            "breakdown": "The subjunctive 'participen' shows that it's a desired action."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'es importante que todos participan' instead of 'participen'. The subjunctive must be used here.",
+          "Confusing 'es cierto que' with 'es verdad que' – both are correct, but they can be used differently."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Weekend Plans",
+      "context": "Two friends are discussing their plans for the weekend in a café.",
+      "speakers": [
+        "Carlos",
+        "Lucía"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué planes tienes para el fin de semana?",
+          "translation": "What plans do you have for the weekend?"
+        },
+        {
+          "speaker": 1,
+          "text": "Me parece que deberíamos ir al cine.",
+          "translation": "I think we should go to the cinema."
+        },
+        {
+          "speaker": 0,
+          "text": "No estoy de acuerdo, prefiero quedarme en casa.",
+          "translation": "I disagree, I prefer to stay home."
+        },
+        {
+          "speaker": 1,
+          "text": "Pero en mi opinión, es bueno salir un poco.",
+          "translation": "But in my opinion, it's good to go out a little."
+        },
+        {
+          "speaker": 0,
+          "text": "Es cierto que salir puede ser divertido.",
+          "translation": "It's true that going out can be fun."
+        },
+        {
+          "speaker": 1,
+          "text": "¿Y si vamos a cenar y luego al cine?",
+          "translation": "What if we go for dinner and then to the cinema?"
+        },
+        {
+          "speaker": 0,
+          "text": "Eso suena bien, estoy de acuerdo.",
+          "translation": "That sounds good, I agree."
+        },
+        {
+          "speaker": 1,
+          "text": "Perfecto, entonces ¡hagámoslo!",
+          "translation": "Perfect, then let's do it!"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Politeness in Disagreement",
+      "text": "In many Spanish-speaking countries, it's common to express disagreement in a polite way. Phrases that soften opinions are frequently used to maintain harmony in conversations.",
+      "funFact": "The expression 'estar de acuerdo' literally translates to 'to be in agreement,' emphasizing the importance of consensus in discussions."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned key phrases for agreeing and disagreeing.",
+        "Explored the subjunctive mood for expressing opinions.",
+        "Practiced a dialogue about weekend plans.",
+        "Understood cultural nuances in expressing disagreement."
+      ],
+      "nextSteps": "Practice using the vocabulary in your conversations and try to create your own dialogues about different topics."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'de acuerdo' mean in English?",
+      "content": {
+        "options": [
+          "I agree",
+          "I disagree",
+          "In my opinion",
+          "It is true that"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'De acuerdo' translates to 'I agree' in English.",
+      "hint": "Think about expressing agreement.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase means 'I think that'?",
+      "content": {
+        "options": [
+          "Pienso que",
+          "Me parece que",
+          "No estoy de acuerdo",
+          "Es cierto que"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Pienso que' translates to 'I think that' in English.",
+      "hint": "Look for the phrase that expresses personal belief.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'En mi ___, es importante estudiar.'",
+      "content": {
+        "sentence": "En mi ___, es importante estudiar.",
+        "correctAnswer": "opinión",
+        "acceptableAnswers": [
+          "opinión"
+        ],
+        "options": [
+          "opinión",
+          "acuerdo",
+          "pensamiento"
+        ]
+      },
+      "explanation": "The correct word to complete the sentence is 'opinión', which means 'opinion'.",
+      "hint": "It’s a word that expresses a personal belief.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'No ___ de acuerdo con esa idea.'",
+      "content": {
+        "sentence": "No ___ de acuerdo con esa idea.",
+        "correctAnswer": "estoy",
+        "acceptableAnswers": [
+          "estoy"
+        ],
+        "options": [
+          "estoy",
+          "es",
+          "soy"
+        ]
+      },
+      "explanation": "'Estoy' is the correct form to express disagreement in this context.",
+      "hint": "Think about how to express disagreement.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'de acuerdo / idea / tu / me / parece / no'.",
+      "content": {
+        "words": [
+          "de acuerdo",
+          "idea",
+          "tu",
+          "me",
+          "parece",
+          "no"
+        ],
+        "correctOrder": [
+          "no",
+          "me",
+          "parece",
+          "de acuerdo",
+          "tu",
+          "idea"
+        ],
+        "translation": "It seems to me that your idea is not correct."
+      },
+      "explanation": "The correct order forms a coherent disagreement.",
+      "hint": "Start with expressing disagreement.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I disagree with your opinion.'",
+      "content": {
+        "correctAnswer": "No estoy de acuerdo con tu opinión.",
+        "acceptableAnswers": [],
+        "prompt": "Translate to Spanish: 'I disagree with your opinion.'"
+      },
+      "explanation": "The translation captures the essence of disagreement.",
+      "hint": "Focus on the phrase for disagreement.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation.",
+      "content": {
+        "ttsText": "En mi opinión, es cierto que debemos trabajar juntos.",
+        "ttsLang": "es-ES",
+        "options": [
+          "In my opinion, it is true that we should work together.",
+          "I think we should work alone.",
+          "I agree with your opinion."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence expresses agreement with a collaborative approach.",
+      "hint": "Listen for the phrase 'En mi opinión'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the Spanish sentence: 'Me parece que deberíamos cambiar de plan.'",
+      "content": {
+        "targetText": "Me parece que deberíamos cambiar de plan.",
+        "context": "Express your opinion about changing plans.",
+        "acceptableVariants": []
+      },
+      "explanation": "This sentence expresses a suggestion based on personal opinion.",
+      "hint": "Think about expressing a suggestion.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the Spanish sentence: 'Es cierto que la práctica mejora las habilidades.'",
+      "content": {
+        "targetText": "Es cierto que la práctica mejora las habilidades.",
+        "context": "State a fact about practice.",
+        "acceptableVariants": []
+      },
+      "explanation": "This sentence confirms a fact about improvement through practice.",
+      "hint": "Remember to express a fact.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: '___ que deberíamos considerar otras opciones.'",
+      "content": {
+        "sentence": "___ que deberíamos considerar otras opciones.",
+        "correctAnswer": "Me parece",
+        "acceptableAnswers": [
+          "Me parece"
+        ],
+        "options": [
+          "Me parece",
+          "Es cierto",
+          "Pienso"
+        ]
+      },
+      "explanation": "The correct phrase introduces a personal opinion.",
+      "hint": "Think about how to express a suggestion.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

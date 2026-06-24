@@ -1,0 +1,431 @@
+{
+  "lesson": {
+    "title": "Memorable Experiences",
+    "type": "CONVERSATION",
+    "slug": "de-b1-memorable"
+  },
+  "unit": "Narrating the Past",
+  "unitOrder": 2,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to narrate memorable experiences in German using past tense structures. You will also practice using subordinate clauses to express reasons and conditions, as well as polite requests.",
+      "culturalNote": "In German-speaking countries, storytelling is an important tradition. Many people enjoy sharing personal anecdotes during gatherings or family events."
+    },
+    "vocabulary": [
+      {
+        "term": "die Erinnerung",
+        "translation": "the memory",
+        "definition": "a recollection of past events",
+        "pronunciation": "dee eh-rin-er-ung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Erinnerung an meinen Urlaub ist wunderschön.",
+          "translation": "The memory of my vacation is beautiful."
+        },
+        "tip": "This word is feminine (die). Remember that it takes the plural form 'die Erinnerungen'."
+      },
+      {
+        "term": "das Erlebnis",
+        "translation": "the experience",
+        "definition": "an event that leaves an impression",
+        "pronunciation": "das eh-lehr-bnis",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Erlebnis war für mich sehr wichtig.",
+          "translation": "The experience was very important to me."
+        },
+        "tip": "This word is neuter (das). The plural is 'die Erlebnisse'."
+      },
+      {
+        "term": "der Moment",
+        "translation": "the moment",
+        "definition": "a specific point in time",
+        "pronunciation": "der mo-ment",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich erinnere mich an diesen Moment.",
+          "translation": "I remember that moment."
+        },
+        "tip": "This word is masculine (der). The plural is 'die Momente'."
+      },
+      {
+        "term": "die Geschichte",
+        "translation": "the story",
+        "definition": "a narrative or account of events",
+        "pronunciation": "dee ge-shih-chte",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe eine interessante Geschichte gehört.",
+          "translation": "I heard an interesting story."
+        },
+        "tip": "This word is feminine (die). The plural is 'die Geschichten'."
+      },
+      {
+        "term": "das Abenteuer",
+        "translation": "the adventure",
+        "definition": "an exciting or unusual experience",
+        "pronunciation": "das ah-bent-oy-er",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Unser Abenteuer war unvergesslich.",
+          "translation": "Our adventure was unforgettable."
+        },
+        "tip": "This word is neuter (das). The plural is 'die Abenteuer'."
+      },
+      {
+        "term": "erinnern (sich)",
+        "translation": "to remember",
+        "definition": "to recall or bring to mind",
+        "pronunciation": "eh-rin-ern (zikh)",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich erinnere mich an meine Kindheit.",
+          "translation": "I remember my childhood."
+        },
+        "tip": "This is a reflexive verb; use 'sich' (myself) when conjugating it."
+      },
+      {
+        "term": "erzählen",
+        "translation": "to tell",
+        "definition": "to narrate or recount",
+        "pronunciation": "er-tse-len",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Kannst du mir deine Geschichte erzählen?",
+          "translation": "Can you tell me your story?"
+        },
+        "tip": "This verb is regular. Remember to use 'erzählen' with a direct object."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subordinate Clauses with 'dass' and 'weil'",
+        "explanation": "In German, you can use subordinate clauses to provide reasons or explanations. The conjunction 'dass' (that) introduces a statement, while 'weil' (because) gives a reason. Remember that the verb goes to the end of the clause.",
+        "table": {
+          "headers": [
+            "Conjunction",
+            "Example"
+          ],
+          "rows": [
+            [
+              "dass",
+              "Ich weiß, dass du kommst."
+            ],
+            [
+              "weil",
+              "Ich bleibe zu Hause, weil es regnet."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich freue mich, dass du hier bist.",
+            "translation": "I am happy that you are here.",
+            "breakdown": "The clause 'dass du hier bist' is a statement explaining what makes me happy."
+          },
+          {
+            "original": "Ich gehe ins Kino, weil ich den neuen Film sehen möchte.",
+            "translation": "I am going to the cinema because I want to see the new movie.",
+            "breakdown": "The clause 'weil ich den neuen Film sehen möchte' gives the reason for going to the cinema."
+          }
+        ],
+        "commonMistakes": [
+          "Incorrect word order: 'Ich weiß, du kommst dass.' (Correct: 'Ich weiß, dass du kommst.')",
+          "Forgetting to place the verb at the end: 'Ich bleibe, weil es regnet.' (Correct: 'Ich bleibe zu Hause, weil es regnet.')"
+        ]
+      },
+      {
+        "title": "Konjunktiv II for Polite Requests",
+        "explanation": "In German, you can use the subjunctive mood (Konjunktiv II) to express polite requests or hypothetical situations. This makes your statements more courteous. For example, 'Könnten Sie mir bitte helfen?' means 'Could you please help me?'",
+        "table": {
+          "headers": [
+            "Phrase",
+            "Translation"
+          ],
+          "rows": [
+            [
+              "Ich hätte gerne...",
+              "I would like..."
+            ],
+            [
+              "Könnte ich...?",
+              "Could I...?"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich würde gerne nach Berlin reisen.",
+            "translation": "I would like to travel to Berlin.",
+            "breakdown": "This shows a desire to travel using the subjunctive mood."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: 'Ich will nach Berlin reisen.' (Correct: 'Ich würde gerne nach Berlin reisen.')",
+          "Not using polite forms: 'Kannst du mir helfen?' (Correct: 'Könntest du mir bitte helfen?')"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Sharing Memorable Experiences",
+      "context": "Two friends, Anna and Max, are sitting in a café and discussing their past vacations.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Ich erinnere mich an meinen letzten Urlaub in Italien.",
+          "translation": "I remember my last vacation in Italy.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Oh, das klingt spannend! Was hast du dort gemacht?",
+          "translation": "Oh, that sounds exciting! What did you do there?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich habe viele neue Gerichte probiert, weil das Essen dort fantastisch ist.",
+          "translation": "I tried many new dishes because the food there is fantastic.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hattest du ein besonderes Erlebnis?",
+          "translation": "Did you have a special experience?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, ich habe eine italienische Familie kennengelernt, die uns eingeladen hat.",
+          "translation": "Yes, I met an Italian family who invited us.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das klingt wunderbar! Was haben sie dir erzählt?",
+          "translation": "That sounds wonderful! What did they tell you?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Sie haben mir viele Geschichten über ihre Traditionen erzählt.",
+          "translation": "They told me many stories about their traditions.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich würde gerne mehr darüber hören!",
+          "translation": "I would like to hear more about it!",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Storytelling in German Culture",
+      "text": "Storytelling is a cherished tradition in German-speaking cultures. People often share personal stories during family gatherings, which helps strengthen bonds and preserve memories. Festivals are also a common time to recount tales of past experiences.",
+      "funFact": "In Germany, there is even a 'Storytelling Day' (Geschichtstag) celebrated to encourage sharing stories among generations."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to memories and experiences.",
+        "Practiced using subordinate clauses with 'dass' and 'weil'.",
+        "Explored the Konjunktiv II for polite requests.",
+        "Engaged in a realistic dialogue about memorable experiences."
+      ],
+      "nextSteps": "Practice narrating your own memorable experiences using the vocabulary and grammar structures from this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'das Erlebnis' mean in English?",
+      "content": {
+        "options": [
+          "the experience",
+          "the memory",
+          "the adventure",
+          "the moment"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Das Erlebnis' translates to 'the experience' in English.",
+      "hint": "Think about what we call an event we go through.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'to remember' in German?",
+      "content": {
+        "options": [
+          "erinnern",
+          "erzählen",
+          "Geschichte",
+          "Abenteuer"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Erinnern' means 'to remember' in German.",
+      "hint": "It starts with 'e' and has a similar root as 'memory'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich ____ mich an den schönen Moment.'",
+      "content": {
+        "sentence": "Ich ___ mich an den schönen Moment.",
+        "correctAnswer": "erinnere",
+        "acceptableAnswers": [
+          "erinnere",
+          "erinnert"
+        ],
+        "options": [
+          "erinnere",
+          "vergesse",
+          "erzähle"
+        ]
+      },
+      "explanation": "The correct verb form 'erinnere' fits the sentence context.",
+      "hint": "Think of the verb that means 'to remember'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Das Abenteuer war ein unvergessliches ____.'",
+      "content": {
+        "sentence": "Das Abenteuer war ein unvergessliches ___.",
+        "correctAnswer": "Erlebnis",
+        "acceptableAnswers": [
+          "Erlebnis"
+        ],
+        "options": [
+          "Abenteuer",
+          "Erlebnis",
+          "Geschichte"
+        ]
+      },
+      "explanation": "'Erlebnis' is the right word to describe an unforgettable experience.",
+      "hint": "It’s a noun that means 'experience'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: 'eine Geschichte erzählen, will, ich'.",
+      "content": {
+        "words": [
+          "eine",
+          "Geschichte",
+          "erzählen",
+          "will",
+          "ich"
+        ],
+        "correctOrder": [
+          "ich",
+          "will",
+          "eine",
+          "Geschichte",
+          "erzählen"
+        ],
+        "translation": "I want to tell a story."
+      },
+      "explanation": "The correct order forms a proper German sentence.",
+      "hint": "Start with the subject 'ich'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'This moment is unforgettable.'",
+      "content": {
+        "prompt": "Translate to German: 'This moment is unforgettable.'",
+        "correctAnswer": "Dieser Moment ist unvergesslich.",
+        "acceptableAnswers": [
+          "Dieser Moment ist unvergesslich."
+        ]
+      },
+      "explanation": "The translation captures the meaning accurately.",
+      "hint": "Focus on the words for 'moment' and 'unforgettable'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich erinnere mich an mein Abenteuer.'",
+      "content": {
+        "ttsText": "Ich erinnere mich an mein Abenteuer.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I remember my adventure.",
+          "I tell my adventure.",
+          "I forget my adventure."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'I remember my adventure.'",
+      "hint": "Pay attention to the verb at the beginning.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in German: 'Tell me about a memorable experience.'",
+      "content": {
+        "targetText": "Erzähl mir von einem unvergesslichen Erlebnis.",
+        "context": "Ask someone to share a story.",
+        "acceptableVariants": [
+          "Erzähl mir von einem besonderen Erlebnis.",
+          "Berichte mir von einem unvergesslichen Moment."
+        ]
+      },
+      "explanation": "The phrase invites someone to share their experience.",
+      "hint": "Use the word 'erzählen' for 'to tell'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'die Erinnerung' in English?",
+      "content": {
+        "options": [
+          "the memory",
+          "the story",
+          "the adventure",
+          "the experience"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Erinnerung' translates to 'the memory'.",
+      "hint": "It relates to recalling past events.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Es war ein schöner ____ in den Bergen.'",
+      "content": {
+        "sentence": "Es war ein schöner __ in den Bergen.",
+        "correctAnswer": "Moment",
+        "acceptableAnswers": [
+          "Moment"
+        ],
+        "options": [
+          "Moment",
+          "Abenteuer",
+          "Erlebnis"
+        ]
+      },
+      "explanation": "'Moment' is the noun that fits the context of a beautiful time.",
+      "hint": "Think of a word that means 'moment'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

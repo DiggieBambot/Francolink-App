@@ -1,0 +1,359 @@
+{
+  "lesson": {
+    "title": "Discourse Markers & Cohesion",
+    "type": "GRAMMAR",
+    "slug": "es-b2-discourse"
+  },
+  "unit": "Global Issues & Mastery",
+  "unitOrder": 8,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about discourse markers and how they contribute to cohesion in Spanish texts. You'll explore various expressions that help connect ideas and improve the flow of your writing and speaking.",
+      "culturalNote": "In many Spanish-speaking cultures, the use of discourse markers is not only a linguistic tool but also reflects a speaker's ability to articulate thoughts clearly and persuasively."
+    },
+    "vocabulary": [
+      {
+        "term": "sin embargo",
+        "translation": "however",
+        "definition": "Used to introduce a contrast or exception.",
+        "pronunciation": "sin em-bahr-go",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Quería ir al cine; sin embargo, estaba muy cansado.",
+          "translation": "I wanted to go to the movies; however, I was very tired."
+        },
+        "tip": "Remember that it indicates a shift in thought."
+      },
+      {
+        "term": "además",
+        "translation": "furthermore",
+        "definition": "Used to add information.",
+        "pronunciation": "ah-deh-mas",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "El clima es agradable; además, hay muchas actividades al aire libre.",
+          "translation": "The weather is pleasant; furthermore, there are many outdoor activities."
+        },
+        "tip": "Use it to reinforce a point."
+      },
+      {
+        "term": "por lo tanto",
+        "translation": "therefore",
+        "definition": "Indicates a conclusion drawn from previous statements.",
+        "pronunciation": "por lo tan-to",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "El tráfico estaba horrible; por lo tanto, llegamos tarde.",
+          "translation": "The traffic was horrible; therefore, we arrived late."
+        },
+        "tip": "It's a good way to summarize arguments."
+      },
+      {
+        "term": "a pesar de",
+        "translation": "despite",
+        "definition": "Indicates contrast with an expectation.",
+        "pronunciation": "ah pe-sar de",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "A pesar de la lluvia, salimos a caminar.",
+          "translation": "Despite the rain, we went out for a walk."
+        },
+        "tip": "Useful for emphasizing resilience."
+      },
+      {
+        "term": "por otro lado",
+        "translation": "on the other hand",
+        "definition": "Used to present an alternative perspective.",
+        "pronunciation": "por o-tro la-do",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "La economía está mejorando; por otro lado, el desempleo sigue siendo alto.",
+          "translation": "The economy is improving; on the other hand, unemployment remains high."
+        },
+        "tip": "Helps to balance contrasting ideas."
+      },
+      {
+        "term": "en resumen",
+        "translation": "in summary",
+        "definition": "Used to conclude or summarize a discussion.",
+        "pronunciation": "en re-su-men",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "En resumen, necesitamos actuar rápidamente para resolver este problema.",
+          "translation": "In summary, we need to act quickly to solve this problem."
+        },
+        "tip": "Great for wrapping up arguments."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Discourse Markers",
+        "explanation": "Discourse markers are words or phrases that help organize and structure your speech or writing. They can indicate contrast, addition, cause-effect relationships, or summarize points. Using them correctly can enhance the clarity and cohesion of your communication.",
+        "table": {
+          "headers": [
+            "Marker",
+            "Function"
+          ],
+          "rows": [
+            [
+              "sin embargo",
+              "Contrast"
+            ],
+            [
+              "además",
+              "Addition"
+            ],
+            [
+              "por lo tanto",
+              "Conclusion"
+            ],
+            [
+              "a pesar de",
+              "Contrast despite"
+            ],
+            [
+              "por otro lado",
+              "Alternative perspective"
+            ],
+            [
+              "en resumen",
+              "Summary"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "No me gusta el café; sin embargo, lo tomo para mantenerme despierto.",
+            "translation": "I don't like coffee; however, I drink it to stay awake.",
+            "breakdown": "This sentence uses 'sin embargo' to show a contrast between the speaker's preferences and their actions."
+          },
+          {
+            "original": "El proyecto fue un éxito; además, cumplimos con los plazos.",
+            "translation": "The project was a success; furthermore, we met the deadlines.",
+            "breakdown": "Here, 'además' adds additional positive information about the project."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'sin embargo' incorrectly at the beginning of a sentence without a preceding statement. Correct: 'No me gusta; sin embargo, lo tomo.'",
+          "Confusing 'por lo tanto' with 'por eso'; they have slightly different meanings. Correct use: 'No estudió, por lo tanto, no aprobó.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Global Issues",
+      "context": "A conversation between two friends discussing environmental issues at a coffee shop.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Has visto las noticias sobre el cambio climático?",
+          "translation": "Have you seen the news about climate change?",
+          "note": "Ana initiates the conversation."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, es preocupante. Sin embargo, creo que hay esperanza si actuamos ahora.",
+          "translation": "Yes, it's concerning. However, I believe there is hope if we act now."
+        },
+        {
+          "speaker": 0,
+          "text": "Exactamente, además hay muchas iniciativas que están surgiendo.",
+          "translation": "Exactly, furthermore, there are many initiatives emerging."
+        },
+        {
+          "speaker": 1,
+          "text": "Por lo tanto, es importante que apoyemos esas iniciativas.",
+          "translation": "Therefore, it's important that we support those initiatives."
+        },
+        {
+          "speaker": 0,
+          "text": "A pesar de los desafíos, creo que podemos hacer una diferencia.",
+          "translation": "Despite the challenges, I believe we can make a difference."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, por otro lado, algunas personas todavía son escépticas.",
+          "translation": "Yes, on the other hand, some people are still skeptical."
+        },
+        {
+          "speaker": 0,
+          "text": "Es cierto, pero en resumen, necesitamos educar a la gente sobre la importancia de cuidar el planeta.",
+          "translation": "That's true, but in summary, we need to educate people about the importance of taking care of the planet."
+        },
+        {
+          "speaker": 1,
+          "text": "Totalmente de acuerdo. La educación es clave para el cambio.",
+          "translation": "I totally agree. Education is key for change."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Environmental Awareness in Latin America",
+      "text": "Many Latin American countries are at the forefront of environmental movements, often due to their rich biodiversity and natural resources. These nations face unique challenges but also have grassroots organizations working tirelessly to promote sustainability.",
+      "funFact": "Did you know that Costa Rica generates more than 99% of its electricity from renewable sources?"
+    },
+    "summary": {
+      "keyPoints": [
+        "Discourse markers improve cohesion in communication.",
+        "Understanding the function of each discourse marker enhances clarity.",
+        "Effective use of discourse markers can change the tone of your message.",
+        "Practice incorporating these markers into your speech and writing."
+      ],
+      "nextSteps": "Practice using the discourse markers in sentences and try to incorporate them into your next conversation or writing task."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which discourse marker means 'however' in Spanish?",
+      "content": {
+        "options": [
+          "sin embargo",
+          "además",
+          "por lo tanto",
+          "a pesar de"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'sin embargo', which translates to 'however'.",
+      "hint": "Think about contrasting ideas.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'in summary'?",
+      "content": {
+        "options": [
+          "por otro lado",
+          "en resumen",
+          "sin embargo",
+          "además"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'En resumen' means 'in summary', which is used to summarize information.",
+      "hint": "Look for the phrase that indicates a conclusion.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ella quiere ir al cine, ___ no tiene dinero.",
+      "content": {
+        "sentence": "Ella quiere ir al cine, ___ no tiene dinero.",
+        "correctAnswer": "sin embargo",
+        "acceptableAnswers": [
+          "sin embargo"
+        ],
+        "options": [
+          "sin embargo",
+          "además",
+          "por lo tanto",
+          "a pesar de"
+        ]
+      },
+      "explanation": "The correct answer is 'sin embargo', indicating a contrast.",
+      "hint": "This marker shows a contradiction.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Hay muchas personas que apoyan el proyecto, ___ hay algunos que están en contra.",
+      "content": {
+        "sentence": "Hay muchas personas que apoyan el proyecto, ___ hay algunos que están en contra.",
+        "correctAnswer": "por otro lado",
+        "acceptableAnswers": [
+          "por otro lado"
+        ],
+        "options": [
+          "sin embargo",
+          "además",
+          "por otro lado",
+          "en resumen"
+        ]
+      },
+      "explanation": "'Por otro lado' is used to present another point of view.",
+      "hint": "This phrase introduces a different perspective.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a coherent sentence: a pesar de/los problemas/avanzamos/hemos.",
+      "content": {
+        "words": [
+          "a pesar de",
+          "los problemas",
+          "avanzamos",
+          "hemos"
+        ],
+        "correctOrder": [
+          "hemos",
+          "avanzamos",
+          "a pesar de",
+          "los problemas"
+        ],
+        "translation": "We have advanced despite the problems."
+      },
+      "explanation": "The correct order emphasizes perseverance despite challenges.",
+      "hint": "Think about the structure of the sentence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Therefore, we must take action.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'Therefore, we must take action.'",
+        "correctAnswer": "Por lo tanto, debemos tomar acción.",
+        "acceptableAnswers": [
+          "Por lo tanto, tenemos que actuar."
+        ]
+      },
+      "explanation": "'Por lo tanto' means 'therefore' and is used to indicate a conclusion.",
+      "hint": "This marker shows a cause-and-effect relationship.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'El cambio climático es un problema serio.'",
+      "content": {
+        "ttsText": "El cambio climático es un problema serio.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Climate change is a serious problem.",
+          "Climate change is a minor issue.",
+          "Climate change is not important.",
+          "Climate change is easily solvable."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation captures the seriousness of climate change.",
+      "hint": "Focus on the meaning of 'serio'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'Despite the challenges, we will succeed.'",
+      "content": {
+        "targetText": "A pesar de los desafíos, triunfaremos.",
+        "context": "Translate and say this encouraging statement.",
+        "acceptableVariants": [
+          "A pesar de los retos, tendremos éxito."
+        ]
+      },
+      "explanation": "The sentence encourages perseverance despite challenges.",
+      "hint": "Use the phrase for 'despite' correctly.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

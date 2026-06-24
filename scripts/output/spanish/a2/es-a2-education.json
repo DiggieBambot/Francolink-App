@@ -1,0 +1,350 @@
+{
+  "lesson": {
+    "title": "Education & School Life",
+    "type": "VOCABULARY",
+    "slug": "es-a2-education"
+  },
+  "unit": "Work & Studies",
+  "unitOrder": 5,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to education and school life in Spanish. You will discover important terms that you can use in conversations about school, classes, and studying.",
+      "culturalNote": "In many Spanish-speaking countries, students often wear uniforms to school, which is a common cultural practice."
+    },
+    "vocabulary": [
+      {
+        "term": "la escuela",
+        "translation": "the school",
+        "definition": "a place where students learn",
+        "pronunciation": "lah eh-SKWEH-lah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Yo voy a la escuela todos los días.",
+          "translation": "I go to school every day."
+        },
+        "tip": "Remember that 'la' indicates that 'escuela' is feminine."
+      },
+      {
+        "term": "el estudiante",
+        "translation": "the student",
+        "definition": "a person who is learning",
+        "pronunciation": "el es-too-DYAHN-teh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El estudiante estudia para el examen.",
+          "translation": "The student studies for the exam."
+        },
+        "tip": "Think of 'student' in English, both start with 'st'."
+      },
+      {
+        "term": "el profesor",
+        "translation": "the teacher",
+        "definition": "a person who teaches students",
+        "pronunciation": "el pro-feh-SOR",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El profesor explica la lección.",
+          "translation": "The teacher explains the lesson."
+        },
+        "tip": "Remember that 'profesor' is masculine; use 'profesora' for a female teacher."
+      },
+      {
+        "term": "la clase",
+        "translation": "the class",
+        "definition": "a group of students or a lesson",
+        "pronunciation": "lah KLAH-seh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo clase de matemáticas.",
+          "translation": "I have math class."
+        },
+        "tip": "‘Clase’ is feminine, so it uses 'la'."
+      },
+      {
+        "term": "el examen",
+        "translation": "the exam",
+        "definition": "a test to measure knowledge",
+        "pronunciation": "el eh-XAH-men",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El examen es el viernes.",
+          "translation": "The exam is on Friday."
+        },
+        "tip": "Exams are important, so remember this word!"
+      },
+      {
+        "term": "estudiar",
+        "translation": "to study",
+        "definition": "to learn about a subject",
+        "pronunciation": "es-too-DYAR",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Voy a estudiar para el examen.",
+          "translation": "I am going to study for the exam."
+        },
+        "tip": "Think of 'study' in English to remember this verb."
+      },
+      {
+        "term": "hacer la tarea",
+        "translation": "to do homework",
+        "definition": "to complete assigned work",
+        "pronunciation": "ah-SER lah tah-REH-ah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Tengo que hacer la tarea esta noche.",
+          "translation": "I have to do homework tonight."
+        },
+        "tip": "Remember 'hacer' means 'to do' in Spanish."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Present Tense",
+        "explanation": "In Spanish, we use the present tense to talk about actions happening now or regularly. The endings of verbs change depending on the subject. For example, 'yo estudio' means 'I study', and 'él estudia' means 'he studies'.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Verb Ending"
+          ],
+          "rows": [
+            [
+              "yo",
+              "-o"
+            ],
+            [
+              "tú",
+              "-as/-es"
+            ],
+            [
+              "él/ella",
+              "-a/-e"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo estudio español.",
+            "translation": "I study Spanish.",
+            "breakdown": "The subject 'yo' uses the ending '-o' for the verb 'estudiar'."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Yo estudio' when you mean 'I studied' (correct form: 'Yo estudié').",
+          "Forgetting to change verb endings for different subjects (e.g., using 'yo come' instead of 'yo como')."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At School",
+      "context": "A conversation between two students during lunch break.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, Luis. ¿Cómo estás?",
+          "translation": "Hello, Luis. How are you?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, Ana. Estoy bien, gracias. ¿Y tú?",
+          "translation": "Hello, Ana. I am fine, thank you. And you?"
+        },
+        {
+          "speaker": 0,
+          "text": "Estoy un poco cansada. Tuve un examen hoy.",
+          "translation": "I am a bit tired. I had an exam today."
+        },
+        {
+          "speaker": 1,
+          "text": "¿De qué materia fue el examen?",
+          "translation": "What subject was the exam for?"
+        },
+        {
+          "speaker": 0,
+          "text": "Fue de matemáticas. Fue difícil.",
+          "translation": "It was for math. It was difficult."
+        },
+        {
+          "speaker": 1,
+          "text": "¡Lo siento! ¿Estudiaste mucho?",
+          "translation": "I’m sorry! Did you study a lot?"
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, estudié toda la noche.",
+          "translation": "Yes, I studied all night."
+        },
+        {
+          "speaker": 1,
+          "text": "Espero que te vaya bien.",
+          "translation": "I hope you do well."
+        }
+      ]
+    },
+    "culture": {
+      "title": "School Life in Latin America",
+      "text": "School life in Latin America can be quite different from that in other countries. Students often have a long school day, and many schools offer extracurricular activities like sports and music.",
+      "funFact": "In some countries, students celebrate 'Día del Estudiante' (Student Day) to honor their hard work and dedication."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to education and school life.",
+        "Practiced the present tense for regular verbs.",
+        "Listened to a dialogue about students discussing school.",
+        "Gained cultural insights into school life in Latin America."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and try writing a short dialogue about your school experiences."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'the student'?",
+      "content": {
+        "options": [
+          "el profesor",
+          "el estudiante",
+          "la clase",
+          "la escuela"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'el estudiante', which means 'the student' in English.",
+      "hint": "Think about who learns in school.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'the exam' in Spanish?",
+      "content": {
+        "options": [
+          "la tarea",
+          "el examen",
+          "estudiar",
+          "la clase"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The term 'el examen' refers to an 'exam' or 'test' in English.",
+      "hint": "It's what you take to show what you've learned.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Los estudiantes deben ___ para el examen.'",
+      "content": {
+        "sentence": "Los estudiantes deben ___ para el examen.",
+        "correctAnswer": "estudiar",
+        "acceptableAnswers": [
+          "estudiar"
+        ],
+        "options": [
+          "hacer la tarea",
+          "estudiar",
+          "ir a la escuela"
+        ]
+      },
+      "explanation": "The correct answer is 'estudiar', which means 'to study'.",
+      "hint": "What do you do to prepare for a test?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'El profesor asignó la ___ a los estudiantes.'",
+      "content": {
+        "sentence": "El profesor asignó la ___ a los estudiantes.",
+        "correctAnswer": "tarea",
+        "acceptableAnswers": [
+          "tarea"
+        ],
+        "options": [
+          "clase",
+          "examen",
+          "tarea"
+        ]
+      },
+      "explanation": "'Tarea' means 'homework', and it's what a teacher assigns to students.",
+      "hint": "Think about what you do at home after school.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: 'estudiante / es / el / inteligente'",
+      "content": {
+        "words": [
+          "inteligente",
+          "el",
+          "es",
+          "estudiante"
+        ],
+        "correctOrder": [
+          "el",
+          "estudiante",
+          "es",
+          "inteligente"
+        ],
+        "translation": "The student is intelligent"
+      },
+      "explanation": "The correct order forms a complete sentence in Spanish.",
+      "hint": "Start with the subject.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I study every day.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I study every day.'",
+        "correctAnswer": "Estudio todos los días.",
+        "acceptableAnswers": [
+          "Estudio cada día."
+        ]
+      },
+      "explanation": "The correct translation expresses the action of studying daily.",
+      "hint": "Remember the verb for 'to study'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Hago la tarea.'",
+      "content": {
+        "ttsText": "Hago la tarea.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I do the homework.",
+          "I study.",
+          "I take the exam."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Hago la tarea' translates to 'I do the homework'.",
+      "hint": "Listen for the word 'tarea'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'The teacher is very nice.'",
+      "content": {
+        "targetText": "El profesor es muy simpático.",
+        "context": "Translate and say a compliment about a teacher.",
+        "acceptableVariants": [
+          "El profesor es muy amable."
+        ]
+      },
+      "explanation": "The phrase expresses a positive comment about a teacher.",
+      "hint": "Think of synonyms for 'nice'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

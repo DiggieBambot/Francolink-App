@@ -1,0 +1,360 @@
+{
+  "lesson": {
+    "title": "Final Review & Celebration",
+    "type": "REVIEW",
+    "slug": "de-a1-final-review"
+  },
+  "unit": "Travel & Weather",
+  "unitOrder": 8,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this final review lesson, you will revisit vocabulary and grammar related to travel and weather. You will also practice a conversation that incorporates what you have learned.",
+      "culturalNote": "In Germany, weather can change quickly, so it’s common to check the forecast before planning outdoor activities."
+    },
+    "vocabulary": [
+      {
+        "term": "der Reiseführer",
+        "translation": "the travel guide",
+        "definition": "A book or person that provides information about places.",
+        "pronunciation": "dair RY-zuh-fyuhr-er",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe den Reiseführer.",
+          "translation": "I have the travel guide."
+        },
+        "tip": "Remember that 'der' indicates it's masculine."
+      },
+      {
+        "term": "die Sonne",
+        "translation": "the sun",
+        "definition": "The star that gives light and warmth to the Earth.",
+        "pronunciation": "dee ZON-uh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Sonne scheint.",
+          "translation": "The sun is shining."
+        },
+        "tip": "The word 'die' shows it's feminine."
+      },
+      {
+        "term": "das Wetter",
+        "translation": "the weather",
+        "definition": "The state of the atmosphere at a place and time.",
+        "pronunciation": "dahs VET-ter",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wie ist das Wetter?",
+          "translation": "How is the weather?"
+        },
+        "tip": "'Das' indicates it's neuter."
+      },
+      {
+        "term": "können",
+        "translation": "can",
+        "definition": "A modal verb used to express ability.",
+        "pronunciation": "KER-nen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich kann schwimmen.",
+          "translation": "I can swim."
+        },
+        "tip": "Use 'können' to talk about what you are able to do."
+      },
+      {
+        "term": "möchten",
+        "translation": "would like",
+        "definition": "A modal verb used to express desire.",
+        "pronunciation": "MURK-ten",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich möchte einen Kaffee.",
+          "translation": "I would like a coffee."
+        },
+        "tip": "Use 'möchten' when you want to say what you would like."
+      },
+      {
+        "term": "der Urlaub",
+        "translation": "the vacation",
+        "definition": "A time spent away from work or school to relax.",
+        "pronunciation": "dair OOR-lahb",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich mache Urlaub in den Bergen.",
+          "translation": "I am vacationing in the mountains."
+        },
+        "tip": "'Der' indicates it's masculine."
+      },
+      {
+        "term": "die Wolke",
+        "translation": "the cloud",
+        "definition": "A visible mass of condensed water vapor in the atmosphere.",
+        "pronunciation": "dee VOL-kuh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Wolke ist grau.",
+          "translation": "The cloud is gray."
+        },
+        "tip": "The word 'die' shows it's feminine."
+      },
+      {
+        "term": "der Regen",
+        "translation": "the rain",
+        "definition": "Water that falls from clouds in drops.",
+        "pronunciation": "dair RAY-gen",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Regen fällt.",
+          "translation": "The rain is falling."
+        },
+        "tip": "'Der' indicates it's masculine."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Modal Verbs: können and möchten",
+        "explanation": "Modal verbs like 'können' and 'möchten' are used to express ability and desire. They are followed by the infinitive form of the main verb. For example, 'Ich kann gehen' means 'I can go'.",
+        "table": {
+          "headers": [
+            "Subject",
+            "können (can)",
+            "möchten (would like)"
+          ],
+          "rows": [
+            [
+              "ich (I)",
+              "kann",
+              "möchte"
+            ],
+            [
+              "du (you)",
+              "kannst",
+              "möchtest"
+            ],
+            [
+              "er/sie/es (he/she/it)",
+              "kann",
+              "möchte"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wir können schwimmen.",
+            "translation": "We can swim.",
+            "breakdown": "Subject 'wir' + 'können' + infinitive 'schwimmen'."
+          },
+          {
+            "original": "Sie möchten essen.",
+            "translation": "They would like to eat.",
+            "breakdown": "Subject 'Sie' + 'möchten' + infinitive 'essen'."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'konnte' instead of 'kann' for present ability.",
+          "Confusing 'möchte' with 'mögen' (to like)."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Vacation",
+      "context": "This conversation takes place between two friends discussing their travel plans.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Lukas! Wie ist das Wetter heute?",
+          "translation": "Hello Lukas! How is the weather today?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Anna! Es ist schön. Die Sonne scheint.",
+          "translation": "Hello Anna! It is nice. The sun is shining.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist toll! Möchtest du ins Freibad gehen?",
+          "translation": "That’s great! Would you like to go to the outdoor pool?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich möchte schwimmen!",
+          "translation": "Yes, I would like to swim!",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Super! Ich kann auch kommen.",
+          "translation": "Great! I can also come.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Wann gehen wir?",
+          "translation": "When are we going?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Lass uns um drei Uhr gehen.",
+          "translation": "Let’s go at three o'clock.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Perfekt! Ich freue mich auf den Urlaub.",
+          "translation": "Perfect! I am looking forward to the vacation.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Weather and Travel in Germany",
+      "text": "Germans often plan vacations around weather. Summer is popular for trips to the beach, while winter is great for skiing in the Alps. Always check the weather forecast before traveling!",
+      "funFact": "Germany is home to the famous Oktoberfest, where people travel from all over to enjoy beer and traditional Bavarian culture."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review of travel and weather vocabulary",
+        "Understanding modal verbs können and möchten",
+        "Practice through dialogue",
+        "Cultural insights on travel in Germany"
+      ],
+      "nextSteps": "Continue practicing dialogue and focusing on using modal verbs in your sentences. Try to write a short paragraph about your ideal vacation."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'weather'?",
+      "content": {
+        "options": [
+          "der Urlaub",
+          "das Wetter",
+          "die Sonne",
+          "der Regen"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'das Wetter', which means 'weather' in English.",
+      "hint": "Think about the condition of the atmosphere.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'the guide'?",
+      "content": {
+        "options": [
+          "der Reiseführer",
+          "das Wetter",
+          "die Wolke",
+          "der Urlaub"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Reiseführer' means 'the guide' in German, often used in travel contexts.",
+      "hint": "It's someone who shows you around.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich ___ nach Deutschland reisen.'",
+      "content": {
+        "sentence": "Ich ___ nach Deutschland reisen.",
+        "correctAnswer": "möchte",
+        "acceptableAnswers": [
+          "möchte"
+        ],
+        "options": [
+          "kann",
+          "möchte",
+          "liebe",
+          "muss"
+        ]
+      },
+      "explanation": "The correct word is 'möchte', meaning 'would like to'.",
+      "hint": "Think about what you want to do.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Heute scheint die ___.'",
+      "content": {
+        "sentence": "Heute scheint die ___.",
+        "correctAnswer": "Sonne",
+        "acceptableAnswers": [
+          "Sonne"
+        ],
+        "options": [
+          "Sonne",
+          "Wolke",
+          "Regen",
+          "Kälte"
+        ]
+      },
+      "explanation": "'Sonne' means 'sun', which is something that shines.",
+      "hint": "It is bright and warm.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I want to travel.'",
+      "content": {
+        "prompt": "Translate to German: 'I want to travel.'",
+        "correctAnswer": "Ich möchte reisen.",
+        "acceptableAnswers": [
+          "Ich will reisen."
+        ]
+      },
+      "explanation": "'Ich möchte reisen' means 'I want to travel' in German.",
+      "hint": "Use 'möchte' for 'want'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Es ist sonnig heute.'",
+      "content": {
+        "ttsText": "Es ist sonnig heute.",
+        "ttsLang": "de-DE",
+        "options": [
+          "It is rainy today.",
+          "It is sunny today.",
+          "It is cloudy today.",
+          "It is cold today."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct translation is 'It is sunny today.'",
+      "hint": "Listen for the word 'sonnig'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the sentence in German: 'I can go on vacation.'",
+      "content": {
+        "targetText": "Ich kann in den Urlaub fahren.",
+        "context": "Translate and say this sentence in German.",
+        "acceptableVariants": [
+          "Ich kann in den Urlaub gehen.",
+          "Ich kann Urlaub machen."
+        ]
+      },
+      "explanation": "Both 'fahren' and 'gehen' can be used to express going on vacation.",
+      "hint": "Use 'kann' for 'can'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

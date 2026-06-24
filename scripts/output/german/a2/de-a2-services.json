@@ -1,0 +1,341 @@
+{
+  "lesson": {
+    "title": "City Services & Errands",
+    "type": "VOCABULARY",
+    "slug": "de-a2-services"
+  },
+  "unit": "City & Services",
+  "unitOrder": 6,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to city services and errands in German. This includes common terms you might use when navigating city life, such as visiting a post office or a bank.",
+      "culturalNote": "In Germany, many services like banks and post offices may close early on Saturdays, so it's important to plan your errands accordingly."
+    },
+    "vocabulary": [
+      {
+        "term": "die Bank",
+        "translation": "the bank",
+        "definition": "A place where you can manage your money.",
+        "pronunciation": "dee bahnk",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich gehe zur Bank.",
+          "translation": "I am going to the bank."
+        },
+        "tip": "Remember that 'Bank' is feminine (die)."
+      },
+      {
+        "term": "das Postamt",
+        "translation": "the post office",
+        "definition": "A place where you send and receive mail.",
+        "pronunciation": "dahs pohst-ahmt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Postamt ist neben dem Supermarkt.",
+          "translation": "The post office is next to the supermarket."
+        },
+        "tip": "Note that 'Postamt' is neuter (das)."
+      },
+      {
+        "term": "der Supermarkt",
+        "translation": "the supermarket",
+        "definition": "A large store that sells food and other items.",
+        "pronunciation": "dair soo-per-mahrt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich kaufe Obst im Supermarkt.",
+          "translation": "I buy fruit at the supermarket."
+        },
+        "tip": "'Supermarkt' is masculine (der) and often used in daily errands."
+      },
+      {
+        "term": "die Apotheke",
+        "translation": "the pharmacy",
+        "definition": "A store where you can buy medicine.",
+        "pronunciation": "dee ah-poh-teh-keh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich gehe zur Apotheke, um Medikamente zu kaufen.",
+          "translation": "I am going to the pharmacy to buy medicine."
+        },
+        "tip": "'Apotheke' is feminine (die), and it's essential for health-related errands."
+      },
+      {
+        "term": "der Friseur",
+        "translation": "the hairdresser",
+        "definition": "A person who cuts and styles hair.",
+        "pronunciation": "dair free-zur",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe einen Termin beim Friseur.",
+          "translation": "I have an appointment at the hairdresser."
+        },
+        "tip": "'Friseur' is masculine (der) and commonly used for personal grooming."
+      },
+      {
+        "term": "die Reinigung",
+        "translation": "the dry cleaner",
+        "definition": "A place that cleans clothes without water.",
+        "pronunciation": "dee rye-nuh-gung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich bringe meine Anzüge zur Reinigung.",
+          "translation": "I am taking my suits to the dry cleaner."
+        },
+        "tip": "'Reinigung' is feminine (die), and an important service for clothing care."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Dative Case",
+        "explanation": "In German, the dative case is used to indicate the indirect object of a sentence. This often answers the question 'to whom?' or 'for whom?'. For example, when you say 'Ich gebe dem Mann ein Buch' (I give the man a book), 'dem Mann' is in the dative case.",
+        "table": {
+          "headers": [
+            "Noun",
+            "Dative form"
+          ],
+          "rows": [
+            [
+              "der Mann",
+              "dem Mann"
+            ],
+            [
+              "die Frau",
+              "der Frau"
+            ],
+            [
+              "das Kind",
+              "dem Kind"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich gebe der Frau das Buch.",
+            "translation": "I give the woman the book.",
+            "breakdown": "Here, 'der Frau' is dative as she is receiving the book."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing accusative and dative cases. 'Ich sehe die Frau' (accusative) vs. 'Ich gebe der Frau das Buch' (dative).",
+          "Using incorrect articles with dative nouns, e.g., 'dem' for masculine and neuter, 'der' for feminine."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Post Office",
+      "context": "Anna and Lukas are at the post office to mail a package.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo, ich möchte ein Paket senden.",
+          "translation": "Hello, I would like to send a package."
+        },
+        {
+          "speaker": 1,
+          "text": "Natürlich! Wohin soll ich das Paket senden?",
+          "translation": "Of course! Where should I send the package?"
+        },
+        {
+          "speaker": 0,
+          "text": "Nach Berlin, bitte.",
+          "translation": "To Berlin, please."
+        },
+        {
+          "speaker": 1,
+          "text": "Wie schwer ist das Paket?",
+          "translation": "How heavy is the package?"
+        },
+        {
+          "speaker": 0,
+          "text": "Es wiegt zwei Kilo.",
+          "translation": "It weighs two kilograms."
+        },
+        {
+          "speaker": 1,
+          "text": "Das kostet acht Euro.",
+          "translation": "That costs eight euros."
+        },
+        {
+          "speaker": 0,
+          "text": "Gut, hier sind acht Euro.",
+          "translation": "Good, here are eight euros."
+        },
+        {
+          "speaker": 1,
+          "text": "Danke! Hier ist der Beleg.",
+          "translation": "Thank you! Here is the receipt."
+        }
+      ]
+    },
+    "culture": {
+      "title": "German Postal Services",
+      "text": "Germany has one of the most efficient postal services in the world. The Deutsche Post delivers not only letters but also packages and offers various services like express delivery.",
+      "funFact": "In Germany, you can buy stamps at many stores, not just at the post office!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned key vocabulary for city services.",
+        "Practiced the dative case with examples.",
+        "Engaged in a dialogue about mailing a package.",
+        "Gained cultural insights about postal services."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and try to create your own dialogues about errands in the city."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'bank'?",
+      "content": {
+        "options": [
+          "die Apotheke",
+          "die Bank",
+          "der Supermarkt",
+          "der Friseur"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'die Bank', which means 'bank' in English.",
+      "hint": "It's where you can manage your money.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which place is referred to as 'das Postamt'?",
+      "content": {
+        "options": [
+          "the supermarket",
+          "the pharmacy",
+          "the post office",
+          "the cleaning service"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Das Postamt' means 'the post office' in English.",
+      "hint": "You go here to send letters.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Ich gehe zur _____. (the pharmacy)",
+      "content": {
+        "sentence": "Ich gehe zur ____. (die Apotheke)",
+        "correctAnswer": "Apotheke",
+        "acceptableAnswers": [
+          "Apotheke"
+        ],
+        "options": [
+          "Apotheke",
+          "Bank",
+          "Supermarkt",
+          "Friseur"
+        ]
+      },
+      "explanation": "The correct answer is 'Apotheke', which means 'pharmacy'.",
+      "hint": "You buy medicine here.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Er möchte zum _____ gehen. (the cleaner)",
+      "content": {
+        "sentence": "Er möchte zum _____. (die Reinigung)",
+        "correctAnswer": "Reinigung",
+        "acceptableAnswers": [
+          "Reinigung"
+        ],
+        "options": [
+          "Reinigung",
+          "Friseur",
+          "Supermarkt",
+          "Postamt"
+        ]
+      },
+      "explanation": "'Reinigung' is the correct answer, meaning 'cleaner'.",
+      "hint": "You take clothes here for cleaning.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'friseur zum gehe ich'.",
+      "content": {
+        "words": [
+          "friseur",
+          "zum",
+          "gehe",
+          "ich"
+        ],
+        "correctOrder": [
+          "ich",
+          "gehe",
+          "zum",
+          "friseur"
+        ],
+        "translation": "I am going to the hairdresser."
+      },
+      "explanation": "The correct order forms a complete sentence in German.",
+      "hint": "Start with 'Ich'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I need to go to the supermarket.'",
+      "content": {
+        "prompt": "Translate to German: 'I need to go to the supermarket.'",
+        "correctAnswer": "Ich muss zum Supermarkt gehen.",
+        "acceptableAnswers": [
+          "Ich gehe zum Supermarkt.",
+          "Ich muss zum Supermarkt."
+        ]
+      },
+      "explanation": "The translation captures the necessity of going to the supermarket.",
+      "hint": "Use 'muss' for 'need'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Ich gehe zur Bank.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I am going to the supermarket.",
+          "I am going to the bank.",
+          "I am going to the pharmacy."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct choice is based on the sentence heard in German.",
+      "hint": "Listen for 'Bank'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in German: 'I am going to the pharmacy.'",
+      "content": {
+        "targetText": "Ich gehe zur Apotheke.",
+        "context": "Translate this sentence into German.",
+        "acceptableVariants": [
+          "Ich gehe zur Apotheke."
+        ]
+      },
+      "explanation": "You are practicing to say a complete sentence in German.",
+      "hint": "Remember to use 'zur' for feminine nouns.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

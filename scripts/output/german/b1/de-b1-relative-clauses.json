@@ -1,0 +1,333 @@
+{
+  "lesson": {
+    "title": "Relative Clauses (Der, Die, Das as Pronouns)",
+    "type": "GRAMMAR",
+    "slug": "de-b1-relative-clauses"
+  },
+  "unit": "Environment & Society",
+  "unitOrder": 6,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about relative clauses in German, focusing on using 'der', 'die', and 'das' as pronouns. You will understand how to connect sentences and provide additional information about nouns.",
+      "culturalNote": "Relative clauses are commonly used in German to provide more detail and context. This feature helps in making conversations richer and more informative."
+    },
+    "vocabulary": [
+      {
+        "term": "der Freund",
+        "translation": "the friend (male)",
+        "definition": "a male friend or companion",
+        "pronunciation": "dehr froind",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Freund, der immer hilft, ist sehr nett.",
+          "translation": "My friend, who always helps, is very nice."
+        },
+        "tip": "Remember that 'der' indicates masculine gender."
+      },
+      {
+        "term": "die Freundin",
+        "translation": "the friend (female)",
+        "definition": "a female friend or companion",
+        "pronunciation": "dee froin-din",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Freundin, die ich gestern getroffen habe, ist sehr lustig.",
+          "translation": "The friend, whom I met yesterday, is very funny."
+        },
+        "tip": "Note that 'die' indicates feminine gender."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "a written or printed work consisting of pages",
+        "pronunciation": "dahs booḵ",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Buch, das ich lese, ist spannend.",
+          "translation": "The book, which I am reading, is exciting."
+        },
+        "tip": "'Das' indicates neuter gender."
+      },
+      {
+        "term": "die Stadt",
+        "translation": "the city",
+        "definition": "a large town",
+        "pronunciation": "dee shtat",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Stadt, die ich liebe, hat viele Parks.",
+          "translation": "The city, which I love, has many parks."
+        },
+        "tip": "Remember 'die' for feminine nouns."
+      },
+      {
+        "term": "der Lehrer",
+        "translation": "the teacher (male)",
+        "definition": "a male educator",
+        "pronunciation": "dehr lay-rer",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Lehrer, der uns unterrichtet, ist sehr freundlich.",
+          "translation": "The teacher, who teaches us, is very friendly."
+        },
+        "tip": "'Der' is used for masculine nouns."
+      },
+      {
+        "term": "die Schule",
+        "translation": "the school",
+        "definition": "an institution for educating children",
+        "pronunciation": "dee shoo-leh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Schule, die ich besuche, ist groß.",
+          "translation": "The school, which I attend, is big."
+        },
+        "tip": "Feminine nouns use 'die'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Relative Clauses with 'der', 'die', 'das'",
+        "explanation": "Relative clauses in German provide additional information about nouns. They are introduced by relative pronouns such as 'der' (who/that for masculine), 'die' (who/that for feminine), and 'das' (which/that for neuter). The verb in the relative clause usually comes at the end.",
+        "table": {
+          "headers": [
+            "Pronoun",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "der",
+              "for masculine nouns"
+            ],
+            [
+              "die",
+              "for feminine nouns"
+            ],
+            [
+              "das",
+              "for neuter nouns"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Der Mann, der das Auto fährt, ist mein Vater.",
+            "translation": "The man, who is driving the car, is my father.",
+            "breakdown": "Here, 'der' refers to 'der Mann' (the man) and introduces more information about him."
+          },
+          {
+            "original": "Das Mädchen, das im Park spielt, ist meine Schwester.",
+            "translation": "The girl, who is playing in the park, is my sister.",
+            "breakdown": "'Das' refers to 'das Mädchen' (the girl) and expands on the subject."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'die' for masculine nouns like 'der Freund'. Correct form is 'der Freund, der ...'.",
+          "For neuter nouns, using 'die' instead of 'das'. Correct form is 'das Buch, das ...'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a day out",
+      "context": "Anna and Max are discussing their plans for the weekend.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Was wollen wir am Wochenende machen?",
+          "translation": "What do we want to do on the weekend?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich denke, dass wir ins Kino gehen sollten.",
+          "translation": "I think we should go to the cinema."
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt gut! Welcher Film läuft?",
+          "translation": "That sounds good! Which movie is playing?"
+        },
+        {
+          "speaker": 1,
+          "text": "Der Film, der neu ist, heißt 'Die Abenteuer'.",
+          "translation": "The movie, which is new, is called 'The Adventures'."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich habe von dem Film gehört, der sehr spannend sein soll.",
+          "translation": "I have heard about the movie, which is said to be very exciting."
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich will ihn unbedingt sehen!",
+          "translation": "Yes, I absolutely want to see it!"
+        },
+        {
+          "speaker": 0,
+          "text": "Wann wollen wir gehen?",
+          "translation": "When do we want to go?"
+        },
+        {
+          "speaker": 1,
+          "text": "Vielleicht am Samstag, wenn das Wetter schön ist.",
+          "translation": "Maybe on Saturday, if the weather is nice."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Cultural insight on cinema in Germany",
+      "text": "Going to the cinema is a popular pastime in Germany, and many cities have a variety of film festivals. These festivals often showcase both local and international films, allowing audiences to experience diverse cultures.",
+      "funFact": "Germany is known for its film industry and has produced notable filmmakers like Wim Wenders and Werner Herzog."
+    },
+    "summary": {
+      "keyPoints": [
+        "Relative clauses add detail to sentences using 'der', 'die', and 'das'.",
+        "Understanding gender is crucial for choosing the correct relative pronoun.",
+        "Examples show how to use relative clauses effectively.",
+        "Practice forming your own sentences to improve fluency."
+      ],
+      "nextSteps": "Try creating sentences with relative clauses using vocabulary from this lesson. Practice speaking with a partner or using a language exchange app."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which relative clause correctly describes 'der Lehrer'?",
+      "content": {
+        "options": [
+          "der Lehrer, der die Schüler mag",
+          "die Lehrer, die die Schüler mag",
+          "das Lehrer, das die Schüler mag"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct relative clause is 'der Lehrer, der die Schüler mag', as 'Lehrer' is masculine.",
+      "hint": "Remember the gender of the noun.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which relative clause is correct for 'die Stadt'?",
+      "content": {
+        "options": [
+          "die Stadt, die viele Touristen hat",
+          "der Stadt, der viele Touristen hat",
+          "das Stadt, das viele Touristen hat"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct form is 'die Stadt, die viele Touristen hat', as 'Stadt' is feminine.",
+      "hint": "Focus on the article of the noun.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich habe einen Freund, ___ in Berlin wohnt.'",
+      "content": {
+        "sentence": "Ich habe einen Freund, ___ in Berlin wohnt.",
+        "correctAnswer": "der",
+        "acceptableAnswers": [
+          "der"
+        ],
+        "options": [
+          "die",
+          "das",
+          "der"
+        ]
+      },
+      "explanation": "The correct answer is 'der' because 'Freund' is masculine.",
+      "hint": "Think about the gender of 'Freund'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Das Buch, ___ ich lese, ist spannend.'",
+      "content": {
+        "sentence": "Das Buch, ___ ich lese, ist spannend.",
+        "correctAnswer": "das",
+        "acceptableAnswers": [
+          "das"
+        ],
+        "options": [
+          "der",
+          "die",
+          "das"
+        ]
+      },
+      "explanation": "The correct answer is 'das' because 'Buch' is neuter.",
+      "hint": "Which article goes with 'Buch'?",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The friend who lives in Berlin.'",
+      "content": {
+        "prompt": "Translate to German: 'The friend who lives in Berlin.'",
+        "correctAnswer": "Der Freund, der in Berlin lebt.",
+        "acceptableAnswers": [
+          "Der Freund, der in Berlin wohnt."
+        ]
+      },
+      "explanation": "The translation uses the correct relative pronoun for 'Freund'.",
+      "hint": "Focus on the gender of 'friend'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation.",
+      "content": {
+        "ttsText": "Die Freundin, die ich gestern getroffen habe, ist nett.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The friend I met yesterday is nice.",
+          "The friend who met me yesterday is nice.",
+          "The friends I met yesterday are nice."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation captures the meaning of the original German sentence.",
+      "hint": "Listen for the context of the meeting.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in German: 'The teacher who teaches German is great.'",
+      "content": {
+        "targetText": "Der Lehrer, der Deutsch unterrichtet, ist großartig.",
+        "context": "Translate and say this sentence in German.",
+        "acceptableVariants": [
+          "Der Lehrer, der Deutsch lehrt, ist großartig."
+        ]
+      },
+      "explanation": "This sentence correctly uses 'der' for masculine nouns and includes a relative clause.",
+      "hint": "Think about how to express 'teacher' and 'who teaches'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in German: 'The book that I read is interesting.'",
+      "content": {
+        "targetText": "Das Buch, das ich lese, ist interessant.",
+        "context": "Translate and say this sentence in German.",
+        "acceptableVariants": [
+          "Das Buch, das ich gelesen habe, ist interessant."
+        ]
+      },
+      "explanation": "This sentence uses the correct relative pronoun 'das' for neuter nouns.",
+      "hint": "Consider how to express 'the book' and 'that I read'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

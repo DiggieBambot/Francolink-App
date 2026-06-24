@@ -1,0 +1,344 @@
+{
+  "lesson": {
+    "title": "Analyzing Written Texts",
+    "type": "CONVERSATION",
+    "slug": "de-b2-analyze-texts"
+  },
+  "unit": "Critical Thinking",
+  "unitOrder": 5,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to analyze written texts in German, focusing on critical thinking and discussion skills. You will practice expressing your opinions and interpreting the meanings behind various texts.",
+      "culturalNote": "In Germany, literature and written discourse have a rich tradition, with authors like Goethe and Schiller still influencing contemporary discussions."
+    },
+    "vocabulary": [
+      {
+        "term": "der Text",
+        "translation": "the text",
+        "definition": "a written work that can be analyzed",
+        "pronunciation": "dehr tekst",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Text behandelt wichtige gesellschaftliche Themen.",
+          "translation": "The text addresses important social issues."
+        },
+        "tip": "Remember that 'der Text' is masculine; its plural form is 'die Texte'."
+      },
+      {
+        "term": "die Analyse",
+        "translation": "the analysis",
+        "definition": "the process of examining something in detail",
+        "pronunciation": "dee ah-nah-lee-tseh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Analyse des Textes erfordert kritisches Denken.",
+          "translation": "The analysis of the text requires critical thinking."
+        },
+        "tip": "'Die Analyse' is feminine, and its plural is 'die Analysen'."
+      },
+      {
+        "term": "die Meinung",
+        "translation": "the opinion",
+        "definition": "a personal belief or judgment",
+        "pronunciation": "dee mine-ung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Jeder hat das Recht auf seine eigene Meinung.",
+          "translation": "Everyone has the right to their own opinion."
+        },
+        "tip": "'Die Meinung' is feminine; plural is 'die Meinungen'."
+      },
+      {
+        "term": "der Autor",
+        "translation": "the author",
+        "definition": "the writer of a text",
+        "pronunciation": "dehr ow-tor",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Autor hat einen einzigartigen Stil.",
+          "translation": "The author has a unique style."
+        },
+        "tip": "'Der Autor' is masculine; plural is 'die Autoren'."
+      },
+      {
+        "term": "die Botschaft",
+        "translation": "the message",
+        "definition": "the central idea or theme of a text",
+        "pronunciation": "dee boat-shaft",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Botschaft des Textes ist sehr klar.",
+          "translation": "The message of the text is very clear."
+        },
+        "tip": "'Die Botschaft' is feminine; plural is 'die Botschaften'."
+      },
+      {
+        "term": "der Kontext",
+        "translation": "the context",
+        "definition": "the circumstances surrounding a text that help explain its meaning",
+        "pronunciation": "dehr kon-text",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Kontext ist entscheidend für das Verständnis.",
+          "translation": "The context is crucial for understanding."
+        },
+        "tip": "'Der Kontext' is masculine; plural is 'die Kontexte'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Konjunktiv I and II",
+        "explanation": "In German, Konjunktiv I is often used for indirect speech, while Konjunktiv II expresses hypothetical situations or wishes. For example, in indirect speech, one might say: 'Er sagt, er sei müde' (He says he is tired). To express a wish, one might say: 'Ich wünschte, ich hätte mehr Zeit' (I wish I had more time).",
+        "table": {
+          "headers": [
+            "Konjunktiv I",
+            "Konjunktiv II"
+          ],
+          "rows": [
+            [
+              "sei",
+              "wäre"
+            ],
+            [
+              "habe",
+              "hätte"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Er sagt, er sei glücklich.",
+            "translation": "He says he is happy.",
+            "breakdown": "This uses Konjunktiv I for indirect speech."
+          },
+          {
+            "original": "Wenn ich mehr Geld hätte, würde ich reisen.",
+            "translation": "If I had more money, I would travel.",
+            "breakdown": "This uses Konjunktiv II for a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of Konjunktiv I in indirect speech: 'Er sagt, er ist müde' should be 'Er sagt, er sei müde'.",
+          "Confusing Konjunktiv II forms: 'wäre' instead of 'war' for wishes."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Text",
+      "context": "A discussion group analyzing a German novel.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hast du den neuen Roman von Herr Müller gelesen?",
+          "translation": "Have you read the new novel by Mr. Müller?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich fand ihn sehr spannend. Was hältst du davon?",
+          "translation": "Yes, I found it very exciting. What do you think about it?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich denke, die Botschaft des Textes ist sehr tiefgründig.",
+          "translation": "I think the message of the text is very profound.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das stimmt. Besonders die Charakterentwicklung war interessant.",
+          "translation": "That's true. Especially the character development was interesting.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, und die Konflikte spiegeln aktuelle gesellschaftliche Themen wider.",
+          "translation": "Yes, and the conflicts reflect current social issues.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich frage mich, ob der Autor das absichtlich gemacht hat.",
+          "translation": "I wonder if the author did that intentionally.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das wäre möglich. Es gibt viele subtile Hinweise im Text.",
+          "translation": "That would be possible. There are many subtle hints in the text.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich bin gespannt auf die Analyse in der nächsten Sitzung.",
+          "translation": "I am looking forward to the analysis in the next session.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Literature in German-speaking Countries",
+      "text": "German-speaking countries have a rich literary tradition, with many influential authors shaping modern thought. Literary festivals are common and draw large audiences who engage in discussions about texts.",
+      "funFact": "The Frankfurt Book Fair is the largest book fair in the world, showcasing new books and promoting literature from German-speaking countries and beyond."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding how to analyze texts critically",
+        "Expressing opinions using Konjunktiv I and II",
+        "Discussing themes and messages in literature",
+        "Engaging in nuanced discussions about societal issues"
+      ],
+      "nextSteps": "Practice writing your own text analysis and use the vocabulary and grammar points in your discussions."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the main purpose of analyzing a text?",
+      "content": {
+        "options": [
+          "To memorize it",
+          "To understand its meaning",
+          "To ignore it",
+          "To write a summary"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The main purpose of analyzing a text is to understand its meaning and message.",
+      "hint": "Think about why we read texts.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word refers to the author's underlying message in a text?",
+      "content": {
+        "options": [
+          "Der Kontext",
+          "Die Botschaft",
+          "Die Meinung",
+          "Die Analyse"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The term 'die Botschaft' refers to the underlying message conveyed by the author.",
+      "hint": "Look for the word that means 'message'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Der ___ ist wichtig für die Analyse.",
+      "content": {
+        "sentence": "Der ___ ist wichtig für die Analyse.",
+        "correctAnswer": "Kontext",
+        "acceptableAnswers": [
+          "Kontext"
+        ],
+        "options": [
+          "Text",
+          "Autor",
+          "Kontext",
+          "Meinung"
+        ]
+      },
+      "explanation": "The context is important for understanding the text's meaning.",
+      "hint": "Think about what surrounds the text.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Der Autor gibt seine ___ im Text wieder.",
+      "content": {
+        "sentence": "Der Autor gibt seine ___ im Text wieder.",
+        "correctAnswer": "Meinung",
+        "acceptableAnswers": [
+          "Meinung"
+        ],
+        "options": [
+          "Botschaft",
+          "Meinung",
+          "Analyse",
+          "Kontext"
+        ]
+      },
+      "explanation": "The author expresses their opinion in the text.",
+      "hint": "This word refers to a personal view.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The analysis is important.'",
+      "content": {
+        "prompt": "Translate to German: 'The analysis is important.'",
+        "correctAnswer": "Die Analyse ist wichtig.",
+        "acceptableAnswers": [
+          "Die Analyse ist wichtig."
+        ]
+      },
+      "explanation": "The translation correctly conveys the importance of the analysis.",
+      "hint": "Focus on the word for 'analysis'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Der Autor hat eine wichtige Meinung.'",
+      "content": {
+        "ttsText": "Der Autor hat eine wichtige Meinung.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The author has an important opinion.",
+          "The author writes a book.",
+          "The text is difficult.",
+          "The message is clear."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation matches the original German sentence.",
+      "hint": "Listen for the word 'Meinung'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'What is the author's message in this text?'",
+      "content": {
+        "targetText": "Was ist die Botschaft des Autors in diesem Text?",
+        "context": "Ask about the main idea of a text.",
+        "acceptableVariants": [
+          "Was ist die Botschaft des Autors in diesem Text?",
+          "Was möchte der Autor mit diesem Text sagen?"
+        ]
+      },
+      "explanation": "This sentence asks about the author's message, which is a key part of text analysis.",
+      "hint": "Remember to ask about the message.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I think the author is very persuasive.'",
+      "content": {
+        "targetText": "Ich denke, der Autor ist sehr überzeugend.",
+        "context": "Give your opinion about the author's writing style.",
+        "acceptableVariants": [
+          "Ich finde, der Autor ist sehr überzeugend.",
+          "Meiner Meinung nach ist der Autor sehr überzeugend."
+        ]
+      },
+      "explanation": "This sentence expresses an opinion about the author's effectiveness.",
+      "hint": "Use a phrase that indicates your opinion.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

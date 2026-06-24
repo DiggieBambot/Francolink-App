@@ -1,0 +1,376 @@
+{
+  "lesson": {
+    "title": "The Accusative Case - Introduction",
+    "type": "GRAMMAR",
+    "slug": "de-a1-accusative-intro"
+  },
+  "unit": "Food & Drink",
+  "unitOrder": 4,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about the accusative case in German, particularly how it relates to food and drink vocabulary. You'll discover how to use the articles 'der', 'die', and 'das' in the accusative case and practice simple sentences.",
+      "culturalNote": "In Germany, Austria, and Switzerland, food plays a vital role in social gatherings, and many traditional dishes have specific names that reflect the region's culture."
+    },
+    "vocabulary": [
+      {
+        "term": "der Apfel",
+        "translation": "the apple",
+        "definition": "A common fruit enjoyed in various forms.",
+        "pronunciation": "dehr ah-pfel",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich esse den Apfel.",
+          "translation": "I eat the apple."
+        },
+        "tip": "Remember that 'der Apfel' is masculine (der), and in the accusative case, it becomes 'den Apfel'."
+      },
+      {
+        "term": "die Banane",
+        "translation": "the banana",
+        "definition": "A yellow fruit, often eaten as a snack.",
+        "pronunciation": "dee bah-nah-neh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich möchte die Banane.",
+          "translation": "I would like the banana."
+        },
+        "tip": "'Die Banane' is feminine (die), and in the accusative case, it remains 'die Banane'."
+      },
+      {
+        "term": "das Brot",
+        "translation": "the bread",
+        "definition": "A staple food made from flour and water.",
+        "pronunciation": "dahs broht",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich kaufe das Brot.",
+          "translation": "I buy the bread."
+        },
+        "tip": "'Das Brot' is neuter (das), and in the accusative case, it stays 'das Brot'."
+      },
+      {
+        "term": "der Käse",
+        "translation": "the cheese",
+        "definition": "A dairy product made from curdled or cultured milk.",
+        "pronunciation": "dehr keh-zeh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich esse den Käse.",
+          "translation": "I eat the cheese."
+        },
+        "tip": "Remember that 'der Käse' is masculine (der), and in the accusative case, it becomes 'den Käse'."
+      },
+      {
+        "term": "die Milch",
+        "translation": "the milk",
+        "definition": "A white liquid produced by mammals, commonly consumed.",
+        "pronunciation": "dee milch",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich möchte die Milch.",
+          "translation": "I would like the milk."
+        },
+        "tip": "'Die Milch' is feminine (die) and remains 'die Milch' in the accusative."
+      },
+      {
+        "term": "das Wasser",
+        "translation": "the water",
+        "definition": "A clear liquid essential for life.",
+        "pronunciation": "dahs vah-ser",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich trinke das Wasser.",
+          "translation": "I drink the water."
+        },
+        "tip": "'Das Wasser' is neuter (das) and stays 'das Wasser' in the accusative."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Accusative Case",
+        "explanation": "In German, the accusative case is used for direct objects, meaning the noun that receives the action of the verb. The articles change depending on the gender of the noun: masculine nouns change from 'der' to 'den', while feminine and neuter nouns remain the same. For example, 'der Apfel' (the apple) becomes 'den Apfel' in the accusative.",
+        "table": {
+          "headers": [
+            "Noun Gender",
+            "Nominative/Accusative"
+          ],
+          "rows": [
+            [
+              "Masculine",
+              "der Apfel / den Apfel"
+            ],
+            [
+              "Feminine",
+              "die Banane / die Banane"
+            ],
+            [
+              "Neuter",
+              "das Brot / das Brot"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich kaufe den Apfel.",
+            "translation": "I buy the apple.",
+            "breakdown": "Here, 'den Apfel' is the direct object of the verb 'kaufe' (buy), which is in the accusative case."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'der' instead of 'den' for masculine nouns in the accusative. Correct: 'Ich sehe den Tisch.' (I see the table.)",
+          "Confusing the forms for feminine and neuter nouns. Remember, they stay the same in accusative: 'Ich habe die Banane.' and 'Ich habe das Wasser.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Market",
+      "context": "A conversation between two friends at a local market.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Max! Was kaufst du?",
+          "translation": "Hello Max! What are you buying?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Lena! Ich kaufe Äpfel und Banane.",
+          "translation": "Hello Lena! I am buying apples and a banana.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Möchtest du auch Käse?",
+          "translation": "Would you like some cheese too?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich möchte den Käse.",
+          "translation": "Yes, I would like the cheese.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Wie viel kostet das Brot?",
+          "translation": "How much does the bread cost?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das Brot kostet zwei Euro.",
+          "translation": "The bread costs two euros.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich nehme das Wasser.",
+          "translation": "I will take the water.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Gut! Lass uns bezahlen.",
+          "translation": "Good! Let's pay.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Food in German-speaking Countries",
+      "text": "Food is an essential part of social life in Germany, Austria, and Switzerland. From hearty dishes like schnitzel to sweet treats like strudel, meals are often enjoyed together with family and friends. Markets are popular places to buy fresh local produce.",
+      "funFact": "In Germany, there are over 1,500 types of sausages, highlighting the country's rich culinary diversity."
+    },
+    "summary": {
+      "keyPoints": [
+        "The accusative case changes the article for masculine nouns.",
+        "Feminine and neuter nouns remain the same in the accusative.",
+        "Basic food vocabulary includes common items like apples, bananas, and cheese.",
+        "Practice using the accusative with simple sentences."
+      ],
+      "nextSteps": "Review the vocabulary and practice creating your own sentences using the accusative case."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the accusative form of 'der Apfel'?",
+      "content": {
+        "options": [
+          "der Apfel",
+          "die Apfel",
+          "den Apfel"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "In the accusative case, 'der Apfel' changes to 'den Apfel'.",
+      "hint": "Remember, masculine nouns change in the accusative.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is the correct accusative for 'die Banane'?",
+      "content": {
+        "options": [
+          "den Banane",
+          "die Banane",
+          "die Bananen"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'die Banane' remains 'die Banane' in the accusative as it is a feminine noun.",
+      "hint": "Feminine nouns don't change in the accusative.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich trinke ___ (die Milch).",
+      "content": {
+        "sentence": "Ich trinke ___.",
+        "correctAnswer": "die Milch",
+        "acceptableAnswers": [
+          "die Milch"
+        ],
+        "options": [
+          "der Käse",
+          "die Milch",
+          "das Wasser"
+        ]
+      },
+      "explanation": "The correct answer is 'die Milch' as it is in the accusative case.",
+      "hint": "Think about the article for feminine nouns.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich esse ___ (das Brot).",
+      "content": {
+        "sentence": "Ich esse ___.",
+        "correctAnswer": "das Brot",
+        "acceptableAnswers": [
+          "das Brot"
+        ],
+        "options": [
+          "der Apfel",
+          "das Brot",
+          "die Banane"
+        ]
+      },
+      "explanation": "'das Brot' is in the accusative case as a neuter noun.",
+      "hint": "Neuter nouns have a specific article.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: Käse / ich / esse / den",
+      "content": {
+        "words": [
+          "Käse",
+          "ich",
+          "esse",
+          "den"
+        ],
+        "correctOrder": [
+          "ich",
+          "esse",
+          "den",
+          "Käse"
+        ],
+        "translation": "I eat the cheese"
+      },
+      "explanation": "The correct order forms a proper sentence in German.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I have the apple.'",
+      "content": {
+        "prompt": "Translate to German: 'I have the apple.'",
+        "correctAnswer": "Ich habe den Apfel.",
+        "acceptableAnswers": []
+      },
+      "explanation": "'The apple' translates to 'den Apfel' in the accusative case.",
+      "hint": "Focus on the article for masculine nouns.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct option: 'Ich trinke das Wasser.'",
+      "content": {
+        "ttsText": "Ich trinke das Wasser.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Ich esse das Wasser.",
+          "Ich trinke das Wasser.",
+          "Ich kaufe das Wasser."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer matches the spoken sentence.",
+      "hint": "Listen carefully for the action.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in German: 'I want the cheese.'",
+      "content": {
+        "targetText": "Ich will den Käse.",
+        "context": "Translate and say the sentence in German.",
+        "acceptableVariants": []
+      },
+      "explanation": "The sentence uses the accusative form 'den Käse'.",
+      "hint": "Remember to use the correct article.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the accusative form of 'die Milch'?",
+      "content": {
+        "options": [
+          "die Milch",
+          "die Milche",
+          "den Milch"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'die Milch' remains 'die Milch' in the accusative case.",
+      "hint": "Feminine nouns don't change.",
+      "difficulty": "HARD",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich möchte ___ (die Banane).",
+      "content": {
+        "sentence": "Ich möchte ___.",
+        "correctAnswer": "die Banane",
+        "acceptableAnswers": [
+          "die Banane"
+        ],
+        "options": [
+          "den Apfel",
+          "die Banane",
+          "das Wasser"
+        ]
+      },
+      "explanation": "The answer 'die Banane' is correct as it is feminine and remains unchanged.",
+      "hint": "Think about the article for feminine nouns.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

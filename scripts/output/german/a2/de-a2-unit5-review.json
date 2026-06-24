@@ -1,0 +1,377 @@
+{
+  "lesson": {
+    "title": "Unit 5 Review",
+    "type": "REVIEW",
+    "slug": "de-a2-unit5-review"
+  },
+  "unit": "Work & Studies",
+  "unitOrder": 5,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this unit review, you will consolidate your vocabulary and grammar related to work and studies. You will practice using the Perfekt and Präteritum tenses, as well as two-way prepositions and modal verbs.",
+      "culturalNote": "In Germany, many students often take part-time jobs while studying, which helps them gain practical experience and earn some money."
+    },
+    "vocabulary": [
+      {
+        "term": "die Arbeit",
+        "translation": "the work",
+        "definition": "A task or job one does.",
+        "pronunciation": "dee AHR-bite",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Arbeit ist interessant.",
+          "translation": "The work is interesting."
+        },
+        "tip": "Remember, 'Arbeit' is feminine, so it uses 'die'."
+      },
+      {
+        "term": "das Studium",
+        "translation": "the studies",
+        "definition": "The act of studying or a course of study.",
+        "pronunciation": "das SHTOO-dee-oom",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Studium beginnt im Oktober.",
+          "translation": "My studies begin in October."
+        },
+        "tip": "'Studium' is neuter, so it uses 'das'."
+      },
+      {
+        "term": "der Lehrer",
+        "translation": "the teacher",
+        "definition": "A person who teaches, especially in school.",
+        "pronunciation": "der LAY-rer",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Lehrer erklärt die Grammatik.",
+          "translation": "The teacher explains the grammar."
+        },
+        "tip": "Remember, 'Lehrer' is masculine, so it uses 'der'."
+      },
+      {
+        "term": "die Schule",
+        "translation": "the school",
+        "definition": "An institution for educating children.",
+        "pronunciation": "dee SHOO-luh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Schule beginnt um acht Uhr.",
+          "translation": "The school starts at eight o'clock."
+        },
+        "tip": "'Schule' is feminine, so it uses 'die'."
+      },
+      {
+        "term": "arbeiten",
+        "translation": "to work",
+        "definition": "To perform a job or task.",
+        "pronunciation": "AR-bite-en",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich arbeite oft am Wochenende.",
+          "translation": "I often work on the weekend."
+        },
+        "tip": "This is a regular verb, so the conjugation follows standard patterns."
+      },
+      {
+        "term": "möchten",
+        "translation": "would like",
+        "definition": "A modal verb used to express a desire.",
+        "pronunciation": "MURK-ten",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich möchte einen neuen Computer kaufen.",
+          "translation": "I would like to buy a new computer."
+        },
+        "tip": "This is a modal verb and is often used with infinitives."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Perfekt Tense",
+        "explanation": "The Perfekt tense is used to talk about past actions that are relevant to the present. It is formed using the auxiliary verbs 'haben' or 'sein' and the past participle of the main verb. For most verbs, 'haben' is used, but some verbs that indicate movement or change use 'sein'.",
+        "table": {
+          "headers": [
+            "Auxiliary Verb",
+            "Past Participle"
+          ],
+          "rows": [
+            [
+              "haben",
+              "gemacht"
+            ],
+            [
+              "sein",
+              "gegangen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich habe die Hausaufgaben gemacht.",
+            "translation": "I have done the homework.",
+            "breakdown": "Here, 'haben' is the auxiliary verb and 'gemacht' is the past participle of 'machen'."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'sein' instead of 'haben' with non-motion verbs. Correct: 'Ich habe gearbeitet.'",
+          "Omitting the auxiliary verb. Correct: 'Ich habe die Arbeit gemacht.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the University",
+      "context": "This conversation takes place between two students discussing their studies at a café.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Max, wie geht's?",
+          "translation": "Hello Max, how are you?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Lena! Mir geht's gut, danke. Und dir?",
+          "translation": "Hello Lena! I'm fine, thank you. And you?"
+        },
+        {
+          "speaker": 0,
+          "text": "Mir geht's auch gut. Was machst du heute?",
+          "translation": "I'm also fine. What are you doing today?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich habe heute eine Vorlesung über Marketing.",
+          "translation": "I have a lecture about marketing today."
+        },
+        {
+          "speaker": 0,
+          "text": "Oh, das klingt interessant! Wo ist die Vorlesung?",
+          "translation": "Oh, that sounds interesting! Where is the lecture?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sie ist in Raum 202. Und was machst du?",
+          "translation": "It is in room 202. And what are you doing?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich möchte zur Bibliothek gehen und lernen.",
+          "translation": "I would like to go to the library and study."
+        },
+        {
+          "speaker": 1,
+          "text": "Gute Idee! Vielleicht sehen wir uns später?",
+          "translation": "Good idea! Maybe we will see each other later?"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Student Life in Germany",
+      "text": "Many German students balance their studies with part-time jobs. This helps them to gain experience and support their living expenses. University life is often very social, with many clubs and events.",
+      "funFact": "In Germany, students often enjoy a 'Semesterferien' or semester break, which can last several weeks."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review of vocabulary related to work and studies.",
+        "Understanding of the Perfekt tense and its formation.",
+        "Use of modal verbs like 'möchten'.",
+        "Practice of dialogue in a university context."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and review the Perfekt tense with more examples."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'work'?",
+      "content": {
+        "options": [
+          "die Schule",
+          "die Arbeit",
+          "das Studium",
+          "der Lehrer"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'die Arbeit', which means 'work' in German.",
+      "hint": "Think about the place where you go to do your job.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'teacher' in German?",
+      "content": {
+        "options": [
+          "die Schule",
+          "der Lehrer",
+          "das Studium",
+          "die Arbeit"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Der Lehrer' is the correct answer, meaning 'teacher' in German.",
+      "hint": "A teacher helps you learn.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich ___ in der Schule.",
+      "content": {
+        "sentence": "Ich ___ in der Schule.",
+        "correctAnswer": "arbeite",
+        "acceptableAnswers": [
+          "arbeite"
+        ],
+        "options": [
+          "lese",
+          "arbeite",
+          "schreibe",
+          "lerne"
+        ]
+      },
+      "explanation": "The correct verb 'arbeite' means 'work' and fits the context of being in school.",
+      "hint": "Think of what you do at school.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich möchte ___ Lehrer werden.",
+      "content": {
+        "sentence": "Ich möchte ___ Lehrer werden.",
+        "correctAnswer": "ein",
+        "acceptableAnswers": [
+          "ein"
+        ],
+        "options": [
+          "eine",
+          "ein",
+          "der",
+          "die"
+        ]
+      },
+      "explanation": "'Ein' is the correct answer as it means 'a' for masculine nouns like 'Lehrer'.",
+      "hint": "Remember the article for masculine nouns.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: möchte, ich, Lehrer, ein, werden.",
+      "content": {
+        "words": [
+          "möchte",
+          "ich",
+          "Lehrer",
+          "ein",
+          "werden"
+        ],
+        "correctOrder": [
+          "ich",
+          "möchte",
+          "ein",
+          "Lehrer",
+          "werden"
+        ],
+        "translation": "I would like to become a teacher."
+      },
+      "explanation": "The correct order forms the sentence 'Ich möchte ein Lehrer werden'.",
+      "hint": "Start with the subject 'I'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I am studying.'",
+      "content": {
+        "prompt": "Translate to German: 'I am studying.'",
+        "correctAnswer": "Ich studiere.",
+        "acceptableAnswers": [
+          "Ich bin am studieren."
+        ]
+      },
+      "explanation": "The sentence translates to 'Ich studiere.' which means 'I am studying.'",
+      "hint": "Focus on the verb for 'to study'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich arbeite.'",
+      "content": {
+        "ttsText": "Ich arbeite.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I study.",
+          "I work.",
+          "I teach.",
+          "I learn."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct translation of 'Ich arbeite.' is 'I work.'.",
+      "hint": "Think about what you do for a job.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I would like to work at a school.'",
+      "content": {
+        "targetText": "Ich möchte an einer Schule arbeiten.",
+        "context": "Translate and say the sentence in German.",
+        "acceptableVariants": [
+          "Ich möchte in einer Schule arbeiten."
+        ]
+      },
+      "explanation": "The correct translation is 'Ich möchte an einer Schule arbeiten.' which means 'I would like to work at a school.'",
+      "hint": "Use 'möchte' for 'would like'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'das Studium' mean in English?",
+      "content": {
+        "options": [
+          "the teaching",
+          "the work",
+          "the study",
+          "the school"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Das Studium' translates to 'the study' in English.",
+      "hint": "Think about what you do in university.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Sie ___ in der Schule.",
+      "content": {
+        "sentence": "Sie ___ in der Schule.",
+        "correctAnswer": "arbeiten",
+        "acceptableAnswers": [
+          "arbeiten"
+        ],
+        "options": [
+          "arbeiten",
+          "studieren",
+          "lehren",
+          "lernen"
+        ]
+      },
+      "explanation": "'Arbeiten' is the correct verb for 'they work' in this context.",
+      "hint": "Think about what teachers do.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,372 @@
+{
+  "lesson": {
+    "title": "Giving Opinions",
+    "type": "CONVERSATION",
+    "slug": "de-a2-opinions"
+  },
+  "unit": "Comparisons & Opinions",
+  "unitOrder": 7,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to express your opinions in German. You'll practice using simple phrases and vocabulary to share what you think about various topics.",
+      "culturalNote": "In German-speaking cultures, giving opinions is often straightforward. People appreciate honesty, but it is also important to be polite when discussing differing views."
+    },
+    "vocabulary": [
+      {
+        "term": "die Meinung",
+        "translation": "the opinion",
+        "definition": "A belief or judgment about something.",
+        "pronunciation": "dee MY-noong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe eine andere Meinung.",
+          "translation": "I have a different opinion."
+        },
+        "tip": "Remember that 'Meinung' is feminine (die) and its plural is 'die Meinungen'."
+      },
+      {
+        "term": "finde",
+        "translation": "find (I find)",
+        "definition": "The first person singular form of 'finden', used to express opinions.",
+        "pronunciation": "FIN-duh",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich finde das Buch interessant.",
+          "translation": "I find the book interesting."
+        },
+        "tip": "Use 'finde' to start your opinion, like 'Ich finde...' (I find...)."
+      },
+      {
+        "term": "wichtig",
+        "translation": "important",
+        "definition": "Something that has great significance.",
+        "pronunciation": "VIKT-ikh",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Es ist wichtig, zu lernen.",
+          "translation": "It is important to learn."
+        },
+        "tip": "'Wichtig' can be used to emphasize the significance of your opinion."
+      },
+      {
+        "term": "gut",
+        "translation": "good",
+        "definition": "A positive quality or state.",
+        "pronunciation": "goot",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Das Essen ist gut.",
+          "translation": "The food is good."
+        },
+        "tip": "'Gut' is the opposite of 'schlecht' (bad)."
+      },
+      {
+        "term": "schlecht",
+        "translation": "bad",
+        "definition": "A negative quality or state.",
+        "pronunciation": "shlecht",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Das Wetter ist schlecht.",
+          "translation": "The weather is bad."
+        },
+        "tip": "Use 'schlecht' to express a negative opinion."
+      },
+      {
+        "term": "aber",
+        "translation": "but",
+        "definition": "A conjunction used to contrast ideas.",
+        "pronunciation": "AH-ber",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Ich finde das gut, aber es ist teuer.",
+          "translation": "I find that good, but it is expensive."
+        },
+        "tip": "'Aber' is useful for introducing a contrasting opinion."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Expressing Opinions with 'Ich finde...'",
+        "explanation": "In German, to express your opinion, use the structure 'Ich finde...'. This is followed by what you are expressing an opinion about. You can also use adjectives like 'gut' or 'schlecht' to describe your feelings.",
+        "table": {
+          "headers": [
+            "Sentence Structure",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Ich finde + [noun/adjective]",
+              "Ich finde das Buch gut. (I find the book good.)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich finde das Wetter schön.",
+            "translation": "I find the weather beautiful.",
+            "breakdown": "The structure is 'Ich finde' followed by the opinion about 'das Wetter'."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Ich finde es gut.' without context can be confusing; always specify what 'es' refers to.",
+          "Forgetting to use the correct adjective form; remember to match adjectives with the noun."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Movie",
+      "context": "Two friends, Anna and Max, are discussing a movie they watched together.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Wie fandest du den Film?",
+          "translation": "How did you find the movie?",
+          "note": "Anna is asking for Max's opinion."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich fand ihn spannend und gut.",
+          "translation": "I found it exciting and good."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich fand ihn auch gut, aber das Ende war schlecht.",
+          "translation": "I also found it good, but the ending was bad."
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, das Ende war nicht so gut.",
+          "translation": "Yes, the ending was not so good."
+        },
+        {
+          "speaker": 0,
+          "text": "Die Schauspieler waren toll!",
+          "translation": "The actors were great!"
+        },
+        {
+          "speaker": 1,
+          "text": "Das stimmt! Ich finde sie sehr talentiert.",
+          "translation": "That's true! I find them very talented."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich möchte mehr Filme von ihnen sehen.",
+          "translation": "I want to see more movies by them."
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist eine gute Idee!",
+          "translation": "That's a good idea!"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Opinions in German Culture",
+      "text": "In German-speaking countries, people often express their opinions candidly. This directness is valued in discussions, especially in academic and professional settings.",
+      "funFact": "In Austria, it is common to have polite discussions where people might agree to disagree on certain topics."
+    },
+    "summary": {
+      "keyPoints": [
+        "Use 'Ich finde...' to express your opinion.",
+        "Adjectives like 'gut' and 'schlecht' help describe your feelings.",
+        "Use 'aber' to contrast your opinions.",
+        "Remember to specify what you are giving your opinion about."
+      ],
+      "nextSteps": "Practice expressing your opinions on different topics in German. Try writing a few sentences about your favorite book or movie."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'die Meinung' mean in English?",
+      "content": {
+        "options": [
+          "the opinion",
+          "the idea",
+          "the thought",
+          "the feeling"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Meinung' translates to 'the opinion' in English.",
+      "hint": "Think about how you express what you think.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'bad' in German?",
+      "content": {
+        "options": [
+          "gut",
+          "schlecht",
+          "wichtig",
+          "aber"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Schlecht' means 'bad' in German.",
+      "hint": "It's the opposite of 'gut'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich finde es ____, weil es interessant ist.'",
+      "content": {
+        "sentence": "Ich finde es ____, weil es interessant ist.",
+        "correctAnswer": "gut",
+        "acceptableAnswers": [
+          "gut",
+          "schlecht"
+        ],
+        "options": [
+          "gut",
+          "schlecht"
+        ]
+      },
+      "explanation": "The sentence means 'I think it is good because it is interesting.'",
+      "hint": "Think about positive opinions.",
+      "difficulty": "EASY",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Es ist ____, dass du kommst.'",
+      "content": {
+        "sentence": "Es ist ____, dass du kommst.",
+        "correctAnswer": "wichtig",
+        "acceptableAnswers": [
+          "wichtig",
+          "gut"
+        ],
+        "options": [
+          "wichtig",
+          "gut"
+        ]
+      },
+      "explanation": "'Wichtig' means 'important', and the sentence translates to 'It is important that you come.'",
+      "hint": "Consider what matters to you.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'ich finde Film gut den'.",
+      "content": {
+        "words": [
+          "ich",
+          "finde",
+          "Film",
+          "gut",
+          "den"
+        ],
+        "correctOrder": [
+          "ich",
+          "finde",
+          "den",
+          "Film",
+          "gut"
+        ],
+        "translation": "I think the movie is good."
+      },
+      "explanation": "The correct order expresses a clear opinion about the movie.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I think it is important.'",
+      "content": {
+        "prompt": "Translate to German: 'I think it is important.'",
+        "correctAnswer": "Ich finde, es ist wichtig.",
+        "acceptableAnswers": [
+          "Ich finde es wichtig."
+        ]
+      },
+      "explanation": "The translation expresses an opinion about importance.",
+      "hint": "Remember the structure of 'I think...'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich finde das Essen lecker.'",
+      "content": {
+        "ttsText": "Ich finde das Essen lecker.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I think the food is delicious.",
+          "I think the food is bad.",
+          "I find the food cheap.",
+          "I think the food is important."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation means 'I think the food is delicious.'",
+      "hint": "Focus on the adjective.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I think sports are important.'",
+      "content": {
+        "targetText": "Ich finde, dass Sport wichtig ist.",
+        "context": "Translate and say your opinion about sports.",
+        "acceptableVariants": [
+          "Ich finde Sport wichtig.",
+          "Ich denke, Sport ist wichtig."
+        ]
+      },
+      "explanation": "This sentence expresses your opinion about sports in German.",
+      "hint": "Use 'finde' or 'denke'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'but' in German?",
+      "content": {
+        "options": [
+          "und",
+          "aber",
+          "oder",
+          "nicht"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Aber' means 'but' in German, used to contrast opinions.",
+      "hint": "It's used to show disagreement.",
+      "difficulty": "HARD",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich finde das Wetter ____.'",
+      "content": {
+        "sentence": "Ich finde das Wetter ____. ",
+        "correctAnswer": "schlecht",
+        "acceptableAnswers": [
+          "schlecht",
+          "gut"
+        ],
+        "options": [
+          "schlecht",
+          "gut"
+        ]
+      },
+      "explanation": "You are expressing your opinion about the weather, which can be good or bad.",
+      "hint": "Think about how you feel about the weather today.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

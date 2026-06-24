@@ -1,0 +1,359 @@
+{
+  "lesson": {
+    "title": "There Is / There Are (Es gibt)",
+    "type": "GRAMMAR",
+    "slug": "de-a1-es-gibt"
+  },
+  "unit": "Home & Everyday Objects",
+  "unitOrder": 6,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to express the existence of objects in German using 'Es gibt' (There is / There are). You will also practice relevant vocabulary related to home and everyday objects.",
+      "culturalNote": "In Germany, it is common to have a well-organized and functional home. The concept of 'Gemütlichkeit' emphasizes comfort and coziness in living spaces."
+    },
+    "vocabulary": [
+      {
+        "term": "der Tisch",
+        "translation": "the table",
+        "definition": "A piece of furniture with a flat top and one or more legs.",
+        "pronunciation": "dair tish",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Tisch ist groß.",
+          "translation": "The table is big."
+        },
+        "tip": "Remember, 'der' indicates that 'Tisch' is masculine."
+      },
+      {
+        "term": "die Lampe",
+        "translation": "the lamp",
+        "definition": "A device for giving light, especially one that has a covering or is contained within something.",
+        "pronunciation": "dee lahm-peh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Lampe ist neu.",
+          "translation": "The lamp is new."
+        },
+        "tip": "'Die' shows that 'Lampe' is feminine."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A set of written or printed pages, usually bound with a protective cover.",
+        "pronunciation": "dahs boo-kh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Buch ist interessant.",
+          "translation": "The book is interesting."
+        },
+        "tip": "'Das' indicates that 'Buch' is neuter."
+      },
+      {
+        "term": "die Küche",
+        "translation": "the kitchen",
+        "definition": "A room or area where food is prepared.",
+        "pronunciation": "dee kü-kheh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Küche ist sauber.",
+          "translation": "The kitchen is clean."
+        },
+        "tip": "'Die' indicates that 'Küche' is feminine."
+      },
+      {
+        "term": "der Stuhl",
+        "translation": "the chair",
+        "definition": "A separate seat for one person, typically with a back and four legs.",
+        "pronunciation": "dair shtool",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Stuhl ist bequem.",
+          "translation": "The chair is comfortable."
+        },
+        "tip": "'Der' shows that 'Stuhl' is masculine."
+      },
+      {
+        "term": "das Fenster",
+        "translation": "the window",
+        "definition": "An opening in the wall of a building, typically covered with glass.",
+        "pronunciation": "dahs fen-stair",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Fenster ist offen.",
+          "translation": "The window is open."
+        },
+        "tip": "'Das' indicates that 'Fenster' is neuter."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'Es gibt' (There Is / There Are)",
+        "explanation": "'Es gibt' is used to indicate the existence of something. You can say 'Es gibt einen Tisch' (There is a table) for singular and 'Es gibt viele Tische' (There are many tables) for plural. Remember that the articles change with gender and number.",
+        "table": {
+          "headers": [
+            "Singular",
+            "Plural"
+          ],
+          "rows": [
+            [
+              "Es gibt einen Tisch.",
+              "Es gibt viele Tische."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es gibt eine Lampe.",
+            "translation": "There is a lamp.",
+            "breakdown": "'Es gibt' + 'eine Lampe' (feminine singular)"
+          },
+          {
+            "original": "Es gibt viele Bücher.",
+            "translation": "There are many books.",
+            "breakdown": "'Es gibt' + 'viele Bücher' (plural)"
+          }
+        ],
+        "commonMistakes": [
+          "'Es gibt ein Tisch.' should be 'Es gibt einen Tisch.' (correct article for masculine)',",
+          "'Es gibt die Lampe.' is not used; say 'Es gibt eine Lampe.' (indefinite article)"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Exploring the Home",
+      "context": "Anna and Lukas are in Anna's apartment discussing what they see.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Was gibt es in deiner Wohnung?",
+          "translation": "What is there in your apartment?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Es gibt einen Tisch und zwei Stühle.",
+          "translation": "There is a table and two chairs.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Gibt es auch eine Lampe?",
+          "translation": "Is there also a lamp?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, es gibt eine Lampe in der Küche.",
+          "translation": "Yes, there is a lamp in the kitchen.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Und das Fenster? Ist es groß?",
+          "translation": "And the window? Is it big?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, das Fenster ist groß.",
+          "translation": "Yes, the window is big.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Gibt es ein Buch auf dem Tisch?",
+          "translation": "Is there a book on the table?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, es gibt ein Buch auf dem Tisch.",
+          "translation": "Yes, there is a book on the table.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Home Life in Germany",
+      "text": "German homes often reflect a balance of functionality and aesthetic appeal. Many families take pride in their living spaces, which are often well-decorated and organized.",
+      "funFact": "In Germany, it’s common to have a 'Schrank' (wardrobe) in every room for storage, emphasizing the importance of organization."
+    },
+    "summary": {
+      "keyPoints": [
+        "Use 'Es gibt' to indicate the existence of objects.",
+        "Remember the articles: der, die, das for nouns.",
+        "Practice with both singular and plural forms.",
+        "Expand your vocabulary with everyday objects."
+      ],
+      "nextSteps": "Practice using 'Es gibt' in sentences about your own home. Try to describe what you see using the vocabulary you've learned."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence is correct?",
+      "content": {
+        "options": [
+          "There is a table.",
+          "There are a table."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct form is 'There is' because 'table' is singular.",
+      "hint": "Remember to use 'is' for singular objects.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Choose the correct sentence.",
+      "content": {
+        "options": [
+          "There are two lamps.",
+          "There is two lamps."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "Use 'There are' for plural objects like 'lamps'.",
+      "hint": "Pay attention to singular and plural.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: '___ einen Stuhl in der Küche.'",
+      "content": {
+        "sentence": "___ einen Stuhl in der Küche.",
+        "correctAnswer": "Es gibt",
+        "acceptableAnswers": [
+          "Es gibt"
+        ],
+        "options": [
+          "Es gibt",
+          "Ich habe",
+          "Wir sehen"
+        ]
+      },
+      "explanation": "The phrase 'Es gibt' means 'There is' or 'There are' in German.",
+      "hint": "Think about how to say 'there is' in German.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'In der Küche ___ ein Fenster.'",
+      "content": {
+        "sentence": "In der Küche ___ ein Fenster.",
+        "correctAnswer": "gibt es",
+        "acceptableAnswers": [
+          "gibt es"
+        ],
+        "options": [
+          "gibt es",
+          "hat",
+          "ist"
+        ]
+      },
+      "explanation": "The correct phrase is 'gibt es' for 'there is' in German.",
+      "hint": "Think about how to express existence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'There is a book.'",
+      "content": {
+        "prompt": "Translate to German: 'There is a book.'",
+        "correctAnswer": "Es gibt ein Buch.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation conveys the meaning of existence.",
+      "hint": "Start with 'Es gibt'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Es gibt zwei Lampen.",
+        "ttsLang": "de-DE",
+        "options": [
+          "There are two lamps.",
+          "There is one lamp."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence 'Es gibt zwei Lampen' translates to 'There are two lamps.'",
+      "hint": "Listen for the number of lamps.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in German: 'There is a table in the kitchen.'",
+      "content": {
+        "targetText": "Es gibt einen Tisch in der Küche.",
+        "context": "Translate and say the sentence in German.",
+        "acceptableVariants": []
+      },
+      "explanation": "This sentence describes the existence of a table in a specific location.",
+      "hint": "Start with 'Es gibt'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'In der Küche ___ viele Bücher.'",
+      "content": {
+        "sentence": "In der Küche ___ viele Bücher.",
+        "correctAnswer": "gibt es",
+        "acceptableAnswers": [
+          "gibt es"
+        ],
+        "options": [
+          "gibt es",
+          "hat",
+          "sind"
+        ]
+      },
+      "explanation": "The phrase 'gibt es' indicates there are multiple objects.",
+      "hint": "Use the phrase for existence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Choose the correct sentence about the window.",
+      "content": {
+        "options": [
+          "There is a window.",
+          "There are a window."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct form is 'There is' because 'window' is singular.",
+      "hint": "Remember the singular form.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in German: 'There are chairs in the kitchen.'",
+      "content": {
+        "targetText": "Es gibt Stühle in der Küche.",
+        "context": "Translate and say the sentence in German.",
+        "acceptableVariants": []
+      },
+      "explanation": "This sentence describes multiple objects in a specific location.",
+      "hint": "Start with 'Es gibt'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,338 @@
+{
+  "lesson": {
+    "title": "Small Talk",
+    "type": "CONVERSATION",
+    "slug": "de-a2-small-talk"
+  },
+  "unit": "Comparisons & Opinions",
+  "unitOrder": 7,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to engage in small talk in German, focusing on comparisons and expressing opinions. You will practice common phrases and vocabulary that are useful in everyday conversations.",
+      "culturalNote": "Small talk is an important part of social interactions in Germany, often serving as a way to build rapport before discussing more serious topics."
+    },
+    "vocabulary": [
+      {
+        "term": "das Wetter",
+        "translation": "the weather",
+        "definition": "Conditions of the atmosphere at a particular time.",
+        "pronunciation": "das VEH-ter",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wie ist das Wetter heute?",
+          "translation": "How is the weather today?"
+        },
+        "tip": "Remember that 'das' indicates this is a neuter noun."
+      },
+      {
+        "term": "der Urlaub",
+        "translation": "the vacation",
+        "definition": "A period of time spent away from home or work for relaxation.",
+        "pronunciation": "der OOR-lahb",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich mache Urlaub in den Bergen.",
+          "translation": "I am taking a vacation in the mountains."
+        },
+        "tip": "This noun is masculine, so it uses 'der'."
+      },
+      {
+        "term": "die Meinung",
+        "translation": "the opinion",
+        "definition": "A personal belief or judgment.",
+        "pronunciation": "dee MY-nung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Was ist deine Meinung dazu?",
+          "translation": "What is your opinion about it?"
+        },
+        "tip": "This noun is feminine, so it uses 'die'."
+      },
+      {
+        "term": "besser",
+        "translation": "better",
+        "definition": "A comparative form of 'gut' (good).",
+        "pronunciation": "BEH-ser",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Das Wetter ist heute besser als gestern.",
+          "translation": "The weather is better today than yesterday."
+        },
+        "tip": "Use 'besser' to compare two things."
+      },
+      {
+        "term": "der Unterschied",
+        "translation": "the difference",
+        "definition": "A point or way in which things are not the same.",
+        "pronunciation": "der OON-ter-shid",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Was ist der Unterschied zwischen den beiden?",
+          "translation": "What is the difference between the two?"
+        },
+        "tip": "This noun is masculine, so it uses 'der'."
+      },
+      {
+        "term": "schön",
+        "translation": "beautiful/nice",
+        "definition": "Pleasing the senses or mind aesthetically.",
+        "pronunciation": "shern",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Die Landschaft ist sehr schön.",
+          "translation": "The landscape is very beautiful."
+        },
+        "tip": "Use 'schön' to describe something that looks good."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Comparatives in German",
+        "explanation": "In German, to compare two things, we often use the comparative form of adjectives. The suffix '-er' is added to the adjective for the comparative form. For example, 'gut' (good) becomes 'besser' (better).",
+        "table": {
+          "headers": [
+            "Adjective",
+            "Comparative"
+          ],
+          "rows": [
+            [
+              "gut",
+              "besser"
+            ],
+            [
+              "hoch",
+              "höher"
+            ],
+            [
+              "klein",
+              "kleiner"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Mein Auto ist schneller als dein Auto.",
+            "translation": "My car is faster than your car.",
+            "breakdown": "The adjective 'schnell' (fast) becomes 'schneller' for comparison."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'mehr schnell' instead of 'schneller' - 'schneller' is the correct comparative form.",
+          "Using the base form instead of the comparative when making a comparison."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking About the Weather",
+      "context": "A casual conversation between two friends at a café.",
+      "speakers": [
+        "Lukas",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Sophie, wie geht's?",
+          "translation": "Hello Sophie, how are you?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Lukas! Mir geht's gut, danke. Und dir?",
+          "translation": "Hello Lukas! I'm fine, thank you. And you?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Mir geht's auch gut. Wie ist das Wetter heute?",
+          "translation": "I'm also good. How is the weather today?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Es ist schön, aber gestern war es besser.",
+          "translation": "It's nice, but yesterday was better.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, ich mag die Sonne.",
+          "translation": "Yes, I like the sun.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich auch! Hast du schon Urlaub geplant?",
+          "translation": "Me too! Have you already planned a vacation?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, ich möchte nach Italien reisen.",
+          "translation": "Yes, I want to travel to Italy.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das klingt toll! Was ist deine Meinung über Italien?",
+          "translation": "That sounds great! What is your opinion about Italy?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich finde Italien sehr schön, besonders die Landschaft.",
+          "translation": "I think Italy is very beautiful, especially the landscape.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, das stimmt! Ich möchte auch dorthin.",
+          "translation": "Yes, that's true! I want to go there too.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Small Talk in Germany",
+      "text": "In Germany, small talk is often used to break the ice and create a friendly atmosphere. Topics like the weather, vacations, and local events are common. It helps people connect before moving on to more serious discussions.",
+      "funFact": "Germans often have a saying: 'Über das Wetter spricht man immer,' which means 'You can always talk about the weather.'"
+    },
+    "summary": {
+      "keyPoints": [
+        "Small talk is essential in social interactions.",
+        "Use comparatives to express opinions and make comparisons.",
+        "Common small talk topics include weather and vacations.",
+        "Understanding gender and cases is important for using nouns correctly."
+      ],
+      "nextSteps": "Practice using the vocabulary in different contexts and try to engage in small talk with a German speaker."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'das Wetter' in English?",
+      "content": {
+        "options": [
+          "the weather",
+          "the holiday",
+          "the opinion",
+          "the difference"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Das Wetter' means 'the weather' in English.",
+      "hint": "Think about the conditions outside.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'better' in German?",
+      "content": {
+        "options": [
+          "schön",
+          "besser",
+          "die Meinung",
+          "der Unterschied"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Besser' translates to 'better' in English.",
+      "hint": "It is a word used for comparisons.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich finde das Wetter heute ___.'.",
+      "content": {
+        "sentence": "Ich finde das Wetter heute ___.",
+        "correctAnswer": "schön",
+        "acceptableAnswers": [
+          "schön"
+        ],
+        "options": [
+          "schön",
+          "gut",
+          "schlecht",
+          "besser"
+        ]
+      },
+      "explanation": "The correct word to describe pleasant weather is 'schön'.",
+      "hint": "Think of a word that describes something nice.",
+      "difficulty": "EASY",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Mein Urlaub war ___.'.",
+      "content": {
+        "sentence": "Mein Urlaub war ___.",
+        "correctAnswer": "schön",
+        "acceptableAnswers": [
+          "schön"
+        ],
+        "options": [
+          "schön",
+          "lang",
+          "teuer",
+          "kurz"
+        ]
+      },
+      "explanation": "'Schön' means 'nice' or 'beautiful', often used to describe holidays.",
+      "hint": "Use a positive adjective.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I have a different opinion.'",
+      "content": {
+        "correctAnswer": "Ich habe eine andere Meinung.",
+        "acceptableAnswers": [
+          "Ich habe eine andere Meinung."
+        ]
+      },
+      "explanation": "The translation correctly reflects the original sentence.",
+      "hint": "Think of the words for 'different' and 'opinion'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Der Unterschied ist groß.'",
+      "content": {
+        "ttsText": "Der Unterschied ist groß.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The difference is big.",
+          "The weather is nice.",
+          "The holiday was short.",
+          "My opinion is better."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation matches the German sentence.",
+      "hint": "Focus on the word 'Unterschied'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'What do you think about the weather today?'",
+      "content": {
+        "targetText": "Was denkst du über das Wetter heute?",
+        "context": "Ask someone their opinion about today's weather.",
+        "acceptableVariants": [
+          "Was hältst du vom Wetter heute?",
+          "Wie findest du das Wetter heute?"
+        ]
+      },
+      "explanation": "The target text correctly conveys the question in German.",
+      "hint": "Use 'denken' for think.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

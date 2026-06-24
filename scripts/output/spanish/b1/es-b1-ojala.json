@@ -1,0 +1,365 @@
+{
+  "lesson": {
+    "title": "Wishes & Hopes — Ojalá",
+    "type": "GRAMMAR",
+    "slug": "es-b1-ojala"
+  },
+  "unit": "Conditionals & Wishes",
+  "unitOrder": 4,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to express wishes and hopes in Spanish using the phrase 'ojalá' and the subjunctive mood. You will also explore how to form conditional sentences to express hypothetical situations.",
+      "culturalNote": "In many Spanish-speaking countries, expressing wishes and hopes is common in everyday conversations, often reflecting a deep cultural value of optimism."
+    },
+    "vocabulary": [
+      {
+        "term": "ojalá",
+        "translation": "hopefully",
+        "definition": "An expression used to convey wishes or hopes.",
+        "pronunciation": "oh-ha-lah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Ojalá que pase el examen.",
+          "translation": "Hopefully, I will pass the exam."
+        },
+        "tip": "Remember, 'ojalá' comes from Arabic and is used frequently in Spanish."
+      },
+      {
+        "term": "el sueño",
+        "translation": "the dream",
+        "definition": "A series of thoughts, images, or emotions occurring during sleep or an aspiration.",
+        "pronunciation": "el sweh-nyoh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo un sueño de viajar por el mundo.",
+          "translation": "I have a dream of traveling around the world."
+        },
+        "tip": "Think of 'sueño' as both a dream at night and a goal you want to achieve."
+      },
+      {
+        "term": "esperar",
+        "translation": "to hope",
+        "definition": "To desire something to happen.",
+        "pronunciation": "es-peh-rahr",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Espero que venga a la fiesta.",
+          "translation": "I hope that he/she comes to the party."
+        },
+        "tip": "Use 'esperar' for hopes regarding future events."
+      },
+      {
+        "term": "si",
+        "translation": "if",
+        "definition": "A conjunction used to introduce a conditional clause.",
+        "pronunciation": "see",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Si llueve, no iremos al parque.",
+          "translation": "If it rains, we will not go to the park."
+        },
+        "tip": "Remember that 'si' is essential in forming conditional sentences."
+      },
+      {
+        "term": "el futuro",
+        "translation": "the future",
+        "definition": "The time that will come after the present.",
+        "pronunciation": "el foo-too-roh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "En el futuro, quiero ser médico.",
+          "translation": "In the future, I want to be a doctor."
+        },
+        "tip": "When making wishes about the future, use the subjunctive mood."
+      },
+      {
+        "term": "desear",
+        "translation": "to wish",
+        "definition": "To desire or long for something.",
+        "pronunciation": "deh-seh-ar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Deseo que tengas un buen día.",
+          "translation": "I wish you have a good day."
+        },
+        "tip": "Use 'desear' for expressing personal wishes."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'Ojalá' and the Subjunctive",
+        "explanation": "'Ojalá' is always followed by a verb in the subjunctive mood to express wishes. This construction conveys hopes for something that may or may not happen. For example, 'Ojalá que vengas' means 'I hope you come.' The subjunctive is used because it expresses uncertainty.",
+        "table": {
+          "headers": [
+            "Wish",
+            "Subjunctive Form"
+          ],
+          "rows": [
+            [
+              "Ojalá que él llegue a tiempo",
+              "Ojalá que él llegue"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ojalá que tengamos vacaciones pronto.",
+            "translation": "I hope we have holidays soon.",
+            "breakdown": "Here, 'tengamos' is the subjunctive form of 'tener'."
+          }
+        ],
+        "commonMistakes": [
+          "'Ojalá que' is not followed by the indicative mood. Correct: 'Ojalá que venga', not 'Ojalá que viene.'",
+          "'Ojalá' should be used for hopes, not certainty. Avoid using it for statements of fact."
+        ]
+      },
+      {
+        "title": "Conditional Sentences",
+        "explanation": "Conditional sentences express what could happen if a certain condition is met. They usually start with 'si' (if) and are followed by a clause describing the result. For example, 'Si estudio, aprobaré el examen' means 'If I study, I will pass the exam.'",
+        "table": {
+          "headers": [
+            "Condition",
+            "Result"
+          ],
+          "rows": [
+            [
+              "Si tengo tiempo",
+              "haré la tarea"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Si pudiera, viajaría a España.",
+            "translation": "If I could, I would travel to Spain.",
+            "breakdown": "The sentence uses the conditional 'viajaría' because it depends on the condition 'Si pudiera'."
+          }
+        ],
+        "commonMistakes": [
+          "Do not confuse 'si' with 'sí' (yes). Focus on the context.",
+          "Remember to use the conditional verb forms accurately, like 'haría' for 'I would do'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Making Plans for the Weekend",
+      "context": "Two friends talking about their hopes for the upcoming weekend.",
+      "speakers": [
+        "Juan",
+        "María"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Ojalá que haga buen tiempo este fin de semana.",
+          "translation": "I hope the weather is nice this weekend."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, espero que podamos ir a la playa.",
+          "translation": "Yes, I hope we can go to the beach."
+        },
+        {
+          "speaker": 0,
+          "text": "Si no llueve, será perfecto.",
+          "translation": "If it doesn’t rain, it will be perfect."
+        },
+        {
+          "speaker": 1,
+          "text": "Ojalá que no llueva, tengo muchas ganas de nadar.",
+          "translation": "Hopefully it won’t rain, I really want to swim."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué harías si el clima no es bueno?",
+          "translation": "What would you do if the weather is not good?"
+        },
+        {
+          "speaker": 1,
+          "text": "Si el clima no es bueno, iría al cine.",
+          "translation": "If the weather is not good, I would go to the movies."
+        },
+        {
+          "speaker": 0,
+          "text": "Buena idea. Ojalá que podamos ver una buena película.",
+          "translation": "Good idea. I hope we can see a good movie."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, ojalá que tengamos tiempo para todo.",
+          "translation": "Yes, hopefully we have time for everything."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Wishes and Optimism in Latin America",
+      "text": "In Latin America, expressing hopes and wishes is often accompanied by a sense of community and optimism. People frequently share their dreams with each other, fostering a supportive atmosphere.",
+      "funFact": "In some cultures, it is common to say 'ojalá' to start conversations, reflecting a hopeful outlook on life."
+    },
+    "summary": {
+      "keyPoints": [
+        "Use 'ojalá' to express wishes and hopes with the subjunctive.",
+        "Conditional sentences describe hypothetical situations.",
+        "The verb forms change based on the mood and tense used.",
+        "Understanding the difference between 'si' and 'sí' is crucial."
+      ],
+      "nextSteps": "Practice forming your own sentences using 'ojalá' and conditional phrases. Try writing a short paragraph about your wishes for the future."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'ojalá' express in Spanish?",
+      "content": {
+        "options": [
+          "A wish",
+          "A fact",
+          "A command",
+          "A suggestion"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Ojalá' expresses a wish or hope for something to happen.",
+      "hint": "Think about expressing desires.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence correctly uses 'si' for a condition?",
+      "content": {
+        "options": [
+          "Si tengo tiempo, iré al cine.",
+          "Si quiero, ir al cine.",
+          "Si tengo tiempo, al cine voy.",
+          "Si tiempo tengo, yo iré al cine."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct sentence uses 'si' to set up a condition that is clear and logical.",
+      "hint": "Look for correct structure with 'si'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ojalá que ______ (tener) un futuro brillante.'",
+      "content": {
+        "sentence": "Ojalá que ______ (tener) un futuro brillante.",
+        "correctAnswer": "tenga",
+        "acceptableAnswers": [
+          "tenga"
+        ],
+        "options": [
+          "tengo",
+          "tenga",
+          "tenía",
+          "tendré"
+        ]
+      },
+      "explanation": "'Tenga' is the correct subjunctive form used after 'ojalá'.",
+      "hint": "Think about the subjunctive mood.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Espero que ______ (haber) paz en el futuro.'",
+      "content": {
+        "sentence": "Espero que ______ (haber) paz en el futuro.",
+        "correctAnswer": "haya",
+        "acceptableAnswers": [
+          "haya"
+        ],
+        "options": [
+          "hay",
+          "había",
+          "haya",
+          "habrá"
+        ]
+      },
+      "explanation": "'Haya' is the correct subjunctive form used with 'espero que'.",
+      "hint": "Consider the future and hopes.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'si, sueño, tengo, un, día, perfecto'",
+      "content": {
+        "words": [
+          "sueño",
+          "tengo",
+          "un",
+          "perfecto",
+          "día",
+          "si"
+        ],
+        "correctOrder": [
+          "si",
+          "tengo",
+          "un",
+          "sueño",
+          "perfecto",
+          "día"
+        ],
+        "translation": "If I have a perfect day"
+      },
+      "explanation": "The correct order conveys a conditional statement.",
+      "hint": "Start with 'si'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I hope to travel this summer.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I hope to travel this summer.'",
+        "correctAnswer": "Espero viajar este verano.",
+        "acceptableAnswers": [
+          "Espero viajar en verano."
+        ]
+      },
+      "explanation": "The translation captures the hope of traveling.",
+      "hint": "Use 'espero' for 'I hope'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ojalá que llueva mañana.'",
+      "content": {
+        "ttsText": "Ojalá que llueva mañana.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I hope it rains tomorrow.",
+          "I wish it rained tomorrow.",
+          "I hope it rained yesterday.",
+          "I want it to rain tomorrow."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation expresses hope about the weather.",
+      "hint": "Focus on 'ojalá' meaning hope.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'I wish I could speak Spanish fluently.'",
+      "content": {
+        "targetText": "Ojalá pudiera hablar español con fluidez.",
+        "context": "Expressing a wish to speak Spanish.",
+        "acceptableVariants": [
+          "Ojalá hablara español fluidamente.",
+          "Ojalá que pudiera hablar español perfectamente."
+        ]
+      },
+      "explanation": "This sentence correctly uses 'ojalá' to express a wish.",
+      "hint": "Use 'pudiera' for 'could'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

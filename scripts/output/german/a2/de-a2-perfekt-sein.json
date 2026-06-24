@@ -1,0 +1,409 @@
+{
+  "lesson": {
+    "title": "Perfekt with Sein - Movement Verbs",
+    "type": "GRAMMAR",
+    "slug": "de-a2-perfekt-sein"
+  },
+  "unit": "More on the Past",
+  "unitOrder": 2,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to use the Perfekt tense with the verb 'sein' for movement verbs in German. You will also practice forming sentences that describe past actions related to movement.",
+      "culturalNote": "In German-speaking countries, movement verbs are commonly used in everyday conversations, especially when discussing travel and experiences."
+    },
+    "vocabulary": [
+      {
+        "term": "der Weg",
+        "translation": "the way/path",
+        "definition": "a route or direction",
+        "pronunciation": "deh(r) vehk",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich gehe den Weg zur Schule.",
+          "translation": "I am going the way to school."
+        },
+        "tip": "Remember, 'Weg' is masculine (der Weg) and its plural is 'die Wege'."
+      },
+      {
+        "term": "die Stadt",
+        "translation": "the city",
+        "definition": "a large town",
+        "pronunciation": "dee shtaht",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe die Stadt gesehen.",
+          "translation": "I saw the city."
+        },
+        "tip": "'Stadt' is feminine (die Stadt) and its plural is 'die Städte'."
+      },
+      {
+        "term": "kommen",
+        "translation": "to come",
+        "definition": "to arrive or move towards",
+        "pronunciation": "koh-men",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Er ist schnell gekommen.",
+          "translation": "He came quickly."
+        },
+        "tip": "Use 'ist' in Perfekt with 'kommen': 'Er ist gekommen'."
+      },
+      {
+        "term": "fahren",
+        "translation": "to drive/go (by vehicle)",
+        "definition": "to travel in a vehicle",
+        "pronunciation": "fah-ren",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Wir sind nach Berlin gefahren.",
+          "translation": "We drove to Berlin."
+        },
+        "tip": "'Fahren' uses 'sein' in Perfekt: 'Wir sind gefahren'."
+      },
+      {
+        "term": "laufen",
+        "translation": "to run/walk",
+        "definition": "to move at a speed faster than a walk",
+        "pronunciation": "lau-fen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich bin schnell gelaufen.",
+          "translation": "I ran quickly."
+        },
+        "tip": "Like 'fahren', 'laufen' takes 'sein': 'Ich bin gelaufen'."
+      },
+      {
+        "term": "die Reise",
+        "translation": "the trip/journey",
+        "definition": "a travel experience",
+        "pronunciation": "dee ry-zeh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wir haben eine schöne Reise gemacht.",
+          "translation": "We had a nice trip."
+        },
+        "tip": "'Reise' is feminine (die Reise) and its plural is 'die Reisen'."
+      },
+      {
+        "term": "das Hotel",
+        "translation": "the hotel",
+        "definition": "a place for travelers to stay",
+        "pronunciation": "das ho-tel",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Hotel war teuer.",
+          "translation": "The hotel was expensive."
+        },
+        "tip": "'Hotel' is neuter (das Hotel) and its plural is 'die Hotels'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Perfekt with Sein",
+        "explanation": "In German, the Perfekt tense is used to talk about past actions. For movement verbs, we often use 'sein' as the auxiliary verb. This means that instead of using 'haben', we use 'sein' + the past participle of the main verb. Common movement verbs include 'gehen', 'kommen', 'fahren', and 'laufen'.",
+        "table": {
+          "headers": [
+            "Movement Verb",
+            "Perfekt Form"
+          ],
+          "rows": [
+            [
+              "gehen",
+              "ist gegangen"
+            ],
+            [
+              "kommen",
+              "ist gekommen"
+            ],
+            [
+              "fahren",
+              "ist gefahren"
+            ],
+            [
+              "laufen",
+              "ist gelaufen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich bin nach Hause gegangen.",
+            "translation": "I went home.",
+            "breakdown": "Here, 'bin' is the form of 'sein' and 'gegangen' is the past participle of 'gehen'."
+          },
+          {
+            "original": "Sie ist in die Stadt gefahren.",
+            "translation": "She drove to the city.",
+            "breakdown": "'Ist' is the form of 'sein' and 'gefahren' is the past participle of 'fahren'."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Ich habe gegangen' instead of 'Ich bin gegangen'. Use 'sein' for movement verbs.",
+          "Using 'ist' with 'haben' instead of 'sein' for movement verbs."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Trip",
+      "context": "Anna and Lukas are discussing their plans for a weekend trip.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Lukas, wo bist du am Wochenende?",
+          "translation": "Hello Lukas, where are you going on the weekend?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich bin nach Berlin gefahren.",
+          "translation": "I went to Berlin.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist toll! Wie lange bleibst du dort?",
+          "translation": "That's great! How long are you staying there?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich bleibe zwei Tage. Und du?",
+          "translation": "I am staying for two days. And you?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich gehe in die Stadt und mache eine Reise nach München.",
+          "translation": "I am going to the city and making a trip to Munich.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hast du ein Hotel gebucht?",
+          "translation": "Did you book a hotel?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, ich habe ein schönes Hotel gefunden.",
+          "translation": "Yes, I found a nice hotel.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Viel Spaß in München!",
+          "translation": "Have fun in Munich!",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Travel in Germany",
+      "text": "Traveling is a popular activity in Germany, and many Germans enjoy visiting other cities and regions. The efficient train system makes it easy to explore various destinations.",
+      "funFact": "Germany has over 1,500 different types of sausages, making it a paradise for food lovers while traveling!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Perfekt tense is formed with 'sein' for movement verbs.",
+        "Common movement verbs include 'gehen', 'kommen', 'fahren', and 'laufen'.",
+        "Use the past participle with 'sein' to describe past actions.",
+        "Practice using movement verbs in different contexts."
+      ],
+      "nextSteps": "Continue practicing with movement verbs and try forming sentences using the Perfekt tense in different scenarios."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which verb means 'to come' in German?",
+      "content": {
+        "options": [
+          "fahren",
+          "laufen",
+          "kommen",
+          "reisen"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "The correct translation of 'to come' in German is 'kommen'.",
+      "hint": "Think about arriving at a place.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the past participle of 'fahren'?",
+      "content": {
+        "options": [
+          "gefahren",
+          "gekommen",
+          "gelaufen",
+          "gereist"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Fahren' means 'to drive' or 'to go', and its past participle is 'gefahren'.",
+      "hint": "It's a movement verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Ich ___ nach Berlin ______. (to come)",
+      "content": {
+        "sentence": "Ich ___ nach Berlin ______.",
+        "correctAnswer": "bin gekommen",
+        "acceptableAnswers": [
+          "bin gekommen"
+        ],
+        "options": [
+          "bin gegangen",
+          "bin gekommen",
+          "bin gefahren"
+        ]
+      },
+      "explanation": "The correct answer is 'bin gekommen', which is the past participle of 'kommen'.",
+      "hint": "Remember to use 'sein' for movement verbs.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Er ___ im Hotel ______. (to stay)",
+      "content": {
+        "sentence": "Er ___ im Hotel ______.",
+        "correctAnswer": "ist geblieben",
+        "acceptableAnswers": [
+          "ist geblieben"
+        ],
+        "options": [
+          "ist gefahren",
+          "ist geblieben",
+          "ist gekommen"
+        ]
+      },
+      "explanation": "'Er ist geblieben' means 'He has stayed'. 'Bleiben' uses 'sein' in the perfect tense.",
+      "hint": "Think about where someone might spend the night.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'nach, wir, die Stadt, gefahren, sind'",
+      "content": {
+        "words": [
+          "nach",
+          "wir",
+          "die",
+          "Stadt",
+          "gefahren",
+          "sind"
+        ],
+        "correctOrder": [
+          "wir",
+          "sind",
+          "nach",
+          "die",
+          "Stadt",
+          "gefahren"
+        ],
+        "translation": "We have gone to the city."
+      },
+      "explanation": "The correct order forms a complete sentence in the perfect tense.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I have traveled to the city'",
+      "content": {
+        "correctAnswer": "Ich bin in die Stadt gereist",
+        "acceptableAnswers": [
+          "Ich bin in die Stadt gereist",
+          "Ich habe die Stadt besucht"
+        ]
+      },
+      "explanation": "The correct translation uses 'sein' because 'reisen' is a movement verb.",
+      "hint": "Remember to use 'sein' for movement.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct English translation: 'Ich bin gelaufen.'",
+      "content": {
+        "ttsText": "Ich bin gelaufen.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I have walked.",
+          "I have come.",
+          "I have gone."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Ich bin gelaufen' translates to 'I have walked' in English.",
+      "hint": "Think about walking as a movement.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in German: 'I came from the hotel.'",
+      "content": {
+        "targetText": "Ich bin vom Hotel gekommen.",
+        "context": "Translate the sentence into German.",
+        "acceptableVariants": [
+          "Ich bin aus dem Hotel gekommen.",
+          "Ich bin vom Hotel gekommen."
+        ]
+      },
+      "explanation": "The correct sentence uses 'sein' because it is a movement verb.",
+      "hint": "Use 'sein' when talking about coming or going.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Sie ___ zum Hotel ______. (to walk)",
+      "content": {
+        "sentence": "Sie ___ zum Hotel ______.",
+        "correctAnswer": "ist gelaufen",
+        "acceptableAnswers": [
+          "ist gelaufen"
+        ],
+        "options": [
+          "ist gegangen",
+          "ist gelaufen",
+          "ist gefahren"
+        ]
+      },
+      "explanation": "'Sie ist gelaufen' means 'She has walked to the hotel'. 'Laufen' requires 'sein'.",
+      "hint": "This verb indicates movement by foot.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct form of 'sein' in the past for 'ich'?",
+      "content": {
+        "options": [
+          "bin",
+          "bist",
+          "ist",
+          "sind"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Ich bin' is the correct form of 'sein' in the present tense.",
+      "hint": "Think about the subject 'I'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    }
+  ]
+}

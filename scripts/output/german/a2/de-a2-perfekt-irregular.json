@@ -1,0 +1,393 @@
+{
+  "lesson": {
+    "title": "Perfekt - Irregular Participles",
+    "type": "GRAMMAR",
+    "slug": "de-a2-perfekt-irregular"
+  },
+  "unit": "Talking About the Past",
+  "unitOrder": 1,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about the Perfekt tense in German, focusing on irregular participles. You'll understand how to form sentences in the past using these irregular verbs, which are essential for talking about experiences and events.",
+      "culturalNote": "The Perfekt tense is commonly used in spoken German to describe past actions, especially in casual conversations. Understanding it can help you connect better with native speakers."
+    },
+    "vocabulary": [
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A written work that is typically bound and consists of pages.",
+        "pronunciation": "das book",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe das Buch gelesen.",
+          "translation": "I have read the book."
+        },
+        "tip": "Remember that 'das' indicates it is neuter. The plural is 'die Bücher'."
+      },
+      {
+        "term": "der Freund",
+        "translation": "the friend",
+        "definition": "A person whom one knows and has a bond of mutual affection.",
+        "pronunciation": "der froint",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe meinen Freund getroffen.",
+          "translation": "I have met my friend."
+        },
+        "tip": "This word is masculine, and the plural is 'die Freunde'."
+      },
+      {
+        "term": "die Stadt",
+        "translation": "the city",
+        "definition": "A large town or urban area.",
+        "pronunciation": "dee shtadt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich bin in die Stadt gegangen.",
+          "translation": "I went to the city."
+        },
+        "tip": "'Die' indicates it is feminine. The plural is 'die Städte'."
+      },
+      {
+        "term": "essen",
+        "translation": "to eat",
+        "definition": "To consume food.",
+        "pronunciation": "ess-en",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich habe Pizza gegessen.",
+          "translation": "I have eaten pizza."
+        },
+        "tip": "The irregular participle is 'gegessen'."
+      },
+      {
+        "term": "sehen",
+        "translation": "to see",
+        "definition": "To perceive with the eyes.",
+        "pronunciation": "zay-en",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich habe den Film gesehen.",
+          "translation": "I have seen the movie."
+        },
+        "tip": "The irregular participle is 'gesehen'."
+      },
+      {
+        "term": "fahren",
+        "translation": "to drive/go",
+        "definition": "To move or travel in a vehicle.",
+        "pronunciation": "fahr-en",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Wir sind nach Berlin gefahren.",
+          "translation": "We have gone to Berlin."
+        },
+        "tip": "The irregular participle is 'gefahren'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Perfekt Tense with Irregular Participles",
+        "explanation": "The Perfekt tense is formed using the auxiliary verbs 'haben' or 'sein' and the past participle of the main verb. Irregular verbs have unique past participles that do not follow standard patterns. It's important to memorize these irregular forms.",
+        "table": {
+          "headers": [
+            "Verb (Infinitive)",
+            "Past Participle"
+          ],
+          "rows": [
+            [
+              "essen",
+              "gegessen"
+            ],
+            [
+              "sehen",
+              "gesehen"
+            ],
+            [
+              "fahren",
+              "gefahren"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich habe gegessen.",
+            "translation": "I have eaten.",
+            "breakdown": "The auxiliary verb 'haben' is used with the irregular participle 'gegessen'."
+          },
+          {
+            "original": "Er ist nach Hause gefahren.",
+            "translation": "He has gone home.",
+            "breakdown": "The auxiliary verb 'sein' is used with the irregular participle 'gefahren'."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'haben' instead of 'sein' with verbs of movement like 'fahren'.",
+          "Confusing regular and irregular participles, such as saying 'geessen' instead of 'gegessen'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking About the Weekend",
+      "context": "A conversation between two friends discussing their weekend activities.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Lukas! Was hast du am Wochenende gemacht?",
+          "translation": "Hello Lukas! What did you do on the weekend?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Anna! Ich habe einen Film gesehen.",
+          "translation": "Hello Anna! I watched a movie."
+        },
+        {
+          "speaker": 0,
+          "text": "Welchen Film hast du gesehen?",
+          "translation": "Which movie did you see?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich habe den neuen Actionfilm gesehen.",
+          "translation": "I saw the new action movie."
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt spannend! Ich habe auch viel gemacht.",
+          "translation": "That sounds exciting! I also did a lot."
+        },
+        {
+          "speaker": 1,
+          "text": "Was hast du gemacht?",
+          "translation": "What did you do?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich bin in die Stadt gefahren und habe mit Freunden gegessen.",
+          "translation": "I went to the city and ate with friends."
+        },
+        {
+          "speaker": 1,
+          "text": "Super! Was habt ihr gegessen?",
+          "translation": "Great! What did you eat?"
+        },
+        {
+          "speaker": 0,
+          "text": "Wir haben Pizza und Salat gegessen.",
+          "translation": "We ate pizza and salad."
+        },
+        {
+          "speaker": 1,
+          "text": "Lecker! Ich liebe Pizza.",
+          "translation": "Yummy! I love pizza."
+        }
+      ]
+    },
+    "culture": {
+      "title": "German Cinema",
+      "text": "German films often explore deep themes and cultural nuances, making them a great way to learn the language. Watching films can also help improve your listening skills and understanding of colloquial German.",
+      "funFact": "Germany has a rich film history, including famous directors like Fritz Lang and modern hits like 'Good Bye Lenin!'"
+    },
+    "summary": {
+      "keyPoints": [
+        "The Perfekt tense is formed with 'haben' or 'sein' and the past participle.",
+        "Irregular verbs have unique past participles that must be memorized.",
+        "Common irregular participles include 'gegessen', 'gesehen', and 'gefahren'.",
+        "Practicing these verbs will improve your past-tense speaking skills."
+      ],
+      "nextSteps": "Practice forming sentences in the Perfekt tense using irregular verbs. Try talking about your weekend or past experiences."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the past participle of 'essen'?",
+      "content": {
+        "options": [
+          "gegessen",
+          "essen",
+          "gegessen haben",
+          "essen gemacht"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'gegessen' is the correct past participle form of 'essen'.",
+      "hint": "Think about how you say 'eaten' in German.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the past participle of 'fahren'?",
+      "content": {
+        "options": [
+          "gefahren",
+          "fahren",
+          "gefahren haben",
+          "fahrt gemacht"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'gefahren' is the correct past participle form of 'fahren'.",
+      "hint": "Consider how you say 'driven' in German.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich habe ein ___ gelesen.",
+      "content": {
+        "sentence": "Ich habe ein ___ gelesen.",
+        "correctAnswer": "Buch",
+        "acceptableAnswers": [
+          "das Buch"
+        ],
+        "options": [
+          "Buch",
+          "Freund",
+          "Stadt"
+        ]
+      },
+      "explanation": "'Buch' is the correct noun to complete the sentence meaning 'book'.",
+      "hint": "Think about what you read.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Er hat seinen ___ gesehen.",
+      "content": {
+        "sentence": "Er hat seinen ___ gesehen.",
+        "correctAnswer": "Freund",
+        "acceptableAnswers": [
+          "der Freund"
+        ],
+        "options": [
+          "Freund",
+          "Stadt",
+          "Buch"
+        ]
+      },
+      "explanation": "'Freund' is the correct answer meaning 'friend'.",
+      "hint": "Think about someone close to you.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'gefahren / Wir / sind / nach / die Stadt'.",
+      "content": {
+        "words": [
+          "gefahren",
+          "Wir",
+          "sind",
+          "nach",
+          "die",
+          "Stadt"
+        ],
+        "correctOrder": [
+          "Wir",
+          "sind",
+          "nach",
+          "die",
+          "Stadt",
+          "gefahren"
+        ],
+        "translation": "We drove to the city."
+      },
+      "explanation": "The correct order forms a grammatically correct sentence.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I have seen the city.'",
+      "content": {
+        "prompt": "Translate to German: 'I have seen the city.'",
+        "correctAnswer": "Ich habe die Stadt gesehen.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation captures the past tense correctly.",
+      "hint": "Think about the participle form of 'see'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct past participle: 'Ich habe das Buch ___.'",
+      "content": {
+        "ttsText": "Ich habe das Buch gelesen.",
+        "ttsLang": "de-DE",
+        "options": [
+          "gelesen",
+          "gelesen haben",
+          "lesen",
+          "lies"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'gelesen', which means 'read'.",
+      "hint": "Listen for the word that means 'read'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in German: 'I have eaten pizza.'",
+      "content": {
+        "targetText": "Ich habe Pizza gegessen.",
+        "context": "Respond to what you had for dinner.",
+        "acceptableVariants": [
+          "Ich habe Pizza gegessen."
+        ]
+      },
+      "explanation": "This is the correct way to express that you have eaten pizza.",
+      "hint": "Recall the past participle of 'essen'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the past participle of 'sehen'?",
+      "content": {
+        "options": [
+          "gesehen",
+          "sehen",
+          "gesehen haben",
+          "seh"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'gesehen' is the correct past participle form of 'sehen'.",
+      "hint": "Think about how to say 'seen' in German.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Wir haben nach ___ gefahren.",
+      "content": {
+        "sentence": "Wir haben nach ___ gefahren.",
+        "correctAnswer": "Stadt",
+        "acceptableAnswers": [
+          "die Stadt"
+        ],
+        "options": [
+          "Stadt",
+          "Freund",
+          "Buch"
+        ]
+      },
+      "explanation": "'Stadt' is the correct answer to complete the sentence meaning 'city'.",
+      "hint": "Think where you might go.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

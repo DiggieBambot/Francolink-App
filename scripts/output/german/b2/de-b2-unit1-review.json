@@ -1,0 +1,355 @@
+{
+  "lesson": {
+    "title": "Unit 1 Review",
+    "type": "REVIEW",
+    "slug": "de-b2-unit1-review"
+  },
+  "unit": "Advanced Grammar Review",
+  "unitOrder": 1,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this review unit, you will consolidate your understanding of advanced German grammar concepts, including the use of the genitive case, Konjunktiv I and II, and complex sentence structures. Additionally, you will practice idiomatic expressions and formal register to enhance your nuanced communication skills.",
+      "culturalNote": "In German-speaking countries, formal language is often used in business settings and when addressing someone with whom you are not familiar. This reflects the cultural value placed on respect and politeness."
+    },
+    "vocabulary": [
+      {
+        "term": "der Genitiv",
+        "translation": "the genitive case",
+        "definition": "Used to indicate possession or relationships between nouns.",
+        "pronunciation": "dair geh-nee-tiv",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Buch des Lehrers ist interessant.",
+          "translation": "The book of the teacher is interesting."
+        },
+        "tip": "Remember that the genitive often answers the question 'wessen?' (whose?)."
+      },
+      {
+        "term": "die Konjunktiv II-Form",
+        "translation": "the subjunctive II form",
+        "definition": "Used for hypothetical situations and wishes.",
+        "pronunciation": "dee kon-yunk-tiv tsvei form",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wenn ich mehr Zeit hätte, würde ich reisen.",
+          "translation": "If I had more time, I would travel."
+        },
+        "tip": "The verb 'werden' is commonly used to form the subjunctive II."
+      },
+      {
+        "term": "das Satzgefüge",
+        "translation": "the complex sentence structure",
+        "definition": "A sentence that contains one main clause and one or more subordinate clauses.",
+        "pronunciation": "dahs sahts-ge-fue-ge",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Obwohl es regnete, gingen wir spazieren.",
+          "translation": "Although it was raining, we went for a walk."
+        },
+        "tip": "In complex sentences, remember that the verb in the subordinate clause comes at the end."
+      },
+      {
+        "term": "die Redewendung",
+        "translation": "the idiom",
+        "definition": "A phrase whose meaning is not directly related to the individual words.",
+        "pronunciation": "dee ray-deh-vung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das ist mir egal.",
+          "translation": "I don't care about that."
+        },
+        "tip": "Idioms can vary widely between regions; learn expressions commonly used in your target area."
+      },
+      {
+        "term": "der Ausdruck",
+        "translation": "the expression",
+        "definition": "A specific way of phrasing something.",
+        "pronunciation": "dair owss-druk",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Sein Ausdruck war sehr ernst.",
+          "translation": "His expression was very serious."
+        },
+        "tip": "Expressions often reflect cultural nuances; practice using them in context."
+      },
+      {
+        "term": "die Höflichkeit",
+        "translation": "the politeness",
+        "definition": "The quality of being polite and respectful.",
+        "pronunciation": "dee höhf-likh-kite",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Höflichkeit ist in der deutschen Kultur sehr wichtig.",
+          "translation": "Politeness is very important in German culture."
+        },
+        "tip": "Use formal 'Sie' when addressing strangers or in professional contexts."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Genitive Case",
+        "explanation": "The genitive case in German shows possession and is often used in formal language. It can be recognized by specific articles and endings. For example, 'der' changes to 'des' for masculine nouns in the genitive. It is important to practice recognizing the genitive in both written and spoken contexts.",
+        "table": {
+          "headers": [
+            "Noun",
+            "Genitive Form"
+          ],
+          "rows": [
+            [
+              "der Lehrer",
+              "des Lehrers"
+            ],
+            [
+              "die Frau",
+              "der Frau"
+            ],
+            [
+              "das Buch",
+              "des Buches"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Die Farbe des Autos ist rot.",
+            "translation": "The color of the car is red.",
+            "breakdown": "Here, 'des Autos' indicates possession (the car's color)."
+          }
+        ],
+        "commonMistakes": [
+          "Using the nominative instead of the genitive: 'Das Buch von der Lehrer' should be 'Das Buch des Lehrers.'",
+          "Forgetting to change the article: Remember, 'des' for masculine nouns."
+        ]
+      },
+      {
+        "title": "Using Konjunktiv II for Wishes",
+        "explanation": "The Konjunktiv II is used to express wishes, hypothetical situations, and unreal conditions. It often employs 'würde' + infinitive for verbs that are irregular. It is essential in polite requests and formal writing.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Konjunktiv II"
+          ],
+          "rows": [
+            [
+              "gehen",
+              "ginge"
+            ],
+            [
+              "haben",
+              "hätte"
+            ],
+            [
+              "sein",
+              "wäre"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich wünschte, ich wäre reich.",
+            "translation": "I wish I were rich.",
+            "breakdown": "In this sentence, 'wäre' indicates a hypothetical state."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative where the subjunctive is needed: 'Wenn ich reich bin' should be 'Wenn ich reich wäre.'",
+          "Forgetting to conjugate the verb correctly in the Konjunktiv II form."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Future Plans",
+      "context": "A conversation between two friends at a café about their future aspirations.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Was hast du für die Zukunft geplant, Max?",
+          "translation": "What have you planned for the future, Max?",
+          "note": "Anna asks about Max's future."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich würde gerne im Ausland arbeiten, wenn ich die Möglichkeit hätte.",
+          "translation": "I would like to work abroad if I had the opportunity."
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt spannend! Hast du schon ein Land im Kopf?",
+          "translation": "That sounds exciting! Do you already have a country in mind?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich denke an Kanada oder Australien.",
+          "translation": "Yes, I'm thinking of Canada or Australia."
+        },
+        {
+          "speaker": 0,
+          "text": "Warum gerade diese Länder?",
+          "translation": "Why specifically those countries?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich finde die Kulturen dort sehr interessant und die Landschaft ist wunderschön.",
+          "translation": "I find the cultures there very interesting, and the landscape is beautiful."
+        },
+        {
+          "speaker": 0,
+          "text": "Das verstehe ich. Ich wünsche mir, ich könnte dich dort besuchen.",
+          "translation": "I understand. I wish I could visit you there."
+        },
+        {
+          "speaker": 1,
+          "text": "Das wäre toll! Vielleicht können wir zusammen reisen.",
+          "translation": "That would be great! Maybe we can travel together."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Cultural Perspectives on Work",
+      "text": "In Germany, Austria, and Switzerland, there is a strong emphasis on work-life balance. Many professionals value their leisure time as much as their careers, often taking vacations and pursuing hobbies. This cultural perspective can influence the way people discuss their future aspirations.",
+      "funFact": "In Germany, it's common for employees to receive a minimum of 20 vacation days per year, reflecting the importance of downtime."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding and using the genitive case correctly.",
+        "Mastering the Konjunktiv II for expressing wishes and hypotheticals.",
+        "Utilizing complex sentence structures effectively.",
+        "Incorporating idiomatic expressions in conversation."
+      ],
+      "nextSteps": "Practice writing your own sentences using the genitive and Konjunktiv II. Engage in conversations with peers to reinforce your understanding of the vocabulary and grammar points."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Genitive case used for in German?",
+      "content": {
+        "options": [
+          "To indicate possession",
+          "To show location",
+          "To express time",
+          "To form questions"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The Genitive case is primarily used to indicate possession in German.",
+      "hint": "Think about how you express ownership.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which form is used to express hypotheticals in German?",
+      "content": {
+        "options": [
+          "Konjunktiv I",
+          "Konjunktiv II",
+          "Indikativ",
+          "Imperativ"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The Konjunktiv II form is used for expressing hypotheticals or unreal situations.",
+      "hint": "It often starts with 'Wenn...' (If...).",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Der ___ (Genitiv) ist wichtig für den deutschen Satzbau.",
+      "content": {
+        "sentence": "Der ___ ist wichtig für den deutschen Satzbau.",
+        "correctAnswer": "Genitiv",
+        "acceptableAnswers": [
+          "Genitiv"
+        ],
+        "options": [
+          "Nominativ",
+          "Akkusativ",
+          "Genitiv",
+          "Dativ"
+        ]
+      },
+      "explanation": "The Genitive case is important for the structure of German sentences.",
+      "hint": "This case indicates ownership.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the correct form: Wenn ich mehr Zeit hätte, ___ ich mehr reisen.",
+      "content": {
+        "sentence": "Wenn ich mehr Zeit hätte, ___ ich mehr reisen.",
+        "correctAnswer": "würde",
+        "acceptableAnswers": [
+          "würde"
+        ],
+        "options": [
+          "werde",
+          "würde",
+          "wäre",
+          "habe"
+        ]
+      },
+      "explanation": "The sentence uses Konjunktiv II to express a hypothetical situation.",
+      "hint": "Look for the conditional form used in hypotheticals.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'Politeness is important in communication.'",
+      "content": {
+        "prompt": "Translate to German: 'Politeness is important in communication.'",
+        "correctAnswer": "Höflichkeit ist wichtig in der Kommunikation.",
+        "acceptableAnswers": [
+          "Höflichkeit ist wichtig für die Kommunikation."
+        ]
+      },
+      "explanation": "The translation accurately conveys the meaning of the original sentence.",
+      "hint": "Think of the word for politeness in German.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation.",
+      "content": {
+        "ttsText": "Das Satzgefüge ist ein wichtiger Bestandteil der Grammatik.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The sentence structure is an important part of grammar.",
+          "The clause structure is a less important part of grammar.",
+          "The phrase structure is an essential part of grammar.",
+          "The sentence structure is not important."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The listened sentence directly translates to the correct option.",
+      "hint": "Focus on the keywords in the sentence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Speak this sentence: 'Ich finde Höflichkeit sehr wichtig.'",
+      "content": {
+        "targetText": "Ich finde Höflichkeit sehr wichtig.",
+        "context": "Expressing an opinion on politeness.",
+        "acceptableVariants": [
+          "Ich halte Höflichkeit für sehr wichtig.",
+          "Höflichkeit ist mir sehr wichtig."
+        ]
+      },
+      "explanation": "This sentence expresses a personal opinion clearly.",
+      "hint": "Use a clear voice when speaking.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

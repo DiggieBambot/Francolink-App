@@ -1,0 +1,367 @@
+{
+  "lesson": {
+    "title": "At the Doctor",
+    "type": "CONVERSATION",
+    "slug": "es-a2-doctor"
+  },
+  "unit": "Health & Body",
+  "unitOrder": 4,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn essential vocabulary and phrases for visiting the doctor in Spanish. You will also practice a simple dialogue that helps you describe symptoms and ask for help.",
+      "culturalNote": "In many Spanish-speaking countries, it is common to greet the doctor with a handshake and a friendly smile, reflecting the importance of personal connection."
+    },
+    "vocabulary": [
+      {
+        "term": "el médico",
+        "translation": "the doctor",
+        "definition": "A healthcare professional who diagnoses and treats illnesses.",
+        "pronunciation": "el MEH-dee-ko",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El médico me ayudó mucho.",
+          "translation": "The doctor helped me a lot."
+        },
+        "tip": "Remember that 'médico' is masculine; use 'la médica' for a female doctor."
+      },
+      {
+        "term": "la consulta",
+        "translation": "the consultation",
+        "definition": "A meeting with a doctor to discuss health issues.",
+        "pronunciation": "la kon-SOOL-ta",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo una consulta mañana.",
+          "translation": "I have a consultation tomorrow."
+        },
+        "tip": "Think of 'consulta' as a 'consultation' in English."
+      },
+      {
+        "term": "la medicina",
+        "translation": "the medicine",
+        "definition": "A substance used to treat illnesses.",
+        "pronunciation": "la meh-dee-SEE-na",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Necesito medicina para la tos.",
+          "translation": "I need medicine for the cough."
+        },
+        "tip": "Remember that 'medicina' refers to the actual medicine, not the practice of medicine."
+      },
+      {
+        "term": "el síntoma",
+        "translation": "the symptom",
+        "definition": "A sign of an illness.",
+        "pronunciation": "el SEEN-to-ma",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El síntoma es muy grave.",
+          "translation": "The symptom is very serious."
+        },
+        "tip": "Think of 'síntoma' as a 'symptom' in English."
+      },
+      {
+        "term": "la fiebre",
+        "translation": "the fever",
+        "definition": "An increase in body temperature, often indicating illness.",
+        "pronunciation": "la FEE-eb-re",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo fiebre desde ayer.",
+          "translation": "I have had a fever since yesterday."
+        },
+        "tip": "Remember that 'fiebre' is feminine."
+      },
+      {
+        "term": "la receta",
+        "translation": "the prescription",
+        "definition": "A written order for medication from a doctor.",
+        "pronunciation": "la re-SE-ta",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El médico me dio una receta.",
+          "translation": "The doctor gave me a prescription."
+        },
+        "tip": "Think of 'receta' as a 'recipe' for medicine."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Simple Future Tense",
+        "explanation": "The simple future tense is used to express what will happen. In Spanish, you form it by adding endings to the infinitive verb. The endings are: -é, -ás, -á, -emos, -éis, -án.",
+        "table": {
+          "headers": [
+            "Pronoun",
+            "Ending"
+          ],
+          "rows": [
+            [
+              "yo",
+              "-é"
+            ],
+            [
+              "tú",
+              "-ás"
+            ],
+            [
+              "él/ella/usted",
+              "-á"
+            ],
+            [
+              "nosotros",
+              "-emos"
+            ],
+            [
+              "vosotros",
+              "-éis"
+            ],
+            [
+              "ellos/ellas/ustedes",
+              "-án"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo iré al médico.",
+            "translation": "I will go to the doctor.",
+            "breakdown": "The verb 'ir' (to go) is in the simple future form 'iré' (I will go)."
+          }
+        ],
+        "commonMistakes": [
+          "Using the present tense instead of the future. Example: 'Voy al médico' (I am going) instead of 'Iré al médico' (I will go).",
+          "Forgetting to match the subject with the correct ending."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Doctor's Office",
+      "context": "A patient visits the doctor to discuss their symptoms.",
+      "speakers": [
+        "Doctor",
+        "Patient"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, ¿cómo estás?",
+          "translation": "Hello, how are you?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, doctor. No estoy bien.",
+          "translation": "Hello, doctor. I am not well."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Cuáles son tus síntomas?",
+          "translation": "What are your symptoms?"
+        },
+        {
+          "speaker": 1,
+          "text": "Tengo fiebre y tos.",
+          "translation": "I have a fever and a cough."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Desde cuándo tienes fiebre?",
+          "translation": "Since when do you have a fever?"
+        },
+        {
+          "speaker": 1,
+          "text": "La fiebre comenzó ayer.",
+          "translation": "The fever started yesterday."
+        },
+        {
+          "speaker": 0,
+          "text": "Te voy a dar una receta.",
+          "translation": "I am going to give you a prescription."
+        },
+        {
+          "speaker": 1,
+          "text": "Gracias, doctor.",
+          "translation": "Thank you, doctor."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Healthcare in Latin America",
+      "text": "Healthcare systems vary widely across Latin America. Many countries have both public and private healthcare options, and it's common for people to have a personal relationship with their doctor.",
+      "funFact": "In Cuba, healthcare is free for all citizens, and the country has a high doctor-to-patient ratio."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to visiting the doctor.",
+        "Practiced the simple future tense.",
+        "Engaged in a realistic dialogue about symptoms.",
+        "Discussed cultural aspects of healthcare."
+      ],
+      "nextSteps": "Practice using the vocabulary in different sentences and review the simple future tense. You can also try to create your own dialogue based on a visit to the doctor."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'el médico' mean in English?",
+      "content": {
+        "options": [
+          "the doctor",
+          "the medicine",
+          "the patient"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El médico' translates to 'the doctor' in English.",
+      "hint": "Think about who treats you when you're sick.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'symptom' in Spanish?",
+      "content": {
+        "options": [
+          "la fiebre",
+          "el síntoma",
+          "la medicina"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El síntoma' means 'symptom' in Spanish.",
+      "hint": "It's related to what you feel when you're sick.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: El médico me dio una ___ para la tos.",
+      "content": {
+        "sentence": "El médico me dio una ___ para la tos.",
+        "correctAnswer": "medicina",
+        "acceptableAnswers": [
+          "medicina"
+        ],
+        "options": [
+          "receta",
+          "medicina",
+          "consulta"
+        ]
+      },
+      "explanation": "In this context, 'medicina' means 'medicine' which is what the doctor gives you.",
+      "hint": "Think about what you take to feel better.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Tengo ___ de cabeza y no puedo dormir.",
+      "content": {
+        "sentence": "Tengo ___ de cabeza y no puedo dormir.",
+        "correctAnswer": "fiebre",
+        "acceptableAnswers": [
+          "fiebre"
+        ],
+        "options": [
+          "fiebre",
+          "síntoma",
+          "medicina"
+        ]
+      },
+      "explanation": "Here, 'fiebre' means 'fever', which can cause headaches and prevent sleep.",
+      "hint": "It's a common illness sign.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: médico / consulta / la / en / estoy.",
+      "content": {
+        "words": [
+          "médico",
+          "consulta",
+          "la",
+          "en",
+          "estoy"
+        ],
+        "correctOrder": [
+          "estoy",
+          "en",
+          "la",
+          "consulta",
+          "médico"
+        ],
+        "translation": "I am at the doctor's office."
+      },
+      "explanation": "The correct order forms a complete sentence in Spanish.",
+      "hint": "Think about where you go when you're sick.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I need a prescription.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I need a prescription.'",
+        "correctAnswer": "Necesito una receta.",
+        "acceptableAnswers": [
+          "Necesito una receta."
+        ]
+      },
+      "explanation": "'Receta' means 'prescription' in Spanish, which is what you need from the doctor.",
+      "hint": "Think about what you get for medicine.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation.",
+      "content": {
+        "ttsText": "Voy a la consulta del médico.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I go to the doctor's office.",
+          "I am a doctor.",
+          "I need medicine."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The spoken sentence translates to 'I go to the doctor's office.'",
+      "hint": "Focus on where you're going.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'I have a headache.'",
+      "content": {
+        "targetText": "Tengo dolor de cabeza.",
+        "context": "You are feeling unwell and want to explain your symptoms.",
+        "acceptableVariants": [
+          "Tengo un dolor de cabeza.",
+          "Tengo dolor de cabeza."
+        ]
+      },
+      "explanation": "Both sentences correctly express that you have a headache in Spanish.",
+      "hint": "Use 'tengo' for 'I have'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'I need to see the doctor.'",
+      "content": {
+        "targetText": "Necesito ver al médico.",
+        "context": "You're explaining that you need a doctor's appointment.",
+        "acceptableVariants": [
+          "Necesito ir al médico.",
+          "Necesito ver al médico."
+        ]
+      },
+      "explanation": "Both phrases express the need to see a doctor.",
+      "hint": "Remember 'necesito' means 'I need'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

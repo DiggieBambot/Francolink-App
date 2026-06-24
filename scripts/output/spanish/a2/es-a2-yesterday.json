@@ -1,0 +1,353 @@
+{
+  "lesson": {
+    "title": "What Did You Do Yesterday?",
+    "type": "CONVERSATION",
+    "slug": "es-a2-yesterday"
+  },
+  "unit": "Talking About the Past",
+  "unitOrder": 1,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to talk about what you did yesterday using the past tense in Spanish. You will practice vocabulary related to daily activities and improve your conversation skills.",
+      "culturalNote": "In many Spanish-speaking countries, it is common to share stories about daily life during meals or social gatherings, highlighting the importance of community and connection."
+    },
+    "vocabulary": [
+      {
+        "term": "ayer",
+        "translation": "yesterday",
+        "definition": "The day before today.",
+        "pronunciation": "ah-YER",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Ayer fui al cine.",
+          "translation": "Yesterday I went to the movies."
+        },
+        "tip": "Remember that 'ayer' is always used to refer to the previous day."
+      },
+      {
+        "term": "hacer",
+        "translation": "to do/make",
+        "definition": "A verb used to describe actions.",
+        "pronunciation": "ah-SER",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Hice la tarea.",
+          "translation": "I did the homework."
+        },
+        "tip": "In the past tense, 'hacer' changes to 'hice' for 'I did'."
+      },
+      {
+        "term": "comer",
+        "translation": "to eat",
+        "definition": "A verb that indicates the action of eating.",
+        "pronunciation": "koh-MER",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Comí pizza ayer.",
+          "translation": "I ate pizza yesterday."
+        },
+        "tip": "Remember the conjugation in the past: 'comí' for 'I ate'."
+      },
+      {
+        "term": "ver",
+        "translation": "to see",
+        "definition": "A verb meaning to see or watch.",
+        "pronunciation": "BEHR",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Vi una película.",
+          "translation": "I saw a movie."
+        },
+        "tip": "'Ver' in the past for 'I saw' is 'vi'."
+      },
+      {
+        "term": "salir",
+        "translation": "to go out",
+        "definition": "A verb used when leaving a place.",
+        "pronunciation": "sah-LEER",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Salí con mis amigos.",
+          "translation": "I went out with my friends."
+        },
+        "tip": "In the past, 'salí' means 'I went out'."
+      },
+      {
+        "term": "jugar",
+        "translation": "to play",
+        "definition": "A verb that means to play a game or sport.",
+        "pronunciation": "hoo-GAHR",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Jugué fútbol ayer.",
+          "translation": "I played soccer yesterday."
+        },
+        "tip": "Use 'jugué' for 'I played' in the past tense."
+      },
+      {
+        "term": "leer",
+        "translation": "to read",
+        "definition": "A verb indicating the action of reading.",
+        "pronunciation": "leh-ER",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Leí un libro.",
+          "translation": "I read a book."
+        },
+        "tip": "'Leer' in the past for 'I read' is 'leí'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Preterite Tense",
+        "explanation": "The preterite tense is used to describe actions that were completed in the past. It is important to use the correct endings for regular verbs. For example, -ar verbs change to -é for 'I', -er/-ir verbs change to -í.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Preterite Ending"
+          ],
+          "rows": [
+            [
+              "Yo (I)",
+              "-é for -ar verbs, -í for -er/-ir verbs"
+            ],
+            [
+              "Tú (You)",
+              "-aste for -ar verbs, -iste for -er/-ir verbs"
+            ],
+            [
+              "Él/Ella/Usted (He/She/You formal)",
+              "-ó for -ar verbs, -ió for -er/-ir verbs"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ayer jugué fútbol.",
+            "translation": "Yesterday I played soccer.",
+            "breakdown": "Here, 'jugué' is the preterite form of 'jugar.'"
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Yo juego' instead of 'Yo jugué' for past actions.",
+          "Forgetting to change verb endings for the preterite tense."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking about Yesterday",
+      "context": "A conversation between friends catching up on what they did yesterday.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué hiciste ayer, Ana?",
+          "translation": "What did you do yesterday, Ana?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ayer fui al parque.",
+          "translation": "Yesterday I went to the park."
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué divertido! ¿Con quién fuiste?",
+          "translation": "How fun! Who did you go with?"
+        },
+        {
+          "speaker": 1,
+          "text": "Fui con mis amigos.",
+          "translation": "I went with my friends."
+        },
+        {
+          "speaker": 0,
+          "text": "Yo jugué fútbol con mis amigos.",
+          "translation": "I played soccer with my friends."
+        },
+        {
+          "speaker": 1,
+          "text": "¿Jugaste bien?",
+          "translation": "Did you play well?"
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, ganamos el partido.",
+          "translation": "Yes, we won the match."
+        },
+        {
+          "speaker": 1,
+          "text": "¡Genial! Ayer también leí un libro.",
+          "translation": "Great! I also read a book yesterday."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Traditions of Sharing Stories",
+      "text": "In many Latin American cultures, people enjoy sharing stories about their daily lives during family gatherings or meals. This tradition strengthens bonds within families and communities.",
+      "funFact": "In some countries, it's common to ask about someone's day as a way to show interest and care."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned how to use the preterite tense to talk about completed actions.",
+        "Practiced vocabulary related to daily activities.",
+        "Engaged in a dialogue about what was done yesterday.",
+        "Understood cultural aspects of sharing experiences."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences about your own past activities. Try to write a short paragraph describing your day yesterday."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'ayer' mean in English?",
+      "content": {
+        "options": [
+          "yesterday",
+          "today",
+          "tomorrow",
+          "now"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Ayer' translates to 'yesterday' in English, indicating the day before today.",
+      "hint": "Think about the day before today.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which verb means 'to eat' in Spanish?",
+      "content": {
+        "options": [
+          "comer",
+          "hacer",
+          "ver",
+          "salir"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Comer' is the Spanish verb that means 'to eat'.",
+      "hint": "It’s related to food.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ayer yo ___ en el parque.",
+      "content": {
+        "sentence": "Ayer yo ___ en el parque.",
+        "correctAnswer": "jugué",
+        "acceptableAnswers": [
+          "jugué"
+        ],
+        "options": [
+          "jugar",
+          "jugué",
+          "juegan",
+          "juegas"
+        ]
+      },
+      "explanation": "The correct form of the verb 'jugar' in the past tense for 'yo' is 'jugué'.",
+      "hint": "Think about the past tense of 'to play'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ayer nosotros ___ una película.",
+      "content": {
+        "sentence": "Ayer nosotros ___ una película.",
+        "correctAnswer": "vimos",
+        "acceptableAnswers": [
+          "vimos"
+        ],
+        "options": [
+          "ver",
+          "vemos",
+          "vimos",
+          "ven"
+        ]
+      },
+      "explanation": "'Vimos' is the past tense form of 'ver' for 'nosotros', meaning 'we saw'.",
+      "hint": "It's the past tense of 'to see'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: ayer / salí / con / amigos.",
+      "content": {
+        "words": [
+          "ayer",
+          "salí",
+          "con",
+          "amigos"
+        ],
+        "correctOrder": [
+          "ayer",
+          "salí",
+          "con",
+          "amigos"
+        ],
+        "translation": "Yesterday I went out with friends."
+      },
+      "explanation": "The correct order reflects the natural structure of the sentence in Spanish.",
+      "hint": "Start with the time expression.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I read a book yesterday.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I read a book yesterday.'",
+        "correctAnswer": "Leí un libro ayer.",
+        "acceptableAnswers": [
+          "Leí un libro ayer."
+        ]
+      },
+      "explanation": "The phrase correctly uses the past tense of 'leer' in Spanish.",
+      "hint": "Focus on the past tense of 'to read'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Ayer comí pizza.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Yesterday I ate pizza.",
+          "Yesterday I drank soda.",
+          "Yesterday I played soccer.",
+          "Yesterday I watched TV."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The audio states that 'I ate pizza' yesterday.",
+      "hint": "Listen for the word 'comí'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say: 'I played soccer yesterday.'",
+      "content": {
+        "targetText": "Jugué al fútbol ayer.",
+        "context": "Translate and say in Spanish.",
+        "acceptableVariants": [
+          "Jugué al fútbol ayer."
+        ]
+      },
+      "explanation": "The sentence correctly conveys the action of playing soccer in the past.",
+      "hint": "Use the past tense for 'to play'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

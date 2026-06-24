@@ -1,0 +1,378 @@
+{
+  "lesson": {
+    "title": "Telling a Story",
+    "type": "CONVERSATION",
+    "slug": "es-b1-telling-story"
+  },
+  "unit": "Narrating the Past",
+  "unitOrder": 2,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to tell a story in Spanish, focusing on the past tense and narrative structures. You will practice vocabulary, grammar, and dialogue to enhance your storytelling skills.",
+      "culturalNote": "Storytelling is a significant part of many Latin American cultures, often passed down through generations in oral traditions."
+    },
+    "vocabulary": [
+      {
+        "term": "la historia",
+        "translation": "the story",
+        "definition": "a narrative or account of events",
+        "pronunciation": "lah ees-TOH-ree-ah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me gusta contar la historia de mi infancia.",
+          "translation": "I like to tell the story of my childhood."
+        },
+        "tip": "Think of 'history' to remember 'historia'."
+      },
+      {
+        "term": "el personaje",
+        "translation": "the character",
+        "definition": "a person or figure in a story",
+        "pronunciation": "el pair-so-NAH-he",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El personaje principal es muy interesante.",
+          "translation": "The main character is very interesting."
+        },
+        "tip": "Remember 'character' starts with 'char', like 'personaje'."
+      },
+      {
+        "term": "el conflicto",
+        "translation": "the conflict",
+        "definition": "a struggle or problem in the story",
+        "pronunciation": "el kon-FLIK-toh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El conflicto de la historia es emocionante.",
+          "translation": "The conflict of the story is exciting."
+        },
+        "tip": "Think of 'conflict' in English, it sounds similar."
+      },
+      {
+        "term": "la resolución",
+        "translation": "the resolution",
+        "definition": "the conclusion or solution of a conflict",
+        "pronunciation": "lah reh-so-loo-SYOHN",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La resolución fue sorprendente.",
+          "translation": "The resolution was surprising."
+        },
+        "tip": "Relate 'resolute' to 'resolución' for memory."
+      },
+      {
+        "term": "narrar",
+        "translation": "to narrate",
+        "definition": "to tell or recount a story",
+        "pronunciation": "nah-RAHR",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Él narra la historia con mucha emoción.",
+          "translation": "He narrates the story with a lot of emotion."
+        },
+        "tip": "'Narrate' is similar to 'narrar'."
+      },
+      {
+        "term": "el narrador",
+        "translation": "the narrator",
+        "definition": "the person who tells the story",
+        "pronunciation": "el nar-rah-DOR",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El narrador tiene una voz muy profunda.",
+          "translation": "The narrator has a very deep voice."
+        },
+        "tip": "Connect 'narrator' in English with 'narrador' in Spanish."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Past Tenses in Spanish",
+        "explanation": "In Spanish, we use the preterite and imperfect tenses to narrate past events. The preterite is used for completed actions, while the imperfect describes ongoing or habitual actions.",
+        "table": {
+          "headers": [
+            "Preterite",
+            "Imperfect"
+          ],
+          "rows": [
+            [
+              "hablé",
+              "hablaba"
+            ],
+            [
+              "comí",
+              "comía"
+            ],
+            [
+              "viví",
+              "vivía"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ayer hablé con mi amigo.",
+            "translation": "Yesterday, I talked with my friend.",
+            "breakdown": "The action is completed, so we use the preterite."
+          },
+          {
+            "original": "Cuando era niño, jugaba en el parque.",
+            "translation": "When I was a child, I played in the park.",
+            "breakdown": "The action was habitual, so we use the imperfect."
+          }
+        ],
+        "commonMistakes": [
+          "Using preterite for ongoing actions: 'Ayer jugaba' should be 'Ayer jugué'.",
+          "Confusing the uses of preterite and imperfect."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "A Friend Telling a Story",
+      "context": "Two friends are sitting at a café sharing stories from their childhood.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Cuando era niño, vivía en un pueblo pequeño.",
+          "translation": "When I was a child, I lived in a small town.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¡Qué interesante! ¿Qué hacías allí?",
+          "translation": "How interesting! What did you do there?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Jugaba con mis amigos en el parque todos los días.",
+          "translation": "I played with my friends in the park every day.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¿Tenías algún personaje favorito en tus juegos?",
+          "translation": "Did you have a favorite character in your games?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, era un héroe que salvaba a todos.",
+          "translation": "Yes, I was a hero who saved everyone.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Eso suena divertido. ¿Cuál fue el conflicto más emocionante?",
+          "translation": "That sounds fun. What was the most exciting conflict?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Una vez, luché contra un dragón imaginario.",
+          "translation": "Once, I fought against an imaginary dragon.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¡Increíble! ¿Cómo terminó la historia?",
+          "translation": "Incredible! How did the story end?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Al final, el héroe ganó y todos celebraron.",
+          "translation": "In the end, the hero won and everyone celebrated.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Storytelling Traditions in Latin America",
+      "text": "Storytelling is an important cultural tradition in many Latin American countries. Stories are often used to teach lessons, share history, and entertain audiences.",
+      "funFact": "In some indigenous cultures, storytelling is a sacred practice, and stories are passed down through generations to preserve their heritage."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned key vocabulary related to storytelling.",
+        "Practiced using past tenses in Spanish.",
+        "Engaged in a dialogue about childhood stories.",
+        "Gained insights into storytelling traditions in Latin America."
+      ],
+      "nextSteps": "Practice narrating your own stories using the vocabulary and grammar from this lesson. Try to include both preterite and imperfect tenses."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'the character' in Spanish?",
+      "content": {
+        "options": [
+          "el conflicto",
+          "el personaje",
+          "la historia",
+          "la resolución"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct translation for 'the character' in Spanish is 'el personaje'.",
+      "hint": "Think about the main figures in a story.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'the conflict'?",
+      "content": {
+        "options": [
+          "la historia",
+          "el conflicto",
+          "la resolución",
+          "el narrador"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El conflicto' refers to the main problem in a story.",
+      "hint": "It's the struggle that drives the plot.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'El narrador ______ la historia con detalle.'",
+      "content": {
+        "sentence": "El narrador ___ la historia con detalle.",
+        "correctAnswer": "narra",
+        "acceptableAnswers": [
+          "narra"
+        ],
+        "options": [
+          "narrar",
+          "narró",
+          "narrando",
+          "narrarás"
+        ]
+      },
+      "explanation": "The correct form is 'narra', which means 'narrates'.",
+      "hint": "Think of the present tense of narrating.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'La ______ del cuento fue sorprendente.'",
+      "content": {
+        "sentence": "La ___ del cuento fue sorprendente.",
+        "correctAnswer": "resolución",
+        "acceptableAnswers": [
+          "resolución"
+        ],
+        "options": [
+          "historia",
+          "personaje",
+          "conflicto",
+          "resolución"
+        ]
+      },
+      "explanation": "'Resolución' refers to the conclusion or solution of the story.",
+      "hint": "It's what happens at the end of the story.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'la historia / narrar / es / interesante'.",
+      "content": {
+        "words": [
+          "la",
+          "historia",
+          "narrar",
+          "es",
+          "interesante"
+        ],
+        "correctOrder": [
+          "la",
+          "historia",
+          "es",
+          "interesante",
+          "narrar"
+        ],
+        "translation": "The story is interesting."
+      },
+      "explanation": "The correct order forms a coherent sentence in Spanish.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The resolution was unexpected.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The resolution was unexpected.'",
+        "correctAnswer": "La resolución fue inesperada.",
+        "acceptableAnswers": [
+          "La resolución fue inesperada."
+        ]
+      },
+      "explanation": "The translation captures the intended meaning perfectly.",
+      "hint": "Focus on the words for resolution and unexpected.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct option.",
+      "content": {
+        "ttsText": "El personaje principal enfrenta un gran conflicto.",
+        "ttsLang": "es-ES",
+        "options": [
+          "El personaje principal se va de viaje.",
+          "El personaje principal enfrenta un gran conflicto.",
+          "El personaje principal descubre un secreto.",
+          "El personaje principal resuelve un misterio."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The spoken sentence describes the main character facing a conflict.",
+      "hint": "Listen for the character and the conflict.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in Spanish: 'I want to tell a story.'",
+      "content": {
+        "targetText": "Quiero narrar una historia.",
+        "context": "You're expressing your desire to tell a story.",
+        "acceptableVariants": [
+          "Quiero contar una historia.",
+          "Deseo narrar una historia."
+        ]
+      },
+      "explanation": "Both sentences convey the same meaning but with different verbs.",
+      "hint": "Remember the verb for narrating.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Describe your favorite character from a story in Spanish.",
+      "content": {
+        "targetText": "Mi personaje favorito es...",
+        "context": "You’re discussing your favorite character in a story.",
+        "acceptableVariants": [
+          "El personaje que más me gusta es..."
+        ]
+      },
+      "explanation": "This practice helps you use vocabulary related to characters.",
+      "hint": "Think about the qualities that make the character interesting.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

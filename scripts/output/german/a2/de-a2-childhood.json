@@ -1,0 +1,362 @@
+{
+  "lesson": {
+    "title": "Childhood Memories",
+    "type": "CONVERSATION",
+    "slug": "de-a2-childhood"
+  },
+  "unit": "More on the Past",
+  "unitOrder": 2,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to talk about your childhood memories in German. You will practice using the Perfekt and Präteritum tenses and explore vocabulary related to childhood experiences.",
+      "culturalNote": "In Germany, many people have fond memories of playing outside and spending time in nature during their childhood, which is often reflected in their conversations."
+    },
+    "vocabulary": [
+      {
+        "term": "die Kindheit",
+        "translation": "childhood",
+        "definition": "The period of being a child.",
+        "pronunciation": "kee-nd-hite",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Meine Kindheit war sehr glücklich.",
+          "translation": "My childhood was very happy."
+        },
+        "tip": "Remember that 'die' indicates it's feminine (plural: die Kindheiten)."
+      },
+      {
+        "term": "das Spielzeug",
+        "translation": "toy",
+        "definition": "An object for children to play with.",
+        "pronunciation": "dahs shpee-lts-oig",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich hatte viele Spielzeuge.",
+          "translation": "I had many toys."
+        },
+        "tip": "'Das' indicates it's neuter (plural: die Spielzeuge)."
+      },
+      {
+        "term": "der Freund",
+        "translation": "friend",
+        "definition": "A person you like and spend time with.",
+        "pronunciation": "dehr froind",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein bester Freund heißt Lukas.",
+          "translation": "My best friend is called Lukas."
+        },
+        "tip": "'Der' indicates it's masculine (plural: die Freunde)."
+      },
+      {
+        "term": "spielen",
+        "translation": "to play",
+        "definition": "Engaging in activity for enjoyment.",
+        "pronunciation": "shpee-len",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Wir spielten im Park.",
+          "translation": "We played in the park."
+        },
+        "tip": "Use 'spielen' with haben in the Perfekt: 'Ich habe gespielt.'"
+      },
+      {
+        "term": "das Abenteuer",
+        "translation": "adventure",
+        "definition": "An exciting or unusual experience.",
+        "pronunciation": "dahs ah-behn-toir",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich hatte viele Abenteuer in meiner Kindheit.",
+          "translation": "I had many adventures in my childhood."
+        },
+        "tip": "'Das' indicates it's neuter (plural: die Abenteuer)."
+      },
+      {
+        "term": "der Garten",
+        "translation": "garden",
+        "definition": "An area of land where plants are grown.",
+        "pronunciation": "dehr gahr-ten",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich spielte oft im Garten.",
+          "translation": "I often played in the garden."
+        },
+        "tip": "'Der' indicates it's masculine (plural: die Gärten)."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Perfekt Tense",
+        "explanation": "In German, the Perfekt tense is used to talk about past actions that have relevance to the present. It is formed using the auxiliary verbs 'haben' or 'sein' and the past participle of the main verb. For example, 'Ich habe gespielt' (I played).",
+        "table": {
+          "headers": [
+            "Subject",
+            "Verb (haben/sein)",
+            "Past Participle"
+          ],
+          "rows": [
+            [
+              "Ich",
+              "habe",
+              "gespielt"
+            ],
+            [
+              "Er/Sie/Es",
+              "hat",
+              "gespielt"
+            ],
+            [
+              "Wir",
+              "haben",
+              "gespielt"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich habe das Spielzeug gefunden.",
+            "translation": "I found the toy.",
+            "breakdown": "Subject 'Ich' + 'habe' (auxiliary) + 'gefunden' (past participle)."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'haben' and 'sein' as auxiliary verbs. Remember: 'sein' is typically used with motion verbs (e.g., gehen, kommen).",
+          "For weak verbs, remember to add 'ge-' at the beginning of the past participle (e.g., spielen -> gespielt)."
+        ]
+      },
+      {
+        "title": "The Präteritum Tense",
+        "explanation": "The Präteritum tense is commonly used in written German, especially in stories. It's often simpler than the Perfekt. For regular verbs, you typically add endings to the stem. For example, 'spielen' becomes 'spielte'.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Verb"
+          ],
+          "rows": [
+            [
+              "Ich",
+              "spielte"
+            ],
+            [
+              "Du",
+              "spieltest"
+            ],
+            [
+              "Er/Sie/Es",
+              "spielte"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich spielte mit meinem Freund.",
+            "translation": "I played with my friend.",
+            "breakdown": "Subject 'Ich' + 'spielte' (Präteritum form of spielen)."
+          }
+        ],
+        "commonMistakes": [
+          "Using the wrong stem for irregular verbs. Always check the conjugation table.",
+          "For 'weak' verbs, remember to use the correct ending (-te)."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking about Childhood",
+      "context": "Two friends reminisce about their childhood experiences in a café.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Wie war deine Kindheit, Lukas?",
+          "translation": "How was your childhood, Lukas?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Meine Kindheit war sehr schön. Ich habe viel gespielt.",
+          "translation": "My childhood was very nice. I played a lot.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Hattest du viele Freunde?",
+          "translation": "Did you have many friends?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich hatte viele Freunde. Wir haben im Garten gespielt.",
+          "translation": "Yes, I had many friends. We played in the garden.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Was war dein Lieblingsspielzeug?",
+          "translation": "What was your favorite toy?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Mein Lieblingsspielzeug war ein Auto.",
+          "translation": "My favorite toy was a car.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich erinnere mich, dass ich Puppen mochte.",
+          "translation": "I remember that I liked dolls.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das klingt toll! Hatten wir Abenteuer?",
+          "translation": "That sounds great! Did we have adventures?",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Childhood in Germany",
+      "text": "In Germany, children often spend a lot of time outdoors, playing in parks and gardens. It's common for children to enjoy activities like cycling and playing soccer.",
+      "funFact": "German cities often have playgrounds designed with unique themes, encouraging creativity and exploration."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to childhood.",
+        "Practiced the Perfekt and Präteritum tenses.",
+        "Engaged in a dialogue about childhood memories.",
+        "Explored cultural aspects of childhood in German-speaking countries."
+      ],
+      "nextSteps": "Practice creating your own sentences about your childhood using the new vocabulary and grammar rules. Try to speak about your favorite childhood memory!"
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'die Kindheit' in English?",
+      "content": {
+        "options": [
+          "childhood",
+          "friendship",
+          "adventure",
+          "garden"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Kindheit' translates to 'childhood' in English.",
+      "hint": "Think about the time when you were a child.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'das Spielzeug' in English?",
+      "content": {
+        "options": [
+          "toy",
+          "game",
+          "play",
+          "friend"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Das Spielzeug' means 'toy' in English.",
+      "hint": "Children usually play with this.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich hatte viele ___ in meiner Kindheit.'",
+      "content": {
+        "sentence": "Ich hatte viele ___ in meiner Kindheit.",
+        "correctAnswer": "Freunde",
+        "acceptableAnswers": [
+          "Freund",
+          "Freunde"
+        ],
+        "options": [
+          "Abenteuer",
+          "Gärten",
+          "Freunde",
+          "Spielzeuge"
+        ]
+      },
+      "explanation": "The correct answer is 'Freunde' which means 'friends'.",
+      "hint": "Think of the people you played with as a child.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Wir haben im ___ gespielt.'",
+      "content": {
+        "sentence": "Wir haben im ___ gespielt.",
+        "correctAnswer": "Garten",
+        "acceptableAnswers": [
+          "Garten"
+        ],
+        "options": [
+          "Haus",
+          "Garten",
+          "Schule",
+          "Park"
+        ]
+      },
+      "explanation": "The correct answer is 'Garten' which means 'garden'.",
+      "hint": "It's an outdoor area where plants grow.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I remember my adventures as a child.'",
+      "content": {
+        "prompt": "Translate to German: 'I remember my adventures as a child.'",
+        "correctAnswer": "Ich erinnere mich an meine Abenteuer als Kind.",
+        "acceptableAnswers": []
+      },
+      "explanation": "This sentence translates directly into German with a focus on memories.",
+      "hint": "Use 'erinnern' for remember.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation.",
+      "content": {
+        "ttsText": "Ich habe viel Spielzeug in meiner Kindheit gehabt.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I had a lot of toys in my childhood.",
+          "I played with friends in the garden.",
+          "I remember my adventures as a child.",
+          "My childhood was beautiful."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'I had a lot of toys in my childhood.'",
+      "hint": "Focus on the word 'Spielzeug'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I used to play in the garden with my friends.'",
+      "content": {
+        "targetText": "Ich habe im Garten mit meinen Freunden gespielt.",
+        "context": "Translate this English sentence into German.",
+        "acceptableVariants": []
+      },
+      "explanation": "This sentence talks about past activities in the garden.",
+      "hint": "Remember to use the past tense.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

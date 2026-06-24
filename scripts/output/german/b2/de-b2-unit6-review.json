@@ -1,0 +1,324 @@
+{
+  "lesson": {
+    "title": "Unit 6 Review",
+    "type": "REVIEW",
+    "slug": "de-b2-unit6-review"
+  },
+  "unit": "Science & Innovation",
+  "unitOrder": 6,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this review lesson, you will consolidate your knowledge of vocabulary and grammar related to the themes of science and innovation. By engaging with various activities, you'll reinforce your understanding and application of complex sentence structures and relevant terminology.",
+      "culturalNote": "Germany is known for its strong focus on scientific research and innovation, home to notable figures like Albert Einstein and countless engineering advancements."
+    },
+    "vocabulary": [
+      {
+        "term": "die Wissenschaft",
+        "translation": "science",
+        "definition": "the systematic study of the structure and behavior of the physical and natural world.",
+        "pronunciation": "dee VISS-en-shaft",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Wissenschaft spielt eine entscheidende Rolle in unserer Gesellschaft.",
+          "translation": "Science plays a crucial role in our society."
+        },
+        "tip": "Remember that 'Wissenschaft' is feminine; its plural is 'die Wissenschaften'."
+      },
+      {
+        "term": "der Erfinder",
+        "translation": "inventor",
+        "definition": "a person who creates something new.",
+        "pronunciation": "dair air-FIN-dair",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ein berühmter Erfinder ist Thomas Edison.",
+          "translation": "A famous inventor is Thomas Edison."
+        },
+        "tip": "This noun is masculine; the plural is 'die Erfinder'."
+      },
+      {
+        "term": "die Technologie",
+        "translation": "technology",
+        "definition": "the application of scientific knowledge for practical purposes.",
+        "pronunciation": "dee tek-no-lo-GEE",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Technologie entwickelt sich ständig weiter.",
+          "translation": "Technology is constantly evolving."
+        },
+        "tip": "Feminine noun; plural form is 'die Technologien'."
+      },
+      {
+        "term": "der Fortschritt",
+        "translation": "progress",
+        "definition": "forward or onward movement towards a destination.",
+        "pronunciation": "dair FORT-shrit",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Fortschritt in der Medizin ist beeindruckend.",
+          "translation": "The progress in medicine is impressive."
+        },
+        "tip": "Masculine noun; plural is 'die Fortschritte'."
+      },
+      {
+        "term": "die Erfindung",
+        "translation": "invention",
+        "definition": "the creation of a product or process for the first time.",
+        "pronunciation": "dee air-FIN-doong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Erfindung des Rades war revolutionär.",
+          "translation": "The invention of the wheel was revolutionary."
+        },
+        "tip": "Feminine noun; plural is 'die Erfindungen'."
+      },
+      {
+        "term": "das Experiment",
+        "translation": "experiment",
+        "definition": "a scientific procedure undertaken to make a discovery.",
+        "pronunciation": "dahs eks-per-i-MENT",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Experiment zeigte interessante Ergebnisse.",
+          "translation": "The experiment showed interesting results."
+        },
+        "tip": "Neuter noun; plural is 'die Experimente'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Konjunktiv II (Subjunctive II)",
+        "explanation": "The Konjunktiv II is used to express hypothetical situations, wishes, or polite requests. It often involves the use of modal verbs and can also be used to indicate unreal past situations. For instance, using 'würde' with an infinitive can create a conditional sentence.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Konjunktiv II"
+          ],
+          "rows": [
+            [
+              "sein",
+              "ich wäre"
+            ],
+            [
+              "haben",
+              "ich hätte"
+            ],
+            [
+              "gehen",
+              "ich würde gehen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich reich wäre, würde ich die Welt bereisen.",
+            "translation": "If I were rich, I would travel the world.",
+            "breakdown": "This sentence uses Konjunktiv II to express a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of Konjunktiv II in hypothetical sentences. Correct: 'Wenn ich Zeit hätte...' instead of 'Wenn ich Zeit habe...'.",
+          "Forgetting to use 'würde' with the infinitive in conditional sentences. Correct: 'Ich würde kaufen' instead of 'Ich kaufe'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Innovations",
+      "context": "Two friends meet at a café to discuss recent technological innovations.",
+      "speakers": [
+        "Lukas",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hast du von der neuesten Technologie gehört?",
+          "translation": "Have you heard about the latest technology?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe von den Fortschritten in der künstlichen Intelligenz gehört.",
+          "translation": "Yes, I've heard about the advancements in artificial intelligence.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist wirklich faszinierend. Denkst du, dass das unser Leben verändern wird?",
+          "translation": "That's really fascinating. Do you think it will change our lives?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich glaube, dass wir in Zukunft viele Vorteile davon haben werden.",
+          "translation": "I believe we will have many advantages from it in the future.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das hoffe ich auch. Was hältst du von den ethischen Fragen, die damit verbunden sind?",
+          "translation": "I hope so too. What do you think about the ethical questions associated with it?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist ein komplexes Thema. Man sollte sorgfältig darüber nachdenken.",
+          "translation": "That's a complex topic. One should think carefully about it.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Wenn ich mehr Zeit hätte, würde ich darüber recherchieren.",
+          "translation": "If I had more time, I would research it.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist eine gute Idee! Lass uns nächste Woche darüber diskutieren.",
+          "translation": "That's a good idea! Let's discuss it next week.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Innovation in Germany",
+      "text": "Germany is a leader in engineering and innovation, particularly in the automotive industry and renewable energy. Many universities collaborate closely with industries to foster research and development.",
+      "funFact": "Did you know that Germany has the highest number of Nobel Prize winners in science in Europe?"
+    },
+    "summary": {
+      "keyPoints": [
+        "Understand key vocabulary related to science and innovation.",
+        "Apply the Konjunktiv II for expressing hypothetical situations.",
+        "Engage in discussions about technology and its implications.",
+        "Recognize the cultural significance of innovation in German-speaking countries."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and try to form your own hypothetical sentences using the Konjunktiv II."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'technology'?",
+      "content": {
+        "options": [
+          "die Wissenschaft",
+          "die Technologie",
+          "der Fortschritt",
+          "die Erfindung"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'die Technologie', which directly translates to 'technology' in English.",
+      "hint": "Focus on the word that relates to tools and systems.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Who is referred to as 'der Erfinder' in German?",
+      "content": {
+        "options": [
+          "the scientist",
+          "the inventor",
+          "the experiment",
+          "the progress"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The term 'der Erfinder' translates to 'the inventor', referring to someone who creates new things.",
+      "hint": "Think about someone who creates or designs something new.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: '____ ist ein wichtiger Teil der Wissenschaft.'",
+      "content": {
+        "sentence": "____ ist ein wichtiger Teil der Wissenschaft.",
+        "correctAnswer": "das Experiment",
+        "acceptableAnswers": [
+          "das Experiment"
+        ],
+        "options": [
+          "die Technologie",
+          "der Fortschritt",
+          "das Experiment"
+        ]
+      },
+      "explanation": "The word 'das Experiment' fits the sentence as it is a crucial part of scientific research.",
+      "hint": "Think about what scientists do to test their hypotheses.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blanks: 'Die ____ bringt neuen Fortschritt.'",
+      "content": {
+        "sentence": "Die ____ bringt neuen Fortschritt.",
+        "correctAnswer": "Erfindung",
+        "acceptableAnswers": [
+          "Erfindung"
+        ],
+        "options": [
+          "Technologie",
+          "Erfindung",
+          "Wissenschaft"
+        ]
+      },
+      "explanation": "The term 'Erfindung' (invention) is essential for progress in various fields.",
+      "hint": "Consider what is created to advance knowledge or tools.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'Innovation drives progress.'",
+      "content": {
+        "prompt": "Translate to German: 'Innovation drives progress.'",
+        "correctAnswer": "Innovation treibt den Fortschritt voran.",
+        "acceptableAnswers": [
+          "Innovation treibt den Fortschritt voran."
+        ]
+      },
+      "explanation": "The translation captures the essence of innovation leading to progress.",
+      "hint": "Think about how innovation relates to advancement.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Die Wissenschaft ist faszinierend.'",
+      "content": {
+        "ttsText": "Die Wissenschaft ist faszinierend.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Science is fascinating.",
+          "Technology is important.",
+          "Innovation is key.",
+          "Progress is necessary."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence translates to 'Science is fascinating.'",
+      "hint": "Listen for the word 'Wissenschaft'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'The experiment was a success.'",
+      "content": {
+        "targetText": "Das Experiment war ein Erfolg.",
+        "context": "Translate the sentence to German.",
+        "acceptableVariants": [
+          "Das Experiment war ein Erfolg."
+        ]
+      },
+      "explanation": "The sentence translates directly and accurately to German.",
+      "hint": "Remember the word for 'experiment'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

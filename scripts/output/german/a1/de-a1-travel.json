@@ -1,0 +1,325 @@
+{
+  "lesson": {
+    "title": "Travel & Transport",
+    "type": "VOCABULARY",
+    "slug": "de-a1-travel"
+  },
+  "unit": "Travel & Weather",
+  "unitOrder": 8,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn basic vocabulary related to travel and transport in German. You will also practice simple sentences using these words.",
+      "culturalNote": "In Germany, public transport is very efficient and widely used, especially in cities. Bicycles are also a popular means of transport."
+    },
+    "vocabulary": [
+      {
+        "term": "der Zug",
+        "translation": "the train",
+        "definition": "A common mode of transport that runs on tracks.",
+        "pronunciation": "der tsoog",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich nehme den Zug nach Berlin.",
+          "translation": "I take the train to Berlin."
+        },
+        "tip": "Remember that 'Zug' is masculine (der)."
+      },
+      {
+        "term": "die Straße",
+        "translation": "the street",
+        "definition": "A public road in a city or town.",
+        "pronunciation": "dee shtrah-suh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Straße ist lang.",
+          "translation": "The street is long."
+        },
+        "tip": "The word 'Straße' is feminine (die)."
+      },
+      {
+        "term": "das Auto",
+        "translation": "the car",
+        "definition": "A vehicle with four wheels that is used for transport.",
+        "pronunciation": "das ow-toh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe ein neues Auto.",
+          "translation": "I have a new car."
+        },
+        "tip": "Remember that 'Auto' is neuter (das)."
+      },
+      {
+        "term": "der Bus",
+        "translation": "the bus",
+        "definition": "A large vehicle that carries many passengers.",
+        "pronunciation": "der boos",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich warte auf den Bus.",
+          "translation": "I am waiting for the bus."
+        },
+        "tip": "The word 'Bus' is masculine (der)."
+      },
+      {
+        "term": "die U-Bahn",
+        "translation": "the subway",
+        "definition": "An underground railway system.",
+        "pronunciation": "dee oo-bahn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die U-Bahn ist schnell.",
+          "translation": "The subway is fast."
+        },
+        "tip": "'U-Bahn' is feminine (die) and stands for 'Untergrundbahn'."
+      },
+      {
+        "term": "fliegen",
+        "translation": "to fly",
+        "definition": "To travel through the air, typically in an airplane.",
+        "pronunciation": "flee-gen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich fliege nach München.",
+          "translation": "I fly to Munich."
+        },
+        "tip": "This is a regular verb, use 'kann' to express ability: 'Ich kann fliegen.'"
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Modal Verbs: können and möchten",
+        "explanation": "In German, modal verbs like 'können' (can) and 'möchten' (would like) help express ability or desire. For example, 'Ich kann fahren' means 'I can drive'. 'Ich möchte reisen' means 'I would like to travel'.",
+        "table": {
+          "headers": [
+            "Modal Verb",
+            "Meaning"
+          ],
+          "rows": [
+            [
+              "können",
+              "can"
+            ],
+            [
+              "möchten",
+              "would like"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich kann mit dem Bus fahren.",
+            "translation": "I can travel by bus.",
+            "breakdown": "Ich (I) can (kann) with (mit) the bus (dem Bus) travel (fahren)."
+          },
+          {
+            "original": "Ich möchte nach Wien reisen.",
+            "translation": "I would like to travel to Vienna.",
+            "breakdown": "Ich (I) would like (möchte) to (nach) Vienna (Wien) travel (reisen)."
+          }
+        ],
+        "commonMistakes": [
+          "'Ich kann gehen.' (I can go.) - Correct usage but be careful with verb placement.",
+          "'Ich möchte essen.' (I would like to eat.) - Remember the verb comes last in the sentence."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Train Station",
+      "context": "This conversation takes place at a train station in Germany.",
+      "speakers": [
+        "Lukas",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo, Sophie! Wo ist der Zug?",
+          "translation": "Hello, Sophie! Where is the train?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Der Zug ist dort, bei Gleis 3.",
+          "translation": "The train is over there, at platform 3.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Kann ich mit dem Bus fahren?",
+          "translation": "Can I travel by bus?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, der Bus kommt gleich.",
+          "translation": "Yes, the bus is coming soon.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich möchte nach Berlin reisen.",
+          "translation": "I would like to travel to Berlin.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist eine gute Idee!",
+          "translation": "That is a good idea!",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Hast du die Fahrkarten?",
+          "translation": "Do you have the tickets?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe sie.",
+          "translation": "Yes, I have them.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Public Transport in Germany",
+      "text": "German cities are known for their efficient public transport systems. Trains, buses, and trams connect various parts of the city and make traveling easy.",
+      "funFact": "In Germany, punctuality is highly valued, so trains and buses are usually on time!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to travel and transport.",
+        "Practiced using modal verbs 'können' and 'möchten'.",
+        "Engaged in a dialogue at a train station."
+      ],
+      "nextSteps": "Practice using the new vocabulary in sentences, and try creating your own dialogues about travel."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'train'?",
+      "content": {
+        "options": [
+          "der Bus",
+          "der Zug",
+          "das Auto",
+          "die U-Bahn"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'der Zug', which means 'train' in English.",
+      "hint": "It starts with a 'Z'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'the street' in German?",
+      "content": {
+        "options": [
+          "der Zug",
+          "die Straße",
+          "das Auto",
+          "der Bus"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Die Straße' translates to 'the street' in English.",
+      "hint": "It has a feminine article.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "I want to ___ to Berlin. (fly)",
+      "content": {
+        "sentence": "Ich möchte nach Berlin ___.",
+        "correctAnswer": "fliegen",
+        "acceptableAnswers": [
+          "fliegen"
+        ],
+        "options": [
+          "fahren",
+          "fliegen",
+          "gehen",
+          "laufen"
+        ]
+      },
+      "explanation": "'Fliegen' means 'to fly', which fits the context of traveling to Berlin.",
+      "hint": "It's a verb for air travel.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "We take ___ to the city center. (the bus)",
+      "content": {
+        "sentence": "Wir nehmen ___ ins Stadtzentrum.",
+        "correctAnswer": "den Bus",
+        "acceptableAnswers": [
+          "den Bus"
+        ],
+        "options": [
+          "die U-Bahn",
+          "den Bus",
+          "das Auto",
+          "die Straße"
+        ]
+      },
+      "explanation": "'Den Bus' is the correct answer as it refers to 'the bus' in the accusative case.",
+      "hint": "It's a masculine noun.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I take the subway.'",
+      "content": {
+        "correctAnswer": "Ich nehme die U-Bahn.",
+        "acceptableAnswers": [
+          "Ich nehme die U-Bahn."
+        ]
+      },
+      "explanation": "The translation directly conveys the action of taking the subway.",
+      "hint": "Focus on the verb 'take'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and identify the transport mode.",
+      "content": {
+        "ttsText": "Ich fahre mit dem Zug.",
+        "ttsLang": "de-DE",
+        "options": [
+          "the bus",
+          "the train",
+          "the car",
+          "the subway"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The sentence means 'I travel by train'.",
+      "hint": "Listen for 'Zug'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in German: 'I travel by car.'",
+      "content": {
+        "targetText": "Ich reise mit dem Auto.",
+        "context": "Translate and say this sentence in German.",
+        "acceptableVariants": [
+          "Ich fahre mit dem Auto."
+        ]
+      },
+      "explanation": "Both sentences express the same idea of traveling by car.",
+      "hint": "Use the word 'Auto'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

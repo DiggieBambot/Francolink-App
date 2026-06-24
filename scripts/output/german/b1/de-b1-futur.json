@@ -1,0 +1,330 @@
+{
+  "lesson": {
+    "title": "Futur I (Will + Werden)",
+    "type": "GRAMMAR",
+    "slug": "de-b1-futur"
+  },
+  "unit": "Future & Aspirations",
+  "unitOrder": 8,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to form the Futur I tense in German using 'werden' and how to express your future plans and aspirations. We will also cover some vocabulary related to future goals.",
+      "culturalNote": "In Germany, it's common to discuss future aspirations during school and job interviews, reflecting the importance placed on planning and goal-setting."
+    },
+    "vocabulary": [
+      {
+        "term": "der Traum",
+        "translation": "the dream",
+        "definition": "A wish or aspiration one hopes to achieve.",
+        "pronunciation": "dair troom",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Traum ist es, Ärztin zu werden.",
+          "translation": "My dream is to become a doctor."
+        },
+        "tip": "Remember that 'der Traum' is masculine; its plural form is 'die Träume'."
+      },
+      {
+        "term": "die Zukunft",
+        "translation": "the future",
+        "definition": "The time period that is yet to come.",
+        "pronunciation": "dee tsoo-kunft",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Zukunft sieht vielversprechend aus.",
+          "translation": "The future looks promising."
+        },
+        "tip": "A feminine noun; its plural form is not commonly used."
+      },
+      {
+        "term": "werden",
+        "translation": "to become",
+        "definition": "A verb used to indicate future actions or states.",
+        "pronunciation": "vair-den",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich werde morgen arbeiten.",
+          "translation": "I will work tomorrow."
+        },
+        "tip": "This verb is irregular; its conjugation is essential for forming the future tense."
+      },
+      {
+        "term": "der Plan",
+        "translation": "the plan",
+        "definition": "A detailed proposal for achieving something.",
+        "pronunciation": "dair plahn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Plan ist es, im Ausland zu studieren.",
+          "translation": "My plan is to study abroad."
+        },
+        "tip": "A masculine noun; the plural is 'die Pläne'."
+      },
+      {
+        "term": "die Ausbildung",
+        "translation": "the training/education",
+        "definition": "The process of learning skills for a job.",
+        "pronunciation": "dee ow-sbil-dung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich mache eine Ausbildung als Koch.",
+          "translation": "I am doing training as a chef."
+        },
+        "tip": "Feminine noun; plural is 'die Ausbildungen'."
+      },
+      {
+        "term": "der Job",
+        "translation": "the job",
+        "definition": "A paid position of regular employment.",
+        "pronunciation": "dair yob",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich suche einen neuen Job.",
+          "translation": "I am looking for a new job."
+        },
+        "tip": "Masculine noun; the plural form is 'die Jobs'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Futur I (Future Tense)",
+        "explanation": "The Futur I tense in German is formed using the verb 'werden' plus the infinitive of the main verb. This structure allows you to express intentions, predictions, and plans. For example, 'Ich werde lernen' means 'I will learn.' Remember to conjugate 'werden' according to the subject of the sentence.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Conjugation of 'werden'"
+          ],
+          "rows": [
+            [
+              "ich",
+              "werde"
+            ],
+            [
+              "du",
+              "wirst"
+            ],
+            [
+              "er/sie/es",
+              "wird"
+            ],
+            [
+              "wir",
+              "werden"
+            ],
+            [
+              "ihr",
+              "werdet"
+            ],
+            [
+              "sie/Sie",
+              "werden"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wir werden nächsten Monat reisen.",
+            "translation": "We will travel next month.",
+            "breakdown": "'Wir' (we) + 'werden' (will) + 'reisen' (to travel) forms the future tense."
+          },
+          {
+            "original": "Er wird später kommen.",
+            "translation": "He will come later.",
+            "breakdown": "'Er' (he) + 'wird' (will) + 'kommen' (to come)."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Ich werde gehen' instead of 'Ich gehe' for future plans. Remember, the future tense is for clear intentions.",
+          "Forgetting to conjugate 'werden'. Always match the form with the subject."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Future Trip",
+      "context": "Two friends discussing their plans for vacation.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Was wirst du in den Sommerferien machen?",
+          "translation": "What will you do during the summer vacation?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich werde nach Italien reisen.",
+          "translation": "I will travel to Italy."
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt toll! Was wirst du dort machen?",
+          "translation": "That sounds great! What will you do there?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich werde die Sehenswürdigkeiten besichtigen und gutes Essen probieren.",
+          "translation": "I will visit the sights and try good food."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich hoffe, du hast viel Spaß!",
+          "translation": "I hope you have a lot of fun!"
+        },
+        {
+          "speaker": 1,
+          "text": "Danke! Und was wirst du machen?",
+          "translation": "Thanks! And what will you do?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich werde zu Hause bleiben und lernen.",
+          "translation": "I will stay at home and study."
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist auch wichtig. Viel Erfolg!",
+          "translation": "That is also important. Good luck!"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Future Aspirations in German Culture",
+      "text": "In German-speaking countries, people often start planning their careers early and value education highly. It's common for students to discuss their future goals in school settings.",
+      "funFact": "In Germany, 'Zukunftstag' (Future Day) is a day where students visit workplaces to learn about different careers."
+    },
+    "summary": {
+      "keyPoints": [
+        "Futur I is formed with 'werden' + infinitive.",
+        "Conjugate 'werden' according to the subject.",
+        "Use Futur I to express plans and predictions.",
+        "Practice using vocabulary related to future aspirations."
+      ],
+      "nextSteps": "Review the vocabulary and practice forming sentences in Futur I. Next, you will learn about the Konjunktiv II for politeness and hypotheticals."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct future form of 'Ich (werden) ein Arzt'?",
+      "content": {
+        "options": [
+          "Ich werde ein Arzt.",
+          "Ich werden ein Arzt.",
+          "Ich wird ein Arzt."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct future form requires 'werde' for the first person singular.",
+      "hint": "Focus on the conjugation of 'werden'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence means 'I will have a job in the future'?",
+      "content": {
+        "options": [
+          "Ich werde in der Zukunft einen Job haben.",
+          "Ich habe einen Job in der Zukunft.",
+          "Ich hatte einen Job in der Zukunft."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct sentence indicates future intention with 'werde'.",
+      "hint": "Look for future tense markers.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Mein Traum ist, ___ (werden) Lehrer.'",
+      "content": {
+        "sentence": "Mein Traum ist, ___ (werden) Lehrer.",
+        "correctAnswer": "zu werden",
+        "acceptableAnswers": [
+          "zu werden"
+        ],
+        "options": [
+          "zu sein",
+          "zu werden",
+          "zu haben"
+        ]
+      },
+      "explanation": "The infinitive form 'zu werden' is correct after 'ist'.",
+      "hint": "Think about how to express dreams.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Ich habe einen Plan, ___ (machen) eine Ausbildung.'",
+      "content": {
+        "sentence": "Ich habe einen Plan, ___ (machen) eine Ausbildung.",
+        "correctAnswer": "eine Ausbildung zu machen",
+        "acceptableAnswers": [
+          "eine Ausbildung zu machen"
+        ],
+        "options": [
+          "eine Ausbildung zu machen",
+          "eine Ausbildung zu sein",
+          "eine Ausbildung zu haben"
+        ]
+      },
+      "explanation": "The correct form is an infinitive phrase after 'Plan'.",
+      "hint": "Consider how to express intentions.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I want to become an engineer.'",
+      "content": {
+        "prompt": "Translate to German: 'I want to become an engineer.'",
+        "correctAnswer": "Ich möchte Ingenieur werden.",
+        "acceptableAnswers": [
+          "Ich will Ingenieur werden."
+        ]
+      },
+      "explanation": "The sentence correctly uses 'werden' to indicate the future profession.",
+      "hint": "Focus on the word for 'engineer'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct answer: 'Ich werde in der Zukunft reisen.'",
+      "content": {
+        "ttsText": "Ich werde in der Zukunft reisen.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I will travel in the future.",
+          "I travel in the future.",
+          "I traveled in the future."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence correctly indicates future travel plans.",
+      "hint": "Listen for the future tense.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'My dream is to have a good job.'",
+      "content": {
+        "targetText": "Mein Traum ist, einen guten Job zu haben.",
+        "context": "Translate and say your aspiration.",
+        "acceptableVariants": [
+          "Mein Traum ist, einen guten Job zu haben."
+        ]
+      },
+      "explanation": "This sentence expresses a future aspiration using 'haben'.",
+      "hint": "Use the correct article for 'Job'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,322 @@
+[
+  {
+    "title": "Hello & Goodbye (Begrüßungen)",
+    "type": "CONVERSATION",
+    "slug": "de-a1-greetings",
+    "unit": "First Words & Greetings",
+    "unitOrder": 1,
+    "lessonOrder": 1
+  },
+  {
+    "title": "The German Alphabet & Umlauts",
+    "type": "VOCABULARY",
+    "slug": "de-a1-alphabet",
+    "unit": "First Words & Greetings",
+    "unitOrder": 1,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Introducing Yourself",
+    "type": "CONVERSATION",
+    "slug": "de-a1-introductions",
+    "unit": "First Words & Greetings",
+    "unitOrder": 1,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Numbers 0-20",
+    "type": "VOCABULARY",
+    "slug": "de-a1-numbers",
+    "unit": "First Words & Greetings",
+    "unitOrder": 1,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 1 Review",
+    "type": "REVIEW",
+    "slug": "de-a1-unit1-review",
+    "unit": "First Words & Greetings",
+    "unitOrder": 1,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Der, Die, Das - German Articles",
+    "type": "GRAMMAR",
+    "slug": "de-a1-articles",
+    "unit": "Articles & Genders",
+    "unitOrder": 2,
+    "lessonOrder": 1
+  },
+  {
+    "title": "The Verb Sein (To Be)",
+    "type": "GRAMMAR",
+    "slug": "de-a1-sein",
+    "unit": "Articles & Genders",
+    "unitOrder": 2,
+    "lessonOrder": 2
+  },
+  {
+    "title": "My Family (Die Familie)",
+    "type": "VOCABULARY",
+    "slug": "de-a1-family",
+    "unit": "Articles & Genders",
+    "unitOrder": 2,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Plural Forms",
+    "type": "GRAMMAR",
+    "slug": "de-a1-plurals",
+    "unit": "Articles & Genders",
+    "unitOrder": 2,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 2 Review",
+    "type": "REVIEW",
+    "slug": "de-a1-unit2-review",
+    "unit": "Articles & Genders",
+    "unitOrder": 2,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Present Tense - Regular Verbs",
+    "type": "GRAMMAR",
+    "slug": "de-a1-present-regular",
+    "unit": "Daily Life & Verbs",
+    "unitOrder": 3,
+    "lessonOrder": 1
+  },
+  {
+    "title": "The Verb Haben (To Have)",
+    "type": "GRAMMAR",
+    "slug": "de-a1-haben",
+    "unit": "Daily Life & Verbs",
+    "unitOrder": 3,
+    "lessonOrder": 2
+  },
+  {
+    "title": "My Daily Routine",
+    "type": "CONVERSATION",
+    "slug": "de-a1-daily-routine",
+    "unit": "Daily Life & Verbs",
+    "unitOrder": 3,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Telling the Time",
+    "type": "VOCABULARY",
+    "slug": "de-a1-telling-time",
+    "unit": "Daily Life & Verbs",
+    "unitOrder": 3,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 3 Review",
+    "type": "REVIEW",
+    "slug": "de-a1-unit3-review",
+    "unit": "Daily Life & Verbs",
+    "unitOrder": 3,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Food & Drinks (Essen & Trinken)",
+    "type": "VOCABULARY",
+    "slug": "de-a1-food",
+    "unit": "Food & Drink",
+    "unitOrder": 4,
+    "lessonOrder": 1
+  },
+  {
+    "title": "The Accusative Case - Introduction",
+    "type": "GRAMMAR",
+    "slug": "de-a1-accusative-intro",
+    "unit": "Food & Drink",
+    "unitOrder": 4,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Ordering at a Café",
+    "type": "CONVERSATION",
+    "slug": "de-a1-ordering-cafe",
+    "unit": "Food & Drink",
+    "unitOrder": 4,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Quantities & Containers",
+    "type": "VOCABULARY",
+    "slug": "de-a1-quantities",
+    "unit": "Food & Drink",
+    "unitOrder": 4,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 4 Review",
+    "type": "REVIEW",
+    "slug": "de-a1-unit4-review",
+    "unit": "Food & Drink",
+    "unitOrder": 4,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Places in Town",
+    "type": "VOCABULARY",
+    "slug": "de-a1-places-town",
+    "unit": "Shopping & Around Town",
+    "unitOrder": 5,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Asking for Directions",
+    "type": "CONVERSATION",
+    "slug": "de-a1-directions",
+    "unit": "Shopping & Around Town",
+    "unitOrder": 5,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Numbers 21-1000 & Prices",
+    "type": "VOCABULARY",
+    "slug": "de-a1-numbers-prices",
+    "unit": "Shopping & Around Town",
+    "unitOrder": 5,
+    "lessonOrder": 3
+  },
+  {
+    "title": "At the Shop",
+    "type": "CONVERSATION",
+    "slug": "de-a1-at-the-shop",
+    "unit": "Shopping & Around Town",
+    "unitOrder": 5,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 5 Review",
+    "type": "REVIEW",
+    "slug": "de-a1-unit5-review",
+    "unit": "Shopping & Around Town",
+    "unitOrder": 5,
+    "lessonOrder": 5
+  },
+  {
+    "title": "My Home (Mein Zuhause)",
+    "type": "VOCABULARY",
+    "slug": "de-a1-home",
+    "unit": "Home & Everyday Objects",
+    "unitOrder": 6,
+    "lessonOrder": 1
+  },
+  {
+    "title": "There Is / There Are (Es gibt)",
+    "type": "GRAMMAR",
+    "slug": "de-a1-es-gibt",
+    "unit": "Home & Everyday Objects",
+    "unitOrder": 6,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Prepositions of Place",
+    "type": "GRAMMAR",
+    "slug": "de-a1-prepositions",
+    "unit": "Home & Everyday Objects",
+    "unitOrder": 6,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Colours & Everyday Objects",
+    "type": "VOCABULARY",
+    "slug": "de-a1-colours",
+    "unit": "Home & Everyday Objects",
+    "unitOrder": 6,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 6 Review",
+    "type": "REVIEW",
+    "slug": "de-a1-unit6-review",
+    "unit": "Home & Everyday Objects",
+    "unitOrder": 6,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Hobbies & Free Time",
+    "type": "VOCABULARY",
+    "slug": "de-a1-hobbies",
+    "unit": "Free Time & Modal Verbs",
+    "unitOrder": 7,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Modal Verbs - Können & Möchten",
+    "type": "GRAMMAR",
+    "slug": "de-a1-modal-verbs",
+    "unit": "Free Time & Modal Verbs",
+    "unitOrder": 7,
+    "lessonOrder": 2
+  },
+  {
+    "title": "How Often? (Frequency)",
+    "type": "GRAMMAR",
+    "slug": "de-a1-frequency",
+    "unit": "Free Time & Modal Verbs",
+    "unitOrder": 7,
+    "lessonOrder": 3
+  },
+  {
+    "title": "What Do You Do for Fun?",
+    "type": "CONVERSATION",
+    "slug": "de-a1-fun-conversation",
+    "unit": "Free Time & Modal Verbs",
+    "unitOrder": 7,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 7 Review",
+    "type": "REVIEW",
+    "slug": "de-a1-unit7-review",
+    "unit": "Free Time & Modal Verbs",
+    "unitOrder": 7,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Travel & Transport",
+    "type": "VOCABULARY",
+    "slug": "de-a1-travel",
+    "unit": "Travel & Weather",
+    "unitOrder": 8,
+    "lessonOrder": 1
+  },
+  {
+    "title": "The Weather (Das Wetter)",
+    "type": "VOCABULARY",
+    "slug": "de-a1-weather",
+    "unit": "Travel & Weather",
+    "unitOrder": 8,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Separable Verbs - Introduction",
+    "type": "GRAMMAR",
+    "slug": "de-a1-separable-verbs",
+    "unit": "Travel & Weather",
+    "unitOrder": 8,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Planning a Trip",
+    "type": "CONVERSATION",
+    "slug": "de-a1-planning-trip",
+    "unit": "Travel & Weather",
+    "unitOrder": 8,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Final Review & Celebration",
+    "type": "REVIEW",
+    "slug": "de-a1-final-review",
+    "unit": "Travel & Weather",
+    "unitOrder": 8,
+    "lessonOrder": 5
+  }
+]

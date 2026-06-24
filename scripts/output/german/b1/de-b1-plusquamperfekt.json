@@ -1,0 +1,330 @@
+{
+  "lesson": {
+    "title": "Plusquamperfekt (Past Perfect)",
+    "type": "GRAMMAR",
+    "slug": "de-b1-plusquamperfekt"
+  },
+  "unit": "Narrating the Past",
+  "unitOrder": 2,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about the Plusquamperfekt (Past Perfect) tense in German, which is used to talk about actions that occurred before another past action. You will also practice using this tense in various contexts.",
+      "culturalNote": "In German literature, narrating past events often involves using the Plusquamperfekt to provide depth and detail to storytelling."
+    },
+    "vocabulary": [
+      {
+        "term": "der Tisch",
+        "translation": "the table",
+        "definition": "A piece of furniture with a flat top and legs.",
+        "pronunciation": "dehr tish",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Tisch war schon gedeckt.",
+          "translation": "The table had already been set."
+        },
+        "tip": "Remember that 'Tisch' is masculine; the plural is 'die Tische'."
+      },
+      {
+        "term": "die Lampe",
+        "translation": "the lamp",
+        "definition": "An object that produces light, usually powered by electricity.",
+        "pronunciation": "dee lam-peh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Lampe hatte geflackert.",
+          "translation": "The lamp had flickered."
+        },
+        "tip": "'Lampe' is feminine; its plural is 'die Lampen'."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A set of written or printed pages bound together.",
+        "pronunciation": "das booḫ",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Buch hatte ich schon gelesen.",
+          "translation": "I had already read the book."
+        },
+        "tip": "'Buch' is neuter; the plural is 'die Bücher'."
+      },
+      {
+        "term": "der Freund",
+        "translation": "the friend",
+        "definition": "A person with whom one has a bond of mutual affection.",
+        "pronunciation": "dehr froind",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Freund hatte mir geholfen.",
+          "translation": "The friend had helped me."
+        },
+        "tip": "'Freund' is masculine; the plural is 'die Freunde'."
+      },
+      {
+        "term": "die Stadt",
+        "translation": "the city",
+        "definition": "A large human settlement.",
+        "pronunciation": "dee shtaht",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Stadt war sehr schön gewesen.",
+          "translation": "The city had been very beautiful."
+        },
+        "tip": "'Stadt' is feminine; its plural is 'die Städte'."
+      },
+      {
+        "term": "die Erinnerung",
+        "translation": "the memory",
+        "definition": "The ability to remember things or an event that one remembers.",
+        "pronunciation": "dee eh-rin-ner-ung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Erinnerung war angenehm.",
+          "translation": "The memory had been pleasant."
+        },
+        "tip": "'Erinnerung' is feminine; its plural is 'die Erinnerungen'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Plusquamperfekt (Past Perfect) Tense",
+        "explanation": "The Plusquamperfekt is used to describe an action that was completed before another action in the past. It is formed using the past tense of 'haben' or 'sein' as an auxiliary verb, combined with the past participle of the main verb. For example, 'Ich hatte gegessen' (I had eaten) shows that eating occurred before another action.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Auxiliary Verb + Past Participle"
+          ],
+          "rows": [
+            [
+              "Ich",
+              "hatte gegessen"
+            ],
+            [
+              "Du",
+              "hattest gegessen"
+            ],
+            [
+              "Er/Sie/Es",
+              "hatte gegessen"
+            ],
+            [
+              "Wir",
+              "hatten gegessen"
+            ],
+            [
+              "Ihr",
+              "hattet gegessen"
+            ],
+            [
+              "Sie/sie",
+              "hatten gegessen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich hatte das Buch gelesen, bevor ich den Film sah.",
+            "translation": "I had read the book before I saw the movie.",
+            "breakdown": "Here, 'hatte gelesen' indicates the action of reading was completed before the action of seeing the movie."
+          }
+        ],
+        "commonMistakes": [
+          "Using the wrong auxiliary verb: Remember to use 'haben' for most verbs and 'sein' for movement or change of state verbs.",
+          "Forgetting the past participle: Always use the past participle form of the verb with the auxiliary."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Reflecting on a Trip",
+      "context": "Two friends discussing their recent trip to Berlin.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Ich hatte so viel Spaß in Berlin!",
+          "translation": "I had so much fun in Berlin!",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, das stimmt! Ich hatte die Stadt schon lange nicht mehr besucht.",
+          "translation": "Yes, that's true! I hadn't visited the city in a long time."
+        },
+        {
+          "speaker": 0,
+          "text": "Hast du das neue Museum gesehen?",
+          "translation": "Did you see the new museum?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich hatte die Ausstellung schon vorher gelesen.",
+          "translation": "Yes, I had already read about the exhibition before."
+        },
+        {
+          "speaker": 0,
+          "text": "Die Erinnerungen an die Reise sind unvergesslich.",
+          "translation": "The memories of the trip are unforgettable."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich hatte auch die besten Fotos gemacht!",
+          "translation": "I had also taken the best photos!"
+        },
+        {
+          "speaker": 0,
+          "text": "Wir sollten nächstes Jahr wieder hinfahren.",
+          "translation": "We should go again next year."
+        },
+        {
+          "speaker": 1,
+          "text": "Das klingt gut! Ich hatte es sehr genossen.",
+          "translation": "That sounds good! I had enjoyed it very much."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Traveling in German-speaking Countries",
+      "text": "Traveling across Germany, Austria, and Switzerland offers diverse experiences, from historical sites to breathtaking landscapes. The tradition of storytelling in these cultures often uses the Plusquamperfekt to recount past adventures.",
+      "funFact": "Germany has over 2,000 castles, many of which have fascinating historical tales that involve the Plusquamperfekt in their narratives."
+    },
+    "summary": {
+      "keyPoints": [
+        "The Plusquamperfekt describes actions completed before another past action.",
+        "It is formed with 'haben' or 'sein' + past participle.",
+        "Understanding the context of past events enhances storytelling.",
+        "Use the Plusquamperfekt to reflect on past experiences in conversations."
+      ],
+      "nextSteps": "Practice forming sentences in the Plusquamperfekt by describing events from your life. Try writing a short narrative using this tense."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct Plusquamperfekt form of 'haben' for 'ich'?",
+      "content": {
+        "options": [
+          "hatte gehabt",
+          "habe gehabt",
+          "hat gehabt"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Hatte gehabt' is the correct Plusquamperfekt form for 'ich'.",
+      "hint": "Remember the auxiliary verb in the past perfect.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence is in the Plusquamperfekt?",
+      "content": {
+        "options": [
+          "Ich hatte das Buch gelesen.",
+          "Ich lese das Buch.",
+          "Ich werde das Buch lesen."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence 'Ich hatte das Buch gelesen' is in the Plusquamperfekt.",
+      "hint": "Look for 'hatte' and the past participle.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Als ich ankam, ___ (der Tisch) schon gedeckt.",
+      "content": {
+        "sentence": "Als ich ankam, ___ (der Tisch) schon gedeckt.",
+        "correctAnswer": "hatte der Tisch",
+        "acceptableAnswers": [
+          "hatte der Tisch",
+          "der Tisch hatte"
+        ],
+        "options": [
+          "hatte der Tisch",
+          "der Tisch hatte",
+          "war der Tisch"
+        ]
+      },
+      "explanation": "The correct answer is 'hatte der Tisch', which is the Plusquamperfekt form.",
+      "hint": "Think about what had happened before the arrival.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Bevor ich die Stadt besuchte, ___ (mein Freund) schon dort gewesen.",
+      "content": {
+        "sentence": "Bevor ich die Stadt besuchte, ___ (mein Freund) schon dort gewesen.",
+        "correctAnswer": "war mein Freund",
+        "acceptableAnswers": [
+          "war mein Freund",
+          "mein Freund war"
+        ],
+        "options": [
+          "war mein Freund",
+          "mein Freund war",
+          "hat mein Freund"
+        ]
+      },
+      "explanation": "The sentence requires the Plusquamperfekt form 'war mein Freund'.",
+      "hint": "What had your friend done before your visit?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I had read the book before the meeting.'",
+      "content": {
+        "prompt": "Translate to German: 'I had read the book before the meeting.'",
+        "correctAnswer": "Ich hatte das Buch vor dem Treffen gelesen.",
+        "acceptableAnswers": [
+          "Ich hatte das Buch gelesen vor dem Treffen."
+        ]
+      },
+      "explanation": "The sentence uses Plusquamperfekt to describe an action completed before another past action.",
+      "hint": "Remember the structure of Plusquamperfekt.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation.",
+      "content": {
+        "ttsText": "Ich hatte die Lampe schon eingeschaltet.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I had already turned on the lamp.",
+          "I turned on the lamp.",
+          "I will turn on the lamp."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation reflects the action completed in the past.",
+      "hint": "Focus on the words 'hatte' and 'schon'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'Before I moved, I had lived in another city.'",
+      "content": {
+        "targetText": "Bevor ich umzog, hatte ich in einer anderen Stadt gelebt.",
+        "context": "Translate this sentence into German.",
+        "acceptableVariants": [
+          "Bevor ich umgezogen bin, hatte ich in einer anderen Stadt gelebt.",
+          "Bevor ich umgezogen war, hatte ich in einer anderen Stadt gelebt."
+        ]
+      },
+      "explanation": "The sentence uses Plusquamperfekt to show the sequence of past actions.",
+      "hint": "Use 'hatte' and the past participle for living.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

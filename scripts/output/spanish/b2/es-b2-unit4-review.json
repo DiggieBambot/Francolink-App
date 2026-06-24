@@ -1,0 +1,347 @@
+{
+  "lesson": {
+    "title": "Unit 4 Review",
+    "type": "REVIEW",
+    "slug": "es-b2-unit4-review"
+  },
+  "unit": "Idioms & Expressions",
+  "unitOrder": 4,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will review important idioms and expressions in Spanish, focusing on usage, pronunciation, and contextual understanding. You will also practice dialogues incorporating this vocabulary to enhance your conversational skills.",
+      "culturalNote": "Idioms are an essential part of communication in Spanish-speaking cultures, often reflecting unique cultural perspectives and values."
+    },
+    "vocabulary": [
+      {
+        "term": "dar en el clavo",
+        "translation": "to hit the nail on the head",
+        "definition": "to be exactly right or accurate about something",
+        "pronunciation": "dahr en el KLAV-oh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Cuando dijiste que necesitábamos un plan, diste en el clavo.",
+          "translation": "When you said we needed a plan, you hit the nail on the head."
+        },
+        "tip": "Think of a hammer hitting a nail perfectly to remember this expression."
+      },
+      {
+        "term": "estar en las nubes",
+        "translation": "to be in the clouds",
+        "definition": "to be daydreaming or not paying attention",
+        "pronunciation": "es-TAHR en las NOO-bes",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Siempre está en las nubes durante las clases.",
+          "translation": "He is always in the clouds during classes."
+        },
+        "tip": "Imagine someone literally floating in the clouds, disconnected from reality."
+      },
+      {
+        "term": "no hay mal que por bien no venga",
+        "translation": "every cloud has a silver lining",
+        "definition": "there's always a positive side to a negative situation",
+        "pronunciation": "noh eye mahl keh por byen noh VEN-gah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Perdí mi trabajo, pero no hay mal que por bien no venga.",
+          "translation": "I lost my job, but every cloud has a silver lining."
+        },
+        "tip": "Think of a dark cloud that eventually reveals a bright lining."
+      },
+      {
+        "term": "a otro perro con ese hueso",
+        "translation": "tell it to another dog",
+        "definition": "used to express disbelief or to say someone is not easily fooled",
+        "pronunciation": "ah OH-troh PEH-roh kon EH-seh WEH-soh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "No me creo esa historia, ¡a otro perro con ese hueso!",
+          "translation": "I don’t believe that story, tell it to another dog!"
+        },
+        "tip": "Visualize a stubborn dog refusing to accept a false story."
+      },
+      {
+        "term": "matar dos pájaros de un tiro",
+        "translation": "to kill two birds with one stone",
+        "definition": "to accomplish two tasks with a single action",
+        "pronunciation": "ma-TAR dos PAH-ha-ros de oon TEE-roh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Al ir al mercado, maté dos pájaros de un tiro: compré comida y vi a mi amiga.",
+          "translation": "By going to the market, I killed two birds with one stone: I bought food and saw my friend."
+        },
+        "tip": "Picture a hunter who efficiently takes down two birds at once."
+      },
+      {
+        "term": "poner toda la carne en el asador",
+        "translation": "to put all the meat on the grill",
+        "definition": "to invest all your resources into a single endeavor",
+        "pronunciation": "po-NEHR TOH-dah lah KAR-neh en el ah-sah-DOR",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Si quieres triunfar, tienes que poner toda la carne en el asador.",
+          "translation": "If you want to succeed, you have to put all the meat on the grill."
+        },
+        "tip": "Imagine a chef using all ingredients for the best meal, reflecting total commitment."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subjunctive Mood in Spanish",
+        "explanation": "The subjunctive mood expresses desires, doubts, or hypothetical situations. It is often used after certain expressions and conjunctions. Mastery of the present and imperfect subjunctive is essential at the B2 level. For example, 'Espero que vengas' (I hope that you come) utilizes the present subjunctive.",
+        "table": {
+          "headers": [
+            "Present Subjunctive",
+            "Imperfect Subjunctive"
+          ],
+          "rows": [
+            [
+              "hable (I speak)",
+              "hablara (I spoke)"
+            ],
+            [
+              "coma (I eat)",
+              "comiera (I ate)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es posible que ella venga mañana.",
+            "translation": "It's possible that she will come tomorrow.",
+            "breakdown": "Here, 'venga' is in the present subjunctive, expressing possibility."
+          },
+          {
+            "original": "Si tuviera tiempo, viajaría más.",
+            "translation": "If I had time, I would travel more.",
+            "breakdown": "In this case, 'tuviera' is the imperfect subjunctive, used for hypothetical situations."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: 'Es cierto que él viene' (It's certain that he comes) should be 'No es cierto que él venga.'",
+          "Confusing the present subjunctive with the future tense: 'Cuando llegue' (When I arrive) vs. 'Cuando llegaré' (When I will arrive)."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "A Conversation about Future Plans",
+      "context": "A casual meeting between friends discussing their future plans.",
+      "speakers": [
+        "Laura",
+        "Miguel"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué planes tienes para el próximo mes?",
+          "translation": "What plans do you have for next month?",
+          "note": "Laura asks about Miguel's plans."
+        },
+        {
+          "speaker": 1,
+          "text": "Espero que pueda ir a la playa, pero depende del clima.",
+          "translation": "I hope that I can go to the beach, but it depends on the weather."
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, es mejor no poner toda la carne en el asador si llueve.",
+          "translation": "Yes, it’s better not to put all the meat on the grill if it rains."
+        },
+        {
+          "speaker": 1,
+          "text": "Exactamente. Además, quiero ver a mis amigos.",
+          "translation": "Exactly. Besides, I want to see my friends."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y qué tal si hacemos una barbacoa si el clima es bueno?",
+          "translation": "What if we have a barbecue if the weather is good?"
+        },
+        {
+          "speaker": 1,
+          "text": "¡Eso suena genial! Mataríamos dos pájaros de un tiro.",
+          "translation": "That sounds great! We would kill two birds with one stone."
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, y podríamos invitar a más amigos.",
+          "translation": "Yes, and we could invite more friends."
+        },
+        {
+          "speaker": 1,
+          "text": "Perfecto, así que espero que todo salga bien.",
+          "translation": "Perfect, so I hope everything goes well."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Idioms in Spanish Culture",
+      "text": "Idioms are a vital part of everyday language in Spanish-speaking countries. They often reflect cultural values and common experiences, making conversations richer and more relatable.",
+      "funFact": "Many idioms in Spanish have their origins in historical events or traditional practices, providing a glimpse into the culture's history."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review of key idioms and expressions.",
+        "Understanding the subjunctive mood and its usage.",
+        "Application of vocabulary in realistic dialogues.",
+        "Cultural insights into the importance of idioms."
+      ],
+      "nextSteps": "Practice using these idioms in your conversations and focus on the subjunctive forms in various contexts."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'dar en el clavo' mean?",
+      "content": {
+        "options": [
+          "To hit the nail on the head",
+          "To be lost in thought",
+          "To have a lucky break",
+          "To give someone the cold shoulder"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Dar en el clavo' translates to 'to hit the nail on the head,' meaning to get something exactly right.",
+      "hint": "Think about precision.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which expression means 'no hay mal que por bien no venga'?",
+      "content": {
+        "options": [
+          "Every cloud has a silver lining",
+          "A bird in the hand is worth two in the bush",
+          "To make a long story short",
+          "To get cold feet"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "This expression suggests that something bad can lead to something good.",
+      "hint": "Consider positive outcomes from negative situations.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Cuando estoy en clase, a veces ___ las nubes.'",
+      "content": {
+        "sentence": "Cuando estoy en clase, a veces ___ las nubes.",
+        "correctAnswer": "estoy en",
+        "acceptableAnswers": [
+          "estoy en"
+        ],
+        "options": [
+          "estoy en",
+          "doy en",
+          "no hay",
+          "mato"
+        ]
+      },
+      "explanation": "The correct phrase is 'estar en las nubes,' which means to be lost in thought.",
+      "hint": "Think about daydreaming.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Con este plan, podemos ___ dos pájaros de un tiro.'",
+      "content": {
+        "sentence": "Con este plan, podemos ___ dos pájaros de un tiro.",
+        "correctAnswer": "matar",
+        "acceptableAnswers": [
+          "matar"
+        ],
+        "options": [
+          "matar",
+          "dar",
+          "poner",
+          "estar"
+        ]
+      },
+      "explanation": "The expression means to achieve two goals with one action.",
+      "hint": "Think of efficiency.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct Spanish expression: 'carne en asador toda poner la.'",
+      "content": {
+        "words": [
+          "carne",
+          "en",
+          "asador",
+          "toda",
+          "poner",
+          "la"
+        ],
+        "correctOrder": [
+          "poner",
+          "toda",
+          "la",
+          "carne",
+          "en",
+          "asador"
+        ],
+        "translation": "to put all the meat on the grill"
+      },
+      "explanation": "This expression implies putting all your effort into something.",
+      "hint": "Think about commitment.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Give me a break!'",
+      "content": {
+        "prompt": "Translate to Spanish: 'Give me a break!'",
+        "correctAnswer": "¡A otro perro con ese hueso!",
+        "acceptableAnswers": [
+          "¡A otro perro con ese hueso!"
+        ]
+      },
+      "explanation": "This expression is used to dismiss someone's excuse or statement.",
+      "hint": "Think about skepticism.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'No hay mal que por bien no venga.'",
+      "content": {
+        "ttsText": "No hay mal que por bien no venga.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Every cloud has a silver lining.",
+          "What goes around comes around.",
+          "Don't count your chickens before they hatch.",
+          "All good things come to an end."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "This is a common idiom that means challenges can lead to positive outcomes.",
+      "hint": "Think about finding good in bad situations.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in Spanish: 'I am daydreaming.'",
+      "content": {
+        "targetText": "Estoy en las nubes.",
+        "context": "Translate and say in Spanish.",
+        "acceptableVariants": [
+          "Estoy en las nubes."
+        ]
+      },
+      "explanation": "This is the correct way to express that you are not paying attention because you are lost in thought.",
+      "hint": "Think about being distracted.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,341 @@
+{
+  "lesson": {
+    "title": "Describing Places & Scenery",
+    "type": "VOCABULARY",
+    "slug": "de-b1-describing-places"
+  },
+  "unit": "Culture & Travel",
+  "unitOrder": 7,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to describing places and scenery in German. You will also practice using this vocabulary in sentences and conversations.",
+      "culturalNote": "German-speaking countries have a rich variety of landscapes, from the Alps in Austria to the beautiful lakes in Switzerland, which are often celebrated in literature and art."
+    },
+    "vocabulary": [
+      {
+        "term": "die Landschaft",
+        "translation": "the landscape",
+        "definition": "a visible feature of the land, such as hills, mountains, or valleys",
+        "pronunciation": "dee LANDS-kaft",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Landschaft hier ist sehr schön.",
+          "translation": "The landscape here is very beautiful."
+        },
+        "tip": "Feminine noun (die). Plural: die Landschaften."
+      },
+      {
+        "term": "der Berg",
+        "translation": "the mountain",
+        "definition": "a large natural elevation of the earth's surface",
+        "pronunciation": "dehr BERG",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Berg ist hoch und beeindruckend.",
+          "translation": "The mountain is tall and impressive."
+        },
+        "tip": "Masculine noun (der). Plural: die Berge."
+      },
+      {
+        "term": "das Meer",
+        "translation": "the sea",
+        "definition": "the body of salt water that covers most of the earth's surface",
+        "pronunciation": "dahs MAIR",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Meer ist an diesem Strand ruhig.",
+          "translation": "The sea is calm at this beach."
+        },
+        "tip": "Neuter noun (das). Plural: die Meere."
+      },
+      {
+        "term": "die Stadt",
+        "translation": "the city",
+        "definition": "a large and significant town",
+        "pronunciation": "dee SHTADT",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Stadt hat viele interessante Sehenswürdigkeiten.",
+          "translation": "The city has many interesting sights."
+        },
+        "tip": "Feminine noun (die). Plural: die Städte."
+      },
+      {
+        "term": "der Fluss",
+        "translation": "the river",
+        "definition": "a large natural stream of water flowing in a channel to the sea, a lake, or another river",
+        "pronunciation": "dehr FLOOS",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Fluss fließt durch das ganze Tal.",
+          "translation": "The river flows through the entire valley."
+        },
+        "tip": "Masculine noun (der). Plural: die Flüsse."
+      },
+      {
+        "term": "die Natur",
+        "translation": "nature",
+        "definition": "the natural world, including plants, animals, and landscapes",
+        "pronunciation": "dee nah-TOOR",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich liebe die Ruhe der Natur.",
+          "translation": "I love the peace of nature."
+        },
+        "tip": "Feminine noun (die). Plural: die Naturen (rarely used)."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Subordinate Clauses with 'weil' (because)",
+        "explanation": "In German, you can use subordinate clauses to explain reasons. The conjunction 'weil' introduces a reason and the verb moves to the end of the clause. This allows for more complex sentences. For example, 'Ich gehe nach draußen, weil das Wetter schön ist' means 'I go outside because the weather is nice.'",
+        "table": {
+          "headers": [
+            "Main Clause",
+            "Subordinate Clause"
+          ],
+          "rows": [
+            [
+              "Ich gehe nach draußen.",
+              "weil das Wetter schön ist."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich mache Urlaub, weil ich die Natur genießen möchte.",
+            "translation": "I am on vacation because I want to enjoy nature.",
+            "breakdown": "Main clause: Ich mache Urlaub. Subordinate clause: weil ich die Natur genießen möchte."
+          }
+        ],
+        "commonMistakes": [
+          "'Weil' should always be followed by a verb at the end of the clause. Don't forget this structure!",
+          "Be careful with punctuation: There is no comma before 'weil' in the subordinate clause."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Trip to the Mountains",
+      "context": "Anna and Felix are discussing their plans for a trip to the mountains.",
+      "speakers": [
+        "Anna",
+        "Felix"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Wann wollen wir in die Berge fahren?",
+          "translation": "When do we want to go to the mountains?",
+          "note": "Anna is asking about the timing."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich denke, nächstes Wochenende wäre gut.",
+          "translation": "I think next weekend would be good."
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt perfekt! Was sollten wir dort machen?",
+          "translation": "That sounds perfect! What should we do there?"
+        },
+        {
+          "speaker": 1,
+          "text": "Wir könnten wandern und die Landschaft genießen.",
+          "translation": "We could hike and enjoy the landscape."
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, und vielleicht ein Picknick am Fluss machen?",
+          "translation": "Yes, and maybe have a picnic by the river?"
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist eine tolle Idee! Ich bringe die Snacks mit.",
+          "translation": "That's a great idea! I'll bring the snacks."
+        },
+        {
+          "speaker": 0,
+          "text": "Super! Ich freue mich schon auf die Natur.",
+          "translation": "Great! I'm already looking forward to nature."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich auch! Lass uns die Unterkunft buchen.",
+          "translation": "Me too! Let's book the accommodation."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Exploring German Landscapes",
+      "text": "Germany, Austria, and Switzerland are known for their diverse landscapes, from the Alps to the Black Forest. Outdoor activities like hiking and skiing are popular, reflecting the importance of nature in German-speaking cultures.",
+      "funFact": "In Switzerland, there are over 1,500 lakes, many of which are perfect for swimming and sailing during the summer."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learn vocabulary related to places and scenery.",
+        "Practice using subordinate clauses with 'weil'.",
+        "Engage in a dialogue about planning a trip.",
+        "Understand cultural significance of landscapes in German-speaking countries."
+      ],
+      "nextSteps": "Practice describing your favorite place in German using the vocabulary and grammar from this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'the city' in German?",
+      "content": {
+        "options": [
+          "die Stadt",
+          "der Berg",
+          "das Meer"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'die Stadt', which translates to 'the city' in English.",
+      "hint": "Think of urban areas.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'the river' in German?",
+      "content": {
+        "options": [
+          "der Fluss",
+          "die Landschaft",
+          "das Meer"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Fluss' is the correct translation for 'the river'.",
+      "hint": "It flows through cities.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich liebe die ___.'",
+      "content": {
+        "sentence": "Ich liebe die ___.",
+        "correctAnswer": "Natur",
+        "acceptableAnswers": [
+          "Natur"
+        ],
+        "options": [
+          "Landschaft",
+          "Natur",
+          "Stadt"
+        ]
+      },
+      "explanation": "The correct answer is 'Natur', meaning 'nature', which fits the sentence context.",
+      "hint": "It's all around us outside.",
+      "difficulty": "EASY",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the correct German article: '___ Berg ist hoch.'",
+      "content": {
+        "sentence": "___ Berg ist hoch.",
+        "correctAnswer": "Der",
+        "acceptableAnswers": [
+          "Der"
+        ],
+        "options": [
+          "Die",
+          "Der",
+          "Das"
+        ]
+      },
+      "explanation": "'Der' is the correct article for 'Berg', which means 'mountain'.",
+      "hint": "Think of the gender of the noun.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The sea is calm.'",
+      "content": {
+        "prompt": "Translate to German: 'The sea is calm.'",
+        "correctAnswer": "Das Meer ist ruhig.",
+        "acceptableAnswers": []
+      },
+      "explanation": "'Das Meer ist ruhig' is the correct translation for 'The sea is calm'.",
+      "hint": "Remember to use the correct article.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Die Stadt ist groß.'",
+      "content": {
+        "ttsText": "Die Stadt ist groß.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The nature is beautiful.",
+          "The city is big.",
+          "The mountain is high."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct translation of 'Die Stadt ist groß' is 'The city is big'.",
+      "hint": "Listen for the word 'Stadt'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in German: 'I love nature.'",
+      "content": {
+        "targetText": "Ich liebe die Natur.",
+        "context": "Say the sentence in German.",
+        "acceptableVariants": [
+          "Ich liebe Natur",
+          "Ich mag die Natur"
+        ]
+      },
+      "explanation": "The sentence 'Ich liebe die Natur' means 'I love nature'. It expresses a strong appreciation for the natural world.",
+      "hint": "Remember to include the article.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'the nature'?",
+      "content": {
+        "options": [
+          "die Natur",
+          "die Landschaft",
+          "der Fluss"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Natur' translates to 'the nature' in English.",
+      "hint": "It refers to the environment.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Der ___ ist tief.'",
+      "content": {
+        "sentence": "Der ___ ist tief.",
+        "correctAnswer": "Fluss",
+        "acceptableAnswers": [
+          "Fluss"
+        ],
+        "options": [
+          "Berg",
+          "Fluss",
+          "Meer"
+        ]
+      },
+      "explanation": "'Fluss' means 'river' and fits the context of the sentence.",
+      "hint": "Think of something that flows.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

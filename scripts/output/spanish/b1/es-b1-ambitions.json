@@ -1,0 +1,348 @@
+{
+  "lesson": {
+    "title": "Future Plans & Ambitions",
+    "type": "CONVERSATION",
+    "slug": "es-b1-ambitions"
+  },
+  "unit": "Future & Aspirations",
+  "unitOrder": 8,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to discuss future plans and ambitions in Spanish. You will practice using the future tense and expressing desires and aspirations.",
+      "culturalNote": "In many Latin American cultures, discussing future goals is common in social settings, reflecting a positive outlook on life."
+    },
+    "vocabulary": [
+      {
+        "term": "el futuro",
+        "translation": "the future",
+        "definition": "the time that comes after the present",
+        "pronunciation": "el foo-TOO-roh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El futuro es incierto.",
+          "translation": "The future is uncertain."
+        },
+        "tip": "Remember that 'futuro' is masculine; use 'el' for 'the future'."
+      },
+      {
+        "term": "la ambición",
+        "translation": "the ambition",
+        "definition": "a strong desire to achieve something",
+        "pronunciation": "la am-bee-SYON",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo una gran ambición.",
+          "translation": "I have a great ambition."
+        },
+        "tip": "Ambición is feminine, so use 'la' as the article."
+      },
+      {
+        "term": "el plan",
+        "translation": "the plan",
+        "definition": "a detailed proposal for doing or achieving something",
+        "pronunciation": "el plan",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi plan es viajar el próximo año.",
+          "translation": "My plan is to travel next year."
+        },
+        "tip": "Remember that 'plan' is masculine; use 'el' for 'the plan'."
+      },
+      {
+        "term": "esperar",
+        "translation": "to hope",
+        "definition": "to wish for a particular outcome",
+        "pronunciation": "es-pe-RAR",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Espero que todo salga bien.",
+          "translation": "I hope everything goes well."
+        },
+        "tip": "Use 'esperar' when talking about hopes and wishes."
+      },
+      {
+        "term": "soñar",
+        "translation": "to dream",
+        "definition": "to imagine or wish for something that seems unattainable",
+        "pronunciation": "so-NYAR",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Sueño con ser médico.",
+          "translation": "I dream of being a doctor."
+        },
+        "tip": "Remember that 'soñar' often involves a desire for the future."
+      },
+      {
+        "term": "la meta",
+        "translation": "the goal",
+        "definition": "an aim or desired result",
+        "pronunciation": "la ME-ta",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi meta es aprender español.",
+          "translation": "My goal is to learn Spanish."
+        },
+        "tip": "Meta is feminine; always use 'la' for 'the goal'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Future Tense in Spanish",
+        "explanation": "In Spanish, the future tense is formed by adding specific endings to the infinitive form of the verb. The endings for regular verbs are -é, -ás, -á, -emos, -án. For example, 'hablar' becomes 'hablaré' (I will speak).",
+        "table": {
+          "headers": [
+            "Subject",
+            "Future Ending"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "-é"
+            ],
+            [
+              "Tú",
+              "-ás"
+            ],
+            [
+              "Él/Ella/Usted",
+              "-á"
+            ],
+            [
+              "Nosotros",
+              "-emos"
+            ],
+            [
+              "Ellos/Ellas/Ustedes",
+              "-án"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Estudiaré para el examen.",
+            "translation": "I will study for the exam.",
+            "breakdown": "The verb 'estudiar' (to study) is conjugated in the future tense for 'yo' (I) as 'estudiaré'."
+          }
+        ],
+        "commonMistakes": [
+          "Using the present tense instead of the future tense, e.g., 'Estudio' instead of 'Estudiaré'.",
+          "Confusing future tense with conditional, e.g., 'hablaría' (I would speak) instead of 'hablaré' (I will speak)."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Future Plans",
+      "context": "Two friends are talking about their future aspirations during a coffee break.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué planes tienes para el futuro?",
+          "translation": "What plans do you have for the future?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Quiero viajar por el mundo.",
+          "translation": "I want to travel the world.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¡Eso suena increíble! ¿A dónde irías primero?",
+          "translation": "That sounds amazing! Where would you go first?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Me gustaría ir a España.",
+          "translation": "I would like to go to Spain.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Por qué España?",
+          "translation": "Why Spain?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Porque me encanta la cultura y la comida.",
+          "translation": "Because I love the culture and the food.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¡Genial! Yo sueño con ser ingeniero.",
+          "translation": "Great! I dream of being an engineer.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Eso es una buena meta. ¿Qué pasos seguirás?",
+          "translation": "That's a good goal. What steps will you take?",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Future Aspirations in Latin America",
+      "text": "In many Latin American countries, discussing future aspirations is a way of bonding and sharing dreams among friends and family. People often encourage each other to pursue their goals passionately.",
+      "funFact": "In Mexico, it's common for people to share their dreams during 'quinceañeras', a celebration of a girl's 15th birthday, where future ambitions are often discussed."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to future plans and ambitions.",
+        "Practiced using the future tense in Spanish.",
+        "Engaged in a dialogue about aspirations.",
+        "Explored cultural insights related to future planning."
+      ],
+      "nextSteps": "Practice making sentences about your own future plans using the vocabulary and grammar learned in this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'ambition'?",
+      "content": {
+        "options": [
+          "el futuro",
+          "la ambición",
+          "el plan",
+          "la meta"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'la ambición' which translates to 'ambition' in English.",
+      "hint": "It's a noun that represents a strong desire to achieve something.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'to dream' in Spanish?",
+      "content": {
+        "options": [
+          "esperar",
+          "soñar",
+          "planear",
+          "hablar"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Soñar' is the Spanish verb for 'to dream'.",
+      "hint": "Think about what you do when you sleep.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Yo ____ (to hope) tener éxito en el futuro.",
+      "content": {
+        "sentence": "Yo ___ tener éxito en el futuro.",
+        "correctAnswer": "espero",
+        "acceptableAnswers": [],
+        "options": [
+          "espero",
+          "sueño",
+          "ambiciono"
+        ]
+      },
+      "explanation": "'Espero' is the correct form of the verb 'esperar' meaning 'to hope'.",
+      "hint": "It starts with 'es'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Mi ____ es ser médico.",
+      "content": {
+        "sentence": "Mi ____ es ser médico.",
+        "correctAnswer": "meta",
+        "acceptableAnswers": [],
+        "options": [
+          "ambición",
+          "plan",
+          "meta"
+        ]
+      },
+      "explanation": "'Meta' means 'goal' in Spanish, which fits the sentence context.",
+      "hint": "It's a word often used for objectives.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'futuro / un / tengo / en / plan'.",
+      "content": {
+        "words": [
+          "futuro",
+          "un",
+          "tengo",
+          "en",
+          "plan"
+        ],
+        "correctOrder": [
+          "tengo",
+          "un",
+          "plan",
+          "en",
+          "futuro"
+        ],
+        "translation": "I have a plan for the future."
+      },
+      "explanation": "The correct order forms a coherent sentence indicating a future plan.",
+      "hint": "Start with 'I have'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I want to achieve my goals.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I want to achieve my goals.'",
+        "correctAnswer": "Quiero alcanzar mis metas.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The phrase correctly conveys the intention to achieve goals in Spanish.",
+      "hint": "Think about the verb 'to want'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Voy a estudiar en el extranjero.'",
+      "content": {
+        "ttsText": "Voy a estudiar en el extranjero.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I will study abroad.",
+          "I study locally.",
+          "I want to travel."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation indicates a future intention to study abroad.",
+      "hint": "Focus on the phrase for studying.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'My ambition is to travel the world.'",
+      "content": {
+        "targetText": "Mi ambición es viajar por el mundo.",
+        "context": "Expressing your future aspirations.",
+        "acceptableVariants": []
+      },
+      "explanation": "The sentence accurately expresses the ambition of traveling.",
+      "hint": "Use 'mi ambición' to start.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

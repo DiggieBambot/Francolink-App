@@ -1,0 +1,372 @@
+{
+  "lesson": {
+    "title": "Cultural Differences (DACH)",
+    "type": "CONVERSATION",
+    "slug": "de-b1-cultural-diff"
+  },
+  "unit": "Culture & Travel",
+  "unitOrder": 7,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about cultural differences in German-speaking countries (DACH) and practice conversational skills related to these topics. You will also expand your vocabulary and understand important grammar points to enhance your speaking abilities.",
+      "culturalNote": "Germany, Austria, and Switzerland each have their own unique customs and traditions, which can greatly influence social interactions and travel experiences."
+    },
+    "vocabulary": [
+      {
+        "term": "die Kultur",
+        "translation": "the culture",
+        "definition": "The shared beliefs, values, and practices of a group.",
+        "pronunciation": "dee Kool-toor",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Kultur in Deutschland ist sehr vielfältig.",
+          "translation": "The culture in Germany is very diverse."
+        },
+        "tip": "Kultur is feminine; remember 'die' for the article."
+      },
+      {
+        "term": "der Brauch",
+        "translation": "the custom",
+        "definition": "Traditional practices or habits in a culture.",
+        "pronunciation": "dehr browkh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ein wichtiger Brauch in Österreich ist das Aprés-Ski.",
+          "translation": "An important custom in Austria is the après-ski."
+        },
+        "tip": "Brauch is masculine; remember 'der' for the article."
+      },
+      {
+        "term": "das Essen",
+        "translation": "the food",
+        "definition": "The types of dishes and meals typical of a culture.",
+        "pronunciation": "dahs ess-en",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Essen in der Schweiz ist sehr lecker.",
+          "translation": "The food in Switzerland is very tasty."
+        },
+        "tip": "Essen is neuter; remember 'das' for the article."
+      },
+      {
+        "term": "die Sprache",
+        "translation": "the language",
+        "definition": "The method of human communication, either spoken or written.",
+        "pronunciation": "dee shpra-khe",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die deutsche Sprache hat viele Dialekte.",
+          "translation": "The German language has many dialects."
+        },
+        "tip": "Sprache is feminine; remember 'die' for the article."
+      },
+      {
+        "term": "der Feiertag",
+        "translation": "the holiday",
+        "definition": "A day of festivity or recreation when no work is done.",
+        "pronunciation": "dehr fie-er-tahk",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Tag der Deutschen Einheit ist ein wichtiger Feiertag.",
+          "translation": "The Day of German Unity is an important holiday."
+        },
+        "tip": "Feiertag is masculine; remember 'der' for the article."
+      },
+      {
+        "term": "das Verhältnis",
+        "translation": "the relationship",
+        "definition": "The way in which two or more people or groups regard and behave toward each other.",
+        "pronunciation": "dahs fehr-lay-tis",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Verhältnis zwischen Deutschland und Österreich ist freundlich.",
+          "translation": "The relationship between Germany and Austria is friendly."
+        },
+        "tip": "Verhältnis is neuter; remember 'das' for the article."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Subordinate Clauses",
+        "explanation": "In German, subordinate clauses often begin with conjunctions like 'dass', 'weil', or 'wenn'. These clauses provide additional information and are essential for forming complex sentences. The verb in a subordinate clause always goes to the end.",
+        "table": {
+          "headers": [
+            "Conjunction",
+            "Function"
+          ],
+          "rows": [
+            [
+              "dass",
+              "that"
+            ],
+            [
+              "weil",
+              "because"
+            ],
+            [
+              "wenn",
+              "if/when"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich weiß, dass du gerne reist.",
+            "translation": "I know that you like to travel.",
+            "breakdown": "The clause 'dass du gerne reist' provides additional information about what I know."
+          },
+          {
+            "original": "Ich gehe nicht, weil ich müde bin.",
+            "translation": "I am not going because I am tired.",
+            "breakdown": "The clause 'weil ich müde bin' explains the reason for not going."
+          }
+        ],
+        "commonMistakes": [
+          "Incorrect word order in subordinate clauses. Correction: Remember that the verb goes to the end.",
+          "Using 'wenn' instead of 'als' for past events. Correction: 'als' is used for events that happened once in the past."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Travel and Culture",
+      "context": "Two friends are discussing their travels in a café.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Ich habe gerade einen Artikel über die Unterschiede zwischen den Kulturen in DACH gelesen.",
+          "translation": "I just read an article about the differences between cultures in DACH.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Oh, wirklich? Was war besonders interessant?",
+          "translation": "Oh, really? What was particularly interesting?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich fand es spannend, dass die Deutschen sehr pünktlich sind.",
+          "translation": "I found it exciting that Germans are very punctual.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, das habe ich auch bemerkt. In Österreich ist es lockerer.",
+          "translation": "Yes, I've noticed that too. In Austria, it's more relaxed.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Wie sieht es mit der Schweiz aus?",
+          "translation": "What about Switzerland?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Die Schweizer sind sehr präzise, besonders bei der Arbeit.",
+          "translation": "The Swiss are very precise, especially at work.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das Essen in der Schweiz ist auch sehr gut, oder?",
+          "translation": "The food in Switzerland is also very good, isn't it?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, aber ich bevorzuge die österreichische Küche.",
+          "translation": "Yes, but I prefer Austrian cuisine.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Cultural Insights: Food and Customs",
+      "text": "Food plays a significant role in the culture of German-speaking countries. Each region has its own traditional dishes that reflect local ingredients and customs. Festivals often celebrate these culinary traditions.",
+      "funFact": "In Switzerland, it is common to eat cheese fondue in winter, and this dish is often served with a lot of socializing and sharing among friends."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding cultural differences enhances travel experiences.",
+        "Using subordinate clauses improves sentence complexity.",
+        "Vocabulary related to culture and customs is essential.",
+        "Practicing dialogues helps with conversational skills."
+      ],
+      "nextSteps": "Review the vocabulary and practice using subordinate clauses in your own sentences. Try to have a conversation with a partner about cultural experiences."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'der Brauch' mean in English?",
+      "content": {
+        "options": [
+          "tradition",
+          "celebration",
+          "food",
+          "language"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Brauch' translates to 'tradition' in English.",
+      "hint": "Think about customs and practices.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is a German holiday?",
+      "content": {
+        "options": [
+          "Thanksgiving",
+          "Oktoberfest",
+          "Christmas",
+          "New Year"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "Oktoberfest is a famous German festival celebrated in Munich.",
+      "hint": "It's known for beer and festivities.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'In Deutschland spricht man _____.'",
+      "content": {
+        "sentence": "In Deutschland spricht man ___.",
+        "correctAnswer": "Deutsch",
+        "acceptableAnswers": [
+          "Deutsch",
+          "die Sprache"
+        ],
+        "options": [
+          "Französisch",
+          "Deutsch",
+          "Englisch",
+          "Spanisch"
+        ]
+      },
+      "explanation": "The correct answer is 'Deutsch', as it means 'German'.",
+      "hint": "It's the language spoken in Germany.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ein wichtiger Teil der Kultur ist _____.'",
+      "content": {
+        "sentence": "Ein wichtiger Teil der Kultur ist ___.",
+        "correctAnswer": "das Essen",
+        "acceptableAnswers": [
+          "das Essen",
+          "die Speisen"
+        ],
+        "options": [
+          "die Sprache",
+          "das Essen",
+          "der Feiertag",
+          "der Brauch"
+        ]
+      },
+      "explanation": "Food ('das Essen') is indeed a significant aspect of culture.",
+      "hint": "Think about what people enjoy at gatherings.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'Cultural differences are interesting.'",
+      "content": {
+        "prompt": "Translate to German: 'Cultural differences are interesting.'",
+        "correctAnswer": "Kulturelle Unterschiede sind interessant.",
+        "acceptableAnswers": [
+          "Kulturelle Unterschiede sind spannend."
+        ]
+      },
+      "explanation": "The sentence reflects how cultural variations can be compelling.",
+      "hint": "Remember the word for culture.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Das Verhältnis zwischen den Kulturen ist wichtig.'",
+      "content": {
+        "ttsText": "Das Verhältnis zwischen den Kulturen ist wichtig.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The relationship between cultures is important.",
+          "The food between cultures is important.",
+          "The language between cultures is important."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence discusses the importance of relationships between cultures.",
+      "hint": "Focus on the word 'Verhältnis'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'What do you think about traditions in Germany?'",
+      "content": {
+        "targetText": "Was denkst du über Bräuche in Deutschland?",
+        "context": "Ask someone their opinion about traditions.",
+        "acceptableVariants": [
+          "Was hältst du von den Traditionen in Deutschland?"
+        ]
+      },
+      "explanation": "This question invites discussion about cultural practices.",
+      "hint": "Focus on the word for traditions.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of these is a common German food?",
+      "content": {
+        "options": [
+          "Sushi",
+          "Bratwurst",
+          "Tacos",
+          "Pasta"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "Bratwurst is a well-known German sausage.",
+      "hint": "Think of sausages.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'In der Schweiz spricht man _____.'",
+      "content": {
+        "sentence": "In der Schweiz spricht man ___.",
+        "correctAnswer": "Deutsch",
+        "acceptableAnswers": [
+          "Deutsch",
+          "Französisch",
+          "Italienisch"
+        ],
+        "options": [
+          "Deutsch",
+          "Spanisch",
+          "Englisch",
+          "Französisch"
+        ]
+      },
+      "explanation": "Switzerland has multiple official languages, including German.",
+      "hint": "Think about the languages spoken in Switzerland.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

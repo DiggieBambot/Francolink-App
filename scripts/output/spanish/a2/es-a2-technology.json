@@ -1,0 +1,346 @@
+{
+  "lesson": {
+    "title": "Technology & Gadgets",
+    "type": "VOCABULARY",
+    "slug": "es-a2-technology"
+  },
+  "unit": "Everyday Situations",
+  "unitOrder": 8,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to technology and gadgets in Spanish. You will also practice using these words in sentences and a dialogue.",
+      "culturalNote": "In many Latin American countries, technology is rapidly advancing, and gadgets like smartphones are essential in everyday life."
+    },
+    "vocabulary": [
+      {
+        "term": "el teléfono",
+        "translation": "the phone",
+        "definition": "A device used to make calls and send messages.",
+        "pronunciation": "el te-le-fo-no",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Yo uso el teléfono para hablar con mis amigos.",
+          "translation": "I use the phone to talk to my friends."
+        },
+        "tip": "Remember that 'teléfono' is masculine, so use 'el' before it."
+      },
+      {
+        "term": "la computadora",
+        "translation": "the computer",
+        "definition": "An electronic device for processing data.",
+        "pronunciation": "la com-pu-ta-do-ra",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La computadora es nueva y rápida.",
+          "translation": "The computer is new and fast."
+        },
+        "tip": "'Computadora' is feminine; remember to use 'la.'"
+      },
+      {
+        "term": "el televisor",
+        "translation": "the television",
+        "definition": "A device for viewing TV programs.",
+        "pronunciation": "el te-le-vi-sor",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Vimos una película en el televisor.",
+          "translation": "We watched a movie on the television."
+        },
+        "tip": "Use 'el' as 'televisor' is masculine."
+      },
+      {
+        "term": "la tableta",
+        "translation": "the tablet",
+        "definition": "A portable touchscreen computer.",
+        "pronunciation": "la ta-ble-ta",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ella tiene una tableta para leer libros.",
+          "translation": "She has a tablet to read books."
+        },
+        "tip": "'Tableta' is feminine, so it's 'la tableta.'"
+      },
+      {
+        "term": "el cargador",
+        "translation": "the charger",
+        "definition": "A device used to charge electronic gadgets.",
+        "pronunciation": "el car-ga-dor",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Necesito el cargador para mi teléfono.",
+          "translation": "I need the charger for my phone."
+        },
+        "tip": "Remember, 'cargador' is masculine, so use 'el.'"
+      },
+      {
+        "term": "la cámara",
+        "translation": "the camera",
+        "definition": "A device for taking photographs.",
+        "pronunciation": "la cá-ma-ra",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Usé la cámara para tomar fotos en la fiesta.",
+          "translation": "I used the camera to take photos at the party."
+        },
+        "tip": "'Cámara' is feminine, so it is 'la cámara.'"
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Simple Future Tense",
+        "explanation": "In Spanish, the simple future tense is used to talk about things that will happen. You can form it by adding specific endings to the infinitive verb. For example, 'hablar' (to speak) becomes 'hablaré' (I will speak).",
+        "table": {
+          "headers": [
+            "Subject",
+            "Ending"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "-é"
+            ],
+            [
+              "Tú",
+              "-ás"
+            ],
+            [
+              "Él/Ella",
+              "-á"
+            ],
+            [
+              "Nosotros",
+              "-emos"
+            ],
+            [
+              "Ellos",
+              "-án"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo compraré un nuevo teléfono.",
+            "translation": "I will buy a new phone.",
+            "breakdown": "The verb 'comprar' (to buy) is in its infinitive form and the ending '-é' is added for 'yo.'"
+          }
+        ],
+        "commonMistakes": [
+          "Using the present tense instead of the future: 'Yo compro un teléfono' (I buy a phone) instead of 'Yo compraré un teléfono.'",
+          "Forgetting the correct ending: 'Yo comprar' instead of 'Yo compraré.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Buying a Gadget",
+      "context": "At an electronics store.",
+      "speakers": [
+        "Maria",
+        "Juan"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, Juan. ¿Qué gadget vas a comprar?",
+          "translation": "Hi, Juan. What gadget are you going to buy?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, María. Voy a comprar una computadora.",
+          "translation": "Hi, Maria. I am going to buy a computer."
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué bien! ¿Es para trabajar o para jugar?",
+          "translation": "How nice! Is it for work or for gaming?"
+        },
+        {
+          "speaker": 1,
+          "text": "Es para trabajar. Necesito hacer mis tareas.",
+          "translation": "It is for work. I need to do my homework."
+        },
+        {
+          "speaker": 0,
+          "text": "Muy útil. Yo necesito una tableta.",
+          "translation": "Very useful. I need a tablet."
+        },
+        {
+          "speaker": 1,
+          "text": "¿Para qué la necesitas?",
+          "translation": "Why do you need it?"
+        },
+        {
+          "speaker": 0,
+          "text": "Para leer y ver películas.",
+          "translation": "To read and watch movies."
+        },
+        {
+          "speaker": 1,
+          "text": "Eso suena bien. ¿Cuánto cuesta?",
+          "translation": "That sounds good. How much does it cost?"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Technology in Latin America",
+      "text": "In many Latin American countries, the use of technology is growing rapidly, especially among young people. Smartphones and tablets are often seen as essential for education and communication.",
+      "funFact": "Did you know that in countries like Brazil and Mexico, social media usage is among the highest in the world?"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to technology and gadgets.",
+        "Practiced using the simple future tense.",
+        "Engaged in a dialogue about buying gadgets.",
+        "Gained cultural insights into technology use in Latin America."
+      ],
+      "nextSteps": "Practice the vocabulary in sentences and try to create your own dialogue using the new words."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'el teléfono' in English?",
+      "content": {
+        "options": [
+          "the phone",
+          "the computer",
+          "the tablet"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'the phone' as 'el teléfono' translates directly to it.",
+      "hint": "Think about a device you use to make calls.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which gadget is 'la computadora'?",
+      "content": {
+        "options": [
+          "the tablet",
+          "the computer",
+          "the TV"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'La computadora' translates to 'the computer', which is a common device for work and play.",
+      "hint": "It's often used for browsing the internet.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Yo uso ___ para trabajar.'",
+      "content": {
+        "sentence": "Yo uso ___ para trabajar.",
+        "correctAnswer": "la computadora",
+        "acceptableAnswers": [
+          "la computadora"
+        ],
+        "options": [
+          "el televisor",
+          "la tableta",
+          "la computadora"
+        ]
+      },
+      "explanation": "The correct answer is 'la computadora' since it is commonly used for work.",
+      "hint": "Think about what you need for tasks on the internet.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Necesito un ___ para mi teléfono.'",
+      "content": {
+        "sentence": "Necesito un ___ para mi teléfono.",
+        "correctAnswer": "cargador",
+        "acceptableAnswers": [
+          "cargador"
+        ],
+        "options": [
+          "televisor",
+          "cargador",
+          "cámara"
+        ]
+      },
+      "explanation": "The word 'cargador' means 'charger', which is necessary for a phone.",
+      "hint": "What do you need to charge your devices?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'televisor el veo cada noche'.",
+      "content": {
+        "words": [
+          "televisor",
+          "el",
+          "veo",
+          "cada",
+          "noche"
+        ],
+        "correctOrder": [
+          "el",
+          "televisor",
+          "veo",
+          "cada",
+          "noche"
+        ],
+        "translation": "I watch the TV every night."
+      },
+      "explanation": "The correct order forms a complete sentence in Spanish.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I have a camera.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I have a camera.'",
+        "correctAnswer": "Tengo una cámara.",
+        "acceptableAnswers": [
+          "Tengo una cámara"
+        ]
+      },
+      "explanation": "The correct translation is 'Tengo una cámara.' which means 'I have a camera.'",
+      "hint": "Remember to use the correct article.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'La tableta es nueva.'",
+      "content": {
+        "ttsText": "La tableta es nueva.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The tablet is new.",
+          "The phone is new.",
+          "The computer is new."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'The tablet is new.' in English.",
+      "hint": "Focus on the word for 'tablet'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'I need a charger.'",
+      "content": {
+        "targetText": "Necesito un cargador.",
+        "context": "You are asking for a charger.",
+        "acceptableVariants": [
+          "Necesito un cargador."
+        ]
+      },
+      "explanation": "This is the correct way to express the need for a charger in Spanish.",
+      "hint": "Start with 'Necesito'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

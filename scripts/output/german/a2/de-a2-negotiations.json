@@ -1,0 +1,365 @@
+{
+  "lesson": {
+    "title": "Everyday Negotiations",
+    "type": "CONVERSATION",
+    "slug": "de-a2-negotiations"
+  },
+  "unit": "Everyday Situations",
+  "unitOrder": 8,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn essential vocabulary and phrases for everyday negotiations in German. You will practice how to make offers, ask for prices, and find compromises in conversations.",
+      "culturalNote": "In Germany, negotiating is often a straightforward process, and it's common to discuss prices openly. This reflects the culture's emphasis on transparency and honesty."
+    },
+    "vocabulary": [
+      {
+        "term": "der Preis",
+        "translation": "the price",
+        "definition": "the amount of money required for something",
+        "pronunciation": "dair prys",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wie viel kostet das? Der Preis ist wichtig.",
+          "translation": "How much does it cost? The price is important."
+        },
+        "tip": "Remember that 'der Preis' is masculine (der) and its plural is 'die Preise'."
+      },
+      {
+        "term": "das Angebot",
+        "translation": "the offer",
+        "definition": "a proposal or deal presented to someone",
+        "pronunciation": "dahs an-ge-boht",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe ein gutes Angebot für dich.",
+          "translation": "I have a good offer for you."
+        },
+        "tip": "'Das Angebot' is neutral (das) and its plural is 'die Angebote'."
+      },
+      {
+        "term": "verhandeln",
+        "translation": "to negotiate",
+        "definition": "to discuss terms in order to reach an agreement",
+        "pronunciation": "fer-han-deln",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Wir müssen einen Preis verhandeln.",
+          "translation": "We need to negotiate a price."
+        },
+        "tip": "This verb can be used with 'mit' (with) for negotiations with someone."
+      },
+      {
+        "term": "der Rabatt",
+        "translation": "the discount",
+        "definition": "a reduction in the usual price",
+        "pronunciation": "dair ra-batt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Gibt es einen Rabatt?",
+          "translation": "Is there a discount?"
+        },
+        "tip": "'Der Rabatt' is masculine (der) and its plural is 'die Rabatte'."
+      },
+      {
+        "term": "die Qualität",
+        "translation": "the quality",
+        "definition": "the standard of something as measured against other things",
+        "pronunciation": "dee kwa-li-tät",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Qualität ist sehr wichtig.",
+          "translation": "The quality is very important."
+        },
+        "tip": "'Die Qualität' is feminine (die) and its plural is 'die Qualitäten'."
+      },
+      {
+        "term": "einverstanden",
+        "translation": "agreed",
+        "definition": "to be in accord or harmony with something",
+        "pronunciation": "ine-fair-shtan-den",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Ich bin einverstanden mit dem Preis.",
+          "translation": "I agree with the price."
+        },
+        "tip": "Use this phrase to express agreement in negotiations."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Modal Verbs in Negotiations",
+        "explanation": "In German, modal verbs like 'können' (can), 'wollen' (want), and 'müssen' (must) are often used in negotiations. They help express abilities, desires, and obligations. For example, 'Ich kann einen Rabatt geben' means 'I can give a discount.'",
+        "table": {
+          "headers": [
+            "Modal Verb",
+            "Meaning"
+          ],
+          "rows": [
+            [
+              "können",
+              "can"
+            ],
+            [
+              "wollen",
+              "want"
+            ],
+            [
+              "müssen",
+              "must"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich will einen besseren Preis.",
+            "translation": "I want a better price.",
+            "breakdown": "Here, 'will' expresses desire to negotiate for a better price."
+          }
+        ],
+        "commonMistakes": [
+          "Using the wrong verb form: 'Ich willst' instead of 'Ich will'.",
+          "Misplacing the modal verb: 'Ich einen Rabatt will' instead of 'Ich will einen Rabatt.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Negotiating a Price",
+      "context": "At a market stall where a customer wants to buy some fruits.",
+      "speakers": [
+        "Lukas",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo! Wie viel kostet die Äpfel?",
+          "translation": "Hello! How much do the apples cost?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Die Äpfel kosten fünf Euro das Kilo.",
+          "translation": "The apples cost five euros per kilo.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist teuer! Gibt es einen Rabatt?",
+          "translation": "That's expensive! Is there a discount?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich kann dir einen Rabatt geben. Wie wäre es mit vier Euro?",
+          "translation": "I can give you a discount. How about four euros?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Einverstanden! Ich nehme ein Kilo.",
+          "translation": "Agreed! I'll take one kilo.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Super! Möchtest du noch etwas?",
+          "translation": "Great! Would you like anything else?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Nein, das ist alles. Danke!",
+          "translation": "No, that's all. Thank you!",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Danke! Tschüss!",
+          "translation": "Thank you! Bye!",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Negotiating in German Culture",
+      "text": "In German-speaking countries, negotiating is often seen as a normal part of doing business or shopping. It's common to ask for discounts, especially in markets. This reflects a practical mindset.",
+      "funFact": "Did you know that in Germany, it's not unusual to negotiate prices even in stores? Many people enjoy the challenge!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned essential vocabulary for everyday negotiations.",
+        "Practiced using modal verbs in negotiation contexts.",
+        "Engaged in a realistic dialogue about negotiating prices.",
+        "Gained cultural insights into negotiation practices in German-speaking countries."
+      ],
+      "nextSteps": "Practice using the vocabulary in different negotiation scenarios. Try to create your own dialogues using modal verbs."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'der Preis' mean in English?",
+      "content": {
+        "options": [
+          "the price",
+          "the quality",
+          "the offer",
+          "the discount"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation of 'der Preis' is 'the price'.",
+      "hint": "Think about what you pay for an item.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'to negotiate'?",
+      "content": {
+        "options": [
+          "verhandeln",
+          "einverstanden",
+          "Rabatt",
+          "Angebot"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Verhandeln' is the German word for 'to negotiate'.",
+      "hint": "It starts with 'v'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich möchte einen ___ auf diesen Artikel. (Hint: a discount)",
+      "content": {
+        "sentence": "Ich möchte einen ___ auf diesen Artikel.",
+        "correctAnswer": "Rabatt",
+        "acceptableAnswers": [
+          "Rabatt"
+        ],
+        "options": [
+          "Preis",
+          "Rabatt",
+          "Angebot",
+          "Qualität"
+        ]
+      },
+      "explanation": "The correct word for 'discount' is 'Rabatt'.",
+      "hint": "It starts with 'R'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Die ___ dieses Produkts ist sehr hoch. (Hint: quality)",
+      "content": {
+        "sentence": "Die ___ dieses Produkts ist sehr hoch.",
+        "correctAnswer": "Qualität",
+        "acceptableAnswers": [
+          "Qualität"
+        ],
+        "options": [
+          "Preis",
+          "Rabatt",
+          "Angebot",
+          "Qualität"
+        ]
+      },
+      "explanation": "The correct word for 'quality' is 'Qualität'.",
+      "hint": "It starts with 'Q'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The quality is good.'",
+      "content": {
+        "prompt": "Translate to German: 'The quality is good.'",
+        "correctAnswer": "Die Qualität ist gut.",
+        "acceptableAnswers": [
+          "Die Qualität ist gut."
+        ]
+      },
+      "explanation": "The translation is accurate as it captures the meaning in German.",
+      "hint": "Remember the article for quality.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich möchte verhandeln.'",
+      "content": {
+        "ttsText": "Ich möchte verhandeln.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I want to negotiate.",
+          "I want a discount.",
+          "I want to buy.",
+          "I want the price."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'I want to negotiate.'",
+      "hint": "Listen for the word 'verhandeln'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I am okay with the price.'",
+      "content": {
+        "targetText": "Ich bin einverstanden mit dem Preis.",
+        "context": "You are negotiating and want to express agreement.",
+        "acceptableVariants": [
+          "Ich bin einverstanden mit dem Preis.",
+          "Ich finde den Preis okay."
+        ]
+      },
+      "explanation": "'Ich bin einverstanden mit dem Preis.' is a correct way to express agreement in a negotiation.",
+      "hint": "Focus on the word 'einverstanden'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'das Angebot' mean?",
+      "content": {
+        "options": [
+          "the offer",
+          "the price",
+          "the quality",
+          "the discount"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Das Angebot' translates to 'the offer' in English.",
+      "hint": "It starts with 'A'.",
+      "difficulty": "HARD",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Der ___ ist zu hoch für mich. (Hint: price)",
+      "content": {
+        "sentence": "Der ___ ist zu hoch für mich.",
+        "correctAnswer": "Preis",
+        "acceptableAnswers": [
+          "Preis"
+        ],
+        "options": [
+          "Preis",
+          "Rabatt",
+          "Angebot",
+          "Qualität"
+        ]
+      },
+      "explanation": "The correct word for 'price' is 'Preis'.",
+      "hint": "It starts with 'P'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

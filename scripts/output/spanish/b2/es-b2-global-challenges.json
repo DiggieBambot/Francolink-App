@@ -1,0 +1,340 @@
+{
+  "lesson": {
+    "title": "Global Challenges",
+    "type": "VOCABULARY",
+    "slug": "es-b2-global-challenges"
+  },
+  "unit": "Global Issues & Mastery",
+  "unitOrder": 8,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to global challenges, such as climate change, poverty, and social justice. You will also practice using these terms in context through a dialogue and explore a relevant cultural aspect.",
+      "culturalNote": "Many Latin American countries face significant challenges related to climate change, particularly in agriculture and water resources, impacting their economies and communities."
+    },
+    "vocabulary": [
+      {
+        "term": "el cambio climático",
+        "translation": "climate change",
+        "definition": "The long-term alteration of temperature and typical weather patterns.",
+        "pronunciation": "el chahm-bee-oh klee-mah-teh-koh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El cambio climático afecta a todo el planeta.",
+          "translation": "Climate change affects the entire planet."
+        },
+        "tip": "Remember that 'cambio' means 'change' and 'climático' relates to 'climate'."
+      },
+      {
+        "term": "la pobreza",
+        "translation": "poverty",
+        "definition": "The state of being extremely poor.",
+        "pronunciation": "lah poh-breh-sah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La pobreza es un problema grave en muchas partes del mundo.",
+          "translation": "Poverty is a serious problem in many parts of the world."
+        },
+        "tip": "Think of 'poverty' as a lack of resources; 'pobre' means 'poor' in Spanish."
+      },
+      {
+        "term": "la justicia social",
+        "translation": "social justice",
+        "definition": "The view that everyone deserves equal economic, political, and social rights.",
+        "pronunciation": "lah hoos-tee-syah soh-syahl",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La justicia social es fundamental para una sociedad equitativa.",
+          "translation": "Social justice is fundamental for an equitable society."
+        },
+        "tip": "Remember that 'justicia' means 'justice', and 'social' is similar in both languages."
+      },
+      {
+        "term": "la desigualdad",
+        "translation": "inequality",
+        "definition": "The unequal distribution of resources and opportunities.",
+        "pronunciation": "lah deh-see-gwahl-dahd",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La desigualdad económica ha aumentado en los últimos años.",
+          "translation": "Economic inequality has increased in recent years."
+        },
+        "tip": "Think of 'desigual' as 'unequal'—the prefix 'de-' indicates a lack of equality."
+      },
+      {
+        "term": "el desarrollo sostenible",
+        "translation": "sustainable development",
+        "definition": "Development that meets the needs of the present without compromising future generations.",
+        "pronunciation": "el deh-sah-rro-yoh sohs-teh-neh-bleh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El desarrollo sostenible es clave para el futuro del planeta.",
+          "translation": "Sustainable development is key for the planet's future."
+        },
+        "tip": "Break down the term: 'desarrollo' means 'development' and 'sostenible' means 'sustainable'."
+      },
+      {
+        "term": "la migración",
+        "translation": "migration",
+        "definition": "The movement of people from one place to another.",
+        "pronunciation": "lah mee-grah-syohn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La migración es un fenómeno global que afecta a millones.",
+          "translation": "Migration is a global phenomenon that affects millions."
+        },
+        "tip": "Think of 'migrant'—both words share the same root."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subjunctive Mood in Spanish",
+        "explanation": "The subjunctive mood is used in Spanish to express desires, doubts, or hypothetical situations. It is formed by changing the endings of verbs in certain tenses. For example, in the present subjunctive, -ar verbs end in -e, and -er/-ir verbs end in -a. This is important for discussing global challenges, as many situations involve expressing hope or concern.",
+        "table": {
+          "headers": [
+            "Verb Type",
+            "Present Subjunctive Ending"
+          ],
+          "rows": [
+            [
+              "-ar",
+              "-e, -es, -e, -emos, -éis, -en"
+            ],
+            [
+              "-er/-ir",
+              "-a, -as, -a, -amos, -áis, -an"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Espero que la comunidad se una para combatir la pobreza.",
+            "translation": "I hope that the community comes together to combat poverty.",
+            "breakdown": "The verb 'unir' is in the subjunctive form 'una' because it follows 'espero que'."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive after expressions of desire. Correct: 'Espero que...' instead of 'Espero que...'.",
+          "Confusing the forms of -ar and -er/-ir verbs in the subjunctive. Remember to apply the correct endings based on the verb type."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussion about Global Challenges",
+      "context": "A conversation between two friends discussing the impact of global issues on their community.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué piensas sobre el cambio climático?",
+          "translation": "What do you think about climate change?",
+          "note": "Carlos is initiating the conversation."
+        },
+        {
+          "speaker": 1,
+          "text": "Creo que es un problema urgente que debemos abordar.",
+          "translation": "I believe it is an urgent problem we must address."
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, y la pobreza también es un gran desafío.",
+          "translation": "Yes, and poverty is also a major challenge."
+        },
+        {
+          "speaker": 1,
+          "text": "Exactamente, muchas personas no tienen acceso a recursos básicos.",
+          "translation": "Exactly, many people lack access to basic resources."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué crees que podemos hacer para ayudar?",
+          "translation": "What do you think we can do to help?"
+        },
+        {
+          "speaker": 1,
+          "text": "Podríamos empezar con campañas de concientización.",
+          "translation": "We could start with awareness campaigns."
+        },
+        {
+          "speaker": 0,
+          "text": "Buena idea. La justicia social es clave en este proceso.",
+          "translation": "Good idea. Social justice is key in this process."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, y también necesitamos involucrar a más personas en la discusión.",
+          "translation": "Yes, and we also need to involve more people in the discussion."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Environmental Movements in Latin America",
+      "text": "Latin American countries have been at the forefront of environmental movements, advocating for sustainable practices and the protection of natural resources. Activists often face significant challenges but continue to push for change.",
+      "funFact": "In countries like Costa Rica, more than 99% of their electricity comes from renewable sources, showcasing their commitment to sustainability."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding key vocabulary related to global challenges.",
+        "Using the subjunctive mood to express hopes and concerns.",
+        "Engaging in dialogues about social issues.",
+        "Recognizing the importance of cultural contexts in discussions."
+      ],
+      "nextSteps": "Practice using the vocabulary in your own sentences and continue exploring the subjunctive mood in different contexts."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish term for 'climate change'?",
+      "content": {
+        "options": [
+          "el cambio climático",
+          "la desigualdad",
+          "la pobreza",
+          "la justicia social"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct term for 'climate change' in Spanish is 'el cambio climático'.",
+      "hint": "It refers to a significant change in global temperatures and weather patterns.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following translates to 'social justice'?",
+      "content": {
+        "options": [
+          "el desarrollo sostenible",
+          "la justicia social",
+          "la desigualdad",
+          "la migración"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct translation of 'social justice' is 'la justicia social'.",
+      "hint": "It focuses on the fair distribution of resources and opportunities.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'La __________ es un problema grave en muchos países.'",
+      "content": {
+        "sentence": "La __________ es un problema grave en muchos países.",
+        "correctAnswer": "pobreza",
+        "acceptableAnswers": [
+          "pobreza"
+        ],
+        "options": [
+          "desigualdad",
+          "pobreza",
+          "justicia social",
+          "migración"
+        ]
+      },
+      "explanation": "The word 'pobreza' means 'poverty', which is a serious issue in many countries.",
+      "hint": "This term refers to the state of being extremely poor.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'El __________ sostenible es fundamental para el futuro del planeta.'",
+      "content": {
+        "sentence": "El __________ sostenible es fundamental para el futuro del planeta.",
+        "correctAnswer": "desarrollo",
+        "acceptableAnswers": [
+          "desarrollo"
+        ],
+        "options": [
+          "cambio",
+          "desarrollo",
+          "justicia",
+          "mundo"
+        ]
+      },
+      "explanation": "The correct answer is 'desarrollo', which means 'development'.",
+      "hint": "Think about how we manage resources for future generations.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'justicia social, la, es, importante'.",
+      "content": {
+        "words": [
+          "la",
+          "justicia",
+          "social",
+          "es",
+          "importante"
+        ],
+        "correctOrder": [
+          "la",
+          "justicia",
+          "social",
+          "es",
+          "importante"
+        ],
+        "translation": "Social justice is important."
+      },
+      "explanation": "The correct order of the words forms a meaningful sentence in Spanish.",
+      "hint": "Start with the article.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I believe in sustainable development.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I believe in sustainable development.'",
+        "correctAnswer": "Creo en el desarrollo sostenible.",
+        "acceptableAnswers": [
+          "Creo en el desarrollo sostenible."
+        ]
+      },
+      "explanation": "The correct translation captures the concept of sustainable development.",
+      "hint": "Focus on the phrase for 'sustainable development'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'La migración es un tema complicado.'",
+      "content": {
+        "ttsText": "La migración es un tema complicado.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Migration is a complicated issue.",
+          "Social justice is an important theme.",
+          "Climate change is a serious problem.",
+          "Poverty is a global challenge."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence translates to 'Migration is a complicated issue.'",
+      "hint": "Listen for the word 'migración'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in Spanish: 'I want to learn more about social inequality.'",
+      "content": {
+        "targetText": "Quiero aprender más sobre la desigualdad social.",
+        "context": "You are expressing your desire to learn about a global issue.",
+        "acceptableVariants": [
+          "Quiero saber más sobre la desigualdad social."
+        ]
+      },
+      "explanation": "This sentence expresses a desire to learn about a specific global issue.",
+      "hint": "Focus on the words for 'learn' and 'inequality'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

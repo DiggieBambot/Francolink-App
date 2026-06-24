@@ -1,0 +1,313 @@
+{
+  "lesson": {
+    "title": "Der, Die, Das - German Articles",
+    "type": "GRAMMAR",
+    "slug": "de-a1-articles"
+  },
+  "unit": "Articles & Genders",
+  "unitOrder": 2,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about the German articles 'der', 'die', and 'das'. These articles indicate the gender of nouns and are essential for constructing sentences in German.",
+      "culturalNote": "In German, every noun has a gender, which can be different from English. This can be surprising for learners but is an important part of the language."
+    },
+    "vocabulary": [
+      {
+        "term": "der Tisch",
+        "translation": "the table",
+        "definition": "a piece of furniture with a flat top and one or more legs",
+        "pronunciation": "dehr tish",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Tisch ist groß.",
+          "translation": "The table is large."
+        },
+        "tip": "Remember: 'Tisch' (table) is masculine, so use 'der'."
+      },
+      {
+        "term": "die Lampe",
+        "translation": "the lamp",
+        "definition": "a device for giving light, often used in homes",
+        "pronunciation": "dee lamb-uh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Lampe ist schön.",
+          "translation": "The lamp is beautiful."
+        },
+        "tip": "Remember: 'Lampe' (lamp) is feminine, so use 'die'."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "a written work consisting of pages bound together",
+        "pronunciation": "dahs boo-kh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Buch ist interessant.",
+          "translation": "The book is interesting."
+        },
+        "tip": "Remember: 'Buch' (book) is neuter, so use 'das'."
+      },
+      {
+        "term": "der Hund",
+        "translation": "the dog",
+        "definition": "a domesticated carnivorous mammal",
+        "pronunciation": "dehr hoond",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Hund ist freundlich.",
+          "translation": "The dog is friendly."
+        },
+        "tip": "Remember: 'Hund' (dog) is masculine, so use 'der'."
+      },
+      {
+        "term": "die Katze",
+        "translation": "the cat",
+        "definition": "a small domesticated carnivorous mammal with retractable claws",
+        "pronunciation": "dee kahts-uh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Katze schläft.",
+          "translation": "The cat is sleeping."
+        },
+        "tip": "Remember: 'Katze' (cat) is feminine, so use 'die'."
+      },
+      {
+        "term": "das Auto",
+        "translation": "the car",
+        "definition": "a road vehicle, typically with four wheels, powered by an internal combustion engine",
+        "pronunciation": "dahs ow-toh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Auto ist neu.",
+          "translation": "The car is new."
+        },
+        "tip": "Remember: 'Auto' (car) is neuter, so use 'das'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "German Articles and Genders",
+        "explanation": "In German, nouns are accompanied by articles that indicate their gender: masculine (der), feminine (die), and neuter (das). The article must agree with the noun in gender. In the nominative case, the articles are straightforward, but in the accusative case, the masculine article changes to 'den'.",
+        "table": {
+          "headers": [
+            "Gender",
+            "Article"
+          ],
+          "rows": [
+            [
+              "Masculine",
+              "der"
+            ],
+            [
+              "Feminine",
+              "die"
+            ],
+            [
+              "Neuter",
+              "das"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich sehe den Tisch.",
+            "translation": "I see the table.",
+            "breakdown": "In this sentence, 'Tisch' (table) is masculine. In the accusative case, the article changes from 'der' to 'den'."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'die' for masculine nouns (e.g., 'die Tisch' instead of 'der Tisch').",
+          "Forgetting to change 'der' to 'den' in the accusative case for masculine nouns."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Furniture Store",
+      "context": "Anna and Lukas are shopping for furniture.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo, Lukas! Ich möchte einen Tisch kaufen.",
+          "translation": "Hello, Lukas! I want to buy a table."
+        },
+        {
+          "speaker": 1,
+          "text": "Guten Morgen, Anna! Welchen Tisch möchtest du?",
+          "translation": "Good morning, Anna! Which table do you want?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich möchte den großen Tisch.",
+          "translation": "I want the big table."
+        },
+        {
+          "speaker": 1,
+          "text": "Okay, und eine Lampe?",
+          "translation": "Okay, and a lamp?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, die schöne Lampe ist perfekt.",
+          "translation": "Yes, the beautiful lamp is perfect."
+        },
+        {
+          "speaker": 1,
+          "text": "Hast du auch ein Buch?",
+          "translation": "Do you also have a book?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, ich habe das neue Buch.",
+          "translation": "Yes, I have the new book."
+        },
+        {
+          "speaker": 1,
+          "text": "Gut! Lass uns kaufen!",
+          "translation": "Good! Let's buy!"
+        }
+      ]
+    },
+    "culture": {
+      "title": "German Language and Gender",
+      "text": "In German-speaking countries, the gender of nouns can sometimes reflect cultural aspects. For example, professions have different forms depending on gender, like 'der Lehrer' (male teacher) and 'die Lehrerin' (female teacher).",
+      "funFact": "Did you know that in German, the word for 'girl' is 'das Mädchen'? This is surprising because it is neuter!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Nouns in German have genders: masculine, feminine, and neuter.",
+        "The articles 'der', 'die', and 'das' correspond to these genders.",
+        "In the accusative case, the masculine article changes from 'der' to 'den'.",
+        "Practice using articles with nouns to improve your German."
+      ],
+      "nextSteps": "Continue practicing with different nouns and their articles. Try forming sentences using both nominative and accusative cases."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which article goes with 'Katze'?",
+      "content": {
+        "options": [
+          "der",
+          "die",
+          "das"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Katze' is feminine in German, so the correct article is 'die'.",
+      "hint": "Remember, 'Katze' is a female cat.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct article for 'Buch'?",
+      "content": {
+        "options": [
+          "der",
+          "die",
+          "das"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Buch' is neuter in German, hence the article 'das'.",
+      "hint": "Think of 'Buch' as a thing.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Ich habe ___ Hund.",
+      "content": {
+        "sentence": "Ich habe ___ Hund.",
+        "correctAnswer": "den",
+        "acceptableAnswers": [
+          "den"
+        ],
+        "options": [
+          "der",
+          "die",
+          "den"
+        ]
+      },
+      "explanation": "In this context, 'Hund' requires the accusative article 'den'.",
+      "hint": "Consider how you would refer to a specific dog.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: ___ Lampe ist schön.",
+      "content": {
+        "sentence": "___ Lampe ist schön.",
+        "correctAnswer": "Die",
+        "acceptableAnswers": [
+          "Die"
+        ],
+        "options": [
+          "Der",
+          "Die",
+          "Das"
+        ]
+      },
+      "explanation": "'Lampe' is feminine, so the correct article is 'Die'.",
+      "hint": "Think about the gender of the noun.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The table is big.'",
+      "content": {
+        "prompt": "Translate to German: 'The table is big.'",
+        "correctAnswer": "Der Tisch ist groß.",
+        "acceptableAnswers": [
+          "Der Tisch ist groß."
+        ]
+      },
+      "explanation": "'Table' in German is 'Tisch' and it takes the article 'der'.",
+      "hint": "Remember the article for 'Tisch'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Choose the correct article for 'Auto'.",
+      "content": {
+        "ttsText": "Das Auto.",
+        "ttsLang": "de-DE",
+        "options": [
+          "der",
+          "die",
+          "das"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Auto' is neuter and takes the article 'das'.",
+      "hint": "Listen carefully to the word.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in German: 'I have a cat.'",
+      "content": {
+        "targetText": "Ich habe eine Katze.",
+        "context": "Translate and pronounce this sentence in German.",
+        "acceptableVariants": [
+          "Ich habe eine Katze."
+        ]
+      },
+      "explanation": "'Cat' in German is 'Katze', and it requires the article 'eine' because it is feminine.",
+      "hint": "Remember the article for 'Katze'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

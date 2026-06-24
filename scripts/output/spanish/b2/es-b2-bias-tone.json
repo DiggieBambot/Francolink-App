@@ -1,0 +1,340 @@
+{
+  "lesson": {
+    "title": "Identifying Bias & Tone",
+    "type": "CONVERSATION",
+    "slug": "es-b2-bias-tone"
+  },
+  "unit": "Critical Thinking",
+  "unitOrder": 5,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to identify bias and tone in Spanish conversations. You will develop skills to analyze statements critically and express your opinions using nuanced language.",
+      "culturalNote": "In Spanish-speaking cultures, media literacy is becoming increasingly important due to the rise of social media. Understanding bias helps individuals navigate information critically."
+    },
+    "vocabulary": [
+      {
+        "term": "el sesgo",
+        "translation": "bias",
+        "definition": "a tendency to favor one perspective over another",
+        "pronunciation": "el SES-go",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es importante reconocer el sesgo en las noticias.",
+          "translation": "It's important to recognize bias in the news."
+        },
+        "tip": "Think of 'bias' as a 'sway' of opinion."
+      },
+      {
+        "term": "el tono",
+        "translation": "tone",
+        "definition": "the attitude or emotional quality conveyed in communication",
+        "pronunciation": "el TO-no",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El tono de su voz era sarcástico.",
+          "translation": "The tone of his voice was sarcastic."
+        },
+        "tip": "Remember that tone can change the meaning of words."
+      },
+      {
+        "term": "la objetividad",
+        "translation": "objectivity",
+        "definition": "the quality of being unbiased and impartial",
+        "pronunciation": "la ob-jecti-VIDAD",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La objetividad es clave en el periodismo.",
+          "translation": "Objectivity is key in journalism."
+        },
+        "tip": "Link 'objectivity' with 'objective facts' for memory."
+      },
+      {
+        "term": "la subjetividad",
+        "translation": "subjectivity",
+        "definition": "the quality of being influenced by personal feelings or opinions",
+        "pronunciation": "la sub-jecti-VIDAD",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La subjetividad puede distorsionar la verdad.",
+          "translation": "Subjectivity can distort the truth."
+        },
+        "tip": "Think of 'subjectivity' as 'personal views.'"
+      },
+      {
+        "term": "la retórica",
+        "translation": "rhetoric",
+        "definition": "the art of persuasive speaking or writing",
+        "pronunciation": "la re-TÓ-ri-ca",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Su retórica fue efectiva en convencer a la audiencia.",
+          "translation": "His rhetoric was effective in convincing the audience."
+        },
+        "tip": "Connect 'rhetoric' with 'persuasion' for easier recall."
+      },
+      {
+        "term": "la manipulación",
+        "translation": "manipulation",
+        "definition": "the act of controlling or influencing someone or something unfairly",
+        "pronunciation": "la ma-ni-pu-la-CIÓN",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La manipulación de la información es un problema grave.",
+          "translation": "The manipulation of information is a serious problem."
+        },
+        "tip": "Remember 'manipulation' as 'twisting the truth.'"
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subjunctive Mood in Expressing Opinions",
+        "explanation": "The subjunctive mood is used in Spanish to express desires, doubts, or opinions. It often appears in dependent clauses introduced by 'que.' For example, 'Es importante que reconozcamos el sesgo.' (It's important that we recognize bias.)",
+        "table": {
+          "headers": [
+            "Verb (Present Subjunctive)",
+            "Meaning"
+          ],
+          "rows": [
+            [
+              "reconocer",
+              "to recognize"
+            ],
+            [
+              "analizar",
+              "to analyze"
+            ],
+            [
+              "evaluar",
+              "to evaluate"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es necesario que analicemos el tono de la conversación.",
+            "translation": "It is necessary that we analyze the tone of the conversation.",
+            "breakdown": "This sentence uses the subjunctive 'analicemos' to express the necessity of analyzing."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive in expressions of necessity. Correct: 'Es necesario que lo hagamos.'",
+          "Forgetting to conjugate the verb correctly in the subjunctive. Correct: 'Espero que entiendas.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing an Article",
+      "context": "Two friends discussing an article they read in a local newspaper.",
+      "speakers": [
+        "Juan",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Leíste el artículo sobre la política reciente?",
+          "translation": "Did you read the article about recent politics?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, pero noté un sesgo en la forma en que presentaron los hechos.",
+          "translation": "Yes, but I noticed a bias in how they presented the facts."
+        },
+        {
+          "speaker": 0,
+          "text": "Exacto. El tono era muy negativo hacia el gobierno.",
+          "translation": "Exactly. The tone was very negative towards the government."
+        },
+        {
+          "speaker": 1,
+          "text": "Me pareció que faltaba objetividad en su análisis.",
+          "translation": "I felt that there was a lack of objectivity in their analysis."
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, y eso puede influir en la opinión pública.",
+          "translation": "Yes, and that can influence public opinion."
+        },
+        {
+          "speaker": 1,
+          "text": "Además, la retórica que usaron era muy persuasiva.",
+          "translation": "Moreover, the rhetoric they used was very persuasive."
+        },
+        {
+          "speaker": 0,
+          "text": "Es cierto, pero debemos estar alerta a la manipulación de la información.",
+          "translation": "That's true, but we must be alert to the manipulation of information."
+        },
+        {
+          "speaker": 1,
+          "text": "De acuerdo. Es importante que analicemos críticamente lo que leemos.",
+          "translation": "Agreed. It is important that we analyze critically what we read."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Media Literacy in Latin America",
+      "text": "Media literacy is becoming increasingly crucial in Latin America, where misinformation can spread rapidly through social media. Understanding bias allows individuals to navigate complex information landscapes effectively.",
+      "funFact": "In some countries, such as Argentina, there are initiatives to promote critical thinking in schools to combat misinformation."
+    },
+    "summary": {
+      "keyPoints": [
+        "Recognizing bias helps in critical analysis.",
+        "Tone affects the interpretation of information.",
+        "The subjunctive mood expresses opinions and necessities.",
+        "Understanding context is essential in discussions."
+      ],
+      "nextSteps": "Practice identifying bias and tone in various Spanish texts and continue to use the subjunctive mood in your discussions."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'el sesgo' mean in English?",
+      "content": {
+        "options": [
+          "bias",
+          "tone",
+          "rhetoric",
+          "subjectivity"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El sesgo' translates to 'bias' in English, referring to a tendency to favor one perspective over others.",
+      "hint": "It's often related to opinions.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word relates to the emotional quality of a text?",
+      "content": {
+        "options": [
+          "objetividad",
+          "tono",
+          "manipulación",
+          "retórica"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Tono' means 'tone' and it refers to the emotional quality in communication.",
+      "hint": "Think about how something makes you feel.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: La _______ es importante para mantener un análisis imparcial.",
+      "content": {
+        "sentence": "La _______ es importante para mantener un análisis imparcial.",
+        "correctAnswer": "objetividad",
+        "acceptableAnswers": [
+          "objetividad"
+        ],
+        "options": [
+          "subjetividad",
+          "manipulación",
+          "retórica",
+          "objetividad"
+        ]
+      },
+      "explanation": "The correct word is 'objetividad', meaning objectivity, which is crucial for unbiased analysis.",
+      "hint": "Opposite of 'subjetividad'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: La _______ puede influir en la percepción del público.",
+      "content": {
+        "sentence": "La _______ puede influir en la percepción del público.",
+        "correctAnswer": "retórica",
+        "acceptableAnswers": [
+          "retórica"
+        ],
+        "options": [
+          "manipulación",
+          "retórica",
+          "objetividad",
+          "subjetividad"
+        ]
+      },
+      "explanation": "'Retórica' refers to the art of persuasion and can influence public perception.",
+      "hint": "It's often used in speeches.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct Spanish sentence: 'es / la / manipulación / peligrosa'.",
+      "content": {
+        "words": [
+          "manipulación",
+          "la",
+          "es",
+          "peligrosa"
+        ],
+        "correctOrder": [
+          "la",
+          "manipulación",
+          "es",
+          "peligrosa"
+        ],
+        "translation": "Manipulation is dangerous."
+      },
+      "explanation": "The correct order emphasizes that manipulation can have harmful effects.",
+      "hint": "Consider how the subject and verb relate.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Subjectivity can lead to bias.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'Subjectivity can lead to bias.'",
+        "correctAnswer": "La subjetividad puede llevar al sesgo.",
+        "acceptableAnswers": [
+          "La subjetividad puede causar sesgo."
+        ]
+      },
+      "explanation": "This sentence translates accurately, illustrating how subjectivity can create bias.",
+      "hint": "Think about cause and effect.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation: 'La objetividad es esencial en el periodismo.'",
+      "content": {
+        "ttsText": "La objetividad es esencial en el periodismo.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Objectivity is essential in journalism.",
+          "Subjectivity is essential in journalism.",
+          "Bias is essential in journalism."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation emphasizes the importance of objectivity in journalism.",
+      "hint": "Focus on the word 'esencial'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in Spanish: 'Bias can distort the truth.'",
+      "content": {
+        "targetText": "El sesgo puede distorsionar la verdad.",
+        "context": "Translate this sentence into Spanish.",
+        "acceptableVariants": [
+          "El sesgo distorsiona la verdad."
+        ]
+      },
+      "explanation": "This translation captures the idea that bias affects the perception of truth.",
+      "hint": "Use the word for 'bias'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

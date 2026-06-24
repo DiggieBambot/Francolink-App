@@ -1,0 +1,372 @@
+{
+  "lesson": {
+    "title": "Numbers 21-1000 & Prices",
+    "type": "VOCABULARY",
+    "slug": "de-a1-numbers-prices"
+  },
+  "unit": "Shopping & Around Town",
+  "unitOrder": 5,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn numbers from 21 to 1000 in German, as well as useful vocabulary for shopping and understanding prices. You'll also practice forming simple sentences using these numbers.",
+      "culturalNote": "In Germany, prices are usually displayed with a comma instead of a decimal point. For example, €2,50 means two euros and fifty cents."
+    },
+    "vocabulary": [
+      {
+        "term": "die Eins",
+        "translation": "one",
+        "definition": "the number one",
+        "pronunciation": "dee ine-s",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe die Eins.",
+          "translation": "I have one."
+        },
+        "tip": "Learn the numbers in sequence to remember them better."
+      },
+      {
+        "term": "die Zwei",
+        "translation": "two",
+        "definition": "the number two",
+        "pronunciation": "dee tsvai",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe die Zwei.",
+          "translation": "I have two."
+        },
+        "tip": "Remember that 'zwei' sounds like 'tsvai'."
+      },
+      {
+        "term": "die Drei",
+        "translation": "three",
+        "definition": "the number three",
+        "pronunciation": "dee dry",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich sehe die Drei.",
+          "translation": "I see three."
+        },
+        "tip": "The plural of 'die Drei' is 'die Dreien' when counting."
+      },
+      {
+        "term": "der Preis",
+        "translation": "price",
+        "definition": "the cost of something",
+        "pronunciation": "der price",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Was ist der Preis?",
+          "translation": "What is the price?"
+        },
+        "tip": "Remember 'der Preis' is masculine."
+      },
+      {
+        "term": "das Geld",
+        "translation": "money",
+        "definition": "currency used to buy things",
+        "pronunciation": "das geld",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich brauche mehr Geld.",
+          "translation": "I need more money."
+        },
+        "tip": "'Geld' is neuter, so use 'das'."
+      },
+      {
+        "term": "könnten",
+        "translation": "could (modal verb)",
+        "definition": "indicates possibility",
+        "pronunciation": "kurn-ten",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Wir könnten das kaufen.",
+          "translation": "We could buy that."
+        },
+        "tip": "Use 'könnten' for polite suggestions."
+      },
+      {
+        "term": "möchten",
+        "translation": "would like (modal verb)",
+        "definition": "indicates desire",
+        "pronunciation": "merkh-ten",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich möchte ein Wasser.",
+          "translation": "I would like a water."
+        },
+        "tip": "Use 'möchten' to express what you want."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Numbers in German",
+        "explanation": "In German, numbers from 21 to 99 are formed by combining the unit digit with the tens digit. For example, 21 is 'einundzwanzig' (one and twenty). For numbers 100 and above, the hundreds are named first, followed by the tens and units.",
+        "table": {
+          "headers": [
+            "German Number",
+            "English Translation"
+          ],
+          "rows": [
+            [
+              "21",
+              "twenty-one"
+            ],
+            [
+              "50",
+              "fifty"
+            ],
+            [
+              "100",
+              "one hundred"
+            ],
+            [
+              "250",
+              "two hundred fifty"
+            ],
+            [
+              "1000",
+              "one thousand"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "dreiundzwanzig",
+            "translation": "twenty-three",
+            "breakdown": "This combines 'drei' (three) and 'zwanzig' (twenty)."
+          },
+          {
+            "original": "zweihundert",
+            "translation": "two hundred",
+            "breakdown": "This is 'zwei' (two) + 'hundert' (hundred)."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'zwei' with 'eins' (two vs one).",
+          "Forgetting the gender of nouns when using numbers."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Shopping at the Market",
+      "context": "At a local market in Germany.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Max! Wie viel kostet das Brot?",
+          "translation": "Hello Max! How much does the bread cost?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das Brot kostet zwei Euro.",
+          "translation": "The bread costs two euros.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Und die Äpfel?",
+          "translation": "And the apples?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Die Äpfel kosten drei Euro.",
+          "translation": "The apples cost three euros.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich möchte auch eine Orange.",
+          "translation": "I would like an orange.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Die Orange kostet einen Euro.",
+          "translation": "The orange costs one euro.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich habe fünf Euro.",
+          "translation": "I have five euros.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist genug!",
+          "translation": "That is enough!",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Shopping Culture in Germany",
+      "text": "Shopping in Germany often involves visiting local markets where fresh produce is sold. Many people prefer to buy from these markets rather than large supermarkets for better quality.",
+      "funFact": "In some regions, markets are held only once a week, creating a special community event."
+    },
+    "summary": {
+      "keyPoints": [
+        "You learned numbers from 21 to 1000.",
+        "You practiced vocabulary related to shopping.",
+        "You learned to form simple sentences with prices.",
+        "You saw examples of using modal verbs."
+      ],
+      "nextSteps": "Practice using these numbers in real-life situations and try to create your own sentences about prices."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'the price'?",
+      "content": {
+        "options": [
+          "der Preis",
+          "das Geld",
+          "die Eins"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Preis' is the correct translation for 'the price' in German.",
+      "hint": "Think about the cost of items.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which number is 'drei' in English?",
+      "content": {
+        "options": [
+          "two",
+          "three",
+          "four"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Drei' translates to 'three' in English.",
+      "hint": "It comes after 'two'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich möchte ___ (three) Äpfel.",
+      "content": {
+        "sentence": "Ich möchte ___ Äpfel.",
+        "correctAnswer": "drei",
+        "acceptableAnswers": [
+          "drei"
+        ],
+        "options": [
+          "zwei",
+          "drei",
+          "vier"
+        ]
+      },
+      "explanation": "The sentence means 'I would like three apples' in English.",
+      "hint": "It's the number after 'two'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Der Preis ist ___ Euro.",
+      "content": {
+        "sentence": "Der Preis ist ___ Euro.",
+        "correctAnswer": "fünf",
+        "acceptableAnswers": [
+          "fünf"
+        ],
+        "options": [
+          "drei",
+          "fünf",
+          "sechs"
+        ]
+      },
+      "explanation": "This means 'The price is five euros'.",
+      "hint": "It's a number between four and six.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: möchten / wir / ein / kaufen / Auto.",
+      "content": {
+        "words": [
+          "möchten",
+          "wir",
+          "ein",
+          "kaufen",
+          "Auto"
+        ],
+        "correctOrder": [
+          "wir",
+          "möchten",
+          "ein",
+          "Auto",
+          "kaufen"
+        ],
+        "translation": "We would like to buy a car."
+      },
+      "explanation": "The correct order forms a complete sentence in German.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I have one dollar.'",
+      "content": {
+        "prompt": "Translate to German: 'I have one dollar.'",
+        "correctAnswer": "Ich habe einen Dollar.",
+        "acceptableAnswers": [
+          "Ich habe einen Dollar."
+        ]
+      },
+      "explanation": "The phrase translates to 'Ich habe einen Dollar.' in German.",
+      "hint": "Think about the number and the currency.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation: 'Ich habe zwei Euro.'",
+      "content": {
+        "ttsText": "Ich habe zwei Euro.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I have two euros.",
+          "I have three euros.",
+          "I have one euro."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'I have two euros.'",
+      "hint": "Listen carefully to the number.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the German sentence: 'I would like one ticket.'",
+      "content": {
+        "targetText": "Ich möchte ein Ticket.",
+        "context": "Translate and say the sentence in German.",
+        "acceptableVariants": [
+          "Ich möchte ein Ticket.",
+          "Ich hätte gern ein Ticket."
+        ]
+      },
+      "explanation": "This is how you express wanting a ticket in German.",
+      "hint": "Focus on the word 'möchte'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

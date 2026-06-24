@@ -1,0 +1,348 @@
+{
+  "lesson": {
+    "title": "Si Clauses (Real Conditions)",
+    "type": "GRAMMAR",
+    "slug": "es-b1-si-clauses"
+  },
+  "unit": "Conditionals & Wishes",
+  "unitOrder": 4,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about 'Si Clauses' (real conditions) in Spanish. These structures are used to express real and possible situations. Understanding these clauses will help you make conditional statements in everyday conversations.",
+      "culturalNote": "In many Spanish-speaking countries, discussing hypothetical situations is common in daily life, especially when making plans or discussing future events."
+    },
+    "vocabulary": [
+      {
+        "term": "el clima",
+        "translation": "the weather",
+        "definition": "the state of the atmosphere at a particular place and time.",
+        "pronunciation": "el KLEE-ma",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El clima es muy variable en esta región.",
+          "translation": "The weather is very variable in this region."
+        },
+        "tip": "Think of 'climate' in English; both words share the same root."
+      },
+      {
+        "term": "la posibilidad",
+        "translation": "the possibility",
+        "definition": "a chance that something might happen.",
+        "pronunciation": "la pos-i-bi-li-DAD",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Hay una posibilidad de lluvia mañana.",
+          "translation": "There is a possibility of rain tomorrow."
+        },
+        "tip": "Remember that 'posibilidad' often appears with 'si' in conditional sentences."
+      },
+      {
+        "term": "si",
+        "translation": "if",
+        "definition": "used to introduce a conditional clause.",
+        "pronunciation": "see",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Si hace sol, iremos a la playa.",
+          "translation": "If it is sunny, we will go to the beach."
+        },
+        "tip": "It's a very common word; think of it as the gateway to conditions."
+      },
+      {
+        "term": "ir",
+        "translation": "to go",
+        "definition": "to move from one place to another.",
+        "pronunciation": "eer",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Si tengo tiempo, iré al cine.",
+          "translation": "If I have time, I will go to the cinema."
+        },
+        "tip": "Remember the conjugations: 'voy', 'vas', 'va' for present tense."
+      },
+      {
+        "term": "hacer",
+        "translation": "to do/make",
+        "definition": "to perform an action or create something.",
+        "pronunciation": "ah-SER",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Si estudias, harás un buen examen.",
+          "translation": "If you study, you will do well on the exam."
+        },
+        "tip": "Focus on the irregular forms in future tense: 'haré', 'harás'."
+      },
+      {
+        "term": "la tarea",
+        "translation": "the homework",
+        "definition": "assignments given to students to be completed outside of class.",
+        "pronunciation": "la ta-RE-a",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Si terminas la tarea, podrás salir.",
+          "translation": "If you finish your homework, you can go out."
+        },
+        "tip": "Think of 'task'; both words relate to work or assignments."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Si Clauses (Real Conditions)",
+        "explanation": "In Spanish, 'si' clauses are used to express real conditions that are possible or likely to happen. The structure usually consists of two parts: the condition (introduced by 'si') and the result. The condition is in the present indicative, while the result is often in the future indicative.",
+        "table": {
+          "headers": [
+            "Condition",
+            "Result"
+          ],
+          "rows": [
+            [
+              "Si + present indicative",
+              "future indicative"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Si estudias, pasarás el examen.",
+            "translation": "If you study, you will pass the exam.",
+            "breakdown": "The condition 'Si estudias' (If you study) is in the present indicative, and the result 'pasarás' (you will pass) is in the future indicative."
+          },
+          {
+            "original": "Si llueve, no iremos al parque.",
+            "translation": "If it rains, we will not go to the park.",
+            "breakdown": "The condition 'Si llueve' (If it rains) is present indicative, and 'no iremos' (we will not go) is future indicative."
+          }
+        ],
+        "commonMistakes": [
+          "Using subjunctive instead of indicative in the condition: 'Si estudiaras' instead of 'Si estudias'.",
+          "Incorrectly using present tense in the result instead of future tense: 'Si estudias, pasas el examen' instead of 'pasarás'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Making Plans for the Weekend",
+      "context": "Two friends discussing their plans for the weekend.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué harás este fin de semana?",
+          "translation": "What will you do this weekend?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "No estoy seguro. Si hace buen tiempo, iré a la playa.",
+          "translation": "I'm not sure. If the weather is nice, I will go to the beach.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¡Buena idea! Si vas, me gustaría acompañarte.",
+          "translation": "Good idea! If you go, I would like to join you.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Claro, pero si llueve, podríamos ver una película en casa.",
+          "translation": "Sure, but if it rains, we could watch a movie at home.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, eso suena bien. ¿Qué película quieres ver?",
+          "translation": "Yes, that sounds good. What movie do you want to see?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Si tengo tiempo, quiero ver esa nueva comedia.",
+          "translation": "If I have time, I want to see that new comedy.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Perfecto. Entonces, hagamos un plan.",
+          "translation": "Perfect. Then, let's make a plan.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "De acuerdo. Te llamaré el sábado por la mañana.",
+          "translation": "Okay. I will call you on Saturday morning.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Weekend Traditions in Latin America",
+      "text": "In many Latin American countries, weekends are often dedicated to family gatherings and outdoor activities. People frequently make plans based on the weather, especially for outings to the beach or parks.",
+      "funFact": "In some regions, it's common to have asado (a barbecue) with family and friends during the weekend, often depending on sunny weather."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned about 'si' clauses for expressing real conditions.",
+        "Recognized the structure: condition in present indicative, result in future indicative.",
+        "Practiced vocabulary related to weather and planning.",
+        "Engaged in a dialogue to apply conditional sentences in context."
+      ],
+      "nextSteps": "Practice forming your own 'si' clauses using different scenarios. Try to create sentences about your own weekend plans."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'si' mean in English?",
+      "content": {
+        "options": [
+          "if",
+          "when",
+          "but",
+          "because"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Si' translates to 'if' in English, which is used to introduce conditional sentences.",
+      "hint": "Think about the word used to express conditions.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence is an example of a real condition?",
+      "content": {
+        "options": [
+          "Si hace buen tiempo, iremos al parque.",
+          "Si tuviera un coche, iría a la playa.",
+          "Si yo fuera rico, compraría una casa.",
+          "Si llueve, me gustaría quedarme en casa."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The first sentence expresses a real possibility based on the weather.",
+      "hint": "Look for a sentence that talks about the current weather.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Si ___ (hacer) la tarea, tendré tiempo libre.",
+      "content": {
+        "sentence": "Si ___ la tarea, tendré tiempo libre.",
+        "correctAnswer": "hago",
+        "acceptableAnswers": [
+          "haces",
+          "hace"
+        ],
+        "options": [
+          "hago",
+          "haces",
+          "hace",
+          "hacen"
+        ]
+      },
+      "explanation": "The correct form is 'hago' because it refers to the first person (I) doing the action.",
+      "hint": "Think about the subject of the sentence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Si el clima es bueno, ___ (ir) a la playa.",
+      "content": {
+        "sentence": "Si el clima es bueno, ___ a la playa.",
+        "correctAnswer": "vamos",
+        "acceptableAnswers": [
+          "ir",
+          "van"
+        ],
+        "options": [
+          "vamos",
+          "ir",
+          "van",
+          "voy"
+        ]
+      },
+      "explanation": "The correct form is 'vamos' because it refers to 'we' in the future.",
+      "hint": "Consider the subject of the verb in the sentence.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence in Spanish: tarea / si / quiero / hacer / la.",
+      "content": {
+        "words": [
+          "tarea",
+          "si",
+          "quiero",
+          "hacer",
+          "la"
+        ],
+        "correctOrder": [
+          "si",
+          "quiero",
+          "hacer",
+          "la",
+          "tarea"
+        ],
+        "translation": "If I want to do the homework."
+      },
+      "explanation": "The correct order conveys a clear and logical condition.",
+      "hint": "Think about how to start with 'si'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'If it rains, I will stay home.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'If it rains, I will stay home.'",
+        "correctAnswer": "Si llueve, me quedaré en casa.",
+        "acceptableAnswers": []
+      },
+      "explanation": "Correctly translating conditional sentences requires understanding of verb tenses.",
+      "hint": "Focus on the condition and the result.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct option: Si el clima es malo, ___ a la montaña.",
+      "content": {
+        "ttsText": "Si el clima es malo, iremos a la montaña.",
+        "ttsLang": "es-ES",
+        "options": [
+          "vamos",
+          "ir",
+          "iremos",
+          "fui"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "The correct form is 'iremos' indicating future action based on the condition.",
+      "hint": "Listen for the verb form indicating future tense.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'If I have time, I will do my homework.'",
+      "content": {
+        "targetText": "Si tengo tiempo, haré mi tarea.",
+        "context": "Translate and say a conditional sentence.",
+        "acceptableVariants": [
+          "Si tengo tiempo, voy a hacer mi tarea."
+        ]
+      },
+      "explanation": "The sentence uses a real condition to express future intentions based on time availability.",
+      "hint": "Start with 'Si' to indicate the condition.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

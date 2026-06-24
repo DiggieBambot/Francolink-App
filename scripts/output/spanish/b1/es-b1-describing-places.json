@@ -1,0 +1,357 @@
+{
+  "lesson": {
+    "title": "Describing Places & Scenery",
+    "type": "VOCABULARY",
+    "slug": "es-b1-describing-places"
+  },
+  "unit": "Culture & Travel",
+  "unitOrder": 7,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to describing places and scenery in Spanish. You will be able to express your opinions about different locations and their characteristics.",
+      "culturalNote": "Spanish-speaking countries often have a rich variety of landscapes, from mountains to beaches, which significantly influence their culture and lifestyle."
+    },
+    "vocabulary": [
+      {
+        "term": "la playa",
+        "translation": "the beach",
+        "definition": "A sandy area by the sea, ideal for sunbathing and swimming.",
+        "pronunciation": "lah plah-yah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me encanta ir a la playa en verano.",
+          "translation": "I love going to the beach in summer."
+        },
+        "tip": "Remember that beaches are popular vacation spots in many Spanish-speaking countries."
+      },
+      {
+        "term": "la montaña",
+        "translation": "the mountain",
+        "definition": "A large natural elevation of the Earth's surface.",
+        "pronunciation": "lah mon-tahn-yah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La montaña es muy alta y hermosa.",
+          "translation": "The mountain is very tall and beautiful."
+        },
+        "tip": "In many cultures, mountains are considered sacred places."
+      },
+      {
+        "term": "el paisaje",
+        "translation": "the landscape",
+        "definition": "The visible features of an area of land, including physical elements.",
+        "pronunciation": "el pie-sah-eh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El paisaje en esta región es impresionante.",
+          "translation": "The landscape in this region is stunning."
+        },
+        "tip": "Use 'el paisaje' to describe natural scenery in general."
+      },
+      {
+        "term": "el desierto",
+        "translation": "the desert",
+        "definition": "A barren area of land with little precipitation.",
+        "pronunciation": "el deh-see-er-toh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El desierto es muy caluroso durante el día.",
+          "translation": "The desert is very hot during the day."
+        },
+        "tip": "Deserts often have unique flora and fauna."
+      },
+      {
+        "term": "la ciudad",
+        "translation": "the city",
+        "definition": "A large town where many people live and work.",
+        "pronunciation": "lah see-oo-dahd",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La ciudad tiene muchas actividades culturales.",
+          "translation": "The city has many cultural activities."
+        },
+        "tip": "Cities are often vibrant with events and social life."
+      },
+      {
+        "term": "el río",
+        "translation": "the river",
+        "definition": "A large natural stream of water flowing in a channel.",
+        "pronunciation": "el ree-oh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El río es perfecto para practicar kayak.",
+          "translation": "The river is perfect for kayaking."
+        },
+        "tip": "Rivers are crucial for ecosystems and human settlements."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Adjectives to Describe",
+        "explanation": "In Spanish, adjectives usually follow the nouns they describe. For example, 'la casa blanca' means 'the white house.' Adjectives must agree in gender and number with the noun. If the noun is feminine and plural, the adjective must also be feminine and plural.",
+        "table": {
+          "headers": [
+            "Noun",
+            "Adjective"
+          ],
+          "rows": [
+            [
+              "la casa (the house)",
+              "blanca (white)"
+            ],
+            [
+              "los árboles (the trees)",
+              "verdes (green)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "La playa es hermosa.",
+            "translation": "The beach is beautiful.",
+            "breakdown": "'La playa' is feminine, so we use 'hermosa.'"
+          },
+          {
+            "original": "Las montañas son altas.",
+            "translation": "The mountains are tall.",
+            "breakdown": "'Las montañas' is plural and feminine, hence 'altas.'"
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'el casa blanca' instead of 'la casa blanca.' Remember that 'casa' is feminine.",
+          "Using an adjective that does not agree with the noun in gender or number, like 'los árbol verdes' instead of 'los árboles verdes.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Travel Plans",
+      "context": "Two friends talking about their plan to travel to a new place.",
+      "speakers": [
+        "Juan",
+        "María"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué te parece visitar la playa este fin de semana?",
+          "translation": "What do you think about visiting the beach this weekend?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Me encantaría, pero también quiero ver las montañas.",
+          "translation": "I would love to, but I also want to see the mountains.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Podemos hacer una excursión a las montañas el sábado.",
+          "translation": "We can take a trip to the mountains on Saturday.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¡Eso suena genial! ¿Y qué tal el domingo?",
+          "translation": "That sounds great! And how about Sunday?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "El domingo podríamos ir a la playa.",
+          "translation": "On Sunday, we could go to the beach.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Perfecto, me gusta esa idea.",
+          "translation": "Perfect, I like that idea.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué tipo de paisaje prefieres, montañas o playa?",
+          "translation": "What kind of landscape do you prefer, mountains or beach?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Prefiero el paisaje de la playa, es más relajante.",
+          "translation": "I prefer the beach landscape, it is more relaxing.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Exploring Landscapes in Latin America",
+      "text": "Latin America is home to incredible landscapes that range from tropical beaches to vast deserts and towering mountains. Each region has its unique beauty and cultural significance.",
+      "funFact": "The Andes mountains, which stretch across several South American countries, are the longest mountain range in the world."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary for describing places and scenery.",
+        "Practiced using adjectives to describe nouns.",
+        "Engaged in a dialogue about travel plans.",
+        "Gained cultural insights into landscapes in Spanish-speaking countries."
+      ],
+      "nextSteps": "Try describing your favorite place in Spanish using the vocabulary and grammar you learned. Practice with a partner or record yourself."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'the beach'?",
+      "content": {
+        "options": [
+          "la ciudad",
+          "la playa",
+          "el desierto",
+          "la montaña"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'la playa', which means 'the beach' in Spanish.",
+      "hint": "Think of a place where you relax by the sea.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'el paisaje' mean in English?",
+      "content": {
+        "options": [
+          "the landscape",
+          "the city",
+          "the river",
+          "the mountain"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El paisaje' translates to 'the landscape', referring to a view or scenery.",
+      "hint": "It's something you might admire in nature.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'En _____ hay muchas montañas y nieve.'",
+      "content": {
+        "sentence": "En ___ hay muchas montañas y nieve.",
+        "correctAnswer": "la montaña",
+        "acceptableAnswers": [
+          "las montañas",
+          "el paisaje"
+        ],
+        "options": [
+          "la playa",
+          "la montaña",
+          "el desierto",
+          "la ciudad"
+        ]
+      },
+      "explanation": "The correct answer is 'la montaña' as the sentence refers to a place with mountains and snow.",
+      "hint": "Think of a tall landform.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Me gusta nadar en _____ durante el verano.'",
+      "content": {
+        "sentence": "Me gusta nadar en ___ durante el verano.",
+        "correctAnswer": "la playa",
+        "acceptableAnswers": [
+          "el río",
+          "la piscina"
+        ],
+        "options": [
+          "la ciudad",
+          "la playa",
+          "el desierto",
+          "la montaña"
+        ]
+      },
+      "explanation": "'La playa' is the correct answer as it's a common place to swim in summer.",
+      "hint": "It's a sandy area near the ocean.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'desierto un es el calor muy.'",
+      "content": {
+        "words": [
+          "desierto",
+          "un",
+          "es",
+          "el",
+          "calor",
+          "muy"
+        ],
+        "correctOrder": [
+          "el",
+          "desierto",
+          "es",
+          "muy",
+          "calor",
+          "un"
+        ],
+        "translation": "The desert is very hot."
+      },
+      "explanation": "The correct order conveys that a desert has high temperatures.",
+      "hint": "Start with 'el desierto'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The river flows through the city.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The river flows through the city.'",
+        "correctAnswer": "El río fluye a través de la ciudad.",
+        "acceptableAnswers": [
+          "El río pasa por la ciudad."
+        ]
+      },
+      "explanation": "The correct translation captures the meaning of the sentence accurately.",
+      "hint": "Remember the words for river and city.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and identify the place: 'Me encanta el paisaje de la montaña.'",
+      "content": {
+        "ttsText": "Me encanta el paisaje de la montaña.",
+        "ttsLang": "es-ES",
+        "options": [
+          "el desierto",
+          "la playa",
+          "la montaña",
+          "la ciudad"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "The correct answer is 'la montaña' since the sentence refers to mountain scenery.",
+      "hint": "Focus on the word 'montaña'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say a sentence in Spanish describing your favorite city.",
+      "content": {
+        "targetText": "Mi ciudad favorita es Barcelona.",
+        "context": "Describe your favorite city in Spanish.",
+        "acceptableVariants": [
+          "Mi ciudad favorita es Madrid.",
+          "Me gusta mucho Nueva York."
+        ]
+      },
+      "explanation": "The learner is encouraged to speak about their favorite city, which enhances fluency.",
+      "hint": "Use 'Mi ciudad favorita es...' to start.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

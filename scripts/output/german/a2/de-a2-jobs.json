@@ -1,0 +1,328 @@
+{
+  "lesson": {
+    "title": "Jobs & Professions",
+    "type": "VOCABULARY",
+    "slug": "de-a2-jobs"
+  },
+  "unit": "Work & Studies",
+  "unitOrder": 5,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to jobs and professions in German. You will also practice using these words in sentences and conversations.",
+      "culturalNote": "In Germany, it is common to have a strong focus on vocational training, and many professions require an apprenticeship."
+    },
+    "vocabulary": [
+      {
+        "term": "der Lehrer",
+        "translation": "the teacher",
+        "definition": "A person who educates students.",
+        "pronunciation": "dehr LAY-rer",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Lehrer unterrichtet die Schüler.",
+          "translation": "The teacher teaches the students."
+        },
+        "tip": "Remember that 'Lehrer' is masculine; the plural is 'Lehrer' (no change)."
+      },
+      {
+        "term": "die Ärztin",
+        "translation": "the (female) doctor",
+        "definition": "A female medical professional who treats patients.",
+        "pronunciation": "dee AIR-ts-tin",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Ärztin hilft den Patienten.",
+          "translation": "The doctor helps the patients."
+        },
+        "tip": "The masculine form is 'der Arzt'. The plural is 'Ärzte' for males and 'Ärztinnen' for females."
+      },
+      {
+        "term": "der Ingenieur",
+        "translation": "the engineer",
+        "definition": "A professional who designs and builds things.",
+        "pronunciation": "dehr IN-gen-yur",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Ingenieur arbeitet an einem neuen Projekt.",
+          "translation": "The engineer works on a new project."
+        },
+        "tip": "'Ingenieur' is masculine; the plural is 'Ingenieure'."
+      },
+      {
+        "term": "die Krankenschwester",
+        "translation": "the nurse",
+        "definition": "A person who provides medical care and assistance.",
+        "pronunciation": "dee KRANK-en-shves-ter",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Krankenschwester kümmert sich um die Patienten.",
+          "translation": "The nurse takes care of the patients."
+        },
+        "tip": "This term is feminine. The plural is 'Krankenschwestern'."
+      },
+      {
+        "term": "der Mechaniker",
+        "translation": "the mechanic",
+        "definition": "A person who repairs and maintains machinery.",
+        "pronunciation": "dehr meh-KAH-ni-ker",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Mechaniker repariert das Auto.",
+          "translation": "The mechanic repairs the car."
+        },
+        "tip": "'Mechaniker' is masculine; the plural is 'Mechaniker' (no change)."
+      },
+      {
+        "term": "die Verkäuferin",
+        "translation": "the (female) sales assistant",
+        "definition": "A woman who sells goods in a store.",
+        "pronunciation": "dee fer-KOYF-er-rin",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Verkäuferin hilft den Kunden.",
+          "translation": "The sales assistant helps the customers."
+        },
+        "tip": "The masculine form is 'der Verkäufer'. The plural is 'Verkäuferinnen' for females."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Noun Genders and Plurals",
+        "explanation": "In German, nouns have genders: masculine (der), feminine (die), and neuter (das). It is important to memorize the article with each noun. Most masculine nouns end in -er, feminine nouns often end in -in or -e, and neuter nouns can end in -chen or -lein. Plural forms can vary, but many masculine nouns add -e, while feminine nouns often add -innen.",
+        "table": {
+          "headers": [
+            "Singular (Masculine)",
+            "Singular (Feminine)",
+            "Plural"
+          ],
+          "rows": [
+            [
+              "der Lehrer",
+              "die Lehrerin",
+              "die Lehrerinnen"
+            ],
+            [
+              "der Arzt",
+              "die Ärztin",
+              "die Ärzte"
+            ],
+            [
+              "der Ingenieur",
+              "die Ingenieurin",
+              "die Ingenieure"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Die Lehrerin ist sehr freundlich.",
+            "translation": "The female teacher is very friendly.",
+            "breakdown": "Here, 'die Lehrerin' shows that it's feminine and singular."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing der and die: Remember, 'der' is for masculine nouns and 'die' for feminine nouns.",
+          "Using the wrong plural: Not all nouns follow the same plural rules, so learn them with the noun."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Meeting at a Job Fair",
+      "context": "Anna and Felix meet at a job fair to discuss their professions.",
+      "speakers": [
+        "Anna",
+        "Felix"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Felix! Was machst du beruflich?",
+          "translation": "Hello Felix! What do you do for a living?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Anna! Ich bin Ingenieur.",
+          "translation": "Hello Anna! I am an engineer.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt interessant! Was machst du genau?",
+          "translation": "That sounds interesting! What do you do exactly?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich arbeite an neuen Projekten.",
+          "translation": "I work on new projects.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich bin Lehrerin. Ich unterrichte Mathe.",
+          "translation": "I am a teacher. I teach math.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist toll! Wie lange machst du das schon?",
+          "translation": "That's great! How long have you been doing that?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Seit fünf Jahren. Und du?",
+          "translation": "For five years. And you?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich bin seit zwei Jahren Ingenieur.",
+          "translation": "I have been an engineer for two years.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Vocational Training in Germany",
+      "text": "Vocational training is highly valued in Germany, with many students opting for apprenticeships after school. This system combines practical experience with classroom instruction.",
+      "funFact": "Approximately 60% of young people in Germany choose vocational training over university."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to jobs and professions",
+        "Practiced using nouns with their articles",
+        "Discussed the importance of noun genders and plurals",
+        "Engaged in a dialogue about professions"
+      ],
+      "nextSteps": "Practice using the new vocabulary in sentences and try to create your own dialogues about jobs."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'teacher'?",
+      "content": {
+        "options": [
+          "der Lehrer",
+          "die Krankenschwester",
+          "der Ingenieur",
+          "die Verkäuferin"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'der Lehrer', which means 'teacher' in German.",
+      "hint": "Think of someone who teaches in a school.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'nurse' in German?",
+      "content": {
+        "options": [
+          "die Ärztin",
+          "der Mechaniker",
+          "die Krankenschwester",
+          "die Verkäuferin"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "The correct answer is 'die Krankenschwester', which translates to 'nurse' in English.",
+      "hint": "Nurses take care of patients in hospitals.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Mein Onkel ist ___ (the engineer)'.",
+      "content": {
+        "sentence": "Mein Onkel ist ___ (the engineer).",
+        "correctAnswer": "der Ingenieur",
+        "acceptableAnswers": [
+          "der Ingenieur"
+        ],
+        "options": [
+          "die Verkäuferin",
+          "der Ingenieur",
+          "die Ärztin"
+        ]
+      },
+      "explanation": "The correct answer is 'der Ingenieur', meaning 'the engineer' in German.",
+      "hint": "Think about someone who designs and builds things.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Sie arbeitet als ___ (the saleswoman)'.",
+      "content": {
+        "sentence": "Sie arbeitet als ___ (the saleswoman).",
+        "correctAnswer": "die Verkäuferin",
+        "acceptableAnswers": [
+          "die Verkäuferin"
+        ],
+        "options": [
+          "die Ärztin",
+          "die Verkäuferin",
+          "die Krankenschwester"
+        ]
+      },
+      "explanation": "The correct answer is 'die Verkäuferin', which translates to 'the saleswoman'.",
+      "hint": "This person sells products in a store.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The doctor is a woman'.",
+      "content": {
+        "prompt": "Translate to German: 'The doctor is a woman'.",
+        "correctAnswer": "Die Ärztin ist eine Frau.",
+        "acceptableAnswers": [
+          "Die Ärztin ist eine Frau."
+        ]
+      },
+      "explanation": "The correct translation is 'Die Ärztin ist eine Frau', which means 'The doctor is a woman'.",
+      "hint": "Remember the word for 'doctor' is gendered in German.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Der Mechaniker repariert Autos.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The nurse fixes cars.",
+          "The mechanic repairs cars.",
+          "The teacher repairs cars."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct translation is 'The mechanic repairs cars'.",
+      "hint": "Listen carefully to the job mentioned.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in German: 'I want to be a teacher'.",
+      "content": {
+        "targetText": "Ich möchte Lehrer werden.",
+        "context": "Express your career aspiration.",
+        "acceptableVariants": [
+          "Ich möchte Lehrer werden.",
+          "Ich will Lehrer sein."
+        ]
+      },
+      "explanation": "The correct phrase is 'Ich möchte Lehrer werden', which means 'I want to be a teacher'.",
+      "hint": "Use the verb 'möchten' for desires.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

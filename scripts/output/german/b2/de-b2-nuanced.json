@@ -1,0 +1,353 @@
+{
+  "lesson": {
+    "title": "Expressing Nuanced Opinions",
+    "type": "CONVERSATION",
+    "slug": "de-b2-nuanced"
+  },
+  "unit": "Arts & Literature",
+  "unitOrder": 7,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to express nuanced opinions in German, particularly in the context of arts and literature. You will practice using complex sentence structures and idiomatic expressions to articulate your thoughts more effectively.",
+      "culturalNote": "German-speaking countries have a rich tradition in arts and literature, with notable figures like Johann Wolfgang von Goethe and Friedrich Schiller whose works continue to influence modern culture."
+    },
+    "vocabulary": [
+      {
+        "term": "der Eindruck",
+        "translation": "the impression",
+        "definition": "a feeling or opinion about something or someone",
+        "pronunciation": "deh-er IN-drukh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Eindruck von dem Buch war sehr positiv.",
+          "translation": "My impression of the book was very positive."
+        },
+        "tip": "Remember that 'der Eindruck' is masculine, so use 'der' to refer to it."
+      },
+      {
+        "term": "die Interpretation",
+        "translation": "the interpretation",
+        "definition": "the action of explaining the meaning of something",
+        "pronunciation": "dee in-ter-pre-TAH-tsion",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Interpretation des Gedichts war sehr vielfältig.",
+          "translation": "The interpretation of the poem was very diverse."
+        },
+        "tip": "'Die Interpretation' is feminine, so always use 'die' with it."
+      },
+      {
+        "term": "das Kunstwerk",
+        "translation": "the artwork",
+        "definition": "a piece of art, such as a painting or sculpture",
+        "pronunciation": "dahs KOONST-verk",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Dieses Kunstwerk hat viele Emotionen geweckt.",
+          "translation": "This artwork has evoked many emotions."
+        },
+        "tip": "Remember, 'das Kunstwerk' is neuter, so it takes 'das'."
+      },
+      {
+        "term": "die Meinung",
+        "translation": "the opinion",
+        "definition": "a personal belief or judgment",
+        "pronunciation": "dee MY-noong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich respektiere deine Meinung über den Film.",
+          "translation": "I respect your opinion about the film."
+        },
+        "tip": "'Die Meinung' is feminine, so use 'die' when talking about it."
+      },
+      {
+        "term": "der Aspekt",
+        "translation": "the aspect",
+        "definition": "a particular part or feature of something",
+        "pronunciation": "deh-er AS-pekt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ein wichtiger Aspekt der Literatur ist die Sprache.",
+          "translation": "An important aspect of literature is the language."
+        },
+        "tip": "'Der Aspekt' is masculine, so always remember to use 'der'."
+      },
+      {
+        "term": "veranschaulichen",
+        "translation": "to illustrate",
+        "definition": "to explain or make something clear by using examples",
+        "pronunciation": "feh-RAN-shou-li-khen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Der Autor veranschaulicht seine Ideen durch Metaphern.",
+          "translation": "The author illustrates his ideas through metaphors."
+        },
+        "tip": "This is a regular verb; remember to use 'veranschaulicht' for the third person singular."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Konjunktiv II for Hypothetical Opinions",
+        "explanation": "Konjunktiv II is used in German to express hypothetical situations or opinions. It can be used to discuss what one would do or what one thinks might happen. This form is particularly useful for nuanced discussions because it allows you to express uncertainty or conditions.",
+        "table": {
+          "headers": [
+            "Verb (Infinitive)",
+            "Konjunktiv II"
+          ],
+          "rows": [
+            [
+              "haben",
+              "hätte"
+            ],
+            [
+              "sein",
+              "wäre"
+            ],
+            [
+              "gehen",
+              "ginge"
+            ],
+            [
+              "wissen",
+              "wüsste"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich mehr Zeit hätte, würde ich öfter ins Theater gehen.",
+            "translation": "If I had more time, I would go to the theater more often.",
+            "breakdown": "The sentence uses Konjunktiv II ('hätte') to express a hypothetical condition and its consequence."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing Konjunktiv I with Konjunktiv II. Remember, use Konjunktiv II for hypothetical situations.",
+          "Omitting the auxiliary verb 'würde' when forming conditional sentences. Always include it for clarity."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Book",
+      "context": "A conversation between two friends discussing a recently read book at a café.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Liest du gerade ein gutes Buch?",
+          "translation": "Are you currently reading a good book?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe gerade 'Der Prozess' von Kafka gelesen.",
+          "translation": "Yes, I just finished reading 'The Trial' by Kafka.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Wie findest du es?",
+          "translation": "What do you think of it?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Es ist sehr komplex, aber gerade das macht es spannend.",
+          "translation": "It is very complex, but that is exactly what makes it exciting.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich habe gehört, dass die Interpretation sehr unterschiedlich ist.",
+          "translation": "I've heard that the interpretation is very varied.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, das stimmt. Jeder sieht verschiedene Aspekte darin.",
+          "translation": "Yes, that's true. Everyone sees different aspects in it.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Was ist dein Eindruck von Kafkas Schreibstil?",
+          "translation": "What is your impression of Kafka's writing style?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich finde seinen Stil sehr eindringlich und provozierend.",
+          "translation": "I find his style very compelling and provocative.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Literary Traditions in Germany",
+      "text": "Germany has a long-standing literary tradition that includes famous authors such as Goethe and Schiller. Their works often explore deep philosophical themes and human emotions, reflecting the complexities of life.",
+      "funFact": "The Frankfurt Book Fair is the largest book fair in the world and takes place annually in Germany, showcasing literature and publishing from around the globe."
+    },
+    "summary": {
+      "keyPoints": [
+        "Expressing nuanced opinions using Konjunktiv II.",
+        "Understanding the importance of interpretation in arts and literature.",
+        "Utilizing specific vocabulary related to arts and literature.",
+        "Engaging in realistic dialogues to practice conversational skills."
+      ],
+      "nextSteps": "Practice using the vocabulary in your own sentences and try to create hypothetical opinions using Konjunktiv II. Engage in discussions about your favorite books or artworks."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'der Eindruck' mean in English?",
+      "content": {
+        "options": [
+          "The impression",
+          "The expression",
+          "The interpretation",
+          "The aspect"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Eindruck' translates to 'the impression' in English.",
+      "hint": "Think about how we perceive art.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'to illustrate' in German?",
+      "content": {
+        "options": [
+          "veranschaulichen",
+          "interpretieren",
+          "darstellen",
+          "fühlen"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Veranschaulichen' means 'to illustrate' in German.",
+      "hint": "It starts with 'v'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Die ___ des Kunstwerks ist faszinierend.'",
+      "content": {
+        "sentence": "Die ___ des Kunstwerks ist faszinierend.",
+        "correctAnswer": "Interpretation",
+        "acceptableAnswers": [
+          "deutung"
+        ],
+        "options": [
+          "Meinung",
+          "Interpretation",
+          "Aspekt",
+          "Eindruck"
+        ]
+      },
+      "explanation": "The correct word is 'Interpretation', which fits the context of art.",
+      "hint": "It's related to how we understand art.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blanks: 'Ich habe eine positive ___ über das Kunstwerk.'",
+      "content": {
+        "sentence": "Ich habe eine positive ___ über das Kunstwerk.",
+        "correctAnswer": "Meinung",
+        "acceptableAnswers": [
+          "Eindruck",
+          "Interpretation"
+        ],
+        "options": [
+          "Meinung",
+          "Aspekt",
+          "Darstellung",
+          "Erfahrung"
+        ]
+      },
+      "explanation": "'Meinung' means 'opinion', which fits the context.",
+      "hint": "It's something you express about something.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'veranschaulichen, Aspekte, verschiedene, Kunstwerke'",
+      "content": {
+        "words": [
+          "veranschaulichen",
+          "Aspekte",
+          "verschiedene",
+          "Kunstwerke"
+        ],
+        "correctOrder": [
+          "verschiedene",
+          "Aspekte",
+          "veranschaulichen",
+          "Kunstwerke"
+        ],
+        "translation": "Various aspects illustrate artworks."
+      },
+      "explanation": "The correct order expresses the intended meaning clearly.",
+      "hint": "Start with the adjective.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The interpretation of the artwork is important.'",
+      "content": {
+        "correctAnswer": "Die Interpretation des Kunstwerks ist wichtig.",
+        "acceptableAnswers": [
+          "Die Deutung des Kunstwerks ist wichtig."
+        ],
+        "prompt": "Translate to German: 'The interpretation of the artwork is important.'"
+      },
+      "explanation": "The translation captures the meaning accurately.",
+      "hint": "Remember the definite articles.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct phrase: 'Das Kunstwerk hat einen starken Eindruck hinterlassen.'",
+      "content": {
+        "ttsText": "Das Kunstwerk hat einen starken Eindruck hinterlassen.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The artwork left a strong impression.",
+          "The artwork has a strong aspect.",
+          "The artwork illustrates different interpretations."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence describes the impact of the artwork.",
+      "hint": "Focus on the word 'Eindruck'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in German: 'I have a different opinion about this artwork.'",
+      "content": {
+        "targetText": "Ich habe eine andere Meinung über dieses Kunstwerk.",
+        "context": "Express your opinion about an artwork.",
+        "acceptableVariants": [
+          "Ich habe eine andere Ansicht über dieses Kunstwerk."
+        ]
+      },
+      "explanation": "The sentence correctly expresses an opinion about the artwork.",
+      "hint": "Use 'Meinung' for opinion.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

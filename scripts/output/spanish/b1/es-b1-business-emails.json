@@ -1,0 +1,363 @@
+{
+  "lesson": {
+    "title": "Business Emails & Messages",
+    "type": "CONVERSATION",
+    "slug": "es-b1-business-emails"
+  },
+  "unit": "Work & Career",
+  "unitOrder": 3,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to write and understand business emails and messages in Spanish. You will also practice vocabulary and expressions commonly used in a professional context.",
+      "culturalNote": "In many Spanish-speaking countries, formal greetings and closings in emails are very important, reflecting respect and professionalism."
+    },
+    "vocabulary": [
+      {
+        "term": "el correo electrónico",
+        "translation": "the email",
+        "definition": "A message sent electronically.",
+        "pronunciation": "el koh-reh-oh eh-lehk-tron-ee-koh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Envíame el correo electrónico, por favor.",
+          "translation": "Send me the email, please."
+        },
+        "tip": "Remember that 'correo' means 'mail' and 'electrónico' means 'electronic'."
+      },
+      {
+        "term": "el asunto",
+        "translation": "the subject",
+        "definition": "The topic of an email or message.",
+        "pronunciation": "el ah-soon-toh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El asunto del correo es importante.",
+          "translation": "The subject of the email is important."
+        },
+        "tip": "Think of 'asunto' as the 'matter' or 'issue' being discussed."
+      },
+      {
+        "term": "la firma",
+        "translation": "the signature",
+        "definition": "The closing part of an email that includes your name.",
+        "pronunciation": "la feer-mah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "No olvides incluir tu firma.",
+          "translation": "Don't forget to include your signature."
+        },
+        "tip": "A good signature often includes your name, position, and contact information."
+      },
+      {
+        "term": "atender",
+        "translation": "to attend to",
+        "definition": "To deal with or respond to something.",
+        "pronunciation": "ah-ten-dehr",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Voy a atender tu solicitud pronto.",
+          "translation": "I will attend to your request soon."
+        },
+        "tip": "Think of 'atender' as being attentive to someone's needs."
+      },
+      {
+        "term": "la respuesta",
+        "translation": "the response",
+        "definition": "An answer to a question or a reply.",
+        "pronunciation": "la reh-spues-tah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Espero tu respuesta pronto.",
+          "translation": "I hope for your response soon."
+        },
+        "tip": "Responses are crucial in maintaining communication."
+      },
+      {
+        "term": "la reunión",
+        "translation": "the meeting",
+        "definition": "A gathering of people for discussion.",
+        "pronunciation": "la reh-u-nee-on",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La reunión es a las tres de la tarde.",
+          "translation": "The meeting is at three in the afternoon."
+        },
+        "tip": "Meetings often require advance preparation."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Subjunctive in Requests",
+        "explanation": "In Spanish, the subjunctive mood is often used to express wishes, requests, or doubts. When writing emails, you can use it to politely ask someone to do something. For example, instead of saying 'quiero que tú haces', you would say 'quiero que tú hagas'.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Verb (Present Subjunctive)"
+          ],
+          "rows": [
+            [
+              "yo",
+              "haga"
+            ],
+            [
+              "tú",
+              "hagas"
+            ],
+            [
+              "él/ella",
+              "haga"
+            ],
+            [
+              "nosotros",
+              "hagamos"
+            ],
+            [
+              "vosotros",
+              "hagáis"
+            ],
+            [
+              "ellos/ellas",
+              "hagan"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Espero que me envíes el informe.",
+            "translation": "I hope that you send me the report.",
+            "breakdown": "Here, 'envíes' is in the subjunctive because it expresses a hope."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive. Correct: 'Espero que me envíes' (not 'envías').",
+          "Confusing 'que' with 'de que'. Correct: 'Es importante que tú respondas'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Email Communication",
+      "context": "A conversation between a manager and an employee discussing an email response.",
+      "speakers": [
+        "María (Manager)",
+        "Juan (Employee)"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola Juan, ¿recibiste el correo electrónico que te envié?",
+          "translation": "Hi Juan, did you receive the email I sent you?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, lo recibí. Estoy trabajando en la respuesta.",
+          "translation": "Yes, I received it. I am working on the response.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Perfecto. Espero que me envíes tu respuesta antes del viernes.",
+          "translation": "Perfect. I hope you send me your response before Friday.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Claro, haré lo posible para terminarlo a tiempo.",
+          "translation": "Sure, I'll do my best to finish it on time.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Gracias, Juan. También necesitamos preparar la reunión.",
+          "translation": "Thank you, Juan. We also need to prepare for the meeting.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, tengo algunas ideas para discutir en la reunión.",
+          "translation": "Yes, I have some ideas to discuss in the meeting.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Genial. Asegúrate de incluir esos puntos en el correo.",
+          "translation": "Great. Make sure to include those points in the email.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Lo haré. Te enviaré todo mañana.",
+          "translation": "I will. I will send you everything tomorrow.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Communication Etiquette in Spanish-Speaking Countries",
+      "text": "In many Spanish-speaking cultures, formal communication in emails is highly valued. It is common to start with a polite greeting and end with a courteous closing. This reflects respect for the recipient.",
+      "funFact": "In some countries, it is customary to use titles such as 'Señor' or 'Señora' in business correspondence."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding key vocabulary for business emails.",
+        "Using the subjunctive for polite requests.",
+        "Focusing on formal communication etiquette.",
+        "Practicing dialogue related to email exchanges."
+      ],
+      "nextSteps": "Practice writing a business email using the vocabulary and grammar points from this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'el asunto' mean in the context of an email?",
+      "content": {
+        "options": [
+          "The subject",
+          "The body",
+          "The recipient",
+          "The signature"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El asunto' refers to the subject line of an email, which indicates the main topic.",
+      "hint": "Think about what summarizes the email's content.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is 'la firma' in an email?",
+      "content": {
+        "options": [
+          "The greeting",
+          "The closing",
+          "The signature",
+          "The subject"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'La firma' is the closing part of an email where the sender's name is written.",
+      "hint": "It's usually found at the end of the email.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Yo necesito ___ la reunión.",
+      "content": {
+        "sentence": "Yo necesito ___ la reunión.",
+        "correctAnswer": "atender",
+        "acceptableAnswers": [
+          "atender"
+        ],
+        "options": [
+          "asistir",
+          "atender",
+          "enviar",
+          "recibir"
+        ]
+      },
+      "explanation": "'Atender' means to attend or take care of something, like a meeting.",
+      "hint": "Think about participating in the meeting.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Necesito la ___ de tu correo.",
+      "content": {
+        "sentence": "Necesito la ___ de tu correo.",
+        "correctAnswer": "respuesta",
+        "acceptableAnswers": [
+          "respuesta"
+        ],
+        "options": [
+          "respuesta",
+          "firma",
+          "reunión",
+          "atender"
+        ]
+      },
+      "explanation": "In this context, 'respuesta' means the response to the email.",
+      "hint": "It refers to an answer you expect.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: reunión / la / mañana / tenemos / a / importante.",
+      "content": {
+        "words": [
+          "reunión",
+          "la",
+          "mañana",
+          "tenemos",
+          "importante"
+        ],
+        "correctOrder": [
+          "tenemos",
+          "la",
+          "reunión",
+          "importante",
+          "mañana"
+        ],
+        "translation": "We have an important meeting tomorrow."
+      },
+      "explanation": "The correct order conveys a clear message about the meeting.",
+      "hint": "Start with the verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Please find the attached document.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'Please find the attached document.'",
+        "correctAnswer": "Por favor, encuentre el documento adjunto.",
+        "acceptableAnswers": [
+          "Por favor, encuentra el documento adjunto."
+        ]
+      },
+      "explanation": "This translation accurately conveys a common phrase used in business emails.",
+      "hint": "Look for how to say 'attached document' in Spanish.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'El correo electrónico es importante en los negocios.'",
+      "content": {
+        "ttsText": "El correo electrónico es importante en los negocios.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Email is important in business.",
+          "Email is unimportant in business.",
+          "Business emails are not necessary.",
+          "Emails are only for personal use."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence emphasizes the importance of email in business contexts.",
+      "hint": "Focus on the keyword 'importante'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I will send you the email tomorrow.'",
+      "content": {
+        "targetText": "Te enviaré el correo electrónico mañana.",
+        "context": "Make a promise to send an email.",
+        "acceptableVariants": [
+          "Voy a enviarte el correo mañana."
+        ]
+      },
+      "explanation": "This sentence is a clear commitment to send an email.",
+      "hint": "Remember to use 'enviar' for send.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

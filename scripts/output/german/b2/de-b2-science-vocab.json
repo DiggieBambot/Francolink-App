@@ -1,0 +1,323 @@
+{
+  "lesson": {
+    "title": "Science & Technology Vocabulary",
+    "type": "VOCABULARY",
+    "slug": "de-b2-science-vocab"
+  },
+  "unit": "Science & Innovation",
+  "unitOrder": 6,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to science and technology, focusing on terms that are commonly used in discussions about scientific innovation. You will also explore some grammatical structures that can enhance your understanding and usage of these terms in context.",
+      "culturalNote": "Germany is known for its strong emphasis on engineering and technological innovation, with many global leaders in the automotive and renewable energy sectors."
+    },
+    "vocabulary": [
+      {
+        "term": "die Forschung",
+        "translation": "research",
+        "definition": "The systematic investigation into and study of materials and sources.",
+        "pronunciation": "dee FOR-shung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Forschung in der Biotechnologie hat große Fortschritte gemacht.",
+          "translation": "Research in biotechnology has made significant progress."
+        },
+        "tip": "Feminine noun (die), plural: die Forschungen."
+      },
+      {
+        "term": "der Fortschritt",
+        "translation": "progress",
+        "definition": "The process of improving or developing something over time.",
+        "pronunciation": "der FOR-tshritt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Fortschritt in der medizinischen Technologie ist beeindruckend.",
+          "translation": "The progress in medical technology is impressive."
+        },
+        "tip": "Masculine noun (der), plural: die Fortschritte."
+      },
+      {
+        "term": "die Innovation",
+        "translation": "innovation",
+        "definition": "The introduction of new ideas, methods, or products.",
+        "pronunciation": "dee IN-no-va-tsion",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Innovationen sind entscheidend für den Erfolg eines Unternehmens.",
+          "translation": "Innovations are crucial for the success of a company."
+        },
+        "tip": "Feminine noun (die), plural: die Innovationen."
+      },
+      {
+        "term": "die Technologie",
+        "translation": "technology",
+        "definition": "The application of scientific knowledge for practical purposes.",
+        "pronunciation": "dee tek-no-LO-gie",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Technologie verändert ständig unsere Lebensweise.",
+          "translation": "Technology constantly changes the way we live."
+        },
+        "tip": "Feminine noun (die), plural: die Technologien."
+      },
+      {
+        "term": "der Wissenschaftler",
+        "translation": "scientist",
+        "definition": "A person who conducts scientific research.",
+        "pronunciation": "der VIS-sen-shaft-ler",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Wissenschaftler präsentierte seine Ergebnisse auf der Konferenz.",
+          "translation": "The scientist presented his findings at the conference."
+        },
+        "tip": "Masculine noun (der), plural: die Wissenschaftler."
+      },
+      {
+        "term": "die Erfindung",
+        "translation": "invention",
+        "definition": "The creation of a product or process that has never existed before.",
+        "pronunciation": "dee air-FIN-dung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Erfindung des Internets hat die Kommunikation revolutioniert.",
+          "translation": "The invention of the internet has revolutionized communication."
+        },
+        "tip": "Feminine noun (die), plural: die Erfindungen."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Konjunktiv II for Hypothetical Situations",
+        "explanation": "The Konjunktiv II is used to express hypothetical situations, wishes, or polite requests. It is formed from the simple past tense of the verb, often with changes to the stem vowel. For example, 'gehen' (to go) becomes 'ginge' in the Konjunktiv II. Use this structure to discuss scientific ideas that are not currently true.",
+        "table": {
+          "headers": [
+            "Verb (Infinitive)",
+            "Konjunktiv II (Example)"
+          ],
+          "rows": [
+            [
+              "gehen",
+              "ginge"
+            ],
+            [
+              "haben",
+              "hätte"
+            ],
+            [
+              "sein",
+              "wäre"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich ein Wissenschaftler wäre, würde ich die Welt verbessern.",
+            "translation": "If I were a scientist, I would improve the world.",
+            "breakdown": "This sentence uses 'wäre' (were) from the verb 'sein' (to be) in the Konjunktiv II form to express a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Mixing up Konjunktiv I and II forms; remember that II is for hypotheticals.",
+          "Using 'würde' with verbs that do not need it; ensure it’s a conditional situation."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a New Technology",
+      "context": "Two colleagues discussing a recent technological innovation during a break at work.",
+      "speakers": [
+        "Lukas",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hast du von der neuen Software gehört, die unsere Arbeitsabläufe optimieren soll?",
+          "translation": "Have you heard about the new software that is supposed to optimize our workflows?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe darüber gelesen. Sie könnte in der Tat sehr nützlich sein.",
+          "translation": "Yes, I have read about it. It could actually be very useful.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich frage mich, welche Innovationen wir in der Zukunft erwarten können.",
+          "translation": "I wonder what innovations we can expect in the future.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Vielleicht wird die künstliche Intelligenz eine größere Rolle spielen.",
+          "translation": "Perhaps artificial intelligence will play a bigger role.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das denke ich auch. Es gibt so viele Möglichkeiten dafür.",
+          "translation": "I think so too. There are so many possibilities for that.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Wenn wir die richtigen Technologien einsetzen, könnten wir die Effizienz steigern.",
+          "translation": "If we use the right technologies, we could increase efficiency.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das wäre großartig! Ich hoffe, dass unsere Firma bald investiert.",
+          "translation": "That would be great! I hope our company invests soon.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich auch! Die Forschung in diesem Bereich ist sehr vielversprechend.",
+          "translation": "Me too! Research in this area is very promising.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Innovation in German-Speaking Countries",
+      "text": "Germany, Austria, and Switzerland are known for their contributions to science and technology, particularly in engineering and environmental sciences. For example, Germany is a leader in renewable energy technologies.",
+      "funFact": "Did you know that Germany's Fraunhofer Society is one of the world's leading organizations for applied research?"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned key vocabulary related to science and technology.",
+        "Explored the use of Konjunktiv II for hypotheticals.",
+        "Practiced dialogue in a realistic context.",
+        "Gained cultural insights about innovation in German-speaking countries."
+      ],
+      "nextSteps": "Practice using the new vocabulary in sentences and continue exploring more complex grammatical structures related to conditional sentences."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'research'?",
+      "content": {
+        "options": [
+          "die Forschung",
+          "die Erfindung",
+          "der Fortschritt",
+          "die Technologie"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'die Forschung', which means research in German.",
+      "hint": "It starts with 'F'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which term refers to 'innovation' in German?",
+      "content": {
+        "options": [
+          "die Technologie",
+          "der Wissenschaftler",
+          "die Innovation",
+          "der Fortschritt"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "The correct answer is 'die Innovation', which directly translates to innovation.",
+      "hint": "Look for a word that signifies new ideas.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Der ___ ist verantwortlich für neue Entdeckungen.'",
+      "content": {
+        "sentence": "Der ___ ist verantwortlich für neue Entdeckungen.",
+        "correctAnswer": "Wissenschaftler",
+        "acceptableAnswers": [
+          "Wissenschaftler"
+        ],
+        "options": [
+          "Wissenschaftler",
+          "Fortschritt",
+          "Technologie"
+        ]
+      },
+      "explanation": "The term 'Wissenschaftler' means scientist, who is responsible for discoveries.",
+      "hint": "Think of someone who works in science.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Die ___ bringt neue Lösungen zu alten Problemen.'",
+      "content": {
+        "sentence": "Die ___ bringt neue Lösungen zu alten Problemen.",
+        "correctAnswer": "Innovation",
+        "acceptableAnswers": [
+          "Innovation"
+        ],
+        "options": [
+          "Forschung",
+          "Innovation",
+          "Technologie"
+        ]
+      },
+      "explanation": "'Innovation' refers to new solutions, making it the correct answer.",
+      "hint": "It starts with 'I'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'Technology drives progress.'",
+      "content": {
+        "prompt": "Translate to German: 'Technology drives progress.'",
+        "correctAnswer": "Technologie treibt den Fortschritt voran.",
+        "acceptableAnswers": [
+          "Technologie fördert den Fortschritt."
+        ]
+      },
+      "explanation": "The sentence translates directly to highlight the role of technology in progress.",
+      "hint": "Remember the word for technology.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct answer: What does the speaker say?",
+      "content": {
+        "ttsText": "Die Erfindung hat die Welt verändert.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Die Erfindung hat die Welt verändert.",
+          "Die Technologie ist sehr wichtig.",
+          "Der Fortschritt ist langsam."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The speaker discusses how an invention has changed the world, which is reflected in the correct answer.",
+      "hint": "Pay attention to the word 'Erfindung'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in German: 'Innovation is essential for development.'",
+      "content": {
+        "targetText": "Innovation ist unerlässlich für die Entwicklung.",
+        "context": "Translate this sentence into German.",
+        "acceptableVariants": [
+          "Innovation ist wichtig für die Entwicklung."
+        ]
+      },
+      "explanation": "The sentence emphasizes the necessity of innovation for development.",
+      "hint": "Focus on the word 'Innovation'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

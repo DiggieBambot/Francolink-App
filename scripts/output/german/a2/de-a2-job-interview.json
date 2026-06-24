@@ -1,0 +1,360 @@
+{
+  "lesson": {
+    "title": "A Job Interview",
+    "type": "CONVERSATION",
+    "slug": "de-a2-job-interview"
+  },
+  "unit": "Work & Studies",
+  "unitOrder": 5,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn important vocabulary and phrases related to job interviews in German. You'll also practice a short dialogue that simulates a real job interview scenario.",
+      "culturalNote": "In Germany, job interviews often focus on both qualifications and personal fit. Punctuality is highly valued, and candidates are expected to arrive on time."
+    },
+    "vocabulary": [
+      {
+        "term": "das Vorstellungsgespräch",
+        "translation": "the job interview",
+        "definition": "A formal meeting to discuss a potential job.",
+        "pronunciation": "das for-shtel-lungs-ge-spräche",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe morgen ein Vorstellungsgespräch.",
+          "translation": "I have a job interview tomorrow."
+        },
+        "tip": "The noun is neuter (das)."
+      },
+      {
+        "term": "der Lebenslauf",
+        "translation": "the CV/resume",
+        "definition": "A document summarizing a person's education and work experience.",
+        "pronunciation": "der lay-bens-lauf",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe meinen Lebenslauf aktualisiert.",
+          "translation": "I updated my CV."
+        },
+        "tip": "The noun is masculine (der)."
+      },
+      {
+        "term": "die Stelle",
+        "translation": "the position/job",
+        "definition": "A specific job role or position in a company.",
+        "pronunciation": "die shtel-le",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe mich für eine Stelle beworben.",
+          "translation": "I applied for a position."
+        },
+        "tip": "The noun is feminine (die)."
+      },
+      {
+        "term": "die Frage",
+        "translation": "the question",
+        "definition": "An inquiry made during the interview.",
+        "pronunciation": "die frah-ge",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Interviewer hat mir eine Frage gestellt.",
+          "translation": "The interviewer asked me a question."
+        },
+        "tip": "The noun is feminine (die)."
+      },
+      {
+        "term": "antworten",
+        "translation": "to answer",
+        "definition": "To respond to a question.",
+        "pronunciation": "ant-vor-ten",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich habe gut auf die Fragen geantwortet.",
+          "translation": "I answered the questions well."
+        },
+        "tip": "This verb is regular and uses 'haben' in Perfekt."
+      },
+      {
+        "term": "vorbereiten",
+        "translation": "to prepare",
+        "definition": "To make ready for something.",
+        "pronunciation": "for-be-ry-ten",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich habe mich gut auf das Vorstellungsgespräch vorbereitet.",
+          "translation": "I prepared well for the job interview."
+        },
+        "tip": "This verb is regular and uses 'haben' in Perfekt."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Perfekt Tense",
+        "explanation": "The Perfekt tense is used to describe actions that have been completed in the past. It consists of two parts: the auxiliary verb (haben or sein) and the past participle. Regular verbs typically form the past participle by adding 'ge-' to the verb stem and '-t' or '-et' at the end.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Past Participle"
+          ],
+          "rows": [
+            [
+              "antworten",
+              "geantwortet"
+            ],
+            [
+              "vorbereiten",
+              "vorbereitet"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich habe die Frage beantwortet.",
+            "translation": "I answered the question.",
+            "breakdown": "The auxiliary 'haben' is used with the past participle 'beantwortet'."
+          }
+        ],
+        "commonMistakes": [
+          "Mixing up 'haben' and 'sein' as auxiliary verbs.",
+          "Not adding 'ge-' to form the past participle correctly."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "A Job Interview",
+      "context": "This conversation takes place during a job interview.",
+      "speakers": [
+        "Anna (applicant)",
+        "Herr Müller (interviewer)"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Guten Tag, Herr Müller.",
+          "translation": "Good day, Mr. Müller."
+        },
+        {
+          "speaker": 1,
+          "text": "Guten Tag, Anna. Wie geht es Ihnen?",
+          "translation": "Good day, Anna. How are you?"
+        },
+        {
+          "speaker": 0,
+          "text": "Mir geht es gut, danke. Und Ihnen?",
+          "translation": "I am fine, thank you. And you?"
+        },
+        {
+          "speaker": 1,
+          "text": "Mir geht es auch gut. Erzählen Sie mir etwas über sich.",
+          "translation": "I am also fine. Tell me something about yourself."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich habe einen Abschluss in Marketing und habe zwei Jahre in einer Firma gearbeitet.",
+          "translation": "I have a degree in Marketing and worked for two years in a company."
+        },
+        {
+          "speaker": 1,
+          "text": "Das klingt interessant. Warum möchten Sie hier arbeiten?",
+          "translation": "That sounds interesting. Why do you want to work here?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich finde Ihre Firma sehr innovativ und ich mag die Teamarbeit.",
+          "translation": "I find your company very innovative and I like teamwork."
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist gut zu hören. Haben Sie Fragen?",
+          "translation": "That's good to hear. Do you have any questions?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, wann kann ich mit einer Rückmeldung rechnen?",
+          "translation": "Yes, when can I expect feedback?"
+        },
+        {
+          "speaker": 1,
+          "text": "Wir melden uns in einer Woche bei Ihnen.",
+          "translation": "We will contact you in a week."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Job Interview Etiquette",
+      "text": "In German-speaking countries, it's important to dress formally for a job interview. Candidates should also make eye contact and use polite language throughout the conversation.",
+      "funFact": "In Austria, it's common to greet the interviewer with a handshake and to use the formal 'Sie' until invited to use the informal 'Du'."
+    },
+    "summary": {
+      "keyPoints": [
+        "Important vocabulary related to job interviews.",
+        "How to use the Perfekt tense.",
+        "A realistic dialogue simulating a job interview.",
+        "Cultural insights about job interview etiquette."
+      ],
+      "nextSteps": "Practice the vocabulary and try to write your own dialogue about a job interview using the new words and grammar structures."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'das Vorstellungsgespräch' mean?",
+      "content": {
+        "options": [
+          "the job application",
+          "the job interview",
+          "the resume",
+          "the job offer"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Das Vorstellungsgespräch' translates to 'the job interview' in English.",
+      "hint": "Think about interviews for jobs.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which document is called 'der Lebenslauf'?",
+      "content": {
+        "options": [
+          "the cover letter",
+          "the resume",
+          "the job description",
+          "the reference letter"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Der Lebenslauf' refers to 'the resume' in English.",
+      "hint": "It lists your work experience.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich möchte die ___ (Stelle) bekommen.",
+      "content": {
+        "sentence": "Ich möchte die ___ bekommen.",
+        "correctAnswer": "Stelle",
+        "acceptableAnswers": [
+          "Stelle"
+        ],
+        "options": [
+          "Frage",
+          "Stelle",
+          "Vorbereitung"
+        ]
+      },
+      "explanation": "The correct answer is 'Stelle', meaning 'position' or 'job'.",
+      "hint": "It's the job you are applying for.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Du musst dich gut ___ (vorbereiten) für das Gespräch.",
+      "content": {
+        "sentence": "Du musst dich gut ___ für das Gespräch.",
+        "correctAnswer": "vorbereiten",
+        "acceptableAnswers": [
+          "vorbereiten"
+        ],
+        "options": [
+          "antworten",
+          "vorbereiten",
+          "fragen"
+        ]
+      },
+      "explanation": "'Vorbereiten' means 'to prepare', which is necessary for an interview.",
+      "hint": "Think about what you need to do before the interview.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I need to answer the question.'",
+      "content": {
+        "prompt": "Translate to German: 'I need to answer the question.'",
+        "correctAnswer": "Ich muss die Frage beantworten.",
+        "acceptableAnswers": [
+          "Ich muss die Frage beantworten."
+        ]
+      },
+      "explanation": "The translation captures the need to respond to a question.",
+      "hint": "Think about how to express needing to do something.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and identify the correct translation: 'Ich bereite mich auf das Vorstellungsgespräch vor.'",
+      "content": {
+        "ttsText": "Ich bereite mich auf das Vorstellungsgespräch vor.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I prepare for the job interview.",
+          "I ask a question.",
+          "I write my resume.",
+          "I get the job."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence translates to preparing for a job interview.",
+      "hint": "Focus on the word 'vorbereiten'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I want to prepare for the interview.'",
+      "content": {
+        "targetText": "Ich möchte mich auf das Vorstellungsgespräch vorbereiten.",
+        "context": "Expressing your intention to get ready for an interview.",
+        "acceptableVariants": [
+          "Ich will mich auf das Vorstellungsgespräch vorbereiten.",
+          "Ich möchte für das Vorstellungsgespräch vorbereiten."
+        ]
+      },
+      "explanation": "This is how you express your desire to prepare in German.",
+      "hint": "Use 'möchte' for 'want to'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Er hat seinen ___ (Lebenslauf) geschickt.",
+      "content": {
+        "sentence": "Er hat seinen ___ geschickt.",
+        "correctAnswer": "Lebenslauf",
+        "acceptableAnswers": [
+          "Lebenslauf"
+        ],
+        "options": [
+          "Lebenslauf",
+          "Frage",
+          "Job"
+        ]
+      },
+      "explanation": "'Lebenslauf' means 'resume', which is what he sent.",
+      "hint": "It's a document used when applying for jobs.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What do you do in a job interview?",
+      "content": {
+        "options": [
+          "Answer questions",
+          "Write a letter",
+          "Read a book",
+          "Take a test"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "In a job interview, the main activity is to answer questions.",
+      "hint": "Think about what happens in an interview.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

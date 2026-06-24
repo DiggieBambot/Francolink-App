@@ -1,0 +1,316 @@
+{
+  "lesson": {
+    "title": "Unit 5 Review",
+    "type": "REVIEW",
+    "slug": "de-b2-unit5-review"
+  },
+  "unit": "Critical Thinking",
+  "unitOrder": 5,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this review lesson, you will consolidate your knowledge of critical thinking vocabulary and grammar structures learned in Unit 5. You will also practice using these elements in a realistic dialogue and understand their application in everyday conversations.",
+      "culturalNote": "Critical thinking is highly valued in German-speaking countries, especially in the educational system, where students are encouraged to express their opinions and engage in debates."
+    },
+    "vocabulary": [
+      {
+        "term": "die Meinung",
+        "translation": "the opinion",
+        "definition": "A belief or judgment about something.",
+        "pronunciation": "dee mine-ung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Jeder hat das Recht auf seine eigene Meinung.",
+          "translation": "Everyone has the right to their own opinion."
+        },
+        "tip": "Remember that 'Meinung' is feminine, so it takes 'die'."
+      },
+      {
+        "term": "die Argumentation",
+        "translation": "the argumentation",
+        "definition": "The process of reasoning systematically in support of an idea.",
+        "pronunciation": "dee ar-goo-men-ta-tsion",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Eine gute Argumentation ist entscheidend.",
+          "translation": "A good argumentation is crucial."
+        },
+        "tip": "'Argumentation' is feminine, so it takes 'die'."
+      },
+      {
+        "term": "der Standpunkt",
+        "translation": "the standpoint",
+        "definition": "A position or perspective from which something is considered.",
+        "pronunciation": "der shtand-punkt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Sein Standpunkt war sehr überzeugend.",
+          "translation": "His standpoint was very convincing."
+        },
+        "tip": "'Standpunkt' is masculine, so it takes 'der'."
+      },
+      {
+        "term": "die Voraussetzung",
+        "translation": "the assumption",
+        "definition": "Something that is accepted as true or as certain to happen, without proof.",
+        "pronunciation": "dee for-aus-set-zung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Voraussetzung für den Erfolg ist harte Arbeit.",
+          "translation": "The assumption for success is hard work."
+        },
+        "tip": "'Voraussetzung' is feminine, so it takes 'die'."
+      },
+      {
+        "term": "das Beispiel",
+        "translation": "the example",
+        "definition": "A representative form or pattern used to illustrate a point.",
+        "pronunciation": "das bye-shpeel",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ein gutes Beispiel hilft, das Konzept zu verstehen.",
+          "translation": "A good example helps to understand the concept."
+        },
+        "tip": "'Beispiel' is neuter, so it takes 'das'."
+      },
+      {
+        "term": "die Kritik",
+        "translation": "the criticism",
+        "definition": "The expression of disapproval based on perceived mistakes or faults.",
+        "pronunciation": "dee kree-tik",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Konstruktive Kritik ist wichtig für das Wachstum.",
+          "translation": "Constructive criticism is important for growth."
+        },
+        "tip": "'Kritik' is feminine, so it takes 'die'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Konjunktiv II for Hypothetical Situations",
+        "explanation": "The Konjunktiv II is used to express hypothetical situations or wishes. It often involves using the past subjunctive forms of verbs. This construction allows speakers to discuss what could happen or what they would do in a different scenario.",
+        "table": {
+          "headers": [
+            "Verb (infinitive)",
+            "Konjunktiv II (ich)"
+          ],
+          "rows": [
+            [
+              "haben",
+              "hätte"
+            ],
+            [
+              "sein",
+              "wäre"
+            ],
+            [
+              "gehen",
+              "ginge"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich mehr Zeit hätte, würde ich reisen.",
+            "translation": "If I had more time, I would travel.",
+            "breakdown": "The sentence uses 'hätte' (had) to express a hypothetical situation about time."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing the subjunctive with indicative: Remember to use 'hätte' instead of 'hatte'.",
+          "Omitting 'würde' for conditional sentences: Always pair 'hätte' or 'wäre' with 'würde' to express what you would do."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Opinions",
+      "context": "A café in Berlin where two friends, Anna and Lukas, are discussing a recent event.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Was hältst du von der neuen Umweltschutzinitiative?",
+          "translation": "What do you think of the new environmental protection initiative?",
+          "note": "Anna is asking Lukas for his opinion."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich finde, dass sie notwendig ist, aber es gibt viele Voraussetzungen.",
+          "translation": "I think it is necessary, but there are many assumptions."
+        },
+        {
+          "speaker": 0,
+          "text": "Was meinst du mit Voraussetzungen?",
+          "translation": "What do you mean by assumptions?"
+        },
+        {
+          "speaker": 1,
+          "text": "Nun, einige Leute glauben, dass die Bürger sich daran halten werden.",
+          "translation": "Well, some people believe that citizens will adhere to it."
+        },
+        {
+          "speaker": 0,
+          "text": "Das stimmt. Aber ich bin skeptisch, ob das wirklich funktioniert.",
+          "translation": "That's true. But I am skeptical whether it will really work."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich denke, die Regierung sollte mehr Argumentation liefern.",
+          "translation": "I think the government should provide more argumentation."
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, eine klare Kommunikation ist entscheidend.",
+          "translation": "Yes, clear communication is crucial."
+        },
+        {
+          "speaker": 1,
+          "text": "Wenn ich in der Regierung wäre, würde ich die Bürger besser informieren.",
+          "translation": "If I were in the government, I would inform the citizens better."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Debating",
+      "text": "In Germany, Austria, and Switzerland, debating and discussing different opinions is an integral part of education. Students are encouraged to express their thoughts and engage in critical discussions.",
+      "funFact": "In Germany, there are even debate clubs in schools where students learn to defend their opinions and develop their critical thinking skills."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review of critical thinking vocabulary related to opinions and arguments.",
+        "Understanding the Konjunktiv II for hypothetical situations.",
+        "Practice in a realistic dialogue format.",
+        "Cultural significance of critical discussions in German-speaking countries."
+      ],
+      "nextSteps": "Review the vocabulary and grammar points from this unit. Try to create your own sentences using the Konjunktiv II, and engage in discussions with peers to practice your speaking skills."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'die Meinung' mean in English?",
+      "content": {
+        "options": [
+          "The argument",
+          "The opinion",
+          "The standpoint",
+          "The example"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Die Meinung' translates to 'the opinion' in English.",
+      "hint": "Think about personal beliefs.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which term refers to a reasoned statement in a debate?",
+      "content": {
+        "options": [
+          "Der Standpunkt",
+          "Die Voraussetzung",
+          "Die Kritik",
+          "Die Argumentation"
+        ],
+        "correctIndex": 3
+      },
+      "explanation": "'Die Argumentation' means 'the argumentation' or 'the reasoning' in a debate.",
+      "hint": "It's about making a case.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Eine gute _______ ist wichtig für eine starke Argumentation.'",
+      "content": {
+        "sentence": "Eine gute _______ ist wichtig für eine starke Argumentation.",
+        "correctAnswer": "Kritik",
+        "acceptableAnswers": [
+          "Kritik"
+        ],
+        "options": [
+          "Meinung",
+          "Kritik",
+          "Voraussetzung"
+        ]
+      },
+      "explanation": "A strong criticism ('Kritik') is crucial for a solid argumentation.",
+      "hint": "Think about assessing arguments.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Der _______ einer Diskussion ist oft sehr wichtig.'",
+      "content": {
+        "sentence": "Der _______ einer Diskussion ist oft sehr wichtig.",
+        "correctAnswer": "Standpunkt",
+        "acceptableAnswers": [
+          "Standpunkt"
+        ],
+        "options": [
+          "Standpunkt",
+          "Kritik",
+          "Meinung"
+        ]
+      },
+      "explanation": "The standpoint ('Standpunkt') of a discussion is often very important.",
+      "hint": "It's about the position taken in an argument.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'He provided an example.'",
+      "content": {
+        "prompt": "Translate to German: 'He provided an example.'",
+        "correctAnswer": "Er gab ein Beispiel.",
+        "acceptableAnswers": [
+          "Er hat ein Beispiel gegeben."
+        ]
+      },
+      "explanation": "'He provided an example' translates directly to 'Er gab ein Beispiel.'",
+      "hint": "Think about giving instances.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and identify the correct translation: 'Die Diskussion war sehr interessant.'",
+      "content": {
+        "ttsText": "Die Diskussion war sehr interessant.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The discussion was very interesting.",
+          "The argument was very interesting.",
+          "The opinion was very interesting."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence translates to 'The discussion was very interesting.'",
+      "hint": "Listen for the word 'Diskussion'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I think criticism is important.'",
+      "content": {
+        "targetText": "Ich denke, dass Kritik wichtig ist.",
+        "context": "Expressing your opinion about criticism.",
+        "acceptableVariants": [
+          "Ich finde, dass Kritik wichtig ist."
+        ]
+      },
+      "explanation": "This sentence expresses an opinion about the importance of criticism.",
+      "hint": "Use 'denke' or 'finde' for expressing thoughts.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

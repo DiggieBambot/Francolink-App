@@ -1,0 +1,409 @@
+{
+  "lesson": {
+    "title": "The Weather (Das Wetter)",
+    "type": "VOCABULARY",
+    "slug": "de-a1-weather"
+  },
+  "unit": "Travel & Weather",
+  "unitOrder": 8,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to the weather in German. You will be able to describe the weather conditions and use simple sentences to talk about it.",
+      "culturalNote": "In Germany, people often discuss the weather as a common conversation starter. This is similar in Austria and Switzerland, where weather can change quickly."
+    },
+    "vocabulary": [
+      {
+        "term": "das Wetter",
+        "translation": "the weather",
+        "definition": "the state of the atmosphere at a place and time",
+        "pronunciation": "dahs Veh-ter",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Wetter ist schön.",
+          "translation": "The weather is nice."
+        },
+        "tip": "Remember that 'das' indicates that 'Wetter' is a neuter noun."
+      },
+      {
+        "term": "die Sonne",
+        "translation": "the sun",
+        "definition": "the star at the center of our solar system",
+        "pronunciation": "dee Zon-neh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Sonne scheint.",
+          "translation": "The sun is shining."
+        },
+        "tip": "'Die' shows that 'Sonne' is a feminine noun."
+      },
+      {
+        "term": "der Regen",
+        "translation": "the rain",
+        "definition": "water droplets falling from clouds",
+        "pronunciation": "dehr Ray-gen",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Regen ist stark.",
+          "translation": "The rain is strong."
+        },
+        "tip": "'Der' indicates that 'Regen' is a masculine noun."
+      },
+      {
+        "term": "die Wolke",
+        "translation": "the cloud",
+        "definition": "a visible mass of condensed water vapor in the atmosphere",
+        "pronunciation": "dee Vohl-keh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Wolke ist grau.",
+          "translation": "The cloud is gray."
+        },
+        "tip": "Remember, 'Wolke' is feminine, as indicated by 'die'."
+      },
+      {
+        "term": "der Wind",
+        "translation": "the wind",
+        "definition": "the perceptible natural movement of the air",
+        "pronunciation": "dehr Vint",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Wind bläst.",
+          "translation": "The wind is blowing."
+        },
+        "tip": "'Der' shows that 'Wind' is a masculine noun."
+      },
+      {
+        "term": "kalt",
+        "translation": "cold",
+        "definition": "having a low temperature",
+        "pronunciation": "kahlt",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Es ist kalt.",
+          "translation": "It is cold."
+        },
+        "tip": "Use 'kalt' to describe cold weather."
+      },
+      {
+        "term": "warm",
+        "translation": "warm",
+        "definition": "having a moderate degree of heat",
+        "pronunciation": "vahm",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Es ist warm.",
+          "translation": "It is warm."
+        },
+        "tip": "Use 'warm' to describe pleasant, mild weather."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'sein' (to be)",
+        "explanation": "In German, we use the verb 'sein' to describe the weather. The structure is usually 'Es ist' (It is) followed by an adjective or noun. This helps you to make simple sentences about the weather.",
+        "table": {
+          "headers": [
+            "German",
+            "English"
+          ],
+          "rows": [
+            [
+              "Es ist kalt.",
+              "It is cold."
+            ],
+            [
+              "Es ist warm.",
+              "It is warm."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es ist sonnig.",
+            "translation": "It is sunny.",
+            "breakdown": "'Es' is the subject, 'ist' is the verb, and 'sonnig' is the adjective describing the weather."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Es sind' instead of 'Es ist' for singular weather conditions.",
+          "Using wrong gender articles, remember to check der/die/das."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking about the weather",
+      "context": "A conversation between two friends in the park on a sunny day.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Max! Wie ist das Wetter heute?",
+          "translation": "Hello Max! How is the weather today?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Lena! Es ist sonnig und warm.",
+          "translation": "Hello Lena! It is sunny and warm.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist schön! Möchtest du einen Spaziergang machen?",
+          "translation": "That is nice! Do you want to take a walk?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, gerne! Der Wind ist angenehm.",
+          "translation": "Yes, gladly! The wind is pleasant.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Hast du einen Regenschirm?",
+          "translation": "Do you have an umbrella?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Nein, ich habe keinen Regenschirm.",
+          "translation": "No, I do not have an umbrella.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist kein Problem. Es regnet nicht.",
+          "translation": "That is not a problem. It is not raining.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Gut! Lass uns gehen.",
+          "translation": "Good! Let's go.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Weather in German-speaking countries",
+      "text": "Weather plays an important role in daily life in Germany, Austria, and Switzerland. People often adjust their plans based on the weather forecast, especially for outdoor activities.",
+      "funFact": "In Germany, the term 'Schauer' refers to a sudden rain shower, which can happen unexpectedly."
+    },
+    "summary": {
+      "keyPoints": [
+        "Vocabulary related to the weather includes nouns like 'der Regen' and 'die Sonne'.",
+        "Use 'sein' to describe the weather conditions.",
+        "Practice forming simple sentences using weather adjectives.",
+        "Remember the gender of nouns and their articles."
+      ],
+      "nextSteps": "Try to describe the weather today in German using the vocabulary you learned. Practice speaking with a friend or record yourself."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'the sun'?",
+      "content": {
+        "options": [
+          "die Wolke",
+          "die Sonne",
+          "der Regen",
+          "der Wind"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'die Sonne', which means 'the sun' in German.",
+      "hint": "Think of a bright day.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'cold' in German?",
+      "content": {
+        "options": [
+          "warm",
+          "kalt",
+          "der Wind",
+          "die Wolke"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'kalt' is the German word for 'cold'.",
+      "hint": "Opposite of warm.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Es ist sehr ___ (warm).",
+      "content": {
+        "sentence": "Es ist sehr ___ (warm).",
+        "correctAnswer": "warm",
+        "acceptableAnswers": [
+          "warm"
+        ],
+        "options": [
+          "kalt",
+          "warm",
+          "sonnig"
+        ]
+      },
+      "explanation": "The sentence describes the temperature as 'warm'.",
+      "hint": "Think about a nice summer day.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Heute gibt es viel ___ (Regen).",
+      "content": {
+        "sentence": "Heute gibt es viel ___ (Regen).",
+        "correctAnswer": "Regen",
+        "acceptableAnswers": [
+          "Regen"
+        ],
+        "options": [
+          "Sonne",
+          "Wolke",
+          "Regen"
+        ]
+      },
+      "explanation": "The correct answer 'Regen' means 'rain', which fits the context.",
+      "hint": "Think about wet weather.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: (kalt, es, heute, ist)",
+      "content": {
+        "words": [
+          "heute",
+          "es",
+          "kalt",
+          "ist"
+        ],
+        "correctOrder": [
+          "es",
+          "ist",
+          "heute",
+          "kalt"
+        ],
+        "translation": "It is cold today."
+      },
+      "explanation": "The correct order forms a meaningful sentence in German.",
+      "hint": "Think about a weather report.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The wind is strong.'",
+      "content": {
+        "prompt": "Translate to German: 'The wind is strong.'",
+        "correctAnswer": "Der Wind ist stark.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation correctly conveys the meaning of the sentence.",
+      "hint": "Remember the article for 'wind'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Es regnet.'",
+      "content": {
+        "ttsText": "Es regnet.",
+        "ttsLang": "de-DE",
+        "options": [
+          "It is sunny.",
+          "It is raining.",
+          "It is windy."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer 'It is raining.' matches the German sentence.",
+      "hint": "Think about wet weather.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in German: 'The weather is nice today.'",
+      "content": {
+        "targetText": "Das Wetter ist schön heute.",
+        "context": "Translate or repeat this sentence in German.",
+        "acceptableVariants": [
+          "Das Wetter ist heute schön."
+        ]
+      },
+      "explanation": "This is a correct translation of the English sentence.",
+      "hint": "Focus on the word for 'nice'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'die Wolke' mean?",
+      "content": {
+        "options": [
+          "the sun",
+          "the cloud",
+          "the rain",
+          "the wind"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'die Wolke' means 'the cloud' in German.",
+      "hint": "Think of a rainy day.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Der ___ (Wind) weht stark.",
+      "content": {
+        "sentence": "Der ___ (Wind) weht stark.",
+        "correctAnswer": "Wind",
+        "acceptableAnswers": [
+          "Wind"
+        ],
+        "options": [
+          "Regen",
+          "Wind",
+          "Sonne"
+        ]
+      },
+      "explanation": "The sentence means 'The wind blows strongly.'",
+      "hint": "Think about something that can move trees.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Es ist nicht ___ (kalt) heute.",
+      "content": {
+        "sentence": "Es ist nicht ___ (kalt) heute.",
+        "correctAnswer": "kalt",
+        "acceptableAnswers": [
+          "kalt"
+        ],
+        "options": [
+          "warm",
+          "kalt",
+          "heiß"
+        ]
+      },
+      "explanation": "The correct answer is 'kalt', meaning 'cold'.",
+      "hint": "It's about temperature.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

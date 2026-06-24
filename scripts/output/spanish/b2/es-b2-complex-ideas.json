@@ -1,0 +1,344 @@
+{
+  "lesson": {
+    "title": "Presenting Complex Ideas",
+    "type": "CONVERSATION",
+    "slug": "es-b2-complex-ideas"
+  },
+  "unit": "Professional Communication",
+  "unitOrder": 3,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to present complex ideas in Spanish, focusing on formal vocabulary and structures. You will also practice using the subjunctive mood to express uncertainty and hypothetical situations.",
+      "culturalNote": "In many Latin American cultures, presenting ideas clearly and persuasively is valued in professional settings, reflecting a respect for effective communication."
+    },
+    "vocabulary": [
+      {
+        "term": "el argumento",
+        "translation": "the argument",
+        "definition": "A statement or reason given to persuade someone.",
+        "pronunciation": "el ar-gumen-to",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Su argumento es convincente.",
+          "translation": "His argument is convincing."
+        },
+        "tip": "Think of 'argument' as a key part of debates."
+      },
+      {
+        "term": "la hipótesis",
+        "translation": "the hypothesis",
+        "definition": "An assumption made for the sake of argument.",
+        "pronunciation": "la i-pó-te-sis",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La hipótesis debe ser probada.",
+          "translation": "The hypothesis must be tested."
+        },
+        "tip": "Remember that a hypothesis is often about what might be true."
+      },
+      {
+        "term": "la evidencia",
+        "translation": "the evidence",
+        "definition": "Facts or information indicating whether a belief is true.",
+        "pronunciation": "la e-vi-den-cia",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Necesitamos más evidencia para apoyar su teoría.",
+          "translation": "We need more evidence to support his theory."
+        },
+        "tip": "Evidences are essential in scientific discussions."
+      },
+      {
+        "term": "la conclusión",
+        "translation": "the conclusion",
+        "definition": "The result or outcome of a reasoning process.",
+        "pronunciation": "la con-clu-sión",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La conclusión es clara.",
+          "translation": "The conclusion is clear."
+        },
+        "tip": "Think of the conclusion as the final answer in a debate."
+      },
+      {
+        "term": "la justificación",
+        "translation": "the justification",
+        "definition": "A reason, fact, or explanation that defends an argument.",
+        "pronunciation": "la jus-ti-fi-ca-ción",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Su justificación fue convincente.",
+          "translation": "Her justification was convincing."
+        },
+        "tip": "Justifications are what you need to back up your claims."
+      },
+      {
+        "term": "el análisis",
+        "translation": "the analysis",
+        "definition": "Detailed examination of the elements or structure of something.",
+        "pronunciation": "el a-na-lí-sis",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El análisis del problema es fundamental.",
+          "translation": "The analysis of the problem is fundamental."
+        },
+        "tip": "Remember that analysis involves breaking down complex ideas."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Subjunctive Mood",
+        "explanation": "In Spanish, the subjunctive mood is used to express doubt, desire, or hypothetical situations. This is particularly important when discussing complex ideas, as it allows you to express uncertainty or conjecture. The subjunctive is formed differently depending on whether the verb is in the present or past.",
+        "table": {
+          "headers": [
+            "Subjunctive Form",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "Present Subjunctive",
+              "Used for present or future uncertainty"
+            ],
+            [
+              "Imperfect Subjunctive",
+              "Used for past hypotheticals"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es posible que él tenga razón.",
+            "translation": "It is possible that he is right.",
+            "breakdown": "Here, 'tenga' is the present subjunctive form of 'tener', showing uncertainty."
+          },
+          {
+            "original": "Si hubiera sabido, habría actuado diferente.",
+            "translation": "If I had known, I would have acted differently.",
+            "breakdown": "In this case, 'hubiera sabido' uses the imperfect subjunctive to discuss a past hypothetical."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing the subjunctive with the indicative mood. Remember, the subjunctive expresses doubt or possibility.",
+          "Omitting the conjunction 'que' when necessary. Always use 'que' before subjunctive clauses."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a New Project",
+      "context": "A meeting between colleagues discussing a new project proposal.",
+      "speakers": [
+        "Juan",
+        "María"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Creo que deberíamos considerar la hipótesis de que este proyecto aumentará nuestras ventas.",
+          "translation": "I think we should consider the hypothesis that this project will increase our sales."
+        },
+        {
+          "speaker": 1,
+          "text": "Es posible, pero necesitamos más evidencia para soportar esa afirmación.",
+          "translation": "It is possible, but we need more evidence to support that claim."
+        },
+        {
+          "speaker": 0,
+          "text": "De acuerdo. ¿Qué tipo de análisis podríamos realizar?",
+          "translation": "Agreed. What kind of analysis could we carry out?"
+        },
+        {
+          "speaker": 1,
+          "text": "Podríamos hacer un análisis de mercado para evaluar la demanda.",
+          "translation": "We could do a market analysis to assess the demand."
+        },
+        {
+          "speaker": 0,
+          "text": "Eso suena bien. ¿Qué conclusión esperaríamos obtener?",
+          "translation": "That sounds good. What conclusion would we expect to reach?"
+        },
+        {
+          "speaker": 1,
+          "text": "Si los datos son positivos, podríamos justificar la inversión.",
+          "translation": "If the data is positive, we could justify the investment."
+        },
+        {
+          "speaker": 0,
+          "text": "Exactamente, y si no, deberíamos replantear nuestra estrategia.",
+          "translation": "Exactly, and if not, we should rethink our strategy."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, es crucial que tengamos una justificación sólida.",
+          "translation": "Yes, it is crucial that we have a solid justification."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Communication Styles in Latin America",
+      "text": "In many Latin American countries, effective communication is highly valued in business. Presenting ideas clearly and with confidence can significantly impact professional relationships.",
+      "funFact": "In some cultures, it is common to have lengthy discussions before reaching a decision, reflecting a collective approach to business."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned how to present complex ideas using formal vocabulary.",
+        "Practiced the use of the subjunctive mood for uncertainty.",
+        "Engaged in a realistic dialogue relevant to professional settings.",
+        "Gained insights into communication styles in Latin America."
+      ],
+      "nextSteps": "Practice using the subjunctive mood in your own conversations and try to present a complex idea to a peer."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'el argumento' in English?",
+      "content": {
+        "options": [
+          "the argument",
+          "the evidence",
+          "the conclusion",
+          "the hypothesis"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El argumento' translates to 'the argument' in English, which is a key component in presenting complex ideas.",
+      "hint": "Think about what supports a claim.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la evidencia' mean?",
+      "content": {
+        "options": [
+          "the analysis",
+          "the justification",
+          "the evidence",
+          "the conclusion"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'La evidencia' means 'the evidence', which is crucial for supporting arguments.",
+      "hint": "It's what you provide to back up your claims.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: La ________ es fundamental para entender el tema.",
+      "content": {
+        "sentence": "La ________ es fundamental para entender el tema.",
+        "correctAnswer": "justificación",
+        "acceptableAnswers": [
+          "justificación"
+        ],
+        "options": [
+          "justificación",
+          "evidencia",
+          "análisis",
+          "conclusión"
+        ]
+      },
+      "explanation": "The correct word is 'justificación', which means justification, essential for understanding a topic.",
+      "hint": "Think about the reasoning behind an idea.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Necesitamos más ________ para apoyar nuestra hipótesis.",
+      "content": {
+        "sentence": "Necesitamos más ________ para apoyar nuestra hipótesis.",
+        "correctAnswer": "evidencia",
+        "acceptableAnswers": [
+          "evidencia"
+        ],
+        "options": [
+          "evidencia",
+          "conclusión",
+          "argumento",
+          "análisis"
+        ]
+      },
+      "explanation": "'Evidencia' is needed to support a hypothesis, as it provides proof.",
+      "hint": "What do you use to prove something?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: análisis / el / es / importante / argumento",
+      "content": {
+        "words": [
+          "importante",
+          "análisis",
+          "el",
+          "es",
+          "argumento"
+        ],
+        "correctOrder": [
+          "el",
+          "análisis",
+          "es",
+          "importante",
+          "argumento"
+        ],
+        "translation": "The analysis is an important argument."
+      },
+      "explanation": "The correct order forms a logical statement about the importance of analysis.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The conclusion is clear.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The conclusion is clear.'",
+        "correctAnswer": "La conclusión es clara.",
+        "acceptableAnswers": [
+          "La conclusión es clara."
+        ]
+      },
+      "explanation": "The translation accurately reflects the original English sentence.",
+      "hint": "Think about how to express clarity in Spanish.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'El análisis es crucial.'",
+      "content": {
+        "ttsText": "El análisis es crucial.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The analysis is crucial.",
+          "The argument is crucial.",
+          "The hypothesis is crucial.",
+          "The conclusion is crucial."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence translates directly to 'The analysis is crucial.'",
+      "hint": "Focus on the key word in the sentence.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'I need to justify my argument.'",
+      "content": {
+        "targetText": "Necesito justificar mi argumento.",
+        "context": "You are discussing how to support your ideas in a meeting.",
+        "acceptableVariants": [
+          "Necesito justificar mi argumento."
+        ]
+      },
+      "explanation": "The phrase correctly conveys the need to justify an argument.",
+      "hint": "Focus on the word 'justificar'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

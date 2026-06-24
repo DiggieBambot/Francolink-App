@@ -1,0 +1,350 @@
+{
+  "lesson": {
+    "title": "Preterite vs Imperfect",
+    "type": "GRAMMAR",
+    "slug": "es-b1-preterite-imperfect"
+  },
+  "unit": "Narrating the Past",
+  "unitOrder": 2,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about the differences between the preterite and imperfect tenses in Spanish. You will understand when to use each tense to narrate past events effectively.",
+      "culturalNote": "In many Latin American countries, storytelling is an important part of culture, and using the correct tense can enhance the narrative."
+    },
+    "vocabulary": [
+      {
+        "term": "el pasado",
+        "translation": "the past",
+        "definition": "A time period that has already happened.",
+        "pronunciation": "el pah-sah-doh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El pasado es muy interesante.",
+          "translation": "The past is very interesting."
+        },
+        "tip": "Think of 'past' as a time you can reflect on."
+      },
+      {
+        "term": "la acción",
+        "translation": "the action",
+        "definition": "An event or deed that takes place.",
+        "pronunciation": "lah ak-see-on",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La acción ocurrió rápidamente.",
+          "translation": "The action happened quickly."
+        },
+        "tip": "Actions in the preterite often have a clear beginning and end."
+      },
+      {
+        "term": "siempre",
+        "translation": "always",
+        "definition": "At all times; on all occasions.",
+        "pronunciation": "see-em-preh",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Siempre estudiaba por las tardes.",
+          "translation": "I always studied in the afternoons."
+        },
+        "tip": "Use 'siempre' to signal the imperfect tense for habitual actions."
+      },
+      {
+        "term": "de repente",
+        "translation": "suddenly",
+        "definition": "Quickly and unexpectedly.",
+        "pronunciation": "deh reh-pehn-teh",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "De repente, empezó a llover.",
+          "translation": "Suddenly, it started to rain."
+        },
+        "tip": "Look for keywords like 'de repente' to indicate the preterite."
+      },
+      {
+        "term": "mientras",
+        "translation": "while",
+        "definition": "At the same time as.",
+        "pronunciation": "myen-trahs",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Mientras cocinaba, escuchaba música.",
+          "translation": "While I was cooking, I listened to music."
+        },
+        "tip": "Use 'mientras' to indicate overlapping actions, often with imperfect."
+      },
+      {
+        "term": "el tiempo",
+        "translation": "the time",
+        "definition": "A period during which something happens.",
+        "pronunciation": "el tee-em-poh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El tiempo vuela.",
+          "translation": "Time flies."
+        },
+        "tip": "Understanding time helps you decide which tense to use."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Preterite vs Imperfect",
+        "explanation": "The preterite tense is used for actions that are completed and have a clear beginning and end. The imperfect tense describes ongoing actions or situations in the past and is used for habitual actions. Knowing when to use each is essential for clear storytelling.",
+        "table": {
+          "headers": [
+            "Tense",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "Preterite",
+              "Completed actions with specific time frames."
+            ],
+            [
+              "Imperfect",
+              "Ongoing actions, habits, or background descriptions."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ayer comí pizza.",
+            "translation": "Yesterday I ate pizza.",
+            "breakdown": "This sentence uses the preterite because it refers to a specific completed action."
+          },
+          {
+            "original": "Cuando era niño, jugaba todos los días.",
+            "translation": "When I was a child, I played every day.",
+            "breakdown": "This sentence uses the imperfect to describe a habitual action in the past."
+          }
+        ],
+        "commonMistakes": [
+          "Using the preterite for habitual actions. Correct: Use imperfect for 'I used to...'.",
+          "Using the imperfect for completed actions. Correct: Use preterite for 'I did...'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "A conversation about childhood",
+      "context": "Two friends reminiscing about their childhood experiences at a café.",
+      "speakers": [
+        "Ana",
+        "Carlos"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué hacías cuando eras niño?",
+          "translation": "What did you do when you were a child?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Yo siempre jugaba en el parque.",
+          "translation": "I always played in the park.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y qué hacías en el parque?",
+          "translation": "And what did you do in the park?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "A veces montaba mi bicicleta.",
+          "translation": "Sometimes I rode my bike.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Recuerdas un día especial?",
+          "translation": "Do you remember a special day?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, un día de lluvia, jugábamos bajo la lluvia.",
+          "translation": "Yes, on a rainy day, we played in the rain.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué divertido! A mí me encantaba eso.",
+          "translation": "How fun! I loved that too.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, esos eran buenos tiempos.",
+          "translation": "Yes, those were good times.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Storytelling in Latin America",
+      "text": "Storytelling is a rich tradition in many Latin American cultures, often involving vivid descriptions and engaging narratives. The choice of tense can greatly affect the listener's experience.",
+      "funFact": "In some regions, oral storytelling is still a popular way to pass down history and culture."
+    },
+    "summary": {
+      "keyPoints": [
+        "The preterite is for completed actions.",
+        "The imperfect describes ongoing actions or habits.",
+        "Keywords like 'siempre' and 'de repente' can help you choose the right tense.",
+        "Practice narrating past experiences using both tenses."
+      ],
+      "nextSteps": "Review the vocabulary and practice forming sentences using the preterite and imperfect tenses. Try writing a short paragraph about your childhood."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence correctly uses the preterite tense?",
+      "content": {
+        "options": [
+          "Cuando era niño, siempre jugaba en el parque.",
+          "Ayer, jugué en el parque.",
+          "Mientras jugaba, mi madre me llamó."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The preterite tense is used for actions completed in the past, like 'jugué' (I played) in this context.",
+      "hint": "Look for a completed action.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word is often used with the imperfect tense?",
+      "content": {
+        "options": [
+          "ayer",
+          "siempre",
+          "de repente"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The word 'siempre' (always) indicates a habitual action, which is often expressed in the imperfect tense.",
+      "hint": "Think about frequency.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Cuando yo ___ (ser) niño, siempre ___ (jugar) con mis amigos.",
+      "content": {
+        "sentence": "Cuando yo ___ niño, siempre ___ con mis amigos.",
+        "correctAnswer": "era; jugaba",
+        "acceptableAnswers": [
+          "era; jugaba",
+          "fui; jugué"
+        ],
+        "options": [
+          "era; jugaba",
+          "fui; jugué",
+          "era; jugué",
+          "fui; jugaba"
+        ]
+      },
+      "explanation": "The imperfect 'era' and 'jugaba' indicate ongoing past actions.",
+      "hint": "Think about actions that were habitual.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with correct form: Ellos ___ (ver) la película anoche.",
+      "content": {
+        "sentence": "Ellos ___ la película anoche.",
+        "correctAnswer": "vieron",
+        "acceptableAnswers": [
+          "vieron"
+        ],
+        "options": [
+          "vieron",
+          "veían"
+        ]
+      },
+      "explanation": "The preterite 'vieron' is used for a completed action that happened last night.",
+      "hint": "Think of an action that happened once.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: de; mientras; me; llamaron; amigos; mis.",
+      "content": {
+        "words": [
+          "de",
+          "mientras",
+          "me",
+          "llamaron",
+          "amigos",
+          "mis"
+        ],
+        "correctOrder": [
+          "mis",
+          "amigos",
+          "me",
+          "llamaron",
+          "de",
+          "mientras"
+        ],
+        "translation": "My friends called me suddenly."
+      },
+      "explanation": "The correct order forms a logical and grammatically correct sentence.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I was playing when it started to rain.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I was playing when it started to rain.'",
+        "correctAnswer": "Estaba jugando cuando empezó a llover.",
+        "acceptableAnswers": [
+          "Estaba jugando cuando comenzó a llover."
+        ]
+      },
+      "explanation": "The imperfect 'estaba jugando' indicates an ongoing action while the preterite 'empezó' indicates a completed action.",
+      "hint": "Look for the ongoing action.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Siempre íbamos a la playa.'",
+      "content": {
+        "ttsText": "Siempre íbamos a la playa.",
+        "ttsLang": "es-ES",
+        "options": [
+          "We always went to the beach.",
+          "We went to the beach yesterday.",
+          "We will go to the beach."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The phrase uses the imperfect 'íbamos', indicating a habitual action in the past.",
+      "hint": "Focus on the word 'siempre'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in Spanish: 'We used to eat dinner at 7 PM.'",
+      "content": {
+        "targetText": "Cenábamos a las siete de la tarde.",
+        "context": "Translate and speak about past habits.",
+        "acceptableVariants": [
+          "Nosotros cenábamos a las siete."
+        ]
+      },
+      "explanation": "The use of 'cenábamos' shows it was a habitual action in the past.",
+      "hint": "Use the imperfect tense.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

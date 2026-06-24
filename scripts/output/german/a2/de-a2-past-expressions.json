@@ -1,0 +1,390 @@
+{
+  "lesson": {
+    "title": "Past Time Expressions",
+    "type": "VOCABULARY",
+    "slug": "de-a2-past-expressions"
+  },
+  "unit": "Talking About the Past",
+  "unitOrder": 1,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn important vocabulary related to talking about the past in German. We will focus on expressions that describe when things happened and how to use them in sentences.",
+      "culturalNote": "In Germany, it's common to celebrate birthdays and anniversaries with parties. These events often involve sharing stories from the past."
+    },
+    "vocabulary": [
+      {
+        "term": "gestern",
+        "translation": "yesterday",
+        "definition": "The day before today.",
+        "pronunciation": "GES-terrn",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Ich habe gestern einen Film gesehen.",
+          "translation": "I watched a movie yesterday."
+        },
+        "tip": "Use 'gestern' to refer to the day before today."
+      },
+      {
+        "term": "letzte Woche",
+        "translation": "last week",
+        "definition": "The week before the current week.",
+        "pronunciation": "LETZ-te VOH-khuh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Letzte Woche war ich im Urlaub.",
+          "translation": "Last week, I was on vacation."
+        },
+        "tip": "The word 'letzte' means 'last' and is used for feminine nouns."
+      },
+      {
+        "term": "vor zwei Tagen",
+        "translation": "two days ago",
+        "definition": "A time expression indicating a point in the past.",
+        "pronunciation": "for TSVAI TAH-gun",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Ich habe vor zwei Tagen ein Buch gelesen.",
+          "translation": "I read a book two days ago."
+        },
+        "tip": "Use 'vor' with the accusative case to indicate time in the past."
+      },
+      {
+        "term": "im Jahr 2020",
+        "translation": "in the year 2020",
+        "definition": "Used to specify a year in the past.",
+        "pronunciation": "im YAHR zwei-tausend zwanzig",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Im Jahr 2020 habe ich viel gelernt.",
+          "translation": "In the year 2020, I learned a lot."
+        },
+        "tip": "The structure 'im Jahr' is used for stating years."
+      },
+      {
+        "term": "früher",
+        "translation": "earlier",
+        "definition": "A word to describe a time in the past.",
+        "pronunciation": "FRUEH-er",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Früher habe ich in einer anderen Stadt gelebt.",
+          "translation": "Earlier, I lived in a different city."
+        },
+        "tip": "'Früher' can be used to refer to any past time."
+      },
+      {
+        "term": "vorher",
+        "translation": "before",
+        "definition": "Refers to an earlier point in time.",
+        "pronunciation": "FOR-her",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Ich war vorher im Kino.",
+          "translation": "I was at the cinema before."
+        },
+        "tip": "Use 'vorher' to indicate something that happened before another event."
+      },
+      {
+        "term": "letztes Jahr",
+        "translation": "last year",
+        "definition": "The year before the current one.",
+        "pronunciation": "LETZ-tes YAHR",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Letztes Jahr habe ich viel gereist.",
+          "translation": "Last year, I traveled a lot."
+        },
+        "tip": "The word 'letztes' relates to the neuter noun 'Jahr'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Perfect Tense (Perfekt)",
+        "explanation": "In German, the perfect tense is commonly used to talk about past events. It is formed with a conjugated form of 'haben' or 'sein' and the past participle of the main verb. 'Haben' is used for most verbs, while 'sein' is used for movement or change of state verbs.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Haben/Sein",
+            "Past Participle"
+          ],
+          "rows": [
+            [
+              "ich",
+              "habe",
+              "gesehen"
+            ],
+            [
+              "du",
+              "hast",
+              "gearbeitet"
+            ],
+            [
+              "er/sie/es",
+              "hat",
+              "gegessen"
+            ],
+            [
+              "wir",
+              "haben",
+              "geschlafen"
+            ],
+            [
+              "ihr",
+              "habt",
+              "geschrieben"
+            ],
+            [
+              "sie/Sie",
+              "haben",
+              "getrunken"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich habe das Buch gelesen.",
+            "translation": "I have read the book.",
+            "breakdown": "Subject 'Ich' + 'habe' (conjugated form of 'haben') + 'gelesen' (past participle of 'lesen')"
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'haben' and 'sein': Use 'sein' only with movement/change of state verbs. Example: 'Ich bin gegangen' (I went).",
+          "Incorrect past participle form: Ensure to use the correct form like 'gegessen' instead of 'essen'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking about last weekend",
+      "context": "Two friends discussing their activities from the previous weekend.",
+      "speakers": [
+        "Lukas",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Sophie! Wie war dein Wochenende?",
+          "translation": "Hello Sophie! How was your weekend?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Lukas! Mein Wochenende war sehr schön. Ich war im Park.",
+          "translation": "Hello Lukas! My weekend was very nice. I was in the park.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt toll! Hast du etwas Interessantes gemacht?",
+          "translation": "That sounds great! Did you do anything interesting?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe ein Buch gelesen und einen Film geschaut.",
+          "translation": "Yes, I read a book and watched a movie.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Welches Buch hast du gelesen?",
+          "translation": "Which book did you read?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich habe 'Der Vorleser' gelesen. Es war sehr spannend.",
+          "translation": "I read 'The Reader'. It was very exciting.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich habe am Samstag auch einen Film gesehen!",
+          "translation": "I also watched a movie on Saturday!",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Welchen Film hast du gesehen?",
+          "translation": "Which movie did you watch?",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Celebrating Milestones in German Culture",
+      "text": "In German-speaking countries, birthdays and anniversaries are often celebrated with family and friends. People share stories about their past and reflect on their experiences during these occasions.",
+      "funFact": "In Germany, it is common to decorate the birthday person's room with balloons and streamers as a surprise!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned important past time expressions like 'gestern' and 'letzte Woche'.",
+        "Practiced the perfect tense to describe past activities.",
+        "Engaged in a dialogue about weekend activities.",
+        "Gained cultural insights into how Germans celebrate milestones."
+      ],
+      "nextSteps": "Practice using these past time expressions in your own sentences and try to form the perfect tense with different verbs."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'gestern' mean in English?",
+      "content": {
+        "options": [
+          "yesterday",
+          "tomorrow",
+          "last week",
+          "two days ago"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Gestern' translates to 'yesterday' in English.",
+      "hint": "Think about the day before today.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'last year'?",
+      "content": {
+        "options": [
+          "letzte Woche",
+          "vor zwei Tagen",
+          "letztes Jahr",
+          "früher"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Letztes Jahr' translates to 'last year'.",
+      "hint": "It's the year before this one.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich bin ___ nach Berlin gereist.",
+      "content": {
+        "sentence": "Ich bin ___ nach Berlin gereist.",
+        "correctAnswer": "letzte Woche",
+        "acceptableAnswers": [
+          "letzte Woche"
+        ],
+        "options": [
+          "gestern",
+          "letzte Woche",
+          "früher"
+        ]
+      },
+      "explanation": "The sentence means 'I traveled to Berlin last week.'",
+      "hint": "Think about the time you went to Berlin.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Ich habe das Buch ___ gelesen.",
+      "content": {
+        "sentence": "Ich habe das Buch ___ gelesen.",
+        "correctAnswer": "vor zwei Tagen",
+        "acceptableAnswers": [
+          "vor zwei Tagen"
+        ],
+        "options": [
+          "gestern",
+          "vor zwei Tagen",
+          "im Jahr 2020"
+        ]
+      },
+      "explanation": "The sentence means 'I read the book two days ago.'",
+      "hint": "It's a time expression for two days ago.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I lived in Germany before.'",
+      "content": {
+        "correctAnswer": "Ich habe früher in Deutschland gelebt.",
+        "acceptableAnswers": [
+          "Ich lebte früher in Deutschland."
+        ]
+      },
+      "explanation": "This sentence means you lived in Germany at some point in the past.",
+      "hint": "Use the word 'früher' for 'before.'",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich habe das Auto verkauft.'",
+      "content": {
+        "ttsText": "Ich habe das Auto verkauft.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I bought the car.",
+          "I sold the car.",
+          "I repaired the car."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The sentence means 'I sold the car.'",
+      "hint": "Listen for the word 'verkauft.'",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in German: 'I visited my grandparents last year.'",
+      "content": {
+        "targetText": "Ich habe meine Großeltern letztes Jahr besucht.",
+        "context": "Translate and say this sentence in German.",
+        "acceptableVariants": [
+          "Ich besuchte meine Großeltern letztes Jahr."
+        ]
+      },
+      "explanation": "This sentence is about visiting grandparents in the past.",
+      "hint": "Use 'besucht' for 'visited.'",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich habe das gemacht ___.",
+      "content": {
+        "sentence": "Ich habe das gemacht ___.",
+        "correctAnswer": "vorher",
+        "acceptableAnswers": [
+          "vorher"
+        ],
+        "options": [
+          "gestern",
+          "vorher",
+          "letzte Woche"
+        ]
+      },
+      "explanation": "The sentence means 'I did that before.'",
+      "hint": "Think about a time before something else.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'früher' mean in English?",
+      "content": {
+        "options": [
+          "earlier",
+          "later",
+          "last year",
+          "yesterday"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Früher' translates to 'earlier' or 'before.'",
+      "hint": "Think about the past.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

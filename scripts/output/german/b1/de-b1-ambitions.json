@@ -1,0 +1,327 @@
+{
+  "lesson": {
+    "title": "Future Plans & Ambitions",
+    "type": "CONVERSATION",
+    "slug": "de-b1-ambitions"
+  },
+  "unit": "Future & Aspirations",
+  "unitOrder": 8,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to talk about your future plans and ambitions in German. You will practice using the future tense, subordinate clauses, and polite expressions to discuss your aspirations.",
+      "culturalNote": "In Germany, it's common to discuss career plans and education paths from a young age. Many students participate in internships to gain experience."
+    },
+    "vocabulary": [
+      {
+        "term": "der Traum",
+        "translation": "the dream",
+        "definition": "a strong desire or goal one wishes to achieve",
+        "pronunciation": "dair troom",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Traum ist es, Ärztin zu werden.",
+          "translation": "My dream is to become a doctor."
+        },
+        "tip": "Remember that 'der' indicates it's masculine."
+      },
+      {
+        "term": "die Ambition",
+        "translation": "the ambition",
+        "definition": "a strong desire to achieve something, typically requiring determination",
+        "pronunciation": "dee am-bi-tsion",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe die Ambition, eine eigene Firma zu gründen.",
+          "translation": "I have the ambition to start my own company."
+        },
+        "tip": "'Die' indicates it's feminine. The plural is 'die Ambitionen'."
+      },
+      {
+        "term": "die Zukunft",
+        "translation": "the future",
+        "definition": "the time period that is yet to come",
+        "pronunciation": "dee tsoo-kunft",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "In der Zukunft möchte ich reisen.",
+          "translation": "In the future, I want to travel."
+        },
+        "tip": "This is a feminine noun; remember to use 'die'."
+      },
+      {
+        "term": "wenn",
+        "translation": "if/when",
+        "definition": "used to introduce conditional or time clauses",
+        "pronunciation": "ven",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Wenn ich Zeit habe, gehe ich ins Kino.",
+          "translation": "If I have time, I will go to the cinema."
+        },
+        "tip": "Use 'wenn' to talk about conditions."
+      },
+      {
+        "term": "weil",
+        "translation": "because",
+        "definition": "used to introduce a reason",
+        "pronunciation": "vile",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Ich lerne Deutsch, weil ich in Deutschland arbeiten möchte.",
+          "translation": "I am learning German because I want to work in Germany."
+        },
+        "tip": "This helps explain why something happens."
+      },
+      {
+        "term": "möchte",
+        "translation": "would like",
+        "definition": "the Konjunktiv II form of 'mögen', expressing wishes",
+        "pronunciation": "muhk-teh",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich möchte später Lehrer werden.",
+          "translation": "I would like to become a teacher later."
+        },
+        "tip": "Use 'möchte' for polite requests or wishes."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subordinate Clauses with 'weil' and 'wenn'",
+        "explanation": "'Weil' is used to give a reason, while 'wenn' introduces a condition. The verb moves to the end of the clause in both cases. This structure is important for expressing complex ideas about your future plans.",
+        "table": {
+          "headers": [
+            "Clause Type",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Reason (weil)",
+              "Ich habe viel gelernt, weil ich eine Prüfung habe."
+            ],
+            [
+              "Condition (wenn)",
+              "Ich gehe ins Kino, wenn ich Zeit habe."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich gehe nach Deutschland, weil ich dort studieren möchte.",
+            "translation": "I am going to Germany because I want to study there.",
+            "breakdown": "The sentence explains the reason for going to Germany."
+          },
+          {
+            "original": "Wenn ich Zeit habe, werde ich ein Buch lesen.",
+            "translation": "If I have time, I will read a book.",
+            "breakdown": "This expresses a future action dependent on having time."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'weil' and 'wenn' interchangeably - remember they have different functions.",
+          "Forgetting to place the verb at the end of the subordinate clause."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Future Plans",
+      "context": "Two friends, Anna and Max, are meeting in a café to talk about their future ambitions.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Max! Was sind deine Pläne für die Zukunft?",
+          "translation": "Hello Max! What are your plans for the future?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Anna! Ich möchte Informatiker werden, weil ich Computer liebe.",
+          "translation": "Hello Anna! I want to become a computer scientist because I love computers.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt spannend! Hast du schon eine Universität im Blick?",
+          "translation": "That sounds exciting! Do you have a university in mind?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich denke an die Technische Universität München.",
+          "translation": "Yes, I am thinking of the Technical University of Munich.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Super! Ich möchte Lehrerin werden, weil ich gerne mit Kindern arbeite.",
+          "translation": "Great! I want to become a teacher because I like working with children.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist toll! Wo möchtest du unterrichten?",
+          "translation": "That’s great! Where would you like to teach?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich würde gerne in meiner Heimatstadt unterrichten.",
+          "translation": "I would like to teach in my hometown.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das klingt nach einem guten Plan! Viel Erfolg!",
+          "translation": "That sounds like a good plan! Good luck!",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Career Aspirations in German-Speaking Countries",
+      "text": "In German-speaking countries, students often choose their career paths early on. Vocational training is highly valued, and many young people get practical experience through internships.",
+      "funFact": "Germany has one of the strongest apprenticeship systems in the world, enabling students to gain hands-on work experience while studying."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to future plans and ambitions.",
+        "Practiced using subordinate clauses with 'weil' and 'wenn'.",
+        "Engaged in a dialogue about personal aspirations.",
+        "Explored cultural aspects of career planning in German-speaking countries."
+      ],
+      "nextSteps": "Practice creating your own sentences using 'weil' and 'wenn'. Try to discuss your future plans with a friend or tutor."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'der Traum' mean in English?",
+      "content": {
+        "options": [
+          "the dream",
+          "the ambition",
+          "the future",
+          "the plan"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Traum' translates to 'the dream' in English.",
+      "hint": "Think about aspirations or wishes.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Choose the correct translation for 'I want to travel the world'.",
+      "content": {
+        "options": [
+          "Ich möchte die Welt reisen.",
+          "Ich möchte um die Welt reisen.",
+          "Ich möchte die Welt reisen.",
+          "Ich möchte welt reisen."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct translation is 'Ich möchte um die Welt reisen.' which means 'I want to travel the world.'",
+      "hint": "Remember the preposition used with 'reisen'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich ___ einen großen Traum.",
+      "content": {
+        "sentence": "Ich ___ einen großen Traum.",
+        "correctAnswer": "habe",
+        "acceptableAnswers": [
+          "habe"
+        ],
+        "options": [
+          "habe",
+          "möchte",
+          "gehe",
+          "werde"
+        ]
+      },
+      "explanation": "The correct verb is 'habe', meaning 'I have'.",
+      "hint": "Think about possession.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Ich möchte arbeiten, ___ ich viel Geld verdienen kann.",
+      "content": {
+        "sentence": "Ich möchte arbeiten, ___ ich viel Geld verdienen kann.",
+        "correctAnswer": "weil",
+        "acceptableAnswers": [
+          "weil"
+        ],
+        "options": [
+          "wenn",
+          "weil",
+          "aber",
+          "oder"
+        ]
+      },
+      "explanation": "'Weil' means 'because', which explains the reason for wanting to work.",
+      "hint": "Think about reasons.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'My ambition is to become a doctor.'",
+      "content": {
+        "prompt": "Translate to German: 'My ambition is to become a doctor.'",
+        "correctAnswer": "Meine Ambition ist, Arzt zu werden.",
+        "acceptableAnswers": [
+          "Meine Ambition ist, eine Ärztin zu werden.",
+          "Mein Traum ist, Arzt zu werden."
+        ]
+      },
+      "explanation": "The translation captures the idea of ambition and career aspirations.",
+      "hint": "Think about 'Arzt' for a male doctor.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Ich möchte meine Träume verwirklichen.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I want to realize my dreams.",
+          "I want to see my dreams.",
+          "I want to speak my dreams."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'I want to realize my dreams.'",
+      "hint": "Focus on the word 'verwirklichen'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in German: 'In the future, I want to travel and learn new things.'",
+      "content": {
+        "targetText": "In der Zukunft möchte ich reisen und neue Dinge lernen.",
+        "context": "Express your future plans.",
+        "acceptableVariants": [
+          "In der Zukunft will ich reisen und neue Dinge lernen."
+        ]
+      },
+      "explanation": "This sentence expresses future ambitions clearly.",
+      "hint": "Use 'möchte' for a polite wish.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

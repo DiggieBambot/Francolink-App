@@ -1,0 +1,348 @@
+{
+  "lesson": {
+    "title": "Arts & Literature Vocabulary",
+    "type": "VOCABULARY",
+    "slug": "es-b2-arts-vocab"
+  },
+  "unit": "Arts & Literature",
+  "unitOrder": 7,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to arts and literature in Spanish. You will also explore how to use these terms in context, enhancing your ability to discuss artistic topics.",
+      "culturalNote": "Latin American art has a rich history influenced by indigenous cultures, colonialism, and modern movements, making it diverse and vibrant."
+    },
+    "vocabulary": [
+      {
+        "term": "la pintura",
+        "translation": "the painting",
+        "definition": "A visual artwork created using pigments on a surface.",
+        "pronunciation": "lah peen-turah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La pintura de Frida Kahlo es muy famosa.",
+          "translation": "Frida Kahlo's painting is very famous."
+        },
+        "tip": "Remember 'pintura' relates to 'pintar' (to paint), so think of it as the result of painting."
+      },
+      {
+        "term": "el autor",
+        "translation": "the author",
+        "definition": "A person who writes books, articles, or other texts.",
+        "pronunciation": "el ah-TOHR",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El autor de este libro es muy reconocido.",
+          "translation": "The author of this book is very well-known."
+        },
+        "tip": "Consider the connection to 'autoral', referring to the author's style or rights."
+      },
+      {
+        "term": "la literatura",
+        "translation": "literature",
+        "definition": "Written works, especially those considered of superior or lasting artistic merit.",
+        "pronunciation": "lah lee-teh-rah-TOO-rah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La literatura española tiene una rica tradición.",
+          "translation": "Spanish literature has a rich tradition."
+        },
+        "tip": "Think of 'literatura' as the study of written works and their impact on culture."
+      },
+      {
+        "term": "el escultor",
+        "translation": "the sculptor",
+        "definition": "An artist who creates sculptures.",
+        "pronunciation": "el es-kool-TOR",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El escultor modeló la figura con gran detalle.",
+          "translation": "The sculptor shaped the figure with great detail."
+        },
+        "tip": "Link 'escultor' to 'escultura' (sculpture) to remember their relationship."
+      },
+      {
+        "term": "el poema",
+        "translation": "the poem",
+        "definition": "A piece of writing that expresses emotions, experiences, or ideas, typically in a rhythmic or structured form.",
+        "pronunciation": "el poh-EH-mah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El poema que escribió es muy conmovedor.",
+          "translation": "The poem he wrote is very moving."
+        },
+        "tip": "Associate 'poema' with 'poesía' (poetry), which is the broader genre."
+      },
+      {
+        "term": "la crítica",
+        "translation": "the critique",
+        "definition": "An evaluation or analysis of a piece of art, literature, or performance.",
+        "pronunciation": "lah KREE-tih-kah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La crítica del libro fue muy positiva.",
+          "translation": "The critique of the book was very positive."
+        },
+        "tip": "Think of 'crítica' as the process of judging artistic works."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Use of the Subjunctive in Artistic Contexts",
+        "explanation": "In Spanish, the subjunctive mood is often used to express desires, doubts, or hypothetical situations. This is particularly relevant in discussions about art and literature, where one might express hopes for an artist's future work or doubts about a literary interpretation.",
+        "table": {
+          "headers": [
+            "Subjunctive Form",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "Quiero que él pinte",
+              "I want him to paint"
+            ],
+            [
+              "Es posible que ella escriba",
+              "It is possible that she writes"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ojalá que el director elija una obra maestra.",
+            "translation": "I hope that the director chooses a masterpiece.",
+            "breakdown": "This sentence uses the subjunctive 'elija' to express a hope."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'quiero que él pinta' instead of 'quiero que él pinte' (correct use of subjunctive).",
+          "Using the indicative mood instead of subjunctive when expressing doubt, e.g., 'no creo que sea' instead of 'no creo que es'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a New Art Exhibit",
+      "context": "A conversation between two friends at an art gallery opening.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Has visto la nueva exposición de arte moderno?",
+          "translation": "Have you seen the new modern art exhibit?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, me parece fascinante. Las obras son muy innovadoras.",
+          "translation": "Yes, I find it fascinating. The works are very innovative.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Me encanta cómo el artista juega con las formas y colores.",
+          "translation": "I love how the artist plays with shapes and colors.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Exactamente. ¿Cuál fue tu obra favorita?",
+          "translation": "Exactly. What was your favorite piece?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "La escultura de la entrada. Es tan impactante.",
+          "translation": "The sculpture at the entrance. It’s so striking.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Estoy de acuerdo. Me hizo reflexionar sobre la naturaleza.",
+          "translation": "I agree. It made me reflect on nature.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Crees que la crítica lo apreciará?",
+          "translation": "Do you think the critique will appreciate it?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ojalá que sí. El arte merece reconocimiento.",
+          "translation": "I hope so. Art deserves recognition.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Art and Literature in Latin America",
+      "text": "Latin America has produced renowned artists and writers who have significantly influenced global culture. From the magical realism of Gabriel García Márquez to the vibrant murals of Diego Rivera, these figures reflect the region's rich history and diverse identities.",
+      "funFact": "Did you know that the famous Mexican muralist Diego Rivera was married to the iconic painter Frida Kahlo?"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to arts and literature.",
+        "Explored the use of the subjunctive in artistic contexts.",
+        "Engaged in a dialogue about art exhibits.",
+        "Gained cultural insights into Latin American art and literature."
+      ],
+      "nextSteps": "Practice using the new vocabulary in sentences and try to write a short critique of a piece of art or literature you enjoy."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'the painting'?",
+      "content": {
+        "options": [
+          "la crítica",
+          "la pintura",
+          "el autor",
+          "el escultor"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'la pintura', which directly translates to 'the painting'.",
+      "hint": "Think of artworks.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Who is referred to as 'el autor' in English?",
+      "content": {
+        "options": [
+          "the author",
+          "the painter",
+          "the critic",
+          "the sculptor"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El autor' translates to 'the author', someone who writes literary works.",
+      "hint": "Writers are authors.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'La _____ es una forma de expresión artística.'",
+      "content": {
+        "sentence": "La _____ es una forma de expresión artística.",
+        "correctAnswer": "literatura",
+        "acceptableAnswers": [
+          "literatura"
+        ],
+        "options": [
+          "pintura",
+          "literatura",
+          "escultura",
+          "poema"
+        ]
+      },
+      "explanation": "The correct answer is 'literatura', which refers to literature as an art form.",
+      "hint": "Think of written works.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'El _____ es una obra escrita que expresa sentimientos.'",
+      "content": {
+        "sentence": "El _____ es una obra escrita que expresa sentimientos.",
+        "correctAnswer": "poema",
+        "acceptableAnswers": [
+          "poema"
+        ],
+        "options": [
+          "poema",
+          "escultor",
+          "autor",
+          "pintura"
+        ]
+      },
+      "explanation": "The correct answer is 'poema', which means 'poem' in English.",
+      "hint": "It’s a type of literary work.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: 'es / escultor / un / famoso / él'",
+      "content": {
+        "words": [
+          "es",
+          "escultor",
+          "un",
+          "famoso",
+          "él"
+        ],
+        "correctOrder": [
+          "él",
+          "es",
+          "un",
+          "escultor",
+          "famoso"
+        ],
+        "translation": "He is a famous sculptor."
+      },
+      "explanation": "The correct order forms a coherent sentence in Spanish describing someone's profession.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The critic wrote a review.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The critic wrote a review.'",
+        "correctAnswer": "El crítico escribió una reseña.",
+        "acceptableAnswers": [
+          "El crítico escribió una crítica."
+        ]
+      },
+      "explanation": "The translation captures the essence of the original sentence.",
+      "hint": "Think about the word for critic.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'La crítica es importante para los escritores.'",
+      "content": {
+        "ttsText": "La crítica es importante para los escritores.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The criticism is important for writers.",
+          "The painting is important for authors.",
+          "The literature is essential for critics.",
+          "The poem is vital for sculptors."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct option reflects the meaning of the listened sentence.",
+      "hint": "Focus on the word 'crítica'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'I enjoy reading literature.'",
+      "content": {
+        "targetText": "Disfruto leer literatura.",
+        "context": "Express your interest in literature.",
+        "acceptableVariants": [
+          "Me gusta leer literatura.",
+          "Me encanta leer literatura."
+        ]
+      },
+      "explanation": "Both responses convey enjoyment of literature effectively in Spanish.",
+      "hint": "Use the verb 'disfrutar' or 'gustar'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

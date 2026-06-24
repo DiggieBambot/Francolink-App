@@ -1,0 +1,325 @@
+{
+  "lesson": {
+    "title": "Separable Verbs - Introduction",
+    "type": "GRAMMAR",
+    "slug": "de-a1-separable-verbs"
+  },
+  "unit": "Travel & Weather",
+  "unitOrder": 8,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about separable verbs in German, which are commonly used in everyday conversations. You will see how they work in sentences and how to use them in the context of travel and weather.",
+      "culturalNote": "Separable verbs are an essential part of German grammar and are often used in travel-related expressions, such as 'aufstehen' (to get up) when discussing travel plans."
+    },
+    "vocabulary": [
+      {
+        "term": "der Urlaub",
+        "translation": "the vacation",
+        "definition": "a period of time when someone is away from work or school",
+        "pronunciation": "dohr OOR-lahb",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich mache Urlaub.",
+          "translation": "I am on vacation."
+        },
+        "tip": "Remember, 'Urlaub' is masculine (der)."
+      },
+      {
+        "term": "die Reise",
+        "translation": "the trip",
+        "definition": "a journey from one place to another",
+        "pronunciation": "dee RY-zeh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Reise ist spannend.",
+          "translation": "The trip is exciting."
+        },
+        "tip": "'Reise' is feminine (die)."
+      },
+      {
+        "term": "das Wetter",
+        "translation": "the weather",
+        "definition": "the state of the atmosphere at a place and time",
+        "pronunciation": "dahs VEH-tair",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Wetter ist schön.",
+          "translation": "The weather is nice."
+        },
+        "tip": "'Wetter' is neuter (das)."
+      },
+      {
+        "term": "aufstehen",
+        "translation": "to get up",
+        "definition": "to rise from bed",
+        "pronunciation": "OWF-shtay-en",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich stehe um sieben Uhr auf.",
+          "translation": "I get up at seven o'clock."
+        },
+        "tip": "Remember, 'auf' separates from 'stehen' when conjugated."
+      },
+      {
+        "term": "einpacken",
+        "translation": "to pack (a suitcase)",
+        "definition": "to put items into a suitcase or bag",
+        "pronunciation": "INE-pah-ken",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich packe meinen Koffer ein.",
+          "translation": "I pack my suitcase."
+        },
+        "tip": "The prefix 'ein' separates when conjugated."
+      },
+      {
+        "term": "abfahren",
+        "translation": "to depart",
+        "definition": "to leave or set off (by vehicle)",
+        "pronunciation": "AHB-fah-ren",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Der Zug fährt um acht Uhr ab.",
+          "translation": "The train departs at eight o'clock."
+        },
+        "tip": "The prefix 'ab' separates in the present tense."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Separable Verbs in German",
+        "explanation": "Separable verbs are verbs that have a prefix that can be separated from the main verb in a sentence. In the present tense, the prefix goes to the end of the sentence. For example, in 'Ich stehe um sieben Uhr auf', 'auf' is the prefix and 'stehen' is the main verb.",
+        "table": {
+          "headers": [
+            "Separable Verb",
+            "Example"
+          ],
+          "rows": [
+            [
+              "aufstehen",
+              "Ich stehe auf."
+            ],
+            [
+              "einpacken",
+              "Ich packe ein."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Er fährt morgen ab.",
+            "translation": "He departs tomorrow.",
+            "breakdown": "The prefix 'ab' is at the end of the sentence."
+          },
+          {
+            "original": "Wir stehen früh auf.",
+            "translation": "We get up early.",
+            "breakdown": "The prefix 'auf' is at the end."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Ich stehe auf' instead of 'Ich stehe auf.' (correct position of the prefix)",
+          "Forgetting to separate the prefix in questions, e.g., 'Wann fährst du ab?' not 'Wann fährst du ab.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Trip",
+      "context": "Two friends discussing their travel plans at a café.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Max, wo fährst du hin?",
+          "translation": "Hello Max, where are you going?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich fahre nach Berlin.",
+          "translation": "I am going to Berlin.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt spannend! Wann fährst du ab?",
+          "translation": "That sounds exciting! When do you depart?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich fahre am Freitag ab.",
+          "translation": "I depart on Friday.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Wie lange bleibst du?",
+          "translation": "How long will you stay?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich bleibe eine Woche.",
+          "translation": "I will stay for a week.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Packst du deinen Koffer ein?",
+          "translation": "Are you packing your suitcase?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich packe ein!",
+          "translation": "Yes, I am packing!",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Travel Traditions in Germany",
+      "text": "In Germany, many people take vacations to enjoy the beautiful landscapes and historic cities. It is common to travel by train or car. The concept of 'Urlaub' is deeply rooted in German culture, emphasizing relaxation and leisure.",
+      "funFact": "Germany has a variety of popular vacation spots, including the Black Forest and the Bavarian Alps."
+    },
+    "summary": {
+      "keyPoints": [
+        "Separable verbs are essential in everyday German.",
+        "The prefix separates in the present tense.",
+        "Common separable verbs include 'aufstehen', 'einpacken', and 'abfahren'.",
+        "Practice using these verbs in sentences about travel."
+      ],
+      "nextSteps": "Practice forming sentences with the vocabulary learned and try using separable verbs in your conversations."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'aufstehen' mean in English?",
+      "content": {
+        "options": [
+          "to wake up",
+          "to pack",
+          "to travel",
+          "to leave"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Aufstehen' translates to 'to wake up' in English.",
+      "hint": "It's something you do in the morning.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following verbs is separable?",
+      "content": {
+        "options": [
+          "packen",
+          "einpacken",
+          "reisen",
+          "fahren"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Einpacken' is a separable verb, meaning it can split into 'ein' and 'packen'.",
+      "hint": "It means to pack something.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich ___ um 7 Uhr auf.",
+      "content": {
+        "sentence": "Ich ___ um 7 Uhr auf.",
+        "correctAnswer": "stehe",
+        "acceptableAnswers": [
+          "stehe"
+        ],
+        "options": [
+          "packe",
+          "stehe",
+          "reise"
+        ]
+      },
+      "explanation": "The correct verb 'stehe' completes the sentence about waking up.",
+      "hint": "Think about getting out of bed.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Wir ___ unsere Koffer ein.",
+      "content": {
+        "sentence": "Wir ___ unsere Koffer ein.",
+        "correctAnswer": "packen",
+        "acceptableAnswers": [
+          "packen"
+        ],
+        "options": [
+          "reisen",
+          "packen",
+          "fahren"
+        ]
+      },
+      "explanation": "'Packen' is the action of putting things into bags.",
+      "hint": "What do you do before a trip?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The weather is nice.'",
+      "content": {
+        "prompt": "Translate to German: 'The weather is nice.'",
+        "correctAnswer": "Das Wetter ist schön.",
+        "acceptableAnswers": [
+          "Das Wetter ist nett."
+        ]
+      },
+      "explanation": "The correct translation uses 'Das Wetter' for 'the weather'.",
+      "hint": "Focus on the word for 'weather'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Wir fahren in den Urlaub.'",
+      "content": {
+        "ttsText": "Wir fahren in den Urlaub.",
+        "ttsLang": "de-DE",
+        "options": [
+          "We travel on vacation.",
+          "We are leaving for vacation.",
+          "We go on a trip."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The sentence means 'We are leaving for vacation'.",
+      "hint": "Listen for the word 'Urlaub'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in German: 'I will pack my suitcase.'",
+      "content": {
+        "targetText": "Ich werde meinen Koffer einpacken.",
+        "context": "Translate and say this sentence.",
+        "acceptableVariants": [
+          "Ich packe meinen Koffer ein.",
+          "Ich werde einpacken."
+        ]
+      },
+      "explanation": "Both variations express the action of packing a suitcase.",
+      "hint": "Focus on the verb 'einpacken'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

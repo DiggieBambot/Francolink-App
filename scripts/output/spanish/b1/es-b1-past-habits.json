@@ -1,0 +1,346 @@
+{
+  "lesson": {
+    "title": "Past Habits — Soler & Imperfect",
+    "type": "GRAMMAR",
+    "slug": "es-b1-past-habits"
+  },
+  "unit": "Culture & Travel",
+  "unitOrder": 7,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to express past habits in Spanish using 'soler' and the imperfect tense. You'll also discover how these forms are used in everyday conversations.",
+      "culturalNote": "In many Spanish-speaking cultures, storytelling about past experiences is a key part of social interactions, often accompanied by vivid descriptions."
+    },
+    "vocabulary": [
+      {
+        "term": "el viaje",
+        "translation": "the trip",
+        "definition": "a journey or travel experience.",
+        "pronunciation": "el VEE-ah-he",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El viaje a México fue increíble.",
+          "translation": "The trip to Mexico was amazing."
+        },
+        "tip": "Remember that 'viaje' is a masculine noun, so use 'el'."
+      },
+      {
+        "term": "soler",
+        "translation": "to usually do",
+        "definition": "to express habitual actions in the past.",
+        "pronunciation": "so-LER",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Yo solía ir a la playa cada verano.",
+          "translation": "I used to go to the beach every summer."
+        },
+        "tip": "Use 'soler' + infinitive to express habits in the past."
+      },
+      {
+        "term": "la costumbre",
+        "translation": "the custom",
+        "definition": "a traditional practice or habit.",
+        "pronunciation": "la cos-TUM-bre",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es una costumbre visitar a la familia en Navidad.",
+          "translation": "It's a custom to visit family at Christmas."
+        },
+        "tip": "Remember that 'costumbre' is feminine, so use 'la'."
+      },
+      {
+        "term": "recuerdo",
+        "translation": "memory",
+        "definition": "a recollection of past events.",
+        "pronunciation": "re-CUER-do",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo un hermoso recuerdo de mi infancia.",
+          "translation": "I have a beautiful memory of my childhood."
+        },
+        "tip": "Think of 'recuerdo' as a keepsake of the past."
+      },
+      {
+        "term": "a menudo",
+        "translation": "often",
+        "definition": "frequently or many times.",
+        "pronunciation": "a me-NUDO",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "A menudo visitábamos a nuestros abuelos.",
+          "translation": "We often visited our grandparents."
+        },
+        "tip": "This phrase can help emphasize frequency in your sentences."
+      },
+      {
+        "term": "la infancia",
+        "translation": "childhood",
+        "definition": "the period of being a child.",
+        "pronunciation": "la in-FAN-cia",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi infancia fue muy feliz.",
+          "translation": "My childhood was very happy."
+        },
+        "tip": "Use 'infancia' to talk about your early years."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'Soler' and the Imperfect Tense",
+        "explanation": "'Soler' is used to express habits in the past, while the imperfect tense describes ongoing actions or situations. To form the imperfect tense, you take the verb stem and add specific endings. The structure is: 'soler' + infinitive verb to indicate what you used to do.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Imperfect Verb Ending"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "-ía/-aba"
+            ],
+            [
+              "Tú",
+              "-ías/-abas"
+            ],
+            [
+              "Él/Ella/Usted",
+              "-ía/-aba"
+            ],
+            [
+              "Nosotros",
+              "-íamos/-ábamos"
+            ],
+            [
+              "Ellos/Ellas/Ustedes",
+              "-ían/-aban"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Cuando era niño, solía jugar al fútbol.",
+            "translation": "When I was a child, I used to play soccer.",
+            "breakdown": "'Cuando era niño' sets the scene, and 'solía jugar' indicates the habitual action."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'soler' with the simple past tense. Remember that 'soler' indicates a habit.",
+          "Using the wrong imperfect endings. Make sure to use the correct endings based on the subject."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking About Past Habits",
+      "context": "A conversation between two friends reminiscing about their childhood.",
+      "speakers": [
+        "Laura",
+        "Carlos"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Recuerdas lo que solíamos hacer en verano?",
+          "translation": "Do you remember what we used to do in summer?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, íbamos a la piscina casi todos los días.",
+          "translation": "Yes, we went to the pool almost every day."
+        },
+        {
+          "speaker": 0,
+          "text": "Y también solíamos jugar al escondite en el parque.",
+          "translation": "And we also used to play hide and seek in the park."
+        },
+        {
+          "speaker": 1,
+          "text": "Exactamente. ¡Era muy divertido!",
+          "translation": "Exactly. It was so much fun!"
+        },
+        {
+          "speaker": 0,
+          "text": "A menudo hacíamos un picnic con nuestra familia.",
+          "translation": "We often had a picnic with our family."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, y siempre llevábamos bocadillos deliciosos.",
+          "translation": "Yes, and we always brought delicious snacks."
+        },
+        {
+          "speaker": 0,
+          "text": "Me encanta recordar esos momentos.",
+          "translation": "I love remembering those moments."
+        },
+        {
+          "speaker": 1,
+          "text": "A mí también. ¡Deberíamos recrear uno de esos picnics!",
+          "translation": "Me too. We should recreate one of those picnics!"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Childhood Memories in Latin America",
+      "text": "In many Latin American countries, childhood memories often revolve around family gatherings and traditional games. These experiences are cherished and shared across generations, highlighting the importance of family bonds.",
+      "funFact": "In Mexico, it's common for families to celebrate 'Día de los Muertos', where they remember and honor their deceased loved ones, often reminiscing about happy times spent together."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned how to express past habits using 'soler'.",
+        "Explored the imperfect tense to describe ongoing past actions.",
+        "Practiced vocabulary related to travel and childhood.",
+        "Engaged in a dialogue about past experiences."
+      ],
+      "nextSteps": "Practice forming sentences about your own past habits using 'soler' and the imperfect tense. Try writing a short paragraph about your childhood."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence correctly uses 'soler'?",
+      "content": {
+        "options": [
+          "Yo solía a viajar a España cada verano.",
+          "Yo suelo viajar a España cada verano.",
+          "Yo soler viajar a España cada verano."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct form is 'suelo', which means 'I usually'.",
+      "hint": "'Soler' is used to express habitual actions.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la costumbre' mean?",
+      "content": {
+        "options": [
+          "The tradition",
+          "The habit",
+          "The memory"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'La costumbre' translates to 'the habit' in English.",
+      "hint": "Think about daily routines.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Cuando era niño, yo ___ (viajar) a la playa cada verano.",
+      "content": {
+        "sentence": "Cuando era niño, yo ___ a la playa cada verano.",
+        "correctAnswer": "viajaba",
+        "acceptableAnswers": [
+          "viajaba"
+        ],
+        "options": [
+          "viajo",
+          "viajaba",
+          "viajar"
+        ]
+      },
+      "explanation": "The imperfect form 'viajaba' is used for past habits.",
+      "hint": "Think of the past tense.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Mis recuerdos de la infancia ___ (ser) muy felices.",
+      "content": {
+        "sentence": "Mis recuerdos de la infancia ___ muy felices.",
+        "correctAnswer": "eran",
+        "acceptableAnswers": [
+          "eran"
+        ],
+        "options": [
+          "son",
+          "eran",
+          "fueron"
+        ]
+      },
+      "explanation": "The imperfect 'eran' indicates ongoing past states.",
+      "hint": "Remember the imperfect tense.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: a menudo / viajar / solía / en verano / mis padres.",
+      "content": {
+        "words": [
+          "a menudo",
+          "viajar",
+          "solía",
+          "en verano",
+          "mis padres"
+        ],
+        "correctOrder": [
+          "mis padres",
+          "solía",
+          "viajar",
+          "a menudo",
+          "en verano"
+        ],
+        "translation": "My parents used to travel often in summer."
+      },
+      "explanation": "The correct order expresses a past habit.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I used to have a cat.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I used to have a cat.'",
+        "correctAnswer": "Solía tener un gato.",
+        "acceptableAnswers": [
+          "Yo solía tener un gato."
+        ]
+      },
+      "explanation": "The phrase 'solía tener' expresses a past habit.",
+      "hint": "Think about the verb 'tener'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'A menudo viajábamos juntos.'",
+      "content": {
+        "ttsText": "A menudo viajábamos juntos.",
+        "ttsLang": "es-ES",
+        "options": [
+          "We often traveled together.",
+          "We usually traveled alone.",
+          "We rarely traveled together."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The phrase indicates a frequent past action.",
+      "hint": "Focus on the frequency of the action.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'I used to go to the park every Saturday.'",
+      "content": {
+        "targetText": "Yo solía ir al parque cada sábado.",
+        "context": "Translate and pronounce this past habit.",
+        "acceptableVariants": [
+          "Yo iba al parque cada sábado."
+        ]
+      },
+      "explanation": "This sentence uses 'solía' to express a past habit.",
+      "hint": "Use 'solía' for habitual actions.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

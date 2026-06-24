@@ -1,0 +1,359 @@
+{
+  "lesson": {
+    "title": "Discussing News & Articles",
+    "type": "CONVERSATION",
+    "slug": "es-b1-news"
+  },
+  "unit": "Media & Communication",
+  "unitOrder": 5,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to discuss news and articles in Spanish, expressing opinions and using reported speech. You will also practice essential vocabulary related to media and communication.",
+      "culturalNote": "In many Spanish-speaking countries, newspapers and news programs often reflect the political and social climate, making them powerful tools for public opinion."
+    },
+    "vocabulary": [
+      {
+        "term": "el artículo",
+        "translation": "the article",
+        "definition": "A piece of writing in a publication.",
+        "pronunciation": "el ahr-TEE-kulo",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Leí un artículo interesante sobre el cambio climático.",
+          "translation": "I read an interesting article about climate change."
+        },
+        "tip": "Remember that 'artículo' is often used for both written articles and academic papers."
+      },
+      {
+        "term": "la noticia",
+        "translation": "the news",
+        "definition": "Information about recent events.",
+        "pronunciation": "la noh-TEE-sia",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La noticia fue sorprendente.",
+          "translation": "The news was surprising."
+        },
+        "tip": "Use 'noticia' for singular and 'noticias' for plural."
+      },
+      {
+        "term": "opinar",
+        "translation": "to express an opinion",
+        "definition": "To state one's thoughts or beliefs.",
+        "pronunciation": "oh-pee-NAHR",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Es importante opinar sobre los problemas sociales.",
+          "translation": "It's important to express opinions about social issues."
+        },
+        "tip": "The verb 'opinar' is often followed by 'sobre' when discussing a topic."
+      },
+      {
+        "term": "el reportero",
+        "translation": "the reporter",
+        "definition": "A person who reports news.",
+        "pronunciation": "el reh-por-TEH-roh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El reportero cubrió la historia del accidente.",
+          "translation": "The reporter covered the story of the accident."
+        },
+        "tip": "In some regions, you might hear 'periodista' more commonly for 'journalist.'"
+      },
+      {
+        "term": "discutir",
+        "translation": "to discuss",
+        "definition": "To talk about something in detail.",
+        "pronunciation": "dis-ku-TEER",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Vamos a discutir el artículo que leímos.",
+          "translation": "Let's discuss the article we read."
+        },
+        "tip": "In Spanish, 'discutir' can imply a heated discussion; be mindful of context."
+      },
+      {
+        "term": "la opinión",
+        "translation": "the opinion",
+        "definition": "A belief or judgment about something.",
+        "pronunciation": "la oh-pee-NYON",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi opinión es que debemos actuar.",
+          "translation": "My opinion is that we must act."
+        },
+        "tip": "Use 'en mi opinión' to introduce your personal view."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Reported Speech",
+        "explanation": "Reported speech is used to convey what someone else has said without quoting them directly. In Spanish, this often requires changes in pronouns and verb tenses. For example, present tense in direct speech often changes to past tense in reported speech.",
+        "table": {
+          "headers": [
+            "Direct Speech",
+            "Reported Speech"
+          ],
+          "rows": [
+            [
+              "Él dice: 'Voy a la tienda.'",
+              "Él dice que va a la tienda."
+            ],
+            [
+              "Ella dice: 'Me gusta el chocolate.'",
+              "Ella dice que le gusta el chocolate."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Juan dijo: 'No tengo tiempo.'",
+            "translation": "Juan said, 'I don't have time.'",
+            "breakdown": "In reported speech: Juan dijo que no tenía tiempo."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing direct and reported speech: Remember to change verb tenses appropriately.",
+          "Incorrect pronoun usage: Ensure that pronouns reflect the subject of the reporting verb."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Recent News",
+      "context": "A coffee shop conversation between two friends discussing recent news articles.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Has leído el artículo sobre la contaminación en el río?",
+          "translation": "Have you read the article about pollution in the river?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, lo leí. Es preocupante lo que está pasando.",
+          "translation": "Yes, I read it. It's concerning what's happening.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Creo que deberían hacer algo al respecto.",
+          "translation": "I think they should do something about it.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Exactamente, pero muchos no opinan lo mismo.",
+          "translation": "Exactly, but many don't share the same opinion.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Es cierto. La gente a menudo ignora estos problemas.",
+          "translation": "That's true. People often ignore these issues.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¿Qué te parece si discutimos esto en el grupo de estudio?",
+          "translation": "What do you think if we discuss this in the study group?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Me parece una buena idea. Más personas deberían estar informadas.",
+          "translation": "I think that's a good idea. More people should be informed.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, y también podríamos buscar más artículos sobre el tema.",
+          "translation": "Yes, and we could also look for more articles on the topic.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of News in Spanish-Speaking Countries",
+      "text": "In many Spanish-speaking countries, news media play a crucial role in shaping public opinion and political views. Many people rely on newspapers and television for information about current events.",
+      "funFact": "In some countries, such as Venezuela, news outlets face significant government control, leading to debates about freedom of the press."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to discussing news and articles.",
+        "Practiced using reported speech in conversations.",
+        "Engaged in a dialogue about current events.",
+        "Explored cultural aspects of media in Spanish-speaking countries."
+      ],
+      "nextSteps": "Practice discussing a recent news article you read in English and try to summarize it in Spanish using the vocabulary and structures from this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'news'?",
+      "content": {
+        "options": [
+          "la noticia",
+          "el artículo",
+          "el reportero",
+          "discutir"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'la noticia', which means 'news' in English.",
+      "hint": "Think about what you read every day.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which verb means 'to discuss' in Spanish?",
+      "content": {
+        "options": [
+          "opinar",
+          "discutir",
+          "informar",
+          "leer"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Discutir' is the correct verb for 'to discuss' in Spanish.",
+      "hint": "It's similar to the English word.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'El ___ es muy interesante.'",
+      "content": {
+        "sentence": "El ___ es muy interesante.",
+        "correctAnswer": "artículo",
+        "acceptableAnswers": [
+          "artículo"
+        ],
+        "options": [
+          "artículo",
+          "reportero",
+          "noticia",
+          "opinión"
+        ]
+      },
+      "explanation": "The correct word is 'artículo', which means 'article'.",
+      "hint": "Think about what you read in magazines.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Me gusta ___ sobre el tema.'",
+      "content": {
+        "sentence": "Me gusta ___ sobre el tema.",
+        "correctAnswer": "opinar",
+        "acceptableAnswers": [
+          "opinar"
+        ],
+        "options": [
+          "discutir",
+          "opinar",
+          "leer",
+          "informar"
+        ]
+      },
+      "explanation": "The verb 'opinar' means 'to express an opinion'.",
+      "hint": "It's what you do when you share your thoughts.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I want to discuss the article.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I want to discuss the article.'",
+        "correctAnswer": "Quiero discutir el artículo.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation captures both the meaning and structure of the original sentence.",
+      "hint": "Think about the verb 'discutir'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation.",
+      "content": {
+        "ttsText": "Me gusta leer el periódico.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I like to read the newspaper.",
+          "I like to discuss the news.",
+          "I want to write an article.",
+          "I enjoy watching the news."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation of the sentence is 'I like to read the newspaper.'",
+      "hint": "Focus on the word 'periódico'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'What is your opinion about the news article?'",
+      "content": {
+        "targetText": "¿Cuál es tu opinión sobre el artículo de noticias?",
+        "context": "Ask someone about their thoughts on a recent news article.",
+        "acceptableVariants": [
+          "¿Cuál es tu opinión sobre la noticia?",
+          "¿Qué opinas del artículo?"
+        ]
+      },
+      "explanation": "This sentence helps you practice asking for opinions in Spanish.",
+      "hint": "Remember to use 'opinión' correctly.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'El ___ me dijo que es un buen reportero.'",
+      "content": {
+        "sentence": "El ___ me dijo que es un buen reportero.",
+        "correctAnswer": "reportero",
+        "acceptableAnswers": [
+          "reportero"
+        ],
+        "options": [
+          "reportero",
+          "artículo",
+          "noticia",
+          "opinion"
+        ]
+      },
+      "explanation": "The correct word is 'reportero', meaning 'reporter'.",
+      "hint": "Think about who gives you the news.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'opinar' mean in English?",
+      "content": {
+        "options": [
+          "to read",
+          "to inform",
+          "to discuss",
+          "to express an opinion"
+        ],
+        "correctIndex": 3
+      },
+      "explanation": "'Opinar' translates to 'to express an opinion' in English.",
+      "hint": "Think about expressing your thoughts.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

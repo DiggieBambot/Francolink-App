@@ -1,0 +1,312 @@
+{
+  "lesson": {
+    "title": "Unit 3 Review",
+    "type": "REVIEW",
+    "slug": "de-a2-unit3-review"
+  },
+  "unit": "The Dative Case",
+  "unitOrder": 3,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this unit review, you will revisit the Dative case in German, focusing on vocabulary, grammar rules, and practical usage in dialogue. You will reinforce your understanding of how to use the Dative case with various verbs and prepositions.",
+      "culturalNote": "In German-speaking countries, proper use of cases is crucial for clear communication, as it affects the meaning of sentences."
+    },
+    "vocabulary": [
+      {
+        "term": "der Freund",
+        "translation": "the friend",
+        "definition": "a male friend",
+        "pronunciation": "dehr froind",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich gebe dem Freund ein Buch.",
+          "translation": "I give the friend a book."
+        },
+        "tip": "Remember that 'der' indicates that 'Freund' is masculine."
+      },
+      {
+        "term": "die Freundin",
+        "translation": "the female friend",
+        "definition": "a female friend",
+        "pronunciation": "dee froindin",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich schenke der Freundin Blumen.",
+          "translation": "I gift the female friend flowers."
+        },
+        "tip": "'Die' shows that 'Freundin' is feminine."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "a written or printed work",
+        "pronunciation": "dahs booḥ",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich lese das Buch.",
+          "translation": "I read the book."
+        },
+        "tip": "'Das' indicates that 'Buch' is neuter."
+      },
+      {
+        "term": "geben",
+        "translation": "to give",
+        "definition": "to hand over something",
+        "pronunciation": "gay-ben",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Er gibt mir das Buch.",
+          "translation": "He gives me the book."
+        },
+        "tip": "Use 'geben' with Dative to indicate who receives something."
+      },
+      {
+        "term": "schenken",
+        "translation": "to gift",
+        "definition": "to give something as a gift",
+        "pronunciation": "shenk-en",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich schenke dir ein Geschenk.",
+          "translation": "I gift you a present."
+        },
+        "tip": "Remember to use the Dative pronoun for the person receiving the gift."
+      },
+      {
+        "term": "für",
+        "translation": "for",
+        "definition": "a preposition used for indicating purpose",
+        "pronunciation": "fyoor",
+        "partOfSpeech": "preposition",
+        "exampleSentence": {
+          "original": "Das ist für dich.",
+          "translation": "That is for you."
+        },
+        "tip": "Use 'für' with the accusative case, not dative."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Dative Case (Dativ)",
+        "explanation": "The Dative case is used to indicate the indirect object of a sentence, which is often the recipient of something. In German, certain prepositions and verbs require the Dative case. Common Dative prepositions include 'mit' (with), 'zu' (to), and 'bei' (at).",
+        "table": {
+          "headers": [
+            "Noun (Dative)",
+            "English"
+          ],
+          "rows": [
+            [
+              "dem Freund",
+              "to the friend"
+            ],
+            [
+              "der Freundin",
+              "to the female friend"
+            ],
+            [
+              "dem Buch",
+              "to the book"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich gebe dem Freund das Buch.",
+            "translation": "I give the friend the book.",
+            "breakdown": "Here, 'dem Freund' is the Dative form indicating the recipient."
+          }
+        ],
+        "commonMistakes": [
+          "Using the accusative instead of dative: 'Ich gebe das Buch dem Freund.' (I give the book to the friend.)",
+          "Confusing Dative pronouns: Remember 'ihm' for 'him' and 'ihr' for 'her'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Bookstore",
+      "context": "Anna and Lukas are at a bookstore discussing gifts.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Lukas! Was kaufst du?",
+          "translation": "Hello Lukas! What are you buying?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich kaufe ein Buch für meine Freundin.",
+          "translation": "I am buying a book for my girlfriend."
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist schön! Was für ein Buch?",
+          "translation": "That's nice! What kind of book?"
+        },
+        {
+          "speaker": 1,
+          "text": "Es ist ein Roman über Abenteuer.",
+          "translation": "It's a novel about adventure."
+        },
+        {
+          "speaker": 0,
+          "text": "Gibst du mir das Buch, wenn du fertig bist?",
+          "translation": "Will you give me the book when you are done?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich gebe dir das Buch!",
+          "translation": "Yes, I will give you the book!"
+        },
+        {
+          "speaker": 0,
+          "text": "Danke! Ich möchte es lesen.",
+          "translation": "Thank you! I want to read it."
+        },
+        {
+          "speaker": 1,
+          "text": "Kein Problem! Ich schenke dir auch ein Buch.",
+          "translation": "No problem! I will also gift you a book."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Gift-Giving in German Culture",
+      "text": "In German-speaking cultures, giving gifts is often a thoughtful gesture, especially on birthdays and holidays. It's common to write a card or note expressing good wishes along with the gift.",
+      "funFact": "In Germany, it's customary to unwrap gifts in front of the giver to show appreciation."
+    },
+    "summary": {
+      "keyPoints": [
+        "The Dative case indicates the indirect object in a sentence.",
+        "Certain verbs and prepositions require the Dative case.",
+        "Remember the gender of nouns when using articles in Dative.",
+        "Practice using Dative pronouns and forms in sentences."
+      ],
+      "nextSteps": "Continue to practice using the Dative case in various contexts, especially with verbs and prepositions. Review vocabulary and try to write your own sentences."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct dative form of 'der Freund'?",
+      "content": {
+        "options": [
+          "dem Freund",
+          "den Freund",
+          "die Freund"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "In the dative case, 'der Freund' changes to 'dem Freund'.",
+      "hint": "Remember the article changes in the dative case.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence is correct?",
+      "content": {
+        "options": [
+          "Ich gebe die Freundin das Buch.",
+          "Ich gebe der Freundin das Buch.",
+          "Ich gebe dem Freund das Buch."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct sentence uses 'der Freundin' in the dative case.",
+      "hint": "Pay attention to the gender of the noun.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich ___ (geben) das Buch ___ (der Freund).",
+      "content": {
+        "sentence": "Ich ___ das Buch ___ .",
+        "correctAnswer": "gebe dem Freund",
+        "acceptableAnswers": [
+          "gebe der Freundin",
+          "gebe dem Freund"
+        ],
+        "options": [
+          "gebe der Freundin",
+          "gebe dem Freund"
+        ]
+      },
+      "explanation": "The correct answer is 'gebe dem Freund' because 'Freund' is masculine.",
+      "hint": "Think about the article for the dative case.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich ___ (schenken) ein Buch ___ (die Freundin).",
+      "content": {
+        "sentence": "Ich ___ ein Buch ___ .",
+        "correctAnswer": "schenke der Freundin",
+        "acceptableAnswers": [
+          "schenke der Freundin"
+        ],
+        "options": [
+          "schenke dem Freund",
+          "schenke der Freundin"
+        ]
+      },
+      "explanation": "The correct answer is 'schenke der Freundin' because 'Freundin' is feminine.",
+      "hint": "Remember to use the dative form of the article.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I give a book to my friend.'",
+      "content": {
+        "prompt": "Translate to German: 'I give a book to my friend.'",
+        "correctAnswer": "Ich gebe meinem Freund ein Buch.",
+        "acceptableAnswers": [
+          "Ich gebe meiner Freundin ein Buch."
+        ]
+      },
+      "explanation": "The translation uses the correct dative form 'meinem Freund' or 'meiner Freundin'.",
+      "hint": "Think about possessive pronouns.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Ich schenke meiner Freundin ein Buch.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I give a book to my friend.",
+          "I give a book to my girlfriend.",
+          "I give my friend a book."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer reflects the dative case and the gender of 'Freundin'.",
+      "hint": "Listen for the word 'schenke'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in German: 'I am giving a book to my friend.'",
+      "content": {
+        "targetText": "Ich gebe meinem Freund ein Buch.",
+        "context": "Translate and say the sentence in German.",
+        "acceptableVariants": [
+          "Ich gebe meiner Freundin ein Buch."
+        ]
+      },
+      "explanation": "This sentence uses the dative case correctly.",
+      "hint": "Remember to use the correct article for the friend.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

@@ -1,0 +1,351 @@
+{
+  "lesson": {
+    "title": "Negotiation Skills",
+    "type": "CONVERSATION",
+    "slug": "es-b2-negotiation"
+  },
+  "unit": "Professional Communication",
+  "unitOrder": 3,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn key vocabulary and phrases useful for effective negotiation in Spanish. Additionally, you will practice a dialogue that demonstrates these skills in a professional context.",
+      "culturalNote": "In many Spanish-speaking cultures, negotiation is often seen as a collaborative process rather than a competitive one, valuing relationship-building alongside achieving objectives."
+    },
+    "vocabulary": [
+      {
+        "term": "la negociación",
+        "translation": "negotiation",
+        "definition": "the process of discussing something with others to reach an agreement",
+        "pronunciation": "lah neh-go-see-ah-ción",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La negociación es clave en el mundo empresarial.",
+          "translation": "Negotiation is key in the business world."
+        },
+        "tip": "Remember that negotiation is often a two-way street; aim for a win-win outcome."
+      },
+      {
+        "term": "el acuerdo",
+        "translation": "agreement",
+        "definition": "a mutual arrangement between parties",
+        "pronunciation": "el ah-kwehr-doh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Hemos llegado a un acuerdo beneficioso.",
+          "translation": "We have reached a beneficial agreement."
+        },
+        "tip": "Think of agreements as the foundation of successful negotiations."
+      },
+      {
+        "term": "la propuesta",
+        "translation": "proposal",
+        "definition": "a plan or suggestion put forward for consideration",
+        "pronunciation": "lah proh-pweh-stah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tuve una propuesta interesante que quiero discutir.",
+          "translation": "I had an interesting proposal that I want to discuss."
+        },
+        "tip": "A well-prepared proposal can significantly influence the negotiation outcome."
+      },
+      {
+        "term": "negociar",
+        "translation": "to negotiate",
+        "definition": "to discuss something in order to reach an agreement",
+        "pronunciation": "neh-goh-see-ar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Es importante negociar con calma y claridad.",
+          "translation": "It's important to negotiate with calmness and clarity."
+        },
+        "tip": "Use this verb when discussing your role in the negotiation process."
+      },
+      {
+        "term": "la estrategia",
+        "translation": "strategy",
+        "definition": "a plan of action designed to achieve a particular goal",
+        "pronunciation": "lah es-trah-teh-gee-ah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Necesitamos una estrategia sólida para la negociación.",
+          "translation": "We need a solid strategy for the negotiation."
+        },
+        "tip": "Always have a strategy in mind before entering a negotiation."
+      },
+      {
+        "term": "la concesión",
+        "translation": "concession",
+        "definition": "a thing that is granted, especially in response to demands",
+        "pronunciation": "lah kon-seh-sión",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "A veces es necesario hacer concesiones para llegar a un acuerdo.",
+          "translation": "Sometimes it is necessary to make concessions to reach an agreement."
+        },
+        "tip": "Concessions can help facilitate agreement, but be strategic about what you give up."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subjunctive in Negotiation Context",
+        "explanation": "The subjunctive mood is often used in negotiations to express desires, doubts, or hypothetical situations. In phrases like 'Espero que lleguemos a un acuerdo', the subjunctive 'lleguemos' shows a wish or hope rather than a fact.",
+        "table": {
+          "headers": [
+            "Subjunctive Present",
+            "Indicative Present"
+          ],
+          "rows": [
+            [
+              "que yo llegue",
+              "que yo llego"
+            ],
+            [
+              "que tú llegues",
+              "que tú llegas"
+            ],
+            [
+              "que él/ella llegue",
+              "que él/ella llega"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es posible que ellos acepten nuestra propuesta.",
+            "translation": "It's possible that they will accept our proposal.",
+            "breakdown": "Here, 'acepten' is in the subjunctive as it expresses uncertainty about the future."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive when expressing hope: 'Espero que tú llegas' should be 'Espero que tú llegues'.",
+          "Forgetting to use the subjunctive after verbs like 'dudar' or 'temer': 'Dudo que ella acepte' is correct."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Negotiating a Business Deal",
+      "context": "A meeting between two companies discussing a potential partnership.",
+      "speakers": [
+        "María (Project Manager)",
+        "Carlos (Business Partner)"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, Carlos. Me alegra que podamos reunirnos hoy.",
+          "translation": "Hello, Carlos. I'm glad we can meet today.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Gracias, María. Yo también estoy interesado en nuestra conversación.",
+          "translation": "Thank you, María. I am also interested in our conversation.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Quisiera comenzar con la propuesta que enviamos la semana pasada.",
+          "translation": "I would like to start with the proposal we sent last week.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "He revisado la propuesta y creo que hay un buen potencial.",
+          "translation": "I have reviewed the proposal and I think there is good potential.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Me alegra escuchar eso. ¿Qué aspectos te gustaría discutir primero?",
+          "translation": "I’m glad to hear that. What aspects would you like to discuss first?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Creo que deberíamos hablar sobre los términos financieros.",
+          "translation": "I think we should talk about the financial terms.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Claro, propongo que consideremos una inversión inicial más baja.",
+          "translation": "Sure, I propose that we consider a lower initial investment.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Eso podría funcionar, pero necesitaría algunas concesiones en cuanto al plazo.",
+          "translation": "That could work, but I would need some concessions regarding the timeline.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Role of Relationships in Negotiation",
+      "text": "In many Spanish-speaking countries, building a personal relationship is crucial before entering into business negotiations. This rapport can often lead to more favorable outcomes for both parties.",
+      "funFact": "In Mexico, it's common for negotiations to begin with small talk about personal life or family before getting down to business."
+    },
+    "summary": {
+      "keyPoints": [
+        "Effective negotiation requires clear communication and understanding.",
+        "Using the subjunctive mood can enhance your negotiating language.",
+        "Building relationships is key in Spanish-speaking cultures.",
+        "Be prepared to make concessions for a successful agreement."
+      ],
+      "nextSteps": "Practice your negotiation skills by role-playing a negotiation scenario with a partner. Use the vocabulary and sentence structures from this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'la negociación' in English?",
+      "content": {
+        "options": [
+          "negotiation",
+          "agreement",
+          "proposal",
+          "strategy"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La negociación' translates to 'negotiation' in English, which refers to the process of discussing something in order to reach an agreement.",
+      "hint": "Look for a word related to discussions and agreements.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'the proposal'?",
+      "content": {
+        "options": [
+          "el acuerdo",
+          "la concesión",
+          "la propuesta",
+          "la estrategia"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'La propuesta' means 'the proposal' in English, indicating a plan or suggestion put forward for consideration.",
+      "hint": "Think about a suggestion made during negotiations.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Para llegar a un ___, necesitamos hablar más.",
+      "content": {
+        "sentence": "Para llegar a un ___, necesitamos hablar más.",
+        "correctAnswer": "acuerdo",
+        "acceptableAnswers": [
+          "acuerdo"
+        ],
+        "options": [
+          "acuerdo",
+          "estrategia",
+          "propuesta"
+        ]
+      },
+      "explanation": "The correct word 'acuerdo' fits because it refers to an agreement that is often the goal of negotiations.",
+      "hint": "It's a term for a mutual decision.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Es importante ___ antes de cerrar un trato.",
+      "content": {
+        "sentence": "Es importante ___ antes de cerrar un trato.",
+        "correctAnswer": "negociar",
+        "acceptableAnswers": [
+          "negociar"
+        ],
+        "options": [
+          "acordar",
+          "negociar",
+          "conceder"
+        ]
+      },
+      "explanation": "'Negociar' means to negotiate, which is crucial before finalizing a deal.",
+      "hint": "Think of what you do during discussions.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: acuerdo / negociar / un / buscar / es / importante.",
+      "content": {
+        "words": [
+          "acuerdo",
+          "negociar",
+          "un",
+          "buscar",
+          "es",
+          "importante"
+        ],
+        "correctOrder": [
+          "es",
+          "importante",
+          "buscar",
+          "un",
+          "acuerdo",
+          "negociar"
+        ],
+        "translation": "It is important to seek an agreement."
+      },
+      "explanation": "The correct order highlights the importance of seeking an agreement in negotiations.",
+      "hint": "Start with 'es importante'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Negotiation is key to success.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'Negotiation is key to success.'",
+        "correctAnswer": "La negociación es clave para el éxito.",
+        "acceptableAnswers": [
+          "La negociación es fundamental para el éxito."
+        ]
+      },
+      "explanation": "The translation captures the importance of negotiation in achieving success.",
+      "hint": "Remember the word for 'key' in Spanish.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Es posible hacer concesiones.'",
+      "content": {
+        "ttsText": "Es posible hacer concesiones.",
+        "ttsLang": "es-ES",
+        "options": [
+          "It is possible to make concessions.",
+          "It is important to negotiate.",
+          "An agreement can be reached."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation highlights the possibility of making concessions during negotiations.",
+      "hint": "Listen for the word 'concesiones'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'What strategy will you use for the negotiation?'",
+      "content": {
+        "targetText": "¿Qué estrategia vas a usar para la negociación?",
+        "context": "You are asking someone about their approach to negotiating.",
+        "acceptableVariants": [
+          "¿Qué estrategia usarás para la negociación?",
+          "¿Qué plan tienes para la negociación?"
+        ]
+      },
+      "explanation": "The sentence correctly inquires about the strategy for negotiation.",
+      "hint": "Remember to ask about 'estrategia'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

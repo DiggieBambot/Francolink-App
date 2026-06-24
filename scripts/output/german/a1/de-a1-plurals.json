@@ -1,0 +1,335 @@
+{
+  "lesson": {
+    "title": "Plural Forms",
+    "type": "GRAMMAR",
+    "slug": "de-a1-plurals"
+  },
+  "unit": "Articles & Genders",
+  "unitOrder": 2,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about plural forms of nouns in German. You will understand how to change singular nouns into plural and recognize the corresponding articles.",
+      "culturalNote": "In German, the plural form of nouns is not always predictable, which can be quite different from English. Many German speakers enjoy playing word games that challenge their knowledge of plurals."
+    },
+    "vocabulary": [
+      {
+        "term": "der Tisch",
+        "translation": "the table",
+        "definition": "a piece of furniture with a flat top supported by one or more legs",
+        "pronunciation": "dehr tish",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Tisch ist groß.",
+          "translation": "The table is big."
+        },
+        "tip": "Plural: die Tische. Remember, 'Tisch' is masculine (der)."
+      },
+      {
+        "term": "die Lampe",
+        "translation": "the lamp",
+        "definition": "a device that produces light",
+        "pronunciation": "dee lahm-peh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Lampe ist schön.",
+          "translation": "The lamp is beautiful."
+        },
+        "tip": "Plural: die Lampen. 'Lampe' is feminine (die)."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "a set of written pages bound together",
+        "pronunciation": "dahs booH",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Buch ist interessant.",
+          "translation": "The book is interesting."
+        },
+        "tip": "Plural: die Bücher. 'Buch' is neuter (das)."
+      },
+      {
+        "term": "die Blume",
+        "translation": "the flower",
+        "definition": "a colorful part of a plant",
+        "pronunciation": "dee bloo-meh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Blume ist rot.",
+          "translation": "The flower is red."
+        },
+        "tip": "Plural: die Blumen. 'Blume' is feminine (die)."
+      },
+      {
+        "term": "der Stuhl",
+        "translation": "the chair",
+        "definition": "a piece of furniture for sitting",
+        "pronunciation": "dehr shtool",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Stuhl ist bequem.",
+          "translation": "The chair is comfortable."
+        },
+        "tip": "Plural: die Stühle. 'Stuhl' is masculine (der)."
+      },
+      {
+        "term": "das Kind",
+        "translation": "the child",
+        "definition": "a young person",
+        "pronunciation": "dahs kint",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Kind spielt.",
+          "translation": "The child is playing."
+        },
+        "tip": "Plural: die Kinder. 'Kind' is neuter (das)."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Plural Forms of Nouns",
+        "explanation": "In German, nouns can change form in the plural. There are no strict rules, but many nouns follow common patterns. The articles also change: 'der' (masculine) becomes 'die' in plural, and 'das' (neuter) also becomes 'die'.",
+        "table": {
+          "headers": [
+            "Singular",
+            "Plural"
+          ],
+          "rows": [
+            [
+              "der Tisch",
+              "die Tische"
+            ],
+            [
+              "die Lampe",
+              "die Lampen"
+            ],
+            [
+              "das Buch",
+              "die Bücher"
+            ],
+            [
+              "die Blume",
+              "die Blumen"
+            ],
+            [
+              "der Stuhl",
+              "die Stühle"
+            ],
+            [
+              "das Kind",
+              "die Kinder"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich habe einen Tisch. / Ich habe zwei Tische.",
+            "translation": "I have one table. / I have two tables.",
+            "breakdown": "The singular form is 'ein Tisch' (a table) and the plural form is 'zwei Tische' (two tables)."
+          }
+        ],
+        "commonMistakes": [
+          "Using the wrong article in plural. Remember, all plurals take 'die'.",
+          "Forgetting to change the noun form when switching from singular to plural."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Furniture Store",
+      "context": "Two friends are shopping for furniture in a store.",
+      "speakers": [
+        "Max",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Sophie! Welche Möbel brauchst du?",
+          "translation": "Hello Sophie! What furniture do you need?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Max! Ich brauche einen Tisch und zwei Stühle.",
+          "translation": "Hello Max! I need a table and two chairs.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Okay! Die Tische sind dort.",
+          "translation": "Okay! The tables are over there.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich sehe die Tische. Sie sind schön!",
+          "translation": "I see the tables. They are nice!",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Und die Stühle? Wo sind die Stühle?",
+          "translation": "And the chairs? Where are the chairs?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Die Stühle sind hier. Ich mag diese Farben.",
+          "translation": "The chairs are here. I like these colors.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist gut! Lass uns kaufen!",
+          "translation": "That's good! Let's buy!",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich möchte die Lampe auch kaufen.",
+          "translation": "Yes, I want to buy the lamp too.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "German Furniture Culture",
+      "text": "In German-speaking countries, furniture design often combines functionality with aesthetics. Many homes feature a mix of traditional and modern furniture styles.",
+      "funFact": "Germany is known for its high-quality furniture craftsmanship, with many brands having a long history of producing durable and stylish pieces."
+    },
+    "summary": {
+      "keyPoints": [
+        "Nouns change in plural form in German.",
+        "All plural nouns take the article 'die'.",
+        "Learn common plural patterns for different noun genders.",
+        "Practice with real-life dialogues to improve understanding."
+      ],
+      "nextSteps": "Practice using plural forms in sentences and try to create your own dialogues based on furniture or other everyday topics."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the plural form of 'der Tisch'?",
+      "content": {
+        "options": [
+          "die Tische",
+          "das Tischen",
+          "der Tische",
+          "die Tisch"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Tisch' becomes 'die Tische' in plural form.",
+      "hint": "Think about the article changing from 'der' to 'die'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the plural form of 'das Buch'?",
+      "content": {
+        "options": [
+          "die Bücher",
+          "der Bücher",
+          "das Bücher",
+          "die Buch"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Das Buch' changes to 'die Bücher' in plural.",
+      "hint": "Consider the vowel change in the plural form.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich sehe viele ___ (die Blume).",
+      "content": {
+        "sentence": "Ich sehe viele ___ (die Blume).",
+        "correctAnswer": "die Blumen",
+        "acceptableAnswers": [
+          "die Blumen"
+        ],
+        "options": [
+          "die Blumen",
+          "die Blume",
+          "die Blumens"
+        ]
+      },
+      "explanation": "The plural of 'die Blume' is 'die Blumen'.",
+      "hint": "Remember the plural endings for feminine nouns.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Die Kinder spielen mit ___ (der Stuhl).",
+      "content": {
+        "sentence": "Die Kinder spielen mit ___ (der Stuhl).",
+        "correctAnswer": "den Stühlen",
+        "acceptableAnswers": [
+          "den Stühlen"
+        ],
+        "options": [
+          "den Stühlen",
+          "die Stühle",
+          "der Stühlen"
+        ]
+      },
+      "explanation": "In plural, 'der Stuhl' becomes 'den Stühlen' when used with a preposition.",
+      "hint": "Pay attention to the case when using prepositions.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I have two chairs.'",
+      "content": {
+        "prompt": "Translate to German: 'I have two chairs.'",
+        "correctAnswer": "Ich habe zwei Stühle.",
+        "acceptableAnswers": [
+          "Ich habe zwei Stühle"
+        ]
+      },
+      "explanation": "The correct translation uses the plural form of 'Stuhl'.",
+      "hint": "Think about the plural form of the noun.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct plural form: 'die Lampe'.",
+      "content": {
+        "ttsText": "Die Lampen",
+        "ttsLang": "de-DE",
+        "options": [
+          "die Lampe",
+          "die Lampen",
+          "der Lampen"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "You heard the plural 'die Lampen'.",
+      "hint": "Listen carefully to the ending sound.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'There are three children.'",
+      "content": {
+        "targetText": "Es gibt drei Kinder.",
+        "context": "Translate and say the sentence in German.",
+        "acceptableVariants": [
+          "Es gibt drei Kinder"
+        ]
+      },
+      "explanation": "The correct phrase uses the plural form 'Kinder'.",
+      "hint": "Remember that 'das Kind' is pluralized to 'die Kinder'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

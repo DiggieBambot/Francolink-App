@@ -1,0 +1,364 @@
+{
+  "lesson": {
+    "title": "Technology & Gadgets",
+    "type": "VOCABULARY",
+    "slug": "de-a2-technology"
+  },
+  "unit": "Everyday Situations",
+  "unitOrder": 8,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to technology and gadgets in German. By the end, you will be able to name common devices and describe their functions.",
+      "culturalNote": "Germany is known for its advanced technology and engineering, especially in the automotive and electronics industries. Many famous brands, such as Siemens and Bosch, are based in Germany."
+    },
+    "vocabulary": [
+      {
+        "term": "der Computer",
+        "translation": "the computer",
+        "definition": "A device used for processing data and performing tasks.",
+        "pronunciation": "dehr Kom-pyu-ter",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Computer ist schnell.",
+          "translation": "The computer is fast."
+        },
+        "tip": "Remember: 'der' indicates that 'Computer' is masculine."
+      },
+      {
+        "term": "das Handy",
+        "translation": "the mobile phone",
+        "definition": "A portable device for communication.",
+        "pronunciation": "dahs Hen-dee",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe mein Handy vergessen.",
+          "translation": "I forgot my mobile phone."
+        },
+        "tip": "'das' indicates that 'Handy' is neuter."
+      },
+      {
+        "term": "die Kamera",
+        "translation": "the camera",
+        "definition": "A device for taking photographs.",
+        "pronunciation": "dee Kah-meh-rah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Kamera macht gute Fotos.",
+          "translation": "The camera takes good photos."
+        },
+        "tip": "'die' indicates that 'Kamera' is feminine."
+      },
+      {
+        "term": "der Fernseher",
+        "translation": "the television",
+        "definition": "An electronic device for viewing broadcast programs.",
+        "pronunciation": "dehr Fehrn-zeh-er",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wir schauen einen Film im Fernseher.",
+          "translation": "We are watching a movie on the television."
+        },
+        "tip": "Remember: 'der' indicates that 'Fernseher' is masculine."
+      },
+      {
+        "term": "die Maus",
+        "translation": "the mouse",
+        "definition": "A device used to control a computer cursor.",
+        "pronunciation": "dee Mows",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Maus ist kaputt.",
+          "translation": "The mouse is broken."
+        },
+        "tip": "'die' indicates that 'Maus' is feminine."
+      },
+      {
+        "term": "das Tablet",
+        "translation": "the tablet",
+        "definition": "A portable touch screen device.",
+        "pronunciation": "dahs Tab-let",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich benutze mein Tablet für die Schule.",
+          "translation": "I use my tablet for school."
+        },
+        "tip": "'das' indicates that 'Tablet' is neuter."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Accusative Case",
+        "explanation": "In German, the accusative case is used for direct objects. This means that when you say what someone is doing to something, that object will often be in the accusative case. The articles change as follows: 'der' becomes 'den', 'die' stays 'die', and 'das' becomes 'das'.",
+        "table": {
+          "headers": [
+            "Nominative",
+            "Accusative"
+          ],
+          "rows": [
+            [
+              "der Computer",
+              "den Computer"
+            ],
+            [
+              "die Kamera",
+              "die Kamera"
+            ],
+            [
+              "das Tablet",
+              "das Tablet"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich benutze den Computer.",
+            "translation": "I use the computer.",
+            "breakdown": "Here, 'den Computer' is the direct object in the accusative case."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Ich habe die Computer' instead of 'Ich habe den Computer'.",
+          "Using 'das' instead of 'den' for masculine nouns."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Buying a New Phone",
+      "context": "In a mobile phone store.",
+      "speakers": [
+        "Lukas",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo, ich suche ein neues Handy.",
+          "translation": "Hello, I am looking for a new mobile phone.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Haben Sie ein bestimmtes Modell im Kopf?",
+          "translation": "Do you have a specific model in mind?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, ich möchte das neueste iPhone.",
+          "translation": "Yes, I want the latest iPhone.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist sehr beliebt. Möchten Sie es ausprobieren?",
+          "translation": "That is very popular. Would you like to try it out?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, gerne! Hat es eine gute Kamera?",
+          "translation": "Yes, please! Does it have a good camera?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, die Kamera ist ausgezeichnet.",
+          "translation": "Yes, the camera is excellent.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Super! Ich nehme es.",
+          "translation": "Great! I will take it.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Möchten Sie eine Hülle dazu?",
+          "translation": "Would you like a case with it?",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Technology in Germany",
+      "text": "German-speaking countries are known for their innovation in technology. From smartphones to automotive technology, the DACH region is a leader in producing high-quality gadgets and devices.",
+      "funFact": "Germany is home to the famous consumer electronics fair, IFA, which showcases the latest in technology every year."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to technology and gadgets.",
+        "Practiced using the accusative case.",
+        "Engaged in a dialogue about buying a phone.",
+        "Explored cultural insights on technology in German-speaking countries."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences, and try to create your own dialogues about technology."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'der Computer' in English?",
+      "content": {
+        "options": [
+          "the phone",
+          "the computer",
+          "the camera",
+          "the television"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Der Computer' translates to 'the computer' in English.",
+      "hint": "Think about what you use for browsing the internet.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'das Handy'?",
+      "content": {
+        "options": [
+          "the tablet",
+          "the camera",
+          "the smartphone",
+          "the mouse"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Das Handy' refers to 'the smartphone' or mobile phone.",
+      "hint": "It's something you use to call someone.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich benutze ___ (the tablet).",
+      "content": {
+        "sentence": "Ich benutze ___ (the tablet).",
+        "correctAnswer": "das Tablet",
+        "acceptableAnswers": [
+          "das Tablet"
+        ],
+        "options": [
+          "das Handy",
+          "der Computer",
+          "das Tablet",
+          "die Kamera"
+        ]
+      },
+      "explanation": "The correct article and noun is 'das Tablet', meaning 'the tablet'.",
+      "hint": "It's a device larger than a phone but smaller than a computer.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich sehe Filme auf ___ (the television).",
+      "content": {
+        "sentence": "Ich sehe Filme auf ___ (the television).",
+        "correctAnswer": "dem Fernseher",
+        "acceptableAnswers": [
+          "dem Fernseher"
+        ],
+        "options": [
+          "dem Computer",
+          "dem Fernseher",
+          "der Kamera",
+          "dem Handy"
+        ]
+      },
+      "explanation": "'Dem Fernseher' means 'on the television', which is used for watching movies.",
+      "hint": "It's a device that shows moving images.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I take pictures with the camera'.",
+      "content": {
+        "prompt": "Translate to German: 'I take pictures with the camera'.",
+        "correctAnswer": "Ich mache Fotos mit der Kamera.",
+        "acceptableAnswers": [
+          "Ich mache Bilder mit der Kamera."
+        ]
+      },
+      "explanation": "'Ich mache Fotos mit der Kamera' means you are using a camera to take pictures.",
+      "hint": "Think about how to say 'camera' in German.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and identify the gadget: 'Ich benutze mein Handy jeden Tag.'",
+      "content": {
+        "ttsText": "Ich benutze mein Handy jeden Tag.",
+        "ttsLang": "de-DE",
+        "options": [
+          "the tablet",
+          "the camera",
+          "the computer",
+          "the phone"
+        ],
+        "correctIndex": 3
+      },
+      "explanation": "The sentence mentions 'mein Handy', which means 'my phone'.",
+      "hint": "It's a personal device that fits in your pocket.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I use the computer for work.'",
+      "content": {
+        "targetText": "Ich benutze den Computer für die Arbeit.",
+        "context": "Translate and say the sentence in German.",
+        "acceptableVariants": [
+          "Ich arbeite mit dem Computer."
+        ]
+      },
+      "explanation": "This sentence shows how the computer is used for work.",
+      "hint": "Remember the article for 'computer'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Die ___ (mouse) ist sehr wichtig für den Computer.",
+      "content": {
+        "sentence": "Die ___ (mouse) ist sehr wichtig für den Computer.",
+        "correctAnswer": "Maus",
+        "acceptableAnswers": [
+          "Maus"
+        ],
+        "options": [
+          "Tastatur",
+          "Maus",
+          "Kamera",
+          "Tablet"
+        ]
+      },
+      "explanation": "The mouse is an essential accessory for interacting with the computer.",
+      "hint": "It's used to click on things on the screen.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'die Kamera' refer to?",
+      "content": {
+        "options": [
+          "the camera",
+          "the tablet",
+          "the computer",
+          "the mouse"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Kamera' means 'the camera' in English.",
+      "hint": "Think about a device used for taking photos.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

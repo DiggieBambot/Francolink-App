@@ -1,0 +1,405 @@
+{
+  "lesson": {
+    "title": "Discussing News & Articles",
+    "type": "CONVERSATION",
+    "slug": "de-b1-news"
+  },
+  "unit": "Media & Communication",
+  "unitOrder": 5,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary and phrases useful for discussing news and articles in German. You will also practice forming sentences with subordinate clauses and using the Konjunktiv II for polite requests or hypotheticals.",
+      "culturalNote": "German-speaking countries have a strong tradition of journalism, and many newspapers and magazines are known for their in-depth reporting and analysis."
+    },
+    "vocabulary": [
+      {
+        "term": "die Nachricht",
+        "translation": "the news",
+        "definition": "Information about recent events.",
+        "pronunciation": "dee NAH-reeht",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Hast du die Nachrichten heute Morgen gesehen?",
+          "translation": "Did you see the news this morning?"
+        },
+        "tip": "Remember that 'Nachricht' is feminine, so it uses 'die'."
+      },
+      {
+        "term": "der Artikel",
+        "translation": "the article",
+        "definition": "A piece of writing about a particular topic.",
+        "pronunciation": "dehr ar-TEE-kel",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe einen interessanten Artikel gelesen.",
+          "translation": "I read an interesting article."
+        },
+        "tip": "'Artikel' is masculine, so it uses 'der'."
+      },
+      {
+        "term": "die Zeitung",
+        "translation": "the newspaper",
+        "definition": "A publication that contains news articles.",
+        "pronunciation": "dee TSY-tung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich kaufe jeden Sonntag die Zeitung.",
+          "translation": "I buy the newspaper every Sunday."
+        },
+        "tip": "'Zeitung' is feminine, so it uses 'die'."
+      },
+      {
+        "term": "die Meinung",
+        "translation": "the opinion",
+        "definition": "A personal belief or judgment.",
+        "pronunciation": "dee MY-nung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Was ist deine Meinung zu diesem Thema?",
+          "translation": "What is your opinion on this topic?"
+        },
+        "tip": "'Meinung' is feminine, so it uses 'die'."
+      },
+      {
+        "term": "das Thema",
+        "translation": "the topic",
+        "definition": "The subject of discussion.",
+        "pronunciation": "das TAY-mah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Thema des Artikels ist sehr wichtig.",
+          "translation": "The topic of the article is very important."
+        },
+        "tip": "'Thema' is neuter, so it uses 'das'."
+      },
+      {
+        "term": "informieren",
+        "translation": "to inform",
+        "definition": "To provide information.",
+        "pronunciation": "in-for-MEE-ren",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Der Artikel informiert die Leser über aktuelle Ereignisse.",
+          "translation": "The article informs readers about current events."
+        },
+        "tip": "This is a regular verb; conjugate as 'ich informiere, du informierst'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Subordinate Clauses",
+        "explanation": "In German, subordinate clauses often start with conjunctions like 'dass' (that), 'weil' (because), and 'wenn' (if). These clauses cannot stand alone and usually provide additional information to the main clause.",
+        "table": {
+          "headers": [
+            "Conjunction",
+            "Meaning"
+          ],
+          "rows": [
+            [
+              "dass",
+              "that"
+            ],
+            [
+              "weil",
+              "because"
+            ],
+            [
+              "wenn",
+              "if"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich denke, dass der Artikel sehr informativ ist.",
+            "translation": "I think that the article is very informative.",
+            "breakdown": "The main clause is 'Ich denke' (I think) and the subordinate clause is 'dass der Artikel sehr informativ ist' (that the article is very informative)."
+          },
+          {
+            "original": "Ich lese die Zeitung, weil ich informiert bleiben möchte.",
+            "translation": "I read the newspaper because I want to stay informed.",
+            "breakdown": "The main clause is 'Ich lese die Zeitung' (I read the newspaper) and the subordinate clause is 'weil ich informiert bleiben möchte' (because I want to stay informed)."
+          }
+        ],
+        "commonMistakes": [
+          "Forgetting to place the verb at the end of the subordinate clause. Correct: 'Ich glaube, dass du recht hast.'",
+          "Using the wrong conjunction. Remember to use 'weil' for reasons and 'dass' for statements."
+        ]
+      },
+      {
+        "title": "Konjunktiv II for Politeness",
+        "explanation": "The Konjunktiv II is often used to express politeness or hypothetical situations. You form it by using the simple past form of the verb and adding the appropriate endings.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Konjunktiv II Form"
+          ],
+          "rows": [
+            [
+              "sein",
+              "wäre"
+            ],
+            [
+              "haben",
+              "hätte"
+            ],
+            [
+              "werden",
+              "würde"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich würde den Artikel gerne lesen.",
+            "translation": "I would like to read the article.",
+            "breakdown": "Here, 'würde' indicates a polite request."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the Konjunktiv II for polite requests. Correct: 'Ich hätte gern mehr Informationen.'",
+          "Forgetting the appropriate endings for irregular verbs."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Today's News",
+      "context": "Two friends, Anna and Lukas, are having coffee and discussing the news.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hast du die Nachrichten heute Morgen gehört?",
+          "translation": "Did you hear the news this morning?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe einen interessanten Artikel über die Wahlen gelesen.",
+          "translation": "Yes, I read an interesting article about the elections."
+        },
+        {
+          "speaker": 0,
+          "text": "Was denkst du über die Ergebnisse?",
+          "translation": "What do you think about the results?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich finde, dass sie überraschend sind.",
+          "translation": "I find that they are surprising."
+        },
+        {
+          "speaker": 0,
+          "text": "Warum denkst du das?",
+          "translation": "Why do you think that?"
+        },
+        {
+          "speaker": 1,
+          "text": "Weil viele Leute nicht mit dem Ergebnis gerechnet haben.",
+          "translation": "Because many people did not expect the outcome."
+        },
+        {
+          "speaker": 0,
+          "text": "Das stimmt. Ich hätte nicht gedacht, dass es so kommt.",
+          "translation": "That's true. I wouldn't have thought it would turn out like this."
+        },
+        {
+          "speaker": 1,
+          "text": "Wie informierst du dich normalerweise über die Nachrichten?",
+          "translation": "How do you usually inform yourself about the news?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich lese meistens die Zeitung oder schaue die Nachrichten im Fernsehen.",
+          "translation": "I usually read the newspaper or watch the news on TV."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich bevorzuge es, online zu lesen.",
+          "translation": "I prefer to read online."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Media in Germany",
+      "text": "In Germany, media plays a crucial role in society, and there is a strong emphasis on journalistic integrity. Many Germans rely on public broadcasters for unbiased news.",
+      "funFact": "Germany has over 350 daily newspapers, making it one of the countries with the most diverse media landscapes in the world."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to news and articles.",
+        "Practiced using subordinate clauses with 'dass', 'weil', and 'wenn'.",
+        "Explored the Konjunktiv II for polite expressions.",
+        "Engaged in a realistic dialogue about discussing news."
+      ],
+      "nextSteps": "Practice using the new vocabulary in sentences and continue to explore current events in German media."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'die Nachricht' in English?",
+      "content": {
+        "options": [
+          "the article",
+          "the news",
+          "the newspaper",
+          "the opinion"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Die Nachricht' translates to 'the news' in English.",
+      "hint": "Think about what people read to stay updated.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'the opinion' in German?",
+      "content": {
+        "options": [
+          "die Meinung",
+          "das Thema",
+          "der Artikel",
+          "die Nachricht"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'The opinion' translates to 'die Meinung' in German.",
+      "hint": "It's a personal view on something.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich möchte die ___ lesen.",
+      "content": {
+        "sentence": "Ich möchte die ___ lesen.",
+        "correctAnswer": "Zeitung",
+        "acceptableAnswers": [
+          "Zeitung",
+          "Nachricht"
+        ],
+        "options": [
+          "Nachricht",
+          "Zeitung",
+          "Meinung"
+        ]
+      },
+      "explanation": "The sentence means 'I want to read the newspaper.'",
+      "hint": "It's a common source of news.",
+      "difficulty": "EASY",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Er wird uns über das Thema ___ .",
+      "content": {
+        "sentence": "Er wird uns über das Thema ___ .",
+        "correctAnswer": "informieren",
+        "acceptableAnswers": [
+          "informieren"
+        ],
+        "options": [
+          "informieren",
+          "diskutieren",
+          "lesen"
+        ]
+      },
+      "explanation": "The sentence means 'He will inform us about the topic.'",
+      "hint": "To provide information about something.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I read an interesting article.'",
+      "content": {
+        "prompt": "Translate to German: 'I read an interesting article.'",
+        "correctAnswer": "Ich habe einen interessanten Artikel gelesen.",
+        "acceptableAnswers": [
+          "Ich lese einen interessanten Artikel."
+        ]
+      },
+      "explanation": "The translation captures the past tense and the meaning correctly.",
+      "hint": "Focus on the verb tense.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Die Nachricht ist wichtig.'",
+      "content": {
+        "ttsText": "Die Nachricht ist wichtig.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The opinion is important.",
+          "The news is important.",
+          "The article is important.",
+          "The theme is important."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct translation of 'Die Nachricht ist wichtig.' is 'The news is important.'",
+      "hint": "Focus on the word for news.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence: 'I think the news is important.'",
+      "content": {
+        "targetText": "Ich denke, dass die Nachrichten wichtig sind.",
+        "context": "Express your opinion about the news.",
+        "acceptableVariants": [
+          "Ich finde die Nachrichten wichtig.",
+          "Die Nachrichten sind wichtig."
+        ]
+      },
+      "explanation": "You are expressing an opinion about news, which is relevant in discussions.",
+      "hint": "Use the word for 'think' in your answer.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'das Thema' mean?",
+      "content": {
+        "options": [
+          "the news",
+          "the opinion",
+          "the article",
+          "the topic"
+        ],
+        "correctIndex": 3
+      },
+      "explanation": "'Das Thema' means 'the topic' in English.",
+      "hint": "Consider what you discuss in articles.",
+      "difficulty": "HARD",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Wir sollten die ___ diskutieren.",
+      "content": {
+        "sentence": "Wir sollten die ___ diskutieren.",
+        "correctAnswer": "Meinung",
+        "acceptableAnswers": [
+          "Meinung"
+        ],
+        "options": [
+          "Meinung",
+          "Nachricht",
+          "Thema"
+        ]
+      },
+      "explanation": "This sentence means 'We should discuss the opinion.'",
+      "hint": "Think about what you do in a discussion.",
+      "difficulty": "HARD",
+      "xp_reward": 4
+    }
+  ]
+}

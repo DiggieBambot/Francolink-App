@@ -1,0 +1,329 @@
+{
+  "lesson": {
+    "title": "Presenting Complex Ideas",
+    "type": "CONVERSATION",
+    "slug": "de-b2-complex-ideas"
+  },
+  "unit": "Professional Communication",
+  "unitOrder": 3,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to present complex ideas in German, focusing on the use of nuanced vocabulary and complex sentence structures. You will practice using the Konjunktiv I and II to express hypothetical situations and opinions effectively.",
+      "culturalNote": "In professional settings in Germany, it is common to articulate complex ideas clearly and precisely, reflecting the value placed on thorough communication."
+    },
+    "vocabulary": [
+      {
+        "term": "die Meinung",
+        "translation": "the opinion",
+        "definition": "A personal belief or judgment.",
+        "pronunciation": "dee meineeng",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe eine andere Meinung zu diesem Thema.",
+          "translation": "I have a different opinion on this topic."
+        },
+        "tip": "Remember that 'Meinung' is feminine, so use 'die'."
+      },
+      {
+        "term": "der Vorschlag",
+        "translation": "the proposal",
+        "definition": "An idea or plan put forward for consideration.",
+        "pronunciation": "dair forsh-lahg",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich möchte einen Vorschlag machen.",
+          "translation": "I would like to make a proposal."
+        },
+        "tip": "'Vorschlag' is masculine, so remember 'der'."
+      },
+      {
+        "term": "die Überlegung",
+        "translation": "the consideration",
+        "definition": "The act of thinking carefully about something.",
+        "pronunciation": "dee oo-ber-lay-goong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Nach sorgfältiger Überlegung habe ich entschieden.",
+          "translation": "After careful consideration, I have decided."
+        },
+        "tip": "Keep in mind 'Überlegung' is feminine, hence 'die'."
+      },
+      {
+        "term": "die Herausforderung",
+        "translation": "the challenge",
+        "definition": "A situation that tests someone's abilities.",
+        "pronunciation": "dee hair-aus-for-doong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Diese Herausforderung erfordert Kreativität.",
+          "translation": "This challenge requires creativity."
+        },
+        "tip": "'Herausforderung' is feminine, so use 'die'."
+      },
+      {
+        "term": "die Aussage",
+        "translation": "the statement",
+        "definition": "An expression or declaration of something.",
+        "pronunciation": "dee ow-sah-guh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Deine Aussage war sehr überzeugend.",
+          "translation": "Your statement was very convincing."
+        },
+        "tip": "'Aussage' is feminine, so remember 'die'."
+      },
+      {
+        "term": "der Kontext",
+        "translation": "the context",
+        "definition": "The circumstances or setting in which something occurs.",
+        "pronunciation": "dair kon-text",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Kontext ist entscheidend für das Verständnis.",
+          "translation": "The context is crucial for understanding."
+        },
+        "tip": "'Kontext' is masculine, so use 'der'."
+      },
+      {
+        "term": "der Aspekt",
+        "translation": "the aspect",
+        "definition": "A particular part or feature of something.",
+        "pronunciation": "dair as-pekt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ein wichtiger Aspekt ist die Kommunikation.",
+          "translation": "An important aspect is communication."
+        },
+        "tip": "'Aspekt' is masculine, so remember 'der'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Konjunktiv I and II",
+        "explanation": "The Konjunktiv I is used primarily for indirect speech, while the Konjunktiv II is used to express hypothetical situations or desires. Both forms are essential for discussing complex ideas and presenting opinions or proposals in a nuanced manner.",
+        "table": {
+          "headers": [
+            "Form",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Konjunktiv I",
+              "Er sagt, er sei müde."
+            ],
+            [
+              "Konjunktiv II",
+              "Wenn ich Zeit hätte, würde ich reisen."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Er behauptet, er habe die Lösung.",
+            "translation": "He claims that he has the solution.",
+            "breakdown": "Here, 'habe' (have) is in the Konjunktiv I, indicating indirect speech."
+          },
+          {
+            "original": "Wenn ich du wäre, würde ich es versuchen.",
+            "translation": "If I were you, I would try it.",
+            "breakdown": "In this example, 'wäre' (were) and 'würde' (would) are in the Konjunktiv II for hypothetical situations."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the Konjunktiv in indirect speech: Correct form is 'Er sagt, er sei müde.' instead of 'Er sagt, er ist müde.'",
+          "Confusing Konjunktiv I with Konjunktiv II: Remember that Konjunktiv I is used for reporting speech, while Konjunktiv II is for hypotheticals."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Proposal",
+      "context": "A meeting between colleagues discussing a new project proposal.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Lena: Ich denke, wir sollten über den neuen Vorschlag sprechen.",
+          "translation": "Lena: I think we should discuss the new proposal."
+        },
+        {
+          "speaker": 1,
+          "text": "Max: Das ist ein guter Punkt. Was sind die Hauptaspekte?",
+          "translation": "Max: That's a good point. What are the main aspects?"
+        },
+        {
+          "speaker": 0,
+          "text": "Lena: Zuerst müssen wir die Herausforderungen berücksichtigen.",
+          "translation": "Lena: First, we need to consider the challenges."
+        },
+        {
+          "speaker": 1,
+          "text": "Max: Ich stimme zu. Ohne eine klare Strategie wird es schwierig sein.",
+          "translation": "Max: I agree. Without a clear strategy, it will be difficult."
+        },
+        {
+          "speaker": 0,
+          "text": "Lena: Außerdem müssen wir die Meinungen der Teammitglieder einholen.",
+          "translation": "Lena: Moreover, we need to gather the opinions of the team members."
+        },
+        {
+          "speaker": 1,
+          "text": "Max: Genau, das könnte unsere Entscheidung beeinflussen.",
+          "translation": "Max: Exactly, that could influence our decision."
+        },
+        {
+          "speaker": 0,
+          "text": "Lena: Ich schlage vor, dass wir eine Sitzung einberufen.",
+          "translation": "Lena: I suggest that we call a meeting."
+        },
+        {
+          "speaker": 1,
+          "text": "Max: Das klingt sinnvoll. Lass uns einen Termin festlegen.",
+          "translation": "Max: That sounds reasonable. Let’s set a date."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Communication in Professional Settings",
+      "text": "In German-speaking countries, effective communication is highly valued in professional contexts. Presenting complex ideas clearly and persuasively is essential for success in meetings and negotiations.",
+      "funFact": "In Germany, it is common to use formal titles and last names in business settings until a personal relationship is established."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding and using the Konjunktiv I and II for indirect speech and hypotheticals.",
+        "The importance of vocabulary related to presenting ideas and proposals.",
+        "How to structure complex sentences to convey nuanced thoughts.",
+        "Practicing dialogue to improve conversational skills in professional settings."
+      ],
+      "nextSteps": "Practice using the vocabulary in different contexts, and try creating your own dialogues using Konjunktiv I and II to discuss complex ideas."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'suggestion'?",
+      "content": {
+        "options": [
+          "die Meinung",
+          "der Vorschlag",
+          "die Überlegung",
+          "die Herausforderung"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'der Vorschlag', which translates to 'suggestion' in English.",
+      "hint": "Think about giving advice.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which German word means 'aspect'?",
+      "content": {
+        "options": [
+          "der Aspekt",
+          "die Herausforderung",
+          "die Aussage",
+          "der Kontext"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Aspekt' translates to 'aspect', referring to a particular part or feature of something.",
+      "hint": "Consider different sides of a topic.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Eine wichtige ___ in unserer Diskussion ist die Zeitplanung.'",
+      "content": {
+        "sentence": "Eine wichtige ___ in unserer Diskussion ist die Zeitplanung.",
+        "correctAnswer": "Überlegung",
+        "acceptableAnswers": [
+          "Überlegung"
+        ],
+        "options": [
+          "Meinung",
+          "Überlegung",
+          "Herausforderung"
+        ]
+      },
+      "explanation": "The correct word is 'Überlegung', meaning 'consideration', which fits the context of a discussion.",
+      "hint": "Think about what you need to consider.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Die Aussage war unklar, weil sie ohne den richtigen ___ gegeben wurde.'",
+      "content": {
+        "sentence": "Die Aussage war unklar, weil sie ohne den richtigen ___ gegeben wurde.",
+        "correctAnswer": "Kontext",
+        "acceptableAnswers": [
+          "Kontext"
+        ],
+        "options": [
+          "Kontext",
+          "Aspekt",
+          "Vorschlag"
+        ]
+      },
+      "explanation": "'Kontext' means 'context', which is essential for understanding statements.",
+      "hint": "Consider the background information.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'This is a significant challenge.'",
+      "content": {
+        "prompt": "Translate to German: 'This is a significant challenge.'",
+        "correctAnswer": "Das ist eine bedeutende Herausforderung.",
+        "acceptableAnswers": [
+          "Das ist eine große Herausforderung."
+        ]
+      },
+      "explanation": "The translation captures the meaning of the original English sentence.",
+      "hint": "Focus on the word 'challenge'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation: 'Ich habe eine neue Meinung zu diesem Thema.'",
+      "content": {
+        "ttsText": "Ich habe eine neue Meinung zu diesem Thema.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I have a new opinion on this topic.",
+          "I have a new suggestion for this topic.",
+          "I have a new aspect of this topic."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'I have a new opinion on this topic.'",
+      "hint": "Focus on the word 'Meinung'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in German: 'What is your opinion on this matter?'",
+      "content": {
+        "targetText": "Was ist deine Meinung zu diesem Thema?",
+        "context": "You are discussing a project with a colleague.",
+        "acceptableVariants": [
+          "Was denkst du über dieses Thema?",
+          "Was ist deine Meinung zu diesem Thema?"
+        ]
+      },
+      "explanation": "This question prompts the other person to share their thoughts.",
+      "hint": "Use the word for 'opinion'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

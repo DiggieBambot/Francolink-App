@@ -1,0 +1,344 @@
+{
+  "lesson": {
+    "title": "The Imperfect (Imperfecto)",
+    "type": "GRAMMAR",
+    "slug": "es-a2-imperfect"
+  },
+  "unit": "Stories & Memories",
+  "unitOrder": 2,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about the imperfect tense (imperfecto) in Spanish, which is used to describe past actions that were ongoing or habitual. You will also explore how to tell stories and share memories using this tense.",
+      "culturalNote": "Many Spanish-speaking countries have rich storytelling traditions, often using the imperfect to talk about past events in a vivid and engaging way."
+    },
+    "vocabulary": [
+      {
+        "term": "la casa",
+        "translation": "the house",
+        "definition": "A building for human habitation.",
+        "pronunciation": "lah kah-sah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La casa era grande.",
+          "translation": "The house was big."
+        },
+        "tip": "Remember that 'la' indicates it is feminine."
+      },
+      {
+        "term": "el perro",
+        "translation": "the dog",
+        "definition": "A domesticated carnivorous mammal.",
+        "pronunciation": "el peh-rroh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El perro ladraba mucho.",
+          "translation": "The dog used to bark a lot."
+        },
+        "tip": "Note that 'el' indicates it is masculine."
+      },
+      {
+        "term": "jugar",
+        "translation": "to play",
+        "definition": "To engage in activity for enjoyment and recreation.",
+        "pronunciation": "hoo-gar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Cuando era niño, jugaba todos los días.",
+          "translation": "When I was a child, I used to play every day."
+        },
+        "tip": "The verb 'jugar' is irregular only in the present tense, so it follows regular patterns in the imperfect."
+      },
+      {
+        "term": "comer",
+        "translation": "to eat",
+        "definition": "To consume food.",
+        "pronunciation": "koh-mer",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Comíamos pizza los viernes.",
+          "translation": "We used to eat pizza on Fridays."
+        },
+        "tip": "The imperfect form for 'comer' is regular."
+      },
+      {
+        "term": "ver",
+        "translation": "to see",
+        "definition": "To perceive with the eyes.",
+        "pronunciation": "behr",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Veíamos películas los sábados.",
+          "translation": "We used to see movies on Saturdays."
+        },
+        "tip": "Note that 'ver' is an irregular verb in the imperfect."
+      },
+      {
+        "term": "la escuela",
+        "translation": "the school",
+        "definition": "An institution for educating children.",
+        "pronunciation": "lah es-kweh-lah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La escuela estaba cerca de mi casa.",
+          "translation": "The school was near my house."
+        },
+        "tip": "Remember that 'escuela' is feminine."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Imperfect Tense (Imperfecto)",
+        "explanation": "The imperfect tense is used to describe past actions that were habitual, ongoing, or incomplete. It is often used for background information in storytelling. In contrast to the preterite, the imperfect does not focus on the completion of an action.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Imperfect Ending"
+          ],
+          "rows": [
+            [
+              "yo",
+              "-aba / -ía"
+            ],
+            [
+              "tú",
+              "-abas / -ías"
+            ],
+            [
+              "él/ella/usted",
+              "-aba / -ía"
+            ],
+            [
+              "nosotros",
+              "-ábamos / -íamos"
+            ],
+            [
+              "ellos/ellas/ustedes",
+              "-aban / -ían"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Cuando era niño, siempre iba al parque.",
+            "translation": "When I was a child, I always went to the park.",
+            "breakdown": "This sentence describes a habitual action in the past using the imperfect."
+          }
+        ],
+        "commonMistakes": [
+          "Using the preterite instead of the imperfect for habitual actions. Correction: Use the imperfect for actions that were repeated.",
+          "Confusing the endings of -ar and -er/-ir verbs. Correction: Remember the different endings for each group."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Childhood Memories",
+      "context": "A conversation between two friends reminiscing about their childhood.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Recuerdas cómo jugábamos en el parque?",
+          "translation": "Do you remember how we used to play in the park?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, siempre íbamos después de la escuela.",
+          "translation": "Yes, we always went after school."
+        },
+        {
+          "speaker": 0,
+          "text": "Y había un perro que nos seguía.",
+          "translation": "And there was a dog that followed us."
+        },
+        {
+          "speaker": 1,
+          "text": "¡Exacto! El perro ladraba mucho.",
+          "translation": "Exactly! The dog used to bark a lot."
+        },
+        {
+          "speaker": 0,
+          "text": "Me encantaba jugar con mis amigos.",
+          "translation": "I loved playing with my friends."
+        },
+        {
+          "speaker": 1,
+          "text": "¿Y qué comíamos?",
+          "translation": "And what did we eat?"
+        },
+        {
+          "speaker": 0,
+          "text": "Comíamos helados los fines de semana.",
+          "translation": "We used to eat ice cream on weekends."
+        },
+        {
+          "speaker": 1,
+          "text": "¡Qué buenos recuerdos!",
+          "translation": "What good memories!"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Storytelling Traditions",
+      "text": "In many Spanish-speaking cultures, storytelling is an important tradition. The imperfect tense is often used to set the scene and describe characters in stories, creating a vivid picture for the listener.",
+      "funFact": "In Mexico, there are vibrant storytelling festivals where people share tales using traditional music and dance."
+    },
+    "summary": {
+      "keyPoints": [
+        "The imperfect tense describes ongoing or habitual past actions.",
+        "It is different from the preterite, which focuses on completed actions.",
+        "Regular and irregular verbs have specific endings in the imperfect.",
+        "Storytelling often employs the imperfect to create rich narratives."
+      ],
+      "nextSteps": "Practice using the imperfect tense by writing short stories about your childhood or daily routines."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which form of the verb 'comer' is correct for 'yo' in the imperfect tense?",
+      "content": {
+        "options": [
+          "comía",
+          "comeré",
+          "comiendo"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct form is 'comía', which is the first person singular form of 'comer' in the imperfect tense.",
+      "hint": "Think about the past actions that were ongoing.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct form of 'jugar' for 'ellos' in the imperfect tense?",
+      "content": {
+        "options": [
+          "jugaban",
+          "jugó",
+          "jugaron"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Jugaban' is the third person plural form of 'jugar' in the imperfect tense.",
+      "hint": "Remember the ending for 'ellos' in the imperfect.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Cuando yo ___ (ver) la casa, estaba feliz.",
+      "content": {
+        "sentence": "Cuando yo ___ (ver) la casa, estaba feliz.",
+        "correctAnswer": "veía",
+        "acceptableAnswers": [
+          "veía"
+        ],
+        "options": [
+          "veía",
+          "vi",
+          "veré"
+        ]
+      },
+      "explanation": "'Veía' is the correct form because it indicates a past action that was ongoing.",
+      "hint": "This is the imperfect form of 'ver' for 'yo'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Nosotros ___ (comer) en la escuela todos los días.",
+      "content": {
+        "sentence": "Nosotros ___ (comer) en la escuela todos los días.",
+        "correctAnswer": "comíamos",
+        "acceptableAnswers": [
+          "comíamos"
+        ],
+        "options": [
+          "comimos",
+          "comeremos",
+          "comíamos"
+        ]
+      },
+      "explanation": "The correct answer is 'comíamos', which indicates a habitual action in the past.",
+      "hint": "Think of how you would express a routine in the past.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: perro, el, jugaba, siempre.",
+      "content": {
+        "words": [
+          "perro",
+          "el",
+          "jugaba",
+          "siempre"
+        ],
+        "correctOrder": [
+          "el",
+          "perro",
+          "jugaba",
+          "siempre"
+        ],
+        "translation": "The dog always played."
+      },
+      "explanation": "The correct order places the subject before the verb and adverb.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I played with the dog.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I played with the dog.'",
+        "correctAnswer": "Yo jugaba con el perro.",
+        "acceptableAnswers": [
+          "Yo jugaba con el perro"
+        ]
+      },
+      "explanation": "The correct translation uses the imperfect tense for habitual actions.",
+      "hint": "Remember to use 'jugaba' for 'I played'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'La casa era grande.'",
+      "content": {
+        "ttsText": "La casa era grande.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The house was big.",
+          "The house is big.",
+          "The house will be big."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'The house was big.' which reflects the past.",
+      "hint": "Focus on the verb 'era'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in Spanish: 'I saw my friends at school.'",
+      "content": {
+        "targetText": "Yo veía a mis amigos en la escuela.",
+        "context": "Translate and say this sentence in Spanish.",
+        "acceptableVariants": [
+          "Yo veía a mis amigos en la escuela"
+        ]
+      },
+      "explanation": "The sentence uses 'veía' for the imperfect form of 'ver'.",
+      "hint": "Remember the structure: 'Yo + verb + complement.'",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

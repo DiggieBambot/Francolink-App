@@ -1,0 +1,364 @@
+{
+  "lesson": {
+    "title": "Formal Speech & Presentation",
+    "type": "CONVERSATION",
+    "slug": "es-b2-formal-speech"
+  },
+  "unit": "Global Issues & Mastery",
+  "unitOrder": 8,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to engage in formal speech and presentations in Spanish, focusing on vocabulary and structures relevant to global issues. By the end of this lesson, you will be able to express your views and present arguments in a structured and formal manner.",
+      "culturalNote": "In many Spanish-speaking countries, formal presentations are an important part of business and academic culture, often following a structured format."
+    },
+    "vocabulary": [
+      {
+        "term": "el argumento",
+        "translation": "the argument",
+        "definition": "A reason or rationale put forth in a discussion.",
+        "pronunciation": "el ar-GUM-en-to",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El argumento principal de su presentación fue convincente.",
+          "translation": "The main argument of his presentation was convincing."
+        },
+        "tip": "Remember that 'argumento' is often used in formal contexts."
+      },
+      {
+        "term": "la evidencia",
+        "translation": "the evidence",
+        "definition": "Information that supports a claim or argument.",
+        "pronunciation": "la e-vi-DEN-cia",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es importante presentar evidencia para respaldar tus afirmaciones.",
+          "translation": "It is important to present evidence to support your claims."
+        },
+        "tip": "Link 'evidencia' with 'evidence' in English to remember its meaning."
+      },
+      {
+        "term": "la conclusión",
+        "translation": "the conclusion",
+        "definition": "The final part of a speech or presentation that summarizes the main points.",
+        "pronunciation": "la con-clu-SIÓN",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "En la conclusión, reiteré los puntos clave.",
+          "translation": "In the conclusion, I reiterated the key points."
+        },
+        "tip": "Think of 'conclusion' in English to recall this term."
+      },
+      {
+        "term": "presentar",
+        "translation": "to present",
+        "definition": "To give a presentation or to introduce a topic.",
+        "pronunciation": "pre-sen-TAR",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Voy a presentar mi proyecto la próxima semana.",
+          "translation": "I am going to present my project next week."
+        },
+        "tip": "Remember the similar form in English: present."
+      },
+      {
+        "term": "la audiencia",
+        "translation": "the audience",
+        "definition": "The group of people listening to a presentation.",
+        "pronunciation": "la au-DIEN-cia",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La audiencia estaba muy atenta durante la charla.",
+          "translation": "The audience was very attentive during the talk."
+        },
+        "tip": "Connect 'audiencia' to 'audience' in English."
+      },
+      {
+        "term": "el tema",
+        "translation": "the topic",
+        "definition": "The subject of a presentation or discussion.",
+        "pronunciation": "el TE-ma",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El tema de mi presentación es el cambio climático.",
+          "translation": "The topic of my presentation is climate change."
+        },
+        "tip": "Think of 'theme' in English to help remember this word."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subjunctive in Formal Speech",
+        "explanation": "The subjunctive mood is often used in formal presentations to express doubt, wishes, or hypothetical situations. It is essential to master the conjugation of verbs in the subjunctive to articulate your ideas clearly. Typically, you will use the present subjunctive for current situations and the imperfect subjunctive for past hypotheticals.",
+        "table": {
+          "headers": [
+            "Verb (Present Subjunctive)",
+            "Verb (Imperfect Subjunctive)"
+          ],
+          "rows": [
+            [
+              "hable",
+              "hablara"
+            ],
+            [
+              "coma",
+              "comiera"
+            ],
+            [
+              "viva",
+              "viviera"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es importante que hablemos sobre este tema.",
+            "translation": "It is important that we talk about this topic.",
+            "breakdown": "Here, 'hablemos' is in the present subjunctive, indicating a necessity to discuss."
+          },
+          {
+            "original": "Si hubiera sabido, habría presentado más evidencia.",
+            "translation": "If I had known, I would have presented more evidence.",
+            "breakdown": "In this case, 'hubiera sabido' uses the imperfect subjunctive to express a past hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: 'Es seguro que él presenta' should be 'Es seguro que él presente'.",
+          "Confusing present and imperfect subjunctive forms: remember to use 'hable' for present and 'hablara' for imperfect."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Giving a Formal Presentation",
+      "context": "A formal presentation at a university seminar on global issues.",
+      "speakers": [
+        "Dr. Pérez (Presenter)",
+        "Dr. López (Audience Member)"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Buenos días a todos. Hoy hablaré sobre el impacto del cambio climático.",
+          "translation": "Good morning everyone. Today I will talk about the impact of climate change."
+        },
+        {
+          "speaker": 0,
+          "text": "Primero, presentaré algunas estadísticas relevantes.",
+          "translation": "First, I will present some relevant statistics."
+        },
+        {
+          "speaker": 0,
+          "text": "Es importante que consideremos la evidencia que tenemos.",
+          "translation": "It is important that we consider the evidence we have."
+        },
+        {
+          "speaker": 1,
+          "text": "¿Podría dar ejemplos específicos de esos datos?",
+          "translation": "Could you give specific examples of that data?"
+        },
+        {
+          "speaker": 0,
+          "text": "Claro, por ejemplo, la temperatura global ha aumentado en 1.2 grados desde 1880.",
+          "translation": "Of course, for example, global temperatures have increased by 1.2 degrees since 1880."
+        },
+        {
+          "speaker": 1,
+          "text": "Eso es alarmante. ¿Qué medidas podemos tomar para mitigar este problema?",
+          "translation": "That is alarming. What measures can we take to mitigate this problem?"
+        },
+        {
+          "speaker": 0,
+          "text": "Debemos fomentar el uso de energías renovables y reducir nuestra dependencia de combustibles fósiles.",
+          "translation": "We must promote the use of renewable energy and reduce our dependence on fossil fuels."
+        },
+        {
+          "speaker": 0,
+          "text": "Además, es crucial que cada uno de nosotros haga su parte.",
+          "translation": "Additionally, it is crucial that each of us does our part."
+        },
+        {
+          "speaker": 1,
+          "text": "Entiendo. ¿Cuáles serían los próximos pasos?",
+          "translation": "I understand. What would be the next steps?"
+        },
+        {
+          "speaker": 0,
+          "text": "Los próximos pasos incluyen crear conciencia y movilizar a la comunidad.",
+          "translation": "The next steps include raising awareness and mobilizing the community."
+        },
+        {
+          "speaker": 1,
+          "text": "Gracias, Dr. Pérez. Espero que podamos implementar estas ideas.",
+          "translation": "Thank you, Dr. Pérez. I hope we can implement these ideas."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Formality in Latin America",
+      "text": "In many Latin American countries, formal speech is highly valued, especially in academic and professional settings. Presentations often follow a structured format, emphasizing clarity and organization.",
+      "funFact": "Did you know that in some cultures, it is customary to start a presentation with a personal anecdote to engage the audience?"
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding and using formal vocabulary related to presentations.",
+        "Mastering the subjunctive mood for expressing ideas in formal contexts.",
+        "Practicing structured dialogue for effective communication.",
+        "Recognizing cultural nuances in formal presentations."
+      ],
+      "nextSteps": "Practice giving a short presentation on a topic of your choice, applying the vocabulary and grammar structures learned in this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'the argument'?",
+      "content": {
+        "options": [
+          "el argumento",
+          "la evidencia",
+          "la conclusión",
+          "el tema"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'el argumento', which directly translates to 'the argument' in English.",
+      "hint": "Think about the main point of a discussion.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'presentar' mean in English?",
+      "content": {
+        "options": [
+          "to argue",
+          "to present",
+          "to conclude",
+          "to evidence"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Presentar' translates to 'to present', often used in the context of presentations.",
+      "hint": "It's what you do when you give a talk.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: La ___ es el punto principal de la presentación.",
+      "content": {
+        "sentence": "La ___ es el punto principal de la presentación.",
+        "correctAnswer": "conclusión",
+        "acceptableAnswers": [
+          "conclusión"
+        ],
+        "options": [
+          "evidencia",
+          "argumento",
+          "conclusión",
+          "tema"
+        ]
+      },
+      "explanation": "The conclusion is indeed the main point of a presentation.",
+      "hint": "It's what you reach at the end.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Para convencer a la audiencia, debes proporcionar ___ adecuada.",
+      "content": {
+        "sentence": "Para convencer a la audiencia, debes proporcionar ___ adecuada.",
+        "correctAnswer": "evidencia",
+        "acceptableAnswers": [
+          "evidencia"
+        ],
+        "options": [
+          "argumento",
+          "evidencia",
+          "tema",
+          "conclusión"
+        ]
+      },
+      "explanation": "Evidence is necessary to convince the audience effectively.",
+      "hint": "Think about what supports your argument.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'audiencia la el debe presentar tema'.",
+      "content": {
+        "words": [
+          "audiencia",
+          "la",
+          "el",
+          "debe",
+          "presentar",
+          "tema"
+        ],
+        "correctOrder": [
+          "la",
+          "audiencia",
+          "debe",
+          "presentar",
+          "el",
+          "tema"
+        ],
+        "translation": "The audience must present the topic."
+      },
+      "explanation": "The correct order forms a coherent sentence in Spanish.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The evidence supports the argument.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The evidence supports the argument.'",
+        "correctAnswer": "La evidencia apoya el argumento.",
+        "acceptableAnswers": []
+      },
+      "explanation": "This sentence showcases a relationship between evidence and argument.",
+      "hint": "Think about the role of evidence.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'El argumento es fuerte.'",
+      "content": {
+        "ttsText": "El argumento es fuerte.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The argument is strong.",
+          "The conclusion is weak.",
+          "The audience is big.",
+          "The topic is interesting."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'The argument is strong.'",
+      "hint": "Listen for the word 'argumento'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'I will present the topic tomorrow.'",
+      "content": {
+        "targetText": "Presentaré el tema mañana.",
+        "context": "Translate and say this sentence in Spanish.",
+        "acceptableVariants": [
+          "Voy a presentar el tema mañana.",
+          "Presentaré el tema mañana."
+        ]
+      },
+      "explanation": "Both variations express the future intention to present a topic.",
+      "hint": "Use the future tense.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

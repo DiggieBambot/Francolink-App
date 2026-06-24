@@ -1,0 +1,324 @@
+{
+  "lesson": {
+    "title": "Participial Constructions",
+    "type": "GRAMMAR",
+    "slug": "de-b2-participial"
+  },
+  "unit": "Arts & Literature",
+  "unitOrder": 7,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about participial constructions in German, including their formation and usage in sentences. This grammatical structure adds nuance and complexity to your writing and speaking.",
+      "culturalNote": "Participial constructions are often used in German literature to create vivid imagery and concise expression, reflecting the rich literary tradition of the German-speaking world."
+    },
+    "vocabulary": [
+      {
+        "term": "der Künstler",
+        "translation": "the artist",
+        "definition": "A person who creates art.",
+        "pronunciation": "kuen-stler",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Künstler malte ein beeindruckendes Bild.",
+          "translation": "The artist painted an impressive picture."
+        },
+        "tip": "Remember, 'Künstler' is masculine, so it uses 'der'."
+      },
+      {
+        "term": "die Literatur",
+        "translation": "the literature",
+        "definition": "Written works, especially those considered of superior or lasting artistic merit.",
+        "pronunciation": "lit-er-a-tur",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Literatur spielt eine wichtige Rolle in der Kultur.",
+          "translation": "Literature plays an important role in culture."
+        },
+        "tip": "'Literatur' is feminine, so it uses 'die'."
+      },
+      {
+        "term": "das Gemälde",
+        "translation": "the painting",
+        "definition": "A work of art created using paint.",
+        "pronunciation": "ge-mael-de",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Gemälde wurde in einem berühmten Museum ausgestellt.",
+          "translation": "The painting was displayed in a famous museum."
+        },
+        "tip": "Note that 'Gemälde' is neuter, so it uses 'das'."
+      },
+      {
+        "term": "die Inspiration",
+        "translation": "the inspiration",
+        "definition": "The process of being mentally stimulated to do or feel something.",
+        "pronunciation": "in-spi-ra-tion",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Natur kann eine große Inspiration für die Kunst sein.",
+          "translation": "Nature can be a great inspiration for art."
+        },
+        "tip": "'Inspiration' is feminine, so it uses 'die'."
+      },
+      {
+        "term": "der Stil",
+        "translation": "the style",
+        "definition": "A distinctive manner of expression in art or literature.",
+        "pronunciation": "shtil",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Stil des Buches ist sehr einzigartig.",
+          "translation": "The style of the book is very unique."
+        },
+        "tip": "'Stil' is masculine, so it uses 'der'."
+      },
+      {
+        "term": "die Technik",
+        "translation": "the technique",
+        "definition": "The method or skill used in a particular art form.",
+        "pronunciation": "tek-nik",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Technik des Malens ist sehr wichtig für den Künstler.",
+          "translation": "The technique of painting is very important for the artist."
+        },
+        "tip": "'Technik' is feminine, so it uses 'die'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Participial Constructions",
+        "explanation": "Participial constructions in German are formed using the present or past participle of a verb and can function as adjectives or adverbials. They allow for more concise expression in sentences. For example, the present participle 'lachend' (laughing) and the past participle 'gelacht' (laughed) can modify nouns or verbs respectively.",
+        "table": {
+          "headers": [
+            "Present Participle",
+            "Past Participle"
+          ],
+          "rows": [
+            [
+              "lachend",
+              "gelacht"
+            ],
+            [
+              "singend",
+              "gesungen"
+            ],
+            [
+              "laufend",
+              "gelaufen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Der lachende Junge spielt im Park.",
+            "translation": "The laughing boy is playing in the park.",
+            "breakdown": "In this sentence, 'lachende' modifies 'Junge', showing the action of laughing."
+          },
+          {
+            "original": "Die Geschichte, erzählt von der Großmutter, ist spannend.",
+            "translation": "The story, told by the grandmother, is exciting.",
+            "breakdown": "'Erzählt' is the past participle modifying 'Geschichte', indicating who told the story."
+          }
+        ],
+        "commonMistakes": [
+          "Using the wrong participle form: Remember to use 'lachend' for present and 'gelacht' for past.",
+          "Confusing the participle with the infinitive: Ensure you are using the correct form for the intended meaning."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Art and Literature",
+      "context": "A conversation between two friends in a café discussing their favorite artists and books.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hast du das neue Gemälde von Lukas gesehen?",
+          "translation": "Have you seen Lukas' new painting?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, es ist wirklich beeindruckend! Ich liebe seinen Stil.",
+          "translation": "Yes, it is really impressive! I love his style.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich finde, dass seine Technik sehr einzigartig ist.",
+          "translation": "I think his technique is very unique.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das stimmt. Und was hältst du von der Literatur, die er liest?",
+          "translation": "That's true. And what do you think of the literature he reads?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich finde, dass die Bücher, die ihn inspirieren, sehr tiefgründig sind.",
+          "translation": "I think the books that inspire him are very profound.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, sie haben eine interessante Perspektive auf das Leben.",
+          "translation": "Yes, they have an interesting perspective on life.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich möchte mehr über die Autoren erfahren, die er mag.",
+          "translation": "I want to learn more about the authors he likes.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist eine gute Idee! Vielleicht können wir zusammen ein Buch lesen.",
+          "translation": "That's a good idea! Maybe we can read a book together.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Art in German Culture",
+      "text": "German-speaking countries have a rich history of art and literature, with many famous artists and writers. The integration of visual and literary arts is a significant aspect of their culture, reflecting societal values and historical contexts.",
+      "funFact": "Germany is home to the world-renowned Berlin International Film Festival, also known as the Berlinale, which celebrates both artistic cinema and emerging filmmakers."
+    },
+    "summary": {
+      "keyPoints": [
+        "Participial constructions enhance sentence complexity.",
+        "Present and past participles can modify nouns and verbs.",
+        "Correct usage of participles is crucial for clarity.",
+        "Understanding participial constructions enriches language skills."
+      ],
+      "nextSteps": "Practice forming sentences with participial constructions and explore more examples in German literature."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which participial construction correctly describes the artist's latest work?",
+      "content": {
+        "options": [
+          "The artist, inspired by nature, created a beautiful painting.",
+          "The artist was inspiring nature, creating a beautiful painting.",
+          "Inspired nature, the artist created a beautiful painting."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The first option correctly uses the participial construction to describe the artist's action.",
+      "hint": "Look for the option that describes the artist's inspiration.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence uses a participial adjective correctly?",
+      "content": {
+        "options": [
+          "The literature, admired by many, has won several awards.",
+          "The literature, admiring many, wins several awards.",
+          "Many are admiring the literature, winning awards."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The first sentence correctly uses 'admired' as a participial adjective to describe the literature.",
+      "hint": "Focus on how the participial adjective modifies the noun.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the correct participle: '_________ (inspire) by the sunset, the artist painted all night.'",
+      "content": {
+        "sentence": "_________ by the sunset, the artist painted all night.",
+        "correctAnswer": "Inspiriert",
+        "acceptableAnswers": [
+          "Inspiriert"
+        ],
+        "options": [
+          "Inspiriert",
+          "Inspiriert sein",
+          "Inspiration"
+        ]
+      },
+      "explanation": "The correct form is 'Inspiriert', which is the past participle used here as an adjective.",
+      "hint": "Think of the German word for 'inspired'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence with the correct participle: 'The painting __________ (create) by the famous artist is on display.'",
+      "content": {
+        "sentence": "The painting __________ by the famous artist is on display.",
+        "correctAnswer": "geschaffen",
+        "acceptableAnswers": [
+          "geschaffen"
+        ],
+        "options": [
+          "geschaffen",
+          "schaffend",
+          "geschaffen werden"
+        ]
+      },
+      "explanation": "The correct participle is 'geschaffen', which describes the painting created by the artist.",
+      "hint": "Think about the German word for 'created'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The technique used by the artist is innovative.'",
+      "content": {
+        "prompt": "Translate to German: 'The technique used by the artist is innovative.'",
+        "correctAnswer": "Die Technik, die von dem Künstler verwendet wird, ist innovativ.",
+        "acceptableAnswers": []
+      },
+      "explanation": "This sentence correctly uses the participial construction to describe the technique.",
+      "hint": "Think about how to express 'used by the artist' in German.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the following sentence and choose the correct translation.",
+      "content": {
+        "ttsText": "Das Gemälde, inspiriert von der Natur, wurde sehr geschätzt.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The painting, inspired by nature, was highly appreciated.",
+          "Nature inspired the painting, which was highly appreciated.",
+          "The painting inspired by nature is highly appreciated."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The first option accurately reflects the meaning of the German sentence.",
+      "hint": "Focus on the participial phrase in the German sentence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in German: 'The inspired artist created a unique style.'",
+      "content": {
+        "targetText": "Der inspirierte Künstler schuf einen einzigartigen Stil.",
+        "context": "Translate this English sentence into German.",
+        "acceptableVariants": [
+          "Der Künstler, inspiriert, schuf einen einzigartigen Stil."
+        ]
+      },
+      "explanation": "The sentence captures the essence of the original in German using participial construction.",
+      "hint": "Remember to use the past participle for 'inspired'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

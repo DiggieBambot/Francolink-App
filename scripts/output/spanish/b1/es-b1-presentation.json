@@ -1,0 +1,357 @@
+{
+  "lesson": {
+    "title": "Giving a Short Presentation",
+    "type": "CONVERSATION",
+    "slug": "es-b1-presentation"
+  },
+  "unit": "Future & Aspirations",
+  "unitOrder": 8,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to give a short presentation in Spanish about your future aspirations. You will practice useful vocabulary and expressions that will help you express your thoughts clearly.",
+      "culturalNote": "In many Spanish-speaking countries, giving presentations is a common practice in both educational and professional settings, emphasizing clarity and confidence."
+    },
+    "vocabulary": [
+      {
+        "term": "el futuro",
+        "translation": "the future",
+        "definition": "The time period that comes after the present.",
+        "pronunciation": "el foo-too-roh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El futuro es incierto.",
+          "translation": "The future is uncertain."
+        },
+        "tip": "Think of 'future' as something that is always ahead of you."
+      },
+      {
+        "term": "la aspiración",
+        "translation": "the aspiration",
+        "definition": "A strong desire or ambition to achieve something.",
+        "pronunciation": "lah ah-spee-rah-see-ohn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi aspiración es ser médico.",
+          "translation": "My aspiration is to be a doctor."
+        },
+        "tip": "Remember that ‘aspiration’ has a similar spelling in English."
+      },
+      {
+        "term": "presentar",
+        "translation": "to present",
+        "definition": "To show or display information to an audience.",
+        "pronunciation": "pre-sen-tar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Voy a presentar mi proyecto.",
+          "translation": "I am going to present my project."
+        },
+        "tip": "Think of ‘present’ as both a gift and an act of showing."
+      },
+      {
+        "term": "la meta",
+        "translation": "the goal",
+        "definition": "An aim or desired result.",
+        "pronunciation": "lah meh-tah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi meta es viajar por el mundo.",
+          "translation": "My goal is to travel around the world."
+        },
+        "tip": "Connect ‘meta’ with ‘goal’ as both involve achieving something."
+      },
+      {
+        "term": "el plan",
+        "translation": "the plan",
+        "definition": "A detailed proposal for doing or achieving something.",
+        "pronunciation": "el plahn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo un plan para el próximo año.",
+          "translation": "I have a plan for next year."
+        },
+        "tip": "A plan is like a roadmap to achieve your goals."
+      },
+      {
+        "term": "la oportunidad",
+        "translation": "the opportunity",
+        "definition": "A set of circumstances that makes it possible to do something.",
+        "pronunciation": "lah o-por-tu-ni-dahd",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Esta es una buena oportunidad.",
+          "translation": "This is a good opportunity."
+        },
+        "tip": "Think of ‘opportunity’ as a chance that might not come again."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Future Tense",
+        "explanation": "In Spanish, the future tense is used to describe actions that will happen. It is formed by adding specific endings to the infinitive form of the verb. This is essential for discussing your aspirations and plans.",
+        "table": {
+          "headers": [
+            "Pronoun",
+            "Ending"
+          ],
+          "rows": [
+            [
+              "yo",
+              "é"
+            ],
+            [
+              "tú",
+              "ás"
+            ],
+            [
+              "él/ella",
+              "á"
+            ],
+            [
+              "nosotros",
+              "emos"
+            ],
+            [
+              "vosotros",
+              "éis"
+            ],
+            [
+              "ellos/ellas",
+              "án"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo estudiaré español el próximo año.",
+            "translation": "I will study Spanish next year.",
+            "breakdown": "In this sentence, 'estudiar' is the infinitive verb, and 'é' is added for the first person singular."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing future with present tense. Remember to use future tense for events that will happen.",
+          "Omitting subject pronouns. In Spanish, it's common to include them for clarity, especially in presentations."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Giving a Short Presentation about Future Aspirations",
+      "context": "A classroom setting where students are practicing giving presentations.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola a todos, hoy voy a hablar sobre mis aspiraciones.",
+          "translation": "Hello everyone, today I am going to talk about my aspirations."
+        },
+        {
+          "speaker": 1,
+          "text": "¡Genial, Carlos! ¿Cuáles son tus metas?",
+          "translation": "Great, Carlos! What are your goals?"
+        },
+        {
+          "speaker": 0,
+          "text": "Mi meta es ser ingeniero.",
+          "translation": "My goal is to be an engineer."
+        },
+        {
+          "speaker": 1,
+          "text": "Eso suena interesante. ¿Por qué elegiste esa carrera?",
+          "translation": "That sounds interesting. Why did you choose that career?"
+        },
+        {
+          "speaker": 0,
+          "text": "Siempre me ha gustado la tecnología y resolver problemas.",
+          "translation": "I have always liked technology and solving problems."
+        },
+        {
+          "speaker": 1,
+          "text": "¿Tienes un plan para lograrlo?",
+          "translation": "Do you have a plan to achieve it?"
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, voy a estudiar en la universidad el próximo año.",
+          "translation": "Yes, I am going to study at university next year."
+        },
+        {
+          "speaker": 1,
+          "text": "¡Me parece un buen plan! Te deseo mucha suerte.",
+          "translation": "I think it’s a good plan! I wish you lots of luck."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Presentations in Spanish-speaking Countries",
+      "text": "In many Spanish-speaking countries, giving presentations is an important skill taught from a young age. Students often participate in projects that require them to present their ideas in front of classmates.",
+      "funFact": "In some cultures, it is common to include visual aids like posters or slides in presentations to engage the audience."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to future aspirations.",
+        "Practiced forming sentences in the future tense.",
+        "Engaged in a dialogue about giving presentations.",
+        "Explored cultural aspects of presentations in Spanish-speaking countries."
+      ],
+      "nextSteps": "Practice giving your own short presentation about your future aspirations, using the vocabulary and grammar from this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'goal'?",
+      "content": {
+        "options": [
+          "la oportunidad",
+          "la meta",
+          "el futuro",
+          "la aspiración"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'la meta', which means 'goal' in Spanish.",
+      "hint": "Think about what you aim to achieve.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase means 'to present'?",
+      "content": {
+        "options": [
+          "presentar",
+          "presenciar",
+          "preparar",
+          "prometer"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Presentar' means 'to present' in Spanish.",
+      "hint": "It's what you do when you share information.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Yo tengo un ___ para el futuro.",
+      "content": {
+        "sentence": "Yo tengo un ___ para el futuro.",
+        "correctAnswer": "plan",
+        "acceptableAnswers": [
+          "plan",
+          "objetivo"
+        ],
+        "options": [
+          "plan",
+          "sueño",
+          "meta"
+        ]
+      },
+      "explanation": "The word 'plan' fits the context of having a future aspiration.",
+      "hint": "Think about what you need to achieve your goals.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Mis ___ son importantes para mí.",
+      "content": {
+        "sentence": "Mis ___ son importantes para mí.",
+        "correctAnswer": "aspiraciones",
+        "acceptableAnswers": [
+          "metas",
+          "objetivos"
+        ],
+        "options": [
+          "aspiraciones",
+          "planes",
+          "oportunidades"
+        ]
+      },
+      "explanation": "The word 'aspiraciones' refers to aspirations, which are important for personal growth.",
+      "hint": "What drives you to achieve?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: futuro / el / es / importante / plan / tener.",
+      "content": {
+        "words": [
+          "futuro",
+          "el",
+          "es",
+          "importante",
+          "plan",
+          "tener"
+        ],
+        "correctOrder": [
+          "el",
+          "plan",
+          "es",
+          "importante",
+          "tener",
+          "futuro"
+        ],
+        "translation": "It is important to have a plan for the future."
+      },
+      "explanation": "The correct order gives a clear meaning about the importance of planning.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I want to achieve my goals.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I want to achieve my goals.'",
+        "correctAnswer": "Quiero alcanzar mis metas.",
+        "acceptableAnswers": [
+          "Quiero lograr mis metas.",
+          "Deseo alcanzar mis metas."
+        ]
+      },
+      "explanation": "Both translations accurately convey the idea of wanting to achieve goals.",
+      "hint": "Consider verbs that mean 'to want' and 'to achieve'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'La oportunidad es clave para el futuro.'",
+      "content": {
+        "ttsText": "La oportunidad es clave para el futuro.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Opportunity is key for the future.",
+          "The plan is essential for aspirations.",
+          "Goals are necessary for success."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation emphasizes the importance of opportunity for the future.",
+      "hint": "Listen for the word 'oportunidad'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I will present my plan for the future.'",
+      "content": {
+        "targetText": "Voy a presentar mi plan para el futuro.",
+        "context": "Translate and say a sentence about your future plans.",
+        "acceptableVariants": [
+          "Presentaré mi plan para el futuro."
+        ]
+      },
+      "explanation": "Both options express the intention to present a future plan clearly.",
+      "hint": "Remember to use the future tense.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,338 @@
+{
+  "lesson": {
+    "title": "Persuasive Language",
+    "type": "VOCABULARY",
+    "slug": "es-b2-persuasive-lang"
+  },
+  "unit": "Persuasion & Argument",
+  "unitOrder": 2,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn key vocabulary related to persuasive language in Spanish. You will explore terms and phrases that can enhance your ability to argue effectively and convincingly.",
+      "culturalNote": "In many Spanish-speaking countries, persuasive speaking is an essential skill in both politics and everyday life, often seen during public debates and discussions."
+    },
+    "vocabulary": [
+      {
+        "term": "convencer",
+        "translation": "to convince",
+        "definition": "to persuade someone to believe or do something",
+        "pronunciation": "kon-VEN-sair",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Debo convencer a mis padres de que me dejen ir.",
+          "translation": "I must convince my parents to let me go."
+        },
+        "tip": "Think of 'convince' in English; they share the same root."
+      },
+      {
+        "term": "persuasivo/a",
+        "translation": "persuasive",
+        "definition": "having the ability to persuade someone",
+        "pronunciation": "pair-swa-SI-vo/a",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Su discurso fue muy persuasivo.",
+          "translation": "His speech was very persuasive."
+        },
+        "tip": "Remember, this word is similar in both languages, making it easy to recall."
+      },
+      {
+        "term": "argumento",
+        "translation": "argument",
+        "definition": "a reason or set of reasons given to persuade others",
+        "pronunciation": "ar-goo-MEN-to",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tu argumento es muy sólido.",
+          "translation": "Your argument is very solid."
+        },
+        "tip": "Think of 'argument' in English; it's almost identical."
+      },
+      {
+        "term": "oponente",
+        "translation": "opponent",
+        "definition": "a person who opposes or competes against another",
+        "pronunciation": "o-po-NEN-te",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El oponente presentó su caso claramente.",
+          "translation": "The opponent presented their case clearly."
+        },
+        "tip": "This word is used in various contexts, especially in debates."
+      },
+      {
+        "term": "refutar",
+        "translation": "to refute",
+        "definition": "to prove a statement or theory to be wrong or false",
+        "pronunciation": "re-foo-TAR",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Es importante refutar las afirmaciones sin fundamento.",
+          "translation": "It's important to refute unsupported claims."
+        },
+        "tip": "Think of 'refute' in English; they are closely related."
+      },
+      {
+        "term": "evidencia",
+        "translation": "evidence",
+        "definition": "the available body of facts or information indicating whether a belief or proposition is true",
+        "pronunciation": "e-vi-DEN-cia",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La evidencia presentada fue convincente.",
+          "translation": "The evidence presented was convincing."
+        },
+        "tip": "This word is very similar in both languages, making it easier to remember."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Subjunctive for Persuasion",
+        "explanation": "In Spanish, the subjunctive mood is commonly used to express desires, doubts, and hypothetical situations. When persuading someone, you might use the subjunctive to suggest what you think should be done, especially when you want to express uncertainty or a wish.",
+        "table": {
+          "headers": [
+            "Situation",
+            "Subjunctive Use"
+          ],
+          "rows": [
+            [
+              "Desire to persuade",
+              "Espero que tú convenzas a tus amigos. (I hope you convince your friends.)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es fundamental que tú refutes esos argumentos.",
+            "translation": "It is essential that you refute those arguments.",
+            "breakdown": "The subjunctive 'refutes' expresses a necessity to counter the arguments."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: 'Es importante que tú refutas...' (correct: refutes should be refutes).",
+          "Forgetting to use the subjunctive after expressions of desire, like 'quiero que...' (I want that...)"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Debating a Proposal",
+      "context": "A university debate competition where students present their arguments for and against a proposed change in university policy.",
+      "speakers": [
+        "Carlos",
+        "María"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Creo que deberíamos permitir que los estudiantes trabajen desde casa.",
+          "translation": "I believe we should allow students to work from home.",
+          "note": "Carlos presents his argument."
+        },
+        {
+          "speaker": 1,
+          "text": "No estoy de acuerdo, eso podría afectar su rendimiento académico.",
+          "translation": "I disagree, that could affect their academic performance."
+        },
+        {
+          "speaker": 0,
+          "text": "Sin embargo, la flexibilidad podría mejorar su bienestar.",
+          "translation": "However, flexibility could improve their well-being."
+        },
+        {
+          "speaker": 1,
+          "text": "Quizás, pero necesitamos evidencia que lo respalde.",
+          "translation": "Maybe, but we need evidence to support it."
+        },
+        {
+          "speaker": 0,
+          "text": "He leído estudios que muestran que la productividad aumenta.",
+          "translation": "I have read studies that show productivity increases."
+        },
+        {
+          "speaker": 1,
+          "text": "Eso es un buen punto, pero debemos considerar a todos los estudiantes.",
+          "translation": "That's a good point, but we must consider all students."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué tal si hacemos una encuesta para conocer su opinión?",
+          "translation": "What if we conduct a survey to know their opinion?"
+        },
+        {
+          "speaker": 1,
+          "text": "Esa podría ser una buena solución para tomar una decisión informada.",
+          "translation": "That could be a good solution to make an informed decision."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Persuasion in Latin America",
+      "text": "In many Latin American cultures, the art of persuasion is highly valued, particularly in political contexts. Public speaking skills are often emphasized in education, and debates can be lively and passionate.",
+      "funFact": "In some Latin American countries, political debates are broadcasted live, attracting large audiences and sometimes leading to significant changes in public policy."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned key vocabulary related to persuasive language.",
+        "Explored the use of the subjunctive in persuasive contexts.",
+        "Engaged in a dialogue showcasing persuasive techniques.",
+        "Gained insight into cultural aspects of persuasion in Spanish-speaking countries."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences, and try to create your own persuasive arguments using the subjunctive mood."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'to convince'?",
+      "content": {
+        "options": [
+          "refutar",
+          "convencer",
+          "argumento",
+          "evidencia"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'convencer', which means 'to convince' in Spanish.",
+      "hint": "Think about the act of persuading someone.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'opponent' in Spanish?",
+      "content": {
+        "options": [
+          "oponente",
+          "persuasivo",
+          "refutar",
+          "evidencia"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Oponente' translates to 'opponent', referring to someone who opposes your argument.",
+      "hint": "This word is used in debates.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Un buen _______ es esencial para una discusión efectiva.",
+      "content": {
+        "sentence": "Un buen _______ es esencial para una discusión efectiva.",
+        "correctAnswer": "argumento",
+        "acceptableAnswers": [
+          "argumento"
+        ],
+        "options": [
+          "refutar",
+          "evidencia",
+          "argumento",
+          "oponente"
+        ]
+      },
+      "explanation": "The correct word is 'argumento', which means 'argument'.",
+      "hint": "It's the basis of any persuasive discussion.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Para _______ un argumento, necesitas evidencia sólida.",
+      "content": {
+        "sentence": "Para _______ un argumento, necesitas evidencia sólida.",
+        "correctAnswer": "refutar",
+        "acceptableAnswers": [
+          "refutar"
+        ],
+        "options": [
+          "convencer",
+          "refutar",
+          "persuasivo",
+          "oponente"
+        ]
+      },
+      "explanation": "The correct word is 'refutar', which means 'to refute'.",
+      "hint": "This is what you do to challenge an argument.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to make a correct sentence: evidencia / un / argumento / sólido / presenta / persuasivo.",
+      "content": {
+        "words": [
+          "evidencia",
+          "un",
+          "argumento",
+          "sólido",
+          "presenta",
+          "persuasivo"
+        ],
+        "correctOrder": [
+          "un",
+          "argumento",
+          "persuasivo",
+          "presenta",
+          "evidencia",
+          "sólido"
+        ],
+        "translation": "A persuasive argument presents solid evidence."
+      },
+      "explanation": "The correct order creates a coherent sentence about persuasive arguments.",
+      "hint": "Think about what an argument needs to be strong.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The evidence is convincing.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The evidence is convincing.'",
+        "correctAnswer": "La evidencia es convincente.",
+        "acceptableAnswers": [
+          "La evidencia es convincente."
+        ]
+      },
+      "explanation": "The correct translation maintains the meaning of the original sentence.",
+      "hint": "Focus on the word for evidence.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Es un argumento persuasivo.'",
+      "content": {
+        "ttsText": "Es un argumento persuasivo.",
+        "ttsLang": "es-ES",
+        "options": [
+          "It is a persuasive argument.",
+          "It is a weak argument.",
+          "It is a strong opponent.",
+          "It is solid evidence."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation captures the meaning of the spoken sentence.",
+      "hint": "Listen for the word 'persuasivo'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I need to convince my opponent with strong evidence.'",
+      "content": {
+        "targetText": "Necesito convencer a mi oponente con evidencia sólida.",
+        "context": "Translate this sentence into Spanish.",
+        "acceptableVariants": [
+          "Necesito convencer a mi oponente con evidencia sólida."
+        ]
+      },
+      "explanation": "The translation correctly conveys the original message.",
+      "hint": "Remember the words for 'convince' and 'opponent'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

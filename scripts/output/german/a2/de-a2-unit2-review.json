@@ -1,0 +1,349 @@
+{
+  "lesson": {
+    "title": "Unit 2 Review",
+    "type": "REVIEW",
+    "slug": "de-a2-unit2-review"
+  },
+  "unit": "More on the Past",
+  "unitOrder": 2,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will review vocabulary and grammar from Unit 2, focusing on the past tense (Perfekt and Präteritum) and modal verbs. You will also practice through a dialogue that incorporates these elements.",
+      "culturalNote": "In German-speaking countries, storytelling is an important part of culture. People often share experiences from their past, using various tenses to convey their stories."
+    },
+    "vocabulary": [
+      {
+        "term": "der Lehrer",
+        "translation": "the teacher",
+        "definition": "A person who teaches, especially in a school.",
+        "pronunciation": "dair LAY-rer",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Lehrer ist nett.",
+          "translation": "The teacher is nice."
+        },
+        "tip": "Remember that 'der Lehrer' is masculine; the feminine form is 'die Lehrerin' (the female teacher)."
+      },
+      {
+        "term": "die Schule",
+        "translation": "the school",
+        "definition": "An institution for educating children.",
+        "pronunciation": "dee SHOO-leh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich gehe zur Schule.",
+          "translation": "I go to school."
+        },
+        "tip": "Use 'zur' (to the) because 'die Schule' is feminine."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A written or printed work consisting of pages.",
+        "pronunciation": "dahs BOOK",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich lese das Buch.",
+          "translation": "I read the book."
+        },
+        "tip": "'Das Buch' is neuter; remember the article 'das'."
+      },
+      {
+        "term": "sehen",
+        "translation": "to see",
+        "definition": "To perceive with the eyes.",
+        "pronunciation": "ZAY-en",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich habe den Film gesehen.",
+          "translation": "I saw the movie."
+        },
+        "tip": "Perfect form is 'gesehen' for 'sehen' in the past."
+      },
+      {
+        "term": "machen",
+        "translation": "to do/make",
+        "definition": "To perform an action.",
+        "pronunciation": "MAH-khen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Wir haben das Essen gemacht.",
+          "translation": "We made the food."
+        },
+        "tip": "In Perfekt, use 'gemacht' as the past participle."
+      },
+      {
+        "term": "möchten",
+        "translation": "would like",
+        "definition": "A modal verb used to express wishes.",
+        "pronunciation": "MERK-ten",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich möchte eine Tasse Kaffee.",
+          "translation": "I would like a cup of coffee."
+        },
+        "tip": "'Möchten' is the subjunctive form of 'mögen' (to like)."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Perfekt (Present Perfect)",
+        "explanation": "The Perfekt tense is used to describe actions that have been completed in the past. It is formed with the auxiliary verbs 'haben' or 'sein' and the past participle. For most verbs, 'haben' is used, but 'sein' is used for verbs that indicate movement or change of state.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Past Participle"
+          ],
+          "rows": [
+            [
+              "gehen",
+              "gegangen"
+            ],
+            [
+              "sehen",
+              "gesehen"
+            ],
+            [
+              "machen",
+              "gemacht"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich bin nach Berlin gegangen.",
+            "translation": "I went to Berlin.",
+            "breakdown": "The verb 'gehen' (to go) uses 'sein' as the auxiliary verb."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'sein' with a non-movement verb (e.g., 'Ich habe gegessen' not 'Ich bin gegessen').",
+          "Confusing 'haben' and 'sein' as auxiliary verbs."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the School Reunion",
+      "context": "Anna and Lukas are meeting at their school reunion.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Lukas! Wie geht es dir?",
+          "translation": "Hello Lukas! How are you?",
+          "note": "A friendly greeting."
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Anna! Mir geht es gut, danke. Und dir?",
+          "translation": "Hello Anna! I'm fine, thanks. And you?"
+        },
+        {
+          "speaker": 0,
+          "text": "Mir geht es auch gut. Ich habe viel gearbeitet in der letzten Zeit.",
+          "translation": "I'm also fine. I have worked a lot lately."
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist schön! Hast du die alten Lehrer gesehen?",
+          "translation": "That's nice! Have you seen the old teachers?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, ich habe den Lehrer Müller gesehen. Er ist immer noch sehr nett.",
+          "translation": "Yes, I saw Mr. Müller. He is still very nice."
+        },
+        {
+          "speaker": 1,
+          "text": "Und was hast du gemacht nach der Schule?",
+          "translation": "And what have you done after school?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich habe an der Universität studiert und viel gereist.",
+          "translation": "I studied at the university and traveled a lot."
+        },
+        {
+          "speaker": 1,
+          "text": "Das klingt spannend! Ich möchte auch reisen.",
+          "translation": "That sounds exciting! I would like to travel too."
+        }
+      ]
+    },
+    "culture": {
+      "title": "School Traditions in Germany",
+      "text": "In Germany, school reunions are often organized by former classmates to reconnect and share memories. These events can include games, food, and nostalgic activities.",
+      "funFact": "In some regions, there is a tradition called 'Abiball' where students celebrate their graduation with a formal ball."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review of past tense (Perfekt) and its formation.",
+        "Common vocabulary related to school and experiences.",
+        "Dialogues reflect everyday situations and past experiences.",
+        "Understanding of modal verbs and their usage in expressing wishes."
+      ],
+      "nextSteps": "Practice forming sentences in the Perfekt tense using different verbs. Try to have conversations with a partner using the vocabulary from this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'the teacher'?",
+      "content": {
+        "options": [
+          "die Schule",
+          "der Lehrer",
+          "das Buch",
+          "sehen"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'der Lehrer', which means 'the teacher' in German.",
+      "hint": "Think about who teaches in a school.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'sehen' mean in English?",
+      "content": {
+        "options": [
+          "to see",
+          "to make",
+          "to want",
+          "to go"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'sehen' translates to 'to see' in English.",
+      "hint": "It is related to vision.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich ___ ein Buch.",
+      "content": {
+        "sentence": "Ich ___ ein Buch.",
+        "correctAnswer": "lese",
+        "acceptableAnswers": [
+          "liebe",
+          "mag",
+          "kaufe"
+        ],
+        "options": [
+          "lese",
+          "liebe",
+          "mag",
+          "kaufe"
+        ]
+      },
+      "explanation": "The correct answer is 'lese', which means 'read'.",
+      "hint": "Think about what you do with a book.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich ___ einen Lehrer.",
+      "content": {
+        "sentence": "Ich ___ einen Lehrer.",
+        "correctAnswer": "möchte",
+        "acceptableAnswers": [
+          "will",
+          "mag",
+          "habe"
+        ],
+        "options": [
+          "möchte",
+          "will",
+          "mag",
+          "habe"
+        ]
+      },
+      "explanation": "'möchte' means 'would like' and fits the sentence context.",
+      "hint": "You are expressing a desire.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'ein / möchte / Buch / ich / lesen'.",
+      "content": {
+        "words": [
+          "möchte",
+          "ein",
+          "Buch",
+          "ich",
+          "lesen"
+        ],
+        "correctOrder": [
+          "ich",
+          "möchte",
+          "ein",
+          "Buch",
+          "lesen"
+        ],
+        "translation": "I would like to read a book."
+      },
+      "explanation": "The correct order forms a proper sentence in German.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I want to see the teacher.'",
+      "content": {
+        "prompt": "Translate to German: 'I want to see the teacher.'",
+        "correctAnswer": "Ich möchte den Lehrer sehen.",
+        "acceptableAnswers": [
+          "Ich will den Lehrer sehen.",
+          "Ich will den Lehrer sehen."
+        ]
+      },
+      "explanation": "The translation captures the intention of wanting to see the teacher.",
+      "hint": "Use 'möchte' for 'want'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation.",
+      "content": {
+        "ttsText": "Ich mache meine Hausaufgaben.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I see my teacher.",
+          "I do my homework.",
+          "I want a book.",
+          "I love school."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct translation is 'I do my homework.'",
+      "hint": "Focus on the word 'Hausaufgaben'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the German sentence: 'I would like to go to school.'",
+      "content": {
+        "targetText": "Ich möchte zur Schule gehen.",
+        "context": "Translate and say the sentence in German.",
+        "acceptableVariants": [
+          "Ich will zur Schule gehen."
+        ]
+      },
+      "explanation": "The sentence expresses a desire to attend school.",
+      "hint": "Use 'möchte' for 'would like'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

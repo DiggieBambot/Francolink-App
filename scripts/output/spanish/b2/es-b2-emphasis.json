@@ -1,0 +1,334 @@
+{
+  "lesson": {
+    "title": "Emphasis & Word Order",
+    "type": "GRAMMAR",
+    "slug": "es-b2-emphasis"
+  },
+  "unit": "Persuasion & Argument",
+  "unitOrder": 2,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about emphasis and word order in Spanish, particularly in persuasive contexts. Understanding how to manipulate word order can enhance your argumentation and make your statements more impactful.",
+      "culturalNote": "In many Spanish-speaking cultures, persuasive speaking is an essential skill, especially in business and politics, where clear and emphatic communication is highly valued."
+    },
+    "vocabulary": [
+      {
+        "term": "el argumento",
+        "translation": "the argument",
+        "definition": "A reason or rationale presented in support of a conclusion.",
+        "pronunciation": "el ar-gwen-to",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El argumento que presenta es muy convincente.",
+          "translation": "The argument he presents is very convincing."
+        },
+        "tip": "Remember that 'argumento' can also mean a plot in literature."
+      },
+      {
+        "term": "la evidencia",
+        "translation": "the evidence",
+        "definition": "Facts or information indicating whether a belief or proposition is true.",
+        "pronunciation": "la e-ve-den-cia",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La evidencia respalda su afirmación.",
+          "translation": "The evidence supports his claim."
+        },
+        "tip": "Think of 'evidence' in English to remember this word."
+      },
+      {
+        "term": "persuadir",
+        "translation": "to persuade",
+        "definition": "To convince someone to believe or do something.",
+        "pronunciation": "per-swa-dir",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "El orador intenta persuadir a la audiencia.",
+          "translation": "The speaker tries to persuade the audience."
+        },
+        "tip": "Related to 'persuasivo', which means persuasive."
+      },
+      {
+        "term": "la conclusión",
+        "translation": "the conclusion",
+        "definition": "The final decision or opinion formed after consideration.",
+        "pronunciation": "la con-clu-sión",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La conclusión fue clara y directa.",
+          "translation": "The conclusion was clear and direct."
+        },
+        "tip": "Think of concluding a debate to remember this term."
+      },
+      {
+        "term": "enfatizar",
+        "translation": "to emphasize",
+        "definition": "To give special importance or prominence to something.",
+        "pronunciation": "en-fa-ti-zar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Es importante enfatizar los puntos clave.",
+          "translation": "It is important to emphasize the key points."
+        },
+        "tip": "Related to 'énfasis', which means emphasis."
+      },
+      {
+        "term": "el punto de vista",
+        "translation": "the point of view",
+        "definition": "A particular attitude or way of considering a matter.",
+        "pronunciation": "el pun-to de vis-ta",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Desde mi punto de vista, esta es la mejor opción.",
+          "translation": "From my point of view, this is the best option."
+        },
+        "tip": "Think of how different perspectives can lead to different arguments."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Word Order in Spanish",
+        "explanation": "In Spanish, the typical word order is Subject-Verb-Object (SVO), but it can be altered for emphasis. To emphasize a specific part of a sentence, you can place it at the beginning. For example, placing the object before the verb can highlight its importance.",
+        "table": {
+          "headers": [
+            "Emphasized Structure",
+            "Standard Structure"
+          ],
+          "rows": [
+            [
+              "A la reunión asistió Juan.",
+              "Juan asistió a la reunión."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "A la reunión asistió Juan.",
+            "translation": "Juan attended the meeting.",
+            "breakdown": "In this structure, the emphasis is on 'Juan' by placing it at the beginning."
+          }
+        ],
+        "commonMistakes": [
+          "Incorrect: Asistió a la reunión Juan. (Correct: A la reunión asistió Juan.)",
+          "Incorrect: La evidencia que presentó fue convincente. (Correct: Fue convincente la evidencia que presentó.)"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Proposal",
+      "context": "A meeting where two colleagues discuss a proposal for a new project.",
+      "speakers": [
+        "Clara (Project Manager)",
+        "Luis (Team Member)"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Creo que deberíamos considerar este nuevo enfoque.",
+          "translation": "I think we should consider this new approach.",
+          "note": "Clara suggests an idea."
+        },
+        {
+          "speaker": 1,
+          "text": "Es un buen punto de vista, pero ¿tienes evidencia que lo respalde?",
+          "translation": "That's a good point of view, but do you have evidence to support it?"
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, he encontrado estudios que demuestran su efectividad.",
+          "translation": "Yes, I found studies that demonstrate its effectiveness."
+        },
+        {
+          "speaker": 1,
+          "text": "Perfecto, me gustaría ver esos datos.",
+          "translation": "Perfect, I would like to see that data."
+        },
+        {
+          "speaker": 0,
+          "text": "Además, enfatizaría el impacto positivo que tendría en el equipo.",
+          "translation": "Moreover, I would emphasize the positive impact it would have on the team."
+        },
+        {
+          "speaker": 1,
+          "text": "Eso es crucial. La conclusión debe ser convincente.",
+          "translation": "That's crucial. The conclusion must be convincing."
+        },
+        {
+          "speaker": 0,
+          "text": "Exactamente, y debemos presentar nuestros argumentos de manera clara.",
+          "translation": "Exactly, and we must present our arguments clearly."
+        },
+        {
+          "speaker": 1,
+          "text": "De acuerdo, trabajaré en la presentación.",
+          "translation": "Okay, I will work on the presentation."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Persuasion in Latin America",
+      "text": "In many Latin American cultures, effective persuasion is often tied to charisma and eloquence. Public speaking skills are highly regarded, and the ability to sway an audience is seen as an important asset in both personal and professional contexts.",
+      "funFact": "In some Latin American countries, debates are a popular form of entertainment, often showcasing the art of persuasion in a lively and competitive format."
+    },
+    "summary": {
+      "keyPoints": [
+        "Word order can be manipulated for emphasis in Spanish.",
+        "The typical structure is Subject-Verb-Object (SVO).",
+        "Placing elements at the beginning can highlight their importance.",
+        "Using the right vocabulary enhances persuasive communication."
+      ],
+      "nextSteps": "Practice forming sentences with different word orders to emphasize various elements. Review the vocabulary and try to create your own persuasive arguments using them."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'argument'?",
+      "content": {
+        "options": [
+          "el argumento",
+          "la evidencia",
+          "la conclusión",
+          "el punto de vista"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'el argumento', which means 'argument' in Spanish.",
+      "hint": "Look for the word that means 'argument'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'to persuade' in Spanish?",
+      "content": {
+        "options": [
+          "enfatizar",
+          "persuadir",
+          "argumentar",
+          "concluir"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Persuadir' is the Spanish verb meaning 'to persuade'.",
+      "hint": "Think about the action of convincing someone.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'La evidencia es importante para ___ un argumento.'",
+      "content": {
+        "sentence": "La evidencia es importante para ___ un argumento.",
+        "correctAnswer": "persuadir",
+        "acceptableAnswers": [
+          "persuadir"
+        ],
+        "options": [
+          "enfatizar",
+          "persuadir",
+          "concluir",
+          "argumentar"
+        ]
+      },
+      "explanation": "The correct answer is 'persuadir', as it fits the context of the sentence.",
+      "hint": "Think about what evidence helps you do.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'El ___ de la discusión fue claro.'",
+      "content": {
+        "sentence": "El ___ de la discusión fue claro.",
+        "correctAnswer": "punto de vista",
+        "acceptableAnswers": [
+          "punto de vista"
+        ],
+        "options": [
+          "argumento",
+          "punto de vista",
+          "evidencia",
+          "conclusión"
+        ]
+      },
+      "explanation": "The correct answer is 'punto de vista', which means 'point of view'.",
+      "hint": "Consider what perspective is being discussed.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: 'importante es la conclusión.'",
+      "content": {
+        "words": [
+          "la",
+          "conclusión",
+          "importante",
+          "es"
+        ],
+        "correctOrder": [
+          "la",
+          "conclusión",
+          "es",
+          "importante"
+        ],
+        "translation": "The conclusion is important."
+      },
+      "explanation": "The sentence correctly states that the conclusion is important.",
+      "hint": "Think about how to structure a sentence in Spanish.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The evidence supports the argument.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The evidence supports the argument.'",
+        "correctAnswer": "La evidencia apoya el argumento.",
+        "acceptableAnswers": [
+          "La evidencia respalda el argumento."
+        ]
+      },
+      "explanation": "The correct translation captures the meaning accurately.",
+      "hint": "Focus on the key terms: evidence and argument.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct sentence.",
+      "content": {
+        "ttsText": "Es crucial enfatizar los puntos clave en un debate.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Es crucial enfatizar los puntos clave en un debate.",
+          "Es importante concluir los argumentos.",
+          "La evidencia es innecesaria en la discusión.",
+          "Los puntos de vista no son relevantes."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct sentence emphasizes the importance of key points in a debate.",
+      "hint": "Listen for the importance of emphasizing key points.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'I want to emphasize my point of view.'",
+      "content": {
+        "targetText": "Quiero enfatizar mi punto de vista.",
+        "context": "Expressing your intention in a discussion.",
+        "acceptableVariants": [
+          "Quiero destacar mi punto de vista."
+        ]
+      },
+      "explanation": "This sentence accurately conveys your intention to emphasize your perspective.",
+      "hint": "Use the verb that relates to emphasizing.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

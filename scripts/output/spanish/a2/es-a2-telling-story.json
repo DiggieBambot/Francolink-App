@@ -1,0 +1,325 @@
+{
+  "lesson": {
+    "title": "Telling a Simple Story",
+    "type": "CONVERSATION",
+    "slug": "es-a2-telling-story"
+  },
+  "unit": "Stories & Memories",
+  "unitOrder": 2,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to tell a simple story in Spanish using the past tenses. You'll practice vocabulary and sentences to describe events and experiences.",
+      "culturalNote": "In many Latin American countries, storytelling is an important tradition, often shared during family gatherings or celebrations."
+    },
+    "vocabulary": [
+      {
+        "term": "el cuento",
+        "translation": "the story",
+        "definition": "a narrative or tale",
+        "pronunciation": "el kwen-toh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me gusta leer el cuento.",
+          "translation": "I like to read the story."
+        },
+        "tip": "Remember that 'cuento' can also mean 'joke' in some contexts."
+      },
+      {
+        "term": "la aventura",
+        "translation": "the adventure",
+        "definition": "an exciting experience or journey",
+        "pronunciation": "la ah-ven-too-rah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tuvimos una gran aventura.",
+          "translation": "We had a great adventure."
+        },
+        "tip": "Think of 'aventura' as 'adventure' in English; they are similar!"
+      },
+      {
+        "term": "el personaje",
+        "translation": "the character",
+        "definition": "a person or figure in a story",
+        "pronunciation": "el per-soh-nah-heh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El personaje principal es valiente.",
+          "translation": "The main character is brave."
+        },
+        "tip": "Remember that 'personaje' refers to fictional characters."
+      },
+      {
+        "term": "la trama",
+        "translation": "the plot",
+        "definition": "the main events of a story",
+        "pronunciation": "la trah-mah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La trama es muy interesante.",
+          "translation": "The plot is very interesting."
+        },
+        "tip": "You can think of 'trama' as the 'framework' of the story."
+      },
+      {
+        "term": "había",
+        "translation": "there was/were",
+        "definition": "imperfect form used for past situations",
+        "pronunciation": "ah-bee-ah",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Había una vez un rey.",
+          "translation": "Once upon a time, there was a king."
+        },
+        "tip": "Use 'había' to set the scene in stories."
+      },
+      {
+        "term": "un día",
+        "translation": "one day",
+        "definition": "a phrase to start a story",
+        "pronunciation": "oon dee-ah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Un día, fui al mercado.",
+          "translation": "One day, I went to the market."
+        },
+        "tip": "This phrase is commonly used to begin a story."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Preterite and Imperfect",
+        "explanation": "In Spanish, the preterite tense describes completed actions, while the imperfect tense describes ongoing or habitual actions in the past. Use the preterite for specific events and the imperfect for background descriptions.",
+        "table": {
+          "headers": [
+            "Preterite Example",
+            "Imperfect Example"
+          ],
+          "rows": [
+            [
+              "Fui al cine.",
+              "I went to the cinema."
+            ],
+            [
+              "Veía películas.",
+              "I used to watch movies."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ayer jugué fútbol.",
+            "translation": "Yesterday I played soccer.",
+            "breakdown": "This sentence uses the preterite to indicate a completed action."
+          },
+          {
+            "original": "Cuando era niño, jugaba mucho.",
+            "translation": "When I was a child, I used to play a lot.",
+            "breakdown": "This sentence uses the imperfect to describe a habitual action in the past."
+          }
+        ],
+        "commonMistakes": [
+          "Using the preterite for background actions instead of the imperfect. Correction: Use 'había' or 'hablaba' for background.",
+          "Confusing the conjugations of regular and irregular verbs. Correction: Practice the endings for both types."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "A Day at the Park",
+      "context": "Two friends talking about a memorable day they spent together at the park.",
+      "speakers": [
+        "Laura",
+        "Carlos"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Te acuerdas de la vez que fuimos al parque?",
+          "translation": "Do you remember the time we went to the park?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, había mucha gente ese día.",
+          "translation": "Yes, there were many people that day.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Y había un espectáculo de magia.",
+          "translation": "And there was a magic show.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¡Sí! El mago era increíble.",
+          "translation": "Yes! The magician was amazing.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Después, comimos helado.",
+          "translation": "Afterward, we ate ice cream.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Me acuerdo, elegí chocolate.",
+          "translation": "I remember, I chose chocolate.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Y yo elegí fresa.",
+          "translation": "And I chose strawberry.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Fue un día muy divertido.",
+          "translation": "It was a very fun day.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Storytelling in Latin America",
+      "text": "Storytelling is a cherished tradition in many Latin American cultures. Stories often reflect local legends, moral lessons, or family histories, bringing communities together.",
+      "funFact": "In Mexico, the Day of the Dead celebrations include storytelling to honor deceased loved ones."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to storytelling.",
+        "Practiced using the preterite and imperfect tenses.",
+        "Engaged in a dialogue about a memorable experience.",
+        "Gained insights into storytelling traditions in Spanish-speaking cultures."
+      ],
+      "nextSteps": "Practice telling your own stories in Spanish using the vocabulary and grammar from this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'el cuento' mean in English?",
+      "content": {
+        "options": [
+          "the story",
+          "the adventure",
+          "the character",
+          "the plot"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El cuento' translates to 'the story' in English.",
+      "hint": "Think about what stories are called in Spanish.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'the character' in Spanish?",
+      "content": {
+        "options": [
+          "el personaje",
+          "la trama",
+          "la aventura",
+          "el cuento"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El personaje' means 'the character' in English.",
+      "hint": "This word is often used in stories.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Había ___ en el cuento.'",
+      "content": {
+        "sentence": "Había ___ en el cuento.",
+        "correctAnswer": "una aventura",
+        "acceptableAnswers": [
+          "una aventura"
+        ],
+        "options": [
+          "un personaje",
+          "una aventura",
+          "una trama"
+        ]
+      },
+      "explanation": "The correct answer is 'una aventura', meaning 'an adventure'.",
+      "hint": "Think about what can be in a story.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Un día, había ___ en el bosque.'",
+      "content": {
+        "sentence": "Un día, había ___ en el bosque.",
+        "correctAnswer": "un cuento",
+        "acceptableAnswers": [
+          "un cuento"
+        ],
+        "options": [
+          "una aventura",
+          "un personaje",
+          "un cuento"
+        ]
+      },
+      "explanation": "The sentence translates to 'One day, there was a story in the forest.'",
+      "hint": "What can exist in a forest in a story?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'There was a character in the story.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'There was a character in the story.'",
+        "correctAnswer": "Había un personaje en el cuento.",
+        "acceptableAnswers": [
+          "Había un personaje en el cuento."
+        ]
+      },
+      "explanation": "The translation includes the key terms from the vocabulary.",
+      "hint": "Start with 'Había'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Un día, había una aventura en el bosque.",
+        "ttsLang": "es-ES",
+        "options": [
+          "One day, there was an adventure in the forest.",
+          "One day, there was a character in the story.",
+          "One day, there was a plot twist."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation matches what you heard.",
+      "hint": "Listen for 'una aventura'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'There was a story about a character.'",
+      "content": {
+        "targetText": "Había un cuento sobre un personaje.",
+        "context": "Translate and say this sentence in Spanish.",
+        "acceptableVariants": [
+          "Había un cuento de un personaje.",
+          "Había un cuento sobre el personaje."
+        ]
+      },
+      "explanation": "Both acceptable variants convey the same meaning.",
+      "hint": "Start with 'Había'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

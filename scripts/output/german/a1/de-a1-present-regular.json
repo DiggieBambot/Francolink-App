@@ -1,0 +1,420 @@
+{
+  "lesson": {
+    "title": "Present Tense - Regular Verbs",
+    "type": "GRAMMAR",
+    "slug": "de-a1-present-regular"
+  },
+  "unit": "Daily Life & Verbs",
+  "unitOrder": 3,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about the present tense of regular verbs in German. You will also practice using basic vocabulary related to daily life.",
+      "culturalNote": "In Germany, daily life often revolves around structured routines. Many people enjoy spending time in cafés, which is a significant part of the culture."
+    },
+    "vocabulary": [
+      {
+        "term": "der Tisch",
+        "translation": "the table",
+        "definition": "A piece of furniture with a flat top and one or more legs.",
+        "pronunciation": "dehr tish",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Tisch ist groß.",
+          "translation": "The table is big."
+        },
+        "tip": "Remember that 'der' indicates it's a masculine noun."
+      },
+      {
+        "term": "die Lampe",
+        "translation": "the lamp",
+        "definition": "A device that provides light.",
+        "pronunciation": "dee lahm-peh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Lampe ist schön.",
+          "translation": "The lamp is nice."
+        },
+        "tip": "'Die' shows that this noun is feminine."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A set of written or printed pages.",
+        "pronunciation": "dahs boo-k",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Buch ist interessant.",
+          "translation": "The book is interesting."
+        },
+        "tip": "'Das' indicates this noun is neuter."
+      },
+      {
+        "term": "spielen",
+        "translation": "to play",
+        "definition": "Engaging in an activity for enjoyment.",
+        "pronunciation": "shpee-len",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Die Kinder spielen im Park.",
+          "translation": "The children play in the park."
+        },
+        "tip": "Regular verbs like 'spielen' follow a consistent conjugation pattern."
+      },
+      {
+        "term": "lernen",
+        "translation": "to learn",
+        "definition": "To acquire knowledge or skills.",
+        "pronunciation": "lehr-nen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich lerne Deutsch.",
+          "translation": "I learn German."
+        },
+        "tip": "Also a regular verb, 'lernen' conjugates similarly."
+      },
+      {
+        "term": "essen",
+        "translation": "to eat",
+        "definition": "To consume food.",
+        "pronunciation": "es-sen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Wir essen Pizza.",
+          "translation": "We eat pizza."
+        },
+        "tip": "'Essen' is an irregular verb, so its conjugation varies."
+      },
+      {
+        "term": "können",
+        "translation": "can",
+        "definition": "To be able to do something.",
+        "pronunciation": "kœn-nen",
+        "partOfSpeech": "modal verb",
+        "exampleSentence": {
+          "original": "Ich kann schwimmen.",
+          "translation": "I can swim."
+        },
+        "tip": "Use 'können' to express ability."
+      },
+      {
+        "term": "möchten",
+        "translation": "would like",
+        "definition": "To express a desire.",
+        "pronunciation": "mœkhten",
+        "partOfSpeech": "modal verb",
+        "exampleSentence": {
+          "original": "Ich möchte einen Kaffee.",
+          "translation": "I would like a coffee."
+        },
+        "tip": "Use 'möchten' to express wishes politely."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Present Tense of Regular Verbs",
+        "explanation": "In German, regular verbs are conjugated in the present tense by removing the '-en' ending and adding specific endings. For example, 'spielen' (to play) becomes 'ich spiele' (I play). The endings are: -e, -st, -t, -en, -t, -en depending on the subject.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Ending"
+          ],
+          "rows": [
+            [
+              "ich",
+              "-e"
+            ],
+            [
+              "du",
+              "-st"
+            ],
+            [
+              "er/sie/es",
+              "-t"
+            ],
+            [
+              "wir",
+              "-en"
+            ],
+            [
+              "ihr",
+              "-t"
+            ],
+            [
+              "sie/Sie",
+              "-en"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich spiele.",
+            "translation": "I play.",
+            "breakdown": "The subject 'ich' (I) takes the ending '-e' for the verb 'spielen'."
+          },
+          {
+            "original": "Du spielst.",
+            "translation": "You play.",
+            "breakdown": "The subject 'du' (you) takes the ending '-st' for the verb 'spielen'."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'spielen' incorrectly for 'ich' (should be 'ich spiele', not 'ich spiel').",
+          "Confusing 'du' with 'er' (different endings)."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Café",
+      "context": "A conversation between two friends at a café.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Max! Was machst du?",
+          "translation": "Hello Max! What are you doing?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Anna! Ich lese ein Buch.",
+          "translation": "Hello Anna! I am reading a book.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das Buch ist interessant?",
+          "translation": "Is the book interesting?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, es ist sehr interessant!",
+          "translation": "Yes, it is very interesting!",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Möchtest du einen Kaffee?",
+          "translation": "Would you like a coffee?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich möchte einen Kaffee.",
+          "translation": "Yes, I would like a coffee.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Wir können hier sitzen.",
+          "translation": "We can sit here.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Gute Idee! Lass uns bestellen.",
+          "translation": "Good idea! Let's order.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Café Culture in Germany",
+      "text": "In Germany, cafés are popular social spots for friends and families. They often serve coffee, pastries, and light meals.",
+      "funFact": "Germany has a tradition of coffee and cake on Sunday, known as 'Kaffee und Kuchen'."
+    },
+    "summary": {
+      "keyPoints": [
+        "Regular verbs in the present tense have a specific conjugation pattern.",
+        "The articles der, die, and das indicate the gender of nouns.",
+        "Modal verbs like können and möchten express ability and desire.",
+        "Everyday vocabulary enhances conversational skills."
+      ],
+      "nextSteps": "Practice conjugating more regular verbs and using them in sentences. Try creating dialogues about your daily life."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct present tense form of 'spielen' for 'ich'?",
+      "content": {
+        "options": [
+          "spielt",
+          "spiele",
+          "spielen"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Ich spiele' is the correct form for 'I play' in the present tense.",
+      "hint": "Think about the subject pronoun.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'die Lampe' mean in English?",
+      "content": {
+        "options": [
+          "the table",
+          "the book",
+          "the lamp"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Die Lampe' translates to 'the lamp' in English.",
+      "hint": "It's an object that provides light.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich ___ (essen) einen Apfel.'",
+      "content": {
+        "sentence": "Ich ___ einen Apfel.",
+        "correctAnswer": "esse",
+        "acceptableAnswers": [
+          "esse",
+          "eating"
+        ],
+        "options": [
+          "esse",
+          "essen",
+          "is eating"
+        ]
+      },
+      "explanation": "'Ich esse' means 'I eat' in the present tense.",
+      "hint": "Consider the subject and the verb.",
+      "difficulty": "EASY",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Wir ___ (lernen) Deutsch.'",
+      "content": {
+        "sentence": "Wir ___ Deutsch.",
+        "correctAnswer": "lernen",
+        "acceptableAnswers": [
+          "lernen"
+        ],
+        "options": [
+          "lernen",
+          "lerne",
+          "lernt"
+        ]
+      },
+      "explanation": "'Wir lernen' means 'We learn' in the present tense.",
+      "hint": "Focus on the subject 'wir'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to make a correct sentence: 'essen', 'wir', 'Pizza'.",
+      "content": {
+        "words": [
+          "essen",
+          "wir",
+          "Pizza"
+        ],
+        "correctOrder": [
+          "wir",
+          "essen",
+          "Pizza"
+        ],
+        "translation": "We eat pizza."
+      },
+      "explanation": "The correct order forms the sentence 'Wir essen Pizza'.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I want to learn.'",
+      "content": {
+        "prompt": "Translate to German: 'I want to learn.'",
+        "correctAnswer": "Ich möchte lernen.",
+        "acceptableAnswers": [
+          "Ich will lernen."
+        ]
+      },
+      "explanation": "'Ich möchte lernen' means 'I want to learn' in German.",
+      "hint": "Remember the verb for 'want'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Ich spiele am Tisch.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I eat at the table.",
+          "I play at the table.",
+          "I learn at the table."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The sentence means 'I play at the table.'",
+      "hint": "Focus on the verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the sentence: 'Ich kann gut Deutsch sprechen.'",
+      "content": {
+        "targetText": "Ich kann gut Deutsch sprechen.",
+        "context": "Please say what you can do in German.",
+        "acceptableVariants": [
+          "Ich kann gut Deutsch reden."
+        ]
+      },
+      "explanation": "This sentence means 'I can speak German well.'",
+      "hint": "Use 'kann' for the verb 'can'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which verb means 'to eat'?",
+      "content": {
+        "options": [
+          "spielen",
+          "essen",
+          "lernen"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Essen' is the correct verb for 'to eat'.",
+      "hint": "Think about food.",
+      "difficulty": "HARD",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Er ___ (können) gut spielen.'",
+      "content": {
+        "sentence": "Er ___ gut spielen.",
+        "correctAnswer": "kann",
+        "acceptableAnswers": [
+          "kann"
+        ],
+        "options": [
+          "kann",
+          "könnte",
+          "konnte"
+        ]
+      },
+      "explanation": "'Er kann' means 'He can' in the present tense.",
+      "hint": "Think about ability.",
+      "difficulty": "HARD",
+      "xp_reward": 4
+    }
+  ]
+}

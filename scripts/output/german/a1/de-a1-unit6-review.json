@@ -1,0 +1,329 @@
+{
+  "lesson": {
+    "title": "Unit 6 Review",
+    "type": "REVIEW",
+    "slug": "de-a1-unit6-review"
+  },
+  "unit": "Home & Everyday Objects",
+  "unitOrder": 6,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this Unit 6 Review, you will revisit vocabulary and grammar related to home and everyday objects. You will practice using simple sentences and dialogues to reinforce your understanding of these topics.",
+      "culturalNote": "In Germany, it is common to have a small kitchen, and many people enjoy cooking at home. This reflects the importance of home-cooked meals in German culture."
+    },
+    "vocabulary": [
+      {
+        "term": "der Tisch",
+        "translation": "the table",
+        "definition": "A piece of furniture with a flat top supported by legs.",
+        "pronunciation": "dehr tish",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Tisch ist groß.",
+          "translation": "The table is big."
+        },
+        "tip": "Remember: 'der' is used for masculine nouns."
+      },
+      {
+        "term": "die Lampe",
+        "translation": "the lamp",
+        "definition": "A device that provides light, typically with a bulb.",
+        "pronunciation": "dee lahm-peh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Lampe ist schön.",
+          "translation": "The lamp is beautiful."
+        },
+        "tip": "Remember: 'die' is used for feminine nouns."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A set of written or printed pages, usually bound with a cover.",
+        "pronunciation": "dahs booḫ",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Buch ist interessant.",
+          "translation": "The book is interesting."
+        },
+        "tip": "Remember: 'das' is used for neuter nouns."
+      },
+      {
+        "term": "die Küche",
+        "translation": "the kitchen",
+        "definition": "A room where food is prepared and cooked.",
+        "pronunciation": "dee kü-cheh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Küche ist sauber.",
+          "translation": "The kitchen is clean."
+        },
+        "tip": "Feminine noun: 'die' indicates it's feminine."
+      },
+      {
+        "term": "der Stuhl",
+        "translation": "the chair",
+        "definition": "A piece of furniture for sitting.",
+        "pronunciation": "dehr shtool",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Stuhl ist bequem.",
+          "translation": "The chair is comfortable."
+        },
+        "tip": "Masculine noun: look for 'der'."
+      },
+      {
+        "term": "möchten",
+        "translation": "would like",
+        "definition": "A modal verb used to express desire.",
+        "pronunciation": "möch-ten",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich möchte einen Kaffee.",
+          "translation": "I would like a coffee."
+        },
+        "tip": "Use 'möchten' to express wishes or desires."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Accusative Case",
+        "explanation": "The accusative case is used for direct objects in German. It answers the question 'what?' or 'whom?'. In the accusative, masculine nouns change from 'der' to 'den', while feminine and neuter nouns do not change.",
+        "table": {
+          "headers": [
+            "Noun",
+            "Nominative",
+            "Accusative"
+          ],
+          "rows": [
+            [
+              "der Tisch",
+              "der Tisch",
+              "den Tisch"
+            ],
+            [
+              "die Lampe",
+              "die Lampe",
+              "die Lampe"
+            ],
+            [
+              "das Buch",
+              "das Buch",
+              "das Buch"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich sehe den Tisch.",
+            "translation": "I see the table.",
+            "breakdown": "Here, 'den Tisch' is the direct object of the sentence."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'der' (nominative) and 'den' (accusative) for masculine nouns. Example: Correct: 'Ich sehe den Tisch.'",
+          "Using the wrong case for the objects. Remember: direct objects need the accusative."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At Home",
+      "context": "Anna and Lukas are talking in Anna's house.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Lukas! Wie geht es dir?",
+          "translation": "Hello Lukas! How are you?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Anna! Mir geht es gut, danke. Wo ist die Küche?",
+          "translation": "Hello Anna! I am fine, thank you. Where is the kitchen?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Die Küche ist dort, neben dem Wohnzimmer.",
+          "translation": "The kitchen is over there, next to the living room.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Danke! Ich möchte einen Kaffee machen.",
+          "translation": "Thank you! I would like to make a coffee.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist eine gute Idee! Wo ist die Kaffeemaschine?",
+          "translation": "That’s a good idea! Where is the coffee machine?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sie ist auf dem Tisch.",
+          "translation": "It is on the table.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Super! Ich hole die Tassen.",
+          "translation": "Great! I will get the cups.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Perfekt! Ich liebe Kaffee.",
+          "translation": "Perfect! I love coffee.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Home and Cooking in Germany",
+      "text": "In Germany, it is common for families to cook together, especially on weekends. Traditional dishes often include fresh ingredients from local markets.",
+      "funFact": "Many German households have a 'Küche', which is a room dedicated to cooking and often features modern appliances."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review of vocabulary related to home and everyday objects.",
+        "Understanding the accusative case for direct objects.",
+        "Practice using modal verbs like 'möchten'.",
+        "Engaging in realistic dialogues about daily life."
+      ],
+      "nextSteps": "Practice speaking and writing sentences using the vocabulary and grammar from this unit. Try to create your own dialogues!"
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'the table' in German?",
+      "content": {
+        "options": [
+          "der Stuhl",
+          "der Tisch",
+          "die Lampe",
+          "das Buch"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'der Tisch', which translates to 'the table' in English.",
+      "hint": "Think about where you eat meals.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'die Küche' mean in English?",
+      "content": {
+        "options": [
+          "the chair",
+          "the kitchen",
+          "the lamp",
+          "the book"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Die Küche' translates to 'the kitchen' in English.",
+      "hint": "It's where you cook food.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich ___ eine Lampe.'",
+      "content": {
+        "sentence": "Ich ___ eine Lampe.",
+        "correctAnswer": "möchte",
+        "acceptableAnswers": [
+          "möchte"
+        ],
+        "options": [
+          "haben",
+          "möchte",
+          "liebe",
+          "sehe"
+        ]
+      },
+      "explanation": "The sentence means 'I would like a lamp', and 'möchte' is the correct verb here.",
+      "hint": "Think about expressing a desire.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Das Buch liegt auf ___ Tisch.'",
+      "content": {
+        "sentence": "Das Buch liegt auf ___ Tisch.",
+        "correctAnswer": "dem",
+        "acceptableAnswers": [
+          "dem"
+        ],
+        "options": [
+          "der",
+          "dem",
+          "das",
+          "die"
+        ]
+      },
+      "explanation": "The correct article in the dative case is 'dem', as it refers to 'the table' in this context.",
+      "hint": "Look for the article that fits with 'Tisch'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I want the book.'",
+      "content": {
+        "correctAnswer": "Ich möchte das Buch.",
+        "acceptableAnswers": [
+          "Ich will das Buch."
+        ]
+      },
+      "explanation": "'Ich möchte das Buch' is a polite way to say 'I want the book' in German.",
+      "hint": "Use the word 'möchte' for a polite request.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Die Lampe ist schön.'",
+      "content": {
+        "ttsText": "Die Lampe ist schön.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The lamp is beautiful.",
+          "The book is old.",
+          "The kitchen is big.",
+          "The chair is new."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Lampe ist schön' translates to 'The lamp is beautiful.'",
+      "hint": "Listen for the word 'Lampe'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I have a chair.'",
+      "content": {
+        "targetText": "Ich habe einen Stuhl.",
+        "context": "Translate this sentence into German.",
+        "acceptableVariants": [
+          "Ich habe einen Stuhl."
+        ]
+      },
+      "explanation": "The correct translation for 'I have a chair' is 'Ich habe einen Stuhl.'",
+      "hint": "Remember to use the correct article for masculine nouns.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

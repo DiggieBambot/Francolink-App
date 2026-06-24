@@ -1,0 +1,352 @@
+{
+  "lesson": {
+    "title": "City Services & Errands",
+    "type": "VOCABULARY",
+    "slug": "es-a2-services"
+  },
+  "unit": "City & Services",
+  "unitOrder": 6,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to city services and errands. You will also practice using these terms in sentences and dialogues.",
+      "culturalNote": "In many Latin American cities, it is common to find street vendors providing various services, which reflects the vibrant urban culture."
+    },
+    "vocabulary": [
+      {
+        "term": "el banco",
+        "translation": "the bank",
+        "definition": "A place where you can deposit or withdraw money.",
+        "pronunciation": "el ban-ko",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Voy al banco.",
+          "translation": "I am going to the bank."
+        },
+        "tip": "Remember that 'banco' is a masculine noun."
+      },
+      {
+        "term": "la oficina de correos",
+        "translation": "the post office",
+        "definition": "A place where you can send and receive mail.",
+        "pronunciation": "la ofi-sina de co-re-os",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Necesito ir a la oficina de correos.",
+          "translation": "I need to go to the post office."
+        },
+        "tip": "'Oficina' is feminine, so it is 'la oficina'."
+      },
+      {
+        "term": "el supermercado",
+        "translation": "the supermarket",
+        "definition": "A store where you can buy food and other products.",
+        "pronunciation": "el su-per-mer-ca-do",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Voy al supermercado a comprar comida.",
+          "translation": "I am going to the supermarket to buy food."
+        },
+        "tip": "Think of 'supermarket' in English to remember this term."
+      },
+      {
+        "term": "la farmacia",
+        "translation": "the pharmacy",
+        "definition": "A place where you can buy medicines.",
+        "pronunciation": "la far-ma-cia",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La farmacia está cerca de mi casa.",
+          "translation": "The pharmacy is near my house."
+        },
+        "tip": "Pharmacies often have a green cross symbol."
+      },
+      {
+        "term": "el taxi",
+        "translation": "the taxi",
+        "definition": "A car for hire that carries passengers.",
+        "pronunciation": "el ta-xi",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Voy a tomar un taxi.",
+          "translation": "I am going to take a taxi."
+        },
+        "tip": "In many cities, taxis are a common way to get around."
+      },
+      {
+        "term": "la gasolinera",
+        "translation": "the gas station",
+        "definition": "A place where you can buy fuel for your vehicle.",
+        "pronunciation": "la ga-so-li-ne-ra",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Necesito parar en la gasolinera.",
+          "translation": "I need to stop at the gas station."
+        },
+        "tip": "Gas stations often have convenience stores."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Simple Future Tense",
+        "explanation": "In Spanish, the simple future tense is used to express actions that will happen. It is formed by adding specific endings to the infinitive form of the verb. Here are the endings: -é, -ás, -á, -emos, -éis, -án.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Ending"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "-é"
+            ],
+            [
+              "Tú",
+              "-ás"
+            ],
+            [
+              "Él/Ella/Usted",
+              "-á"
+            ],
+            [
+              "Nosotros",
+              "-emos"
+            ],
+            [
+              "Vosotros",
+              "-éis"
+            ],
+            [
+              "Ellos/Ellas/Ustedes",
+              "-án"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo iré al banco.",
+            "translation": "I will go to the bank.",
+            "breakdown": "The verb 'ir' (to go) is in the future tense with the ending '-é' for 'yo'."
+          }
+        ],
+        "commonMistakes": [
+          "Using the present tense instead of the future tense. Example: 'Yo voy al banco' means 'I am going to the bank'.",
+          "Forget to conjugate the verb correctly for the subject. Example: 'Nosotros ir' should be 'Nosotros iremos'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Post Office",
+      "context": "A conversation between two friends at the post office.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, Luis. ¿Vas a enviar una carta?",
+          "translation": "Hi, Luis. Are you going to send a letter?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, tengo que ir a la oficina de correos.",
+          "translation": "Yes, I have to go to the post office."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Te acompaño?",
+          "translation": "Shall I accompany you?"
+        },
+        {
+          "speaker": 1,
+          "text": "Claro, gracias. Necesito comprar estampillas.",
+          "translation": "Of course, thank you. I need to buy stamps."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Sabes dónde está la oficina de correos?",
+          "translation": "Do you know where the post office is?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, está cerca del supermercado.",
+          "translation": "Yes, it is near the supermarket."
+        },
+        {
+          "speaker": 0,
+          "text": "Perfecto, vamos.",
+          "translation": "Perfect, let's go."
+        },
+        {
+          "speaker": 1,
+          "text": "Oye, ¿puedes ayudarme a llenar el formulario?",
+          "translation": "Hey, can you help me fill out the form?"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Postal Services in Latin America",
+      "text": "In many Latin American countries, postal services can be less reliable than in other places. People often prefer to use courier services for important deliveries. However, post offices still play a crucial role in everyday errands.",
+      "funFact": "In some countries, like Mexico, there are special postal services to send parcels to remote areas."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary about city services and errands.",
+        "Practiced the simple future tense.",
+        "Engaged in a dialogue about visiting the post office.",
+        "Gained cultural insights into postal services."
+      ],
+      "nextSteps": "Practice using the new vocabulary in sentences and try to create your own dialogues about errands you do in your city."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'the pharmacy' in Spanish?",
+      "content": {
+        "options": [
+          "el banco",
+          "la farmacia",
+          "la gasolinera",
+          "el supermercado"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'la farmacia', which means 'the pharmacy' in English.",
+      "hint": "Think of where you buy medicine.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is 'the taxi' in Spanish?",
+      "content": {
+        "options": [
+          "el supermercado",
+          "el taxi",
+          "la oficina de correos",
+          "la farmacia"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'el taxi', which directly translates to 'the taxi'.",
+      "hint": "It's a common mode of transportation.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Voy al ___ para enviar una carta.",
+      "content": {
+        "sentence": "Voy al ___ para enviar una carta.",
+        "correctAnswer": "la oficina de correos",
+        "acceptableAnswers": [
+          "la oficina de correos"
+        ],
+        "options": [
+          "el banco",
+          "la oficina de correos",
+          "el supermercado",
+          "la farmacia"
+        ]
+      },
+      "explanation": "You go to 'la oficina de correos' to send a letter.",
+      "hint": "It's where you find stamps.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Necesito comprar comida en el ___.",
+      "content": {
+        "sentence": "Necesito comprar comida en el ___.",
+        "correctAnswer": "supermercado",
+        "acceptableAnswers": [
+          "supermercado"
+        ],
+        "options": [
+          "el banco",
+          "el supermercado",
+          "la farmacia",
+          "la gasolinera"
+        ]
+      },
+      "explanation": "'Supermercado' is where you buy groceries.",
+      "hint": "It's a store for food.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: farmacia / voy / a / la.",
+      "content": {
+        "words": [
+          "farmacia",
+          "voy",
+          "a",
+          "la"
+        ],
+        "correctOrder": [
+          "voy",
+          "a",
+          "la",
+          "farmacia"
+        ],
+        "translation": "I am going to the pharmacy."
+      },
+      "explanation": "The correct order forms a complete sentence about going to the pharmacy.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I need gas.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I need gas.'",
+        "correctAnswer": "Necesito gasolina.",
+        "acceptableAnswers": [
+          "Necesito gasolina."
+        ]
+      },
+      "explanation": "The correct translation is 'Necesito gasolina.' which means 'I need gas.'",
+      "hint": "Think of where you fill up your car.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Voy a la gasolinera.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I am going to the pharmacy.",
+          "I am going to the gas station.",
+          "I am going to the supermarket."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct translation is 'I am going to the gas station.'",
+      "hint": "Listen for the word 'gasolinera'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I want to go to the bank.'",
+      "content": {
+        "targetText": "Quiero ir al banco.",
+        "context": "Translate and say the sentence in Spanish.",
+        "acceptableVariants": [
+          "Quiero ir al banco."
+        ]
+      },
+      "explanation": "The correct phrase expresses the desire to visit the bank.",
+      "hint": "Use 'quiero' for 'I want'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

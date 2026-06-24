@@ -1,0 +1,343 @@
+{
+  "lesson": {
+    "title": "Subordinate Clauses with Dass & Weil",
+    "type": "GRAMMAR",
+    "slug": "de-b1-subordinate-clauses"
+  },
+  "unit": "Expressing Opinions",
+  "unitOrder": 1,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to use subordinate clauses with 'dass' and 'weil' in German. These structures will help you express opinions and reasons more clearly in conversation.",
+      "culturalNote": "In Germany, it is common to express opinions openly in discussions, which makes understanding subordinate clauses essential for effective communication."
+    },
+    "vocabulary": [
+      {
+        "term": "der Grund",
+        "translation": "the reason",
+        "definition": "A basis for something; an explanation.",
+        "pronunciation": "dehr groond",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe einen Grund, warum ich nicht kommen kann.",
+          "translation": "I have a reason why I cannot come."
+        },
+        "tip": "Remember that 'der Grund' is masculine; its plural form is 'die Gründe'."
+      },
+      {
+        "term": "die Meinung",
+        "translation": "the opinion",
+        "definition": "A belief or judgment about something.",
+        "pronunciation": "dee MY-nung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich respektiere deine Meinung.",
+          "translation": "I respect your opinion."
+        },
+        "tip": "'Die Meinung' is feminine; its plural is 'die Meinungen'."
+      },
+      {
+        "term": "weil",
+        "translation": "because",
+        "definition": "Used to introduce a subordinate clause that explains a reason.",
+        "pronunciation": "vile",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Ich bleibe zu Hause, weil es regnet.",
+          "translation": "I stay at home because it is raining."
+        },
+        "tip": "Use 'weil' to connect a cause to an effect."
+      },
+      {
+        "term": "dass",
+        "translation": "that",
+        "definition": "Used to introduce a subordinate clause that states a fact or opinion.",
+        "pronunciation": "dahs",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Ich glaube, dass er recht hat.",
+          "translation": "I believe that he is right."
+        },
+        "tip": "'Dass' often follows verbs that express thought or belief."
+      },
+      {
+        "term": "die Diskussion",
+        "translation": "the discussion",
+        "definition": "A conversation about a specific topic.",
+        "pronunciation": "dee dis-kus-SYON",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Diskussion war sehr interessant.",
+          "translation": "The discussion was very interesting."
+        },
+        "tip": "'Die Diskussion' is feminine; its plural is 'die Diskussionen'."
+      },
+      {
+        "term": "der Vorschlag",
+        "translation": "the suggestion",
+        "definition": "An idea or plan put forward for consideration.",
+        "pronunciation": "dehr FORSH-lahg",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe einen Vorschlag, dass wir früher kommen.",
+          "translation": "I have a suggestion that we come earlier."
+        },
+        "tip": "'Der Vorschlag' is masculine; its plural is 'die Vorschläge'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'dass' and 'weil'",
+        "explanation": "In German, 'dass' is used to introduce a subordinate clause that states a fact or opinion, while 'weil' is used to give a reason. The verb in the subordinate clause goes to the end of the clause. For example, 'Ich weiß, dass du müde bist' (I know that you are tired) and 'Ich gehe, weil ich müde bin' (I go because I am tired).",
+        "table": {
+          "headers": [
+            "Conjunction",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "dass",
+              "to express a fact or opinion"
+            ],
+            [
+              "weil",
+              "to provide a reason"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich denke, dass das Wetter schön ist.",
+            "translation": "I think that the weather is nice.",
+            "breakdown": "'Ich denke' (I think) + 'dass' + 'das Wetter schön ist' (the weather is nice)."
+          },
+          {
+            "original": "Ich gehe nach Hause, weil ich müde bin.",
+            "translation": "I go home because I am tired.",
+            "breakdown": "'Ich gehe' (I go) + 'nach Hause' (home) + 'weil' + 'ich müde bin' (I am tired)."
+          }
+        ],
+        "commonMistakes": [
+          "'Ich weiß dass du kommst' should be 'Ich weiß, dass du kommst.' (Remember the comma before 'dass')",
+          "'Ich bleibe hier weil ich arbeiten' should be 'Ich bleibe hier, weil ich arbeiten muss.' (Include the verb at the end of the clause)"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Weekend Plans",
+      "context": "Anna and Lukas are discussing their plans for the weekend at a café.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Was hast du am Wochenende vor?",
+          "translation": "What do you have planned for the weekend?",
+          "note": "Informal inquiry about plans."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich möchte ins Kino gehen, weil ein neuer Film kommt.",
+          "translation": "I want to go to the cinema because a new movie is coming out."
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt gut! Ich glaube, dass der Film spannend ist.",
+          "translation": "That sounds good! I believe that the movie is exciting."
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich denke auch, dass es ein Hit wird.",
+          "translation": "Yes, I also think that it will be a hit."
+        },
+        {
+          "speaker": 0,
+          "text": "Hast du einen Vorschlag, wo wir essen können?",
+          "translation": "Do you have a suggestion for where we can eat?"
+        },
+        {
+          "speaker": 1,
+          "text": "Vielleicht können wir italienisch essen, weil ich Pasta liebe.",
+          "translation": "Maybe we can eat Italian because I love pasta."
+        },
+        {
+          "speaker": 0,
+          "text": "Gute Idee! Ich mag italienisches Essen, dass es viele Optionen gibt.",
+          "translation": "Good idea! I like Italian food because there are many options."
+        },
+        {
+          "speaker": 1,
+          "text": "Dann lass uns das machen!",
+          "translation": "Then let's do that!"
+        }
+      ]
+    },
+    "culture": {
+      "title": "German Discussion Culture",
+      "text": "In German-speaking countries, discussions often involve expressing personal opinions clearly. This openness is valued in both informal and formal settings.",
+      "funFact": "Germans have a saying, 'Der Ton macht die Musik,' which means 'The tone makes the music,' emphasizing the importance of how something is said."
+    },
+    "summary": {
+      "keyPoints": [
+        "Subordinate clauses enhance clarity in expressing opinions and reasons.",
+        "Use 'dass' to introduce facts or opinions and 'weil' to provide reasons.",
+        "The verb in a subordinate clause goes to the end of the clause.",
+        "Pay attention to punctuation, especially commas before 'dass' and 'weil'."
+      ],
+      "nextSteps": "Practice creating your own sentences using 'dass' and 'weil' with various opinions and reasons."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Choose the correct conjunction to complete the sentence: 'Ich glaube, dass er recht hat.' What does 'dass' mean?",
+      "content": {
+        "options": [
+          "because",
+          "that",
+          "if",
+          "when"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Dass' is used to introduce a subordinate clause that expresses a statement or opinion.",
+      "hint": "Think about how 'that' is used in English.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence uses 'weil' correctly?",
+      "content": {
+        "options": [
+          "Ich gehe ins Kino, weil ich den Film sehen möchte.",
+          "Ich gehe ins Kino, dass ich den Film sehen möchte.",
+          "Ich gehe ins Kino, wenn ich den Film sehen möchte.",
+          "Ich gehe ins Kino, ob ich den Film sehen möchte."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Weil' is used to give a reason for an action.",
+      "hint": "Look for the reason in the sentences.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich denke, ___ wir mehr diskutieren sollten.'",
+      "content": {
+        "sentence": "Ich denke, ___ wir mehr diskutieren sollten.",
+        "correctAnswer": "dass",
+        "acceptableAnswers": [
+          "dass"
+        ],
+        "options": [
+          "weil",
+          "dass",
+          "wenn",
+          "ob"
+        ]
+      },
+      "explanation": "'Dass' introduces the opinion that more discussion is necessary.",
+      "hint": "This connects ideas in a statement.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blanks: 'Es gibt viele Gründe, ___ ich nicht kommen kann.'",
+      "content": {
+        "sentence": "Es gibt viele Gründe, ___ ich nicht kommen kann.",
+        "correctAnswer": "weil",
+        "acceptableAnswers": [
+          "weil"
+        ],
+        "options": [
+          "dass",
+          "weil",
+          "wenn",
+          "ob"
+        ]
+      },
+      "explanation": "'Weil' is used to provide a reason for not being able to come.",
+      "hint": "Look for the reason in the context.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: 'dass / ich / wichtig / finde / die Diskussion.'",
+      "content": {
+        "words": [
+          "ich",
+          "finde",
+          "die",
+          "Diskussion",
+          "dass",
+          "wichtig"
+        ],
+        "correctOrder": [
+          "ich",
+          "finde",
+          "dass",
+          "die",
+          "Diskussion",
+          "wichtig"
+        ],
+        "translation": "I find that the discussion is important."
+      },
+      "explanation": "The correct order forms a subordinate clause expressing an opinion.",
+      "hint": "Start with the subject and verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The reason is that I have a proposal.'",
+      "content": {
+        "prompt": "Translate to German: 'The reason is that I have a proposal.'",
+        "correctAnswer": "Der Grund ist, dass ich einen Vorschlag habe.",
+        "acceptableAnswers": []
+      },
+      "explanation": "This sentence uses 'dass' to introduce the reason.",
+      "hint": "Focus on the structure of the sentence.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation: 'Ich glaube, weil es wichtig ist.'",
+      "content": {
+        "ttsText": "Ich glaube, weil es wichtig ist.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I believe because it is important.",
+          "I think that it is important.",
+          "I know that it is important.",
+          "I believe that it is important."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence expresses a belief with a reason.",
+      "hint": "Listen for the reason in the sentence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence: 'Ich finde, dass die Diskussion wichtig ist.'",
+      "content": {
+        "targetText": "Ich finde, dass die Diskussion wichtig ist.",
+        "context": "Express your opinion about discussions.",
+        "acceptableVariants": []
+      },
+      "explanation": "This sentence clearly states an opinion using 'dass'.",
+      "hint": "Remember to pronounce 'Diskussion' correctly.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

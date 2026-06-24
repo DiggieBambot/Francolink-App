@@ -1,0 +1,365 @@
+{
+  "lesson": {
+    "title": "Professional Vocabulary",
+    "type": "VOCABULARY",
+    "slug": "de-b1-professional-vocab"
+  },
+  "unit": "Work & Career",
+  "unitOrder": 3,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn important vocabulary related to the workplace and career in German. You will also practice using these terms in sentences and dialogues.",
+      "culturalNote": "In Germany, the concept of 'Berufsausbildung' (vocational training) is highly regarded, and many young people choose to pursue apprenticeships in various fields."
+    },
+    "vocabulary": [
+      {
+        "term": "der Beruf",
+        "translation": "the profession",
+        "definition": "A job or occupation that someone is trained for.",
+        "pronunciation": "dehr buhr-uhf",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe einen interessanten Beruf.",
+          "translation": "I have an interesting profession."
+        },
+        "tip": "Remember that 'Beruf' is masculine (der), and its plural is 'die Berufe'."
+      },
+      {
+        "term": "die Bewerbung",
+        "translation": "the application",
+        "definition": "A formal request to be considered for a job.",
+        "pronunciation": "dee beh-ver-boong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich schreibe gerade meine Bewerbung.",
+          "translation": "I am currently writing my application."
+        },
+        "tip": "'Bewerbung' is feminine (die) and its plural form is 'die Bewerbungen'."
+      },
+      {
+        "term": "das Vorstellungsgespräch",
+        "translation": "the job interview",
+        "definition": "A meeting to discuss a job opportunity.",
+        "pronunciation": "das for-shtay-lungs-ge-shpraykh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe morgen ein Vorstellungsgespräch.",
+          "translation": "I have a job interview tomorrow."
+        },
+        "tip": "This word is neuter (das) and does not change in plural: 'die Vorstellungsgespräche'."
+      },
+      {
+        "term": "die Karriere",
+        "translation": "the career",
+        "definition": "The progression of a person's work life.",
+        "pronunciation": "dee kah-ree-eh-reh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich plane meine Karriere im Marketing.",
+          "translation": "I am planning my career in marketing."
+        },
+        "tip": "'Karriere' is feminine (die) and its plural is 'die Karrieren', although it's often used in the singular."
+      },
+      {
+        "term": "der Kollege",
+        "translation": "the colleague",
+        "definition": "A person who works with you.",
+        "pronunciation": "dehr koh-leh-guh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Kollege hilft mir bei der Arbeit.",
+          "translation": "My colleague helps me with the work."
+        },
+        "tip": "'Kollege' is masculine (der) and its plural is 'die Kollegen'."
+      },
+      {
+        "term": "die Stelle",
+        "translation": "the position",
+        "definition": "A job position or role within a company.",
+        "pronunciation": "dee steh-leh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe die Stelle als Lehrer bekommen.",
+          "translation": "I got the position as a teacher."
+        },
+        "tip": "'Stelle' is feminine (die) and its plural is 'die Stellen'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Subordinate Clauses",
+        "explanation": "In German, subordinate clauses can be introduced with 'dass' (that), 'weil' (because), and 'wenn' (if). These clauses provide additional information about the main clause. The verb is placed at the end of the subordinate clause.",
+        "table": {
+          "headers": [
+            "Clause Type",
+            "Example"
+          ],
+          "rows": [
+            [
+              "dass",
+              "Ich weiß, dass er kommt."
+            ],
+            [
+              "weil",
+              "Ich bleibe, weil es regnet."
+            ],
+            [
+              "wenn",
+              "Ich gehe, wenn ich Zeit habe."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich hoffe, dass ich die Stelle bekomme.",
+            "translation": "I hope that I get the position.",
+            "breakdown": "Main clause: Ich hoffe (I hope) + subordinate clause: dass ich die Stelle bekomme (that I get the position)."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing word order in subordinate clauses - remember the verb goes to the end.",
+          "Using 'weil' incorrectly - make sure to use it to explain reasons."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Job Interview Conversation",
+      "context": "This conversation takes place during a job interview.",
+      "speakers": [
+        "Anna (interviewer)",
+        "Lukas (applicant)"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Willkommen, Lukas. Können Sie sich bitte vorstellen?",
+          "translation": "Welcome, Lukas. Can you please introduce yourself?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Guten Tag, ich heiße Lukas und habe in der Marketingabteilung gearbeitet.",
+          "translation": "Good day, my name is Lukas and I have worked in the marketing department.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Was sind Ihre Stärken?",
+          "translation": "What are your strengths?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich bin kreativ und kann gut im Team arbeiten.",
+          "translation": "I am creative and can work well in a team.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Warum möchten Sie für unser Unternehmen arbeiten?",
+          "translation": "Why do you want to work for our company?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich finde Ihre Projekte sehr interessant und möchte meine Karriere hier entwickeln.",
+          "translation": "I find your projects very interesting and want to develop my career here.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt gut. Haben Sie Fragen?",
+          "translation": "That sounds good. Do you have any questions?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, wie viele Mitarbeiter gibt es in der Marketingabteilung?",
+          "translation": "Yes, how many employees are there in the marketing department?",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Work Culture in Germany",
+      "text": "In Germany, punctuality and professionalism are highly valued in the workplace. Employees are expected to be well-prepared and dedicated to their tasks.",
+      "funFact": "Many German companies offer extensive training programs for their employees, emphasizing lifelong learning and development."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to work and career.",
+        "Practiced using subordinate clauses.",
+        "Engaged in a realistic job interview dialogue.",
+        "Gained cultural insights about the workplace in Germany."
+      ],
+      "nextSteps": "Practice using the vocabulary in your own sentences and try to create your own dialogues about job interviews."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the English translation of 'der Beruf'?",
+      "content": {
+        "options": [
+          "Profession",
+          "Application",
+          "Interview",
+          "Career"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Beruf' translates to 'profession' in English.",
+      "hint": "Think about what job someone does.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following refers to a job application in German?",
+      "content": {
+        "options": [
+          "die Bewerbung",
+          "das Vorstellungsgespräch",
+          "die Karriere",
+          "der Kollege"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Bewerbung' means 'job application' in English.",
+      "hint": "It's something you submit when you want a job.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich habe ein __________ für die Stelle.'",
+      "content": {
+        "sentence": "Ich habe ein __________ für die Stelle.",
+        "correctAnswer": "Bewerbung",
+        "acceptableAnswers": [
+          "Bewerbung"
+        ],
+        "options": [
+          "Vorstellungsgespräch",
+          "Kollege",
+          "Bewerbung",
+          "Karriere"
+        ]
+      },
+      "explanation": "The correct word is 'Bewerbung', which means 'application'.",
+      "hint": "It's the document you send to apply for a job.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Mein __________ ist sehr nett.'",
+      "content": {
+        "sentence": "Mein __________ ist sehr nett.",
+        "correctAnswer": "Kollege",
+        "acceptableAnswers": [
+          "Kollege"
+        ],
+        "options": [
+          "Karriere",
+          "Kollege",
+          "Bewerbung",
+          "Stelle"
+        ]
+      },
+      "explanation": "'Kollege' means 'colleague', someone you work with.",
+      "hint": "Think about someone you work with.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I have a job interview tomorrow.'",
+      "content": {
+        "prompt": "Translate to German: 'I have a job interview tomorrow.'",
+        "correctAnswer": "Ich habe morgen ein Vorstellungsgespräch.",
+        "acceptableAnswers": [
+          "Ich habe morgen ein Vorstellungsgespräch."
+        ]
+      },
+      "explanation": "The translation correctly uses the term for 'job interview'.",
+      "hint": "Focus on the word for interview.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Die Stelle ist frei.'",
+      "content": {
+        "ttsText": "Die Stelle ist frei.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The position is open.",
+          "The job is lost.",
+          "The application is sent.",
+          "The career is successful."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'The position is open.'",
+      "hint": "Think about a job opening.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in German: 'I want to improve my career.'",
+      "content": {
+        "targetText": "Ich möchte meine Karriere verbessern.",
+        "context": "Expressing a desire to make career progress.",
+        "acceptableVariants": [
+          "Ich will meine Karriere verbessern.",
+          "Ich möchte meine Karriere weiterentwickeln."
+        ]
+      },
+      "explanation": "The sentence correctly conveys the desire to improve one's career.",
+      "hint": "Focus on the word for career.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'das Vorstellungsgespräch' mean in English?",
+      "content": {
+        "options": [
+          "Application",
+          "Interview",
+          "Career",
+          "Job"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Das Vorstellungsgespräch' translates to 'interview' in English.",
+      "hint": "It's the meeting you have when applying for a job.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Sie hat eine gute __________ gemacht.'",
+      "content": {
+        "sentence": "Sie hat eine gute __________ gemacht.",
+        "correctAnswer": "Bewerbung",
+        "acceptableAnswers": [
+          "Bewerbung"
+        ],
+        "options": [
+          "Stelle",
+          "Karriere",
+          "Bewerbung",
+          "Vorstellungsgespräch"
+        ]
+      },
+      "explanation": "'Bewerbung' is the correct word for 'application'.",
+      "hint": "Consider what you submit for a job.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

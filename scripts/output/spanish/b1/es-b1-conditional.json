@@ -1,0 +1,361 @@
+{
+  "lesson": {
+    "title": "The Conditional Tense",
+    "type": "GRAMMAR",
+    "slug": "es-b1-conditional"
+  },
+  "unit": "Conditionals & Wishes",
+  "unitOrder": 4,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to use the conditional tense in Spanish to express hypothetical situations and wishes. You will practice forming sentences and understand the differences between the conditional and the subjunctive.",
+      "culturalNote": "In many Spanish-speaking countries, people often use the conditional tense to refer to polite requests or suggestions, making it an essential part of daily communication."
+    },
+    "vocabulary": [
+      {
+        "term": "el condicional",
+        "translation": "the conditional",
+        "definition": "a verb tense used to express hypothetical situations or wishes.",
+        "pronunciation": "el kon-di-si-o-nal",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El condicional se usa para hablar de situaciones hipotéticas.",
+          "translation": "The conditional is used to talk about hypothetical situations."
+        },
+        "tip": "Remember that the conditional often expresses politeness."
+      },
+      {
+        "term": "si",
+        "translation": "if",
+        "definition": "a conjunction used to introduce conditional clauses.",
+        "pronunciation": "see",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Si tuviera dinero, viajaría por el mundo.",
+          "translation": "If I had money, I would travel the world."
+        },
+        "tip": "Use 'si' to start your conditional sentences."
+      },
+      {
+        "term": "viajar",
+        "translation": "to travel",
+        "definition": "to go from one place to another, often for leisure.",
+        "pronunciation": "bee-ah-har",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Me encantaría viajar a España.",
+          "translation": "I would love to travel to Spain."
+        },
+        "tip": "Often paired with conditional verbs when discussing desires."
+      },
+      {
+        "term": "gustar",
+        "translation": "to like",
+        "definition": "to find something enjoyable or pleasing.",
+        "pronunciation": "goo-star",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Me gustaría comer pizza.",
+          "translation": "I would like to eat pizza."
+        },
+        "tip": "Remember to conjugate 'gustar' correctly based on the subject."
+      },
+      {
+        "term": "el deseo",
+        "translation": "the wish",
+        "definition": "a strong feeling of wanting something.",
+        "pronunciation": "el de-se-o",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El deseo de viajar es común.",
+          "translation": "The desire to travel is common."
+        },
+        "tip": "Often expressed in the conditional when talking about wishes."
+      },
+      {
+        "term": "podría",
+        "translation": "I could",
+        "definition": "the first person singular form of 'poder' in the conditional.",
+        "pronunciation": "po-dree-ah",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Podría estudiar más si tuviera tiempo.",
+          "translation": "I could study more if I had time."
+        },
+        "tip": "Use this form to express potential actions."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Conditional Tense",
+        "explanation": "The conditional tense is formed by adding specific endings to the infinitive form of verbs. It is often used to express hypothetical situations, wishes, and polite requests. In Spanish, the endings are -ía, -ías, -ía, -íamos, -ían for regular verbs.",
+        "table": {
+          "headers": [
+            "Person",
+            "Ending"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "-ía"
+            ],
+            [
+              "Tú",
+              "-ías"
+            ],
+            [
+              "Él/Ella/Usted",
+              "-ía"
+            ],
+            [
+              "Nosotros",
+              "-íamos"
+            ],
+            [
+              "Ellos/Ellas/Ustedes",
+              "-ían"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Si tuviera un coche, iría a la playa.",
+            "translation": "If I had a car, I would go to the beach.",
+            "breakdown": "This sentence shows a hypothetical situation using 'si' (if) and the conditional verb 'iría' (would go)."
+          },
+          {
+            "original": "Me gustaría que vinieras a la fiesta.",
+            "translation": "I would like you to come to the party.",
+            "breakdown": "This sentence expresses a wish using the conditional 'gustaría' (would like)."
+          }
+        ],
+        "commonMistakes": [
+          "Incorrect: Si tendría un perro, sería feliz. Correction: Si tuviera un perro, sería feliz. (Use 'tuviera' instead of 'tendría')",
+          "Incorrect: Yo gustaría ir al cine. Correction: Me gustaría ir al cine. (Use 'me gustaría' to express desire)"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Trip",
+      "context": "Two friends are discussing their dream vacation over coffee.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Adónde te gustaría viajar?",
+          "translation": "Where would you like to travel?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Me gustaría ir a Perú.",
+          "translation": "I would like to go to Peru.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué interesante! Si tuviera dinero, iría contigo.",
+          "translation": "How interesting! If I had money, I would go with you.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Podríamos visitar Machu Picchu.",
+          "translation": "We could visit Machu Picchu.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, y me encantaría probar la comida peruana.",
+          "translation": "Yes, and I would love to try Peruvian food.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Si estuvieras aquí, cocinaría algo especial.",
+          "translation": "If you were here, I would cook something special.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Eso suena perfecto. ¿Cuándo iremos?",
+          "translation": "That sounds perfect. When will we go?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Tal vez el próximo verano.",
+          "translation": "Maybe next summer.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Travel in Latin America",
+      "text": "Traveling is an important part of culture in many Latin American countries. People often use the conditional tense to express wishes about travel, reflecting the region's rich diversity and beautiful destinations.",
+      "funFact": "Did you know that Peru's Machu Picchu is one of the New Seven Wonders of the World?"
+    },
+    "summary": {
+      "keyPoints": [
+        "The conditional tense expresses hypothetical situations and wishes.",
+        "It is formed using the infinitive plus specific endings.",
+        "Common verbs like 'gustar' and 'viajar' are often used.",
+        "The conjunction 'si' introduces conditional clauses."
+      ],
+      "nextSteps": "Practice forming your own sentences using the conditional tense and try to use them in conversations."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct conditional form of 'viajar' for 'yo'?",
+      "content": {
+        "options": [
+          "viajaré",
+          "viajaba",
+          "viajaría",
+          "viajé"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "The correct form is 'viajaría' because it is the conditional form for 'yo'.",
+      "hint": "Think about the endings for conditional verbs.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence uses the conditional correctly?",
+      "content": {
+        "options": [
+          "Si tuviera dinero, viajaría.",
+          "Si tengo dinero, viajaría.",
+          "Si tenía dinero, viajo.",
+          "Si tendré dinero, viajar."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The first option uses the correct structure for a conditional sentence.",
+      "hint": "Look for the correct 'si' structure.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Si _____ (gustar) viajar, podrías ir a España.",
+      "content": {
+        "sentence": "Si _____ viajar, podrías ir a España.",
+        "correctAnswer": "te gusta",
+        "acceptableAnswers": [
+          "te gustaría"
+        ],
+        "options": [
+          "te gusta",
+          "te gustó",
+          "te gustaba"
+        ]
+      },
+      "explanation": "The correct form is 'te gusta', meaning 'if you like to travel'.",
+      "hint": "Think about the present tense for habits.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Yo _____ (desear) que pudiera viajar a Italia.",
+      "content": {
+        "sentence": "Yo _____ que pudiera viajar a Italia.",
+        "correctAnswer": "deseo",
+        "acceptableAnswers": [
+          "deseo",
+          "desearía"
+        ],
+        "options": [
+          "deseo",
+          "desearía",
+          "deseaba"
+        ]
+      },
+      "explanation": "'Deseo' is the present form of 'to wish', which fits the sentence structure.",
+      "hint": "Consider the present tense of 'wish'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct conditional sentence: viajar / si / tuviera / dinero.",
+      "content": {
+        "words": [
+          "viajar",
+          "si",
+          "tuviera",
+          "dinero"
+        ],
+        "correctOrder": [
+          "si",
+          "tuviera",
+          "dinero",
+          "viajar"
+        ],
+        "translation": "If I had money, I would travel."
+      },
+      "explanation": "The correct order forms a logical conditional sentence.",
+      "hint": "Start with 'si' for 'if'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I wish I could travel to Spain.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I wish I could travel to Spain.'",
+        "correctAnswer": "Deseo poder viajar a España.",
+        "acceptableAnswers": [
+          "Quisiera poder viajar a España."
+        ]
+      },
+      "explanation": "The phrase 'Deseo poder viajar a España' accurately translates the wish to travel.",
+      "hint": "Remember to include 'poder' for 'to be able to'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Si fuera rico, viajaría por el mundo.'",
+      "content": {
+        "ttsText": "Si fuera rico, viajaría por el mundo.",
+        "ttsLang": "es-ES",
+        "options": [
+          "If I were rich, I would travel the world.",
+          "If I am rich, I will travel the world.",
+          "If I was rich, I traveled the world.",
+          "If I were rich, I travel the world."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation reflects the conditional structure in English.",
+      "hint": "Focus on the past subjunctive in the first part.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in Spanish: 'If I could, I would travel to Argentina.'",
+      "content": {
+        "targetText": "Si pudiera, viajaría a Argentina.",
+        "context": "Practice saying a conditional sentence.",
+        "acceptableVariants": [
+          "Si yo pudiera, viajaría a Argentina."
+        ]
+      },
+      "explanation": "This sentence uses the correct conditional structure in Spanish.",
+      "hint": "Remember to start with 'Si' for 'If'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

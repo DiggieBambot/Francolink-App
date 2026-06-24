@@ -1,0 +1,351 @@
+{
+  "lesson": {
+    "title": "Describing Experiences",
+    "type": "CONVERSATION",
+    "slug": "de-a2-experiences"
+  },
+  "unit": "Comparisons & Opinions",
+  "unitOrder": 7,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to describe your experiences in German, focusing on comparisons and personal opinions. You will practice using the Perfekt and Präteritum tenses to express what you have done and how you felt about it.",
+      "culturalNote": "In Germany, sharing personal experiences is common in social settings, especially when discussing travel or hobbies. It helps to build connections and find common interests."
+    },
+    "vocabulary": [
+      {
+        "term": "die Erfahrung",
+        "translation": "the experience",
+        "definition": "A practical contact with and observation of facts or events.",
+        "pronunciation": "dee eh-fah-roong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe eine tolle Erfahrung gemacht.",
+          "translation": "I had a great experience."
+        },
+        "tip": "Die Erfahrung is feminine, so remember the article 'die'."
+      },
+      {
+        "term": "der Vergleich",
+        "translation": "the comparison",
+        "definition": "The act of comparing two or more things.",
+        "pronunciation": "dehr fer-glykh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Vergleich ist interessant.",
+          "translation": "The comparison is interesting."
+        },
+        "tip": "Der Vergleich is masculine; use 'der' to remember its gender."
+      },
+      {
+        "term": "das Gefühl",
+        "translation": "the feeling",
+        "definition": "A subjective experience of emotion.",
+        "pronunciation": "dahs ge-fühl",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich hatte ein gutes Gefühl.",
+          "translation": "I had a good feeling."
+        },
+        "tip": "Das Gefühl is neuter; remember it with 'das'."
+      },
+      {
+        "term": "spannend",
+        "translation": "exciting",
+        "definition": "Causing excitement or interest.",
+        "pronunciation": "shpan-end",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Das Buch war spannend.",
+          "translation": "The book was exciting."
+        },
+        "tip": "Use 'spannend' to describe anything that keeps your interest."
+      },
+      {
+        "term": "das Abenteuer",
+        "translation": "the adventure",
+        "definition": "An unusual and exciting experience.",
+        "pronunciation": "dahs ah-ben-toy-er",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Abenteuer war unvergesslich.",
+          "translation": "The adventure was unforgettable."
+        },
+        "tip": "Das Abenteuer is neuter; remember with 'das'."
+      },
+      {
+        "term": "die Meinung",
+        "translation": "the opinion",
+        "definition": "A belief or judgment about something.",
+        "pronunciation": "dee my-nung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe eine andere Meinung.",
+          "translation": "I have a different opinion."
+        },
+        "tip": "Die Meinung is feminine; use 'die' to help remember."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Perfekt to Describe Experiences",
+        "explanation": "In German, the Perfekt tense is often used to describe past experiences. It consists of a helping verb (haben or sein) and the past participle of the main verb. For example, 'Ich habe gegessen' means 'I have eaten'. Remember, the choice of helping verb depends on the main verb.",
+        "table": {
+          "headers": [
+            "Helping Verb",
+            "Past Participle"
+          ],
+          "rows": [
+            [
+              "haben",
+              "gegessen"
+            ],
+            [
+              "sein",
+              "gegangen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich habe im Urlaub viel gesehen.",
+            "translation": "I saw a lot on vacation.",
+            "breakdown": "Ich (I) + habe (have) + gesehen (seen) forms the Perfekt."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'sein' with verbs that require 'haben'. Correct: Ich habe gelernt (I have learned).",
+          "Confusing the past participle forms. Correct: 'gegangen' (gone) for 'sein' and 'gegessen' (eaten) for 'haben'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Travel Experiences",
+      "context": "Two friends, Anna and Lukas, are talking about their recent trips.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Lukas! Wie war dein Urlaub?",
+          "translation": "Hello Lukas! How was your vacation?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Anna! Mein Urlaub war super. Ich habe viel gesehen.",
+          "translation": "Hello Anna! My vacation was great. I saw a lot."
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt spannend! Wo bist du gewesen?",
+          "translation": "That sounds exciting! Where have you been?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich war in Spanien. Das Wetter war schön.",
+          "translation": "I was in Spain. The weather was nice."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich liebe Spanien! Ich habe dort auch einmal Urlaub gemacht.",
+          "translation": "I love Spain! I also had a vacation there once."
+        },
+        {
+          "speaker": 1,
+          "text": "Wie war deine Erfahrung?",
+          "translation": "How was your experience?"
+        },
+        {
+          "speaker": 0,
+          "text": "Es war fantastisch! Ich habe viele neue Leute kennengelernt.",
+          "translation": "It was fantastic! I met many new people."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich habe auch viele neue Freunde gefunden.",
+          "translation": "I also found many new friends."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Travel in German-Speaking Countries",
+      "text": "Traveling is a significant part of culture in Germany, Austria, and Switzerland. Many Germans value vacations as a time for relaxation and adventure. During the summer, it's common to see families traveling to various regions, including the beautiful Alps.",
+      "funFact": "Did you know that Germany has over 1,500 different types of beer? Beer culture is an important part of social gatherings, especially during festivals."
+    },
+    "summary": {
+      "keyPoints": [
+        "You can use the Perfekt tense to describe past experiences.",
+        "Common vocabulary includes words like die Erfahrung, der Vergleich, and das Gefühl.",
+        "Sharing opinions helps to connect with others.",
+        "It's important to use the correct helping verb in the Perfekt."
+      ],
+      "nextSteps": "Practice describing your own experiences using the vocabulary from this lesson. Try to write a short paragraph about a recent trip or event."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'die Erfahrung' mean in English?",
+      "content": {
+        "options": [
+          "the experience",
+          "the adventure",
+          "the comparison",
+          "the feeling"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Erfahrung' translates to 'the experience' in English.",
+      "hint": "It's something you gain from doing activities.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'exciting' in German?",
+      "content": {
+        "options": [
+          "das Abenteuer",
+          "spannend",
+          "die Meinung",
+          "das Gefühl"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Spannend' is the German word for 'exciting'.",
+      "hint": "Think of a thrilling movie!",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich finde das Abenteuer sehr ___.'.",
+      "content": {
+        "sentence": "Ich finde das Abenteuer sehr ___.",
+        "correctAnswer": "spannend",
+        "acceptableAnswers": [
+          "spannend"
+        ],
+        "options": [
+          "langweilig",
+          "spannend",
+          "kurz",
+          "lang"
+        ]
+      },
+      "explanation": "The correct answer 'spannend' means 'exciting', which fits the context.",
+      "hint": "It's the opposite of 'boring'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Meine ___ ist, dass Reisen wichtig ist.'",
+      "content": {
+        "sentence": "Meine ___ ist, dass Reisen wichtig ist.",
+        "correctAnswer": "Meinung",
+        "acceptableAnswers": [
+          "Meinung"
+        ],
+        "options": [
+          "Erfahrung",
+          "Meinung",
+          "Vergleich",
+          "Gefühl"
+        ]
+      },
+      "explanation": "'Meinung' means 'opinion', which makes sense in this sentence.",
+      "hint": "It's what you think about something.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I find the experience interesting.'",
+      "content": {
+        "prompt": "Translate to German: 'I find the experience interesting.'",
+        "correctAnswer": "Ich finde die Erfahrung interessant.",
+        "acceptableAnswers": [
+          "Ich finde die Erfahrung spannend."
+        ]
+      },
+      "explanation": "The correct translation conveys the same meaning in both languages.",
+      "hint": "Remember the structure: 'Ich finde...'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Das Abenteuer war sehr spannend.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The adventure was very boring.",
+          "The adventure was very exciting.",
+          "The experience was very interesting."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer reflects the meaning of 'spannend' which is 'exciting'.",
+      "hint": "Focus on the word 'spannend'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'My opinion is that traveling is fun.'",
+      "content": {
+        "targetText": "Meine Meinung ist, dass Reisen Spaß macht.",
+        "context": "Translate and say the sentence in German.",
+        "acceptableVariants": [
+          "Meinung ist, dass Reisen Spaß macht."
+        ]
+      },
+      "explanation": "The sentence reflects the correct structure and vocabulary in German.",
+      "hint": "Start with 'Meine Meinung ist...'",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Das Gefühl, das Abenteuer zu erleben, ist ___.'.",
+      "content": {
+        "sentence": "Das Gefühl, das Abenteuer zu erleben, ist ___.",
+        "correctAnswer": "spannend",
+        "acceptableAnswers": [
+          "spannend"
+        ],
+        "options": [
+          "langweilig",
+          "spannend",
+          "schön",
+          "traurig"
+        ]
+      },
+      "explanation": "The feeling of experiencing an adventure is indeed exciting.",
+      "hint": "Think about emotions related to adventures.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'the comparison' in German?",
+      "content": {
+        "options": [
+          "das Gefühl",
+          "die Erfahrung",
+          "der Vergleich",
+          "die Meinung"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Der Vergleich' translates to 'the comparison' in English.",
+      "hint": "It’s used when comparing two or more things.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

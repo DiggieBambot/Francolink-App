@@ -1,0 +1,380 @@
+{
+  "lesson": {
+    "title": "Modal Particles (doch, mal, ja, eben)",
+    "type": "VOCABULARY",
+    "slug": "de-b2-modal-particles"
+  },
+  "unit": "Idioms & Expressions",
+  "unitOrder": 4,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about German modal particles such as 'doch', 'mal', 'ja', and 'eben'. These particles add subtle nuances to conversations and can express emotions or attitudes.",
+      "culturalNote": "Modal particles are a unique feature of the German language and are often used in informal conversations, reflecting a more relaxed and expressive way of speaking."
+    },
+    "vocabulary": [
+      {
+        "term": "doch",
+        "translation": "however",
+        "definition": "Used to contradict a previous statement or to insist on a point.",
+        "pronunciation": "dohch",
+        "partOfSpeech": "particle",
+        "exampleSentence": {
+          "original": "Das ist doch nicht wahr!",
+          "translation": "That is not true, however!"
+        },
+        "tip": "Remember 'doch' can soften a contradiction, making it more persuasive."
+      },
+      {
+        "term": "mal",
+        "translation": "once/a bit",
+        "definition": "Used to soften commands or suggestions, often making them sound friendlier.",
+        "pronunciation": "mahl",
+        "partOfSpeech": "particle",
+        "exampleSentence": {
+          "original": "Komm mal her!",
+          "translation": "Come here for a moment!"
+        },
+        "tip": "'Mal' adds a casual tone, making requests less demanding."
+      },
+      {
+        "term": "ja",
+        "translation": "indeed",
+        "definition": "Used to emphasize or confirm something that is already known.",
+        "pronunciation": "yah",
+        "partOfSpeech": "particle",
+        "exampleSentence": {
+          "original": "Das ist ja interessant.",
+          "translation": "That is indeed interesting."
+        },
+        "tip": "Use 'ja' to reinforce agreement or to point out the obvious."
+      },
+      {
+        "term": "eben",
+        "translation": "just/exactly",
+        "definition": "Highlights a situation or confirms something as a fact.",
+        "pronunciation": "ay-ben",
+        "partOfSpeech": "particle",
+        "exampleSentence": {
+          "original": "Das ist eben so.",
+          "translation": "It is just like that."
+        },
+        "tip": "'Eben' can imply acceptance of a situation, often with a hint of resignation."
+      },
+      {
+        "term": "schon",
+        "translation": "already/just",
+        "definition": "Often used to indicate something that has occurred earlier than expected.",
+        "pronunciation": "shohn",
+        "partOfSpeech": "particle",
+        "exampleSentence": {
+          "original": "Das habe ich schon gemacht.",
+          "translation": "I have already done that."
+        },
+        "tip": "'Schon' can express surprise at the timing of an event."
+      },
+      {
+        "term": "wohl",
+        "translation": "probably",
+        "definition": "Indicates a degree of certainty or assumption about a statement.",
+        "pronunciation": "vohl",
+        "partOfSpeech": "particle",
+        "exampleSentence": {
+          "original": "Er kommt wohl später.",
+          "translation": "He will probably come later."
+        },
+        "tip": "Use 'wohl' to express a reasonable assumption without full certainty."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Modal Particles Effectively",
+        "explanation": "Modal particles are often used in spoken German to add flavor and emotion to statements. They usually do not change the grammatical structure but rather enhance the meaning. It's important to position them correctly within a sentence, often immediately after the subject or at the beginning of the sentence for emphasis.",
+        "table": {
+          "headers": [
+            "Particle",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "doch",
+              "To contradict or emphasize"
+            ],
+            [
+              "mal",
+              "To soften commands or requests"
+            ],
+            [
+              "ja",
+              "To confirm or emphasize a known fact"
+            ],
+            [
+              "eben",
+              "To confirm a situation as it is"
+            ],
+            [
+              "schon",
+              "To indicate something has happened earlier"
+            ],
+            [
+              "wohl",
+              "To express assumption or probability"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Du hast doch gesagt, dass du kommst.",
+            "translation": "You did say that you were coming.",
+            "breakdown": "In this sentence, 'doch' emphasizes the contradiction to the implied statement that the person may not come."
+          },
+          {
+            "original": "Mach mal eine Pause!",
+            "translation": "Take a break for a moment!",
+            "breakdown": "'Mal' softens the command, making it sound more polite."
+          }
+        ],
+        "commonMistakes": [
+          "Using modal particles in formal writing. Correction: Modal particles are mainly for spoken German.",
+          "Overusing particles in one sentence. Correction: Use them sparingly to maintain clarity."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "A Visit to the Café",
+      "context": "Anna and Lukas are meeting at a café to catch up.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Lukas! Hast du mal Zeit?",
+          "translation": "Hello Lukas! Do you have a moment?",
+          "note": "Anna is asking casually."
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe gerade Zeit. Was gibt's?",
+          "translation": "Yes, I have some time right now. What's up?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich wollte dir von meinem neuen Job erzählen.",
+          "translation": "I wanted to tell you about my new job."
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist ja spannend! Wo arbeitest du?",
+          "translation": "That is indeed exciting! Where are you working?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich arbeite jetzt bei einer großen Firma.",
+          "translation": "I am now working at a large company."
+        },
+        {
+          "speaker": 1,
+          "text": "Das klingt gut! Machst du da viel Neues?",
+          "translation": "That sounds good! Are you doing a lot of new things there?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, ich lerne eben viele neue Skills.",
+          "translation": "Yes, I am just learning many new skills."
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist doch wichtig für deine Karriere!",
+          "translation": "That is important for your career!"
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Use of Modal Particles in German Culture",
+      "text": "In everyday conversations, modal particles are often used to convey emotions and attitudes subtly. This linguistic feature reflects the informal and expressive nature of communication in German-speaking countries.",
+      "funFact": "In Austria, the use of modal particles is even more prevalent, adding to the rich tapestry of regional dialects."
+    },
+    "summary": {
+      "keyPoints": [
+        "Modal particles enhance spoken German with emotional nuance.",
+        "Common particles include 'doch', 'mal', 'ja', 'eben', 'schon', and 'wohl'.",
+        "Correct positioning of particles is crucial for clarity.",
+        "Use them sparingly to avoid confusion in conversation."
+      ],
+      "nextSteps": "Practice using these modal particles in your conversations and try to incorporate them into your speaking and writing for a more natural flow."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'doch' typically express in a conversation?",
+      "content": {
+        "options": [
+          "Agreement",
+          "Contradiction",
+          "Surprise",
+          "Indifference"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Doch' is used to contradict a previous statement or assumption.",
+      "hint": "Think about how you might disagree politely.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence best uses 'ja'?",
+      "content": {
+        "options": [
+          "Kommst du heute Abend, ja?",
+          "Ich weiß nicht, ja.",
+          "Das ist nicht gut, ja.",
+          "Ich denke, ja ist richtig."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Ja' is used to affirm or confirm something in a casual manner.",
+      "hint": "Look for the sentence that sounds most natural with 'ja'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich mache das ___.'",
+      "content": {
+        "sentence": "Ich mache das ___.",
+        "correctAnswer": "mal",
+        "acceptableAnswers": [
+          "mal"
+        ],
+        "options": [
+          "doch",
+          "mal",
+          "ja",
+          "eben"
+        ]
+      },
+      "explanation": "'Mal' indicates a casual or informal approach to an action.",
+      "hint": "Think of a word often used to make a suggestion sound more friendly.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Das ist ___ so.'",
+      "content": {
+        "sentence": "Das ist ___ so.",
+        "correctAnswer": "eben",
+        "acceptableAnswers": [
+          "eben"
+        ],
+        "options": [
+          "doch",
+          "wohl",
+          "ja",
+          "eben"
+        ]
+      },
+      "explanation": "'Eben' is used to emphasize that something is exactly as stated.",
+      "hint": "Consider the meaning of 'exactly' or 'just'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to create a correct German sentence: 'du / doch / bist / nicht / das / so / gut'.",
+      "content": {
+        "words": [
+          "du",
+          "doch",
+          "bist",
+          "nicht",
+          "das",
+          "so",
+          "gut"
+        ],
+        "correctOrder": [
+          "du",
+          "bist",
+          "nicht",
+          "so",
+          "gut",
+          "doch",
+          "das"
+        ],
+        "translation": "You are not that good, though."
+      },
+      "explanation": "The correct sentence emphasizes a contradiction using 'doch'.",
+      "hint": "Start with the subject 'du'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I will do it later.'",
+      "content": {
+        "prompt": "Translate to German: 'I will do it later.'",
+        "correctAnswer": "Ich mache es später.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation captures the future intention to act later.",
+      "hint": "Focus on the verb 'machen' for 'to do'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Das ist schon lange her.",
+        "ttsLang": "de-DE",
+        "options": [
+          "That was a long time ago.",
+          "That is already long.",
+          "That is still long.",
+          "That was already long."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The phrase means 'That was a long time ago', emphasizing the duration.",
+      "hint": "Listen for the word 'schon'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this German sentence: 'Das ist wohl richtig.'",
+      "content": {
+        "targetText": "Das ist wohl richtig.",
+        "context": "Translate and say this sentence in German.",
+        "acceptableVariants": [
+          "Das ist wohl richtig."
+        ]
+      },
+      "explanation": "This sentence affirms a statement with a hint of uncertainty using 'wohl'.",
+      "hint": "Pay attention to the intonation when you say it.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'wohl' imply in a sentence?",
+      "content": {
+        "options": [
+          "Certainty",
+          "Uncertainty",
+          "Affection",
+          "Agreement"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Wohl' indicates a degree of uncertainty or assumption.",
+      "hint": "Consider how we express doubt or speculation.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

@@ -1,0 +1,349 @@
+{
+  "lesson": {
+    "title": "What Would You Do?",
+    "type": "CONVERSATION",
+    "slug": "es-b1-what-would"
+  },
+  "unit": "Conditionals & Wishes",
+  "unitOrder": 4,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to use conditionals and express wishes in Spanish. You will practice forming sentences that express hypothetical situations and what you would do in those scenarios.",
+      "culturalNote": "In many Spanish-speaking cultures, expressing wishes and hypothetical scenarios is common in everyday conversation. It reflects a deep cultural appreciation for dreams and possibilities."
+    },
+    "vocabulary": [
+      {
+        "term": "si",
+        "translation": "if",
+        "definition": "used to introduce conditional sentences",
+        "pronunciation": "see",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Si tuviera dinero, viajaría por el mundo.",
+          "translation": "If I had money, I would travel the world."
+        },
+        "tip": "Remember that 'si' is always used at the beginning of conditional sentences."
+      },
+      {
+        "term": "desear",
+        "translation": "to wish",
+        "definition": "to express a desire for something",
+        "pronunciation": "deh-say-ahr",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Deseo que me den una oportunidad.",
+          "translation": "I wish they would give me a chance."
+        },
+        "tip": "Use 'desear' when you want to express a strong wish or desire."
+      },
+      {
+        "term": "oportunidad",
+        "translation": "opportunity",
+        "definition": "a favorable circumstance or chance",
+        "pronunciation": "oh-port-un-ee-dahd",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Cada día es una nueva oportunidad.",
+          "translation": "Every day is a new opportunity."
+        },
+        "tip": "Think of 'oportunidad' as a chance that can lead to something good."
+      },
+      {
+        "term": "viajar",
+        "translation": "to travel",
+        "definition": "to go from one place to another, often for pleasure",
+        "pronunciation": "vee-ah-har",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Me gustaría viajar a España.",
+          "translation": "I would like to travel to Spain."
+        },
+        "tip": "Associate 'viajar' with adventure and exploration."
+      },
+      {
+        "term": "creer",
+        "translation": "to believe",
+        "definition": "to have confidence in the truth of something",
+        "pronunciation": "kreh-ehr",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Creo que todo es posible.",
+          "translation": "I believe that anything is possible."
+        },
+        "tip": "Use 'creer' when discussing opinions or beliefs."
+      },
+      {
+        "term": "siempre",
+        "translation": "always",
+        "definition": "at all times; on all occasions",
+        "pronunciation": "see-em-preh",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Siempre trato de aprender algo nuevo.",
+          "translation": "I always try to learn something new."
+        },
+        "tip": "Think of 'siempre' as a way to emphasize consistency."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Conditionals in Spanish",
+        "explanation": "In Spanish, conditional sentences often use the structure 'si' (if) followed by a verb in the subjunctive mood. The result clause typically uses the conditional tense. This structure allows you to express hypothetical situations.",
+        "table": {
+          "headers": [
+            "Condition",
+            "Result"
+          ],
+          "rows": [
+            [
+              "Si tengo tiempo",
+              "iré al cine"
+            ],
+            [
+              "Si estudias",
+              "aprobarás el examen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Si estudiaras más, sacarías mejores notas.",
+            "translation": "If you studied more, you would get better grades.",
+            "breakdown": "This sentence uses the imperfect subjunctive 'estudiaras' and the conditional 'sacarías' to express a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of subjunctive after 'si'. Correct: 'Si tuviera' instead of 'Si tengo'.",
+          "Forgetting to match the conditional tense in the result clause. Correct: 'haría' not 'hago'."
+        ]
+      },
+      {
+        "title": "Expressing Wishes",
+        "explanation": "To express wishes in Spanish, use the verb 'desear' followed by a subjunctive clause. This structure is used to talk about desires that are not currently true or realistic.",
+        "table": {
+          "headers": [
+            "Wish",
+            "Subjunctive Clause"
+          ],
+          "rows": [
+            [
+              "Deseo",
+              "que tú vengas"
+            ],
+            [
+              "Quisiera",
+              "que me ayuden"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Deseo que seas feliz.",
+            "translation": "I wish you to be happy.",
+            "breakdown": "Here, 'seas' is the present subjunctive form of 'ser' used to express a wish."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of subjunctive after 'deseo'. Correct: 'Deseo que vengas' not 'Deseo que vienes'.",
+          "Forgetting to use 'quisiera' for polite wishes. Correct: 'Quisiera un café' for 'I would like a coffee'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "What Would You Do?",
+      "context": "A coffee shop conversation between friends discussing hypothetical situations.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Si ganaras la lotería, ¿qué harías?",
+          "translation": "If you won the lottery, what would you do?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Creo que viajaría por el mundo.",
+          "translation": "I think I would travel the world.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y qué país elegirías primero?",
+          "translation": "And which country would you choose first?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Elegiría Japón, siempre he querido ir.",
+          "translation": "I would choose Japan, I have always wanted to go.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Te gustaría vivir allí?",
+          "translation": "Would you like to live there?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, desearía aprender japonés.",
+          "translation": "Yes, I would wish to learn Japanese.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Eso suena increíble. ¿Qué harías después?",
+          "translation": "That sounds amazing. What would you do next?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Después, quizás abriría un restaurante.",
+          "translation": "After that, maybe I would open a restaurant.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Dreams and Aspirations in Latin America",
+      "text": "In Latin America, expressing dreams and aspirations is an integral part of the culture. Many people value the idea of 'soñar en grande' or dreaming big, which reflects a hopeful outlook on life.",
+      "funFact": "In many Latin American countries, it's common to participate in 'sorteos' or lotteries, where winning can change lives significantly."
+    },
+    "summary": {
+      "keyPoints": [
+        "Conditionals are formed using 'si' and the subjunctive mood.",
+        "Wishes are expressed using 'desear' followed by a subjunctive clause.",
+        "Practice forming conditional sentences to express hypotheticals.",
+        "Cultural perspectives on dreams influence language use."
+      ],
+      "nextSteps": "Practice forming your own conditional sentences and wishes. Try to have conversations with friends about what you would do in different situations."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What would you do if you had the opportunity to travel anywhere?",
+      "content": {
+        "options": [
+          "I would travel to Spain.",
+          "I would stay at home.",
+          "I would believe in myself."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "Traveling to Spain is a positive response to having the opportunity.",
+      "hint": "Think of a place you always wanted to visit.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "If I could wish for anything, I would wish for ____.",
+      "content": {
+        "options": [
+          "to travel the world",
+          "to stay in one place",
+          "to never believe in dreams"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "Wishing to travel the world is a common desire.",
+      "hint": "Consider what you really want.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Si tuviera la oportunidad, yo ____ (viajar) a Japón.",
+      "content": {
+        "sentence": "Si tuviera la oportunidad, yo ____ a Japón.",
+        "correctAnswer": "viajaría",
+        "acceptableAnswers": [
+          "viajaría"
+        ],
+        "options": [
+          "viajaré",
+          "viajaría",
+          "viajé"
+        ]
+      },
+      "explanation": "The correct form is 'viajaría', indicating a hypothetical situation.",
+      "hint": "Think about conditional forms.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Siempre he creído que ____ (desear) es el primer paso.",
+      "content": {
+        "sentence": "Siempre he creído que ____ es el primer paso.",
+        "correctAnswer": "desear",
+        "acceptableAnswers": [
+          "desear",
+          "deseo"
+        ],
+        "options": [
+          "deseo",
+          "desea",
+          "desear"
+        ]
+      },
+      "explanation": "The verb 'desear' fits the context of the sentence.",
+      "hint": "Think about the verb form needed here.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I always wish to travel.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I always wish to travel.'",
+        "correctAnswer": "Siempre deseo viajar.",
+        "acceptableAnswers": [
+          "Siempre he deseado viajar."
+        ]
+      },
+      "explanation": "The translation uses the correct verb form for wishing.",
+      "hint": "Pay attention to the verb 'wish'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct answer: ¿Qué harías si pudieras viajar a cualquier lugar?",
+      "content": {
+        "ttsText": "¿Qué harías si pudieras viajar a cualquier lugar?",
+        "ttsLang": "es-ES",
+        "options": [
+          "I would stay home.",
+          "I would travel to Italy.",
+          "I would never travel."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is about traveling to Italy.",
+      "hint": "Listen for the main action.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'If I could wish for one thing, I would wish to travel.'",
+      "content": {
+        "targetText": "Si pudiera desear una cosa, desearía viajar.",
+        "context": "Translate and say the conditional sentence.",
+        "acceptableVariants": [
+          "Si pudiera desear una cosa, yo desearía viajar."
+        ]
+      },
+      "explanation": "This sentence uses the correct grammatical structure for expressing wishes.",
+      "hint": "Focus on the verbs in conditional form.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

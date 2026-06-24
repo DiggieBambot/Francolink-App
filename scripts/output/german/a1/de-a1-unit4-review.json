@@ -1,0 +1,332 @@
+{
+  "lesson": {
+    "title": "Unit 4 Review",
+    "type": "REVIEW",
+    "slug": "de-a1-unit4-review"
+  },
+  "unit": "Food & Drink",
+  "unitOrder": 4,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will review key vocabulary and grammar from Unit 4, focused on Food & Drink. You will practice important phrases and engage in a dialogue to reinforce your learning.",
+      "culturalNote": "In Germany, it is common to have bread rolls (Brötchen) for breakfast, often served with butter, cheese, or jam."
+    },
+    "vocabulary": [
+      {
+        "term": "der Apfel",
+        "translation": "the apple",
+        "definition": "A common fruit, often eaten raw.",
+        "pronunciation": "der AH-pfel",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich esse einen Apfel.",
+          "translation": "I am eating an apple."
+        },
+        "tip": "Remember, 'Apfel' is masculine (der)."
+      },
+      {
+        "term": "die Banane",
+        "translation": "the banana",
+        "definition": "A long, yellow fruit.",
+        "pronunciation": "dee bah-NAH-neh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Banane ist süß.",
+          "translation": "The banana is sweet."
+        },
+        "tip": "'Banane' is feminine (die)."
+      },
+      {
+        "term": "das Wasser",
+        "translation": "the water",
+        "definition": "A basic drink essential for life.",
+        "pronunciation": "das VAH-ser",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich trinke Wasser.",
+          "translation": "I drink water."
+        },
+        "tip": "'Wasser' is neuter (das)."
+      },
+      {
+        "term": "das Brot",
+        "translation": "the bread",
+        "definition": "A staple food made from flour.",
+        "pronunciation": "das BROHT",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Brot ist frisch.",
+          "translation": "The bread is fresh."
+        },
+        "tip": "'Brot' is neuter (das)."
+      },
+      {
+        "term": "die Milch",
+        "translation": "the milk",
+        "definition": "A white liquid produced by mammals.",
+        "pronunciation": "dee MILCH",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich möchte Milch.",
+          "translation": "I would like milk."
+        },
+        "tip": "'Milch' is feminine (die)."
+      },
+      {
+        "term": "der Kaffee",
+        "translation": "the coffee",
+        "definition": "A popular hot drink made from roasted coffee beans.",
+        "pronunciation": "der KAH-fee",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich trinke Kaffee am Morgen.",
+          "translation": "I drink coffee in the morning."
+        },
+        "tip": "'Kaffee' is masculine (der)."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'möchten' for requests",
+        "explanation": "'Möchten' is a modal verb used to express wishes or requests in German. It is often used to say what you would like to have or do. The structure is 'Ich möchte + noun/verb'.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Verb"
+          ],
+          "rows": [
+            [
+              "Ich",
+              "möchte"
+            ],
+            [
+              "Du",
+              "möchtest"
+            ],
+            [
+              "Er/Sie/Es",
+              "möchte"
+            ],
+            [
+              "Wir",
+              "möchten"
+            ],
+            [
+              "Ihr",
+              "möchtet"
+            ],
+            [
+              "Sie",
+              "möchten"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich möchte eine Banane.",
+            "translation": "I would like a banana.",
+            "breakdown": "The subject 'Ich' (I) is followed by 'möchte' (would like) and then the noun 'eine Banane' (a banana)."
+          },
+          {
+            "original": "Möchtest du Wasser?",
+            "translation": "Would you like water?",
+            "breakdown": "The verb 'möchtest' (would you like) is used to ask a question."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'möchte' with the wrong subject form (e.g., 'Ich möchtest' instead of 'Ich möchte')",
+          "Forgetting to include the article for nouns (e.g., 'Ich möchte Apfel' instead of 'Ich möchte den Apfel')"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Ordering food and drinks at a café",
+      "context": "This conversation takes place in a small café in Germany.",
+      "speakers": [
+        "Lukas",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo, ich möchte einen Kaffee.",
+          "translation": "Hello, I would like a coffee."
+        },
+        {
+          "speaker": 1,
+          "text": "Guten Morgen, Lukas! Möchtest du auch etwas zu essen?",
+          "translation": "Good morning, Lukas! Would you like something to eat too?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, ich möchte ein Brötchen.",
+          "translation": "Yes, I would like a bread roll."
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist lecker! Ich nehme eine Banane.",
+          "translation": "That's delicious! I will take a banana."
+        },
+        {
+          "speaker": 0,
+          "text": "Möchtest du Wasser?",
+          "translation": "Would you like water?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, bitte! Ich möchte ein Glas Wasser.",
+          "translation": "Yes, please! I would like a glass of water."
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist gut. Ich bezahle jetzt.",
+          "translation": "That's good. I will pay now."
+        },
+        {
+          "speaker": 1,
+          "text": "Danke, Lukas! Bis später!",
+          "translation": "Thank you, Lukas! See you later!"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Café culture in Germany",
+      "text": "Cafés in Germany are popular meeting places where people enjoy coffee and pastries. It is common to spend time chatting with friends or reading a book while sipping a drink.",
+      "funFact": "In many German cafés, you can find a variety of cakes (Kuchen) that are perfect for an afternoon treat."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review of vocabulary related to food and drinks",
+        "Using 'möchten' for polite requests",
+        "Practicing dialogue in a café setting",
+        "Understanding noun genders and articles"
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and try to create your own dialogues. Next, you will learn about ordering food in more detail."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'der Apfel' in English?",
+      "content": {
+        "options": [
+          "the banana",
+          "the apple",
+          "the water",
+          "the bread"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Der Apfel' translates to 'the apple' in English.",
+      "hint": "Think of a fruit that is often red or green.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'milk'?",
+      "content": {
+        "options": [
+          "die Banane",
+          "die Milch",
+          "das Wasser",
+          "das Brot"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Die Milch' is the German word for 'milk'.",
+      "hint": "It's a liquid that comes from cows.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Ich trinke ___ (water).",
+      "content": {
+        "sentence": "Ich trinke ___",
+        "correctAnswer": "das Wasser",
+        "acceptableAnswers": [
+          "das Wasser"
+        ],
+        "options": [
+          "die Banane",
+          "das Wasser",
+          "der Apfel"
+        ]
+      },
+      "explanation": "The correct answer is 'das Wasser', which means 'the water'.",
+      "hint": "It's essential for life.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Ich esse gern ___ (bread).",
+      "content": {
+        "sentence": "Ich esse gern ___",
+        "correctAnswer": "das Brot",
+        "acceptableAnswers": [
+          "das Brot"
+        ],
+        "options": [
+          "die Milch",
+          "das Brot",
+          "der Kaffee"
+        ]
+      },
+      "explanation": "'Das Brot' means 'the bread'.",
+      "hint": "It's often eaten with butter.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I have a banana.'",
+      "content": {
+        "prompt": "Translate to German: 'I have a banana.'",
+        "correctAnswer": "Ich habe eine Banane.",
+        "acceptableAnswers": [
+          "Ich habe eine Banane"
+        ]
+      },
+      "explanation": "The translation of 'I have a banana' is 'Ich habe eine Banane'.",
+      "hint": "Remember the article for banana.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct option.",
+      "content": {
+        "ttsText": "Ich trinke Kaffee.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I drink milk.",
+          "I drink coffee.",
+          "I eat bread."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The sentence means 'I drink coffee'.",
+      "hint": "Listen for the word 'Kaffee'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I like apples.'",
+      "content": {
+        "targetText": "Ich mag Äpfel.",
+        "context": "Translate 'I like apples.' into German.",
+        "acceptableVariants": [
+          "Ich mag Äpfel"
+        ]
+      },
+      "explanation": "'Ich mag Äpfel' means 'I like apples' in German.",
+      "hint": "Use 'mag' for 'like'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

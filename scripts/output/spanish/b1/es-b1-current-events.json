@@ -1,0 +1,402 @@
+{
+  "lesson": {
+    "title": "Discussing Current Events",
+    "type": "CONVERSATION",
+    "slug": "es-b1-current-events"
+  },
+  "unit": "Expressing Opinions",
+  "unitOrder": 1,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to discuss current events in Spanish, including expressing opinions and using the subjunctive mood. You'll also practice vocabulary related to news and media.",
+      "culturalNote": "In many Spanish-speaking countries, discussing current events is common in social settings, and people often express strong opinions about politics and social issues."
+    },
+    "vocabulary": [
+      {
+        "term": "la noticia",
+        "translation": "the news",
+        "definition": "information about recent events",
+        "pronunciation": "lah noh-TEE-sah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La noticia sobre el clima es preocupante.",
+          "translation": "The news about the weather is concerning."
+        },
+        "tip": "Remember, 'noticia' is feminine, so always use 'la' with it."
+      },
+      {
+        "term": "la opinión",
+        "translation": "the opinion",
+        "definition": "a personal belief or judgment",
+        "pronunciation": "lah oh-pee-nee-ON",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "¿Cuál es tu opinión sobre el cambio climático?",
+          "translation": "What is your opinion about climate change?"
+        },
+        "tip": "Use 'sobre' to indicate the topic of the opinion."
+      },
+      {
+        "term": "el medio de comunicación",
+        "translation": "the media",
+        "definition": "the main means of mass communication",
+        "pronunciation": "el MEH-dyo deh koh-moo-nee-kah-SYON",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El medio de comunicación más popular es internet.",
+          "translation": "The most popular medium of communication is the internet."
+        },
+        "tip": "This term is often used in discussions about news and information."
+      },
+      {
+        "term": "informar",
+        "translation": "to inform",
+        "definition": "to give information about something",
+        "pronunciation": "een-for-MAR",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Es importante informar a la gente sobre los eventos actuales.",
+          "translation": "It is important to inform people about current events."
+        },
+        "tip": "Use 'que' before the information you want to provide."
+      },
+      {
+        "term": "el hecho",
+        "translation": "the fact",
+        "definition": "a statement that can be proven true or false",
+        "pronunciation": "el EH-cho",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es un hecho que la pandemia ha afectado a todos.",
+          "translation": "It is a fact that the pandemic has affected everyone."
+        },
+        "tip": "Remember, facts can be supported by evidence."
+      },
+      {
+        "term": "el debate",
+        "translation": "the debate",
+        "definition": "a discussion about a particular topic",
+        "pronunciation": "el deh-BA-teh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El debate sobre la educación es muy importante.",
+          "translation": "The debate about education is very important."
+        },
+        "tip": "Debates can happen in formal or informal settings."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Present Subjunctive to Express Opinions",
+        "explanation": "The present subjunctive is used to express wishes, doubts, and opinions. It is often triggered by verbs that express emotion or uncertainty. For example, 'Espero que...' (I hope that...) indicates a wish and requires the subjunctive form.",
+        "table": {
+          "headers": [
+            "Verb (to express)",
+            "Subjunctive Example"
+          ],
+          "rows": [
+            [
+              "pensar (to think)",
+              "piense"
+            ],
+            [
+              "creer (to believe)",
+              "crea"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es importante que la gente piense críticamente.",
+            "translation": "It is important that people think critically.",
+            "breakdown": "Here, 'piense' is the subjunctive form of 'pensar' because it follows 'es importante que'."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Es importante que la gente piensa críticamente.' (Correction: 'piense')",
+          "Using the indicative instead of the subjunctive after expressions of doubt."
+        ]
+      },
+      {
+        "title": "Reported Speech",
+        "explanation": "In Spanish, reported speech can be introduced with verbs like 'decir' or 'comentar', and you often need to change the verb tenses. For example, present becomes imperfect when reporting a statement.",
+        "table": {
+          "headers": [
+            "Direct Speech",
+            "Reported Speech"
+          ],
+          "rows": [
+            [
+              "Ella dice: 'Es un buen momento.'",
+              "Ella dijo que era un buen momento."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Juan dice: 'No me gusta la política.'",
+            "translation": "Juan says, 'I don't like politics.'",
+            "breakdown": "When reported, it becomes: 'Juan dice que no le gusta la política.'"
+          }
+        ],
+        "commonMistakes": [
+          "Forgetting to change the verb tense in reported speech.",
+          "Omitting 'que' when reporting."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Current Events",
+      "context": "A coffee shop where two friends meet to talk about recent news.",
+      "speakers": [
+        "Lucía",
+        "Carlos"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Has visto la noticia sobre el cambio climático?",
+          "translation": "Have you seen the news about climate change?",
+          "note": "Lucía brings up a recent topic."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, es preocupante. Creo que necesitamos actuar rápido.",
+          "translation": "Yes, it's concerning. I think we need to act quickly."
+        },
+        {
+          "speaker": 0,
+          "text": "Exactamente. Es importante que la gente esté informada.",
+          "translation": "Exactly. It is important that people are informed."
+        },
+        {
+          "speaker": 1,
+          "text": "He leído que muchos científicos advierten sobre esto.",
+          "translation": "I have read that many scientists are warning about this."
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, y también hay un debate sobre las políticas que deberían implementarse.",
+          "translation": "Yes, and there is also a debate about the policies that should be implemented."
+        },
+        {
+          "speaker": 1,
+          "text": "Es cierto. Me gustaría saber qué piensa la gente al respecto.",
+          "translation": "That's true. I would like to know what people think about it."
+        },
+        {
+          "speaker": 0,
+          "text": "Podríamos preguntar a nuestros amigos en las redes sociales.",
+          "translation": "We could ask our friends on social media."
+        },
+        {
+          "speaker": 1,
+          "text": "Buena idea. Así podemos ver diferentes opiniones.",
+          "translation": "Good idea. This way we can see different opinions."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Current Events in Latin America",
+      "text": "In many Latin American countries, current events are a frequent topic of conversation, often discussed at family dinners or social gatherings. People value sharing their viewpoints and debating various issues.",
+      "funFact": "In some countries, such as Argentina, it is common for people to watch news programs and then discuss them in cafes, making it a social activity."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to current events.",
+        "Practiced using the present subjunctive for opinions.",
+        "Explored reported speech in discussions.",
+        "Engaged in a dialogue about important news topics."
+      ],
+      "nextSteps": "Practice using the vocabulary and grammar points in your own conversations about current events. Try writing a report about a recent news story."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la noticia' mean?",
+      "content": {
+        "options": [
+          "the news",
+          "the opinion",
+          "the event",
+          "the debate"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La noticia' translates to 'the news' in English.",
+      "hint": "Think about what you hear on the radio or see on TV.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is a synonym for 'informar'?",
+      "content": {
+        "options": [
+          "to debate",
+          "to inform",
+          "to argue",
+          "to express"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Informar' means 'to inform' in English.",
+      "hint": "Consider what journalists do.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Es importante expresar ___ cuando leemos una noticia.'",
+      "content": {
+        "sentence": "Es importante expresar ___ cuando leemos una noticia.",
+        "correctAnswer": "la opinión",
+        "acceptableAnswers": [
+          "opinión",
+          "la opinión"
+        ],
+        "options": [
+          "la noticia",
+          "la opinión",
+          "el hecho",
+          "el medio de comunicación"
+        ]
+      },
+      "explanation": "The correct answer is 'la opinión', meaning 'the opinion'.",
+      "hint": "Think about what you think about the news.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'El ___ es fundamental para un buen debate.'",
+      "content": {
+        "sentence": "El ___ es fundamental para un buen debate.",
+        "correctAnswer": "hecho",
+        "acceptableAnswers": [
+          "hecho",
+          "los hechos"
+        ],
+        "options": [
+          "debate",
+          "hecho",
+          "opinión",
+          "medio de comunicación"
+        ]
+      },
+      "explanation": "'Hecho' refers to 'fact', which is essential for a good debate.",
+      "hint": "Consider what supports an argument.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'noticia la importante es'",
+      "content": {
+        "words": [
+          "noticia",
+          "la",
+          "importante",
+          "es"
+        ],
+        "correctOrder": [
+          "la",
+          "noticia",
+          "es",
+          "importante"
+        ],
+        "translation": "The news is important."
+      },
+      "explanation": "The correct order forms a proper sentence in Spanish.",
+      "hint": "Start with the article.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The media informs the public.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The media informs the public.'",
+        "correctAnswer": "Los medios de comunicación informan al público.",
+        "acceptableAnswers": [
+          "Los medios informan al público."
+        ]
+      },
+      "explanation": "The translation captures the role of the media in society.",
+      "hint": "Think about the word for 'media'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'El debate es interesante.'",
+      "content": {
+        "ttsText": "El debate es interesante.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The news is interesting.",
+          "The debate is interesting.",
+          "The opinion is interesting."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct choice directly translates the listened sentence.",
+      "hint": "Focus on the word 'debate'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Discuss your opinion on a current event in Spanish.",
+      "content": {
+        "targetText": "Hable sobre su opinión sobre un evento actual.",
+        "context": "Share your thoughts on a recent news story.",
+        "acceptableVariants": []
+      },
+      "explanation": "Expressing opinions is key to practicing conversation skills.",
+      "hint": "Use phrases like 'Yo pienso que...' or 'En mi opinión...'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase means 'to express an opinion'?",
+      "content": {
+        "options": [
+          "expresar una opinión",
+          "informar",
+          "discutir",
+          "debatir"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Expresar una opinión' means 'to express an opinion' in Spanish.",
+      "hint": "Look for the phrase that includes 'expresar'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Los ___ son muy importantes en la democracia.'",
+      "content": {
+        "sentence": "Los ___ son muy importantes en la democracia.",
+        "correctAnswer": "debates",
+        "acceptableAnswers": [
+          "debates"
+        ],
+        "options": [
+          "hechos",
+          "debates",
+          "medios",
+          "opiniones"
+        ]
+      },
+      "explanation": "Debates are essential for democracy, allowing different opinions to be heard.",
+      "hint": "Think about discussions in society.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

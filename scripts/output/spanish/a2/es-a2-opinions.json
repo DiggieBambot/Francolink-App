@@ -1,0 +1,404 @@
+{
+  "lesson": {
+    "title": "Giving Opinions",
+    "type": "CONVERSATION",
+    "slug": "es-a2-opinions"
+  },
+  "unit": "Comparisons & Opinions",
+  "unitOrder": 7,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to give your opinions in Spanish using simple phrases and vocabulary. You will practice expressing your likes, dislikes, and preferences in everyday conversations.",
+      "culturalNote": "In many Spanish-speaking cultures, sharing opinions is a common part of conversations, often seen as a way to build relationships."
+    },
+    "vocabulary": [
+      {
+        "term": "me gusta",
+        "translation": "I like",
+        "definition": "Used to express liking something.",
+        "pronunciation": "meh GOOS-tah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Me gusta el chocolate.",
+          "translation": "I like chocolate."
+        },
+        "tip": "Remember to use 'me gusta' for singular nouns and 'me gustan' for plural nouns."
+      },
+      {
+        "term": "no me gusta",
+        "translation": "I don't like",
+        "definition": "Used to express disliking something.",
+        "pronunciation": "noh meh GOOS-tah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "No me gusta la lluvia.",
+          "translation": "I don't like the rain."
+        },
+        "tip": "Use 'no me gusta' for singular nouns and 'no me gustan' for plural nouns."
+      },
+      {
+        "term": "prefiero",
+        "translation": "I prefer",
+        "definition": "Used to express a preference.",
+        "pronunciation": "preh-FYEH-roh",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Prefiero el té al café.",
+          "translation": "I prefer tea over coffee."
+        },
+        "tip": "Follow 'prefiero' with the thing you prefer."
+      },
+      {
+        "term": "creo que",
+        "translation": "I believe that",
+        "definition": "Used to express your opinion or belief.",
+        "pronunciation": "CREH-oh keh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Creo que es una buena idea.",
+          "translation": "I believe that it's a good idea."
+        },
+        "tip": "This phrase is useful for introducing your opinions."
+      },
+      {
+        "term": "es mejor",
+        "translation": "is better",
+        "definition": "Used to compare things positively.",
+        "pronunciation": "es meh-HOR",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "El verano es mejor que el invierno.",
+          "translation": "Summer is better than winter."
+        },
+        "tip": "Use 'es mejor' to state that something is superior."
+      },
+      {
+        "term": "me parece",
+        "translation": "it seems to me",
+        "definition": "Used to express how something appears or feels.",
+        "pronunciation": "meh pah-REH-seh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Me parece que está feliz.",
+          "translation": "It seems to me that he/she is happy."
+        },
+        "tip": "This can introduce your opinion about a situation."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Expressing Opinions in Spanish",
+        "explanation": "In Spanish, expressing your opinion can be done with phrases like 'me gusta' (I like) and 'prefiero' (I prefer). You can also use 'creo que' (I believe that) to introduce your thoughts. Remember to adjust the verb forms based on the subject and the noun's number (singular/plural).",
+        "table": {
+          "headers": [
+            "Phrase",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "me gusta",
+              "for singular nouns"
+            ],
+            [
+              "me gustan",
+              "for plural nouns"
+            ],
+            [
+              "prefiero",
+              "to express preference"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Me gusta el libro.",
+            "translation": "I like the book.",
+            "breakdown": "Here, 'me gusta' is used because 'libro' is singular."
+          },
+          {
+            "original": "Me gustan las películas.",
+            "translation": "I like the movies.",
+            "breakdown": "Here, 'me gustan' is used because 'películas' is plural."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'me gusta' for plural items (correct: 'me gustan')",
+          "Using 'prefiero' without a comparison (correct: 'prefiero el té al café')"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Preferences",
+      "context": "Two friends are talking about their favorite drinks at a café.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Te gusta el café?",
+          "translation": "Do you like coffee?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "No, no me gusta el café.",
+          "translation": "No, I don't like coffee.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué prefieres?",
+          "translation": "What do you prefer?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Prefiero el té.",
+          "translation": "I prefer tea.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "A mí me gusta el té también.",
+          "translation": "I like tea too.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¿Crees que es mejor que el café?",
+          "translation": "Do you think it's better than coffee?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, creo que es mejor.",
+          "translation": "Yes, I believe that it's better.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "A mí me parece que es más saludable.",
+          "translation": "It seems to me that it is healthier.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Opinions in Spanish Culture",
+      "text": "In many Spanish-speaking cultures, discussing personal opinions is valued and often leads to deeper conversations. It's common to share thoughts on food, music, and social issues.",
+      "funFact": "In Argentina, people often engage in long discussions about their favorite foods, especially during family gatherings."
+    },
+    "summary": {
+      "keyPoints": [
+        "Use 'me gusta' and 'no me gusta' to express likes and dislikes.",
+        "Use 'prefiero' to state your preferences between two options.",
+        "Introduce your opinions with 'creo que' and 'me parece'.",
+        "Remember to match verbs to singular and plural nouns."
+      ],
+      "nextSteps": "Practice using these phrases in different contexts and try to create your own sentences expressing your opinions."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'prefiero' mean in English?",
+      "content": {
+        "options": [
+          "I like",
+          "I prefer",
+          "I think",
+          "I don't like"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Prefiero' translates to 'I prefer' in English.",
+      "hint": "Think about choices between two things.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase means 'It seems to me'?",
+      "content": {
+        "options": [
+          "Me gusta",
+          "No me gusta",
+          "Me parece",
+          "Creo que"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Me parece' means 'It seems to me' in English.",
+      "hint": "This phrase is often used to express opinions.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Yo ___ pizza.'",
+      "content": {
+        "sentence": "Yo ___ pizza.",
+        "correctAnswer": "prefiero",
+        "acceptableAnswers": [
+          "prefiero",
+          "me gusta"
+        ],
+        "options": [
+          "me gusta",
+          "prefiero",
+          "no me gusta"
+        ]
+      },
+      "explanation": "The correct answer is 'prefiero', meaning 'I prefer pizza.'",
+      "hint": "Think about what you like more.",
+      "difficulty": "EASY",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'A mí ___ el chocolate.'",
+      "content": {
+        "sentence": "A mí ___ el chocolate.",
+        "correctAnswer": "me gusta",
+        "acceptableAnswers": [
+          "me gusta"
+        ],
+        "options": [
+          "me parece",
+          "no me gusta",
+          "me gusta"
+        ]
+      },
+      "explanation": "'Me gusta' is the correct answer, meaning 'I like chocolate.'",
+      "hint": "This is a phrase to express likes.",
+      "difficulty": "EASY",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'me / parece / que / es / mejor / esto'.",
+      "content": {
+        "words": [
+          "me",
+          "parece",
+          "que",
+          "es",
+          "mejor",
+          "esto"
+        ],
+        "correctOrder": [
+          "me",
+          "parece",
+          "que",
+          "esto",
+          "es",
+          "mejor"
+        ],
+        "translation": "It seems to me that this is better."
+      },
+      "explanation": "The correct order forms a coherent opinion statement.",
+      "hint": "Start with 'me parece que'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I think that soccer is better than basketball.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I think that soccer is better than basketball.'",
+        "correctAnswer": "Creo que el fútbol es mejor que el baloncesto.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation captures the opinion about sports.",
+      "hint": "Remember 'I think' is 'creo que'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct opinion given in Spanish.",
+      "content": {
+        "ttsText": "Me gusta el cine más que la televisión.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I like movies more than TV",
+          "I prefer TV to movies",
+          "I think TV is better"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct option matches what was said in Spanish.",
+      "hint": "Listen carefully for 'me gusta'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'I prefer to read books.'",
+      "content": {
+        "targetText": "Prefiero leer libros.",
+        "context": "Expressing your preference about activities.",
+        "acceptableVariants": [
+          "Prefiero leer libros."
+        ]
+      },
+      "explanation": "The correct response is a direct expression of preference.",
+      "hint": "Start with 'Prefiero'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'creo que' mean?",
+      "content": {
+        "options": [
+          "I like",
+          "I prefer",
+          "I think that",
+          "I don't like"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Creo que' translates to 'I think that' in English.",
+      "hint": "Use this phrase when expressing thoughts.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'A mí no ___ el café.'",
+      "content": {
+        "sentence": "A mí no ___ el café.",
+        "correctAnswer": "me gusta",
+        "acceptableAnswers": [
+          "me gusta"
+        ],
+        "options": [
+          "me gusta",
+          "prefiero",
+          "no me gusta"
+        ]
+      },
+      "explanation": "'No me gusta' means 'I don't like' and fits the sentence perfectly.",
+      "hint": "Think about expressing dislike.",
+      "difficulty": "HARD",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to English: 'Me parece que es un buen libro.'",
+      "content": {
+        "prompt": "Translate to English: 'Me parece que es un buen libro.'",
+        "correctAnswer": "It seems to me that it is a good book.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation conveys the opinion about the book.",
+      "hint": "Focus on 'Me parece' and its meaning.",
+      "difficulty": "HARD",
+      "xp_reward": 4
+    }
+  ]
+}

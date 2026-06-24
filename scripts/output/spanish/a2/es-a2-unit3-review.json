@@ -1,0 +1,327 @@
+{
+  "lesson": {
+    "title": "Unit 3 Review",
+    "type": "REVIEW",
+    "slug": "es-a2-unit3-review"
+  },
+  "unit": "Making Plans & Future",
+  "unitOrder": 3,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will review vocabulary and grammar related to making plans and the future tense in Spanish. You will also practice a dialogue that incorporates these elements.",
+      "culturalNote": "In many Spanish-speaking countries, planning social gatherings is important, and it's common to discuss plans in advance."
+    },
+    "vocabulary": [
+      {
+        "term": "el plan",
+        "translation": "the plan",
+        "definition": "a proposal for an intended activity",
+        "pronunciation": "el plahn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo un plan para el fin de semana.",
+          "translation": "I have a plan for the weekend."
+        },
+        "tip": "Think of 'plan' in English; it sounds similar."
+      },
+      {
+        "term": "la cita",
+        "translation": "the appointment",
+        "definition": "a scheduled meeting or date",
+        "pronunciation": "lah see-tah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo una cita con el médico.",
+          "translation": "I have an appointment with the doctor."
+        },
+        "tip": "Remember 'cita' as a meeting or date you schedule."
+      },
+      {
+        "term": "¿Qué tal?",
+        "translation": "How's it going?",
+        "definition": "a common greeting to ask how someone is",
+        "pronunciation": "keh tahl",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "¡Hola! ¿Qué tal?",
+          "translation": "Hello! How's it going?"
+        },
+        "tip": "Use this phrase to greet friends casually."
+      },
+      {
+        "term": "ir a + infinitive",
+        "translation": "going to + verb",
+        "definition": "a structure to express future plans",
+        "pronunciation": "eer ah + infinitive",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Voy a comer pizza.",
+          "translation": "I am going to eat pizza."
+        },
+        "tip": "This structure helps you talk about future actions."
+      },
+      {
+        "term": "mañana",
+        "translation": "tomorrow",
+        "definition": "the day after today",
+        "pronunciation": "mahn-yah-nah",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Mañana vamos al cine.",
+          "translation": "Tomorrow we are going to the movies."
+        },
+        "tip": "This word is often used when making plans."
+      },
+      {
+        "term": "el fin de semana",
+        "translation": "the weekend",
+        "definition": "Saturday and Sunday",
+        "pronunciation": "el feen de seh-mah-nah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El fin de semana es para descansar.",
+          "translation": "The weekend is for resting."
+        },
+        "tip": "Think of planning activities for your weekend."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Future Plans with 'ir a'",
+        "explanation": "'Ir a' is used to express future plans or intentions. It is followed by an infinitive verb. For example, 'Voy a estudiar' means 'I am going to study.' This structure is very common in everyday conversation.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Ir a + Infinitive"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "Voy a estudiar"
+            ],
+            [
+              "Tú",
+              "Vas a comer"
+            ],
+            [
+              "Él/Ella",
+              "Va a salir"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Nosotros vamos a viajar a México.",
+            "translation": "We are going to travel to Mexico.",
+            "breakdown": "Here, 'Nosotros' (we) is the subject, 'vamos' (are going) is the conjugated verb, and 'viajar' (to travel) is the infinitive."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'voy a' with a conjugated verb: Correct: 'Voy a comer.' Incorrect: 'Voy a comes.'",
+          "Forgetting to use 'ir a' for future plans: Correct: 'Voy a estudiar.' Incorrect: 'Estudio mañana.' (which means 'I study tomorrow.')"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Weekend Outing",
+      "context": "Two friends are discussing their plans for the weekend.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¡Hola Ana! ¿Qué tal?",
+          "translation": "Hello Ana! How's it going?",
+          "note": "Carlos greets Ana."
+        },
+        {
+          "speaker": 1,
+          "text": "¡Hola Carlos! Muy bien, gracias. ¿Y tú?",
+          "translation": "Hello Carlos! Very well, thank you. And you?",
+          "note": "Ana responds."
+        },
+        {
+          "speaker": 0,
+          "text": "Quiero hacer un plan para el fin de semana.",
+          "translation": "I want to make a plan for the weekend.",
+          "note": "Carlos expresses his desire to plan."
+        },
+        {
+          "speaker": 1,
+          "text": "¡Buena idea! ¿Qué te gustaría hacer?",
+          "translation": "Good idea! What would you like to do?",
+          "note": "Ana encourages Carlos."
+        },
+        {
+          "speaker": 0,
+          "text": "Voy a ir al cine. ¿Te gustaría venir?",
+          "translation": "I am going to the movies. Would you like to come?",
+          "note": "Carlos invites Ana."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, me encantaría. ¿A qué hora?",
+          "translation": "Yes, I would love to. What time?",
+          "note": "Ana accepts the invitation."
+        },
+        {
+          "speaker": 0,
+          "text": "A las siete de la tarde.",
+          "translation": "At seven in the evening.",
+          "note": "Carlos specifies the time."
+        },
+        {
+          "speaker": 1,
+          "text": "Perfecto, nos vemos a las siete.",
+          "translation": "Perfect, see you at seven.",
+          "note": "Ana confirms the plan."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Social Gatherings in Latin America",
+      "text": "In Latin America, social gatherings are often planned in advance, whether for family events or outings with friends. It's common for people to ask about plans and share them openly.",
+      "funFact": "In some countries, it's customary to say '¿Qué tal?' as a friendly way to ask how someone is doing."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review vocabulary related to making plans and future actions.",
+        "Understand the structure 'ir a + infinitive' for future plans.",
+        "Practice a dialogue about planning a weekend outing.",
+        "Learn cultural insights about social interactions in Spanish-speaking countries."
+      ],
+      "nextSteps": "Practice using 'ir a' in sentences about your own future plans and try creating your own dialogues."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'el plan' mean in English?",
+      "content": {
+        "options": [
+          "the plan",
+          "the date",
+          "the weekend",
+          "the future"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El plan' translates directly to 'the plan' in English.",
+      "hint": "Think of something you organize or decide to do.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase means 'What’s up?' in Spanish?",
+      "content": {
+        "options": [
+          "Mañana",
+          "¿Qué tal?",
+          "El fin de semana",
+          "La cita"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The phrase '¿Qué tal?' is commonly used to ask how someone is doing.",
+      "hint": "It's a casual greeting.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Mañana voy a ___ al cine.",
+      "content": {
+        "sentence": "Mañana voy a ___ al cine.",
+        "correctAnswer": "ir",
+        "acceptableAnswers": [
+          "ir"
+        ],
+        "options": [
+          "comer",
+          "ir",
+          "jugar",
+          "leer"
+        ]
+      },
+      "explanation": "The correct verb form is 'ir' which means 'to go'.",
+      "hint": "It's the action of going somewhere.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: ¿Qué tal tu ___ para el fin de semana?",
+      "content": {
+        "sentence": "¿Qué tal tu ___ para el fin de semana?",
+        "correctAnswer": "plan",
+        "acceptableAnswers": [
+          "plan"
+        ],
+        "options": [
+          "cita",
+          "plan",
+          "comida",
+          "película"
+        ]
+      },
+      "explanation": "The word 'plan' fits in the context of making arrangements for the weekend.",
+      "hint": "It's something you decide to do.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I have a date tomorrow.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I have a date tomorrow.'",
+        "correctAnswer": "Tengo una cita mañana.",
+        "acceptableAnswers": [
+          "Tengo una cita mañana"
+        ]
+      },
+      "explanation": "The translation captures both the meaning and the correct sentence structure.",
+      "hint": "Focus on the word for 'date'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Voy a estudiar mañana.'",
+      "content": {
+        "ttsText": "Voy a estudiar mañana.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I will study tomorrow.",
+          "I went to study tomorrow.",
+          "I study tomorrow.",
+          "I studied tomorrow."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation conveys the future intention of studying.",
+      "hint": "Focus on the future tense in the translation.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I’m going to the park this weekend.'",
+      "content": {
+        "targetText": "Voy al parque este fin de semana.",
+        "context": "Translate and speak the sentence.",
+        "acceptableVariants": [
+          "Voy al parque este fin de semana",
+          "Voy al parque el fin de semana"
+        ]
+      },
+      "explanation": "This sentence correctly uses the future form 'voy a' to indicate plans.",
+      "hint": "Think about where you are going.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

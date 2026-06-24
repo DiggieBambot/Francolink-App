@@ -1,0 +1,355 @@
+{
+  "lesson": {
+    "title": "Konjunktiv I (Reported Speech)",
+    "type": "GRAMMAR",
+    "slug": "de-b2-konjunktiv-i"
+  },
+  "unit": "Advanced Grammar Review",
+  "unitOrder": 1,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about the Konjunktiv I, which is used in reported speech in German. You will understand how to form it correctly and apply it in different contexts.",
+      "culturalNote": "In German-speaking countries, reported speech is quite common in journalism and formal writing, emphasizing the importance of accurately conveying others' statements."
+    },
+    "vocabulary": [
+      {
+        "term": "der Bericht",
+        "translation": "the report",
+        "definition": "A formal account of an event or situation.",
+        "pronunciation": "dehr beh-RIECHT",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Bericht über das Ereignis war sehr informativ.",
+          "translation": "The report about the event was very informative."
+        },
+        "tip": "Remember that 'Bericht' is masculine, so it uses 'der'."
+      },
+      {
+        "term": "die Aussage",
+        "translation": "the statement",
+        "definition": "A declaration or expression of opinion.",
+        "pronunciation": "dee OW-sah-guh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ihre Aussage war klar und verständlich.",
+          "translation": "Her statement was clear and understandable."
+        },
+        "tip": "'Aussage' is feminine, so it uses 'die'."
+      },
+      {
+        "term": "das Zitat",
+        "translation": "the quotation",
+        "definition": "A repetition of someone else's statement or thoughts.",
+        "pronunciation": "dahs tsih-TAHT",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Zitat von Goethe ist sehr bekannt.",
+          "translation": "The quotation by Goethe is very well-known."
+        },
+        "tip": "Remember that 'Zitat' is neuter, so it uses 'das'."
+      },
+      {
+        "term": "der Sprecher",
+        "translation": "the speaker",
+        "definition": "A person who speaks or delivers a message.",
+        "pronunciation": "dehr SHPREH-kher",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Sprecher erklärte die Situation detailliert.",
+          "translation": "The speaker explained the situation in detail."
+        },
+        "tip": "'Sprecher' is masculine, so it uses 'der'."
+      },
+      {
+        "term": "die Formulierung",
+        "translation": "the formulation",
+        "definition": "The way in which something is expressed or stated.",
+        "pronunciation": "dee for-moo-LEE-rung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Formulierung war sehr präzise.",
+          "translation": "The formulation was very precise."
+        },
+        "tip": "'Formulierung' is feminine, so it uses 'die'."
+      },
+      {
+        "term": "die Kommunikation",
+        "translation": "the communication",
+        "definition": "The act of conveying information.",
+        "pronunciation": "dee koh-mu-nee-kah-TSIOHN",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Kommunikation zwischen den Teams war wichtig.",
+          "translation": "The communication between the teams was important."
+        },
+        "tip": "'Kommunikation' is feminine, so it uses 'die'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Konjunktiv I (Reported Speech)",
+        "explanation": "The Konjunktiv I is used to report what someone else has said without quoting them directly. It is formed using the present tense stem of the verb and specific endings. This tense is particularly common in journalism and formal contexts. The forms can sometimes look similar to the indicative, so context is essential to understanding.",
+        "table": {
+          "headers": [
+            "English Verb",
+            "Konjunktiv I (Present)"
+          ],
+          "rows": [
+            [
+              "sagen (to say)",
+              "er/sie sage"
+            ],
+            [
+              "gehen (to go)",
+              "er/sie gehe"
+            ],
+            [
+              "lesen (to read)",
+              "er/sie lese"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Er sagte, er komme später.",
+            "translation": "He said that he would come later.",
+            "breakdown": "Here, 'komme' is the Konjunktiv I form of 'kommen' (to come), used to report his statement."
+          },
+          {
+            "original": "Sie meint, dass es morgen regne.",
+            "translation": "She thinks that it will rain tomorrow.",
+            "breakdown": "'Regne' is the reported form of 'regnen' (to rain) in Konjunktiv I."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the Konjunktiv I: 'Er sagt, er kommt später.' (This is incorrect for reported speech.)",
+          "Confusing the forms with the subjunctive (Konjunktiv II): 'Er sagte, er würde kommen.' (This is not the same as Konjunktiv I.)"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Recent Event",
+      "context": "A conversation between two colleagues after a meeting discussing a report.",
+      "speakers": [
+        "Lukas",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Lukas, was hat der Chef in der Besprechung gesagt?",
+          "translation": "Lukas, what did the boss say in the meeting?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Er sagte, dass das Projekt erfolgreich sei.",
+          "translation": "He said that the project was successful.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Hat er irgendwelche Bedenken geäußert?",
+          "translation": "Did he express any concerns?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, er meinte, dass die Fristen zu knapp seien.",
+          "translation": "Yes, he thought that the deadlines were too tight.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt ernst. Was sollen wir tun?",
+          "translation": "That sounds serious. What should we do?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Wir sollten die Planung überarbeiten und ihn informieren.",
+          "translation": "We should revise the planning and inform him.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Gute Idee! Ich werde den Bericht vorbereiten.",
+          "translation": "Good idea! I will prepare the report.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Perfekt! Dann können wir alles rechtzeitig einreichen.",
+          "translation": "Perfect! Then we can submit everything on time.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Clear Reporting in German Media",
+      "text": "In German-speaking countries, journalists are trained to report news accurately and objectively, often using the Konjunktiv I in their articles. This reflects a cultural emphasis on clarity and precision in communication.",
+      "funFact": "In Germany, the use of Konjunktiv I is so prevalent that it is sometimes referred to as the 'journalistic mood'."
+    },
+    "summary": {
+      "keyPoints": [
+        "The Konjunktiv I is essential for reported speech.",
+        "It is formed using the present tense stem and specific endings.",
+        "Context helps differentiate between indicative and Konjunktiv I.",
+        "Common in journalism and formal writing."
+      ],
+      "nextSteps": "Practice forming sentences using Konjunktiv I and try using it in your own reported speech examples."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct Konjunktiv I form of 'er sagt'?",
+      "content": {
+        "options": [
+          "er sage",
+          "er saget",
+          "er sagt",
+          "er sagte"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct form in Konjunktiv I for 'er sagt' is 'er sage'.",
+      "hint": "Remember the rules for forming Konjunktiv I.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following sentences is in reported speech using Konjunktiv I?",
+      "content": {
+        "options": [
+          "Er sagt, er kommt.",
+          "Er sagte, er komme.",
+          "Er hat gesagt, er kommt.",
+          "Er wird sagen, er komme."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The sentence 'Er sagte, er komme.' uses the correct Konjunktiv I form.",
+      "hint": "Look for the verb forms that indicate reported speech.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Der Sprecher ___, dass er morgen kommt.",
+      "content": {
+        "sentence": "Der Sprecher ___, dass er morgen kommt.",
+        "correctAnswer": "sage",
+        "acceptableAnswers": [
+          "sage"
+        ],
+        "options": [
+          "sagt",
+          "sage",
+          "sagte",
+          "gesagt"
+        ]
+      },
+      "explanation": "The correct form is 'sage' as it indicates reported speech in Konjunktiv I.",
+      "hint": "Think about the verb conjugation in reported speech.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Er behauptet, dass sie ___ (nicht kommen).",
+      "content": {
+        "sentence": "Er behauptet, dass sie ___ (nicht kommen).",
+        "correctAnswer": "nicht komme",
+        "acceptableAnswers": [
+          "nicht komme"
+        ],
+        "options": [
+          "nicht kommt",
+          "nicht komme",
+          "nicht kam",
+          "nicht gekommen"
+        ]
+      },
+      "explanation": "'nicht komme' is the correct Konjunktiv I form for reported speech.",
+      "hint": "Pay attention to the negation and verb form.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: sagt, er, dass, sie, kommt.",
+      "content": {
+        "words": [
+          "sagt",
+          "er",
+          "dass",
+          "sie",
+          "kommt"
+        ],
+        "correctOrder": [
+          "er",
+          "sagt",
+          "dass",
+          "sie",
+          "kommt"
+        ],
+        "translation": "He says that she is coming."
+      },
+      "explanation": "The correct order follows the standard sentence structure in German.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'She claims that he is right.'",
+      "content": {
+        "prompt": "Translate to German: 'She claims that he is right.'",
+        "correctAnswer": "Sie behauptet, dass er recht sei.",
+        "acceptableAnswers": []
+      },
+      "explanation": "'Sie behauptet, dass er recht sei.' uses the correct Konjunktiv I form.",
+      "hint": "Think about how to express claims in reported speech.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct transcription.",
+      "content": {
+        "ttsText": "Er sagt, dass wir heute arbeiten.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Er sagt, dass wir heute arbeiten.",
+          "Er sagte, dass wir heute arbeiten.",
+          "Er sagt, dass wir heute arbeiten werden.",
+          "Er sagt, wir arbeiten heute."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct transcription is 'Er sagt, dass wir heute arbeiten.'",
+      "hint": "Listen carefully for the verb forms.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in German: 'He said that they would leave soon.'",
+      "content": {
+        "targetText": "Er sagte, dass sie bald gehen würden.",
+        "context": "Translate and speak the reported speech in German.",
+        "acceptableVariants": [
+          "Er sagte, dass sie bald gehen.",
+          "Er sagte, sie würden bald gehen."
+        ]
+      },
+      "explanation": "This sentence correctly reflects reported speech in the future tense.",
+      "hint": "Focus on the future intention in your sentence.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

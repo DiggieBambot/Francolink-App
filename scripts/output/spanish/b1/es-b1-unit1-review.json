@@ -1,0 +1,356 @@
+{
+  "lesson": {
+    "title": "Unit 1 Review",
+    "type": "REVIEW",
+    "slug": "es-b1-unit1-review"
+  },
+  "unit": "Expressing Opinions",
+  "unitOrder": 1,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this review lesson, you will revisit key vocabulary and grammar points related to expressing opinions in Spanish. You will also practice a dialogue that incorporates these elements to enhance your conversational skills.",
+      "culturalNote": "In many Latin American countries, expressing opinions openly is an important part of social interactions, often reflecting cultural values of honesty and directness."
+    },
+    "vocabulary": [
+      {
+        "term": "la opinión",
+        "translation": "the opinion",
+        "definition": "A belief or judgment about something.",
+        "pronunciation": "lah oh-pee-nyohn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi opinión es que deberíamos ir al cine.",
+          "translation": "My opinion is that we should go to the movies."
+        },
+        "tip": "Remember that 'opinión' is feminine, so use 'la'."
+      },
+      {
+        "term": "me parece que",
+        "translation": "it seems to me that",
+        "definition": "A phrase used to express personal opinions.",
+        "pronunciation": "meh pah-reh-seh keh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Me parece que la comida mexicana es deliciosa.",
+          "translation": "It seems to me that Mexican food is delicious."
+        },
+        "tip": "Use this phrase to soften your opinions in conversations."
+      },
+      {
+        "term": "es importante que",
+        "translation": "it's important that",
+        "definition": "A phrase used to indicate importance in a statement.",
+        "pronunciation": "es im-por-tan-teh keh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Es importante que todos participen en la discusión.",
+          "translation": "It's important that everyone participates in the discussion."
+        },
+        "tip": "Follow this phrase with the subjunctive mood for correct grammar."
+      },
+      {
+        "term": "a pesar de",
+        "translation": "despite",
+        "definition": "A preposition used to indicate contrast.",
+        "pronunciation": "ah peh-sar deh",
+        "partOfSpeech": "preposition",
+        "exampleSentence": {
+          "original": "A pesar de la lluvia, fuimos al parque.",
+          "translation": "Despite the rain, we went to the park."
+        },
+        "tip": "Use this to introduce contrasting ideas."
+      },
+      {
+        "term": "si yo fuera",
+        "translation": "if I were",
+        "definition": "A conditional phrase used to express hypothetical situations.",
+        "pronunciation": "see yo feh-rah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Si yo fuera tú, hablaría con ella.",
+          "translation": "If I were you, I would talk to her."
+        },
+        "tip": "Use this structure to give advice or opinions."
+      },
+      {
+        "term": "creo que",
+        "translation": "I believe that",
+        "definition": "A phrase used to express a belief or opinion.",
+        "pronunciation": "creh-oh keh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Creo que deberíamos cambiar de plan.",
+          "translation": "I believe that we should change our plan."
+        },
+        "tip": "This phrase is direct and can be used in most opinions."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Present Subjunctive",
+        "explanation": "The present subjunctive is used to express wishes, doubts, or opinions. It is often used after phrases like 'es importante que' or 'me parece que'. The verb forms change depending on the subject, so it's important to learn those conjugations.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Verb (hablar)"
+          ],
+          "rows": [
+            [
+              "yo",
+              "hable"
+            ],
+            [
+              "tú",
+              "hables"
+            ],
+            [
+              "él/ella",
+              "hable"
+            ],
+            [
+              "nosotros",
+              "hablemos"
+            ],
+            [
+              "ellos",
+              "hablen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es importante que hablemos sobre el tema.",
+            "translation": "It's important that we talk about the topic.",
+            "breakdown": "Here, 'hablemos' is the subjunctive form of 'hablar' for 'we'."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive. Correct: 'Es necesario que estudies.' (It's necessary that you study.)",
+          "Forgetting to use the subjunctive after certain expressions. Correct: 'Me alegra que vengas.' (I'm glad that you are coming.)"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Plans",
+      "context": "A casual conversation between friends about their weekend plans.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola Ana, ¿qué planes tienes para el fin de semana?",
+          "translation": "Hi Ana, what plans do you have for the weekend?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hola Carlos, creo que debería descansar un poco.",
+          "translation": "Hi Carlos, I believe I should rest a bit."
+        },
+        {
+          "speaker": 0,
+          "text": "A mí me parece que es buena idea, pero podríamos ir al cine también.",
+          "translation": "It seems to me that it's a good idea, but we could go to the movies too."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, es importante que tengamos tiempo para relajarnos.",
+          "translation": "Yes, it's important that we have time to relax."
+        },
+        {
+          "speaker": 0,
+          "text": "Si yo fuera tú, iría al cine para distraerme.",
+          "translation": "If I were you, I would go to the movies to unwind."
+        },
+        {
+          "speaker": 1,
+          "text": "A pesar de que estoy cansada, creo que me gustaría ir.",
+          "translation": "Despite being tired, I think I would like to go."
+        },
+        {
+          "speaker": 0,
+          "text": "Genial, entonces hacemos planes para el sábado.",
+          "translation": "Great, then let's make plans for Saturday."
+        },
+        {
+          "speaker": 1,
+          "text": "Perfecto, me parece que será divertido.",
+          "translation": "Perfect, it seems to me that it will be fun."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Social Expressions in Latin America",
+      "text": "In many Latin American cultures, expressing opinions is often accompanied by passionate discussions. People may feel comfortable sharing their views on various topics, from politics to food.",
+      "funFact": "In Mexico, it's common to use the phrase 'en mi opinión' (in my opinion) to emphasize personal beliefs, especially during family gatherings."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review key vocabulary related to expressing opinions.",
+        "Practice the present subjunctive with opinion phrases.",
+        "Engage in dialogues that reflect real-life situations.",
+        "Understand cultural nuances in expressing opinions."
+      ],
+      "nextSteps": "Continue practicing by writing your own opinions about different topics and using the vocabulary and grammar from this unit."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'me parece que' mean in English?",
+      "content": {
+        "options": [
+          "I think that",
+          "I believe that",
+          "It seems to me that",
+          "I have the opinion that"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Me parece que' translates to 'It seems to me that', expressing a personal perspective.",
+      "hint": "Look for phrases that express personal views.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following expresses a conjecture?",
+      "content": {
+        "options": [
+          "Es importante que",
+          "Si yo fuera",
+          "Creo que",
+          "A pesar de"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Si yo fuera' is a conditional phrase used to express hypothetical situations, making it a conjecture.",
+      "hint": "Think about what you would do in a hypothetical situation.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: '_______ que es importante cuidar el medio ambiente.'",
+      "content": {
+        "sentence": "_______ que es importante cuidar el medio ambiente.",
+        "correctAnswer": "Creo",
+        "acceptableAnswers": [
+          "Creo",
+          "Me parece",
+          "Opino"
+        ],
+        "options": [
+          "Creo",
+          "Me parece",
+          "Es importante",
+          "Pienso"
+        ]
+      },
+      "explanation": "The correct answer is 'Creo', which means 'I believe' in English.",
+      "hint": "Look for a word that expresses personal belief.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: '_______ de las dificultades, seguimos adelante.'",
+      "content": {
+        "sentence": "_______ de las dificultades, seguimos adelante.",
+        "correctAnswer": "A pesar",
+        "acceptableAnswers": [
+          "A pesar",
+          "A pesar de",
+          "Aunque"
+        ],
+        "options": [
+          "A pesar",
+          "A pesar de",
+          "Sin embargo",
+          "Aun así"
+        ]
+      },
+      "explanation": "'A pesar' means 'in spite of', indicating perseverance despite challenges.",
+      "hint": "Think of a phrase that indicates overcoming challenges.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: 'importante que es opinión la'.",
+      "content": {
+        "words": [
+          "importante",
+          "que",
+          "es",
+          "opinión",
+          "la"
+        ],
+        "correctOrder": [
+          "la",
+          "opinión",
+          "es",
+          "importante",
+          "que"
+        ],
+        "translation": "It is important that the opinion"
+      },
+      "explanation": "The correct order conveys the idea that something is important.",
+      "hint": "Start with 'la opinión'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I think it is important.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I think it is important.'",
+        "correctAnswer": "Creo que es importante.",
+        "acceptableAnswers": [
+          "Creo que es importante",
+          "Me parece que es importante"
+        ]
+      },
+      "explanation": "The correct translation expresses personal belief about importance.",
+      "hint": "Use 'Creo que' for 'I think that'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Es importante que todos participen.",
+        "ttsLang": "es-ES",
+        "options": [
+          "It is important that everyone participates.",
+          "Everyone should participate.",
+          "It is necessary for everyone to participate."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation accurately reflects the meaning of the Spanish sentence.",
+      "hint": "Focus on the word 'importante'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'If I were rich, I would travel the world.'",
+      "content": {
+        "targetText": "Si yo fuera rico, viajaría por el mundo.",
+        "context": "Express a hypothetical situation about wealth.",
+        "acceptableVariants": [
+          "Si yo fuera rica, viajaría por el mundo.",
+          "Si fuese rico, viajaría por el mundo."
+        ]
+      },
+      "explanation": "The sentence expresses a conditional hypothetical situation.",
+      "hint": "Start with 'Si yo fuera'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

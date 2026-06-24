@@ -1,0 +1,353 @@
+{
+  "lesson": {
+    "title": "Expressing Concern & Suggestions",
+    "type": "CONVERSATION",
+    "slug": "es-b1-concern"
+  },
+  "unit": "Environment & Society",
+  "unitOrder": 6,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to express concern and make suggestions in Spanish, particularly in the context of environmental issues. You will practice using the present subjunctive and phrases for giving advice.",
+      "culturalNote": "Environmental awareness is a significant topic in many Spanish-speaking countries, with various initiatives aimed at sustainability and conservation."
+    },
+    "vocabulary": [
+      {
+        "term": "la contaminación",
+        "translation": "pollution",
+        "definition": "The presence of harmful substances in the environment.",
+        "pronunciation": "lah kohn-tah-mee-nah-syohn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La contaminación del aire es un problema grave.",
+          "translation": "Air pollution is a serious problem."
+        },
+        "tip": "Think of 'contaminate' in English to remember this term."
+      },
+      {
+        "term": "sugerir",
+        "translation": "to suggest",
+        "definition": "To propose an idea or plan.",
+        "pronunciation": "soo-heh-reer",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Te sugiero que uses transporte público.",
+          "translation": "I suggest that you use public transportation."
+        },
+        "tip": "The verb 'sugerir' is often followed by the subjunctive."
+      },
+      {
+        "term": "proteger",
+        "translation": "to protect",
+        "definition": "To keep safe from harm or damage.",
+        "pronunciation": "proh-teh-her",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Es importante proteger el medio ambiente.",
+          "translation": "It is important to protect the environment."
+        },
+        "tip": "Think of 'protect' in English; it's similar!"
+      },
+      {
+        "term": "el reciclaje",
+        "translation": "recycling",
+        "definition": "The process of converting waste into reusable material.",
+        "pronunciation": "el reh-see-klah-he",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El reciclaje ayuda a reducir la basura.",
+          "translation": "Recycling helps reduce waste."
+        },
+        "tip": "Remember 'recycle' to help with this word."
+      },
+      {
+        "term": "la energía renovable",
+        "translation": "renewable energy",
+        "definition": "Energy from sources that are naturally replenished.",
+        "pronunciation": "lah eh-ner-hee-ah reh-noh-vah-bleh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La energía renovable es el futuro.",
+          "translation": "Renewable energy is the future."
+        },
+        "tip": "Think of 'renew' in English to remember this term."
+      },
+      {
+        "term": "es necesario que",
+        "translation": "it's necessary that",
+        "definition": "A phrase used to indicate something that is essential.",
+        "pronunciation": "es neh-seh-sah-ree-oh keh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Es necesario que actuemos ahora.",
+          "translation": "It's necessary that we act now."
+        },
+        "tip": "Use this phrase to introduce suggestions using the subjunctive."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Present Subjunctive Usage",
+        "explanation": "The present subjunctive is used to express wishes, doubts, or suggestions. It is often triggered by expressions like 'es necesario que' (it's necessary that) or 'sugiero que' (I suggest that). The verb changes based on the subject.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Verb Conjugation"
+          ],
+          "rows": [
+            [
+              "yo",
+              "hable"
+            ],
+            [
+              "tú",
+              "hables"
+            ],
+            [
+              "él/ella",
+              "hable"
+            ],
+            [
+              "nosotros",
+              "hablemos"
+            ],
+            [
+              "vosotros",
+              "habléis"
+            ],
+            [
+              "ellos/ellas",
+              "hablen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es importante que protejamos el medio ambiente.",
+            "translation": "It's important that we protect the environment.",
+            "breakdown": "The verb 'proteger' is conjugated in the subjunctive ('protejamos') after 'es importante que'."
+          }
+        ],
+        "commonMistakes": [
+          "'Yo sugiero que tú usas el transporte público.' should be 'Yo sugiero que tú uses el transporte público.' (subjunctive form needed)",
+          "'Es necesario proteger el medio ambiente.' is correct, but without the subjunctive, it doesn't express a suggestion."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Environmental Concerns",
+      "context": "A conversation between two friends at a coffee shop discussing local environmental issues.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, Luis. Estoy preocupada por la contaminación en nuestra ciudad.",
+          "translation": "Hi, Luis. I am worried about pollution in our city."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, yo también. Es necesario que hagamos algo al respecto.",
+          "translation": "Yes, me too. It's necessary that we do something about it."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué sugieres que hagamos?",
+          "translation": "What do you suggest we do?"
+        },
+        {
+          "speaker": 1,
+          "text": "Podríamos organizar una limpieza en el parque.",
+          "translation": "We could organize a cleanup in the park."
+        },
+        {
+          "speaker": 0,
+          "text": "Eso suena bien. También creo que deberíamos hablar sobre el reciclaje.",
+          "translation": "That sounds good. I also think we should talk about recycling."
+        },
+        {
+          "speaker": 1,
+          "text": "Exacto. Es importante que todos participen.",
+          "translation": "Exactly. It's important that everyone participates."
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, y deberíamos promover el uso de energía renovable.",
+          "translation": "Yes, and we should promote the use of renewable energy."
+        },
+        {
+          "speaker": 1,
+          "text": "De acuerdo. Voy a hacer algunos carteles para la limpieza.",
+          "translation": "Okay. I will make some posters for the cleanup."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Environmental Initiatives in Latin America",
+      "text": "Many Latin American countries are taking significant steps to address environmental issues, such as deforestation and pollution. These initiatives often involve community participation and education.",
+      "funFact": "Costa Rica is known for its commitment to sustainability and has set a goal to become the first carbon-neutral country."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to environmental concerns.",
+        "Practiced using the present subjunctive to express suggestions.",
+        "Engaged in a dialogue about taking action for the environment.",
+        "Explored cultural insights on environmental initiatives."
+      ],
+      "nextSteps": "Practice creating your own sentences using the present subjunctive and continue to expand your vocabulary related to environmental topics."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la contaminación' mean in English?",
+      "content": {
+        "options": [
+          "pollution",
+          "protection",
+          "recycling",
+          "energy"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La contaminación' translates to 'pollution' in English.",
+      "hint": "Think about the impact on the environment.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is a suggestion for protecting the environment?",
+      "content": {
+        "options": [
+          "Increase pollution",
+          "Reduce waste",
+          "Use more plastic",
+          "Ignore recycling"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "Reducing waste is a positive suggestion for protecting the environment.",
+      "hint": "Consider what actions help the planet.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Es necesario que ____ la energía renovable.'",
+      "content": {
+        "sentence": "Es necesario que ___ la energía renovable.",
+        "correctAnswer": "usemos",
+        "acceptableAnswers": [
+          "utilicemos"
+        ],
+        "options": [
+          "usamos",
+          "usaremos",
+          "usemos"
+        ]
+      },
+      "explanation": "The correct form 'usemos' is the subjunctive form for suggestions.",
+      "hint": "Think about what is necessary for the future.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Para reducir la contaminación, necesitamos ____.'",
+      "content": {
+        "sentence": "Para reducir la contaminación, necesitamos ___.",
+        "correctAnswer": "reciclar",
+        "acceptableAnswers": [
+          "reciclaje"
+        ],
+        "options": [
+          "proteger",
+          "reciclar",
+          "usar"
+        ]
+      },
+      "explanation": "Recycling is a key action to reduce pollution.",
+      "hint": "It's an action we can take.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the following words to form a correct sentence: 'sugerir / es necesario que / soluciones / encontremos'.",
+      "content": {
+        "words": [
+          "sugerir",
+          "es",
+          "necesario",
+          "que",
+          "encontremos",
+          "soluciones"
+        ],
+        "correctOrder": [
+          "es",
+          "necesario",
+          "que",
+          "sugerir",
+          "encontremos",
+          "soluciones"
+        ],
+        "translation": "It is necessary that we find solutions."
+      },
+      "explanation": "The sentence means we need to suggest solutions.",
+      "hint": "Start with 'es necesario que'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'We should protect the environment.'",
+      "content": {
+        "correctAnswer": "Deberíamos proteger el medio ambiente.",
+        "acceptableAnswers": [
+          "Deberíamos proteger la naturaleza."
+        ]
+      },
+      "explanation": "This translation emphasizes the need to protect our environment.",
+      "hint": "Think about the phrase for 'should'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Es importante reciclar todos los días.'",
+      "content": {
+        "ttsText": "Es importante reciclar todos los días.",
+        "ttsLang": "es-ES",
+        "options": [
+          "It is important to recycle every day.",
+          "It is necessary to protect the environment.",
+          "We should reduce pollution."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence emphasizes the importance of daily recycling.",
+      "hint": "Focus on the word 'importante'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'It is necessary to use renewable energy.'",
+      "content": {
+        "targetText": "Es necesario usar energía renovable.",
+        "context": "Translate this sentence into Spanish.",
+        "acceptableVariants": [
+          "Es necesario que usemos energía renovable."
+        ]
+      },
+      "explanation": "Both translations convey the same meaning about the necessity of renewable energy.",
+      "hint": "Start with 'Es necesario'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,359 @@
+{
+  "lesson": {
+    "title": "Konjunktiv II - Introduction",
+    "type": "GRAMMAR",
+    "slug": "de-b1-konjunktiv-intro"
+  },
+  "unit": "Conditionals & Wishes",
+  "unitOrder": 4,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about the Konjunktiv II in German, which is used for expressing wishes, hypotheticals, and polite requests. You will also explore how this mood differs from the indicative and how to use it in various contexts.",
+      "culturalNote": "In German-speaking cultures, using the Konjunktiv II is a polite way to express desires or hypothetical situations, reflecting a level of politeness and respect in conversation."
+    },
+    "vocabulary": [
+      {
+        "term": "der Wunsch",
+        "translation": "wish",
+        "definition": "a desire for something to happen",
+        "pronunciation": "dehr voonsh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Wunsch ist es, nach Deutschland zu reisen.",
+          "translation": "My wish is to travel to Germany."
+        },
+        "tip": "Remember that 'der Wunsch' is masculine; its plural is 'die Wünsche'."
+      },
+      {
+        "term": "das Hypothetische",
+        "translation": "hypothetical",
+        "definition": "something based on a supposition or assumption",
+        "pronunciation": "dahs hee-poh-teh-tih-sheh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Hypothetische ist oft schwer zu verstehen.",
+          "translation": "The hypothetical is often hard to understand."
+        },
+        "tip": "'Das Hypothetische' is neutral, and its plural is 'die Hypothetika'."
+      },
+      {
+        "term": "die Bitte",
+        "translation": "request",
+        "definition": "a polite request or plea",
+        "pronunciation": "dee bi-teh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe eine Bitte.",
+          "translation": "I have a request."
+        },
+        "tip": "'Die Bitte' is feminine; its plural is 'die Bitten'."
+      },
+      {
+        "term": "der Fall",
+        "translation": "case",
+        "definition": "a specific situation or instance",
+        "pronunciation": "dehr fahl",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Im Falle eines Notfalls rufen Sie uns an.",
+          "translation": "In case of an emergency, call us."
+        },
+        "tip": "'Der Fall' is masculine; its plural is 'die Fälle'."
+      },
+      {
+        "term": "die Realität",
+        "translation": "reality",
+        "definition": "the state of things as they are",
+        "pronunciation": "dee reh-ah-li-tait",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Realität ist oft anders als der Traum.",
+          "translation": "Reality is often different from the dream."
+        },
+        "tip": "'Die Realität' is feminine; its plural is 'die Realitäten'."
+      },
+      {
+        "term": "der Satz",
+        "translation": "sentence",
+        "definition": "a set of words that conveys a complete thought",
+        "pronunciation": "dehr zahts",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Satz ist im Konjunktiv II.",
+          "translation": "The sentence is in the subjunctive II."
+        },
+        "tip": "'Der Satz' is masculine; its plural is 'die Sätze'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Konjunktiv II Formation",
+        "explanation": "The Konjunktiv II is formed from the simple past tense of a verb, with specific endings applied. For regular verbs, you typically take the simple past stem and add the endings -e, -est, -e, -en, -et, -en. Irregular verbs may have unique stems.",
+        "table": {
+          "headers": [
+            "Verb (Infinitive)",
+            "Konjunktiv II (Example)"
+          ],
+          "rows": [
+            [
+              "sein",
+              "ich wäre"
+            ],
+            [
+              "haben",
+              "ich hätte"
+            ],
+            [
+              "gehen",
+              "ich ginge"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich mehr Zeit hätte, würde ich reisen.",
+            "translation": "If I had more time, I would travel.",
+            "breakdown": "This sentence uses 'hätte' (had) for the hypothetical situation and 'würde' (would) for the result."
+          },
+          {
+            "original": "Ich wünschte, ich wäre am Strand.",
+            "translation": "I wish I were at the beach.",
+            "breakdown": "Here 'wünschte' expresses a wish using the Konjunktiv II form of 'sein'."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the Konjunktiv II for hypotheticals, e.g., saying 'Ich habe' instead of 'Ich hätte'.",
+          "Forgetting to use 'würde' for conditional constructions."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Making a Wish",
+      "context": "Two friends discussing their dreams and wishes at a café.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Wenn ich reich wäre, würde ich um die Welt reisen.",
+          "translation": "If I were rich, I would travel around the world.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das wäre fantastisch! Was würdest du zuerst machen?",
+          "translation": "That would be fantastic! What would you do first?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich würde ein Haus am Meer kaufen.",
+          "translation": "I would buy a house by the sea.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Klingt wunderbar! Ich wünschte, ich hätte auch so viel Geld.",
+          "translation": "Sounds wonderful! I wish I also had that much money.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Wir könnten zusammen reisen, wenn du möchtest.",
+          "translation": "We could travel together if you want.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, das wäre toll! Ich würde gerne nach Italien gehen.",
+          "translation": "Yes, that would be great! I would love to go to Italy.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich hoffe, dass es eines Tages möglich ist.",
+          "translation": "I hope that it will be possible one day.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich auch! Lass uns träumen!",
+          "translation": "Yes, me too! Let's dream!"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Wishes in German Culture",
+      "text": "In Germany, expressing wishes politely is considered essential in social interactions. The use of the Konjunktiv II shows respect and thoughtfulness in conversations.",
+      "funFact": "In Austria, it's common to hear more colloquial forms of the Konjunktiv II, which can vary slightly from standard German usage."
+    },
+    "summary": {
+      "keyPoints": [
+        "The Konjunktiv II is used for wishes and hypothetical situations.",
+        "It is formed from the simple past tense of verbs with specific endings.",
+        "Using 'würde' is common for conditional sentences.",
+        "Politeness is emphasized through the use of the Konjunktiv II in conversation."
+      ],
+      "nextSteps": "Practice forming sentences using the Konjunktiv II with various verbs and try using them in conversations."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct Konjunktiv II form of 'sein' in the sentence: 'Wenn ich reich ___, würde ich ein Haus kaufen.'?",
+      "content": {
+        "options": [
+          "war",
+          "wäre",
+          "ist",
+          "sein"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct form is 'wäre', which is the Konjunktiv II form of 'sein'.",
+      "hint": "Think about the past form of 'to be'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence expresses a wish?",
+      "content": {
+        "options": [
+          "Wenn ich Zeit hätte, würde ich reisen.",
+          "Ich gehe morgen ins Kino.",
+          "Es regnet heute.",
+          "Ich kann nicht kommen."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The first sentence expresses a wish about having time.",
+      "hint": "Look for a sentence that starts with 'Wenn'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich wünschte, ich ___ (haben) mehr Geld.'",
+      "content": {
+        "sentence": "Ich wünschte, ich ___ mehr Geld.",
+        "correctAnswer": "hätte",
+        "acceptableAnswers": [
+          "hätte"
+        ],
+        "options": [
+          "habe",
+          "hatte",
+          "hätte",
+          "hat"
+        ]
+      },
+      "explanation": "The correct answer is 'hätte', which is the Konjunktiv II form of 'haben'.",
+      "hint": "Think about the past form of 'to have'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Wenn er mehr Zeit ___ (haben), würde er helfen.'",
+      "content": {
+        "sentence": "Wenn er mehr Zeit ___ helfen.",
+        "correctAnswer": "hätte",
+        "acceptableAnswers": [
+          "hätte"
+        ],
+        "options": [
+          "hat",
+          "habe",
+          "hätte",
+          "hatte"
+        ]
+      },
+      "explanation": "'Hätte' is the correct form here, indicating a hypothetical situation.",
+      "hint": "Remember the structure of 'Wenn' sentences.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a complete sentence: 'schneller, ich, würde, laufen, wenn, ich, könnte'.",
+      "content": {
+        "words": [
+          "schneller",
+          "ich",
+          "würde",
+          "laufen",
+          "wenn",
+          "ich",
+          "könnte"
+        ],
+        "correctOrder": [
+          "ich",
+          "würde",
+          "schneller",
+          "laufen",
+          "wenn",
+          "ich",
+          "könnte"
+        ],
+        "translation": "I would run faster if I could."
+      },
+      "explanation": "The correct order reflects a conditional sentence structure.",
+      "hint": "Start with the subject and the conditional verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I wish I could fly.'",
+      "content": {
+        "prompt": "Translate to German: 'I wish I could fly.'",
+        "correctAnswer": "Ich wünschte, ich könnte fliegen.",
+        "acceptableAnswers": [
+          "Ich wünschte, ich könnte fliegen"
+        ]
+      },
+      "explanation": "The translation captures the wish using the correct form.",
+      "hint": "Use 'ich wünschte' for expressing wishes.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct sentence.",
+      "content": {
+        "ttsText": "Wenn ich ein Vogel wäre, würde ich fliegen.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Ich bin ein Mensch.",
+          "Wenn ich ein Vogel wäre, würde ich fliegen.",
+          "Ich kann nicht fliegen.",
+          "Ich wünsche, ich wäre ein Vogel."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct sentence expresses a hypothetical situation about being a bird.",
+      "hint": "Focus on the part about being a bird.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'If I were you, I would study more.'",
+      "content": {
+        "targetText": "Wenn ich du wäre, würde ich mehr lernen.",
+        "context": "You are giving advice to someone.",
+        "acceptableVariants": [
+          "Wenn ich du wäre, würde ich mehr lernen."
+        ]
+      },
+      "explanation": "The sentence correctly uses the Konjunktiv II to give advice.",
+      "hint": "Think about how to express advice in a conditional form.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

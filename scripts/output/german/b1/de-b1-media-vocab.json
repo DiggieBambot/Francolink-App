@@ -1,0 +1,362 @@
+{
+  "lesson": {
+    "title": "Media Vocabulary",
+    "type": "VOCABULARY",
+    "slug": "de-b1-media-vocab"
+  },
+  "unit": "Media & Communication",
+  "unitOrder": 5,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn important vocabulary related to media and communication in German. You will practice words and phrases that are commonly used in discussions about media, including print, digital, and broadcast forms.",
+      "culturalNote": "Germany has a rich media landscape, with public broadcasting channels that are funded by the government and are known for their quality and independence."
+    },
+    "vocabulary": [
+      {
+        "term": "das Medium",
+        "translation": "the medium",
+        "definition": "a means of communication, such as television or the internet",
+        "pronunciation": "das MEH-dee-oom",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Medium hat einen großen Einfluss auf unsere Meinungen.",
+          "translation": "The medium has a great influence on our opinions."
+        },
+        "tip": "Remember that 'Medium' is neuter (das) in German."
+      },
+      {
+        "term": "die Nachricht",
+        "translation": "the news",
+        "definition": "information about recent events or happenings",
+        "pronunciation": "dee NAH-richt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich schaue jeden Abend die Nachrichten.",
+          "translation": "I watch the news every evening."
+        },
+        "tip": "The word 'Nachricht' is feminine (die) and can be pluralized as 'Nachrichten'."
+      },
+      {
+        "term": "das Fernsehen",
+        "translation": "the television",
+        "definition": "a device for receiving television broadcasts",
+        "pronunciation": "das FAIR-en-zay-en",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Fernsehen zeigt viele interessante Programme.",
+          "translation": "The television shows many interesting programs."
+        },
+        "tip": "The noun 'Fernsehen' is neuter (das) and refers to the medium of television."
+      },
+      {
+        "term": "die Zeitung",
+        "translation": "the newspaper",
+        "definition": "a printed publication containing news and articles",
+        "pronunciation": "dee TSY-tung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich lese die Zeitung jeden Morgen.",
+          "translation": "I read the newspaper every morning."
+        },
+        "tip": "Remember 'Zeitung' is feminine (die) and the plural is 'Zeitungen'."
+      },
+      {
+        "term": "der Journalist",
+        "translation": "the journalist",
+        "definition": "a person who writes for newspapers or reports for media",
+        "pronunciation": "der yoor-nah-LEEST",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Journalist berichtet über die neuesten Ereignisse.",
+          "translation": "The journalist reports on the latest events."
+        },
+        "tip": "This word is masculine (der), and the feminine form is 'die Journalistin'."
+      },
+      {
+        "term": "die Werbung",
+        "translation": "the advertising",
+        "definition": "promotional content or announcements aimed at selling products or services",
+        "pronunciation": "dee VER-boong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Werbung ist oft sehr kreativ.",
+          "translation": "The advertising is often very creative."
+        },
+        "tip": "The noun 'Werbung' is feminine (die) and does not have a plural form."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subordinate Clauses with 'dass' and 'weil'",
+        "explanation": "In German, subordinate clauses are used to provide additional information. The conjunction 'dass' (that) introduces a clause that often expresses a fact or opinion, while 'weil' (because) introduces a clause that gives a reason. The verb in the subordinate clause goes to the end.",
+        "table": {
+          "headers": [
+            "Conjunction",
+            "Example"
+          ],
+          "rows": [
+            [
+              "dass",
+              "Ich denke, dass die Nachrichten wichtig sind."
+            ],
+            [
+              "weil",
+              "Ich schaue die Nachrichten, weil ich informiert bleiben möchte."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich glaube, dass das Fernsehen viele Informationen bietet.",
+            "translation": "I believe that television provides a lot of information.",
+            "breakdown": "The subordinate clause 'dass das Fernsehen viele Informationen bietet' explains what I believe."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'das' instead of 'dass' when introducing a clause. Remember: 'dass' is the conjunction.",
+          "Forgetting to move the verb to the end of the subordinate clause."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing media habits",
+      "context": "A conversation between two friends, Anna and Lukas, about their media consumption.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Lukas, schaust du oft das Fernsehen?",
+          "translation": "Hello Lukas, do you often watch television?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich schaue jeden Abend die Nachrichten.",
+          "translation": "Yes, I watch the news every evening.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich lese lieber die Zeitung, weil ich die Artikel mag.",
+          "translation": "I prefer reading the newspaper because I like the articles.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist interessant! Welche Zeitung liest du?",
+          "translation": "That's interesting! Which newspaper do you read?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich lese die Süddeutsche Zeitung. Sie hat gute Berichte.",
+          "translation": "I read the Süddeutsche Zeitung. It has good reports.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich habe gehört, dass die Zeitung sehr informativ ist.",
+          "translation": "I have heard that the newspaper is very informative.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, und die Werbung darin ist oft sehr kreativ!",
+          "translation": "Yes, and the advertising in it is often very creative!",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich finde, dass Werbung manchmal nervig sein kann.",
+          "translation": "I think that advertising can sometimes be annoying.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Media in German-speaking countries",
+      "text": "In Germany, Austria, and Switzerland, media is heavily regulated to ensure quality and diversity. Public broadcasting plays a significant role in providing unbiased news coverage.",
+      "funFact": "Did you know that Germany has over 1,000 different newspapers, reflecting a wide variety of opinions and interests?"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned essential media vocabulary in German.",
+        "Practiced using subordinate clauses with 'dass' and 'weil'.",
+        "Engaged in a dialogue about media habits.",
+        "Gained insights into the media landscape in German-speaking countries."
+      ],
+      "nextSteps": "Practice using the new vocabulary in sentences, and try to create your own dialogues about media consumption."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'das Medium' mean in English?",
+      "content": {
+        "options": [
+          "The medium",
+          "The message",
+          "The newspaper",
+          "The journalist"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Das Medium' translates to 'the medium' in English, referring to a means of communication.",
+      "hint": "Think about communication channels.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is 'die Werbung'?",
+      "content": {
+        "options": [
+          "The news",
+          "The advertisement",
+          "The television",
+          "The journalist"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Die Werbung' translates to 'the advertisement' in English, relating to promotional content.",
+      "hint": "It's often seen in media or on billboards.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich lese jeden Tag die ___.'",
+      "content": {
+        "sentence": "Ich lese jeden Tag die ___.",
+        "correctAnswer": "Zeitung",
+        "acceptableAnswers": [
+          "Zeitung",
+          "die Zeitung"
+        ],
+        "options": [
+          "Nachricht",
+          "Zeitung",
+          "Werbung",
+          "Medien"
+        ]
+      },
+      "explanation": "The correct answer is 'Zeitung', meaning 'newspaper' in English.",
+      "hint": "It's a source of news.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the correct article: '___ Journalist arbeitet hart.'",
+      "content": {
+        "sentence": "___ Journalist arbeitet hart.",
+        "correctAnswer": "Der",
+        "acceptableAnswers": [
+          "Der",
+          "der"
+        ],
+        "options": [
+          "Die",
+          "Der",
+          "Das"
+        ]
+      },
+      "explanation": "'Der Journalist' means 'the journalist' in English and is masculine.",
+      "hint": "Think about gendered articles in German.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The news is important.'",
+      "content": {
+        "prompt": "Translate to German: 'The news is important.'",
+        "correctAnswer": "Die Nachrichten sind wichtig.",
+        "acceptableAnswers": [
+          "Die Nachricht ist wichtig."
+        ]
+      },
+      "explanation": "The translation captures the importance of news in German.",
+      "hint": "Focus on the plural form of news.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and identify the word: 'Das Fernsehen ist sehr populär.'",
+      "content": {
+        "ttsText": "Das Fernsehen ist sehr populär.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The newspaper",
+          "The television",
+          "The advertisement",
+          "The journalist"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The sentence mentions 'das Fernsehen', which means 'the television'.",
+      "hint": "Listen for the word that means television.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in German: 'Advertising is everywhere.'",
+      "content": {
+        "targetText": "Die Werbung ist überall.",
+        "context": "Translate and speak the sentence in German.",
+        "acceptableVariants": [
+          "Werbung ist überall."
+        ]
+      },
+      "explanation": "This sentence conveys the ubiquity of advertising in German.",
+      "hint": "Think about the word for advertising.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Die ___ geben uns Informationen.'",
+      "content": {
+        "sentence": "Die ___ geben uns Informationen.",
+        "correctAnswer": "Nachrichten",
+        "acceptableAnswers": [
+          "Nachrichten",
+          "die Nachrichten"
+        ],
+        "options": [
+          "Nachrichten",
+          "Werbung",
+          "Medien",
+          "Journalisten"
+        ]
+      },
+      "explanation": "'Die Nachrichten' means 'the news' and provides information.",
+      "hint": "Consider what informs people.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the English translation of 'das Fernsehen'?",
+      "content": {
+        "options": [
+          "The news",
+          "The television",
+          "The medium",
+          "The advertisement"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Das Fernsehen' directly translates to 'the television' in English.",
+      "hint": "It's a common device in homes.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

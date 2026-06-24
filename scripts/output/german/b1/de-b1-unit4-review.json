@@ -1,0 +1,312 @@
+{
+  "lesson": {
+    "title": "Unit 4 Review",
+    "type": "REVIEW",
+    "slug": "de-b1-unit4-review"
+  },
+  "unit": "Conditionals & Wishes",
+  "unitOrder": 4,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this Unit 4 Review, you will consolidate your understanding of conditionals and wishes in German. You will revisit key vocabulary and grammar structures, and practice using them in a dialogue.",
+      "culturalNote": "In German-speaking countries, people often use conditional phrases to express politeness, especially in requests. This reflects a courteous communication style prevalent in these cultures."
+    },
+    "vocabulary": [
+      {
+        "term": "der Wunsch",
+        "translation": "the wish",
+        "definition": "a desire or hope for something",
+        "pronunciation": "dehr voonsh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe einen Wunsch.",
+          "translation": "I have a wish."
+        },
+        "tip": "Remember, 'der Wunsch' is masculine, so it uses 'einen' in the accusative case."
+      },
+      {
+        "term": "die Bedingung",
+        "translation": "the condition",
+        "definition": "a prerequisite or requirement",
+        "pronunciation": "dee beh-DING-ung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das ist meine Bedingung.",
+          "translation": "That is my condition."
+        },
+        "tip": "'Die Bedingung' is feminine; it becomes plural as 'die Bedingungen'."
+      },
+      {
+        "term": "wenn",
+        "translation": "if/when",
+        "definition": "used to introduce conditional clauses",
+        "pronunciation": "ven",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Wenn es regnet, bleibe ich zu Hause.",
+          "translation": "If it rains, I will stay at home."
+        },
+        "tip": "Use 'wenn' to indicate conditions or situations that depend on something else."
+      },
+      {
+        "term": "weil",
+        "translation": "because",
+        "definition": "used to give reasons or explanations",
+        "pronunciation": "vile",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Ich bleibe zu Hause, weil es regnet.",
+          "translation": "I am staying at home because it is raining."
+        },
+        "tip": "'Weil' introduces dependent clauses and is followed by a conjugated verb at the end."
+      },
+      {
+        "term": "hätten",
+        "translation": "would have",
+        "definition": "subjunctive form of 'haben' (to have) used for hypotheticals",
+        "pronunciation": "HEH-ten",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich hätte gerne ein neues Auto.",
+          "translation": "I would like to have a new car."
+        },
+        "tip": "Use 'hätten' with wishes or polite requests in the Konjunktiv II."
+      },
+      {
+        "term": "der Traum",
+        "translation": "the dream",
+        "definition": "an aspiration or hope",
+        "pronunciation": "dehr trowm",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Traum ist es, Arzt zu werden.",
+          "translation": "My dream is to become a doctor."
+        },
+        "tip": "'Der Traum' is masculine; its plural is 'die Träume'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Conditionals in German",
+        "explanation": "In German, conditionals are often introduced with 'wenn' (if) and can express real or hypothetical situations. To express a wish or hypothetical desire, we use the Konjunktiv II form of the verb. This form is used to be polite or to talk about unlikely situations.",
+        "table": {
+          "headers": [
+            "Condition",
+            "Result"
+          ],
+          "rows": [
+            [
+              "Wenn ich Zeit hätte",
+              "würde ich reisen."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich reich wäre, würde ich ein Haus kaufen.",
+            "translation": "If I were rich, I would buy a house.",
+            "breakdown": "The condition 'Wenn ich reich wäre' sets up the hypothetical scenario, while 'würde ich ein Haus kaufen' shows the result."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'wenn' with the wrong verb form: 'Wenn ich gehen, ich würde.' should be 'Wenn ich ginge, würde ich.'",
+          "Forgetting to conjugate the verb at the end of a dependent clause introduced by 'weil': 'Ich bleibe zu Hause, weil es regnet.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Future Plans",
+      "context": "Anna and Lukas are having coffee and discussing their future plans.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Was würdest du machen, wenn du im Lotto gewinnen würdest?",
+          "translation": "What would you do if you won the lottery?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich würde ein großes Haus kaufen und reisen.",
+          "translation": "I would buy a big house and travel.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt toll! Ich hätte gerne ein eigenes Café.",
+          "translation": "That sounds great! I would love to have my own café.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das wäre ein schöner Traum. Wo würdest du es eröffnen?",
+          "translation": "That would be a nice dream. Where would you open it?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Vielleicht in meiner Lieblingsstraße, weil es viele Leute gibt.",
+          "translation": "Maybe in my favorite street because there are many people.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Gute Idee! Ich könnte dir helfen, wenn du möchtest.",
+          "translation": "Good idea! I could help you if you want.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Danke, das wäre sehr nett von dir.",
+          "translation": "Thank you, that would be very nice of you.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Wir sollten einen Plan machen, wenn du bereit bist.",
+          "translation": "We should make a plan when you are ready.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Politeness in Requests",
+      "text": "In German-speaking cultures, politeness is highly valued. This can often be seen in how people make requests, using the subjunctive mood to soften their statements. This is a reflection of respect in social interactions.",
+      "funFact": "In Austria, it is common to use 'würde' in casual conversations, even when making simple requests, to show politeness."
+    },
+    "summary": {
+      "keyPoints": [
+        "Conditionals are formed with 'wenn' for real situations and 'würde' for hypotheticals.",
+        "The Konjunktiv II is used for wishes and polite requests.",
+        "Remember the gender and case of nouns when forming sentences.",
+        "Practice using relative clauses to add detail to your sentences."
+      ],
+      "nextSteps": "Review the vocabulary and grammar points, and try writing your own sentences using conditionals. Practice the dialogue with a partner or record yourself."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following sentences correctly expresses a wish?",
+      "content": {
+        "options": [
+          "If I had a car, I would be happy.",
+          "I wish I had a car.",
+          "I will be happy if I have a car.",
+          "Because I have a car, I am happy."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The sentence 'I wish I had a car' directly expresses a wish.",
+      "hint": "Look for the phrase 'I wish'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct conditional form for this sentence? 'If it ______ tomorrow, we will cancel the picnic.'",
+      "content": {
+        "options": [
+          "rains",
+          "rained",
+          "rain",
+          "will rain"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The first conditional uses the present simple in the 'if' clause.",
+      "hint": "Think about the future possibility.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich ______ (haben) einen großen Wunsch.'",
+      "content": {
+        "sentence": "Ich ______ einen großen Wunsch.",
+        "correctAnswer": "habe",
+        "acceptableAnswers": [
+          "habe"
+        ],
+        "options": [
+          "habe",
+          "hatte",
+          "haben"
+        ]
+      },
+      "explanation": "The correct form of 'haben' in the present tense is 'habe'.",
+      "hint": "Consider the subject 'Ich'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blanks: 'Wenn ich ______ (haben) mehr Zeit, würde ich reisen.'",
+      "content": {
+        "sentence": "Wenn ich ______ mehr Zeit, würde ich reisen.",
+        "correctAnswer": "hätte",
+        "acceptableAnswers": [
+          "hätte"
+        ],
+        "options": [
+          "hätte",
+          "habe",
+          "hatte"
+        ]
+      },
+      "explanation": "The correct form is 'hätte' for the second conditional.",
+      "hint": "This form is used for unreal situations.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'If I had a dream, I would follow it.'",
+      "content": {
+        "prompt": "Translate to German: 'If I had a dream, I would follow it.'",
+        "correctAnswer": "Wenn ich einen Traum hätte, würde ich ihm folgen.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation conveys the conditional meaning accurately.",
+      "hint": "Look for the word 'wenn' for 'if'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation.",
+      "content": {
+        "ttsText": "Wenn ich mehr Zeit hätte, würde ich mehr lesen.",
+        "ttsLang": "de-DE",
+        "options": [
+          "If I had more time, I would read more.",
+          "If I have more time, I will read more.",
+          "I wish I had more time.",
+          "I read more if I had time."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence is a second conditional structure.",
+      "hint": "Focus on the 'hätte' part.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I wish I could travel more.'",
+      "content": {
+        "targetText": "Ich wünschte, ich könnte mehr reisen.",
+        "context": "Translate this wish into German.",
+        "acceptableVariants": []
+      },
+      "explanation": "This sentence expresses a wish for a possibility.",
+      "hint": "Use 'ich wünschte' for wishes.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

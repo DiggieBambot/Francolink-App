@@ -1,0 +1,365 @@
+{
+  "lesson": {
+    "title": "Present Subjunctive — Introduction",
+    "type": "GRAMMAR",
+    "slug": "es-b1-subjunctive-intro"
+  },
+  "unit": "Expressing Opinions",
+  "unitOrder": 1,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about the present subjunctive in Spanish, focusing on how to express opinions and desires. You will see how this mood differs from the indicative and practice using it in sentences.",
+      "culturalNote": "In many Spanish-speaking countries, expressing opinions respectfully is crucial in conversations, especially in formal settings."
+    },
+    "vocabulary": [
+      {
+        "term": "la opinión",
+        "translation": "the opinion",
+        "definition": "a belief or judgment about something",
+        "pronunciation": "lah oh-pee-nee-ahn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es importante tener una opinión.",
+          "translation": "It is important to have an opinion."
+        },
+        "tip": "Think of 'opinion' in English; they are very similar."
+      },
+      {
+        "term": "deseo",
+        "translation": "desire",
+        "definition": "a strong feeling of wanting something",
+        "pronunciation": "deh-seh-oh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo el deseo de viajar.",
+          "translation": "I have the desire to travel."
+        },
+        "tip": "Connect it to 'desire' in English; both share the same root."
+      },
+      {
+        "term": "esperar",
+        "translation": "to hope",
+        "definition": "to wish for something to happen",
+        "pronunciation": "eh-speh-rahr",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Espero que vengas a la fiesta.",
+          "translation": "I hope that you come to the party."
+        },
+        "tip": "Remember that 'esperar' also means 'to wait' in Spanish."
+      },
+      {
+        "term": "ojalá",
+        "translation": "I hope (that)",
+        "definition": "an expression of hope, often used with the subjunctive",
+        "pronunciation": "oh-ha-lah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Ojalá que llueva mañana.",
+          "translation": "I hope that it rains tomorrow."
+        },
+        "tip": "Think of 'Oh, I hope' to remember this expression."
+      },
+      {
+        "term": "es necesario",
+        "translation": "it is necessary",
+        "definition": "something that is required or needed",
+        "pronunciation": "ehs neh-seh-sah-ryo",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Es necesario que estudies para el examen.",
+          "translation": "It is necessary that you study for the exam."
+        },
+        "tip": "This phrase is often used to express requirements."
+      },
+      {
+        "term": "temer",
+        "translation": "to fear",
+        "definition": "to be afraid of something",
+        "pronunciation": "teh-mehr",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Temo que no llegues a tiempo.",
+          "translation": "I fear that you won't arrive on time."
+        },
+        "tip": "Connect 'temer' to 'fear' to remember its meaning."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Present Subjunctive Usage",
+        "explanation": "The present subjunctive is used to express wishes, hopes, doubts, and opinions. It is often introduced by phrases like 'es necesario que' or 'ojalá que.' This mood contrasts with the indicative, which states facts.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Present Subjunctive Form"
+          ],
+          "rows": [
+            [
+              "yo",
+              "hable"
+            ],
+            [
+              "tú",
+              "hables"
+            ],
+            [
+              "él/ella",
+              "hable"
+            ],
+            [
+              "nosotros",
+              "hablemos"
+            ],
+            [
+              "vosotros",
+              "habléis"
+            ],
+            [
+              "ellos/ellas",
+              "hablen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es bueno que hables español.",
+            "translation": "It is good that you speak Spanish.",
+            "breakdown": "The phrase 'es bueno que' triggers the use of the subjunctive 'hables.'"
+          },
+          {
+            "original": "Dudo que él venga.",
+            "translation": "I doubt that he will come.",
+            "breakdown": "The expression 'dudo que' requires the subjunctive 'venga.'"
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive (e.g., saying 'Es bueno que hablas' instead of 'hables').",
+          "Forgetting to include the trigger phrase for the subjunctive mood."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Plans",
+      "context": "A conversation between two friends about their weekend plans.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué planes tienes para el fin de semana?",
+          "translation": "What plans do you have for the weekend?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ojalá que podamos ir al cine.",
+          "translation": "I hope that we can go to the movies.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Es necesario que compremos las entradas primero.",
+          "translation": "It is necessary that we buy the tickets first.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, temo que se agoten.",
+          "translation": "Yes, I fear that they will sell out.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué película quieres ver?",
+          "translation": "What movie do you want to see?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Me gustaría ver la nueva comedia.",
+          "translation": "I would like to see the new comedy.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¡Perfecto! Espero que sea divertida.",
+          "translation": "Perfect! I hope it is fun.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, ojalá que nos riamos mucho.",
+          "translation": "Yes, I hope we laugh a lot.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Expressing Opinions in Spanish Culture",
+      "text": "In Spanish-speaking cultures, discussing opinions is often seen as a way to engage in meaningful conversations. It is common to hear people sharing their views on various topics, from politics to art.",
+      "funFact": "In some Latin American countries, political discussions are very common in social settings, especially during family gatherings."
+    },
+    "summary": {
+      "keyPoints": [
+        "The present subjunctive is used to express wishes, hopes, and opinions.",
+        "It is triggered by specific phrases like 'es necesario que' and 'ojalá que.'",
+        "The conjugation differs from the indicative mood.",
+        "Mastering the subjunctive is essential for expressing complex ideas in Spanish."
+      ],
+      "nextSteps": "Practice forming sentences with the present subjunctive and try using it in conversations about your opinions."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following expresses a wish in Spanish?",
+      "content": {
+        "options": [
+          "Es necesario que estudies",
+          "Ojalá que estudies",
+          "Temo que no estudies"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The phrase 'Ojalá que estudies' expresses a wish or hope.",
+      "hint": "Think about the word that conveys hope.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct way to express fear in the subjunctive?",
+      "content": {
+        "options": [
+          "Temo que no venga",
+          "Es necesario que no venga",
+          "Espero que venga"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Temo que no venga' correctly uses the subjunctive to show fear.",
+      "hint": "Look for the word that indicates fear.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Es necesario que tú ___ (estudiar) para el examen.",
+      "content": {
+        "sentence": "Es necesario que tú ___ para el examen.",
+        "correctAnswer": "estudies",
+        "acceptableAnswers": [
+          "estudie",
+          "estudiar"
+        ],
+        "options": [
+          "estudies",
+          "estudie",
+          "estudiar"
+        ]
+      },
+      "explanation": "The correct form is 'estudies' in the present subjunctive.",
+      "hint": "Think of the verb conjugation for 'tú' in the subjunctive.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ojalá que ellos ___ (venir) a la fiesta.",
+      "content": {
+        "sentence": "Ojalá que ellos ___ a la fiesta.",
+        "correctAnswer": "vengan",
+        "acceptableAnswers": [
+          "venga",
+          "vienen"
+        ],
+        "options": [
+          "vengan",
+          "venga",
+          "vienen"
+        ]
+      },
+      "explanation": "The subjunctive form 'vengan' is used after 'ojalá'.",
+      "hint": "Focus on the third person plural form.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: necesario / que / es / tú / vengas.",
+      "content": {
+        "words": [
+          "necesario",
+          "que",
+          "es",
+          "tú",
+          "vengas"
+        ],
+        "correctOrder": [
+          "es",
+          "necesario",
+          "que",
+          "tú",
+          "vengas"
+        ],
+        "translation": "It is necessary that you come."
+      },
+      "explanation": "The correct order clarifies the necessity expressed in the sentence.",
+      "hint": "Start with the verb 'es'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I hope that she studies.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I hope that she studies.'",
+        "correctAnswer": "Espero que ella estudie.",
+        "acceptableAnswers": [
+          "Espero que ella estudia."
+        ]
+      },
+      "explanation": "The subjunctive 'estudie' is used after 'espero que'.",
+      "hint": "Focus on the verb form after 'espero que'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Es necesario que ellos lleguen a tiempo.'",
+      "content": {
+        "ttsText": "Es necesario que ellos lleguen a tiempo.",
+        "ttsLang": "es-ES",
+        "options": [
+          "It is necessary that they arrive on time.",
+          "It is important that they arrive late.",
+          "I hope that they arrive on time."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation reflects the necessity expressed in the sentence.",
+      "hint": "Focus on the word 'necesario'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'I wish that you would come to the party.'",
+      "content": {
+        "targetText": "Ojalá que vengas a la fiesta.",
+        "context": "Translate this sentence into Spanish.",
+        "acceptableVariants": [
+          "Ojalá que tú vengas a la fiesta."
+        ]
+      },
+      "explanation": "The phrase 'Ojalá que vengas a la fiesta' correctly expresses a wish.",
+      "hint": "Start with 'Ojalá'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

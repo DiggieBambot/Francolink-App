@@ -1,0 +1,342 @@
+{
+  "lesson": {
+    "title": "Comparatives & Superlatives",
+    "type": "GRAMMAR",
+    "slug": "es-a2-comparatives"
+  },
+  "unit": "Comparisons & Opinions",
+  "unitOrder": 7,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to make comparisons in Spanish using comparatives and superlatives. You will also practice expressing opinions about different things using these structures.",
+      "culturalNote": "In many Spanish-speaking countries, people often compare things in daily conversations, such as food, places, and people, to express their preferences."
+    },
+    "vocabulary": [
+      {
+        "term": "más",
+        "translation": "more",
+        "definition": "used to indicate a higher degree of something.",
+        "pronunciation": "mahs",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Ella es más alta que yo.",
+          "translation": "She is taller than I am."
+        },
+        "tip": "Remember: 'más' is used before adjectives to express a higher degree."
+      },
+      {
+        "term": "menos",
+        "translation": "less",
+        "definition": "used to indicate a lower degree of something.",
+        "pronunciation": "men-ohs",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Este libro es menos interesante que el otro.",
+          "translation": "This book is less interesting than the other one."
+        },
+        "tip": "'Menos' is the opposite of 'más' and is used for lower comparisons."
+      },
+      {
+        "term": "el mejor",
+        "translation": "the best",
+        "definition": "superlative form of 'bueno' (good).",
+        "pronunciation": "el meh-hor",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Este restaurante es el mejor de la ciudad.",
+          "translation": "This restaurant is the best in the city."
+        },
+        "tip": "Use 'el mejor' to express the highest quality."
+      },
+      {
+        "term": "el peor",
+        "translation": "the worst",
+        "definition": "superlative form of 'malo' (bad).",
+        "pronunciation": "el peh-or",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Ese es el peor película que he visto.",
+          "translation": "That is the worst movie I have seen."
+        },
+        "tip": "Use 'el peor' for expressing the lowest quality."
+      },
+      {
+        "term": "tan",
+        "translation": "as",
+        "definition": "used to indicate equality in comparison.",
+        "pronunciation": "tahn",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Ella es tan inteligente como su hermano.",
+          "translation": "She is as intelligent as her brother."
+        },
+        "tip": "'Tan' is helpful when comparing equals."
+      },
+      {
+        "term": "mejor que",
+        "translation": "better than",
+        "definition": "comparative form of 'bueno'.",
+        "pronunciation": "meh-hor keh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Esta pizza es mejor que la de ayer.",
+          "translation": "This pizza is better than yesterday's."
+        },
+        "tip": "Use 'mejor que' when comparing two things."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Comparatives and Superlatives",
+        "explanation": "In Spanish, comparatives are used to compare two things, while superlatives express the highest degree among three or more items. To create a comparative, use 'más' for more and 'menos' for less, followed by the adjective. For superlatives, use 'el mejor' for the best and 'el peor' for the worst.",
+        "table": {
+          "headers": [
+            "Comparative",
+            "Superlative"
+          ],
+          "rows": [
+            [
+              "más + adjective",
+              "el mejor + adjective"
+            ],
+            [
+              "menos + adjective",
+              "el peor + adjective"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Tu coche es más rápido que mi coche.",
+            "translation": "Your car is faster than my car.",
+            "breakdown": "Here, 'más rápido' compares the speed of two cars."
+          },
+          {
+            "original": "Juan es el mejor jugador del equipo.",
+            "translation": "Juan is the best player on the team.",
+            "breakdown": "In this case, 'el mejor' indicates Juan is the top player."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'más mejor' instead of just 'mejor' for better. Correction: Use 'mejor' alone.",
+          "Using 'tan' with superlatives. Correction: Use 'el mejor' or 'el peor' instead."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Comparing Food",
+      "context": "A conversation between friends at a restaurant discussing their favorite dishes.",
+      "speakers": [
+        "Carlos",
+        "Lucía"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Cuál es tu comida favorita?",
+          "translation": "What is your favorite food?"
+        },
+        {
+          "speaker": 1,
+          "text": "Me gusta la pizza más que las hamburguesas.",
+          "translation": "I like pizza more than hamburgers."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Por qué?",
+          "translation": "Why?"
+        },
+        {
+          "speaker": 1,
+          "text": "La pizza es más deliciosa y variada.",
+          "translation": "Pizza is more delicious and varied."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y tú, qué prefieres?",
+          "translation": "And you, what do you prefer?"
+        },
+        {
+          "speaker": 1,
+          "text": "Prefiero el sushi porque es más saludable.",
+          "translation": "I prefer sushi because it is healthier."
+        },
+        {
+          "speaker": 0,
+          "text": "Pero el sushi es más caro que la pizza.",
+          "translation": "But sushi is more expensive than pizza."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, pero es el mejor para mí.",
+          "translation": "Yes, but it is the best for me."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Food Comparisons in Latin America",
+      "text": "In many Latin American countries, food is a central part of culture and social gatherings. People often discuss and compare dishes from different regions, highlighting local ingredients.",
+      "funFact": "In Mexico, the debate between tacos and burritos is a popular topic of discussion, often leading to lively comparisons!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Comparatives express differences by using 'más' and 'menos'.",
+        "Superlatives indicate the highest degree with 'el mejor' and 'el peor'.",
+        "Use 'tan' for equality comparisons.",
+        "Practice with food, places, and personal preferences."
+      ],
+      "nextSteps": "Try making your own sentences using comparatives and superlatives. Practice with friends or write them down in a journal."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence is correct?",
+      "content": {
+        "options": [
+          "El perro es más grande que el gato.",
+          "El gato es más grande que el perro.",
+          "El perro es tan grande como el gato."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct sentence shows the comparison between the dog and the cat, indicating that the dog is bigger.",
+      "hint": "Look for the word 'más' in the sentence.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the superlative form of 'bueno'?",
+      "content": {
+        "options": [
+          "el mejor",
+          "el bueno",
+          "el mejor que"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The superlative form 'el mejor' means 'the best' in English.",
+      "hint": "Think of the best option.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ella es ___ (tall) que su hermano.'",
+      "content": {
+        "sentence": "Ella es ___ que su hermano.",
+        "correctAnswer": "más alta",
+        "acceptableAnswers": [
+          "más alta",
+          "más alto"
+        ],
+        "options": [
+          "más alta",
+          "menos alta",
+          "tan alta"
+        ]
+      },
+      "explanation": "The correct answer compares her height to her brother's using 'más'.",
+      "hint": "Think about who is taller.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Este coche es ___ (expensive) de la tienda.'",
+      "content": {
+        "sentence": "Este coche es ___ de la tienda.",
+        "correctAnswer": "el más caro",
+        "acceptableAnswers": [
+          "el más caro",
+          "el caro"
+        ],
+        "options": [
+          "el más barato",
+          "el más caro",
+          "el menos caro"
+        ]
+      },
+      "explanation": "The correct answer indicates that this car is the most expensive in the store.",
+      "hint": "Look for the word 'más'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to make a correct sentence: 'rápido / más / es / el coche / que / este'",
+      "content": {
+        "words": [
+          "rápido",
+          "más",
+          "es",
+          "el coche",
+          "que",
+          "este"
+        ],
+        "correctOrder": [
+          "este",
+          "es",
+          "el coche",
+          "más",
+          "rápido",
+          "que"
+        ],
+        "translation": "This car is faster than"
+      },
+      "explanation": "The sentence compares the speed of two cars.",
+      "hint": "Start with 'este'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'She is less happy than yesterday.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'She is less happy than yesterday.'",
+        "correctAnswer": "Ella está menos feliz que ayer.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation uses 'menos' to indicate less happiness.",
+      "hint": "Remember the structure for comparisons.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct option: 'Mi hermano es el peor jugador.'",
+      "content": {
+        "ttsText": "Mi hermano es el peor jugador.",
+        "ttsLang": "es-ES",
+        "options": [
+          "My brother is the best player.",
+          "My brother is the worst player.",
+          "My brother is a good player."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The sentence means 'My brother is the worst player.'",
+      "hint": "Focus on 'peor'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'This book is better than that one.'",
+      "content": {
+        "targetText": "Este libro es mejor que ese.",
+        "context": "Translate and say the comparison.",
+        "acceptableVariants": [
+          "Este libro es mejor que aquel.",
+          "Este libro es el mejor."
+        ]
+      },
+      "explanation": "The target text correctly compares the two books using 'mejor'.",
+      "hint": "Use 'mejor' for comparison.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,326 @@
+{
+  "lesson": {
+    "title": "Two-Way Prepositions",
+    "type": "GRAMMAR",
+    "slug": "de-a2-two-way-prepositions"
+  },
+  "unit": "Everyday Situations",
+  "unitOrder": 8,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about two-way prepositions in German and how they are used in everyday situations. Understanding these prepositions will help you describe locations and movements more effectively.",
+      "culturalNote": "In Germany, Austria, and Switzerland, prepositions play a crucial role in everyday communication. They are often used in directions and when describing where things are located."
+    },
+    "vocabulary": [
+      {
+        "term": "der Tisch",
+        "translation": "the table",
+        "definition": "A piece of furniture with a flat top and one or more legs.",
+        "pronunciation": "dehr tish",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Tisch ist groß.",
+          "translation": "The table is big."
+        },
+        "tip": "Remember, 'der' indicates that 'Tisch' is masculine."
+      },
+      {
+        "term": "die Lampe",
+        "translation": "the lamp",
+        "definition": "A device that produces light, often used for illumination.",
+        "pronunciation": "dee lahm-peh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Lampe ist an.",
+          "translation": "The lamp is on."
+        },
+        "tip": "'Die' shows that 'Lampe' is feminine."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A set of written or printed pages, usually bound with a cover.",
+        "pronunciation": "dahs boohk",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Buch liegt auf dem Tisch.",
+          "translation": "The book is on the table."
+        },
+        "tip": "'Das' indicates that 'Buch' is neuter."
+      },
+      {
+        "term": "in",
+        "translation": "in",
+        "definition": "A two-way preposition indicating location or direction.",
+        "pronunciation": "in",
+        "partOfSpeech": "preposition",
+        "exampleSentence": {
+          "original": "Ich bin in der Küche.",
+          "translation": "I am in the kitchen."
+        },
+        "tip": "Used with dative when indicating location (e.g., 'in der Küche')."
+      },
+      {
+        "term": "auf",
+        "translation": "on",
+        "definition": "A two-way preposition used to indicate position or movement towards a surface.",
+        "pronunciation": "owf",
+        "partOfSpeech": "preposition",
+        "exampleSentence": {
+          "original": "Das Buch ist auf dem Tisch.",
+          "translation": "The book is on the table."
+        },
+        "tip": "When indicating location, use dative (e.g., 'auf dem Tisch')."
+      },
+      {
+        "term": "neben",
+        "translation": "next to",
+        "definition": "A two-way preposition indicating proximity.",
+        "pronunciation": "nay-ben",
+        "partOfSpeech": "preposition",
+        "exampleSentence": {
+          "original": "Die Lampe steht neben dem Sofa.",
+          "translation": "The lamp is next to the sofa."
+        },
+        "tip": "Use dative for location (e.g., 'neben dem Sofa')."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Two-Way Prepositions",
+        "explanation": "Two-way prepositions can indicate either location or direction. When used to describe where something is located, they take the dative case. When indicating movement towards a location, they take the accusative case.",
+        "table": {
+          "headers": [
+            "Preposition",
+            "Dative Example",
+            "Accusative Example"
+          ],
+          "rows": [
+            [
+              "in",
+              "Ich bin in der Schule.",
+              "Ich gehe in die Schule."
+            ],
+            [
+              "auf",
+              "Das Buch liegt auf dem Tisch.",
+              "Ich lege das Buch auf den Tisch."
+            ],
+            [
+              "neben",
+              "Die Lampe ist neben dem Tisch.",
+              "Ich stelle die Lampe neben den Tisch."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich gehe in die Stadt.",
+            "translation": "I am going to the city.",
+            "breakdown": "Here 'in' indicates direction to the city, requiring accusative 'die Stadt'."
+          },
+          {
+            "original": "Ich bin in der Stadt.",
+            "translation": "I am in the city.",
+            "breakdown": "Here 'in' indicates location, requiring dative 'der Stadt'."
+          }
+        ],
+        "commonMistakes": [
+          "Using accusative instead of dative for location: Correct: 'Ich bin in der Stadt.'",
+          "Using dative instead of accusative for movement: Correct: 'Ich gehe in die Stadt.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Café",
+      "context": "This conversation takes place at a café in Germany.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Max, wo bist du?",
+          "translation": "Hello Max, where are you?",
+          "note": "Lena is greeting Max."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich bin in der Café.",
+          "translation": "I am in the café.",
+          "note": "Max indicates his location."
+        },
+        {
+          "speaker": 0,
+          "text": "Was machst du dort?",
+          "translation": "What are you doing there?",
+          "note": "Lena asks about Max's activity."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich lese ein Buch.",
+          "translation": "I am reading a book.",
+          "note": "Max shares his activity."
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt gut! Wo ist das Buch?",
+          "translation": "That sounds good! Where is the book?",
+          "note": "Lena shows interest."
+        },
+        {
+          "speaker": 1,
+          "text": "Das Buch liegt auf dem Tisch.",
+          "translation": "The book is on the table.",
+          "note": "Max describes the book's location."
+        },
+        {
+          "speaker": 0,
+          "text": "Kann ich kommen?",
+          "translation": "Can I come?",
+          "note": "Lena asks to join."
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, komm bitte! Ich warte auf dich.",
+          "translation": "Yes, please come! I am waiting for you.",
+          "note": "Max invites Lena."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Café Culture in Germany",
+      "text": "Cafés are popular social spots in Germany, where people often meet friends or relax. They serve a variety of pastries and coffee drinks, making them a favorite place to spend time.",
+      "funFact": "In many German cities, it's common for cafés to have outdoor seating, especially in the summer."
+    },
+    "summary": {
+      "keyPoints": [
+        "Two-way prepositions indicate location or direction.",
+        "Dative case is used for location, accusative for direction.",
+        "Common two-way prepositions include 'in', 'auf', and 'neben'.",
+        "Practice using these prepositions in sentences."
+      ],
+      "nextSteps": "Review the vocabulary and grammar points, then practice forming your own sentences with two-way prepositions."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Where is the lamp?",
+      "content": {
+        "options": [
+          "Die Lampe ist in dem Tisch.",
+          "Die Lampe ist auf dem Tisch.",
+          "Die Lampe ist neben dem Tisch."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer indicates the lamp is on the table, which is a common usage of the preposition 'auf'.",
+      "hint": "Think about where items are placed.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is next to the table?",
+      "content": {
+        "options": [
+          "Die Lampe.",
+          "Das Buch.",
+          "Der Stuhl."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The phrase 'neben' means next to, and here the lamp is the correct answer.",
+      "hint": "Consider the position of furniture.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "The book is ___ the table.",
+      "content": {
+        "sentence": "Das Buch ist ___ dem Tisch.",
+        "correctAnswer": "auf",
+        "acceptableAnswers": [
+          "auf"
+        ],
+        "options": [
+          "in",
+          "auf",
+          "neben"
+        ]
+      },
+      "explanation": "The book is on the table, which uses the preposition 'auf'.",
+      "hint": "Think about the position relative to the table.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "The lamp is ___ the table.",
+      "content": {
+        "sentence": "Die Lampe ist ___ dem Tisch.",
+        "correctAnswer": "neben",
+        "acceptableAnswers": [
+          "neben"
+        ],
+        "options": [
+          "in",
+          "auf",
+          "neben"
+        ]
+      },
+      "explanation": "Here, 'neben' indicates the lamp is next to the table.",
+      "hint": "Consider where the lamp is placed.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The book is in the bag.'",
+      "content": {
+        "prompt": "Translate to German: 'The book is in the bag.'",
+        "correctAnswer": "Das Buch ist in der Tasche.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation correctly uses 'in' for the location of the book.",
+      "hint": "Remember the article for 'Tasche'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and identify the sentence.",
+      "content": {
+        "ttsText": "Das Buch liegt auf dem Tisch.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The book is on the table.",
+          "The book is in the bag.",
+          "The book is next to the lamp."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence describes the position of the book, which is on the table.",
+      "hint": "Focus on the location mentioned.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the sentence: 'The lamp is on the table.'",
+      "content": {
+        "targetText": "Die Lampe ist auf dem Tisch.",
+        "context": "Translate and say the sentence in German.",
+        "acceptableVariants": []
+      },
+      "explanation": "This sentence uses the two-way preposition 'auf' correctly.",
+      "hint": "Practice the pronunciation carefully.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

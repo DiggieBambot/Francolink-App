@@ -1,0 +1,372 @@
+{
+  "lesson": {
+    "title": "Intentions & Goals",
+    "type": "VOCABULARY",
+    "slug": "es-a2-intentions"
+  },
+  "unit": "Making Plans & Future",
+  "unitOrder": 3,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to intentions and goals in Spanish. You will also practice using these terms in context and explore simple future constructions.",
+      "culturalNote": "In many Latin American countries, setting personal goals is often celebrated, especially during New Year celebrations."
+    },
+    "vocabulary": [
+      {
+        "term": "el objetivo",
+        "translation": "the goal",
+        "definition": "A specific aim or target that one wants to achieve.",
+        "pronunciation": "el ob-HEH-tiv-o",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi objetivo es aprender español.",
+          "translation": "My goal is to learn Spanish."
+        },
+        "tip": "Think of 'objective' in English; they share the same root."
+      },
+      {
+        "term": "la intención",
+        "translation": "the intention",
+        "definition": "A plan or purpose behind an action.",
+        "pronunciation": "la in-ten-THION",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi intención es viajar este año.",
+          "translation": "My intention is to travel this year."
+        },
+        "tip": "Intention starts with 'in,' just like in English."
+      },
+      {
+        "term": "el plan",
+        "translation": "the plan",
+        "definition": "A detailed proposal for doing or achieving something.",
+        "pronunciation": "el plan",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo un plan para el fin de semana.",
+          "translation": "I have a plan for the weekend."
+        },
+        "tip": "This word is the same in both languages, making it easy to remember."
+      },
+      {
+        "term": "la meta",
+        "translation": "the goal",
+        "definition": "A specific target or aim, often associated with personal achievement.",
+        "pronunciation": "la MEH-ta",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi meta es correr una maratón.",
+          "translation": "My goal is to run a marathon."
+        },
+        "tip": "Think of 'metaphor,' which also has 'meta' in it."
+      },
+      {
+        "term": "el futuro",
+        "translation": "the future",
+        "definition": "The time that is yet to come.",
+        "pronunciation": "el foo-TOO-ro",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "En el futuro, quiero ser médico.",
+          "translation": "In the future, I want to be a doctor."
+        },
+        "tip": "Future shares the same root in both languages."
+      },
+      {
+        "term": "esperar",
+        "translation": "to hope/to expect",
+        "definition": "To have a desire for something to happen.",
+        "pronunciation": "es-pe-RAHR",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Espero que me den un trabajo.",
+          "translation": "I hope they give me a job."
+        },
+        "tip": "Remember 'expect' in English; they have similar meanings."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Talking about Future Intentions",
+        "explanation": "In Spanish, to express future intentions, we often use the simple future tense. This tense is formed by adding specific endings to the infinitive form of the verb. For example, 'hablar' (to speak) becomes 'hablaré' (I will speak).",
+        "table": {
+          "headers": [
+            "Subject",
+            "Simple Future Form"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "hablaré (I will speak)"
+            ],
+            [
+              "Tú",
+              "hablarás (You will speak)"
+            ],
+            [
+              "Él/Ella",
+              "hablará (He/She will speak)"
+            ],
+            [
+              "Nosotros",
+              "hablaremos (We will speak)"
+            ],
+            [
+              "Ustedes",
+              "hablarán (You all will speak)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Mañana estudiaré para el examen.",
+            "translation": "Tomorrow I will study for the exam.",
+            "breakdown": "The verb 'estudiar' (to study) is in the simple future form 'estudiaré' (I will study)."
+          }
+        ],
+        "commonMistakes": [
+          "Using present tense instead of future tense. Correction: Use 'estudiaré' instead of 'estudio'.",
+          "Not conjugating the verb correctly. Correction: Make sure to match the subject with the correct ending."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Making Plans for the Weekend",
+      "context": "Two friends are discussing their plans for the upcoming weekend.",
+      "speakers": [
+        "Juan",
+        "Maria"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué planes tienes para el fin de semana?",
+          "translation": "What plans do you have for the weekend?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Voy a ir al cine con mis amigos.",
+          "translation": "I am going to the movies with my friends.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Eso suena divertido. ¿Qué película vas a ver?",
+          "translation": "That sounds fun. What movie are you going to see?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Voy a ver la nueva película de acción.",
+          "translation": "I am going to see the new action movie.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Genial. Yo también quiero ir. ¿Puedo unirme?",
+          "translation": "Great. I want to go too. Can I join?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Claro, vamos juntos.",
+          "translation": "Of course, let's go together.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿A qué hora nos encontramos?",
+          "translation": "What time do we meet?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Nos encontramos a las siete.",
+          "translation": "We meet at seven.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "New Year’s Resolutions in Latin America",
+      "text": "In many Latin American countries, it is common to set resolutions for the New Year. People often share their goals with family and friends during celebrations, creating a supportive atmosphere.",
+      "funFact": "In Colombia, people often wear yellow underwear on New Year's Eve to attract good fortune for the coming year."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to intentions and goals.",
+        "Practiced using the simple future tense.",
+        "Explored a dialogue about making plans.",
+        "Gained insight into cultural practices around goals."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and create your own future plans using the simple future tense."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the meaning of 'el objetivo' in English?",
+      "content": {
+        "options": [
+          "the goal",
+          "the plan",
+          "the future",
+          "the intention"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El objetivo' translates to 'the goal' in English.",
+      "hint": "Think about what you aim to achieve.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'the intention' in Spanish?",
+      "content": {
+        "options": [
+          "la meta",
+          "el plan",
+          "la intención",
+          "el futuro"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'La intención' is the correct translation for 'the intention'.",
+      "hint": "It starts with 'i'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Yo tengo un ___ para el futuro.'",
+      "content": {
+        "sentence": "Yo tengo un ___ para el futuro.",
+        "correctAnswer": "plan",
+        "acceptableAnswers": [
+          "plan"
+        ],
+        "options": [
+          "objetivo",
+          "plan",
+          "meta",
+          "intención"
+        ]
+      },
+      "explanation": "The correct word is 'plan' as it fits the context of making future arrangements.",
+      "hint": "Think about your arrangements.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Mi ___ es viajar a España.'",
+      "content": {
+        "sentence": "Mi ___ es viajar a España.",
+        "correctAnswer": "meta",
+        "acceptableAnswers": [
+          "meta"
+        ],
+        "options": [
+          "intención",
+          "meta",
+          "plan",
+          "futuro"
+        ]
+      },
+      "explanation": "'Meta' means 'goal' which fits well in the context of traveling.",
+      "hint": "What do you want to achieve?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'My goal is to learn Spanish.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'My goal is to learn Spanish.'",
+        "correctAnswer": "Mi meta es aprender español.",
+        "acceptableAnswers": [
+          "Mi objetivo es aprender español.",
+          "Mi intención es aprender español."
+        ]
+      },
+      "explanation": "Both 'meta' and 'objetivo' can mean 'goal' in this context.",
+      "hint": "What is your goal?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Espero viajar pronto.'",
+      "content": {
+        "ttsText": "Espero viajar pronto.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I hope to travel soon.",
+          "I want to travel later.",
+          "I plan to travel tomorrow."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'I hope to travel soon.'",
+      "hint": "Focus on the word 'espero'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'I want to achieve my goals.'",
+      "content": {
+        "targetText": "Quiero alcanzar mis metas.",
+        "context": "Express your desire to achieve your goals.",
+        "acceptableVariants": [
+          "Quiero lograr mis metas."
+        ]
+      },
+      "explanation": "Both phrases express the same intention of achieving goals.",
+      "hint": "Use 'quiero' for 'I want'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'esperar' mean in English?",
+      "content": {
+        "options": [
+          "to hope",
+          "to plan",
+          "to achieve",
+          "to want"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Esperar' translates to 'to hope' in English.",
+      "hint": "Think about what you desire for the future.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Mis ___ son aprender y viajar.'",
+      "content": {
+        "sentence": "Mis ___ son aprender y viajar.",
+        "correctAnswer": "metas",
+        "acceptableAnswers": [
+          "metas"
+        ],
+        "options": [
+          "intenciones",
+          "metas",
+          "planes",
+          "futuros"
+        ]
+      },
+      "explanation": "'Metas' fits because it refers to the goals you want to achieve.",
+      "hint": "Think about your objectives.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

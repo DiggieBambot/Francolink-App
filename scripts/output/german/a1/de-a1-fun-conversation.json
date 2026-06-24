@@ -1,0 +1,419 @@
+{
+  "lesson": {
+    "title": "What Do You Do for Fun?",
+    "type": "CONVERSATION",
+    "slug": "de-a1-fun-conversation"
+  },
+  "unit": "Free Time & Modal Verbs",
+  "unitOrder": 7,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to talk about your free time activities in German. You will also practice using the modal verbs 'können' (can) and 'möchten' (would like) in simple sentences.",
+      "culturalNote": "In Germany, leisure activities often include outdoor sports, visiting museums, or attending local festivals. It's common for people to discuss their hobbies openly."
+    },
+    "vocabulary": [
+      {
+        "term": "die Freizeit",
+        "translation": "free time",
+        "definition": "The time when you are not working or studying.",
+        "pronunciation": "dee fry-tsyt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe viel Freizeit.",
+          "translation": "I have a lot of free time."
+        },
+        "tip": "Remember that 'die' indicates that 'Freizeit' is feminine."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A written work consisting of pages.",
+        "pronunciation": "dahs boo-kh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich lese ein Buch.",
+          "translation": "I am reading a book."
+        },
+        "tip": "The article 'das' shows that 'Buch' is neuter."
+      },
+      {
+        "term": "der Sport",
+        "translation": "the sport",
+        "definition": "Physical activity involving skill and competition.",
+        "pronunciation": "dehr shport",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich mache Sport.",
+          "translation": "I do sports."
+        },
+        "tip": "Use 'der' for masculine nouns like 'Sport'."
+      },
+      {
+        "term": "die Musik",
+        "translation": "the music",
+        "definition": "Sound that is produced by singing or playing instruments.",
+        "pronunciation": "dee moo-zeek",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich höre Musik.",
+          "translation": "I listen to music."
+        },
+        "tip": "'Die' indicates that 'Musik' is feminine."
+      },
+      {
+        "term": "möchten",
+        "translation": "would like",
+        "definition": "A modal verb used to express desires.",
+        "pronunciation": "muhkh-ten",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich möchte ein Eis.",
+          "translation": "I would like an ice cream."
+        },
+        "tip": "Use 'möchten' to express what you would like to do."
+      },
+      {
+        "term": "können",
+        "translation": "can",
+        "definition": "A modal verb expressing ability.",
+        "pronunciation": "kuh-nen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich kann schwimmen.",
+          "translation": "I can swim."
+        },
+        "tip": "Use 'können' to indicate what you are able to do."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Modal Verbs (können and möchten)",
+        "explanation": "Modal verbs like 'können' (can) and 'möchten' (would like) are used to express ability and desires. They come before the main verb in a sentence. For example, in 'Ich kann schwimmen', 'kann' is the modal verb and 'schwimmen' is the main verb.",
+        "table": {
+          "headers": [
+            "Subject",
+            "können (can)",
+            "möchten (would like)"
+          ],
+          "rows": [
+            [
+              "Ich",
+              "kann",
+              "möchte"
+            ],
+            [
+              "Du",
+              "kannst",
+              "möchtest"
+            ],
+            [
+              "Er/Sie/Es",
+              "kann",
+              "möchte"
+            ],
+            [
+              "Wir",
+              "können",
+              "möchten"
+            ],
+            [
+              "Ihr",
+              "könnt",
+              "möchtet"
+            ],
+            [
+              "Sie",
+              "können",
+              "möchten"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich kann tanzen.",
+            "translation": "I can dance.",
+            "breakdown": "Subject 'Ich' + modal verb 'kann' + main verb 'tanzen'."
+          }
+        ],
+        "commonMistakes": [
+          "Incorrect: Ich möchte gehen jetzt. Correct: Ich möchte jetzt gehen. (Word order is important.)",
+          "Incorrect: Du kann spielen. Correct: Du kannst spielen. (Use the correct form of the verb.)"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking About Hobbies",
+      "context": "Two friends, Anna and Max, are discussing their free time activities at a café.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Was machst du in deiner Freizeit?",
+          "translation": "What do you do in your free time?",
+          "note": "Anna is asking about Max's hobbies."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich spiele Fußball.",
+          "translation": "I play soccer.",
+          "note": "Max shares his hobby."
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist toll! Kannst du gut spielen?",
+          "translation": "That's great! Can you play well?",
+          "note": "Anna shows interest."
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich kann gut spielen.",
+          "translation": "Yes, I can play well.",
+          "note": "Max confirms his ability."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich möchte auch Sport machen.",
+          "translation": "I would like to do sports too.",
+          "note": "Anna expresses her desire."
+        },
+        {
+          "speaker": 1,
+          "text": "Welchen Sport möchtest du machen?",
+          "translation": "Which sport would you like to do?",
+          "note": "Max asks for more details."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich möchte schwimmen.",
+          "translation": "I would like to swim.",
+          "note": "Anna shares her interest."
+        },
+        {
+          "speaker": 1,
+          "text": "Schwimmen ist super! Ich kann schwimmen auch.",
+          "translation": "Swimming is great! I can swim too.",
+          "note": "Max agrees and shares his ability."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Leisure Activities in Germany",
+      "text": "In Germany, people enjoy a variety of leisure activities such as hiking, cycling, and visiting local festivals. Many towns have outdoor markets where people can socialize and enjoy local foods.",
+      "funFact": "Did you know that Germany has over 12,000 museums? It's a great place to learn and have fun!"
+    },
+    "summary": {
+      "keyPoints": [
+        "You learned how to express free time activities in German.",
+        "You practiced using the modal verbs 'können' and 'möchten'.",
+        "You had a conversation about hobbies.",
+        "You discovered cultural insights about leisure in German-speaking countries."
+      ],
+      "nextSteps": "Practice using the vocabulary in your own sentences and try to have a conversation with a partner about your free time."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'die Freizeit' mean?",
+      "content": {
+        "options": [
+          "Free time",
+          "Sport",
+          "Music",
+          "Book"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Freizeit' translates to 'free time' in English.",
+      "hint": "It's the time when you are not working.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which verb means 'can' in German?",
+      "content": {
+        "options": [
+          "möchten",
+          "können",
+          "machen",
+          "spielen"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Können' is the German verb that translates to 'can' in English.",
+      "hint": "Think about abilities.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "I ___ (like) to play sports.",
+      "content": {
+        "sentence": "Ich ___ Sport.",
+        "correctAnswer": "möchte",
+        "acceptableAnswers": [
+          "möchte",
+          "will"
+        ],
+        "options": [
+          "möchte",
+          "kann",
+          "mag"
+        ]
+      },
+      "explanation": "The correct word here is 'möchte', indicating a desire to play sports.",
+      "hint": "It starts with 'm'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "He ___ (can) play the guitar.",
+      "content": {
+        "sentence": "Er ___ die Gitarre spielen.",
+        "correctAnswer": "kann",
+        "acceptableAnswers": [
+          "kann",
+          "möchte"
+        ],
+        "options": [
+          "kann",
+          "mag",
+          "will"
+        ]
+      },
+      "explanation": "'Kann' is the correct verb to express ability.",
+      "hint": "This is similar to 'can' in English.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'spielen / wir / gerne / Fußball'.",
+      "content": {
+        "words": [
+          "spielen",
+          "wir",
+          "gerne",
+          "Fußball"
+        ],
+        "correctOrder": [
+          "wir",
+          "spielen",
+          "gerne",
+          "Fußball"
+        ],
+        "translation": "We like to play football."
+      },
+      "explanation": "The correct order forms a coherent sentence in German.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I like to read books.'",
+      "content": {
+        "correctAnswer": "Ich lese gerne Bücher.",
+        "acceptableAnswers": [
+          "Ich mag Bücher lesen.",
+          "Ich lese Bücher gerne."
+        ]
+      },
+      "explanation": "The translation captures the meaning of enjoying reading books.",
+      "hint": "Think about 'like' in German.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct answer: 'Ich höre Musik.'",
+      "content": {
+        "ttsText": "Ich höre Musik.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I play sports.",
+          "I listen to music.",
+          "I read books."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct option reflects the meaning of the German sentence.",
+      "hint": "Focus on the action of listening.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say: 'I enjoy listening to music.'",
+      "content": {
+        "targetText": "Ich höre gerne Musik.",
+        "context": "Translate and say this sentence in German.",
+        "acceptableVariants": [
+          "Ich mag Musik hören."
+        ]
+      },
+      "explanation": "This sentence expresses enjoyment of music in German.",
+      "hint": "Remember to use 'gerne' for enjoyment.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'sport' in German?",
+      "content": {
+        "options": [
+          "Das Buch",
+          "Die Musik",
+          "Der Sport",
+          "Die Freizeit"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Der Sport' translates to 'sport' in English.",
+      "hint": "It starts with 'S'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "They ___ (want) to go to the concert.",
+      "content": {
+        "sentence": "Sie ___ zum Konzert gehen.",
+        "correctAnswer": "möchten",
+        "acceptableAnswers": [
+          "möchten",
+          "wollen"
+        ],
+        "options": [
+          "möchten",
+          "können",
+          "wollen"
+        ]
+      },
+      "explanation": "'Möchten' is used here to express a wish to attend the concert.",
+      "hint": "This word starts with 'm'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to English: 'Ich mache Sport.'",
+      "content": {
+        "correctAnswer": "I do sports.",
+        "acceptableAnswers": [
+          "I play sports."
+        ]
+      },
+      "explanation": "The translation accurately reflects the German sentence.",
+      "hint": "Think about physical activities.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

@@ -1,0 +1,332 @@
+{
+  "lesson": {
+    "title": "Verbs That Take the Dative",
+    "type": "GRAMMAR",
+    "slug": "de-a2-dative-verbs"
+  },
+  "unit": "The Dative Case",
+  "unitOrder": 3,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, students will learn about German verbs that require the dative case. They will understand how to identify and use these verbs in sentences, enhancing their language skills.",
+      "culturalNote": "In Germany, Austria, and Switzerland, the use of the dative case is important for polite communication, especially when giving or receiving something."
+    },
+    "vocabulary": [
+      {
+        "term": "der Freund",
+        "translation": "the friend",
+        "definition": "A male friend or buddy.",
+        "pronunciation": "dehr froind",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich gebe dem Freund ein Buch.",
+          "translation": "I give the friend a book."
+        },
+        "tip": "Freund is masculine (der), and its plural is die Freunde."
+      },
+      {
+        "term": "die Freundin",
+        "translation": "the female friend",
+        "definition": "A female friend.",
+        "pronunciation": "dee froind-in",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich schreibe der Freundin einen Brief.",
+          "translation": "I write the female friend a letter."
+        },
+        "tip": "Freundin is feminine (die), and its plural is die Freundinnen."
+      },
+      {
+        "term": "das Geschenk",
+        "translation": "the gift",
+        "definition": "An item given to someone as a present.",
+        "pronunciation": "dahs geh-shenk",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich gebe dem Freund das Geschenk.",
+          "translation": "I give the friend the gift."
+        },
+        "tip": "Geschenk is neuter (das), and its plural is die Geschenke."
+      },
+      {
+        "term": "helfen",
+        "translation": "to help",
+        "definition": "To assist someone.",
+        "pronunciation": "hel-fen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich helfe meiner Schwester.",
+          "translation": "I help my sister."
+        },
+        "tip": "Helfen always requires the dative case; note the change in the pronoun."
+      },
+      {
+        "term": "danken",
+        "translation": "to thank",
+        "definition": "To express gratitude.",
+        "pronunciation": "dahn-ken",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich danke dir.",
+          "translation": "I thank you."
+        },
+        "tip": "Danken takes the dative case, so remember to use 'dir' for 'you'."
+      },
+      {
+        "term": "zeigen",
+        "translation": "to show",
+        "definition": "To display or indicate something.",
+        "pronunciation": "tsai-gen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Kannst du mir das Buch zeigen?",
+          "translation": "Can you show me the book?"
+        },
+        "tip": "Zeigen requires the dative; 'mir' is the dative form of 'ich'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Verbs that Take the Dative",
+        "explanation": "In German, certain verbs require the dative case for their objects. This means that instead of using the accusative, you will change the pronoun or noun to its dative form. Common verbs that take the dative include 'helfen' (to help), 'danken' (to thank), and 'zeigen' (to show).",
+        "table": {
+          "headers": [
+            "Verb",
+            "Dative Example"
+          ],
+          "rows": [
+            [
+              "helfen",
+              "Ich helfe dem Mann."
+            ],
+            [
+              "danken",
+              "Ich danke der Frau."
+            ],
+            [
+              "zeigen",
+              "Er zeigt mir das Bild."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich gebe der Freundin ein Geschenk.",
+            "translation": "I give the female friend a gift.",
+            "breakdown": "Here, 'geben' takes a dative object 'der Freundin' and an accusative object 'ein Geschenk'."
+          },
+          {
+            "original": "Sie hilft dem Kind.",
+            "translation": "She helps the child.",
+            "breakdown": "In this sentence, 'helfen' takes 'dem Kind' as a dative object."
+          }
+        ],
+        "commonMistakes": [
+          "Using the accusative case instead of dative with 'helfen': Correct form is 'Ich helfe ihm.' instead of 'Ich helfe ihn.'",
+          "For 'danken', using 'der' instead of 'dem' with masculine nouns: Correct is 'Ich danke dem Mann.' not 'Ich danke der Mann.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Buying a Gift",
+      "context": "Two friends are discussing a gift for a mutual friend.",
+      "speakers": [
+        "Lukas",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Was soll ich der Anna zum Geburtstag schenken?",
+          "translation": "What should I give Anna for her birthday?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich denke, ein schönes Buch wäre gut.",
+          "translation": "I think a nice book would be good.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist eine gute Idee! Ich habe ihr schon oft Bücher gezeigt.",
+          "translation": "That's a good idea! I have often shown her books.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Und ich danke dir für deine Hilfe!",
+          "translation": "And I thank you for your help!",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Gern geschehen! Ich helfe dir gerne.",
+          "translation": "You're welcome! I like to help you.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hast du das Geschenk schon gekauft?",
+          "translation": "Have you already bought the gift?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Noch nicht, aber ich gehe bald in die Stadt.",
+          "translation": "Not yet, but I will go to the city soon.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Okay, viel Spaß beim Einkaufen!",
+          "translation": "Okay, have fun shopping!",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Gift Giving in German Culture",
+      "text": "In German-speaking countries, it is common to give gifts on birthdays, holidays, and special occasions. Gifts are often accompanied by a card expressing good wishes.",
+      "funFact": "In Germany, it is customary to bring a small gift to the host when invited to someone's home."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understand the dative case and its importance in German.",
+        "Learn common verbs that require the dative.",
+        "Practice forming sentences with dative objects.",
+        "Engage in dialogues using the dative case."
+      ],
+      "nextSteps": "Practice using the vocabulary and grammar in sentences. Try creating your own dialogues using the dative verbs."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which verb means 'to help'?",
+      "content": {
+        "options": [
+          "danken",
+          "helfen",
+          "zeigen",
+          "freuen"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Helfen' is the correct answer because it translates to 'to help' in English.",
+      "hint": "Look for the verb that is used when you assist someone.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct dative form for 'the friend' when referring to a male?",
+      "content": {
+        "options": [
+          "der Freund",
+          "dem Freund",
+          "die Freundin",
+          "den Freund"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "In the dative case, 'the friend' (male) is 'dem Freund'.",
+      "hint": "Remember the dative case changes the article.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich ___ meiner Freundin ein Geschenk.",
+      "content": {
+        "sentence": "Ich ___ meiner Freundin ein Geschenk.",
+        "correctAnswer": "gebe",
+        "acceptableAnswers": [
+          "gebe"
+        ],
+        "options": [
+          "zeige",
+          "gebe",
+          "danke",
+          "helfe"
+        ]
+      },
+      "explanation": "The correct verb is 'gebe' which means 'give' in this context.",
+      "hint": "Think of what you do when you present a gift.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Ich danke ___ Freund für seine Hilfe.",
+      "content": {
+        "sentence": "Ich danke ___ Freund für seine Hilfe.",
+        "correctAnswer": "dem",
+        "acceptableAnswers": [
+          "dem"
+        ],
+        "options": [
+          "den",
+          "dem",
+          "die",
+          "der"
+        ]
+      },
+      "explanation": "In dative case, 'the friend' (male) is 'dem Freund'.",
+      "hint": "Focus on the dative article for masculine nouns.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I thank my friend.'",
+      "content": {
+        "prompt": "Translate to German: 'I thank my friend.'",
+        "correctAnswer": "Ich danke meinem Freund.",
+        "acceptableAnswers": [
+          "Ich danke meinen Freund."
+        ]
+      },
+      "explanation": "The correct translation uses the dative form 'meinem Freund'.",
+      "hint": "Remember to use the correct dative article.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich zeige dir das Geschenk.'",
+      "content": {
+        "ttsText": "Ich zeige dir das Geschenk.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I show you the gift.",
+          "I give you the gift.",
+          "I help you with the gift.",
+          "I take the gift to you."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'I show you the gift.'",
+      "hint": "Focus on the verb 'zeigen'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the sentence: 'I help my friend.'",
+      "content": {
+        "targetText": "Ich helfe meinem Freund.",
+        "context": "Translate and say the sentence in German.",
+        "acceptableVariants": [
+          "Ich helfe meinen Freund.",
+          "Ich helfe meinem Freund."
+        ]
+      },
+      "explanation": "You should use the correct dative form 'meinem Freund'.",
+      "hint": "Focus on the verb 'helfen' and the dative case.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

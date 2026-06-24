@@ -1,0 +1,345 @@
+{
+  "lesson": {
+    "title": "Unit 1 Review",
+    "type": "REVIEW",
+    "slug": "de-a2-unit1-review"
+  },
+  "unit": "Talking About the Past",
+  "unitOrder": 1,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this review lesson, you will revisit key vocabulary and grammar from the unit about talking about the past. You will practice using the Perfekt and Präteritum tenses, as well as common verbs and structures.",
+      "culturalNote": "In German-speaking countries, storytelling is an important part of the culture. People often share memories of their past experiences during family gatherings."
+    },
+    "vocabulary": [
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A written work, often bound with pages.",
+        "pronunciation": "dahs boo-kh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe das Buch gelesen.",
+          "translation": "I read the book."
+        },
+        "tip": "Remember, 'das' indicates this is a neuter noun."
+      },
+      {
+        "term": "der Tisch",
+        "translation": "the table",
+        "definition": "A piece of furniture with a flat top supported by legs.",
+        "pronunciation": "dehr tish",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Tisch ist groß.",
+          "translation": "The table is big."
+        },
+        "tip": "'Der' indicates this is a masculine noun. The plural is 'die Tische'."
+      },
+      {
+        "term": "die Lampe",
+        "translation": "the lamp",
+        "definition": "An object that produces light.",
+        "pronunciation": "dee lahm-peh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Lampe war an.",
+          "translation": "The lamp was on."
+        },
+        "tip": "'Die' indicates this is a feminine noun."
+      },
+      {
+        "term": "reisen",
+        "translation": "to travel",
+        "definition": "To go from one place to another, typically for enjoyment.",
+        "pronunciation": "rye-zen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich bin nach Deutschland gereist.",
+          "translation": "I traveled to Germany."
+        },
+        "tip": "Use 'gereist' for the past participle in Perfekt."
+      },
+      {
+        "term": "sehen",
+        "translation": "to see",
+        "definition": "To perceive with the eyes.",
+        "pronunciation": "zay-en",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich habe einen Film gesehen.",
+          "translation": "I saw a movie."
+        },
+        "tip": "The past participle is 'gesehen'."
+      },
+      {
+        "term": "machen",
+        "translation": "to do/make",
+        "definition": "To perform or create something.",
+        "pronunciation": "mah-khen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Wir haben Kuchen gemacht.",
+          "translation": "We made cake."
+        },
+        "tip": "The past participle is 'gemacht'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Perfekt and Präteritum",
+        "explanation": "In German, there are two main ways to talk about the past: Perfekt and Präteritum. The Perfekt tense is often used in spoken German and is formed with 'haben' or 'sein' plus the past participle. The Präteritum is more common in written texts, such as stories and reports.",
+        "table": {
+          "headers": [
+            "Tense",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Perfekt",
+              "Ich habe gegessen (I have eaten)"
+            ],
+            [
+              "Präteritum",
+              "Ich aß (I ate)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich habe gestern gearbeitet.",
+            "translation": "I worked yesterday.",
+            "breakdown": "Here, 'habe' is the auxiliary verb, and 'gearbeitet' is the past participle."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'war' instead of 'habe' for actions that are not about motion ('Ich bin gegangen' vs. 'Ich habe gegessen').",
+          "Confusing the past participle forms, e.g., 'sehen' vs. 'gesehen'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking about the weekend",
+      "context": "Two friends meet on Monday and talk about their weekend activities.",
+      "speakers": [
+        "Lukas",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Sophie! Wie war dein Wochenende?",
+          "translation": "Hello Sophie! How was your weekend?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Lukas! Es war sehr schön. Ich bin nach Berlin gereist.",
+          "translation": "Hello Lukas! It was very nice. I traveled to Berlin."
+        },
+        {
+          "speaker": 0,
+          "text": "Oh, das klingt toll! Was hast du dort gemacht?",
+          "translation": "Oh, that sounds great! What did you do there?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich habe viele Sehenswürdigkeiten gesehen und gutes Essen gegessen.",
+          "translation": "I saw many sights and ate good food."
+        },
+        {
+          "speaker": 0,
+          "text": "Super! Ich habe am Samstag gefaulenzt und einen Film gesehen.",
+          "translation": "Great! I lounged on Saturday and saw a movie."
+        },
+        {
+          "speaker": 1,
+          "text": "Welchen Film hast du gesehen?",
+          "translation": "Which movie did you see?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich habe einen neuen Actionfilm gesehen. Er war spannend!",
+          "translation": "I saw a new action movie. It was exciting!"
+        },
+        {
+          "speaker": 1,
+          "text": "Das klingt spannend! Ich möchte ihn auch sehen.",
+          "translation": "That sounds exciting! I want to see it too."
+        }
+      ]
+    },
+    "culture": {
+      "title": "German Cinema",
+      "text": "Germany has a rich film history, with a wide variety of genres. The German film industry produces many popular films every year, and film festivals, like the Berlinale, are famous worldwide.",
+      "funFact": "The first full-length feature film was a German production called 'The Story of the Kelly Gang', released in 1906."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review of key vocabulary related to past experiences.",
+        "Understanding the difference between Perfekt and Präteritum.",
+        "Practice using common verbs in the past tense.",
+        "Realistic dialogue simulating a conversation about weekend activities."
+      ],
+      "nextSteps": "Continue practicing by writing your own past experiences using both Perfekt and Präteritum."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the translation of 'the book' in German?",
+      "content": {
+        "options": [
+          "das Buch",
+          "die Lampe",
+          "der Tisch"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'The book' translates to 'das Buch' in German.",
+      "hint": "Think about the definite article for neutral nouns.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which verb means 'to travel' in German?",
+      "content": {
+        "options": [
+          "sehen",
+          "reisen",
+          "machen"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'To travel' translates to 'reisen' in German.",
+      "hint": "This verb is commonly used for going on trips.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich _____ (to see) einen Film.",
+      "content": {
+        "sentence": "Ich _____ einen Film.",
+        "correctAnswer": "sehe",
+        "acceptableAnswers": [
+          "sehe"
+        ],
+        "options": [
+          "sehe",
+          "sah",
+          "sehen"
+        ]
+      },
+      "explanation": "The correct form for 'I see' in German is 'Ich sehe'.",
+      "hint": "Think about the present tense form of the verb.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich _____ (to make) ein Bild.",
+      "content": {
+        "sentence": "Ich _____ ein Bild.",
+        "correctAnswer": "mache",
+        "acceptableAnswers": [
+          "mache"
+        ],
+        "options": [
+          "mache",
+          "machte",
+          "machen"
+        ]
+      },
+      "explanation": "The correct form for 'I make' in German is 'Ich mache'.",
+      "hint": "Look for the present tense form of the verb.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I have a lamp'.",
+      "content": {
+        "prompt": "Translate to German: 'I have a lamp'.",
+        "correctAnswer": "Ich habe eine Lampe.",
+        "acceptableAnswers": [
+          "Ich habe eine Lampe"
+        ]
+      },
+      "explanation": "'I have a lamp' translates to 'Ich habe eine Lampe' in German.",
+      "hint": "Remember the article for feminine nouns.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich reise nach Deutschland.'",
+      "content": {
+        "ttsText": "Ich reise nach Deutschland.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I travel to Germany.",
+          "I see Germany.",
+          "I make Germany."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'I travel to Germany.'",
+      "hint": "Focus on the verb 'reisen'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in German: 'I saw a book yesterday'.",
+      "content": {
+        "targetText": "Ich habe gestern ein Buch gesehen.",
+        "context": "Translate and speak this sentence.",
+        "acceptableVariants": [
+          "Ich habe gestern ein Buch gesehen."
+        ]
+      },
+      "explanation": "The sentence translates correctly to 'Ich habe gestern ein Buch gesehen.'",
+      "hint": "Use the past tense form of 'sehen'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich _____ (to see) die Lampe.",
+      "content": {
+        "sentence": "Ich _____ die Lampe.",
+        "correctAnswer": "sehe",
+        "acceptableAnswers": [
+          "sehe"
+        ],
+        "options": [
+          "sah",
+          "sehen",
+          "sehe"
+        ]
+      },
+      "explanation": "The correct present tense form of 'to see' is 'sehe'.",
+      "hint": "Think about the present tense.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'the table'?",
+      "content": {
+        "options": [
+          "der Tisch",
+          "die Lampe",
+          "das Buch"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'The table' translates to 'der Tisch' in German.",
+      "hint": "Remember the article for masculine nouns.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,337 @@
+{
+  "lesson": {
+    "title": "Expressing Nuanced Opinions",
+    "type": "CONVERSATION",
+    "slug": "es-b2-nuanced"
+  },
+  "unit": "Arts & Literature",
+  "unitOrder": 7,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to express nuanced opinions in Spanish, focusing on arts and literature. You will practice using advanced vocabulary and grammatical structures to articulate your thoughts with clarity and depth.",
+      "culturalNote": "Many Spanish-speaking countries have a rich literary tradition, with influential authors like Gabriel García Márquez and Julio Cortázar, whose works often provoke deep discussions about society and culture."
+    },
+    "vocabulary": [
+      {
+        "term": "la crítica",
+        "translation": "the critique",
+        "definition": "an evaluation or analysis of artistic work",
+        "pronunciation": "lah kree-tee-kah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La crítica del libro fue muy positiva.",
+          "translation": "The critique of the book was very positive."
+        },
+        "tip": "Think of 'critiquing' as evaluating, which can help remember this term."
+      },
+      {
+        "term": "el autor",
+        "translation": "the author",
+        "definition": "the creator of a literary work",
+        "pronunciation": "el ow-tor",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El autor del libro es muy reconocido.",
+          "translation": "The author of the book is very recognized."
+        },
+        "tip": "Remember that 'author' and 'autor' are cognates."
+      },
+      {
+        "term": "la obra",
+        "translation": "the work",
+        "definition": "a piece of art or literature",
+        "pronunciation": "lah oh-brah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La obra de arte fue expuesta en el museo.",
+          "translation": "The work of art was displayed in the museum."
+        },
+        "tip": "Think of 'obra' as in 'masterpiece' to associate it with artistic works."
+      },
+      {
+        "term": "el estilo",
+        "translation": "the style",
+        "definition": "the distinctive manner of expression in art or literature",
+        "pronunciation": "el es-tee-loh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El estilo del autor es muy único.",
+          "translation": "The author's style is very unique."
+        },
+        "tip": "Link 'estilo' to 'style' in English to remember its meaning."
+      },
+      {
+        "term": "la interpretación",
+        "translation": "the interpretation",
+        "definition": "the way in which a piece of art or literature is understood",
+        "pronunciation": "lah in-ter-pre-ta-syon",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La interpretación del poema es muy profunda.",
+          "translation": "The interpretation of the poem is very profound."
+        },
+        "tip": "Connect 'interpretation' to 'interpretación' to aid memory."
+      },
+      {
+        "term": "el mensaje",
+        "translation": "the message",
+        "definition": "the main idea or theme conveyed in a work",
+        "pronunciation": "el men-sah-heh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El mensaje de la película es conmovedor.",
+          "translation": "The message of the movie is moving."
+        },
+        "tip": "Remember 'mensaje' as similar to 'message' for easier recall."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subjunctive for Expressing Opinions",
+        "explanation": "In Spanish, the subjunctive mood is often used to express opinions, desires, or emotions. When discussing art or literature, we often use phrases like 'Es importante que...' or 'Me parece que...' followed by a verb in the subjunctive to show our subjective view.",
+        "table": {
+          "headers": [
+            "Expression",
+            "Subjunctive Example"
+          ],
+          "rows": [
+            [
+              "Es importante que la obra sea apreciada.",
+              "It is important that the work is appreciated."
+            ],
+            [
+              "Me parece que el autor tenga una perspectiva única.",
+              "It seems to me that the author has a unique perspective."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es necesario que la crítica refleje la verdad.",
+            "translation": "It is necessary that the critique reflects the truth.",
+            "breakdown": "Here, 'refleje' is in the subjunctive because it expresses a necessity."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive. For example, 'Es importante que el autor es talentoso.' should be 'Es importante que el autor sea talentoso.'",
+          "Neglecting to use the subjunctive after expressions of doubt. For instance, 'Dudo que la obra fue bien recibida.' should be 'Dudo que la obra haya sido bien recibida.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Book",
+      "context": "A conversation between two friends at a café discussing a novel they both recently read.",
+      "speakers": [
+        "Carla",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué te pareció la obra de García Márquez?",
+          "translation": "What did you think of García Márquez's work?"
+        },
+        {
+          "speaker": 1,
+          "text": "Me parece que su estilo es muy poético y profundo.",
+          "translation": "I think his style is very poetic and deep."
+        },
+        {
+          "speaker": 0,
+          "text": "Estoy de acuerdo. Es como si cada palabra tuviera un significado oculto.",
+          "translation": "I agree. It's as if every word has a hidden meaning."
+        },
+        {
+          "speaker": 1,
+          "text": "Exactamente. Además, el mensaje sobre la soledad es conmovedor.",
+          "translation": "Exactly. Also, the message about loneliness is moving."
+        },
+        {
+          "speaker": 0,
+          "text": "Sin embargo, algunos críticos opinan que es demasiado denso.",
+          "translation": "However, some critics believe it's too dense."
+        },
+        {
+          "speaker": 1,
+          "text": "Puede ser, pero creo que eso es lo que lo hace interesante.",
+          "translation": "It may be, but I think that's what makes it interesting."
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, y la forma en que mezcla lo real con lo mágico es fascinante.",
+          "translation": "Yes, and the way he mixes the real with the magical is fascinating."
+        },
+        {
+          "speaker": 1,
+          "text": "Definitivamente, es un autor que provoca muchas reflexiones.",
+          "translation": "Definitely, he is an author who provokes a lot of reflections."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Literary Traditions in Latin America",
+      "text": "Latin America boasts a vibrant literary scene, with many authors using their works to comment on social issues. The 'Boom' generation, which includes writers like Julio Cortázar and Mario Vargas Llosa, revolutionized narrative styles and themes, leading to a rich tradition of critical literature.",
+      "funFact": "Gabriel García Márquez's novel 'One Hundred Years of Solitude' has been translated into over 30 languages, making it one of the most translated books in history."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to arts and literature.",
+        "Practiced using the subjunctive to express opinions.",
+        "Engaged in a dialogue that showcases nuanced discussions.",
+        "Gained insights into Latin American literary culture."
+      ],
+      "nextSteps": "Consider reading a short story or poem in Spanish and try to write a critique using the vocabulary and grammar learned in this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la crítica' refer to in the context of arts and literature?",
+      "content": {
+        "options": [
+          "The author's biography",
+          "The review or critique of a work",
+          "The main message of the work",
+          "The style of writing"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'La crítica' refers to the review or critique of a work, assessing its value and interpretation.",
+      "hint": "Think about reviews in newspapers or magazines.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'El ______ del libro es muy interesante.'",
+      "content": {
+        "sentence": "El ______ del libro es muy interesante.",
+        "correctAnswer": "estilo",
+        "acceptableAnswers": [
+          "estilo"
+        ],
+        "options": [
+          "mensaje",
+          "autor",
+          "obra",
+          "estilo"
+        ]
+      },
+      "explanation": "The style ('estilo') of the book is what makes it interesting in literature.",
+      "hint": "Think about how an author writes.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'el / autor / estilo / su / muy / particular'.",
+      "content": {
+        "words": [
+          "muy",
+          "particular",
+          "su",
+          "estilo",
+          "el",
+          "autor"
+        ],
+        "correctOrder": [
+          "el",
+          "autor",
+          "su",
+          "estilo",
+          "muy",
+          "particular"
+        ],
+        "translation": "The author's style is very particular."
+      },
+      "explanation": "The correct order forms a coherent sentence in Spanish.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The interpretation of the work is subjective.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The interpretation of the work is subjective.'",
+        "correctAnswer": "La interpretación de la obra es subjetiva.",
+        "acceptableAnswers": []
+      },
+      "explanation": "This translation captures the meaning of the original English sentence accurately.",
+      "hint": "Remember the Spanish words for 'interpretation' and 'work'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct meaning.",
+      "content": {
+        "ttsText": "El mensaje de la obra es profundo.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The message of the work is shallow.",
+          "The message of the work is deep.",
+          "The author of the work is unknown.",
+          "The style of the work is outdated."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct option reflects the meaning of 'profundo' in the context of the sentence.",
+      "hint": "Listen for the word 'mensaje'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following best describes 'el mensaje' in a literary context?",
+      "content": {
+        "options": [
+          "The author’s background",
+          "The main theme or idea conveyed",
+          "The specific style used",
+          "The critical reception of the work"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El mensaje' refers to the main theme or idea that the author conveys through the work.",
+      "hint": "Consider what the author wants to say.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'La ______ del autor es muy innovadora.'",
+      "content": {
+        "sentence": "La ______ del autor es muy innovadora.",
+        "correctAnswer": "obra",
+        "acceptableAnswers": [
+          "obra"
+        ],
+        "options": [
+          "crítica",
+          "interpretación",
+          "obra",
+          "estilo"
+        ]
+      },
+      "explanation": "The author's work ('obra') is what can be described as innovative.",
+      "hint": "Think about what an author creates.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Explain in Spanish why you like or dislike a specific author's style.",
+      "content": {
+        "targetText": "Me gusta/disgusta el estilo de [author] porque [reason].",
+        "context": "Describe your feelings about an author.",
+        "acceptableVariants": []
+      },
+      "explanation": "This exercise encourages learners to express their opinions about an author’s style.",
+      "hint": "Use specific examples from the author’s work.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,387 @@
+{
+  "lesson": {
+    "title": "Feelings & Emotions",
+    "type": "VOCABULARY",
+    "slug": "es-a2-feelings"
+  },
+  "unit": "Health & Body",
+  "unitOrder": 4,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to feelings and emotions in Spanish. You will also practice using this vocabulary in sentences and a dialogue.",
+      "culturalNote": "In many Spanish-speaking countries, expressing feelings openly is common and considered important in social interactions."
+    },
+    "vocabulary": [
+      {
+        "term": "feliz",
+        "translation": "happy",
+        "definition": "a state of joy or contentment",
+        "pronunciation": "feh-leez",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Ella está feliz.",
+          "translation": "She is happy."
+        },
+        "tip": "Think of 'feliz' as a word that sounds like 'fizz,' which can represent a bubbly, happy feeling."
+      },
+      {
+        "term": "triste",
+        "translation": "sad",
+        "definition": "a state of unhappiness or sorrow",
+        "pronunciation": "trees-teh",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Él está triste.",
+          "translation": "He is sad."
+        },
+        "tip": "Remember 'triste' rhymes with 'listless,' which can help you recall the feeling of sadness."
+      },
+      {
+        "term": "enojado",
+        "translation": "angry",
+        "definition": "feeling or showing strong annoyance or displeasure",
+        "pronunciation": "eh-noh-hah-doh",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Yo estoy enojado.",
+          "translation": "I am angry."
+        },
+        "tip": "Think of 'enojado' as 'annoyed' to remember that it's about feeling upset."
+      },
+      {
+        "term": "nervioso",
+        "translation": "nervous",
+        "definition": "feeling anxious or apprehensive",
+        "pronunciation": "nehr-vyoh-soh",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Estoy nervioso antes del examen.",
+          "translation": "I am nervous before the exam."
+        },
+        "tip": "Link 'nervioso' to 'nervous,' as they share a similar sound and meaning."
+      },
+      {
+        "term": "calma",
+        "translation": "calm",
+        "definition": "a peaceful state without agitation",
+        "pronunciation": "kahl-mah",
+        "partOfSpeech": "noun/adjective",
+        "exampleSentence": {
+          "original": "Ella está en calma.",
+          "translation": "She is calm."
+        },
+        "tip": "Think of 'calm' as a tranquil lake, reflecting peace."
+      },
+      {
+        "term": "sorpresa",
+        "translation": "surprise",
+        "definition": "a feeling caused by something unexpected",
+        "pronunciation": "sohr-preh-sah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo una sorpresa para ti.",
+          "translation": "I have a surprise for you."
+        },
+        "tip": "Remember 'sorpresa' because surprises can be both good and shocking."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'estar' to Describe Emotions",
+        "explanation": "In Spanish, we use the verb 'estar' to describe feelings and emotions. This verb indicates a temporary state. For example, 'Yo estoy feliz' means 'I am happy.' Remember that emotions can change, so we use 'estar' instead of 'ser.'",
+        "table": {
+          "headers": [
+            "Subject",
+            "Emotion"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "estoy feliz"
+            ],
+            [
+              "Él",
+              "está triste"
+            ],
+            [
+              "Nosotros",
+              "estamos enojados"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ella está nerviosa.",
+            "translation": "She is nervous.",
+            "breakdown": "'Ella' is the subject, 'está' is the verb 'estar,' and 'nerviosa' is the emotion."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'ser' instead of 'estar' for emotions (Correction: use 'estar').",
+          "Forgetting to match the gender of adjectives (Correction: 'feliz' is the same for both genders, but 'enojado' is for males and 'enojada' for females)."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Feelings",
+      "context": "In a coffee shop between two friends.",
+      "speakers": [
+        "Juan",
+        "Maria"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, María. ¿Cómo estás?",
+          "translation": "Hi, Maria. How are you?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, Juan. Estoy un poco triste.",
+          "translation": "Hi, Juan. I am a little sad.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Por qué estás triste?",
+          "translation": "Why are you sad?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Porque no tengo tiempo para estudiar.",
+          "translation": "Because I don't have time to study.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Entiendo. ¿Estás nerviosa por el examen?",
+          "translation": "I understand. Are you nervous about the exam?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, estoy un poco nerviosa.",
+          "translation": "Yes, I am a little nervous.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "No te preocupes. Todo estará bien.",
+          "translation": "Don't worry. Everything will be fine.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Gracias, Juan. Eso me hace sentir mejor.",
+          "translation": "Thank you, Juan. That makes me feel better.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Expressions of Emotions in Latin America",
+      "text": "In many Latin American cultures, expressing emotions openly is seen as a sign of authenticity and warmth. People often greet each other with hugs and kisses, which reflects their close-knit social relationships.",
+      "funFact": "In some cultures, it is common to ask about a person's feelings even in casual conversation, highlighting the importance of emotional connection."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to feelings and emotions.",
+        "Practiced using 'estar' to express emotions.",
+        "Engaged in a dialogue about feelings.",
+        "Gained insight into cultural expressions of emotions."
+      ],
+      "nextSteps": "Practice using these vocabulary words in your daily conversations and review the dialogue to improve your speaking skills."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'feliz' mean in English?",
+      "content": {
+        "options": [
+          "happy",
+          "sad",
+          "angry",
+          "calm"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Feliz' translates to 'happy' in English.",
+      "hint": "Think about what makes you smile.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'nervous'?",
+      "content": {
+        "options": [
+          "tranquilo",
+          "nervioso",
+          "sorpresa",
+          "triste"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Nervioso' is the Spanish word for 'nervous'.",
+      "hint": "What do you feel before a big exam?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ella está ___ porque perdió su libro.'",
+      "content": {
+        "sentence": "Ella está ___ porque perdió su libro.",
+        "correctAnswer": "triste",
+        "acceptableAnswers": [
+          "triste"
+        ],
+        "options": [
+          "feliz",
+          "triste",
+          "calma",
+          "enojado"
+        ]
+      },
+      "explanation": "The correct answer is 'triste', meaning 'sad', as she lost her book.",
+      "hint": "How would you feel if you lost something important?",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'El niño está ___ porque no le dejaron entrar.'",
+      "content": {
+        "sentence": "El niño está ___ porque no le dejaron entrar.",
+        "correctAnswer": "enojado",
+        "acceptableAnswers": [
+          "enojado"
+        ],
+        "options": [
+          "nervioso",
+          "calma",
+          "feliz",
+          "enojado"
+        ]
+      },
+      "explanation": "'Enojado' means 'angry', which fits the context of being denied entry.",
+      "hint": "What do you feel when you are upset?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: 'feliz / estoy / hoy'.",
+      "content": {
+        "words": [
+          "feliz",
+          "estoy",
+          "hoy"
+        ],
+        "correctOrder": [
+          "estoy",
+          "feliz",
+          "hoy"
+        ],
+        "translation": "I am happy today."
+      },
+      "explanation": "The correct order is 'estoy feliz hoy', which means 'I am happy today'.",
+      "hint": "Think about how to express feelings in Spanish.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I am surprised.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I am surprised.'",
+        "correctAnswer": "Estoy sorprendido.",
+        "acceptableAnswers": [
+          "Estoy sorprendido",
+          "Estoy sorprendida"
+        ]
+      },
+      "explanation": "'Estoy sorprendido' is how you say 'I am surprised' in Spanish.",
+      "hint": "The word for 'surprised' starts with 's'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct emotion: 'Ella está calma.'",
+      "content": {
+        "ttsText": "Ella está calma.",
+        "ttsLang": "es-ES",
+        "options": [
+          "calm",
+          "angry",
+          "sad",
+          "happy"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Calma' means 'calm', which is the emotion being described.",
+      "hint": "Think about a peaceful feeling.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in Spanish: 'I feel nervous.'",
+      "content": {
+        "targetText": "Me siento nervioso.",
+        "context": "Expressing how you feel in Spanish.",
+        "acceptableVariants": [
+          "Me siento nerviosa",
+          "Estoy nervioso"
+        ]
+      },
+      "explanation": "'Me siento nervioso' means 'I feel nervous', which is how to express your feelings.",
+      "hint": "Remember to use the verb 'sentir' for feelings.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'sorpresa' mean in English?",
+      "content": {
+        "options": [
+          "relief",
+          "surprise",
+          "fear",
+          "joy"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Sorpresa' translates to 'surprise' in English.",
+      "hint": "Think about unexpected events.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Cuando ganó la carrera, estaba ___.'",
+      "content": {
+        "sentence": "Cuando ganó la carrera, estaba ___.",
+        "correctAnswer": "feliz",
+        "acceptableAnswers": [
+          "feliz"
+        ],
+        "options": [
+          "feliz",
+          "triste",
+          "nervioso",
+          "calma"
+        ]
+      },
+      "explanation": "The correct answer is 'feliz', as winning a race usually makes someone happy.",
+      "hint": "What feeling do you have when you achieve something?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

@@ -1,0 +1,383 @@
+{
+  "lesson": {
+    "title": "Unit 3 Review",
+    "type": "REVIEW",
+    "slug": "de-a1-unit3-review"
+  },
+  "unit": "Daily Life & Verbs",
+  "unitOrder": 3,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this review unit, you will consolidate your knowledge of daily life vocabulary and verbs in German, focusing on practical expressions. You will also practice using modal verbs like 'können' and 'möchten' in everyday sentences.",
+      "culturalNote": "In German-speaking countries, daily routines often include specific mealtimes. For example, lunch ('Mittagessen') is typically served around noon."
+    },
+    "vocabulary": [
+      {
+        "term": "das Essen",
+        "translation": "the food",
+        "definition": "refers to meals or food items in general",
+        "pronunciation": "dahs ESS-en",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich esse das Essen.",
+          "translation": "I eat the food."
+        },
+        "tip": "Remember that 'das' indicates that this noun is neuter."
+      },
+      {
+        "term": "der Tisch",
+        "translation": "the table",
+        "definition": "a piece of furniture with a flat top supported by legs",
+        "pronunciation": "dehr tish",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Tisch ist groß.",
+          "translation": "The table is big."
+        },
+        "tip": "The word 'Tisch' is masculine, so it uses 'der'."
+      },
+      {
+        "term": "die Lampe",
+        "translation": "the lamp",
+        "definition": "a device that provides light",
+        "pronunciation": "dee LAHM-peh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Lampe ist hell.",
+          "translation": "The lamp is bright."
+        },
+        "tip": "Remember that 'Lampe' is feminine, so it uses 'die'."
+      },
+      {
+        "term": "möchten",
+        "translation": "would like",
+        "definition": "a modal verb used to express desires",
+        "pronunciation": "MERK-ten",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich möchte ein Bier.",
+          "translation": "I would like a beer."
+        },
+        "tip": "Use 'möchten' to politely express what you want."
+      },
+      {
+        "term": "können",
+        "translation": "can",
+        "definition": "a modal verb used to express ability",
+        "pronunciation": "KERN-en",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich kann schwimmen.",
+          "translation": "I can swim."
+        },
+        "tip": "'Können' indicates ability, so use it to say what you are able to do."
+      },
+      {
+        "term": "die Schule",
+        "translation": "the school",
+        "definition": "an institution for educating children",
+        "pronunciation": "dee SHOO-leh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Schule beginnt um acht Uhr.",
+          "translation": "The school starts at eight o'clock."
+        },
+        "tip": "'Schule' is feminine and takes 'die' as its article."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Modal Verbs",
+        "explanation": "Modal verbs like 'können' and 'möchten' change the meaning of the main verb in a sentence. They help express ability or desire. In German, the modal verb typically comes second in the sentence, and the main verb goes to the end.",
+        "table": {
+          "headers": [
+            "Modal Verb",
+            "Meaning"
+          ],
+          "rows": [
+            [
+              "können",
+              "can"
+            ],
+            [
+              "möchten",
+              "would like"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wir können Deutsch lernen.",
+            "translation": "We can learn German.",
+            "breakdown": "Here, 'können' shows ability to learn."
+          },
+          {
+            "original": "Ich möchte ins Kino gehen.",
+            "translation": "I would like to go to the cinema.",
+            "breakdown": "Here, 'möchten' shows a desire to go."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Ich kann zu gehen.' instead of 'Ich kann gehen.' - The correct form does not need 'zu'.",
+          "Using 'möchten' incorrectly as 'möchte' in plural - Always use 'möchten' for 'we' or 'they'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Going to the Restaurant",
+      "context": "Anna and Max are at a restaurant deciding what to eat.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Ich möchte eine Pizza.",
+          "translation": "I would like a pizza."
+        },
+        {
+          "speaker": 1,
+          "text": "Das klingt gut! Ich kann die Pizza bestellen.",
+          "translation": "That sounds good! I can order the pizza."
+        },
+        {
+          "speaker": 0,
+          "text": "Möchtest du auch etwas zu trinken?",
+          "translation": "Would you also like something to drink?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich möchte ein Wasser.",
+          "translation": "Yes, I would like a water."
+        },
+        {
+          "speaker": 0,
+          "text": "Hast du das Menü gesehen?",
+          "translation": "Did you see the menu?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, das Essen sieht lecker aus.",
+          "translation": "Yes, the food looks delicious."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich kann die Rechnung bezahlen.",
+          "translation": "I can pay the bill."
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist nett von dir.",
+          "translation": "That's nice of you."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Dining Etiquette in Germany",
+      "text": "In Germany, it is common to wait for everyone to be served before starting to eat. Also, saying 'Guten Appetit!' before meals is a polite tradition.",
+      "funFact": "In some regions, it's customary to tip about 10% in restaurants, and it is often included in the bill."
+    },
+    "summary": {
+      "keyPoints": [
+        "You have learned important vocabulary related to daily life.",
+        "Modal verbs 'können' and 'möchten' help express ability and desire.",
+        "Understanding the use of articles is crucial for noun genders.",
+        "Practice forming sentences using the vocabulary and modal verbs."
+      ],
+      "nextSteps": "Continue practicing by writing sentences using the new vocabulary and modal verbs in different contexts."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'das Essen' mean in English?",
+      "content": {
+        "options": [
+          "the table",
+          "the food",
+          "the lamp",
+          "the school"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Das Essen' translates to 'the food' in English.",
+      "hint": "Think about what you eat.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which verb means 'to be able to'?",
+      "content": {
+        "options": [
+          "möchten",
+          "können",
+          "essen",
+          "gehen"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Können' means 'to be able to' in English.",
+      "hint": "It's about capability.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Ich ___ zur Schule.",
+      "content": {
+        "sentence": "Ich ___ zur Schule.",
+        "correctAnswer": "gehe",
+        "acceptableAnswers": [
+          "gehe",
+          "fahre"
+        ],
+        "options": [
+          "gehe",
+          "esse",
+          "möchte",
+          "kann"
+        ]
+      },
+      "explanation": "The correct verb is 'gehe', which means 'go' in English.",
+      "hint": "Think about how you travel to school.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich ___ einen Tisch.",
+      "content": {
+        "sentence": "Ich ___ einen Tisch.",
+        "correctAnswer": "möchte",
+        "acceptableAnswers": [
+          "möchte"
+        ],
+        "options": [
+          "kann",
+          "möchte",
+          "esse",
+          "gehe"
+        ]
+      },
+      "explanation": "'Möchte' means 'would like' in English, which fits the sentence context.",
+      "hint": "Use a verb that expresses desire.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'die Lampe, auf, der Tisch'",
+      "content": {
+        "words": [
+          "auf",
+          "der",
+          "Tisch",
+          "die",
+          "Lampe"
+        ],
+        "correctOrder": [
+          "die",
+          "Lampe",
+          "auf",
+          "der",
+          "Tisch"
+        ],
+        "translation": "The lamp is on the table."
+      },
+      "explanation": "The correct order forms a meaningful sentence in German.",
+      "hint": "Think about where a lamp can be placed.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I want to eat.'",
+      "content": {
+        "prompt": "Translate to German: 'I want to eat.'",
+        "correctAnswer": "Ich möchte essen.",
+        "acceptableAnswers": [
+          "Ich will essen."
+        ]
+      },
+      "explanation": "'Ich möchte essen' is a polite way to express the desire to eat in German.",
+      "hint": "Remember the verb for 'want'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Ich gehe zur Schule.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I walk to school.",
+          "I eat at school.",
+          "I go to school.",
+          "I want to go to school."
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "The sentence means 'I go to school' in English.",
+      "hint": "Focus on the verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in German: 'I have food on the table.'",
+      "content": {
+        "targetText": "Ich habe Essen auf dem Tisch.",
+        "context": "Translate and say a sentence about food and the table.",
+        "acceptableVariants": [
+          "Ich habe das Essen auf dem Tisch."
+        ]
+      },
+      "explanation": "This sentence describes having food on the table.",
+      "hint": "Use the correct articles.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'die Schule' mean in English?",
+      "content": {
+        "options": [
+          "the school",
+          "the food",
+          "the lamp",
+          "the table"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Schule' translates to 'the school' in English.",
+      "hint": "Think about where you go to learn.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Ich ___ die Lampe.",
+      "content": {
+        "sentence": "Ich ___ die Lampe.",
+        "correctAnswer": "habe",
+        "acceptableAnswers": [
+          "habe"
+        ],
+        "options": [
+          "habe",
+          "möchte",
+          "kann",
+          "esse"
+        ]
+      },
+      "explanation": "'Habe' means 'have', which is correct for this sentence.",
+      "hint": "What verb do you use to express possession?",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

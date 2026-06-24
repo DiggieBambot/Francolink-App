@@ -1,0 +1,352 @@
+{
+  "lesson": {
+    "title": "Jobs & Professions",
+    "type": "VOCABULARY",
+    "slug": "es-a2-jobs"
+  },
+  "unit": "Work & Studies",
+  "unitOrder": 5,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to jobs and professions in Spanish. You will also practice using these words in simple sentences to describe different occupations.",
+      "culturalNote": "In many Spanish-speaking countries, family businesses are very common, and it is often expected for children to join the family trade."
+    },
+    "vocabulary": [
+      {
+        "term": "el médico",
+        "translation": "the doctor",
+        "definition": "A person who helps people when they are sick.",
+        "pronunciation": "el MEH-dee-ko",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El médico trabaja en el hospital.",
+          "translation": "The doctor works in the hospital."
+        },
+        "tip": "Remember that 'médico' can refer to both male and female doctors."
+      },
+      {
+        "term": "la maestra",
+        "translation": "the teacher (female)",
+        "definition": "A person who teaches students in a school.",
+        "pronunciation": "la mah-ES-trah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La maestra enseña matemáticas.",
+          "translation": "The teacher teaches math."
+        },
+        "tip": "In Spanish, professions often have gendered forms, like 'maestra' for female and 'maestro' for male."
+      },
+      {
+        "term": "el ingeniero",
+        "translation": "the engineer",
+        "definition": "A person who designs and builds things.",
+        "pronunciation": "el in-hen-YER-o",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El ingeniero trabaja en la construcción.",
+          "translation": "The engineer works in construction."
+        },
+        "tip": "The word 'ingeniero' can be used for both male and female engineers."
+      },
+      {
+        "term": "la enfermera",
+        "translation": "the nurse (female)",
+        "definition": "A person who helps doctors and takes care of patients.",
+        "pronunciation": "la en-fer-MER-ah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La enfermera cuida a los pacientes.",
+          "translation": "The nurse takes care of the patients."
+        },
+        "tip": "Similar to 'maestra', the male version is 'enfermero'."
+      },
+      {
+        "term": "el abogado",
+        "translation": "the lawyer (male)",
+        "definition": "A person who defends people in court.",
+        "pronunciation": "el ah-boh-GAH-do",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El abogado defiende a sus clientes.",
+          "translation": "The lawyer defends his clients."
+        },
+        "tip": "For a female lawyer, use 'abogada'."
+      },
+      {
+        "term": "el artista",
+        "translation": "the artist",
+        "definition": "A person who creates art.",
+        "pronunciation": "el ar-TEES-ta",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El artista pinta cuadros hermosos.",
+          "translation": "The artist paints beautiful pictures."
+        },
+        "tip": "This term is used for both male and female artists."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'trabajar' (to work)",
+        "explanation": "In Spanish, 'trabajar' means 'to work'. It is a regular -ar verb. You can use it to talk about where someone works or what they do. For example, 'Yo trabajo en una oficina' means 'I work in an office.'",
+        "table": {
+          "headers": [
+            "Subject",
+            "Conjugation"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "trabajo"
+            ],
+            [
+              "Tú",
+              "trabajas"
+            ],
+            [
+              "Él/Ella",
+              "trabaja"
+            ],
+            [
+              "Nosotros",
+              "trabajamos"
+            ],
+            [
+              "Ellos",
+              "trabajan"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ella trabaja en una escuela.",
+            "translation": "She works in a school.",
+            "breakdown": "Subject (Ella) + verb (trabaja) + location (en una escuela)."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'trabajar' with an incorrect subject (e.g., 'Yo trabaja')",
+          "Forgetting to match the subject pronoun with the verb form."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking about Jobs",
+      "context": "A conversation between two friends discussing their professions.",
+      "speakers": [
+        "Lucía",
+        "Carlos"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, Carlos. ¿Qué haces?",
+          "translation": "Hi, Carlos. What do you do?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, Lucía. Soy ingeniero.",
+          "translation": "Hi, Lucía. I am an engineer."
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué interesante! ¿Dónde trabajas?",
+          "translation": "How interesting! Where do you work?"
+        },
+        {
+          "speaker": 1,
+          "text": "Trabajo en una empresa de construcción.",
+          "translation": "I work in a construction company."
+        },
+        {
+          "speaker": 0,
+          "text": "Yo soy maestra. Trabajo en una escuela.",
+          "translation": "I am a teacher. I work in a school."
+        },
+        {
+          "speaker": 1,
+          "text": "¿Te gusta tu trabajo?",
+          "translation": "Do you like your job?"
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, me gusta mucho. Los niños son divertidos.",
+          "translation": "Yes, I like it a lot. The children are fun."
+        },
+        {
+          "speaker": 1,
+          "text": "Eso es genial. ¡Buen trabajo!",
+          "translation": "That's great. Good job!"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Family Businesses in Latin America",
+      "text": "In many Latin American countries, it is common for families to run their own businesses. This can range from small shops to larger enterprises. Children often learn the business from a young age.",
+      "funFact": "In Mexico, about 80% of businesses are classified as microenterprises, often family-owned."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary for various jobs.",
+        "Practiced using 'trabajar' in sentences.",
+        "Engaged in a dialogue about professions.",
+        "Explored cultural aspects of work in Spanish-speaking countries."
+      ],
+      "nextSteps": "Practice making sentences with the vocabulary learned and try speaking with a friend about your jobs."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'the doctor'?",
+      "content": {
+        "options": [
+          "el abogado",
+          "el médico",
+          "la maestra",
+          "la enfermera"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'el médico', which means 'the doctor' in English.",
+      "hint": "Think of someone who helps you when you're sick.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is 'the teacher' in Spanish?",
+      "content": {
+        "options": [
+          "el ingeniero",
+          "la maestra",
+          "el artista",
+          "el médico"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'La maestra' translates to 'the teacher' in English, usually referring to a female teacher.",
+      "hint": "This person teaches children in a school.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Yo quiero ser ___.'",
+      "content": {
+        "sentence": "Yo quiero ser ___.",
+        "correctAnswer": "abogado",
+        "acceptableAnswers": [
+          "abogada",
+          "ingeniero",
+          "enfermera",
+          "artista"
+        ],
+        "options": [
+          "abogado",
+          "maestra",
+          "médico",
+          "ingeniero"
+        ]
+      },
+      "explanation": "The correct answer is 'abogado', which means 'lawyer'.",
+      "hint": "This person works in law.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Ella es ___.'",
+      "content": {
+        "sentence": "Ella es ___.",
+        "correctAnswer": "enfermera",
+        "acceptableAnswers": [
+          "maestra",
+          "artista",
+          "médico",
+          "ingeniero"
+        ],
+        "options": [
+          "enfermera",
+          "abogado",
+          "médico",
+          "ingeniero"
+        ]
+      },
+      "explanation": "'Enfermera' means 'nurse', which is a female profession.",
+      "hint": "She takes care of patients.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'el / médico / es'.",
+      "content": {
+        "words": [
+          "es",
+          "médico",
+          "el"
+        ],
+        "correctOrder": [
+          "el",
+          "médico",
+          "es"
+        ],
+        "translation": "He is a doctor."
+      },
+      "explanation": "The correct order is 'el médico es', which translates to 'He is a doctor'.",
+      "hint": "Start with 'the' in Spanish.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The artist is very talented.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The artist is very talented.'",
+        "correctAnswer": "El artista es muy talentoso.",
+        "acceptableAnswers": [
+          "La artista es muy talentosa."
+        ]
+      },
+      "explanation": "The translation is 'El artista es muy talentoso', referring to a male artist.",
+      "hint": "Think about the gender of the artist.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct option.",
+      "content": {
+        "ttsText": "La maestra enseña a los niños.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The teacher teaches the children.",
+          "The doctor helps the children.",
+          "The artist paints for the children."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'The teacher teaches the children', which matches the Spanish sentence.",
+      "hint": "Focus on the word 'maestra'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in Spanish: 'I want to be an engineer.'",
+      "content": {
+        "targetText": "Quiero ser ingeniero.",
+        "context": "You are expressing your career aspiration.",
+        "acceptableVariants": [
+          "Quiero ser ingeniera."
+        ]
+      },
+      "explanation": "The sentence 'Quiero ser ingeniero' means 'I want to be an engineer'.",
+      "hint": "Remember the verb 'querer'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

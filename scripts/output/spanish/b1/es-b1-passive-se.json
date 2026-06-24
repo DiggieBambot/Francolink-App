@@ -1,0 +1,345 @@
+{
+  "lesson": {
+    "title": "The Passive Se",
+    "type": "GRAMMAR",
+    "slug": "es-b1-passive-se"
+  },
+  "unit": "Work & Career",
+  "unitOrder": 3,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to use the passive 'se' in Spanish, which allows you to focus on the action rather than the subject. This structure is commonly used in workplace settings where the emphasis is on the action performed rather than who performed it.",
+      "culturalNote": "In many Spanish-speaking countries, such as Mexico and Colombia, the passive 'se' is frequently used in written communication, especially in job descriptions and official documents."
+    },
+    "vocabulary": [
+      {
+        "term": "el trabajo",
+        "translation": "the job",
+        "definition": "A position of employment or work.",
+        "pronunciation": "el trah-bah-ho",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El trabajo es muy interesante.",
+          "translation": "The job is very interesting."
+        },
+        "tip": "Think of 'trabajo' as related to 'work', both in English and Spanish."
+      },
+      {
+        "term": "la responsabilidad",
+        "translation": "the responsibility",
+        "definition": "A duty or obligation to manage something.",
+        "pronunciation": "lah reh-spon-sah-bee-li-dahd",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo mucha responsabilidad en mi trabajo.",
+          "translation": "I have a lot of responsibility at my job."
+        },
+        "tip": "Remember 'responsibility' has a similar root in both languages."
+      },
+      {
+        "term": "el proyecto",
+        "translation": "the project",
+        "definition": "A planned set of tasks to achieve a goal.",
+        "pronunciation": "el pro-yeh-toh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El proyecto fue aprobado por el jefe.",
+          "translation": "The project was approved by the boss."
+        },
+        "tip": "Think of 'project' as something you manage or work on."
+      },
+      {
+        "term": "la reunión",
+        "translation": "the meeting",
+        "definition": "An assembly of people to discuss something.",
+        "pronunciation": "lah reh-u-nee-on",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La reunión se llevará a cabo mañana.",
+          "translation": "The meeting will be held tomorrow."
+        },
+        "tip": "Link 'reunión' to 'reunion' in English, which also implies gathering."
+      },
+      {
+        "term": "se vende",
+        "translation": "is sold",
+        "definition": "Used to indicate that something is for sale.",
+        "pronunciation": "seh ven-deh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "La casa se vende rápidamente.",
+          "translation": "The house is sold quickly."
+        },
+        "tip": "Remember that 'se' indicates that the action is done by an unspecified agent."
+      },
+      {
+        "term": "se necesita",
+        "translation": "is needed",
+        "definition": "Used to indicate that something is required.",
+        "pronunciation": "seh neh-seh-see-tah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Se necesita un nuevo empleado.",
+          "translation": "A new employee is needed."
+        },
+        "tip": "Use this structure to express requirements in job postings."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Passive 'Se'",
+        "explanation": "The passive 'se' is used in Spanish to shift the focus from the doer of the action to the action itself. This construction is formed with 'se' followed by the verb in the third person. It is commonly used in formal contexts, such as job descriptions or instructions.",
+        "table": {
+          "headers": [
+            "Form",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Se + Verb (3rd person)",
+              "Se habla español. (Spanish is spoken.)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Se firmaron los documentos.",
+            "translation": "The documents were signed.",
+            "breakdown": "In this example, 'se' indicates that the action of signing happened, but we do not focus on who signed the documents."
+          }
+        ],
+        "commonMistakes": [
+          "Using the first person: 'Yo se firmo' instead of 'Se firma'. Correct: Use third person for passive.",
+          "Confusing with regular passive: 'Los documentos fueron firmados' (The documents were signed) is different; focus on 'se' for actions."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Job Responsibilities",
+      "context": "Two colleagues are discussing their job responsibilities during a coffee break.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué se espera de ti en este proyecto?",
+          "translation": "What is expected of you in this project?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Se necesita que yo coordine con el equipo.",
+          "translation": "I need to coordinate with the team.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Eso suena complicado. ¿Cómo se organiza el trabajo?",
+          "translation": "That sounds complicated. How is the work organized?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Se asignan tareas a cada miembro del equipo.",
+          "translation": "Tasks are assigned to each team member.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y quién se encarga de las reuniones?",
+          "translation": "And who is in charge of the meetings?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Se realizan reuniones cada semana para revisar avances.",
+          "translation": "Meetings are held every week to review progress.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Perfecto, suena muy organizado.",
+          "translation": "Perfect, it sounds very organized.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, es importante que todo se mantenga en orden.",
+          "translation": "Yes, it's important that everything stays in order.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Workplace Culture in Spanish-Speaking Countries",
+      "text": "In many Spanish-speaking countries, teamwork and collaboration are highly valued in the workplace. It's common to see the passive 'se' used in job descriptions and company policies to emphasize the actions rather than the individuals involved.",
+      "funFact": "In Mexico, it is common to have weekly team meetings, which often use the passive 'se' to discuss projects and responsibilities."
+    },
+    "summary": {
+      "keyPoints": [
+        "The passive 'se' focuses on actions rather than who performs them.",
+        "It is commonly used in formal contexts and job descriptions.",
+        "Form the passive 'se' with 'se' + verb in the third person.",
+        "Common mistakes include using incorrect subject pronouns."
+      ],
+      "nextSteps": "Practice using the passive 'se' in your own sentences and try to identify it in job postings or official documents."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'se vende' mean in English?",
+      "content": {
+        "options": [
+          "It is sold",
+          "It is bought",
+          "It is needed",
+          "It is sold out"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Se vende' translates to 'It is sold' in English, indicating something is available for sale.",
+      "hint": "Focus on the meaning of 'vender'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following sentences uses the passive 'se' correctly?",
+      "content": {
+        "options": [
+          "Se necesita un nuevo proyecto.",
+          "Yo se necesito un nuevo proyecto.",
+          "Se vender el trabajo.",
+          "Estamos se vendiendo el trabajo."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct sentence is 'Se necesita un nuevo proyecto', which means 'A new project is needed'.",
+      "hint": "Look for the structure 'se + verb'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'En la reunión, _____ (discutir) el nuevo proyecto.'",
+      "content": {
+        "sentence": "En la reunión, _____ el nuevo proyecto.",
+        "correctAnswer": "se discutió",
+        "acceptableAnswers": [
+          "se discutieron",
+          "se discute"
+        ],
+        "options": [
+          "se discutió",
+          "se discuten",
+          "se discute"
+        ]
+      },
+      "explanation": "The correct form is 'se discutió', indicating that the project was discussed in a passive way.",
+      "hint": "Think about the past tense.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'El trabajo _____ (hacer) por un equipo.'",
+      "content": {
+        "sentence": "El trabajo _____ por un equipo.",
+        "correctAnswer": "se hace",
+        "acceptableAnswers": [
+          "se hizo",
+          "se hará"
+        ],
+        "options": [
+          "se hace",
+          "se hizo",
+          "se hará"
+        ]
+      },
+      "explanation": "The correct answer is 'se hace', indicating that the work is done by a team.",
+      "hint": "Consider the present tense.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: 'reunión / la / se / celebra / cada semana'.",
+      "content": {
+        "words": [
+          "reunión",
+          "la",
+          "se",
+          "celebra",
+          "cada",
+          "semana"
+        ],
+        "correctOrder": [
+          "la",
+          "reunión",
+          "se",
+          "celebra",
+          "cada",
+          "semana"
+        ],
+        "translation": "The meeting is held every week."
+      },
+      "explanation": "The correct order forms a coherent sentence in Spanish about meetings.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'A new job is needed.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'A new job is needed.'",
+        "correctAnswer": "Se necesita un nuevo trabajo.",
+        "acceptableAnswers": [
+          "Un nuevo trabajo se necesita."
+        ]
+      },
+      "explanation": "The sentence translates correctly to 'Se necesita un nuevo trabajo', using the passive 'se'.",
+      "hint": "Start with 'Se necesita...'",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "La reunión se celebrará mañana.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The meeting will be held tomorrow.",
+          "The project will be finished tomorrow.",
+          "The job is needed tomorrow.",
+          "The meeting has been cancelled."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'The meeting will be held tomorrow', reflecting the passive construction.",
+      "hint": "Listen for the word 'reunión'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'They need a new project.'",
+      "content": {
+        "targetText": "Se necesita un nuevo proyecto.",
+        "context": "You are discussing project requirements.",
+        "acceptableVariants": [
+          "Se necesita un proyecto nuevo."
+        ]
+      },
+      "explanation": "You've successfully expressed the need for a new project using the passive 'se'.",
+      "hint": "Remember to start with 'Se necesita...'",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

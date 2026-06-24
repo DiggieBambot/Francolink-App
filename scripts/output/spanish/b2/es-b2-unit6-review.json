@@ -1,0 +1,358 @@
+{
+  "lesson": {
+    "title": "Unit 6 Review",
+    "type": "REVIEW",
+    "slug": "es-b2-unit6-review"
+  },
+  "unit": "Science & Innovation",
+  "unitOrder": 6,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will review key vocabulary and grammar points related to science and innovation in Spanish. You will also reinforce your conversational skills through dialogues that reflect real-life situations.",
+      "culturalNote": "Science and technology play a crucial role in many Latin American countries, with notable contributions in fields like medicine and renewable energy."
+    },
+    "vocabulary": [
+      {
+        "term": "el descubrimiento",
+        "translation": "discovery",
+        "definition": "The process of finding something new.",
+        "pronunciation": "el des-ku-bree-mien-toh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El descubrimiento de la penicilina cambió la medicina.",
+          "translation": "The discovery of penicillin changed medicine."
+        },
+        "tip": "Think of 'discovery' as something that unveils secrets."
+      },
+      {
+        "term": "la innovación",
+        "translation": "innovation",
+        "definition": "The introduction of new ideas or methods.",
+        "pronunciation": "la ee-no-va-syon",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La innovación tecnológica es clave para el desarrollo económico.",
+          "translation": "Technological innovation is key to economic development."
+        },
+        "tip": "Relate 'innovation' to 'new'—it’s about bringing new things into existence."
+      },
+      {
+        "term": "el avance",
+        "translation": "advance",
+        "definition": "A forward movement or improvement in a particular field.",
+        "pronunciation": "el ah-vahn-seh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El avance en la investigación científica es impresionante.",
+          "translation": "The advance in scientific research is impressive."
+        },
+        "tip": "Think of 'advance' as making progress or moving forward."
+      },
+      {
+        "term": "la tecnología",
+        "translation": "technology",
+        "definition": "The application of scientific knowledge for practical purposes.",
+        "pronunciation": "la tek-no-lo-hee-ah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La tecnología ha transformado nuestras vidas diarias.",
+          "translation": "Technology has transformed our daily lives."
+        },
+        "tip": "Remember that 'tecnología' is similar to 'technology' in English."
+      },
+      {
+        "term": "la investigación",
+        "translation": "research",
+        "definition": "Systematic inquiry to discover or interpret facts.",
+        "pronunciation": "la in-ves-ti-ga-syon",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La investigación científica es fundamental para el progreso.",
+          "translation": "Scientific research is fundamental for progress."
+        },
+        "tip": "Link 'investigation' in English to 'investigación' in Spanish."
+      },
+      {
+        "term": "desarrollar",
+        "translation": "to develop",
+        "definition": "To bring something to a more advanced or effective state.",
+        "pronunciation": "de-sa-rro-lyar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Queremos desarrollar nuevas soluciones para el medio ambiente.",
+          "translation": "We want to develop new solutions for the environment."
+        },
+        "tip": "Think of 'develop' as growing or evolving something."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Subjunctive Mood",
+        "explanation": "The subjunctive mood expresses wishes, doubts, or hypothetical situations. It's formed by using specific verb endings and can be triggered by certain expressions. For example, 'Espero que tú vengas' means 'I hope that you come.' In the past, the imperfect subjunctive is used for hypothetical situations: 'Si tuviera dinero, viajaría' (If I had money, I would travel).",
+        "table": {
+          "headers": [
+            "Present Subjunctive",
+            "Imperfect Subjunctive"
+          ],
+          "rows": [
+            [
+              "que hable",
+              "que hablara"
+            ],
+            [
+              "que coma",
+              "que comiera"
+            ],
+            [
+              "que viva",
+              "que viviera"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es importante que estudies para el examen.",
+            "translation": "It's important that you study for the exam.",
+            "breakdown": "The subjunctive 'estudies' shows a necessity."
+          },
+          {
+            "original": "Si pudiera, iría a la conferencia.",
+            "translation": "If I could, I would go to the conference.",
+            "breakdown": "The imperfect subjunctive 'pudiera' indicates a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing the present subjunctive with the indicative mood (e.g., 'es cierto que')",
+          "Using the subjunctive in statements of fact (e.g., 'Sé que él viene')."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a New Technology",
+      "context": "A coffee shop where two colleagues discuss recent advancements in technology.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Has oído hablar de la nueva tecnología en energía solar?",
+          "translation": "Have you heard about the new technology in solar energy?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, es fascinante. Dicen que puede reducir el costo de la energía.",
+          "translation": "Yes, it's fascinating. They say it can reduce the cost of energy.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Eso podría ser un gran avance para el medio ambiente.",
+          "translation": "That could be a great advance for the environment.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Exactamente. Espero que se implemente pronto.",
+          "translation": "Exactly. I hope it gets implemented soon.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y qué piensas sobre la innovación en la medicina?",
+          "translation": "And what do you think about the innovation in medicine?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Es increíble cómo la tecnología está ayudando a salvar vidas.",
+          "translation": "It's amazing how technology is helping to save lives.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, y creo que la investigación en este campo es crucial.",
+          "translation": "Yes, and I believe research in this field is crucial.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Definitivamente, sin investigación no tendríamos estos avances.",
+          "translation": "Definitely, without research we wouldn't have these advances.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Role of Science in Latin America",
+      "text": "Latin America has a rich history of scientific contributions, particularly in agriculture, medicine, and environmental science. Many universities promote research that addresses local challenges, integrating global knowledge with regional needs.",
+      "funFact": "Did you know that the first heart transplant in the world was performed in Chile in 1963?"
+    },
+    "summary": {
+      "keyPoints": [
+        "Review of vocabulary related to science and innovation.",
+        "Understanding the subjunctive mood in present and imperfect forms.",
+        "Application of vocabulary in realistic dialogues.",
+        "Cultural insights into Latin American contributions to science."
+      ],
+      "nextSteps": "Practice forming sentences using the subjunctive mood and continue expanding your vocabulary related to science and innovation."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'discovery'?",
+      "content": {
+        "options": [
+          "el avance",
+          "la innovación",
+          "el descubrimiento",
+          "la investigación"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "The correct answer is 'el descubrimiento', which translates to 'discovery' in English.",
+      "hint": "Think of a breakthrough or finding something new.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which term means 'technology' in Spanish?",
+      "content": {
+        "options": [
+          "la tecnología",
+          "el avance",
+          "la innovación",
+          "el descubrimiento"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La tecnología' is the direct translation of 'technology' in Spanish.",
+      "hint": "It's a common word used in discussions about modern tools.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: La _____ es esencial para el progreso humano.",
+      "content": {
+        "sentence": "La ___ es esencial para el progreso humano.",
+        "correctAnswer": "innovación",
+        "acceptableAnswers": [
+          "innovación"
+        ],
+        "options": [
+          "innovación",
+          "tecnología",
+          "investigación",
+          "descubrimiento"
+        ]
+      },
+      "explanation": "Innovation is crucial for human progress.",
+      "hint": "This word is related to new ideas.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Los científicos _____ nuevos métodos para resolver problemas.",
+      "content": {
+        "sentence": "Los científicos _____ nuevos métodos para resolver problemas.",
+        "correctAnswer": "desarrollan",
+        "acceptableAnswers": [
+          "desarrollan"
+        ],
+        "options": [
+          "desarrollan",
+          "investigan",
+          "descubren",
+          "avanzan"
+        ]
+      },
+      "explanation": "The correct verb indicates scientists are developing new methods.",
+      "hint": "Think of the process of creating or improving something.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: el avance / tecnología / en / importante / es / la / ciencia.",
+      "content": {
+        "words": [
+          "el avance",
+          "tecnología",
+          "en",
+          "importante",
+          "es",
+          "la",
+          "ciencia"
+        ],
+        "correctOrder": [
+          "el avance",
+          "en",
+          "la",
+          "tecnología",
+          "es",
+          "importante",
+          "ciencia"
+        ],
+        "translation": "The advance in technology is important in science."
+      },
+      "explanation": "The correct order forms a logical statement about technology's importance.",
+      "hint": "Start with the subject of the sentence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Research is essential for innovation.'",
+      "content": {
+        "correctAnswer": "La investigación es esencial para la innovación.",
+        "acceptableAnswers": [
+          "La investigación es fundamental para la innovación."
+        ]
+      },
+      "explanation": "The translation captures the importance of research in the innovation process.",
+      "hint": "Remember to use the correct articles and verb forms.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation: 'La tecnología avanza rápidamente.'",
+      "content": {
+        "ttsText": "La tecnología avanza rápidamente.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Technology advances quickly.",
+          "Technology is slow to advance.",
+          "Technology is complex and slow."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation conveys that technology is advancing quickly.",
+      "hint": "Focus on the verb and the adverb.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in Spanish: 'The discovery changed the world.'",
+      "content": {
+        "targetText": "El descubrimiento cambió el mundo.",
+        "context": "You are describing a significant scientific achievement.",
+        "acceptableVariants": [
+          "El hallazgo cambió el mundo."
+        ]
+      },
+      "explanation": "This sentence highlights the impact of a discovery on the world.",
+      "hint": "Use the word for 'discovery' you learned.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

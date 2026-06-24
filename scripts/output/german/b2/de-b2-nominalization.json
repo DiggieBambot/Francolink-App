@@ -1,0 +1,361 @@
+{
+  "lesson": {
+    "title": "Nominalization & Noun Compounds",
+    "type": "GRAMMAR",
+    "slug": "de-b2-nominalization"
+  },
+  "unit": "Science & Innovation",
+  "unitOrder": 6,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, students will learn about nominalization and noun compounds in German, focusing on their usage in scientific and innovative contexts. This includes how to transform verbs and adjectives into nouns, as well as how to create compound nouns for more complex expressions.",
+      "culturalNote": "In Germany, the language is often very precise, especially in scientific literature, which relies heavily on nominalization and compound nouns to convey complex ideas succinctly."
+    },
+    "vocabulary": [
+      {
+        "term": "die Erfindung",
+        "translation": "the invention",
+        "definition": "A new creation or device.",
+        "pronunciation": "ee air-FIN-doong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Erfindung des Internets hat die Kommunikation revolutioniert.",
+          "translation": "The invention of the internet has revolutionized communication."
+        },
+        "tip": "Remember that 'Erfindung' is feminine (die), and its plural form is 'die Erfindungen'."
+      },
+      {
+        "term": "der Fortschritt",
+        "translation": "the progress",
+        "definition": "Advancement or improvement in a particular field.",
+        "pronunciation": "deer FOR-tschritt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Fortschritt in der Technologie ist beeindruckend.",
+          "translation": "The progress in technology is impressive."
+        },
+        "tip": "'Fortschritt' is masculine (der), and its plural is 'die Fortschritte'."
+      },
+      {
+        "term": "die Technologie",
+        "translation": "the technology",
+        "definition": "The application of scientific knowledge for practical purposes.",
+        "pronunciation": "dee tek-no-loh-GEE",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Technologie verändert unser tägliches Leben.",
+          "translation": "Technology is changing our daily lives."
+        },
+        "tip": "It's feminine (die), and the plural is 'die Technologien'."
+      },
+      {
+        "term": "das Experiment",
+        "translation": "the experiment",
+        "definition": "A scientific procedure undertaken to test a hypothesis.",
+        "pronunciation": "dahs eks-peri-MENT",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Experiment hat interessante Ergebnisse geliefert.",
+          "translation": "The experiment yielded interesting results."
+        },
+        "tip": "Remember that 'Experiment' is neuter (das), and its plural is 'die Experimente'."
+      },
+      {
+        "term": "die Entdeckung",
+        "translation": "the discovery",
+        "definition": "The act of finding or learning something for the first time.",
+        "pronunciation": "dee en-TEK-kung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Entdeckung neuer Planeten fasziniert Astronomen.",
+          "translation": "The discovery of new planets fascinates astronomers."
+        },
+        "tip": "'Entdeckung' is feminine (die), with the plural 'die Entdeckungen'."
+      },
+      {
+        "term": "der Wissenschaftler",
+        "translation": "the scientist",
+        "definition": "A person who conducts scientific research.",
+        "pronunciation": "deer VISS-en-shaft-ler",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Wissenschaftler präsentierte seine Ergebnisse auf einer Konferenz.",
+          "translation": "The scientist presented his findings at a conference."
+        },
+        "tip": "This word is masculine (der), and the plural is 'die Wissenschaftler'. For a female scientist, use 'die Wissenschaftlerin'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Nominalization of Verbs and Adjectives",
+        "explanation": "In German, verbs and adjectives can be nominalized to create nouns. This process often involves adding specific suffixes or changing the word form. For example, the verb 'erfinden' (to invent) becomes 'die Erfindung' (the invention). Similarly, adjectives like 'neu' (new) can be turned into nouns with 'die Neuheit' (the novelty).",
+        "table": {
+          "headers": [
+            "Verb/Adjective",
+            "Nominalized Form"
+          ],
+          "rows": [
+            [
+              "erfinden",
+              "die Erfindung"
+            ],
+            [
+              "neu",
+              "die Neuheit"
+            ],
+            [
+              "entdecken",
+              "die Entdeckung"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Die Entdeckung neuer Technologien ist wichtig.",
+            "translation": "The discovery of new technologies is important.",
+            "breakdown": "Here, 'Entdeckung' is a nominalization of 'entdecken', highlighting the action as a noun."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing the gender of nominalized nouns, e.g., using 'der' instead of 'die' for 'die Entdeckung'.",
+          "Using the infinitive form incorrectly instead of the nominalized form, e.g., saying 'das entdecken' instead of 'die Entdeckung'."
+        ]
+      },
+      {
+        "title": "Noun Compounds",
+        "explanation": "German allows for the creation of compound nouns, where two or more nouns are combined to form a new word. This is common in scientific language, allowing for concise expression of complex ideas. For instance, 'der Wasserkocher' (the kettle) combines 'das Wasser' (water) and 'der Kocher' (cooker).",
+        "table": {
+          "headers": [
+            "Noun 1",
+            "Noun 2",
+            "Compound Noun"
+          ],
+          "rows": [
+            [
+              "das Wasser",
+              "der Kocher",
+              "der Wasserkocher"
+            ],
+            [
+              "die Technologie",
+              "die Entwicklung",
+              "die Technologieentwicklung"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Die Technologieentwicklung ist ein wichtiger Bereich der Forschung.",
+            "translation": "The development of technology is an important area of research.",
+            "breakdown": "The compound noun 'Technologieentwicklung' combines 'Technologie' and 'Entwicklung' to express a specific field."
+          }
+        ],
+        "commonMistakes": [
+          "Forgetting to capitalize compound nouns, which is required in German.",
+          "Incorrectly assuming that the gender of the compound noun is based on the first noun instead of the last."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a New Invention",
+      "context": "Two colleagues at a scientific conference discussing a recent invention.",
+      "speakers": [
+        "Max (Scientist)",
+        "Lena (Researcher)"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hast du von der neuen Erfindung gehört?",
+          "translation": "Have you heard about the new invention?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe darüber gelesen. Es ist beeindruckend!",
+          "translation": "Yes, I read about it. It's impressive!",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Die Technologie dahinter könnte viele Probleme lösen.",
+          "translation": "The technology behind it could solve many problems.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Genau! Die Entdeckung eröffnet neue Möglichkeiten für die Forschung.",
+          "translation": "Exactly! The discovery opens up new possibilities for research.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich finde es spannend, wie schnell der Fortschritt in diesem Bereich ist.",
+          "translation": "I find it exciting how fast progress is in this area.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, die Wissenschaftler arbeiten hart daran, um innovative Lösungen zu finden.",
+          "translation": "Yes, scientists are working hard to find innovative solutions.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Hoffentlich wird das Experiment bald abgeschlossen.",
+          "translation": "Hopefully, the experiment will be completed soon.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das wäre großartig! Ich kann es kaum erwarten, die Ergebnisse zu sehen.",
+          "translation": "That would be great! I can hardly wait to see the results.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Innovation in Germany",
+      "text": "Germany is known for its strong emphasis on engineering and technology innovation. Many of the world's leading inventions and scientific breakthroughs have originated from German-speaking countries, reflecting a culture that values precision and creativity in science.",
+      "funFact": "Germany has produced several Nobel Prize winners in the fields of Physics, Chemistry, and Medicine, showcasing its contributions to global scientific advancement."
+    },
+    "summary": {
+      "keyPoints": [
+        "Nominalization allows verbs and adjectives to be transformed into nouns.",
+        "Noun compounds create new meanings by combining two or more nouns.",
+        "Understanding gender and plural forms is crucial for correct usage.",
+        "Scientific language often relies on precise nominalization and compounds."
+      ],
+      "nextSteps": "Practice creating your own nominalizations and noun compounds in sentences related to science and innovation. Try to incorporate new vocabulary into your writing."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is the correct noun form of 'to invent'?",
+      "content": {
+        "options": [
+          "die Entdeckung",
+          "die Erfindung",
+          "der Fortschritt",
+          "die Technologie"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct noun form for 'to invent' is 'die Erfindung', which means 'the invention'.",
+      "hint": "Think of the word related to bringing new ideas to life.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'der Wissenschaftler' mean in English?",
+      "content": {
+        "options": [
+          "the scientist",
+          "the discovery",
+          "the technology",
+          "the experiment"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Wissenschaftler' translates to 'the scientist', someone who conducts research.",
+      "hint": "This word refers to a person in the field of science.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "The latest _____ (Erfindung) has changed the world.",
+      "content": {
+        "sentence": "The latest ___ hat die Welt verändert.",
+        "correctAnswer": "Erfindung",
+        "acceptableAnswers": [
+          "Erfindung"
+        ],
+        "options": [
+          "Entdeckung",
+          "Technologie",
+          "Erfindung",
+          "Experiment"
+        ]
+      },
+      "explanation": "In this context, 'Erfindung' is the correct noun as it refers to an invention.",
+      "hint": "This word represents something newly created.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Science is based on careful _____ (Experiment).",
+      "content": {
+        "sentence": "Die Wissenschaft basiert auf sorgfältigem ___.",
+        "correctAnswer": "Experiment",
+        "acceptableAnswers": [
+          "Experiment"
+        ],
+        "options": [
+          "Fortschritt",
+          "Experiment",
+          "Entdeckung",
+          "Technologie"
+        ]
+      },
+      "explanation": "'Experiment' is the correct noun that refers to a scientific test or trial.",
+      "hint": "Think about what scientists do to test hypotheses.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The discovery of new technologies is important.'",
+      "content": {
+        "prompt": "Translate to German: 'The discovery of new technologies is important.'",
+        "correctAnswer": "Die Entdeckung neuer Technologien ist wichtig.",
+        "acceptableAnswers": [
+          "Die Entdeckung neuer Technologien ist wichtig."
+        ]
+      },
+      "explanation": "The translation accurately conveys the meaning using the correct nouns.",
+      "hint": "Focus on the words 'discovery' and 'technologies'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the following sentence and choose the correct translation.",
+      "content": {
+        "ttsText": "Die Technologie verändert unser Leben.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Technology changes our lives.",
+          "Technology is changing our lives.",
+          "Technology changed our lives.",
+          "Technology will change our lives."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct translation captures the ongoing nature of the change.",
+      "hint": "Pay attention to the verb tense in the German sentence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say: 'The scientist conducted an experiment.'",
+      "content": {
+        "targetText": "Der Wissenschaftler führte ein Experiment durch.",
+        "context": "Translate and say this sentence in German.",
+        "acceptableVariants": [
+          "Der Wissenschaftler machte ein Experiment.",
+          "Der Wissenschaftler hat ein Experiment durchgeführt."
+        ]
+      },
+      "explanation": "This sentence describes the action of a scientist and is important in scientific contexts.",
+      "hint": "Focus on the correct article for 'Wissenschaftler' and 'Experiment'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

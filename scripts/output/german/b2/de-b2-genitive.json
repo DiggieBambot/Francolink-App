@@ -1,0 +1,330 @@
+{
+  "lesson": {
+    "title": "The Genitive Case",
+    "type": "GRAMMAR",
+    "slug": "de-b2-genitive"
+  },
+  "unit": "Advanced Grammar Review",
+  "unitOrder": 1,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about the genitive case in German, its usage, and how it relates to possession. We will explore various expressions and structures that utilize the genitive, including some idiomatic phrases.",
+      "culturalNote": "The genitive case is used less frequently in spoken German, where prepositional phrases often replace it. However, it remains important in formal writing and literature."
+    },
+    "vocabulary": [
+      {
+        "term": "der Besitz",
+        "translation": "the possession",
+        "definition": "something that belongs to someone",
+        "pronunciation": "der beh-ZITS",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Besitz des Autos ist wichtig.",
+          "translation": "The possession of the car is important."
+        },
+        "tip": "Remember that 'Besitz' is masculine (der) and does not change in the plural form."
+      },
+      {
+        "term": "die Freiheit",
+        "translation": "the freedom",
+        "definition": "the power or right to act, speak, or think as one wants",
+        "pronunciation": "dee FRY-hait",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Freiheit des Individuums ist entscheidend.",
+          "translation": "The freedom of the individual is crucial."
+        },
+        "tip": "'Freiheit' is feminine (die), and its plural form is 'Freiheiten'."
+      },
+      {
+        "term": "das Ende",
+        "translation": "the end",
+        "definition": "the final part or conclusion of something",
+        "pronunciation": "das EN-duh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Ende des Buches ist überraschend.",
+          "translation": "The end of the book is surprising."
+        },
+        "tip": "'Ende' is neuter (das), and its plural form is 'Enden'."
+      },
+      {
+        "term": "der Einfluss",
+        "translation": "the influence",
+        "definition": "the capacity to have an effect on the character or development of someone or something",
+        "pronunciation": "der EYN-flooss",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Einfluss der Umwelt auf das Verhalten ist groß.",
+          "translation": "The influence of the environment on behavior is significant."
+        },
+        "tip": "'Einfluss' is masculine (der) and remains unchanged in the plural."
+      },
+      {
+        "term": "die Bedeutung",
+        "translation": "the meaning",
+        "definition": "the significance or importance of something",
+        "pronunciation": "dee beh-DOY-tung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Bedeutung des Textes ist unklar.",
+          "translation": "The meaning of the text is unclear."
+        },
+        "tip": "'Bedeutung' is feminine (die) and its plural is 'Bedeutungen'."
+      },
+      {
+        "term": "das Beispiel",
+        "translation": "the example",
+        "definition": "a representative form or pattern",
+        "pronunciation": "das BYE-shpeel",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Beispiel des berühmten Gemäldes ist bekannt.",
+          "translation": "The example of the famous painting is well-known."
+        },
+        "tip": "'Beispiel' is neuter (das) and its plural form is 'Beispiele'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Genitive Case",
+        "explanation": "The genitive case in German indicates possession and is often used to show ownership. It answers the question 'whose?'. The genitive case can be formed with the addition of specific endings to nouns or by using prepositions such as 'wegen' (because of) or 'trotz' (despite). It's essential to know the correct article and ending based on the noun's gender.",
+        "table": {
+          "headers": [
+            "Noun Type",
+            "Genitive Singular Form"
+          ],
+          "rows": [
+            [
+              "Masculine (der)",
+              "des + noun (e.g., des Mannes)"
+            ],
+            [
+              "Feminine (die)",
+              "der + noun (e.g., der Frau)"
+            ],
+            [
+              "Neuter (das)",
+              "des + noun (e.g., des Kindes)"
+            ],
+            [
+              "Plural (die)",
+              "der + noun (e.g., der Kinder)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Das Buch des Lehrers ist interessant.",
+            "translation": "The book of the teacher is interesting.",
+            "breakdown": "Here, 'des Lehrers' shows possession, indicating that the book belongs to the teacher."
+          },
+          {
+            "original": "Die Freiheit der Menschen ist wichtig.",
+            "translation": "The freedom of the people is important.",
+            "breakdown": "In this sentence, 'der Menschen' indicates that the freedom belongs to the people."
+          }
+        ],
+        "commonMistakes": [
+          "Using the nominative instead of the genitive: Correct form is 'des Mannes', not 'der Mann'.",
+          "Confusing gender endings: Remember that masculine nouns take 'des', while feminine nouns take 'der'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Book",
+      "context": "Two friends, Anna and Lukas, are discussing the content and significance of a book they recently read.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hast du das Buch des berühmten Autors gelesen?",
+          "translation": "Have you read the book of the famous author?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich fand die Bedeutung des Buches sehr tiefgründig.",
+          "translation": "Yes, I found the meaning of the book very profound.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Die Freiheit der Charaktere hat mich beeindruckt.",
+          "translation": "The freedom of the characters impressed me.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Definitiv! Der Einfluss der Gesellschaft auf die Handlung war bemerkenswert.",
+          "translation": "Definitely! The influence of society on the plot was remarkable.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich denke, das Ende des Buches war sehr überraschend.",
+          "translation": "I think the end of the book was very surprising.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, und es hat die Freiheit der Charaktere in Frage gestellt.",
+          "translation": "Yes, and it questioned the freedom of the characters.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich würde gerne mehr über die Absichten des Autors erfahren.",
+          "translation": "I would like to learn more about the intentions of the author.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das wäre interessant! Vielleicht gibt es Interviews, die das Thema behandeln.",
+          "translation": "That would be interesting! Maybe there are interviews that address the topic.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Literature in German Culture",
+      "text": "Literature plays a vital role in German-speaking countries, with many famous authors like Johann Wolfgang von Goethe and Franz Kafka shaping the literary landscape. Understanding the genitive case is important for reading and analyzing texts, as it often appears in rich, descriptive language.",
+      "funFact": "In German literature, the use of the genitive case is sometimes considered a mark of sophistication, especially in poetry."
+    },
+    "summary": {
+      "keyPoints": [
+        "The genitive case shows possession and answers 'whose?'.",
+        "Different endings are required based on the gender of the noun.",
+        "The genitive is often used in formal writing and literature.",
+        "Common prepositions that require the genitive include 'wegen' and 'trotz'."
+      ],
+      "nextSteps": "Practice forming sentences using the genitive case with different nouns. Try to incorporate the vocabulary learned in this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following sentences correctly uses the genitive case?",
+      "content": {
+        "options": [
+          "Das Buch des Lehrers ist interessant.",
+          "Ich sehe das Buch von Lehrer.",
+          "Die Freiheit der Studenten ist wichtig."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct sentence uses the genitive case to show possession, indicating that the book belongs to the teacher.",
+      "hint": "Look for phrases that indicate possession.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Identify the correct genitive form in this sentence: 'Die Bedeutung ___ Freiheit ist klar.'",
+      "content": {
+        "options": [
+          "der",
+          "die",
+          "das"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The genitive case requires the feminine noun 'Freiheit' to take 'der' as its article.",
+      "hint": "Remember the gender of the noun.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence with the correct genitive form: 'Das Ende ___ Reise war ungewiss.'",
+      "content": {
+        "sentence": "Das Ende ___ Reise war ungewiss.",
+        "correctAnswer": "der",
+        "acceptableAnswers": [
+          "der"
+        ],
+        "options": [
+          "der",
+          "die",
+          "das"
+        ]
+      },
+      "explanation": "The correct answer is 'der' because 'Reise' is a feminine noun in the genitive case.",
+      "hint": "Think about the gender of 'Reise'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the correct article in the genitive case: 'Der Einfluss ___ Medien ist groß.'",
+      "content": {
+        "sentence": "Der Einfluss ___ Medien ist groß.",
+        "correctAnswer": "der",
+        "acceptableAnswers": [
+          "der"
+        ],
+        "options": [
+          "der",
+          "die",
+          "das"
+        ]
+      },
+      "explanation": "Here 'Medien' is plural, and the genitive case uses 'der' to indicate possession.",
+      "hint": "Consider the plural form.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The influence of the decision was significant.'",
+      "content": {
+        "prompt": "Translate to German: 'The influence of the decision was significant.'",
+        "correctAnswer": "Der Einfluss der Entscheidung war bedeutend.",
+        "acceptableAnswers": [
+          "Der Einfluss der Entscheidung war wichtig."
+        ]
+      },
+      "explanation": "The translation uses the genitive case to indicate the relationship between influence and decision.",
+      "hint": "Look for the genitive structure in the translation.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation: 'Die Freiheit des Denkens ist wichtig.'",
+      "content": {
+        "ttsText": "Die Freiheit des Denkens ist wichtig.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The freedom of thought is important.",
+          "The importance of freedom is thought.",
+          "The thought of freedom is important."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation captures the meaning of the original sentence emphasizing freedom of thought.",
+      "hint": "Pay attention to the key nouns in the sentence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in German: 'The end of the journey is uncertain.'",
+      "content": {
+        "targetText": "Das Ende der Reise ist ungewiss.",
+        "context": "Translate and pronounce this sentence in German.",
+        "acceptableVariants": [
+          "Das Ende der Reise ist ungewiss."
+        ]
+      },
+      "explanation": "You are practicing your pronunciation and use of the genitive case in a meaningful context.",
+      "hint": "Focus on the pronunciation of 'Ende' and 'Reise'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

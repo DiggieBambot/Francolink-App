@@ -1,0 +1,311 @@
+{
+  "lesson": {
+    "title": "Making a Complaint",
+    "type": "CONVERSATION",
+    "slug": "de-a2-complaint"
+  },
+  "unit": "City & Services",
+  "unitOrder": 6,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to make a complaint in German, focusing on useful phrases and vocabulary. You'll practice a dialogue that demonstrates how to express dissatisfaction politely.",
+      "culturalNote": "In Germany, it's common to address customer service issues directly and politely. People appreciate a clear explanation of the problem."
+    },
+    "vocabulary": [
+      {
+        "term": "die Beschwerde",
+        "translation": "the complaint",
+        "definition": "a statement expressing dissatisfaction",
+        "pronunciation": "dee beh-shvair-deh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich möchte eine Beschwerde einreichen.",
+          "translation": "I would like to make a complaint."
+        },
+        "tip": "Remember that 'die' indicates that this noun is feminine."
+      },
+      {
+        "term": "der Service",
+        "translation": "the service",
+        "definition": "the assistance or benefit provided to customers",
+        "pronunciation": "dehr sehr-vis",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Service hier ist schlecht.",
+          "translation": "The service here is bad."
+        },
+        "tip": "This noun is masculine, so it uses 'der'."
+      },
+      {
+        "term": "unzufrieden",
+        "translation": "dissatisfied",
+        "definition": "not satisfied with something",
+        "pronunciation": "oon-tsoo-freed-en",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Ich bin unzufrieden mit dem Essen.",
+          "translation": "I am dissatisfied with the food."
+        },
+        "tip": "This word can describe feelings about services or products."
+      },
+      {
+        "term": "der Fehler",
+        "translation": "the mistake",
+        "definition": "an error or fault",
+        "pronunciation": "dehr fay-lahr",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es gab einen Fehler in meiner Rechnung.",
+          "translation": "There was a mistake in my bill."
+        },
+        "tip": "Remember that 'der' indicates a masculine noun."
+      },
+      {
+        "term": "bitten",
+        "translation": "to ask/request",
+        "definition": "to make a polite request",
+        "pronunciation": "bi-ten",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich bitte um Entschuldigung.",
+          "translation": "I ask for an apology."
+        },
+        "tip": "This verb is often used in polite requests."
+      },
+      {
+        "term": "die Entschuldigung",
+        "translation": "the apology",
+        "definition": "a statement expressing regret",
+        "pronunciation": "dee ent-shool-di-goong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe keine Entschuldigung erhalten.",
+          "translation": "I did not receive an apology."
+        },
+        "tip": "This noun is feminine, so it uses 'die'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Verb 'bitten'",
+        "explanation": "The verb 'bitten' means 'to ask' or 'to request'. It is often followed by 'um' and then a noun or noun phrase. This structure is common when making polite requests.",
+        "table": {
+          "headers": [
+            "Form",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Ich bitte um Hilfe.",
+              "I ask for help."
+            ],
+            [
+              "Wir bitten um Entschuldigung.",
+              "We request an apology."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich bitte um eine Erklärung.",
+            "translation": "I ask for an explanation.",
+            "breakdown": "'Ich' (I) + 'bitte' (ask) + 'um' + 'eine Erklärung' (an explanation)."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'bitten für' instead of 'bitten um'. Correct form is 'bitten um'.",
+          "Using the wrong case with 'um'. Remember, always use the accusative after 'um'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Making a Complaint at a Restaurant",
+      "context": "This conversation takes place in a restaurant where a customer is unhappy with the service.",
+      "speakers": [
+        "Max",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Entschuldigung, ich habe ein Problem.",
+          "translation": "Excuse me, I have a problem."
+        },
+        {
+          "speaker": 1,
+          "text": "Was ist das Problem?",
+          "translation": "What is the problem?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich bin unzufrieden mit dem Service.",
+          "translation": "I am dissatisfied with the service."
+        },
+        {
+          "speaker": 1,
+          "text": "Es tut mir leid. Was ist passiert?",
+          "translation": "I am sorry. What happened?"
+        },
+        {
+          "speaker": 0,
+          "text": "Das Essen war kalt.",
+          "translation": "The food was cold."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich verstehe. Ich werde es sofort beheben.",
+          "translation": "I understand. I will fix it immediately."
+        },
+        {
+          "speaker": 0,
+          "text": "Danke, ich hoffe, es wird besser.",
+          "translation": "Thank you, I hope it will be better."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich bitte um Entschuldigung für die Unannehmlichkeiten.",
+          "translation": "I apologize for the inconvenience."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Cultural Attitude Towards Complaints",
+      "text": "In German-speaking countries, it's important to express your dissatisfaction politely. Many establishments value customer feedback and aim to resolve issues quickly. Customers are encouraged to speak up if something is wrong.",
+      "funFact": "In Germany, many businesses have a 'customer service' section where you can formally submit complaints."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned useful vocabulary for making complaints.",
+        "Practiced polite phrases for expressing dissatisfaction.",
+        "Understood the structure of requests using 'bitten'.",
+        "Engaged in a realistic dialogue about a common situation."
+      ],
+      "nextSteps": "Practice using the vocabulary in different contexts, and try to create your own dialogues about making complaints."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'die Beschwerde' mean in English?",
+      "content": {
+        "options": [
+          "The complaint",
+          "The service",
+          "The error",
+          "The apology"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Beschwerde' translates to 'the complaint' in English.",
+      "hint": "Think about what you do when you're unhappy with something.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "If you are 'unzufrieden', how do you feel?",
+      "content": {
+        "options": [
+          "Happy",
+          "Satisfied",
+          "Dissatisfied",
+          "Confused"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Unzufrieden' means dissatisfied or not happy.",
+      "hint": "It's the opposite of being satisfied.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich _____ um Entschuldigung.",
+      "content": {
+        "sentence": "Ich _____ um Entschuldigung.",
+        "correctAnswer": "bitte",
+        "acceptableAnswers": [
+          "bitte"
+        ],
+        "options": [
+          "bitte",
+          "sage",
+          "gebe",
+          "nehme"
+        ]
+      },
+      "explanation": "The correct verb is 'bitte', which means 'ask for' in this context.",
+      "hint": "What do you do when you want to apologize?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the correct article: _____ Fehler ist nicht mein.",
+      "content": {
+        "sentence": "_____ Fehler ist nicht mein.",
+        "correctAnswer": "der",
+        "acceptableAnswers": [
+          "der"
+        ],
+        "options": [
+          "der",
+          "die",
+          "das"
+        ]
+      },
+      "explanation": "'Der Fehler' means 'the error' and is a masculine noun.",
+      "hint": "Think about the gender of the noun.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I am unhappy with the service.'",
+      "content": {
+        "prompt": "Translate to German: 'I am unhappy with the service.'",
+        "correctAnswer": "Ich bin unzufrieden mit dem Service.",
+        "acceptableAnswers": []
+      },
+      "explanation": "This sentence captures the feeling of dissatisfaction with the service.",
+      "hint": "Remember the word for 'service' in German.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation: 'Ich möchte eine Entschuldigung.'",
+      "content": {
+        "ttsText": "Ich möchte eine Entschuldigung.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I want an apology.",
+          "I want a complaint.",
+          "I want to be happy.",
+          "I want the service."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence translates to 'I want an apology.'",
+      "hint": "Focus on the word 'Entschuldigung'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I am not satisfied with the error.'",
+      "content": {
+        "targetText": "Ich bin mit dem Fehler nicht zufrieden.",
+        "context": "Translate and say this sentence in German.",
+        "acceptableVariants": [
+          "Ich bin unzufrieden mit dem Fehler."
+        ]
+      },
+      "explanation": "Both sentences express dissatisfaction with the error.",
+      "hint": "Use the word 'unzufrieden' for dissatisfaction.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,342 @@
+{
+  "lesson": {
+    "title": "Business Emails & Messages",
+    "type": "CONVERSATION",
+    "slug": "de-b1-business-emails"
+  },
+  "unit": "Work & Career",
+  "unitOrder": 3,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to write and understand business emails and messages in German. We will cover essential vocabulary, polite expressions, and common structures used in business communication.",
+      "culturalNote": "In Germany, formal communication is highly valued in the workplace. It's common to address colleagues and clients with their titles and last names, especially in initial communications."
+    },
+    "vocabulary": [
+      {
+        "term": "die E-Mail",
+        "translation": "the email",
+        "definition": "A digital message sent electronically.",
+        "pronunciation": "ee-mail",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe die E-Mail gestern gesendet.",
+          "translation": "I sent the email yesterday."
+        },
+        "tip": "Remember that 'die E-Mail' is feminine (die)."
+      },
+      {
+        "term": "der Betreff",
+        "translation": "the subject line",
+        "definition": "The title or topic of an email.",
+        "pronunciation": "buh-treff",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Betreff meiner E-Mail ist wichtig.",
+          "translation": "The subject line of my email is important."
+        },
+        "tip": "'Der Betreff' is masculine (der)."
+      },
+      {
+        "term": "die Anfrage",
+        "translation": "the inquiry",
+        "definition": "A request for information.",
+        "pronunciation": "an-fra-guh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe eine Anfrage zu Ihrem Produkt.",
+          "translation": "I have an inquiry about your product."
+        },
+        "tip": "'Die Anfrage' is feminine (die)."
+      },
+      {
+        "term": "der Anhang",
+        "translation": "the attachment",
+        "definition": "A file sent along with an email.",
+        "pronunciation": "an-hang",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Bitte finden Sie den Anhang zu dieser E-Mail.",
+          "translation": "Please find the attachment to this email."
+        },
+        "tip": "'Der Anhang' is masculine (der)."
+      },
+      {
+        "term": "die Rückmeldung",
+        "translation": "the feedback",
+        "definition": "A response or reaction to a request or message.",
+        "pronunciation": "rueck-mel-dung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Vielen Dank für Ihre Rückmeldung.",
+          "translation": "Thank you for your feedback."
+        },
+        "tip": "'Die Rückmeldung' is feminine (die)."
+      },
+      {
+        "term": "das Unternehmen",
+        "translation": "the company",
+        "definition": "A business or organization.",
+        "pronunciation": "un-ter-neh-men",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Unternehmen ist international tätig.",
+          "translation": "My company operates internationally."
+        },
+        "tip": "'Das Unternehmen' is neuter (das)."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Politeness in Requests",
+        "explanation": "In business emails, it's important to be polite. You can use Konjunktiv II to express polite requests. For example, instead of saying 'Ich möchte...' (I want...), you can say 'Ich würde gerne...' (I would like...). This makes your request sound more courteous.",
+        "table": {
+          "headers": [
+            "Direct Request",
+            "Polite Request"
+          ],
+          "rows": [
+            [
+              "Ich möchte einen Termin vereinbaren.",
+              "Ich würde gerne einen Termin vereinbaren."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich möchte mehr Informationen erhalten.",
+            "translation": "I want to receive more information.",
+            "breakdown": "'Ich möchte' is a direct request; 'Ich würde gerne' makes it more polite."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'ich will' (I want) instead of 'ich möchte' (I would like) for requests.",
+          "Forgetting to use formal greetings in emails."
+        ]
+      },
+      {
+        "title": "Using the Passive Voice",
+        "explanation": "The passive voice is often used in business communication to focus on the action rather than the subject. For example, 'Die E-Mail wurde gesendet.' (The email was sent.) This structure is useful for formal writing.",
+        "table": {
+          "headers": [
+            "Active Voice",
+            "Passive Voice"
+          ],
+          "rows": [
+            [
+              "Ich sende die E-Mail.",
+              "Die E-Mail wird gesendet."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Die Anfrage wurde bearbeitet.",
+            "translation": "The inquiry was processed.",
+            "breakdown": "In passive voice, the focus is on 'the inquiry' rather than who processed it."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing active and passive construction.",
+          "Using informal language in business settings."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Responding to a Business Inquiry",
+      "context": "This conversation takes place between two colleagues discussing a recent inquiry from a client.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Max, hast du die E-Mail von unserem Kunden gelesen?",
+          "translation": "Hello Max, have you read the email from our client?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe sie gelesen. Er hat eine Anfrage zu unserem neuen Produkt.",
+          "translation": "Yes, I read it. He has an inquiry about our new product.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Gut, können wir ihm schnell antworten?",
+          "translation": "Good, can we reply to him quickly?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich würde gerne die Informationen vorbereiten.",
+          "translation": "Yes, I would like to prepare the information.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Vergiss nicht, den Anhang hinzuzufügen.",
+          "translation": "Don't forget to add the attachment.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Natürlich, ich werde es machen.",
+          "translation": "Of course, I will do it.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Danke, Max! Lass uns die Rückmeldung bis morgen senden.",
+          "translation": "Thank you, Max! Let's send the feedback by tomorrow.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Klingt gut! Ich werde es rechtzeitig erledigen.",
+          "translation": "Sounds good! I will take care of it on time.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Business Communication in Germany",
+      "text": "In German-speaking countries, formal communication is essential in the business world. Emails often begin with a formal greeting and are structured in a clear and concise manner. It's also common to use titles and last names when addressing colleagues and clients.",
+      "funFact": "Did you know that Germans often prefer to have face-to-face meetings even when technology allows for virtual communication? Personal connections are highly valued."
+    },
+    "summary": {
+      "keyPoints": [
+        "Business emails require a formal tone and polite language.",
+        "Using the passive voice can enhance clarity in communication.",
+        "Understanding key vocabulary related to business emails is essential.",
+        "Practicing polite requests using Konjunktiv II helps in professional settings."
+      ],
+      "nextSteps": "Practice writing a business email using the vocabulary and grammar points from this lesson. Focus on politeness and clarity."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'der Betreff' mean in English?",
+      "content": {
+        "options": [
+          "The subject",
+          "The attachment",
+          "The company",
+          "The feedback"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Betreff' translates to 'the subject' in English, which is a key part of an email.",
+      "hint": "Think about what you write at the top of an email.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is 'die Anfrage' in English?",
+      "content": {
+        "options": [
+          "The response",
+          "The request",
+          "The email",
+          "The company"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Die Anfrage' means 'the request', a common term in business communication.",
+      "hint": "Consider what you send when you ask for information.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich habe die E-Mail mit dem ___ gesendet.'",
+      "content": {
+        "sentence": "Ich habe die E-Mail mit dem ___ gesendet.",
+        "correctAnswer": "Anhang",
+        "acceptableAnswers": [
+          "Anhang"
+        ],
+        "options": [
+          "Betreff",
+          "Anhang",
+          "Unternehmen"
+        ]
+      },
+      "explanation": "The sentence translates to 'I sent the email with the attachment.' The correct term is 'Anhang'.",
+      "hint": "Think about what you can include in an email.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Wir warten auf Ihre ___.'",
+      "content": {
+        "sentence": "Wir warten auf Ihre ___.",
+        "correctAnswer": "Rückmeldung",
+        "acceptableAnswers": [
+          "Rückmeldung"
+        ],
+        "options": [
+          "Anfrage",
+          "Rückmeldung",
+          "E-Mail"
+        ]
+      },
+      "explanation": "The sentence means 'We are waiting for your feedback.' The correct term is 'Rückmeldung'.",
+      "hint": "Think about what you expect after sending an email.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I have a business inquiry.'",
+      "content": {
+        "prompt": "Translate to German: 'I have a business inquiry.'",
+        "correctAnswer": "Ich habe eine geschäftliche Anfrage.",
+        "acceptableAnswers": [
+          "Ich habe eine Anfrage."
+        ]
+      },
+      "explanation": "The translation captures the essence of a business-related question.",
+      "hint": "Remember the word for inquiry.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation.",
+      "content": {
+        "ttsText": "Bitte senden Sie mir die Rückmeldung.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Please send me the feedback.",
+          "Please send me the email.",
+          "Please send me the request."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'Please send me the feedback.'",
+      "hint": "Focus on the word for feedback.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I attached the file to the email.'",
+      "content": {
+        "targetText": "Ich habe die Datei an die E-Mail angehängt.",
+        "context": "You are explaining how you sent an email.",
+        "acceptableVariants": [
+          "Ich habe die Datei an die E-Mail gehängt."
+        ]
+      },
+      "explanation": "This sentence describes the action of attaching a file to an email.",
+      "hint": "Think about how to express attachment.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

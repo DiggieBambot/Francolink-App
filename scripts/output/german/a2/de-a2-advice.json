@@ -1,0 +1,341 @@
+{
+  "lesson": {
+    "title": "Giving Advice - Sollen & Müssen",
+    "type": "GRAMMAR",
+    "slug": "de-a2-advice"
+  },
+  "unit": "Health & Body",
+  "unitOrder": 4,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to give advice using the German modal verbs 'sollen' (should) and 'müssen' (must). You will practice their usage in health-related contexts.",
+      "culturalNote": "In Germany, health and wellness are highly valued, and people often seek advice from friends and family about health matters."
+    },
+    "vocabulary": [
+      {
+        "term": "die Gesundheit",
+        "translation": "health",
+        "definition": "the state of being free from illness or injury",
+        "pronunciation": "dee ge-ZUND-hait",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Gesundheit ist wichtig.",
+          "translation": "Health is important."
+        },
+        "tip": "Feminine noun, use 'die'."
+      },
+      {
+        "term": "der Arzt",
+        "translation": "doctor",
+        "definition": "a person qualified to treat people who are ill",
+        "pronunciation": "dair arts",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich gehe zum Arzt.",
+          "translation": "I am going to the doctor."
+        },
+        "tip": "Masculine noun, use 'der'."
+      },
+      {
+        "term": "die Ernährung",
+        "translation": "nutrition",
+        "definition": "the process of obtaining the food necessary for health",
+        "pronunciation": "dee air-NOOR-oong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Eine gute Ernährung ist wichtig.",
+          "translation": "Good nutrition is important."
+        },
+        "tip": "Feminine noun, use 'die'."
+      },
+      {
+        "term": "müssen",
+        "translation": "must",
+        "definition": "modal verb used to express necessity",
+        "pronunciation": "MUE-sen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Du musst mehr Wasser trinken.",
+          "translation": "You must drink more water."
+        },
+        "tip": "Commonly used to express obligations."
+      },
+      {
+        "term": "sollen",
+        "translation": "should",
+        "definition": "modal verb used to give advice or recommendation",
+        "pronunciation": "ZOL-len",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Du sollst gesund essen.",
+          "translation": "You should eat healthily."
+        },
+        "tip": "Use 'sollen' for recommendations."
+      },
+      {
+        "term": "der Stress",
+        "translation": "stress",
+        "definition": "a state of mental or emotional strain",
+        "pronunciation": "dair shtress",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Stress ist ungesund.",
+          "translation": "Stress is unhealthy."
+        },
+        "tip": "Masculine noun, use 'der'."
+      },
+      {
+        "term": "die Bewegung",
+        "translation": "exercise",
+        "definition": "physical activity aimed at improving health",
+        "pronunciation": "dee beh-VEH-goong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Bewegung ist wichtig für die Gesundheit.",
+          "translation": "Exercise is important for health."
+        },
+        "tip": "Feminine noun, use 'die'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Sollen and Müssen",
+        "explanation": "In German, 'sollen' and 'müssen' are modal verbs used to express advice and necessity. 'Sollen' is used when giving recommendations, while 'müssen' indicates something that is necessary. Both verbs are followed by the infinitive form of the main verb.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Meaning"
+          ],
+          "rows": [
+            [
+              "sollen",
+              "should"
+            ],
+            [
+              "müssen",
+              "must"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Du sollst mehr schlafen.",
+            "translation": "You should sleep more.",
+            "breakdown": "'Du' is the subject, 'sollst' is the conjugated form of 'sollen', and 'schlafen' is the infinitive."
+          },
+          {
+            "original": "Ich muss zum Arzt gehen.",
+            "translation": "I must go to the doctor.",
+            "breakdown": "'Ich' is the subject, 'muss' is the conjugated form of 'müssen', and 'gehen' is the infinitive."
+          }
+        ],
+        "commonMistakes": [
+          "'Ich soll gehen' (I should go) instead of 'Ich soll gehen.' (Correct with correct punctuation)",
+          "'Du musst nicht gehen' (You must not go) instead of 'Du musst nicht gehen.' (Correct with correct punctuation)"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Visiting a Doctor",
+      "context": "Anna is talking to her friend Lukas about her health concerns.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Ich habe Kopfschmerzen.",
+          "translation": "I have a headache.",
+          "note": "Anna is expressing her problem."
+        },
+        {
+          "speaker": 1,
+          "text": "Du solltest zum Arzt gehen.",
+          "translation": "You should go to the doctor.",
+          "note": "Lukas gives advice."
+        },
+        {
+          "speaker": 0,
+          "text": "Aber ich habe keine Zeit.",
+          "translation": "But I have no time.",
+          "note": "Anna explains her situation."
+        },
+        {
+          "speaker": 1,
+          "text": "Du musst dir Zeit nehmen.",
+          "translation": "You must take time for yourself.",
+          "note": "Lukas emphasizes the necessity."
+        },
+        {
+          "speaker": 0,
+          "text": "Was soll ich tun?",
+          "translation": "What should I do?",
+          "note": "Anna asks for more advice."
+        },
+        {
+          "speaker": 1,
+          "text": "Du sollst viel Wasser trinken.",
+          "translation": "You should drink a lot of water.",
+          "note": "Lukas gives another recommendation."
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt gut.",
+          "translation": "That sounds good.",
+          "note": "Anna agrees with the advice."
+        },
+        {
+          "speaker": 1,
+          "text": "Und du musst dich entspannen.",
+          "translation": "And you must relax.",
+          "note": "Lukas adds another suggestion."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Health Culture in Germany",
+      "text": "Germans often prioritize health and fitness, leading to a strong culture of preventive healthcare. Many people regularly visit doctors for check-ups and seek advice on maintaining a healthy lifestyle.",
+      "funFact": "Germany has one of the highest numbers of fitness studios per capita in the world."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understand the difference between 'sollen' and 'müssen'.",
+        "Learn vocabulary related to health.",
+        "Practice giving advice using modal verbs.",
+        "Engage in a realistic dialogue about health concerns."
+      ],
+      "nextSteps": "Practice using 'sollen' and 'müssen' in sentences about other topics or in different contexts."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'müssen' mean in English?",
+      "content": {
+        "options": [
+          "to should",
+          "to must",
+          "to can",
+          "to want"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Müssen' translates to 'must', indicating obligation.",
+      "hint": "Think of a strong requirement.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence is correct? 'Du ___ mehr Bewegung haben.'",
+      "content": {
+        "options": [
+          "sollst",
+          "muss",
+          "sollen",
+          "müssen"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Sollst' is the correct form of 'sollen' for 'you' in this context.",
+      "hint": "Look for the form that fits 'you should'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Du ___ mehr Wasser trinken.'",
+      "content": {
+        "sentence": "Du ___ mehr Wasser trinken.",
+        "correctAnswer": "musst",
+        "acceptableAnswers": [
+          "muss",
+          "müssen"
+        ],
+        "options": [
+          "sollst",
+          "musst",
+          "kannst",
+          "sollen"
+        ]
+      },
+      "explanation": "'Musst' is the correct form of 'müssen' for 'you' in this obligation.",
+      "hint": "This is a necessity.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the correct word: 'Eine gesunde ___ ist wichtig.'",
+      "content": {
+        "sentence": "Eine gesunde ___ ist wichtig.",
+        "correctAnswer": "Ernährung",
+        "acceptableAnswers": [
+          "Ernährung"
+        ],
+        "options": [
+          "Bewegung",
+          "Ernährung",
+          "Gesundheit",
+          "Stress"
+        ]
+      },
+      "explanation": "The word 'Ernährung' means 'nutrition' and fits the context.",
+      "hint": "Think about food and health.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'You should exercise more.'",
+      "content": {
+        "correctAnswer": "Du sollst mehr Bewegung haben.",
+        "acceptableAnswers": [
+          "Du sollst mehr Sport machen.",
+          "Du sollst mehr bewegen."
+        ],
+        "translation": "You should exercise more."
+      },
+      "explanation": "The correct translation uses 'sollen' to indicate advice.",
+      "hint": "Think about the advice format.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct option: 'Du musst zum Arzt gehen.'",
+      "content": {
+        "ttsText": "Du musst zum Arzt gehen.",
+        "ttsLang": "de-DE",
+        "options": [
+          "You must go to the doctor.",
+          "You should see a doctor.",
+          "You can visit the doctor.",
+          "You want to go to the doctor."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence clearly states an obligation to see the doctor.",
+      "hint": "Listen for the word 'muss'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'You must take care of your health.'",
+      "content": {
+        "targetText": "Du musst auf deine Gesundheit achten.",
+        "context": "Giving advice about health.",
+        "acceptableVariants": [
+          "Du musst auf deine Gesundheit aufpassen."
+        ]
+      },
+      "explanation": "The sentence advises taking care of health using 'müssen'.",
+      "hint": "Use the word 'Gesundheit'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

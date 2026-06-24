@@ -1,0 +1,332 @@
+{
+  "lesson": {
+    "title": "The Body & Health",
+    "type": "VOCABULARY",
+    "slug": "de-a2-body-health"
+  },
+  "unit": "Health & Body",
+  "unitOrder": 4,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to the body and health in German. You will also practice using these terms in sentences and dialogues.",
+      "culturalNote": "In Germany, health is a major priority, and many people participate in sports and outdoor activities. The German healthcare system is known for its efficiency and quality."
+    },
+    "vocabulary": [
+      {
+        "term": "der Kopf",
+        "translation": "the head",
+        "definition": "the upper part of the human body that contains the brain, eyes, ears, nose, and mouth",
+        "pronunciation": "dehr kohp",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Kopf tut weh.",
+          "translation": "My head hurts."
+        },
+        "tip": "Remember that 'Kopf' is masculine (der)."
+      },
+      {
+        "term": "die Hand",
+        "translation": "the hand",
+        "definition": "the end part of a person's arm used for holding or touching things",
+        "pronunciation": "dee hahnd",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich wasche meine Hände.",
+          "translation": "I wash my hands."
+        },
+        "tip": "'Hand' is feminine (die) and its plural is 'die Hände'."
+      },
+      {
+        "term": "das Bein",
+        "translation": "the leg",
+        "definition": "the limb on which a person stands and walks",
+        "pronunciation": "dahs bine",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe mir das Bein gebrochen.",
+          "translation": "I broke my leg."
+        },
+        "tip": "'Bein' is neuter (das) and its plural is 'die Beine'."
+      },
+      {
+        "term": "der Bauch",
+        "translation": "the belly/stomach",
+        "definition": "the part of the body that contains the digestive organs",
+        "pronunciation": "dehr bowkh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Bauch ist voll.",
+          "translation": "My stomach is full."
+        },
+        "tip": "'Bauch' is masculine (der)."
+      },
+      {
+        "term": "die Gesundheit",
+        "translation": "the health",
+        "definition": "the state of being free from illness or injury",
+        "pronunciation": "dee geh-ZOONT-hait",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Gesundheit ist wichtig.",
+          "translation": "Health is important."
+        },
+        "tip": "'Gesundheit' is feminine (die) and is uncountable."
+      },
+      {
+        "term": "der Arzt",
+        "translation": "the doctor",
+        "definition": "a person trained and licensed to practice medicine",
+        "pronunciation": "dehr ahrts",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich gehe zum Arzt.",
+          "translation": "I am going to the doctor."
+        },
+        "tip": "'Arzt' is masculine (der) and its plural is 'die Ärzte'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Accusative Case",
+        "explanation": "In German, the accusative case is used for the direct object of a sentence. When you say who or what is receiving the action, you use the accusative. For masculine nouns, the article changes from 'der' to 'den'.",
+        "table": {
+          "headers": [
+            "Noun (Masculine)",
+            "Accusative"
+          ],
+          "rows": [
+            [
+              "der Kopf",
+              "den Kopf"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich sehe den Arzt.",
+            "translation": "I see the doctor.",
+            "breakdown": "Here, 'den Arzt' is the direct object, so we use the accusative case."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'der' instead of 'den' for masculine nouns in accusative. Correction: 'Ich sehe den Kopf.'",
+          "Forgetting to change articles for accusative case. Correction: 'Ich habe einen Hund.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Doctor's Office",
+      "context": "A conversation between a patient and a doctor during a check-up.",
+      "speakers": [
+        "Lena",
+        "Dr. Müller"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo, ich heiße Lena.",
+          "translation": "Hello, my name is Lena."
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Lena, wie kann ich Ihnen helfen?",
+          "translation": "Hello Lena, how can I help you?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich habe Kopfschmerzen.",
+          "translation": "I have a headache."
+        },
+        {
+          "speaker": 1,
+          "text": "Haben Sie noch andere Symptome?",
+          "translation": "Do you have any other symptoms?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, ich fühle mich müde.",
+          "translation": "Yes, I feel tired."
+        },
+        {
+          "speaker": 1,
+          "text": "Haben Sie genug geschlafen?",
+          "translation": "Have you slept enough?"
+        },
+        {
+          "speaker": 0,
+          "text": "Nein, ich schlafe schlecht.",
+          "translation": "No, I sleep poorly."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich empfehle Ihnen, mehr Wasser zu trinken.",
+          "translation": "I recommend that you drink more water."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Health and Wellness in German-speaking Countries",
+      "text": "In Germany, the concept of 'Gesundheitsförderung' (health promotion) is very popular. Many cities have parks and facilities that encourage physical activity. Traditional therapies, such as Kneipp therapy, are also common in wellness practices.",
+      "funFact": "Germany is known for its high-quality health insurance system, which covers many preventive health services."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to the body and health.",
+        "Practiced using the accusative case.",
+        "Engaged in a dialogue about visiting the doctor.",
+        "Gained insights into health culture in German-speaking countries."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and try creating your own dialogues about health topics."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'the head'?",
+      "content": {
+        "options": [
+          "der Kopf",
+          "das Bein",
+          "der Bauch",
+          "die Hand"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'der Kopf', which means 'the head' in German.",
+      "hint": "Think about the top part of your body.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'the doctor'?",
+      "content": {
+        "options": [
+          "der Arzt",
+          "die Gesundheit",
+          "das Bein",
+          "der Kopf"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'der Arzt', which means 'the doctor' in German.",
+      "hint": "This person helps you when you are sick.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Mein ___ tut weh.' (My ___ hurts.)",
+      "content": {
+        "sentence": "Mein ___ tut weh.",
+        "correctAnswer": "Bauch",
+        "acceptableAnswers": [
+          "der Bauch"
+        ],
+        "options": [
+          "der Kopf",
+          "die Hand",
+          "der Bauch",
+          "das Bein"
+        ]
+      },
+      "explanation": "The correct answer is 'Bauch', referring to the stomach area.",
+      "hint": "It's where you feel hungry.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich gehe zum ___.' (I go to the ___.).",
+      "content": {
+        "sentence": "Ich gehe zum ___.",
+        "correctAnswer": "Arzt",
+        "acceptableAnswers": [
+          "der Arzt"
+        ],
+        "options": [
+          "der Arzt",
+          "die Gesundheit",
+          "der Bauch",
+          "die Hand"
+        ]
+      },
+      "explanation": "The correct answer is 'Arzt', indicating where you go when you're ill.",
+      "hint": "This person takes care of your health.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to make a correct German sentence: 'die / tut / weh / Hand'.",
+      "content": {
+        "words": [
+          "die",
+          "tut",
+          "weh",
+          "Hand"
+        ],
+        "correctOrder": [
+          "die",
+          "Hand",
+          "tut",
+          "weh"
+        ],
+        "translation": "The hand hurts."
+      },
+      "explanation": "The correct order is 'Die Hand tut weh', which translates to 'The hand hurts'.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I want to be healthy.'",
+      "content": {
+        "prompt": "Translate to German: 'I want to be healthy.'",
+        "correctAnswer": "Ich will gesund sein.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The correct translation is 'Ich will gesund sein', which expresses the desire to maintain health.",
+      "hint": "Think about the word for health.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Mein Bein ist gebrochen.'",
+      "content": {
+        "ttsText": "Mein Bein ist gebrochen.",
+        "ttsLang": "de-DE",
+        "options": [
+          "My leg is broken.",
+          "My arm is broken.",
+          "My head is broken.",
+          "My hand is broken."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'My leg is broken'.",
+      "hint": "Think about the word for leg.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'My hand is hurt.'",
+      "content": {
+        "targetText": "Meine Hand ist verletzt.",
+        "context": "Translate and say this sentence.",
+        "acceptableVariants": [
+          "Meine Hand tut weh.",
+          "Meine Hand ist wehtun."
+        ]
+      },
+      "explanation": "Both variants express that the hand is hurt, which is correct.",
+      "hint": "Use the word for hand.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

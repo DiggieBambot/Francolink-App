@@ -1,0 +1,345 @@
+{
+  "lesson": {
+    "title": "Analyzing Written Texts",
+    "type": "CONVERSATION",
+    "slug": "es-b2-analyze-texts"
+  },
+  "unit": "Critical Thinking",
+  "unitOrder": 5,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to analyze written texts in Spanish, focusing on critical thinking and effective communication. You will expand your vocabulary and improve your ability to discuss and critique various texts.",
+      "culturalNote": "In many Spanish-speaking countries, literature and poetry are integral to cultural identity, with famous writers like Gabriel García Márquez and Pablo Neruda shaping the literary landscape."
+    },
+    "vocabulary": [
+      {
+        "term": "el análisis",
+        "translation": "the analysis",
+        "definition": "the process of examining something in detail",
+        "pronunciation": "el ah-nah-lees",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El análisis del texto fue muy profundo.",
+          "translation": "The analysis of the text was very deep."
+        },
+        "tip": "Remember that 'análisis' is a masculine noun, so use 'el' before it."
+      },
+      {
+        "term": "la crítica",
+        "translation": "the critique",
+        "definition": "a detailed evaluation or review of a text",
+        "pronunciation": "lah kree-teekah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La crítica literaria es esencial para entender el contexto.",
+          "translation": "Literary critique is essential to understand the context."
+        },
+        "tip": "This noun is feminine, so always use 'la' with it."
+      },
+      {
+        "term": "el argumento",
+        "translation": "the argument",
+        "definition": "the main point or reasoning in a text",
+        "pronunciation": "el ar-goo-men-toh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El argumento del artículo es convincente.",
+          "translation": "The argument of the article is convincing."
+        },
+        "tip": "Keep in mind that 'argumento' is masculine."
+      },
+      {
+        "term": "la estructura",
+        "translation": "the structure",
+        "definition": "the arrangement of parts in a text",
+        "pronunciation": "lah es-trook-too-rah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La estructura del ensayo es clara y lógica.",
+          "translation": "The structure of the essay is clear and logical."
+        },
+        "tip": "Remember that 'estructura' is feminine."
+      },
+      {
+        "term": "la conclusión",
+        "translation": "the conclusion",
+        "definition": "the final part of a text where ideas are summarized",
+        "pronunciation": "lah kon-kloo-syon",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La conclusión del libro es impactante.",
+          "translation": "The conclusion of the book is shocking."
+        },
+        "tip": "This noun is feminine, so use 'la' with it."
+      },
+      {
+        "term": "el tema",
+        "translation": "the theme",
+        "definition": "the central idea or subject of a text",
+        "pronunciation": "el tay-mah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El tema principal de la novela es la amistad.",
+          "translation": "The main theme of the novel is friendship."
+        },
+        "tip": "Note that 'tema' is masculine, which is a common source of confusion."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subjunctive Mood in Analysis",
+        "explanation": "The subjunctive mood is often used in Spanish to express doubt, wishes, or hypothetical situations. When analyzing texts, it is common to use the subjunctive to discuss opinions or to propose alternative interpretations.",
+        "table": {
+          "headers": [
+            "Present Subjunctive",
+            "Imperfect Subjunctive"
+          ],
+          "rows": [
+            [
+              "que analice",
+              "que analizara"
+            ],
+            [
+              "que critique",
+              "que criticara"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es importante que analices el texto cuidadosamente.",
+            "translation": "It is important that you analyze the text carefully.",
+            "breakdown": "Here, 'analices' is in the present subjunctive form, expressing necessity."
+          },
+          {
+            "original": "Si analizara el texto, podría dar una mejor opinión.",
+            "translation": "If I analyzed the text, I could give a better opinion.",
+            "breakdown": "In this case, 'analizara' is in the imperfect subjunctive, indicating a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: 'Es importante que analizo.' should be 'Es importante que analices.'",
+          "Confusing the present and imperfect subjunctive: 'Si analizo...' should be 'Si analizara...'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Written Text",
+      "context": "A conversation between two students discussing a book for their literature class.",
+      "speakers": [
+        "Carlos",
+        "Lucía"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué te parece el análisis del libro?",
+          "translation": "What do you think of the analysis of the book?"
+        },
+        {
+          "speaker": 1,
+          "text": "Me parece que es muy profundo y bien estructurado.",
+          "translation": "I think it is very deep and well-structured."
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, además el argumento es muy convincente.",
+          "translation": "Yes, also the argument is very convincing."
+        },
+        {
+          "speaker": 1,
+          "text": "Creo que la crítica que hicieron es objetiva.",
+          "translation": "I believe that the critique they made is objective."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué opinas sobre el tema del amor en el libro?",
+          "translation": "What do you think about the theme of love in the book?"
+        },
+        {
+          "speaker": 1,
+          "text": "Creo que se presenta de manera compleja y realista.",
+          "translation": "I think it is presented in a complex and realistic way."
+        },
+        {
+          "speaker": 0,
+          "text": "Me gustaría que profundizaran más en la conclusión.",
+          "translation": "I would like them to delve more into the conclusion."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, eso haría que la obra fuera aún más impactante.",
+          "translation": "Yes, that would make the work even more impactful."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Literature in Spanish-speaking Countries",
+      "text": "Literature plays a significant role in the cultural identity of many Spanish-speaking countries. Authors often reflect social issues and historical contexts in their works, prompting critical discussions among readers.",
+      "funFact": "The Nobel Prize in Literature has been awarded to several Spanish-speaking authors, including Gabriel García Márquez and Mario Vargas Llosa."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding the importance of analysis in literature.",
+        "Using the subjunctive mood in critical discussions.",
+        "Familiarizing yourself with key vocabulary related to text analysis.",
+        "Engaging in discussions to express opinions and critiques."
+      ],
+      "nextSteps": "Practice analyzing a text of your choice using the vocabulary and grammar structures learned. Try to write a short critique or present your analysis to a partner."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'el análisis' mean in English?",
+      "content": {
+        "options": [
+          "The argument",
+          "The analysis",
+          "The conclusion",
+          "The theme"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El análisis' translates to 'the analysis' in English.",
+      "hint": "It's related to examining something closely.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'the structure' in Spanish?",
+      "content": {
+        "options": [
+          "La crítica",
+          "El argumento",
+          "La estructura",
+          "La conclusión"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'La estructura' is the correct translation for 'the structure'.",
+      "hint": "It's about how something is organized.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: La __________ de un texto es fundamental para entender su mensaje.",
+      "content": {
+        "sentence": "La __________ de un texto es fundamental para entender su mensaje.",
+        "correctAnswer": "estructura",
+        "acceptableAnswers": [
+          "estructura"
+        ],
+        "options": [
+          "tema",
+          "crítica",
+          "análisis",
+          "estructura"
+        ]
+      },
+      "explanation": "The 'estructura' is essential to understand the text's message.",
+      "hint": "Think about how the text is organized.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: El __________ de un texto es su idea principal.",
+      "content": {
+        "sentence": "El __________ de un texto es su idea principal.",
+        "correctAnswer": "tema",
+        "acceptableAnswers": [
+          "tema"
+        ],
+        "options": [
+          "análisis",
+          "tema",
+          "argumento",
+          "conclusión"
+        ]
+      },
+      "explanation": "The 'tema' refers to the main idea of a text.",
+      "hint": "It's what the text is about.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: análisis, de, el, texto, el, es, importante.",
+      "content": {
+        "words": [
+          "análisis",
+          "de",
+          "el",
+          "texto",
+          "el",
+          "es",
+          "importante"
+        ],
+        "correctOrder": [
+          "el",
+          "análisis",
+          "de",
+          "el",
+          "texto",
+          "es",
+          "importante"
+        ],
+        "translation": "The analysis of the text is important."
+      },
+      "explanation": "The correct order conveys the importance of the analysis.",
+      "hint": "Start with the definite article.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The conclusion is very important.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The conclusion is very important.'",
+        "correctAnswer": "La conclusión es muy importante.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation accurately conveys the meaning in Spanish.",
+      "hint": "Focus on key terms.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'El argumento es convincente.'",
+      "content": {
+        "ttsText": "El argumento es convincente.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The conclusion is convincing.",
+          "The argument is convincing.",
+          "The analysis is convincing."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct translation is 'The argument is convincing.'",
+      "hint": "Pay attention to the word 'argumento'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I want to analyze the text.'",
+      "content": {
+        "targetText": "Quiero analizar el texto.",
+        "context": "Translate and say this sentence in Spanish.",
+        "acceptableVariants": [
+          "Quiero hacer un análisis del texto."
+        ]
+      },
+      "explanation": "Both sentences effectively express the same intention.",
+      "hint": "Focus on the verb 'analizar'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

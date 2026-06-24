@@ -1,0 +1,343 @@
+{
+  "lesson": {
+    "title": "Prepositions (Por & Para)",
+    "type": "GRAMMAR",
+    "slug": "es-a2-por-para"
+  },
+  "unit": "Everyday Situations",
+  "unitOrder": 8,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about the Spanish prepositions 'por' and 'para.' You will understand when to use each one in everyday situations.",
+      "culturalNote": "In many Spanish-speaking countries, the distinction between 'por' and 'para' is crucial for clear communication, especially in expressing intentions and reasons."
+    },
+    "vocabulary": [
+      {
+        "term": "por",
+        "translation": "for",
+        "definition": "used to express cause, reason, or duration",
+        "pronunciation": "por",
+        "partOfSpeech": "preposition",
+        "exampleSentence": {
+          "original": "Trabajo por cinco horas.",
+          "translation": "I work for five hours."
+        },
+        "tip": "Think of 'por' as relating to the reason behind an action."
+      },
+      {
+        "term": "para",
+        "translation": "for",
+        "definition": "used to express purpose or destination",
+        "pronunciation": "para",
+        "partOfSpeech": "preposition",
+        "exampleSentence": {
+          "original": "Este regalo es para ti.",
+          "translation": "This gift is for you."
+        },
+        "tip": "Remember 'para' is often about the goal or destination of an action."
+      },
+      {
+        "term": "casa",
+        "translation": "house",
+        "definition": "a building for human habitation",
+        "pronunciation": "kah-sah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Vivo en una casa.",
+          "translation": "I live in a house."
+        },
+        "tip": "Common word to use in context with 'para' when talking about destination."
+      },
+      {
+        "term": "trabajo",
+        "translation": "work",
+        "definition": "activity involving mental or physical effort done to achieve a result",
+        "pronunciation": "trah-bah-hoh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Voy al trabajo todos los días.",
+          "translation": "I go to work every day."
+        },
+        "tip": "You can use 'por' when talking about working hours."
+      },
+      {
+        "term": "regalo",
+        "translation": "gift",
+        "definition": "something given to someone without expectation of payment",
+        "pronunciation": "reh-gah-loh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Compré un regalo para mi amigo.",
+          "translation": "I bought a gift for my friend."
+        },
+        "tip": "'Regalo' is often used with 'para' when indicating the recipient."
+      },
+      {
+        "term": "motivo",
+        "translation": "motive/reason",
+        "definition": "a reason for doing something",
+        "pronunciation": "moh-tee-voh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El motivo es claro.",
+          "translation": "The reason is clear."
+        },
+        "tip": "'Motivo' is a useful word when explaining reasons with 'por.'"
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'Por' and 'Para'",
+        "explanation": "'Por' is used to express reasons, causes, or duration, while 'para' is used for purposes, goals, or destinations. For example, we say 'por la tarde' (in the afternoon) but 'para mañana' (for tomorrow). Remember these differences to use them correctly.",
+        "table": {
+          "headers": [
+            "Por",
+            "Para"
+          ],
+          "rows": [
+            [
+              "Cause or reason",
+              "Purpose or goal"
+            ],
+            [
+              "Duration of time",
+              "Destination or recipient"
+            ],
+            [
+              "Exchange",
+              "Deadline or specific time"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Estudio por dos horas.",
+            "translation": "I study for two hours.",
+            "breakdown": "'Por' indicates the duration of studying."
+          },
+          {
+            "original": "Este libro es para aprender español.",
+            "translation": "This book is for learning Spanish.",
+            "breakdown": "'Para' indicates the purpose of the book."
+          }
+        ],
+        "commonMistakes": [
+          "'Por' is used for purposes: Incorrect: 'Voy por la tienda.' Correct: 'Voy para la tienda.'",
+          "'Para' is used for duration: Incorrect: 'Estudio para dos horas.' Correct: 'Estudio por dos horas.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Day Out",
+      "context": "Two friends are discussing their plans for the weekend.",
+      "speakers": [
+        "Laura",
+        "Miguel"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué planes tienes para el sábado?",
+          "translation": "What plans do you have for Saturday?"
+        },
+        {
+          "speaker": 1,
+          "text": "Voy a la casa de mi abuela.",
+          "translation": "I am going to my grandmother's house."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Por qué vas allí?",
+          "translation": "Why are you going there?"
+        },
+        {
+          "speaker": 1,
+          "text": "Voy por el cumpleaños de ella.",
+          "translation": "I am going for her birthday."
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué bien! ¿Compraste un regalo?",
+          "translation": "Great! Did you buy a gift?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, compré un regalo para ella.",
+          "translation": "Yes, I bought a gift for her."
+        },
+        {
+          "speaker": 0,
+          "text": "¿A qué hora llegas?",
+          "translation": "What time are you arriving?"
+        },
+        {
+          "speaker": 1,
+          "text": "Llego a las cinco.",
+          "translation": "I arrive at five."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Celebrating Birthdays in Latin America",
+      "text": "Birthdays are often celebrated with family gatherings and special meals in many Latin American cultures. It's common to have a cake and sing 'Las Mañanitas' or 'Happy Birthday' to the celebrant.",
+      "funFact": "In Mexico, it is traditional to break a piñata during birthday parties, which adds a fun activity for children."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understand the difference between 'por' and 'para'.",
+        "Use 'por' for reasons and duration.",
+        "Use 'para' for purposes and destinations.",
+        "Practice using both prepositions in sentences."
+      ],
+      "nextSteps": "Try writing your own sentences using 'por' and 'para' in different contexts."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which preposition do you use for destination?",
+      "content": {
+        "options": [
+          "por",
+          "para"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "We use 'para' to indicate destination or purpose.",
+      "hint": "Think about where you are going.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which preposition is used to express a reason or motive?",
+      "content": {
+        "options": [
+          "por",
+          "para"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Por' is used to express reasons or motives.",
+      "hint": "It's about the cause of an action.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Salgo ___ casa a las ocho.",
+      "content": {
+        "sentence": "Salgo ___ casa a las ocho.",
+        "correctAnswer": "para",
+        "acceptableAnswers": [
+          "para"
+        ],
+        "options": [
+          "por",
+          "para"
+        ]
+      },
+      "explanation": "'Para' indicates the destination, which is home in this case.",
+      "hint": "Where are you going?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Estudio español ___ mi trabajo.",
+      "content": {
+        "sentence": "Estudio español ___ mi trabajo.",
+        "correctAnswer": "para",
+        "acceptableAnswers": [
+          "para"
+        ],
+        "options": [
+          "por",
+          "para"
+        ]
+      },
+      "explanation": "'Para' indicates the purpose of studying Spanish for work.",
+      "hint": "Why are you studying?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I study for my job.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I study for my job.'",
+        "correctAnswer": "Estudio para mi trabajo.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The sentence uses 'para' to indicate purpose.",
+      "hint": "Remember to use the correct preposition.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Voy por la calle.'",
+      "content": {
+        "ttsText": "Voy por la calle.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I go down the street.",
+          "I go for the street."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'I go down the street' using 'por' to indicate a route.",
+      "hint": "Focus on where the action is happening.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'This gift is for you.'",
+      "content": {
+        "targetText": "Este regalo es para ti.",
+        "context": "Translate and say the phrase.",
+        "acceptableVariants": []
+      },
+      "explanation": "The sentence uses 'para' to indicate the recipient of the gift.",
+      "hint": "Think about who is receiving the gift.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Trabajo ___ una empresa grande.",
+      "content": {
+        "sentence": "Trabajo ___ una empresa grande.",
+        "correctAnswer": "para",
+        "acceptableAnswers": [
+          "para"
+        ],
+        "options": [
+          "por",
+          "para"
+        ]
+      },
+      "explanation": "'Para' is used to indicate the company you work for.",
+      "hint": "Whom do you work for?",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Choose the correct preposition: 'Hago esto ___ ti.'",
+      "content": {
+        "options": [
+          "por",
+          "para"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "We use 'para' to indicate the person for whom something is done.",
+      "hint": "Think about who benefits from the action.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

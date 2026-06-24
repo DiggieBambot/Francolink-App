@@ -1,0 +1,339 @@
+{
+  "lesson": {
+    "title": "Preterite — Regular Verbs",
+    "type": "GRAMMAR",
+    "slug": "es-a2-preterite-regular"
+  },
+  "unit": "Talking About the Past",
+  "unitOrder": 1,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to use the preterite tense to talk about actions that happened in the past. You will focus on regular verbs and get familiar with their conjugation patterns.",
+      "culturalNote": "In many Spanish-speaking countries, storytelling about the past is an important tradition, often shared during family gatherings."
+    },
+    "vocabulary": [
+      {
+        "term": "el verbo",
+        "translation": "the verb",
+        "definition": "A word that describes an action.",
+        "pronunciation": "el VER-bo",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El verbo 'hablar' significa 'to talk'.",
+          "translation": "The verb 'hablar' means 'to talk'."
+        },
+        "tip": "Remember that verbs are essential for forming sentences."
+      },
+      {
+        "term": "hablar",
+        "translation": "to talk",
+        "definition": "To communicate or express thoughts verbally.",
+        "pronunciation": "ah-BLAR",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ayer hablé con mi amigo.",
+          "translation": "Yesterday I talked with my friend."
+        },
+        "tip": "This is a common verb used in everyday conversations."
+      },
+      {
+        "term": "comer",
+        "translation": "to eat",
+        "definition": "To consume food.",
+        "pronunciation": "koh-MER",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ella comió pizza anoche.",
+          "translation": "She ate pizza last night."
+        },
+        "tip": "Use this verb to discuss meals and dining experiences."
+      },
+      {
+        "term": "vivir",
+        "translation": "to live",
+        "definition": "To have residence in a place.",
+        "pronunciation": "bee-VEER",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Nosotros vivimos en México.",
+          "translation": "We lived in Mexico."
+        },
+        "tip": "This verb is useful when talking about where you are from."
+      },
+      {
+        "term": "ayer",
+        "translation": "yesterday",
+        "definition": "The day before today.",
+        "pronunciation": "ah-YER",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Ayer fui al cine.",
+          "translation": "Yesterday I went to the cinema."
+        },
+        "tip": "Use this word to refer to past events."
+      },
+      {
+        "term": "anoche",
+        "translation": "last night",
+        "definition": "The night before today.",
+        "pronunciation": "ah-NOH-cheh",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Anoche vi una película.",
+          "translation": "Last night I saw a movie."
+        },
+        "tip": "Great for discussing events that happened after sunset."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Preterite Tense: Regular Verbs",
+        "explanation": "The preterite tense is used to describe completed actions in the past. Regular verbs follow specific patterns: -ar verbs end in -é, -aste, -ó, -amos, -aron; -er/-ir verbs end in -í, -iste, -ió, -imos, -ieron.",
+        "table": {
+          "headers": [
+            "-AR Verbs",
+            "-ER/-IR Verbs"
+          ],
+          "rows": [
+            [
+              "hablar: hablé, hablaste, habló, hablamos, hablaron",
+              "comer: comí, comiste, comió, comimos, comieron"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo hablé con ella.",
+            "translation": "I talked to her.",
+            "breakdown": "Yo (I) + hablé (talked) is the first person preterite form."
+          },
+          {
+            "original": "Tú comiste en el restaurante.",
+            "translation": "You ate at the restaurant.",
+            "breakdown": "Tú (You) + comiste (ate) is the second person preterite form."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing preterite with imperfect: Remember that preterite is for completed actions, while imperfect is for ongoing or habitual actions.",
+          "Using incorrect endings: Make sure to use the right endings for each verb type."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking About Yesterday",
+      "context": "Two friends discussing their previous day at a café.",
+      "speakers": [
+        "Carlos",
+        "Sofia"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué hiciste ayer, Sofia?",
+          "translation": "What did you do yesterday, Sofia?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ayer fui al mercado.",
+          "translation": "Yesterday I went to the market.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Compraste algo interesante?",
+          "translation": "Did you buy anything interesting?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, compré frutas y verduras.",
+          "translation": "Yes, I bought fruits and vegetables.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué bien! Yo comí en un restaurante.",
+          "translation": "How nice! I ate at a restaurant.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¿Cuál restaurante?",
+          "translation": "Which restaurant?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Fui a ‘La Casa de Tacos’.",
+          "translation": "I went to 'The House of Tacos'.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¡Me encanta ese lugar!",
+          "translation": "I love that place!",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Storytelling in Latin America",
+      "text": "In Latin America, storytelling is a vibrant part of culture, often shared during family meals or community gatherings. People enjoy recounting past experiences, using the preterite tense to engage listeners.",
+      "funFact": "In some countries, it's common to have a 'storyteller' during gatherings who shares family history and traditions."
+    },
+    "summary": {
+      "keyPoints": [
+        "The preterite tense is used for completed actions in the past.",
+        "Regular -ar, -er, and -ir verbs have specific conjugation patterns.",
+        "Use time expressions like 'ayer' (yesterday) to indicate when the action happened.",
+        "Practice by talking about your own past experiences."
+      ],
+      "nextSteps": "Practice conjugating regular verbs in the preterite tense and create sentences about your past activities."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the preterite form of 'hablar' in the first person singular?",
+      "content": {
+        "options": [
+          "hablé",
+          "hablaba",
+          "hablaré"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Hablé' is the correct preterite form for 'I spoke' in Spanish.",
+      "hint": "Think about the past tense.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'we ate' in the preterite?",
+      "content": {
+        "options": [
+          "comimos",
+          "comíamos",
+          "comeremos"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Comimos' is the preterite form for 'we ate'.",
+      "hint": "Focus on the past tense.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ellos ___ (vivir) en Madrid.",
+      "content": {
+        "sentence": "Ellos ___ en Madrid.",
+        "correctAnswer": "vivieron",
+        "acceptableAnswers": [
+          "vivieron"
+        ],
+        "options": [
+          "vivieron",
+          "vivían",
+          "vivirán"
+        ]
+      },
+      "explanation": "'Vivieron' is the preterite form of 'they lived' in Spanish.",
+      "hint": "Think of the correct past tense.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ayer, yo ___ (hablar) con mi amigo.",
+      "content": {
+        "sentence": "Ayer, yo ___ con mi amigo.",
+        "correctAnswer": "hablé",
+        "acceptableAnswers": [
+          "hablé"
+        ],
+        "options": [
+          "hablé",
+          "hablaba",
+          "hablaré"
+        ]
+      },
+      "explanation": "'Hablé' is the preterite form for 'I spoke' in Spanish.",
+      "hint": "It's about something that happened yesterday.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: (ayer, comió, ella, pizza)",
+      "content": {
+        "words": [
+          "comió",
+          "ella",
+          "pizza",
+          "ayer"
+        ],
+        "correctOrder": [
+          "ella",
+          "comió",
+          "pizza",
+          "ayer"
+        ],
+        "translation": "She ate pizza yesterday."
+      },
+      "explanation": "The correct order forms a coherent sentence in Spanish.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I lived in Barcelona.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I lived in Barcelona.'",
+        "correctAnswer": "Viví en Barcelona.",
+        "acceptableAnswers": []
+      },
+      "explanation": "'Viví' is the correct preterite form for 'I lived' in Spanish.",
+      "hint": "Focus on the past tense.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct preterite sentence.",
+      "content": {
+        "ttsText": "Anoche, nosotros comimos en un restaurante.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Anoche, nosotros comimos en un restaurante.",
+          "Anoche, nosotros comíamos en un restaurante.",
+          "Anoche, nosotros comeremos en un restaurante."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'Last night, we ate in a restaurant.'",
+      "hint": "Listen carefully to the verb form.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in Spanish: 'We talked yesterday.'",
+      "content": {
+        "targetText": "Hablamos ayer.",
+        "context": "Translate and say this sentence in Spanish.",
+        "acceptableVariants": [
+          "Hablamos ayer."
+        ]
+      },
+      "explanation": "The sentence correctly uses the preterite form of 'hablar'.",
+      "hint": "Focus on the past tense.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

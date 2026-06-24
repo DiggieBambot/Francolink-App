@@ -1,0 +1,311 @@
+{
+  "lesson": {
+    "title": "Collocations & Word Partnerships",
+    "type": "VOCABULARY",
+    "slug": "es-b2-collocations"
+  },
+  "unit": "Idioms & Expressions",
+  "unitOrder": 4,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about collocations and word partnerships in Spanish, which are essential for sounding more natural and fluent. You will explore common phrases and their meanings, helping you to enhance your vocabulary and understanding of idiomatic expressions.",
+      "culturalNote": "Collocations are not only important in Spanish but also in all languages. Understanding these can help you navigate social situations more effectively."
+    },
+    "vocabulary": [
+      {
+        "term": "hacer frente a",
+        "translation": "to face (a challenge)",
+        "definition": "to confront or deal with a difficult situation",
+        "pronunciation": "ah-ser frent-eh ah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Es importante hacer frente a los problemas en lugar de ignorarlos.",
+          "translation": "It is important to face problems instead of ignoring them."
+        },
+        "tip": "Think of it as standing up to a challenge."
+      },
+      {
+        "term": "dar un paso atrás",
+        "translation": "to take a step back",
+        "definition": "to reconsider or reflect on a situation",
+        "pronunciation": "dar un pah-soh ah-trahs",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "A veces, es necesario dar un paso atrás para ver la situación con claridad.",
+          "translation": "Sometimes, it is necessary to take a step back to see the situation clearly."
+        },
+        "tip": "Imagine stepping back to get a better view."
+      },
+      {
+        "term": "echarle la culpa a",
+        "translation": "to blame (someone)",
+        "definition": "to assign responsibility for a fault or wrong",
+        "pronunciation": "eh-char-leh la kool-pah ah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "No deberías echarle la culpa a otros por tus errores.",
+          "translation": "You shouldn't blame others for your mistakes."
+        },
+        "tip": "Remember, blaming someone else often doesn't solve the problem."
+      },
+      {
+        "term": "tomar decisiones",
+        "translation": "to make decisions",
+        "definition": "to choose between options",
+        "pronunciation": "to-mar deh-see-syoh-nes",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Es crucial tomar decisiones informadas en la vida.",
+          "translation": "It is crucial to make informed decisions in life."
+        },
+        "tip": "Think of it as the act of choosing wisely."
+      },
+      {
+        "term": "perder la oportunidad",
+        "translation": "to miss the opportunity",
+        "definition": "to fail to take advantage of a chance",
+        "pronunciation": "per-der la or-poh-tun-i-dad",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "No quiero perder la oportunidad de viajar este verano.",
+          "translation": "I don't want to miss the opportunity to travel this summer."
+        },
+        "tip": "Imagine letting a chance slip away from you."
+      },
+      {
+        "term": "sacar el máximo provecho",
+        "translation": "to make the most of",
+        "definition": "to utilize something to its fullest potential",
+        "pronunciation": "sah-car el mah-ksimo pro-veh-cho",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Deberías sacar el máximo provecho de tus habilidades.",
+          "translation": "You should make the most of your skills."
+        },
+        "tip": "Think of maximizing your resources."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subjunctive Mood in Collocations",
+        "explanation": "In Spanish, the subjunctive mood is often used in expressions that convey wishes, doubts, or hypothetical situations. It is particularly common in collocations that express feelings or recommendations. For example, when saying 'I wish that you succeed,' you would use 'deseo que tengas éxito.'",
+        "table": {
+          "headers": [
+            "Expression",
+            "Subjunctive Example"
+          ],
+          "rows": [
+            [
+              "Espero que",
+              "tengas éxito"
+            ],
+            [
+              "Es necesario que",
+              "hagas ejercicio"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Me alegra que vengas a la fiesta.",
+            "translation": "I am glad that you are coming to the party.",
+            "breakdown": "This sentence uses the subjunctive 'vengas' because it expresses a wish or emotion."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive in expressions of desire (e.g., 'Espero que tú tienes' should be 'Espero que tú tengas').",
+          "Forgetting to change the verb form when expressing doubt (e.g., 'Dudo que él va' should be 'Dudo que él vaya')."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Making Decisions About Travel",
+      "context": "A conversation between two friends discussing their travel plans for the upcoming summer.",
+      "speakers": [
+        "Laura",
+        "Miguel"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Has pensado en dónde quieres viajar este verano?",
+          "translation": "Have you thought about where you want to travel this summer?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, estoy considerando ir a Perú, pero también me gustaría ir a España.",
+          "translation": "Yes, I am considering going to Peru, but I would also like to go to Spain."
+        },
+        {
+          "speaker": 0,
+          "text": "Ambos lugares son increíbles. Deberías sacar el máximo provecho de tus vacaciones.",
+          "translation": "Both places are amazing. You should make the most of your vacation."
+        },
+        {
+          "speaker": 1,
+          "text": "Exactamente, pero no quiero perder la oportunidad de explorar la cultura española.",
+          "translation": "Exactly, but I don't want to miss the opportunity to explore Spanish culture."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y si haces una lista de pros y contras para tomar decisiones más fácilmente?",
+          "translation": "What if you make a pros and cons list to make decisions more easily?"
+        },
+        {
+          "speaker": 1,
+          "text": "Esa es una buena idea. Necesito hacer frente a esta decisión pronto.",
+          "translation": "That is a good idea. I need to face this decision soon."
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, y recuerda que lo más importante es que disfrutes de la experiencia.",
+          "translation": "Yes, and remember that the most important thing is for you to enjoy the experience."
+        },
+        {
+          "speaker": 1,
+          "text": "Tienes razón, gracias por tu ayuda, Laura.",
+          "translation": "You're right, thank you for your help, Laura."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Traveling in the Spanish-speaking World",
+      "text": "Traveling is an essential part of life for many Spanish speakers, often linked with family and cultural traditions. Festivals, historical sites, and natural wonders attract both locals and tourists alike, highlighting the rich diversity of the Spanish-speaking world.",
+      "funFact": "In Peru, you can find the ancient ruins of Machu Picchu, which is considered one of the New Seven Wonders of the World."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding collocations enhances fluency.",
+        "The subjunctive mood is crucial for expressing wishes and emotions.",
+        "Common phrases can improve conversational skills.",
+        "Making decisions can be simplified with tools like pros and cons lists."
+      ],
+      "nextSteps": "Practice using the collocations in your own sentences, and try to incorporate them into conversations."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase means 'to face up to'?",
+      "content": {
+        "options": [
+          "hacer frente a",
+          "dar un paso atrás",
+          "sacar el máximo provecho",
+          "perder la oportunidad"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'hacer frente a', which directly translates to 'to face up to'.",
+      "hint": "Think about confronting a challenge.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'echarle la culpa a' mean?",
+      "content": {
+        "options": [
+          "to take responsibility",
+          "to blame someone",
+          "to make a decision",
+          "to lose the opportunity"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Echarle la culpa a' translates to 'to blame someone' in English.",
+      "hint": "It's about assigning fault.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Es importante _____ cuando se enfrenta a una crisis.",
+      "content": {
+        "sentence": "Es importante _____ cuando se enfrenta a una crisis.",
+        "correctAnswer": "tomar decisiones",
+        "acceptableAnswers": [
+          "tomar decisiones"
+        ],
+        "options": [
+          "hacer frente a",
+          "tomar decisiones",
+          "dar un paso atrás"
+        ]
+      },
+      "explanation": "The correct completion is 'tomar decisiones', meaning 'to make decisions'.",
+      "hint": "Think about what you do in a crisis.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Quiero _____ de esta experiencia.",
+      "content": {
+        "sentence": "Quiero _____ de esta experiencia.",
+        "correctAnswer": "sacar el máximo provecho",
+        "acceptableAnswers": [
+          "sacar el máximo provecho"
+        ],
+        "options": [
+          "perder la oportunidad",
+          "sacar el máximo provecho",
+          "echarle la culpa a"
+        ]
+      },
+      "explanation": "'Sacar el máximo provecho' means 'to make the most of' something.",
+      "hint": "Consider what you want to do with an experience.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Don't blame others for your mistakes.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'Don't blame others for your mistakes.'",
+        "correctAnswer": "No le eches la culpa a los demás por tus errores.",
+        "acceptableAnswers": [
+          "No eches la culpa a otros por tus errores."
+        ]
+      },
+      "explanation": "The translation captures the idea of not assigning blame.",
+      "hint": "Focus on the phrase 'echar la culpa'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct phrase: 'Hacer frente a los problemas es esencial.'",
+      "content": {
+        "ttsText": "Hacer frente a los problemas es esencial.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Facing problems is essential.",
+          "Avoiding problems is essential.",
+          "Ignoring problems is essential."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct choice reflects the essence of confronting problems.",
+      "hint": "Listen for the part about problems.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'I want to make the most of this experience.'",
+      "content": {
+        "targetText": "Quiero sacar el máximo provecho de esta experiencia.",
+        "context": "Express your desire to benefit from an experience.",
+        "acceptableVariants": [
+          "Quiero aprovechar al máximo esta experiencia."
+        ]
+      },
+      "explanation": "This sentence conveys the desire to gain the most from an experience.",
+      "hint": "Focus on the phrase 'sacar el máximo provecho'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

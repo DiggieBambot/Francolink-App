@@ -1,0 +1,329 @@
+{
+  "lesson": {
+    "title": "Final Review & Celebration",
+    "type": "REVIEW",
+    "slug": "es-b2-final-review"
+  },
+  "unit": "Global Issues & Mastery",
+  "unitOrder": 8,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this final review lesson, you will consolidate your understanding of global issues in Spanish and celebrate your progress. You will revisit key vocabulary, important grammar structures, and engage in a meaningful dialogue.",
+      "culturalNote": "Spanish-speaking countries often celebrate educational achievements with community events, showcasing the importance of learning and cultural pride."
+    },
+    "vocabulary": [
+      {
+        "term": "el cambio climático",
+        "translation": "climate change",
+        "definition": "The long-term alteration of temperature and typical weather patterns in a place.",
+        "pronunciation": "el kahm-bee-oh klee-mah-tih-koh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El cambio climático es un problema urgente.",
+          "translation": "Climate change is an urgent problem."
+        },
+        "tip": "Remember that 'cambio' means 'change' and is used in various contexts."
+      },
+      {
+        "term": "la pobreza",
+        "translation": "poverty",
+        "definition": "The state of being extremely poor.",
+        "pronunciation": "lah poh-BREH-sah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La pobreza afecta a millones de personas en el mundo.",
+          "translation": "Poverty affects millions of people worldwide."
+        },
+        "tip": "Think of 'pobre' (poor) to remember this term."
+      },
+      {
+        "term": "la sostenibilidad",
+        "translation": "sustainability",
+        "definition": "The ability to be maintained at a certain rate or level.",
+        "pronunciation": "lah sohs-teh-nee-blee-DAD",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La sostenibilidad es clave para el futuro del planeta.",
+          "translation": "Sustainability is key to the planet's future."
+        },
+        "tip": "Relate it to 'sustain' in English to make it easier to remember."
+      },
+      {
+        "term": "la desigualdad",
+        "translation": "inequality",
+        "definition": "The state of not being equal, especially in status, rights, and opportunities.",
+        "pronunciation": "lah deh-see-gwal-DAD",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La desigualdad económica es un desafío global.",
+          "translation": "Economic inequality is a global challenge."
+        },
+        "tip": "Think of 'equal' to remember this word's meaning."
+      },
+      {
+        "term": "la cooperación",
+        "translation": "cooperation",
+        "definition": "The process of working together to the same end.",
+        "pronunciation": "lah koh-oh-peh-rah-SYON",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La cooperación internacional es esencial para resolver problemas globales.",
+          "translation": "International cooperation is essential to solving global issues."
+        },
+        "tip": "Remember the prefix 'co-' which indicates working together."
+      },
+      {
+        "term": "la educación",
+        "translation": "education",
+        "definition": "The process of receiving or giving systematic instruction.",
+        "pronunciation": "lah eh-doo-kah-SYON",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La educación es un derecho fundamental.",
+          "translation": "Education is a fundamental right."
+        },
+        "tip": "Think of 'educate' in English; they share the same root."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Subjunctive Mood",
+        "explanation": "The subjunctive mood is used to express wishes, doubts, the unknown, and hypothetical situations. In B2, you should be familiar with both the present subjunctive and the imperfect subjunctive. Remember to use the subjunctive after expressions of desire, emotion, or uncertainty.",
+        "table": {
+          "headers": [
+            "Present Subjunctive",
+            "Imperfect Subjunctive"
+          ],
+          "rows": [
+            [
+              "hable (I speak)",
+              "hablara (I spoke)"
+            ],
+            [
+              "coma (I eat)",
+              "comiera (I ate)"
+            ],
+            [
+              "viva (I live)",
+              "viviera (I lived)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Espero que él hable sobre el cambio climático.",
+            "translation": "I hope he speaks about climate change.",
+            "breakdown": "In this sentence, 'hable' is in the present subjunctive because it follows 'Espero que' (I hope that)."
+          },
+          {
+            "original": "Si tuviera más tiempo, haría más voluntariado.",
+            "translation": "If I had more time, I would do more volunteering.",
+            "breakdown": "Here, 'tuviera' is in the imperfect subjunctive to express a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive after expressions of hope. Correct: Espero que vengas (I hope you come).",
+          "Incorrectly forming the imperfect subjunctive. Correct structure: Si yo fuera (If I were), not Si yo fui."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Global Issues",
+      "context": "A casual conversation between two friends at a café discussing their views on global issues.",
+      "speakers": [
+        "María",
+        "Juan"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Crees que la educación puede cambiar el mundo?",
+          "translation": "Do you think education can change the world?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Definitivamente. Sin educación, la pobreza no se resolverá.",
+          "translation": "Definitely. Without education, poverty will not be solved.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Es un ciclo que parece interminable. Además, el cambio climático es urgente.",
+          "translation": "It's a cycle that seems endless. Moreover, climate change is urgent.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, pero creo que la cooperación internacional puede ayudar.",
+          "translation": "Yes, but I believe international cooperation can help.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Exacto. Si los países trabajaran juntos, los problemas serían más fáciles de resolver.",
+          "translation": "Exactly. If countries worked together, problems would be easier to solve.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "También es importante que la gente sea consciente de la desigualdad.",
+          "translation": "It is also important that people are aware of inequality.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, la desigualdad crea tensiones sociales que pueden ser peligrosas.",
+          "translation": "Yes, inequality creates social tensions that can be dangerous.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Por eso, debemos educar a las personas sobre estos temas.",
+          "translation": "That’s why we must educate people about these issues.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Role of Education in Latin America",
+      "text": "In many Latin American countries, education is seen as a fundamental path to social mobility and change. Various organizations work tirelessly to promote educational access for all, especially in underserved communities.",
+      "funFact": "In countries like Colombia and Mexico, there are significant movements aimed at reducing educational disparities, showcasing a commitment to social justice."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review the vocabulary related to global issues.",
+        "Understand the use of the subjunctive mood in expressing wishes and hypotheticals.",
+        "Engage in discussions about education, poverty, and climate change.",
+        "Recognize the cultural importance of education in Spanish-speaking countries."
+      ],
+      "nextSteps": "Practice speaking about global issues using the vocabulary and grammar you've reviewed. Consider writing a short essay on how education can impact one of these issues."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la sostenibilidad' mean in English?",
+      "content": {
+        "options": [
+          "Sustainability",
+          "Education",
+          "Poverty",
+          "Inequality"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La sostenibilidad' translates to 'sustainability', which refers to the ability to maintain balance and resources for future generations.",
+      "hint": "Think about environmental practices.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which issue is primarily about the wealth gap?",
+      "content": {
+        "options": [
+          "La pobreza",
+          "La educación",
+          "La desigualdad",
+          "El cambio climático"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'La desigualdad' refers to inequality, particularly in wealth and resources.",
+      "hint": "Consider social disparities.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'La ___ es un problema global que afecta a millones de personas.'",
+      "content": {
+        "sentence": "La ___ es un problema global que afecta a millones de personas.",
+        "correctAnswer": "pobreza",
+        "acceptableAnswers": [
+          "pobreza"
+        ],
+        "options": [
+          "educación",
+          "pobreza",
+          "sostenibilidad"
+        ]
+      },
+      "explanation": "The sentence mentions a problem affecting millions, which is poverty.",
+      "hint": "Think about economic issues.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'La cooperación es necesaria para enfrentar el ___.'",
+      "content": {
+        "sentence": "La cooperación es necesaria para enfrentar el ___.",
+        "correctAnswer": "cambio climático",
+        "acceptableAnswers": [
+          "cambio climático"
+        ],
+        "options": [
+          "cambio climático",
+          "desarrollo",
+          "progreso"
+        ]
+      },
+      "explanation": "Cooperation is essential in addressing climate change, which is a global challenge.",
+      "hint": "Think about environmental issues.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I want to learn about sustainability.'",
+      "content": {
+        "correctAnswer": "Quiero aprender sobre la sostenibilidad.",
+        "acceptableAnswers": [
+          "Quiero aprender sobre sostenibilidad."
+        ],
+        "prompt": "Translate to Spanish: 'I want to learn about sustainability.'"
+      },
+      "explanation": "The translation captures the desire to learn about sustainability.",
+      "hint": "Remember the structure of 'I want to...'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'La educación es clave para la igualdad.'",
+      "content": {
+        "ttsText": "La educación es clave para la igualdad.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Education is key to equality.",
+          "Education is key to sustainability.",
+          "Education is a tool for cooperation.",
+          "Education is important."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation reflects the importance of education in achieving equality.",
+      "hint": "Listen for the word 'igualdad'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'We must work together to solve global issues.'",
+      "content": {
+        "targetText": "Debemos trabajar juntos para resolver problemas globales.",
+        "context": "Expressing the need for collaboration in addressing global issues.",
+        "acceptableVariants": [
+          "Es necesario colaborar para resolver problemas globales."
+        ]
+      },
+      "explanation": "This sentence emphasizes the importance of working together on global challenges.",
+      "hint": "Think about teamwork.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

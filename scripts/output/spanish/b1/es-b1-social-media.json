@@ -1,0 +1,372 @@
+{
+  "lesson": {
+    "title": "Social Media & Digital Life",
+    "type": "CONVERSATION",
+    "slug": "es-b1-social-media"
+  },
+  "unit": "Media & Communication",
+  "unitOrder": 5,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary and phrases related to social media and digital communication in Spanish. You will also practice using the present subjunctive and conditionals in conversation.",
+      "culturalNote": "Social media has become a significant part of daily life in many Spanish-speaking countries, influencing everything from politics to popular culture."
+    },
+    "vocabulary": [
+      {
+        "term": "las redes sociales",
+        "translation": "social media",
+        "definition": "Platforms for online interaction and sharing content.",
+        "pronunciation": "las reh-des so-syal-es",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Las redes sociales son muy populares entre los jóvenes.",
+          "translation": "Social media is very popular among young people."
+        },
+        "tip": "Think of 'red' as 'network' in English."
+      },
+      {
+        "term": "el mensaje",
+        "translation": "message",
+        "definition": "A piece of information sent or communicated.",
+        "pronunciation": "el men-sah-he",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Envía un mensaje a tu amigo.",
+          "translation": "Send a message to your friend."
+        },
+        "tip": "Remember that 'mensaje' is similar to 'message' in English."
+      },
+      {
+        "term": "compartir",
+        "translation": "to share",
+        "definition": "To divide and distribute something to others.",
+        "pronunciation": "com-par-teer",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Me gusta compartir fotos en Instagram.",
+          "translation": "I like to share photos on Instagram."
+        },
+        "tip": "Think of 'compartir' as sharing a part of something."
+      },
+      {
+        "term": "la privacidad",
+        "translation": "privacy",
+        "definition": "The state of being free from public attention.",
+        "pronunciation": "la pri-va-si-dad",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es importante proteger tu privacidad en línea.",
+          "translation": "It's important to protect your privacy online."
+        },
+        "tip": "Connect 'privacidad' with 'private' in English."
+      },
+      {
+        "term": "el perfil",
+        "translation": "profile",
+        "definition": "A representation of a user on a social media platform.",
+        "pronunciation": "el per-feel",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tu perfil debe ser interesante.",
+          "translation": "Your profile should be interesting."
+        },
+        "tip": "Think of 'perfil' as the 'face' you show online."
+      },
+      {
+        "term": "me gusta",
+        "translation": "I like",
+        "definition": "A phrase used to express enjoyment or approval.",
+        "pronunciation": "me goo-sta",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Me gusta ver videos en YouTube.",
+          "translation": "I like to watch videos on YouTube."
+        },
+        "tip": "Remember, 'gustar' is about liking something, so it changes based on the subject."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Present Subjunctive",
+        "explanation": "The present subjunctive is used to express desires, doubts, or hypothetical situations. It is formed by taking the present tense yo form of the verb, dropping the -o, and adding the appropriate endings. For example, for -ar verbs, the endings are -e, -es, -e, -emos, -éis, -en.",
+        "table": {
+          "headers": [
+            "Verb Type",
+            "Example"
+          ],
+          "rows": [
+            [
+              "-ar",
+              "hable"
+            ],
+            [
+              "-er",
+              "coma"
+            ],
+            [
+              "-ir",
+              "viva"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Espero que tú hables español.",
+            "translation": "I hope that you speak Spanish.",
+            "breakdown": "The verb 'hablar' is in the subjunctive because it's expressing hope."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive (e.g., 'Espero que tú hablas' should be 'hables').",
+          "Forgetting to conjugate the verb based on the subject."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Social Media Habits",
+      "context": "A casual conversation between two friends at a café.",
+      "speakers": [
+        "Clara",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Cuántas horas pasas en las redes sociales?",
+          "translation": "How many hours do you spend on social media?"
+        },
+        {
+          "speaker": 1,
+          "text": "Creo que paso alrededor de tres horas al día.",
+          "translation": "I think I spend around three hours a day."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué tipo de contenido te gusta más?",
+          "translation": "What type of content do you like the most?"
+        },
+        {
+          "speaker": 1,
+          "text": "Me gusta ver videos de cocina y tutoriales.",
+          "translation": "I like watching cooking videos and tutorials."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Has compartido alguna receta recientemente?",
+          "translation": "Have you shared any recipes recently?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, compartí una receta de paella el fin de semana pasado.",
+          "translation": "Yes, I shared a paella recipe last weekend."
+        },
+        {
+          "speaker": 0,
+          "text": "¡Eso suena delicioso! ¿Pudiste grabar un video?",
+          "translation": "That sounds delicious! Were you able to record a video?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, pero no estoy segura de que me guste cómo salió.",
+          "translation": "Yes, but I'm not sure I like how it turned out."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Impact of Social Media in Latin America",
+      "text": "In many Latin American countries, social media is not just a social tool but also a means for political activism and social change. Platforms like Twitter and Facebook have been used to organize protests and spread awareness.",
+      "funFact": "In 2019, social media played a crucial role in the protests in Chile, where citizens organized and shared their experiences widely."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to social media.",
+        "Practiced the present subjunctive in conversation.",
+        "Engaged in dialogue about social media habits.",
+        "Explored cultural insights into social media's impact."
+      ],
+      "nextSteps": "Practice using the new vocabulary in sentences and try to create your own dialogues about digital life."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'las redes sociales' mean?",
+      "content": {
+        "options": [
+          "Social networks",
+          "Social events",
+          "Social issues"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Las redes sociales' translates to 'social networks' in English.",
+      "hint": "Think of platforms like Facebook or Instagram.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'el mensaje' in English?",
+      "content": {
+        "options": [
+          "The message",
+          "The post",
+          "The comment"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El mensaje' means 'the message' in English, commonly used in digital communication.",
+      "hint": "Consider what you send on social media.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Me gusta ___ fotos en Instagram.'",
+      "content": {
+        "sentence": "Me gusta ___ fotos en Instagram.",
+        "correctAnswer": "compartir",
+        "acceptableAnswers": [
+          "compartir"
+        ],
+        "options": [
+          "compartir",
+          "guardar",
+          "ver"
+        ]
+      },
+      "explanation": "The correct answer is 'compartir', meaning 'to share', which fits the context.",
+      "hint": "Think about what you do with photos on social media.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'La privacidad es muy importante en ___.'",
+      "content": {
+        "sentence": "La privacidad es muy importante en ___.",
+        "correctAnswer": "las redes sociales",
+        "acceptableAnswers": [
+          "las redes sociales"
+        ],
+        "options": [
+          "las redes sociales",
+          "las aplicaciones",
+          "los juegos"
+        ]
+      },
+      "explanation": "The correct answer is 'las redes sociales', as privacy is crucial for social media.",
+      "hint": "Think about where you share personal information.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: 'perfil / tu / actualiza / siempre'.",
+      "content": {
+        "words": [
+          "tu",
+          "actualiza",
+          "siempre",
+          "perfil"
+        ],
+        "correctOrder": [
+          "siempre",
+          "actualiza",
+          "tu",
+          "perfil"
+        ],
+        "translation": "Always update your profile."
+      },
+      "explanation": "The correct order forms a meaningful sentence about updating your profile.",
+      "hint": "Think about how often you change your profile.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I like to share my thoughts.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I like to share my thoughts.'",
+        "correctAnswer": "Me gusta compartir mis pensamientos.",
+        "acceptableAnswers": [
+          "Me gusta compartir mis ideas."
+        ]
+      },
+      "explanation": "The translation correctly conveys the original message.",
+      "hint": "Start with 'Me gusta' for 'I like'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Me gusta recibir mensajes.'",
+      "content": {
+        "ttsText": "Me gusta recibir mensajes.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I like to receive messages.",
+          "I like to send messages.",
+          "I like to share messages."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'I like to receive messages.' which matches the audio.",
+      "hint": "Focus on the verb 'recibir'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I want to protect my privacy online.'",
+      "content": {
+        "targetText": "Quiero proteger mi privacidad en línea.",
+        "context": "Express your desire to maintain online privacy.",
+        "acceptableVariants": [
+          "Deseo proteger mi privacidad en línea."
+        ]
+      },
+      "explanation": "Both versions express the same idea about online privacy.",
+      "hint": "Remember that 'proteger' means 'to protect'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'me gusta' mean?",
+      "content": {
+        "options": [
+          "I like",
+          "I love",
+          "I hate"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Me gusta' translates to 'I like' in English.",
+      "hint": "Think of how you express your preferences.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'En las redes sociales, es importante cuidar tu ___.'",
+      "content": {
+        "sentence": "En las redes sociales, es importante cuidar tu ___.",
+        "correctAnswer": "privacidad",
+        "acceptableAnswers": [
+          "privacidad"
+        ],
+        "options": [
+          "privacidad",
+          "perfil",
+          "mensaje"
+        ]
+      },
+      "explanation": "The sentence highlights the importance of privacy in social media.",
+      "hint": "Think about what personal information you want to keep safe.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

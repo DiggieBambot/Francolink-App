@@ -1,0 +1,328 @@
+{
+  "lesson": {
+    "title": "Science & Technology Vocabulary",
+    "type": "VOCABULARY",
+    "slug": "es-b2-science-vocab"
+  },
+  "unit": "Science & Innovation",
+  "unitOrder": 6,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn key vocabulary related to science and technology in Spanish. By the end, you'll be able to discuss various scientific concepts and innovations with confidence.",
+      "culturalNote": "Many Spanish-speaking countries, such as Mexico and Argentina, have made significant contributions to science and technology, including advancements in astronomy and medicine."
+    },
+    "vocabulary": [
+      {
+        "term": "la ciencia",
+        "translation": "science",
+        "definition": "The systematic study of the structure and behavior of the physical and natural world.",
+        "pronunciation": "lah syen-sah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La ciencia nos ayuda a entender el mundo que nos rodea.",
+          "translation": "Science helps us understand the world around us."
+        },
+        "tip": "Think of 'science' as a field that seeks to explain everything in a logical way."
+      },
+      {
+        "term": "la tecnología",
+        "translation": "technology",
+        "definition": "The application of scientific knowledge for practical purposes.",
+        "pronunciation": "lah tehk-no-loh-hee-ah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La tecnología ha revolucionado nuestra forma de comunicar.",
+          "translation": "Technology has revolutionized the way we communicate."
+        },
+        "tip": "Recall that 'technology' often involves innovation and improvement."
+      },
+      {
+        "term": "el experimento",
+        "translation": "experiment",
+        "definition": "A scientific procedure undertaken to test a hypothesis.",
+        "pronunciation": "el eks-peh-ri-men-toh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El experimento demostró que la teoría era correcta.",
+          "translation": "The experiment demonstrated that the theory was correct."
+        },
+        "tip": "Experiments often lead to new discoveries."
+      },
+      {
+        "term": "la investigación",
+        "translation": "research",
+        "definition": "The systematic investigation into a subject to discover or revise facts.",
+        "pronunciation": "lah in-ves-ti-ga-ción",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La investigación en biomedicina está avanzando rápidamente.",
+          "translation": "Research in biomedicine is advancing rapidly."
+        },
+        "tip": "Think of 'investigation' as a quest for knowledge."
+      },
+      {
+        "term": "el avance",
+        "translation": "advancement",
+        "definition": "The process of promoting a cause or plan.",
+        "pronunciation": "el a-vahn-seh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Los avances en la inteligencia artificial son impresionantes.",
+          "translation": "Advancements in artificial intelligence are impressive."
+        },
+        "tip": "Remember that advancements often change the landscape of a field."
+      },
+      {
+        "term": "la innovación",
+        "translation": "innovation",
+        "definition": "The introduction of new ideas, methods, or products.",
+        "pronunciation": "lah in-no-vah-ción",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La innovación es clave para el crecimiento económico.",
+          "translation": "Innovation is key to economic growth."
+        },
+        "tip": "Think of innovation as a driver of progress."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subjunctive Mood in Spanish",
+        "explanation": "The subjunctive mood is used to express desires, doubts, and hypothetical situations. It often follows certain expressions such as 'es importante que' (it's important that) or 'dudo que' (I doubt that). Understanding when to use the subjunctive is crucial for expressing nuanced thoughts and feelings.",
+        "table": {
+          "headers": [
+            "Present Subjunctive",
+            "Imperfect Subjunctive"
+          ],
+          "rows": [
+            [
+              "hable (I speak)",
+              "hablara (I spoke)"
+            ],
+            [
+              "coma (I eat)",
+              "comiera (I ate)"
+            ],
+            [
+              "viva (I live)",
+              "viviera (I lived)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es necesario que estudiemos más sobre la ciencia.",
+            "translation": "It is necessary that we study more about science.",
+            "breakdown": "The use of 'estudiemos' (we study) in the subjunctive indicates necessity."
+          },
+          {
+            "original": "Si tuviera más tiempo, investigaría sobre nuevas tecnologías.",
+            "translation": "If I had more time, I would research new technologies.",
+            "breakdown": "Here, 'tuviera' (had) is the imperfect subjunctive indicating a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive after expressions of doubt. Correct: 'Dudo que venga.'",
+          "Omitting the subjunctive in dependent clauses. Correct: 'Es importante que estudies.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a New Technology",
+      "context": "A conversation between two friends discussing a recent technological advancement.",
+      "speakers": [
+        "Laura",
+        "Javier"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Has oído hablar del nuevo teléfono que se carga solo?",
+          "translation": "Have you heard about the new phone that charges itself?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, es increíble. ¿Crees que realmente funcione?",
+          "translation": "Yes, it's amazing. Do you think it actually works?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Espero que sí. La innovación en tecnología es fascinante.",
+          "translation": "I hope so. Innovation in technology is fascinating.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Definitivamente. Me gustaría que todos los teléfonos fueran así.",
+          "translation": "Definitely. I wish all phones were like that.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Imagínate cuánto tiempo ahorraríamos.",
+          "translation": "Imagine how much time we would save.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, y menos preocupaciones sobre la batería.",
+          "translation": "Yes, and fewer worries about the battery.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Además, creo que podría ayudar al medio ambiente.",
+          "translation": "Also, I think it could help the environment.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Es cierto, siempre es bueno buscar soluciones sostenibles.",
+          "translation": "That's true, it's always good to look for sustainable solutions.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Scientific Contributions in Latin America",
+      "text": "Many Latin American countries have made significant contributions to various scientific fields. For instance, the Mexican scientist Mario Molina won the Nobel Prize for his research on ozone depletion.",
+      "funFact": "Did you know that the first Latin American woman to earn a PhD in physics was the Argentine scientist, Maria Teresa Ruiz, known for her work in astronomy?"
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding key vocabulary related to science and technology.",
+        "Utilizing the subjunctive mood for expressing desires and hypotheticals.",
+        "Engaging with realistic dialogues about technological advancements.",
+        "Recognizing the cultural contributions of Spanish-speaking countries to science."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and try to create your own dialogues about technological innovations."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'science'?",
+      "content": {
+        "options": [
+          "la tecnología",
+          "el experimento",
+          "la ciencia",
+          "la innovación"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "The correct answer is 'la ciencia', which translates to 'science' in English.",
+      "hint": "Think of the field that studies natural phenomena.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which term refers to 'innovation' in Spanish?",
+      "content": {
+        "options": [
+          "la investigación",
+          "el avance",
+          "la innovación",
+          "la ciencia"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "The correct answer is 'la innovación', which means 'innovation'.",
+      "hint": "It's about creating something new or improving existing methods.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: La __________ es esencial para el desarrollo de nuevas tecnologías.",
+      "content": {
+        "sentence": "La __________ es esencial para el desarrollo de nuevas tecnologías.",
+        "correctAnswer": "ciencia",
+        "acceptableAnswers": [
+          "ciencia"
+        ],
+        "options": [
+          "tecnología",
+          "ciencia",
+          "investigación"
+        ]
+      },
+      "explanation": "The correct answer is 'ciencia', which indicates that science is crucial for technology development.",
+      "hint": "This word refers to the field that explores knowledge and natural laws.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Necesitamos más __________ para resolver este problema.",
+      "content": {
+        "sentence": "Necesitamos más __________ para resolver este problema.",
+        "correctAnswer": "investigación",
+        "acceptableAnswers": [
+          "investigación"
+        ],
+        "options": [
+          "avance",
+          "experimento",
+          "investigación"
+        ]
+      },
+      "explanation": "The correct answer is 'investigación', which means research is necessary to solve problems.",
+      "hint": "This word relates to systematic inquiry or study.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The experiment was successful.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The experiment was successful.'",
+        "correctAnswer": "El experimento fue exitoso.",
+        "acceptableAnswers": [
+          "El experimento fue un éxito."
+        ]
+      },
+      "explanation": "The translation 'El experimento fue exitoso' accurately conveys the success of the experiment.",
+      "hint": "Focus on the words for 'experiment' and 'successful'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'La innovación es clave para el futuro.'",
+      "content": {
+        "ttsText": "La innovación es clave para el futuro.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Innovation is key for the future.",
+          "Innovation is important for science.",
+          "Innovation leads to new experiments."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation reflects the importance of innovation for the future.",
+      "hint": "Listen for the word 'innovación'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'Research leads to scientific advancements.'",
+      "content": {
+        "targetText": "La investigación conduce a avances científicos.",
+        "context": "Translate and say the importance of research.",
+        "acceptableVariants": [
+          "La investigación lleva a avances en la ciencia."
+        ]
+      },
+      "explanation": "The provided sentence accurately expresses how research contributes to advancements in science.",
+      "hint": "Think of the connection between research and progress.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

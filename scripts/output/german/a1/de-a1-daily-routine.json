@@ -1,0 +1,396 @@
+{
+  "lesson": {
+    "title": "My Daily Routine",
+    "type": "CONVERSATION",
+    "slug": "de-a1-daily-routine"
+  },
+  "unit": "Daily Life & Verbs",
+  "unitOrder": 3,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary and phrases related to daily routines in German. You will practice using simple sentences to describe your daily activities.",
+      "culturalNote": "In Germany, it is common to have a structured daily routine, often starting the day with a hearty breakfast, which may include bread, cheese, and coffee."
+    },
+    "vocabulary": [
+      {
+        "term": "der Morgen",
+        "translation": "the morning",
+        "definition": "the time of day from sunrise to noon",
+        "pronunciation": "dair Mor-gen",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Am Morgen gehe ich joggen.",
+          "translation": "In the morning, I go jogging."
+        },
+        "tip": "Remember that 'der' indicates that 'Morgen' is masculine."
+      },
+      {
+        "term": "das Frühstück",
+        "translation": "the breakfast",
+        "definition": "the first meal of the day, usually eaten in the morning",
+        "pronunciation": "dahs Frühshtük",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich esse ein leckeres Frühstück.",
+          "translation": "I eat a delicious breakfast."
+        },
+        "tip": "'Frühstück' is neuter, so use 'das'."
+      },
+      {
+        "term": "die Schule",
+        "translation": "the school",
+        "definition": "an institution for educating children",
+        "pronunciation": "dee Shoo-leh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich gehe zur Schule.",
+          "translation": "I go to school."
+        },
+        "tip": "'Schule' is feminine, so use 'die'."
+      },
+      {
+        "term": "der Nachmittag",
+        "translation": "the afternoon",
+        "definition": "the period from noon until evening",
+        "pronunciation": "dair Nahch-mit-tahk",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Am Nachmittag mache ich meine Hausaufgaben.",
+          "translation": "In the afternoon, I do my homework."
+        },
+        "tip": "Remember that 'der' indicates that 'Nachmittag' is masculine."
+      },
+      {
+        "term": "das Abendessen",
+        "translation": "the dinner",
+        "definition": "the main meal of the day, typically eaten in the evening",
+        "pronunciation": "dahs Ah-bend-essen",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wir essen um 18 Uhr Abendessen.",
+          "translation": "We eat dinner at 6 PM."
+        },
+        "tip": "'Abendessen' is neuter, so use 'das'."
+      },
+      {
+        "term": "können",
+        "translation": "can",
+        "definition": "a modal verb used to express ability or possibility",
+        "pronunciation": "kœn-nen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich kann gut schwimmen.",
+          "translation": "I can swim well."
+        },
+        "tip": "Use 'können' to talk about skills or abilities."
+      },
+      {
+        "term": "möchten",
+        "translation": "would like",
+        "definition": "a modal verb used to express desires",
+        "pronunciation": "mœkhten",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich möchte ein Buch lesen.",
+          "translation": "I would like to read a book."
+        },
+        "tip": "Use 'möchten' to express what you want."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Present Tense",
+        "explanation": "In German, the present tense is used to describe what happens regularly or currently. The verb usually comes second in the sentence. The subject (I, you, he, etc.) is followed by the verb.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Verb"
+          ],
+          "rows": [
+            [
+              "ich (I)",
+              "esse (eat)"
+            ],
+            [
+              "du (you)",
+              "gehst (go)"
+            ],
+            [
+              "er/sie/es (he/she/it)",
+              "macht (makes)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich gehe zur Schule.",
+            "translation": "I go to school.",
+            "breakdown": "Subject 'ich' comes first, followed by the verb 'gehe'."
+          }
+        ],
+        "commonMistakes": [
+          "Using the wrong verb form: 'Ich geh' (I go) instead of 'Ich gehe'.",
+          "Missing the verb: 'Ich zur Schule.' (I to school) instead of 'Ich gehe zur Schule.'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "A Day in the Life",
+      "context": "A conversation between two friends about their daily routines.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Max, was machst du am Morgen?",
+          "translation": "Hello Max, what do you do in the morning?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Guten Morgen, Anna! Ich gehe joggen und esse das Frühstück.",
+          "translation": "Good morning, Anna! I go jogging and eat breakfast.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt gut! Was machst du in der Schule?",
+          "translation": "That sounds good! What do you do at school?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich lerne Mathe und Englisch.",
+          "translation": "I learn math and English.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Was machst du am Nachmittag?",
+          "translation": "What do you do in the afternoon?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Am Nachmittag mache ich meine Hausaufgaben.",
+          "translation": "In the afternoon, I do my homework.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Und am Abend?",
+          "translation": "And in the evening?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Am Abend essen wir Abendessen und sehen einen Film.",
+          "translation": "In the evening, we eat dinner and watch a movie.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "German Breakfast Culture",
+      "text": "In Germany, breakfast is often a social meal where families gather to eat together before starting their day. Common items include bread, cheese, cold cuts, and coffee.",
+      "funFact": "In some regions, it's typical to have a sweet spread like Nutella on bread for breakfast!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Vocabulary for daily routines",
+        "Present tense usage",
+        "Modal verbs 'können' and 'möchten'",
+        "Simple conversational phrases"
+      ],
+      "nextSteps": "Practice speaking about your own daily routine using the vocabulary learned, and try writing sentences in the present tense."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'der Morgen' mean in English?",
+      "content": {
+        "options": [
+          "the morning",
+          "the school",
+          "the afternoon",
+          "the dinner"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Morgen' translates to 'the morning' in English.",
+      "hint": "Think about the time of day.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which verb means 'to want' in German?",
+      "content": {
+        "options": [
+          "möchten",
+          "können",
+          "essen",
+          "trinken"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Möchten' means 'to want' in German.",
+      "hint": "It's related to desires.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich ___ (to eat) Frühstück.",
+      "content": {
+        "sentence": "Ich ___ Frühstück.",
+        "correctAnswer": "esse",
+        "acceptableAnswers": [
+          "esse"
+        ],
+        "options": [
+          "trinke",
+          "esse",
+          "spiele"
+        ]
+      },
+      "explanation": "The correct verb 'esse' means 'to eat'.",
+      "hint": "Think about what you do in the morning.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich gehe nach ___ (school).",
+      "content": {
+        "sentence": "Ich gehe nach ___.",
+        "correctAnswer": "der Schule",
+        "acceptableAnswers": [
+          "der Schule"
+        ],
+        "options": [
+          "der Schule",
+          "die Schule",
+          "das Schule"
+        ]
+      },
+      "explanation": "'Die Schule' is the correct article; 'der Schule' is the dative case.",
+      "hint": "Remember the gender of 'school'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: nach, ich, Schule, gehe.",
+      "content": {
+        "words": [
+          "nach",
+          "ich",
+          "Schule",
+          "gehe"
+        ],
+        "correctOrder": [
+          "ich",
+          "gehe",
+          "nach",
+          "Schule"
+        ],
+        "translation": "I go to school."
+      },
+      "explanation": "The correct order forms a coherent sentence.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I want breakfast.'",
+      "content": {
+        "prompt": "Translate to German: 'I want breakfast.'",
+        "correctAnswer": "Ich möchte Frühstück.",
+        "acceptableAnswers": [
+          "Ich möchte Frühstück."
+        ]
+      },
+      "explanation": "'I want breakfast' translates to 'Ich möchte Frühstück.'",
+      "hint": "Use the verb for wanting.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich esse Abendessen.'",
+      "content": {
+        "ttsText": "Ich esse Abendessen.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I eat dinner.",
+          "I eat breakfast.",
+          "I go to school.",
+          "I want dinner."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'I eat dinner.'",
+      "hint": "Focus on the meal mentioned.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I can go to school.'",
+      "content": {
+        "targetText": "Ich kann zur Schule gehen.",
+        "context": "Translate and speak this sentence.",
+        "acceptableVariants": [
+          "Ich kann zur Schule gehen."
+        ]
+      },
+      "explanation": "The sentence means 'I can go to school.'",
+      "hint": "Use the correct verb for 'can'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'das Abendessen' mean in English?",
+      "content": {
+        "options": [
+          "the breakfast",
+          "the lunch",
+          "the dinner",
+          "the school"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Das Abendessen' translates to 'the dinner' in English.",
+      "hint": "It's a meal you have in the evening.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Am Morgen ___ (to drink) ich Kaffee.",
+      "content": {
+        "sentence": "Am Morgen ___ Kaffee.",
+        "correctAnswer": "trinke",
+        "acceptableAnswers": [
+          "trinke"
+        ],
+        "options": [
+          "esse",
+          "trinke",
+          "gehe"
+        ]
+      },
+      "explanation": "The verb 'trinke' means 'to drink'.",
+      "hint": "Think about what you drink in the morning.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

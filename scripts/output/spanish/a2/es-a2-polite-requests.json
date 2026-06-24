@@ -1,0 +1,390 @@
+{
+  "lesson": {
+    "title": "Polite Requests",
+    "type": "CONVERSATION",
+    "slug": "es-a2-polite-requests"
+  },
+  "unit": "City & Services",
+  "unitOrder": 6,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to make polite requests in Spanish, which is essential for effective communication in everyday situations. You will also practice using common phrases to ask for help or information.",
+      "culturalNote": "In many Spanish-speaking countries, politeness is highly valued, and using formal language can help build good relationships."
+    },
+    "vocabulary": [
+      {
+        "term": "por favor",
+        "translation": "please",
+        "definition": "used to make requests more polite",
+        "pronunciation": "por fah-VOR",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "¿Me puedes ayudar, por favor?",
+          "translation": "Can you help me, please?"
+        },
+        "tip": "Remember to use 'por favor' at the end of requests to sound polite."
+      },
+      {
+        "term": "¿puedes?",
+        "translation": "can you?",
+        "definition": "a way to ask someone for help",
+        "pronunciation": "PWEH-des",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "¿Puedes darme información?",
+          "translation": "Can you give me information?"
+        },
+        "tip": "Start requests with '¿Puedes?' to make them sound friendly."
+      },
+      {
+        "term": "me gustaría",
+        "translation": "I would like",
+        "definition": "used to express a desire or wish",
+        "pronunciation": "meh goos-TAH-ree-ah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Me gustaría comer en este restaurante.",
+          "translation": "I would like to eat in this restaurant."
+        },
+        "tip": "Use 'me gustaría' followed by a verb to express what you want."
+      },
+      {
+        "term": "¿podrías?",
+        "translation": "could you?",
+        "definition": "a more polite way to ask for help",
+        "pronunciation": "po-DREE-as",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "¿Podrías ayudarme con esto?",
+          "translation": "Could you help me with this?"
+        },
+        "tip": "Use '¿podrías?' for requests that require more politeness."
+      },
+      {
+        "term": "gracias",
+        "translation": "thank you",
+        "definition": "expression of gratitude",
+        "pronunciation": "GRAH-syas",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Gracias por tu ayuda.",
+          "translation": "Thank you for your help."
+        },
+        "tip": "Always remember to say 'gracias' after receiving help."
+      },
+      {
+        "term": "disculpa",
+        "translation": "excuse me/sorry",
+        "definition": "used to apologize or get someone's attention",
+        "pronunciation": "dis-KOOL-pah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Disculpa, ¿dónde está la estación?",
+          "translation": "Excuse me, where is the station?"
+        },
+        "tip": "Use 'disculpa' to politely interrupt or ask for help."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Making Polite Requests",
+        "explanation": "In Spanish, polite requests often start with verbs in the second person, like '¿puedes?' or '¿podrías?'. Adding 'por favor' makes your request more courteous. You can also use 'me gustaría' to express what you would like in a softer manner.",
+        "table": {
+          "headers": [
+            "Request Type",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Can you?",
+              "¿Puedes ayudarme?"
+            ],
+            [
+              "Could you?",
+              "¿Podrías darme información?"
+            ],
+            [
+              "I would like...",
+              "Me gustaría comprar un billete."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "¿Puedes ayudarme con la dirección?",
+            "translation": "Can you help me with the direction?",
+            "breakdown": "This sentence uses '¿Puedes?' to start a polite request."
+          },
+          {
+            "original": "Me gustaría hablar con el gerente.",
+            "translation": "I would like to speak with the manager.",
+            "breakdown": "Here, 'me gustaría' softens the request."
+          }
+        ],
+        "commonMistakes": [
+          "Using informal language in a formal situation, such as '¿Quieres?' instead of '¿Puedes?'.",
+          "Forget to say 'por favor' when making a request."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Asking for Directions",
+      "context": "In a busy city street, a tourist is asking a local for help.",
+      "speakers": [
+        "Tourist",
+        "Local"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Disculpa, ¿dónde está la estación de tren?",
+          "translation": "Excuse me, where is the train station?"
+        },
+        {
+          "speaker": 1,
+          "text": "Está cerca, sigue derecho y gira a la derecha.",
+          "translation": "It's nearby, go straight and turn right."
+        },
+        {
+          "speaker": 0,
+          "text": "Gracias. ¿Puedes decirme cuánto tiempo se tarda?",
+          "translation": "Thank you. Can you tell me how long it takes?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, se tarda unos diez minutos.",
+          "translation": "Yes, it takes about ten minutes."
+        },
+        {
+          "speaker": 0,
+          "text": "Perfecto. Me gustaría tomar el tren a la ciudad.",
+          "translation": "Perfect. I would like to take the train to the city."
+        },
+        {
+          "speaker": 1,
+          "text": "Muy bien. ¿Podrías comprar el billete en la máquina?",
+          "translation": "Very good. Could you buy the ticket at the machine?"
+        },
+        {
+          "speaker": 0,
+          "text": "Claro, gracias por tu ayuda.",
+          "translation": "Sure, thank you for your help."
+        },
+        {
+          "speaker": 1,
+          "text": "De nada. ¡Buen viaje!",
+          "translation": "You're welcome. Have a good trip!"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Politeness in Spanish Culture",
+      "text": "Politeness is very important in many Spanish-speaking countries. Using phrases like 'por favor' and 'gracias' helps to create a respectful atmosphere. People often appreciate when you make an effort to speak their language politely.",
+      "funFact": "In some cultures, it is common to greet people with a kiss on the cheek as a sign of friendliness and respect."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned key phrases for polite requests.",
+        "Practiced making requests using '¿puedes?' and 'me gustaría'.",
+        "Understood the importance of saying 'por favor' and 'gracias'.",
+        "Explored a dialogue about asking for directions."
+      ],
+      "nextSteps": "Practice using these phrases in different scenarios, such as ordering food or asking for help in a store."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does '¿podrías?' mean in English?",
+      "content": {
+        "options": [
+          "Could you?",
+          "Would you?",
+          "Can you?",
+          "Should you?"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'¿podrías?' translates to 'Could you?' in English, which is a polite way to ask for help.",
+      "hint": "Focus on polite requests.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct way to say 'please' in Spanish?",
+      "content": {
+        "options": [
+          "gracias",
+          "perdón",
+          "por favor",
+          "disculpa"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Por favor' is the Spanish expression used to make polite requests.",
+      "hint": "It's used when asking for something.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: '___ me gustaría un café, por favor.'",
+      "content": {
+        "sentence": "___ me gustaría un café, por favor.",
+        "correctAnswer": "A",
+        "acceptableAnswers": [
+          "Yo",
+          "Me"
+        ],
+        "options": [
+          "Yo",
+          "Me",
+          "Nosotros",
+          "Tú"
+        ]
+      },
+      "explanation": "The correct subject pronoun is 'Yo' to express that you would like a coffee.",
+      "hint": "Think about who is making the request.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Disculpa, ¿___ ayudarme con esto?'",
+      "content": {
+        "sentence": "Disculpa, ¿___ ayudarme con esto?",
+        "correctAnswer": "puedes",
+        "acceptableAnswers": [
+          "puedes",
+          "podrías"
+        ],
+        "options": [
+          "puedes",
+          "podrías",
+          "quieres",
+          "sabes"
+        ]
+      },
+      "explanation": "'Puedes' is the correct form to ask if someone can help you.",
+      "hint": "It's a request for assistance.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to make a polite request in Spanish: 'café', 'un', 'me', 'gustaría', 'por favor'.",
+      "content": {
+        "words": [
+          "café",
+          "un",
+          "me",
+          "gustaría",
+          "por favor"
+        ],
+        "correctOrder": [
+          "me",
+          "gustaría",
+          "un",
+          "café",
+          "por favor"
+        ],
+        "translation": "I would like a coffee, please."
+      },
+      "explanation": "The words are arranged to form a polite request in Spanish.",
+      "hint": "Start with 'me gustaría'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Thank you for your help.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'Thank you for your help.'",
+        "correctAnswer": "Gracias por tu ayuda.",
+        "acceptableAnswers": [
+          "Gracias por su ayuda.",
+          "Gracias por ayudarme."
+        ]
+      },
+      "explanation": "The translation captures the essence of gratitude in Spanish.",
+      "hint": "Start with 'Gracias'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: '¿Puedes ayudarme, por favor?'",
+      "content": {
+        "ttsText": "¿Puedes ayudarme, por favor?",
+        "ttsLang": "es-ES",
+        "options": [
+          "Can you help me, please?",
+          "Could you help me, please?",
+          "Would you help me, please?",
+          "Should you help me, please?"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct choice reflects the polite request made in Spanish.",
+      "hint": "Listen carefully for the request.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'Could you please pass me the salt?'",
+      "content": {
+        "targetText": "¿Podrías pasarme la sal, por favor?",
+        "context": "You are at a dinner table and want to ask for the salt.",
+        "acceptableVariants": [
+          "¿Puedes pasarme la sal, por favor?",
+          "¿Podrías darme la sal, por favor?"
+        ]
+      },
+      "explanation": "The phrase is a polite request to ask for something at the table.",
+      "hint": "Think of a polite dinner request.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase is a polite way to ask for something?",
+      "content": {
+        "options": [
+          "Me gusta eso.",
+          "Me gustaría eso.",
+          "Me encantaría eso.",
+          "Me parece eso."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Me gustaría eso.' means 'I would like that.' and is a polite request.",
+      "hint": "Look for the phrase that expresses desire politely.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: '___, ¿puedes darme tu número de teléfono?'",
+      "content": {
+        "sentence": "___, ¿puedes darme tu número de teléfono?",
+        "correctAnswer": "Disculpa",
+        "acceptableAnswers": [
+          "Perdón"
+        ],
+        "options": [
+          "Hola",
+          "Gracias",
+          "Disculpa",
+          "Adiós"
+        ]
+      },
+      "explanation": "'Disculpa' is used to politely get someone's attention before making a request.",
+      "hint": "Think about how you would ask for something politely.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

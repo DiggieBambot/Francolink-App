@@ -1,0 +1,345 @@
+{
+  "lesson": {
+    "title": "How Often? (Frequency)",
+    "type": "GRAMMAR",
+    "slug": "de-a1-frequency"
+  },
+  "unit": "Free Time & Modal Verbs",
+  "unitOrder": 7,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to ask and answer questions about frequency in German, using modal verbs. You will also expand your vocabulary related to free time activities.",
+      "culturalNote": "In Germany, many people enjoy their free time in parks and at festivals, especially during the summer. This reflects the German value of work-life balance."
+    },
+    "vocabulary": [
+      {
+        "term": "der Sport",
+        "translation": "the sport",
+        "definition": "an activity involving physical exertion and skill",
+        "pronunciation": "dehr shport",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich mache gerne Sport.",
+          "translation": "I like to do sports."
+        },
+        "tip": "Remember, 'der' indicates masculine nouns."
+      },
+      {
+        "term": "die Freizeit",
+        "translation": "the free time",
+        "definition": "time when one is not working",
+        "pronunciation": "dee fry-tsight",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "In meiner Freizeit lese ich Bücher.",
+          "translation": "In my free time, I read books."
+        },
+        "tip": "Remember, 'die' indicates feminine nouns."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "a set of written or printed pages",
+        "pronunciation": "dahs booH",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich lese ein Buch.",
+          "translation": "I am reading a book."
+        },
+        "tip": "'Das' indicates neuter nouns."
+      },
+      {
+        "term": "jeden Tag",
+        "translation": "every day",
+        "definition": "occurring daily",
+        "pronunciation": "yay-den tahg",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Ich gehe jeden Tag joggen.",
+          "translation": "I go jogging every day."
+        },
+        "tip": "Use this phrase to indicate daily frequency."
+      },
+      {
+        "term": "manchmal",
+        "translation": "sometimes",
+        "definition": "occasionally, not always",
+        "pronunciation": "mahnk-mahl",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Manchmal spiele ich Fußball.",
+          "translation": "Sometimes I play soccer."
+        },
+        "tip": "Remember this adverb to express occasional activities."
+      },
+      {
+        "term": "oft",
+        "translation": "often",
+        "definition": "frequently, regularly",
+        "pronunciation": "oft",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Ich gehe oft ins Kino.",
+          "translation": "I often go to the cinema."
+        },
+        "tip": "Use this word to indicate a high frequency."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Asking About Frequency",
+        "explanation": "To ask about how often someone does something, you can use 'Wie oft?'. The answer often includes adverbs like 'jeden Tag', 'oft', or 'manchmal'. Use the present tense for activities.",
+        "table": {
+          "headers": [
+            "German Phrase",
+            "English Translation"
+          ],
+          "rows": [
+            [
+              "Wie oft machst du Sport?",
+              "How often do you do sports?"
+            ],
+            [
+              "Ich mache Sport oft.",
+              "I do sports often."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wie oft gehst du schwimmen?",
+            "translation": "How often do you go swimming?",
+            "breakdown": "The question starts with 'Wie oft' (how often), followed by the verb 'gehst' (do you go) and the activity 'schwimmen' (swimming)."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Ich gehe oft schwimmen.' instead of 'Ich gehe oft ins Schwimmbad.' (You should specify the activity's location).",
+          "Using 'die Sport' instead of 'der Sport' (Remember, 'Sport' is masculine)."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking About Free Time Activities",
+      "context": "A conversation between two friends in a café discussing their free time.",
+      "speakers": [
+        "Lukas",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Sophie! Wie oft gehst du ins Fitnessstudio?",
+          "translation": "Hello Sophie! How often do you go to the gym?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Lukas! Ich gehe oft ins Fitnessstudio.",
+          "translation": "Hello Lukas! I often go to the gym.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist gut! Machst du auch Sport?",
+          "translation": "That's good! Do you also do sports?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich mache jeden Tag Sport.",
+          "translation": "Yes, I do sports every day.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Was machst du in deiner Freizeit?",
+          "translation": "What do you do in your free time?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich lese oft Bücher und manchmal gehe ich schwimmen.",
+          "translation": "I often read books and sometimes I go swimming.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt toll! Ich lese auch gerne.",
+          "translation": "That sounds great! I also like to read.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Lass uns zusammen ein Buch lesen!",
+          "translation": "Let's read a book together!",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Leisure Activities in Germany",
+      "text": "In Germany, it's common for people to spend their free time engaging in various activities such as sports, reading, or visiting cultural events. Parks and outdoor activities are especially popular during the summer.",
+      "funFact": "Germany has over 300 days of festivals each year, celebrating everything from local culture to food and music!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned how to ask about frequency using 'Wie oft?'",
+        "Expanded vocabulary related to free time activities",
+        "Practiced using modal verbs like 'können' and 'möchten'",
+        "Engaged in a dialogue about hobbies and interests"
+      ],
+      "nextSteps": "Practice forming sentences about your own free time activities and try to use the new vocabulary in conversations."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "How often do you read a book?",
+      "content": {
+        "options": [
+          "Every day",
+          "Sometimes",
+          "Never",
+          "Always"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'Sometimes' as it indicates a frequency that is not too high.",
+      "hint": "Think about how often you do it.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'sports' in German?",
+      "content": {
+        "options": [
+          "der Sport",
+          "die Freizeit",
+          "das Buch",
+          "die Musik"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Sport' is the correct translation of 'sports' in German.",
+      "hint": "It's a masculine noun.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Ich ___ Sport. (often)",
+      "content": {
+        "sentence": "Ich ___ Sport.",
+        "correctAnswer": "mache oft",
+        "acceptableAnswers": [
+          "mache oft",
+          "spiele oft"
+        ],
+        "options": [
+          "mache oft",
+          "mache jeden Tag",
+          "mache manchmal"
+        ]
+      },
+      "explanation": "The correct answer 'mache oft' means 'often do sports'.",
+      "hint": "Think about how to express frequency.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Ich lese ___ Buch. (a book)",
+      "content": {
+        "sentence": "Ich lese ___ Buch.",
+        "correctAnswer": "ein",
+        "acceptableAnswers": [
+          "ein",
+          "das"
+        ],
+        "options": [
+          "ein",
+          "das",
+          "kein"
+        ]
+      },
+      "explanation": "'Ein' is the correct article for 'a book' in German.",
+      "hint": "It's an indefinite article.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'jeden Tag, Sport, mache, ich'.",
+      "content": {
+        "words": [
+          "jeden Tag",
+          "Sport",
+          "mache",
+          "ich"
+        ],
+        "correctOrder": [
+          "ich",
+          "mache",
+          "jeden Tag",
+          "Sport"
+        ],
+        "translation": "I do sports every day."
+      },
+      "explanation": "The correct order forms a proper sentence in German.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I sometimes read a book.'",
+      "content": {
+        "correctAnswer": "Ich lese manchmal ein Buch.",
+        "acceptableAnswers": [
+          "Ich lese manchmal das Buch.",
+          "Ich lese oft ein Buch."
+        ]
+      },
+      "explanation": "The correct translation reflects the frequency of reading.",
+      "hint": "Pay attention to the word 'sometimes'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich mache Sport oft.'",
+      "content": {
+        "ttsText": "Ich mache Sport oft.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I often do sports.",
+          "I do sports sometimes.",
+          "I do sports every day."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation matches the frequency indicated in the sentence.",
+      "hint": "Focus on the word 'oft'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in German: 'I sometimes play sports.'",
+      "content": {
+        "targetText": "Ich spiele manchmal Sport.",
+        "context": "Translate your English sentence into German.",
+        "acceptableVariants": [
+          "Ich spiele manchmal Sport.",
+          "Manchmal spiele ich Sport."
+        ]
+      },
+      "explanation": "Both forms are correct and convey the same meaning.",
+      "hint": "Remember to use 'manchmal' for 'sometimes'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

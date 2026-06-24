@@ -1,0 +1,403 @@
+{
+  "lesson": {
+    "title": "Everyday Negotiations",
+    "type": "CONVERSATION",
+    "slug": "es-a2-negotiations"
+  },
+  "unit": "Everyday Situations",
+  "unitOrder": 8,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn key vocabulary and phrases for negotiating in everyday situations in Spanish. You'll also practice a dialogue that demonstrates how to negotiate prices and make requests.",
+      "culturalNote": "Negotiating is common in many Latin American markets, where haggling can be part of the shopping experience."
+    },
+    "vocabulary": [
+      {
+        "term": "el precio",
+        "translation": "the price",
+        "definition": "The amount of money required for something.",
+        "pronunciation": "el preh-see-oh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "¿Cuál es el precio de esta camisa?",
+          "translation": "What is the price of this shirt?"
+        },
+        "tip": "Remember that 'el' is the masculine article for singular nouns."
+      },
+      {
+        "term": "barato",
+        "translation": "cheap",
+        "definition": "Low in price; not expensive.",
+        "pronunciation": "bah-rah-toh",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Esta tienda tiene ropa barata.",
+          "translation": "This store has cheap clothes."
+        },
+        "tip": "Think of 'barato' as a bargain; both start with 'b'."
+      },
+      {
+        "term": "caro",
+        "translation": "expensive",
+        "definition": "High in price; not cheap.",
+        "pronunciation": "kah-roh",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Ese coche es muy caro.",
+          "translation": "That car is very expensive."
+        },
+        "tip": "Remember 'caro' is the opposite of 'barato'."
+      },
+      {
+        "term": "oferta",
+        "translation": "offer/sale",
+        "definition": "A special price or promotion.",
+        "pronunciation": "oh-fehr-tah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Hay una oferta en el supermercado.",
+          "translation": "There is a sale at the supermarket."
+        },
+        "tip": "Think of 'oferta' as an opportunity to save money!"
+      },
+      {
+        "term": "negociar",
+        "translation": "to negotiate",
+        "definition": "To discuss terms in order to reach an agreement.",
+        "pronunciation": "neh-goh-see-ar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Vamos a negociar el precio.",
+          "translation": "Let's negotiate the price."
+        },
+        "tip": "The verb 'negociar' is similar in both Spanish and English."
+      },
+      {
+        "term": "aceptar",
+        "translation": "to accept",
+        "definition": "To agree to receive something.",
+        "pronunciation": "ah-sep-tar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Acepto tu oferta.",
+          "translation": "I accept your offer."
+        },
+        "tip": "'Aceptar' sounds like 'accept' in English, making it easier to remember."
+      },
+      {
+        "term": "rechazar",
+        "translation": "to reject",
+        "definition": "To refuse or dismiss something.",
+        "pronunciation": "reh-chah-zar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Voy a rechazar el precio.",
+          "translation": "I am going to reject the price."
+        },
+        "tip": "Think of 'rechazar' as pushing away an offer."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the future tense for offers",
+        "explanation": "In Spanish, we form the simple future tense by adding specific endings to the infinitive verb. This is useful for making offers or stating what will happen.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Ending"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "é"
+            ],
+            [
+              "Tú",
+              "ás"
+            ],
+            [
+              "Él/Ella",
+              "á"
+            ],
+            [
+              "Nosotros",
+              "emos"
+            ],
+            [
+              "Ustedes",
+              "án"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo aceptaré el precio.",
+            "translation": "I will accept the price.",
+            "breakdown": "Here, 'aceptar' is in the future tense, indicating a decision to accept later."
+          }
+        ],
+        "commonMistakes": [
+          "Using present tense instead of future for offers. Correct: 'Yo aceptaré' not 'Yo acepto'.",
+          "Confusing 'aceptar' with 'rechazar'. Remember 'aceptar' means to accept."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Negotiating a Price",
+      "context": "At a market stall while shopping.",
+      "speakers": [
+        "Vendor",
+        "Customer"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, ¿qué tal? Esta camiseta cuesta veinte dólares.",
+          "translation": "Hello, how are you? This shirt costs twenty dollars."
+        },
+        {
+          "speaker": 1,
+          "text": "Es un poco caro. ¿Puedes hacerme una oferta?",
+          "translation": "It is a bit expensive. Can you make me an offer?"
+        },
+        {
+          "speaker": 0,
+          "text": "Puedo bajarlo a dieciocho dólares.",
+          "translation": "I can lower it to eighteen dollars."
+        },
+        {
+          "speaker": 1,
+          "text": "¿Y si lo compro con los pantalones?",
+          "translation": "And if I buy it with the pants?"
+        },
+        {
+          "speaker": 0,
+          "text": "Entonces, te doy los dos por treinta dólares.",
+          "translation": "Then, I'll give you both for thirty dollars."
+        },
+        {
+          "speaker": 1,
+          "text": "Está bien, acepto.",
+          "translation": "Okay, I accept."
+        },
+        {
+          "speaker": 0,
+          "text": "¡Gracias! Aquí tienes.",
+          "translation": "Thank you! Here you go."
+        },
+        {
+          "speaker": 1,
+          "text": "¡Gracias a ti!",
+          "translation": "Thank you!"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Haggling in Markets",
+      "text": "In many Latin American countries, haggling is a common practice in markets. Vendors and customers often negotiate prices as part of the shopping experience.",
+      "funFact": "In some countries, like Mexico, it is customary to start negotiating at half the asking price."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to negotiating prices.",
+        "Practiced using the future tense for making offers.",
+        "Engaged in a realistic dialogue about negotiating.",
+        "Gained cultural insight into haggling practices."
+      ],
+      "nextSteps": "Practice using the vocabulary in different negotiation scenarios. Try to create your own dialogue using the phrases learned."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'oferta' mean in English?",
+      "content": {
+        "options": [
+          "offer",
+          "price",
+          "discount",
+          "negotiation"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Oferta' translates to 'offer' in English, commonly used in negotiations.",
+      "hint": "Think about what you see in sales.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'expensive'?",
+      "content": {
+        "options": [
+          "barato",
+          "caro",
+          "negociar",
+          "aceptar"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Caro' means 'expensive' in Spanish.",
+      "hint": "It sounds similar to a word in English.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Este producto es muy _____. (This product is very _____.)'",
+      "content": {
+        "sentence": "Este producto es muy ____. (This product is very ____.)",
+        "correctAnswer": "caro",
+        "acceptableAnswers": [
+          "caro",
+          "costoso"
+        ],
+        "options": [
+          "barato",
+          "caro",
+          "oferta",
+          "negociar"
+        ]
+      },
+      "explanation": "The sentence indicates that the product is expensive.",
+      "hint": "Think about the price.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: '¿Puedes _____ el precio? (Can you _____ the price?)'",
+      "content": {
+        "sentence": "¿Puedes _____ el precio?",
+        "correctAnswer": "negociar",
+        "acceptableAnswers": [
+          "negociar",
+          "hablar sobre"
+        ],
+        "options": [
+          "aceptar",
+          "rechazar",
+          "negociar",
+          "comprar"
+        ]
+      },
+      "explanation": "To negotiate means to discuss the price.",
+      "hint": "What do you do when you want a better deal?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'precio / caro / el / es'",
+      "content": {
+        "words": [
+          "caro",
+          "el",
+          "precio",
+          "es"
+        ],
+        "correctOrder": [
+          "el",
+          "precio",
+          "es",
+          "caro"
+        ],
+        "translation": "The price is expensive."
+      },
+      "explanation": "The correct order forms a coherent sentence in Spanish.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I want to negotiate the price.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I want to negotiate the price.'",
+        "correctAnswer": "Quiero negociar el precio.",
+        "acceptableAnswers": [
+          "Deseo negociar el precio."
+        ]
+      },
+      "explanation": "This sentence shows a desire to negotiate, using 'quiero' for 'I want'.",
+      "hint": "Remember the verb for 'want'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation: 'El precio es barato.'",
+      "content": {
+        "ttsText": "El precio es barato.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The price is cheap.",
+          "The product is expensive.",
+          "The offer is good.",
+          "I want to negotiate."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation indicates that the price is low.",
+      "hint": "What does 'barato' mean?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in Spanish: 'I accept the offer.'",
+      "content": {
+        "targetText": "Acepto la oferta.",
+        "context": "You have agreed to the terms of a deal.",
+        "acceptableVariants": [
+          "Acepto la oferta",
+          "Yo acepto la oferta"
+        ]
+      },
+      "explanation": "This sentence expresses agreement with the offer.",
+      "hint": "Think about the word 'accept'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'rechazar' mean?",
+      "content": {
+        "options": [
+          "to accept",
+          "to reject",
+          "to negotiate",
+          "to bargain"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Rechazar' means 'to reject' in English.",
+      "hint": "It is the opposite of accept.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'La oferta es muy _____. (The offer is very _____.)'",
+      "content": {
+        "sentence": "La oferta es muy ____. (The offer is very ____.)",
+        "correctAnswer": "barata",
+        "acceptableAnswers": [
+          "barata",
+          "buena"
+        ],
+        "options": [
+          "barata",
+          "cara",
+          "interesante",
+          "negociable"
+        ]
+      },
+      "explanation": "The sentence indicates that the offer is inexpensive.",
+      "hint": "Think of the word for 'cheap'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

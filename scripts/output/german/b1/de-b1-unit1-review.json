@@ -1,0 +1,327 @@
+{
+  "lesson": {
+    "title": "Unit 1 Review",
+    "type": "REVIEW",
+    "slug": "de-b1-unit1-review"
+  },
+  "unit": "Expressing Opinions",
+  "unitOrder": 1,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will review key vocabulary and grammar structures related to expressing opinions in German. You will practice forming sentences using subordinate clauses and the Konjunktiv II for politeness.",
+      "culturalNote": "In Germany, expressing opinions is often done politely. People may use phrases like 'Ich denke, dass...' (I think that...) to soften their statements."
+    },
+    "vocabulary": [
+      {
+        "term": "die Meinung",
+        "translation": "the opinion",
+        "definition": "a belief or judgment about something.",
+        "pronunciation": "dee MY-noong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe eine andere Meinung.",
+          "translation": "I have a different opinion."
+        },
+        "tip": "Remember that 'die Meinung' is feminine (die)."
+      },
+      {
+        "term": "weil",
+        "translation": "because",
+        "definition": "used to give a reason.",
+        "pronunciation": "vile",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Ich bleibe zu Hause, weil es regnet.",
+          "translation": "I stay at home because it is raining."
+        },
+        "tip": "Use 'weil' to connect cause and effect in your sentences."
+      },
+      {
+        "term": "der Vorschlag",
+        "translation": "the suggestion",
+        "definition": "an idea or plan put forward for consideration.",
+        "pronunciation": "der FOR-shlahg",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich finde deinen Vorschlag gut.",
+          "translation": "I think your suggestion is good."
+        },
+        "tip": "'Der Vorschlag' is masculine (der), and its plural is 'die Vorschläge'."
+      },
+      {
+        "term": "die Entscheidung",
+        "translation": "the decision",
+        "definition": "a conclusion or resolution reached after consideration.",
+        "pronunciation": "dee EN-shy-dung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Entscheidung war nicht einfach.",
+          "translation": "The decision was not easy."
+        },
+        "tip": "'Die Entscheidung' is feminine (die)."
+      },
+      {
+        "term": "wenn",
+        "translation": "if/when",
+        "definition": "used to introduce a condition or time.",
+        "pronunciation": "ven",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Wenn ich Zeit habe, komme ich.",
+          "translation": "If I have time, I will come."
+        },
+        "tip": "Use 'wenn' to express conditions or future events."
+      },
+      {
+        "term": "der Grund",
+        "translation": "the reason",
+        "definition": "the cause or explanation for something.",
+        "pronunciation": "der GROOND",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Grund ist einfach.",
+          "translation": "The reason is simple."
+        },
+        "tip": "'Der Grund' is masculine (der) and can be pluralized as 'die Gründe'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subordinate Clauses with 'dass' and 'weil'",
+        "explanation": "In German, you can use subordinate clauses to express opinions and reasons. Use 'dass' (that) to introduce a clause explaining your opinion, and 'weil' (because) to provide a reason. The verb in these clauses is placed at the end.",
+        "table": {
+          "headers": [
+            "German",
+            "English"
+          ],
+          "rows": [
+            [
+              "Ich denke, dass es wichtig ist.",
+              "I think that it is important."
+            ],
+            [
+              "Es ist teuer, weil es neu ist.",
+              "It is expensive because it is new."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich finde, dass du recht hast.",
+            "translation": "I think that you are right.",
+            "breakdown": "The sentence uses 'dass' to introduce a clause expressing the speaker's opinion."
+          },
+          {
+            "original": "Ich bleibe zu Hause, weil ich müde bin.",
+            "translation": "I stay at home because I am tired.",
+            "breakdown": "Here, 'weil' introduces the reason for staying at home."
+          }
+        ],
+        "commonMistakes": [
+          "Incorrect: Ich denke, es ist wichtig dass. Correction: Ich denke, dass es wichtig ist.",
+          "Incorrect: Es ist teuer, weil neu ist. Correction: Es ist teuer, weil es neu ist."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Weekend Plans",
+      "context": "Two friends, Anna and Max, are discussing their plans for the weekend at a café.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Was machst du am Wochenende?",
+          "translation": "What are you doing on the weekend?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich überlege, ins Kino zu gehen. Und du?",
+          "translation": "I am thinking about going to the cinema. And you?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich möchte vielleicht einen Ausflug machen, weil das Wetter schön sein wird.",
+          "translation": "I might want to go on a trip because the weather will be nice.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das klingt gut! Was für einen Ausflug hast du im Sinn?",
+          "translation": "That sounds good! What kind of trip do you have in mind?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich dachte an den Bodensee, weil ich dort schon lange nicht mehr war.",
+          "translation": "I thought about Lake Constance because I haven’t been there in a long time.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist eine tolle Idee! Ich würde gerne mitkommen, wenn du mich einlädst.",
+          "translation": "That's a great idea! I would love to come along if you invite me.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Natürlich, ich lade dich ein! Wir können auch ein Picknick machen.",
+          "translation": "Of course, I invite you! We can also have a picnic.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Perfekt! Ich bringe die Snacks mit, wenn du die Getränke besorgst.",
+          "translation": "Perfect! I will bring the snacks if you get the drinks.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Opinions in German Culture",
+      "text": "In German-speaking countries, sharing opinions is considered important in both personal and professional contexts. Discussions often involve respectful exchanges of ideas and viewpoints.",
+      "funFact": "In Germany, there is a popular saying: 'Die beste Entscheidung ist die, die man selbst trifft.' (The best decision is the one you make yourself.)"
+    },
+    "summary": {
+      "keyPoints": [
+        "Review of vocabulary related to expressing opinions.",
+        "Understanding subordinate clauses with 'dass' and 'weil'.",
+        "Practicing polite expressions using Konjunktiv II.",
+        "Engaging in realistic dialogues to enhance conversation skills."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and try creating your own dialogues using the grammar structures learned."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'die Meinung' mean in English?",
+      "content": {
+        "options": [
+          "the opinion",
+          "the decision",
+          "the suggestion",
+          "the reason"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Meinung' translates to 'the opinion' in English.",
+      "hint": "Think about what people express when they share their thoughts.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'because' in German?",
+      "content": {
+        "options": [
+          "wenn",
+          "weil",
+          "der Grund",
+          "die Entscheidung"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Weil' is the German word for 'because'.",
+      "hint": "It's used to give reasons.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich habe einen ________. (suggestion)",
+      "content": {
+        "sentence": "Ich habe einen ________.",
+        "correctAnswer": "Vorschlag",
+        "acceptableAnswers": [
+          "Vorschlag"
+        ],
+        "options": [
+          "Vorschlag",
+          "Meinung",
+          "Grund",
+          "Entscheidung"
+        ]
+      },
+      "explanation": "The correct word is 'Vorschlag', which means 'suggestion'.",
+      "hint": "Think about what you might give someone when they ask for advice.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich habe eine ________ getroffen. (decision)",
+      "content": {
+        "sentence": "Ich habe eine ________ getroffen.",
+        "correctAnswer": "Entscheidung",
+        "acceptableAnswers": [
+          "Entscheidung"
+        ],
+        "options": [
+          "Meinung",
+          "Entscheidung",
+          "Vorschlag",
+          "Grund"
+        ]
+      },
+      "explanation": "'Entscheidung' translates to 'decision', which fits the context of the sentence.",
+      "hint": "It's what you do when you choose something.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The reason is important.'",
+      "content": {
+        "prompt": "Translate to German: 'The reason is important.'",
+        "correctAnswer": "Der Grund ist wichtig.",
+        "acceptableAnswers": [
+          "Der Grund ist wichtig."
+        ]
+      },
+      "explanation": "The translation captures the meaning accurately and uses the correct article.",
+      "hint": "Remember the article for 'reason'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation: 'Ich finde das interessant.'",
+      "content": {
+        "ttsText": "Ich finde das interessant.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I find that interesting.",
+          "I think that is boring.",
+          "I consider that important.",
+          "I believe that is wrong."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'I find that interesting.'",
+      "hint": "Focus on the meaning of 'finde'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I have a suggestion.'",
+      "content": {
+        "targetText": "Ich habe einen Vorschlag.",
+        "context": "Translate this sentence into German.",
+        "acceptableVariants": [
+          "Ich habe einen Vorschlag."
+        ]
+      },
+      "explanation": "The phrase 'Ich habe einen Vorschlag.' accurately translates to the given English sentence.",
+      "hint": "Remember the article for 'suggestion'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    }
+  ]
+}

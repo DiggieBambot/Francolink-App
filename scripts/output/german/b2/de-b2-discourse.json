@@ -1,0 +1,338 @@
+{
+  "lesson": {
+    "title": "Discourse Markers & Cohesion",
+    "type": "GRAMMAR",
+    "slug": "de-b2-discourse"
+  },
+  "unit": "Global Issues & Mastery",
+  "unitOrder": 8,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about discourse markers and how they contribute to cohesion in German. You'll explore various connectors and phrases that help structure arguments and enhance clarity in discussions, particularly on global issues.",
+      "culturalNote": "In German-speaking countries, it is common to use specific discourse markers to indicate the speaker's stance or to transition between ideas, which can reflect politeness and formality."
+    },
+    "vocabulary": [
+      {
+        "term": "der Übergang",
+        "translation": "the transition",
+        "definition": "A word or phrase that connects ideas.",
+        "pronunciation": "AIR oob air gang",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Übergang zwischen den Themen ist wichtig.",
+          "translation": "The transition between the topics is important."
+        },
+        "tip": "Remember that 'der' indicates that this is a masculine noun."
+      },
+      {
+        "term": "außerdem",
+        "translation": "furthermore",
+        "definition": "Used to add additional information.",
+        "pronunciation": "OW-sair-dem",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Außerdem sollten wir die Umwelt schützen.",
+          "translation": "Furthermore, we should protect the environment."
+        },
+        "tip": "This word is often used at the beginning of a sentence to introduce new information."
+      },
+      {
+        "term": "dennoch",
+        "translation": "nevertheless",
+        "definition": "Indicates a contrast to the previous statement.",
+        "pronunciation": "DEN-ohkh",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Es war kalt, dennoch gingen wir spazieren.",
+          "translation": "It was cold; nevertheless, we went for a walk."
+        },
+        "tip": "Use 'dennoch' to show that something unexpected happens despite previous statements."
+      },
+      {
+        "term": "obwohl",
+        "translation": "although",
+        "definition": "Used to introduce a contrasting idea.",
+        "pronunciation": "OB-vohl",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Obwohl es regnete, hatten wir viel Spaß.",
+          "translation": "Although it was raining, we had a lot of fun."
+        },
+        "tip": "Remember that 'obwohl' introduces a subordinate clause."
+      },
+      {
+        "term": "zuerst",
+        "translation": "first",
+        "definition": "Indicates the first point in a sequence.",
+        "pronunciation": "TSOO-erst",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Zuerst müssen wir die Fakten sammeln.",
+          "translation": "First, we need to gather the facts."
+        },
+        "tip": "Use 'zuerst' to structure your argument in a sequential order."
+      },
+      {
+        "term": "schließlich",
+        "translation": "finally",
+        "definition": "Indicates the last point in a sequence.",
+        "pronunciation": "SHLEE-slihkh",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Schließlich sollten wir alle zusammenarbeiten.",
+          "translation": "Finally, we should all work together."
+        },
+        "tip": "This is often used before concluding statements."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Discourse Markers for Cohesion",
+        "explanation": "Discourse markers are essential for structuring speech and writing in German. They help clarify relationships between ideas, such as contrast, addition, and sequence. It's important to use them correctly to ensure that your arguments flow logically and are easy to follow. For example, using 'außerdem' to add information or 'dennoch' to show contrast can enhance the clarity of your statements.",
+        "table": {
+          "headers": [
+            "Discourse Marker",
+            "Function"
+          ],
+          "rows": [
+            [
+              "außerdem",
+              "Addition"
+            ],
+            [
+              "dennoch",
+              "Contrast"
+            ],
+            [
+              "obwohl",
+              "Contrast"
+            ],
+            [
+              "zuerst",
+              "Sequence"
+            ],
+            [
+              "schließlich",
+              "Conclusion"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich möchte meine Meinung äußern, außerdem habe ich einige Vorschläge.",
+            "translation": "I would like to express my opinion; furthermore, I have some suggestions.",
+            "breakdown": "Here, 'außerdem' connects two related ideas, adding information to the first statement."
+          },
+          {
+            "original": "Die Lösung ist teuer, dennoch ist sie notwendig.",
+            "translation": "The solution is expensive; nevertheless, it is necessary.",
+            "breakdown": "'Dennoch' indicates a contrast between the high cost and the necessity of the solution."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'obwohl' with 'ob' - 'ob' means 'if', while 'obwohl' means 'although'.",
+          "Using discourse markers at the end of a sentence instead of the beginning, which can disrupt flow."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Environmental Issues",
+      "context": "Anna and Max are discussing the importance of environmental protection at a café.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Ich finde, dass Umweltschutz sehr wichtig ist.",
+          "translation": "I think that environmental protection is very important.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, das stimmt. Außerdem sollten wir auch die Ressourcen schonen.",
+          "translation": "Yes, that's true. Furthermore, we should also conserve resources.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Dennoch gibt es viele Menschen, die das nicht ernst nehmen.",
+          "translation": "Nevertheless, there are many people who do not take it seriously.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Obwohl wir viele Informationen haben, handeln die meisten nicht.",
+          "translation": "Although we have a lot of information, most people do not act.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Zuerst müssen wir die Öffentlichkeit sensibilisieren.",
+          "translation": "First, we need to raise public awareness.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Schließlich können wir dann Druck auf die Politiker ausüben.",
+          "translation": "Finally, we can then put pressure on the politicians.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich hoffe, dass die nächsten Generationen verantwortungsbewusster sind.",
+          "translation": "I hope that future generations will be more responsible.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, das ist entscheidend für unseren Planeten.",
+          "translation": "Yes, that is crucial for our planet.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Environmental Awareness in German-speaking Countries",
+      "text": "Environmental awareness is a significant topic in Germany, Austria, and Switzerland, with strong movements advocating for sustainability. Many cities in German-speaking countries are known for their green spaces and initiatives to reduce carbon footprints.",
+      "funFact": "Germany is one of the leading countries in recycling, with a recycling rate of over 60%."
+    },
+    "summary": {
+      "keyPoints": [
+        "Discourse markers enhance cohesion in spoken and written German.",
+        "Common discourse markers include 'außerdem', 'dennoch', and 'obwohl'.",
+        "Using these markers correctly improves the clarity of your arguments.",
+        "Practice incorporating these markers into your discussions about global issues."
+      ],
+      "nextSteps": "Practice using discourse markers in your writing and speaking. Try to create longer arguments using the vocabulary and grammar from this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which discourse marker means 'in addition'?",
+      "content": {
+        "options": [
+          "denn",
+          "außerdem",
+          "obwohl",
+          "zuerst"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Außerdem' translates to 'in addition', making it the correct choice.",
+      "hint": "Think about adding more information.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'dennoch' mean in English?",
+      "content": {
+        "options": [
+          "despite that",
+          "therefore",
+          "first",
+          "finally"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Dennoch' translates to 'despite that', indicating contrast.",
+      "hint": "Look for a word that shows contrast.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich wollte ins Kino gehen, ___ ich keine Zeit hatte.'",
+      "content": {
+        "sentence": "Ich wollte ins Kino gehen, ___ ich keine Zeit hatte.",
+        "correctAnswer": "obwohl",
+        "acceptableAnswers": [
+          "obwohl"
+        ],
+        "options": [
+          "darum",
+          "zuerst",
+          "obwohl",
+          "schließlich"
+        ]
+      },
+      "explanation": "The word 'obwohl' means 'although', which fits the context of the sentence.",
+      "hint": "It introduces a contrast.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: '___ habe ich viel gelernt.'",
+      "content": {
+        "sentence": "___ habe ich viel gelernt.",
+        "correctAnswer": "Zuerst",
+        "acceptableAnswers": [
+          "Zuerst"
+        ],
+        "options": [
+          "Zuerst",
+          "Außerdem",
+          "Dennoch",
+          "Schließlich"
+        ]
+      },
+      "explanation": "'Zuerst' translates to 'first', indicating the beginning of an action.",
+      "hint": "Think about the order of events.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'In addition, we must take action.'",
+      "content": {
+        "prompt": "Translate to German: 'In addition, we must take action.'",
+        "correctAnswer": "Außerdem müssen wir handeln.",
+        "acceptableAnswers": [
+          "Außerdem müssen wir aktiv werden."
+        ]
+      },
+      "explanation": "The translation captures the meaning accurately with the correct use of 'außerdem'.",
+      "hint": "Focus on the phrase 'in addition'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Schließlich haben wir das Problem gelöst.'",
+      "content": {
+        "ttsText": "Schließlich haben wir das Problem gelöst.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Finally, we solved the problem.",
+          "First, we solved the problem.",
+          "We have solved the problem, however."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation captures the meaning of 'schließlich' as 'finally'.",
+      "hint": "Listen for the word that indicates the end of a process.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in German: 'Although it is difficult, we must try.'",
+      "content": {
+        "targetText": "Obwohl es schwierig ist, müssen wir es versuchen.",
+        "context": "Translate the sentence to German.",
+        "acceptableVariants": [
+          "Obwohl es schwierig ist, sollten wir es versuchen."
+        ]
+      },
+      "explanation": "This sentence uses 'obwohl' to express a contrast.",
+      "hint": "Start with the word for 'although'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

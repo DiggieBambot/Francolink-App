@@ -1,0 +1,337 @@
+{
+  "lesson": {
+    "title": "Discussing Innovation",
+    "type": "CONVERSATION",
+    "slug": "es-b2-innovation"
+  },
+  "unit": "Science & Innovation",
+  "unitOrder": 6,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary and phrases related to discussing innovation in Spanish. You will also practice using the subjunctive mood to express opinions and ideas about innovative concepts.",
+      "culturalNote": "Innovation is a key driver of economic growth in many Latin American countries, with startups rapidly emerging in technology and sustainability sectors."
+    },
+    "vocabulary": [
+      {
+        "term": "la innovación",
+        "translation": "innovation",
+        "definition": "the process of developing new ideas or products",
+        "pronunciation": "lah in-no-va-syohn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La innovación es esencial para el progreso de la sociedad.",
+          "translation": "Innovation is essential for the progress of society."
+        },
+        "tip": "Remember that 'la' indicates a feminine noun in Spanish."
+      },
+      {
+        "term": "el avance tecnológico",
+        "translation": "technological advancement",
+        "definition": "progress in technology that improves efficiency or capabilities",
+        "pronunciation": "el ah-vahn-seh tehk-no-loh-hee-koh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El avance tecnológico ha cambiado nuestras vidas.",
+          "translation": "Technological advancement has changed our lives."
+        },
+        "tip": "Think of 'avance' as 'advance,' which makes it easier to remember."
+      },
+      {
+        "term": "la sostenibilidad",
+        "translation": "sustainability",
+        "definition": "the ability to maintain resources without depletion",
+        "pronunciation": "lah sos-teh-nee-bee-li-dahd",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La sostenibilidad es clave en la innovación moderna.",
+          "translation": "Sustainability is key in modern innovation."
+        },
+        "tip": "Relate 'sostenible' to 'sustainable' in English."
+      },
+      {
+        "term": "el emprendedor",
+        "translation": "entrepreneur",
+        "definition": "a person who starts a business, taking on financial risks",
+        "pronunciation": "el em-prehn-deh-dor",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El emprendedor siempre busca nuevas oportunidades.",
+          "translation": "The entrepreneur always seeks new opportunities."
+        },
+        "tip": "Think of 'emprender' as 'to undertake' something."
+      },
+      {
+        "term": "la creatividad",
+        "translation": "creativity",
+        "definition": "the ability to generate new ideas or concepts",
+        "pronunciation": "lah cre-a-ti-vi-dahd",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La creatividad es fundamental en el proceso de innovación.",
+          "translation": "Creativity is fundamental in the innovation process."
+        },
+        "tip": "Connect 'creatividad' to 'creativity' for easier recall."
+      },
+      {
+        "term": "la investigación",
+        "translation": "research",
+        "definition": "the systematic study to establish facts and reach new conclusions",
+        "pronunciation": "lah in-ves-ti-ga-syohn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La investigación es crucial para el desarrollo de nuevas tecnologías.",
+          "translation": "Research is crucial for the development of new technologies."
+        },
+        "tip": "Remember that 'investigación' sounds similar to 'investigation' in English."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subjunctive Mood in Expressing Opinions",
+        "explanation": "In Spanish, the subjunctive mood is used to express wishes, doubts, or hypothetical situations. When discussing innovation, we often express opinions about what should or could happen. For example, 'Es importante que la tecnología avance' means 'It is important that technology advances.' Remember to use the correct conjugation based on the subject.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Verb Conjugation"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "avance"
+            ],
+            [
+              "Tú",
+              "avances"
+            ],
+            [
+              "Él/Ella/Usted",
+              "avance"
+            ],
+            [
+              "Nosotros",
+              "avancemos"
+            ],
+            [
+              "Vosotros",
+              "avancéis"
+            ],
+            [
+              "Ellos/Ellas/Ustedes",
+              "avancen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es necesario que innovemos para mejorar el medio ambiente.",
+            "translation": "It is necessary that we innovate to improve the environment.",
+            "breakdown": "The verb 'innovar' is in the subjunctive form 'innovemos' to express necessity."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: 'Es importante que innovamos' (should be 'innovemos').",
+          "Forgetting to use the subjunctive with expressions of doubt: 'Dudo que él avance' (correct) instead of 'Dudo que él avanza'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Innovations in Technology",
+      "context": "A coffee shop conversation between two friends about recent advancements in technology.",
+      "speakers": [
+        "Carlos",
+        "Lucía"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Has visto las últimas innovaciones en tecnología?",
+          "translation": "Have you seen the latest innovations in technology?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, me fascinan los avances en inteligencia artificial.",
+          "translation": "Yes, I am fascinated by advancements in artificial intelligence.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Es impresionante cómo puede aprender y adaptarse.",
+          "translation": "It's impressive how it can learn and adapt.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Totalmente. Espero que se utilice para el bien de la humanidad.",
+          "translation": "Totally. I hope it is used for the good of humanity.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Exactamente, pero también hay preocupaciones sobre la privacidad.",
+          "translation": "Exactly, but there are also concerns about privacy.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, es un dilema complicado. ¿Qué opinas sobre la regulación?",
+          "translation": "Yes, it's a complicated dilemma. What do you think about regulation?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Creo que es fundamental que haya regulaciones claras.",
+          "translation": "I believe it is essential that there are clear regulations.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Estoy de acuerdo. Sin regulación, podríamos enfrentar problemas serios.",
+          "translation": "I agree. Without regulation, we could face serious problems.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Innovation in Latin America",
+      "text": "Many Latin American countries are becoming hubs of innovation, especially in technology and social entrepreneurship. Initiatives often focus on sustainable development and addressing local challenges through creative solutions.",
+      "funFact": "In 2020, Latin America saw a significant increase in tech startups, particularly in Brazil and Mexico, which are now among the top countries for tech innovation in the region."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding key vocabulary related to innovation.",
+        "Using the subjunctive mood to express opinions.",
+        "Discussing technological advancements and their implications.",
+        "Recognizing cultural aspects of innovation in Spanish-speaking countries."
+      ],
+      "nextSteps": "Practice using the subjunctive in your discussions about technology and innovation. Consider writing a short essay about a recent innovation you find interesting."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la innovación' mean in English?",
+      "content": {
+        "options": [
+          "innovation",
+          "invention",
+          "technology",
+          "research"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La innovación' translates to 'innovation' in English, referring to new ideas or methods.",
+      "hint": "Think about new ideas.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which term refers to 'sustainability' in Spanish?",
+      "content": {
+        "options": [
+          "la investigación",
+          "el avance tecnológico",
+          "la sostenibilidad",
+          "la creatividad"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'La sostenibilidad' means 'sustainability', which is about meeting our needs without compromising future generations.",
+      "hint": "It's about keeping the environment safe.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'El _______ es clave para el desarrollo de nuevas tecnologías.'",
+      "content": {
+        "sentence": "El _______ es clave para el desarrollo de nuevas tecnologías.",
+        "correctAnswer": "emprendedor",
+        "acceptableAnswers": [
+          "emprendedor"
+        ],
+        "options": [
+          "investigador",
+          "emprendedor",
+          "estudiante",
+          "profesor"
+        ]
+      },
+      "explanation": "An 'emprendedor' (entrepreneur) is essential for developing new technologies.",
+      "hint": "This person takes risks to start businesses.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'La _______ es fundamental para resolver problemas.'",
+      "content": {
+        "sentence": "La _______ es fundamental para resolver problemas.",
+        "correctAnswer": "creatividad",
+        "acceptableAnswers": [
+          "creatividad"
+        ],
+        "options": [
+          "tecnología",
+          "creatividad",
+          "investigación",
+          "sostenibilidad"
+        ]
+      },
+      "explanation": "Creativity is crucial for problem-solving.",
+      "hint": "It's about thinking outside the box.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Technological advancement is essential for innovation.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'Technological advancement is essential for innovation.'",
+        "correctAnswer": "El avance tecnológico es esencial para la innovación.",
+        "acceptableAnswers": [
+          "El avance tecnológico es clave para la innovación."
+        ]
+      },
+      "explanation": "This sentence highlights the importance of technological advancements in innovation.",
+      "hint": "Focus on 'avance' and 'innovación'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'La innovación es el futuro.'",
+      "content": {
+        "ttsText": "La innovación es el futuro.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Innovation is the past.",
+          "Innovation is the future.",
+          "Innovation is the present."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct translation reflects the idea that innovation is crucial for future developments.",
+      "hint": "It's about what comes next.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'Creativity drives innovation.'",
+      "content": {
+        "targetText": "La creatividad impulsa la innovación.",
+        "context": "Discussing the relationship between creativity and innovation.",
+        "acceptableVariants": [
+          "La creatividad fomenta la innovación."
+        ]
+      },
+      "explanation": "This sentence connects creativity directly with the concept of innovation.",
+      "hint": "Use the verb 'impulsar'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

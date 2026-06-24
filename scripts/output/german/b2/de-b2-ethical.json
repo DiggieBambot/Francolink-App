@@ -1,0 +1,316 @@
+{
+  "lesson": {
+    "title": "Ethical Dilemmas",
+    "type": "CONVERSATION",
+    "slug": "de-b2-ethical"
+  },
+  "unit": "Science & Innovation",
+  "unitOrder": 6,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will explore ethical dilemmas related to science and innovation. You will learn vocabulary and expressions to discuss moral questions, as well as practice a dialogue that highlights these issues.",
+      "culturalNote": "Germany has a strong history of ethical discussions surrounding science, particularly in biotechnology and environmental issues."
+    },
+    "vocabulary": [
+      {
+        "term": "das ethische Dilemma",
+        "translation": "the ethical dilemma",
+        "definition": "a situation in which a difficult choice must be made between two conflicting moral principles",
+        "pronunciation": "das eh-ti-sche di-leh-mah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ein ethisches Dilemma kann in der Medizin auftreten.",
+          "translation": "An ethical dilemma can arise in medicine."
+        },
+        "tip": "Remember that 'Dilemma' is neuter (das)."
+      },
+      {
+        "term": "die Verantwortung",
+        "translation": "the responsibility",
+        "definition": "the state or fact of being accountable for something",
+        "pronunciation": "die fer-ahn-twor-tung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Verantwortung für eine Entscheidung liegt beim Wissenschaftler.",
+          "translation": "The responsibility for a decision lies with the scientist."
+        },
+        "tip": "This noun is feminine (die) and often used in contexts of ethics."
+      },
+      {
+        "term": "die Forschung",
+        "translation": "the research",
+        "definition": "the systematic investigation to establish facts or principles",
+        "pronunciation": "die for-shung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Forschung kann zu neuen ethischen Fragen führen.",
+          "translation": "Research can lead to new ethical questions."
+        },
+        "tip": "Feminine noun (die) often used in scientific contexts."
+      },
+      {
+        "term": "die Innovation",
+        "translation": "the innovation",
+        "definition": "a new idea, method, or product that improves upon the old",
+        "pronunciation": "die in-no-va-tion",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Innovationen bringen sowohl Chancen als auch Risiken mit sich.",
+          "translation": "Innovations bring both opportunities and risks."
+        },
+        "tip": "Another feminine noun (die), commonly discussed in business and science."
+      },
+      {
+        "term": "die Moral",
+        "translation": "the moral",
+        "definition": "a lesson concerning what is right or prudent",
+        "pronunciation": "die mo-ral",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Moral der Geschichte ist, dass wir über unsere Entscheidungen nachdenken sollten.",
+          "translation": "The moral of the story is that we should think about our decisions."
+        },
+        "tip": "Feminine noun (die), often used in discussions about ethics."
+      },
+      {
+        "term": "die Konsequenz",
+        "translation": "the consequence",
+        "definition": "a result or effect of an action or condition",
+        "pronunciation": "die kon-se-kwenz",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Konsequenzen unseres Handelns müssen berücksichtigt werden.",
+          "translation": "The consequences of our actions must be considered."
+        },
+        "tip": "Feminine noun (die), important in discussions of ethics and responsibility."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Konjunktiv II for Hypothetical Situations",
+        "explanation": "The Konjunktiv II is used in German to express hypothetical situations or wishes. It often appears in conditional sentences. For example, 'Wenn ich mehr Zeit hätte, würde ich forschen.' (If I had more time, I would research.) This form helps to discuss possibilities that are not real or are imagined.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Konjunktiv II"
+          ],
+          "rows": [
+            [
+              "haben",
+              "hätte"
+            ],
+            [
+              "sein",
+              "wäre"
+            ],
+            [
+              "werden",
+              "würde"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich die Wahl hätte, würde ich die Umwelt schützen.",
+            "translation": "If I had the choice, I would protect the environment.",
+            "breakdown": "This sentence uses 'hätte' (would have) and 'würde' (would) to express a hypothetical choice."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of Konjunktiv II in conditional sentences. Example: 'Wenn ich mehr Geld habe...' should be 'Wenn ich mehr Geld hätte...'",
+          "Forgetting to change the verb form in the main clause when using 'würde'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Ethical Dilemmas in Science",
+      "context": "A coffee break conversation between two colleagues at a research institute.",
+      "speakers": [
+        "Max",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hast du schon von dem neuen ethischen Dilemma in der Gentechnik gehört?",
+          "translation": "Have you heard about the new ethical dilemma in genetic engineering?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich finde es beunruhigend, wie weit wir gehen können.",
+          "translation": "Yes, I find it disturbing how far we can go."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich denke, dass wir eine Verantwortung haben, diese Technologien vorsichtig zu nutzen.",
+          "translation": "I think we have a responsibility to use these technologies carefully."
+        },
+        {
+          "speaker": 1,
+          "text": "Absolut. Die Konsequenzen könnten gravierend sein.",
+          "translation": "Absolutely. The consequences could be severe."
+        },
+        {
+          "speaker": 0,
+          "text": "Was wäre, wenn wir die falschen Entscheidungen treffen?",
+          "translation": "What if we make the wrong decisions?"
+        },
+        {
+          "speaker": 1,
+          "text": "Das könnte die Zukunft der Menschheit beeinflussen.",
+          "translation": "That could impact the future of humanity."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich wünschte, mehr Menschen würden über diese Themen nachdenken.",
+          "translation": "I wish more people would think about these issues."
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, vielleicht sollten wir ein Seminar dazu organisieren.",
+          "translation": "Yes, maybe we should organize a seminar about it."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Ethics in German-speaking Science",
+      "text": "In Germany, ethical questions in science are often debated in public forums. There is a strong emphasis on transparency and public involvement in scientific advancements. This is reflective of a broader cultural value placed on ethical considerations in decision-making.",
+      "funFact": "Germany has one of the most rigorous ethical review processes for scientific research, ensuring that research adheres to strict moral standards."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding vocabulary related to ethical dilemmas in science.",
+        "Practicing the Konjunktiv II for hypothetical situations.",
+        "Engaging in a dialogue about moral responsibilities.",
+        "Recognizing the cultural context of ethics in German-speaking countries."
+      ],
+      "nextSteps": "Review the vocabulary and grammar points, and practice discussing your own opinions on ethical dilemmas in science."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is an ethical dilemma?",
+      "content": {
+        "options": [
+          "A situation where a decision must be made between two conflicting moral principles.",
+          "A type of scientific experiment.",
+          "An innovation that has no consequences.",
+          "A responsibility of the government."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "An ethical dilemma involves a conflict between moral principles, making it difficult to choose the right course of action.",
+      "hint": "Think about situations involving moral choices.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word best represents 'die Verantwortung'?",
+      "content": {
+        "options": [
+          "Responsibility",
+          "Research",
+          "Innovation",
+          "Consequence"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Verantwortung' translates to 'responsibility' in English, indicating a duty to deal with something.",
+      "hint": "Consider what it means to be responsible.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'In der __________ gibt es oft viele ethische Dilemmas.'",
+      "content": {
+        "sentence": "In der __________ gibt es oft viele ethische Dilemmas.",
+        "correctAnswer": "Forschung",
+        "acceptableAnswers": [
+          "Forschung"
+        ],
+        "options": [
+          "Forschung",
+          "Innovation",
+          "Moral"
+        ]
+      },
+      "explanation": "Research often presents ethical dilemmas that require careful consideration.",
+      "hint": "Think about where ethical issues are commonly found.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Die __________ einer Entscheidung können weitreichend sein.'",
+      "content": {
+        "sentence": "Die __________ einer Entscheidung können weitreichend sein.",
+        "correctAnswer": "Konsequenzen",
+        "acceptableAnswers": [
+          "Konsequenzen"
+        ],
+        "options": [
+          "Moral",
+          "Verantwortung",
+          "Konsequenzen"
+        ]
+      },
+      "explanation": "Consequences are the outcomes of decisions, especially in areas involving ethics.",
+      "hint": "Think about what happens as a result of choices.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'Scientific research has ethical responsibilities.'",
+      "content": {
+        "correctAnswer": "Wissenschaftliche Forschung hat ethische Verantwortungen.",
+        "acceptableAnswers": [
+          "Wissenschaftliche Forschung hat ethische Verantwortung."
+        ],
+        "prompt": "Translate to German: 'Scientific research has ethical responsibilities.'"
+      },
+      "explanation": "This sentence discusses the responsibilities associated with scientific research.",
+      "hint": "Focus on the words 'scientific research' and 'ethical responsibilities'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the following sentence and choose the correct translation.",
+      "content": {
+        "ttsText": "Die Innovation bringt viele neue ethische Dilemmata mit sich.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Innovation brings many new ethical dilemmas.",
+          "Innovation does not involve ethical issues.",
+          "Ethical dilemmas are irrelevant to innovation."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence speaks about the ethical dilemmas that come with innovation.",
+      "hint": "Focus on the keywords 'Innovation' and 'ethische Dilemmata'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in German: 'What would you do in an ethical dilemma involving scientific research?'",
+      "content": {
+        "targetText": "Was würdest du in einem ethischen Dilemma im Zusammenhang mit wissenschaftlicher Forschung tun?",
+        "context": "Ask a peer about their thoughts on ethical dilemmas in science.",
+        "acceptableVariants": [
+          "Was würdest du in einem ethischen Dilemma in der Forschung tun?"
+        ]
+      },
+      "explanation": "This prompt encourages discussion about personal perspectives on ethical dilemmas.",
+      "hint": "Consider using 'was würdest du' to start your sentence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

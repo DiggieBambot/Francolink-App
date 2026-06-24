@@ -1,0 +1,371 @@
+{
+  "lesson": {
+    "title": "Unit 6 Review",
+    "type": "REVIEW",
+    "slug": "de-a2-unit6-review"
+  },
+  "unit": "City & Services",
+  "unitOrder": 6,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this Unit 6 Review, you will consolidate your knowledge of vocabulary related to cities and services. You'll also practice using the perfect and simple past tenses of common verbs in context.",
+      "culturalNote": "In Germany, many cities have a rich history, and exploring local services like public transport can reveal fascinating stories about the past."
+    },
+    "vocabulary": [
+      {
+        "term": "der Bahnhof",
+        "translation": "the train station",
+        "definition": "A place where trains stop to pick up and drop off passengers.",
+        "pronunciation": "der BAHN-hof",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Bahnhof ist sehr groß.",
+          "translation": "The train station is very big."
+        },
+        "tip": "Remember, 'Bahnhof' is masculine; it uses 'der'."
+      },
+      {
+        "term": "die Apotheke",
+        "translation": "the pharmacy",
+        "definition": "A shop where you can buy medicine and health products.",
+        "pronunciation": "die apo-TE-ke",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich gehe zur Apotheke.",
+          "translation": "I am going to the pharmacy."
+        },
+        "tip": "'Apotheke' is feminine, hence 'die'."
+      },
+      {
+        "term": "das Krankenhaus",
+        "translation": "the hospital",
+        "definition": "A place where sick or injured people receive medical treatment.",
+        "pronunciation": "das KRANK-en-haus",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Krankenhaus ist in der Nähe.",
+          "translation": "The hospital is nearby."
+        },
+        "tip": "'Krankenhaus' is neuter; use 'das'."
+      },
+      {
+        "term": "der Park",
+        "translation": "the park",
+        "definition": "A public green area for recreation.",
+        "pronunciation": "der PARK",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wir gehen oft in den Park.",
+          "translation": "We often go to the park."
+        },
+        "tip": "'Park' is masculine, so it uses 'der'."
+      },
+      {
+        "term": "die Stadt",
+        "translation": "the city",
+        "definition": "A large town where many people live and work.",
+        "pronunciation": "die STADT",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Stadt ist sehr lebhaft.",
+          "translation": "The city is very lively."
+        },
+        "tip": "'Stadt' is feminine; use 'die'."
+      },
+      {
+        "term": "das Restaurant",
+        "translation": "the restaurant",
+        "definition": "A place where you can buy and eat meals.",
+        "pronunciation": "das res-tau-RANT",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wir essen im Restaurant.",
+          "translation": "We are eating at the restaurant."
+        },
+        "tip": "'Restaurant' is neuter; it uses 'das'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Perfect Tense (Perfekt)",
+        "explanation": "The perfect tense is used to describe actions that have been completed. It is formed with the auxiliary verbs 'haben' or 'sein' and the past participle of the main verb. Most verbs use 'haben', while verbs of motion and change of state typically use 'sein'.",
+        "table": {
+          "headers": [
+            "Auxiliary Verb",
+            "Past Participle"
+          ],
+          "rows": [
+            [
+              "haben",
+              "gemacht"
+            ],
+            [
+              "sein",
+              "gegangen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich habe das Buch gelesen.",
+            "translation": "I have read the book.",
+            "breakdown": "In this sentence, 'habe' is the auxiliary verb and 'gelesen' is the past participle of 'lesen' (to read)."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'sein' with a non-motion verb: 'Ich bin das Buch gelesen' should be 'Ich habe das Buch gelesen'.",
+          "Confusing the placement of the past participle: 'Ich habe das Buch gelesen' is correct, not 'Ich das Buch gelesen habe'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Train Station",
+      "context": "This conversation occurs at a train station in Germany.",
+      "speakers": [
+        "Max",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Sophie! Wo bist du gewesen?",
+          "translation": "Hello Sophie! Where have you been?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Max! Ich war im Krankenhaus.",
+          "translation": "Hello Max! I was at the hospital.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Oh, alles in Ordnung?",
+          "translation": "Oh, is everything okay?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, es ist alles gut. Ich habe einen Freund besucht.",
+          "translation": "Yes, everything is fine. I visited a friend.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist schön! Gehst du jetzt zum Bahnhof?",
+          "translation": "That's nice! Are you going to the train station now?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich gehe zum Bahnhof. Ich habe ein Ticket für Berlin.",
+          "translation": "Yes, I am going to the train station. I have a ticket to Berlin.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Viel Spaß in Berlin! Was möchtest du dort machen?",
+          "translation": "Have fun in Berlin! What do you want to do there?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich möchte die Stadt besichtigen und ins Restaurant gehen.",
+          "translation": "I want to sightsee and go to a restaurant.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Public Transportation in Germany",
+      "text": "Germany has an extensive and efficient public transportation system. Trains, buses, and trams connect cities and towns, making it easy to travel without a car.",
+      "funFact": "In many German cities, you can buy a special day ticket that allows unlimited travel on public transport for 24 hours!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Practice vocabulary related to cities and services.",
+        "Understand the use of the perfect tense in German.",
+        "Review gender and cases of nouns.",
+        "Engage in real-life dialogues to strengthen conversational skills."
+      ],
+      "nextSteps": "Continue practicing vocabulary and grammar with exercises in the app. Consider exploring more dialogues or writing your own based on different situations."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'the park'?",
+      "content": {
+        "options": [
+          "der Park",
+          "die Stadt",
+          "das Krankenhaus",
+          "die Apotheke"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'der Park', which means 'the park' in English.",
+      "hint": "It's a place to relax outdoors.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is the German word for 'the hospital'?",
+      "content": {
+        "options": [
+          "das Krankenhaus",
+          "die Apotheke",
+          "das Restaurant",
+          "der Bahnhof"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Das Krankenhaus' means 'the hospital' in English.",
+      "hint": "You go here when you need medical help.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich gehe zur ___ (the pharmacy).",
+      "content": {
+        "sentence": "Ich gehe zur ___.",
+        "correctAnswer": "die Apotheke",
+        "acceptableAnswers": [],
+        "options": [
+          "der Bahnhof",
+          "die Apotheke",
+          "das Krankenhaus"
+        ]
+      },
+      "explanation": "The correct answer is 'die Apotheke', which means 'the pharmacy'.",
+      "hint": "This is where you buy medicine.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Das ___ ist groß (the city).",
+      "content": {
+        "sentence": "Das ___ ist groß.",
+        "correctAnswer": "die Stadt",
+        "acceptableAnswers": [],
+        "options": [
+          "der Park",
+          "die Stadt",
+          "das Restaurant"
+        ]
+      },
+      "explanation": "The correct answer is 'die Stadt', meaning 'the city'.",
+      "hint": "It's where many people live and work.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: (Park, im, ich, gehe)",
+      "content": {
+        "words": [
+          "ich",
+          "gehe",
+          "im",
+          "Park"
+        ],
+        "correctOrder": [
+          "ich",
+          "gehe",
+          "im",
+          "Park"
+        ],
+        "translation": "I go to the park."
+      },
+      "explanation": "The correct order forms a complete and correct sentence in German.",
+      "hint": "Think about where you go.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The restaurant is near the hospital.'",
+      "content": {
+        "correctAnswer": "Das Restaurant ist in der Nähe des Krankenhauses.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation captures the relationship between the restaurant and the hospital.",
+      "hint": "Remember to use the correct articles.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'der Bahnhof'",
+      "content": {
+        "ttsText": "der Bahnhof",
+        "ttsLang": "de-DE",
+        "options": [
+          "the pharmacy",
+          "the train station",
+          "the hospital",
+          "the park"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Der Bahnhof' means 'the train station' in English.",
+      "hint": "It’s where you catch trains.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the sentence in German: 'I want to go to the restaurant.'",
+      "content": {
+        "targetText": "Ich möchte ins Restaurant gehen.",
+        "context": "Translate and say this in German.",
+        "acceptableVariants": [
+          "Ich will ins Restaurant gehen."
+        ]
+      },
+      "explanation": "You correctly expressed your desire to go to the restaurant in German.",
+      "hint": "Use 'möchte' or 'will' for 'want to'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Das ___ hat viele Bäume (the park).",
+      "content": {
+        "sentence": "Das ___ hat viele Bäume.",
+        "correctAnswer": "der Park",
+        "acceptableAnswers": [],
+        "options": [
+          "der Park",
+          "die Stadt",
+          "das Krankenhaus"
+        ]
+      },
+      "explanation": "'Der Park' is correct because it refers to a place with trees.",
+      "hint": "Think of a green space.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'the restaurant'?",
+      "content": {
+        "options": [
+          "die Stadt",
+          "das Restaurant",
+          "der Park",
+          "die Apotheke"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Das Restaurant' means 'the restaurant' in English.",
+      "hint": "You go here to eat.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,330 @@
+{
+  "lesson": {
+    "title": "Sentence Bracket (Satzklammer) Mastery",
+    "type": "GRAMMAR",
+    "slug": "de-b2-satzklammer"
+  },
+  "unit": "Persuasion & Argument",
+  "unitOrder": 2,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will master the concept of 'Satzklammer' in German sentences, focusing on how the verb and elements of the sentence are structured. This is vital for constructing clear and persuasive arguments in both written and spoken German.",
+      "culturalNote": "In German-speaking countries, the structure of sentences can significantly alter the tone and persuasion of an argument. Understanding this can enhance your communication skills."
+    },
+    "vocabulary": [
+      {
+        "term": "die Satzklammer",
+        "translation": "the sentence bracket",
+        "definition": "The structural arrangement of verbs and sentence elements in German.",
+        "pronunciation": "zee zahts-klah-mer",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Satzklammer ist ein wichtiges Konzept in der deutschen Grammatik.",
+          "translation": "The sentence bracket is an important concept in German grammar."
+        },
+        "tip": "Remember that 'Satzklammer' is feminine (die) and its plural is 'die Satzklammern'."
+      },
+      {
+        "term": "das Verb",
+        "translation": "the verb",
+        "definition": "A word that describes an action, occurrence, or state.",
+        "pronunciation": "dahs fairb",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Verb steht in der Satzklammer immer an zweiter Stelle.",
+          "translation": "The verb always stands in the sentence bracket in second position."
+        },
+        "tip": "Note that 'Verb' is neuter (das) and the plural is 'die Verben'."
+      },
+      {
+        "term": "das Subjekt",
+        "translation": "the subject",
+        "definition": "The noun or pronoun that performs the action of the verb.",
+        "pronunciation": "dahs zoob-yekt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Subjekt wird im Deutschen oft vor dem Verb platziert.",
+          "translation": "The subject is often placed before the verb in German."
+        },
+        "tip": "Remember that 'Subjekt' is neuter (das) and the plural is 'die Subjekte'."
+      },
+      {
+        "term": "die Argumentation",
+        "translation": "the argumentation",
+        "definition": "The process of reasoning and presenting arguments.",
+        "pronunciation": "dee ar-goo-men-ta-tsi-on",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Eine klare Argumentation ist entscheidend für Überzeugungen.",
+          "translation": "A clear argumentation is crucial for persuasion."
+        },
+        "tip": "Note that 'Argumentation' is feminine (die) and its plural is 'die Argumentationen'."
+      },
+      {
+        "term": "der Zusammenhang",
+        "translation": "the context",
+        "definition": "The circumstances or background that give meaning to something.",
+        "pronunciation": "der tsu-zah-men-hang",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Zusammenhang ist wichtig für das Verständnis.",
+          "translation": "The context is important for understanding."
+        },
+        "tip": "Remember that 'Zusammenhang' is masculine (der) and the plural is 'die Zusammenhänge'."
+      },
+      {
+        "term": "die Überzeugung",
+        "translation": "the conviction",
+        "definition": "A firmly held belief or opinion.",
+        "pronunciation": "dee ü-ber-tsoih-gung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Seine Überzeugung war stark und überzeugend.",
+          "translation": "His conviction was strong and persuasive."
+        },
+        "tip": "Note that 'Überzeugung' is feminine (die) and its plural is 'die Überzeugungen'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Sentence Bracket Structure",
+        "explanation": "In German, the sentence bracket (Satzklammer) refers to the specific placement of the verb and the subject within a sentence. Typically, the finite verb appears in the second position, while any additional verbs (infinitives or participles) are placed at the end of the sentence. This structure helps in organizing complex sentences and is crucial for effective argumentation.",
+        "table": {
+          "headers": [
+            "Position",
+            "Example"
+          ],
+          "rows": [
+            [
+              "1st: Subject",
+              "Der Schüler (The student)"
+            ],
+            [
+              "2nd: Finite Verb",
+              "liest (reads)"
+            ],
+            [
+              "End: Additional Verb",
+              "das Buch (the book)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Der Schüler liest das Buch.",
+            "translation": "The student reads the book.",
+            "breakdown": "Here, 'Der Schüler' is the subject in the first position, and 'liest' is the finite verb in the second position."
+          },
+          {
+            "original": "Der Schüler wird das Buch lesen.",
+            "translation": "The student will read the book.",
+            "breakdown": "In this example, 'wird' (will) is the finite verb in second position, and 'lesen' (read) is the additional verb at the end."
+          }
+        ],
+        "commonMistakes": [
+          "Placing the subject after the verb: Correct order is subject first, followed by the verb.",
+          "Forgetting to place additional verbs at the end: Always remember that any infinitives or participles go at the end of the sentence."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Book",
+      "context": "A coffee shop where two friends discuss a book they read.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hast du das neue Buch von Klaus gelesen?",
+          "translation": "Have you read Klaus's new book?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe es gestern gelesen. Es ist wirklich spannend!",
+          "translation": "Yes, I read it yesterday. It is really exciting!",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Was hat dir besonders gefallen?",
+          "translation": "What did you particularly like?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Die Charaktere sind sehr gut entwickelt und die Handlung ist fesselnd.",
+          "translation": "The characters are very well developed and the plot is gripping.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich fand auch die Argumentation des Autors überzeugend.",
+          "translation": "I also found the author's argumentation convincing.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, die Themen sind relevant und zum Nachdenken anregend.",
+          "translation": "Yes, the themes are relevant and thought-provoking.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Meinst du, dass es eine Verfilmung geben wird?",
+          "translation": "Do you think there will be a film adaptation?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das wäre fantastisch! Ich würde mir das auf jeden Fall ansehen.",
+          "translation": "That would be fantastic! I would definitely watch that.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Literary Influence in Germany",
+      "text": "German literature has a rich history of persuasive writing and argumentation, with authors like Goethe and Schiller profoundly influencing the language and culture. Understanding sentence structure is essential for appreciating and engaging with this literary heritage.",
+      "funFact": "Did you know that Germany has one of the highest rates of book production per capita in the world?"
+    },
+    "summary": {
+      "keyPoints": [
+        "The sentence bracket (Satzklammer) is crucial for German syntax.",
+        "The subject typically comes first, followed by the finite verb.",
+        "Additional verbs are always placed at the end of the sentence.",
+        "Understanding this structure enhances your argumentation skills."
+      ],
+      "nextSteps": "Practice constructing sentences using the Satzklammer structure, and try writing persuasive arguments on topics of your choice."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct position of the verb in a German sentence bracket?",
+      "content": {
+        "options": [
+          "At the end of the sentence",
+          "In the middle of the sentence",
+          "At the beginning of the sentence",
+          "After the subject"
+        ],
+        "correctIndex": 3
+      },
+      "explanation": "In a German sentence, the verb typically follows the subject, establishing the sentence bracket structure.",
+      "hint": "Think about where the verb usually appears in relation to the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following sentences correctly uses the sentence bracket?",
+      "content": {
+        "options": [
+          "Ich esse jeden Tag einen Apfel.",
+          "Einen Apfel esse ich jeden Tag.",
+          "Ich jeden Tag esse einen Apfel.",
+          "Jeden Tag ich esse einen Apfel."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The first option correctly places the verb 'esse' after the subject 'Ich', maintaining the sentence bracket.",
+      "hint": "Look for the verb's position relative to the subject.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Die Argumentation ist ___ wichtig, um andere zu überzeugen.'",
+      "content": {
+        "sentence": "Die Argumentation ist ___ wichtig, um andere zu überzeugen.",
+        "correctAnswer": "sehr",
+        "acceptableAnswers": [
+          "sehr",
+          "nicht unwichtig"
+        ],
+        "options": [
+          "sehr",
+          "wenig",
+          "manchmal"
+        ]
+      },
+      "explanation": "The word 'sehr' emphasizes the importance of argumentation in persuasion.",
+      "hint": "Think about how to express high importance.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Um den Zusammenhang besser zu verstehen, ___ wir das Thema genauer.'",
+      "content": {
+        "sentence": "Um den Zusammenhang besser zu verstehen, ___ wir das Thema genauer.",
+        "correctAnswer": "analysieren",
+        "acceptableAnswers": [
+          "analysieren",
+          "betrachten"
+        ],
+        "options": [
+          "analysieren",
+          "vergessen",
+          "verwirren"
+        ]
+      },
+      "explanation": "The verb 'analysieren' indicates the action taken to understand the context better.",
+      "hint": "What verb means to study something closely?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The subject is important for the argument.'",
+      "content": {
+        "prompt": "Translate to German: 'The subject is important for the argument.'",
+        "correctAnswer": "Das Subjekt ist wichtig für die Argumentation.",
+        "acceptableAnswers": [
+          "Das Subjekt ist für die Argumentation wichtig."
+        ]
+      },
+      "explanation": "The translation captures the structure of a German sentence, maintaining the subject and its importance in the argument.",
+      "hint": "Remember the correct article for 'subject'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation.",
+      "content": {
+        "ttsText": "Die Satzklammer ist ein wichtiges Konzept in der deutschen Grammatik.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The sentence bracket is an important concept in German grammar.",
+          "The sentence bracket is a difficult concept in German language.",
+          "The sentence structure is a simple concept in German grammar."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation reflects the meaning of the original German sentence accurately.",
+      "hint": "Listen for keywords about the concept's importance.",
+      "difficulty": "HARD",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the German sentence: 'Die Überzeugung ist der Schlüssel zur effektiven Argumentation.'",
+      "content": {
+        "targetText": "Die Überzeugung ist der Schlüssel zur effektiven Argumentation.",
+        "context": "Discussing the importance of conviction in arguments.",
+        "acceptableVariants": [
+          "Die Überzeugung ist wichtig für die Argumentation."
+        ]
+      },
+      "explanation": "This sentence emphasizes the role of conviction in effective argumentation.",
+      "hint": "Focus on the key terms like 'Überzeugung' and 'Argumentation'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

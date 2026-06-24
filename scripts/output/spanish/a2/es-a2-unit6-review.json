@@ -1,0 +1,357 @@
+{
+  "lesson": {
+    "title": "Unit 6 Review",
+    "type": "REVIEW",
+    "slug": "es-a2-unit6-review"
+  },
+  "unit": "City & Services",
+  "unitOrder": 6,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will review important vocabulary and grammar related to the city and services. You will practice using the preterite and imperfect tenses, as well as everyday phrases that help describe your experiences in a city.",
+      "culturalNote": "Many Latin American cities have vibrant street markets, which are great places to experience local culture and food."
+    },
+    "vocabulary": [
+      {
+        "term": "el parque",
+        "translation": "the park",
+        "definition": "a public area for recreation",
+        "pronunciation": "el par-keh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me gusta ir al parque los domingos.",
+          "translation": "I like to go to the park on Sundays."
+        },
+        "tip": "Think of 'park' in English; they sound similar!"
+      },
+      {
+        "term": "la tienda",
+        "translation": "the store",
+        "definition": "a place where you can buy things",
+        "pronunciation": "la tee-en-da",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Voy a la tienda para comprar pan.",
+          "translation": "I go to the store to buy bread."
+        },
+        "tip": "Remember that 'tienda' ends with '-enda' like 'vendor'!"
+      },
+      {
+        "term": "el autobús",
+        "translation": "the bus",
+        "definition": "a large vehicle for public transport",
+        "pronunciation": "el ow-toh-boos",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El autobús llega a las ocho.",
+          "translation": "The bus arrives at eight."
+        },
+        "tip": "Think of 'auto' in 'automobile' to remember it relates to vehicles."
+      },
+      {
+        "term": "la calle",
+        "translation": "the street",
+        "definition": "a public road in a city or town",
+        "pronunciation": "la kah-yeh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La tienda está en la calle principal.",
+          "translation": "The store is on the main street."
+        },
+        "tip": "Remember 'calle' with 'call' - it's where you walk!"
+      },
+      {
+        "term": "la oficina",
+        "translation": "the office",
+        "definition": "a place where people work",
+        "pronunciation": "la oh-fee-see-nah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Trabajo en una oficina grande.",
+          "translation": "I work in a big office."
+        },
+        "tip": "Both words start with 'of-' like 'office' in English."
+      },
+      {
+        "term": "hacer compras",
+        "translation": "to go shopping",
+        "definition": "the activity of buying goods",
+        "pronunciation": "ah-ser kom-pras",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Me gusta hacer compras los sábados.",
+          "translation": "I like to go shopping on Saturdays."
+        },
+        "tip": "Connect 'hacer' with 'to do' for 'doing shopping'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Preterite vs. Imperfect",
+        "explanation": "The preterite tense is used for actions that are completed in the past, while the imperfect tense describes ongoing actions or situations in the past. For example, 'Yo comí' (I ate) is preterite, and 'Yo comía' (I was eating) is imperfect.",
+        "table": {
+          "headers": [
+            "Preterite",
+            "Imperfect"
+          ],
+          "rows": [
+            [
+              "Yo hablé",
+              "Yo hablaba"
+            ],
+            [
+              "Tú comiste",
+              "Tú comías"
+            ],
+            [
+              "Él vivió",
+              "Él vivía"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ayer fui al parque.",
+            "translation": "Yesterday I went to the park.",
+            "breakdown": "The action of going to the park is completed, so we use the preterite."
+          },
+          {
+            "original": "Cuando era niño, iba al parque.",
+            "translation": "When I was a child, I used to go to the park.",
+            "breakdown": "This describes a habitual action in the past, so we use the imperfect."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing preterite and imperfect; remember: preterite for completed actions, imperfect for ongoing situations.",
+          "Using the wrong conjugation; always match the subject with the correct ending."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "A Day in the City",
+      "context": "A conversation between two friends planning their day in the city.",
+      "speakers": [
+        "Lucía",
+        "Carlos"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, Carlos. ¿Qué vamos a hacer hoy?",
+          "translation": "Hi, Carlos. What are we going to do today?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, Lucía. Quiero ir al parque.",
+          "translation": "Hi, Lucía. I want to go to the park.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¡Buena idea! ¿A qué hora vamos?",
+          "translation": "Good idea! What time shall we go?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Podemos ir a las tres de la tarde.",
+          "translation": "We can go at three in the afternoon.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Perfecto. Después, ¿vamos a la tienda?",
+          "translation": "Perfect. Afterwards, shall we go to the store?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, necesito comprar frutas.",
+          "translation": "Yes, I need to buy fruits.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Tomamos el autobús?",
+          "translation": "Should we take the bus?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, el autobús llega en diez minutos.",
+          "translation": "Yes, the bus arrives in ten minutes.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Street Markets in Latin America",
+      "text": "Street markets, or 'mercados', are an essential part of daily life in many Latin American cities. They offer a variety of fresh foods, crafts, and local products.",
+      "funFact": "In Mexico City, there are over 300 markets, ranging from small neighborhood stalls to large, bustling centers."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review vocabulary related to the city and services.",
+        "Practice the preterite and imperfect tenses.",
+        "Engage in a dialogue to apply your learning.",
+        "Understand cultural aspects of city life in Spanish-speaking countries."
+      ],
+      "nextSteps": "Continue practicing vocabulary with flashcards and try writing sentences using both preterite and imperfect tenses."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'el parque' in English?",
+      "content": {
+        "options": [
+          "the park",
+          "the store",
+          "the bus",
+          "the street"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El parque' translates to 'the park' in English.",
+      "hint": "It's a place to relax and enjoy nature.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'the store'?",
+      "content": {
+        "options": [
+          "la tienda",
+          "la oficina",
+          "el autobús",
+          "la calle"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La tienda' means 'the store' in English.",
+      "hint": "You go here to buy things.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Yo voy a ___ (the bus).",
+      "content": {
+        "sentence": "Yo voy a ___.",
+        "correctAnswer": "el autobús",
+        "acceptableAnswers": [
+          "el autobús"
+        ],
+        "options": [
+          "la calle",
+          "el parque",
+          "la tienda",
+          "el autobús"
+        ]
+      },
+      "explanation": "The correct answer is 'el autobús' which means 'the bus'.",
+      "hint": "It's a form of public transport.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Me gusta hacer ___.",
+      "content": {
+        "sentence": "Me gusta hacer ___.",
+        "correctAnswer": "compras",
+        "acceptableAnswers": [
+          "compras"
+        ],
+        "options": [
+          "compras",
+          "camino",
+          "juegos",
+          "casa"
+        ]
+      },
+      "explanation": "The word 'compras' means 'shopping' in English.",
+      "hint": "It's what you do at the store.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Put the words in order: tienda / en / la / hacer / compras.",
+      "content": {
+        "words": [
+          "tienda",
+          "en",
+          "la",
+          "hacer",
+          "compras"
+        ],
+        "correctOrder": [
+          "hacer",
+          "compras",
+          "en",
+          "la",
+          "tienda"
+        ],
+        "translation": "to shop at the store"
+      },
+      "explanation": "The correct order forms the phrase 'hacer compras en la tienda'.",
+      "hint": "Think about shopping.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The street is busy.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The street is busy.'",
+        "correctAnswer": "La calle está ocupada.",
+        "acceptableAnswers": [
+          "La calle es ocupada."
+        ]
+      },
+      "explanation": "The translation correctly conveys the meaning in Spanish.",
+      "hint": "Think about what 'street' is in Spanish.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Voy al parque.'",
+      "content": {
+        "ttsText": "Voy al parque.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I go to the park.",
+          "I go to the store.",
+          "I take the bus.",
+          "I walk in the street."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'I go to the park.'",
+      "hint": "Focus on the destination mentioned.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I like to go to the park.'",
+      "content": {
+        "targetText": "Me gusta ir al parque.",
+        "context": "Expressing a preference about a place.",
+        "acceptableVariants": [
+          "Me gusta ir al parque",
+          "Me gusta ir al parqe"
+        ]
+      },
+      "explanation": "The sentence expresses liking to visit the park.",
+      "hint": "Start with 'Me gusta'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

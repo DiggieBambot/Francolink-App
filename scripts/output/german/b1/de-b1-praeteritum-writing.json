@@ -1,0 +1,331 @@
+{
+  "lesson": {
+    "title": "Präteritum for Writing",
+    "type": "GRAMMAR",
+    "slug": "de-b1-praeteritum-writing"
+  },
+  "unit": "Narrating the Past",
+  "unitOrder": 2,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to use the Präteritum tense in German writing to narrate past events. You will practice forming sentences in the Präteritum and understand its common uses in storytelling.",
+      "culturalNote": "The Präteritum is often used in written German, especially in books and newspapers. In spoken German, people may prefer the Perfekt tense."
+    },
+    "vocabulary": [
+      {
+        "term": "der Urlaub",
+        "translation": "the vacation",
+        "definition": "a period of time spent away from home for relaxation or travel",
+        "pronunciation": "dohr OOR-lahb",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich machte einen Urlaub in den Bergen.",
+          "translation": "I took a vacation in the mountains."
+        },
+        "tip": "Remember, 'der' indicates it's masculine. The plural is 'die Urlaube'."
+      },
+      {
+        "term": "die Reise",
+        "translation": "the trip",
+        "definition": "travel from one place to another, especially over a distance",
+        "pronunciation": "dee RYE-zuh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Reise war sehr spannend.",
+          "translation": "The trip was very exciting."
+        },
+        "tip": "'Die' indicates it's feminine. The plural is 'die Reisen'."
+      },
+      {
+        "term": "das Abenteuer",
+        "translation": "the adventure",
+        "definition": "an unusual and exciting experience",
+        "pronunciation": "dahs AH-ben-TOY-er",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wir erlebten ein großes Abenteuer.",
+          "translation": "We experienced a great adventure."
+        },
+        "tip": "'Das' indicates it's neuter. The plural is 'die Abenteuer'."
+      },
+      {
+        "term": "der Freund",
+        "translation": "the friend",
+        "definition": "a person whom one knows and has a bond of mutual affection",
+        "pronunciation": "dohr froint",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Freund half mir beim Umzug.",
+          "translation": "My friend helped me with the move."
+        },
+        "tip": "'Der' indicates it's masculine. The plural is 'die Freunde'."
+      },
+      {
+        "term": "die Stadt",
+        "translation": "the city",
+        "definition": "a large town",
+        "pronunciation": "dee shtadt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Stadt war sehr schön.",
+          "translation": "The city was very beautiful."
+        },
+        "tip": "'Die' indicates it's feminine. The plural is 'die Städte'."
+      },
+      {
+        "term": "das Wetter",
+        "translation": "the weather",
+        "definition": "the state of the atmosphere at a place and time",
+        "pronunciation": "dahs VET-er",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Wetter war perfekt für einen Ausflug.",
+          "translation": "The weather was perfect for an outing."
+        },
+        "tip": "'Das' indicates it's neuter. The plural is 'die Wetter' (used rarely)."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Präteritum Tense",
+        "explanation": "The Präteritum, or simple past, is used in written German to describe events that have already happened. It's commonly used in storytelling and reports. Regular verbs form the Präteritum with a simple ending, while irregular verbs change their stem vowel. For example, 'machen' becomes 'machte' and 'gehen' becomes 'ging'.",
+        "table": {
+          "headers": [
+            "Verb (Infinitive)",
+            "Präteritum"
+          ],
+          "rows": [
+            [
+              "machen",
+              "machte"
+            ],
+            [
+              "gehen",
+              "ging"
+            ],
+            [
+              "sehen",
+              "sah"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich machte meine Hausaufgaben.",
+            "translation": "I did my homework.",
+            "breakdown": "The verb 'machen' is conjugated to 'machte' in the Präteritum."
+          },
+          {
+            "original": "Er ging ins Kino.",
+            "translation": "He went to the cinema.",
+            "breakdown": "The verb 'gehen' changes to 'ging' in the Präteritum."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing Präteritum with Perfekt; remember that Präteritum is mostly for written German.",
+          "Using the wrong stem vowel for irregular verbs; memorize the changes."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Trip",
+      "context": "Two friends discuss their past vacation plans.",
+      "speakers": [
+        "Max",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hast du dich an unseren Urlaub letztes Jahr erinnert?",
+          "translation": "Do you remember our vacation last year?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich erinnere mich. Es war ein tolles Abenteuer!",
+          "translation": "Yes, I remember. It was a great adventure!",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Wir gingen nach Berlin und besuchten viele Sehenswürdigkeiten.",
+          "translation": "We went to Berlin and visited many sights.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das Wetter war perfekt, und das Essen war lecker.",
+          "translation": "The weather was perfect, and the food was delicious.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich machte viele Fotos. Hast du welche gemacht?",
+          "translation": "I took many photos. Did you take any?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich machte auch viele Fotos von den Denkmälern.",
+          "translation": "Yes, I also took many photos of the monuments.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich denke, wir sollten nächstes Jahr wieder reisen.",
+          "translation": "I think we should travel again next year.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das wäre super! Wo möchten wir hin?",
+          "translation": "That would be great! Where do we want to go?",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "German Literature and Storytelling",
+      "text": "In German-speaking culture, storytelling is an important tradition. Many famous authors, like the Brothers Grimm, used the Präteritum to narrate their fairy tales. This tense helps create a sense of distance and formality that is often found in written narratives.",
+      "funFact": "Did you know that many German fairy tales originated from oral traditions before being written down in the Präteritum?"
+    },
+    "summary": {
+      "keyPoints": [
+        "The Präteritum is essential for narrating past events in writing.",
+        "Regular and irregular verbs form the Präteritum differently.",
+        "This tense is commonly used in literature and storytelling.",
+        "Remember common mistakes to improve your writing."
+      ],
+      "nextSteps": "Practice writing sentences in the Präteritum about your past experiences and read short stories to see the tense in action."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which verb correctly completes the sentence: 'Im letzten Jahr ___ wir nach Berlin.'",
+      "content": {
+        "options": [
+          "fuhren",
+          "fahren",
+          "geht",
+          "gehen"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct past tense form of 'fahren' for 'wir' is 'fuhren'.",
+      "hint": "Think of the past tense form of 'to go'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the past tense of 'sehen' for 'er'?",
+      "content": {
+        "options": [
+          "sah",
+          "sieht",
+          "sehen",
+          "sahen"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'sah' is the correct past tense form of 'sehen' for 'er'.",
+      "hint": "Remember the irregular verbs.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Während des ___ war das Wetter schön.'",
+      "content": {
+        "sentence": "Während des ___ war das Wetter schön.",
+        "correctAnswer": "Urlaubs",
+        "acceptableAnswers": [
+          "Urlaubs"
+        ],
+        "options": [
+          "Urlaub",
+          "Urlaubs",
+          "Urlaube",
+          "Urlauber"
+        ]
+      },
+      "explanation": "The correct form is 'Urlaubs' as it is in the genitive case.",
+      "hint": "Think about how to express possession.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the correct past tense form: 'Mein Freund ___ (reisen) nach Paris.'",
+      "content": {
+        "sentence": "Mein Freund ___ nach Paris.",
+        "correctAnswer": "reiste",
+        "acceptableAnswers": [
+          "reiste"
+        ],
+        "options": [
+          "reiste",
+          "reist",
+          "reisen",
+          "reiste"
+        ]
+      },
+      "explanation": "The correct past tense form of 'reisen' for 'mein Freund' is 'reiste'.",
+      "hint": "Think about the subject of the sentence.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The adventure was exciting.'",
+      "content": {
+        "prompt": "Translate to German: 'The adventure was exciting.'",
+        "correctAnswer": "Das Abenteuer war spannend.",
+        "acceptableAnswers": [
+          "Das Abenteuer war aufregend."
+        ]
+      },
+      "explanation": "Both 'spannend' and 'aufregend' are correct translations for 'exciting'.",
+      "hint": "Focus on the words 'adventure' and 'was'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Das Wetter war schön.'",
+      "content": {
+        "ttsText": "Das Wetter war schön.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The weather was nice.",
+          "The weather is nice.",
+          "It was a beautiful day.",
+          "The sky was clear."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'The weather was nice.'",
+      "hint": "Listen for the word 'Wetter'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in German: 'I traveled to a beautiful city.'",
+      "content": {
+        "targetText": "Ich reiste in eine schöne Stadt.",
+        "context": "Translate and say this in German.",
+        "acceptableVariants": [
+          "Ich bin in eine schöne Stadt gereist."
+        ]
+      },
+      "explanation": "Both sentences are correct but in different past tenses.",
+      "hint": "Focus on the words 'traveled' and 'beautiful city'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

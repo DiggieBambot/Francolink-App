@@ -1,0 +1,337 @@
+{
+  "lesson": {
+    "title": "What Would You Do?",
+    "type": "CONVERSATION",
+    "slug": "de-b1-what-would"
+  },
+  "unit": "Conditionals & Wishes",
+  "unitOrder": 4,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to use conditional sentences and express wishes in German. You'll practice forming sentences using 'wenn' for conditions and the Konjunktiv II for polite hypotheticals.",
+      "culturalNote": "In German-speaking countries, it's common to discuss hypothetical situations in everyday conversations, especially when making polite requests or suggestions."
+    },
+    "vocabulary": [
+      {
+        "term": "der Wunsch",
+        "translation": "wish",
+        "definition": "a desire for something to happen",
+        "pronunciation": "dehr voonsh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Wunsch ist es, nach Deutschland zu reisen.",
+          "translation": "My wish is to travel to Germany."
+        },
+        "tip": "Remember, 'Wunsch' is masculine (der)."
+      },
+      {
+        "term": "die Bedingung",
+        "translation": "condition",
+        "definition": "a prerequisite or requirement for something to happen",
+        "pronunciation": "dee beh-DING-ung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Bedingung ist, dass du pünktlich kommst.",
+          "translation": "The condition is that you arrive on time."
+        },
+        "tip": "Note that 'Bedingung' is feminine (die)."
+      },
+      {
+        "term": "wenn",
+        "translation": "if/when",
+        "definition": "used to introduce conditional clauses",
+        "pronunciation": "ven",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Wenn es regnet, bleibe ich zu Hause.",
+          "translation": "If it rains, I will stay at home."
+        },
+        "tip": "'Wenn' is essential for forming conditional sentences."
+      },
+      {
+        "term": "das Problem",
+        "translation": "problem",
+        "definition": "a matter or situation regarded as unwelcome or harmful",
+        "pronunciation": "dahs pro-BLEHM",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Problem ist, dass ich kein Geld habe.",
+          "translation": "The problem is that I have no money."
+        },
+        "tip": "Remember, 'Problem' is neuter (das)."
+      },
+      {
+        "term": "der Vorschlag",
+        "translation": "suggestion",
+        "definition": "an idea or plan put forward for consideration",
+        "pronunciation": "dehr FORSH-lahg",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe einen Vorschlag für unser Treffen.",
+          "translation": "I have a suggestion for our meeting."
+        },
+        "tip": "'Vorschlag' is masculine (der)."
+      },
+      {
+        "term": "die Möglichkeit",
+        "translation": "possibility",
+        "definition": "a chance or opportunity for something to happen",
+        "pronunciation": "dee MEHGLIK-kite",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es gibt viele Möglichkeiten, das Problem zu lösen.",
+          "translation": "There are many possibilities to solve the problem."
+        },
+        "tip": "'Möglichkeit' is feminine (die)."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Conditional Sentences",
+        "explanation": "In German, conditional sentences often use the word 'wenn' to express conditions. The structure is usually 'Wenn + clause, main clause'. For example, 'Wenn ich Zeit habe, gehe ich ins Kino' (If I have time, I will go to the cinema). Remember to use the correct verb forms in both clauses.",
+        "table": {
+          "headers": [
+            "Structure",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Wenn + condition",
+              "Wenn ich Zeit habe, gehe ich ins Kino."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn du müde bist, solltest du schlafen.",
+            "translation": "If you are tired, you should sleep.",
+            "breakdown": "This sentence shows the conditional structure using 'wenn' to express a condition."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'wenn' incorrectly at the beginning of a sentence: Correct: 'Wenn ich Zeit habe...' Incorrect: 'Ich habe Zeit, wenn...'",
+          "Forgetting to conjugate the verb in the main clause: Remember to adjust the verb based on the subject."
+        ]
+      },
+      {
+        "title": "Expressing Wishes with Konjunktiv II",
+        "explanation": "To express wishes or hypotheticals in German, we often use the Konjunktiv II. For example, 'Ich wünschte, ich könnte fliegen' translates to 'I wish I could fly.' The verb forms change, so pay attention to irregular forms.",
+        "table": {
+          "headers": [
+            "Indication",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Wish",
+              "Ich wünschte, ich hätte mehr Zeit."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich reich wäre, würde ich ein Haus kaufen.",
+            "translation": "If I were rich, I would buy a house.",
+            "breakdown": "This sentence uses the Konjunktiv II to express a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the Konjunktiv II: Correct: 'Ich wünschte, ich hätte...' Incorrect: 'Ich wünsche, ich habe...'",
+          "Forgetting to use 'würde' for conditional sentences: 'Ich würde gehen' means 'I would go'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Making Plans for the Weekend",
+      "context": "Anna and Lukas are discussing their plans for the weekend.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Was würdest du am Wochenende machen, wenn das Wetter schön ist?",
+          "translation": "What would you do on the weekend if the weather is nice?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich würde gern wandern gehen. Und du?",
+          "translation": "I would like to go hiking. And you?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich hätte auch Lust, aber ich fürchte, es wird regnen.",
+          "translation": "I would also like to, but I'm afraid it will rain."
+        },
+        {
+          "speaker": 1,
+          "text": "Das wäre schade. Vielleicht sollten wir einen Film schauen.",
+          "translation": "That would be a pity. Maybe we should watch a movie."
+        },
+        {
+          "speaker": 0,
+          "text": "Gute Idee! Ich habe einen Vorschlag: Wir könnten zu mir kommen.",
+          "translation": "Good idea! I have a suggestion: We could come to my place."
+        },
+        {
+          "speaker": 1,
+          "text": "Klingt gut! Ich bringe Snacks mit.",
+          "translation": "Sounds good! I'll bring snacks."
+        },
+        {
+          "speaker": 0,
+          "text": "Perfekt! Ich freue mich darauf.",
+          "translation": "Perfect! I'm looking forward to it."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich auch! Lass uns um drei Uhr treffen.",
+          "translation": "Me too! Let's meet at three o'clock."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Weekend Activities in Germany",
+      "text": "In Germany, many people enjoy spending their weekends outdoors, especially in nature. Hiking, cycling, and visiting local parks are popular activities. Social gatherings with friends and family are also common.",
+      "funFact": "Did you know that Germany has over 200,000 kilometers of hiking trails? It's a paradise for nature lovers!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Conditional sentences use 'wenn' to express conditions.",
+        "Konjunktiv II is used for wishes and hypotheticals.",
+        "Practice forming sentences with both structures.",
+        "Engage in conversations by making suggestions and discussing plans."
+      ],
+      "nextSteps": "Practice forming your own conditional sentences and wishes. Try to create dialogues based on different scenarios."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What would you do if you won the lottery?",
+      "content": {
+        "options": [
+          "I would buy a new car.",
+          "I won't change my job.",
+          "I am happy.",
+          "I haven't thought about it."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "Winning the lottery often leads to dreams of buying new things, like a car.",
+      "hint": "Think about what you would purchase with a lot of money.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "If it rains tomorrow, what will you do?",
+      "content": {
+        "options": [
+          "I will stay at home.",
+          "I would go for a walk.",
+          "I am not worried.",
+          "I didn't plan anything."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "Staying at home is a common reaction to rain.",
+      "hint": "Consider a practical response to bad weather.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "If I _____ (have) more time, I would travel more.",
+      "content": {
+        "sentence": "Wenn ich mehr Zeit _____, würde ich mehr reisen.",
+        "correctAnswer": "hätte",
+        "acceptableAnswers": [
+          "habe",
+          "hatte"
+        ],
+        "options": [
+          "habe",
+          "hätte",
+          "hatte"
+        ]
+      },
+      "explanation": "In conditionals, the subjunctive mood is used to express hypothetical situations.",
+      "hint": "Think about the past subjunctive form.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "I wish I _____ (be) taller.",
+      "content": {
+        "sentence": "Ich wünsche, ich _____ größer.",
+        "correctAnswer": "wäre",
+        "acceptableAnswers": [
+          "bin",
+          "war"
+        ],
+        "options": [
+          "bin",
+          "wäre",
+          "war"
+        ]
+      },
+      "explanation": "Wishing for something often uses the subjunctive mood to indicate desire.",
+      "hint": "Use the past form of 'to be'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I wish I could fly.'",
+      "content": {
+        "prompt": "Translate to German: 'I wish I could fly.'",
+        "correctAnswer": "Ich wünsche, ich könnte fliegen.",
+        "acceptableAnswers": [
+          "Ich hätte gerne, dass ich fliegen könnte."
+        ]
+      },
+      "explanation": "The phrase expresses a desire using the subjunctive mood in German.",
+      "hint": "Use the subjunctive form for 'can'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct option.",
+      "content": {
+        "ttsText": "Wenn ich mehr Geld hätte, würde ich ein Haus kaufen.",
+        "ttsLang": "de-DE",
+        "options": [
+          "If I had more money, I would buy a house.",
+          "If I had more time, I would buy a house.",
+          "If I had less money, I would buy a car."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence expresses a conditional desire based on having more money.",
+      "hint": "Listen for the key words about money.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Describe a situation where you would like to change something in your life.",
+      "content": {
+        "targetText": "Ich würde gerne mehr Zeit für meine Hobbys haben.",
+        "context": "Describe a wish or condition about your life.",
+        "acceptableVariants": [
+          "Ich möchte mehr Zeit für meine Hobbys haben.",
+          "Ich wünsche mir, dass ich mehr Zeit für meine Hobbys hätte."
+        ]
+      },
+      "explanation": "This exercise encourages speaking about personal desires and conditions.",
+      "hint": "Think about your hobbies and time management.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

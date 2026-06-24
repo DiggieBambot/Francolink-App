@@ -1,0 +1,344 @@
+{
+  "lesson": {
+    "title": "Planning a Trip",
+    "type": "CONVERSATION",
+    "slug": "de-a1-planning-trip"
+  },
+  "unit": "Travel & Weather",
+  "unitOrder": 8,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary and phrases related to planning a trip in German. You will practice using basic verbs and learn how to ask questions about travel.",
+      "culturalNote": "In Germany, Austria, and Switzerland, public transport is very efficient, making it a popular choice for travelers."
+    },
+    "vocabulary": [
+      {
+        "term": "die Reise",
+        "translation": "the trip",
+        "definition": "a journey or travel experience",
+        "pronunciation": "dee RY-ze",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich mache eine Reise.",
+          "translation": "I am taking a trip."
+        },
+        "tip": "Die Reise is feminine (die), and its plural is die Reisen."
+      },
+      {
+        "term": "der Flug",
+        "translation": "the flight",
+        "definition": "a journey through the air",
+        "pronunciation": "dehr floog",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Flug ist pünktlich.",
+          "translation": "The flight is on time."
+        },
+        "tip": "Der Flug is masculine (der), and its plural is die Flüge."
+      },
+      {
+        "term": "das Hotel",
+        "translation": "the hotel",
+        "definition": "a place to stay while traveling",
+        "pronunciation": "dahs ho-TEL",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Hotel ist teuer.",
+          "translation": "The hotel is expensive."
+        },
+        "tip": "Das Hotel is neuter (das), and its plural is die Hotels."
+      },
+      {
+        "term": "die Stadt",
+        "translation": "the city",
+        "definition": "a large town",
+        "pronunciation": "dee shtadt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich besuche die Stadt.",
+          "translation": "I am visiting the city."
+        },
+        "tip": "Die Stadt is feminine (die), and its plural is die Städte."
+      },
+      {
+        "term": "möchten",
+        "translation": "would like",
+        "definition": "a modal verb used to express desire",
+        "pronunciation": "MÖCH-ten",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich möchte ein Zimmer.",
+          "translation": "I would like a room."
+        },
+        "tip": "Use möchten to express what you want in a polite way."
+      },
+      {
+        "term": "können",
+        "translation": "can",
+        "definition": "a modal verb indicating ability",
+        "pronunciation": "KÖN-nen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Wir können nach Berlin fahren.",
+          "translation": "We can go to Berlin."
+        },
+        "tip": "Können is used to express what you are able to do."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Modal Verbs",
+        "explanation": "Modal verbs like 'möchten' and 'können' are used to express desires and abilities. They are always followed by a main verb in the infinitive form. For example, 'Ich möchte reisen' means 'I would like to travel'.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Modal Verb + Infinitive"
+          ],
+          "rows": [
+            [
+              "Ich",
+              "möchte reisen"
+            ],
+            [
+              "Wir",
+              "können fahren"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich kann schwimmen.",
+            "translation": "I can swim.",
+            "breakdown": "'Ich' is the subject, 'kann' is the modal verb, and 'schwimmen' is the infinitive verb."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'möchte' with 'will' (use 'möchte' for polite requests)",
+          "Forgetting to use the infinitive after modal verbs"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Trip",
+      "context": "Two friends discussing their travel plans.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Max, möchtest du nach Berlin reisen?",
+          "translation": "Hello Max, would you like to travel to Berlin?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich möchte nach Berlin reisen. Was ist der Plan?",
+          "translation": "Yes, I would like to travel to Berlin. What is the plan?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Wir können mit dem Zug fahren.",
+          "translation": "We can go by train.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Gute Idee! Wo ist das Hotel?",
+          "translation": "Good idea! Where is the hotel?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das Hotel ist in der Stadtmitte.",
+          "translation": "The hotel is in the city center.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Wann fliegen wir?",
+          "translation": "When are we flying?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Wir fliegen am Samstag.",
+          "translation": "We are flying on Saturday.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Super! Ich freue mich auf die Reise.",
+          "translation": "Great! I am looking forward to the trip.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Traveling in German-speaking Countries",
+      "text": "Traveling is a popular activity in Germany, Austria, and Switzerland. Each country has its own unique attractions and beautiful landscapes. It is common to explore by train, as the rail system is well connected.",
+      "funFact": "Did you know that Germany has over 2,000 Christmas markets? They are a wonderful tradition during the holiday season!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to travel: die Reise, der Flug, das Hotel.",
+        "Practiced using modal verbs: möchten and können.",
+        "Engaged in a dialogue about planning a trip.",
+        "Gained cultural insights about traveling in German-speaking countries."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences. Try to create your own travel plans in German!"
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'the flight'?",
+      "content": {
+        "options": [
+          "die Reise",
+          "der Flug",
+          "das Hotel",
+          "die Stadt"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'der Flug', which means 'the flight' in German.",
+      "hint": "Look for the word that starts with 'Fl'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'the city' in German?",
+      "content": {
+        "options": [
+          "die Stadt",
+          "das Hotel",
+          "der Flug",
+          "die Reise"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Stadt' translates to 'the city' in English.",
+      "hint": "It starts with 'St'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "I would like to book ___ hotel.",
+      "content": {
+        "sentence": "Ich möchte ein ___ Hotel.",
+        "correctAnswer": "das",
+        "acceptableAnswers": [
+          "das"
+        ],
+        "options": [
+          "die",
+          "der",
+          "das"
+        ]
+      },
+      "explanation": "The correct article is 'das', as 'Hotel' is neuter in German.",
+      "hint": "Think about the gender of 'Hotel'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Can you help me with ___ trip?",
+      "content": {
+        "sentence": "Kannst du mir mit ___ Reise helfen?",
+        "correctAnswer": "der",
+        "acceptableAnswers": [
+          "der"
+        ],
+        "options": [
+          "die",
+          "der",
+          "das"
+        ]
+      },
+      "explanation": "'Reise' is feminine, so we use 'der' in a specific context.",
+      "hint": "Remember the gender of 'Reise'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: 'möchten / wir / nach / reisen / Berlin'.",
+      "content": {
+        "words": [
+          "möchten",
+          "wir",
+          "nach",
+          "reisen",
+          "Berlin"
+        ],
+        "correctOrder": [
+          "wir",
+          "möchten",
+          "nach",
+          "Berlin",
+          "reisen"
+        ],
+        "translation": "We would like to travel to Berlin."
+      },
+      "explanation": "The correct order forms a grammatically correct sentence in German.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I can travel to the city.'",
+      "content": {
+        "prompt": "Translate to German: 'I can travel to the city.'",
+        "correctAnswer": "Ich kann in die Stadt reisen.",
+        "acceptableAnswers": [
+          "Ich kann zur Stadt reisen."
+        ]
+      },
+      "explanation": "The correct translation includes the verb 'reisen' which means 'to travel'.",
+      "hint": "Think about the verb for traveling.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich möchte nach Paris reisen.'",
+      "content": {
+        "ttsText": "Ich möchte nach Paris reisen.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I want to travel to Paris.",
+          "I can go to Paris.",
+          "I would like to stay in Paris."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence translates to 'I want to travel to Paris.'",
+      "hint": "Focus on the word 'möchte'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in German: 'I would like to book a flight.'",
+      "content": {
+        "targetText": "Ich möchte einen Flug buchen.",
+        "context": "Translate this sentence into German.",
+        "acceptableVariants": [
+          "Ich möchte einen Flug reservieren."
+        ]
+      },
+      "explanation": "Both sentences express the same desire to book a flight.",
+      "hint": "Use 'möchte' for 'would like'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

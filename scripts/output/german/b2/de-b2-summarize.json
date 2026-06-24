@@ -1,0 +1,327 @@
+{
+  "lesson": {
+    "title": "Summarizing & Paraphrasing",
+    "type": "CONVERSATION",
+    "slug": "de-b2-summarize"
+  },
+  "unit": "Critical Thinking",
+  "unitOrder": 5,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to effectively summarize and paraphrase texts in German. You will practice using complex sentence structures and advanced vocabulary to express your understanding of various topics.",
+      "culturalNote": "In German-speaking countries, summarizing and paraphrasing are considered essential skills in academic and professional settings, reflecting a strong emphasis on clarity and precision in communication."
+    },
+    "vocabulary": [
+      {
+        "term": "die Zusammenfassung",
+        "translation": "the summary",
+        "definition": "a brief statement of the main points of something",
+        "pronunciation": "tsu-zah-men-fah-soong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Zusammenfassung des Artikels ist sehr informativ.",
+          "translation": "The summary of the article is very informative."
+        },
+        "tip": "Remember that 'die Zusammenfassung' is feminine (die) and its plural is 'die Zusammenfassungen'."
+      },
+      {
+        "term": "das Paraphrasieren",
+        "translation": "the paraphrasing",
+        "definition": "the act of rewording or rephrasing text",
+        "pronunciation": "pah-rah-fra-zi-ren",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Paraphrasieren hilft, den Inhalt besser zu verstehen.",
+          "translation": "Paraphrasing helps to understand the content better."
+        },
+        "tip": "'Das Paraphrasieren' is neuter (das) and is often used in discussions about writing and analysis."
+      },
+      {
+        "term": "der Hauptgedanke",
+        "translation": "the main idea",
+        "definition": "the central concept or argument of a text",
+        "pronunciation": "hoypt-ge-dahn-ke",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Hauptgedanke des Textes ist sehr klar.",
+          "translation": "The main idea of the text is very clear."
+        },
+        "tip": "'Der Hauptgedanke' is masculine (der) and its plural form is 'die Hauptgedanken'."
+      },
+      {
+        "term": "die Argumentation",
+        "translation": "the argumentation",
+        "definition": "the process of reasoning or presenting arguments",
+        "pronunciation": "ar-gu-men-ta-tsi-on",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Argumentation in diesem Aufsatz ist überzeugend.",
+          "translation": "The argumentation in this essay is convincing."
+        },
+        "tip": "'Die Argumentation' is feminine (die) and is typically used in academic contexts."
+      },
+      {
+        "term": "der Überblick",
+        "translation": "the overview",
+        "definition": "a general summary or survey of a subject",
+        "pronunciation": "ü-ber-blick",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Überblick über das Thema war hilfreich.",
+          "translation": "The overview of the topic was helpful."
+        },
+        "tip": "'Der Überblick' is masculine (der) and can be used in both formal and informal settings."
+      },
+      {
+        "term": "der Kontext",
+        "translation": "the context",
+        "definition": "the circumstances or setting in which something occurs",
+        "pronunciation": "kon-text",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Kontext ist wichtig für das Verständnis.",
+          "translation": "The context is important for understanding."
+        },
+        "tip": "'Der Kontext' is masculine (der) and helps clarify meanings in discussions."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Konjunktiv I for Reporting Speech",
+        "explanation": "In German, the Konjunktiv I is used to report speech or thoughts without directly quoting someone. It is often used in formal writing and journalism. This form helps convey that the speaker is presenting someone else's ideas. The structure often involves the verb being conjugated in the Konjunktiv form.",
+        "table": {
+          "headers": [
+            "Person",
+            "Konjunktiv I Form"
+          ],
+          "rows": [
+            [
+              "ich",
+              "sei"
+            ],
+            [
+              "du",
+              "seiest"
+            ],
+            [
+              "er/sie/es",
+              "sei"
+            ],
+            [
+              "wir",
+              "seien"
+            ],
+            [
+              "ihr",
+              "seiet"
+            ],
+            [
+              "sie/Sie",
+              "seien"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Er sagt, er sei müde.",
+            "translation": "He says he is tired.",
+            "breakdown": "The main verb 'sagt' is in the indicative, while 'sei' is in the Konjunktiv I form, indicating reported speech."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the Konjunktiv I for reported speech. Correct it by using 'Er sagt, er sei müde.'",
+          "Confusing the forms; remember to use the correct conjugation for each person."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Text's Summary",
+      "context": "Two students discussing a recent article for their German class.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hast du die Zusammenfassung des Artikels gelesen?",
+          "translation": "Did you read the summary of the article?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich fand sie sehr hilfreich, um den Hauptgedanken zu verstehen.",
+          "translation": "Yes, I found it very helpful to understand the main idea."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich denke, dass die Argumentation gut strukturiert war.",
+          "translation": "I think that the argumentation was well-structured."
+        },
+        {
+          "speaker": 1,
+          "text": "Stimmt, aber ich hätte mir mehr Details im Überblick gewünscht.",
+          "translation": "That's true, but I would have liked more details in the overview."
+        },
+        {
+          "speaker": 0,
+          "text": "Das Paraphrasieren der wichtigsten Punkte könnte auch nützlich sein.",
+          "translation": "Paraphrasing the key points could also be useful."
+        },
+        {
+          "speaker": 1,
+          "text": "Genau, das hilft, den Inhalt besser zu verinnerlichen.",
+          "translation": "Exactly, that helps to internalize the content better."
+        },
+        {
+          "speaker": 0,
+          "text": "Hast du den Kontext des Artikels berücksichtigt?",
+          "translation": "Did you consider the context of the article?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich glaube, das war wichtig für die gesamte Argumentation.",
+          "translation": "Yes, I believe that was important for the entire argumentation."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Clear Communication",
+      "text": "In German-speaking cultures, clear communication is highly valued, especially in academic and professional settings. Summarizing and paraphrasing are seen as critical skills that demonstrate comprehension and analytical abilities.",
+      "funFact": "In Germany, there are even competitions for summarizing texts, showcasing the importance placed on this skill."
+    },
+    "summary": {
+      "keyPoints": [
+        "Summarizing is an essential skill in both academic and professional contexts.",
+        "The Konjunktiv I is used for reporting speech, making it easier to convey others' ideas.",
+        "Understanding the context enhances the clarity of your summaries.",
+        "Paraphrasing helps deepen comprehension and allows for more nuanced discussions."
+      ],
+      "nextSteps": "Practice summarizing a short German article or text and try to use the vocabulary and grammar structures learned in this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the main idea of a text?",
+      "content": {
+        "options": [
+          "The detailed explanation of every point.",
+          "The overall message or conclusion of the text.",
+          "The length of the text.",
+          "The author's biography."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The main idea summarizes the text's overall message or conclusion.",
+      "hint": "Look for the key message.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is an important part of paraphrasing?",
+      "content": {
+        "options": [
+          "Using the exact same words as the original.",
+          "Changing the words while keeping the meaning.",
+          "Adding personal opinions.",
+          "Ignoring the original text completely."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "Paraphrasing involves changing the words while maintaining the original meaning.",
+      "hint": "Focus on meaning, not exact wording.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Eine gute __________ ist wichtig für das Verständnis des Textes.",
+      "content": {
+        "sentence": "Eine gute __________ ist wichtig für das Verständnis des Textes.",
+        "correctAnswer": "Zusammenfassung",
+        "acceptableAnswers": [
+          "Zusammenfassung"
+        ],
+        "options": [
+          "Argumentation",
+          "Zusammenfassung",
+          "Meinung",
+          "Information"
+        ]
+      },
+      "explanation": "A good summary helps understand the text.",
+      "hint": "Think about what summarizes information.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Beim __________ wird der Text in eigenen Worten wiedergegeben.",
+      "content": {
+        "sentence": "Beim __________ wird der Text in eigenen Worten wiedergegeben.",
+        "correctAnswer": "Paraphrasieren",
+        "acceptableAnswers": [
+          "Paraphrasieren"
+        ],
+        "options": [
+          "Zusammenfassen",
+          "Paraphrasieren",
+          "Analysieren",
+          "Interpretieren"
+        ]
+      },
+      "explanation": "Paraphrasing involves restating the text in one's own words.",
+      "hint": "This word is about rewording.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The argumentation is clear and convincing.'",
+      "content": {
+        "prompt": "Translate to German: 'The argumentation is clear and convincing.'",
+        "correctAnswer": "Die Argumentation ist klar und überzeugend.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation accurately reflects the structure and meaning of the original sentence.",
+      "hint": "Focus on the key terms.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct option.",
+      "content": {
+        "ttsText": "Die Zusammenfassung hilft, den Hauptgedanken zu verstehen.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Die Zusammenfassung hilft, den Hauptgedanken zu verstehen.",
+          "Die Zusammenfassung ist sehr lang.",
+          "Die Argumentation ist schwach.",
+          "Der Text ist sehr schwierig."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The audio provides a clear statement about the importance of a summary.",
+      "hint": "Listen for the key phrases.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Summarize the main idea of a text you have recently read.",
+      "content": {
+        "targetText": "Fasse die Hauptidee eines Textes zusammen, den du kürzlich gelesen hast.",
+        "context": "Discussing a text in a conversation.",
+        "acceptableVariants": []
+      },
+      "explanation": "This exercise encourages you to practice summarizing skills.",
+      "hint": "Focus on the key points.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

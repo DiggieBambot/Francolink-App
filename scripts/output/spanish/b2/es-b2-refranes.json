@@ -1,0 +1,337 @@
+{
+  "lesson": {
+    "title": "Refranes — Proverbs & Sayings",
+    "type": "VOCABULARY",
+    "slug": "es-b2-refranes"
+  },
+  "unit": "Idioms & Expressions",
+  "unitOrder": 4,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn common Spanish proverbs and sayings that reflect cultural wisdom and values. These expressions often convey deeper meanings and can enhance your conversational skills.",
+      "culturalNote": "Proverbs are an essential part of Spanish-speaking cultures, often passed down through generations. They can reveal cultural attitudes and social norms."
+    },
+    "vocabulary": [
+      {
+        "term": "más vale tarde que nunca",
+        "translation": "better late than never",
+        "definition": "It’s preferable to do something late than not do it at all.",
+        "pronunciation": "mahs vah-leh tar-deh keh noo-neh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Decidí ir a la fiesta, más vale tarde que nunca.",
+          "translation": "I decided to go to the party, better late than never."
+        },
+        "tip": "Use this phrase to encourage someone who is hesitating to take action."
+      },
+      {
+        "term": "el que no llora, no mama",
+        "translation": "he who doesn't cry, doesn't suck",
+        "definition": "You must ask for what you want; otherwise, you won’t receive it.",
+        "pronunciation": "el keh noh yoh-rah, noh mah-mah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Si no pides un aumento, el que no llora, no mama.",
+          "translation": "If you don't ask for a raise, he who doesn't cry, doesn't suck."
+        },
+        "tip": "This expression emphasizes the importance of being assertive."
+      },
+      {
+        "term": "no hay mal que por bien no venga",
+        "translation": "every cloud has a silver lining",
+        "definition": "Every negative situation can lead to positive outcomes.",
+        "pronunciation": "noh eye mahl keh por byen noh ven-gah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Aunque perdí mi trabajo, no hay mal que por bien no venga.",
+          "translation": "Although I lost my job, every cloud has a silver lining."
+        },
+        "tip": "Use this proverb to comfort someone going through tough times."
+      },
+      {
+        "term": "a buen hambre no hay mal pan",
+        "translation": "to a good hunger, there is no bad bread",
+        "definition": "When you are really in need, you will accept whatever is available.",
+        "pronunciation": "ah buen ahm-breh noh eye mahl pahn",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "En situaciones difíciles, a buen hambre no hay mal pan.",
+          "translation": "In difficult situations, to a good hunger, there is no bad bread."
+        },
+        "tip": "This saying can be used to highlight pragmatism in desperate situations."
+      },
+      {
+        "term": "donde hay confianza, da asco",
+        "translation": "familiarity breeds contempt",
+        "definition": "Too much familiarity can lead to disrespect.",
+        "pronunciation": "dohn-deh eye kohn-fee-ahn-sah, dah ahs-koh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Recuerda que donde hay confianza, da asco.",
+          "translation": "Remember that familiarity breeds contempt."
+        },
+        "tip": "Use this proverb to caution against becoming too comfortable with someone."
+      },
+      {
+        "term": "el que mucho abarca, poco aprieta",
+        "translation": "he who grasps too much holds little",
+        "definition": "If you try to do too much, you may not succeed at anything.",
+        "pronunciation": "el keh moo-choh ah-bar-kah, poh-koh ah-preh-tah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Si quieres hacer varios proyectos, recuerda que el que mucho abarca, poco aprieta.",
+          "translation": "If you want to undertake several projects, remember that he who grasps too much holds little."
+        },
+        "tip": "This saying advises moderation and focus."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subjunctive in Proverb Usage",
+        "explanation": "Many Spanish proverbs imply conditional or hypothetical situations, often requiring the subjunctive mood. The subjunctive expresses wishes, doubts, or non-real actions. In proverbs, this is usually implicit but essential for understanding nuances.",
+        "table": {
+          "headers": [
+            "Situation",
+            "Subjunctive Form"
+          ],
+          "rows": [
+            [
+              "Wishing for a better outcome",
+              "que + subjunctive (e.g., que venga)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Si el que no llora, no mama, es que no pide.",
+            "translation": "If he who doesn't cry doesn't suck, it means he doesn't ask.",
+            "breakdown": "This uses the subjunctive to express a general truth."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive in hypothetical expressions.",
+          "Failing to recognize when to use 'que' before the subjunctive."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Challenges and Proverbs",
+      "context": "A conversation between two friends at a café discussing their recent challenges.",
+      "speakers": [
+        "Laura",
+        "Miguel"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Últimamente he estado preocupado por mi trabajo.",
+          "translation": "Lately, I've been worried about my job.",
+          "note": "Laura opens up about her concerns."
+        },
+        {
+          "speaker": 1,
+          "text": "No te preocupes, recuerda que más vale tarde que nunca.",
+          "translation": "Don't worry, remember that better late than never."
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, pero siento que el tiempo se me acaba.",
+          "translation": "Yes, but I feel like time is running out."
+        },
+        {
+          "speaker": 1,
+          "text": "A veces pienso que no hay mal que por bien no venga.",
+          "translation": "Sometimes I think that every cloud has a silver lining."
+        },
+        {
+          "speaker": 0,
+          "text": "Eso es cierto, pero es difícil ver el lado positivo.",
+          "translation": "That’s true, but it’s hard to see the positive side."
+        },
+        {
+          "speaker": 1,
+          "text": "Exacto, el que mucho abarca, poco aprieta, así que enfócate en lo esencial.",
+          "translation": "Exactly, he who grasps too much holds little, so focus on the essentials."
+        },
+        {
+          "speaker": 0,
+          "text": "Tienes razón, debo priorizar mis tareas.",
+          "translation": "You're right, I need to prioritize my tasks."
+        },
+        {
+          "speaker": 1,
+          "text": "Y recuerda que el que no llora, no mama.",
+          "translation": "And remember that he who doesn’t cry, doesn’t suck."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Role of Proverbs in Spanish Culture",
+      "text": "Proverbs are often used in everyday conversations in Spanish-speaking cultures to convey wisdom and life lessons. They are a way to express complex ideas succinctly and are frequently employed in literature and oral storytelling.",
+      "funFact": "In many cultures, including Spanish-speaking ones, proverbs evolve over time, leading to variations that reflect local customs and experiences."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding the meaning and usage of common Spanish proverbs.",
+        "Recognizing the importance of the subjunctive mood in expressing hypothetical situations.",
+        "Applying proverbs in everyday conversations to enhance communication.",
+        "Cultural significance of proverbs in expressing values and wisdom."
+      ],
+      "nextSteps": "Practice using these proverbs in your conversations. Try to incorporate them into your writing or speaking exercises to reinforce your learning."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'más vale tarde que nunca' mean?",
+      "content": {
+        "options": [
+          "Better late than never",
+          "The early bird catches the worm",
+          "Don't cry over spilled milk",
+          "All good things come to those who wait"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Más vale tarde que nunca' translates to 'Better late than never', implying that it's better to do something late than not at all.",
+      "hint": "Think about the value of timing.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which proverb means 'The one who does not cry, does not suck'?",
+      "content": {
+        "options": [
+          "El que no llora, no mama",
+          "No hay mal que por bien no venga",
+          "A buen hambre no hay mal pan",
+          "Donde hay confianza, da asco"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "This proverb emphasizes that one must ask for what they want to receive it.",
+      "hint": "Focus on the idea of asking for help.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the proverb: 'No hay mal que por ___ no venga.'",
+      "content": {
+        "sentence": "No hay mal que por ___ no venga.",
+        "correctAnswer": "bien",
+        "acceptableAnswers": [
+          "bien"
+        ],
+        "options": [
+          "bien",
+          "nada",
+          "malo",
+          "más"
+        ]
+      },
+      "explanation": "The correct answer is 'bien', which completes the saying that suggests that bad situations may lead to good outcomes.",
+      "hint": "Think about how bad events can have positive results.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Finish this saying: 'A buen hambre no hay ___ pan.'",
+      "content": {
+        "sentence": "A buen hambre no hay ___ pan.",
+        "correctAnswer": "mal",
+        "acceptableAnswers": [
+          "mal"
+        ],
+        "options": [
+          "buen",
+          "mal",
+          "grande",
+          "pequeño"
+        ]
+      },
+      "explanation": "The phrase translates to 'When you are hungry, there is no such thing as bad bread', meaning that in desperate situations, people are less picky.",
+      "hint": "Consider the context of hunger and needs.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct saying: 'poco abarca, el que mucho' ",
+      "content": {
+        "words": [
+          "mucho",
+          "el",
+          "que",
+          "abarca",
+          "poco"
+        ],
+        "correctOrder": [
+          "el",
+          "que",
+          "mucho",
+          "abarca",
+          "poco"
+        ],
+        "translation": "He who tries to do too much ends up doing little."
+      },
+      "explanation": "This proverb warns against overextending oneself.",
+      "hint": "Think about balance in tasks.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Where there is trust, it is disgusting.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'Where there is trust, it is disgusting.'",
+        "correctAnswer": "Donde hay confianza, da asco.",
+        "acceptableAnswers": [
+          "Donde hay confianza, es asqueroso."
+        ]
+      },
+      "explanation": "This saying implies that familiarity can lead to a lack of respect.",
+      "hint": "Focus on trust and its consequences.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Donde hay confianza, da asco.'",
+      "content": {
+        "ttsText": "Donde hay confianza, da asco.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Where there is trust, it is disgusting.",
+          "Trust is hard to find.",
+          "Trust leads to respect.",
+          "Where there is trust, there is love."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation captures the essence of the Spanish proverb.",
+      "hint": "Think about the negative side of trust.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this Spanish proverb: 'El que no llora, no mama.'",
+      "content": {
+        "targetText": "El que no llora, no mama.",
+        "context": "Expressing the importance of asking for what you want.",
+        "acceptableVariants": [
+          "El que no llora no mama",
+          "El que no llora, no mamas"
+        ]
+      },
+      "explanation": "This saying emphasizes the need to ask for what you want to receive it.",
+      "hint": "Think about the act of asking.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

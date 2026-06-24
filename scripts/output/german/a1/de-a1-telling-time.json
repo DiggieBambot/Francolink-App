@@ -1,0 +1,331 @@
+{
+  "lesson": {
+    "title": "Telling the Time",
+    "type": "VOCABULARY",
+    "slug": "de-a1-telling-time"
+  },
+  "unit": "Daily Life & Verbs",
+  "unitOrder": 3,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to tell the time in German. You will also practice using common phrases related to daily life and understand the structure of simple sentences.",
+      "culturalNote": "In Germany, punctuality is highly valued, and being on time is considered a sign of respect."
+    },
+    "vocabulary": [
+      {
+        "term": "die Uhr",
+        "translation": "the clock/watch",
+        "definition": "A device for measuring and indicating time.",
+        "pronunciation": "dee ooh-r",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich sehe die Uhr.",
+          "translation": "I see the clock."
+        },
+        "tip": "Remember, 'die' is used for feminine nouns."
+      },
+      {
+        "term": "es ist",
+        "translation": "it is",
+        "definition": "Used to state the time.",
+        "pronunciation": "es ist",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Es ist zwei Uhr.",
+          "translation": "It is two o'clock."
+        },
+        "tip": "This phrase is used for telling time."
+      },
+      {
+        "term": "Uhr",
+        "translation": "o'clock",
+        "definition": "Used to indicate the hour.",
+        "pronunciation": "oor",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es ist drei Uhr.",
+          "translation": "It is three o'clock."
+        },
+        "tip": "Use 'Uhr' after the hour number."
+      },
+      {
+        "term": "Viertel",
+        "translation": "quarter",
+        "definition": "A quarter of an hour (15 minutes).",
+        "pronunciation": "feer-tel",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es ist Viertel nach zwei.",
+          "translation": "It is a quarter past two."
+        },
+        "tip": "Use 'Viertel nach' for 'quarter past' and 'Viertel vor' for 'quarter to'."
+      },
+      {
+        "term": "halb",
+        "translation": "half",
+        "definition": "Indicates half past the hour.",
+        "pronunciation": "halp",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Es ist halb drei.",
+          "translation": "It is half past two."
+        },
+        "tip": "'Halb' is always followed by the next hour."
+      },
+      {
+        "term": "morgen",
+        "translation": "morning",
+        "definition": "The time from midnight until noon.",
+        "pronunciation": "mor-gen",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich stehe um acht Uhr morgens auf.",
+          "translation": "I get up at eight o'clock in the morning."
+        },
+        "tip": "Use 'morgen' to refer to the morning hours."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Telling Time in German",
+        "explanation": "In German, we use the phrase 'Es ist' followed by the hour to tell the time. For example, 'Es ist eins' means 'It is one o'clock.' We can also use 'Viertel' for quarters and 'halb' for half-past.",
+        "table": {
+          "headers": [
+            "Time Expression",
+            "English Translation"
+          ],
+          "rows": [
+            [
+              "Es ist eins.",
+              "It is one o'clock."
+            ],
+            [
+              "Es ist halb zwei.",
+              "It is half past one."
+            ],
+            [
+              "Es ist Viertel nach drei.",
+              "It is a quarter past three."
+            ],
+            [
+              "Es ist Viertel vor vier.",
+              "It is a quarter to four."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es ist fünf Uhr.",
+            "translation": "It is five o'clock.",
+            "breakdown": "This sentence uses 'Es ist' for stating the time and 'fünf Uhr' for five o'clock."
+          },
+          {
+            "original": "Es ist Viertel vor sechs.",
+            "translation": "It is a quarter to six.",
+            "breakdown": "'Viertel vor' indicates that it's 15 minutes before the next hour."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Es ist um fünf Uhr' instead of just 'Es ist fünf Uhr.' ('um' is not necessary here)",
+          "Forgetting to use 'Uhr' after the hour number."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Asking the Time",
+      "context": "In a casual conversation between friends in a café.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Entschuldigung, wie spät ist es?",
+          "translation": "Excuse me, what time is it?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Es ist zehn Uhr.",
+          "translation": "It is ten o'clock.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Danke! Und wann beginnt der Film?",
+          "translation": "Thank you! And when does the movie start?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Der Film beginnt um halb elf.",
+          "translation": "The movie starts at half past ten.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Super! Hast du Zeit?",
+          "translation": "Great! Do you have time?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe Zeit.",
+          "translation": "Yes, I have time.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Lass uns einen Kaffee trinken.",
+          "translation": "Let's have a coffee.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Gute Idee! Es ist noch früh.",
+          "translation": "Good idea! It's still early.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Punctuality in German Culture",
+      "text": "In Germany, punctuality is very important. People often arrive on time for appointments and meetings. Being late can be considered disrespectful.",
+      "funFact": "In Switzerland, they even have a saying: 'Wer zu spät kommt, den bestraft das Leben' — 'Those who come late are punished by life.'"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned how to tell the time in German using 'Es ist'.",
+        "Practiced vocabulary related to time and daily activities.",
+        "Understood the importance of punctuality in German culture."
+      ],
+      "nextSteps": "Practice telling the time with different hours and minutes. Try to ask friends or family members what time it is."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'die Uhr' mean in English?",
+      "content": {
+        "options": [
+          "the clock",
+          "the time",
+          "the watch",
+          "the alarm"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Uhr' translates to 'the clock' in English.",
+      "hint": "Think about what tells you the time.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "How do you say 'half' in German?",
+      "content": {
+        "options": [
+          "Viertel",
+          "halb",
+          "morgen",
+          "Uhr"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Half' is translated to 'halb' in German.",
+      "hint": "It refers to 30 minutes past the hour.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Es ist ___ Uhr.'",
+      "content": {
+        "sentence": "Es ist ___ Uhr.",
+        "correctAnswer": "die",
+        "acceptableAnswers": [
+          "die"
+        ],
+        "options": [
+          "der",
+          "die",
+          "das"
+        ]
+      },
+      "explanation": "The correct article for 'Uhr' is 'die', as it is feminine.",
+      "hint": "Remember the gender of the noun.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Es ist ___ Uhr dreißig.'",
+      "content": {
+        "sentence": "Es ist ___ Uhr dreißig.",
+        "correctAnswer": "halb",
+        "acceptableAnswers": [
+          "halb"
+        ],
+        "options": [
+          "Viertel",
+          "halb",
+          "morgen"
+        ]
+      },
+      "explanation": "'Half past' is indicated by 'halb' in German.",
+      "hint": "Think about how to express '30 minutes past'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'It is a quarter past three.'",
+      "content": {
+        "correctAnswer": "Es ist Viertel nach drei.",
+        "acceptableAnswers": [
+          "Es ist ein Viertel nach drei."
+        ]
+      },
+      "explanation": "The phrase translates to 'Es ist Viertel nach drei.' in German.",
+      "hint": "Think about how to express quarters in time.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "What does this German sentence mean? 'Es ist zehn Uhr.'",
+      "content": {
+        "ttsText": "Es ist zehn Uhr.",
+        "ttsLang": "de-DE",
+        "options": [
+          "It is ten o'clock.",
+          "It is ten minutes.",
+          "It is ten past five.",
+          "It is ten hours."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'It is ten o'clock.'",
+      "hint": "Focus on the time being expressed.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in German: 'I have to get up at six.'",
+      "content": {
+        "targetText": "Ich muss um sechs aufstehen.",
+        "context": "Expressing a daily routine.",
+        "acceptableVariants": [
+          "Ich stehe um sechs auf."
+        ]
+      },
+      "explanation": "Both sentences mean you need to get up at six.",
+      "hint": "Use 'muss' for obligation.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

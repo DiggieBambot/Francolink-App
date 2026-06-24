@@ -1,0 +1,343 @@
+{
+  "lesson": {
+    "title": "Social Media & Digital Life",
+    "type": "CONVERSATION",
+    "slug": "de-b1-social-media"
+  },
+  "unit": "Media & Communication",
+  "unitOrder": 5,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to social media and digital life in German. You will also practice using subordinate clauses and the Konjunktiv II to discuss hypotheticals and politeness.",
+      "culturalNote": "In Germany, social media usage is very popular, and many people use platforms like Instagram and TikTok to share their lives. However, privacy concerns are also significant, leading to discussions about data protection."
+    },
+    "vocabulary": [
+      {
+        "term": "der Computer",
+        "translation": "the computer",
+        "definition": "an electronic device for processing data",
+        "pronunciation": "der kom-PYOO-ter",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich benutze den Computer jeden Tag.",
+          "translation": "I use the computer every day."
+        },
+        "tip": "Remember that 'der Computer' is masculine, and its plural is 'die Computer'."
+      },
+      {
+        "term": "die App",
+        "translation": "the app",
+        "definition": "a software application for mobile devices",
+        "pronunciation": "dee ap",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich lade eine neue App herunter.",
+          "translation": "I am downloading a new app."
+        },
+        "tip": "'Die App' is feminine and can be used in both singular and plural forms as 'die Apps'."
+      },
+      {
+        "term": "das Netzwerk",
+        "translation": "the network",
+        "definition": "a system of interconnected people or things",
+        "pronunciation": "das NETZ-vairk",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Soziale Netzwerke sind sehr wichtig.",
+          "translation": "Social networks are very important."
+        },
+        "tip": "'Das Netzwerk' is neuter, and its plural is 'die Netzwerke'."
+      },
+      {
+        "term": "die Nachricht",
+        "translation": "the message/news",
+        "definition": "information communicated to someone",
+        "pronunciation": "dee NAH-richt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe eine Nachricht auf meinem Handy bekommen.",
+          "translation": "I received a message on my phone."
+        },
+        "tip": "'Die Nachricht' is feminine; the plural form is 'die Nachrichten'."
+      },
+      {
+        "term": "das Profil",
+        "translation": "the profile",
+        "definition": "a personal account on a social media platform",
+        "pronunciation": "das pro-FEEL",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Profil ist sehr interessant.",
+          "translation": "My profile is very interesting."
+        },
+        "tip": "'Das Profil' is neuter, and it remains the same in the plural: 'die Profile'."
+      },
+      {
+        "term": "teilen",
+        "translation": "to share",
+        "definition": "to distribute or allow others to access something",
+        "pronunciation": "TIE-len",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich teile oft Fotos mit meinen Freunden.",
+          "translation": "I often share photos with my friends."
+        },
+        "tip": "This verb can be used in various contexts, especially in social media."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subordinate Clauses with 'dass' and 'weil'",
+        "explanation": "In German, subordinate clauses often begin with words like 'dass' (that) and 'weil' (because). These clauses cannot stand alone and provide additional information. For example, 'Ich glaube, dass es heute regnet' means 'I think that it will rain today'. In contrast, 'Ich bleibe zu Hause, weil ich müde bin' means 'I stay at home because I am tired'.",
+        "table": {
+          "headers": [
+            "Subordinate Clause",
+            "Translation"
+          ],
+          "rows": [
+            [
+              "Ich glaube, dass es heute regnet.",
+              "I think that it will rain today."
+            ],
+            [
+              "Ich bleibe zu Hause, weil ich müde bin.",
+              "I stay at home because I am tired."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich denke, dass soziale Medien wichtig sind.",
+            "translation": "I think that social media is important.",
+            "breakdown": "This sentence uses 'dass' to introduce the subordinate clause."
+          }
+        ],
+        "commonMistakes": [
+          "Forgetting to place the verb at the end of the subordinate clause, e.g., 'Ich glaube, dass es regnet' (correct) vs. 'Ich glaube, dass es regnet ist' (incorrect).",
+          "Using 'weil' without a comma, e.g., 'Ich bleibe zu Hause weil ich müde bin' (incorrect) vs. 'Ich bleibe zu Hause, weil ich müde bin' (correct)."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Social Media",
+      "context": "Two friends, Anna and Lukas, are talking about their social media habits over coffee.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Wie oft nutzt du soziale Medien?",
+          "translation": "How often do you use social media?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich nutze sie jeden Tag, weil ich mit meinen Freunden in Kontakt bleiben möchte.",
+          "translation": "I use it every day because I want to stay in touch with my friends.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist interessant! Welche Apps verwendest du am meisten?",
+          "translation": "That's interesting! Which apps do you use the most?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich benutze hauptsächlich Instagram und Snapchat.",
+          "translation": "I mainly use Instagram and Snapchat.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich habe gehört, dass TikTok sehr beliebt ist.",
+          "translation": "I've heard that TikTok is very popular.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, aber ich finde es manchmal ablenkend.",
+          "translation": "Yes, but I sometimes find it distracting.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Teilst du oft Fotos?",
+          "translation": "Do you often share photos?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich teile Fotos von meinen Reisen und Freunden.",
+          "translation": "Yes, I share photos of my travels and friends.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Social Media Usage in Germany",
+      "text": "In Germany, social media platforms are widely used for personal and professional connections. Many businesses leverage these platforms for marketing. However, there is also a strong focus on data privacy, leading to various regulations.",
+      "funFact": "Germany has one of the strictest data protection laws in the world, which affects how social media companies operate."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to social media and digital life.",
+        "Practiced using subordinate clauses with 'dass' and 'weil'.",
+        "Engaged in a conversation about social media habits.",
+        "Gained insight into cultural aspects of media usage in Germany."
+      ],
+      "nextSteps": "Review the vocabulary and practice forming sentences with subordinate clauses. Try to write a short paragraph about your own social media usage."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'computer'?",
+      "content": {
+        "options": [
+          "der Computer",
+          "die App",
+          "das Netzwerk"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Computer' is the correct translation for 'computer' in German.",
+      "hint": "Think about the device you use to browse the internet.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which one means 'to share' in German?",
+      "content": {
+        "options": [
+          "teilen",
+          "die Nachricht",
+          "das Profil"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Teilen' is the verb that means 'to share' in German.",
+      "hint": "Think about sharing posts on social media.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich habe ein neues _____.",
+      "content": {
+        "sentence": "Ich habe ein neues _____.",
+        "correctAnswer": "Profil",
+        "acceptableAnswers": [
+          "Profil"
+        ],
+        "options": [
+          "Nachricht",
+          "Profil",
+          "Netzwerk"
+        ]
+      },
+      "explanation": "The correct answer is 'Profil', meaning 'profile'.",
+      "hint": "It's what you create on social media.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich möchte eine ____ senden.",
+      "content": {
+        "sentence": "Ich möchte eine ____ senden.",
+        "correctAnswer": "Nachricht",
+        "acceptableAnswers": [
+          "Nachricht"
+        ],
+        "options": [
+          "App",
+          "Nachricht",
+          "Teilen"
+        ]
+      },
+      "explanation": "'Nachricht' means 'message', which fits in the context.",
+      "hint": "Think about what you send in a chat.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct German sentence: 'teilen, ich, möchte, das, Foto'",
+      "content": {
+        "words": [
+          "teilen",
+          "ich",
+          "möchte",
+          "das",
+          "Foto"
+        ],
+        "correctOrder": [
+          "ich",
+          "möchte",
+          "das",
+          "Foto",
+          "teilen"
+        ],
+        "translation": "I want to share the photo."
+      },
+      "explanation": "The correct order forms a coherent sentence in German.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I use an app.'",
+      "content": {
+        "prompt": "Translate to German: 'I use an app.'",
+        "correctAnswer": "Ich benutze eine App.",
+        "acceptableAnswers": [
+          "Ich verwende eine App."
+        ]
+      },
+      "explanation": "Both 'benutze' and 'verwende' are correct for 'use'.",
+      "hint": "Think about the action of using something.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich liebe soziale Netzwerke.'",
+      "content": {
+        "ttsText": "Ich liebe soziale Netzwerke.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I love social networks.",
+          "I hate social networks.",
+          "I use social networks."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'I love social networks.'",
+      "hint": "Listen carefully to the emotions expressed.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in German: 'I want to send a message.'",
+      "content": {
+        "targetText": "Ich möchte eine Nachricht senden.",
+        "context": "Translate and pronounce this sentence in German.",
+        "acceptableVariants": [
+          "Ich will eine Nachricht senden.",
+          "Ich möchte eine Nachricht schicken."
+        ]
+      },
+      "explanation": "Both the standard and acceptable variants convey the same meaning.",
+      "hint": "Focus on the verb at the beginning.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

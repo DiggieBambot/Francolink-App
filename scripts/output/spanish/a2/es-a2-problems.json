@@ -1,0 +1,391 @@
+{
+  "lesson": {
+    "title": "Dealing with Problems",
+    "type": "CONVERSATION",
+    "slug": "es-a2-problems"
+  },
+  "unit": "Everyday Situations",
+  "unitOrder": 8,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to deal with common problems in everyday situations in Spanish. You will practice vocabulary and phrases that help you express difficulties and ask for assistance.",
+      "culturalNote": "In many Spanish-speaking countries, people value community and family support, so asking for help is often seen as a way to strengthen relationships."
+    },
+    "vocabulary": [
+      {
+        "term": "el problema",
+        "translation": "the problem",
+        "definition": "an issue or difficulty that needs to be resolved",
+        "pronunciation": "el pro-ble-ma",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo un problema con mi coche.",
+          "translation": "I have a problem with my car."
+        },
+        "tip": "Remember that 'problema' is masculine in Spanish, so use 'el'."
+      },
+      {
+        "term": "la solución",
+        "translation": "the solution",
+        "definition": "the answer to a problem",
+        "pronunciation": "la so-lu-ción",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Necesito una solución rápida.",
+          "translation": "I need a quick solution."
+        },
+        "tip": "Use 'la' because 'solución' is feminine."
+      },
+      {
+        "term": "ayudar",
+        "translation": "to help",
+        "definition": "to assist someone in need",
+        "pronunciation": "a-yu-dar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "¿Puedes ayudarme, por favor?",
+          "translation": "Can you help me, please?"
+        },
+        "tip": "This verb is often used when asking for assistance."
+      },
+      {
+        "term": "perder",
+        "translation": "to lose",
+        "definition": "to misplace something or to not win",
+        "pronunciation": "per-der",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "He perdido mi teléfono.",
+          "translation": "I have lost my phone."
+        },
+        "tip": "Remember that 'perder' is an irregular verb in the preterite."
+      },
+      {
+        "term": "la ayuda",
+        "translation": "the help",
+        "definition": "assistance given to someone",
+        "pronunciation": "la a-yu-da",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Agradezco tu ayuda.",
+          "translation": "I appreciate your help."
+        },
+        "tip": "Use 'la' because 'ayuda' is feminine."
+      },
+      {
+        "term": "resolver",
+        "translation": "to resolve",
+        "definition": "to find a solution to a problem",
+        "pronunciation": "re-so-lver",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Voy a resolver el problema.",
+          "translation": "I am going to resolve the problem."
+        },
+        "tip": "This verb is commonly used when discussing solutions."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'pedir' (to ask) for help",
+        "explanation": "In Spanish, we often use the verb 'pedir' to ask for help or assistance. You can say 'pedir ayuda' (to ask for help) or 'pedir una solución' (to ask for a solution). Remember to use polite phrases like 'por favor' (please).",
+        "table": {
+          "headers": [
+            "Subject",
+            "Conjugation"
+          ],
+          "rows": [
+            [
+              "yo",
+              "pido"
+            ],
+            [
+              "tú",
+              "pides"
+            ],
+            [
+              "él/ella",
+              "pide"
+            ],
+            [
+              "nosotros",
+              "pedimos"
+            ],
+            [
+              "ellos",
+              "piden"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo pido ayuda a mis amigos.",
+            "translation": "I ask for help from my friends.",
+            "breakdown": "In this sentence, 'pido' is the first person singular form of 'pedir'."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'preguntar' instead of 'pedir' for help (correct: 'pedir ayuda').",
+          "Forgetting to use 'por favor' when asking for help."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Asking for Help",
+      "context": "In a café, a customer is having an issue with their order.",
+      "speakers": [
+        "Carlos (Customer)",
+        "Ana (Waitress)"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Disculpa, tengo un problema con mi orden.",
+          "translation": "Excuse me, I have a problem with my order."
+        },
+        {
+          "speaker": 1,
+          "text": "¿Cuál es el problema?",
+          "translation": "What is the problem?"
+        },
+        {
+          "speaker": 0,
+          "text": "No recibí mi café.",
+          "translation": "I didn't receive my coffee."
+        },
+        {
+          "speaker": 1,
+          "text": "Lo siento. Voy a resolverlo ahora.",
+          "translation": "I’m sorry. I will resolve it now."
+        },
+        {
+          "speaker": 0,
+          "text": "Gracias. Espero que llegue pronto.",
+          "translation": "Thank you. I hope it arrives soon."
+        },
+        {
+          "speaker": 1,
+          "text": "¿Quieres algo más mientras esperas?",
+          "translation": "Do you want anything else while you wait?"
+        },
+        {
+          "speaker": 0,
+          "text": "No, solo el café, por favor.",
+          "translation": "No, just the coffee, please."
+        },
+        {
+          "speaker": 1,
+          "text": "Perfecto, lo traigo enseguida.",
+          "translation": "Perfect, I will bring it right away."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Community and Support in Spanish-speaking Cultures",
+      "text": "In many Spanish-speaking countries, community support is highly valued. People often rely on family and friends for help during difficult times, which strengthens social bonds.",
+      "funFact": "In Mexico, neighbors often help each other with tasks like cooking or childcare, fostering a strong sense of community."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to problems and help.",
+        "Practiced the verb 'pedir' to ask for assistance.",
+        "Engaged in a dialogue about a common situation.",
+        "Gained cultural insights into community support."
+      ],
+      "nextSteps": "Practice using the vocabulary in different contexts and try creating your own dialogues about everyday problems."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'problem'?",
+      "content": {
+        "options": [
+          "el problema",
+          "la solución",
+          "ayudar",
+          "la ayuda"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'el problema', which directly translates to 'problem' in English.",
+      "hint": "Think about common issues you face.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'solution' in Spanish?",
+      "content": {
+        "options": [
+          "resolver",
+          "la ayuda",
+          "la solución",
+          "el problema"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'La solución' translates to 'solution' in English.",
+      "hint": "It's a word often used when things need fixing.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Yo necesito ___ (help) con este problema.",
+      "content": {
+        "sentence": "Yo necesito ___ con este problema.",
+        "correctAnswer": "ayuda",
+        "acceptableAnswers": [
+          "la ayuda"
+        ],
+        "options": [
+          "resolver",
+          "ayuda",
+          "el problema",
+          "la solución"
+        ]
+      },
+      "explanation": "The sentence means 'I need help with this problem', and 'ayuda' is the correct word.",
+      "hint": "Think of how to ask for help.",
+      "difficulty": "EASY",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Necesito ___ (to solve) el problema ahora.",
+      "content": {
+        "sentence": "Necesito ___ el problema ahora.",
+        "correctAnswer": "resolver",
+        "acceptableAnswers": [],
+        "options": [
+          "resolver",
+          "perder",
+          "ayudar",
+          "la ayuda"
+        ]
+      },
+      "explanation": "'Resolver' means 'to solve', which fits perfectly in the sentence.",
+      "hint": "This is the action you take when you have a problem.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: ayudar / con / quiero / el problema.",
+      "content": {
+        "words": [
+          "ayudar",
+          "con",
+          "quiero",
+          "el",
+          "problema"
+        ],
+        "correctOrder": [
+          "quiero",
+          "ayudar",
+          "con",
+          "el",
+          "problema"
+        ],
+        "translation": "I want to help with the problem."
+      },
+      "explanation": "The correct order expresses the intention to help with a problem.",
+      "hint": "Start with what you want.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I lost my keys.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I lost my keys.'",
+        "correctAnswer": "Perdí mis llaves.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The correct translation uses the verb 'perder', which means 'to lose'.",
+      "hint": "Think of the verb for losing something.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Necesito ayuda con este problema.'",
+      "content": {
+        "ttsText": "Necesito ayuda con este problema.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I need help with this problem.",
+          "I have the solution to the problem.",
+          "I lost my keys.",
+          "I want to resolve the issue."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The spoken sentence clearly translates to 'I need help with this problem.'",
+      "hint": "Focus on the word 'ayuda'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'How can I help you with the problem?'",
+      "content": {
+        "targetText": "¿Cómo puedo ayudarte con el problema?",
+        "context": "You are offering assistance to a friend.",
+        "acceptableVariants": []
+      },
+      "explanation": "This sentence is a polite way to offer help in Spanish.",
+      "hint": "Start with '¿Cómo puedo...?'",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Si tienes un problema, puedes ___ (to solve) fácil.",
+      "content": {
+        "sentence": "Si tienes un problema, puedes ___ fácil.",
+        "correctAnswer": "resolver",
+        "acceptableAnswers": [],
+        "options": [
+          "ayudar",
+          "resolver",
+          "perder",
+          "la solución"
+        ]
+      },
+      "explanation": "The correct answer is 'resolver', meaning 'to solve'.",
+      "hint": "Think about fixing problems.",
+      "difficulty": "HARD",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words: la / solución / es / el problema / fácil.",
+      "content": {
+        "words": [
+          "la",
+          "solución",
+          "es",
+          "el",
+          "problema",
+          "fácil"
+        ],
+        "correctOrder": [
+          "la",
+          "solución",
+          "es",
+          "fácil",
+          "el",
+          "problema"
+        ],
+        "translation": "The solution is easy for the problem."
+      },
+      "explanation": "The correct order conveys that the solution to the problem is easy.",
+      "hint": "Start with 'la solución'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

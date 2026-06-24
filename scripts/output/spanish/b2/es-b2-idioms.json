@@ -1,0 +1,337 @@
+{
+  "lesson": {
+    "title": "Common Spanish Idioms",
+    "type": "VOCABULARY",
+    "slug": "es-b2-idioms"
+  },
+  "unit": "Idioms & Expressions",
+  "unitOrder": 4,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn common Spanish idioms that are frequently used in everyday conversations. Understanding these expressions will help you communicate more naturally and enhance your cultural insights.",
+      "culturalNote": "Spanish-speaking cultures often use idioms to convey wisdom and humor, reflecting their rich linguistic heritage."
+    },
+    "vocabulary": [
+      {
+        "term": "dar en el clavo",
+        "translation": "to hit the nail on the head",
+        "definition": "to be exactly right or correct",
+        "pronunciation": "dar en el klah-vo",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Cuando dijo que necesitábamos un cambio, dio en el clavo.",
+          "translation": "When he said we needed a change, he hit the nail on the head."
+        },
+        "tip": "Think of a hammer hitting a nail perfectly; it signifies precision."
+      },
+      {
+        "term": "no hay mal que por bien no venga",
+        "translation": "every cloud has a silver lining",
+        "definition": "good things can come from bad situations",
+        "pronunciation": "no ai mal keh por byen no ben-kah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Aunque perdí mi trabajo, encontré una nueva oportunidad; no hay mal que por bien no venga.",
+          "translation": "Even though I lost my job, I found a new opportunity; every cloud has a silver lining."
+        },
+        "tip": "Remember that challenges can lead to positive outcomes."
+      },
+      {
+        "term": "estar en las nubes",
+        "translation": "to be daydreaming",
+        "definition": "to be lost in thought or not paying attention",
+        "pronunciation": "es-tar en las noo-bes",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Durante la clase, Juan estaba en las nubes y no escuchó nada.",
+          "translation": "During class, Juan was daydreaming and didn't hear anything."
+        },
+        "tip": "Visualize someone floating in the clouds, detached from reality."
+      },
+      {
+        "term": "más vale tarde que nunca",
+        "translation": "better late than never",
+        "definition": "it's better to do something late than not at all",
+        "pronunciation": "mas vah-leh tar-deh keh noon-kah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Finalmente llegó a la reunión. Más vale tarde que nunca.",
+          "translation": "He finally arrived at the meeting. Better late than never."
+        },
+        "tip": "Think about the importance of participation, regardless of timing."
+      },
+      {
+        "term": "sacar las castañas del fuego",
+        "translation": "to pull someone's chestnuts out of the fire",
+        "definition": "to help someone out of a difficult situation",
+        "pronunciation": "sa-kar las kas-tan-yas del feh-roh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Siempre tiene que sacar las castañas del fuego para su hermano.",
+          "translation": "He always has to pull his brother's chestnuts out of the fire."
+        },
+        "tip": "Imagine rescuing something valuable from a dangerous situation."
+      },
+      {
+        "term": "hacer de tripas corazón",
+        "translation": "to make a brave effort",
+        "definition": "to muster up courage in a difficult situation",
+        "pronunciation": "a-ser de tree-pas ko-ra-son",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "A pesar de su miedo, hizo de tripas corazón y habló en público.",
+          "translation": "Despite his fear, he made a brave effort and spoke in public."
+        },
+        "tip": "Visualize gathering your insides (guts) to face a challenge."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Subjunctive with Idioms",
+        "explanation": "In Spanish, the subjunctive mood is often used after certain expressions, especially when expressing desires, doubts, or emotions. It’s important to recognize when to use the subjunctive after certain idiomatic phrases. Typically, these expressions are followed by a clause that may require the subjunctive form.",
+        "table": {
+          "headers": [
+            "Expression",
+            "Subjunctive Example"
+          ],
+          "rows": [
+            [
+              "Es posible que",
+              "es necesario que"
+            ],
+            [
+              "Es mejor que",
+              "no haya problemas"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es posible que no haya mal que por bien no venga.",
+            "translation": "It’s possible that every cloud has a silver lining.",
+            "breakdown": "The expression requires the subjunctive 'haya' to convey uncertainty."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of subjunctive after idioms. Correct: 'Es mejor que estudies'.",
+          "Neglecting to change the verb form after an idiomatic expression. Correct: 'Espero que todo salga bien'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Life Challenges",
+      "context": "A coffee shop conversation between two friends reflecting on recent events.",
+      "speakers": [
+        "Laura",
+        "Carlos"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "He estado pensando en lo que pasó la semana pasada.",
+          "translation": "I've been thinking about what happened last week.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, es una situación difícil. Pero ya sabes, no hay mal que por bien no venga.",
+          "translation": "Yes, it’s a tough situation. But you know, every cloud has a silver lining."
+        },
+        {
+          "speaker": 0,
+          "text": "Tienes razón. A veces me siento como si estuviera en las nubes.",
+          "translation": "You're right. Sometimes I feel like I'm daydreaming."
+        },
+        {
+          "speaker": 1,
+          "text": "Es normal sentirse así. Más vale tarde que nunca para resolverlo.",
+          "translation": "It’s normal to feel that way. Better late than never to resolve it."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y si no encuentro una solución?",
+          "translation": "What if I can’t find a solution?"
+        },
+        {
+          "speaker": 1,
+          "text": "Siempre puedes sacar las castañas del fuego pidiendo ayuda a otros.",
+          "translation": "You can always pull your chestnuts out of the fire by asking others for help."
+        },
+        {
+          "speaker": 0,
+          "text": "Eso es cierto. Tengo que hacer de tripas corazón y actuar.",
+          "translation": "That’s true. I need to muster up the courage and act."
+        },
+        {
+          "speaker": 1,
+          "text": "Exactamente. A veces es lo que necesitamos para seguir adelante.",
+          "translation": "Exactly. Sometimes it’s what we need to move forward."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Role of Idioms in Communication",
+      "text": "Idioms are a vital part of Spanish communication, often adding color and depth to conversations. They reflect cultural values and common experiences, making them a rich area for language learners to explore.",
+      "funFact": "In some Latin American countries, idioms can vary significantly, reflecting different regional cultures and histories."
+    },
+    "summary": {
+      "keyPoints": [
+        "Idioms enrich your understanding of Spanish and enhance communication.",
+        "Using the subjunctive mood correctly is crucial when employed with idiomatic expressions.",
+        "Cultural context is essential to grasp the nuances of idioms.",
+        "Practice using idioms in conversation to become more fluent."
+      ],
+      "nextSteps": "Try using these idioms in your conversations and practice forming sentences with the subjunctive mood."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'dar en el clavo' mean?",
+      "content": {
+        "options": [
+          "to hit the nail on the head",
+          "to throw in the towel",
+          "to take a leap of faith",
+          "to be in trouble"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Dar en el clavo' literally means to hit the nail on the head, indicating that someone has made a correct observation or decision.",
+      "hint": "Think about making a precise point.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which idiom means 'every cloud has a silver lining'?",
+      "content": {
+        "options": [
+          "no hay mal que por bien no venga",
+          "más vale tarde que nunca",
+          "estar en las nubes",
+          "hacer de tripas corazón"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The phrase 'no hay mal que por bien no venga' conveys the idea that something bad may lead to a good outcome.",
+      "hint": "Focus on the positive aspect of a negative situation.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Siempre está ___ las nubes durante la clase.",
+      "content": {
+        "sentence": "Siempre está ___ las nubes durante la clase.",
+        "correctAnswer": "en",
+        "acceptableAnswers": [
+          "en"
+        ],
+        "options": [
+          "en",
+          "bajo",
+          "sobre"
+        ]
+      },
+      "explanation": "The correct idiom is 'estar en las nubes', meaning to be daydreaming or lost in thought.",
+      "hint": "Think about being absent-minded.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: ___ vale tarde que nunca, así que aquí estoy.",
+      "content": {
+        "sentence": "___ vale tarde que nunca, así que aquí estoy.",
+        "correctAnswer": "Más",
+        "acceptableAnswers": [
+          "Más"
+        ],
+        "options": [
+          "Menos",
+          "Más",
+          "Nunca"
+        ]
+      },
+      "explanation": "'Más vale tarde que nunca' means it's better to do something late than not at all.",
+      "hint": "Consider what may be better than not doing something.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct idiom: las / del / fuego / castañas / sacar / hacer.",
+      "content": {
+        "words": [
+          "las",
+          "del",
+          "fuego",
+          "castañas",
+          "sacar",
+          "hacer"
+        ],
+        "correctOrder": [
+          "sacar",
+          "las",
+          "castañas",
+          "del",
+          "fuego",
+          "hacer"
+        ],
+        "translation": "to pull someone's chestnuts out of the fire"
+      },
+      "explanation": "The idiom 'sacar las castañas del fuego' refers to doing something difficult for someone else.",
+      "hint": "Think of a situation where someone helps another.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'No good comes without bad.'",
+      "content": {
+        "correctAnswer": "No hay mal que por bien no venga.",
+        "acceptableAnswers": []
+      },
+      "explanation": "This is a direct translation of the idiom that expresses a silver lining in bad situations.",
+      "hint": "Look for the idiom that captures the essence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the phrase and choose the correct meaning: 'Hacer de tripas corazón'.",
+      "content": {
+        "ttsText": "Hacer de tripas corazón.",
+        "ttsLang": "es-ES",
+        "options": [
+          "to face a difficult situation with courage",
+          "to give up easily",
+          "to be careless",
+          "to dream big"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The idiom means to gather courage and face a difficult situation.",
+      "hint": "Think about bravery in tough times.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I need to gather my courage.'",
+      "content": {
+        "targetText": "Tengo que hacer de tripas corazón.",
+        "context": "Expressing the need to be brave.",
+        "acceptableVariants": [
+          "Tengo que reunir mi valor."
+        ]
+      },
+      "explanation": "The phrase 'hacer de tripas corazón' is a common idiom for gathering courage.",
+      "hint": "Think about facing a challenge.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

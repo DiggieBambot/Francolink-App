@@ -1,0 +1,351 @@
+{
+  "lesson": {
+    "title": "Unit 6 Review",
+    "type": "REVIEW",
+    "slug": "de-b1-unit6-review"
+  },
+  "unit": "Environment & Society",
+  "unitOrder": 6,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this unit review, you will consolidate your knowledge of vocabulary and grammar related to the environment and society in German. You will practice using subordinate clauses, the Konjunktiv II for politeness, and passive voice structures.",
+      "culturalNote": "In Germany, recycling is a fundamental part of daily life, and many cities have strict regulations to promote environmental sustainability."
+    },
+    "vocabulary": [
+      {
+        "term": "der Umweltschutz",
+        "translation": "environmental protection",
+        "definition": "the practice of protecting the natural environment",
+        "pronunciation": "dohr oom-velt-shoots",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Umweltschutz ist sehr wichtig.",
+          "translation": "Environmental protection is very important."
+        },
+        "tip": "Remember that 'Umweltschutz' is masculine (der), and it refers to actions taken to protect the environment."
+      },
+      {
+        "term": "die Gesellschaft",
+        "translation": "society",
+        "definition": "a group of individuals living together in a community",
+        "pronunciation": "dee geh-ZELL-shaft",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Gesellschaft muss umweltfreundlicher werden.",
+          "translation": "Society must become more environmentally friendly."
+        },
+        "tip": "'Gesellschaft' is feminine (die) and is often used in discussions about social issues."
+      },
+      {
+        "term": "das Recycling",
+        "translation": "recycling",
+        "definition": "the process of converting waste into reusable material",
+        "pronunciation": "dahs ree-CY-cling",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Recycling hilft, die Umwelt zu schützen.",
+          "translation": "Recycling helps to protect the environment."
+        },
+        "tip": "'Recycling' is neuter (das) and is a crucial part of waste management."
+      },
+      {
+        "term": "die Klimaveränderung",
+        "translation": "climate change",
+        "definition": "a long-term change in the average weather patterns of Earth",
+        "pronunciation": "dee KLEE-mah-fair-ENDER-oong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Klimaveränderung ist ein ernstes Problem.",
+          "translation": "Climate change is a serious problem."
+        },
+        "tip": "Remember that 'Klimaveränderung' is feminine (die) and often discussed in environmental topics."
+      },
+      {
+        "term": "der Müll",
+        "translation": "trash",
+        "definition": "waste material; refuse",
+        "pronunciation": "dohr mool",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wir müssen den Müll trennen.",
+          "translation": "We must separate the trash."
+        },
+        "tip": "'Müll' is masculine (der) and is commonly used when talking about waste disposal."
+      },
+      {
+        "term": "die Natur",
+        "translation": "nature",
+        "definition": "the natural world; wildlife and natural resources",
+        "pronunciation": "dee nah-TOOR",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Natur ist wunderschön.",
+          "translation": "Nature is beautiful."
+        },
+        "tip": "'Natur' is feminine (die) and evokes images of landscapes and ecosystems."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subordinate Clauses with 'dass' and 'weil'",
+        "explanation": "In German, subordinate clauses often begin with 'dass' (that) or 'weil' (because). These clauses provide additional information but cannot stand alone. For example, 'Ich glaube, dass es regnen wird.' means 'I believe that it will rain.' The verb goes to the end of the clause.",
+        "table": {
+          "headers": [
+            "Clause Type",
+            "Example"
+          ],
+          "rows": [
+            [
+              "'dass' clause",
+              "Ich denke, dass wir helfen sollten."
+            ],
+            [
+              "'weil' clause",
+              "Es ist kalt, weil der Winter gekommen ist."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich weiß, dass Umweltschutz wichtig ist.",
+            "translation": "I know that environmental protection is important.",
+            "breakdown": "The main clause 'Ich weiß' is followed by the subordinate clause 'dass Umweltschutz wichtig ist'."
+          },
+          {
+            "original": "Wir gehen, weil es regnet.",
+            "translation": "We are going because it is raining.",
+            "breakdown": "Here, 'weil es regnet' explains the reason for 'Wir gehen'."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'das' instead of 'dass' for the conjunction. Remember: 'dass' is the correct form for 'that'.",
+          "Forgetting the verb position in subordinate clauses. Always place the verb at the end."
+        ]
+      },
+      {
+        "title": "Konjunktiv II for Politeness",
+        "explanation": "The Konjunktiv II is used to express wishes, hypotheticals, or polite requests. For example, 'Ich hätte gerne einen Kaffee.' means 'I would like a coffee.' This form often uses the simple past stem of the verb.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Konjunktiv II Example"
+          ],
+          "rows": [
+            [
+              "haben",
+              "Ich hätte gerne..."
+            ],
+            [
+              "sein",
+              "Ich wäre froh..."
+            ],
+            [
+              "können",
+              "Ich könnte helfen..."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich Zeit hätte, würde ich reisen.",
+            "translation": "If I had time, I would travel.",
+            "breakdown": "This sentence uses 'hätte' (had) and 'würde' (would) to express a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing the subjunctive with the indicative. Remember, use the Konjunktiv II for hypothetical situations.",
+          "Neglecting to use 'würde' correctly in conditional sentences."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Environmental Issues",
+      "context": "Two friends, Anna and Lukas, are talking about their concerns regarding the environment while walking in the park.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Ich mache mir Sorgen über die Klimaveränderung.",
+          "translation": "I am worried about climate change.",
+          "note": "Anna expresses her concern."
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich auch. Wir sollten mehr für den Umweltschutz tun.",
+          "translation": "Yes, me too. We should do more for environmental protection."
+        },
+        {
+          "speaker": 0,
+          "text": "Was können wir tun?",
+          "translation": "What can we do?"
+        },
+        {
+          "speaker": 1,
+          "text": "Wir könnten Müll aufräumen und mehr recyceln.",
+          "translation": "We could clean up trash and recycle more."
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt gut! Wir könnten auch eine Gruppe gründen.",
+          "translation": "That sounds good! We could also form a group."
+        },
+        {
+          "speaker": 1,
+          "text": "Das wäre eine tolle Idee! Dann könnten wir mehr Menschen erreichen.",
+          "translation": "That would be a great idea! Then we could reach more people."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich hoffe, dass wir viele Freiwillige finden.",
+          "translation": "I hope that we find many volunteers."
+        },
+        {
+          "speaker": 1,
+          "text": "Natürlich! Wenn wir zusammenarbeiten, können wir viel erreichen.",
+          "translation": "Of course! If we work together, we can achieve a lot."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Germany's Recycling Culture",
+      "text": "In Germany, recycling is taken very seriously, with a system called the 'Grüne Punkt' (Green Dot) that encourages consumers to recycle packaging. Many households separate their waste into different bins for paper, plastic, and organic waste.",
+      "funFact": "Germany has one of the highest recycling rates in the world, often exceeding 60%!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Understand and use vocabulary related to the environment and society.",
+        "Apply subordinate clauses with 'dass' and 'weil'.",
+        "Utilize the Konjunktiv II for polite requests and hypotheticals.",
+        "Engage in dialogues discussing environmental issues."
+      ],
+      "nextSteps": "Practice writing sentences using subordinate clauses and the Konjunktiv II. Try to incorporate vocabulary from this unit into your conversations."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'environmental protection'?",
+      "content": {
+        "options": [
+          "die Gesellschaft",
+          "der Umweltschutz",
+          "das Recycling"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'der Umweltschutz', which translates to 'environmental protection' in English.",
+      "hint": "Think about how we protect the environment.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'recycling' in German?",
+      "content": {
+        "options": [
+          "der Müll",
+          "das Recycling",
+          "die Natur"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Das Recycling' is the correct term for 'recycling' in German.",
+      "hint": "It's a similar word in both languages.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Wir müssen mehr für den ___ tun.'",
+      "content": {
+        "sentence": "Wir müssen mehr für den ___ tun.",
+        "correctAnswer": "Umweltschutz",
+        "acceptableAnswers": [
+          "Umweltschutz"
+        ],
+        "options": [
+          "Müll",
+          "Umweltschutz",
+          "Natur"
+        ]
+      },
+      "explanation": "The sentence means 'We need to do more for environmental protection.'",
+      "hint": "Think about what is important for our planet.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Die ___ verändert sich schnell durch den Klimawandel.'",
+      "content": {
+        "sentence": "Die ___ verändert sich schnell durch den Klimawandel.",
+        "correctAnswer": "Natur",
+        "acceptableAnswers": [
+          "Natur"
+        ],
+        "options": [
+          "Gesellschaft",
+          "Natur",
+          "Klimaveränderung"
+        ]
+      },
+      "explanation": "The blank should be filled with 'Natur', meaning 'nature'.",
+      "hint": "What do we see around us in the environment?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'Climate change is affecting society.'",
+      "content": {
+        "prompt": "Translate to German: 'Climate change is affecting society.'",
+        "correctAnswer": "Der Klimawandel beeinflusst die Gesellschaft.",
+        "acceptableAnswers": [
+          "Der Klimawandel wirkt sich auf die Gesellschaft aus."
+        ]
+      },
+      "explanation": "The translation captures the effect of climate change on society.",
+      "hint": "Think about how to express 'affecting' in German.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Der Müll ist ein großes Problem.'",
+      "content": {
+        "ttsText": "Der Müll ist ein großes Problem.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The waste is a big problem.",
+          "The nature is a big problem.",
+          "The climate is a big issue."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The German sentence translates directly to 'The waste is a big problem.'",
+      "hint": "Focus on the word for 'waste'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'We should protect the environment.'",
+      "content": {
+        "targetText": "Wir sollten die Umwelt schützen.",
+        "context": "Express your opinion about environmental protection.",
+        "acceptableVariants": [
+          "Wir müssen die Umwelt schützen.",
+          "Wir sollten den Umweltschutz fördern."
+        ]
+      },
+      "explanation": "This is a clear and direct way to state the importance of environmental protection.",
+      "hint": "Use the word 'Umwelt' for environment.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

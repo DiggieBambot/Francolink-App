@@ -1,0 +1,337 @@
+{
+  "lesson": {
+    "title": "Telling a Simple Story",
+    "type": "CONVERSATION",
+    "slug": "de-a2-telling-story"
+  },
+  "unit": "More on the Past",
+  "unitOrder": 2,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to tell a simple story in German using the past tense. You will practice vocabulary and phrases that will help you describe events and experiences.",
+      "culturalNote": "Storytelling is an important part of German culture, often shared during family gatherings or festivals. In many German-speaking regions, fairy tales and folk stories play a significant role in children's education."
+    },
+    "vocabulary": [
+      {
+        "term": "die Geschichte",
+        "translation": "the story",
+        "definition": "A narrative or tale.",
+        "pronunciation": "dee geh-SHIS-teh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe eine interessante Geschichte gelesen.",
+          "translation": "I read an interesting story."
+        },
+        "tip": "Remember, 'Geschichte' is feminine (die) and its plural form is 'die Geschichten'."
+      },
+      {
+        "term": "der Freund",
+        "translation": "the friend",
+        "definition": "A person with whom one has a bond of mutual affection.",
+        "pronunciation": "dehr froint",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Freund heißt Max.",
+          "translation": "My friend's name is Max."
+        },
+        "tip": "'Freund' is masculine (der) and the plural is 'die Freunde'."
+      },
+      {
+        "term": "die Reise",
+        "translation": "the trip",
+        "definition": "A journey from one place to another.",
+        "pronunciation": "dee RY-zeh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich mache eine Reise nach Deutschland.",
+          "translation": "I am taking a trip to Germany."
+        },
+        "tip": "'Reise' is feminine (die) and the plural form is 'die Reisen'."
+      },
+      {
+        "term": "das Abenteuer",
+        "translation": "the adventure",
+        "definition": "An unusual and exciting experience.",
+        "pronunciation": "dahs AH-ben-TOY-er",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Abenteuer war spannend.",
+          "translation": "The adventure was exciting."
+        },
+        "tip": "'Abenteuer' is neuter (das) and its plural is 'die Abenteuer'."
+      },
+      {
+        "term": "sehen",
+        "translation": "to see",
+        "definition": "To perceive with the eyes.",
+        "pronunciation": "ZAY-en",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich habe einen Film gesehen.",
+          "translation": "I saw a movie."
+        },
+        "tip": "The past participle is 'gesehen'."
+      },
+      {
+        "term": "finden",
+        "translation": "to find",
+        "definition": "To discover something.",
+        "pronunciation": "FIN-den",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich habe meinen Schlüssel gefunden.",
+          "translation": "I found my key."
+        },
+        "tip": "The past participle is 'gefunden'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Past Tense",
+        "explanation": "In German, there are two forms of the past tense: Perfekt and Präteritum. For A2 level, we focus on Perfekt, which uses 'haben' or 'sein' as auxiliary verbs along with the past participle. For example, 'Ich habe gegessen' (I have eaten) or 'Ich bin gegangen' (I have gone).",
+        "table": {
+          "headers": [
+            "Auxiliary Verb",
+            "Past Participle"
+          ],
+          "rows": [
+            [
+              "haben",
+              "gegessen"
+            ],
+            [
+              "sein",
+              "gegangen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich habe die Reise gemacht.",
+            "translation": "I made the trip.",
+            "breakdown": "Here, 'haben' is the auxiliary verb and 'gemacht' is the past participle of 'machen' (to make)."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'sein' with a verb that requires 'haben', e.g., 'Ich habe gefallen' instead of 'Ich bin gefallen'.",
+          "Confusing the past participle forms, e.g., 'gesehen' vs. 'sehen'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "A Day at the Park",
+      "context": "Two friends are talking about their day at the park.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Lukas! Wie war dein Tag?",
+          "translation": "Hello Lukas! How was your day?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Anna! Mein Tag war toll. Ich habe einen schönen Park besucht.",
+          "translation": "Hello Anna! My day was great. I visited a nice park."
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt interessant! Was hast du dort gemacht?",
+          "translation": "That sounds interesting! What did you do there?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich habe viele Fotos gemacht und einen Freund getroffen.",
+          "translation": "I took many photos and met a friend."
+        },
+        {
+          "speaker": 0,
+          "text": "Wie heißt dein Freund?",
+          "translation": "What is your friend's name?"
+        },
+        {
+          "speaker": 1,
+          "text": "Er heißt Felix. Wir haben zusammen ein Picknick gemacht.",
+          "translation": "His name is Felix. We had a picnic together."
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt nach einem Abenteuer!",
+          "translation": "That sounds like an adventure!"
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, es war sehr schön. Ich möchte morgen wieder gehen.",
+          "translation": "Yes, it was very nice. I want to go again tomorrow."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Storytelling in German Culture",
+      "text": "In German-speaking countries, storytelling is a cherished tradition, often passed down through generations. Fairy tales by the Brothers Grimm are particularly famous and continue to be popular in literature and film.",
+      "funFact": "Did you know that many of the original fairy tales were much darker than the versions we know today?"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned how to tell a story in the past tense using Perfekt.",
+        "Practiced vocabulary related to storytelling and everyday activities.",
+        "Engaged in a dialogue about a day at the park.",
+        "Familiarized with common past participles and auxiliary verbs."
+      ],
+      "nextSteps": "Practice telling your own simple story in German, using the vocabulary and grammar from this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'adventure'?",
+      "content": {
+        "options": [
+          "die Geschichte",
+          "das Abenteuer",
+          "der Freund",
+          "die Reise"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'das Abenteuer', which means 'adventure' in German.",
+      "hint": "Look for the word that starts with 'A'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence means 'I saw my friend' in German?",
+      "content": {
+        "options": [
+          "Ich sehe meinen Freund",
+          "Ich sah meinen Freund",
+          "Ich finde meinen Freund",
+          "Ich reise mit meinem Freund"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct sentence is 'Ich sah meinen Freund', which is the past form of 'see'.",
+      "hint": "Look for the past tense form of 'see'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Wir hatten ein _______ auf der Reise.'",
+      "content": {
+        "sentence": "Wir hatten ein _______ auf der Reise.",
+        "correctAnswer": "Abenteuer",
+        "acceptableAnswers": [
+          "Abenteuer"
+        ],
+        "options": [
+          "Abenteuer",
+          "Freund",
+          "Geschichte"
+        ]
+      },
+      "explanation": "The correct word is 'Abenteuer', meaning 'adventure'.",
+      "hint": "Think about what can happen during a trip.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Ich ______ meinen alten Freund.'",
+      "content": {
+        "sentence": "Ich ______ meinen alten Freund.",
+        "correctAnswer": "fand",
+        "acceptableAnswers": [
+          "fand",
+          "finde"
+        ],
+        "options": [
+          "fand",
+          "finde",
+          "sehe"
+        ]
+      },
+      "explanation": "'fand' is the past tense of 'finden' (to find), making it the correct answer here.",
+      "hint": "Think about the past tense of 'find'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'freund / sah / ich / meinen / gestern'.",
+      "content": {
+        "words": [
+          "freund",
+          "sah",
+          "ich",
+          "meinen",
+          "gestern"
+        ],
+        "correctOrder": [
+          "ich",
+          "sah",
+          "meinen",
+          "freund",
+          "gestern"
+        ],
+        "translation": "I saw my friend yesterday."
+      },
+      "explanation": "The correct order forms a grammatically correct sentence in German.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The story is interesting.'",
+      "content": {
+        "prompt": "Translate to German: 'The story is interesting.'",
+        "correctAnswer": "Die Geschichte ist interessant.",
+        "acceptableAnswers": [
+          "Die Geschichte ist interessant."
+        ]
+      },
+      "explanation": "The correct translation captures both the subject and the adjective accurately.",
+      "hint": "Remember to use the correct article for 'story'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Ich fand ein Abenteuer auf meiner Reise.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I found an adventure on my trip.",
+          "I saw an adventure on my trip.",
+          "I had an adventure on my trip."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation corresponds to the listened sentence in German.",
+      "hint": "Listen for the word 'fand'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I had a great adventure.'",
+      "content": {
+        "targetText": "Ich hatte ein tolles Abenteuer.",
+        "context": "Translate and say the English sentence in German.",
+        "acceptableVariants": [
+          "Ich hatte ein tolles Abenteuer."
+        ]
+      },
+      "explanation": "This translation conveys both the meaning and the correct tense.",
+      "hint": "Use the past tense for 'had'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

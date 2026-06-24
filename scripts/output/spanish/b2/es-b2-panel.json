@@ -1,0 +1,309 @@
+{
+  "lesson": {
+    "title": "Panel Discussion Simulation",
+    "type": "CONVERSATION",
+    "slug": "es-b2-panel"
+  },
+  "unit": "Global Issues & Mastery",
+  "unitOrder": 8,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will participate in a simulated panel discussion on global issues, enhancing your conversational skills in Spanish. You'll learn specific vocabulary and grammar structures that will help you articulate your opinions and engage in nuanced discussions.",
+      "culturalNote": "Panel discussions are a common format in many Latin American conferences, particularly in the fields of politics and social issues, reflecting the region's emphasis on discourse and debate."
+    },
+    "vocabulary": [
+      {
+        "term": "el problema global",
+        "translation": "the global issue",
+        "definition": "a significant challenge that affects multiple countries or populations",
+        "pronunciation": "el pro-ble-ma glo-bal",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El cambio climático es un problema global urgente.",
+          "translation": "Climate change is an urgent global issue."
+        },
+        "tip": "Think of 'problem' in English; many global issues are seen as problems that need solutions."
+      },
+      {
+        "term": "la opinión",
+        "translation": "the opinion",
+        "definition": "a personal belief or judgment about something",
+        "pronunciation": "la o-pi-nión",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es importante escuchar diferentes opiniones sobre el tema.",
+          "translation": "It is important to listen to different opinions on the topic."
+        },
+        "tip": "Remember the word 'opinion' in English; they share the same root."
+      },
+      {
+        "term": "fomentar",
+        "translation": "to promote",
+        "definition": "to encourage or support the development of something",
+        "pronunciation": "fo-men-tar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Debemos fomentar el diálogo entre las naciones.",
+          "translation": "We must promote dialogue among nations."
+        },
+        "tip": "Think of 'foment' as in to foster growth; they have similar connotations."
+      },
+      {
+        "term": "la solución",
+        "translation": "the solution",
+        "definition": "a means of solving a problem or dealing with a difficult situation",
+        "pronunciation": "la so-lu-ción",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Encontrar una solución es crucial para el futuro.",
+          "translation": "Finding a solution is crucial for the future."
+        },
+        "tip": "Relate it to 'solution' in English, as both refer to finding answers."
+      },
+      {
+        "term": "la sostenibilidad",
+        "translation": "sustainability",
+        "definition": "the ability to maintain or support an activity over the long term",
+        "pronunciation": "la so-ste-ni-bi-li-dad",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La sostenibilidad es esencial para el desarrollo económico.",
+          "translation": "Sustainability is essential for economic development."
+        },
+        "tip": "Think of 'sustainable' in English; both terms emphasize long-term viability."
+      },
+      {
+        "term": "la responsabilidad",
+        "translation": "the responsibility",
+        "definition": "the state or fact of having a duty to deal with something",
+        "pronunciation": "la res-pon-sa-bi-li-dad",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Todos tenemos la responsabilidad de cuidar el medio ambiente.",
+          "translation": "We all have the responsibility to take care of the environment."
+        },
+        "tip": "Remember that 'responsibility' in English is closely related to this term."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subjunctive Mood in Expressing Opinions",
+        "explanation": "In Spanish, the subjunctive mood is often used to express desires, doubts, or opinions. When discussing global issues, using the subjunctive can add nuance to your statements. For example, you might say, 'Es importante que se tomen medidas' (It is important that measures be taken). Notice how the verb changes to express necessity or urgency.",
+        "table": {
+          "headers": [
+            "Indicative",
+            "Subjunctive"
+          ],
+          "rows": [
+            [
+              "toman (they take)",
+              "tomen (they take)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Espero que se fomente el diálogo.",
+            "translation": "I hope that dialogue is promoted.",
+            "breakdown": "Here, 'fomente' is in the subjunctive because it expresses a hope or desire."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: 'Es cierto que se toman decisiones' should be 'Es cierto que se tomen decisiones.'",
+          "Confusing the forms: Remember that verbs in the subjunctive often change endings from -ar to -e and -er/-ir to -a."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Panel Discussion on Climate Change",
+      "context": "A university seminar where students discuss global issues.",
+      "speakers": [
+        "Ana (Moderator)",
+        "Luis (Environmental Activist)"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Bienvenidos a nuestra discusión sobre el cambio climático.",
+          "translation": "Welcome to our discussion on climate change."
+        },
+        {
+          "speaker": 1,
+          "text": "Gracias, Ana. Es un tema que nos afecta a todos.",
+          "translation": "Thank you, Ana. It is a topic that affects us all."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué opinas sobre las medidas que se están tomando actualmente?",
+          "translation": "What do you think about the measures being taken currently?"
+        },
+        {
+          "speaker": 1,
+          "text": "Creo que son insuficientes. Necesitamos acciones más efectivas.",
+          "translation": "I believe they are insufficient. We need more effective actions."
+        },
+        {
+          "speaker": 0,
+          "text": "Es interesante tu punto. ¿Cómo podemos fomentar un cambio real?",
+          "translation": "Your point is interesting. How can we promote real change?"
+        },
+        {
+          "speaker": 1,
+          "text": "Es crucial que todos participemos y exijamos políticas sostenibles.",
+          "translation": "It is crucial that we all participate and demand sustainable policies."
+        },
+        {
+          "speaker": 0,
+          "text": "Exactamente, la responsabilidad recae en cada uno de nosotros.",
+          "translation": "Exactly, the responsibility falls on each one of us."
+        },
+        {
+          "speaker": 1,
+          "text": "Por eso, es necesario que la educación sobre el medio ambiente sea una prioridad.",
+          "translation": "That’s why it is necessary for education about the environment to be a priority."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Panel Discussions in Latin America",
+      "text": "In many Latin American countries, panel discussions serve as a platform for various voices to be heard, especially in matters of social justice and environmental issues. This format encourages active participation and critical dialogue among diverse groups.",
+      "funFact": "In Mexico, it's common for universities to hold annual conferences featuring panels made up of students, professors, and industry leaders to discuss pressing global issues."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding and using vocabulary related to global issues.",
+        "Applying the subjunctive mood to express opinions and desires.",
+        "Engaging in a panel discussion format to articulate thoughts.",
+        "Recognizing cultural practices surrounding discussions in Spanish-speaking countries."
+      ],
+      "nextSteps": "Practice using the vocabulary in different contexts and try to create your own dialogue about another global issue using the subjunctive mood."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the meaning of 'el problema global'?",
+      "content": {
+        "options": [
+          "The local issue",
+          "The global problem",
+          "The national solution",
+          "The environmental opinion"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El problema global' translates to 'the global problem' in English.",
+      "hint": "Think about the scale of the issue.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'sustainability' in Spanish?",
+      "content": {
+        "options": [
+          "la sostenibilidad",
+          "la solución",
+          "la responsabilidad",
+          "la opinión"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Sustainability' is translated as 'la sostenibilidad' in Spanish.",
+      "hint": "It's related to environmental practices.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Es nuestra _______ cuidar del medio ambiente.'",
+      "content": {
+        "sentence": "Es nuestra ___ cuidar del medio ambiente.",
+        "correctAnswer": "responsabilidad",
+        "acceptableAnswers": [
+          "responsabilidad"
+        ],
+        "options": [
+          "opinion",
+          "solución",
+          "responsabilidad",
+          "fomentar"
+        ]
+      },
+      "explanation": "The correct word is 'responsabilidad', meaning 'responsibility'.",
+      "hint": "Think about who should take care of the environment.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Para ______ el cambio climático, necesitamos actuar ahora.'",
+      "content": {
+        "sentence": "Para ___ el cambio climático, necesitamos actuar ahora.",
+        "correctAnswer": "fomentar",
+        "acceptableAnswers": [
+          "fomentar"
+        ],
+        "options": [
+          "solucionar",
+          "fomentar",
+          "opinar",
+          "responsabilizar"
+        ]
+      },
+      "explanation": "'Fomentar' means 'to promote' or 'to encourage', essential for addressing climate change.",
+      "hint": "Consider what actions lead to change.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'We must find a solution to global problems.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'We must find a solution to global problems.'",
+        "correctAnswer": "Debemos encontrar una solución a los problemas globales.",
+        "acceptableAnswers": [
+          "Debemos encontrar una solución a los problemas globales."
+        ]
+      },
+      "explanation": "This translation captures the meaning and structure of the original sentence.",
+      "hint": "Look for the words for 'we must' and 'find'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation: 'Es importante fomentar la sostenibilidad.'",
+      "content": {
+        "ttsText": "Es importante fomentar la sostenibilidad.",
+        "ttsLang": "es-ES",
+        "options": [
+          "It is important to promote sustainability.",
+          "It is important to solve sustainability.",
+          "It is important to find sustainability."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation reflects the importance of promoting sustainability.",
+      "hint": "Focus on the word 'importante'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'I think that global responsibility is essential.'",
+      "content": {
+        "targetText": "Creo que la responsabilidad global es esencial.",
+        "context": "Express your opinion about global responsibility.",
+        "acceptableVariants": [
+          "Pienso que la responsabilidad global es esencial."
+        ]
+      },
+      "explanation": "This sentence expresses a clear opinion about global issues.",
+      "hint": "Use 'creo que' for 'I think that'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

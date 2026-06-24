@@ -1,0 +1,320 @@
+{
+  "lesson": {
+    "title": "My Last Weekend",
+    "type": "CONVERSATION",
+    "slug": "de-a2-last-weekend"
+  },
+  "unit": "Talking About the Past",
+  "unitOrder": 1,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to describe your last weekend in German using the Perfekt tense. You will practice vocabulary related to activities and create a simple conversation about past events.",
+      "culturalNote": "In Germany, weekends are often spent relaxing or engaging in recreational activities with family and friends, reflecting the work-life balance valued in German culture."
+    },
+    "vocabulary": [
+      {
+        "term": "das Wochenende",
+        "translation": "the weekend",
+        "definition": "The two days at the end of the week.",
+        "pronunciation": "das VOH-chen-eh-deh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Am Wochenende gehe ich oft spazieren.",
+          "translation": "On the weekend, I often go for a walk."
+        },
+        "tip": "Remember, 'Wochenende' is neuter: das Wochenende."
+      },
+      {
+        "term": "die Freunde",
+        "translation": "the friends",
+        "definition": "People you spend time with and enjoy being around.",
+        "pronunciation": "dee FROYN-duh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich treffe meine Freunde am Samstag.",
+          "translation": "I meet my friends on Saturday."
+        },
+        "tip": "The plural of 'der Freund' (friend) is 'die Freunde'."
+      },
+      {
+        "term": "der Film",
+        "translation": "the movie",
+        "definition": "A motion picture or film.",
+        "pronunciation": "dehr FILM",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wir haben einen tollen Film gesehen.",
+          "translation": "We watched a great movie."
+        },
+        "tip": "Remember, 'Film' is masculine: der Film."
+      },
+      {
+        "term": "das Essen",
+        "translation": "the food",
+        "definition": "Anything that is eaten.",
+        "pronunciation": "das ESS-en",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Essen war sehr lecker.",
+          "translation": "The food was very delicious."
+        },
+        "tip": "'Essen' is neuter: das Essen."
+      },
+      {
+        "term": "spielen",
+        "translation": "to play",
+        "definition": "To engage in a game or activity.",
+        "pronunciation": "SPEE-len",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Die Kinder spielen im Park.",
+          "translation": "The children are playing in the park."
+        },
+        "tip": "This is a regular verb; it follows standard conjugation rules."
+      },
+      {
+        "term": "gehen",
+        "translation": "to go",
+        "definition": "To move from one place to another.",
+        "pronunciation": "GEH-en",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich gehe am Sonntag schwimmen.",
+          "translation": "I go swimming on Sunday."
+        },
+        "tip": "This is an irregular verb; watch out for its conjugation in the past tense."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Talking About the Past (Perfekt)",
+        "explanation": "In German, the Perfekt tense is commonly used to talk about past events. It consists of a form of 'haben' or 'sein' and the past participle of the main verb. For example, 'Ich habe gespielt' means 'I played.' 'Sein' is used with verbs of motion, like 'gehen' (to go).",
+        "table": {
+          "headers": [
+            "Pronoun",
+            "Perfekt Example"
+          ],
+          "rows": [
+            [
+              "Ich",
+              "Ich habe gespielt."
+            ],
+            [
+              "Du",
+              "Du hast gegessen."
+            ],
+            [
+              "Er/Sie/Es",
+              "Er hat einen Film gesehen."
+            ],
+            [
+              "Wir",
+              "Wir sind gegangen."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wir haben am Wochenende einen Film gesehen.",
+            "translation": "We watched a movie on the weekend.",
+            "breakdown": "Subject (Wir) + auxiliary verb (haben) + past participle (gesehen)."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'sein' instead of 'haben' with non-motion verbs. Correction: Use 'haben' for most verbs.",
+          "Forgetting the past participle. Correction: Always remember to form the past participle correctly."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking About My Last Weekend",
+      "context": "Two friends, Anna and Lukas, are discussing their weekends over coffee.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Lukas! Wie war dein Wochenende?",
+          "translation": "Hello Lukas! How was your weekend?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Anna! Es war sehr schön. Ich habe einen Film gesehen.",
+          "translation": "Hello Anna! It was very nice. I watched a movie."
+        },
+        {
+          "speaker": 0,
+          "text": "Welchen Film hast du gesehen?",
+          "translation": "Which movie did you watch?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich habe 'Die Unendliche Geschichte' gesehen.",
+          "translation": "I watched 'The NeverEnding Story'."
+        },
+        {
+          "speaker": 0,
+          "text": "Toll! Ich liebe diesen Film. Was hast du noch gemacht?",
+          "translation": "Great! I love that movie. What else did you do?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich habe mit meinen Freunden gegessen und wir sind spazieren gegangen.",
+          "translation": "I ate with my friends and we went for a walk."
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt nach Spaß! Ich habe am Sonntag geschlafen.",
+          "translation": "That sounds fun! I slept on Sunday."
+        },
+        {
+          "speaker": 1,
+          "text": "Manchmal muss man einfach entspannen.",
+          "translation": "Sometimes you just have to relax."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Weekend Traditions in Germany",
+      "text": "In Germany, many people enjoy outdoor activities on weekends, such as hiking or cycling. It's common to have family gatherings or barbecues, especially during the summer.",
+      "funFact": "In some regions, shops are closed on Sundays, which encourages families to spend time together."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to weekend activities.",
+        "Practiced using the Perfekt tense for past events.",
+        "Engaged in a dialogue about personal experiences.",
+        "Gained insights into German weekend culture."
+      ],
+      "nextSteps": "Practice describing your own weekend using the new vocabulary and grammar. Try writing a short paragraph about what you did."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What did you do last weekend?",
+      "content": {
+        "options": [
+          "I watched a movie.",
+          "I go to the park.",
+          "I play football."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer describes an action completed in the past.",
+      "hint": "Think about what you did last weekend.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Who did you spend time with last weekend?",
+      "content": {
+        "options": [
+          "my family",
+          "my friends",
+          "my dog"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "Spending time with friends is common during weekends.",
+      "hint": "Consider who you usually hang out with.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "I ___ a great movie last weekend.",
+      "content": {
+        "sentence": "Ich ___ einen tollen Film am Wochenende gesehen.",
+        "correctAnswer": "habe",
+        "acceptableAnswers": [
+          "habe",
+          "sah"
+        ],
+        "options": [
+          "sah",
+          "habe",
+          "gehe"
+        ]
+      },
+      "explanation": "The correct auxiliary verb is 'habe' for past perfect.",
+      "hint": "It’s a helping verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "We ___ delicious food at the restaurant.",
+      "content": {
+        "sentence": "Wir ___ leckeres Essen im Restaurant.",
+        "correctAnswer": "aßen",
+        "acceptableAnswers": [
+          "aßen",
+          "haben gegessen"
+        ],
+        "options": [
+          "essen",
+          "aßen",
+          "gehe"
+        ]
+      },
+      "explanation": "The past tense of 'essen' is 'aßen'.",
+      "hint": "Think about the past tense of eating.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I played games with my friends last weekend.'",
+      "content": {
+        "prompt": "Translate to German: 'I played games with my friends last weekend.'",
+        "correctAnswer": "Ich habe am Wochenende mit meinen Freunden gespielt.",
+        "acceptableAnswers": []
+      },
+      "explanation": "This sentence uses the past perfect to describe a completed action.",
+      "hint": "Remember to use the right verb tense.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Ich habe am Wochenende einen Film gesehen.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I watched a movie on the weekend.",
+          "I go to the movies on weekends.",
+          "I play games on the weekend."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The spoken sentence indicates watching a movie over the weekend.",
+      "hint": "Focus on the key words 'Film' and 'Wochenende'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say a sentence about what you did last weekend.",
+      "content": {
+        "targetText": "Ich habe letzten Samstag mit Freunden gespielt.",
+        "context": "Describe your last weekend.",
+        "acceptableVariants": [
+          "Ich habe am Wochenende gespielt.",
+          "Ich war mit Freunden am Wochenende."
+        ]
+      },
+      "explanation": "This exercise encourages speaking about personal experiences.",
+      "hint": "Use the past tense.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

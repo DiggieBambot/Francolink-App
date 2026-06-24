@@ -1,0 +1,351 @@
+{
+  "lesson": {
+    "title": "Unit 2 Review",
+    "type": "REVIEW",
+    "slug": "de-b2-unit2-review"
+  },
+  "unit": "Persuasion & Argument",
+  "unitOrder": 2,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this unit review, you will consolidate your understanding of persuasion and argumentation in German. You will practice vocabulary, review key grammar points, and engage in a dialogue that utilizes the concepts learned throughout the unit.",
+      "culturalNote": "In Germany, persuasive communication is highly valued in both personal and professional contexts. Debates and discussions are common in educational settings."
+    },
+    "vocabulary": [
+      {
+        "term": "das Argument",
+        "translation": "the argument",
+        "definition": "A reason or set of reasons given to persuade others.",
+        "pronunciation": "ah-goo-ment",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Sein Argument war sehr überzeugend.",
+          "translation": "His argument was very convincing."
+        },
+        "tip": "Remember that 'das Argument' is neuter; the plural is 'die Argumente'."
+      },
+      {
+        "term": "überzeugen",
+        "translation": "to convince",
+        "definition": "To make someone believe that something is true.",
+        "pronunciation": "oo-behr-tsoy-gen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich hoffe, ich kann dich überzeugen.",
+          "translation": "I hope I can convince you."
+        },
+        "tip": "'Überzeugen' is a regular verb; be mindful of its conjugation in different tenses."
+      },
+      {
+        "term": "die Meinung",
+        "translation": "the opinion",
+        "definition": "A personal belief or judgment.",
+        "pronunciation": "mee-nung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Sie hat eine interessante Meinung zu diesem Thema.",
+          "translation": "She has an interesting opinion on this topic."
+        },
+        "tip": "The noun 'die Meinung' is feminine, and the plural form is 'die Meinungen'."
+      },
+      {
+        "term": "das Beispiel",
+        "translation": "the example",
+        "definition": "A representative form or illustration of a concept.",
+        "pronunciation": "baysh-peel",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ein gutes Beispiel macht die Argumentation klarer.",
+          "translation": "A good example makes the argument clearer."
+        },
+        "tip": "'Das Beispiel' is neuter; the plural is 'die Beispiele'."
+      },
+      {
+        "term": "die Diskussion",
+        "translation": "the discussion",
+        "definition": "An exchange of ideas or arguments.",
+        "pronunciation": "dis-ku-syon",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Diskussion war sehr lebhaft.",
+          "translation": "The discussion was very lively."
+        },
+        "tip": "Remember 'die Diskussion' is feminine, with the plural 'die Diskussionen'."
+      },
+      {
+        "term": "sich auswirken auf",
+        "translation": "to affect",
+        "definition": "To have an effect on something.",
+        "pronunciation": "zikh owss-veer-ken owf",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Diese Entscheidung wird sich auf unsere Zukunft auswirken.",
+          "translation": "This decision will affect our future."
+        },
+        "tip": "This phrase is often used in discussions about consequences."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Konjunktiv II for Hypothetical Situations",
+        "explanation": "The Konjunktiv II is used to express hypothetical situations or wishes. It often includes phrases that start with 'Wenn' (if) or 'Hätte' (would have). This mood is essential for persuasive arguments, as it allows speakers to discuss possibilities.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Konjunktiv II"
+          ],
+          "rows": [
+            [
+              "haben",
+              "hätte"
+            ],
+            [
+              "sein",
+              "wäre"
+            ],
+            [
+              "gehen",
+              "ginge"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich mehr Zeit hätte, würde ich mehr lernen.",
+            "translation": "If I had more time, I would study more.",
+            "breakdown": "This sentence shows a hypothetical condition using 'hätte' (would have) and 'würde' (would)."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the Konjunktiv II for hypothetical situations: 'Wenn ich mehr Zeit habe' (correct: 'hätte').",
+          "Confusing 'würde' with the subjunctive form: 'Ich würde gehen' (not 'Ich gehe')."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "A Discussion about Sustainability",
+      "context": "At a university café, two students are discussing their opinions on sustainability practices.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Was hältst du von den aktuellen Maßnahmen zur Nachhaltigkeit?",
+          "translation": "What do you think of the current measures for sustainability?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich finde, dass sie nicht genug sind.",
+          "translation": "I think that they are not enough.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das sehe ich auch so. Man müsste viel mehr tun.",
+          "translation": "I see it that way too. Much more needs to be done.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Genau. Wenn wir die Umwelt schützen wollen, sollten wir unsere Gewohnheiten ändern.",
+          "translation": "Exactly. If we want to protect the environment, we should change our habits.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich stimme dir zu. Hast du Vorschläge, was wir konkret machen könnten?",
+          "translation": "I agree with you. Do you have suggestions on what we could do specifically?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Vielleicht könnten wir weniger Plastik verwenden.",
+          "translation": "Maybe we could use less plastic.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist ein guter Punkt. Man könnte auch mehr regionale Produkte kaufen.",
+          "translation": "That's a good point. One could also buy more regional products.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, und wir sollten andere Leute auch davon überzeugen.",
+          "translation": "Yes, and we should also convince others of it.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Persuasion in German Culture",
+      "text": "In German-speaking countries, the art of persuasion is often linked to thorough research and well-structured arguments. Public debates are common in academia and politics, highlighting the importance of logical reasoning.",
+      "funFact": "Germany hosts an annual event called 'Debattiermeisterschaft', where students compete in formal debating competitions."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding and using persuasive vocabulary is crucial for discussions.",
+        "The Konjunktiv II allows for nuanced expressions of hypotheticals.",
+        "Engaging in dialogues enhances fluency and comprehension.",
+        "Cultural aspects influence how arguments are presented and received."
+      ],
+      "nextSteps": "Practice writing your own persuasive arguments and engage in discussions with peers to reinforce your skills."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'argument'?",
+      "content": {
+        "options": [
+          "das Beispiel",
+          "das Argument",
+          "die Diskussion",
+          "die Meinung"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct translation for 'argument' is 'das Argument'.",
+      "hint": "It starts with 'A'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'to convince' in German?",
+      "content": {
+        "options": [
+          "überzeugen",
+          "diskutieren",
+          "auswirken",
+          "meinung"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Überzeugen' translates to 'to convince' in English.",
+      "hint": "It starts with 'ü'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the correct form: 'Das ist ein gutes ___ für meine Argumentation.'",
+      "content": {
+        "sentence": "Das ist ein gutes ___ für meine Argumentation.",
+        "correctAnswer": "Beispiel",
+        "acceptableAnswers": [
+          "Beispiel"
+        ],
+        "options": [
+          "Argument",
+          "Beispiel",
+          "Meinung",
+          "Diskussion"
+        ]
+      },
+      "explanation": "'Beispiel' means 'example' and fits correctly in the sentence.",
+      "hint": "It’s something you give to illustrate your point.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Die Diskussion hat sich negativ ___ die Entscheidung ausgewirkt.'",
+      "content": {
+        "sentence": "Die Diskussion hat sich negativ ___ die Entscheidung ausgewirkt.",
+        "correctAnswer": "auf",
+        "acceptableAnswers": [
+          "auf"
+        ],
+        "options": [
+          "über",
+          "auf",
+          "an",
+          "mit"
+        ]
+      },
+      "explanation": "The verb 'auswirken' is followed by 'auf' in German.",
+      "hint": "Think about how something affects something else.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct German sentence: 'überzeugen müssen wir die Meinung.'",
+      "content": {
+        "words": [
+          "die",
+          "Meinung",
+          "überzeugen",
+          "müssen",
+          "wir"
+        ],
+        "correctOrder": [
+          "wir",
+          "müssen",
+          "die",
+          "Meinung",
+          "überzeugen"
+        ],
+        "translation": "We must convince the opinion."
+      },
+      "explanation": "The correct order is necessary to form a grammatically correct sentence.",
+      "hint": "Start with the subject.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I want to convince you with my argument.'",
+      "content": {
+        "prompt": "Translate to German: 'I want to convince you with my argument.'",
+        "correctAnswer": "Ich will dich mit meinem Argument überzeugen.",
+        "acceptableAnswers": [
+          "Ich möchte dich mit meinem Argument überzeugen."
+        ]
+      },
+      "explanation": "The translation captures the meaning precisely.",
+      "hint": "Focus on the verbs and pronouns.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and identify the sentence: 'Die Diskussion war sehr interessant.'",
+      "content": {
+        "ttsText": "Die Diskussion war sehr interessant.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The discussion was very interesting.",
+          "The argument was very strong.",
+          "I want to convince you.",
+          "This is a good example."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence you listened to translates to 'The discussion was very interesting.'",
+      "hint": "Listen for the word 'Diskussion'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in German: 'I have a strong opinion about this matter.'",
+      "content": {
+        "targetText": "Ich habe eine starke Meinung zu diesem Thema.",
+        "context": "Translate this sentence into German.",
+        "acceptableVariants": [
+          "Ich habe eine starke Meinung über dieses Thema."
+        ]
+      },
+      "explanation": "This is how you express having an opinion in German.",
+      "hint": "Remember the article for 'Meinung'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

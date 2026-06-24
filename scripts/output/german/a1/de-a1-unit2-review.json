@@ -1,0 +1,399 @@
+{
+  "lesson": {
+    "title": "Unit 2 Review",
+    "type": "REVIEW",
+    "slug": "de-a1-unit2-review"
+  },
+  "unit": "Articles & Genders",
+  "unitOrder": 2,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will review articles and genders in German. You will practice basic vocabulary and sentences using nouns and modal verbs. This will help reinforce your understanding of the nominative case and introduce you to the accusative case.",
+      "culturalNote": "In German, every noun has a gender (masculine, feminine, or neuter), which can be surprising for English speakers. This system is essential for correct article usage."
+    },
+    "vocabulary": [
+      {
+        "term": "der Tisch",
+        "translation": "the table",
+        "definition": "A piece of furniture with a flat top supported by legs.",
+        "pronunciation": "dehr tish",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Tisch ist groß.",
+          "translation": "The table is big."
+        },
+        "tip": "Remember, 'der' indicates that 'Tisch' is masculine."
+      },
+      {
+        "term": "die Lampe",
+        "translation": "the lamp",
+        "definition": "A device that produces light.",
+        "pronunciation": "dee lahm-peh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Lampe ist neu.",
+          "translation": "The lamp is new."
+        },
+        "tip": "'Die' shows that 'Lampe' is feminine."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A set of written or printed pages bound together.",
+        "pronunciation": "dahs boohk",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Buch ist interessant.",
+          "translation": "The book is interesting."
+        },
+        "tip": "'Das' means 'book' is neuter."
+      },
+      {
+        "term": "können",
+        "translation": "can",
+        "definition": "A modal verb used to express ability.",
+        "pronunciation": "kuh-nuhn",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich kann Deutsch sprechen.",
+          "translation": "I can speak German."
+        },
+        "tip": "Use 'können' to say what you are able to do."
+      },
+      {
+        "term": "möchten",
+        "translation": "would like",
+        "definition": "A modal verb used to express desire.",
+        "pronunciation": "muhkht-uhn",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich möchte ein Bier.",
+          "translation": "I would like a beer."
+        },
+        "tip": "Use 'möchten' to express what you want or wish for."
+      },
+      {
+        "term": "der Stuhl",
+        "translation": "the chair",
+        "definition": "A piece of furniture designed for sitting.",
+        "pronunciation": "dehr shtool",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Stuhl ist bequem.",
+          "translation": "The chair is comfortable."
+        },
+        "tip": "'Stuhl' is masculine, so remember 'der'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Articles and Genders",
+        "explanation": "In German, every noun has a gender: der (masculine), die (feminine), or das (neuter). The article must agree with the noun in gender. Plural nouns always use 'die'. Understanding this is crucial for correct sentence structure.",
+        "table": {
+          "headers": [
+            "Gender",
+            "Article"
+          ],
+          "rows": [
+            [
+              "Masculine",
+              "der"
+            ],
+            [
+              "Feminine",
+              "die"
+            ],
+            [
+              "Neuter",
+              "das"
+            ],
+            [
+              "Plural",
+              "die"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich sehe den Tisch.",
+            "translation": "I see the table.",
+            "breakdown": "'den' is the accusative form of 'der' for masculine nouns."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'der' and 'die': Remember 'der' is for masculine and 'die' is for feminine nouns.",
+          "Using 'das' with plural nouns: Always use 'die' for plurals."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Café",
+      "context": "Two friends meet at a café to chat and order drinks.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Lukas, wie geht's?",
+          "translation": "Hello Lukas, how are you?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Anna, mir geht's gut! Und dir?",
+          "translation": "Hello Anna, I am good! And you?"
+        },
+        {
+          "speaker": 0,
+          "text": "Mir geht's auch gut. Möchtest du etwas trinken?",
+          "translation": "I am good too. Would you like something to drink?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich möchte einen Kaffee.",
+          "translation": "Yes, I would like a coffee."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich möchte ein Wasser.",
+          "translation": "I would like a water."
+        },
+        {
+          "speaker": 1,
+          "text": "Gut! Der Kaffee ist lecker.",
+          "translation": "Good! The coffee is tasty."
+        },
+        {
+          "speaker": 0,
+          "text": "Das Wasser ist frisch.",
+          "translation": "The water is fresh."
+        },
+        {
+          "speaker": 1,
+          "text": "Hast du das Buch gelesen?",
+          "translation": "Have you read the book?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, das Buch ist spannend.",
+          "translation": "Yes, the book is exciting."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich kann es dir leihen.",
+          "translation": "I can lend it to you."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Café Culture in Germany",
+      "text": "Cafés are popular social spots in Germany, where people often meet with friends or family. It's common to enjoy a coffee and a piece of cake while chatting.",
+      "funFact": "Germany has a special cake called 'Kuchen', which is often enjoyed with coffee during the afternoon."
+    },
+    "summary": {
+      "keyPoints": [
+        "German nouns have three genders: masculine, feminine, and neuter.",
+        "Articles must match the gender of the noun.",
+        "Modal verbs help express ability and desire.",
+        "Practice using articles in sentences."
+      ],
+      "nextSteps": "Continue practicing vocabulary with articles and try forming sentences with modal verbs."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct article for 'Tisch'?",
+      "content": {
+        "options": [
+          "der",
+          "die",
+          "das"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Tisch' is a masculine noun in German, which takes the article 'der'.",
+      "hint": "Remember the gender of the noun.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'the lamp'?",
+      "content": {
+        "options": [
+          "der Stuhl",
+          "die Lampe",
+          "das Buch"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Die Lampe' is the correct translation for 'the lamp' in German.",
+      "hint": "Pay attention to the gender of the noun.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich ___ ein Buch.'",
+      "content": {
+        "sentence": "Ich ___ ein Buch.",
+        "correctAnswer": "habe",
+        "acceptableAnswers": [
+          "habe"
+        ],
+        "options": [
+          "habe",
+          "möchte"
+        ]
+      },
+      "explanation": "The correct verb is 'habe', meaning 'have'.",
+      "hint": "Think about possession.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the correct article: '___ Stuhl ist neu.'",
+      "content": {
+        "sentence": "___ Stuhl ist neu.",
+        "correctAnswer": "Der",
+        "acceptableAnswers": [
+          "der"
+        ],
+        "options": [
+          "Der",
+          "Die",
+          "Das"
+        ]
+      },
+      "explanation": "'Stuhl' is a masculine noun, thus it takes the article 'der'.",
+      "hint": "Consider the gender of the noun.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: 'möchte', 'ich', 'eine', 'Lampe'.",
+      "content": {
+        "words": [
+          "möchte",
+          "ich",
+          "eine",
+          "Lampe"
+        ],
+        "correctOrder": [
+          "ich",
+          "möchte",
+          "eine",
+          "Lampe"
+        ],
+        "translation": "I would like a lamp."
+      },
+      "explanation": "The correct order conveys the meaning clearly in German.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I want a chair.'",
+      "content": {
+        "prompt": "Translate to German: 'I want a chair.'",
+        "correctAnswer": "Ich möchte einen Stuhl.",
+        "acceptableAnswers": [
+          "Ich möchte einen Stuhl"
+        ]
+      },
+      "explanation": "'I want a chair.' translates to 'Ich möchte einen Stuhl.' in German.",
+      "hint": "Remember the article for 'Stuhl'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and identify the noun: 'Die Lampe ist schön.'",
+      "content": {
+        "ttsText": "Die Lampe ist schön.",
+        "ttsLang": "de-DE",
+        "options": [
+          "der Tisch",
+          "die Lampe",
+          "das Buch"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The sentence mentions 'die Lampe', which is the correct answer.",
+      "hint": "Listen for the word that refers to a light source.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in German: 'The table is big.'",
+      "content": {
+        "targetText": "Der Tisch ist groß.",
+        "context": "Translate and say this sentence in German.",
+        "acceptableVariants": [
+          "Der Tisch ist groß"
+        ]
+      },
+      "explanation": "The sentence correctly describes the size of the table.",
+      "hint": "Remember the article for 'Tisch'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich ___ nicht wissen.'",
+      "content": {
+        "sentence": "Ich ___ nicht wissen.",
+        "correctAnswer": "kann",
+        "acceptableAnswers": [
+          "kann"
+        ],
+        "options": [
+          "kann",
+          "möchte"
+        ]
+      },
+      "explanation": "'Kann' means 'can' in English, which fits in this context.",
+      "hint": "Think about ability.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of these means 'the book'?",
+      "content": {
+        "options": [
+          "der Tisch",
+          "die Lampe",
+          "das Buch"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Das Buch' is the correct translation for 'the book' in German.",
+      "hint": "Look for the neutral article.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to English: 'Der Stuhl ist bequem.'",
+      "content": {
+        "prompt": "Translate to English: 'Der Stuhl ist bequem.'",
+        "correctAnswer": "The chair is comfortable.",
+        "acceptableAnswers": [
+          "The chair is comfortable."
+        ]
+      },
+      "explanation": "The translation conveys the meaning of comfort in English.",
+      "hint": "Focus on the adjective used.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

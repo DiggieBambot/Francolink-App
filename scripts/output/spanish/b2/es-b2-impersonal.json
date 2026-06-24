@@ -1,0 +1,352 @@
+{
+  "lesson": {
+    "title": "Impersonal & Passive Reporting",
+    "type": "GRAMMAR",
+    "slug": "es-b2-impersonal"
+  },
+  "unit": "Science & Innovation",
+  "unitOrder": 6,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about impersonal and passive reporting structures in Spanish, which are essential for discussing scientific topics and innovations. You'll explore how to construct sentences that focus on actions rather than the doer, which is particularly useful in academic writing.",
+      "culturalNote": "In many Latin American countries, scientific research is often reported in a way that emphasizes collective effort, reflecting cultural values of collaboration and community."
+    },
+    "vocabulary": [
+      {
+        "term": "el descubrimiento",
+        "translation": "the discovery",
+        "definition": "an act of finding or learning something for the first time",
+        "pronunciation": "el des-kubri-MIEN-toh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El descubrimiento de la penicilina fue crucial.",
+          "translation": "The discovery of penicillin was crucial."
+        },
+        "tip": "Remember that 'descubrimiento' is related to 'descubrir,' to discover."
+      },
+      {
+        "term": "se dice que",
+        "translation": "it is said that",
+        "definition": "a phrase used to report information without specifying the source",
+        "pronunciation": "seh DEE-seh keh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Se dice que la tecnología avanza rápidamente.",
+          "translation": "It is said that technology advances rapidly."
+        },
+        "tip": "This phrase is useful for discussing common knowledge or beliefs."
+      },
+      {
+        "term": "se ha demostrado",
+        "translation": "it has been demonstrated",
+        "definition": "used to indicate that something has been proven or shown to be true",
+        "pronunciation": "seh ah demon-STRAH-doh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Se ha demostrado que el cambio climático afecta a todos.",
+          "translation": "It has been demonstrated that climate change affects everyone."
+        },
+        "tip": "This is a common structure in scientific discourse."
+      },
+      {
+        "term": "la investigación",
+        "translation": "the research",
+        "definition": "the systematic investigation into and study of materials and sources to establish facts",
+        "pronunciation": "la in-ves-ti-ga-CIÓN",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La investigación sobre el virus sigue en curso.",
+          "translation": "The research on the virus is ongoing."
+        },
+        "tip": "This term often appears in academic contexts."
+      },
+      {
+        "term": "se utiliza",
+        "translation": "it is used",
+        "definition": "a passive structure indicating the use of something without specifying who uses it",
+        "pronunciation": "seh u-ti-LI-sah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Se utiliza energía solar para reducir costos.",
+          "translation": "It is used solar energy to reduce costs."
+        },
+        "tip": "This structure emphasizes the action rather than the subject."
+      },
+      {
+        "term": "los avances",
+        "translation": "the advances",
+        "definition": "progress or developments in a particular field",
+        "pronunciation": "los a-VAN-ses",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Los avances en biotecnología son impresionantes.",
+          "translation": "The advances in biotechnology are impressive."
+        },
+        "tip": "Keep in mind that 'avances' is often used in discussions about innovation."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Impersonal Constructions",
+        "explanation": "Impersonal constructions in Spanish allow you to express ideas without a specific subject. Common structures include 'se' + verb and phrases like 'se dice que' or 'se ha demostrado que.' These are particularly useful in scientific contexts where the focus is on the action rather than who performs it.",
+        "table": {
+          "headers": [
+            "Structure",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Se + verb (3rd person)",
+              "Se habla español en muchos países."
+            ],
+            [
+              "Se dice que + clause",
+              "Se dice que la ciencia avanza."
+            ],
+            [
+              "Se ha demostrado que + clause",
+              "Se ha demostrado que las vacunas son efectivas."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Se ha demostrado que el ejercicio mejora la salud.",
+            "translation": "It has been demonstrated that exercise improves health.",
+            "breakdown": "This sentence uses 'se ha demostrado' to emphasize the finding rather than who demonstrated it."
+          }
+        ],
+        "commonMistakes": [
+          "'Se habla' is often confused with 'hablan.' Remember, the verb agrees with the impersonal subject, not the implied subject.",
+          "Using 'se' incorrectly; make sure it's followed by the correct verb form."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing New Innovations",
+      "context": "Two researchers discussing recent advancements in technology at a conference.",
+      "speakers": [
+        "Dr. López",
+        "Dr. García"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Has visto los últimos avances en inteligencia artificial?",
+          "translation": "Have you seen the latest advances in artificial intelligence?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, se dice que cambiarán la manera en que trabajamos.",
+          "translation": "Yes, it is said that they will change the way we work.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Exactamente, se ha demostrado que son efectivas en muchas áreas.",
+          "translation": "Exactly, it has been demonstrated that they are effective in many areas.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Además, se utiliza la tecnología para mejorar la educación.",
+          "translation": "Furthermore, technology is used to improve education.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Así es, y los descubrimientos en este campo son impresionantes.",
+          "translation": "That's right, and the discoveries in this field are impressive.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Se espera que estos avances sean accesibles para todos.",
+          "translation": "It is expected that these advances will be accessible to everyone.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, la investigación está avanzando rápidamente.",
+          "translation": "Yes, research is advancing rapidly.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Estoy emocionado por lo que vendrá en el futuro.",
+          "translation": "I am excited about what is to come in the future.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Scientific Research in Latin America",
+      "text": "Scientific research in Latin America often emphasizes collaboration across borders, with many researchers working together to tackle common issues such as climate change and public health. This reflects a cultural value of collective effort.",
+      "funFact": "Did you know that the Latin American region has produced several Nobel Prize winners in fields related to science and innovation, such as Mario Molina in Chemistry for his work on ozone depletion?"
+    },
+    "summary": {
+      "keyPoints": [
+        "Impersonal constructions focus on actions rather than subjects.",
+        "Passive reporting structures are common in scientific discourse.",
+        "Understanding these structures enhances academic writing skills.",
+        "Using impersonal phrases helps convey information objectively."
+      ],
+      "nextSteps": "Practice forming sentences using the impersonal and passive structures discussed, and try to apply them in writing about recent scientific advancements."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase means 'it is said that' in Spanish?",
+      "content": {
+        "options": [
+          "se dice que",
+          "se ha demostrado",
+          "la investigación",
+          "los avances"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct phrase is 'se dice que', which translates to 'it is said that'.",
+      "hint": "Look for the phrase that indicates hearsay.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'los avances' mean in English?",
+      "content": {
+        "options": [
+          "the discoveries",
+          "the advances",
+          "the researches",
+          "the experiments"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Los avances' translates to 'the advances' in English, referring to progress or improvements.",
+      "hint": "Think about progress in science.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'La investigación ____________ por los científicos.'",
+      "content": {
+        "sentence": "La investigación ___ por los científicos.",
+        "correctAnswer": "se ha demostrado",
+        "acceptableAnswers": [
+          "se ha demostrado"
+        ],
+        "options": [
+          "se utiliza",
+          "se ha demostrado",
+          "se dice que",
+          "los avances"
+        ]
+      },
+      "explanation": "The correct phrase is 'se ha demostrado', meaning 'has been demonstrated'.",
+      "hint": "Think about what has been proven in research.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Los nuevos descubrimientos ____________ en la medicina.'",
+      "content": {
+        "sentence": "Los nuevos descubrimientos ___ en la medicina.",
+        "correctAnswer": "se utilizan",
+        "acceptableAnswers": [
+          "se utilizan"
+        ],
+        "options": [
+          "se dice que",
+          "se ha demostrado",
+          "se utilizan",
+          "los avances"
+        ]
+      },
+      "explanation": "'Se utilizan' means 'are used', which fits the context of discoveries in medicine.",
+      "hint": "Consider how discoveries are applied.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'los avances, se, en la tecnología, han hecho'.",
+      "content": {
+        "words": [
+          "los avances",
+          "se",
+          "en",
+          "la",
+          "tecnología",
+          "han",
+          "hecho"
+        ],
+        "correctOrder": [
+          "los avances",
+          "se",
+          "han",
+          "hecho",
+          "en",
+          "la",
+          "tecnología"
+        ],
+        "translation": "The advances have been made in technology."
+      },
+      "explanation": "The sentence correctly states that advancements have been made in technology.",
+      "hint": "Start with 'los avances' and think about the verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'It is said that the discovery will change everything.'",
+      "content": {
+        "correctAnswer": "Se dice que el descubrimiento cambiará todo.",
+        "acceptableAnswers": [],
+        "prompt": "Translate to Spanish: 'It is said that the discovery will change everything.'"
+      },
+      "explanation": "The phrase captures the impersonal nature of the statement in Spanish.",
+      "hint": "Focus on the impersonal structure.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation.",
+      "content": {
+        "ttsText": "La investigación se ha demostrado eficaz.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The research has proven effective.",
+          "The investigation is said to be effective.",
+          "The advances have been demonstrated."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation captures the meaning of the original Spanish sentence.",
+      "hint": "Listen for the key verb 'demostrado'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in Spanish: 'The advances in science are remarkable.'",
+      "content": {
+        "targetText": "Los avances en la ciencia son notables.",
+        "context": "Translate and say this sentence.",
+        "acceptableVariants": [
+          "Los avances en la ciencia son increíbles."
+        ]
+      },
+      "explanation": "The sentence reflects the importance of scientific advancements.",
+      "hint": "Focus on the word for 'advances'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

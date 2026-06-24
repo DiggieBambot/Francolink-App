@@ -1,0 +1,337 @@
+{
+  "lesson": {
+    "title": "Travel Stories & Adventures",
+    "type": "CONVERSATION",
+    "slug": "es-b1-travel-stories"
+  },
+  "unit": "Culture & Travel",
+  "unitOrder": 7,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary and expressions related to travel stories and adventures. You will also practice using the present subjunctive to express wishes and hypothetical situations.",
+      "culturalNote": "Spanish-speaking countries offer a rich variety of landscapes and cultures, making travel an exciting adventure. Each region has unique traditions and stories."
+    },
+    "vocabulary": [
+      {
+        "term": "el viaje",
+        "translation": "the trip",
+        "definition": "A journey from one place to another.",
+        "pronunciation": "el vee-ah-he",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El viaje fue increíble.",
+          "translation": "The trip was incredible."
+        },
+        "tip": "Remember 'viaje' is masculine; use 'el' before it."
+      },
+      {
+        "term": "la aventura",
+        "translation": "the adventure",
+        "definition": "An exciting or unusual experience.",
+        "pronunciation": "la ah-ven-too-rah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tuvimos una aventura en la selva.",
+          "translation": "We had an adventure in the jungle."
+        },
+        "tip": "Think of 'adventure' in English to remember 'aventura'."
+      },
+      {
+        "term": "explorar",
+        "translation": "to explore",
+        "definition": "To travel through an unfamiliar area to learn about it.",
+        "pronunciation": "ex-ploh-rahr",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Quiero explorar nuevas ciudades.",
+          "translation": "I want to explore new cities."
+        },
+        "tip": "The verb 'explorar' is similar to the English 'explore'."
+      },
+      {
+        "term": "la cultura",
+        "translation": "the culture",
+        "definition": "The ideas, customs, and social behavior of a particular people or society.",
+        "pronunciation": "la kool-too-rah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me encanta aprender sobre la cultura de otros países.",
+          "translation": "I love learning about the culture of other countries."
+        },
+        "tip": "Cultura is feminine; remember to use 'la'."
+      },
+      {
+        "term": "el recuerdo",
+        "translation": "the memory/souvenir",
+        "definition": "Something that serves to keep a memory alive.",
+        "pronunciation": "el reh-kwehr-doh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Compré un recuerdo de mi viaje.",
+          "translation": "I bought a souvenir from my trip."
+        },
+        "tip": "Think of 'recorder' in English to link to 'recuerdo'."
+      },
+      {
+        "term": "la experiencia",
+        "translation": "the experience",
+        "definition": "Practical contact with and observation of facts or events.",
+        "pronunciation": "la ex-peh-ree-en-see-ah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Fue una experiencia inolvidable.",
+          "translation": "It was an unforgettable experience."
+        },
+        "tip": "Similar to the English 'experience'; easy to remember."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Present Subjunctive for Wishes and Hypotheticals",
+        "explanation": "The present subjunctive is used to express desires, doubts, or hypothetical situations. You form it by taking the present tense yo form of a verb, dropping the 'o', and adding the appropriate endings. For example, for -ar verbs: e, es, e, emos, éis, en.",
+        "table": {
+          "headers": [
+            "Verb type",
+            "Present subjunctive endings"
+          ],
+          "rows": [
+            [
+              "-ar",
+              "e, es, e, emos, éis, en"
+            ],
+            [
+              "-er/-ir",
+              "a, as, a, amos, áis, an"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Espero que viaje a España.",
+            "translation": "I hope that you travel to Spain.",
+            "breakdown": "The verb 'viajar' is in the subjunctive because it expresses a wish."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: 'Espero que viajas' should be 'Espero que viajes'.",
+          "Confusing the endings for -ar and -er verbs. Remember to use different endings."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Trip to Mexico",
+      "context": "Two friends discussing their travel plans over coffee.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué te parece si viajamos a México?",
+          "translation": "What do you think if we travel to Mexico?"
+        },
+        {
+          "speaker": 1,
+          "text": "¡Me encantaría! Siempre he querido explorar las ruinas mayas.",
+          "translation": "I would love to! I have always wanted to explore the Mayan ruins."
+        },
+        {
+          "speaker": 0,
+          "text": "Podemos visitar Chichén Itzá y Tulum.",
+          "translation": "We can visit Chichén Itzá and Tulum."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, y también podemos disfrutar de la cultura local.",
+          "translation": "Yes, and we can also enjoy the local culture."
+        },
+        {
+          "speaker": 0,
+          "text": "Espero que hagamos un recorrido gastronómico.",
+          "translation": "I hope we do a food tour."
+        },
+        {
+          "speaker": 1,
+          "text": "¡Sería increíble! Me gustaría probar los tacos auténticos.",
+          "translation": "That would be amazing! I would like to try authentic tacos."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Cuánto tiempo crees que debemos quedarnos?",
+          "translation": "How long do you think we should stay?"
+        },
+        {
+          "speaker": 1,
+          "text": "Creo que una semana sería perfecta.",
+          "translation": "I think a week would be perfect."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Traveling in Latin America",
+      "text": "Latin American countries have diverse landscapes, from beaches to mountains. Travelers can experience different cultures, languages, and traditions in each country.",
+      "funFact": "Did you know that Mexico has the largest pyramid in the world, the Great Pyramid of Cholula?"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to travel and adventures.",
+        "Practiced the present subjunctive for wishes and hypotheticals.",
+        "Engaged in a dialogue about planning a trip.",
+        "Gained cultural insights about traveling in Latin America."
+      ],
+      "nextSteps": "Practice using the present subjunctive with more examples and try to create your own travel dialogue."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la aventura' mean in English?",
+      "content": {
+        "options": [
+          "the trip",
+          "the adventure",
+          "the culture",
+          "the memory"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "La aventura translates to 'the adventure' in English.",
+      "hint": "Think about exciting experiences.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'to explore' in Spanish?",
+      "content": {
+        "options": [
+          "explorar",
+          "recordar",
+          "viajar",
+          "vivir"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Explorar' is the Spanish verb for 'to explore'.",
+      "hint": "It's similar to the English word.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Mi __________ fue increíble.'",
+      "content": {
+        "sentence": "Mi __________ fue increíble.",
+        "correctAnswer": "viaje",
+        "acceptableAnswers": [
+          "viaje"
+        ],
+        "options": [
+          "experiencia",
+          "aventura",
+          "viaje",
+          "cultura"
+        ]
+      },
+      "explanation": "In this context, 'viaje' means 'trip', which makes sense here.",
+      "hint": "Think of a journey.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Los __________ de mi viaje son inolvidables.'",
+      "content": {
+        "sentence": "Los __________ de mi viaje son inolvidables.",
+        "correctAnswer": "recuerdos",
+        "acceptableAnswers": [
+          "recuerdos"
+        ],
+        "options": [
+          "aventuras",
+          "recuerdos",
+          "viajes",
+          "experiencias"
+        ]
+      },
+      "explanation": "'Recuerdos' translates to 'memories', which fits this sentence perfectly.",
+      "hint": "Think about what you keep from a trip.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'cultura la explorar quiero'.",
+      "content": {
+        "words": [
+          "cultura",
+          "la",
+          "explorar",
+          "quiero"
+        ],
+        "correctOrder": [
+          "quiero",
+          "explorar",
+          "la",
+          "cultura"
+        ],
+        "translation": "I want to explore the culture."
+      },
+      "explanation": "The correct order expresses the intention to explore culture.",
+      "hint": "Start with the verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I had an amazing experience.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I had an amazing experience.'",
+        "correctAnswer": "Tuve una experiencia increíble.",
+        "acceptableAnswers": [
+          "Tuve una experiencia asombrosa."
+        ]
+      },
+      "explanation": "The translation captures the essence of having a great experience.",
+      "hint": "Remember the verb 'to have'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct sentence in Spanish.",
+      "content": {
+        "ttsText": "Quiero explorar nuevos lugares.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Quiero explorar nuevos lugares.",
+          "Quiero recordar viejas historias.",
+          "Quiero tener más aventuras."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The spoken sentence translates to 'I want to explore new places.'",
+      "hint": "Listen for the word 'explorar'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'My trip to Spain was unforgettable.'",
+      "content": {
+        "targetText": "Mi viaje a España fue inolvidable.",
+        "context": "Describe a memorable trip.",
+        "acceptableVariants": [
+          "Mi viaje a España fue increíble.",
+          "Mi viaje a España fue memorable."
+        ]
+      },
+      "explanation": "This sentence expresses a strong positive feeling about the trip.",
+      "hint": "Use 'inolvidable' for unforgettable.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

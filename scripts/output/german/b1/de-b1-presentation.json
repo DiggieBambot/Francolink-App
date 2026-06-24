@@ -1,0 +1,318 @@
+{
+  "lesson": {
+    "title": "Giving a Short Presentation",
+    "type": "CONVERSATION",
+    "slug": "de-b1-presentation"
+  },
+  "unit": "Future & Aspirations",
+  "unitOrder": 8,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to give a short presentation in German, focusing on your future plans and aspirations. You will practice using key vocabulary, grammar structures, and polite expressions in a conversational context.",
+      "culturalNote": "In German-speaking countries, presentations are often structured and can include visual aids. It's common to start with an introduction, followed by the main points and a conclusion."
+    },
+    "vocabulary": [
+      {
+        "term": "die Präsentation",
+        "translation": "the presentation",
+        "definition": "A formal talk on a specific topic.",
+        "pronunciation": "dee pray-zen-ta-tsyon",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich halte eine Präsentation über meine Zukunft.",
+          "translation": "I am giving a presentation about my future."
+        },
+        "tip": "Remember, 'die Präsentation' is feminine, so use 'die' for 'the'."
+      },
+      {
+        "term": "die Zukunft",
+        "translation": "the future",
+        "definition": "The time that is yet to come.",
+        "pronunciation": "dee tsoo-kunft",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "In der Zukunft möchte ich reisen.",
+          "translation": "In the future, I would like to travel."
+        },
+        "tip": "'Die Zukunft' is also feminine, so don't forget the article 'die'."
+      },
+      {
+        "term": "die Fähigkeit",
+        "translation": "the ability",
+        "definition": "A skill or talent that someone has.",
+        "pronunciation": "dee fay-hee-keitz",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe die Fähigkeit, gut zu präsentieren.",
+          "translation": "I have the ability to present well."
+        },
+        "tip": "'Die Fähigkeit' is feminine and often used in the plural form as 'die Fähigkeiten'."
+      },
+      {
+        "term": "interessant",
+        "translation": "interesting",
+        "definition": "Something that captures attention or curiosity.",
+        "pronunciation": "in-ter-es-sant",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Das Thema ist sehr interessant.",
+          "translation": "The topic is very interesting."
+        },
+        "tip": "This adjective can be used with both masculine and feminine nouns."
+      },
+      {
+        "term": "der Plan",
+        "translation": "the plan",
+        "definition": "A detailed proposal for doing or achieving something.",
+        "pronunciation": "der plahn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Plan ist es, im Ausland zu studieren.",
+          "translation": "My plan is to study abroad."
+        },
+        "tip": "'Der Plan' is masculine. The plural form is 'die Pläne'."
+      },
+      {
+        "term": "wenn",
+        "translation": "if/when",
+        "definition": "Used to indicate a condition.",
+        "pronunciation": "ven",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Wenn ich Zeit habe, gehe ich ins Kino.",
+          "translation": "If I have time, I go to the cinema."
+        },
+        "tip": "This word is useful for forming conditional sentences."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Subordinate Clauses with 'dass', 'weil', and 'wenn'",
+        "explanation": "'Dass' (that), 'weil' (because), and 'wenn' (if/when) introduce subordinate clauses in German. They help to connect ideas and provide explanations. Remember that the verb goes to the end of the clause.",
+        "table": {
+          "headers": [
+            "German",
+            "English"
+          ],
+          "rows": [
+            [
+              "Ich glaube, dass ich erfolgreich sein werde.",
+              "I believe that I will be successful."
+            ],
+            [
+              "Ich mache das, weil ich es interessant finde.",
+              "I do this because I find it interesting."
+            ],
+            [
+              "Wenn ich mehr Zeit habe, werde ich lernen.",
+              "If I have more time, I will study."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich hoffe, dass ich im nächsten Jahr nach Deutschland reisen kann.",
+            "translation": "I hope that I can travel to Germany next year.",
+            "breakdown": "The clause 'dass ich im nächsten Jahr nach Deutschland reisen kann' explains what the speaker hopes."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'dass' and 'das': 'dass' means 'that', while 'das' means 'the' (neutral).",
+          "Forgetting to place the verb at the end in subordinate clauses."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Giving a Short Presentation about Future Plans",
+      "context": "A student presenting their future plans to classmates in a classroom setting.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo zusammen! Ich möchte heute über meine Zukunft sprechen.",
+          "translation": "Hello everyone! I would like to talk about my future today."
+        },
+        {
+          "speaker": 1,
+          "text": "Das klingt interessant, Lena! Was sind deine Pläne?",
+          "translation": "That sounds interesting, Lena! What are your plans?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich plane, im Ausland zu studieren, weil ich neue Kulturen kennenlernen möchte.",
+          "translation": "I plan to study abroad because I want to experience new cultures."
+        },
+        {
+          "speaker": 1,
+          "text": "Wo möchtest du studieren?",
+          "translation": "Where do you want to study?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich denke an Deutschland oder Österreich, weil die Universitäten sehr gut sind.",
+          "translation": "I am considering Germany or Austria because the universities are very good."
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist eine gute Idee! Was möchtest du studieren?",
+          "translation": "That's a good idea! What do you want to study?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich möchte Informatik studieren, weil ich eine Fähigkeit in der Technik entwickeln möchte.",
+          "translation": "I want to study computer science because I want to develop a skill in technology."
+        },
+        {
+          "speaker": 1,
+          "text": "Das klingt toll! Ich wünsche dir viel Erfolg!",
+          "translation": "That sounds great! I wish you much success!"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Presentations in German Culture",
+      "text": "In German-speaking countries, giving a presentation is often seen as an important skill, especially in education and business. Presentations typically follow a clear structure, and visual aids are frequently used to support the spoken content.",
+      "funFact": "In Austria, it's common to include a personal story in presentations to engage the audience."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to presentations and future plans.",
+        "Practiced using subordinate clauses for explanations.",
+        "Engaged in a dialogue about giving presentations.",
+        "Explored cultural aspects of presentations in German-speaking countries."
+      ],
+      "nextSteps": "Practice giving your own presentation about your future plans using the vocabulary and grammar structures from this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'presentation'?",
+      "content": {
+        "options": [
+          "die Präsentation",
+          "der Plan",
+          "die Fähigkeit",
+          "die Zukunft"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'die Präsentation', which translates to 'presentation' in English.",
+      "hint": "Think of the word used for a formal talk or display.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'future' in German?",
+      "content": {
+        "options": [
+          "die Fähigkeit",
+          "die Zukunft",
+          "interessant",
+          "der Plan"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Die Zukunft' means 'the future' in English.",
+      "hint": "It's the time that comes after the present.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich habe einen __________ für meine Karriere.",
+      "content": {
+        "sentence": "Ich habe einen __________ für meine Karriere.",
+        "correctAnswer": "Plan",
+        "acceptableAnswers": [
+          "Plan"
+        ],
+        "options": [
+          "Interesse",
+          "Plan",
+          "Zukunft",
+          "Fähigkeit"
+        ]
+      },
+      "explanation": "The correct answer is 'Plan', meaning 'plan'.",
+      "hint": "Think about what you need to succeed in your career.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Es ist wichtig, die __________ zu entwickeln.",
+      "content": {
+        "sentence": "Es ist wichtig, die __________ zu entwickeln.",
+        "correctAnswer": "Fähigkeit",
+        "acceptableAnswers": [
+          "Fähigkeit"
+        ],
+        "options": [
+          "Präsentation",
+          "Fähigkeit",
+          "Zukunft",
+          "Plan"
+        ]
+      },
+      "explanation": "'Fähigkeit' means 'ability', which is important to develop.",
+      "hint": "This word is related to skills.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I want to improve my presentation skills.'",
+      "content": {
+        "prompt": "Translate to German: 'I want to improve my presentation skills.'",
+        "correctAnswer": "Ich möchte meine Präsentationsfähigkeiten verbessern.",
+        "acceptableAnswers": [
+          "Ich will meine Präsentationsfähigkeiten verbessern."
+        ]
+      },
+      "explanation": "The translation reflects the desire to enhance presentation skills.",
+      "hint": "Think about the verb for 'want' in German.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich plane meine Zukunft.'",
+      "content": {
+        "ttsText": "Ich plane meine Zukunft.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I plan my future.",
+          "I have a future plan.",
+          "I am interesting.",
+          "I want to be able."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Ich plane meine Zukunft.' translates to 'I plan my future.'",
+      "hint": "Focus on the words 'plane' and 'Zukunft'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'My future plans are exciting.'",
+      "content": {
+        "targetText": "Meine Zukunftspläne sind spannend.",
+        "context": "Expressing your thoughts about your future.",
+        "acceptableVariants": [
+          "Meine Pläne für die Zukunft sind spannend."
+        ]
+      },
+      "explanation": "This sentence conveys enthusiasm about future plans.",
+      "hint": "Use the word for 'exciting' or 'interesting'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

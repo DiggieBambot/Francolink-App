@@ -1,0 +1,334 @@
+{
+  "lesson": {
+    "title": "Cultural Differences",
+    "type": "CONVERSATION",
+    "slug": "es-b1-cultural-diff"
+  },
+  "unit": "Culture & Travel",
+  "unitOrder": 7,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will explore cultural differences between Spanish-speaking countries and your own. You will learn useful vocabulary for discussing these differences and practice a conversation that highlights these cultural aspects.",
+      "culturalNote": "Many Spanish-speaking countries celebrate unique traditions and holidays that reflect their history and culture, such as Día de los Muertos in Mexico."
+    },
+    "vocabulary": [
+      {
+        "term": "la costumbre",
+        "translation": "the custom",
+        "definition": "a traditional practice or habit",
+        "pronunciation": "lah koh-STOOM-breh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "En mi país, es una costumbre celebrar el Año Nuevo con fuegos artificiales.",
+          "translation": "In my country, it is a custom to celebrate New Year's with fireworks."
+        },
+        "tip": "Link 'costumbre' to 'custom' to remember its meaning."
+      },
+      {
+        "term": "el festival",
+        "translation": "the festival",
+        "definition": "a celebratory event, often with music and food",
+        "pronunciation": "el fes-ti-VAL",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El festival de la primavera es muy popular aquí.",
+          "translation": "The spring festival is very popular here."
+        },
+        "tip": "Think of 'festival' in English to help you recall this word."
+      },
+      {
+        "term": "la religión",
+        "translation": "the religion",
+        "definition": "a system of faith and worship",
+        "pronunciation": "lah reh-li-HYON",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La religión juega un papel importante en muchas culturas.",
+          "translation": "Religion plays an important role in many cultures."
+        },
+        "tip": "Remember that 'religión' is similar to 'religion' in English."
+      },
+      {
+        "term": "la gastronomía",
+        "translation": "the gastronomy",
+        "definition": "the art of preparing and eating good food",
+        "pronunciation": "lah gas-troh-no-MEE-ah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La gastronomía mexicana es famosa por sus sabores.",
+          "translation": "Mexican gastronomy is famous for its flavors."
+        },
+        "tip": "Associate 'gastronomy' with 'gastronomía' to remember it."
+      },
+      {
+        "term": "el idioma",
+        "translation": "the language",
+        "definition": "a system of communication used by a particular community",
+        "pronunciation": "el ee-DYOH-mah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El español es un idioma muy rico y diverso.",
+          "translation": "Spanish is a very rich and diverse language."
+        },
+        "tip": "Link 'idioma' with 'idiom' to help you remember its meaning."
+      },
+      {
+        "term": "la fiesta",
+        "translation": "the party",
+        "definition": "a social gathering for celebration",
+        "pronunciation": "lah FYEH-stah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La fiesta de cumpleaños fue muy divertida.",
+          "translation": "The birthday party was very fun."
+        },
+        "tip": "Remember 'fiesta' means 'party' like in 'fiesta' in English."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Subjunctive Mood",
+        "explanation": "In Spanish, the subjunctive mood is used to express wishes, doubts, and hypothetical situations. It's often introduced by phrases like 'espero que' (I hope that) or 'dudo que' (I doubt that). Remember to change the verb endings accordingly.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Subjunctive Verb Ending"
+          ],
+          "rows": [
+            [
+              "yo",
+              "-e for -ar verbs, -a for -er/-ir verbs"
+            ],
+            [
+              "tú",
+              "-es for -ar verbs, -as for -er/-ir verbs"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Espero que vengas a la fiesta.",
+            "translation": "I hope that you come to the party.",
+            "breakdown": "The verb 'vengas' is in the subjunctive because it follows 'espero que'."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'espero que tú viene' instead of 'espero que tú vengas'.",
+          "Using the indicative instead of the subjunctive after expressions of desire."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Cultural Differences",
+      "context": "A coffee shop in a Spanish-speaking country.",
+      "speakers": [
+        "Ana",
+        "John"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué opinas sobre las costumbres de mi país?",
+          "translation": "What do you think about the customs of my country?",
+          "note": "Ana is curious about John's perspective."
+        },
+        {
+          "speaker": 1,
+          "text": "Me parecen muy interesantes. ¿Cuál es tu costumbre favorita?",
+          "translation": "I find them very interesting. What is your favorite custom?",
+          "note": "John expresses interest."
+        },
+        {
+          "speaker": 0,
+          "text": "Me gusta la celebración del Día de los Muertos.",
+          "translation": "I like the celebration of Day of the Dead.",
+          "note": "Ana shares her favorite."
+        },
+        {
+          "speaker": 1,
+          "text": "He oído que es muy colorido y significativo.",
+          "translation": "I've heard it's very colorful and meaningful.",
+          "note": "John shows knowledge of the topic."
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, es una forma de honrar a los que han fallecido.",
+          "translation": "Yes, it's a way to honor those who have passed away.",
+          "note": "Ana explains the significance."
+        },
+        {
+          "speaker": 1,
+          "text": "En mi país, celebramos la Navidad con una gran cena familiar.",
+          "translation": "In my country, we celebrate Christmas with a big family dinner.",
+          "note": "John shares his own tradition."
+        },
+        {
+          "speaker": 0,
+          "text": "Eso suena muy bonito. ¿Qué platos típicos preparan?",
+          "translation": "That sounds very nice. What typical dishes do you prepare?",
+          "note": "Ana asks for more details."
+        },
+        {
+          "speaker": 1,
+          "text": "Preparamos pavo, puré de papas y pastel de frutas.",
+          "translation": "We prepare turkey, mashed potatoes, and fruitcake.",
+          "note": "John lists traditional dishes."
+        },
+        {
+          "speaker": 0,
+          "text": "¡Delicioso! Me encantaría probarlo algún día.",
+          "translation": "Delicious! I would love to try it someday.",
+          "note": "Ana expresses enthusiasm."
+        },
+        {
+          "speaker": 1,
+          "text": "¡Claro! Te invito a mi casa para la próxima Navidad.",
+          "translation": "Of course! I invite you to my house for the next Christmas.",
+          "note": "John extends an invitation."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Celebrations in Spanish-speaking Countries",
+      "text": "Celebrations in Spanish-speaking countries often reflect their rich history and cultural diversity. Events like Carnaval, Día de los Muertos, and various regional festivals are deeply rooted in tradition.",
+      "funFact": "In Spain, it is common to celebrate La Tomatina, a huge tomato fight festival, which attracts thousands of people each year."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding cultural customs is important in communication.",
+        "The subjunctive mood is used to express wishes and doubts.",
+        "Celebrations can vary widely between cultures.",
+        "Food is a significant part of cultural identity."
+      ],
+      "nextSteps": "Practice using the subjunctive in your own sentences. Consider discussing your own cultural customs with a partner."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'la costumbre' in English?",
+      "content": {
+        "options": [
+          "The custom",
+          "The festival",
+          "The religion",
+          "The language"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La costumbre' translates to 'the custom', referring to traditional practices in a culture.",
+      "hint": "Think about daily practices in different cultures.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'the festival'?",
+      "content": {
+        "options": [
+          "La fiesta",
+          "El festival",
+          "La religión",
+          "La gastronomía"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El festival' is the correct translation for 'the festival' in Spanish.",
+      "hint": "It often involves celebrations and events.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'En España, la ___ es muy variada y deliciosa.'",
+      "content": {
+        "sentence": "En España, la ___ es muy variada y deliciosa.",
+        "correctAnswer": "gastronomía",
+        "acceptableAnswers": [
+          "gastronomía"
+        ],
+        "options": [
+          "costumbre",
+          "fiesta",
+          "gastronomía",
+          "religión"
+        ]
+      },
+      "explanation": "The word 'gastronomía' fits the context, referring to the variety of food in Spain.",
+      "hint": "Think about the food culture.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'La ___ de un país puede influir en su cultura.'",
+      "content": {
+        "sentence": "La ___ de un país puede influir en su cultura.",
+        "correctAnswer": "religión",
+        "acceptableAnswers": [
+          "religión"
+        ],
+        "options": [
+          "fiesta",
+          "idioma",
+          "religión",
+          "costumbre"
+        ]
+      },
+      "explanation": "The word 'religión' is the correct answer, as religion can greatly impact culture.",
+      "hint": "Consider how beliefs shape traditions.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The language is beautiful.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The language is beautiful.'",
+        "correctAnswer": "El idioma es hermoso.",
+        "acceptableAnswers": [
+          "El idioma es bello."
+        ]
+      },
+      "explanation": "'El idioma es hermoso' is a correct translation, expressing appreciation for the language.",
+      "hint": "Remember the word for 'language'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'La fiesta es divertida.'",
+      "content": {
+        "ttsText": "La fiesta es divertida.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The party is boring.",
+          "The party is fun.",
+          "The festival is boring.",
+          "The festival is fun."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct translation means the party is enjoyable.",
+      "hint": "Think about what makes a party enjoyable.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I love the customs of different cultures.'",
+      "content": {
+        "targetText": "Me encantan las costumbres de diferentes culturas.",
+        "context": "Expressing appreciation for cultural practices.",
+        "acceptableVariants": [
+          "Amo las costumbres de diferentes culturas."
+        ]
+      },
+      "explanation": "The sentence expresses a love for cultural traditions, using the correct terms.",
+      "hint": "Use the word for 'love' in Spanish.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

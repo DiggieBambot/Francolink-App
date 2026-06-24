@@ -1,0 +1,346 @@
+{
+  "lesson": {
+    "title": "Unit 1 Review",
+    "type": "REVIEW",
+    "slug": "es-b2-unit1-review"
+  },
+  "unit": "Advanced Grammar Review",
+  "unitOrder": 1,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this review lesson, you will consolidate your understanding of advanced grammar structures and vocabulary from the previous unit. We will revisit the subjunctive mood, idiomatic expressions, and other key concepts, culminating in a practical dialogue.",
+      "culturalNote": "Spanish-speaking countries often use the subjunctive mood to express uncertainty or desires, reflecting a cultural nuance in communication."
+    },
+    "vocabulary": [
+      {
+        "term": "el subjuntivo",
+        "translation": "the subjunctive",
+        "definition": "A mood used to express wishes, doubts, or hypothetical situations.",
+        "pronunciation": "el soob-HOON-ti-voh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es importante que estudies el subjuntivo.",
+          "translation": "It is important that you study the subjunctive."
+        },
+        "tip": "Remember that the subjunctive is often used after expressions of emotion or desire."
+      },
+      {
+        "term": "la expresión idiomática",
+        "translation": "idiomatic expression",
+        "definition": "A phrase whose meaning is not predictable from the usual meanings of its constituent elements.",
+        "pronunciation": "la eks-preh-SYON ee-dyo-MA-ti-ka",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "No hay mal que por bien no venga.",
+          "translation": "There is no bad that doesn't bring some good."
+        },
+        "tip": "Idiomatic expressions can add color to your speech; try to learn them in context."
+      },
+      {
+        "term": "aunque",
+        "translation": "although",
+        "definition": "A conjunction used to introduce a contrast.",
+        "pronunciation": "AUN-keh",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Aunque llueva, iremos al parque.",
+          "translation": "Although it rains, we will go to the park."
+        },
+        "tip": "Use 'aunque' to show contrast in complex sentences."
+      },
+      {
+        "term": "si fuera",
+        "translation": "if I were",
+        "definition": "A phrase used to introduce a hypothetical situation.",
+        "pronunciation": "see FWEH-rah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Si fuera rico, viajaría por el mundo.",
+          "translation": "If I were rich, I would travel the world."
+        },
+        "tip": "Remember to use the imperfect subjunctive when discussing hypothetical scenarios."
+      },
+      {
+        "term": "el hecho",
+        "translation": "the fact",
+        "definition": "A statement that can be proven true or false.",
+        "pronunciation": "el EH-cho",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es un hecho que la Tierra gira alrededor del sol.",
+          "translation": "It is a fact that the Earth revolves around the sun."
+        },
+        "tip": "Use 'hecho' when discussing objective truths."
+      },
+      {
+        "term": "la suposición",
+        "translation": "the assumption",
+        "definition": "Something accepted as true without proof.",
+        "pronunciation": "la soo-po-SI-on",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La suposición de que todos son honestos no es correcta.",
+          "translation": "The assumption that everyone is honest is not correct."
+        },
+        "tip": "Be careful with assumptions; they can lead to misunderstandings."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Subjunctive Mood",
+        "explanation": "The subjunctive mood is used in Spanish to express desires, doubts, and hypothetical situations. It is formed using specific verb endings based on the subject of the sentence. Remember that the subjunctive is triggered by certain expressions, such as 'quiero que' (I want that) or 'dudo que' (I doubt that).",
+        "table": {
+          "headers": [
+            "Present Subjunctive",
+            "Imperfect Subjunctive"
+          ],
+          "rows": [
+            [
+              "hable",
+              "hablara"
+            ],
+            [
+              "coma",
+              "comiera"
+            ],
+            [
+              "viva",
+              "viviera"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Espero que hables español.",
+            "translation": "I hope that you speak Spanish.",
+            "breakdown": "Here, 'hables' is the present subjunctive form of 'hablar,' used after the verb 'esperar' (to hope)."
+          },
+          {
+            "original": "Si tuviera dinero, compraría una casa.",
+            "translation": "If I had money, I would buy a house.",
+            "breakdown": "In this case, 'tuviera' is the imperfect subjunctive form of 'tener,' used to express a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive after expressions of desire. Correction: Use subjunctive, e.g., 'quiero que vengas' (I want you to come).",
+          "Incorrectly forming the subjunctive. Correction: Remember the endings vary based on the subject and the verb type."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Future Plans",
+      "context": "A conversation between two friends planning a trip.",
+      "speakers": [
+        "Juan",
+        "María"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué harías si tuvieras la oportunidad de viajar a Europa?",
+          "translation": "What would you do if you had the opportunity to travel to Europe?",
+          "note": "Juan is asking María about her travel dreams."
+        },
+        {
+          "speaker": 1,
+          "text": "Si pudiera, iría a Italia. Siempre he querido ver Roma.",
+          "translation": "If I could, I would go to Italy. I've always wanted to see Rome."
+        },
+        {
+          "speaker": 0,
+          "text": "Me encantaría visitar los museos. Esos son hechos que no se pueden ignorar.",
+          "translation": "I would love to visit the museums. Those are facts that cannot be ignored."
+        },
+        {
+          "speaker": 1,
+          "text": "Claro, pero también hay que considerar el costo. Dudo que sea barato.",
+          "translation": "Of course, but we must also consider the cost. I doubt it will be cheap."
+        },
+        {
+          "speaker": 0,
+          "text": "Es verdad. Aunque ahorráramos, podría ser complicado.",
+          "translation": "That's true. Although we saved, it could be complicated."
+        },
+        {
+          "speaker": 1,
+          "text": "Tal vez si buscamos ofertas, podríamos encontrar algo mejor.",
+          "translation": "Maybe if we look for deals, we could find something better."
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, me parece una buena suposición. Comencemos a investigar.",
+          "translation": "Yes, that seems like a good assumption. Let's start researching."
+        },
+        {
+          "speaker": 1,
+          "text": "Perfecto, y espero que podamos planearlo pronto.",
+          "translation": "Perfect, and I hope we can plan it soon."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Traveling in Latin America",
+      "text": "Traveling through Latin America can be an enriching experience, filled with diverse cultures and landscapes. Understanding the local language and idiomatic expressions can greatly enhance your journey and interactions.",
+      "funFact": "Did you know that there are over 400 indigenous languages spoken in Latin America besides Spanish?"
+    },
+    "summary": {
+      "keyPoints": [
+        "The subjunctive mood is crucial for expressing wishes and hypothetical situations.",
+        "Idiomatic expressions can enrich your vocabulary and make your speech more natural.",
+        "Understanding the difference between the present and imperfect subjunctive is important.",
+        "Cultural insights can enhance your language learning experience."
+      ],
+      "nextSteps": "Practice writing sentences using the subjunctive mood and incorporate idiomatic expressions into your conversations."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following sentences correctly uses the subjunctive?",
+      "content": {
+        "options": [
+          "Espero que él llega a la fiesta.",
+          "Es importante que él llegue a la fiesta.",
+          "Creo que él llega a la fiesta."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct sentence uses the subjunctive form 'llegue' because it expresses a wish or desire.",
+      "hint": "Look for the use of 'que' and a verb expressing desire or necessity.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'aunque' mean in English?",
+      "content": {
+        "options": [
+          "although",
+          "because",
+          "if"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Aunque' translates to 'although' and is used to introduce a contrast.",
+      "hint": "It's a conjunction that introduces a subordinate clause.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence using the correct subjunctive form: 'Si yo ___ (ser) rico, viajaría por el mundo.'",
+      "content": {
+        "sentence": "Si yo ___ rico, viajaría por el mundo.",
+        "correctAnswer": "fuera",
+        "acceptableAnswers": [
+          "fuese"
+        ],
+        "options": [
+          "fuera",
+          "fue",
+          "es"
+        ]
+      },
+      "explanation": "The correct answer is 'fuera' because it is the past subjunctive form of 'ser'.",
+      "hint": "Think about how to express hypothetical situations.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the appropriate idiomatic expression: 'Más vale tarde ___ nunca.'",
+      "content": {
+        "sentence": "Más vale tarde ___ nunca.",
+        "correctAnswer": "que",
+        "acceptableAnswers": [
+          "que"
+        ],
+        "options": [
+          "que",
+          "y",
+          "o"
+        ]
+      },
+      "explanation": "The phrase translates to 'Better late than never' and uses 'que' to connect the two parts.",
+      "hint": "This is a common expression in Spanish.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'hecho / el / es / hecho / triste / un / es'.",
+      "content": {
+        "words": [
+          "hecho",
+          "el",
+          "es",
+          "hecho",
+          "triste",
+          "un"
+        ],
+        "correctOrder": [
+          "el",
+          "hecho",
+          "es",
+          "un",
+          "hecho",
+          "triste"
+        ],
+        "translation": "The fact is a sad fact."
+      },
+      "explanation": "The sentence translates correctly to 'The fact is a sad fact.' in English.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I wish you were here.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I wish you were here.'",
+        "correctAnswer": "Ojalá estuvieras aquí.",
+        "acceptableAnswers": [
+          "Espero que estés aquí."
+        ]
+      },
+      "explanation": "The phrase 'Ojalá' expresses a wish and is commonly used in this context.",
+      "hint": "Think about the subjunctive mood.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the following Spanish sentence and choose the correct translation: 'Si tuviera dinero, compraría una casa.'",
+      "content": {
+        "ttsText": "Si tuviera dinero, compraría una casa.",
+        "ttsLang": "es-ES",
+        "options": [
+          "If I had money, I would buy a house.",
+          "If I have money, I will buy a house.",
+          "If I would have money, I will buy a house."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation reflects the conditional structure in English.",
+      "hint": "Focus on the conditional form.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in Spanish: 'If I were you, I would go to the doctor.'",
+      "content": {
+        "targetText": "Si yo fuera tú, iría al médico.",
+        "context": "Translate this conditional advice into Spanish.",
+        "acceptableVariants": [
+          "Si yo fuese tú, iría al médico."
+        ]
+      },
+      "explanation": "This sentence uses the subjunctive and conditional structures correctly in Spanish.",
+      "hint": "Use 'Si' for 'If' and remember the subjunctive form.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

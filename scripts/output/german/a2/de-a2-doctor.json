@@ -1,0 +1,374 @@
+{
+  "lesson": {
+    "title": "At the Doctor",
+    "type": "CONVERSATION",
+    "slug": "de-a2-doctor"
+  },
+  "unit": "Health & Body",
+  "unitOrder": 4,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn essential vocabulary and phrases related to visiting the doctor in German. You will also practice a conversation that takes place during a medical appointment.",
+      "culturalNote": "In Germany, it's common to make an appointment with the doctor in advance. Many doctors also offer telemedicine consultations."
+    },
+    "vocabulary": [
+      {
+        "term": "der Arzt",
+        "translation": "the doctor",
+        "definition": "a medical professional who treats patients",
+        "pronunciation": "airts",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich gehe zum Arzt.",
+          "translation": "I am going to the doctor."
+        },
+        "tip": "Remember that 'der Arzt' is masculine, so it uses 'der'."
+      },
+      {
+        "term": "die Krankenschwester",
+        "translation": "the nurse",
+        "definition": "a healthcare professional who cares for patients",
+        "pronunciation": "dee krahng-en-shvester",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Krankenschwester hilft mir.",
+          "translation": "The nurse helps me."
+        },
+        "tip": "'Die Krankenschwester' is feminine, so it uses 'die'."
+      },
+      {
+        "term": "die Medikamente",
+        "translation": "the medications",
+        "definition": "medicines prescribed by a doctor",
+        "pronunciation": "dee meh-di-kah-ment-eh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich nehme meine Medikamente.",
+          "translation": "I take my medications."
+        },
+        "tip": "This is the plural form; the singular is 'das Medikament'."
+      },
+      {
+        "term": "die Symptome",
+        "translation": "the symptoms",
+        "definition": "signs of illness",
+        "pronunciation": "dee symp-to-meh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe diese Symptome.",
+          "translation": "I have these symptoms."
+        },
+        "tip": "This is also plural; the singular is 'das Symptom'."
+      },
+      {
+        "term": "der Termin",
+        "translation": "the appointment",
+        "definition": "a scheduled meeting with a doctor",
+        "pronunciation": "air ter-meen",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe einen Termin beim Arzt.",
+          "translation": "I have an appointment with the doctor."
+        },
+        "tip": "'Der Termin' is masculine, using 'der'."
+      },
+      {
+        "term": "die Untersuchung",
+        "translation": "the examination",
+        "definition": "a medical check-up",
+        "pronunciation": "dee un-ter-zooh-kung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Untersuchung ist wichtig.",
+          "translation": "The examination is important."
+        },
+        "tip": "'Die Untersuchung' is feminine, so it uses 'die'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Present Perfect Tense",
+        "explanation": "In German, the present perfect tense (Perfekt) is often used to describe past actions. It is formed with the auxiliary verbs 'haben' or 'sein' plus the past participle of the main verb. For example, 'Ich habe gegessen' means 'I have eaten.'",
+        "table": {
+          "headers": [
+            "Subject",
+            "Perfect Form"
+          ],
+          "rows": [
+            [
+              "ich",
+              "habe + past participle"
+            ],
+            [
+              "du",
+              "hast + past participle"
+            ],
+            [
+              "er/sie/es",
+              "hat + past participle"
+            ],
+            [
+              "wir/sie/Sie",
+              "haben + past participle"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich habe einen Arzt besucht.",
+            "translation": "I have visited a doctor.",
+            "breakdown": "Here, 'ich' is the subject, 'habe' is the auxiliary verb, and 'besucht' is the past participle of 'besuchen' (to visit)."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'haben' and 'sein' as auxiliary verbs",
+          "For verbs of movement like 'gehen', use 'sein' instead of 'haben'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Doctor's Office",
+      "context": "A patient visits the doctor for a check-up.",
+      "speakers": [
+        "Dr. Müller",
+        "Lena"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Guten Tag, Lena. Was kann ich für Sie tun?",
+          "translation": "Good day, Lena. What can I do for you?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Guten Tag, Herr Doktor. Ich habe Kopfschmerzen.",
+          "translation": "Good day, doctor. I have a headache.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Wie lange haben Sie das schon?",
+          "translation": "How long have you had this?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Seit zwei Tagen.",
+          "translation": "For two days.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Haben Sie noch andere Symptome?",
+          "translation": "Do you have any other symptoms?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich fühle mich müde und schwindelig.",
+          "translation": "Yes, I feel tired and dizzy.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich werde Sie untersuchen.",
+          "translation": "I will examine you.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Danke, Herr Doktor.",
+          "translation": "Thank you, doctor.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Healthcare in Germany",
+      "text": "Germany has a robust healthcare system that provides universal coverage to its residents. Most doctors operate in private practices, and patients often need a referral for specialist care.",
+      "funFact": "In Germany, you can often find pharmacies (Apotheken) open on Sundays in larger cities, providing essential medications even on weekends."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to visiting the doctor.",
+        "Practiced a dialogue about a doctor's visit.",
+        "Explored the present perfect tense in German.",
+        "Gained cultural insights about healthcare in German-speaking countries."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and try to create your own dialogue about visiting a doctor. Focus on using the present perfect tense."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'doctor'?",
+      "content": {
+        "options": [
+          "der Arzt",
+          "die Krankenschwester",
+          "die Medikamente"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'der Arzt', which means 'doctor' in German.",
+      "hint": "Think of a person who helps you when you are sick.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'die Symptome' mean in English?",
+      "content": {
+        "options": [
+          "the symptoms",
+          "the treatment",
+          "the appointment"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Symptome' translates to 'the symptoms', which are signs of illness.",
+      "hint": "These are what you tell the doctor.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich habe einen ___ beim Arzt.",
+      "content": {
+        "sentence": "Ich habe einen ___ beim Arzt.",
+        "correctAnswer": "Termin",
+        "acceptableAnswers": [
+          "Termin"
+        ],
+        "options": [
+          "Arzt",
+          "Termin",
+          "Medikament"
+        ]
+      },
+      "explanation": "The correct answer is 'Termin', which means 'appointment'.",
+      "hint": "You need this to see the doctor.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Die ___ gibt mir die Medikamente.",
+      "content": {
+        "sentence": "Die ___ gibt mir die Medikamente.",
+        "correctAnswer": "Krankenschwester",
+        "acceptableAnswers": [
+          "Krankenschwester"
+        ],
+        "options": [
+          "Ärzte",
+          "Krankenschwester",
+          "Medikamente"
+        ]
+      },
+      "explanation": "The answer is 'Krankenschwester', meaning 'nurse'.",
+      "hint": "She helps the doctor.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I need medicine.'",
+      "content": {
+        "prompt": "Translate to German: 'I need medicine.'",
+        "correctAnswer": "Ich brauche Medikamente.",
+        "acceptableAnswers": [
+          "Ich brauche Medizin."
+        ]
+      },
+      "explanation": "Both answers are correct as 'Medikamente' and 'Medizin' can mean 'medicine'.",
+      "hint": "Think of what the doctor prescribes.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Die Symptome sind schlimm.'",
+      "content": {
+        "ttsText": "Die Symptome sind schlimm.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The symptoms are bad.",
+          "The doctor is busy.",
+          "I need an appointment."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence translates to 'The symptoms are bad.'",
+      "hint": "Listen for how symptoms are described.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I have a headache.'",
+      "content": {
+        "targetText": "Ich habe Kopfschmerzen.",
+        "context": "Translate and say that you are feeling unwell.",
+        "acceptableVariants": [
+          "Ich habe Kopfschmerzen."
+        ]
+      },
+      "explanation": "This is how you express having a headache in German.",
+      "hint": "Think about what you feel in your head.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'die Untersuchung' in English?",
+      "content": {
+        "options": [
+          "the examination",
+          "the treatment",
+          "the disease"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Untersuchung' means 'the examination', which is something a doctor does.",
+      "hint": "It's what happens during a doctor's visit.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich habe ___ Schmerzen in meinem Bauch.",
+      "content": {
+        "sentence": "Ich habe ___ Schmerzen in meinem Bauch.",
+        "correctAnswer": "schreckliche",
+        "acceptableAnswers": [
+          "schreckliche"
+        ],
+        "options": [
+          "schreckliche",
+          "leichte",
+          "keine"
+        ]
+      },
+      "explanation": "The answer is 'schreckliche', meaning 'terrible'.",
+      "hint": "Think about the level of pain.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to English: 'Ich habe einen Termin beim Arzt.'",
+      "content": {
+        "prompt": "Translate to English: 'Ich habe einen Termin beim Arzt.'",
+        "correctAnswer": "I have an appointment with the doctor.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The correct translation communicates having a scheduled time to see the doctor.",
+      "hint": "Focus on the concept of a scheduled visit.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

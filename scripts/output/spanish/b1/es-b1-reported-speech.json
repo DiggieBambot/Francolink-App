@@ -1,0 +1,350 @@
+{
+  "lesson": {
+    "title": "Reported Speech",
+    "type": "GRAMMAR",
+    "slug": "es-b1-reported-speech"
+  },
+  "unit": "Media & Communication",
+  "unitOrder": 5,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about reported speech in Spanish, focusing on how to convey what someone else has said. You'll practice transforming direct quotes into reported speech, which is essential for effective communication.",
+      "culturalNote": "In many Spanish-speaking cultures, storytelling and sharing news are integral to social interaction, often involving reported speech."
+    },
+    "vocabulary": [
+      {
+        "term": "decir",
+        "translation": "to say",
+        "definition": "to express something verbally",
+        "pronunciation": "deh-SEER",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ella dice que viene a la fiesta.",
+          "translation": "She says that she is coming to the party."
+        },
+        "tip": "Remember that 'decir' can be used in both direct and reported speech."
+      },
+      {
+        "term": "preguntar",
+        "translation": "to ask",
+        "definition": "to request information",
+        "pronunciation": "preh-gun-TAR",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Él pregunta si hay comida.",
+          "translation": "He asks if there is food."
+        },
+        "tip": "When reporting a question, remember to change the structure of the sentence."
+      },
+      {
+        "term": "afirmar",
+        "translation": "to affirm",
+        "definition": "to state something as true",
+        "pronunciation": "ah-feer-MAR",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ella afirma que le gusta el cine.",
+          "translation": "She affirms that she likes the movies."
+        },
+        "tip": "Use 'afirmar' to indicate certainty when reporting someone's statement."
+      },
+      {
+        "term": "decirle a alguien",
+        "translation": "to tell someone",
+        "definition": "to inform someone about something",
+        "pronunciation": "deh-SEER-leh ah AL-gin",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Le dije a Juan que me llamara.",
+          "translation": "I told Juan to call me."
+        },
+        "tip": "This phrase is commonly used when conveying instructions or requests."
+      },
+      {
+        "term": "informar",
+        "translation": "to inform",
+        "definition": "to give someone facts or information",
+        "pronunciation": "een-for-MAR",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "El profesor informa que hay examen mañana.",
+          "translation": "The teacher informs that there is an exam tomorrow."
+        },
+        "tip": "Use 'informar' for formal contexts, such as news or announcements."
+      },
+      {
+        "term": "encontrar",
+        "translation": "to find",
+        "definition": "to discover or come across something",
+        "pronunciation": "en-con-TRAR",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ella encontró que el libro es interesante.",
+          "translation": "She found that the book is interesting."
+        },
+        "tip": "In reported speech, the verb often changes form to reflect the reporting."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Reported Speech (Discurso Indirecto)",
+        "explanation": "Reported speech is used to express what someone else has said without quoting them directly. In Spanish, the verb tense usually shifts back. For example, the present tense becomes the past tense.",
+        "table": {
+          "headers": [
+            "Direct Speech",
+            "Reported Speech"
+          ],
+          "rows": [
+            [
+              "Él dice: 'Voy a la tienda.'",
+              "Él dice que va a la tienda."
+            ],
+            [
+              "Ella pregunta: '¿Dónde estás?'",
+              "Ella pregunta dónde estás."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Juan dice: 'Me gusta el chocolate.'",
+            "translation": "Juan says: 'I like chocolate.'",
+            "breakdown": "In reported speech: Juan dice que le gusta el chocolate."
+          },
+          {
+            "original": "María pregunta: '¿Puedes ayudarme?'",
+            "translation": "María asks: 'Can you help me?'",
+            "breakdown": "In reported speech: María pregunta si puedes ayudarle."
+          }
+        ],
+        "commonMistakes": [
+          "Not changing the verb tense: 'Él dice que va a la tienda.' (correct) vs. 'Él dice que va a la tienda.' (incorrect)",
+          "Forgetting to change questions to statements: 'Ella pregunta si tú quieres ir.' (correct) vs. 'Ella pregunta: '¿Quieres ir?'' (incorrect)"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Surprise Party",
+      "context": "A conversation between two friends about organizing a surprise party.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, Luis. ¿Sabes que es el cumpleaños de Marta?",
+          "translation": "Hi, Luis. Do you know that it's Marta's birthday?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, lo sé. ¿Qué planes tienes?",
+          "translation": "Yes, I know. What plans do you have?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Quiero organizar una fiesta sorpresa.",
+          "translation": "I want to organize a surprise party.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¡Eso suena genial! ¿Cuándo piensas hacerlo?",
+          "translation": "That sounds great! When do you plan to do it?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "El sábado próximo sería perfecto.",
+          "translation": "Next Saturday would be perfect.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Debemos decirle a los demás.",
+          "translation": "We should tell the others.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, y tenemos que mantenerlo en secreto.",
+          "translation": "Yes, and we have to keep it a secret.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Voy a preguntarles si pueden venir.",
+          "translation": "I will ask them if they can come.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Celebrations in Latin America",
+      "text": "In many Latin American countries, birthdays are celebrated with great enthusiasm. Friends and family gather to throw surprise parties, often involving music, food, and decorations.",
+      "funFact": "In Mexico, it's common to celebrate birthdays with a piñata, adding a fun and interactive element to the festivities."
+    },
+    "summary": {
+      "keyPoints": [
+        "Reported speech requires a shift in verb tense.",
+        "When reporting questions, structure changes from direct to indirect.",
+        "Common verbs used in reported speech include 'decir', 'preguntar', and 'afirmar'.",
+        "Practice transforming direct quotes into reported speech for better fluency."
+      ],
+      "nextSteps": "Practice writing sentences in reported speech using the vocabulary from this lesson and try to engage in conversations using reported speech."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct reported speech form of: 'She said, I love reading.'?",
+      "content": {
+        "options": [
+          "She said that she loved reading.",
+          "She said that she loves reading.",
+          "She say that she loved reading."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "In reported speech, the present tense verb 'love' changes to the past tense 'loved'.",
+      "hint": "Remember to change the verb tense.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of these is NOT an appropriate way to report a question?",
+      "content": {
+        "options": [
+          "She asked if I was coming.",
+          "She said, 'Are you coming?'",
+          "She asked me, 'Are you coming?'"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The second option is direct speech, not reported speech.",
+      "hint": "Look for the format that indicates a question is being reported.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: He ____ me that he would arrive late.",
+      "content": {
+        "sentence": "He ___ me that he would arrive late.",
+        "correctAnswer": "dijo",
+        "acceptableAnswers": [
+          "decía",
+          "informó"
+        ],
+        "options": [
+          "dijo",
+          "preguntó",
+          "afirmó"
+        ]
+      },
+      "explanation": "The correct verb 'dijo' means 'said' in Spanish and fits the context.",
+      "hint": "Think of the verb for 'to say'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: She asked me ____ I liked the movie.",
+      "content": {
+        "sentence": "She asked me ____ I liked the movie.",
+        "correctAnswer": "si",
+        "acceptableAnswers": [
+          "que",
+          "cuándo"
+        ],
+        "options": [
+          "si",
+          "que",
+          "cómo"
+        ]
+      },
+      "explanation": "'Si' is used to indicate a yes/no question in reported speech.",
+      "hint": "It's a word used for yes/no questions.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct reported speech sentence: 'dijo', 'me', 'que', 'él', 'vendría'.",
+      "content": {
+        "words": [
+          "dijo",
+          "me",
+          "que",
+          "él",
+          "vendría"
+        ],
+        "correctOrder": [
+          "me",
+          "dijo",
+          "que",
+          "él",
+          "vendría"
+        ],
+        "translation": "He told me that he would come."
+      },
+      "explanation": "The structure in reported speech typically starts with the person followed by the verb.",
+      "hint": "Start with 'me' to indicate who is being spoken to.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'They informed us that the meeting was canceled.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'They informed us that the meeting was canceled.'",
+        "correctAnswer": "Nos informaron que la reunión fue cancelada.",
+        "acceptableAnswers": [
+          "Nos dijeron que la reunión fue cancelada."
+        ]
+      },
+      "explanation": "The translation correctly conveys the reported speech structure.",
+      "hint": "Think about how to say 'informed' in Spanish.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct reported speech.",
+      "content": {
+        "ttsText": "Ella dijo que iba a llegar tarde.",
+        "ttsLang": "es-ES",
+        "options": [
+          "She said that she was going to arrive late.",
+          "She said that she would arrive late.",
+          "She said that she went late."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer reflects the future intention expressed in reported speech.",
+      "hint": "Listen for the future tense.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in Spanish: 'He told me that he would help me.'",
+      "content": {
+        "targetText": "Él me dijo que me ayudaría.",
+        "context": "You are practicing how to report what someone said.",
+        "acceptableVariants": [
+          "Él me dijo que ayudaría.",
+          "Él me informó que me ayudaría."
+        ]
+      },
+      "explanation": "This sentence correctly uses the reported speech format.",
+      "hint": "Start with 'Él me dijo'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

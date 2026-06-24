@@ -1,0 +1,350 @@
+{
+  "lesson": {
+    "title": "Indirect Speech (Indirekte Rede)",
+    "type": "GRAMMAR",
+    "slug": "de-b1-indirect-speech"
+  },
+  "unit": "Media & Communication",
+  "unitOrder": 5,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about Indirect Speech (Indirekte Rede) in German. This involves reporting what someone has said without quoting their exact words. You will explore how to use the Konjunktiv II for politeness and hypotheticals, as well as subordinate clauses.",
+      "culturalNote": "Indirect speech is commonly used in German media, especially in news reports and interviews, to convey information without direct quotes."
+    },
+    "vocabulary": [
+      {
+        "term": "der Bericht",
+        "translation": "the report",
+        "definition": "a written or spoken account of an event or situation",
+        "pronunciation": "dehr berisht",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Bericht über das Konzert war sehr positiv.",
+          "translation": "The report about the concert was very positive."
+        },
+        "tip": "Remember that 'Bericht' is masculine (der Bericht) and its plural is 'die Berichte'."
+      },
+      {
+        "term": "die Aussage",
+        "translation": "the statement",
+        "definition": "a declaration or remark made by someone",
+        "pronunciation": "dee ow-zah-guh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Aussage des Zeugen war entscheidend.",
+          "translation": "The statement of the witness was decisive."
+        },
+        "tip": "Aussage is feminine (die Aussage) and its plural is 'die Aussagen'."
+      },
+      {
+        "term": "sagen",
+        "translation": "to say",
+        "definition": "to express in words",
+        "pronunciation": "zah-guhn",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Er sagt, dass er morgen kommt.",
+          "translation": "He says that he is coming tomorrow."
+        },
+        "tip": "Sagen is a regular verb; watch for its conjugation in different tenses."
+      },
+      {
+        "term": "denken",
+        "translation": "to think",
+        "definition": "to have a belief or idea",
+        "pronunciation": "den-kun",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich denke, dass es regnen wird.",
+          "translation": "I think that it will rain."
+        },
+        "tip": "Denken is also a regular verb; its conjugation is important for indirect speech."
+      },
+      {
+        "term": "wissen",
+        "translation": "to know",
+        "definition": "to have knowledge or information about something",
+        "pronunciation": "vi-suhn",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Sie weiß, dass er nicht kommt.",
+          "translation": "She knows that he is not coming."
+        },
+        "tip": "Wissen is an irregular verb; be careful with its forms."
+      },
+      {
+        "term": "der Konjunktiv II",
+        "translation": "the subjunctive II",
+        "definition": "a grammatical mood used for hypotheticals and politeness",
+        "pronunciation": "dehr kon-yunktiv tsvei",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Im Konjunktiv II sagt man: Ich würde gehen.",
+          "translation": "In the subjunctive II, one says: I would go."
+        },
+        "tip": "Konjunktiv II is often used in indirect speech to express a wish or an unreal situation."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Indirect Speech (Indirekte Rede)",
+        "explanation": "In German, indirect speech is often introduced with 'dass' (that) or verbs like 'sagen' (to say), 'denken' (to think), and 'wissen' (to know). When using indirect speech, you may need to use the Konjunktiv II to express politeness or hypothetical situations. This mood gives your statements a softer tone.",
+        "table": {
+          "headers": [
+            "Direct Speech",
+            "Indirect Speech"
+          ],
+          "rows": [
+            [
+              "Er sagt: 'Ich komme morgen.'",
+              "Er sagt, dass er morgen kommt."
+            ],
+            [
+              "Sie denkt: 'Ich habe keine Zeit.'",
+              "Sie denkt, dass sie keine Zeit hat."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Max sagt: 'Ich möchte einen Kaffee.'",
+            "translation": "Max says: 'I would like a coffee.'",
+            "breakdown": "In indirect speech: Max sagt, dass er einen Kaffee möchte."
+          },
+          {
+            "original": "Lena sagt: 'Ich kann nicht kommen.'",
+            "translation": "Lena says: 'I cannot come.'",
+            "breakdown": "In indirect speech: Lena sagt, dass sie nicht kommen kann."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'dass' after the verb: Correct form is 'Er sagt, dass...'.",
+          "Using the indicative instead of Konjunktiv II: Use 'möchte' instead of 'will'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Plans",
+      "context": "Two friends, Max and Lena, are discussing their plans for the weekend.",
+      "speakers": [
+        "Max",
+        "Lena"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Was hast du am Wochenende vor?",
+          "translation": "What do you have planned for the weekend?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich denke, dass ich ins Kino gehen möchte.",
+          "translation": "I think that I would like to go to the cinema.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt gut! Wer kommt mit?",
+          "translation": "That sounds good! Who is coming along?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich weiß, dass Anna und Felix interessiert sind.",
+          "translation": "I know that Anna and Felix are interested.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Super! Ich sage ihnen Bescheid.",
+          "translation": "Great! I will let them know.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hast du schon die Tickets reserviert?",
+          "translation": "Have you already reserved the tickets?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Noch nicht, aber ich werde es machen.",
+          "translation": "Not yet, but I will do it.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich hoffe, dass wir gute Plätze bekommen.",
+          "translation": "I hope that we get good seats.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Media and Communication in Germany",
+      "text": "In Germany, indirect speech is often used in media to present information from interviews or press conferences. This style adds a layer of professionalism and objectivity. Understanding how to use indirect speech is essential for effective communication in both written and spoken German.",
+      "funFact": "German news broadcasts often use indirect speech to summarize statements from politicians or experts, making it a crucial skill for journalists."
+    },
+    "summary": {
+      "keyPoints": [
+        "Indirect speech is formed using 'dass' and the Konjunktiv II.",
+        "Important verbs for indirect speech include 'sagen', 'wissen', and 'denken'.",
+        "Use indirect speech to report someone else's words without quoting them directly.",
+        "Indirect speech helps convey politeness and hypotheticals."
+      ],
+      "nextSteps": "Practice forming sentences in indirect speech and try creating dialogues using the vocabulary from this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the indirect speech form of 'He said that he was happy'?",
+      "content": {
+        "options": [
+          "Er sagt, dass er glücklich ist.",
+          "Er sagte, dass er glücklich war.",
+          "Er sagt, dass er glücklich war."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "In indirect speech, the past tense is used when the reporting verb is in the past.",
+      "hint": "Pay attention to the tense used.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is NOT a way to express indirect speech?",
+      "content": {
+        "options": [
+          "Er sagte, er würde kommen.",
+          "Er sagt, er kommt.",
+          "Er sagt, er gekommen ist."
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "The third option is incorrect as it does not follow the indirect speech structure.",
+      "hint": "Look for the correct verb forms.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Er ____ (sagen) dass er krank ist.",
+      "content": {
+        "sentence": "Er ___ dass er krank ist.",
+        "correctAnswer": "sagt",
+        "acceptableAnswers": [
+          "sagen"
+        ],
+        "options": [
+          "sagt",
+          "sagte",
+          "sagen"
+        ]
+      },
+      "explanation": "The present tense 'sagt' is used here for indirect speech.",
+      "hint": "Think about the present tense form.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the correct form: Sie ____ (wissen) dass das Wetter schlecht ist.",
+      "content": {
+        "sentence": "Sie ___ dass das Wetter schlecht ist.",
+        "correctAnswer": "wissen",
+        "acceptableAnswers": [
+          "weiss",
+          "wussten"
+        ],
+        "options": [
+          "wissen",
+          "wusste",
+          "wussten"
+        ]
+      },
+      "explanation": "The verb 'wissen' is used to express knowledge in indirect speech.",
+      "hint": "Use the present tense form.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: sagte, er, sie, dass, kommen, wollte.",
+      "content": {
+        "words": [
+          "sagte",
+          "er",
+          "sie",
+          "dass",
+          "kommen",
+          "wollte"
+        ],
+        "correctOrder": [
+          "er",
+          "sagte",
+          "dass",
+          "sie",
+          "kommen",
+          "wollte"
+        ],
+        "translation": "He said that she wanted to come."
+      },
+      "explanation": "The correct order follows the subject-verb-object structure used in indirect speech.",
+      "hint": "Start with the subject.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'He thinks that they are happy.'",
+      "content": {
+        "prompt": "Translate to German: 'He thinks that they are happy.'",
+        "correctAnswer": "Er denkt, dass sie glücklich sind.",
+        "acceptableAnswers": [
+          "Er glaubt, dass sie glücklich sind."
+        ]
+      },
+      "explanation": "The indirect speech is formed with 'denkt' and 'dass'.",
+      "hint": "Pay attention to the verb forms.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct indirect speech form.",
+      "content": {
+        "ttsText": "Er sagte, dass er morgen kommt.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Er sagt, dass er morgen kommt.",
+          "Er sagte, dass er morgen kommt.",
+          "Er sagte, dass er morgen kommen."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct form reflects the past tense of the reporting verb.",
+      "hint": "Listen carefully to the verb tense.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in German: 'She said that she was tired.'",
+      "content": {
+        "targetText": "Sie sagte, dass sie müde war.",
+        "context": "Translate this English sentence into German.",
+        "acceptableVariants": [
+          "Sie sagte, dass sie erschöpft war."
+        ]
+      },
+      "explanation": "This sentence uses indirect speech in the past tense.",
+      "hint": "Focus on the verb forms.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

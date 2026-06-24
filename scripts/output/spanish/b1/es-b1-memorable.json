@@ -1,0 +1,345 @@
+{
+  "lesson": {
+    "title": "Memorable Experiences",
+    "type": "CONVERSATION",
+    "slug": "es-b1-memorable"
+  },
+  "unit": "Narrating the Past",
+  "unitOrder": 2,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to narrate memorable experiences in Spanish. You will practice using the past tense, conditionals, and reported speech while discussing personal stories.",
+      "culturalNote": "In many Latin American countries, storytelling is a vital part of culture, often shared during family gatherings or festivals."
+    },
+    "vocabulary": [
+      {
+        "term": "la experiencia",
+        "translation": "the experience",
+        "definition": "A significant event or incident that someone has lived through.",
+        "pronunciation": "lah ex-per-ee-en-thah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tuve una experiencia increíble en el viaje.",
+          "translation": "I had an incredible experience on the trip."
+        },
+        "tip": "Think of 'experience' as something that impacts you."
+      },
+      {
+        "term": "recordar",
+        "translation": "to remember",
+        "definition": "To recall or bring to mind something from the past.",
+        "pronunciation": "reh-kor-dar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Recuerdo cuando fui a la playa.",
+          "translation": "I remember when I went to the beach."
+        },
+        "tip": "Relate it to 'record' since both involve memory."
+      },
+      {
+        "term": "el recuerdo",
+        "translation": "the memory",
+        "definition": "Something that is remembered; a recollection.",
+        "pronunciation": "el reh-kwer-doh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ese recuerdo me hace sonreír.",
+          "translation": "That memory makes me smile."
+        },
+        "tip": "Think of 'memory' as a memento from the past."
+      },
+      {
+        "term": "la aventura",
+        "translation": "the adventure",
+        "definition": "An exciting or unusual experience.",
+        "pronunciation": "lah ah-ven-too-rah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Fue una aventura inolvidable.",
+          "translation": "It was an unforgettable adventure."
+        },
+        "tip": "Connect it with 'adventure' in English; both indicate excitement."
+      },
+      {
+        "term": "si",
+        "translation": "if",
+        "definition": "Used to introduce a conditional clause.",
+        "pronunciation": "see",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Si tengo tiempo, iré al cine.",
+          "translation": "If I have time, I will go to the movies."
+        },
+        "tip": "Remember that 'si' introduces possibilities."
+      },
+      {
+        "term": "decir",
+        "translation": "to say/tell",
+        "definition": "To express something in words.",
+        "pronunciation": "deh-seer",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Me dijo que había llegado tarde.",
+          "translation": "He told me that he had arrived late."
+        },
+        "tip": "Think of it as the verb for communication."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Past Tense",
+        "explanation": "In Spanish, the past tense can be expressed using the preterite or imperfect forms. The preterite is used for completed actions, while the imperfect describes ongoing or habitual past actions. Knowing when to use each is essential for narrating experiences accurately.",
+        "table": {
+          "headers": [
+            "Preterite",
+            "Imperfect"
+          ],
+          "rows": [
+            [
+              "hablé (I spoke)",
+              "hablaba (I was speaking)"
+            ],
+            [
+              "comí (I ate)",
+              "comía (I was eating)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ayer hablé con mi amigo.",
+            "translation": "Yesterday, I spoke with my friend.",
+            "breakdown": "The preterite 'hablé' indicates a completed action."
+          },
+          {
+            "original": "Cuando era niño, siempre jugaba en el parque.",
+            "translation": "When I was a child, I always played in the park.",
+            "breakdown": "The imperfect 'jugaba' indicates a habitual action."
+          }
+        ],
+        "commonMistakes": [
+          "Using the preterite when the imperfect is needed. Example Correction: 'Cuando era niño, siempre jugaba' not 'jugó'.",
+          "Confusing the conjugation of regular and irregular verbs. Example Correction: 'hice' for hacer, not 'hizo'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Sharing a Memorable Experience",
+      "context": "At a café, friends are discussing their favorite memories.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Cuál fue la experiencia más memorable de tu vida?",
+          "translation": "What was the most memorable experience of your life?"
+        },
+        {
+          "speaker": 1,
+          "text": "Creo que fue cuando viajé a Machu Picchu.",
+          "translation": "I think it was when I traveled to Machu Picchu."
+        },
+        {
+          "speaker": 0,
+          "text": "¡Eso suena increíble! ¿Qué hiciste allí?",
+          "translation": "That sounds amazing! What did you do there?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hice una caminata por las montañas y vi paisajes hermosos.",
+          "translation": "I hiked through the mountains and saw beautiful landscapes."
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué bonito! ¿Te gustaría volver?",
+          "translation": "How lovely! Would you like to go back?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, si tuviera la oportunidad, iría de nuevo.",
+          "translation": "Yes, if I had the opportunity, I would go again."
+        },
+        {
+          "speaker": 0,
+          "text": "Me encantaría ir contigo.",
+          "translation": "I would love to go with you."
+        },
+        {
+          "speaker": 1,
+          "text": "¡Hagámoslo! Sería una gran aventura.",
+          "translation": "Let's do it! It would be a great adventure."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Storytelling in Latin America",
+      "text": "Storytelling is a cherished tradition in many Latin American cultures and is often used to pass down history and lessons. Families gather to share stories during celebrations or casual get-togethers.",
+      "funFact": "In some cultures, there's a practice called 'cuento' where elders share folktales that teach morals and values."
+    },
+    "summary": {
+      "keyPoints": [
+        "You learned vocabulary related to memorable experiences.",
+        "You practiced using the past tense effectively.",
+        "You engaged in a dialogue about memorable adventures.",
+        "You discovered cultural aspects of storytelling in Latin America."
+      ],
+      "nextSteps": "Practice narrating your own memorable experiences using the vocabulary and grammar learned in this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la experiencia' mean in English?",
+      "content": {
+        "options": [
+          "the experience",
+          "the memory",
+          "the adventure",
+          "the lesson"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "La experiencia translates to 'the experience' in English.",
+      "hint": "Think about personal encounters.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'to remember' in Spanish?",
+      "content": {
+        "options": [
+          "decir",
+          "recordar",
+          "vivir",
+          "pensar"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Recordar' is the correct translation for 'to remember'.",
+      "hint": "It starts with 're-'",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Me gusta ______ mis vacaciones pasadas.'",
+      "content": {
+        "sentence": "Me gusta ___ mis vacaciones pasadas.",
+        "correctAnswer": "recordar",
+        "acceptableAnswers": [
+          "recordar",
+          "recordar mis experiencias"
+        ],
+        "options": [
+          "recordar",
+          "decir",
+          "vivir"
+        ]
+      },
+      "explanation": "The verb 'recordar' fits best in this context.",
+      "hint": "Think about memories.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'El ______ de mi viaje a España fue inolvidable.'",
+      "content": {
+        "sentence": "El ______ de mi viaje a España fue inolvidable.",
+        "correctAnswer": "recuerdo",
+        "acceptableAnswers": [
+          "recuerdo",
+          "recuerdo especial"
+        ],
+        "options": [
+          "recuerdo",
+          "experiencia",
+          "aventura"
+        ]
+      },
+      "explanation": "'Recuerdo' refers to a memory, which fits the context of an unforgettable trip.",
+      "hint": "It's about a past event.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to make a correct sentence: 'aventura, fue, mi, una, increíble'",
+      "content": {
+        "words": [
+          "aventura",
+          "fue",
+          "mi",
+          "una",
+          "increíble"
+        ],
+        "correctOrder": [
+          "fue",
+          "una",
+          "aventura",
+          "increíble",
+          "mi"
+        ],
+        "translation": "It was an incredible adventure"
+      },
+      "explanation": "The correct order forms a meaningful sentence about an experience.",
+      "hint": "Start with the verb.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I will tell you about my adventure.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I will tell you about my adventure.'",
+        "correctAnswer": "Te contaré sobre mi aventura.",
+        "acceptableAnswers": [
+          "Te diré sobre mi aventura."
+        ]
+      },
+      "explanation": "Both translations accurately convey the meaning.",
+      "hint": "Think about 'to tell' in Spanish.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Esa fue una experiencia maravillosa.'",
+      "content": {
+        "ttsText": "Esa fue una experiencia maravillosa.",
+        "ttsLang": "es-ES",
+        "options": [
+          "That was a wonderful experience.",
+          "That was a great memory.",
+          "That was an adventure.",
+          "That was a fun trip."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence translates accurately to the chosen option.",
+      "hint": "Focus on the word 'maravillosa'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Describe a memorable experience you had in Spanish.",
+      "content": {
+        "targetText": "Una experiencia memorable que tuve fue...",
+        "context": "Share a memorable experience.",
+        "acceptableVariants": [
+          "Una experiencia inolvidable fue...",
+          "Recuerdo cuando..."
+        ]
+      },
+      "explanation": "The prompt encourages sharing a personal story in Spanish.",
+      "hint": "Think about a vacation or special event.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

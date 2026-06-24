@@ -1,0 +1,314 @@
+{
+  "lesson": {
+    "title": "Concessive Structures (Aunque)",
+    "type": "GRAMMAR",
+    "slug": "es-b2-concessive"
+  },
+  "unit": "Critical Thinking",
+  "unitOrder": 5,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about concessive structures in Spanish, particularly focusing on the use of 'aunque' (although). This will help you express contrasting ideas and opinions more effectively.",
+      "culturalNote": "In many Spanish-speaking cultures, expressing opinions and discussing contrasting views is an important part of social interaction, reflecting a value for open dialogue."
+    },
+    "vocabulary": [
+      {
+        "term": "aunque",
+        "translation": "although",
+        "definition": "Used to introduce a contrast or concession.",
+        "pronunciation": "aun-kay",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Aunque estaba cansado, fui a la fiesta.",
+          "translation": "Although I was tired, I went to the party."
+        },
+        "tip": "Remember that 'aunque' can also mean 'even if' in some contexts."
+      },
+      {
+        "term": "sin embargo",
+        "translation": "however",
+        "definition": "Used to introduce a contrasting statement.",
+        "pronunciation": "sin em-bar-go",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Quería ir al cine, sin embargo, no tenía tiempo.",
+          "translation": "I wanted to go to the movies; however, I didn't have time."
+        },
+        "tip": "'Sin embargo' is often used at the beginning of a sentence for emphasis."
+      },
+      {
+        "term": "a pesar de",
+        "translation": "in spite of",
+        "definition": "Used to express contrast despite an obstacle.",
+        "pronunciation": "a pe-sar de",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "A pesar de la lluvia, salimos a caminar.",
+          "translation": "In spite of the rain, we went for a walk."
+        },
+        "tip": "This phrase is often followed by a noun or gerund."
+      },
+      {
+        "term": "aunque + subjuntivo",
+        "translation": "although + subjunctive",
+        "definition": "Used to express hypothetical or uncertain situations.",
+        "pronunciation": "aun-kay + sub-hun-tivo",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Aunque llueva, iremos a la playa.",
+          "translation": "Although it rains, we will go to the beach."
+        },
+        "tip": "Use the subjunctive to express uncertainty or doubt."
+      },
+      {
+        "term": "por muy... que",
+        "translation": "no matter how... (like)",
+        "definition": "Used to indicate that something will happen regardless of the conditions.",
+        "pronunciation": "por moo-ee... kay",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Por muy difícil que sea, lo intentaré.",
+          "translation": "No matter how difficult it is, I will try."
+        },
+        "tip": "This structure emphasizes determination despite challenges."
+      },
+      {
+        "term": "aunque + indicativo",
+        "translation": "although + indicative",
+        "definition": "Used for facts or certainty.",
+        "pronunciation": "aun-kay + in-di-ka-tivo",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Aunque es caro, vale la pena.",
+          "translation": "Although it is expensive, it is worth it."
+        },
+        "tip": "Use the indicative for statements that are known to be true."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Concessive Structures with 'Aunque'",
+        "explanation": "'Aunque' is used to introduce concessive clauses, expressing an idea that contrasts with the main clause. It can be followed by either the indicative or subjunctive mood, depending on whether the statement is factual or hypothetical. 'Sin embargo' and 'a pesar de' serve similar functions in emphasizing contrast.",
+        "table": {
+          "headers": [
+            "Structure",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "Aunque + indicativo",
+              "For factual statements."
+            ],
+            [
+              "Aunque + subjuntivo",
+              "For hypothetical or uncertain situations."
+            ],
+            [
+              "Sin embargo",
+              "To introduce a contrasting idea."
+            ],
+            [
+              "A pesar de + noun/gerund",
+              "To express contrast despite an obstacle."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Aunque no me gusta el café, lo tomo para estar despierto.",
+            "translation": "Although I don't like coffee, I drink it to stay awake.",
+            "breakdown": "'Aunque' introduces the contrast between personal preference and action."
+          },
+          {
+            "original": "Aunque tuviera dinero, no compraría ese coche.",
+            "translation": "Even if I had money, I wouldn't buy that car.",
+            "breakdown": "'Aunque' with subjunctive shows a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative after 'aunque' when the intention is hypothetical. Correct: 'Aunque tuviera...' instead of 'Aunque tuvo...'.",
+          "Mixing 'sin embargo' with a dependent clause. Correct: Use 'sin embargo' to connect independent clauses."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Trip",
+      "context": "Two friends discussing their weekend plans over coffee.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué piensas hacer este fin de semana?",
+          "translation": "What do you think you're going to do this weekend?"
+        },
+        {
+          "speaker": 1,
+          "text": "Aunque tengo mucho trabajo, quiero salir un rato.",
+          "translation": "Although I have a lot of work, I want to go out for a while."
+        },
+        {
+          "speaker": 0,
+          "text": "Eso suena bien. ¿Te gustaría ir al parque?",
+          "translation": "That sounds good. Would you like to go to the park?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, pero a pesar de que está nublado, creo que será divertido.",
+          "translation": "Yes, but in spite of it being cloudy, I think it will be fun."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y si llueve?",
+          "translation": "And what if it rains?"
+        },
+        {
+          "speaker": 1,
+          "text": "Aunque llueva, podemos llevar paraguas.",
+          "translation": "Although it rains, we can take umbrellas."
+        },
+        {
+          "speaker": 0,
+          "text": "Buena idea. Sin embargo, deberíamos revisar el clima antes.",
+          "translation": "Good idea. However, we should check the weather first."
+        },
+        {
+          "speaker": 1,
+          "text": "Claro, por muy malo que sea el clima, me gustaría salir.",
+          "translation": "Sure, no matter how bad the weather is, I would like to go out."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Cultural Perspectives on Debate",
+      "text": "In many Spanish-speaking countries, discussing and debating ideas is a common practice. People often express their opinions openly, reflecting a cultural appreciation for dialogue and reasoning.",
+      "funFact": "In Spain, the tradition of 'tertulias' involves informal gatherings where people discuss various topics, promoting active engagement in conversations."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understand the use of 'aunque' for concessions.",
+        "Differentiate between the indicative and subjunctive after 'aunque'.",
+        "Explore similar structures like 'sin embargo' and 'a pesar de'.",
+        "Practice using these structures in everyday conversations."
+      ],
+      "nextSteps": "Practice writing sentences using 'aunque' in both indicative and subjunctive forms. Engage in conversations where you can express contrasting ideas."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Choose the correct word to complete the sentence: '___ no estoy de acuerdo, respeto tu opinión.'",
+      "content": {
+        "options": [
+          "Aunque",
+          "Sin embargo",
+          "A pesar de"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'Sin embargo' because it indicates a contrast with the previous statement.",
+      "hint": "Think about how to express contrast.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence correctly uses 'aunque' with the subjunctive?",
+      "content": {
+        "options": [
+          "Aunque él estudie, no aprobará.",
+          "Aunque él estudia, no aprobará.",
+          "Aunque estudiará, no aprobará."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Aunque él estudie' uses the subjunctive correctly to express a hypothetical situation.",
+      "hint": "Remember that 'aunque' + subjunctive is used for uncertainty.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: '___ el mal tiempo, salimos a caminar.'",
+      "content": {
+        "sentence": "___ el mal tiempo, salimos a caminar.",
+        "correctAnswer": "A pesar de",
+        "acceptableAnswers": [],
+        "options": [
+          "Aunque",
+          "A pesar de",
+          "Sin embargo"
+        ]
+      },
+      "explanation": "'A pesar de' indicates that despite the bad weather, the action of walking still occurred.",
+      "hint": "Think about expressions that imply 'in spite of'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blanks: '___ él sea muy joven, tiene mucha experiencia.'",
+      "content": {
+        "sentence": "___ él sea muy joven, tiene mucha experiencia.",
+        "correctAnswer": "Aunque",
+        "acceptableAnswers": [],
+        "options": [
+          "A pesar de",
+          "Sin embargo",
+          "Aunque"
+        ]
+      },
+      "explanation": "'Aunque' introduces a concession regarding his youth and highlights his experience.",
+      "hint": "This word suggests a contrast in qualities.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Although it was late, we decided to go out.'",
+      "content": {
+        "correctAnswer": "Aunque era tarde, decidimos salir.",
+        "acceptableAnswers": [],
+        "prompt": "Translate to Spanish: 'Although it was late, we decided to go out.'"
+      },
+      "explanation": "The sentence uses 'aunque' to express the concession of going out despite the lateness.",
+      "hint": "The word for 'although' is key in this translation.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the following sentence and choose the correct option: 'Aunque hace frío, vamos a la playa.'",
+      "content": {
+        "ttsText": "Aunque hace frío, vamos a la playa.",
+        "ttsLang": "es-ES",
+        "options": [
+          "It's cold, we're going to the beach.",
+          "Although it's cold, we're going to the beach.",
+          "We won't go to the beach because it's cold."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct option captures the meaning of the sentence, showing contrast.",
+      "hint": "Focus on the word 'aunque' while listening.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in Spanish: 'No importa lo que digan, aunque sea difícil, seguiré intentándolo.'",
+      "content": {
+        "targetText": "No importa lo que digan, aunque sea difícil, seguiré intentándolo.",
+        "context": "Express your determination despite difficulties.",
+        "acceptableVariants": []
+      },
+      "explanation": "This sentence demonstrates a strong determination despite external opinions.",
+      "hint": "Focus on the expression of determination.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

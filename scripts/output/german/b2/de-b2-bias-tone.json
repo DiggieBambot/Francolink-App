@@ -1,0 +1,340 @@
+{
+  "lesson": {
+    "title": "Identifying Bias & Tone",
+    "type": "CONVERSATION",
+    "slug": "de-b2-bias-tone"
+  },
+  "unit": "Critical Thinking",
+  "unitOrder": 5,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to identify bias and tone in German conversations and texts. You will practice discussing these concepts using complex sentence structures and nuanced vocabulary.",
+      "culturalNote": "In German-speaking countries, media literacy is emphasized in education, helping students critically assess information and its sources."
+    },
+    "vocabulary": [
+      {
+        "term": "der Bias",
+        "translation": "bias",
+        "definition": "A tendency to favor a particular perspective or point of view.",
+        "pronunciation": "bee-ahs",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Bias kann die Wahrnehmung einer Nachricht beeinflussen.",
+          "translation": "Bias can influence the perception of a news story."
+        },
+        "tip": "Remember that 'Bias' is masculine (der), and it remains the same in plural: die Bias."
+      },
+      {
+        "term": "die Meinung",
+        "translation": "opinion",
+        "definition": "A belief or judgment that is not based on absolute certainty.",
+        "pronunciation": "my-nung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Jeder hat das Recht auf seine eigene Meinung.",
+          "translation": "Everyone has the right to their own opinion."
+        },
+        "tip": "‘Meinung’ is feminine (die) and its plural is die Meinungen."
+      },
+      {
+        "term": "der Ton",
+        "translation": "tone",
+        "definition": "The general character or attitude of a piece of writing or speech.",
+        "pronunciation": "tohn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Ton des Artikels war sehr kritisch.",
+          "translation": "The tone of the article was very critical."
+        },
+        "tip": "‘Ton’ is masculine (der) and its plural is die Töne."
+      },
+      {
+        "term": "die Perspektive",
+        "translation": "perspective",
+        "definition": "A particular attitude toward or way of regarding something.",
+        "pronunciation": "per-spek-tee-vuh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Perspektive des Autors ist wichtig für das Verständnis.",
+          "translation": "The author's perspective is important for understanding."
+        },
+        "tip": "‘Perspektive’ is feminine (die) and its plural is die Perspektiven."
+      },
+      {
+        "term": "beeinflussen",
+        "translation": "to influence",
+        "definition": "To have an effect on someone or something.",
+        "pronunciation": "beh-ine-floo-sen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Die Medien beeinflussen die öffentliche Meinung.",
+          "translation": "The media influence public opinion."
+        },
+        "tip": "This is a regular verb; remember the prefix 'be-' can change the meaning of the root verb."
+      },
+      {
+        "term": "der Vorurteil",
+        "translation": "prejudice",
+        "definition": "An unreasonable dislike or preference based on preconceived notions.",
+        "pronunciation": "for-oor-tile",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Vorurteile können zu Missverständnissen führen.",
+          "translation": "Prejudices can lead to misunderstandings."
+        },
+        "tip": "‘Vorurteil’ is neuter (das) and its plural is die Vorurteile."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Use of Konjunktiv II for Hypothetical Situations",
+        "explanation": "The Konjunktiv II is used to express hypothetical situations or wishes. It often involves the use of the auxiliary verbs 'haben' and 'sein' in their subjunctive forms. When discussing bias and tone, this can be useful for framing arguments or expressing opinions indirectly.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Konjunktiv II"
+          ],
+          "rows": [
+            [
+              "sein",
+              "wäre"
+            ],
+            [
+              "haben",
+              "hätte"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich ein Journalist wäre, würde ich auf den Bias achten.",
+            "translation": "If I were a journalist, I would pay attention to bias.",
+            "breakdown": "Here, 'wäre' is the Konjunktiv II form of 'sein', and 'würde' indicates a conditional action."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive.",
+          "Forgetting to conjugate the auxiliary verbs correctly."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing an Article",
+      "context": "Two friends discussing a recent news article over coffee.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hast du den Artikel über die Wahl gelesen?",
+          "translation": "Did you read the article about the election?",
+          "note": "Anna initiates the conversation."
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich fand den Ton ziemlich einseitig.",
+          "translation": "Yes, I found the tone quite one-sided."
+        },
+        {
+          "speaker": 0,
+          "text": "Das stimmt. Es schien, als ob der Autor eine klare Meinung hatte.",
+          "translation": "That's true. It seemed like the author had a clear opinion."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich frage mich, ob das Bias des Autors die Informationen beeinflusst hat.",
+          "translation": "I wonder if the author's bias influenced the information."
+        },
+        {
+          "speaker": 0,
+          "text": "Bestimmt, insbesondere wenn man die Perspektive betrachtet.",
+          "translation": "Definitely, especially when you consider the perspective."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich denke, wir sollten mehr Quellen überprüfen, um ein vollständiges Bild zu bekommen.",
+          "translation": "I think we should check more sources to get a complete picture."
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist eine gute Idee. Vorurteile können zu Missverständnissen führen.",
+          "translation": "That's a good idea. Prejudices can lead to misunderstandings."
+        },
+        {
+          "speaker": 1,
+          "text": "Genau, und wir sollten immer kritisch denken.",
+          "translation": "Exactly, and we should always think critically."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Media Literacy in DACH Countries",
+      "text": "In German-speaking countries, media literacy is an essential part of the curriculum in schools. Students are taught to critically evaluate the information they consume, which helps them to identify bias and tone effectively.",
+      "funFact": "In Germany, there are specific educational programs designed to enhance media literacy among children and teenagers."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding bias and tone is crucial for effective communication.",
+        "Using the Konjunktiv II can help frame hypothetical discussions.",
+        "Critical thinking skills are emphasized in German education.",
+        "Engaging with multiple perspectives is key to informed opinions."
+      ],
+      "nextSteps": "Practice identifying bias and tone in German articles or conversations. Consider how the Konjunktiv II could be used in your discussions."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'Bias' mean?",
+      "content": {
+        "options": [
+          "A neutral perspective",
+          "A tendency to favor one side",
+          "An unbiased opinion",
+          "A factual statement"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "Bias refers to a tendency that leans towards one perspective, often leading to a lack of impartiality.",
+      "hint": "Think about how opinions can be skewed.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word best describes the tone of a sarcastic statement?",
+      "content": {
+        "options": [
+          "Supportive",
+          "Critical",
+          "Playful",
+          "Sincere"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "A sarcastic statement often carries a critical tone, indicating mockery or disdain.",
+      "hint": "Sarcasm usually has a negative connotation.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ein __________ (bias) kann unsere Meinungen beeinflussen.",
+      "content": {
+        "sentence": "Ein __________ kann unsere Meinungen beeinflussen.",
+        "correctAnswer": "Bias",
+        "acceptableAnswers": [
+          "Vorurteil",
+          "Vorliebe"
+        ],
+        "options": [
+          "Bias",
+          "Vorurteil",
+          "Meinung"
+        ]
+      },
+      "explanation": "The correct answer is 'Bias', which directly influences opinions.",
+      "hint": "Think of a term that describes a slant in thinking.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: The __________ (tone) of the article was very optimistic.",
+      "content": {
+        "sentence": "The __________ of the article was very optimistic.",
+        "correctAnswer": "tone",
+        "acceptableAnswers": [
+          "attitude",
+          "mood"
+        ],
+        "options": [
+          "tone",
+          "voice",
+          "perspective"
+        ]
+      },
+      "explanation": "The correct term is 'tone', which describes the attitude conveyed in writing.",
+      "hint": "Consider how the author feels about the topic.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: beeinflussen / Bias / kann / unsere / Meinungen.",
+      "content": {
+        "words": [
+          "beeinflussen",
+          "Bias",
+          "kann",
+          "unsere",
+          "Meinungen"
+        ],
+        "correctOrder": [
+          "Bias",
+          "kann",
+          "unsere",
+          "Meinungen",
+          "beeinflussen"
+        ],
+        "translation": "Bias can influence our opinions."
+      },
+      "explanation": "This sentence correctly states that bias has the power to influence opinions.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'Prejudice can affect our perspective.'",
+      "content": {
+        "prompt": "Translate to German: 'Prejudice can affect our perspective.'",
+        "correctAnswer": "Vorurteil kann unsere Perspektive beeinflussen.",
+        "acceptableAnswers": [
+          "Vorurteile können unsere Sichtweise beeinflussen."
+        ]
+      },
+      "explanation": "The translation conveys how prejudice can alter one's viewpoint.",
+      "hint": "Think about the impact of generalizations.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the following sentence and choose the correct translation: 'Der Ton des Artikels war sehr negativ.'",
+      "content": {
+        "ttsText": "Der Ton des Artikels war sehr negativ.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The tone of the article was very negative.",
+          "The tone of the article was very positive.",
+          "The article had a neutral tone.",
+          "The article was very brief."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation captures the negative tone described in German.",
+      "hint": "Pay attention to the word 'negativ'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence: 'Bias can influence our opinions.'",
+      "content": {
+        "targetText": "Bias kann unsere Meinungen beeinflussen.",
+        "context": "Practice saying how bias affects opinions.",
+        "acceptableVariants": [
+          "Bias kann unsere Sichtweisen beeinflussen."
+        ]
+      },
+      "explanation": "This sentence highlights the influence of bias on opinions, a key concept in understanding tone.",
+      "hint": "Focus on the pronunciation of 'beeinflussen'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

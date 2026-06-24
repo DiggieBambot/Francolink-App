@@ -1,0 +1,354 @@
+{
+  "lesson": {
+    "title": "Unit 5 Review",
+    "type": "REVIEW",
+    "slug": "de-a1-unit5-review"
+  },
+  "unit": "Shopping & Around Town",
+  "unitOrder": 5,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will review vocabulary and grammar related to shopping and navigating around town in German. You will also practice a dialogue that combines these themes to enhance your conversational skills.",
+      "culturalNote": "In Germany, shopping is often done in local markets and bakeries, which offer fresh produce and baked goods. It's a central part of daily life."
+    },
+    "vocabulary": [
+      {
+        "term": "der Supermarkt",
+        "translation": "the supermarket",
+        "definition": "a large store selling food and other products",
+        "pronunciation": "dehr soo-per-markt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich gehe in den Supermarkt.",
+          "translation": "I am going to the supermarket."
+        },
+        "tip": "Remember that 'der' indicates it's masculine."
+      },
+      {
+        "term": "die Bäckerei",
+        "translation": "the bakery",
+        "definition": "a place where bread and pastries are made and sold",
+        "pronunciation": "dee bek-er-eye",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Bäckerei ist um die Ecke.",
+          "translation": "The bakery is around the corner."
+        },
+        "tip": "'Die' indicates it's feminine, and the plural is 'die Bäckereien'."
+      },
+      {
+        "term": "das Geschäft",
+        "translation": "the shop/store",
+        "definition": "a place where goods are sold",
+        "pronunciation": "das ge-sheft",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich kaufe ein Buch im Geschäft.",
+          "translation": "I buy a book in the shop."
+        },
+        "tip": "'Das' indicates it's neuter, and the plural is 'die Geschäfte'."
+      },
+      {
+        "term": "möchten",
+        "translation": "would like",
+        "definition": "a modal verb used to express a desire",
+        "pronunciation": "merkt-en",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich möchte ein Brötchen.",
+          "translation": "I would like a roll."
+        },
+        "tip": "Use 'möchten' to politely express what you want."
+      },
+      {
+        "term": "können",
+        "translation": "can",
+        "definition": "a modal verb used to express ability",
+        "pronunciation": "ker-nen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich kann Deutsch sprechen.",
+          "translation": "I can speak German."
+        },
+        "tip": "Use 'können' to talk about what you are able to do."
+      },
+      {
+        "term": "der Markt",
+        "translation": "the market",
+        "definition": "a place where people buy and sell goods, often outdoors",
+        "pronunciation": "dehr markt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Markt hat frisches Obst.",
+          "translation": "The market has fresh fruit."
+        },
+        "tip": "Remember that 'der' indicates it's masculine."
+      },
+      {
+        "term": "die Tasche",
+        "translation": "the bag",
+        "definition": "a container for carrying items",
+        "pronunciation": "dee tah-she",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe eine neue Tasche.",
+          "translation": "I have a new bag."
+        },
+        "tip": "'Die' indicates it's feminine, and the plural is 'die Taschen'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Modal Verbs (können and möchten)",
+        "explanation": "In German, modal verbs like 'können' (can) and 'möchten' (would like) help express abilities and desires. They are often used with the infinitive verb form. The main verb goes to the end of the sentence.",
+        "table": {
+          "headers": [
+            "Subject",
+            "können",
+            "möchten"
+          ],
+          "rows": [
+            [
+              "Ich",
+              "kann",
+              "möchte"
+            ],
+            [
+              "Du",
+              "kannst",
+              "möchtest"
+            ],
+            [
+              "Er/Sie/Es",
+              "kann",
+              "möchte"
+            ],
+            [
+              "Wir",
+              "können",
+              "möchten"
+            ],
+            [
+              "Ihr",
+              "könnt",
+              "möchtet"
+            ],
+            [
+              "Sie/sie",
+              "können",
+              "möchten"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich kann einkaufen.",
+            "translation": "I can shop.",
+            "breakdown": "Subject 'Ich' + modal verb 'kann' + infinitive 'einkaufen'."
+          },
+          {
+            "original": "Wir möchten ins Kino gehen.",
+            "translation": "We would like to go to the cinema.",
+            "breakdown": "Subject 'Wir' + modal verb 'möchten' + infinitive 'gehen'."
+          }
+        ],
+        "commonMistakes": [
+          "Incorrect: Ich möchte gehen ins Kino. Correction: Ich möchte ins Kino gehen.",
+          "Incorrect: Du kann Deutsch. Correction: Du kannst Deutsch."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Market",
+      "context": "Two friends, Anna and Lukas, are shopping at a local market.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Lukas! Was möchtest du kaufen?",
+          "translation": "Hello Lukas! What would you like to buy?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Anna! Ich möchte Obst und Gemüse kaufen.",
+          "translation": "Hello Anna! I would like to buy fruit and vegetables."
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist eine gute Idee! Wo ist der Markt?",
+          "translation": "That is a good idea! Where is the market?"
+        },
+        {
+          "speaker": 1,
+          "text": "Der Markt ist hier um die Ecke.",
+          "translation": "The market is just around the corner."
+        },
+        {
+          "speaker": 0,
+          "text": "Kannst du mir helfen?",
+          "translation": "Can you help me?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich kann dir helfen.",
+          "translation": "Yes, I can help you."
+        },
+        {
+          "speaker": 0,
+          "text": "Super! Hast du eine Tasche?",
+          "translation": "Great! Do you have a bag?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe eine Tasche dabei.",
+          "translation": "Yes, I have a bag with me."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Shopping Culture in Germany",
+      "text": "Shopping in Germany is often done in local markets, especially on weekends. Fresh food, flowers, and handmade goods are common. Many cities hold weekly markets where vendors sell local products.",
+      "funFact": "In Germany, it is common to greet shopkeepers with 'Guten Tag' (Good day) when entering a store."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review of shopping-related vocabulary.",
+        "Practice using modal verbs 'können' and 'möchten'.",
+        "Engagement in a realistic shopping dialogue.",
+        "Understanding of cultural aspects of shopping in Germany."
+      ],
+      "nextSteps": "Practice speaking the dialogue out loud and try to use the vocabulary in real-life shopping situations."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'supermarket'?",
+      "content": {
+        "options": [
+          "der Markt",
+          "der Supermarkt",
+          "das Geschäft",
+          "die Bäckerei"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct word for 'supermarket' in German is 'der Supermarkt'.",
+      "hint": "Think about where you buy groceries.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'möchten' mean in English?",
+      "content": {
+        "options": [
+          "can",
+          "want",
+          "need",
+          "like"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Möchten' means 'want' in English.",
+      "hint": "It is related to desires.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich gehe zur ___ (bakery).",
+      "content": {
+        "sentence": "Ich gehe zur ___ (Bäckerei).",
+        "correctAnswer": "Bäckerei",
+        "acceptableAnswers": [
+          "Bäckerei"
+        ],
+        "options": [
+          "Supermarkt",
+          "Bäckerei",
+          "Markt",
+          "Geschäft"
+        ]
+      },
+      "explanation": "The correct answer is 'Bäckerei', which means 'bakery'.",
+      "hint": "It's where you buy bread.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Wir ___ (can) ins Geschäft gehen.",
+      "content": {
+        "sentence": "Wir ___ ins Geschäft gehen.",
+        "correctAnswer": "können",
+        "acceptableAnswers": [
+          "können"
+        ],
+        "options": [
+          "möchten",
+          "können",
+          "gehen",
+          "essen"
+        ]
+      },
+      "explanation": "'Können' means 'can' in German.",
+      "hint": "It indicates ability.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I want to go to the market.'",
+      "content": {
+        "prompt": "Translate to German: 'I want to go to the market.'",
+        "correctAnswer": "Ich möchte zum Markt gehen.",
+        "acceptableAnswers": [
+          "Ich will zum Markt gehen."
+        ]
+      },
+      "explanation": "The correct translation is 'Ich möchte zum Markt gehen.'",
+      "hint": "Use 'möchten' for 'want'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and select the correct translation: 'Ich gehe zum Supermarkt.'",
+      "content": {
+        "ttsText": "Ich gehe zum Supermarkt.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I go to the bakery.",
+          "I go to the supermarket.",
+          "I want to go shopping.",
+          "I can go to the market."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct translation is 'I go to the supermarket.'",
+      "hint": "It mentions a place to buy food.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in German: 'I can buy bread.'",
+      "content": {
+        "targetText": "Ich kann Brot kaufen.",
+        "context": "Translate this sentence to German.",
+        "acceptableVariants": [
+          "Ich kann Brot kaufen."
+        ]
+      },
+      "explanation": "The correct sentence is 'Ich kann Brot kaufen.'",
+      "hint": "Remember to use 'kann' for 'can'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,361 @@
+{
+  "lesson": {
+    "title": "My Family (Die Familie)",
+    "type": "VOCABULARY",
+    "slug": "de-a1-family"
+  },
+  "unit": "Articles & Genders",
+  "unitOrder": 2,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to family members in German. You will practice using definite articles and understand the gender of nouns.",
+      "culturalNote": "In Germany, family is very important, and it is common to gather for meals and celebrations. Family gatherings often include extended family members."
+    },
+    "vocabulary": [
+      {
+        "term": "der Vater",
+        "translation": "the father",
+        "definition": "male parent",
+        "pronunciation": "dair Vah-ter",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Vater ist sehr nett.",
+          "translation": "My father is very nice."
+        },
+        "tip": "Remember, 'Vater' is masculine, so use 'der'."
+      },
+      {
+        "term": "die Mutter",
+        "translation": "the mother",
+        "definition": "female parent",
+        "pronunciation": "dee Moo-ter",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Meine Mutter kocht gut.",
+          "translation": "My mother cooks well."
+        },
+        "tip": "Mutter is feminine, so use 'die'."
+      },
+      {
+        "term": "das Kind",
+        "translation": "the child",
+        "definition": "young human",
+        "pronunciation": "dahs Kint",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Kind spielt im Garten.",
+          "translation": "The child is playing in the garden."
+        },
+        "tip": "Kind is neutral, so use 'das'."
+      },
+      {
+        "term": "der Bruder",
+        "translation": "the brother",
+        "definition": "male sibling",
+        "pronunciation": "dair Broo-der",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Bruder ist älter als ich.",
+          "translation": "My brother is older than me."
+        },
+        "tip": "Bruder is masculine, so remember 'der'."
+      },
+      {
+        "term": "die Schwester",
+        "translation": "the sister",
+        "definition": "female sibling",
+        "pronunciation": "dee Shves-ter",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Meine Schwester ist freundlich.",
+          "translation": "My sister is friendly."
+        },
+        "tip": "Schwester is feminine, so use 'die'."
+      },
+      {
+        "term": "die Großeltern",
+        "translation": "the grandparents",
+        "definition": "parents of one's parents",
+        "pronunciation": "dee Grohs-eltern",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Großeltern leben in Deutschland.",
+          "translation": "The grandparents live in Germany."
+        },
+        "tip": "Großeltern is plural, so always use 'die'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Definite Articles and Gender",
+        "explanation": "In German, nouns have genders: masculine (der), feminine (die), and neuter (das). The definite article changes according to the gender of the noun. When talking about family members, remember their specific articles.",
+        "table": {
+          "headers": [
+            "Noun",
+            "Article"
+          ],
+          "rows": [
+            [
+              "Vater",
+              "der"
+            ],
+            [
+              "Mutter",
+              "die"
+            ],
+            [
+              "Kind",
+              "das"
+            ],
+            [
+              "Bruder",
+              "der"
+            ],
+            [
+              "Schwester",
+              "die"
+            ],
+            [
+              "Großeltern",
+              "die"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Der Vater ist hier.",
+            "translation": "The father is here.",
+            "breakdown": "Here, 'der' is used for the masculine noun 'Vater'."
+          }
+        ],
+        "commonMistakes": [
+          "Using the wrong article (e.g., 'die Vater' instead of 'der Vater')",
+          "Confusing singular and plural forms (e.g., 'die Großeltern' is plural, while 'der Großvater' is singular)"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Meeting the Family",
+      "context": "At a family gathering.",
+      "speakers": [
+        "Max",
+        "Anna"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo! Ich bin Max.",
+          "translation": "Hello! I am Max."
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Max! Ich bin Anna.",
+          "translation": "Hello Max! I am Anna."
+        },
+        {
+          "speaker": 0,
+          "text": "Wie viele Geschwister hast du?",
+          "translation": "How many siblings do you have?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich habe einen Bruder und eine Schwester.",
+          "translation": "I have one brother and one sister."
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist schön! Wo ist deine Schwester?",
+          "translation": "That's nice! Where is your sister?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sie ist im Garten mit dem Kind.",
+          "translation": "She is in the garden with the child."
+        },
+        {
+          "speaker": 0,
+          "text": "Wie alt ist dein Bruder?",
+          "translation": "How old is your brother?"
+        },
+        {
+          "speaker": 1,
+          "text": "Mein Bruder ist zehn Jahre alt.",
+          "translation": "My brother is ten years old."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Family in German Culture",
+      "text": "In German-speaking countries, family ties are very strong. It's common for families to spend weekends together and celebrate holidays as a unit. Family gatherings can often be large and joyful.",
+      "funFact": "In Germany, there is a special day called 'Familientag' (Family Day) when families are encouraged to spend quality time together."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned family vocabulary with articles",
+        "Understood noun genders in German",
+        "Practiced simple sentences about family",
+        "Engaged in a dialogue about siblings"
+      ],
+      "nextSteps": "Practice using these vocabulary words in sentences about your own family. Next, you will learn more about possessive adjectives."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'mother'?",
+      "content": {
+        "options": [
+          "der Vater",
+          "die Mutter",
+          "das Kind",
+          "der Bruder"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'die Mutter', which means 'mother' in German.",
+      "hint": "It starts with 'M'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is 'grandparents' in German?",
+      "content": {
+        "options": [
+          "die Geschwister",
+          "die Großeltern",
+          "die Eltern",
+          "das Kind"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Die Großeltern' is the correct term for 'grandparents' in German.",
+      "hint": "It has 'Groß' in it.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich habe einen ___.'",
+      "content": {
+        "sentence": "Ich habe einen ___.",
+        "correctAnswer": "Bruder",
+        "acceptableAnswers": [
+          "Bruder"
+        ],
+        "options": [
+          "Vater",
+          "Bruder",
+          "Mutter"
+        ]
+      },
+      "explanation": "The correct answer is 'Bruder', meaning 'brother'.",
+      "hint": "It's a male sibling.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Die ___ sind nett.'",
+      "content": {
+        "sentence": "Die ___ sind nett.",
+        "correctAnswer": "Großeltern",
+        "acceptableAnswers": [
+          "Großeltern"
+        ],
+        "options": [
+          "Schwester",
+          "Großeltern",
+          "Eltern"
+        ]
+      },
+      "explanation": "The correct answer is 'Großeltern', meaning 'grandparents'.",
+      "hint": "They are your parents' parents.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I have a child.'",
+      "content": {
+        "correctAnswer": "Ich habe ein Kind.",
+        "acceptableAnswers": [
+          "Ich habe ein Kind."
+        ]
+      },
+      "explanation": "The correct translation is 'Ich habe ein Kind.', meaning 'I have a child.'",
+      "hint": "Think about the word for child.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'der Vater'",
+      "content": {
+        "ttsText": "der Vater",
+        "ttsLang": "de-DE",
+        "options": [
+          "the mother",
+          "the father",
+          "the child",
+          "the sister"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct translation is 'the father'.",
+      "hint": "It starts with 'V'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I have a sister.'",
+      "content": {
+        "targetText": "Ich habe eine Schwester.",
+        "context": "Translate and say 'I have a sister.'",
+        "acceptableVariants": [
+          "Ich habe eine Schwester."
+        ]
+      },
+      "explanation": "The correct phrase is 'Ich habe eine Schwester.', meaning 'I have a sister.'",
+      "hint": "Focus on the word for sister.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Mein ___ ist mein bester Freund.'",
+      "content": {
+        "sentence": "Mein ___ ist mein bester Freund.",
+        "correctAnswer": "Bruder",
+        "acceptableAnswers": [
+          "Bruder"
+        ],
+        "options": [
+          "Vater",
+          "Bruder",
+          "Onkel"
+        ]
+      },
+      "explanation": "The answer is 'Bruder', meaning 'brother', as he is often a best friend.",
+      "hint": "Think of a male family member.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to English: 'Die Eltern sind wichtig.'",
+      "content": {
+        "correctAnswer": "The parents are important.",
+        "acceptableAnswers": [
+          "The parents are important."
+        ]
+      },
+      "explanation": "The correct translation is 'The parents are important.'",
+      "hint": "Consider the word for parents.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

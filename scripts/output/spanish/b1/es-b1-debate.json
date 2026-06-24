@@ -1,0 +1,404 @@
+{
+  "lesson": {
+    "title": "Debate & Discussion Skills",
+    "type": "CONVERSATION",
+    "slug": "es-b1-debate"
+  },
+  "unit": "Future & Aspirations",
+  "unitOrder": 8,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn essential vocabulary and phrases for discussing future aspirations and engaging in debates in Spanish. You will also practice using the subjunctive mood and conditionals to express opinions and hypothetical situations.",
+      "culturalNote": "In many Spanish-speaking countries, debates are common in academic settings, often encouraging students to think critically and express their opinions."
+    },
+    "vocabulary": [
+      {
+        "term": "el futuro",
+        "translation": "the future",
+        "definition": "A time period that has not yet occurred.",
+        "pronunciation": "el foo-too-roh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El futuro es incierto.",
+          "translation": "The future is uncertain."
+        },
+        "tip": "Think of 'future' in both languages as something that is yet to come."
+      },
+      {
+        "term": "la aspiración",
+        "translation": "the aspiration",
+        "definition": "A strong desire to achieve something.",
+        "pronunciation": "lah ah-spee-rah-see-ohn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi aspiración es ser médico.",
+          "translation": "My aspiration is to be a doctor."
+        },
+        "tip": "Link 'aspiration' to your personal goals to remember it."
+      },
+      {
+        "term": "opinar",
+        "translation": "to express an opinion",
+        "definition": "To state one's thoughts or beliefs.",
+        "pronunciation": "oh-pee-nar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Voy a opinar sobre el tema.",
+          "translation": "I am going to express my opinion on the topic."
+        },
+        "tip": "Connect 'opinar' with 'opinion' to recall its meaning."
+      },
+      {
+        "term": "en caso de que",
+        "translation": "in case that",
+        "definition": "A phrase used to introduce a conditional situation.",
+        "pronunciation": "en kah-soh de keh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "En caso de que llueva, llevaremos paraguas.",
+          "translation": "In case it rains, we will take umbrellas."
+        },
+        "tip": "Remember 'en caso de que' as a way to prepare for different outcomes."
+      },
+      {
+        "term": "sería",
+        "translation": "would be",
+        "definition": "Conditional form of 'ser', used to express hypothetical situations.",
+        "pronunciation": "seh-ree-ah",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Sería genial viajar por el mundo.",
+          "translation": "It would be great to travel the world."
+        },
+        "tip": "Think of 'sería' as a way to dream about possibilities."
+      },
+      {
+        "term": "la discusión",
+        "translation": "the discussion",
+        "definition": "A conversation about a specific topic, often involving differing opinions.",
+        "pronunciation": "lah dees-koo-syon",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La discusión fue muy interesante.",
+          "translation": "The discussion was very interesting."
+        },
+        "tip": "Relate 'discusión' to 'discussion' for easy recall."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subjunctive Mood in Spanish",
+        "explanation": "The subjunctive mood is used to express wishes, doubts, and hypothetical situations. It often follows certain verbs and conjunctions. Use the present subjunctive when talking about desires related to the future.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Verb (hablar)"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "hable"
+            ],
+            [
+              "Tú",
+              "hables"
+            ],
+            [
+              "Él/Ella",
+              "hable"
+            ],
+            [
+              "Nosotros",
+              "hablemos"
+            ],
+            [
+              "Ellos",
+              "hablen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Espero que tú hables en la reunión.",
+            "translation": "I hope that you speak at the meeting.",
+            "breakdown": "Here, 'hables' is in the present subjunctive to express hope."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing subjunctive with indicative; remember to use subjunctive for wishes.",
+          "Using incorrect verb forms; practice conjugations regularly."
+        ]
+      },
+      {
+        "title": "Conditionals with 'si'",
+        "explanation": "Conditionals in Spanish often use 'si' (if) to formulate hypothetical statements. The structure is important: 'si' + present indicative, then future or conditional.",
+        "table": {
+          "headers": [
+            "Condition",
+            "Result"
+          ],
+          "rows": [
+            [
+              "Si tengo tiempo",
+              "viajaré"
+            ],
+            [
+              "Si estudiaras más",
+              "sacarías mejores notas"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Si tuviera dinero, viajaría por el mundo.",
+            "translation": "If I had money, I would travel the world.",
+            "breakdown": "The first part uses the imperfect subjunctive and the second part uses the conditional."
+          }
+        ],
+        "commonMistakes": [
+          "Using the wrong tense in the conditional; ensure both parts match in time.",
+          "Forgetting 'si' in hypothetical sentences."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Future Aspirations",
+      "context": "A café where two friends are discussing their plans for the future.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué aspiraciones tienes para el futuro?",
+          "translation": "What aspirations do you have for the future?"
+        },
+        {
+          "speaker": 1,
+          "text": "Me gustaría ser ingeniero.",
+          "translation": "I would like to be an engineer."
+        },
+        {
+          "speaker": 0,
+          "text": "¡Eso suena genial! ¿Por qué elegiste esa carrera?",
+          "translation": "That sounds great! Why did you choose that career?"
+        },
+        {
+          "speaker": 1,
+          "text": "Creo que hay muchas oportunidades en ese campo.",
+          "translation": "I think there are many opportunities in that field."
+        },
+        {
+          "speaker": 0,
+          "text": "En caso de que no funcione, ¿tienes un plan B?",
+          "translation": "In case it doesn't work out, do you have a plan B?"
+        },
+        {
+          "speaker": 1,
+          "text": "Podría estudiar negocios, también me interesa.",
+          "translation": "I could study business; I'm also interested in that."
+        },
+        {
+          "speaker": 0,
+          "text": "Es bueno tener opciones. ¿Qué piensas sobre estudiar en el extranjero?",
+          "translation": "It's good to have options. What do you think about studying abroad?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sería una experiencia increíble, pero también costosa.",
+          "translation": "It would be an incredible experience, but also expensive."
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, pero vale la pena, ¿no crees?",
+          "translation": "Yes, but it's worth it, don't you think?"
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, definitivamente. Espero poder hacerlo algún día.",
+          "translation": "Yes, definitely. I hope to be able to do it someday."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Debate Culture in Spanish-speaking Countries",
+      "text": "Debate is an important part of education in many Latin American countries. Students are often encouraged to express themselves clearly and confidently, which helps build critical thinking skills.",
+      "funFact": "In some countries, like Argentina, there are national competitions for debate among high school students, promoting public speaking skills."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding the subjunctive mood for expressing wishes and hopes.",
+        "Formulating conditional sentences with 'si' to discuss possibilities.",
+        "Using vocabulary related to future aspirations and discussions.",
+        "Engaging in conversations about personal goals and plans."
+      ],
+      "nextSteps": "Practice forming sentences using the subjunctive and conditionals, and try to engage in discussions with peers about your aspirations."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'future'?",
+      "content": {
+        "options": [
+          "el pasado",
+          "el futuro",
+          "la vida",
+          "el sueño"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'el futuro', which means 'future' in Spanish.",
+      "hint": "Think about what comes next in time.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'aspiration' in Spanish?",
+      "content": {
+        "options": [
+          "la aspiración",
+          "el objetivo",
+          "la meta",
+          "el deseo"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La aspiración' is the correct translation for 'aspiration'.",
+      "hint": "It's related to hopes and dreams.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: En caso de que no ___ trabajo, buscaré otra opción.",
+      "content": {
+        "sentence": "En caso de que no ___ trabajo, buscaré otra opción.",
+        "correctAnswer": "tenga",
+        "acceptableAnswers": [
+          "tengo",
+          "tenga",
+          "tuviera"
+        ],
+        "options": [
+          "tenga",
+          "tengo",
+          "tuve"
+        ]
+      },
+      "explanation": "The correct form is 'tenga', which is the subjunctive form used with 'en caso de que'.",
+      "hint": "Think about the subjunctive mood.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Si tuviera más tiempo, ___ viajar más.",
+      "content": {
+        "sentence": "Si tuviera más tiempo, ___ viajar más.",
+        "correctAnswer": "viajaría",
+        "acceptableAnswers": [
+          "viajo",
+          "viajaré",
+          "viajaría"
+        ],
+        "options": [
+          "viajaría",
+          "viajo",
+          "viajaré"
+        ]
+      },
+      "explanation": "'Viajaría' is the conditional form that expresses what would happen if there were more time.",
+      "hint": "Think about what you would do.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: futuro / el / importante / es / planificar.",
+      "content": {
+        "words": [
+          "futuro",
+          "el",
+          "importante",
+          "es",
+          "planificar"
+        ],
+        "correctOrder": [
+          "el",
+          "futuro",
+          "es",
+          "importante",
+          "planificar"
+        ],
+        "translation": "It is important to plan for the future."
+      },
+      "explanation": "The correct order forms a meaningful sentence about the necessity of planning.",
+      "hint": "Start with 'el futuro'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'In the future, I want to travel.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'In the future, I want to travel.'",
+        "correctAnswer": "En el futuro, quiero viajar.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The correct translation maintains the same meaning in Spanish.",
+      "hint": "Start with 'En el futuro...'",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct sentence: 'La discusión sobre el futuro es importante.'",
+      "content": {
+        "ttsText": "La discusión sobre el futuro es importante.",
+        "ttsLang": "es-ES",
+        "options": [
+          "La discusión sobre el futuro es importante.",
+          "El futuro es incierto.",
+          "Las aspiraciones son clave."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence correctly reflects the importance of discussing the future.",
+      "hint": "Listen carefully to the beginning.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'My aspiration is to become a doctor.'",
+      "content": {
+        "targetText": "Mi aspiración es ser médico.",
+        "context": "Translate and pronounce this sentence in Spanish.",
+        "acceptableVariants": [
+          "Mi aspiración es ser doctor."
+        ]
+      },
+      "explanation": "The sentence conveys your goal in Spanish correctly.",
+      "hint": "Think about your future profession.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Discuss in Spanish: 'What would you do if you could travel anywhere in the world?'",
+      "content": {
+        "targetText": "¿Qué harías si pudieras viajar a cualquier parte del mundo?",
+        "context": "Engage in a discussion about travel aspirations.",
+        "acceptableVariants": []
+      },
+      "explanation": "This exercise encourages conversation about future travel dreams.",
+      "hint": "Think about your dream destination.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

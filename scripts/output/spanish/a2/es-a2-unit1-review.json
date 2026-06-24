@@ -1,0 +1,361 @@
+{
+  "lesson": {
+    "title": "Unit 1 Review",
+    "type": "REVIEW",
+    "slug": "es-a2-unit1-review"
+  },
+  "unit": "Talking About the Past",
+  "unitOrder": 1,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this review lesson, you will revisit key vocabulary and grammar points related to talking about the past in Spanish. You will also practice through a dialogue that incorporates these elements.",
+      "culturalNote": "In many Spanish-speaking countries, storytelling is a cherished tradition, often passed down through generations. This cultural aspect influences how people share their experiences."
+    },
+    "vocabulary": [
+      {
+        "term": "el pasado",
+        "translation": "the past",
+        "definition": "refers to a time before the present",
+        "pronunciation": "el pah-sah-doh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Hablamos sobre el pasado.",
+          "translation": "We talk about the past."
+        },
+        "tip": "Think of 'pasado' as related to 'pass', which means to go by time."
+      },
+      {
+        "term": "ayer",
+        "translation": "yesterday",
+        "definition": "the day before today",
+        "pronunciation": "ah-yehr",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Ayer fui al cine.",
+          "translation": "Yesterday, I went to the cinema."
+        },
+        "tip": "Remember 'ayer' as it sounds like 'air'—yesterday was a breath away!"
+      },
+      {
+        "term": "la semana pasada",
+        "translation": "last week",
+        "definition": "the week before the current week",
+        "pronunciation": "lah seh-mah-nah pah-sah-dah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "La semana pasada viajé a México.",
+          "translation": "Last week, I traveled to Mexico."
+        },
+        "tip": "Connect 'semana' (week) with 'semanal' (weekly) for easy recall."
+      },
+      {
+        "term": "normalmente",
+        "translation": "normally",
+        "definition": "usually or in most cases",
+        "pronunciation": "nor-mahl-men-teh",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Normalmente, como desayuno a las ocho.",
+          "translation": "Normally, I eat breakfast at eight."
+        },
+        "tip": "Think of 'normal' in English; it has a similar meaning."
+      },
+      {
+        "term": "cuando",
+        "translation": "when",
+        "definition": "used to ask about time or to indicate a time in the past",
+        "pronunciation": "kwahn-doh",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "¿Cuándo fuiste al parque?",
+          "translation": "When did you go to the park?"
+        },
+        "tip": "Remember 'cuando' as it sounds like 'quand' in French, meaning 'when'."
+      },
+      {
+        "term": "siempre",
+        "translation": "always",
+        "definition": "at all times; on every occasion",
+        "pronunciation": "see-em-preh",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Siempre juego fútbol los sábados.",
+          "translation": "I always play soccer on Saturdays."
+        },
+        "tip": "Think of 'sempre' in Italian, which also means 'always'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Preterite vs. Imperfect",
+        "explanation": "In Spanish, the preterite tense is used for actions that are completed, while the imperfect is used for ongoing actions or background descriptions. For example, 'comí' (I ate) is preterite, indicating a completed action, while 'comía' (I was eating) describes an ongoing past action.",
+        "table": {
+          "headers": [
+            "Tense",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "Preterite",
+              "Completed actions"
+            ],
+            [
+              "Imperfect",
+              "Ongoing actions or descriptions"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ayer comí pizza.",
+            "translation": "Yesterday, I ate pizza.",
+            "breakdown": "The preterite 'comí' shows that the action of eating is completed."
+          },
+          {
+            "original": "Cuando era niño, comía pizza todos los domingos.",
+            "translation": "When I was a child, I ate pizza every Sunday.",
+            "breakdown": "The imperfect 'comía' indicates a habitual action in the past."
+          }
+        ],
+        "commonMistakes": [
+          "Using the preterite for habitual actions (correct with imperfect)",
+          "Confusing 'comí' with 'comía' in storytelling (remember the context!)"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking About Our Childhood",
+      "context": "A conversation between two friends reminiscing about their childhood experiences in a café.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Recuerdas cuando éramos niños?",
+          "translation": "Do you remember when we were kids?",
+          "note": "Starting a nostalgic conversation."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, siempre jugábamos en el parque.",
+          "translation": "Yes, we always played in the park."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y qué hacíamos en el parque?",
+          "translation": "And what did we do in the park?"
+        },
+        {
+          "speaker": 1,
+          "text": "Normalmente, jugábamos fútbol y comíamos helado.",
+          "translation": "Normally, we played soccer and ate ice cream."
+        },
+        {
+          "speaker": 0,
+          "text": "¡Me encantaba el helado!",
+          "translation": "I loved ice cream!"
+        },
+        {
+          "speaker": 1,
+          "text": "A mí también. ¿Cuándo fue la última vez que comiste helado?",
+          "translation": "Me too. When was the last time you ate ice cream?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ayer comí helado de chocolate.",
+          "translation": "Yesterday, I ate chocolate ice cream."
+        },
+        {
+          "speaker": 1,
+          "text": "¡Qué rico! A veces, extraño esos días.",
+          "translation": "So tasty! Sometimes, I miss those days."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Storytelling in Latin America",
+      "text": "In many Latin American cultures, storytelling is an important tradition. Families often gather to share stories from their past, which helps preserve history and strengthen relationships.",
+      "funFact": "In Mexico, there is a tradition called 'La Hora del Cuento' where children gather to listen to stories, often enhancing their love for reading."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review the preterite and imperfect tenses",
+        "Practice vocabulary related to the past",
+        "Engage in a dialogue about childhood",
+        "Understand common connectors and expressions"
+      ],
+      "nextSteps": "Continue practicing by writing about your own past experiences using the vocabulary and grammar from this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'ayer' mean in English?",
+      "content": {
+        "options": [
+          "yesterday",
+          "last week",
+          "normally",
+          "always"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Ayer' translates to 'yesterday' in English.",
+      "hint": "Think about the day before today.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase means 'last week'?",
+      "content": {
+        "options": [
+          "el pasado",
+          "la semana pasada",
+          "cuando",
+          "siempre"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'La semana pasada' means 'last week' in English.",
+      "hint": "It's a specific time period in the past.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Normalmente, yo ___ a la playa.'",
+      "content": {
+        "sentence": "Normalmente, yo ___ a la playa.",
+        "correctAnswer": "iba",
+        "acceptableAnswers": [
+          "iba",
+          "solía ir"
+        ],
+        "options": [
+          "fui",
+          "iba",
+          "iré",
+          "voy"
+        ]
+      },
+      "explanation": "The correct form 'iba' is the imperfect tense for habitual actions in the past.",
+      "hint": "Think about what you used to do regularly.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Cuando ___ joven, viajé mucho.'",
+      "content": {
+        "sentence": "Cuando ___ joven, viajé mucho.",
+        "correctAnswer": "era",
+        "acceptableAnswers": [
+          "era",
+          "fui"
+        ],
+        "options": [
+          "soy",
+          "es",
+          "era",
+          "seré"
+        ]
+      },
+      "explanation": "'Era' is the correct form of 'to be' in the past tense.",
+      "hint": "This verb describes a state of being.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I always eat breakfast.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I always eat breakfast.'",
+        "correctAnswer": "Siempre desayuno.",
+        "acceptableAnswers": [
+          "Siempre como el desayuno."
+        ]
+      },
+      "explanation": "The phrase 'Siempre desayuno' is the most direct translation.",
+      "hint": "Think of the Spanish word for breakfast.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ayer fui al cine.'",
+      "content": {
+        "ttsText": "Ayer fui al cine.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Yesterday I went to the cinema.",
+          "I went to the cinema last week.",
+          "I always go to the cinema.",
+          "I went to the beach yesterday."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation of 'Ayer fui al cine.' is 'Yesterday I went to the cinema.'",
+      "hint": "Focus on the word 'ayer'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I used to play soccer when I was a child.'",
+      "content": {
+        "targetText": "Jugaba al fútbol cuando era niño.",
+        "context": "Translate and say this sentence in Spanish.",
+        "acceptableVariants": [
+          "Yo jugaba al fútbol cuando era niño.",
+          "Jugaba al fútbol de niño."
+        ]
+      },
+      "explanation": "The sentence describes a past habitual action.",
+      "hint": "Use the imperfect tense for 'to play'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I traveled to Spain last year.'",
+      "content": {
+        "targetText": "Viajé a España el año pasado.",
+        "context": "Translate and say this sentence in Spanish.",
+        "acceptableVariants": [
+          "El año pasado viajé a España.",
+          "Fui a España el año pasado."
+        ]
+      },
+      "explanation": "This sentence uses the preterite tense for a completed action.",
+      "hint": "Think about the past tense form of 'to travel'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'El pasado ___ muy divertido.'",
+      "content": {
+        "sentence": "El pasado ___ muy divertido.",
+        "correctAnswer": "fue",
+        "acceptableAnswers": [
+          "fue",
+          "era"
+        ],
+        "options": [
+          "es",
+          "fue",
+          "será",
+          "soy"
+        ]
+      },
+      "explanation": "'Fue' is the past tense of 'to be' for a completed action.",
+      "hint": "Think about a specific event in the past.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

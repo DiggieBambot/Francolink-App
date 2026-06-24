@@ -1,0 +1,365 @@
+{
+  "lesson": {
+    "title": "Holiday Planning",
+    "type": "CONVERSATION",
+    "slug": "es-a2-holiday-planning"
+  },
+  "unit": "Making Plans & Future",
+  "unitOrder": 3,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary and expressions related to holiday planning in Spanish. You will also practice a simple conversation about making plans for a trip.",
+      "culturalNote": "In many Spanish-speaking countries, holidays are a time for family gatherings and cultural celebrations, reflecting the importance of community."
+    },
+    "vocabulary": [
+      {
+        "term": "el viaje",
+        "translation": "the trip",
+        "definition": "A journey or travel to a different place.",
+        "pronunciation": "el vee-ah-he",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Voy a hacer un viaje a México.",
+          "translation": "I am going to take a trip to Mexico."
+        },
+        "tip": "Remember, 'viaje' is masculine in Spanish; use 'el' before it."
+      },
+      {
+        "term": "la playa",
+        "translation": "the beach",
+        "definition": "A sandy area next to a body of water.",
+        "pronunciation": "la plah-yah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Me gusta ir a la playa en verano.",
+          "translation": "I like to go to the beach in summer."
+        },
+        "tip": "Think of 'playa' as a place for sun and fun!"
+      },
+      {
+        "term": "el hotel",
+        "translation": "the hotel",
+        "definition": "A place where people stay when traveling.",
+        "pronunciation": "el oh-tel",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Reservé un hotel en la ciudad.",
+          "translation": "I booked a hotel in the city."
+        },
+        "tip": "Remember, 'hotel' is masculine; always use 'el'."
+      },
+      {
+        "term": "hacer maletas",
+        "translation": "to pack bags",
+        "definition": "The action of putting clothes and items into a suitcase.",
+        "pronunciation": "ah-ser mah-leh-tas",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Necesito hacer maletas para el viaje.",
+          "translation": "I need to pack bags for the trip."
+        },
+        "tip": "Think of 'maletas' as the bags you carry on your travels!"
+      },
+      {
+        "term": "el pasaporte",
+        "translation": "the passport",
+        "definition": "An official document for traveling between countries.",
+        "pronunciation": "el pah-sah-por-teh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "No olvides tu pasaporte.",
+          "translation": "Don't forget your passport."
+        },
+        "tip": "Remember to always check your passport before traveling!"
+      },
+      {
+        "term": "ir de vacaciones",
+        "translation": "to go on vacation",
+        "definition": "The act of taking a break from work or school to travel.",
+        "pronunciation": "eer deh vah-kah-syo-nes",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Vamos a ir de vacaciones en julio.",
+          "translation": "We are going on vacation in July."
+        },
+        "tip": "Think of 'vacaciones' as the time for relaxation and fun!"
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Simple Future Tense",
+        "explanation": "In Spanish, we use the simple future tense to talk about actions that will happen. To form the simple future, add the endings -é, -ás, -á, -emos, -éis, -án to the infinitive verb.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Verb Example (hablar)"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "hablaré"
+            ],
+            [
+              "Tú",
+              "hablarás"
+            ],
+            [
+              "Él/Ella/Usted",
+              "hablará"
+            ],
+            [
+              "Nosotros",
+              "hablaremos"
+            ],
+            [
+              "Vosotros",
+              "hablaréis"
+            ],
+            [
+              "Ellos/Ellas/Ustedes",
+              "hablarán"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo iré a la playa.",
+            "translation": "I will go to the beach.",
+            "breakdown": "Yo (I) + iré (will go) + a la playa (to the beach)."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing future tense with present tense: Remember to use the correct endings for future.",
+          "Omitting the subject: Always include the subject for clarity."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Vacation",
+      "context": "A conversation between friends discussing their upcoming vacation plans at a café.",
+      "speakers": [
+        "Juan",
+        "María"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, María. ¿Qué planes tienes para las vacaciones?",
+          "translation": "Hi, María. What plans do you have for the vacation?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, Juan. Quiero ir a la playa.",
+          "translation": "Hi, Juan. I want to go to the beach.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué bien! ¿Dónde quieres quedarte?",
+          "translation": "Great! Where do you want to stay?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Quiero quedarme en un hotel cerca del mar.",
+          "translation": "I want to stay in a hotel near the sea.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Eso suena perfecto. ¿Cuándo vamos?",
+          "translation": "That sounds perfect. When are we going?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Vamos en julio, ¿te parece bien?",
+          "translation": "We are going in July, does that sound good to you?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, me parece muy bien. Necesito hacer maletas.",
+          "translation": "Yes, that sounds very good. I need to pack bags.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "No olvides tu pasaporte.",
+          "translation": "Don't forget your passport.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Holidays in Latin America",
+      "text": "In many Latin American countries, holiday celebrations are often colorful and vibrant, incorporating music, dance, and traditional foods. Each country has its unique customs, making holidays a time of joy and community.",
+      "funFact": "Did you know that in Mexico, the Day of the Dead (Día de los Muertos) is celebrated to honor deceased loved ones with altars, food, and festivities?"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to holiday planning.",
+        "Practiced how to use the simple future tense.",
+        "Engaged in a dialogue about vacation plans.",
+        "Explored cultural insights on holidays in Spanish-speaking countries."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and try creating your own future tense statements about your travel plans."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'el viaje' mean in English?",
+      "content": {
+        "options": [
+          "The beach",
+          "The trip",
+          "The hotel",
+          "The vacation"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El viaje' translates to 'the trip' in English.",
+      "hint": "Think about traveling.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What do you need to travel internationally?",
+      "content": {
+        "options": [
+          "A ticket",
+          "A passport",
+          "A suitcase",
+          "A map"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "You need 'el pasaporte' (the passport) to travel internationally.",
+      "hint": "It's an important document.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Voy a ___ a la playa.'",
+      "content": {
+        "sentence": "Voy a ___ a la playa.",
+        "correctAnswer": "ir de vacaciones",
+        "acceptableAnswers": [
+          "ir",
+          "ir de vacaciones"
+        ],
+        "options": [
+          "hacer maletas",
+          "ir de vacaciones",
+          "el hotel",
+          "el viaje"
+        ]
+      },
+      "explanation": "The correct answer is 'ir de vacaciones', indicating you are going on vacation to the beach.",
+      "hint": "Think about going somewhere for fun.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Necesito hacer ___.'",
+      "content": {
+        "sentence": "Necesito hacer ___.",
+        "correctAnswer": "maletas",
+        "acceptableAnswers": [
+          "maletas",
+          "la maleta"
+        ],
+        "options": [
+          "paseo",
+          "maletas",
+          "el viaje",
+          "el hotel"
+        ]
+      },
+      "explanation": "You need to 'hacer maletas' (pack bags) before going on a trip.",
+      "hint": "It's what you do before traveling.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to make a correct sentence: 'ir', 'de', 'vacaciones', 'quiero'.",
+      "content": {
+        "words": [
+          "ir",
+          "de",
+          "vacaciones",
+          "quiero"
+        ],
+        "correctOrder": [
+          "quiero",
+          "ir",
+          "de",
+          "vacaciones"
+        ],
+        "translation": "I want to go on vacation."
+      },
+      "explanation": "The correct order forms the sentence 'Quiero ir de vacaciones.'",
+      "hint": "Start with 'I want'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I am going to the hotel.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I am going to the hotel.'",
+        "correctAnswer": "Voy al hotel.",
+        "acceptableAnswers": [
+          "Voy a el hotel",
+          "Voy al hotel"
+        ]
+      },
+      "explanation": "The correct translation is 'Voy al hotel.'",
+      "hint": "Remember the contraction for 'a el'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Vamos a la playa.'",
+      "content": {
+        "ttsText": "Vamos a la playa.",
+        "ttsLang": "es-ES",
+        "options": [
+          "We are going to the hotel.",
+          "We are going to the beach.",
+          "We are going on a trip.",
+          "We are going on vacation."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct translation is 'We are going to the beach.'",
+      "hint": "Listen for the word 'playa'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I want to go on vacation.'",
+      "content": {
+        "targetText": "Quiero ir de vacaciones.",
+        "context": "You are expressing your desire to travel.",
+        "acceptableVariants": [
+          "Quiero ir de vacaciones",
+          "Deseo ir de vacaciones"
+        ]
+      },
+      "explanation": "The phrase expresses your intention to travel.",
+      "hint": "Start with 'I want'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

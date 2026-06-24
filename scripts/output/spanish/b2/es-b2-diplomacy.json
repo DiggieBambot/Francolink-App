@@ -1,0 +1,324 @@
+{
+  "lesson": {
+    "title": "Workplace Diplomacy",
+    "type": "CONVERSATION",
+    "slug": "es-b2-diplomacy"
+  },
+  "unit": "Professional Communication",
+  "unitOrder": 3,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn key vocabulary and expressions related to workplace diplomacy in Spanish. You will also practice using these terms in realistic conversations to enhance your professional communication skills.",
+      "culturalNote": "In many Spanish-speaking cultures, maintaining harmony and showing respect in the workplace is crucial. The concept of 'diplomacia' often extends beyond mere politeness to include the art of negotiation and relationship-building."
+    },
+    "vocabulary": [
+      {
+        "term": "la diplomacia",
+        "translation": "diplomacy",
+        "definition": "The art of managing relationships and negotiations.",
+        "pronunciation": "lah dee-ploh-mah-syah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La diplomacia es esencial en el mundo laboral.",
+          "translation": "Diplomacy is essential in the workplace."
+        },
+        "tip": "Think of diplomacy as a bridge between differing opinions."
+      },
+      {
+        "term": "el respeto",
+        "translation": "respect",
+        "definition": "A feeling of admiration for someone or something.",
+        "pronunciation": "el res-peh-toh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El respeto mutuo fomenta un ambiente de trabajo positivo.",
+          "translation": "Mutual respect fosters a positive work environment."
+        },
+        "tip": "Remember that respect is a two-way street."
+      },
+      {
+        "term": "la negociación",
+        "translation": "negotiation",
+        "definition": "The process of discussing terms to reach an agreement.",
+        "pronunciation": "lah neh-go-see-ah-ción",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La negociación puede ser complicada, pero es necesaria.",
+          "translation": "Negotiation can be complicated, but it is necessary."
+        },
+        "tip": "Think of negotiation like a dance where both parties must move together."
+      },
+      {
+        "term": "la empatía",
+        "translation": "empathy",
+        "definition": "The ability to understand and share the feelings of another.",
+        "pronunciation": "lah em-pah-tee-ah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La empatía es crucial para resolver conflictos.",
+          "translation": "Empathy is crucial for resolving conflicts."
+        },
+        "tip": "Empathy allows you to 'walk a mile in someone else's shoes.'"
+      },
+      {
+        "term": "la cortesía",
+        "translation": "courtesy",
+        "definition": "Polite behavior and manners.",
+        "pronunciation": "lah kor-teh-see-ah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La cortesía en el trabajo mejora las relaciones.",
+          "translation": "Courtesy at work improves relationships."
+        },
+        "tip": "Think of courtesy as the oil that keeps the workplace machinery running smoothly."
+      },
+      {
+        "term": "la asertividad",
+        "translation": "assertiveness",
+        "definition": "The quality of being self-assured and confident without being aggressive.",
+        "pronunciation": "lah ah-ser-tee-vee-dahd",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La asertividad es importante para expresar tus ideas.",
+          "translation": "Assertiveness is important for expressing your ideas."
+        },
+        "tip": "Assertiveness helps you communicate your needs while respecting others."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subjunctive Mood in Professional Contexts",
+        "explanation": "The subjunctive mood is often used in professional communication to express wishes, doubts, or hypothetical situations. In workplace diplomacy, it helps convey respect and politeness. The present subjunctive is formed by taking the first person singular of the present indicative, dropping the -o, and adding the appropriate endings.",
+        "table": {
+          "headers": [
+            "Present Subjunctive",
+            "Example"
+          ],
+          "rows": [
+            [
+              "hable (I speak)",
+              "Espero que hable con él."
+            ],
+            [
+              "trabaje (I work)",
+              "Es posible que trabaje tarde."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Espero que podamos resolver este problema juntos.",
+            "translation": "I hope that we can solve this problem together.",
+            "breakdown": "The verb 'podamos' is in the subjunctive, expressing a hope."
+          },
+          {
+            "original": "Quiero que tú hables con tu jefe sobre el proyecto.",
+            "translation": "I want you to talk to your boss about the project.",
+            "breakdown": "The verb 'hables' is in the subjunctive, indicating a request."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: 'Espero que tú hablas' should be 'Espero que tú hables.'",
+          "Confusing the subjunctive forms: Remember that 'hablar' changes to 'hable' in the first person."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Conflict at Work",
+      "context": "A conversation between two colleagues discussing a recent disagreement in a meeting.",
+      "speakers": [
+        "María",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Luis, creo que deberíamos hablar sobre lo que sucedió en la reunión.",
+          "translation": "Luis, I think we should talk about what happened in the meeting.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, estoy de acuerdo. Me sentí un poco atacado cuando mencionaste mi propuesta.",
+          "translation": "Yes, I agree. I felt a bit attacked when you mentioned my proposal.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "No era mi intención. Quería que consideraras otros enfoques.",
+          "translation": "It wasn't my intention. I wanted you to consider other approaches.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Entiendo tu punto, pero creo que podríamos haberlo discutido con más cortesía.",
+          "translation": "I understand your point, but I think we could have discussed it with more courtesy.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Tienes razón. La cortesía es fundamental en nuestras discusiones.",
+          "translation": "You are right. Courtesy is fundamental in our discussions.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Además, deberíamos intentar ser más asertivos en nuestras opiniones.",
+          "translation": "Moreover, we should try to be more assertive in our opinions.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, ser asertivos no significa ser agresivos.",
+          "translation": "Yes, being assertive does not mean being aggressive.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Exacto. La empatía puede ayudarnos a entender mejor las perspectivas de los demás.",
+          "translation": "Exactly. Empathy can help us better understand others' perspectives.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Workplace Interaction in Latin America",
+      "text": "In many Latin American countries, personal relationships play a significant role in workplace dynamics. Building rapport with colleagues can often lead to better collaboration and more effective communication.",
+      "funFact": "In some cultures, it is common to greet colleagues with a handshake or a hug, reflecting the importance of personal connection."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding key vocabulary related to workplace diplomacy.",
+        "Using the subjunctive mood for polite requests and expressions.",
+        "Engaging in respectful dialogue to resolve conflicts.",
+        "Recognizing cultural nuances in professional communication."
+      ],
+      "nextSteps": "Practice using the vocabulary in different contexts and engage in role plays to improve your conversational skills."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la diplomacia' refer to in a workplace context?",
+      "content": {
+        "options": [
+          "The art of negotiation",
+          "The ability to be assertive",
+          "A form of empathy",
+          "The practice of courtesy"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La diplomacia' is commonly understood as the art of negotiation and managing relationships in a professional setting.",
+      "hint": "Think about how conflicts are resolved.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is NOT a key aspect of workplace diplomacy?",
+      "content": {
+        "options": [
+          "Negotiation",
+          "Empathy",
+          "Rudeness",
+          "Respect"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "Rudeness is contrary to the principles of diplomacy, which emphasize respect and courtesy.",
+      "hint": "Consider what is essential for professional communication.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: La ________ es fundamental para mantener buenas relaciones en el trabajo.",
+      "content": {
+        "sentence": "La ________ es fundamental para mantener buenas relaciones en el trabajo.",
+        "correctAnswer": "cortesía",
+        "acceptableAnswers": [
+          "cortesía"
+        ],
+        "options": [
+          "cortesía",
+          "diplomacia",
+          "asertividad"
+        ]
+      },
+      "explanation": "Courtesy is essential for maintaining good relationships at work.",
+      "hint": "It starts with 'c'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: La ________ entre colegas ayuda a resolver conflictos.",
+      "content": {
+        "sentence": "La ________ entre colegas ayuda a resolver conflictos.",
+        "correctAnswer": "empatía",
+        "acceptableAnswers": [
+          "empatía"
+        ],
+        "options": [
+          "asertividad",
+          "respeto",
+          "empatía"
+        ]
+      },
+      "explanation": "Empathy helps colleagues understand each other's feelings and resolve conflicts.",
+      "hint": "It relates to understanding others.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Assertiveness is important in negotiations.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'Assertiveness is important in negotiations.'",
+        "correctAnswer": "La asertividad es importante en las negociaciones.",
+        "acceptableAnswers": [
+          "La asertividad es importante en las negociaciones."
+        ]
+      },
+      "explanation": "The translation correctly conveys the importance of assertiveness in negotiations.",
+      "hint": "Focus on the word for 'assertiveness'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'La negociación es clave en el trabajo.'",
+      "content": {
+        "ttsText": "La negociación es clave en el trabajo.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Negotiation is key at work.",
+          "Negotiation is not important.",
+          "Negotiation is a form of courtesy."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence emphasizes the importance of negotiation in the workplace.",
+      "hint": "Listen for the word 'clave'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'Empathy helps in understanding colleagues.'",
+      "content": {
+        "targetText": "La empatía ayuda a entender a los colegas.",
+        "context": "Translate this sentence into Spanish.",
+        "acceptableVariants": [
+          "La empatía ayuda en la comprensión de los colegas."
+        ]
+      },
+      "explanation": "This sentence highlights the role of empathy in professional relationships.",
+      "hint": "Start with 'La empatía...'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

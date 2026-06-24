@@ -1,0 +1,317 @@
+{
+  "lesson": {
+    "title": "Constructing an Argument",
+    "type": "CONVERSATION",
+    "slug": "de-b2-argument"
+  },
+  "unit": "Persuasion & Argument",
+  "unitOrder": 2,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to construct effective arguments in German, focusing on persuasive language and complex sentence structures. You will practice using the Konjunktiv to express hypothetical situations and refine your conversational skills.",
+      "culturalNote": "Debate and discussion are important aspects of German-speaking culture, with many formal debate clubs and public speaking events across Germany, Austria, and Switzerland."
+    },
+    "vocabulary": [
+      {
+        "term": "das Argument",
+        "translation": "the argument",
+        "definition": "a reason or statement that supports a point of view",
+        "pronunciation": "das Ar-goo-ment",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ein starkes Argument ist entscheidend für jede Diskussion.",
+          "translation": "A strong argument is crucial for any discussion."
+        },
+        "tip": "Remember that 'das Argument' is neuter; its plural form is 'die Argumente'."
+      },
+      {
+        "term": "überzeugen",
+        "translation": "to convince",
+        "definition": "to persuade someone to believe or do something",
+        "pronunciation": "oo-ber-tsu-gen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich möchte dich von meiner Meinung überzeugen.",
+          "translation": "I want to convince you of my opinion."
+        },
+        "tip": "The prefix 'über-' often indicates 'over' or 'across', which can help you remember the meaning."
+      },
+      {
+        "term": "die Meinung",
+        "translation": "the opinion",
+        "definition": "a personal belief or judgment about something",
+        "pronunciation": "dee Mine-ung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Jeder hat das Recht auf seine eigene Meinung.",
+          "translation": "Everyone has the right to their own opinion."
+        },
+        "tip": "Remember, 'die Meinung' is feminine, and its plural is 'die Meinungen'."
+      },
+      {
+        "term": "der Standpunkt",
+        "translation": "the standpoint",
+        "definition": "a particular attitude or way of considering a matter",
+        "pronunciation": "der Sh-tand-punkt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Standpunkt ist, dass Bildung wichtig ist.",
+          "translation": "My standpoint is that education is important."
+        },
+        "tip": "'Der Standpunkt' is masculine; its plural is 'die Standpunkte'."
+      },
+      {
+        "term": "die Begründung",
+        "translation": "the justification",
+        "definition": "a reason or explanation for something",
+        "pronunciation": "dee Be-gruen-dung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Begründung für meine Entscheidung ist klar.",
+          "translation": "The justification for my decision is clear."
+        },
+        "tip": "'Die Begründung' is feminine; its plural is 'die Begründungen'."
+      },
+      {
+        "term": "die Diskussion",
+        "translation": "the discussion",
+        "definition": "an exchange of views on a particular issue",
+        "pronunciation": "dee Diskus-sion",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Diskussion war sehr lebhaft und produktiv.",
+          "translation": "The discussion was very lively and productive."
+        },
+        "tip": "'Die Diskussion' is feminine; its plural is 'die Diskussionen'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Konjunktiv II for Hypothetical Situations",
+        "explanation": "The Konjunktiv II is used in German to express hypothetical situations or wishes. It often employs the simple past form of the verb, along with the auxiliary verb 'würde' for added clarity. This structure allows for nuanced discussion and argumentation.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Konjunktiv II Form"
+          ],
+          "rows": [
+            [
+              "haben",
+              "hätte"
+            ],
+            [
+              "sein",
+              "wäre"
+            ],
+            [
+              "machen",
+              "machte"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich mehr Zeit hätte, würde ich mehr lesen.",
+            "translation": "If I had more time, I would read more.",
+            "breakdown": "This sentence uses 'hätte' (would have) to express a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing the Konjunktiv II with the indicative mood; remember to use the correct form.",
+          "Neglecting to use 'würde' for clarity in complex sentences."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Controversial Topic",
+      "context": "Two friends, Anna and Max, are discussing whether social media is beneficial or harmful.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Ich denke, dass soziale Medien mehr Schaden als Nutzen bringen.",
+          "translation": "I think that social media brings more harm than good.",
+          "note": "Anna expresses her opinion."
+        },
+        {
+          "speaker": 1,
+          "text": "Das sehe ich anders. Soziale Medien verbinden Menschen weltweit.",
+          "translation": "I see it differently. Social media connects people worldwide."
+        },
+        {
+          "speaker": 0,
+          "text": "Aber die ständige Ablenkung kann zu einem Mangel an Konzentration führen.",
+          "translation": "But the constant distraction can lead to a lack of concentration."
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist wahr, jedoch kann man auch Grenzen setzen.",
+          "translation": "That's true, but one can also set boundaries."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich finde, dass die negativen Aspekte überwiegen.",
+          "translation": "I believe that the negative aspects outweigh the positive ones."
+        },
+        {
+          "speaker": 1,
+          "text": "Vielleicht. Aber ich könnte mir vorstellen, dass es ohne soziale Medien noch schlimmer wäre.",
+          "translation": "Maybe. But I could imagine that it would be worse without social media."
+        },
+        {
+          "speaker": 0,
+          "text": "Das könnte stimmen, allerdings sollten wir kritisch bleiben.",
+          "translation": "That could be true, however, we should remain critical."
+        },
+        {
+          "speaker": 1,
+          "text": "Da hast du recht. Eine ausgewogene Sichtweise ist wichtig.",
+          "translation": "You're right. A balanced perspective is important."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Role of Debate in German Culture",
+      "text": "Debate is an integral part of education in Germany, with many schools emphasizing critical thinking and public speaking skills. This culture of discussion extends to social issues and is often reflected in media.",
+      "funFact": "In Germany, there are annual debate championships where students compete to showcase their argumentative skills."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding and using the Konjunktiv II for hypothetical arguments.",
+        "Employing persuasive vocabulary for effective discussions.",
+        "Recognizing the importance of balanced viewpoints.",
+        "Practicing dialogue to enhance conversational skills."
+      ],
+      "nextSteps": "Practice creating your own arguments using the vocabulary and grammar points from this lesson. Engage in discussions with peers to refine your skills."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'argument'?",
+      "content": {
+        "options": [
+          "das Argument",
+          "die Meinung",
+          "der Standpunkt",
+          "die Begründung"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'das Argument', which directly translates to 'argument' in English.",
+      "hint": "Think about the words used in arguments.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'to convince' in German?",
+      "content": {
+        "options": [
+          "überzeugen",
+          "diskutieren",
+          "begründet",
+          "meinung"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Überzeugen' means 'to convince', making it the correct choice.",
+      "hint": "It's a verb related to persuading someone.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich möchte meine ___ in dieser Diskussion ausdrücken.'",
+      "content": {
+        "sentence": "Ich möchte meine ___ in dieser Diskussion ausdrücken.",
+        "correctAnswer": "Meinung",
+        "acceptableAnswers": [
+          "Meinung"
+        ],
+        "options": [
+          "Meinung",
+          "Argument",
+          "Begründung",
+          "Standpunkt"
+        ]
+      },
+      "explanation": "'Meinung' means 'opinion', which fits the context of expressing views in a discussion.",
+      "hint": "Think about what you express in a discussion.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Sein Standpunkt ist sehr ___ und gut begründet.'",
+      "content": {
+        "sentence": "Sein Standpunkt ist sehr ___ und gut begründet.",
+        "correctAnswer": "überzeugend",
+        "acceptableAnswers": [
+          "überzeugend"
+        ],
+        "options": [
+          "klar",
+          "überzeugend",
+          "vage",
+          "falsch"
+        ]
+      },
+      "explanation": "'Überzeugend' means 'convincing', which fits the context of a well-argued position.",
+      "hint": "Consider what makes an argument effective.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The justification for my opinion is strong.'",
+      "content": {
+        "prompt": "Translate to German: 'The justification for my opinion is strong.'",
+        "correctAnswer": "Die Begründung für meine Meinung ist stark.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation accurately reflects the meaning of the original sentence.",
+      "hint": "Focus on the words 'justification' and 'opinion'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation of the sentence.",
+      "content": {
+        "ttsText": "Ich glaube, dass es wichtig ist, verschiedene Standpunkte zu hören.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I believe it is important to hear different viewpoints.",
+          "I think it is necessary to present arguments.",
+          "It is vital to convince others.",
+          "We need to discuss our opinions."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation captures the essence of considering different viewpoints.",
+      "hint": "Listen for the phrase about hearing viewpoints.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in German: 'I want to convince you with my argument.'",
+      "content": {
+        "targetText": "Ich möchte dich mit meinem Argument überzeugen.",
+        "context": "You are trying to persuade someone.",
+        "acceptableVariants": [
+          "Ich will dich mit meinem Argument überzeugen."
+        ]
+      },
+      "explanation": "Both phrases correctly express the intention to persuade someone.",
+      "hint": "Use the verb for 'to convince'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

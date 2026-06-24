@@ -1,0 +1,362 @@
+{
+  "lesson": {
+    "title": "Präteritum of Sein, Haben & Modals",
+    "type": "GRAMMAR",
+    "slug": "de-a2-praeteritum"
+  },
+  "unit": "More on the Past",
+  "unitOrder": 2,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about the Präteritum forms of the verbs 'sein' (to be), 'haben' (to have), and common modal verbs in German. You will understand how to use these forms to talk about the past.",
+      "culturalNote": "In German-speaking countries, the past tense is often used in storytelling. The Präteritum is especially common in written language and literature."
+    },
+    "vocabulary": [
+      {
+        "term": "der Freund",
+        "translation": "the friend",
+        "definition": "A male companion or buddy.",
+        "pronunciation": "dehr froint",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mein Freund ist sehr nett.",
+          "translation": "My friend is very nice."
+        },
+        "tip": "The plural is 'die Freunde'."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A written work or a collection of pages.",
+        "pronunciation": "dahs boohk",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe das Buch gelesen.",
+          "translation": "I read the book."
+        },
+        "tip": "The plural is 'die Bücher'."
+      },
+      {
+        "term": "die Stadt",
+        "translation": "the city",
+        "definition": "A large town where many people live.",
+        "pronunciation": "dee shtaht",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Stadt ist schön.",
+          "translation": "The city is beautiful."
+        },
+        "tip": "The plural is 'die Städte'."
+      },
+      {
+        "term": "haben",
+        "translation": "to have",
+        "definition": "To possess or own something.",
+        "pronunciation": "hah-ben",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich hatte einen Hund.",
+          "translation": "I had a dog."
+        },
+        "tip": "Use 'hatte' for the Präteritum form."
+      },
+      {
+        "term": "sein",
+        "translation": "to be",
+        "definition": "To exist or indicate a state.",
+        "pronunciation": "zine",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Er war müde.",
+          "translation": "He was tired."
+        },
+        "tip": "Use 'war' for the Präteritum form."
+      },
+      {
+        "term": "können",
+        "translation": "can, to be able to",
+        "definition": "To have the ability or permission.",
+        "pronunciation": "kurn-en",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Wir konnten schwimmen.",
+          "translation": "We could swim."
+        },
+        "tip": "Use 'konnte' for the Präteritum form."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Präteritum of 'Sein', 'Haben', and Modal Verbs",
+        "explanation": "The Präteritum is a past tense used to describe actions that happened in the past. 'Sein' and 'haben' are irregular verbs, and their Präteritum forms are 'war' and 'hatte'. Common modal verbs like 'können' also change in the Präteritum to 'konnte'.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Präteritum"
+          ],
+          "rows": [
+            [
+              "sein",
+              "war"
+            ],
+            [
+              "haben",
+              "hatte"
+            ],
+            [
+              "können",
+              "konnte"
+            ],
+            [
+              "müssen",
+              "musste"
+            ],
+            [
+              "dürfen",
+              "durfte"
+            ],
+            [
+              "wollen",
+              "wollte"
+            ],
+            [
+              "sollen",
+              "sollte"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich war in der Schule.",
+            "translation": "I was at school.",
+            "breakdown": "Here, 'war' is the Präteritum of 'sein'."
+          },
+          {
+            "original": "Sie hatten viel Spaß.",
+            "translation": "They had a lot of fun.",
+            "breakdown": "Here, 'hatten' is the Präteritum of 'haben'."
+          }
+        ],
+        "commonMistakes": [
+          "'Ich bin war' is incorrect; use 'Ich war'.",
+          "'Ich habe' should not be used with a past form; use 'Ich hatte'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "A Trip to the City",
+      "context": "Anna and Lukas are talking about their trip to the city last weekend.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Lukas! Wie war dein Wochenende?",
+          "translation": "Hello Lukas! How was your weekend?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Anna! Es war sehr schön. Ich war in der Stadt.",
+          "translation": "Hello Anna! It was very nice. I was in the city."
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt toll! Was hast du gemacht?",
+          "translation": "That sounds great! What did you do?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich habe viele Fotos gemacht und ein Buch gekauft.",
+          "translation": "I took many photos and bought a book."
+        },
+        {
+          "speaker": 0,
+          "text": "Hast du auch Freunde getroffen?",
+          "translation": "Did you also meet friends?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, wir hatten viel Spaß zusammen.",
+          "translation": "Yes, we had a lot of fun together."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich möchte auch mal in die Stadt gehen.",
+          "translation": "I want to go to the city too."
+        },
+        {
+          "speaker": 1,
+          "text": "Das solltest du machen! Es war sehr interessant.",
+          "translation": "You should do that! It was very interesting."
+        }
+      ]
+    },
+    "culture": {
+      "title": "German Festivals",
+      "text": "In Germany, many cities celebrate festivals where people enjoy traditional food and music. These events often take place in the city center and create a lively atmosphere.",
+      "funFact": "Oktoberfest in Munich is the largest beer festival in the world, attracting millions of visitors each year."
+    },
+    "summary": {
+      "keyPoints": [
+        "The Präteritum is used for past actions.",
+        "Irregular verbs like 'sein' and 'haben' have unique forms.",
+        "Common modal verbs also have Präteritum forms.",
+        "Practice using these forms in sentences."
+      ],
+      "nextSteps": "Practice forming sentences with 'sein', 'haben', and modal verbs in the Präteritum. Try writing about your last weekend."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Präteritum form of 'sein' for 'ich'?",
+      "content": {
+        "options": [
+          "war",
+          "bin",
+          "ist",
+          "sind"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'War' is the correct Präteritum form of 'sein' for 'ich'.",
+      "hint": "Think about past states.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Präteritum form of 'haben' for 'wir'?",
+      "content": {
+        "options": [
+          "hattet",
+          "hatten",
+          "habe",
+          "hat"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Hatten' is the correct Präteritum form of 'haben' for 'wir'.",
+      "hint": "This is used for 'we' in the past.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Mein Freund ___ in der Stadt.'",
+      "content": {
+        "sentence": "Mein Freund ___ in der Stadt.",
+        "correctAnswer": "war",
+        "acceptableAnswers": [
+          "war"
+        ],
+        "options": [
+          "war",
+          "ist",
+          "sein",
+          "sind"
+        ]
+      },
+      "explanation": "'War' is the correct form showing that your friend was in the city in the past.",
+      "hint": "Think about the past tense of 'sein'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Wir ___ ein Buch gelesen.'",
+      "content": {
+        "sentence": "Wir ___ ein Buch gelesen.",
+        "correctAnswer": "haben",
+        "acceptableAnswers": [
+          "haben"
+        ],
+        "options": [
+          "haben",
+          "hattest",
+          "hatten",
+          "hat"
+        ]
+      },
+      "explanation": "'Haben' is the correct form used with 'wir' to indicate possession in the past.",
+      "hint": "This verb shows what you did.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to make a correct sentence: 'ein / haben / Freund / wir /.'",
+      "content": {
+        "words": [
+          "ein",
+          "haben",
+          "Freund",
+          "wir"
+        ],
+        "correctOrder": [
+          "wir",
+          "haben",
+          "ein",
+          "Freund"
+        ],
+        "translation": "We have a friend."
+      },
+      "explanation": "The correct order forms a coherent sentence in German.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I could read the book.'",
+      "content": {
+        "prompt": "Translate to German: 'I could read the book.'",
+        "correctAnswer": "Ich konnte das Buch lesen.",
+        "acceptableAnswers": [
+          "Ich konnte das Buch lesen"
+        ]
+      },
+      "explanation": "The translation uses the Präteritum form 'konnte' for 'could'.",
+      "hint": "Think about the past ability.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct answer: 'Ich war in der Stadt.'",
+      "content": {
+        "ttsText": "Ich war in der Stadt.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I was in the city.",
+          "I am in the city.",
+          "I will be in the city.",
+          "I can be in the city."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer translates the spoken sentence accurately.",
+      "hint": "Listen for the past tense.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I had a friend.'",
+      "content": {
+        "targetText": "Ich hatte einen Freund.",
+        "context": "Translate and pronounce the sentence.",
+        "acceptableVariants": [
+          "Ich hatte einen Freund"
+        ]
+      },
+      "explanation": "This is the correct way to express past possession in German.",
+      "hint": "Focus on the past tense of 'haben'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

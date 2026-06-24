@@ -1,0 +1,348 @@
+{
+  "lesson": {
+    "title": "Asking for Directions",
+    "type": "CONVERSATION",
+    "slug": "de-a1-directions"
+  },
+  "unit": "Shopping & Around Town",
+  "unitOrder": 5,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to ask for directions in German. You will practice essential vocabulary related to locations and phrases to help you navigate around town.",
+      "culturalNote": "In Germany, it's common to greet people with 'Guten Tag' when asking for directions, which shows politeness."
+    },
+    "vocabulary": [
+      {
+        "term": "der Weg",
+        "translation": "the way",
+        "definition": "a path or route",
+        "pronunciation": "dehr vehg",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wo ist der Weg zum Bahnhof?",
+          "translation": "Where is the way to the train station?"
+        },
+        "tip": "Remember, 'der Weg' is masculine (der)."
+      },
+      {
+        "term": "die Straße",
+        "translation": "the street",
+        "definition": "a road in a city or town",
+        "pronunciation": "dee shtrah-suh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Straße ist hier.",
+          "translation": "The street is here."
+        },
+        "tip": "'Die Straße' is feminine (die) and its plural form is 'die Straßen'."
+      },
+      {
+        "term": "das Geschäft",
+        "translation": "the store",
+        "definition": "a shop or business",
+        "pronunciation": "dahs geh-sheft",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Geschäft ist neben dem Café.",
+          "translation": "The store is next to the café."
+        },
+        "tip": "'Das Geschäft' is neuter (das)."
+      },
+      {
+        "term": "rechts",
+        "translation": "right",
+        "definition": "the direction opposite of left",
+        "pronunciation": "rekhts",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Gehen Sie rechts.",
+          "translation": "Go right."
+        },
+        "tip": "You can remember 'rechts' by associating it with the English word 'right'."
+      },
+      {
+        "term": "links",
+        "translation": "left",
+        "definition": "the direction opposite of right",
+        "pronunciation": "links",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Gehen Sie links.",
+          "translation": "Go left."
+        },
+        "tip": "'Links' sounds like the English 'links', meaning left."
+      },
+      {
+        "term": "geradeaus",
+        "translation": "straight",
+        "definition": "in a straight line",
+        "pronunciation": "geh-rah-deh-ows",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Gehen Sie geradeaus.",
+          "translation": "Go straight."
+        },
+        "tip": "Think of 'gerade' meaning 'straight' in English."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Asking Questions with 'Wo' (Where)",
+        "explanation": "In German, to ask where something is, use 'Wo ist...?' This is a simple way to inquire about locations. For example, 'Wo ist die Apotheke?' means 'Where is the pharmacy?'.",
+        "table": {
+          "headers": [
+            "German",
+            "English"
+          ],
+          "rows": [
+            [
+              "Wo ist die Apotheke?",
+              "Where is the pharmacy?"
+            ],
+            [
+              "Wo ist der Bahnhof?",
+              "Where is the train station?"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wo ist das Geschäft?",
+            "translation": "Where is the store?",
+            "breakdown": "'Wo' means 'where'; 'ist' means 'is'; 'das Geschäft' means 'the store'."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'Wo' with 'Was' (What). Remember 'Wo' is for places.",
+          "Forgetting to include the article with nouns."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Asking for Directions",
+      "context": "A person is lost in the city and asks a local for directions.",
+      "speakers": [
+        "Max",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Entschuldigung, wo ist die nächste Apotheke?",
+          "translation": "Excuse me, where is the nearest pharmacy?",
+          "note": "Max is asking for directions."
+        },
+        {
+          "speaker": 1,
+          "text": "Die Apotheke ist dort drüben.",
+          "translation": "The pharmacy is over there.",
+          "note": "Sophie points in the direction."
+        },
+        {
+          "speaker": 0,
+          "text": "Danke! Und wo ist der Bahnhof?",
+          "translation": "Thank you! And where is the train station?",
+          "note": "Max continues to ask."
+        },
+        {
+          "speaker": 1,
+          "text": "Gehen Sie geradeaus und dann links.",
+          "translation": "Go straight and then left.",
+          "note": "Sophie gives directions."
+        },
+        {
+          "speaker": 0,
+          "text": "Wie weit ist das?",
+          "translation": "How far is that?",
+          "note": "Max wants to know the distance."
+        },
+        {
+          "speaker": 1,
+          "text": "Es ist nur fünf Minuten zu Fuß.",
+          "translation": "It's only five minutes on foot.",
+          "note": "Sophie provides the travel time."
+        },
+        {
+          "speaker": 0,
+          "text": "Super! Vielen Dank!",
+          "translation": "Great! Thank you very much!",
+          "note": "Max expresses gratitude."
+        },
+        {
+          "speaker": 1,
+          "text": "Gern geschehen!",
+          "translation": "You're welcome!",
+          "note": "Sophie replies politely."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Navigating in German Cities",
+      "text": "In German-speaking countries, public transportation is very efficient. It's common to ask for directions at train stations or bus stops. Many locals are happy to help.",
+      "funFact": "Germany has one of the most extensive public transport networks in the world."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned key vocabulary for asking directions.",
+        "Practiced using 'Wo ist...?' for questions.",
+        "Explored simple directional phrases like 'rechts' and 'links'.",
+        "Engaged in a dialogue about asking for directions."
+      ],
+      "nextSteps": "Practice using these phrases in real-life scenarios, such as asking for directions in your town or city."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'rechts' mean in English?",
+      "content": {
+        "options": [
+          "left",
+          "right",
+          "straight",
+          "back"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Rechts' translates to 'right' in English.",
+      "hint": "Think of directions.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'the street' in German?",
+      "content": {
+        "options": [
+          "der Weg",
+          "die Straße",
+          "das Geschäft",
+          "die Ecke"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Die Straße' means 'the street' in German.",
+      "hint": "It's a common place in towns.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Gehen Sie ___ die Straße.'",
+      "content": {
+        "sentence": "Gehen Sie ___ die Straße.",
+        "correctAnswer": "geradeaus",
+        "acceptableAnswers": [
+          "geradeaus"
+        ],
+        "options": [
+          "links",
+          "rechts",
+          "geradeaus",
+          "zurück"
+        ]
+      },
+      "explanation": "The correct answer is 'geradeaus', meaning 'straight ahead'.",
+      "hint": "It's a direction.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Das ___ ist auf der linken Seite.'",
+      "content": {
+        "sentence": "Das ___ ist auf der linken Seite.",
+        "correctAnswer": "Geschäft",
+        "acceptableAnswers": [
+          "Geschäft"
+        ],
+        "options": [
+          "Haus",
+          "Geschäft",
+          "Auto",
+          "Schule"
+        ]
+      },
+      "explanation": "'Geschäft' means 'store' and fits the context of the sentence.",
+      "hint": "It's a place to shop.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'links gehen Sie die Straße'.",
+      "content": {
+        "words": [
+          "gehen",
+          "Sie",
+          "links",
+          "die",
+          "Straße"
+        ],
+        "correctOrder": [
+          "Sie",
+          "gehen",
+          "links",
+          "die",
+          "Straße"
+        ],
+        "translation": "You go left the street."
+      },
+      "explanation": "The correct order forms a proper sentence in German.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'Where is the store?'",
+      "content": {
+        "prompt": "Where is the store?",
+        "correctAnswer": "Wo ist das Geschäft?",
+        "acceptableAnswers": [
+          "Wo ist das Geschäft?"
+        ]
+      },
+      "explanation": "The translation captures the essence of asking for a location.",
+      "hint": "Look for the word for 'where'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Gehen Sie geradeaus.'",
+      "content": {
+        "ttsText": "Gehen Sie geradeaus.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Go left.",
+          "Go straight ahead.",
+          "Go back.",
+          "Go right."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The sentence means 'Go straight ahead.'",
+      "hint": "What direction is being given?",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I want to know the way.'",
+      "content": {
+        "targetText": "Ich möchte den Weg wissen.",
+        "context": "You're asking someone for directions.",
+        "acceptableVariants": [
+          "Ich möchte wissen, wie ich gehe.",
+          "Ich will den Weg wissen."
+        ]
+      },
+      "explanation": "This sentence effectively communicates your desire to know the way.",
+      "hint": "Use 'Weg' for 'way'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

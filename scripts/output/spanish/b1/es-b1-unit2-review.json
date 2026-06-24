@@ -1,0 +1,358 @@
+{
+  "lesson": {
+    "title": "Unit 2 Review",
+    "type": "REVIEW",
+    "slug": "es-b1-unit2-review"
+  },
+  "unit": "Narrating the Past",
+  "unitOrder": 2,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this Unit 2 Review, you will consolidate your knowledge of narrating the past in Spanish. You will practice vocabulary related to past events, review grammar points like the past tenses, and engage in dialogues that reinforce your learning.",
+      "culturalNote": "Many Spanish-speaking cultures have rich traditions of storytelling, often using the past tense to recount important events and legends."
+    },
+    "vocabulary": [
+      {
+        "term": "el pasado",
+        "translation": "the past",
+        "definition": "A timeframe that refers to events that have already occurred.",
+        "pronunciation": "el pah-sah-doh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El pasado es importante para entender el presente.",
+          "translation": "The past is important for understanding the present."
+        },
+        "tip": "Think of 'past' as something we learn from."
+      },
+      {
+        "term": "la historia",
+        "translation": "history/story",
+        "definition": "The study of past events or a narrative of events.",
+        "pronunciation": "lah ees-tor-ee-ah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La historia de mi familia es fascinante.",
+          "translation": "My family's history is fascinating."
+        },
+        "tip": "Connect 'history' with 'story' to remember the term."
+      },
+      {
+        "term": "narrar",
+        "translation": "to narrate",
+        "definition": "To tell a story or give an account of something.",
+        "pronunciation": "nah-rar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Me gusta narrar cuentos a mis amigos.",
+          "translation": "I like to narrate stories to my friends."
+        },
+        "tip": "Think of 'narrate' as telling a narrative."
+      },
+      {
+        "term": "el recuerdo",
+        "translation": "the memory",
+        "definition": "An act of remembering or something remembered.",
+        "pronunciation": "el reh-kwehr-doh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo un recuerdo bonito de mi infancia.",
+          "translation": "I have a nice memory from my childhood."
+        },
+        "tip": "Remember that memories are often connected to feelings."
+      },
+      {
+        "term": "la experiencia",
+        "translation": "the experience",
+        "definition": "Knowledge or skill gained through involvement in or exposure to something.",
+        "pronunciation": "lah eks-peh-ree-en-syah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La experiencia de viajar cambia tu perspectiva.",
+          "translation": "The experience of traveling changes your perspective."
+        },
+        "tip": "Think of 'experience' as something that shapes who you are."
+      },
+      {
+        "term": "cuando",
+        "translation": "when",
+        "definition": "A conjunction used to refer to a time or event.",
+        "pronunciation": "kwan-doh",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Cuando era niño, jugaba mucho.",
+          "translation": "When I was a child, I played a lot."
+        },
+        "tip": "Use 'cuando' to link events in time."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Preterite and Imperfect Tenses",
+        "explanation": "In Spanish, the preterite tense is used for actions that were completed in the past, while the imperfect tense is used for ongoing actions or background descriptions. Knowing when to use each tense is key to narrating the past effectively.",
+        "table": {
+          "headers": [
+            "Tense",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "Preterite",
+              "Completed actions"
+            ],
+            [
+              "Imperfect",
+              "Ongoing actions or descriptions"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ayer comí pizza.",
+            "translation": "Yesterday, I ate pizza.",
+            "breakdown": "Here, 'comí' is in the preterite because the action is completed."
+          },
+          {
+            "original": "Cuando era niño, comía pizza cada viernes.",
+            "translation": "When I was a child, I ate pizza every Friday.",
+            "breakdown": "'Comía' is in the imperfect because it describes a habitual action."
+          }
+        ],
+        "commonMistakes": [
+          "Using the preterite instead of the imperfect for ongoing actions. Correct: 'Cuando era niño, jugaba.'",
+          "Confusing the two tenses in storytelling. Remember to set the scene with the imperfect."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Recounting a Childhood Memory",
+      "context": "A conversation between two friends reminiscing about their childhood.",
+      "speakers": [
+        "Juan",
+        "María"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Recuerdas cuando éramos niños?",
+          "translation": "Do you remember when we were kids?",
+          "note": "Juan prompts a memory."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, jugábamos en el parque todos los días.",
+          "translation": "Yes, we played in the park every day."
+        },
+        {
+          "speaker": 0,
+          "text": "Me acuerdo de los juegos que hacíamos.",
+          "translation": "I remember the games we used to play."
+        },
+        {
+          "speaker": 1,
+          "text": "Era muy divertido. Siempre había otros niños.",
+          "translation": "It was so much fun. There were always other kids."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué juego te gustaba más?",
+          "translation": "What game did you like the most?"
+        },
+        {
+          "speaker": 1,
+          "text": "Me encantaba jugar a las escondidas.",
+          "translation": "I loved playing hide and seek."
+        },
+        {
+          "speaker": 0,
+          "text": "Yo prefería el fútbol. Siempre ganaba.",
+          "translation": "I preferred soccer. I always won."
+        },
+        {
+          "speaker": 1,
+          "text": "¡Qué suerte! Nunca ganaba en el fútbol.",
+          "translation": "How lucky! I never won at soccer."
+        },
+        {
+          "speaker": 0,
+          "text": "Pero lo importante era divertirse.",
+          "translation": "But the important thing was to have fun."
+        },
+        {
+          "speaker": 1,
+          "text": "Exactamente. ¡Qué buenos tiempos!",
+          "translation": "Exactly. What good times!"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Storytelling in Spanish Culture",
+      "text": "Storytelling is a significant part of many Spanish-speaking cultures, often passed down through generations. Celebrations, festivals, and family gatherings are ideal times for sharing stories of the past.",
+      "funFact": "In many Latin American countries, there are traditions of oral history where elders share tales of their ancestors."
+    },
+    "summary": {
+      "keyPoints": [
+        "Differentiate between the preterite and imperfect tenses.",
+        "Use vocabulary related to past events effectively.",
+        "Engage in dialogues that reinforce your understanding.",
+        "Reflect on personal experiences and memories."
+      ],
+      "nextSteps": "Practice using the preterite and imperfect in your own storytelling and explore more vocabulary related to past experiences."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'el pasado' mean in English?",
+      "content": {
+        "options": [
+          "The future",
+          "The present",
+          "The past",
+          "The history"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'El pasado' translates to 'the past' in English.",
+      "hint": "Think about time references.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which verb means 'to narrate'?",
+      "content": {
+        "options": [
+          "Contar",
+          "Recordar",
+          "Experimentar",
+          "Hablar"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Contar' is the correct verb that means 'to narrate' in Spanish.",
+      "hint": "It is often used in storytelling.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Me gusta _____ historias de mi infancia.'",
+      "content": {
+        "sentence": "Me gusta _____ historias de mi infancia.",
+        "correctAnswer": "narrar",
+        "acceptableAnswers": [
+          "narrar",
+          "contar"
+        ],
+        "options": [
+          "recordar",
+          "narrar",
+          "vivir",
+          "escribir"
+        ]
+      },
+      "explanation": "'Narrar' fits the context as it means 'to narrate' stories.",
+      "hint": "Think of telling stories.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the correct form of the verb: 'Cuando yo _____ niño, jugaba en el parque.'",
+      "content": {
+        "sentence": "Cuando yo _____ niño, jugaba en el parque.",
+        "correctAnswer": "era",
+        "acceptableAnswers": [
+          "era",
+          "fui"
+        ],
+        "options": [
+          "era",
+          "fue",
+          "soy",
+          "estoy"
+        ]
+      },
+      "explanation": "The correct form is 'era' as it refers to a past state.",
+      "hint": "Think of the verb 'ser' in the past.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'la historia / contar / me / gusta'.",
+      "content": {
+        "words": [
+          "la",
+          "historia",
+          "contar",
+          "me",
+          "gusta"
+        ],
+        "correctOrder": [
+          "me",
+          "gusta",
+          "contar",
+          "la",
+          "historia"
+        ],
+        "translation": "I like to tell the story."
+      },
+      "explanation": "The correct sentence structure in Spanish is important for clarity.",
+      "hint": "Start with the subject of the sentence.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I have a memory of my childhood.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I have a memory of my childhood.'",
+        "correctAnswer": "Tengo un recuerdo de mi infancia.",
+        "acceptableAnswers": [
+          "Tengo un recuerdo de mi niñez."
+        ]
+      },
+      "explanation": "The correct translation captures both 'memory' and 'childhood'.",
+      "hint": "Remember the words for 'memory' and 'childhood'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Recuerdo cuando fui a la playa.'",
+      "content": {
+        "ttsText": "Recuerdo cuando fui a la playa.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I remember when I went to the beach.",
+          "I forget when I went to the beach.",
+          "I wish I went to the beach.",
+          "I remember when I was at the beach."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct option conveys the meaning of the Spanish sentence accurately.",
+      "hint": "Focus on the verb 'recuerdo'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'What was your experience when you were a child?'",
+      "content": {
+        "targetText": "¿Cuál fue tu experiencia cuando eras niño?",
+        "context": "You want to ask someone about their childhood experiences.",
+        "acceptableVariants": [
+          "¿Qué experiencia tuviste cuando eras niño?",
+          "¿Cómo fue tu experiencia de niño?"
+        ]
+      },
+      "explanation": "Both acceptable variants convey the same question in Spanish.",
+      "hint": "Use 'experiencia' and think about childhood.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

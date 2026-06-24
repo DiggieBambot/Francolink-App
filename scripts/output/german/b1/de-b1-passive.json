@@ -1,0 +1,321 @@
+{
+  "lesson": {
+    "title": "The Passive Voice (Werden)",
+    "type": "GRAMMAR",
+    "slug": "de-b1-passive"
+  },
+  "unit": "Work & Career",
+  "unitOrder": 3,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about the passive voice in German, specifically using the verb 'werden.' You will understand how to form sentences in the passive voice and when to use them in everyday conversation related to work and career.",
+      "culturalNote": "In Germany, the passive voice is often used in job descriptions and formal communication, making it an important aspect of professional language."
+    },
+    "vocabulary": [
+      {
+        "term": "der Vertrag",
+        "translation": "the contract",
+        "definition": "A formal agreement between two or more parties.",
+        "pronunciation": "dehr fer-trahg",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Vertrag wurde unterschrieben.",
+          "translation": "The contract was signed."
+        },
+        "tip": "Remember that 'der Vertrag' is masculine, so use 'der' for the article."
+      },
+      {
+        "term": "die Bewerbung",
+        "translation": "the application",
+        "definition": "A formal request to be considered for a job.",
+        "pronunciation": "dee beh-wer-boong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Bewerbung wurde angenommen.",
+          "translation": "The application was accepted."
+        },
+        "tip": "'Die Bewerbung' is feminine, so remember to use 'die' for the article."
+      },
+      {
+        "term": "der Arbeitgeber",
+        "translation": "the employer",
+        "definition": "A person or organization that hires employees.",
+        "pronunciation": "dehr ahr-beit-gehr",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Arbeitgeber wurde kontaktiert.",
+          "translation": "The employer was contacted."
+        },
+        "tip": "This word is masculine; use 'der' for the article."
+      },
+      {
+        "term": "die Stelle",
+        "translation": "the position",
+        "definition": "A job or role within an organization.",
+        "pronunciation": "dee shteh-leh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Stelle wurde frei.",
+          "translation": "The position became available."
+        },
+        "tip": "'Die Stelle' is feminine; use 'die' for the article."
+      },
+      {
+        "term": "die Schulung",
+        "translation": "the training",
+        "definition": "A process of teaching skills or knowledge.",
+        "pronunciation": "dee shoo-loong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Schulung wird durchgeführt.",
+          "translation": "The training is being conducted."
+        },
+        "tip": "This word is feminine, so remember to use 'die' for the article."
+      },
+      {
+        "term": "das Feedback",
+        "translation": "the feedback",
+        "definition": "Information about reactions to a product or service.",
+        "pronunciation": "dahs feed-bek",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Feedback wurde gegeben.",
+          "translation": "The feedback was given."
+        },
+        "tip": "'Das Feedback' is neuter; use 'das' for the article."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Passive Voice (Werden)",
+        "explanation": "In German, the passive voice is used to emphasize the action rather than the subject performing the action. The passive is formed with the verb 'werden' followed by the past participle of the main verb. For example, 'Der Brief wird geschrieben' means 'The letter is being written.' The focus is on the letter, not who is writing it.",
+        "table": {
+          "headers": [
+            "Active Voice",
+            "Passive Voice"
+          ],
+          "rows": [
+            [
+              "Der Chef schreibt den Bericht.",
+              "Der Bericht wird (von dem Chef) geschrieben."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Die Schulung wird durchgeführt.",
+            "translation": "The training is being conducted.",
+            "breakdown": "Here, 'wird' (is) + 'durchgeführt' (conducted) shows that the training is the focus."
+          },
+          {
+            "original": "Der Vertrag wird unterschrieben.",
+            "translation": "The contract is being signed.",
+            "breakdown": "In this case, 'wird' (is) + 'unterschrieben' (signed) indicates the action performed on the contract."
+          }
+        ],
+        "commonMistakes": [
+          "Using the wrong form of 'werden': Ensure you use the correct tense of 'werden' based on the subject and time.",
+          "Confusing active and passive: Remember that in passive sentences, the subject receives the action rather than performing it."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Job Applications",
+      "context": "Two colleagues, Anna and Max, are talking about their job applications during lunch.",
+      "speakers": [
+        "Anna",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hast du deine Bewerbung schon abgeschickt?",
+          "translation": "Have you already sent your application?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, sie wurde letzte Woche abgeschickt.",
+          "translation": "Yes, it was sent last week.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Wurde dir schon Feedback gegeben?",
+          "translation": "Have you already received feedback?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Nein, das Feedback wird noch erwartet.",
+          "translation": "No, the feedback is still expected.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich habe gehört, dass die Stelle bald besetzt wird.",
+          "translation": "I heard that the position will be filled soon.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das wäre gut! Ich hoffe, dass ich ausgewählt werde.",
+          "translation": "That would be good! I hope that I will be chosen.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Wenn du ein Interview bekommst, wird dir alles erklärt.",
+          "translation": "If you get an interview, everything will be explained to you.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, das habe ich auch gehört. Ich bin gespannt!",
+          "translation": "Yes, I have heard that too. I am excited!",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of the Passive Voice in Professional Settings",
+      "text": "In German-speaking countries, formal communication often employs the passive voice, especially in business contexts. Job descriptions and official documents frequently use this construction to maintain a neutral tone.",
+      "funFact": "In Germany, many companies emphasize teamwork and collaboration, which is often reflected in the use of passive constructions to highlight group efforts."
+    },
+    "summary": {
+      "keyPoints": [
+        "The passive voice emphasizes the action rather than the subject.",
+        "Use 'werden' with the past participle to form passive sentences.",
+        "The passive is common in job-related contexts.",
+        "Remember to pay attention to the gender and articles of nouns."
+      ],
+      "nextSteps": "Practice forming passive sentences using the vocabulary from this lesson. Try to create sentences about your own work or career experiences."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following sentences is in the passive voice?",
+      "content": {
+        "options": [
+          "Der Vertrag wird unterschrieben.",
+          "Ich unterschreibe den Vertrag.",
+          "Der Arbeitgeber sucht einen neuen Mitarbeiter.",
+          "Die Bewerbung ist fertig."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The first sentence uses the passive voice, indicated by 'wird' and the past participle 'unterschrieben'.",
+      "hint": "Look for 'wird' followed by a past participle.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct passive form of 'Die Schulung (to conduct)'?",
+      "content": {
+        "options": [
+          "Die Schulung wird durchgeführt.",
+          "Die Schulung hat durchgeführt.",
+          "Die Schulung wird durchführt.",
+          "Die Schulung war durchgeführt."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct passive form uses 'wird' and the past participle 'durchgeführt'.",
+      "hint": "Focus on the verb form in the passive.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Das Feedback ___ (geben) von dem Arbeitgeber.'",
+      "content": {
+        "sentence": "Das Feedback ___ von dem Arbeitgeber.",
+        "correctAnswer": "wird gegeben",
+        "acceptableAnswers": [
+          "wird gegeben"
+        ],
+        "options": [
+          "wird gegeben",
+          "gegebn wird",
+          "wurde gegeben"
+        ]
+      },
+      "explanation": "The sentence uses the passive construction with 'wird' and the past participle 'gegeben'.",
+      "hint": "Think about the structure of the passive voice.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Die Stelle ___ (angeboten) gestern.'",
+      "content": {
+        "sentence": "Die Stelle ___ gestern.",
+        "correctAnswer": "wurde angeboten",
+        "acceptableAnswers": [
+          "wurde angeboten"
+        ],
+        "options": [
+          "wurde angeboten",
+          "wird angeboten",
+          "angeboten wurde"
+        ]
+      },
+      "explanation": "The past passive form 'wurde angeboten' indicates that the offer was made yesterday.",
+      "hint": "Consider the tense used in the sentence.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The contract is signed by the employee.'",
+      "content": {
+        "prompt": "Translate to German: 'The contract is signed by the employee.'",
+        "correctAnswer": "Der Vertrag wird von dem Mitarbeiter unterschrieben.",
+        "acceptableAnswers": [
+          "Der Vertrag wird vom Mitarbeiter unterschrieben."
+        ]
+      },
+      "explanation": "The translation correctly uses the passive voice with 'wird' and 'unterschrieben'.",
+      "hint": "Think about how to express 'is signed' in German.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the following sentence and choose the correct translation: 'Die Bewerbung wird eingereicht.'",
+      "content": {
+        "ttsText": "Die Bewerbung wird eingereicht.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The application is submitted.",
+          "The application was submitted.",
+          "The application is being reviewed.",
+          "The application has been submitted."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation captures the present passive voice of the German sentence.",
+      "hint": "Focus on the present tense in the translation.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'The training is conducted online.'",
+      "content": {
+        "targetText": "Die Schulung wird online durchgeführt.",
+        "context": "Translate the following sentence into German.",
+        "acceptableVariants": [
+          "Die Schulung wird online durchgeführt."
+        ]
+      },
+      "explanation": "You need to use the passive form with 'wird' and 'durchgeführt' for correct expression.",
+      "hint": "Remember to use the passive structure.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

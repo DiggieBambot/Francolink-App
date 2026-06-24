@@ -1,0 +1,331 @@
+{
+  "lesson": {
+    "title": "Formal Writing Structures",
+    "type": "GRAMMAR",
+    "slug": "de-b2-formal-writing"
+  },
+  "unit": "Professional Communication",
+  "unitOrder": 3,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about formal writing structures in German, focusing on the use of the Konjunktiv I and II, as well as complex sentence structures. These skills are essential for professional communication and will enhance your ability to write effectively in a formal context.",
+      "culturalNote": "In German-speaking countries, formal communication is highly valued, especially in business and academic settings. Proper usage of language can significantly impact professional relationships."
+    },
+    "vocabulary": [
+      {
+        "term": "der Brief",
+        "translation": "the letter",
+        "definition": "A written or printed message addressed to a person or organization.",
+        "pronunciation": "dehr breef",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich schreibe einen formellen Brief.",
+          "translation": "I am writing a formal letter."
+        },
+        "tip": "Remember that 'der Brief' is masculine; its plural form is 'die Briefe'."
+      },
+      {
+        "term": "die Anfrage",
+        "translation": "the inquiry/request",
+        "definition": "A question or request for information.",
+        "pronunciation": "dee an-fra-guh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe eine Anfrage geschickt.",
+          "translation": "I sent a request."
+        },
+        "tip": "'Die Anfrage' is feminine; its plural form is 'die Anfragen'."
+      },
+      {
+        "term": "das Angebot",
+        "translation": "the offer",
+        "definition": "A proposal or suggestion, especially in a business context.",
+        "pronunciation": "dahs an-geh-boht",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wir haben ein interessantes Angebot erhalten.",
+          "translation": "We received an interesting offer."
+        },
+        "tip": "'Das Angebot' is neuter; its plural form is 'die Angebote'."
+      },
+      {
+        "term": "die Bestätigung",
+        "translation": "the confirmation",
+        "definition": "A statement that verifies or confirms something.",
+        "pronunciation": "dee bes-tai-gung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich brauche eine Bestätigung für meine Buchung.",
+          "translation": "I need a confirmation for my booking."
+        },
+        "tip": "'Die Bestätigung' is feminine; its plural form is 'die Bestätigungen'."
+      },
+      {
+        "term": "der Vorschlag",
+        "translation": "the suggestion",
+        "definition": "An idea or proposal put forward for consideration.",
+        "pronunciation": "dehr for-shlahg",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ihr Vorschlag ist sehr hilfreich.",
+          "translation": "Your suggestion is very helpful."
+        },
+        "tip": "'Der Vorschlag' is masculine; its plural form is 'die Vorschläge'."
+      },
+      {
+        "term": "die Diskussion",
+        "translation": "the discussion",
+        "definition": "An exchange of ideas or opinions on a particular issue.",
+        "pronunciation": "dee dis-kus-syon",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Diskussion war produktiv.",
+          "translation": "The discussion was productive."
+        },
+        "tip": "'Die Diskussion' is feminine; its plural form is 'die Diskussionen'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Konjunktiv I and II",
+        "explanation": "The Konjunktiv I is used for indirect speech and expressing reported thoughts. The Konjunktiv II is used for hypothetical situations and politeness. Both forms are essential in formal writing to convey nuance and courtesy.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Konjunktiv I",
+            "Konjunktiv II"
+          ],
+          "rows": [
+            [
+              "sein",
+              "er sei",
+              "er wäre"
+            ],
+            [
+              "haben",
+              "er habe",
+              "er hätte"
+            ],
+            [
+              "gehen",
+              "er gehe",
+              "er ginge"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Er sagte, er habe keine Zeit.",
+            "translation": "He said that he has no time.",
+            "breakdown": "The sentence uses Konjunktiv I to report what someone else said."
+          },
+          {
+            "original": "Wenn ich mehr Zeit hätte, würde ich reisen.",
+            "translation": "If I had more time, I would travel.",
+            "breakdown": "This sentence uses Konjunktiv II to express a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of Konjunktiv I in reported speech. Correct: 'Er sagte, er sei müde.'",
+          "Confusing Konjunktiv II with the conditional. Correct: 'Wenn ich mehr Zeit hätte...' not 'Wenn ich mehr Zeit habe...'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Formal Business Communication",
+      "context": "This dialogue takes place during a business meeting discussing a project proposal.",
+      "speakers": [
+        "Lukas",
+        "Marie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Guten Tag, Marie. Ich freue mich, dass wir heute über das Projekt sprechen können.",
+          "translation": "Good day, Marie. I am pleased that we can discuss the project today.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Guten Tag, Lukas. Vielen Dank für die Einladung. Ich habe einige Vorschläge vorbereitet.",
+          "translation": "Good day, Lukas. Thank you for the invitation. I have prepared some suggestions.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt vielversprechend. Welche Punkte möchten Sie zuerst ansprechen?",
+          "translation": "That sounds promising. Which points would you like to address first?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Zuerst möchte ich die Budgetplanung diskutieren. Es ist wichtig, dass wir im Rahmen bleiben.",
+          "translation": "First, I would like to discuss the budget planning. It is important that we stay within the limits.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Natürlich, das ist entscheidend. Ich habe die Zahlen analysiert und einige Empfehlungen vorbereitet.",
+          "translation": "Of course, that is crucial. I have analyzed the numbers and prepared some recommendations.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist großartig. Ich denke, wir sollten auch die Zeitplanung berücksichtigen.",
+          "translation": "That is great. I think we should also consider the timeline.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Einverstanden. Ich schlage vor, dass wir einen detaillierten Plan erstellen.",
+          "translation": "Agreed. I propose that we create a detailed plan.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das klingt nach einem soliden Ansatz. Lassen Sie uns damit beginnen.",
+          "translation": "That sounds like a solid approach. Let's get started with that.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Formality in German Business Culture",
+      "text": "In German-speaking countries, business communication often adheres to strict formalities. This includes using polite language and the appropriate level of formality in writing and speaking. Understanding these nuances can greatly enhance your professional interactions.",
+      "funFact": "In Germany, it's common to address colleagues by their last names and titles until a more informal relationship is established."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding and using the Konjunktiv I and II is crucial for formal writing.",
+        "Complex sentence structures enhance clarity and professionalism.",
+        "Formal vocabulary is essential in business contexts.",
+        "Politeness and formality are valued in German communication."
+      ],
+      "nextSteps": "Practice writing formal emails or letters using the vocabulary and grammatical structures learned in this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is a common structure for a formal letter?",
+      "content": {
+        "options": [
+          "Greeting, Body, Closing",
+          "Body, Signature, Introduction",
+          "Introduction, Conclusion, Signature"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct structure for a formal letter typically includes a greeting, body, and closing.",
+      "hint": "Think about how you would start and end a letter.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the appropriate way to begin a formal email?",
+      "content": {
+        "options": [
+          "Hey there,",
+          "Dear Mr. Smith,",
+          "Hi,",
+          "To whom it may concern,"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The phrase 'Dear Mr. Smith,' is a proper formal greeting.",
+      "hint": "Consider the level of formality required.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich schreibe Ihnen, um meine ___ anzufragen.'",
+      "content": {
+        "sentence": "Ich schreibe Ihnen, um meine ___ anzufragen.",
+        "correctAnswer": "Anfrage",
+        "acceptableAnswers": [
+          "Anfrage"
+        ],
+        "options": [
+          "Anfrage",
+          "Bestätigung",
+          "Vorschlag"
+        ]
+      },
+      "explanation": "The word 'Anfrage' refers to a request or inquiry, which fits the context.",
+      "hint": "What do you do when you want to ask something formally?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Wir freuen uns auf Ihre ___ über unser Angebot.'",
+      "content": {
+        "sentence": "Wir freuen uns auf Ihre ___ über unser Angebot.",
+        "correctAnswer": "Bestätigung",
+        "acceptableAnswers": [
+          "Bestätigung"
+        ],
+        "options": [
+          "Anfrage",
+          "Bestätigung",
+          "Diskussion"
+        ]
+      },
+      "explanation": "'Bestätigung' means confirmation, which is what you expect in response to an offer.",
+      "hint": "Think about what you would send back to confirm something.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'Please confirm the details of the offer.'",
+      "content": {
+        "prompt": "Translate to German: 'Please confirm the details of the offer.'",
+        "correctAnswer": "Bitte bestätigen Sie die Einzelheiten des Angebots.",
+        "acceptableAnswers": [
+          "Bitte bestätigen Sie die Details des Angebots."
+        ]
+      },
+      "explanation": "The translation captures the request to confirm details in a polite manner.",
+      "hint": "Look for the formal way to address someone.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct phrase: 'Ich möchte eine Diskussion über das Angebot beginnen.'",
+      "content": {
+        "ttsText": "Ich möchte eine Diskussion über das Angebot beginnen.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Ich möchte eine Diskussion über das Angebot beginnen.",
+          "Ich möchte das Angebot annehmen.",
+          "Ich möchte die Einzelheiten des Angebots bestätigen."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct option matches the spoken text exactly.",
+      "hint": "Focus on the main action in the sentence.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in German: 'I propose a meeting to discuss our project.'",
+      "content": {
+        "targetText": "Ich schlage ein Treffen vor, um unser Projekt zu besprechen.",
+        "context": "Formal suggestion in a business meeting.",
+        "acceptableVariants": [
+          "Ich schlage vor, dass wir ein Treffen haben, um unser Projekt zu besprechen."
+        ]
+      },
+      "explanation": "This is a standard way to propose a meeting in German business communication.",
+      "hint": "Use the verb 'vorschlagen' for proposing.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

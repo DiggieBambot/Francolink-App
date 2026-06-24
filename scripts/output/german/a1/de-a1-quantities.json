@@ -1,0 +1,349 @@
+{
+  "lesson": {
+    "title": "Quantities & Containers",
+    "type": "VOCABULARY",
+    "slug": "de-a1-quantities"
+  },
+  "unit": "Food & Drink",
+  "unitOrder": 4,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about quantities and containers related to food and drink in German. You will expand your vocabulary and practice using these terms in simple sentences.",
+      "culturalNote": "In Germany, Austria, and Switzerland, it is common to buy food in markets and supermarkets where you can find various containers for different food items."
+    },
+    "vocabulary": [
+      {
+        "term": "der Apfel",
+        "translation": "the apple",
+        "definition": "A common fruit, usually red or green.",
+        "pronunciation": "dair AH-pfel",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich esse einen Apfel.",
+          "translation": "I am eating an apple."
+        },
+        "tip": "Remember that 'der' indicates that 'Apfel' is masculine."
+      },
+      {
+        "term": "die Banane",
+        "translation": "the banana",
+        "definition": "A long, yellow fruit that is sweet.",
+        "pronunciation": "dee bah-NAH-neh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich möchte eine Banane.",
+          "translation": "I would like a banana."
+        },
+        "tip": "'Die' shows that 'Banane' is feminine."
+      },
+      {
+        "term": "das Brot",
+        "translation": "the bread",
+        "definition": "A staple food made from flour and water.",
+        "pronunciation": "dahs BROHT",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich kaufe ein Brot.",
+          "translation": "I am buying a bread."
+        },
+        "tip": "'Das' indicates that 'Brot' is neuter."
+      },
+      {
+        "term": "die Flasche",
+        "translation": "the bottle",
+        "definition": "A container for liquids.",
+        "pronunciation": "dee FLAH-she",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich trinke aus der Flasche.",
+          "translation": "I am drinking from the bottle."
+        },
+        "tip": "Remember that 'Flasche' is feminine."
+      },
+      {
+        "term": "das Glas",
+        "translation": "the glass",
+        "definition": "A container for drinking, usually made of glass.",
+        "pronunciation": "dahs Glahs",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe ein Glas Wasser.",
+          "translation": "I have a glass of water."
+        },
+        "tip": "'Das' shows that 'Glas' is neuter."
+      },
+      {
+        "term": "der Teller",
+        "translation": "the plate",
+        "definition": "A flat dish used for serving food.",
+        "pronunciation": "dair TELL-er",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Teller ist klein.",
+          "translation": "The plate is small."
+        },
+        "tip": "'Der' indicates that 'Teller' is masculine."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Quantities with Nouns",
+        "explanation": "In German, nouns have genders: masculine (der), feminine (die), or neuter (das). When you want to express quantities, you often use 'ein' or 'eine' for 'a' or 'an'. For example, 'ein Apfel' means 'an apple' (masculine) and 'eine Banane' means 'a banana' (feminine).",
+        "table": {
+          "headers": [
+            "Article",
+            "Noun"
+          ],
+          "rows": [
+            [
+              "der",
+              "Apfel"
+            ],
+            [
+              "die",
+              "Banane"
+            ],
+            [
+              "das",
+              "Brot"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich habe eine Banane.",
+            "translation": "I have a banana.",
+            "breakdown": "Here, 'eine' indicates the feminine noun 'Banane'."
+          },
+          {
+            "original": "Ich esse ein Brot.",
+            "translation": "I am eating a bread.",
+            "breakdown": "'Ein' indicates the neuter noun 'Brot'."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'ein' with feminine nouns: Correct form is 'eine'.",
+          "For plural forms, use 'die' (e.g., 'die Äpfel' for 'the apples')."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Market",
+      "context": "A conversation between two friends at a local market.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Max! Was kaufst du?",
+          "translation": "Hello Max! What are you buying?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Lena! Ich kaufe Äpfel und Bananen.",
+          "translation": "Hello Lena! I am buying apples and bananas.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Wie viele Äpfel?",
+          "translation": "How many apples?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Drei Äpfel.",
+          "translation": "Three apples.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Möchtest du ein Brot?",
+          "translation": "Would you like a bread?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich möchte ein Brot.",
+          "translation": "Yes, I would like a bread.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Und eine Flasche Wasser?",
+          "translation": "And a bottle of water?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, eine Flasche Wasser ist gut.",
+          "translation": "Yes, a bottle of water is good.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Food Markets in Germany",
+      "text": "Food markets are popular in Germany, especially on weekends. Many people prefer to buy fresh fruits and vegetables directly from local farmers. This supports local agriculture and gives a sense of community.",
+      "funFact": "In Germany, there's a tradition called 'Markttag', where towns have specific days of the week for markets."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to quantities and containers.",
+        "Practiced using articles with nouns.",
+        "Understood how to express quantities in German.",
+        "Engaged in a simple dialogue about shopping for food."
+      ],
+      "nextSteps": "Practice using these new words in sentences and try to create your own dialogues about shopping."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'the apple' in German?",
+      "content": {
+        "options": [
+          "der Apfel",
+          "die Banane",
+          "das Brot"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Apfel' is the correct translation for 'the apple'.",
+      "hint": "Think of the fruit that is often red or green.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which container is 'die Flasche'?",
+      "content": {
+        "options": [
+          "the plate",
+          "the glass",
+          "the bottle"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Die Flasche' translates to 'the bottle' in English.",
+      "hint": "This is used to hold liquids.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich esse einen ______.",
+      "content": {
+        "sentence": "Ich esse einen ______.",
+        "correctAnswer": "Apfel",
+        "acceptableAnswers": [
+          "Apfel"
+        ],
+        "options": [
+          "Apfel",
+          "Banan",
+          "Brot"
+        ]
+      },
+      "explanation": "The sentence means 'I eat an apple'. 'Apfel' is the correct word.",
+      "hint": "It's a common fruit.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich trinke aus einem ______.",
+      "content": {
+        "sentence": "Ich trinke aus einem ______.",
+        "correctAnswer": "Glas",
+        "acceptableAnswers": [
+          "Glas"
+        ],
+        "options": [
+          "Teller",
+          "Glas",
+          "Flasche"
+        ]
+      },
+      "explanation": "This means 'I drink from a glass'. 'Glas' is the right answer.",
+      "hint": "You use this for drinking.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: Brot / auf / der / Teller.",
+      "content": {
+        "words": [
+          "Brot",
+          "auf",
+          "der",
+          "Teller"
+        ],
+        "correctOrder": [
+          "der",
+          "Teller",
+          "auf",
+          "Brot"
+        ],
+        "translation": "The bread is on the plate."
+      },
+      "explanation": "The correct order forms a meaningful sentence in German.",
+      "hint": "Start with the article.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I have a banana.'",
+      "content": {
+        "prompt": "Translate to German: 'I have a banana.'",
+        "correctAnswer": "Ich habe eine Banane.",
+        "acceptableAnswers": [
+          "Ich habe eine Banane"
+        ]
+      },
+      "explanation": "The correct translation uses the article 'eine' for feminine nouns.",
+      "hint": "Remember the gender of the noun.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich esse Brot.'",
+      "content": {
+        "ttsText": "Ich esse Brot.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I eat bread.",
+          "I drink water.",
+          "I have an apple."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'I eat bread'.",
+      "hint": "Focus on the verb 'essen'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in German: 'I have a bottle.'",
+      "content": {
+        "targetText": "Ich habe eine Flasche.",
+        "context": "Translate 'I have a bottle.' into German.",
+        "acceptableVariants": [
+          "Ich habe eine Flasche"
+        ]
+      },
+      "explanation": "The correct sentence uses the feminine article for 'bottle'.",
+      "hint": "Remember the article 'eine'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

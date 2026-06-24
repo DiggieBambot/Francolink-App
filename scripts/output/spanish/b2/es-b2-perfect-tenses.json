@@ -1,0 +1,397 @@
+{
+  "lesson": {
+    "title": "Perfect Tenses (Compound)",
+    "type": "GRAMMAR",
+    "slug": "es-b2-perfect-tenses"
+  },
+  "unit": "Advanced Grammar Review",
+  "unitOrder": 1,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about the perfect tenses in Spanish, focusing on their formation and usage in various contexts. You will practice the present perfect and the past perfect tenses to enhance your ability to express completed actions.",
+      "culturalNote": "In many Latin American cultures, the use of the present perfect tense is more common in spoken language compared to the simple past. This reflects a different approach to time and memory."
+    },
+    "vocabulary": [
+      {
+        "term": "el tiempo compuesto",
+        "translation": "the compound tense",
+        "definition": "A grammatical tense that is formed using auxiliary verbs and past participles.",
+        "pronunciation": "el ti-em-po com-pues-to",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El tiempo compuesto se utiliza para describir acciones pasadas.",
+          "translation": "The compound tense is used to describe past actions."
+        },
+        "tip": "Remember that compound tenses combine auxiliary verbs with participles."
+      },
+      {
+        "term": "haber",
+        "translation": "to have",
+        "definition": "An auxiliary verb used to form perfect tenses.",
+        "pronunciation": "ha-ber",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "He estudiado mucho para el examen.",
+          "translation": "I have studied a lot for the exam."
+        },
+        "tip": "The verb 'haber' is irregular, so learn its conjugations well."
+      },
+      {
+        "term": "el participio",
+        "translation": "the participle",
+        "definition": "A form of a verb used to create perfect tenses.",
+        "pronunciation": "el par-ti-ci-pio",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El participio de 'comer' es 'comido'.",
+          "translation": "The participle of 'to eat' is 'eaten'."
+        },
+        "tip": "Participles often end in -ado or -ido in Spanish."
+      },
+      {
+        "term": "la acción completada",
+        "translation": "the completed action",
+        "definition": "An action that has been finished or completed.",
+        "pronunciation": "la ac-ción com-ple-ta-da",
+        "partOfSpeech": "noun phrase",
+        "exampleSentence": {
+          "original": "La acción completada se expresa en tiempos compuestos.",
+          "translation": "The completed action is expressed in compound tenses."
+        },
+        "tip": "Focus on how the context changes the meaning of completed actions."
+      },
+      {
+        "term": "ya",
+        "translation": "already",
+        "definition": "An adverb often used in perfect tenses to indicate that something has occurred.",
+        "pronunciation": "ya",
+        "partOfSpeech": "adverb",
+        "exampleSentence": {
+          "original": "Ya he terminado mis deberes.",
+          "translation": "I have already finished my homework."
+        },
+        "tip": "Use 'ya' to emphasize the completion of an action."
+      },
+      {
+        "term": "todavía no",
+        "translation": "not yet",
+        "definition": "A phrase used to indicate that something has not been completed up until now.",
+        "pronunciation": "to-da-ví-a no",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "No he visto esa película todavía.",
+          "translation": "I haven't seen that movie yet."
+        },
+        "tip": "Use 'todavía no' to express anticipation for an action that hasn’t occurred."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Present Perfect Tense",
+        "explanation": "The present perfect tense in Spanish is formed using the present tense of the auxiliary verb 'haber' followed by the past participle of the main verb. It is used to describe actions that have occurred at an unspecified time before now or that continue into the present.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Conjugation of 'haber'"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "he"
+            ],
+            [
+              "Tú",
+              "has"
+            ],
+            [
+              "Él/Ella/Usted",
+              "ha"
+            ],
+            [
+              "Nosotros",
+              "hemos"
+            ],
+            [
+              "Ellos/Ellas/Ustedes",
+              "han"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Hemos viajado mucho este año.",
+            "translation": "We have traveled a lot this year.",
+            "breakdown": "The auxiliary verb 'hemos' (we have) plus the participle 'viajado' (traveled) indicates a completed action relevant to the current year."
+          }
+        ],
+        "commonMistakes": [
+          "Using the simple past instead of the present perfect. Correction: Use 'he' instead of 'fui' when talking about experiences.",
+          "Forgetting to match the participle with the subject. Correction: 'Ellos han comido' instead of 'Ellos ha comido.'"
+        ]
+      },
+      {
+        "title": "Past Perfect Tense",
+        "explanation": "The past perfect tense is formed by using the imperfect tense of 'haber' followed by the past participle. It is used to talk about actions that were completed before another action in the past.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Conjugation of 'haber' (Imperfect)"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "había"
+            ],
+            [
+              "Tú",
+              "habías"
+            ],
+            [
+              "Él/Ella/Usted",
+              "había"
+            ],
+            [
+              "Nosotros",
+              "habíamos"
+            ],
+            [
+              "Ellos/Ellas/Ustedes",
+              "habían"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Cuando llegué, ya habían salido.",
+            "translation": "When I arrived, they had already left.",
+            "breakdown": "The auxiliary verb 'habían' (they had) plus 'salido' (left) indicates an action completed before another past action."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing the past perfect with the present perfect. Correction: Use 'había' for actions completed before another past action.",
+          "Incorrectly forming the participle. Correction: Ensure you use the correct forms, e.g., 'comido' not 'comiendo.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Future Plans and Past Experiences",
+      "context": "Two friends are catching up at a café.",
+      "speakers": [
+        "Laura",
+        "Carlos"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¡Hola, Carlos! ¿Cómo has estado?",
+          "translation": "Hi, Carlos! How have you been?"
+        },
+        {
+          "speaker": 1,
+          "text": "¡Hola, Laura! He estado bien, gracias. ¿Y tú?",
+          "translation": "Hi, Laura! I've been good, thanks. And you?"
+        },
+        {
+          "speaker": 0,
+          "text": "He estado muy ocupada con el trabajo.",
+          "translation": "I've been very busy with work."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, yo también. ¿Has terminado el proyecto que tenías?",
+          "translation": "Yes, me too. Have you finished the project you had?"
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, lo terminé la semana pasada. ¿Y tú, has tenido tiempo para viajar?",
+          "translation": "Yes, I finished it last week. And you, have you had time to travel?"
+        },
+        {
+          "speaker": 1,
+          "text": "No, todavía no. Pero el próximo mes ya habré viajado a tres países diferentes.",
+          "translation": "No, not yet. But by next month, I will have traveled to three different countries."
+        },
+        {
+          "speaker": 0,
+          "text": "¡Eso suena increíble! ¿Cuáles son los países?",
+          "translation": "That sounds amazing! What are the countries?"
+        },
+        {
+          "speaker": 1,
+          "text": "Voy a México, Perú y Chile. Siempre he querido visitar esos lugares.",
+          "translation": "I'm going to Mexico, Peru, and Chile. I've always wanted to visit those places."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Time in Spanish Culture",
+      "text": "In many Spanish-speaking countries, time is perceived differently. The emphasis on relationships and experiences often leads to a more flexible approach to time, especially in social contexts. Understanding this cultural nuance can enhance your communication skills.",
+      "funFact": "In Spain, it's common to have lunch as late as 2 PM and dinner around 9 PM, which reflects a different daily rhythm compared to many English-speaking countries."
+    },
+    "summary": {
+      "keyPoints": [
+        "The present perfect is used for actions relevant to the present.",
+        "The past perfect describes actions completed before another past action.",
+        "Use auxiliary verb 'haber' correctly to form compound tenses.",
+        "Pay attention to the past participles for accurate usage."
+      ],
+      "nextSteps": "Practice forming sentences in both the present and past perfect tenses. Consider writing about your recent experiences using these tenses."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the auxiliary verb used in perfect tenses in Spanish?",
+      "content": {
+        "options": [
+          "ser",
+          "haber",
+          "estar",
+          "tener"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "In Spanish, the auxiliary verb used for forming perfect tenses is 'haber'.",
+      "hint": "Think about the verb used for 'to have' in English.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following sentences is in the present perfect tense?",
+      "content": {
+        "options": [
+          "He comido la cena.",
+          "Comí la cena.",
+          "Comeré la cena.",
+          "Como la cena."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence 'He comido la cena.' uses the present perfect tense, formed with 'haber' and the past participle.",
+      "hint": "Look for 'he' followed by a past participle.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence with the correct form of 'haber': 'Ellos ___ terminado su tarea.'",
+      "content": {
+        "sentence": "Ellos ___ terminado su tarea.",
+        "correctAnswer": "han",
+        "acceptableAnswers": [
+          "han"
+        ],
+        "options": [
+          "ha",
+          "han",
+          "he",
+          "habéis"
+        ]
+      },
+      "explanation": "'Han' is the correct form of 'haber' for the third person plural in the present perfect tense.",
+      "hint": "Think about the subject 'Ellos'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Yo ___ (haber) visto esa película.'",
+      "content": {
+        "sentence": "Yo ___ visto esa película.",
+        "correctAnswer": "he",
+        "acceptableAnswers": [
+          "he"
+        ],
+        "options": [
+          "ha",
+          "he",
+          "han",
+          "habéis"
+        ]
+      },
+      "explanation": "The correct form is 'he', which is the first person singular of 'haber' in the present perfect.",
+      "hint": "Focus on the subject 'Yo'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'ya / han / terminado / ellos / la tarea'",
+      "content": {
+        "words": [
+          "ya",
+          "han",
+          "terminado",
+          "ellos",
+          "la",
+          "tarea"
+        ],
+        "correctOrder": [
+          "ellos",
+          "han",
+          "terminado",
+          "la",
+          "tarea",
+          "ya"
+        ],
+        "translation": "They have already finished the homework."
+      },
+      "explanation": "The correct order places the subject first, followed by the auxiliary verb and the past participle.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I have not finished my homework yet.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I have not finished my homework yet.'",
+        "correctAnswer": "No he terminado mi tarea todavía.",
+        "acceptableAnswers": [
+          "No he terminado mi tarea aún."
+        ]
+      },
+      "explanation": "The translation captures the use of the present perfect negative form.",
+      "hint": "Remember to use 'no' for negation.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct sentence: 'He visto a María ayer.'",
+      "content": {
+        "ttsText": "He visto a María ayer.",
+        "ttsLang": "es-ES",
+        "options": [
+          "He visto a María ayer.",
+          "Vi a María ayer.",
+          "Veo a María ayer.",
+          "He visto a María."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct option uses the present perfect tense.",
+      "hint": "Pay attention to the auxiliary verb 'he'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in Spanish: 'They have not traveled to Spain yet.'",
+      "content": {
+        "targetText": "Ellos no han viajado a España todavía.",
+        "context": "Translate and speak the sentence in Spanish.",
+        "acceptableVariants": [
+          "Ellos todavía no han viajado a España.",
+          "Ellos no han viajado a España aún."
+        ]
+      },
+      "explanation": "The correct sentence uses the negative form of the present perfect.",
+      "hint": "Use 'no' for negation and remember 'todavía' for 'yet'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

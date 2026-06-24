@@ -1,0 +1,311 @@
+{
+  "lesson": {
+    "title": "Negotiation Skills",
+    "type": "CONVERSATION",
+    "slug": "de-b2-negotiation"
+  },
+  "unit": "Professional Communication",
+  "unitOrder": 3,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn key vocabulary and phrases related to negotiation skills in German. You will also practice using complex sentence structures and the subjunctive mood to express proposals and hypothetical situations.",
+      "culturalNote": "In German-speaking cultures, negotiation is often viewed as a collaborative process that values mutual respect and clarity in communication."
+    },
+    "vocabulary": [
+      {
+        "term": "die Verhandlung",
+        "translation": "the negotiation",
+        "definition": "A formal discussion to reach an agreement.",
+        "pronunciation": "dee fer-HAHN-doong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Verhandlung war sehr erfolgreich.",
+          "translation": "The negotiation was very successful."
+        },
+        "tip": "Remember that 'die' indicates that 'Verhandlung' is feminine."
+      },
+      {
+        "term": "der Kompromiss",
+        "translation": "the compromise",
+        "definition": "An agreement reached by mutual concession.",
+        "pronunciation": "der kom-pro-MISS",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wir müssen einen Kompromiss finden.",
+          "translation": "We need to find a compromise."
+        },
+        "tip": "As a masculine noun, 'Kompromiss' uses 'der'."
+      },
+      {
+        "term": "die Zustimmung",
+        "translation": "the agreement/consent",
+        "definition": "Approval or acceptance of a proposal.",
+        "pronunciation": "dee tsu-STIMM-ung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Zustimmung aller Parteien ist notwendig.",
+          "translation": "The agreement of all parties is necessary."
+        },
+        "tip": "This is a feminine noun; hence, it uses 'die'."
+      },
+      {
+        "term": "die Einigung",
+        "translation": "the settlement",
+        "definition": "An agreement reached between parties.",
+        "pronunciation": "dee EYE-ni-gung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Einigung wurde schnell erzielt.",
+          "translation": "The settlement was reached quickly."
+        },
+        "tip": "Remember 'die' for this feminine noun."
+      },
+      {
+        "term": "verhandeln",
+        "translation": "to negotiate",
+        "definition": "To discuss something formally in order to reach an agreement.",
+        "pronunciation": "fer-HAN-del-n",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Wir müssen über die Preise verhandeln.",
+          "translation": "We need to negotiate about the prices."
+        },
+        "tip": "This is a regular verb; its conjugation is predictable."
+      },
+      {
+        "term": "der Vorschlag",
+        "translation": "the proposal",
+        "definition": "A suggestion put forward for consideration.",
+        "pronunciation": "der FORSH-lahg",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich mache einen Vorschlag.",
+          "translation": "I am making a proposal."
+        },
+        "tip": "Masculine noun; remember to use 'der'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subjunctive Mood (Konjunktiv I & II)",
+        "explanation": "The subjunctive mood is used in German to express hypothetical situations, wishes, or indirect speech. Konjunktiv I is often used for reported speech, while Konjunktiv II expresses unreal conditions or wishes. For example, 'Ich wünschte, ich hätte mehr Zeit' means 'I wish I had more time.'",
+        "table": {
+          "headers": [
+            "Subjunctive I",
+            "Subjunctive II"
+          ],
+          "rows": [
+            [
+              "Er sagt, er komme morgen.",
+              "Wenn ich reich wäre, würde ich reisen."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich mehr Zeit hätte, würde ich mehr Deutsch lernen.",
+            "translation": "If I had more time, I would learn more German.",
+            "breakdown": "This sentence uses Konjunktiv II to express a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing Konjunktiv I with Konjunktiv II; remember: I for indirect speech, II for unreal situations.",
+          "Using the wrong verb forms; practice conjugating irregular verbs in the subjunctive."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Negotiating a Deal",
+      "context": "A business meeting between two colleagues discussing a potential partnership.",
+      "speakers": [
+        "Max",
+        "Lena"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Ich denke, wir sollten über die Konditionen sprechen.",
+          "translation": "I think we should discuss the terms.",
+          "note": "Max initiates the negotiation."
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, das ist eine gute Idee. Was schlagen Sie vor?",
+          "translation": "Yes, that's a good idea. What do you propose?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich schlage vor, dass wir die Preise um 10% senken.",
+          "translation": "I propose that we lower the prices by 10%."
+        },
+        {
+          "speaker": 1,
+          "text": "Das könnte schwierig sein, aber ich verstehe Ihren Standpunkt.",
+          "translation": "That might be difficult, but I understand your point."
+        },
+        {
+          "speaker": 0,
+          "text": "Wie wäre es, wenn wir stattdessen einen Kompromiss finden?",
+          "translation": "How about we find a compromise instead?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich könnte mir vorstellen, dass wir eine Einigung erzielen, wenn wir beide flexibel sind.",
+          "translation": "I could imagine that we reach a settlement if we are both flexible."
+        },
+        {
+          "speaker": 0,
+          "text": "Das wäre ideal. Ich bin bereit, über andere Aspekte zu verhandeln.",
+          "translation": "That would be ideal. I am willing to negotiate other aspects."
+        },
+        {
+          "speaker": 1,
+          "text": "Gut, lassen Sie uns die Details klären.",
+          "translation": "Good, let’s clarify the details."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Negotiation Styles in German-speaking Countries",
+      "text": "In Germany, negotiations often emphasize thorough preparation and a clear agenda. Austrians may take a slightly more informal approach, while Swiss negotiations tend to value consensus and harmony.",
+      "funFact": "In Switzerland, it's common to have multiple rounds of negotiations over coffee, which emphasizes relationship building."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding negotiation vocabulary is essential for professional communication.",
+        "The subjunctive mood is useful for expressing proposals and hypothetical scenarios.",
+        "Cultural nuances influence negotiation styles across German-speaking regions.",
+        "Practicing dialogues enhances fluency in professional contexts."
+      ],
+      "nextSteps": "Continue practicing negotiation dialogues and use the subjunctive in various scenarios to solidify your understanding."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'negotiation'?",
+      "content": {
+        "options": [
+          "die Verhandlung",
+          "die Einigung",
+          "der Kompromiss",
+          "der Vorschlag"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'die Verhandlung', which means negotiation in English.",
+      "hint": "It starts with 'V'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'compromise' in German?",
+      "content": {
+        "options": [
+          "die Zustimmung",
+          "der Kompromiss",
+          "die Einigung",
+          "verhandeln"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Der Kompromiss' is the correct answer as it translates to 'compromise'.",
+      "hint": "It's a word often used in negotiations.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Um einen ____ zu erreichen, müssen beide Parteien bereit sein, zu verhandeln.",
+      "content": {
+        "sentence": "Um einen ____ zu erreichen, müssen beide Parteien bereit sein, zu verhandeln.",
+        "correctAnswer": "Kompromiss",
+        "acceptableAnswers": [
+          "Kompromiss"
+        ],
+        "options": [
+          "Vorschlag",
+          "Kompromiss",
+          "Zustimmung",
+          "Einigung"
+        ]
+      },
+      "explanation": "The correct answer is 'Kompromiss', which fits the context of negotiation.",
+      "hint": "It's a type of agreement.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Wir müssen uns auf einen ____ einigen.",
+      "content": {
+        "sentence": "Wir müssen uns auf einen ____ einigen.",
+        "correctAnswer": "Vorschlag",
+        "acceptableAnswers": [
+          "Vorschlag"
+        ],
+        "options": [
+          "Kompromiss",
+          "Vorschlag",
+          "Zustimmung",
+          "Verhandlung"
+        ]
+      },
+      "explanation": "The word 'Vorschlag' means 'proposal', which fits the sentence context.",
+      "hint": "It's what you present in negotiations.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'We need to negotiate a better deal.'",
+      "content": {
+        "prompt": "Translate to German: 'We need to negotiate a better deal.'",
+        "correctAnswer": "Wir müssen einen besseren Deal verhandeln.",
+        "acceptableAnswers": [
+          "Wir müssen einen besseren Deal verhandeln."
+        ]
+      },
+      "explanation": "This translation accurately reflects the need to negotiate for better terms.",
+      "hint": "Focus on the verb 'verhandeln'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Wir haben eine Einigung erzielt.'",
+      "content": {
+        "ttsText": "Wir haben eine Einigung erzielt.",
+        "ttsLang": "de-DE",
+        "options": [
+          "We reached an agreement.",
+          "We made a proposal.",
+          "We negotiated successfully.",
+          "We need to compromise."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation means 'We reached an agreement.', which reflects the content of the original sentence.",
+      "hint": "Look for the word 'Einigung'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in German: 'I agree with your proposal.'",
+      "content": {
+        "targetText": "Ich stimme deinem Vorschlag zu.",
+        "context": "Responding positively to a proposal in a negotiation.",
+        "acceptableVariants": [
+          "Ich stimme deinem Vorschlag zu."
+        ]
+      },
+      "explanation": "This sentence expresses agreement and is crucial in negotiations.",
+      "hint": "Remember the word 'zustimmen'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

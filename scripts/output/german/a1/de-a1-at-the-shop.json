@@ -1,0 +1,342 @@
+{
+  "lesson": {
+    "title": "At the Shop",
+    "type": "CONVERSATION",
+    "slug": "de-a1-at-the-shop"
+  },
+  "unit": "Shopping & Around Town",
+  "unitOrder": 5,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary and phrases related to shopping in German. You will also practice a simple conversation that can happen at a shop.",
+      "culturalNote": "In Germany, it's common to greet shop assistants with 'Guten Tag' (Good day) when entering a store, and many shops are closed on Sundays."
+    },
+    "vocabulary": [
+      {
+        "term": "der Laden",
+        "translation": "the shop",
+        "definition": "a place where goods are sold",
+        "pronunciation": "dare lah-den",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich gehe in den Laden.",
+          "translation": "I am going to the shop."
+        },
+        "tip": "Remember: 'Laden' is masculine (der). The accusative form is 'den Laden.'"
+      },
+      {
+        "term": "die Kleidung",
+        "translation": "the clothing",
+        "definition": "items worn to cover the body",
+        "pronunciation": "dee klai-dung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich kaufe Kleidung.",
+          "translation": "I buy clothing."
+        },
+        "tip": "'Kleidung' is feminine (die) and always singular."
+      },
+      {
+        "term": "das Geld",
+        "translation": "the money",
+        "definition": "currency used to pay for goods and services",
+        "pronunciation": "dahs gelt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe kein Geld.",
+          "translation": "I have no money."
+        },
+        "tip": "'Geld' is neuter (das) and does not have a plural form."
+      },
+      {
+        "term": "möchten",
+        "translation": "would like",
+        "definition": "a modal verb used to express desire",
+        "pronunciation": "muhkhten",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich möchte ein Kleid.",
+          "translation": "I would like a dress."
+        },
+        "tip": "Use 'möchten' to make polite requests."
+      },
+      {
+        "term": "kaufen",
+        "translation": "to buy",
+        "definition": "to acquire goods in exchange for money",
+        "pronunciation": "koy-fen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich kaufe ein Buch.",
+          "translation": "I am buying a book."
+        },
+        "tip": "The verb 'kaufen' is regular."
+      },
+      {
+        "term": "die Größe",
+        "translation": "the size",
+        "definition": "the measurement of an item",
+        "pronunciation": "dee grö-se",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Welche Größe haben Sie?",
+          "translation": "What size do you have?"
+        },
+        "tip": "'Größe' is feminine (die) and can be used in both singular and plural."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'möchten' and 'kaufen'",
+        "explanation": "'Möchten' is used to express what you would like to do, while 'kaufen' means 'to buy.' Typically, you use 'möchten' followed by the item you want to buy. Remember to adjust your articles according to gender.",
+        "table": {
+          "headers": [
+            "German",
+            "English"
+          ],
+          "rows": [
+            [
+              "Ich möchte",
+              "I would like"
+            ],
+            [
+              "Ich kaufe",
+              "I buy"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich möchte ein T-Shirt kaufen.",
+            "translation": "I would like to buy a T-shirt.",
+            "breakdown": "'Ich möchte' (I would like) + 'ein T-Shirt' (a T-shirt) + 'kaufen' (to buy)."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Ich möchte die T-Shirt kaufen.' (Correction: 'Ich möchte das T-Shirt kaufen.') - Remember, 'T-Shirt' is neuter, so use 'das.'",
+          "Using 'kaufen' without a subject (Correction: Always use a subject, e.g., 'Ich kaufe')."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Clothing Shop",
+      "context": "A conversation between a customer and a shop assistant in a clothing store.",
+      "speakers": [
+        "Lena (customer)",
+        "Max (shop assistant)"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Guten Tag! Ich möchte ein Kleid kaufen.",
+          "translation": "Good day! I would like to buy a dress.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Guten Tag! Welche Größe haben Sie?",
+          "translation": "Good day! What size do you have?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich habe Größe M.",
+          "translation": "I have size M.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hier ist das Kleid in Größe M.",
+          "translation": "Here is the dress in size M.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Danke! Wie viel kostet es?",
+          "translation": "Thank you! How much does it cost?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Es kostet 30 Euro.",
+          "translation": "It costs 30 euros.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich habe kein Geld.",
+          "translation": "I have no money.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Möchten Sie etwas anderes?",
+          "translation": "Would you like something else?",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Shopping in Germany",
+      "text": "Shopping in Germany can be a very pleasant experience. Many shops focus on quality and customer service. It's also common for shops to sell local products.",
+      "funFact": "In many German cities, you can find weekly markets selling fresh produce, flowers, and handmade goods."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to shopping",
+        "Practiced using 'möchten' and 'kaufen'",
+        "Engaged in a shopping dialogue",
+        "Explored cultural insights related to shopping"
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and try to create your own shopping dialogue."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'the shop' in German?",
+      "content": {
+        "options": [
+          "der Laden",
+          "die Kleidung",
+          "das Geld",
+          "die Größe"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Laden' is the correct term for 'the shop' in German.",
+      "hint": "Think of where you go to buy things.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "How do you say 'clothes' in German?",
+      "content": {
+        "options": [
+          "das Geld",
+          "die Kleidung",
+          "die Größe",
+          "der Laden"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Die Kleidung' is the German word for 'clothes'.",
+      "hint": "It's something you wear.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich möchte ___ (the size).",
+      "content": {
+        "sentence": "Ich möchte ___.",
+        "correctAnswer": "die Größe",
+        "acceptableAnswers": [
+          "die Größe"
+        ],
+        "options": [
+          "die Größe",
+          "das Geld",
+          "der Laden"
+        ]
+      },
+      "explanation": "The correct answer is 'die Größe', which means 'the size' in English.",
+      "hint": "Think about what you ask for when buying clothes.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich möchte ___ (to buy) ein T-Shirt.",
+      "content": {
+        "sentence": "Ich möchte ___ ein T-Shirt.",
+        "correctAnswer": "kaufen",
+        "acceptableAnswers": [
+          "kaufen"
+        ],
+        "options": [
+          "kaufen",
+          "sehen",
+          "essen"
+        ]
+      },
+      "explanation": "The verb 'kaufen' means 'to buy' in English.",
+      "hint": "It's what you do when you want to purchase something.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to make a correct sentence: 'möchte', 'ich', 'ein T-Shirt', 'kaufen'.",
+      "content": {
+        "words": [
+          "möchte",
+          "ich",
+          "ein T-Shirt",
+          "kaufen"
+        ],
+        "correctOrder": [
+          "ich",
+          "möchte",
+          "ein T-Shirt",
+          "kaufen"
+        ],
+        "translation": "I want to buy a T-shirt."
+      },
+      "explanation": "The correct order forms a complete sentence in German.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I have money.'",
+      "content": {
+        "prompt": "Translate to German: 'I have money.'",
+        "correctAnswer": "Ich habe Geld.",
+        "acceptableAnswers": [
+          "Ich habe das Geld."
+        ]
+      },
+      "explanation": "In German, 'money' is 'Geld'.",
+      "hint": "Think about how to express possession.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich möchte ein Kleid kaufen.'",
+      "content": {
+        "ttsText": "Ich möchte ein Kleid kaufen.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I want to buy a dress.",
+          "I want to see a dress.",
+          "I want to wear a dress."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'I want to buy a dress.'",
+      "hint": "Focus on the word 'kaufen'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I want to buy shoes.'",
+      "content": {
+        "targetText": "Ich möchte Schuhe kaufen.",
+        "context": "Translate and say the sentence.",
+        "acceptableVariants": [
+          "Ich möchte Schuhe kaufen."
+        ]
+      },
+      "explanation": "This sentence expresses a desire to purchase shoes.",
+      "hint": "Start with 'Ich möchte'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

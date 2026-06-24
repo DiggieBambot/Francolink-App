@@ -1,0 +1,386 @@
+{
+  "lesson": {
+    "title": "Advanced Error Correction",
+    "type": "GRAMMAR",
+    "slug": "de-b2-error-correction"
+  },
+  "unit": "Advanced Grammar Review",
+  "unitOrder": 1,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, students will learn advanced error correction techniques in German, focusing on nuanced grammar points such as the genitive case, full use of Konjunktiv I and II, and complex sentence structures. This will enhance their writing and speaking skills, allowing for more sophisticated communication.",
+      "culturalNote": "In Germany, the use of the Konjunktiv is prevalent in formal writing and news reporting. Understanding its usage can significantly improve your comprehension of political and literary texts."
+    },
+    "vocabulary": [
+      {
+        "term": "der Genitiv",
+        "translation": "the genitive case",
+        "definition": "A grammatical case used to indicate possession.",
+        "pronunciation": "deh-GEE-nit-iv",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Buch des Lehrers ist interessant.",
+          "translation": "The teacher's book is interesting."
+        },
+        "tip": "Remember that the genitive often answers the question 'wessen?' (whose?)."
+      },
+      {
+        "term": "die Konjunktiv I",
+        "translation": "the subjunctive I",
+        "definition": "Used primarily in reported speech.",
+        "pronunciation": "kohn-YOONK-tiv eins",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Er sagte, er sei müde.",
+          "translation": "He said that he was tired."
+        },
+        "tip": "Konjunktiv I is formed from the stem of the verb, often used in indirect speech."
+      },
+      {
+        "term": "die Konjunktiv II",
+        "translation": "the subjunctive II",
+        "definition": "Used for hypothetical situations and polite requests.",
+        "pronunciation": "kohn-YOONK-tiv zwei",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wenn ich reich wäre, würde ich reisen.",
+          "translation": "If I were rich, I would travel."
+        },
+        "tip": "Konjunktiv II often uses 'würde' + infinitive for conditional statements."
+      },
+      {
+        "term": "die Satzklammer",
+        "translation": "the sentence bracket",
+        "definition": "A structure in German sentences where verbs are placed at the end.",
+        "pronunciation": "zahts-KLAH-mer",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich hoffe, dass du morgen kommst.",
+          "translation": "I hope that you come tomorrow."
+        },
+        "tip": "In complex sentences, the main verb often comes at the end, creating a 'bracket' effect."
+      },
+      {
+        "term": "die Nominalisierung",
+        "translation": "nominalization",
+        "definition": "The process of turning verbs or adjectives into nouns.",
+        "pronunciation": "noh-MEE-nah-lizierung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Laufen ist gesund.",
+          "translation": "Running is healthy."
+        },
+        "tip": "Look for the suffixes like -ung, -heit, and -keit to identify nominalizations."
+      },
+      {
+        "term": "die Redewendung",
+        "translation": "idiom",
+        "definition": "A phrase or expression that has a figurative meaning.",
+        "pronunciation": "RAY-deh-ven-doong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das ist ein schmaler Grat.",
+          "translation": "That is a narrow path."
+        },
+        "tip": "Idioms often can't be translated literally, so learn them as fixed phrases."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Genitive Case Usage",
+        "explanation": "The genitive case is used to indicate possession and is often used in more formal contexts. In the genitive, masculine and neuter nouns typically add an -s or -es, while feminine nouns do not change. It's important to recognize the genitive in both written and spoken German for clarity.",
+        "table": {
+          "headers": [
+            "Noun",
+            "Genitive Form"
+          ],
+          "rows": [
+            [
+              "der Lehrer",
+              "des Lehrers"
+            ],
+            [
+              "die Schülerin",
+              "der Schülerin"
+            ],
+            [
+              "das Buch",
+              "des Buches"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Die Farbe des Autos ist rot.",
+            "translation": "The color of the car is red.",
+            "breakdown": "Here, 'des Autos' shows possession, indicating the color belongs to the car."
+          }
+        ],
+        "commonMistakes": [
+          "Using the nominative instead of the genitive: 'Das Auto von der Lehrer' instead of 'Das Auto des Lehrers'.",
+          "Incorrect article usage: 'das Buch des Schülerin' instead of 'das Buch der Schülerin'."
+        ]
+      },
+      {
+        "title": "Konjunktiv II for Hypothetical Situations",
+        "explanation": "Konjunktiv II is used to express wishes, hypotheses, or polite requests. It often uses 'würde' plus the infinitive of the verb for conditional sentences. Be careful to identify the context in which to use this form, as it adds a level of politeness and nuance to your speech.",
+        "table": {
+          "headers": [
+            "Phrase",
+            "Konjunktiv II"
+          ],
+          "rows": [
+            [
+              "Ich gehe",
+              "Ich ginge"
+            ],
+            [
+              "Ich habe",
+              "Ich hätte"
+            ],
+            [
+              "Ich mache",
+              "Ich würde machen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich mehr Zeit hätte, würde ich ein Buch schreiben.",
+            "translation": "If I had more time, I would write a book.",
+            "breakdown": "This sentence illustrates a hypothetical situation using 'hätte' and 'würde'."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: 'Wenn ich mehr Zeit habe' instead of 'Wenn ich mehr Zeit hätte'.",
+          "Forgetting to use 'würde' in conditionals: 'Ich schreibe ein Buch' instead of 'Ich würde ein Buch schreiben'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Future Plans",
+      "context": "A conversation between two friends making plans for a vacation.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hast du schon über unseren Urlaub nachgedacht?",
+          "translation": "Have you already thought about our vacation?",
+          "note": "Lena initiates the conversation."
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich würde gerne nach Italien fahren.",
+          "translation": "Yes, I would like to go to Italy."
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt gut! Hast du schon ein Hotel gefunden?",
+          "translation": "That sounds good! Have you already found a hotel?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich habe ein paar Optionen, aber ich bin mir nicht sicher.",
+          "translation": "I have a few options, but I'm not sure."
+        },
+        {
+          "speaker": 0,
+          "text": "Wenn ich mehr Informationen hätte, könnte ich dir helfen.",
+          "translation": "If I had more information, I could help you."
+        },
+        {
+          "speaker": 1,
+          "text": "Das wäre super! Ich denke, wir sollten bald buchen.",
+          "translation": "That would be great! I think we should book soon."
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, je früher, desto besser.",
+          "translation": "Yes, the sooner, the better."
+        },
+        {
+          "speaker": 1,
+          "text": "Lass uns morgen darüber sprechen.",
+          "translation": "Let's talk about it tomorrow."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Formality in German",
+      "text": "In German-speaking cultures, formality in language is significant, particularly in professional settings. Using the correct grammatical structures, such as the Konjunktiv and genitive, can reflect your education and respect for the language.",
+      "funFact": "Germany has a rich literary tradition where the use of the Konjunktiv is essential in the works of famous authors like Goethe and Schiller."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding and using the genitive case is essential for expressing possession.",
+        "Mastering Konjunktiv I and II will enhance your ability to discuss hypothetical situations and reported speech.",
+        "Recognizing sentence brackets will improve your sentence structure.",
+        "Nominalization and idiomatic expressions add sophistication to your language skills."
+      ],
+      "nextSteps": "Practice using the genitive case and Konjunktiv in your writing. Try to incorporate idioms and nominalized forms in your conversations."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following sentences uses the Konjunktiv II correctly?",
+      "content": {
+        "options": [
+          "Wenn ich ein Vogel wäre, würde ich fliegen.",
+          "Wenn ich ein Vogel bin, fliege ich.",
+          "Wenn ich ein Vogel war, flog ich."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct use of Konjunktiv II expresses a hypothetical situation in the present.",
+      "hint": "Look for the conditional form.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Identify the sentence that correctly uses the Genitiv.",
+      "content": {
+        "options": [
+          "Das Auto meines Vaters ist blau.",
+          "Das Auto vom Vater ist blau.",
+          "Das Auto des Vaters ist blau."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "Both options 0 and 2 are correct, but option 0 is more common in spoken German.",
+      "hint": "Think about possession.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Es wäre besser, wenn du ___ (kommen) zu meiner Party.'",
+      "content": {
+        "sentence": "Es wäre besser, wenn du ___ zu meiner Party.",
+        "correctAnswer": "kämmst",
+        "acceptableAnswers": [
+          "kämmst"
+        ],
+        "options": [
+          "kommst",
+          "kämmst",
+          "kamst"
+        ]
+      },
+      "explanation": "The correct form in Konjunktiv II of 'kommen' is 'kämmst'.",
+      "hint": "Think about the subjunctive mood.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the correct article: '___ (die) Freiheit ist wichtig.'",
+      "content": {
+        "sentence": "___ Freiheit ist wichtig.",
+        "correctAnswer": "Die",
+        "acceptableAnswers": [
+          "Die"
+        ],
+        "options": [
+          "Die",
+          "Der",
+          "Das"
+        ]
+      },
+      "explanation": "The word 'Freiheit' is feminine and takes the article 'die'.",
+      "hint": "Consider the gender of the noun.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I would like a cup of coffee.'",
+      "content": {
+        "correctAnswer": "Ich hätte gerne eine Tasse Kaffee.",
+        "acceptableAnswers": [
+          "Ich möchte eine Tasse Kaffee."
+        ],
+        "prompt": "Translate to German: 'I would like a cup of coffee.'"
+      },
+      "explanation": "The phrase 'Ich hätte gerne' is a polite way to express desire in German.",
+      "hint": "Think about how to express wishes.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct option.",
+      "content": {
+        "ttsText": "Ich habe viele Freunde in Berlin.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Ich habe viele Freunde in Berlin.",
+          "Ich habe keine Freunde in Berlin.",
+          "Ich habe einen Freund in Berlin."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct option matches the sentence you heard.",
+      "hint": "Focus on the key words.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in German: 'My favorite book is.'",
+      "content": {
+        "targetText": "Mein Lieblingsbuch ist.",
+        "context": "Describe your favorite book.",
+        "acceptableVariants": [
+          "Mein Lieblingsbuch ist...",
+          "Ich liebe dieses Buch..."
+        ]
+      },
+      "explanation": "This exercise encourages you to express personal preferences in German.",
+      "hint": "Think about how to start describing something.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Es sieht so aus, als ob er ___ (gehen) will.'",
+      "content": {
+        "sentence": "Es sieht so aus, als ob er ___ will.",
+        "correctAnswer": "gehen",
+        "acceptableAnswers": [
+          "gehen"
+        ],
+        "options": [
+          "geht",
+          "gehen",
+          "ging"
+        ]
+      },
+      "explanation": "The verb 'gehen' is in its infinitive form after 'als ob'.",
+      "hint": "Remember the structure of conditional phrases.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of these sentences is an example of a Redewendung?",
+      "content": {
+        "options": [
+          "Das ist nicht mein Bier.",
+          "Ich gehe ins Kino.",
+          "Er fährt mit dem Auto."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Das ist nicht mein Bier' is an idiomatic expression meaning 'That's not my problem.'",
+      "hint": "Look for a phrase with a figurative meaning.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

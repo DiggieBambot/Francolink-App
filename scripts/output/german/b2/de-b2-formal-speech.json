@@ -1,0 +1,322 @@
+{
+  "lesson": {
+    "title": "Formal Speech & Presentation",
+    "type": "CONVERSATION",
+    "slug": "de-b2-formal-speech"
+  },
+  "unit": "Global Issues & Mastery",
+  "unitOrder": 8,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to engage in formal speech and presentations in German, focusing on vocabulary and phrases that are essential for discussing global issues. You'll practice using the subjunctive mood and complex sentence structures to express opinions and make suggestions.",
+      "culturalNote": "In Germany, formal presentations often follow a structured format, including an introduction, main points, and a conclusion. This reflects the German preference for clarity and organization in communication."
+    },
+    "vocabulary": [
+      {
+        "term": "die Präsentation",
+        "translation": "the presentation",
+        "definition": "A formal talk or display of information.",
+        "pronunciation": "dee preh-zen-ta-tsion",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Präsentation war sehr informativ.",
+          "translation": "The presentation was very informative."
+        },
+        "tip": "Remember that 'die' indicates that it is feminine."
+      },
+      {
+        "term": "der Zuhörer",
+        "translation": "the listener/audience member",
+        "definition": "A person who listens to a presentation.",
+        "pronunciation": "dehr tsoo-huh-rer",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Zuhörer waren begeistert.",
+          "translation": "The listeners were excited."
+        },
+        "tip": "This is a masculine noun, so it uses 'der'."
+      },
+      {
+        "term": "die Argumentation",
+        "translation": "the argumentation",
+        "definition": "The process of reasoning and presenting arguments.",
+        "pronunciation": "dee ar-goo-men-ta-tsion",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ihre Argumentation war überzeugend.",
+          "translation": "Her argumentation was convincing."
+        },
+        "tip": "Feminine noun, indicated by 'die'."
+      },
+      {
+        "term": "das Thema",
+        "translation": "the topic",
+        "definition": "The subject of the presentation.",
+        "pronunciation": "dahs tay-mah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Thema ist sehr aktuell.",
+          "translation": "The topic is very current."
+        },
+        "tip": "This is a neuter noun, so it uses 'das'."
+      },
+      {
+        "term": "der Vorschlag",
+        "translation": "the suggestion",
+        "definition": "An idea or proposal put forward for consideration.",
+        "pronunciation": "dehr for-shlahg",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ihr Vorschlag wurde angenommen.",
+          "translation": "Her suggestion was accepted."
+        },
+        "tip": "This masculine noun uses 'der'."
+      },
+      {
+        "term": "die Herausforderung",
+        "translation": "the challenge",
+        "definition": "A difficult task or situation that requires effort.",
+        "pronunciation": "dee heh-rau-sfor-doong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Herausforderung war groß.",
+          "translation": "The challenge was great."
+        },
+        "tip": "This feminine noun is marked by 'die'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subjunctive Mood (Konjunktiv I & II)",
+        "explanation": "The subjunctive mood is used in formal speech to express indirect statements, wishes, or hypothetical situations. In Konjunktiv I, the focus is on reported speech, while Konjunktiv II is used for unreal situations. Understanding when to use these forms can enhance your formal communication skills.",
+        "table": {
+          "headers": [
+            "Mood",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Konjunktiv I",
+              "Er sagt, er sei müde. (He says he is tired.)"
+            ],
+            [
+              "Konjunktiv II",
+              "Wenn ich mehr Zeit hätte, würde ich reisen. (If I had more time, I would travel.)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es wäre besser, wenn wir das Thema wechseln würden.",
+            "translation": "It would be better if we changed the topic.",
+            "breakdown": "This sentence uses Konjunktiv II to express a hypothetical suggestion."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive. Correct: 'Er sagte, er sei bereit.'",
+          "Mixing up the forms of Konjunktiv I and II. Remember: I for reported speech, II for hypotheticals."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Presentation Topic",
+      "context": "This conversation takes place during a team meeting discussing the upcoming presentation on climate change.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Max, ich habe über das Thema der Präsentation nachgedacht.",
+          "translation": "Hello Max, I have been thinking about the topic of the presentation.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das klingt gut, welches Thema schwebt dir vor?",
+          "translation": "That sounds good, what topic do you have in mind?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich denke, wir sollten die Auswirkungen des Klimawandels auf die Gesellschaft diskutieren.",
+          "translation": "I think we should discuss the effects of climate change on society.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das wäre ein sehr aktuelles Thema. Wie wollen wir die Argumentation aufbauen?",
+          "translation": "That would be a very current topic. How do we want to structure the argumentation?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Wir könnten mit den Herausforderungen beginnen, die die Menschen betreffen.",
+          "translation": "We could start with the challenges that affect people.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das klingt gut. Vielleicht sollten wir auch einige Vorschläge zur Lösung präsentieren?",
+          "translation": "That sounds good. Perhaps we should also present some suggestions for solutions?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, das wäre wichtig. Ich habe einige Ideen dazu.",
+          "translation": "Yes, that would be important. I have some ideas about that.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Super! Lass uns die Details besprechen, bevor wir die Präsentation vorbereiten.",
+          "translation": "Great! Let's discuss the details before we prepare the presentation.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Formal Presentation Culture in Germany",
+      "text": "In German-speaking countries, formal presentations often follow a clear structure that includes an introduction, body, and conclusion. This reflects the value placed on organization and clarity in communication.",
+      "funFact": "Many German universities offer courses specifically focused on presentation skills, highlighting the importance of effective communication in both academic and professional settings."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding the use of subjunctive mood in formal speech.",
+        "Key vocabulary for discussing presentations and global issues.",
+        "How to structure a formal presentation in German.",
+        "The cultural context of formal communication in German-speaking countries."
+      ],
+      "nextSteps": "Practice using the vocabulary in different contexts and try giving a short presentation on a global issue using the structures learned."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'die Präsentation' in English?",
+      "content": {
+        "options": [
+          "the presentation",
+          "the listener",
+          "the argumentation",
+          "the challenge"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Präsentation' translates to 'the presentation' in English.",
+      "hint": "Think about a formal talk or display.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'the challenge' in German?",
+      "content": {
+        "options": [
+          "der Vorschlag",
+          "die Herausforderung",
+          "das Thema",
+          "der Zuhörer"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Die Herausforderung' means 'the challenge' in German.",
+      "hint": "It's often used in difficult situations.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Die ___ ist sehr wichtig für die Argumentation.",
+      "content": {
+        "sentence": "Die ___ ist sehr wichtig für die Argumentation.",
+        "correctAnswer": "Präsentation",
+        "acceptableAnswers": [
+          "Präsentation"
+        ],
+        "options": [
+          "Präsentation",
+          "Herausforderung",
+          "Vorschlag",
+          "Zuhörer"
+        ]
+      },
+      "explanation": "The presentation is crucial for the argumentation.",
+      "hint": "What do you call the formal talk?",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Ein guter ___ ist entscheidend für den Erfolg der Präsentation.",
+      "content": {
+        "sentence": "Ein guter ___ ist entscheidend für den Erfolg der Präsentation.",
+        "correctAnswer": "Zuhörer",
+        "acceptableAnswers": [
+          "Zuhörer"
+        ],
+        "options": [
+          "Zuhörer",
+          "Vorschlag",
+          "Thema",
+          "Herausforderung"
+        ]
+      },
+      "explanation": "A good listener is essential for the success of the presentation.",
+      "hint": "Think about who is receiving the information.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The topic of the presentation is important.'",
+      "content": {
+        "prompt": "Translate to German: 'The topic of the presentation is important.'",
+        "correctAnswer": "Das Thema der Präsentation ist wichtig.",
+        "acceptableAnswers": [
+          "Das Thema der Präsentation ist wichtig."
+        ]
+      },
+      "explanation": "The translation captures the meaning accurately.",
+      "hint": "Remember the articles.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Die Argumentation ist überzeugend.'",
+      "content": {
+        "ttsText": "Die Argumentation ist überzeugend.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The argumentation is convincing.",
+          "The presentation is boring.",
+          "The suggestion is clear.",
+          "The listener is attentive."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation reflects the original sentence's meaning.",
+      "hint": "Focus on the persuasive aspect.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in German: 'I would like to suggest a new topic for the presentation.'",
+      "content": {
+        "targetText": "Ich möchte ein neues Thema für die Präsentation vorschlagen.",
+        "context": "Practice suggesting a new topic in a formal setting.",
+        "acceptableVariants": [
+          "Ich möchte ein neues Thema für die Präsentation vorschlagen."
+        ]
+      },
+      "explanation": "This sentence is a polite way to introduce a new topic.",
+      "hint": "Start with 'Ich möchte'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

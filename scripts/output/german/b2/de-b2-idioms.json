@@ -1,0 +1,340 @@
+{
+  "lesson": {
+    "title": "Common German Idioms",
+    "type": "VOCABULARY",
+    "slug": "de-b2-idioms"
+  },
+  "unit": "Idioms & Expressions",
+  "unitOrder": 4,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn common German idioms that are frequently used in everyday conversations. Understanding these idioms will enhance your language skills and help you sound more like a native speaker.",
+      "culturalNote": "German idioms often reflect cultural values and historical references, making them a rich area for exploration in language learning."
+    },
+    "vocabulary": [
+      {
+        "term": "das Auge",
+        "translation": "the eye",
+        "definition": "Used in the idiom 'Das Auge isst mit.' which means 'The eye eats with it.'",
+        "pronunciation": "dahs OW-guh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Auge isst mit, also achte auf die Präsentation.",
+          "translation": "The eye eats with it, so pay attention to the presentation."
+        },
+        "tip": "Remember that 'das Auge' is neuter; its plural form is 'die Augen'."
+      },
+      {
+        "term": "den Nagel auf den Kopf treffen",
+        "translation": "to hit the nail on the head",
+        "definition": "To describe something accurately or to get it right.",
+        "pronunciation": "dayn NAH-guhl owf dayn KOPF TREH-fen",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Du hast den Nagel auf den Kopf getroffen mit deiner Analyse.",
+          "translation": "You hit the nail on the head with your analysis."
+        },
+        "tip": "This phrase is often used in discussions to agree with someone's accurate observation."
+      },
+      {
+        "term": "den Teufel an die Wand malen",
+        "translation": "to paint the devil on the wall",
+        "definition": "To imagine the worst-case scenario.",
+        "pronunciation": "dayn TOY-fel ahn dee VAND MAH-len",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Maler nicht den Teufel an die Wand, es könnte alles gut gehen.",
+          "translation": "Don't paint the devil on the wall; everything could go well."
+        },
+        "tip": "This idiom is used to caution against unnecessary pessimism."
+      },
+      {
+        "term": "das Kind beim Schopf packen",
+        "translation": "to take the child by the hair",
+        "definition": "To tackle a problem directly.",
+        "pronunciation": "dahs KINT bye-m SHOHF PAH-ken",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Wir müssen das Kind beim Schopf packen und die Situation klären.",
+          "translation": "We need to take the child by the hair and clarify the situation."
+        },
+        "tip": "This expression emphasizes the importance of addressing issues head-on."
+      },
+      {
+        "term": "auf Wolke sieben sein",
+        "translation": "to be on cloud nine",
+        "definition": "To be extremely happy.",
+        "pronunciation": "owf VOL-kuh ZEE-ben zine",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Nach der guten Nachricht war sie auf Wolke sieben.",
+          "translation": "After the good news, she was on cloud nine."
+        },
+        "tip": "The phrase suggests a sense of blissful euphoria."
+      },
+      {
+        "term": "nicht alle Tassen im Schrank haben",
+        "translation": "not have all the cups in the cupboard",
+        "definition": "To be a bit crazy or eccentric.",
+        "pronunciation": "nikht AH-leh TAH-sen im SHRANK HAH-ben",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Er hat nicht alle Tassen im Schrank, wenn er so spricht.",
+          "translation": "He doesn't have all the cups in the cupboard when he talks like that."
+        },
+        "tip": "This idiom is often used humorously to describe someone's odd behavior."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Use of Konjunktiv II",
+        "explanation": "The Konjunktiv II is used to express hypothetical situations, wishes, or unreal conditions. It often appears in idiomatic expressions to convey meaning that is not directly factual. For example, 'Wenn ich reich wäre' means 'If I were rich.' The structure of Konjunktiv II can vary depending on the verb.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Konjunktiv II Form"
+          ],
+          "rows": [
+            [
+              "sein",
+              "ich wäre"
+            ],
+            [
+              "haben",
+              "ich hätte"
+            ],
+            [
+              "gehen",
+              "ich ginge"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich Zeit hätte, würde ich mehr lesen.",
+            "translation": "If I had time, I would read more.",
+            "breakdown": "The sentence uses 'hätte' (would have) to indicate a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing Konjunktiv I and II; remember that II is for hypotheticals.",
+          "Using the wrong verb form; make sure to conjugate correctly."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a New Project",
+      "context": "Two colleagues discussing a new project at work.",
+      "speakers": [
+        "Lukas",
+        "Marie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Marie, ich denke, wir müssen das Kind beim Schopf packen und sofort handeln.",
+          "translation": "Marie, I think we need to take the child by the hair and act immediately.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das stimmt, aber wir sollten auch nicht alle Tassen im Schrank haben.",
+          "translation": "That's true, but we should also not be a bit crazy about it.",
+          "note": "She suggests caution."
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, lass uns den Nagel auf den Kopf treffen und die wichtigsten Punkte klären.",
+          "translation": "Yes, let's hit the nail on the head and clarify the most important points.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich bin auf Wolke sieben, weil ich an das Projekt glaube.",
+          "translation": "I am on cloud nine because I believe in the project.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Wir dürfen den Teufel nicht an die Wand malen, es gibt auch viele Chancen.",
+          "translation": "We should not paint the devil on the wall; there are also many opportunities.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Genau! Lass uns die Präsentation so gestalten, dass das Auge auch mitisst.",
+          "translation": "Exactly! Let's design the presentation so that the eye also eats with it.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Role of Idioms in German Culture",
+      "text": "Idioms are an integral part of the German language and reflect the culture's emphasis on directness and clarity. Many idioms have historical roots, making them fascinating to explore for language learners.",
+      "funFact": "Did you know that the German language has idioms that date back to medieval times, often referencing everyday life and common experiences?"
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding idioms enhances conversational skills.",
+        "Idioms often reflect cultural nuances.",
+        "The use of Konjunktiv II is important for expressing hypotheticals.",
+        "Practicing idioms will make your speech sound more natural."
+      ],
+      "nextSteps": "Practice using these idioms in your conversations. Try to incorporate them into your writing and speaking exercises to deepen your understanding."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does the German idiom 'den Nagel auf den Kopf treffen' mean?",
+      "content": {
+        "options": [
+          "to hit the nail on the head",
+          "to paint the devil on the wall",
+          "to be on cloud nine",
+          "to take the child by the hair"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Den Nagel auf den Kopf treffen' directly translates to 'to hit the nail on the head', meaning to be exactly right about something.",
+      "hint": "Think about accuracy in a statement.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which idiom describes someone who is very happy and in love?",
+      "content": {
+        "options": [
+          "das Auge",
+          "auf Wolke sieben sein",
+          "den Teufel an die Wand malen",
+          "nicht alle Tassen im Schrank haben"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Auf Wolke sieben sein' translates to 'to be on cloud nine', indicating extreme happiness.",
+      "hint": "Consider expressions related to clouds and happiness.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the idiom: 'Den Teufel an die Wand ____.'",
+      "content": {
+        "sentence": "Den Teufel an die Wand ____.",
+        "correctAnswer": "malen",
+        "acceptableAnswers": [
+          "malen"
+        ],
+        "options": [
+          "sehen",
+          "malen",
+          "hören",
+          "fühlen"
+        ]
+      },
+      "explanation": "The correct verb to complete the idiom is 'malen', which means 'to paint'.",
+      "hint": "Think about expressing fears or worries.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the correct article: '___ Auge.'",
+      "content": {
+        "sentence": "___ Auge ist das Fenster zur Seele.",
+        "correctAnswer": "Das",
+        "acceptableAnswers": [
+          "Das"
+        ],
+        "options": [
+          "Der",
+          "Die",
+          "Das"
+        ]
+      },
+      "explanation": "'Das' is the correct article for 'Auge', meaning 'eye' in German.",
+      "hint": "Think about the article for neuter nouns.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct idiom: 'nicht', 'alle', 'Tassen', 'im', 'Schrank', 'haben'.",
+      "content": {
+        "words": [
+          "nicht",
+          "alle",
+          "Tassen",
+          "im",
+          "Schrank",
+          "haben"
+        ],
+        "correctOrder": [
+          "nicht",
+          "alle",
+          "Tassen",
+          "im",
+          "Schrank",
+          "haben"
+        ],
+        "translation": "to not have all one's cups in the cupboard (to be a bit crazy)"
+      },
+      "explanation": "The correct order reflects the idiom that suggests someone may not be entirely sane.",
+      "hint": "Think about the concept of sanity.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'Grab the child by the hair.'",
+      "content": {
+        "prompt": "Translate to German: 'Grab the child by the hair.'",
+        "correctAnswer": "Das Kind beim Schopf packen.",
+        "acceptableAnswers": [
+          "Das Kind beim Schopf packen"
+        ]
+      },
+      "explanation": "The idiom means to take action decisively.",
+      "hint": "Think about seizing opportunities.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct meaning of the sentence.",
+      "content": {
+        "ttsText": "Auf Wolke sieben sein.",
+        "ttsLang": "de-DE",
+        "options": [
+          "to be very sad",
+          "to be very happy",
+          "to be confused",
+          "to be angry"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The phrase means to be in a state of happiness or bliss.",
+      "hint": "Think about positive feelings.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this German idiom: 'Das Kind beim Schopf packen.'",
+      "content": {
+        "targetText": "Das Kind beim Schopf packen.",
+        "context": "This idiom means to take decisive action.",
+        "acceptableVariants": [
+          "Das Kind beim Schopf packen"
+        ]
+      },
+      "explanation": "This idiom emphasizes the importance of seizing opportunities.",
+      "hint": "Focus on the action of grabbing.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

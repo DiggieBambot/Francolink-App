@@ -1,0 +1,311 @@
+{
+  "lesson": {
+    "title": "Arts & Literature Vocabulary",
+    "type": "VOCABULARY",
+    "slug": "de-b2-arts-vocab"
+  },
+  "unit": "Arts & Literature",
+  "unitOrder": 7,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn important vocabulary related to arts and literature in German. This includes terms for various art forms, literary concepts, and common expressions used in discussions about these topics.",
+      "culturalNote": "Germany has a rich cultural heritage in both arts and literature, with famous figures like Goethe and Schiller in literature and a strong tradition in visual arts, particularly in the 19th century."
+    },
+    "vocabulary": [
+      {
+        "term": "die Malerei",
+        "translation": "painting",
+        "definition": "the art of creating images using paint",
+        "pronunciation": "dee ma-luh-ry",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Malerei ist eine wichtige Kunstform.",
+          "translation": "Painting is an important form of art."
+        },
+        "tip": "Remember that 'die Malerei' is feminine (die), and its plural is 'die Malereien'."
+      },
+      {
+        "term": "der Roman",
+        "translation": "novel",
+        "definition": "a long narrative work of fiction",
+        "pronunciation": "dehr roh-mahn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Roman wurde von einem berühmten Autor geschrieben.",
+          "translation": "The novel was written by a famous author."
+        },
+        "tip": "The word 'Roman' is masculine (der), and its plural is 'die Romane'."
+      },
+      {
+        "term": "die Skulptur",
+        "translation": "sculpture",
+        "definition": "three-dimensional artwork created by shaping materials",
+        "pronunciation": "dee skoolp-toor",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Skulptur steht im Stadtpark.",
+          "translation": "The sculpture is located in the city park."
+        },
+        "tip": "Remember that 'die Skulptur' is feminine (die), and its plural is 'die Skulpturen'."
+      },
+      {
+        "term": "das Gedicht",
+        "translation": "poem",
+        "definition": "a piece of writing that expresses emotions and ideas in a structured form",
+        "pronunciation": "dahs guh-dicht",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Gedicht beschreibt die Schönheit der Natur.",
+          "translation": "The poem describes the beauty of nature."
+        },
+        "tip": "The word 'Gedicht' is neuter (das), and its plural is 'die Gedichte'."
+      },
+      {
+        "term": "die Literatur",
+        "translation": "literature",
+        "definition": "written works considered to have artistic or intellectual value",
+        "pronunciation": "dee lee-tuh-rahr",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Literatur ist ein Spiegel der Gesellschaft.",
+          "translation": "Literature is a mirror of society."
+        },
+        "tip": "Remember that 'die Literatur' is feminine (die), and it does not have a plural form."
+      },
+      {
+        "term": "der Künstler",
+        "translation": "artist",
+        "definition": "a person who creates art",
+        "pronunciation": "dehr kuen-stler",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Künstler stellt seine Werke in einer Galerie aus.",
+          "translation": "The artist exhibits his works in a gallery."
+        },
+        "tip": "'Künstler' is masculine (der), and its plural is 'die Künstler'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Genitive Case",
+        "explanation": "In German, the genitive case is often used to show possession. It answers the question 'whose?' and is important in formal writing and speech. To form the genitive, add an '-s' to masculine and neuter nouns and use 'der' for feminine nouns. Note that the articles change accordingly.",
+        "table": {
+          "headers": [
+            "Noun",
+            "Genitive Form"
+          ],
+          "rows": [
+            [
+              "der Roman",
+              "des Romans"
+            ],
+            [
+              "die Malerei",
+              "der Malerei"
+            ],
+            [
+              "das Gedicht",
+              "des Gedichts"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Das ist das Buch des Autors.",
+            "translation": "That is the author's book.",
+            "breakdown": "Here, 'des Autors' indicates that the book belongs to the author."
+          }
+        ],
+        "commonMistakes": [
+          "Incorrectly using the nominative instead of the genitive. Correction: Use 'des' instead of 'der' for masculine and neuter nouns.",
+          "Using the wrong article in the genitive case. Correction: Remember that 'die' changes to 'der' for feminine nouns."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Recent Art Exhibition",
+      "context": "Two friends are discussing an art exhibition they recently visited.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hast du die neue Ausstellung im Kunstmuseum gesehen?",
+          "translation": "Did you see the new exhibition at the art museum?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich fand die Malerei wirklich beeindruckend.",
+          "translation": "Yes, I found the painting really impressive.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Mir hat besonders die Skulptur gefallen, die in der Mitte des Raumes stand.",
+          "translation": "I particularly liked the sculpture that stood in the middle of the room.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Die Farben waren so lebendig und die Form einzigartig.",
+          "translation": "The colors were so vibrant and the shape unique.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Was hältst du von den Gedichten, die dort ausgestellt waren?",
+          "translation": "What do you think of the poems that were exhibited there?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich fand sie sehr tiefgründig und emotional.",
+          "translation": "I found them very profound and emotional.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Es ist interessant, wie Kunst und Literatur miteinander verbunden sind.",
+          "translation": "It's interesting how art and literature are connected.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Absolut! Sie spiegeln beide die Gesellschaft wider.",
+          "translation": "Absolutely! They both reflect society.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Literature in German Culture",
+      "text": "Literature plays a significant role in German culture, with authors like Goethe and Schiller being celebrated for their contributions to world literature. The country boasts numerous literary festivals and a vibrant publishing scene.",
+      "funFact": "Germany hosts the Frankfurt Book Fair, the largest book fair in the world, attracting millions of visitors each year."
+    },
+    "summary": {
+      "keyPoints": [
+        "Key vocabulary related to arts and literature: painting, novel, sculpture, poem, literature, artist.",
+        "Understanding the genitive case for expressing possession.",
+        "The cultural significance of literature in German-speaking countries.",
+        "Engaging in discussions about art and literature using learned vocabulary."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and try writing a short essay about your favorite piece of art or literature in German."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'painting'?",
+      "content": {
+        "options": [
+          "die Literatur",
+          "die Malerei",
+          "die Skulptur",
+          "das Gedicht"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'die Malerei', which translates to 'painting' in English.",
+      "hint": "Think of visual art.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following refers to 'literature' in German?",
+      "content": {
+        "options": [
+          "der Künstler",
+          "die Literatur",
+          "der Roman",
+          "das Gedicht"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Die Literatur' is the term used in German to refer to 'literature'.",
+      "hint": "It's a broad term that includes all written works.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ein ___ ist ein langer schriftstellerischer Text.'",
+      "content": {
+        "sentence": "Ein ___ ist ein langer schriftstellerischer Text.",
+        "correctAnswer": "Roman",
+        "acceptableAnswers": [
+          "Roman"
+        ],
+        "options": [
+          "Gedicht",
+          "Roman",
+          "Künstler",
+          "Malerei"
+        ]
+      },
+      "explanation": "The correct answer is 'Roman', which means 'novel'.",
+      "hint": "It’s a common form of literature.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Die ___ ist eine Form der Kunst, die oft aus Stein oder Metall besteht.'",
+      "content": {
+        "sentence": "Die ___ ist eine Form der Kunst, die oft aus Stein oder Metall besteht.",
+        "correctAnswer": "Skulptur",
+        "acceptableAnswers": [
+          "Skulptur"
+        ],
+        "options": [
+          "Malerei",
+          "Literatur",
+          "Skulptur",
+          "Roman"
+        ]
+      },
+      "explanation": "'Skulptur' is the correct answer, referring to sculpture in English.",
+      "hint": "Think of three-dimensional art pieces.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation: 'Die Malerei ist meine Leidenschaft.'",
+      "content": {
+        "ttsText": "Die Malerei ist meine Leidenschaft.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Painting is my passion.",
+          "Literature is my passion.",
+          "Sculpture is my passion.",
+          "The artist is my passion."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'Painting is my passion.'",
+      "hint": "Focus on the word for 'painting'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in German: 'I want to read more literature.'",
+      "content": {
+        "targetText": "Ich möchte mehr Literatur lesen.",
+        "context": "Translate the sentence into German.",
+        "acceptableVariants": [
+          "Ich will mehr Literatur lesen."
+        ]
+      },
+      "explanation": "The sentence translates directly and accurately to German.",
+      "hint": "Remember to include 'Ich möchte' or 'Ich will'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

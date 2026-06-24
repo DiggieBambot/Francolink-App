@@ -1,0 +1,375 @@
+{
+  "lesson": {
+    "title": "Modal Verbs - Können & Möchten",
+    "type": "GRAMMAR",
+    "slug": "de-a1-modal-verbs"
+  },
+  "unit": "Free Time & Modal Verbs",
+  "unitOrder": 7,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about the modal verbs 'können' (can) and 'möchten' (would like) in German. You will practice using these verbs in everyday sentences related to free time activities.",
+      "culturalNote": "In Germany, Austria, and Switzerland, people often use modal verbs to express their preferences or abilities, especially when making plans with friends."
+    },
+    "vocabulary": [
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "a written or printed work consisting of pages",
+        "pronunciation": "dahs book",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich lese das Buch.",
+          "translation": "I read the book."
+        },
+        "tip": "Remember that 'das' indicates neuter gender."
+      },
+      {
+        "term": "die Musik",
+        "translation": "the music",
+        "definition": "the art of sound in time",
+        "pronunciation": "dee moo-zik",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich höre die Musik.",
+          "translation": "I listen to the music."
+        },
+        "tip": "Note that 'die' indicates feminine gender."
+      },
+      {
+        "term": "der Film",
+        "translation": "the film",
+        "definition": "a story or event recorded by a camera",
+        "pronunciation": "dehr film",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich sehe den Film.",
+          "translation": "I watch the film."
+        },
+        "tip": "Remember 'der' indicates masculine gender."
+      },
+      {
+        "term": "spielen",
+        "translation": "to play",
+        "definition": "to engage in activity for enjoyment",
+        "pronunciation": "shpee-len",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich spiele Fußball.",
+          "translation": "I play soccer."
+        },
+        "tip": "This verb is regular; it follows standard conjugation rules."
+      },
+      {
+        "term": "essen",
+        "translation": "to eat",
+        "definition": "to consume food",
+        "pronunciation": "es-sen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich esse einen Apfel.",
+          "translation": "I eat an apple."
+        },
+        "tip": "Remember that 'essen' is an irregular verb in German."
+      },
+      {
+        "term": "trinken",
+        "translation": "to drink",
+        "definition": "to consume a liquid",
+        "pronunciation": "trin-ken",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich trinke Wasser.",
+          "translation": "I drink water."
+        },
+        "tip": "This verb is also irregular; practice its conjugation."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'können' and 'möchten'",
+        "explanation": "'Können' means 'can' and is used to express ability. 'Möchten' means 'would like' and is used to express desire. Both verbs are modal verbs that change the meaning of the main verb in a sentence.",
+        "table": {
+          "headers": [
+            "Pronoun",
+            "Können",
+            "Möchten"
+          ],
+          "rows": [
+            [
+              "ich",
+              "kann",
+              "möchte"
+            ],
+            [
+              "du",
+              "kannst",
+              "möchtest"
+            ],
+            [
+              "er/sie/es",
+              "kann",
+              "möchte"
+            ],
+            [
+              "wir",
+              "können",
+              "möchten"
+            ],
+            [
+              "ihr",
+              "könnt",
+              "möchtet"
+            ],
+            [
+              "sie/Sie",
+              "können",
+              "möchten"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich kann schwimmen.",
+            "translation": "I can swim.",
+            "breakdown": "'Ich' is the subject, 'kann' is the conjugated form of 'können', and 'schwimmen' is the main verb."
+          },
+          {
+            "original": "Ich möchte einen Kaffee.",
+            "translation": "I would like a coffee.",
+            "breakdown": "'Ich' is the subject, 'möchte' is the conjugated form of 'möchten', and 'einen Kaffee' is the object."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Ich kannes' instead of 'Ich kann.' (Correct form has no 'es')",
+          "Using 'möchte' with an infinitive: 'Ich möchte zu gehen.' (Correct: 'Ich möchte gehen.')"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Making Plans for the Weekend",
+      "context": "Two friends are talking about their weekend plans.",
+      "speakers": [
+        "Lukas",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Was möchtest du am Wochenende machen?",
+          "translation": "What would you like to do on the weekend?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich möchte ins Kino gehen.",
+          "translation": "I would like to go to the cinema.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Kannst du am Samstag?",
+          "translation": "Can you on Saturday?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich kann am Samstag.",
+          "translation": "Yes, I can on Saturday.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Welche Filme möchtest du sehen?",
+          "translation": "Which films would you like to see?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich möchte den neuen Film sehen.",
+          "translation": "I would like to see the new film.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Super! Ich kann auch einen Kaffee trinken.",
+          "translation": "Great! I can also drink a coffee.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, das klingt gut!",
+          "translation": "Yes, that sounds good!",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Weekend Activities in Germany",
+      "text": "In Germany, it is common for friends to meet on weekends to enjoy activities such as going to the cinema, having coffee, or visiting parks. These gatherings are an important part of social life.",
+      "funFact": "Did you know that Germany has a strong culture of film festivals, including the famous Berlinale in Berlin?"
+    },
+    "summary": {
+      "keyPoints": [
+        "Können means 'can' and expresses ability.",
+        "Möchten means 'would like' and expresses desire.",
+        "Nouns in German have gender: der (masculine), die (feminine), das (neuter).",
+        "Regular and irregular verbs have different conjugation patterns."
+      ],
+      "nextSteps": "Practice using 'können' and 'möchten' in sentences. Try to make your own dialogues about weekend plans."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'können' mean in English?",
+      "content": {
+        "options": [
+          "to want",
+          "to be able",
+          "to like",
+          "to have"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Können' translates to 'to be able' in English, indicating ability.",
+      "hint": "Think about skills or abilities.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence is correct?",
+      "content": {
+        "options": [
+          "Ich kann das Buch lesen.",
+          "Ich möchten das Buch lesen.",
+          "Ich kann lesen das Buch.",
+          "Ich lesen das Buch können."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct sentence structure for expressing ability is 'Ich kann das Buch lesen.'",
+      "hint": "Look for the correct verb placement.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich ______ Musik hören.",
+      "content": {
+        "sentence": "Ich ___ Musik hören.",
+        "correctAnswer": "möchte",
+        "acceptableAnswers": [
+          "möchte"
+        ],
+        "options": [
+          "kann",
+          "möchte",
+          "will",
+          "mag"
+        ]
+      },
+      "explanation": "In this context, 'möchte' means 'would like to', which fits the sentence best.",
+      "hint": "Think about expressing a desire.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Wir ______ einen Film sehen.",
+      "content": {
+        "sentence": "Wir ___ einen Film sehen.",
+        "correctAnswer": "können",
+        "acceptableAnswers": [
+          "können"
+        ],
+        "options": [
+          "möchten",
+          "können",
+          "wollen",
+          "müssen"
+        ]
+      },
+      "explanation": "'Können' is used here to express the ability to watch a movie.",
+      "hint": "This verb relates to ability.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: kann / ich / Buch / das / lesen.",
+      "content": {
+        "words": [
+          "kann",
+          "ich",
+          "Buch",
+          "das",
+          "lesen"
+        ],
+        "correctOrder": [
+          "ich",
+          "kann",
+          "das",
+          "Buch",
+          "lesen"
+        ],
+        "translation": "I can read the book."
+      },
+      "explanation": "The correct order of the subject, modal verb, and object is important in German sentences.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I would like to eat.'",
+      "content": {
+        "prompt": "Translate to German: 'I would like to eat.'",
+        "correctAnswer": "Ich möchte essen.",
+        "acceptableAnswers": [
+          "Ich möchte essen"
+        ]
+      },
+      "explanation": "'Ich möchte essen' is the correct translation for expressing desire to eat.",
+      "hint": "Remember the modal verb for expressing desire.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich kann trinken.'",
+      "content": {
+        "ttsText": "Ich kann trinken.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I want to drink.",
+          "I can drink.",
+          "I like to drink.",
+          "I have to drink."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The sentence means 'I can drink.', indicating ability.",
+      "hint": "Focus on the verb meaning.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in German: 'I want to play.'",
+      "content": {
+        "targetText": "Ich möchte spielen.",
+        "context": "Translate the English sentence into German.",
+        "acceptableVariants": [
+          "Ich möchte spielen."
+        ]
+      },
+      "explanation": "This correctly translates 'I want to play' using 'möchten'.",
+      "hint": "Use the modal verb for desire.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

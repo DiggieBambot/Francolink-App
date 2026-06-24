@@ -1,0 +1,351 @@
+{
+  "lesson": {
+    "title": "Unit 5 Review",
+    "type": "REVIEW",
+    "slug": "es-b2-unit5-review"
+  },
+  "unit": "Critical Thinking",
+  "unitOrder": 5,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this Unit 5 Review, you will consolidate your understanding of critical thinking vocabulary and grammar points covered in previous lessons. You will also engage in a dialogue that challenges you to use your skills in a practical context.",
+      "culturalNote": "Critical thinking is highly valued in many Spanish-speaking countries, especially in academic settings, where students are encouraged to analyze and debate various topics."
+    },
+    "vocabulary": [
+      {
+        "term": "el análisis",
+        "translation": "the analysis",
+        "definition": "A detailed examination of the elements or structure of something.",
+        "pronunciation": "el ah-nah-LEES",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El análisis de los datos fue exhaustivo.",
+          "translation": "The analysis of the data was exhaustive."
+        },
+        "tip": "Remember that 'análisis' is a masculine noun, so use 'el' as the article."
+      },
+      {
+        "term": "argumentar",
+        "translation": "to argue",
+        "definition": "To present reasons for or against something.",
+        "pronunciation": "ar-goo-MEN-tar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Es importante argumentar con evidencia.",
+          "translation": "It is important to argue with evidence."
+        },
+        "tip": "Think of 'argumentar' as related to the English 'argument', both involve presenting a case."
+      },
+      {
+        "term": "la conclusión",
+        "translation": "the conclusion",
+        "definition": "The final decision or judgment based on analysis.",
+        "pronunciation": "la kon-kloo-SYON",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La conclusión del informe fue muy clara.",
+          "translation": "The conclusion of the report was very clear."
+        },
+        "tip": "Remember 'la conclusión' is feminine; hence, use 'la' as the article."
+      },
+      {
+        "term": "evaluar",
+        "translation": "to evaluate",
+        "definition": "To assess the value or quality of something.",
+        "pronunciation": "eh-vah-LWAR",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Debemos evaluar todas las opciones antes de decidir.",
+          "translation": "We must evaluate all options before deciding."
+        },
+        "tip": "The root 'valuar' relates to 'value', making it easier to remember."
+      },
+      {
+        "term": "la evidencia",
+        "translation": "the evidence",
+        "definition": "The available body of facts or information indicating whether a belief or proposition is true.",
+        "pronunciation": "la eh-vee-DEN-thia",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La evidencia presentada fue convincente.",
+          "translation": "The evidence presented was convincing."
+        },
+        "tip": "Think of 'evidence' in English; the words are quite similar."
+      },
+      {
+        "term": "persuadir",
+        "translation": "to persuade",
+        "definition": "To cause someone to do something through reasoning or argument.",
+        "pronunciation": "per-swah-DEER",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Quiero persuadir a mis amigos a participar en el debate.",
+          "translation": "I want to persuade my friends to participate in the debate."
+        },
+        "tip": "Connect 'persuadir' with 'persuade' to remember its meaning."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subjunctive Mood",
+        "explanation": "The subjunctive mood is used to express desires, doubts, the unknown, or hypothetical situations. It is crucial in critical thinking contexts where opinions and arguments are evaluated. Remember the forms for regular verbs and some irregular verbs, especially for present and imperfect subjunctive.",
+        "table": {
+          "headers": [
+            "Present Subjunctive",
+            "Imperfect Subjunctive"
+          ],
+          "rows": [
+            [
+              "hable",
+              "hablara"
+            ],
+            [
+              "coma",
+              "comiera"
+            ],
+            [
+              "viva",
+              "viviera"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es necesario que hablemos sobre el tema.",
+            "translation": "It is necessary that we discuss the topic.",
+            "breakdown": "Here, 'hablemos' is in the present subjunctive, used after 'es necesario que'."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: Correct it to 'Es posible que venga' instead of 'Es posible que viene'.",
+          "Forgetting to use the subjunctive after expressions of doubt: Remember to say 'Dudo que tenga razón'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Controversial Topic",
+      "context": "A coffee shop where two friends are having a serious discussion about a current event.",
+      "speakers": [
+        "Lucía",
+        "Andrés"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué opinas sobre la nueva ley que están proponiendo?",
+          "translation": "What do you think about the new law they are proposing?",
+          "note": "Lucía opens the discussion."
+        },
+        {
+          "speaker": 1,
+          "text": "Creo que puede tener beneficios, pero también riesgos.",
+          "translation": "I think it can have benefits, but also risks."
+        },
+        {
+          "speaker": 0,
+          "text": "Exactamente. ¿Cómo podemos evaluar sus implicaciones?",
+          "translation": "Exactly. How can we evaluate its implications?"
+        },
+        {
+          "speaker": 1,
+          "text": "Deberíamos analizar la evidencia presentada por ambos lados.",
+          "translation": "We should analyze the evidence presented by both sides."
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, y argumentar en base a datos confiables es crucial.",
+          "translation": "Yes, arguing based on reliable data is crucial."
+        },
+        {
+          "speaker": 1,
+          "text": "Estoy de acuerdo. Sin embargo, hay muchas opiniones contradictorias.",
+          "translation": "I agree. However, there are many contradictory opinions."
+        },
+        {
+          "speaker": 0,
+          "text": "Por eso es tan importante escuchar a diferentes expertos.",
+          "translation": "That's why it's so important to listen to different experts."
+        },
+        {
+          "speaker": 1,
+          "text": "¿Qué te parece si hacemos un análisis más profundo?",
+          "translation": "What do you think if we do a deeper analysis?"
+        },
+        {
+          "speaker": 0,
+          "text": "Me parece una excelente idea. Debemos encontrar buenos recursos.",
+          "translation": "I think it's an excellent idea. We should find good resources."
+        },
+        {
+          "speaker": 1,
+          "text": "Así podremos llegar a una conclusión más informada.",
+          "translation": "That way we can reach a more informed conclusion."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Debate Culture in Latin America",
+      "text": "Debate is an important aspect of education in many Latin American countries. Schools often encourage students to participate in debates on various topics, fostering critical thinking and communication skills.",
+      "funFact": "In some countries, like Argentina, debate tournaments are common, and students can earn scholarships based on their debate performance."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review of critical thinking vocabulary and expressions.",
+        "Understanding the subjunctive mood and its applications.",
+        "Engagement in dialogues that reflect real-life discussions.",
+        "Recognition of cultural aspects of critical thinking in Spanish-speaking contexts."
+      ],
+      "nextSteps": "Practice forming sentences using the subjunctive mood and continue expanding your vocabulary related to critical thinking topics."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'analysis'?",
+      "content": {
+        "options": [
+          "el análisis",
+          "la conclusión",
+          "la evidencia",
+          "argumentar"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'el análisis', which translates to 'analysis' in English.",
+      "hint": "It starts with 'a' and ends with 'sis'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'to argue' in Spanish?",
+      "content": {
+        "options": [
+          "evaluar",
+          "argumentar",
+          "persuadir",
+          "la conclusión"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Argumentar' means 'to argue', which is the appropriate translation.",
+      "hint": "It sounds like 'argument' in English.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Necesitamos ___ la información antes de tomar una decisión.",
+      "content": {
+        "sentence": "Necesitamos ___ la información antes de tomar una decisión.",
+        "correctAnswer": "evaluar",
+        "acceptableAnswers": [
+          "evaluar"
+        ],
+        "options": [
+          "argumentar",
+          "persuadir",
+          "evaluar",
+          "la conclusión"
+        ]
+      },
+      "explanation": "The correct verb is 'evaluar', meaning 'to evaluate' the information.",
+      "hint": "It starts with 'e' and means to assess.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Es importante presentar ___ para apoyar tus ideas.",
+      "content": {
+        "sentence": "Es importante presentar ___ para apoyar tus ideas.",
+        "correctAnswer": "la evidencia",
+        "acceptableAnswers": [
+          "la evidencia"
+        ],
+        "options": [
+          "el análisis",
+          "la conclusión",
+          "la evidencia",
+          "argumentar"
+        ]
+      },
+      "explanation": "'La evidencia' means 'the evidence', which is crucial for supporting your ideas.",
+      "hint": "Think about what backs up an argument.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: conclusión / la / es / análisis / el / importante.",
+      "content": {
+        "words": [
+          "la",
+          "conclusión",
+          "es",
+          "análisis",
+          "el",
+          "importante"
+        ],
+        "correctOrder": [
+          "el",
+          "análisis",
+          "es",
+          "la",
+          "conclusión",
+          "importante"
+        ],
+        "translation": "The analysis is the important conclusion."
+      },
+      "explanation": "The correct order forms a coherent sentence discussing the importance of analysis.",
+      "hint": "Start with the subject of the sentence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'To persuade someone is an important skill.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'To persuade someone is an important skill.'",
+        "correctAnswer": "Persuadir a alguien es una habilidad importante.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation captures the essence of the original English sentence.",
+      "hint": "Focus on the verb 'persuadir'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and identify the correct phrase.",
+      "content": {
+        "ttsText": "Es fundamental argumentar con claridad.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Es fundamental evaluar con claridad.",
+          "Es fundamental argumentar con claridad.",
+          "Es fundamental persuadir con claridad."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct phrase clearly states the importance of arguing with clarity.",
+      "hint": "Listen for the word 'argumentar'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in Spanish: 'Evaluating evidence is essential for good arguments.'",
+      "content": {
+        "targetText": "Evaluar la evidencia es esencial para buenos argumentos.",
+        "context": "Translate and say this important statement.",
+        "acceptableVariants": []
+      },
+      "explanation": "This exercise helps practice speaking about critical thinking concepts.",
+      "hint": "Remember the keywords: evaluar, evidencia, esencial.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,415 @@
+{
+  "lesson": {
+    "title": "Unit 4 Review",
+    "type": "REVIEW",
+    "slug": "de-a2-unit4-review"
+  },
+  "unit": "Health & Body",
+  "unitOrder": 4,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will review vocabulary and grammar related to health and the body. You will practice using the Perfekt and Präteritum tenses as well as two-way prepositions in context.",
+      "culturalNote": "In Germany, health and wellness are very important, and many people visit the doctor regularly for check-ups, even when they feel fine."
+    },
+    "vocabulary": [
+      {
+        "term": "die Gesundheit",
+        "translation": "health",
+        "definition": "the state of being free from illness or injury",
+        "pronunciation": "dee geh-ZOONT",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Gesundheit ist wichtig.",
+          "translation": "Health is important."
+        },
+        "tip": "Feminine noun (die); remember it with 'die Gesundheit'."
+      },
+      {
+        "term": "der Arzt",
+        "translation": "doctor",
+        "definition": "a qualified practitioner of medicine",
+        "pronunciation": "dair ARTST",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Arzt hilft den Patienten.",
+          "translation": "The doctor helps the patients."
+        },
+        "tip": "Masculine noun (der); think of 'der Arzt' as someone who 'arts' (cures) people."
+      },
+      {
+        "term": "die Tablette",
+        "translation": "tablet/pill",
+        "definition": "a small round mass of solid medicine to be swallowed",
+        "pronunciation": "dee tah-BLET-uh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich nehme eine Tablette.",
+          "translation": "I take a tablet."
+        },
+        "tip": "Feminine noun (die); remember 'die Tablette' for medicine."
+      },
+      {
+        "term": "das Fieber",
+        "translation": "fever",
+        "definition": "an abnormally high body temperature",
+        "pronunciation": "dahs FEE-bair",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Er hat Fieber.",
+          "translation": "He has a fever."
+        },
+        "tip": "Neuter noun (das); think of ‘das Fieber’ as a condition."
+      },
+      {
+        "term": "der Schmerz",
+        "translation": "pain",
+        "definition": "a feeling of physical suffering",
+        "pronunciation": "dair SHMERZ",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe Schmerzen.",
+          "translation": "I have pain."
+        },
+        "tip": "Masculine noun (der); remember 'der Schmerz' for physical discomfort."
+      },
+      {
+        "term": "die Krankheit",
+        "translation": "illness",
+        "definition": "a disease or period of sickness affecting the body or mind",
+        "pronunciation": "dee KRANK-hyte",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Krankheit ist ernst.",
+          "translation": "The illness is serious."
+        },
+        "tip": "Feminine noun (die); think of 'die Krankheit' as a condition."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Perfekt Tense",
+        "explanation": "The Perfekt tense is used to describe actions that have been completed in the past. It is formed with 'haben' or 'sein' plus the past participle. For example, 'Ich habe gegessen' means 'I have eaten'.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Verb",
+            "Past Participle"
+          ],
+          "rows": [
+            [
+              "Ich",
+              "haben",
+              "gegessen"
+            ],
+            [
+              "Er",
+              "sein",
+              "gegangen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich habe gestern einen Arzt besucht.",
+            "translation": "I visited a doctor yesterday.",
+            "breakdown": "The subject 'Ich' (I) uses 'haben' with the past participle 'besucht' (visited)."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'sein' with all verbs; remember: use 'haben' for most verbs.",
+          "Confusing past participles; make sure to memorize them."
+        ]
+      },
+      {
+        "title": "Two-Way Prepositions",
+        "explanation": "Two-way prepositions (like 'in', 'auf', 'an') can take either the accusative or dative case, depending on whether the action is moving towards a place (accusative) or being at a place (dative). For example, 'Ich gehe in die Schule' (I go to school) vs. 'Ich bin in der Schule' (I am at school).",
+        "table": {
+          "headers": [
+            "Preposition",
+            "Accusative Example",
+            "Dative Example"
+          ],
+          "rows": [
+            [
+              "in",
+              "Ich gehe in die Stadt.",
+              "Ich bin in der Stadt."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich lege das Buch auf den Tisch.",
+            "translation": "I put the book on the table.",
+            "breakdown": "Here, 'auf' is used with the accusative because the book is being placed."
+          }
+        ],
+        "commonMistakes": [
+          "Forgetting to switch cases; always check if the action involves movement.",
+          "Using the wrong preposition; ensure you know which preposition to use."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "At the Doctor's Office",
+      "context": "A conversation between a patient and a doctor in a clinic.",
+      "speakers": [
+        "Lukas",
+        "Dr. Schmidt"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Guten Tag, Herr Doktor. Ich habe Schmerzen im Bauch.",
+          "translation": "Good day, Doctor. I have pain in my stomach.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Guten Tag, Lukas. Seit wann haben Sie Schmerzen?",
+          "translation": "Good day, Lukas. Since when do you have pain?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich habe die Schmerzen seit gestern.",
+          "translation": "I have had the pain since yesterday.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Haben Sie Fieber oder Husten?",
+          "translation": "Do you have a fever or cough?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Nein, ich habe kein Fieber, aber ich fühle mich schwach.",
+          "translation": "No, I don't have a fever, but I feel weak.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist nicht gut. Ich werde Sie untersuchen.",
+          "translation": "That is not good. I will examine you.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Danke, Doktor.",
+          "translation": "Thank you, Doctor.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Bitte legen Sie sich auf die Liege.",
+          "translation": "Please lie down on the examination table.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Health Practices in German-speaking Countries",
+      "text": "In Germany, Austria, and Switzerland, there is a strong emphasis on preventative healthcare. Regular check-ups and health screenings are common. Many people also follow a balanced diet and stay physically active to maintain their health.",
+      "funFact": "In Germany, it is customary to greet your doctor with a handshake, reflecting the importance of personal interaction in healthcare."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review of health-related vocabulary and phrases.",
+        "Understanding of the Perfekt tense and its usage.",
+        "Practice with two-way prepositions.",
+        "Dialogue practice to enhance conversation skills."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and try to create your own dialogues based on health topics."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'health'?",
+      "content": {
+        "options": [
+          "die Gesundheit",
+          "der Arzt",
+          "die Krankheit",
+          "der Schmerz"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'die Gesundheit', which means health in German.",
+      "hint": "This word is feminine in German.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'doctor' in German?",
+      "content": {
+        "options": [
+          "der Arzt",
+          "die Tablette",
+          "das Fieber",
+          "die Krankheit"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Arzt' translates to 'doctor' in English.",
+      "hint": "This word is masculine in German.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich habe __________ (the pain).",
+      "content": {
+        "sentence": "Ich habe ___ (the pain).",
+        "correctAnswer": "den Schmerz",
+        "acceptableAnswers": [
+          "den Schmerz"
+        ],
+        "options": [
+          "den Schmerz",
+          "die Schmerzen",
+          "das Fieber",
+          "die Krankheit"
+        ]
+      },
+      "explanation": "The correct answer is 'den Schmerz' which means 'the pain' in German.",
+      "hint": "Remember to include the correct article.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Er hat __________ (the fever).",
+      "content": {
+        "sentence": "Er hat ___ (the fever).",
+        "correctAnswer": "das Fieber",
+        "acceptableAnswers": [
+          "das Fieber"
+        ],
+        "options": [
+          "die Krankheit",
+          "das Fieber",
+          "der Schmerz",
+          "die Gesundheit"
+        ]
+      },
+      "explanation": "'Das Fieber' means 'the fever' in German.",
+      "hint": "Look for the neuter article.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: Gesundheit / die / wichtig / ist.",
+      "content": {
+        "words": [
+          "wichtig",
+          "die",
+          "ist",
+          "Gesundheit"
+        ],
+        "correctOrder": [
+          "die",
+          "Gesundheit",
+          "ist",
+          "wichtig"
+        ],
+        "translation": "Health is important."
+      },
+      "explanation": "The correct order forms the sentence 'Die Gesundheit ist wichtig.' which means 'Health is important.'",
+      "hint": "Think about how to structure a simple German sentence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I have a disease.'",
+      "content": {
+        "prompt": "Translate to German: 'I have a disease.'",
+        "correctAnswer": "Ich habe eine Krankheit.",
+        "acceptableAnswers": [
+          "Ich habe eine Krankheit"
+        ]
+      },
+      "explanation": "'Ich habe eine Krankheit.' is the correct translation for 'I have a disease.'",
+      "hint": "Remember the gender of 'Krankheit'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation for 'der Arzt'.",
+      "content": {
+        "ttsText": "der Arzt",
+        "ttsLang": "de-DE",
+        "options": [
+          "the doctor",
+          "the pain",
+          "the health",
+          "the fever"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Arzt' translates to 'the doctor' in English.",
+      "hint": "Listen carefully to the pronunciation.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I feel pain.'",
+      "content": {
+        "targetText": "Ich habe Schmerzen.",
+        "context": "You are talking about feeling pain.",
+        "acceptableVariants": [
+          "Ich habe Schmerzen."
+        ]
+      },
+      "explanation": "The phrase 'Ich habe Schmerzen.' means 'I feel pain.' in German.",
+      "hint": "Remember to use the plural form for pain.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'die Tablette' mean?",
+      "content": {
+        "options": [
+          "the tablet",
+          "the doctor",
+          "the fever",
+          "the health"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Tablette' translates to 'the tablet' in English.",
+      "hint": "Think about medicine.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Sie hat __________ (the disease).",
+      "content": {
+        "sentence": "Sie hat ___ (the disease).",
+        "correctAnswer": "eine Krankheit",
+        "acceptableAnswers": [
+          "eine Krankheit"
+        ],
+        "options": [
+          "eine Krankheit",
+          "der Schmerz",
+          "das Fieber",
+          "die Gesundheit"
+        ]
+      },
+      "explanation": "'Eine Krankheit' means 'a disease' in German.",
+      "hint": "Make sure to include the article.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

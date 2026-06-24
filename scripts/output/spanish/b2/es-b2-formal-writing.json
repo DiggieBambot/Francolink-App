@@ -1,0 +1,339 @@
+{
+  "lesson": {
+    "title": "Formal Writing Structures",
+    "type": "GRAMMAR",
+    "slug": "es-b2-formal-writing"
+  },
+  "unit": "Professional Communication",
+  "unitOrder": 3,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about formal writing structures in Spanish, focusing on how to create professional and respectful communications. You will explore vocabulary, grammar points, and examples that will enhance your writing skills in a professional context.",
+      "culturalNote": "In many Spanish-speaking countries, formal communication is highly valued, especially in business settings, where respect and politeness are crucial."
+    },
+    "vocabulary": [
+      {
+        "term": "el saludo",
+        "translation": "the greeting",
+        "definition": "A formal way to address someone at the beginning of a communication.",
+        "pronunciation": "el sah-LOO-doh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El saludo es fundamental en una carta formal.",
+          "translation": "The greeting is fundamental in a formal letter."
+        },
+        "tip": "Remember to include titles like 'Señor' or 'Señora' in formal greetings."
+      },
+      {
+        "term": "la despedida",
+        "translation": "the farewell",
+        "definition": "The closing statement in a letter or email.",
+        "pronunciation": "lah des-peh-DEE-dah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La despedida debe ser cortés y adecuada.",
+          "translation": "The farewell should be courteous and appropriate."
+        },
+        "tip": "Common formal farewells include 'Atentamente' and 'Cordialmente'."
+      },
+      {
+        "term": "el cuerpo",
+        "translation": "the body",
+        "definition": "The main content of a letter or email.",
+        "pronunciation": "el KWER-poh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El cuerpo del mensaje debe ser claro y conciso.",
+          "translation": "The body of the message must be clear and concise."
+        },
+        "tip": "Use paragraphs to organize different ideas within the body."
+      },
+      {
+        "term": "la introducción",
+        "translation": "the introduction",
+        "definition": "The opening section where the purpose of the communication is stated.",
+        "pronunciation": "lah in-tro-duk-SYON",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "En la introducción, se presenta el motivo del mensaje.",
+          "translation": "In the introduction, the reason for the message is presented."
+        },
+        "tip": "Clearly state your purpose to engage the reader from the beginning."
+      },
+      {
+        "term": "el cierre",
+        "translation": "the closing",
+        "definition": "The final part of a letter or email summarizing the content or making a request.",
+        "pronunciation": "el SYER-reh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El cierre debe resumir los puntos clave.",
+          "translation": "The closing should summarize the key points."
+        },
+        "tip": "A strong closing reinforces your message."
+      },
+      {
+        "term": "el tono",
+        "translation": "the tone",
+        "definition": "The attitude or emotional quality of the writing.",
+        "pronunciation": "el TOH-noh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El tono debe ser formal y respetuoso.",
+          "translation": "The tone should be formal and respectful."
+        },
+        "tip": "Adjust the tone based on your audience and purpose."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Formal Constructions in Spanish",
+        "explanation": "In formal writing, it is crucial to use the subjunctive mood appropriately, especially when expressing requests, hopes, or doubts. Common phrases such as 'es necesario que' (it is necessary that) or 'me gustaría que' (I would like that) introduce subjunctive clauses. Additionally, using passive constructions can elevate the formality of your writing.",
+        "table": {
+          "headers": [
+            "Structure",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Subjunctive",
+              "Es importante que envíe el informe a tiempo."
+            ],
+            [
+              "Passive",
+              "El informe fue enviado por el departamento."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es esencial que usted complete el formulario.",
+            "translation": "It is essential that you complete the form.",
+            "breakdown": "This sentence uses the subjunctive 'complete' to express necessity."
+          },
+          {
+            "original": "El proyecto fue presentado en la reunión.",
+            "translation": "The project was presented at the meeting.",
+            "breakdown": "This sentence uses the passive voice to emphasize the action rather than the subject."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: 'Es importante que usted completa...' should be 'complete'.",
+          "Neglecting to use formal greetings: Always begin with 'Estimado/a' when addressing someone formally."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Formal Email Communication",
+      "context": "An exchange of formal emails between a manager and an employee regarding a project update.",
+      "speakers": [
+        "María (Manager)",
+        "Carlos (Employee)"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Estimado Carlos, espero que se encuentre bien.",
+          "translation": "Dear Carlos, I hope you are well."
+        },
+        {
+          "speaker": 1,
+          "text": "Estimada María, gracias por su mensaje.",
+          "translation": "Dear María, thank you for your message."
+        },
+        {
+          "speaker": 0,
+          "text": "Quisiera saber el estado del proyecto que estamos desarrollando.",
+          "translation": "I would like to know the status of the project we are developing."
+        },
+        {
+          "speaker": 1,
+          "text": "Por supuesto, el proyecto está avanzando según lo planeado.",
+          "translation": "Of course, the project is progressing as planned."
+        },
+        {
+          "speaker": 0,
+          "text": "Me alegra escuchar eso. ¿Hay algo que necesite de mi parte?",
+          "translation": "I’m glad to hear that. Is there anything you need from my side?"
+        },
+        {
+          "speaker": 1,
+          "text": "No, por ahora todo está bajo control. Gracias por su apoyo.",
+          "translation": "No, for now, everything is under control. Thank you for your support."
+        },
+        {
+          "speaker": 0,
+          "text": "Perfecto. Por favor, manténgame informado sobre cualquier novedad.",
+          "translation": "Perfect. Please keep me informed about any updates."
+        },
+        {
+          "speaker": 1,
+          "text": "Claro que sí. Saludos cordiales.",
+          "translation": "Of course. Best regards."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Formality in Latin America",
+      "text": "In Latin American cultures, maintaining a formal tone in professional communication is essential to foster respect and professionalism. This is especially true in hierarchical companies where titles and formalities can reflect social status.",
+      "funFact": "In some Latin American countries, it's common to use both the first name and last name in formal settings, showcasing respect and recognition."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understand the components of formal writing: greeting, body, and closing.",
+        "Use subjunctive forms to express requests and necessities.",
+        "Employ passive voice for a more formal tone.",
+        "Always maintain a respectful tone and structure."
+      ],
+      "nextSteps": "Practice writing a formal email using the vocabulary and structures learned. Focus on using the subjunctive and maintaining a formal tone."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the purpose of 'la introducción' in a formal letter?",
+      "content": {
+        "options": [
+          "To summarize the main points",
+          "To greet the recipient",
+          "To state the purpose of the letter",
+          "To sign off"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "The introduction sets the stage for the letter by clearly stating its purpose.",
+      "hint": "Think about what you want to achieve with the letter.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is NOT a formal way to close a letter?",
+      "content": {
+        "options": [
+          "Atentamente",
+          "Saludos",
+          "Un saludo",
+          "Cordialmente"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Un saludo' is more casual and less formal than the other options.",
+      "hint": "Consider the level of formality required.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: El ___ es la parte principal de la carta.",
+      "content": {
+        "sentence": "El ___ es la parte principal de la carta.",
+        "correctAnswer": "cuerpo",
+        "acceptableAnswers": [
+          "cuerpo"
+        ],
+        "options": [
+          "saludo",
+          "cuerpo",
+          "cierre"
+        ]
+      },
+      "explanation": "The 'cuerpo' is where the main content of the letter is found.",
+      "hint": "This part contains the message.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the correct term: Un buen ___ es importante para dejar una buena impresión.",
+      "content": {
+        "sentence": "Un buen ___ es importante para dejar una buena impresión.",
+        "correctAnswer": "saludo",
+        "acceptableAnswers": [
+          "saludo"
+        ],
+        "options": [
+          "saludo",
+          "cierre",
+          "cuerpo"
+        ]
+      },
+      "explanation": "'Saludo' is essential as it sets the tone of your message.",
+      "hint": "It's the first thing you write.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a proper closing in Spanish: 'cordialmente', 'su nombre', 'firma'.",
+      "content": {
+        "words": [
+          "firma",
+          "su nombre",
+          "cordialmente"
+        ],
+        "correctOrder": [
+          "cordialmente",
+          "su nombre",
+          "firma"
+        ],
+        "translation": "cordially, your name, signature"
+      },
+      "explanation": "The correct order presents the closing appropriately.",
+      "hint": "Think about how you would sign off a letter.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Thank you for your attention.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'Thank you for your attention.'",
+        "correctAnswer": "Gracias por su atención.",
+        "acceptableAnswers": [
+          "Gracias por su atención"
+        ]
+      },
+      "explanation": "This phrase is commonly used to conclude formal communications.",
+      "hint": "Consider politeness in your translation.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Le agradezco su consideración.'",
+      "content": {
+        "ttsText": "Le agradezco su consideración.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I appreciate your consideration.",
+          "I thank you for your attention.",
+          "I value your opinion.",
+          "I am grateful for your help."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation expresses gratitude for someone's consideration.",
+      "hint": "Focus on the word 'consideración'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I look forward to your response.'",
+      "content": {
+        "targetText": "Espero su respuesta.",
+        "context": "You are concluding a formal email.",
+        "acceptableVariants": [
+          "Espero su respuesta",
+          "Quedo a la espera de su respuesta"
+        ]
+      },
+      "explanation": "This phrase is a polite way to indicate you are awaiting a reply.",
+      "hint": "Think about how to express anticipation in a formal context.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

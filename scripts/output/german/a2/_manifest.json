@@ -1,0 +1,322 @@
+[
+  {
+    "title": "Perfekt with Haben - Regular Verbs",
+    "type": "GRAMMAR",
+    "slug": "de-a2-perfekt-haben-regular",
+    "unit": "Talking About the Past",
+    "unitOrder": 1,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Perfekt - Irregular Participles",
+    "type": "GRAMMAR",
+    "slug": "de-a2-perfekt-irregular",
+    "unit": "Talking About the Past",
+    "unitOrder": 1,
+    "lessonOrder": 2
+  },
+  {
+    "title": "My Last Weekend",
+    "type": "CONVERSATION",
+    "slug": "de-a2-last-weekend",
+    "unit": "Talking About the Past",
+    "unitOrder": 1,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Past Time Expressions",
+    "type": "VOCABULARY",
+    "slug": "de-a2-past-expressions",
+    "unit": "Talking About the Past",
+    "unitOrder": 1,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 1 Review",
+    "type": "REVIEW",
+    "slug": "de-a2-unit1-review",
+    "unit": "Talking About the Past",
+    "unitOrder": 1,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Perfekt with Sein - Movement Verbs",
+    "type": "GRAMMAR",
+    "slug": "de-a2-perfekt-sein",
+    "unit": "More on the Past",
+    "unitOrder": 2,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Präteritum of Sein, Haben & Modals",
+    "type": "GRAMMAR",
+    "slug": "de-a2-praeteritum",
+    "unit": "More on the Past",
+    "unitOrder": 2,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Childhood Memories",
+    "type": "CONVERSATION",
+    "slug": "de-a2-childhood",
+    "unit": "More on the Past",
+    "unitOrder": 2,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Telling a Simple Story",
+    "type": "CONVERSATION",
+    "slug": "de-a2-telling-story",
+    "unit": "More on the Past",
+    "unitOrder": 2,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 2 Review",
+    "type": "REVIEW",
+    "slug": "de-a2-unit2-review",
+    "unit": "More on the Past",
+    "unitOrder": 2,
+    "lessonOrder": 5
+  },
+  {
+    "title": "The Dative Case - Introduction",
+    "type": "GRAMMAR",
+    "slug": "de-a2-dative-intro",
+    "unit": "The Dative Case",
+    "unitOrder": 3,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Dative Pronouns (mir, dir, ihm)",
+    "type": "GRAMMAR",
+    "slug": "de-a2-dative-pronouns",
+    "unit": "The Dative Case",
+    "unitOrder": 3,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Verbs That Take the Dative",
+    "type": "GRAMMAR",
+    "slug": "de-a2-dative-verbs",
+    "unit": "The Dative Case",
+    "unitOrder": 3,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Giving & Receiving Gifts",
+    "type": "CONVERSATION",
+    "slug": "de-a2-gifts",
+    "unit": "The Dative Case",
+    "unitOrder": 3,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 3 Review",
+    "type": "REVIEW",
+    "slug": "de-a2-unit3-review",
+    "unit": "The Dative Case",
+    "unitOrder": 3,
+    "lessonOrder": 5
+  },
+  {
+    "title": "The Body & Health",
+    "type": "VOCABULARY",
+    "slug": "de-a2-body-health",
+    "unit": "Health & Body",
+    "unitOrder": 4,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Giving Advice - Sollen & Müssen",
+    "type": "GRAMMAR",
+    "slug": "de-a2-advice",
+    "unit": "Health & Body",
+    "unitOrder": 4,
+    "lessonOrder": 2
+  },
+  {
+    "title": "At the Doctor",
+    "type": "CONVERSATION",
+    "slug": "de-a2-doctor",
+    "unit": "Health & Body",
+    "unitOrder": 4,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Feelings & Emotions",
+    "type": "VOCABULARY",
+    "slug": "de-a2-feelings",
+    "unit": "Health & Body",
+    "unitOrder": 4,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 4 Review",
+    "type": "REVIEW",
+    "slug": "de-a2-unit4-review",
+    "unit": "Health & Body",
+    "unitOrder": 4,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Jobs & Professions",
+    "type": "VOCABULARY",
+    "slug": "de-a2-jobs",
+    "unit": "Work & Studies",
+    "unitOrder": 5,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Education & School Life",
+    "type": "VOCABULARY",
+    "slug": "de-a2-education",
+    "unit": "Work & Studies",
+    "unitOrder": 5,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Writing a Simple Email",
+    "type": "CONVERSATION",
+    "slug": "de-a2-simple-email",
+    "unit": "Work & Studies",
+    "unitOrder": 5,
+    "lessonOrder": 3
+  },
+  {
+    "title": "A Job Interview",
+    "type": "CONVERSATION",
+    "slug": "de-a2-job-interview",
+    "unit": "Work & Studies",
+    "unitOrder": 5,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 5 Review",
+    "type": "REVIEW",
+    "slug": "de-a2-unit5-review",
+    "unit": "Work & Studies",
+    "unitOrder": 5,
+    "lessonOrder": 5
+  },
+  {
+    "title": "City Services & Errands",
+    "type": "VOCABULARY",
+    "slug": "de-a2-services",
+    "unit": "City & Services",
+    "unitOrder": 6,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Formal You (Sie) vs Informal (Du)",
+    "type": "GRAMMAR",
+    "slug": "de-a2-sie-du",
+    "unit": "City & Services",
+    "unitOrder": 6,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Making a Complaint",
+    "type": "CONVERSATION",
+    "slug": "de-a2-complaint",
+    "unit": "City & Services",
+    "unitOrder": 6,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Polite Requests with Würden",
+    "type": "CONVERSATION",
+    "slug": "de-a2-polite-requests",
+    "unit": "City & Services",
+    "unitOrder": 6,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 6 Review",
+    "type": "REVIEW",
+    "slug": "de-a2-unit6-review",
+    "unit": "City & Services",
+    "unitOrder": 6,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Comparatives & Superlatives",
+    "type": "GRAMMAR",
+    "slug": "de-a2-comparatives",
+    "unit": "Comparisons & Opinions",
+    "unitOrder": 7,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Giving Opinions",
+    "type": "CONVERSATION",
+    "slug": "de-a2-opinions",
+    "unit": "Comparisons & Opinions",
+    "unitOrder": 7,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Small Talk",
+    "type": "CONVERSATION",
+    "slug": "de-a2-small-talk",
+    "unit": "Comparisons & Opinions",
+    "unitOrder": 7,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Describing Experiences",
+    "type": "CONVERSATION",
+    "slug": "de-a2-experiences",
+    "unit": "Comparisons & Opinions",
+    "unitOrder": 7,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 7 Review",
+    "type": "REVIEW",
+    "slug": "de-a2-unit7-review",
+    "unit": "Comparisons & Opinions",
+    "unitOrder": 7,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Technology & Gadgets",
+    "type": "VOCABULARY",
+    "slug": "de-a2-technology",
+    "unit": "Everyday Situations",
+    "unitOrder": 8,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Dealing with Problems",
+    "type": "CONVERSATION",
+    "slug": "de-a2-problems",
+    "unit": "Everyday Situations",
+    "unitOrder": 8,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Two-Way Prepositions",
+    "type": "GRAMMAR",
+    "slug": "de-a2-two-way-prepositions",
+    "unit": "Everyday Situations",
+    "unitOrder": 8,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Everyday Negotiations",
+    "type": "CONVERSATION",
+    "slug": "de-a2-negotiations",
+    "unit": "Everyday Situations",
+    "unitOrder": 8,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Final Review & Celebration",
+    "type": "REVIEW",
+    "slug": "de-a2-final-review",
+    "unit": "Everyday Situations",
+    "unitOrder": 8,
+    "lessonOrder": 5
+  }
+]

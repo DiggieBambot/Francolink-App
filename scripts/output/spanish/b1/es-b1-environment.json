@@ -1,0 +1,341 @@
+{
+  "lesson": {
+    "title": "Environment & Nature",
+    "type": "VOCABULARY",
+    "slug": "es-b1-environment"
+  },
+  "unit": "Environment & Society",
+  "unitOrder": 6,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to the environment and nature in Spanish. You will be able to describe ecological issues, express opinions, and discuss conservation efforts.",
+      "culturalNote": "Many Latin American countries are known for their incredible biodiversity, and they have unique ecosystems that are often threatened by deforestation and pollution."
+    },
+    "vocabulary": [
+      {
+        "term": "el medio ambiente",
+        "translation": "the environment",
+        "definition": "the natural world, including the land, water, and air.",
+        "pronunciation": "el meh-dyoh ahm-bee-ehn-teh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es importante cuidar el medio ambiente.",
+          "translation": "It is important to take care of the environment."
+        },
+        "tip": "Remember that 'medio ambiente' literally means 'middle environment' in Spanish."
+      },
+      {
+        "term": "la biodiversidad",
+        "translation": "biodiversity",
+        "definition": "the variety of plant and animal life in a particular habitat.",
+        "pronunciation": "lah bee-oh-dee-ver-see-dahd",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La biodiversidad es esencial para el equilibrio del ecosistema.",
+          "translation": "Biodiversity is essential for the balance of the ecosystem."
+        },
+        "tip": "Think of 'bio' relating to life and 'diversidad' as diversity."
+      },
+      {
+        "term": "la contaminación",
+        "translation": "pollution",
+        "definition": "the presence of harmful substances in the environment.",
+        "pronunciation": "lah con-tah-mee-nah-see-ohn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La contaminación del aire afecta nuestra salud.",
+          "translation": "Air pollution affects our health."
+        },
+        "tip": "Remember that 'contaminación' is derived from the root 'contaminar', which means 'to contaminate'."
+      },
+      {
+        "term": "la conservación",
+        "translation": "conservation",
+        "definition": "the action of preserving something, particularly the environment.",
+        "pronunciation": "lah con-ser-vah-see-ohn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La conservación de los recursos naturales es crucial.",
+          "translation": "The conservation of natural resources is crucial."
+        },
+        "tip": "Think of 'conservar' as 'to conserve', so 'conservación' is the act of conserving."
+      },
+      {
+        "term": "el reciclaje",
+        "translation": "recycling",
+        "definition": "the process of converting waste into reusable material.",
+        "pronunciation": "el reh-see-klah-heh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El reciclaje ayuda a reducir la basura.",
+          "translation": "Recycling helps reduce waste."
+        },
+        "tip": "Connect 'reciclaje' with the English word 'recycle' as they are very similar."
+      },
+      {
+        "term": "la deforestación",
+        "translation": "deforestation",
+        "definition": "the clearing of trees, transforming a forest into cleared land.",
+        "pronunciation": "lah deh-foh-res-tah-see-ohn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La deforestación es un problema grave en muchas regiones.",
+          "translation": "Deforestation is a serious problem in many regions."
+        },
+        "tip": "Remember 'deforestación' connects to 'forests' and is the opposite of preserving them."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Subjunctive for Opinions",
+        "explanation": "In Spanish, when expressing opinions about the environment, it's common to use the subjunctive mood. This is often used after phrases like 'Es importante que...' (It is important that...) or 'Espero que...' (I hope that...).",
+        "table": {
+          "headers": [
+            "Phrase",
+            "Subjunctive Example"
+          ],
+          "rows": [
+            [
+              "Es importante que cuidemos el medio ambiente.",
+              "It is important that we take care of the environment."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es necesario que protejamos la biodiversidad.",
+            "translation": "It is necessary that we protect biodiversity.",
+            "breakdown": "The phrase 'Es necesario que' introduces a necessity, requiring the use of the subjunctive 'protejamos'."
+          }
+        ],
+        "commonMistakes": [
+          "Mistake: No usar el subjuntivo en opiniones. Correction: Use the subjunctive after expressions of opinion.",
+          "Mistake: Usar el presente en lugar del subjuntivo. Correction: Remember to conjugate the verb in the subjunctive mood."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Environmental Issues",
+      "context": "A conversation between two friends discussing environmental concerns at a café.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Has visto las noticias sobre la contaminación del aire?",
+          "translation": "Have you seen the news about air pollution?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, es muy preocupante. Espero que tomen medidas pronto.",
+          "translation": "Yes, it's very concerning. I hope they take action soon.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Es importante que todos participemos en la conservación.",
+          "translation": "It's important that we all participate in conservation.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Exactamente. El reciclaje puede ayudar mucho.",
+          "translation": "Exactly. Recycling can help a lot.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Me gustaría que hubiera más campañas de educación ambiental.",
+          "translation": "I would like there to be more environmental education campaigns.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, la educación es clave para mejorar la situación.",
+          "translation": "Yes, education is key to improving the situation.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "La deforestación también es un gran problema en nuestro país.",
+          "translation": "Deforestation is also a big problem in our country.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, debemos hacer algo al respecto.",
+          "translation": "Yes, we must do something about it.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Environmental Awareness in Latin America",
+      "text": "Many Latin American countries are leading the fight against climate change due to their rich biodiversity. They are implementing innovative solutions to protect their ecosystems and promote sustainability.",
+      "funFact": "The Amazon rainforest, located in many South American countries, produces 20% of the world's oxygen."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to the environment and nature.",
+        "Practiced using the subjunctive for expressing opinions.",
+        "Engaged in a dialogue about environmental issues.",
+        "Gained cultural insights into Latin America's environmental challenges."
+      ],
+      "nextSteps": "Practice using the new vocabulary in sentences and try to create your own opinions about environmental issues using the subjunctive."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la biodiversidad' mean in English?",
+      "content": {
+        "options": [
+          "Biodiversity",
+          "Conservation",
+          "Pollution",
+          "Environment"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'La biodiversidad' refers to the variety of life in a particular habitat or ecosystem, which is known as biodiversity in English.",
+      "hint": "Think about the variety of species.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which term refers to 'contamination' in Spanish?",
+      "content": {
+        "options": [
+          "La conservación",
+          "La contaminación",
+          "El reciclaje",
+          "El medio ambiente"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Contaminación' is the Spanish term for 'contamination', which refers to the presence of harmful substances.",
+      "hint": "This term is related to pollution.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: La ___ es importante para proteger los ecosistemas.",
+      "content": {
+        "sentence": "La ___ es importante para proteger los ecosistemas.",
+        "correctAnswer": "conservación",
+        "acceptableAnswers": [
+          "conservación"
+        ],
+        "options": [
+          "contaminación",
+          "conservación",
+          "reciclaje"
+        ]
+      },
+      "explanation": "The word 'conservación' means conservation, which is essential for protecting ecosystems.",
+      "hint": "It starts with a 'c'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Es necesario hacer ___ para reducir residuos.",
+      "content": {
+        "sentence": "Es necesario hacer ___ para reducir residuos.",
+        "correctAnswer": "reciclaje",
+        "acceptableAnswers": [
+          "reciclaje"
+        ],
+        "options": [
+          "deforestación",
+          "contaminación",
+          "reciclaje"
+        ]
+      },
+      "explanation": "'Reciclaje' means recycling, which is important for reducing waste.",
+      "hint": "Think about reusing materials.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: medio / el / ambiente / cuidar / debemos.",
+      "content": {
+        "words": [
+          "medio",
+          "el",
+          "ambiente",
+          "cuidar",
+          "debemos"
+        ],
+        "correctOrder": [
+          "debemos",
+          "cuidar",
+          "el",
+          "medio",
+          "ambiente"
+        ],
+        "translation": "We must take care of the environment."
+      },
+      "explanation": "The correct order forms a meaningful sentence about the importance of caring for the environment.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Pollution is a big problem.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'Pollution is a big problem.'",
+        "correctAnswer": "La contaminación es un gran problema.",
+        "acceptableAnswers": [
+          "La contaminación es un gran problema."
+        ]
+      },
+      "explanation": "The translation accurately conveys the meaning of the English sentence regarding pollution.",
+      "hint": "Remember to use 'contaminación' for pollution.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'La deforestación es un problema grave.'",
+      "content": {
+        "ttsText": "La deforestación es un problema grave.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Deforestation is a serious problem.",
+          "Biodiversity is decreasing.",
+          "Conservation efforts are needed."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence states that deforestation is a serious problem, reflecting environmental issues.",
+      "hint": "Focus on the word for deforestation.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'We need to protect biodiversity.'",
+      "content": {
+        "targetText": "Necesitamos proteger la biodiversidad.",
+        "context": "Expressing the importance of protecting nature.",
+        "acceptableVariants": [
+          "Debemos proteger la biodiversidad.",
+          "Es necesario proteger la biodiversidad."
+        ]
+      },
+      "explanation": "Both variants correctly express the need to protect biodiversity in Spanish.",
+      "hint": "Start with 'Necesitamos'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

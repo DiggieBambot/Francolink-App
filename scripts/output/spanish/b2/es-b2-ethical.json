@@ -1,0 +1,359 @@
+{
+  "lesson": {
+    "title": "Ethical Dilemmas",
+    "type": "CONVERSATION",
+    "slug": "es-b2-ethical"
+  },
+  "unit": "Science & Innovation",
+  "unitOrder": 6,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will explore ethical dilemmas related to science and innovation, enhancing your conversational skills in Spanish. You'll learn vocabulary and phrases to discuss complex moral questions and engage in nuanced debates.",
+      "culturalNote": "Many Spanish-speaking countries have ongoing discussions about ethical issues in science, particularly in areas like biotechnology and medicine."
+    },
+    "vocabulary": [
+      {
+        "term": "el dilema ético",
+        "translation": "the ethical dilemma",
+        "definition": "a situation in which a difficult decision must be made regarding morality",
+        "pronunciation": "el dee-leh-ma eh-ti-ko",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El dilema ético de la manipulación genética es muy complejo.",
+          "translation": "The ethical dilemma of genetic manipulation is very complex."
+        },
+        "tip": "Remember that 'dilema' is masculine in Spanish."
+      },
+      {
+        "term": "la innovación",
+        "translation": "the innovation",
+        "definition": "the introduction of new ideas or methods",
+        "pronunciation": "la ee-no-va-syon",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La innovación tecnológica puede resolver problemas éticos.",
+          "translation": "Technological innovation can solve ethical problems."
+        },
+        "tip": "Think of 'innovation' in English to remember this word."
+      },
+      {
+        "term": "la ética",
+        "translation": "the ethics",
+        "definition": "the moral principles that govern a person's behavior",
+        "pronunciation": "la eh-ti-ka",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La ética es fundamental en la investigación científica.",
+          "translation": "Ethics is fundamental in scientific research."
+        },
+        "tip": "The word 'ética' sounds similar in both languages."
+      },
+      {
+        "term": "el consentimiento informado",
+        "translation": "the informed consent",
+        "definition": "permission granted with full knowledge of the possible risks and benefits",
+        "pronunciation": "el kon-sen-ti-mi-en-to in-for-ma-do",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es crucial obtener el consentimiento informado de los participantes.",
+          "translation": "It is crucial to obtain informed consent from participants."
+        },
+        "tip": "Break it down: 'consentimiento' means consent, and 'informado' means informed."
+      },
+      {
+        "term": "la responsabilidad",
+        "translation": "the responsibility",
+        "definition": "the state or fact of having a duty to deal with something",
+        "pronunciation": "la res-pon-sa-bi-li-dad",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La responsabilidad ética recae sobre los científicos.",
+          "translation": "The ethical responsibility falls on scientists."
+        },
+        "tip": "Think of 'responsibility' in English to recall this word."
+      },
+      {
+        "term": "la investigación",
+        "translation": "the research",
+        "definition": "the systematic investigation into and study of materials and sources",
+        "pronunciation": "la in-ves-ti-ga-syon",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La investigación debe ser ética y transparente.",
+          "translation": "The research must be ethical and transparent."
+        },
+        "tip": "The root is similar to 'investigation' in English."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subjunctive in Ethical Discussions",
+        "explanation": "The subjunctive mood is essential when discussing hypothetical situations or expressing desires, doubts, or emotions related to ethical dilemmas. Use the present subjunctive for actions that are uncertain or subjective, and the imperfect subjunctive for past actions that are hypothetical.",
+        "table": {
+          "headers": [
+            "Present Subjunctive",
+            "Imperfect Subjunctive"
+          ],
+          "rows": [
+            [
+              "que yo hable",
+              "que yo hablara"
+            ],
+            [
+              "que tú comas",
+              "que tú comieras"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es importante que los científicos hablen sobre sus responsabilidades.",
+            "translation": "It is important that scientists talk about their responsibilities.",
+            "breakdown": "Here, 'hablen' is in the present subjunctive because it expresses importance."
+          },
+          {
+            "original": "Si yo fuera un investigador, consideraría las implicaciones éticas.",
+            "translation": "If I were a researcher, I would consider the ethical implications.",
+            "breakdown": "'Fuera' is in the imperfect subjunctive, indicating a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Forgetting to use the subjunctive after expressions like 'es importante que'.",
+          "Using the indicative instead of the subjunctive in hypothetical situations."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing an Ethical Dilemma",
+      "context": "A conversation between two friends at a coffee shop discussing a recent article about genetic engineering.",
+      "speakers": [
+        "Clara",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Has leído el artículo sobre la ingeniería genética?",
+          "translation": "Have you read the article about genetic engineering?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, me preocupa el dilema ético que plantea.",
+          "translation": "Yes, I am concerned about the ethical dilemma it raises.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Creo que la innovación puede traer muchos beneficios, pero también riesgos.",
+          "translation": "I believe that innovation can bring many benefits, but also risks.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Exacto, y es crucial que los científicos actúen con responsabilidad.",
+          "translation": "Exactly, and it is crucial that scientists act responsibly.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué opinas sobre el consentimiento informado en estos casos?",
+          "translation": "What do you think about informed consent in these cases?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Es fundamental. Sin el consentimiento, no hay ética en la investigación.",
+          "translation": "It is fundamental. Without consent, there is no ethics in research.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Me pregunto si la gente entiende los riesgos involucrados.",
+          "translation": "I wonder if people understand the risks involved.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, a veces la comunicación no es clara. Eso es parte del problema.",
+          "translation": "Yes, sometimes communication is not clear. That is part of the problem.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Ethics in Latin American Science",
+      "text": "In Latin America, ethical discussions around biotechnology and genetic engineering are increasingly prevalent. Countries like Brazil and Argentina are at the forefront of these debates as they navigate the balance between innovation and ethical responsibilities.",
+      "funFact": "In Argentina, a famous case of ethical debate involved the cloning of a sheep named 'Dolly', which sparked conversations about genetic manipulation."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding ethical dilemmas is crucial in science and innovation.",
+        "The subjunctive mood is key for discussing hypothetical situations.",
+        "Informed consent is a major aspect of ethical research.",
+        "Scientists have a responsibility to communicate risks clearly."
+      ],
+      "nextSteps": "Practice using the subjunctive in conversations about ethical dilemmas, and familiarize yourself with more vocabulary related to science and ethics."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'el dilema ético' refer to?",
+      "content": {
+        "options": [
+          "A scientific breakthrough",
+          "An ethical dilemma",
+          "A research project",
+          "An innovative technology"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'El dilema ético' translates to 'the ethical dilemma', which is a situation where a difficult choice must be made.",
+      "hint": "Think about choices involving morality.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following best defines 'la innovación'?",
+      "content": {
+        "options": [
+          "The process of testing",
+          "The act of creating something new",
+          "The study of ethics",
+          "The approval of a project"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'La innovación' means 'innovation', which signifies introducing something new or improved.",
+      "hint": "Consider what drives progress in technology.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Es importante obtener ___ informado antes de realizar una investigación.'",
+      "content": {
+        "sentence": "Es importante obtener ___ informado antes de realizar una investigación.",
+        "correctAnswer": "consentimiento",
+        "acceptableAnswers": [
+          "consentimiento",
+          "el consentimiento"
+        ],
+        "options": [
+          "el consentimiento",
+          "la aprobación",
+          "la ética"
+        ]
+      },
+      "explanation": "The correct answer is 'consentimiento', which translates to 'informed consent', vital for ethical research.",
+      "hint": "Think about permissions in research.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'La ___ es fundamental en la investigación científica.'",
+      "content": {
+        "sentence": "La ___ es fundamental en la investigación científica.",
+        "correctAnswer": "ética",
+        "acceptableAnswers": [
+          "ética",
+          "moral"
+        ],
+        "options": [
+          "ética",
+          "responsabilidad",
+          "innovación"
+        ]
+      },
+      "explanation": "'Ética' refers to the moral principles that guide research, making it crucial.",
+      "hint": "What guides moral decisions?",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a coherent sentence: 'la ética / de / responsabilidad / la investigación / es / parte'.",
+      "content": {
+        "words": [
+          "la",
+          "ética",
+          "de",
+          "responsabilidad",
+          "la",
+          "investigación",
+          "es",
+          "parte"
+        ],
+        "correctOrder": [
+          "la",
+          "ética",
+          "es",
+          "parte",
+          "de",
+          "la",
+          "responsabilidad",
+          "investigación"
+        ],
+        "translation": "Ethics is part of research responsibility."
+      },
+      "explanation": "The correct sentence highlights the significance of ethics in research.",
+      "hint": "Think about the role of ethics.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Innovation requires ethical considerations.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'Innovation requires ethical considerations.'",
+        "correctAnswer": "La innovación requiere consideraciones éticas.",
+        "acceptableAnswers": [
+          "La innovación necesita consideraciones éticas."
+        ]
+      },
+      "explanation": "The translation accurately conveys the importance of ethics in the context of innovation.",
+      "hint": "Focus on the words for 'innovation' and 'ethical'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'La responsabilidad es clave en la innovación.'",
+      "content": {
+        "ttsText": "La responsabilidad es clave en la innovación.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Responsibility is key in innovation.",
+          "Innovation is responsible for key changes.",
+          "Innovation lacks responsibility.",
+          "Key changes require innovation."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation emphasizes the importance of responsibility in innovation.",
+      "hint": "Focus on the words for 'responsibility' and 'innovation'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'What ethical dilemmas do scientists face today?'",
+      "content": {
+        "targetText": "¿Qué dilemas éticos enfrentan los científicos hoy en día?",
+        "context": "Ask someone about ethical dilemmas in modern science.",
+        "acceptableVariants": [
+          "¿Cuáles son los dilemas éticos que enfrentan los científicos hoy?",
+          "¿Qué dilemas éticos tienen los científicos actualmente?"
+        ]
+      },
+      "explanation": "The target text correctly asks about the ethical dilemmas faced by scientists.",
+      "hint": "Think about current scientific issues.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

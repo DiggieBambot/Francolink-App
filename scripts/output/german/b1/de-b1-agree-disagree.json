@@ -1,0 +1,340 @@
+{
+  "lesson": {
+    "title": "Agreeing & Disagreeing",
+    "type": "CONVERSATION",
+    "slug": "de-b1-agree-disagree"
+  },
+  "unit": "Expressing Opinions",
+  "unitOrder": 1,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to agree and disagree in German conversations. You'll practice using important phrases and expressions to express opinions and respond politely.",
+      "culturalNote": "In Germany, discussions often involve expressing differing opinions openly, and it's common to engage in debates about various topics, from politics to culture."
+    },
+    "vocabulary": [
+      {
+        "term": "die Meinung",
+        "translation": "the opinion",
+        "definition": "A personal belief or judgment.",
+        "pronunciation": "dee MY-noong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe eine andere Meinung.",
+          "translation": "I have a different opinion."
+        },
+        "tip": "Remember that 'Meinung' is feminine (die) in German."
+      },
+      {
+        "term": "zustimmen",
+        "translation": "to agree",
+        "definition": "To share the same opinion or belief.",
+        "pronunciation": "TSOO-shtim-men",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich stimme dir zu.",
+          "translation": "I agree with you."
+        },
+        "tip": "'Zustimmen' is a separable verb. Remember to place 'zu' at the end of the sentence in the infinitive form."
+      },
+      {
+        "term": "nicht einverstanden",
+        "translation": "not agree",
+        "definition": "To have a different opinion or to disagree.",
+        "pronunciation": "nikht EYN-fershtan-den",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Ich bin nicht einverstanden mit deiner Meinung.",
+          "translation": "I do not agree with your opinion."
+        },
+        "tip": "This phrase is useful for politely expressing disagreement."
+      },
+      {
+        "term": "das Argument",
+        "translation": "the argument",
+        "definition": "A reason or evidence in support of a viewpoint.",
+        "pronunciation": "das ar-GOO-ment",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das ist ein gutes Argument.",
+          "translation": "That is a good argument."
+        },
+        "tip": "Remember that 'Argument' is neuter (das)."
+      },
+      {
+        "term": "ich denke, dass",
+        "translation": "I think that",
+        "definition": "A phrase to introduce your opinion.",
+        "pronunciation": "ikh DEN-keh, dass",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Ich denke, dass wir mehr diskutieren sollten.",
+          "translation": "I think that we should discuss more."
+        },
+        "tip": "Use 'dass' to introduce a subordinate clause."
+      },
+      {
+        "term": "weil",
+        "translation": "because",
+        "definition": "A conjunction used to give reasons.",
+        "pronunciation": "vile",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Ich mag das Buch, weil es interessant ist.",
+          "translation": "I like the book because it is interesting."
+        },
+        "tip": "Use 'weil' to explain why you agree or disagree."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subordinate Clauses with 'dass' and 'weil'",
+        "explanation": "In German, subordinate clauses often start with 'dass' (that) or 'weil' (because). These clauses provide additional information. For example, 'Ich denke, dass es wichtig ist' (I think that it is important) uses 'dass' to connect the opinion with the reason.",
+        "table": {
+          "headers": [
+            "German",
+            "English"
+          ],
+          "rows": [
+            [
+              "Ich denke, dass es wichtig ist.",
+              "I think that it is important."
+            ],
+            [
+              "Ich mag es, weil es interessant ist.",
+              "I like it because it is interesting."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich glaube, dass wir mehr Zeit brauchen.",
+            "translation": "I believe that we need more time.",
+            "breakdown": "'Ich glaube' (I believe) is the main clause, and 'dass wir mehr Zeit brauchen' (that we need more time) is the subordinate clause."
+          },
+          {
+            "original": "Ich bin nicht einverstanden, weil du keine Argumente hast.",
+            "translation": "I disagree because you have no arguments.",
+            "breakdown": "'Ich bin nicht einverstanden' (I disagree) is the main clause, and 'weil du keine Argumente hast' (because you have no arguments) is the reason."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'das' instead of 'dass' for the conjunction. Remember that 'dass' is used for subordinate clauses.",
+          "Placing the verb in the wrong position in subordinate clauses. The verb should always be at the end of the clause."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a New Project",
+      "context": "Two colleagues discussing a new project idea at work.",
+      "speakers": [
+        "Lukas",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Ich denke, dass wir ein neues Projekt starten sollten.",
+          "translation": "I think that we should start a new project.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich bin nicht einverstanden, weil wir schon genug Arbeit haben.",
+          "translation": "I don’t agree because we already have enough work.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Aber das Projekt könnte uns helfen, unsere Ziele zu erreichen.",
+          "translation": "But the project could help us reach our goals.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist ein gutes Argument, aber ich fürchte, dass wir die Fristen nicht einhalten können.",
+          "translation": "That is a good argument, but I fear that we cannot meet the deadlines.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich verstehe deinen Punkt, aber ich glaube, dass wir die Ressourcen haben.",
+          "translation": "I understand your point, but I believe that we have the resources.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das könnte sein, aber ich bin mir nicht sicher.",
+          "translation": "That may be true, but I am not sure.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Vielleicht sollten wir es mit dem Chef besprechen.",
+          "translation": "Maybe we should discuss it with the boss.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist eine gute Idee. Lass uns das tun.",
+          "translation": "That's a good idea. Let’s do that.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Debate Culture in Germany",
+      "text": "In German-speaking countries, expressing opinions and engaging in debates is common and encouraged. People value clear arguments and respectful disagreement, which is seen as a part of personal development.",
+      "funFact": "Germany hosts a variety of debate competitions, including those for schools, where students learn how to articulate their opinions clearly."
+    },
+    "summary": {
+      "keyPoints": [
+        "You learned key phrases for agreeing and disagreeing.",
+        "Understanding subordinate clauses with 'dass' and 'weil' is essential.",
+        "Engaging in polite discussions is important in German culture.",
+        "Using the proper verb placement in subordinate clauses is crucial."
+      ],
+      "nextSteps": "Practice these phrases in conversations with a partner or record yourself discussing various topics to improve your fluency."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'zustimmen' mean in English?",
+      "content": {
+        "options": [
+          "to agree",
+          "to disagree",
+          "to argue",
+          "to think"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Zustimmen' directly translates to 'to agree' in English.",
+      "hint": "Think about agreement in a conversation.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase means 'I think that'?",
+      "content": {
+        "options": [
+          "Ich denke, dass",
+          "Ich stimme zu",
+          "Ich bin nicht einverstanden",
+          "Das Argument"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Ich denke, dass' translates to 'I think that' in English.",
+      "hint": "It starts with 'Ich denke'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich ___ nicht einverstanden mit deiner Meinung.'",
+      "content": {
+        "sentence": "Ich ___ nicht einverstanden mit deiner Meinung.",
+        "correctAnswer": "bin",
+        "acceptableAnswers": [
+          "bin"
+        ],
+        "options": [
+          "sehe",
+          "bin",
+          "denke",
+          "finde"
+        ]
+      },
+      "explanation": "The correct verb to express disagreement is 'bin'.",
+      "hint": "Think about the verb 'to be'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the argument: 'Ich denke, dass es wichtig ist, ___.'",
+      "content": {
+        "sentence": "Ich denke, dass es wichtig ist, ___.",
+        "correctAnswer": "zu lernen",
+        "acceptableAnswers": [
+          "zu lernen"
+        ],
+        "options": [
+          "zu spielen",
+          "zu lernen",
+          "zu essen",
+          "zu arbeiten"
+        ]
+      },
+      "explanation": "The verb 'lernen' (to learn) fits well in this context.",
+      "hint": "Consider what is important in life.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I disagree with your opinion.'",
+      "content": {
+        "prompt": "Translate to German: 'I disagree with your opinion.'",
+        "correctAnswer": "Ich bin nicht einverstanden mit deiner Meinung.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation captures the disagreement clearly.",
+      "hint": "Focus on the phrase for disagreement.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich finde das wichtig.'",
+      "content": {
+        "ttsText": "Ich finde das wichtig.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I find that important.",
+          "I think that is boring.",
+          "I disagree with that.",
+          "I agree with that."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The phrase directly translates to 'I find that important.'",
+      "hint": "Listen for the word 'wichtig'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I think that your idea is great.'",
+      "content": {
+        "targetText": "Ich denke, dass deine Idee großartig ist.",
+        "context": "Translate and say this positive opinion.",
+        "acceptableVariants": [
+          "Ich finde deine Idee toll."
+        ]
+      },
+      "explanation": "You need to express a positive opinion clearly.",
+      "hint": "Use 'Ich denke, dass' for your opinion.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I disagree because I have another perspective.'",
+      "content": {
+        "targetText": "Ich bin nicht einverstanden, weil ich eine andere Perspektive habe.",
+        "context": "Translate and say this disagreement.",
+        "acceptableVariants": [
+          "Ich stimme nicht zu, weil ich anders denke."
+        ]
+      },
+      "explanation": "This sentence expresses disagreement with reasoning.",
+      "hint": "Remember the phrase 'Ich bin nicht einverstanden'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

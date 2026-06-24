@@ -1,0 +1,348 @@
+{
+  "lesson": {
+    "title": "Summarizing & Paraphrasing",
+    "type": "CONVERSATION",
+    "slug": "es-b2-summarize"
+  },
+  "unit": "Critical Thinking",
+  "unitOrder": 5,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to effectively summarize and paraphrase information in Spanish. You'll practice using these skills in conversation to enhance your critical thinking and communication abilities.",
+      "culturalNote": "In many Spanish-speaking cultures, summarizing and paraphrasing are essential skills in academic and professional settings, as they demonstrate understanding and clarity of thought."
+    },
+    "vocabulary": [
+      {
+        "term": "el resumen",
+        "translation": "the summary",
+        "definition": "a concise statement of the main points of a text or speech",
+        "pronunciation": "el reh-soo-men",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El resumen del libro fue muy claro.",
+          "translation": "The summary of the book was very clear."
+        },
+        "tip": "Remember that 'resumir' is the verb form, meaning 'to summarize'."
+      },
+      {
+        "term": "parafrasear",
+        "translation": "to paraphrase",
+        "definition": "to express the meaning of something using different words",
+        "pronunciation": "pah-rah-frah-seh-ar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Es importante parafrasear para evitar el plagio.",
+          "translation": "It is important to paraphrase to avoid plagiarism."
+        },
+        "tip": "Think of 'parafrasear' as 'rephrasing' or 'restating' in Spanish."
+      },
+      {
+        "term": "la idea principal",
+        "translation": "the main idea",
+        "definition": "the most important point or concept in a text",
+        "pronunciation": "lah ee-deh-ah prin-sip-al",
+        "partOfSpeech": "noun phrase",
+        "exampleSentence": {
+          "original": "La idea principal del artículo es muy innovadora.",
+          "translation": "The main idea of the article is very innovative."
+        },
+        "tip": "Identifying 'la idea principal' is crucial for effective summarization."
+      },
+      {
+        "term": "el punto de vista",
+        "translation": "the point of view",
+        "definition": "a particular attitude or way of considering a matter",
+        "pronunciation": "el poon-toh de vees-tah",
+        "partOfSpeech": "noun phrase",
+        "exampleSentence": {
+          "original": "Desde mi punto de vista, la solución es viable.",
+          "translation": "From my point of view, the solution is viable."
+        },
+        "tip": "Discussing different 'puntos de vista' enriches conversations."
+      },
+      {
+        "term": "la síntesis",
+        "translation": "the synthesis",
+        "definition": "the combination of ideas to form a coherent whole",
+        "pronunciation": "lah seen-teh-sis",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La síntesis de la información es fundamental en la investigación.",
+          "translation": "The synthesis of information is fundamental in research."
+        },
+        "tip": "Think of 'sintetizar' as creating a comprehensive overview."
+      },
+      {
+        "term": "la conclusión",
+        "translation": "the conclusion",
+        "definition": "the final part of something, summarizing the main points",
+        "pronunciation": "lah kon-klu-syon",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La conclusión del ensayo fue impactante.",
+          "translation": "The conclusion of the essay was striking."
+        },
+        "tip": "A strong conclusion often reinforces the summary."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using the Subjunctive for Suggestions",
+        "explanation": "In Spanish, the subjunctive mood is often used to express suggestions, desires, or hypothetical situations. When summarizing or paraphrasing, using the subjunctive can help convey uncertainty or opinions. For example, 'Es importante que resumas el texto.' (It's important that you summarize the text).",
+        "table": {
+          "headers": [
+            "Present Subjunctive",
+            "Imperfect Subjunctive"
+          ],
+          "rows": [
+            [
+              "resuma (I summarize)",
+              "resumiera (I summarized)"
+            ],
+            [
+              "parafrasee (I paraphrase)",
+              "parafraseara (I paraphrased)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es necesario que parafrasees para entender mejor.",
+            "translation": "It is necessary that you paraphrase to understand better.",
+            "breakdown": "The subjunctive 'parafrasees' shows necessity."
+          },
+          {
+            "original": "Si supieras el tema, podrías hacer un buen resumen.",
+            "translation": "If you knew the topic, you could make a good summary.",
+            "breakdown": "Here, 'supieras' (imperfect subjunctive) indicates a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: 'Es importante que tú resumas.' (Correct form: 'resumas')",
+          "Confusing the subjunctive forms: 'Si yo tuviera tiempo, haría un resumen.' (Correct form: 'tuviera')"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing an Article",
+      "context": "Two students discussing an article they read for class.",
+      "speakers": [
+        "Pedro",
+        "Lucía"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Leíste el artículo sobre el cambio climático?",
+          "translation": "Did you read the article about climate change?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, lo leí. La idea principal me pareció muy interesante.",
+          "translation": "Yes, I read it. The main idea seemed very interesting to me.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Exactamente, el autor parafrasea muchos estudios actuales.",
+          "translation": "Exactly, the author paraphrases many current studies.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, y creo que su síntesis de la información es muy efectiva.",
+          "translation": "Yes, and I think his synthesis of the information is very effective.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Cuál fue tu conclusión sobre el tema?",
+          "translation": "What was your conclusion about the topic?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Me parece que debemos actuar ahora para evitar más problemas.",
+          "translation": "It seems to me that we must act now to avoid more problems.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Totalmente de acuerdo. Es importante que todos lo entiendan.",
+          "translation": "Totally agree. It's important that everyone understands it.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, y sería útil hacer un resumen para nuestra clase.",
+          "translation": "Yes, and it would be helpful to make a summary for our class.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Communication in Spanish-speaking Cultures",
+      "text": "Effective communication is highly valued across Spanish-speaking cultures, where summarizing and paraphrasing are key skills in both educational and professional contexts. Clear expression is often seen as a reflection of one's intelligence and respect towards others.",
+      "funFact": "In some countries, like Argentina, people often use the term 'resumir' to refer to making a quick decision or conclusion in conversations."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding the difference between summarizing and paraphrasing.",
+        "Using the subjunctive to express suggestions in conversations.",
+        "Identifying the main idea and key points in a text.",
+        "Practicing effective communication through dialogue."
+      ],
+      "nextSteps": "To continue practicing, try summarizing an article in Spanish and share it with a partner. Also, engage in discussions where you can express different points of view."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'el resumen' in English?",
+      "content": {
+        "options": [
+          "summary",
+          "paraphrase",
+          "synthesis",
+          "conclusion"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "El resumen translates to 'summary' in English.",
+      "hint": "It's a brief statement of the main points.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following best defines 'la idea principal'?",
+      "content": {
+        "options": [
+          "the main idea",
+          "the conclusion",
+          "the point of view",
+          "the summary"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "La idea principal means 'the main idea' in English.",
+      "hint": "It's the central thought of a text.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Es importante ________ el texto para entenderlo mejor.",
+      "content": {
+        "sentence": "Es importante ________ el texto para entenderlo mejor.",
+        "correctAnswer": "parafrasear",
+        "acceptableAnswers": [
+          "parafrasear"
+        ],
+        "options": [
+          "resumir",
+          "parafrasear",
+          "concluir"
+        ]
+      },
+      "explanation": "Parafrasear means 'to paraphrase', which is essential for better understanding.",
+      "hint": "Think about rephrasing the text.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the correct word: La ________ es el resultado final de una discusión.",
+      "content": {
+        "sentence": "La ________ es el resultado final de una discusión.",
+        "correctAnswer": "conclusión",
+        "acceptableAnswers": [
+          "conclusión"
+        ],
+        "options": [
+          "sintesis",
+          "conclusión",
+          "idea principal"
+        ]
+      },
+      "explanation": "Conclusión refers to 'conclusion', representing the final result of a discussion.",
+      "hint": "It's what you come to after reasoning.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: un texto / la idea principal / resume / el",
+      "content": {
+        "words": [
+          "un texto",
+          "la idea principal",
+          "resume",
+          "el"
+        ],
+        "correctOrder": [
+          "el",
+          "resume",
+          "la idea principal",
+          "un texto"
+        ],
+        "translation": "The main idea summarizes a text."
+      },
+      "explanation": "The correct order forms a coherent and meaningful sentence.",
+      "hint": "Think about how a summary relates to the main idea.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The synthesis is important for the summary.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The synthesis is important for the summary.'",
+        "correctAnswer": "La síntesis es importante para el resumen.",
+        "acceptableAnswers": [
+          "La síntesis es importante para el resumen."
+        ]
+      },
+      "explanation": "The translation captures the relationship between synthesis and summary.",
+      "hint": "Focus on the words 'synthesis' and 'summary'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and identify the correct phrase: 'Es esencial para entender'.",
+      "content": {
+        "ttsText": "Es esencial para entender.",
+        "ttsLang": "es-ES",
+        "options": [
+          "It is essential to understand.",
+          "It is important to summarize.",
+          "It is difficult to paraphrase."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The phrase means 'It is essential to understand' in English.",
+      "hint": "Listen carefully to the first part of the phrase.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'I need to summarize the article.'",
+      "content": {
+        "targetText": "Necesito resumir el artículo.",
+        "context": "Translate and say the sentence.",
+        "acceptableVariants": [
+          "Tengo que resumir el artículo.",
+          "Debo resumir el artículo."
+        ]
+      },
+      "explanation": "Both translations convey the same need to summarize.",
+      "hint": "Remember 'resumir' means 'to summarize'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

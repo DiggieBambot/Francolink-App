@@ -1,0 +1,397 @@
+{
+  "lesson": {
+    "title": "Discussing Current Events",
+    "type": "CONVERSATION",
+    "slug": "de-b1-current-events"
+  },
+  "unit": "Expressing Opinions",
+  "unitOrder": 1,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to discuss current events in German, focusing on expressing opinions using various grammatical structures. You will practice vocabulary related to news topics and improve your conversational skills.",
+      "culturalNote": "In Germany, the news is often discussed in social settings, and many people enjoy debating current affairs. It's common to hear different opinions, especially during elections or significant events."
+    },
+    "vocabulary": [
+      {
+        "term": "die Nachricht",
+        "translation": "the news",
+        "definition": "information about recent events",
+        "pronunciation": "dee NAH-richt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Hast du die Nachricht über die Wahlen gehört?",
+          "translation": "Did you hear the news about the elections?"
+        },
+        "tip": "Remember that 'Nachricht' is feminine, so it uses 'die'."
+      },
+      {
+        "term": "die Meinung",
+        "translation": "the opinion",
+        "definition": "a belief or judgment about something",
+        "pronunciation": "dee MY-nung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich respektiere deine Meinung.",
+          "translation": "I respect your opinion."
+        },
+        "tip": "This word is also feminine, so it uses 'die'."
+      },
+      {
+        "term": "diskutieren",
+        "translation": "to discuss",
+        "definition": "to talk about a topic in order to reach a conclusion",
+        "pronunciation": "dis-ku-TIE-ren",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Wir sollten über das Thema diskutieren.",
+          "translation": "We should discuss the topic."
+        },
+        "tip": "This verb is regular; it follows the standard conjugation pattern."
+      },
+      {
+        "term": "der Politiker",
+        "translation": "the politician",
+        "definition": "a person who is involved in politics, especially as a member of a political party",
+        "pronunciation": "deir poh-li-TIE-ker",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Politiker hat eine interessante Rede gehalten.",
+          "translation": "The politician gave an interesting speech."
+        },
+        "tip": "Remember that 'Politiker' is masculine, so it uses 'der'."
+      },
+      {
+        "term": "die Diskussion",
+        "translation": "the discussion",
+        "definition": "a conversation about a specific topic, often with different views",
+        "pronunciation": "dee dis-ku-SYON",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Diskussion war sehr lebhaft.",
+          "translation": "The discussion was very lively."
+        },
+        "tip": "This word is feminine, so it uses 'die'."
+      },
+      {
+        "term": "der Einfluss",
+        "translation": "the influence",
+        "definition": "the capacity to have an effect on the character, development, or behavior of someone or something",
+        "pronunciation": "deir IN-fluss",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Einfluss der sozialen Medien wächst.",
+          "translation": "The influence of social media is growing."
+        },
+        "tip": "This noun is masculine, so it uses 'der'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subordinate Clauses with 'dass' and 'weil'",
+        "explanation": "'Dass' (that) is used to introduce clauses that explain opinions or beliefs, while 'weil' (because) introduces reasons. In German, the verb in these clauses goes to the end. For example, 'Ich denke, dass es wichtig ist.' (I think that it is important.) and 'Ich glaube, weil es viele Vorteile hat.' (I believe because it has many advantages.)",
+        "table": {
+          "headers": [
+            "German",
+            "English"
+          ],
+          "rows": [
+            [
+              "Ich denke, dass es wichtig ist.",
+              "I think that it is important."
+            ],
+            [
+              "Ich glaube, weil es viele Vorteile hat.",
+              "I believe because it has many advantages."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich finde, dass die Nachrichten oft negativ sind.",
+            "translation": "I find that the news is often negative.",
+            "breakdown": "'Ich finde' (I find) + 'dass' (that) + 'die Nachrichten' (the news) + 'oft negativ sind' (are often negative)."
+          },
+          {
+            "original": "Ich denke, weil es wichtig ist, informiert zu sein.",
+            "translation": "I think because it is important to be informed.",
+            "breakdown": "'Ich denke' (I think) + 'weil' (because) + 'es wichtig ist' (it is important) + 'informiert zu sein' (to be informed)."
+          }
+        ],
+        "commonMistakes": [
+          "Forgetting to place the verb at the end in subordinate clauses. Correct: 'Ich weiß, dass du kommst.' (I know that you are coming.)",
+          "Using 'weil' without a subject. Correct: 'Ich denke, weil es wichtig ist.' (I think because it is important.)"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Recent News",
+      "context": "A café, where two friends are discussing current events over coffee.",
+      "speakers": [
+        "Max",
+        "Lena"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hast du die neuesten Nachrichten gehört?",
+          "translation": "Did you hear the latest news?",
+          "note": "Max is starting the conversation."
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe von den Wahlen gelesen.",
+          "translation": "Yes, I read about the elections."
+        },
+        {
+          "speaker": 0,
+          "text": "Was denkst du über die neuen Politiker?",
+          "translation": "What do you think about the new politicians?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich finde, dass sie viele gute Ideen haben.",
+          "translation": "I think that they have many good ideas."
+        },
+        {
+          "speaker": 0,
+          "text": "Das glaube ich auch, aber ich bin skeptisch.",
+          "translation": "I believe that too, but I am skeptical."
+        },
+        {
+          "speaker": 1,
+          "text": "Warum bist du skeptisch?",
+          "translation": "Why are you skeptical?"
+        },
+        {
+          "speaker": 0,
+          "text": "Weil die Versprechen oft nicht gehalten werden.",
+          "translation": "Because promises are often not kept."
+        },
+        {
+          "speaker": 1,
+          "text": "Das stimmt, aber ich hoffe, dass sich etwas ändert.",
+          "translation": "That’s true, but I hope that something changes."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Engagement in Current Events",
+      "text": "In German-speaking countries, discussing current events is a significant aspect of social life. Many people engage in debates about politics and society, and it's common to express differing opinions.",
+      "funFact": "The term 'Stammtisch' refers to a regular table in a pub where friends meet to discuss news and share opinions, emphasizing the importance of conversation in German culture."
+    },
+    "summary": {
+      "keyPoints": [
+        "You learned vocabulary related to discussing news and opinions.",
+        "You practiced using subordinate clauses with 'dass' and 'weil'.",
+        "You engaged in a dialogue about current events.",
+        "You explored cultural aspects of discussing news in German-speaking countries."
+      ],
+      "nextSteps": "Practice using the new vocabulary in your own discussions, and try to form sentences with 'dass' and 'weil' in different contexts."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'die Meinung' mean in English?",
+      "content": {
+        "options": [
+          "the opinion",
+          "the discussion",
+          "the news",
+          "the politician"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Meinung' translates to 'the opinion' in English.",
+      "hint": "Think about personal views.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'to discuss' in German?",
+      "content": {
+        "options": [
+          "diskutieren",
+          "reden",
+          "sagen",
+          "fragen"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Diskutieren' is the German verb for 'to discuss'.",
+      "hint": "It starts with 'd'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Die _______ ist wichtig, um informiert zu sein.'",
+      "content": {
+        "sentence": "Die _______ ist wichtig, um informiert zu sein.",
+        "correctAnswer": "Nachricht",
+        "acceptableAnswers": [
+          "Nachrichten"
+        ],
+        "options": [
+          "Nachricht",
+          "Meinung",
+          "Diskussion",
+          "Politiker"
+        ]
+      },
+      "explanation": "The correct word is 'Nachricht', meaning 'news'.",
+      "hint": "Think about information updates.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Ich habe eine _______ zu diesem Thema.'",
+      "content": {
+        "sentence": "Ich habe eine _______ zu diesem Thema.",
+        "correctAnswer": "Meinung",
+        "acceptableAnswers": [
+          "Meinungen"
+        ],
+        "options": [
+          "Meinung",
+          "Diskussion",
+          "Nachricht",
+          "Politiker"
+        ]
+      },
+      "explanation": "The correct answer is 'Meinung', meaning 'opinion'.",
+      "hint": "It's something you express.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'diskutieren / die Politiker / über / aktuelle Themen'.",
+      "content": {
+        "words": [
+          "diskutieren",
+          "die",
+          "Politiker",
+          "aktuelle",
+          "Themen",
+          "über"
+        ],
+        "correctOrder": [
+          "die",
+          "Politiker",
+          "diskutieren",
+          "über",
+          "aktuelle",
+          "Themen"
+        ],
+        "translation": "The politicians discuss current topics."
+      },
+      "explanation": "The correct order forms a meaningful sentence in German.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The discussion was very interesting.'",
+      "content": {
+        "prompt": "Translate to German: 'The discussion was very interesting.'",
+        "correctAnswer": "Die Diskussion war sehr interessant.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation correctly conveys the meaning in German.",
+      "hint": "Focus on the noun for discussion.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct option.",
+      "content": {
+        "ttsText": "Die Politiker haben einen großen Einfluss auf die Gesellschaft.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The politicians have a big influence on society.",
+          "The politicians have a small impact on society.",
+          "The politicians are not important to society.",
+          "The politicians ignore society."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct option reflects the spoken sentence accurately.",
+      "hint": "Pay attention to the word 'Einfluss'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in German: 'I want to discuss current events.'",
+      "content": {
+        "targetText": "Ich möchte aktuelle Ereignisse diskutieren.",
+        "context": "Translate and pronounce this sentence.",
+        "acceptableVariants": [
+          "Ich will aktuelle Ereignisse diskutieren."
+        ]
+      },
+      "explanation": "The sentence correctly expresses the desire to discuss current events.",
+      "hint": "Use 'möchte' or 'will' for 'want to'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'der Einfluss' mean in English?",
+      "content": {
+        "options": [
+          "the influence",
+          "the opinion",
+          "the news",
+          "the discussion"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Einfluss' translates to 'the influence' in English.",
+      "hint": "It’s something that affects others.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Die _______ beeinflusst die öffentliche Meinung.'",
+      "content": {
+        "sentence": "Die _______ beeinflusst die öffentliche Meinung.",
+        "correctAnswer": "Nachricht",
+        "acceptableAnswers": [],
+        "options": [
+          "Nachricht",
+          "Meinung",
+          "Diskussion",
+          "Politiker"
+        ]
+      },
+      "explanation": "'Nachricht' fits the sentence as it relates to news affecting public opinion.",
+      "hint": "Think about what spreads information.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Express your opinion about a recent news event in German.",
+      "content": {
+        "targetText": "Ich finde, dass [insert your opinion here].",
+        "context": "Use this structure to share your thoughts.",
+        "acceptableVariants": [
+          "Ich glaube, dass...",
+          "Meiner Meinung nach..."
+        ]
+      },
+      "explanation": "This exercise encourages personal expression about current events.",
+      "hint": "Start with 'Ich finde' or 'Ich glaube'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

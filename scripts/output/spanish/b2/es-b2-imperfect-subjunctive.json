@@ -1,0 +1,355 @@
+{
+  "lesson": {
+    "title": "Imperfect Subjunctive",
+    "type": "GRAMMAR",
+    "slug": "es-b2-imperfect-subjunctive"
+  },
+  "unit": "Advanced Grammar Review",
+  "unitOrder": 1,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about the imperfect subjunctive in Spanish, including its formation and usage in various contexts. This tense is crucial for expressing hypotheticals and desires in the past.",
+      "culturalNote": "The imperfect subjunctive is often used in traditional Spanish literature and poetry, reflecting the depth and nuance of the language."
+    },
+    "vocabulary": [
+      {
+        "term": "el deseo",
+        "translation": "the desire",
+        "definition": "A strong feeling of wanting something.",
+        "pronunciation": "el deh-say-o",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El deseo de viajar era muy fuerte.",
+          "translation": "The desire to travel was very strong."
+        },
+        "tip": "Remember that 'deseo' can also refer to wishful thinking."
+      },
+      {
+        "term": "la posibilidad",
+        "translation": "the possibility",
+        "definition": "The chance of something happening.",
+        "pronunciation": "la poh-see-bi-li-dad",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Hay una posibilidad de que lleguen tarde.",
+          "translation": "There is a possibility that they will arrive late."
+        },
+        "tip": "Use 'posibilidad' to discuss potential outcomes."
+      },
+      {
+        "term": "si tuviera",
+        "translation": "if I had",
+        "definition": "A conditional phrase often used in hypothetical situations.",
+        "pronunciation": "see too-vee-ay-ra",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Si tuviera dinero, viajaría por el mundo.",
+          "translation": "If I had money, I would travel the world."
+        },
+        "tip": "This structure is essential for expressing conditions."
+      },
+      {
+        "term": "aunque",
+        "translation": "even if/although",
+        "definition": "A conjunction used to introduce a contrast.",
+        "pronunciation": "awn-kay",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Aunque fuera difícil, lo intentaría.",
+          "translation": "Even if it were difficult, I would try."
+        },
+        "tip": "Remember that 'aunque' can introduce hypothetical scenarios."
+      },
+      {
+        "term": "me gustaría",
+        "translation": "I would like",
+        "definition": "A phrase used to express desires or wishes.",
+        "pronunciation": "meh goos-tah-ree-ah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Me gustaría que vinieras a la fiesta.",
+          "translation": "I would like you to come to the party."
+        },
+        "tip": "Use this structure to express polite requests."
+      },
+      {
+        "term": "ojalá",
+        "translation": "I hope/let's hope",
+        "definition": "An expression of hope for something to happen.",
+        "pronunciation": "oh-ha-lah",
+        "partOfSpeech": "interjection",
+        "exampleSentence": {
+          "original": "Ojalá que no llueva mañana.",
+          "translation": "I hope it doesn't rain tomorrow."
+        },
+        "tip": "This is often followed by the subjunctive mood."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Imperfect Subjunctive Formation and Use",
+        "explanation": "The imperfect subjunctive is formed by taking the third-person plural of the preterite, dropping the -ron ending, and adding the appropriate endings: -ra, -ras, -ra, -ramos, -rán, -ran. It is used in situations that require the subjunctive but refer to past actions or events that are uncertain or hypothetical.",
+        "table": {
+          "headers": [
+            "Subject Pronoun",
+            "Ending"
+          ],
+          "rows": [
+            [
+              "yo",
+              "-ra"
+            ],
+            [
+              "tú",
+              "-ras"
+            ],
+            [
+              "él/ella/usted",
+              "-ra"
+            ],
+            [
+              "nosotros",
+              "-ramos"
+            ],
+            [
+              "ellos/ellas/ustedes",
+              "-ran"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Si pudiera, iría a la playa.",
+            "translation": "If I could, I would go to the beach.",
+            "breakdown": "Here, 'pudiera' is the imperfect subjunctive of 'poder', expressing a hypothetical situation."
+          },
+          {
+            "original": "Quisiera que me ayudaras con el proyecto.",
+            "translation": "I would like you to help me with the project.",
+            "breakdown": "'Quisiera' expresses a wish using the imperfect subjunctive."
+          }
+        ],
+        "commonMistakes": [
+          "Using the present subjunctive when the context requires the imperfect subjunctive. Example: 'Si tuviera tiempo' instead of 'Si tengo tiempo'.",
+          "Confusing the imperfect subjunctive with the conditional. Remember, the imperfect subjunctive expresses hypothetical situations."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Future Plans",
+      "context": "A conversation between two friends discussing their future aspirations.",
+      "speakers": [
+        "Ana",
+        "Carlos"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Si tuviera la oportunidad, viajaría por el mundo.",
+          "translation": "If I had the opportunity, I would travel the world."
+        },
+        {
+          "speaker": 1,
+          "text": "A mí también me gustaría hacer eso. Ojalá que tengamos el dinero.",
+          "translation": "I would also like to do that. I hope we have the money."
+        },
+        {
+          "speaker": 0,
+          "text": "Aunque fuera difícil, lo intentaría.",
+          "translation": "Even if it were difficult, I would try."
+        },
+        {
+          "speaker": 1,
+          "text": "Es cierto. Si pudiéramos, viviríamos en otro país.",
+          "translation": "That's true. If we could, we would live in another country."
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, y me gustaría que pudiéramos aprender el idioma.",
+          "translation": "Yes, and I would like us to be able to learn the language."
+        },
+        {
+          "speaker": 1,
+          "text": "Ojalá que todo salga bien en el futuro.",
+          "translation": "I hope everything goes well in the future."
+        },
+        {
+          "speaker": 0,
+          "text": "Si tuviéramos más tiempo, podríamos planearlo mejor.",
+          "translation": "If we had more time, we could plan it better."
+        },
+        {
+          "speaker": 1,
+          "text": "Exactamente, aunque ahora mismo tenemos que trabajar.",
+          "translation": "Exactly, although right now we have to work."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Role of the Subjunctive in Spanish Literature",
+      "text": "The subjunctive mood, including the imperfect subjunctive, is frequently used in Spanish literature to express doubt, desire, and emotion. Authors often employ this mood to add depth to their characters' thoughts and feelings.",
+      "funFact": "Many famous Spanish poets, like Pablo Neruda, use the subjunctive to convey complex emotions in their work."
+    },
+    "summary": {
+      "keyPoints": [
+        "The imperfect subjunctive is used for hypothetical situations in the past.",
+        "It is formed by modifying the preterite verb forms.",
+        "Common phrases such as 'me gustaría' and 'ojalá' are often used with this tense.",
+        "Understanding the imperfect subjunctive enhances your ability to express desires and possibilities."
+      ],
+      "nextSteps": "Practice forming sentences using the imperfect subjunctive. Try to create your own hypothetical situations to solidify your understanding."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following sentences uses the imperfect subjunctive correctly?",
+      "content": {
+        "options": [
+          "Si yo tuviera más tiempo, iría al cine.",
+          "Si yo tengo más tiempo, iría al cine.",
+          "Si yo tuviera más tiempo, voy al cine."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The first option correctly uses the imperfect subjunctive 'tuviera' to express a hypothetical situation.",
+      "hint": "Look for the conditional phrase.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Choose the correct form of the verb in the imperfect subjunctive: 'Ojalá que él ____ (venir) mañana.'",
+      "content": {
+        "options": [
+          "viniera",
+          "viene",
+          "viniera"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct form 'viniera' is the imperfect subjunctive of 'venir'.",
+      "hint": "Think about wishes or hopes.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence with the correct form of the verb: 'Si _____ (tener) dinero, viajaría por el mundo.'",
+      "content": {
+        "sentence": "Si ___ dinero, viajaría por el mundo.",
+        "correctAnswer": "tuviera",
+        "acceptableAnswers": [
+          "tuviera"
+        ],
+        "options": [
+          "tuviera",
+          "tengo",
+          "tendría"
+        ]
+      },
+      "explanation": "The sentence requires the imperfect subjunctive 'tuviera' to express a hypothetical condition.",
+      "hint": "It is a condition that is not real.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the correct verb form: 'Me gustaría que ellos _____ (venir) a la fiesta.'",
+      "content": {
+        "sentence": "Me gustaría que ellos ___ a la fiesta.",
+        "correctAnswer": "vinieran",
+        "acceptableAnswers": [
+          "vinieran"
+        ],
+        "options": [
+          "vengan",
+          "vinieran",
+          "vienen"
+        ]
+      },
+      "explanation": "The sentence uses 'vinieran' in the imperfect subjunctive to express a desire.",
+      "hint": "Think about wishes.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'aunque / tuviera / no / iría / a la fiesta'.",
+      "content": {
+        "words": [
+          "aunque",
+          "tuviera",
+          "no",
+          "iría",
+          "a",
+          "la",
+          "fiesta"
+        ],
+        "correctOrder": [
+          "aunque",
+          "no",
+          "iría",
+          "a",
+          "la",
+          "fiesta",
+          "tuviera"
+        ],
+        "translation": "Even if I had, I would not go to the party."
+      },
+      "explanation": "The correct order creates a conditional sentence expressing a hypothetical situation.",
+      "hint": "Pay attention to the conditional structure.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I wish he were here.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I wish he were here.'",
+        "correctAnswer": "Ojalá que él estuviera aquí.",
+        "acceptableAnswers": [
+          "Ojalá que él estuviese aquí."
+        ]
+      },
+      "explanation": "The phrase expresses a wish and uses the imperfect subjunctive 'estuviera'.",
+      "hint": "Think about expressing a desire.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation.",
+      "content": {
+        "ttsText": "Ojalá que mañana no llueva.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I hope it doesn't rain tomorrow.",
+          "I wish it rained tomorrow.",
+          "I hope it rained tomorrow."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence expresses hope for the future, which is correctly translated as the first option.",
+      "hint": "Focus on the meaning of 'ojalá'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the Spanish sentence: 'If I were rich, I would travel the world.'",
+      "content": {
+        "targetText": "Si yo fuera rico, viajaría por el mundo.",
+        "context": "Express a hypothetical situation.",
+        "acceptableVariants": [
+          "Si yo tuviera dinero, viajaría por el mundo."
+        ]
+      },
+      "explanation": "The sentence uses the imperfect subjunctive 'fuera' to express an unreal condition.",
+      "hint": "Focus on expressing a condition that is not true.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,349 @@
+{
+  "lesson": {
+    "title": "Unit 3 Review",
+    "type": "REVIEW",
+    "slug": "es-b2-unit3-review"
+  },
+  "unit": "Professional Communication",
+  "unitOrder": 3,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this Unit 3 Review, you will consolidate your knowledge of professional communication in Spanish. We will revisit key vocabulary, important grammatical structures, and engage in a relevant dialogue to practice your conversational skills.",
+      "culturalNote": "Professional communication in Spanish often reflects the formalities of the culture, emphasizing respect and hierarchy in workplace interactions."
+    },
+    "vocabulary": [
+      {
+        "term": "el currículum",
+        "translation": "the resume",
+        "definition": "A document summarizing a person's education, work experience, and skills.",
+        "pronunciation": "el koo-ree-kool-oom",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es importante tener un currículum bien redactado.",
+          "translation": "It is important to have a well-written resume."
+        },
+        "tip": "Remember that 'currículum' is often abbreviated as 'CV' in professional contexts."
+      },
+      {
+        "term": "la entrevista",
+        "translation": "the interview",
+        "definition": "A formal meeting to discuss a person's qualifications for a job.",
+        "pronunciation": "la en-treh-vee-stah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La entrevista fue muy difícil, pero me sentí preparado.",
+          "translation": "The interview was very difficult, but I felt prepared."
+        },
+        "tip": "Try to practice common interview questions in Spanish to boost your confidence."
+      },
+      {
+        "term": "la carta de presentación",
+        "translation": "the cover letter",
+        "definition": "A letter sent with a resume to introduce yourself to a potential employer.",
+        "pronunciation": "la kar-tah deh pre-sen-ta-syohn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Asegúrate de personalizar la carta de presentación para cada trabajo.",
+          "translation": "Make sure to customize the cover letter for each job."
+        },
+        "tip": "Use formal language and avoid slang in your cover letter."
+      },
+      {
+        "term": "la red de contactos",
+        "translation": "the network of contacts",
+        "definition": "A group of professional relationships that can assist in job opportunities.",
+        "pronunciation": "la red de kon-tak-tos",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es crucial construir una buena red de contactos en tu campo.",
+          "translation": "It is crucial to build a good network of contacts in your field."
+        },
+        "tip": "Networking events can be a great way to expand your contacts."
+      },
+      {
+        "term": "el salario",
+        "translation": "the salary",
+        "definition": "The amount of money paid to an employee for work performed.",
+        "pronunciation": "el sah-lah-ree-oh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Negocié mi salario antes de aceptar el trabajo.",
+          "translation": "I negotiated my salary before accepting the job."
+        },
+        "tip": "Research typical salaries for your position to prepare for negotiations."
+      },
+      {
+        "term": "el puesto",
+        "translation": "the position",
+        "definition": "A specific job role within a company.",
+        "pronunciation": "el pwesto",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Estoy buscando un puesto en marketing.",
+          "translation": "I am looking for a position in marketing."
+        },
+        "tip": "Understand the responsibilities of the position during the application process."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Subjunctive Mood in Professional Communication",
+        "explanation": "The subjunctive mood is often used in professional settings to express wishes, doubts, or hypothetical situations. For example, you might say, 'Espero que usted tenga éxito' (I hope that you succeed). Use the subjunctive after expressions of hope, desire, or uncertainty.",
+        "table": {
+          "headers": [
+            "Present Subjunctive",
+            "Imperfect Subjunctive"
+          ],
+          "rows": [
+            [
+              "que yo hable",
+              "que yo hablara"
+            ],
+            [
+              "que tú hables",
+              "que tú hablaras"
+            ],
+            [
+              "que él/ella hable",
+              "que él/ella hablara"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es posible que ella acepte el puesto.",
+            "translation": "It is possible that she accepts the position.",
+            "breakdown": "Here, 'acepte' is in the present subjunctive because it follows the expression 'es posible que'."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: 'Es cierto que él viene' instead of 'Es cierto que él venga'.",
+          "Forgetting to use the subjunctive in wish statements: 'Espero que tú estudies' instead of 'Espero que tú estudias'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Job Interview Discussion",
+      "context": "Two colleagues discussing an upcoming job interview in a break room.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola Ana, ¿cómo te sientes sobre la entrevista de mañana?",
+          "translation": "Hi Ana, how do you feel about the interview tomorrow?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hola Carlos, estoy un poco nerviosa, pero creo que estoy lista.",
+          "translation": "Hi Carlos, I'm a bit nervous, but I think I'm ready."
+        },
+        {
+          "speaker": 0,
+          "text": "Recuerda repasar tu currículum y la carta de presentación.",
+          "translation": "Remember to review your resume and cover letter."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, lo haré. ¿Tienes algún consejo adicional?",
+          "translation": "Yes, I will. Do you have any additional advice?"
+        },
+        {
+          "speaker": 0,
+          "text": "Es importante que muestres confianza y que no tengas miedo de hacer preguntas.",
+          "translation": "It's important that you show confidence and that you are not afraid to ask questions."
+        },
+        {
+          "speaker": 1,
+          "text": "Buena idea. Espero que el entrevistador sea amable.",
+          "translation": "Good idea. I hope the interviewer is kind."
+        },
+        {
+          "speaker": 0,
+          "text": "Si tienes éxito, podrías negociar tu salario también.",
+          "translation": "If you succeed, you could negotiate your salary as well."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, eso sería genial. ¡Gracias por tu apoyo, Carlos!",
+          "translation": "Yes, that would be great. Thank you for your support, Carlos!"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Networking in Latin America",
+      "text": "In many Latin American countries, networking is essential for professional advancement. Building personal relationships is often prioritized over formal credentials. Understanding cultural nuances can greatly enhance your networking efforts.",
+      "funFact": "In some cultures, it is common to greet people with a kiss on the cheek, even in professional settings, to establish rapport."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review of essential vocabulary for professional communication.",
+        "Understanding and using the subjunctive mood.",
+        "Importance of networking in professional settings.",
+        "Strategies for approaching job interviews."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences, review the subjunctive mood with real-life examples, and engage in mock interviews with a partner."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'el currículum' in English?",
+      "content": {
+        "options": [
+          "Resume",
+          "Interview",
+          "Cover Letter",
+          "Salary"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El currículum' translates to 'Resume' in English, which is a document summarizing a person's skills and experience.",
+      "hint": "Think about what you submit when applying for a job.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'salary'?",
+      "content": {
+        "options": [
+          "El puesto",
+          "El currículum",
+          "La carta de presentación",
+          "El salario"
+        ],
+        "correctIndex": 3
+      },
+      "explanation": "'El salario' directly translates to 'salary', which refers to the payment received for work.",
+      "hint": "It's what you earn from your job.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ella tiene una ___ para el nuevo trabajo.",
+      "content": {
+        "sentence": "Ella tiene una ___ para el nuevo trabajo.",
+        "correctAnswer": "entrevista",
+        "acceptableAnswers": [
+          "entrevista"
+        ],
+        "options": [
+          "entrevista",
+          "carta",
+          "red",
+          "currículum"
+        ]
+      },
+      "explanation": "The correct word is 'entrevista', which means 'interview'.",
+      "hint": "It's the meeting where you discuss a job.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Necesito actualizar mi ___ antes de aplicar.",
+      "content": {
+        "sentence": "Necesito actualizar mi ___ antes de aplicar.",
+        "correctAnswer": "currículum",
+        "acceptableAnswers": [
+          "currículum"
+        ],
+        "options": [
+          "currículum",
+          "carta",
+          "red",
+          "entrevista"
+        ]
+      },
+      "explanation": "'Currículum' is the correct term as it refers to the document needed for job applications.",
+      "hint": "It's what you send to show your qualifications.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: carta / de / presentación / la / trabajo / nuevo / para / el",
+      "content": {
+        "words": [
+          "carta",
+          "de",
+          "presentación",
+          "la",
+          "trabajo",
+          "nuevo",
+          "para",
+          "el"
+        ],
+        "correctOrder": [
+          "la",
+          "carta",
+          "de",
+          "presentación",
+          "para",
+          "el",
+          "nuevo",
+          "trabajo"
+        ],
+        "translation": "the cover letter for the new job"
+      },
+      "explanation": "The correct order forms a coherent sentence in Spanish.",
+      "hint": "Start with 'la carta'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I need a cover letter for the job.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I need a cover letter for the job.'",
+        "correctAnswer": "Necesito una carta de presentación para el trabajo.",
+        "acceptableAnswers": [
+          "Necesito una carta de presentación para el trabajo."
+        ]
+      },
+      "explanation": "The sentence correctly conveys the need for a cover letter in Spanish.",
+      "hint": "Remember the word for 'letter' in Spanish.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'El salario es importante.'",
+      "content": {
+        "ttsText": "El salario es importante.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The position is important.",
+          "The salary is important.",
+          "The resume is important.",
+          "The interview is important."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct translation is 'The salary is important.', which reflects the original meaning.",
+      "hint": "Focus on the word for 'salary'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I want to expand my network.'",
+      "content": {
+        "targetText": "Quiero ampliar mi red de contactos.",
+        "context": "Expressing a desire to grow professional connections.",
+        "acceptableVariants": [
+          "Quiero ampliar mi red de contactos."
+        ]
+      },
+      "explanation": "The sentence accurately reflects the intended meaning of expanding one's professional network.",
+      "hint": "Think about the word 'network' in Spanish.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

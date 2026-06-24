@@ -1,0 +1,322 @@
+{
+  "lesson": {
+    "title": "Travel Stories & Adventures",
+    "type": "CONVERSATION",
+    "slug": "de-b1-travel-stories"
+  },
+  "unit": "Culture & Travel",
+  "unitOrder": 7,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary and phrases related to travel stories and adventures. You'll also practice using subordinate clauses and the Konjunktiv II for politeness in conversations.",
+      "culturalNote": "Traveling in German-speaking countries often involves exploring picturesque landscapes and rich historical sites, making it a popular topic among locals."
+    },
+    "vocabulary": [
+      {
+        "term": "die Reise",
+        "translation": "the trip",
+        "definition": "A journey from one place to another.",
+        "pronunciation": "dee RY-zeh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Reise nach Berlin war sehr spannend.",
+          "translation": "The trip to Berlin was very exciting."
+        },
+        "tip": "Remember that 'Reise' is feminine (die) and its plural is 'Reisen'."
+      },
+      {
+        "term": "das Abenteuer",
+        "translation": "the adventure",
+        "definition": "An unusual and exciting experience.",
+        "pronunciation": "dahs AH-ben-toy-er",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Abenteuer in den Alpen war unvergesslich.",
+          "translation": "The adventure in the Alps was unforgettable."
+        },
+        "tip": "'Abenteuer' is neuter (das) and has no plural form."
+      },
+      {
+        "term": "der Reiseführer",
+        "translation": "the travel guide",
+        "definition": "A person or book that provides information about travel destinations.",
+        "pronunciation": "dair RY-zeh-fyu-rer",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Reiseführer erklärt die Sehenswürdigkeiten.",
+          "translation": "The travel guide explains the sights."
+        },
+        "tip": "Remember that 'Reiseführer' is masculine (der) and its plural is 'Reiseführer' (same form)."
+      },
+      {
+        "term": "die Sehenswürdigkeit",
+        "translation": "the sight/attraction",
+        "definition": "A place of interest to tourists.",
+        "pronunciation": "dee ZAY-enz-vuhr-dig-kite",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Sehenswürdigkeit in München ist das Schloss Nymphenburg.",
+          "translation": "The sight in Munich is Nymphenburg Palace."
+        },
+        "tip": "'Sehenswürdigkeit' is feminine (die) and its plural is 'Sehenswürdigkeiten'."
+      },
+      {
+        "term": "die Kultur",
+        "translation": "the culture",
+        "definition": "The social behavior and norms found in human societies.",
+        "pronunciation": "dee Kool-toor",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich interessiere mich für die Kultur der Schweiz.",
+          "translation": "I am interested in Swiss culture."
+        },
+        "tip": "'Kultur' is feminine (die) and its plural is 'Kulturen'."
+      },
+      {
+        "term": "der Flieger",
+        "translation": "the plane",
+        "definition": "An aircraft.",
+        "pronunciation": "dair FLEE-ger",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Flieger nach Frankfurt hat Verspätung.",
+          "translation": "The plane to Frankfurt is delayed."
+        },
+        "tip": "'Flieger' is masculine (der) and its plural is 'Flieger' (same form)."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subordinate Clauses with 'dass', 'weil', and 'wenn'",
+        "explanation": "In German, subordinate clauses often use conjunctions such as 'dass' (that), 'weil' (because), and 'wenn' (if). These clauses are typically placed after the main clause and the verb moves to the end.",
+        "table": {
+          "headers": [
+            "Conjunction",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "dass",
+              "Used to introduce statements or indirect speech."
+            ],
+            [
+              "weil",
+              "Used to explain reasons."
+            ],
+            [
+              "wenn",
+              "Used to express conditions."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich glaube, dass die Reise interessant ist.",
+            "translation": "I believe that the trip is interesting.",
+            "breakdown": "Main clause: 'Ich glaube' (I believe) + subordinate clause: 'dass die Reise interessant ist' (that the trip is interesting)."
+          },
+          {
+            "original": "Wir fahren, weil das Wetter schön ist.",
+            "translation": "We are going because the weather is nice.",
+            "breakdown": "Main clause: 'Wir fahren' (We are going) + subordinate clause: 'weil das Wetter schön ist' (because the weather is nice)."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'dass' incorrectly at the beginning of a sentence. Correction: It should follow the main clause.",
+          "Forgetting to put the verb at the end in subordinate clauses. Correction: Always place the verb at the end."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Planning a Trip",
+      "context": "Two friends discussing their travel plans in a café.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Wo möchtest du in den Urlaub fahren?",
+          "translation": "Where would you like to go on vacation?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich möchte nach Italien fahren, weil ich die Kultur mag.",
+          "translation": "I would like to go to Italy because I like the culture."
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt spannend! Was möchtest du dort machen?",
+          "translation": "That sounds exciting! What do you want to do there?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich möchte die Sehenswürdigkeiten besichtigen und gutes Essen probieren.",
+          "translation": "I want to visit the sights and try good food."
+        },
+        {
+          "speaker": 0,
+          "text": "Hast du schon einen Reiseführer?",
+          "translation": "Do you already have a travel guide?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe einen Flieger gebucht und den Reiseführer gekauft.",
+          "translation": "Yes, I booked a plane and bought the travel guide."
+        },
+        {
+          "speaker": 0,
+          "text": "Wann fliegst du?",
+          "translation": "When are you flying?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich fliege nächste Woche, wenn alles gut läuft.",
+          "translation": "I am flying next week, if everything goes well."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Travel Traditions in Germany",
+      "text": "In Germany, it's common to explore local regions and enjoy nature. Many people go hiking in the Bavarian Alps or visit historical towns. Festivals like Oktoberfest attract many tourists and showcase German culture.",
+      "funFact": "Did you know that Germany has over 25,000 castles? Many are open to the public and offer guided tours!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to travel and adventures.",
+        "Practiced using subordinate clauses with 'dass', 'weil', and 'wenn'.",
+        "Engaged in a realistic dialogue about travel plans.",
+        "Gained insights into travel culture in German-speaking countries."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and try to create your own travel stories using subordinate clauses."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'the trip'?",
+      "content": {
+        "options": [
+          "die Reise",
+          "das Abenteuer",
+          "der Reiseführer",
+          "die Sehenswürdigkeit"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'die Reise', which means 'the trip' in German.",
+      "hint": "Think about the word related to going somewhere.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'the culture' in German?",
+      "content": {
+        "options": [
+          "die Kultur",
+          "das Abenteuer",
+          "der Flieger",
+          "die Sehenswürdigkeit"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Kultur' translates to 'the culture' in English.",
+      "hint": "It's related to traditions and lifestyle.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich möchte ein ___ kaufen.'",
+      "content": {
+        "sentence": "Ich möchte ein ___ kaufen.",
+        "correctAnswer": "Reiseführer",
+        "acceptableAnswers": [
+          "Reiseführer"
+        ],
+        "options": [
+          "Flieger",
+          "Abenteuer",
+          "Reiseführer",
+          "Sehenswürdigkeit"
+        ]
+      },
+      "explanation": "'Reiseführer' means 'guidebook', which is what you might want to buy for a trip.",
+      "hint": "It's something that helps you navigate during a trip.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Wir haben viele ___ in der Stadt gesehen.'",
+      "content": {
+        "sentence": "Wir haben viele ___ in der Stadt gesehen.",
+        "correctAnswer": "Sehenswürdigkeiten",
+        "acceptableAnswers": [
+          "Sehenswürdigkeiten"
+        ],
+        "options": [
+          "Abenteuer",
+          "Flieger",
+          "Sehenswürdigkeiten",
+          "Kultur"
+        ]
+      },
+      "explanation": "'Sehenswürdigkeiten' refers to 'sights' or 'attractions' you can see in a city.",
+      "hint": "These are interesting places to visit.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The adventure was exciting.'",
+      "content": {
+        "prompt": "Translate to German: 'The adventure was exciting.'",
+        "correctAnswer": "Das Abenteuer war aufregend.",
+        "acceptableAnswers": [
+          "Das Abenteuer war spannend."
+        ]
+      },
+      "explanation": "Both translations convey the meaning that the adventure was thrilling.",
+      "hint": "Focus on the word for 'adventure'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct option.",
+      "content": {
+        "ttsText": "Ich liebe es, neue Kulturen zu entdecken.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I love discovering new cultures.",
+          "I enjoy traveling to new cities.",
+          "I like eating new foods."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct option translates the German sentence accurately.",
+      "hint": "Listen for the word 'Kulturen'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in German: 'I want to travel to Germany next summer.'",
+      "content": {
+        "targetText": "Ich möchte nächsten Sommer nach Deutschland reisen.",
+        "context": "Translate and say this sentence.",
+        "acceptableVariants": [
+          "Nächsten Sommer will ich nach Deutschland reisen."
+        ]
+      },
+      "explanation": "This is a correct translation of the sentence that expresses your travel plans.",
+      "hint": "Remember 'reisen' means 'to travel'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

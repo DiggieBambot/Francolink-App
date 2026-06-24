@@ -1,0 +1,412 @@
+{
+  "lesson": {
+    "title": "Unit 6 Review",
+    "type": "REVIEW",
+    "slug": "es-b1-unit6-review"
+  },
+  "unit": "Environment & Society",
+  "unitOrder": 6,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this unit review, you will consolidate your knowledge of vocabulary and grammar related to the environment and society. You will practice using the present subjunctive, conditionals, and reported speech in meaningful contexts.",
+      "culturalNote": "In many Spanish-speaking countries, environmental issues are closely linked to social justice, highlighting the importance of sustainability for future generations."
+    },
+    "vocabulary": [
+      {
+        "term": "el medio ambiente",
+        "translation": "the environment",
+        "definition": "The natural world, including land, water, air, and living organisms.",
+        "pronunciation": "el meh-dyoh ahm-bee-ehn-teh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es importante proteger el medio ambiente.",
+          "translation": "It is important to protect the environment."
+        },
+        "tip": "Think of 'medio' as 'middle' and 'ambiente' as 'surroundings' to remember that it refers to your surrounding environment."
+      },
+      {
+        "term": "la contaminación",
+        "translation": "pollution",
+        "definition": "The presence of harmful substances in the environment.",
+        "pronunciation": "lah kohn-tah-mee-nah-syohn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La contaminación afecta la salud de las personas.",
+          "translation": "Pollution affects people's health."
+        },
+        "tip": "Remember the root 'contaminate' in English to connect it with 'contaminación'."
+      },
+      {
+        "term": "la sostenibilidad",
+        "translation": "sustainability",
+        "definition": "The ability to maintain ecological balance.",
+        "pronunciation": "lah sohs-teh-nee-bee-li-dahd",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La sostenibilidad es fundamental para el futuro.",
+          "translation": "Sustainability is essential for the future."
+        },
+        "tip": "The word has a similar form in English, helping you remember its meaning."
+      },
+      {
+        "term": "el reciclaje",
+        "translation": "recycling",
+        "definition": "The process of converting waste into reusable material.",
+        "pronunciation": "el reh-see-klah-heh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El reciclaje ayuda a reducir la basura.",
+          "translation": "Recycling helps reduce waste."
+        },
+        "tip": "Think of 'cycle' in recycling to remember its purpose of reusing materials."
+      },
+      {
+        "term": "el cambio climático",
+        "translation": "climate change",
+        "definition": "Long-term alterations in temperature and typical weather patterns.",
+        "pronunciation": "el kahm-byoh klee-mah-tee-koh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El cambio climático es un reto global.",
+          "translation": "Climate change is a global challenge."
+        },
+        "tip": "Connect 'cambio' (change) with 'climático' (climatic) to recall its meaning."
+      },
+      {
+        "term": "la biodiversidad",
+        "translation": "biodiversity",
+        "definition": "The variety of life in the world or in a particular habitat.",
+        "pronunciation": "lah bee-oh-dee-ver-si-dahd",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La biodiversidad es vital para el ecosistema.",
+          "translation": "Biodiversity is vital for the ecosystem."
+        },
+        "tip": "The prefix 'bio-' relates to life, which can help you remember this term."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Present Subjunctive",
+        "explanation": "The present subjunctive is used to express desires, doubts, or hypothetical situations. It is formed by taking the present tense yo form of the verb, dropping the -o, and adding the appropriate endings. Regular verbs have specific endings based on their conjugation.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Conjugation"
+          ],
+          "rows": [
+            [
+              "yo",
+              "hable (I speak)"
+            ],
+            [
+              "tú",
+              "hables (you speak)"
+            ],
+            [
+              "él/ella/usted",
+              "hable (he/she/you speak)"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Espero que él hable sobre el medio ambiente.",
+            "translation": "I hope that he talks about the environment.",
+            "breakdown": "Here, 'espero' (I hope) triggers the subjunctive 'hable' (he talks)."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: 'Espero que él habla' should be 'Espero que él hable'.",
+          "Confusing the forms: Remember that 'hable' is for 'él' and 'hables' is for 'tú'."
+        ]
+      },
+      {
+        "title": "Reported Speech",
+        "explanation": "Reported speech is used when we want to convey what someone else has said without quoting them directly. In Spanish, the verb tense often shifts back one tense (e.g., present to imperfect).",
+        "table": {
+          "headers": [
+            "Direct Speech",
+            "Reported Speech"
+          ],
+          "rows": [
+            [
+              "Ella dice: 'Me gusta la naturaleza.'",
+              "Ella dice que le gusta la naturaleza."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Juan dijo: 'Nosotros reciclamos.'",
+            "translation": "Juan said, 'We recycle.'",
+            "breakdown": "In reported speech: 'Juan dijo que reciclábamos.' (Juan said that we recycled)."
+          }
+        ],
+        "commonMistakes": [
+          "Forgetting to change the verb tense: 'Ella dice que me gusta' should be 'Ella dice que le gusta'.",
+          "Not using 'que' to introduce the reported speech."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Environmental Issues",
+      "context": "A conversation between two friends discussing their views on environmental issues at a coffee shop.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué piensas sobre el cambio climático?",
+          "translation": "What do you think about climate change?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Creo que es un problema serio que debemos abordar.",
+          "translation": "I think it is a serious problem that we must address.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, y la contaminación también afecta nuestra salud.",
+          "translation": "Yes, and pollution also affects our health.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Es cierto. Espero que más personas se preocupen por el medio ambiente.",
+          "translation": "That's true. I hope that more people care about the environment.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Qué acciones crees que podemos tomar?",
+          "translation": "What actions do you think we can take?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Podríamos hacer más reciclaje y promover la sostenibilidad.",
+          "translation": "We could do more recycling and promote sustainability.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Exacto, y sería útil educar a otros sobre la biodiversidad.",
+          "translation": "Exactly, and it would be helpful to educate others about biodiversity.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, la educación es clave para un futuro mejor.",
+          "translation": "Yes, education is key for a better future.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Sustainability in Latin America",
+      "text": "In many Latin American countries, indigenous cultures place a strong emphasis on living in harmony with the environment. This perspective often influences local policies and initiatives aimed at environmental protection.",
+      "funFact": "Countries like Costa Rica have made significant strides in sustainability, aiming to become carbon neutral."
+    },
+    "summary": {
+      "keyPoints": [
+        "The present subjunctive is essential for expressing hopes and desires.",
+        "Reported speech is used to convey what others have said.",
+        "Understanding vocabulary related to the environment is crucial.",
+        "Conversations about environmental issues help reinforce your learning."
+      ],
+      "nextSteps": "Practice using the present subjunctive in different contexts and review vocabulary related to the environment."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'el medio ambiente' mean in English?",
+      "content": {
+        "options": [
+          "The environment",
+          "The pollution",
+          "The sustainability",
+          "The biodiversity"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El medio ambiente' translates to 'the environment' in English.",
+      "hint": "Think about natural surroundings.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is related to reducing waste?",
+      "content": {
+        "options": [
+          "El reciclaje",
+          "La contaminación",
+          "El cambio climático",
+          "La biodiversidad"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El reciclaje' refers to recycling, which helps reduce waste.",
+      "hint": "It involves reusing materials.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: La ______________ es importante para proteger el planeta.",
+      "content": {
+        "sentence": "La ______________ es importante para proteger el planeta.",
+        "correctAnswer": "sostenibilidad",
+        "acceptableAnswers": [
+          "sostenibilidad"
+        ],
+        "options": [
+          "sostenibilidad",
+          "contaminación",
+          "biodiversidad"
+        ]
+      },
+      "explanation": "Sustainability is crucial for protecting the planet.",
+      "hint": "It starts with 's'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: El ______________ es un gran problema que enfrentamos hoy.",
+      "content": {
+        "sentence": "El ______________ es un gran problema que enfrentamos hoy.",
+        "correctAnswer": "cambio climático",
+        "acceptableAnswers": [
+          "cambio climático"
+        ],
+        "options": [
+          "cambio climático",
+          "reciclaje",
+          "medio ambiente"
+        ]
+      },
+      "explanation": "Climate change is indeed a significant issue we face today.",
+      "hint": "It involves global warming.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct Spanish sentence: biodiversidad / la / preservar / es / importante",
+      "content": {
+        "words": [
+          "biodiversidad",
+          "la",
+          "preservar",
+          "es",
+          "importante"
+        ],
+        "correctOrder": [
+          "la",
+          "biodiversidad",
+          "es",
+          "importante",
+          "preservar"
+        ],
+        "translation": "Preserving biodiversity is important."
+      },
+      "explanation": "The correct order forms a meaningful sentence about preserving biodiversity.",
+      "hint": "Start with 'la'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'Pollution is harmful to our health.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'Pollution is harmful to our health.'",
+        "correctAnswer": "La contaminación es perjudicial para nuestra salud.",
+        "acceptableAnswers": [
+          "La contaminación es mala para nuestra salud."
+        ]
+      },
+      "explanation": "The translation accurately conveys the meaning of the English sentence.",
+      "hint": "The key word is 'contaminación'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'La biodiversidad es esencial.'",
+      "content": {
+        "ttsText": "La biodiversidad es esencial.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Biodiversity is essential.",
+          "Biodiversity is harmful.",
+          "Biodiversity is useless."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation reflects the importance of biodiversity.",
+      "hint": "Listen for the word 'biodiversidad'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'We need to take care of the environment.'",
+      "content": {
+        "targetText": "Necesitamos cuidar el medio ambiente.",
+        "context": "Expressing the importance of environmental care.",
+        "acceptableVariants": [
+          "Debemos cuidar el medio ambiente."
+        ]
+      },
+      "explanation": "Your sentence conveys the same message about caring for the environment.",
+      "hint": "Remember the phrase 'cuidar el medio ambiente'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the term for 'sustainability' in Spanish?",
+      "content": {
+        "options": [
+          "Contaminación",
+          "Sostenibilidad",
+          "Biodiversidad",
+          "Reciclaje"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Sostenibilidad' is the correct translation for 'sustainability'.",
+      "hint": "It starts with 's'.",
+      "difficulty": "HARD",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: La ______________ es diversa y rica en especies.",
+      "content": {
+        "sentence": "La ______________ es diversa y rica en especies.",
+        "correctAnswer": "biodiversidad",
+        "acceptableAnswers": [
+          "biodiversidad"
+        ],
+        "options": [
+          "biodiversidad",
+          "sostenibilidad",
+          "contaminación"
+        ]
+      },
+      "explanation": "Biodiversity refers to the variety of species in an ecosystem.",
+      "hint": "It relates to the variety of life.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

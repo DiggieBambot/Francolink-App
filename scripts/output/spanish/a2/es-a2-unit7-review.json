@@ -1,0 +1,348 @@
+{
+  "lesson": {
+    "title": "Unit 7 Review",
+    "type": "REVIEW",
+    "slug": "es-a2-unit7-review"
+  },
+  "unit": "Comparisons & Opinions",
+  "unitOrder": 7,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this review lesson, you will consolidate your knowledge of comparisons and opinions in Spanish. You will practice vocabulary, grammar structures, and engage in a dialogue that uses what you've learned.",
+      "culturalNote": "In many Spanish-speaking countries, people often express their opinions about food and music, which can lead to lively conversations and debates."
+    },
+    "vocabulary": [
+      {
+        "term": "más que",
+        "translation": "more than",
+        "definition": "used to compare two things",
+        "pronunciation": "mahs keh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Este libro es más interesante que ese.",
+          "translation": "This book is more interesting than that one."
+        },
+        "tip": "Remember that 'más' means 'more', and 'que' means 'than'."
+      },
+      {
+        "term": "menos que",
+        "translation": "less than",
+        "definition": "used to compare two things negatively",
+        "pronunciation": "men-ohs keh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Ella es menos alta que su hermana.",
+          "translation": "She is less tall than her sister."
+        },
+        "tip": "Think of 'menos' as 'less' to make comparisons easier."
+      },
+      {
+        "term": "tan...como",
+        "translation": "as...as",
+        "definition": "used to show equality in comparisons",
+        "pronunciation": "tahn koh-moh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "La película es tan buena como el libro.",
+          "translation": "The movie is as good as the book."
+        },
+        "tip": "Use 'tan' to compare things that are equal."
+      },
+      {
+        "term": "me gusta",
+        "translation": "I like",
+        "definition": "used to express personal preferences",
+        "pronunciation": "meh goos-tah",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Me gusta la música clásica.",
+          "translation": "I like classical music."
+        },
+        "tip": "Follow 'me gusta' with singular nouns or infinitives."
+      },
+      {
+        "term": "prefiero",
+        "translation": "I prefer",
+        "definition": "used to indicate a stronger preference",
+        "pronunciation": "preh-fee-roh",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Prefiero el té al café.",
+          "translation": "I prefer tea to coffee."
+        },
+        "tip": "Use 'prefiero' to express a clear choice."
+      },
+      {
+        "term": "creo que",
+        "translation": "I believe that",
+        "definition": "used to express opinions",
+        "pronunciation": "kreh-oh keh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Creo que este restaurante es el mejor.",
+          "translation": "I believe that this restaurant is the best."
+        },
+        "tip": "You can use this phrase to introduce your opinion."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Comparative Structures",
+        "explanation": "In Spanish, you form comparisons using 'más que' (more than), 'menos que' (less than), and 'tan como' (as...as). 'Más' and 'menos' are used to compare differences, while 'tan' is used for equality.",
+        "table": {
+          "headers": [
+            "Structure",
+            "Example"
+          ],
+          "rows": [
+            [
+              "más que",
+              "Él es más rápido que ella."
+            ],
+            [
+              "menos que",
+              "El coche es menos caro que la moto."
+            ],
+            [
+              "tan como",
+              "Ella es tan inteligente como él."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Mi casa es más grande que tu casa.",
+            "translation": "My house is bigger than your house.",
+            "breakdown": "Here, 'más grande' shows that my house has a greater size compared to yours."
+          }
+        ],
+        "commonMistakes": [
+          "'más que' should not be used for equality. Use 'tan como' instead.",
+          "Do not forget to use 'que' after the comparative."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Preferences",
+      "context": "Two friends are discussing their favorite books and music at a café.",
+      "speakers": [
+        "María",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Te gusta la música rock?",
+          "translation": "Do you like rock music?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, me gusta, pero prefiero la música pop.",
+          "translation": "Yes, I like it, but I prefer pop music.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Yo creo que la música clásica es mejor.",
+          "translation": "I believe classical music is better.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Es interesante, pero no es tan divertida como la pop.",
+          "translation": "That's interesting, but it's not as fun as pop.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Y qué libro prefieres?",
+          "translation": "And which book do you prefer?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Prefiero los libros de misterio.",
+          "translation": "I prefer mystery books.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "A mí me gustan más las novelas románticas.",
+          "translation": "I like romantic novels more.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Tal vez deberíamos leer uno juntos.",
+          "translation": "Maybe we should read one together.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Literature and Music in Latin America",
+      "text": "Literature and music are vital parts of Latin American culture. Many famous authors and musicians have emerged from this region, and their works often reflect local traditions and social issues.",
+      "funFact": "Gabriel García Márquez, a Colombian author, won the Nobel Prize in Literature in 1982 for his magical realism style, which has influenced many writers worldwide."
+    },
+    "summary": {
+      "keyPoints": [
+        "Use 'más que' for greater comparisons.",
+        "Use 'menos que' for lesser comparisons.",
+        "Use 'tan como' for equality.",
+        "Express preferences with 'me gusta' and 'prefiero'."
+      ],
+      "nextSteps": "Practice making your own comparisons and expressing opinions using the vocabulary and structures from this unit."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase means 'less than'?",
+      "content": {
+        "options": [
+          "más que",
+          "menos que",
+          "tan como"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Menos que' directly translates to 'less than' in English.",
+      "hint": "Think about comparisons.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct way to say 'I prefer coffee over tea' in Spanish?",
+      "content": {
+        "options": [
+          "Me gusta más el té.",
+          "Prefiero el café que el té.",
+          "Creo que el café es mejor."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The phrase 'Prefiero el café que el té' directly translates to 'I prefer coffee over tea'.",
+      "hint": "Look for the word 'prefiero'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ella es ___ inteligente ___ su hermano.'",
+      "content": {
+        "sentence": "Ella es ___ inteligente ___ su hermano.",
+        "correctAnswer": "más que",
+        "acceptableAnswers": [
+          "más que"
+        ],
+        "options": [
+          "menos que",
+          "tan como",
+          "más que"
+        ]
+      },
+      "explanation": "The correct comparison is 'más que', meaning 'more than'.",
+      "hint": "Think about how to express superiority.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'No me gusta el brócoli, ___ prefiero las zanahorias.'",
+      "content": {
+        "sentence": "No me gusta el brócoli, ___ prefiero las zanahorias.",
+        "correctAnswer": "yo",
+        "acceptableAnswers": [
+          "yo"
+        ],
+        "options": [
+          "yo",
+          "más",
+          "pero"
+        ]
+      },
+      "explanation": "The correct answer is 'yo', making it clear who prefers the carrots.",
+      "hint": "Consider the subject of the sentence.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'canciones, las, son, tan, como, las, mías'",
+      "content": {
+        "words": [
+          "canciones",
+          "tan",
+          "son",
+          "mías",
+          "las",
+          "como",
+          "las"
+        ],
+        "correctOrder": [
+          "las",
+          "canciones",
+          "son",
+          "tan",
+          "como",
+          "las",
+          "mías"
+        ],
+        "translation": "The songs are as good as mine."
+      },
+      "explanation": "The correct order conveys a comparison between the songs.",
+      "hint": "Start with the subject of the sentence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I think that pizza is better than pasta.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I think that pizza is better than pasta.'",
+        "correctAnswer": "Creo que la pizza es mejor que la pasta.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The phrase 'Creo que la pizza es mejor que la pasta' accurately communicates the opinion in Spanish.",
+      "hint": "Look for the phrase 'creo que'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Prefiero el té.'",
+      "content": {
+        "ttsText": "Prefiero el té.",
+        "ttsLang": "es-ES",
+        "options": [
+          "I prefer tea.",
+          "I like tea.",
+          "I think tea is better."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence directly translates to 'I prefer tea'.",
+      "hint": "Focus on the word 'prefiero'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'I like apples more than oranges.'",
+      "content": {
+        "targetText": "Me gustan más las manzanas que las naranjas.",
+        "context": "Expressing a preference in fruit.",
+        "acceptableVariants": [
+          "Me gustan más las manzanas que las naranjas."
+        ]
+      },
+      "explanation": "This sentence properly expresses a preference between two fruits.",
+      "hint": "Use 'me gustan más' for comparisons.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

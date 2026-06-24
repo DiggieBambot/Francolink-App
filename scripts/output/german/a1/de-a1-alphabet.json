@@ -1,0 +1,477 @@
+{
+  "lesson": {
+    "title": "The German Alphabet & Umlauts",
+    "type": "VOCABULARY",
+    "slug": "de-a1-alphabet"
+  },
+  "unit": "First Words & Greetings",
+  "unitOrder": 1,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn the German alphabet and the special characters called umlauts. Understanding these will help you pronounce German words correctly and recognize their meanings.",
+      "culturalNote": "Did you know that the letter 'ß' is unique to the German language? It represents a sharp 's' sound and is often used in words like 'Straße' (street)."
+    },
+    "vocabulary": [
+      {
+        "term": "der Apfel",
+        "translation": "the apple",
+        "definition": "A common fruit.",
+        "pronunciation": "dehr AH-pfel",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich esse einen Apfel.",
+          "translation": "I am eating an apple."
+        },
+        "tip": "Remember, 'Apfel' is masculine (der). The plural is 'die Äpfel'."
+      },
+      {
+        "term": "die Banane",
+        "translation": "the banana",
+        "definition": "Another popular fruit.",
+        "pronunciation": "dee bah-NAH-neh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Banane ist gelb.",
+          "translation": "The banana is yellow."
+        },
+        "tip": "'Banane' is feminine (die). The plural is 'die Bananen'."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A written work.",
+        "pronunciation": "dahs boohk",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich lese ein Buch.",
+          "translation": "I am reading a book."
+        },
+        "tip": "'Buch' is neuter (das). The plural is 'die Bücher'."
+      },
+      {
+        "term": "der Stuhl",
+        "translation": "the chair",
+        "definition": "A piece of furniture.",
+        "pronunciation": "dehr shtool",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Stuhl ist bequem.",
+          "translation": "The chair is comfortable."
+        },
+        "tip": "'Stuhl' is masculine (der). The plural is 'die Stühle'."
+      },
+      {
+        "term": "die Lampe",
+        "translation": "the lamp",
+        "definition": "A source of light.",
+        "pronunciation": "dee LAM-peh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Lampe ist schön.",
+          "translation": "The lamp is beautiful."
+        },
+        "tip": "'Lampe' is feminine (die). The plural is 'die Lampen'."
+      },
+      {
+        "term": "das Kind",
+        "translation": "the child",
+        "definition": "A young human.",
+        "pronunciation": "dahs kint",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Kind spielt.",
+          "translation": "The child is playing."
+        },
+        "tip": "'Kind' is neuter (das). The plural is 'die Kinder'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The German Alphabet",
+        "explanation": "The German alphabet has 26 letters, just like the English alphabet, but it includes special characters: ä, ö, ü, and ß. These letters affect pronunciation and meaning. For example, 'ä' sounds like 'eh' in English.",
+        "table": {
+          "headers": [
+            "Letter",
+            "Pronunciation"
+          ],
+          "rows": [
+            [
+              "A",
+              "ah"
+            ],
+            [
+              "B",
+              "beh"
+            ],
+            [
+              "C",
+              "tseh"
+            ],
+            [
+              "Ä",
+              "eh"
+            ],
+            [
+              "D",
+              "deh"
+            ],
+            [
+              "E",
+              "eh"
+            ],
+            [
+              "F",
+              "eff"
+            ],
+            [
+              "G",
+              "geh"
+            ],
+            [
+              "H",
+              "hah"
+            ],
+            [
+              "I",
+              "ee"
+            ],
+            [
+              "J",
+              "jot"
+            ],
+            [
+              "K",
+              "kah"
+            ],
+            [
+              "L",
+              "ell"
+            ],
+            [
+              "M",
+              "em"
+            ],
+            [
+              "N",
+              "en"
+            ],
+            [
+              "O",
+              "oh"
+            ],
+            [
+              "Ö",
+              "öh"
+            ],
+            [
+              "P",
+              "peh"
+            ],
+            [
+              "Q",
+              "kuh"
+            ],
+            [
+              "R",
+              "err"
+            ],
+            [
+              "S",
+              "ess"
+            ],
+            [
+              "ß",
+              "ess-tsett"
+            ],
+            [
+              "T",
+              "teh"
+            ],
+            [
+              "U",
+              "oo"
+            ],
+            [
+              "Ü",
+              "üh"
+            ],
+            [
+              "V",
+              "fau"
+            ],
+            [
+              "W",
+              "veh"
+            ],
+            [
+              "X",
+              "iks"
+            ],
+            [
+              "Y",
+              "üpsilon"
+            ],
+            [
+              "Z",
+              "tsett"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Das Alphabet hat 26 Buchstaben.",
+            "translation": "The alphabet has 26 letters.",
+            "breakdown": "This sentence shows the structure: Subject (Das Alphabet) + Verb (hat) + Object (26 Buchstaben)."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'ä' with 'a' – remember, 'ä' is pronounced like 'eh'.",
+          "Not using the correct article – always remember to use 'der', 'die', or 'das' based on the noun's gender."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Introducing Yourself",
+      "context": "A casual meeting in a café.",
+      "speakers": [
+        "Lukas",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo! Ich heiße Lukas.",
+          "translation": "Hello! My name is Lukas.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo, Lukas! Ich heiße Sophie.",
+          "translation": "Hello, Lukas! My name is Sophie.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Wie geht es dir?",
+          "translation": "How are you?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Mir geht es gut, danke. Und dir?",
+          "translation": "I am good, thank you. And you?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Mir geht es auch gut.",
+          "translation": "I am good too.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Was machst du hier?",
+          "translation": "What are you doing here?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich lese ein Buch.",
+          "translation": "I am reading a book.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist interessant! Welches Buch?",
+          "translation": "That is interesting! Which book?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Es ist ein Buch über Deutschland.",
+          "translation": "It is a book about Germany.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Cool! Ich liebe Deutschland.",
+          "translation": "Cool! I love Germany.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "German Language and Culture",
+      "text": "The German language is spoken in several countries, including Germany, Austria, and Switzerland. Each country has its own dialects and variations, which can be quite different from standard German.",
+      "funFact": "In Switzerland, they use a lot of German words but often pronounce them differently, and they have their own unique words as well!"
+    },
+    "summary": {
+      "keyPoints": [
+        "The German alphabet has 26 letters plus special characters (ä, ö, ü, ß).",
+        "Understanding articles (der, die, das) is essential for learning nouns.",
+        "Practice pronunciation with the phonetic guides.",
+        "Introduce yourself using simple phrases."
+      ],
+      "nextSteps": "Practice spelling your name using the German alphabet and try to introduce yourself in German."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'apple'?",
+      "content": {
+        "options": [
+          "der Apfel",
+          "die Banane",
+          "das Buch"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The German word for 'apple' is 'der Apfel'.",
+      "hint": "It's a common fruit in Germany.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is 'the book' in German?",
+      "content": {
+        "options": [
+          "das Buch",
+          "die Lampe",
+          "der Stuhl"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'The book' translates to 'das Buch' in German.",
+      "hint": "Think about what you read.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Ich habe einen ___ (apple).",
+      "content": {
+        "sentence": "Ich habe einen ___ (apple).",
+        "correctAnswer": "Apfel",
+        "acceptableAnswers": [
+          "Apfel"
+        ],
+        "options": [
+          "Apfel",
+          "Buch",
+          "Stuhl"
+        ]
+      },
+      "explanation": "You need to use 'Apfel' to complete the sentence about having an apple.",
+      "hint": "Remember the word for apple in German.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Das ist ___ (the lamp).",
+      "content": {
+        "sentence": "Das ist ___ (the lamp).",
+        "correctAnswer": "die Lampe",
+        "acceptableAnswers": [
+          "die Lampe"
+        ],
+        "options": [
+          "die Lampe",
+          "der Apfel",
+          "das Buch"
+        ]
+      },
+      "explanation": "'The lamp' translates to 'die Lampe' in German.",
+      "hint": "Think about the word for light source.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The child is playing.'",
+      "content": {
+        "prompt": "Translate to German: 'The child is playing.'",
+        "correctAnswer": "Das Kind spielt.",
+        "acceptableAnswers": [
+          "Das Kind spielt."
+        ]
+      },
+      "explanation": "The translation captures the meaning of the English sentence using correct grammar.",
+      "hint": "Think of the word for child in German.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'der Stuhl'.",
+      "content": {
+        "ttsText": "der Stuhl",
+        "ttsLang": "de-DE",
+        "options": [
+          "the chair",
+          "the table",
+          "the lamp"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "You hear 'der Stuhl', which translates to 'the chair'.",
+      "hint": "Think about furniture.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in German: 'I have a banana.'",
+      "content": {
+        "targetText": "Ich habe eine Banane.",
+        "context": "Translate and say the sentence in German.",
+        "acceptableVariants": [
+          "Ich habe eine Banane."
+        ]
+      },
+      "explanation": "The sentence correctly expresses possession of a banana in German.",
+      "hint": "Remember the word 'Banane'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'banana'?",
+      "content": {
+        "options": [
+          "der Apfel",
+          "die Banane",
+          "das Kind"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The word 'banana' is translated as 'die Banane' in German.",
+      "hint": "It's a yellow fruit.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Das ist ___ (the child).",
+      "content": {
+        "sentence": "Das ist ___ (the child).",
+        "correctAnswer": "das Kind",
+        "acceptableAnswers": [
+          "das Kind"
+        ],
+        "options": [
+          "das Kind",
+          "die Lampe",
+          "der Stuhl"
+        ]
+      },
+      "explanation": "'The child' translates to 'das Kind' in German.",
+      "hint": "Focus on the word for a young person.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

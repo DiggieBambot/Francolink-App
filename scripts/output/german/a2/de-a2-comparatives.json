@@ -1,0 +1,374 @@
+{
+  "lesson": {
+    "title": "Comparatives & Superlatives",
+    "type": "GRAMMAR",
+    "slug": "de-a2-comparatives"
+  },
+  "unit": "Comparisons & Opinions",
+  "unitOrder": 7,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to form and use comparatives and superlatives in German. You will practice comparing different objects and describing their qualities.",
+      "culturalNote": "In Germany, it's common to use comparisons when discussing preferences, especially in food and fashion. For example, people might compare different brands of beer."
+    },
+    "vocabulary": [
+      {
+        "term": "der Apfel",
+        "translation": "the apple",
+        "definition": "A common fruit, often compared for taste.",
+        "pronunciation": "dehr AH-pfel",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Apfel ist rot.",
+          "translation": "The apple is red."
+        },
+        "tip": "Remember, 'Apfel' is masculine (der)."
+      },
+      {
+        "term": "die Banane",
+        "translation": "the banana",
+        "definition": "Another fruit, usually longer than an apple.",
+        "pronunciation": "dee bah-NAH-neh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Banane ist gelb.",
+          "translation": "The banana is yellow."
+        },
+        "tip": "'Banane' is feminine (die)."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A written work, often compared for size or content.",
+        "pronunciation": "dahs boohk",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Buch ist interessant.",
+          "translation": "The book is interesting."
+        },
+        "tip": "'Buch' is neuter (das)."
+      },
+      {
+        "term": "schnell",
+        "translation": "fast",
+        "definition": "An adjective used to describe speed.",
+        "pronunciation": "shnel",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Der Zug ist schnell.",
+          "translation": "The train is fast."
+        },
+        "tip": "Use 'schneller' for the comparative form."
+      },
+      {
+        "term": "langsam",
+        "translation": "slow",
+        "definition": "An adjective used to describe low speed.",
+        "pronunciation": "LAHN-zahm",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Die Schnecke ist langsam.",
+          "translation": "The snail is slow."
+        },
+        "tip": "Comparative form is 'langsamer'."
+      },
+      {
+        "term": "teuer",
+        "translation": "expensive",
+        "definition": "An adjective that describes high cost.",
+        "pronunciation": "TOY-er",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Das Auto ist teuer.",
+          "translation": "The car is expensive."
+        },
+        "tip": "Comparative form is 'teurer'."
+      },
+      {
+        "term": "billig",
+        "translation": "cheap",
+        "definition": "An adjective that describes low cost.",
+        "pronunciation": "BIL-lig",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Die Jacke ist billig.",
+          "translation": "The jacket is cheap."
+        },
+        "tip": "Comparative form is 'billiger'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Comparatives and Superlatives",
+        "explanation": "In German, comparatives are formed by adding '-er' to the adjective. Superlatives are formed by adding 'am' and '-sten'. For example, 'schnell' (fast) becomes 'schneller' (faster) and 'am schnellsten' (the fastest).",
+        "table": {
+          "headers": [
+            "Adjective",
+            "Comparative",
+            "Superlative"
+          ],
+          "rows": [
+            [
+              "schnell",
+              "schneller",
+              "am schnellsten"
+            ],
+            [
+              "teuer",
+              "teurer",
+              "am teuersten"
+            ],
+            [
+              "billig",
+              "billiger",
+              "am billigsten"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Das Auto ist schneller als das Fahrrad.",
+            "translation": "The car is faster than the bicycle.",
+            "breakdown": "This sentence uses the comparative form 'schneller' to compare the speed of the car and bicycle."
+          },
+          {
+            "original": "Das ist das teuerste Restaurant in der Stadt.",
+            "translation": "That is the most expensive restaurant in the city.",
+            "breakdown": "Here, 'teuerste' is the superlative form, indicating that this restaurant has the highest price."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'am' with comparatives (correct: 'schneller' vs. incorrect: 'am schneller')",
+          "Confusing the comparative and superlative forms"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Comparing Fruits",
+      "context": "At a market, Anna and Lukas are discussing different fruits.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Wie findest du den Apfel?",
+          "translation": "How do you find the apple?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich finde ihn gut, aber die Banane ist besser.",
+          "translation": "I think it's good, but the banana is better.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ich mag Äpfel mehr. Sie sind frischer.",
+          "translation": "I like apples more. They are fresher.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Stimmt, aber die Banane ist süßer.",
+          "translation": "That's true, but the banana is sweeter.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Was ist mit dem Buch?",
+          "translation": "What about the book?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das Buch ist interessant, aber der Film ist besser.",
+          "translation": "The book is interesting, but the movie is better.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, der Film ist spannender!",
+          "translation": "Yes, the movie is more exciting!",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich finde die Banane am besten.",
+          "translation": "I think the banana is the best.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Food Comparisons in German Culture",
+      "text": "Germans often enjoy discussing food, especially when it comes to comparing regional specialties. For example, Bavarians are proud of their sausages, while Berliners boast about their currywurst.",
+      "funFact": "In Germany, there is even a saying: 'Die beste Wurst ist die, die man gerade isst' (The best sausage is the one you are currently eating)."
+    },
+    "summary": {
+      "keyPoints": [
+        "Comparatives are formed by adding '-er' to adjectives.",
+        "Superlatives use 'am' plus '-sten'.",
+        "Practice comparing objects using new vocabulary.",
+        "Use the correct articles when mentioning nouns."
+      ],
+      "nextSteps": "Try forming sentences with comparatives and superlatives using the vocabulary from this lesson. Practice speaking with a partner or writing comparisons in your journal."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the comparative form of 'schnell'?",
+      "content": {
+        "options": [
+          "schnellsten",
+          "schneller",
+          "schnellere"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'schneller' is the correct comparative form of 'schnell'.",
+      "hint": "Think about how to compare speed.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which fruit is the cheapest?",
+      "content": {
+        "options": [
+          "Die Banane ist teuer.",
+          "Der Apfel ist billiger.",
+          "Die Banane ist billiger."
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "The correct sentence indicates that the banana is cheaper than the apple.",
+      "hint": "Look for the word 'billiger'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Das Buch ist ___ als das Heft.'",
+      "content": {
+        "sentence": "Das Buch ist ___ als das Heft.",
+        "correctAnswer": "teurer",
+        "acceptableAnswers": [
+          "teurer",
+          "teuerer"
+        ],
+        "options": [
+          "teurer",
+          "billiger",
+          "schneller"
+        ]
+      },
+      "explanation": "'teurer' means that the book is more expensive than the notebook.",
+      "hint": "Think about price comparisons.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Die Banane ist ___ als der Apfel.'",
+      "content": {
+        "sentence": "Die Banane ist ___ als der Apfel.",
+        "correctAnswer": "süßer",
+        "acceptableAnswers": [
+          "süßer",
+          "süßere"
+        ],
+        "options": [
+          "süßer",
+          "bitterer",
+          "billiger"
+        ]
+      },
+      "explanation": "'süßer' means that the banana is sweeter than the apple.",
+      "hint": "Consider how fruits taste.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'schneller, der, ist, Apfel, als, die, Banane'",
+      "content": {
+        "words": [
+          "schneller",
+          "der",
+          "ist",
+          "Apfel",
+          "als",
+          "die",
+          "Banane"
+        ],
+        "correctOrder": [
+          "der",
+          "Apfel",
+          "ist",
+          "schneller",
+          "als",
+          "die",
+          "Banane"
+        ],
+        "translation": "The apple is faster than the banana."
+      },
+      "explanation": "The correct order shows that the apple is faster than the banana.",
+      "hint": "Think about what you want to compare.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The apple is the most expensive.'",
+      "content": {
+        "correctAnswer": "Der Apfel ist der teuerste.",
+        "acceptableAnswers": [
+          "Der Apfel ist am teuersten.",
+          "Der Apfel ist der teuerste."
+        ],
+        "prompt": "Translate to German: 'The apple is the most expensive.'"
+      },
+      "explanation": "In German, we use 'der teuerste' to say 'the most expensive'.",
+      "hint": "Focus on the superlative form.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct sentence.",
+      "content": {
+        "ttsText": "Die Banane ist billiger als der Apfel.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Die Banane ist teurer als der Apfel.",
+          "Die Banane ist billiger als der Apfel.",
+          "Die Banane ist schneller als der Apfel."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The sentence indicates that the banana is cheaper than the apple.",
+      "hint": "Listen for the word 'billiger'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in German: 'The book is cheaper than the notebook.'",
+      "content": {
+        "targetText": "Das Buch ist billiger als das Heft.",
+        "context": "You are comparing the prices of a book and a notebook.",
+        "acceptableVariants": [
+          "Das Buch ist billiger als das Heft."
+        ]
+      },
+      "explanation": "You correctly formed a comparison using the comparative.",
+      "hint": "Use the word 'billiger' for cheaper.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

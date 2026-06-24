@@ -1,0 +1,319 @@
+{
+  "lesson": {
+    "title": "Final Review & Celebration",
+    "type": "REVIEW",
+    "slug": "de-b2-final-review"
+  },
+  "unit": "Global Issues & Mastery",
+  "unitOrder": 8,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this final review lesson, you will consolidate your knowledge of key vocabulary and grammar related to global issues. You will also engage in a dialogue that incorporates idiomatic expressions and complex sentence structures.",
+      "culturalNote": "In Germany, discussions about global issues such as climate change are often found in the media, reflecting the country's commitment to environmental sustainability."
+    },
+    "vocabulary": [
+      {
+        "term": "der Klimawandel",
+        "translation": "climate change",
+        "definition": "The long-term change in Earth’s climate, especially a change due to an increase in the average atmospheric temperature.",
+        "pronunciation": "dare klee-mah-vahn-dell",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Klimawandel ist eine der größten Herausforderungen unserer Zeit.",
+          "translation": "Climate change is one of the greatest challenges of our time."
+        },
+        "tip": "Remember that 'der' indicates it is masculine. The plural form is 'die Klimawandel'."
+      },
+      {
+        "term": "die Umwelt",
+        "translation": "environment",
+        "definition": "The natural world, as a whole or in a particular geographical area.",
+        "pronunciation": "dee oom-velt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Umwelt muss geschützt werden.",
+          "translation": "The environment must be protected."
+        },
+        "tip": "'Die' indicates it is feminine. Its plural form is 'die Umwelten'."
+      },
+      {
+        "term": "die Gerechtigkeit",
+        "translation": "justice",
+        "definition": "The quality of being fair and reasonable.",
+        "pronunciation": "dee geh-recht-keit",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Gerechtigkeit ist ein grundlegendes Prinzip der Demokratie.",
+          "translation": "Justice is a fundamental principle of democracy."
+        },
+        "tip": "'Die' indicates it is feminine. The plural form is rarely used."
+      },
+      {
+        "term": "der Frieden",
+        "translation": "peace",
+        "definition": "A state of tranquility or quietness; absence of disturbance.",
+        "pronunciation": "dare free-den",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Frieden ist unerlässlich für eine stabile Gesellschaft.",
+          "translation": "Peace is essential for a stable society."
+        },
+        "tip": "'Der' indicates it is masculine. The plural form is 'die Frieden'."
+      },
+      {
+        "term": "die Bildung",
+        "translation": "education",
+        "definition": "The process of receiving or giving systematic instruction, especially at a school or university.",
+        "pronunciation": "dee bild-ung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Bildung spielt eine entscheidende Rolle in der Gesellschaft.",
+          "translation": "Education plays a crucial role in society."
+        },
+        "tip": "'Die' indicates it is feminine. The plural form is 'die Bildungen'."
+      },
+      {
+        "term": "die Armut",
+        "translation": "poverty",
+        "definition": "The state of being extremely poor.",
+        "pronunciation": "dee ar-moot",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Armut ist ein globales Problem, das angegangen werden muss.",
+          "translation": "Poverty is a global problem that must be addressed."
+        },
+        "tip": "'Die' indicates it is feminine. The plural form is rarely used."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Konjunktiv II for Hypothetical Situations",
+        "explanation": "The Konjunktiv II is used to express hypothetical situations or wishes. It is formed by taking the simple past form of the verb and modifying it. For example, 'sein' (to be) becomes 'wäre' in the Konjunktiv II. This form is particularly useful in discussions about global issues, allowing you to express what you would do under different circumstances.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Konjunktiv II"
+          ],
+          "rows": [
+            [
+              "sein",
+              "wäre"
+            ],
+            [
+              "haben",
+              "hätte"
+            ],
+            [
+              "gehen",
+              "ginge"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich mehr Zeit hätte, würde ich mich für den Klimaschutz engagieren.",
+            "translation": "If I had more time, I would get involved in climate protection.",
+            "breakdown": "This sentence uses 'hätte' (would have) to express a hypothetical situation about time and 'würde' plus the infinitive to express intention."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: 'Ich wollte' instead of 'Ich würde wollen'.",
+          "Confusing 'hätte' with 'hat' in hypothetical contexts."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Global Issues",
+      "context": "A conversation between two friends discussing their thoughts on global issues over coffee.",
+      "speakers": [
+        "Lukas",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Letztens habe ich einen Artikel über den Klimawandel gelesen.",
+          "translation": "Recently, I read an article about climate change.",
+          "note": "Lukas introduces the topic."
+        },
+        {
+          "speaker": 1,
+          "text": "Echt? Was stand dort?",
+          "translation": "Really? What did it say?"
+        },
+        {
+          "speaker": 0,
+          "text": "Es wird gesagt, dass wir dringend handeln müssen, um die Erde zu retten.",
+          "translation": "It says that we need to act urgently to save the Earth."
+        },
+        {
+          "speaker": 1,
+          "text": "Das stimmt. Ich denke, Bildung spielt eine entscheidende Rolle dabei.",
+          "translation": "That's true. I think education plays a crucial role in this."
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, wenn die Menschen mehr über Umweltschutz wüssten, würden sie eher handeln.",
+          "translation": "Yes, if people knew more about environmental protection, they would act more."
+        },
+        {
+          "speaker": 1,
+          "text": "Und was ist mit der Armut? Das hängt alles zusammen.",
+          "translation": "And what about poverty? It's all interconnected."
+        },
+        {
+          "speaker": 0,
+          "text": "Absolut! Frieden und Gerechtigkeit sind auch wichtig für eine nachhaltige Entwicklung.",
+          "translation": "Absolutely! Peace and justice are also important for sustainable development."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich hoffe, dass wir in Zukunft Lösungen finden werden.",
+          "translation": "I hope that we will find solutions in the future."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Environmental Awareness in German-Speaking Countries",
+      "text": "Germany is known for its strong environmental policies and initiatives. The German government has made significant investments in renewable energy and sustainability efforts, which often involve public discussions and community projects.",
+      "funFact": "Germany is home to the world's first eco-friendly city, Freiburg, which has been a model for sustainable urban development."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding of key vocabulary related to global issues.",
+        "Ability to use Konjunktiv II to discuss hypothetical situations.",
+        "Engagement in meaningful dialogue about pressing topics.",
+        "Increased awareness of cultural approaches to global issues."
+      ],
+      "nextSteps": "Practice using the vocabulary in your speaking and writing. Consider exploring current global issues in German media to enhance your understanding."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'der Klimawandel' mean in English?",
+      "content": {
+        "options": [
+          "Climate change",
+          "Environmental protection",
+          "Social justice",
+          "Global peace"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Klimawandel' translates to 'climate change' in English.",
+      "hint": "Think about the impacts of rising temperatures.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is a synonym for 'die Gerechtigkeit'?",
+      "content": {
+        "options": [
+          "Equality",
+          "Justice",
+          "Freedom",
+          "Prosperity"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Die Gerechtigkeit' means 'justice', which is about fairness and equality.",
+      "hint": "Consider what is just or fair.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Die _____ ist wichtig für die Entwicklung eines Landes.'",
+      "content": {
+        "sentence": "Die _____ ist wichtig für die Entwicklung eines Landes.",
+        "correctAnswer": "Bildung",
+        "acceptableAnswers": [
+          "Bildung"
+        ],
+        "options": [
+          "Umwelt",
+          "Gerechtigkeit",
+          "Bildung",
+          "Armut"
+        ]
+      },
+      "explanation": "Education ('Bildung') is crucial for a country's development.",
+      "hint": "Think about what helps people learn.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Die _____ in der Welt ist ein großes Problem.'",
+      "content": {
+        "sentence": "Die _____ in der Welt ist ein großes Problem.",
+        "correctAnswer": "Armut",
+        "acceptableAnswers": [
+          "Armut"
+        ],
+        "options": [
+          "Gerechtigkeit",
+          "Umwelt",
+          "Frieden",
+          "Armut"
+        ]
+      },
+      "explanation": "Poverty ('Armut') is indeed a significant global issue.",
+      "hint": "Consider the opposite of wealth.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'Justice is important for peace.'",
+      "content": {
+        "prompt": "Translate to German: 'Justice is important for peace.'",
+        "correctAnswer": "Gerechtigkeit ist wichtig für den Frieden.",
+        "acceptableAnswers": [
+          "Gerechtigkeit ist wichtig für den Frieden."
+        ]
+      },
+      "explanation": "This sentence highlights the relationship between justice and peace.",
+      "hint": "Think about the importance of fairness in society.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and identify the following statement.",
+      "content": {
+        "ttsText": "Die Umweltverschmutzung ist ein ernstes Problem.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Environmental pollution is a serious problem.",
+          "Climate change is a minor issue.",
+          "Education is not necessary.",
+          "Justice is ignored."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The statement discusses the serious issue of environmental pollution.",
+      "hint": "Focus on the environmental concern mentioned.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in German: 'We need to work together for global justice.'",
+      "content": {
+        "targetText": "Wir müssen zusammenarbeiten für die globale Gerechtigkeit.",
+        "context": "Expressing the need for collaboration on global issues.",
+        "acceptableVariants": [
+          "Wir sollten zusammenarbeiten für die globale Gerechtigkeit."
+        ]
+      },
+      "explanation": "This sentence emphasizes collaboration for justice on a global scale.",
+      "hint": "Think about teamwork and fairness.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

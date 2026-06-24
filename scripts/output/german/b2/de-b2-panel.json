@@ -1,0 +1,318 @@
+{
+  "lesson": {
+    "title": "Panel Discussion Simulation",
+    "type": "CONVERSATION",
+    "slug": "de-b2-panel"
+  },
+  "unit": "Global Issues & Mastery",
+  "unitOrder": 8,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will participate in a panel discussion simulation about global issues. You'll learn vocabulary related to discussing complex topics, practice using the Konjunktiv I and II, and engage in a realistic dialogue.",
+      "culturalNote": "In German-speaking countries, panel discussions are common in academia and media. They often encourage diverse perspectives, reflecting the culture's value on thorough debate."
+    },
+    "vocabulary": [
+      {
+        "term": "das Thema",
+        "translation": "the topic",
+        "definition": "a subject of discussion or debate",
+        "pronunciation": "dahs tay-mah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Thema der Diskussion war der Klimawandel.",
+          "translation": "The topic of the discussion was climate change."
+        },
+        "tip": "Remember, 'das' indicates that 'Thema' is neuter."
+      },
+      {
+        "term": "der Standpunkt",
+        "translation": "the standpoint",
+        "definition": "a particular attitude or way of considering a matter",
+        "pronunciation": "dair shtand-punkt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Jeder Teilnehmer hat seinen eigenen Standpunkt.",
+          "translation": "Each participant has their own standpoint."
+        },
+        "tip": "'Der' indicates that 'Standpunkt' is masculine."
+      },
+      {
+        "term": "die Meinung",
+        "translation": "the opinion",
+        "definition": "a belief or judgment about something",
+        "pronunciation": "dee my-nung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich respektiere deine Meinung.",
+          "translation": "I respect your opinion."
+        },
+        "tip": "'Die' indicates that 'Meinung' is feminine."
+      },
+      {
+        "term": "die Lösung",
+        "translation": "the solution",
+        "definition": "a means of solving a problem or dealing with a difficult situation",
+        "pronunciation": "dee lö-zung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wir suchen nach einer Lösung für das Problem.",
+          "translation": "We are looking for a solution to the problem."
+        },
+        "tip": "'Die' indicates that 'Lösung' is feminine."
+      },
+      {
+        "term": "der Vorschlag",
+        "translation": "the proposal",
+        "definition": "a suggestion or plan put forward for consideration",
+        "pronunciation": "dair for-shlag",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Vorschlag wurde von allen akzeptiert.",
+          "translation": "The proposal was accepted by everyone."
+        },
+        "tip": "'Der' indicates that 'Vorschlag' is masculine."
+      },
+      {
+        "term": "die Herausforderung",
+        "translation": "the challenge",
+        "definition": "a difficult task or situation that requires a solution",
+        "pronunciation": "dee he-rau-sfor-dung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Herausforderung besteht darin, innovative Lösungen zu finden.",
+          "translation": "The challenge is to find innovative solutions."
+        },
+        "tip": "'Die' indicates that 'Herausforderung' is feminine."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Konjunktiv II for Hypothetical Situations",
+        "explanation": "The Konjunktiv II is used to express hypothetical situations, wishes, or polite requests. It often uses the simple past form of the verb with specific endings. For example, 'Wenn ich mehr Zeit hätte, würde ich reisen.' translates as 'If I had more time, I would travel.' This form is particularly useful in discussions about potential solutions to problems.",
+        "table": {
+          "headers": [
+            "Verb",
+            "Konjunktiv II"
+          ],
+          "rows": [
+            [
+              "haben",
+              "hätte"
+            ],
+            [
+              "sein",
+              "wäre"
+            ],
+            [
+              "werden",
+              "würde"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich die Möglichkeit hätte, würde ich an der Diskussion teilnehmen.",
+            "translation": "If I had the opportunity, I would participate in the discussion.",
+            "breakdown": "This sentence uses the Konjunktiv II to express a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the Konjunktiv II (e.g., saying 'ich habe' instead of 'ich hätte').",
+          "Confusing 'würde' with 'wird' (the former is subjunctive, the latter is future tense)."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Panel Discussion on Climate Change",
+      "context": "A panel discussion on global climate issues taking place in a university auditorium.",
+      "speakers": [
+        "Max",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Ich denke, dass der Klimawandel eine der größten Herausforderungen unserer Zeit ist.",
+          "translation": "I think that climate change is one of the biggest challenges of our time."
+        },
+        {
+          "speaker": 1,
+          "text": "Das stimmt, Max. Was wäre deiner Meinung nach die beste Lösung?",
+          "translation": "That's true, Max. What do you think would be the best solution?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich würde vorschlagen, dass wir verstärkt auf erneuerbare Energien setzen.",
+          "translation": "I would suggest that we focus more on renewable energies."
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist ein guter Punkt. Aber wie können wir die Bevölkerung dazu motivieren?",
+          "translation": "That's a good point. But how can we motivate the population to do so?"
+        },
+        {
+          "speaker": 0,
+          "text": "Vielleicht sollten wir mehr Aufklärung betreiben.",
+          "translation": "Perhaps we should focus more on education."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich stimme zu. Wenn die Menschen besser informiert sind, werden sie eher handeln.",
+          "translation": "I agree. If people are better informed, they are more likely to act."
+        },
+        {
+          "speaker": 0,
+          "text": "Außerdem könnten wir Anreize schaffen, um die Nutzung erneuerbarer Energien zu fördern.",
+          "translation": "Additionally, we could create incentives to promote the use of renewable energies."
+        },
+        {
+          "speaker": 1,
+          "text": "Das klingt vielversprechend. Ich hoffe, dass unsere Diskussion auch andere inspiriert.",
+          "translation": "That sounds promising. I hope our discussion inspires others as well."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Debate in German-Speaking Culture",
+      "text": "Debate and discussion are fundamental aspects of political and social life in Germany, Austria, and Switzerland. The culture encourages open dialogue and critical thinking, often seen in public forums and educational settings.",
+      "funFact": "In Germany, the term 'Bürgerversammlung' refers to citizen assemblies where community issues are discussed, reflecting the value placed on public participation."
+    },
+    "summary": {
+      "keyPoints": [
+        "Panel discussions are an effective way to explore complex global issues.",
+        "Using the Konjunktiv II allows for nuanced discussions about hypothetical situations.",
+        "Key vocabulary includes terms related to opinions, solutions, and challenges.",
+        "Engaging in dialogue enhances language skills and understanding of formal registers."
+      ],
+      "nextSteps": "Practice discussing other global issues using the vocabulary and grammatical structures learned in this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'der Standpunkt' mean in English?",
+      "content": {
+        "options": [
+          "The solution",
+          "The viewpoint",
+          "The challenge",
+          "The proposal"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Der Standpunkt' translates to 'the viewpoint,' which refers to a particular attitude or way of considering a matter.",
+      "hint": "Think about perspectives.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is 'die Herausforderung' in English?",
+      "content": {
+        "options": [
+          "The topic",
+          "The challenge",
+          "The opinion",
+          "The suggestion"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Die Herausforderung' means 'the challenge,' indicating a difficult task or situation.",
+      "hint": "Consider difficult situations.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Eine mögliche ___ könnte sein, die Umwelt zu schützen.'",
+      "content": {
+        "sentence": "Eine mögliche ___ könnte sein, die Umwelt zu schützen.",
+        "correctAnswer": "Lösung",
+        "acceptableAnswers": [
+          "Lösung"
+        ],
+        "options": [
+          "Meinung",
+          "Herausforderung",
+          "Lösung",
+          "Vorschlag"
+        ]
+      },
+      "explanation": "The correct answer 'Lösung' means 'solution' and fits the context of proposing an action.",
+      "hint": "Think about resolving problems.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Ich habe eine andere ___ zu diesem Thema.'",
+      "content": {
+        "sentence": "Ich habe eine andere ___ zu diesem Thema.",
+        "correctAnswer": "Meinung",
+        "acceptableAnswers": [
+          "Meinung"
+        ],
+        "options": [
+          "Standpunkt",
+          "Meinung",
+          "Vorschlag",
+          "Herausforderung"
+        ]
+      },
+      "explanation": "'Meinung' means 'opinion' and fits the context of expressing a different view.",
+      "hint": "Consider personal views.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'What is the topic of the discussion?'",
+      "content": {
+        "prompt": "Translate to German: 'What is the topic of the discussion?'",
+        "correctAnswer": "Was ist das Thema der Diskussion?",
+        "acceptableAnswers": [
+          "Was ist das Thema der Diskussion?"
+        ]
+      },
+      "explanation": "The translation accurately reflects the original English question.",
+      "hint": "Focus on the word 'topic'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Die Meinung der Experten ist wichtig.'",
+      "content": {
+        "ttsText": "Die Meinung der Experten ist wichtig.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The opinion of the experts is important.",
+          "The viewpoint of the experts is necessary.",
+          "The proposal of the experts is crucial.",
+          "The solution of the experts is valid."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct option reflects the meaning of the listened sentence.",
+      "hint": "Think about expert perspectives.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in German: 'I have a suggestion for a solution.'",
+      "content": {
+        "targetText": "Ich habe einen Vorschlag für eine Lösung.",
+        "context": "Translate this English sentence into German.",
+        "acceptableVariants": [
+          "Ich habe einen Vorschlag für eine Lösung."
+        ]
+      },
+      "explanation": "This sentence correctly conveys the idea of proposing a solution in German.",
+      "hint": "Focus on the words 'suggestion' and 'solution'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

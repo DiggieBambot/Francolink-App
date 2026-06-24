@@ -1,0 +1,371 @@
+{
+  "lesson": {
+    "title": "Telling a Story",
+    "type": "CONVERSATION",
+    "slug": "de-b1-telling-story"
+  },
+  "unit": "Narrating the Past",
+  "unitOrder": 2,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to tell a story in German using the past tense. You will practice using subordinate clauses and the Konjunktiv II for politeness.",
+      "culturalNote": "Storytelling is an important part of German culture, often seen in traditional fairy tales and modern literature. Many German-speaking authors, like the Brothers Grimm, have made storytelling a significant cultural element."
+    },
+    "vocabulary": [
+      {
+        "term": "die Geschichte",
+        "translation": "the story",
+        "definition": "A narrative or account of events.",
+        "pronunciation": "dee geh-SHIS-teh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich liebe diese Geschichte.",
+          "translation": "I love this story."
+        },
+        "tip": "Remember, 'die' indicates that this noun is feminine."
+      },
+      {
+        "term": "der Charakter",
+        "translation": "the character",
+        "definition": "A person or figure in a story.",
+        "pronunciation": "dare kah-RAK-ter",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Charakter in diesem Buch ist sehr interessant.",
+          "translation": "The character in this book is very interesting."
+        },
+        "tip": "'Der' indicates that this noun is masculine."
+      },
+      {
+        "term": "die Handlung",
+        "translation": "the plot",
+        "definition": "The sequence of events in a story.",
+        "pronunciation": "dee HAND-lung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Handlung ist spannend.",
+          "translation": "The plot is exciting."
+        },
+        "tip": "This noun is also feminine, indicated by 'die'."
+      },
+      {
+        "term": "der Höhepunkt",
+        "translation": "the climax",
+        "definition": "The most intense point in a story.",
+        "pronunciation": "dare HÖE-eh-punkt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Höhepunkt der Geschichte war überraschend.",
+          "translation": "The climax of the story was surprising."
+        },
+        "tip": "Remember that 'der' indicates masculine gender."
+      },
+      {
+        "term": "das Ende",
+        "translation": "the ending",
+        "definition": "The conclusion of a story.",
+        "pronunciation": "das EN-deh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Ende war traurig.",
+          "translation": "The ending was sad."
+        },
+        "tip": "'Das' indicates that this noun is neuter."
+      },
+      {
+        "term": "wenn",
+        "translation": "if/when",
+        "definition": "A conjunction used for conditional statements.",
+        "pronunciation": "ven",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Wenn es regnet, bleiben wir drinnen.",
+          "translation": "If it rains, we stay inside."
+        },
+        "tip": "Use 'wenn' to introduce conditional clauses."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subordinate Clauses with 'dass' and 'weil'",
+        "explanation": "In German, you use 'dass' (that) to introduce clauses that explain or describe something. 'Weil' (because) is used to give reasons. Remember that the verb goes to the end of the clause.",
+        "table": {
+          "headers": [
+            "Conjunction",
+            "Example"
+          ],
+          "rows": [
+            [
+              "dass",
+              "Ich denke, dass es wichtig ist."
+            ],
+            [
+              "weil",
+              "Ich bleibe zu Hause, weil es regnet."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich weiß, dass du es kannst.",
+            "translation": "I know that you can do it.",
+            "breakdown": "The clause 'dass du es kannst' explains what I know."
+          },
+          {
+            "original": "Ich gehe nach Hause, weil ich müde bin.",
+            "translation": "I am going home because I am tired.",
+            "breakdown": "The clause 'weil ich müde bin' gives the reason for going home."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'dass' and 'weil' interchangeably; remember they serve different purposes.",
+          "Forgetting to place the verb at the end of the subordinate clause."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Telling a Story",
+      "context": "Two friends are chatting about a recent book they read.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hast du die Geschichte gelesen, die ich dir empfohlen habe?",
+          "translation": "Did you read the story I recommended to you?",
+          "note": "Lena asks Max about a book."
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe sie gelesen. Ich fand die Handlung sehr spannend.",
+          "translation": "Yes, I read it. I found the plot very exciting."
+        },
+        {
+          "speaker": 0,
+          "text": "Das freut mich! Was war dein Lieblingscharakter?",
+          "translation": "I’m glad! Who was your favorite character?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich mochte den Hauptcharakter, weil er mutig war.",
+          "translation": "I liked the main character because he was brave."
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, das stimmt. Der Höhepunkt war wirklich überraschend.",
+          "translation": "Yes, that's true. The climax was really surprising."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich hätte nie gedacht, dass das Ende so traurig sein würde.",
+          "translation": "I never thought the ending would be so sad."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich auch nicht! Es hat mich zum Nachdenken gebracht.",
+          "translation": "Me neither! It made me think."
+        },
+        {
+          "speaker": 1,
+          "text": "Vielleicht sollten wir mehr solche Bücher lesen.",
+          "translation": "Maybe we should read more books like that."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Storytelling",
+      "text": "Storytelling is a cherished tradition in German-speaking countries. From fairy tales to modern novels, stories shape culture and values. Many people enjoy reading and discussing stories as a way to connect.",
+      "funFact": "Did you know that the Brothers Grimm collected folk tales and published them in the early 19th century? Their stories are still popular today!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to storytelling.",
+        "Practiced using subordinate clauses with 'dass' and 'weil'.",
+        "Engaged in a dialogue about a book's story.",
+        "Gained insight into the cultural significance of storytelling."
+      ],
+      "nextSteps": "Try writing your own short story using the vocabulary and grammar points from this lesson. Share it with a friend or tutor for feedback!"
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'die Geschichte' mean in English?",
+      "content": {
+        "options": [
+          "the story",
+          "the character",
+          "the ending",
+          "the plot"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Geschichte' translates to 'the story' in English.",
+      "hint": "Think about what you call a narrative.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'the climax' in German?",
+      "content": {
+        "options": [
+          "der Höhepunkt",
+          "die Handlung",
+          "das Ende",
+          "der Charakter"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Höhepunkt' is the German term for 'the climax' of a story.",
+      "hint": "It's a key moment in a story.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Der ___ ist der wichtigste Teil der Geschichte.",
+      "content": {
+        "sentence": "Der ___ ist der wichtigste Teil der Geschichte.",
+        "correctAnswer": "Höhepunkt",
+        "acceptableAnswers": [
+          "Höhepunkt"
+        ],
+        "options": [
+          "Charakter",
+          "Höhepunkt",
+          "Handlung"
+        ]
+      },
+      "explanation": "The climax is indeed the most important part of a story.",
+      "hint": "Think about the turning point.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Die Handlung der Geschichte war sehr ___ und spannend.",
+      "content": {
+        "sentence": "Die Handlung der Geschichte war sehr ___ und spannend.",
+        "correctAnswer": "interessant",
+        "acceptableAnswers": [
+          "interessant",
+          "gut",
+          "spannend"
+        ],
+        "options": [
+          "langweilig",
+          "interessant",
+          "schlecht"
+        ]
+      },
+      "explanation": "The sentence describes the plot as interesting and exciting.",
+      "hint": "Think of a positive adjective.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: die Geschichte / am Ende / war / spannend.",
+      "content": {
+        "words": [
+          "die Geschichte",
+          "am Ende",
+          "war",
+          "spannend"
+        ],
+        "correctOrder": [
+          "die Geschichte",
+          "war",
+          "spannend",
+          "am Ende"
+        ],
+        "translation": "The story was exciting at the end."
+      },
+      "explanation": "The correct order conveys a complete thought about the story.",
+      "hint": "Start with the subject.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The character is very interesting.'",
+      "content": {
+        "prompt": "Translate to German: 'The character is very interesting.'",
+        "correctAnswer": "Der Charakter ist sehr interessant.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The sentence correctly describes the character in German.",
+      "hint": "Remember the article for character.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct option.",
+      "content": {
+        "ttsText": "Die Handlung war spannend und überraschend.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Die Handlung war langweilig.",
+          "Die Handlung war spannend und überraschend.",
+          "Die Handlung war einfach."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct option matches what was said in the audio.",
+      "hint": "Listen for the adjectives.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Describe your favorite story in German.",
+      "content": {
+        "targetText": "Meine Lieblingsgeschichte ist...",
+        "context": "Share your favorite story in a few sentences.",
+        "acceptableVariants": []
+      },
+      "explanation": "This exercise encourages you to practice speaking in German about personal experiences.",
+      "hint": "Think about the characters and the plot.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Wenn der Charakter ___ war, hätte er die Geschichte anders erlebt.",
+      "content": {
+        "sentence": "Wenn der Charakter ___ war, hätte er die Geschichte anders erlebt.",
+        "correctAnswer": "mutig",
+        "acceptableAnswers": [
+          "mutig"
+        ],
+        "options": [
+          "feige",
+          "mutig",
+          "schlau"
+        ]
+      },
+      "explanation": "The sentence is about how a character's bravery could change their experience.",
+      "hint": "It's a quality that often helps in stories.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to English: 'Das Ende der Geschichte war überraschend.'",
+      "content": {
+        "prompt": "Translate to English: 'Das Ende der Geschichte war überraschend.'",
+        "correctAnswer": "The end of the story was surprising.",
+        "acceptableAnswers": []
+      },
+      "explanation": "This translation accurately conveys the meaning of the German sentence.",
+      "hint": "Focus on the words for 'end' and 'surprising.'",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

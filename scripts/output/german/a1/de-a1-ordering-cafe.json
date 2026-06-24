@@ -1,0 +1,370 @@
+{
+  "lesson": {
+    "title": "Ordering at a Café",
+    "type": "CONVERSATION",
+    "slug": "de-a1-ordering-cafe"
+  },
+  "unit": "Food & Drink",
+  "unitOrder": 4,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to order food and drinks in a café in German. You will practice useful vocabulary and simple sentences to help you communicate effectively when dining out.",
+      "culturalNote": "In Germany, it is common to sit down at a café and wait for a waiter or waitress to take your order. Tipping is appreciated but not mandatory."
+    },
+    "vocabulary": [
+      {
+        "term": "der Kaffee",
+        "translation": "the coffee",
+        "definition": "A popular hot drink made from roasted coffee beans.",
+        "pronunciation": "dehr KAH-feh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich möchte einen Kaffee.",
+          "translation": "I would like a coffee."
+        },
+        "tip": "Remember, 'der' indicates that 'Kaffee' is masculine."
+      },
+      {
+        "term": "der Tee",
+        "translation": "the tea",
+        "definition": "A hot drink made by infusing dried leaves in water.",
+        "pronunciation": "dehr tay",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich hätte gern einen Tee.",
+          "translation": "I would like a tea."
+        },
+        "tip": "'Tee' is also masculine, so use 'der'."
+      },
+      {
+        "term": "das Stück Kuchen",
+        "translation": "the piece of cake",
+        "definition": "A slice or serving of cake.",
+        "pronunciation": "dahs shtük KOO-ken",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich möchte ein Stück Kuchen.",
+          "translation": "I would like a piece of cake."
+        },
+        "tip": "Remember that 'das' indicates 'Kuchen' is neuter, and the plural is 'die Kuchen'."
+      },
+      {
+        "term": "die Speisekarte",
+        "translation": "the menu",
+        "definition": "A list of food and drinks available in a restaurant.",
+        "pronunciation": "dee SHPY-zeh-kar-teh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wo ist die Speisekarte?",
+          "translation": "Where is the menu?"
+        },
+        "tip": "'Die' indicates that 'Speisekarte' is feminine."
+      },
+      {
+        "term": "möchten",
+        "translation": "would like",
+        "definition": "Used to express a desire or preference.",
+        "pronunciation": "MÖCH-ten",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Ich möchte etwas essen.",
+          "translation": "I would like to eat something."
+        },
+        "tip": "Use 'möchten' to make polite requests."
+      },
+      {
+        "term": "der Tisch",
+        "translation": "the table",
+        "definition": "A piece of furniture with a flat top and one or more legs.",
+        "pronunciation": "dehr TISH",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Tisch ist reserviert.",
+          "translation": "The table is reserved."
+        },
+        "tip": "'Tisch' is masculine; use 'der'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using 'möchten' to Order",
+        "explanation": "In German, the verb 'möchten' is used to express desires politely. It is similar to saying 'would like' in English. You can use it when ordering food or drinks. Remember to use the correct articles for nouns.",
+        "table": {
+          "headers": [
+            "Pronoun",
+            "Form of 'möchten'"
+          ],
+          "rows": [
+            [
+              "ich",
+              "möchte"
+            ],
+            [
+              "du",
+              "möchtest"
+            ],
+            [
+              "er/sie/es",
+              "möchte"
+            ],
+            [
+              "wir",
+              "möchten"
+            ],
+            [
+              "ihr",
+              "möchtet"
+            ],
+            [
+              "sie/Sie",
+              "möchten"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich möchte einen Kaffee.",
+            "translation": "I would like a coffee.",
+            "breakdown": "'Ich' (I) + 'möchte' (would like) + 'einen Kaffee' (a coffee, accusative case)."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Ich möchte einen Kaffee' instead of 'Ich möchte einen Kaffee.' (Incorrect use of articles)",
+          "Using 'möchte' incorrectly with plural nouns (e.g., 'Ich möchte die Kuchen' should be 'Ich möchte die Kuchen bestellen.')"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Ordering at the Café",
+      "context": "This conversation takes place at a small café in Germany.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo! Ich hätte gern einen Kaffee.",
+          "translation": "Hello! I would like a coffee.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Guten Tag! Möchten Sie etwas essen?",
+          "translation": "Good day! Would you like something to eat?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, ich möchte ein Stück Kuchen.",
+          "translation": "Yes, I would like a piece of cake.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Haben Sie die Speisekarte?",
+          "translation": "Do you have the menu?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, hier ist die Speisekarte.",
+          "translation": "Yes, here is the menu.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Danke! Ich möchte einen Tee.",
+          "translation": "Thank you! I would like a tea.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Möchten Sie noch etwas?",
+          "translation": "Would you like anything else?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Nein, das ist alles, danke.",
+          "translation": "No, that’s all, thank you.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Café Culture in Germany",
+      "text": "Cafés in Germany are popular social spots where people gather to enjoy coffee, cake, and conversation. It's common to spend time relaxing with friends or reading a book.",
+      "funFact": "Germany is famous for its cake culture, with many different types of cakes, especially the Black Forest cake (Schwarzwälder Kirschtorte)."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned how to order food and drinks using 'möchten'.",
+        "Practiced vocabulary related to cafés.",
+        "Understood the importance of articles in German.",
+        "Engaged in a realistic café dialogue."
+      ],
+      "nextSteps": "Practice ordering items at a café in your own words. Use the vocabulary and structures learned in this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'der Kaffee' in English?",
+      "content": {
+        "options": [
+          "the coffee",
+          "the tea",
+          "the cake"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Kaffee' translates to 'the coffee' in English.",
+      "hint": "Think about your favorite hot drink.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase means 'I would like' in German?",
+      "content": {
+        "options": [
+          "Ich möchte",
+          "Ich habe",
+          "Ich bin"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Ich möchte' means 'I would like' in English.",
+      "hint": "It's a polite way to ask for something.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich möchte ein _______.",
+      "content": {
+        "sentence": "Ich möchte ein _______.",
+        "correctAnswer": "Stück Kuchen",
+        "acceptableAnswers": [
+          "Stück Kuchen",
+          "Kuchen"
+        ],
+        "options": [
+          "Stück Kuchen",
+          "Tee",
+          "Kaffee"
+        ]
+      },
+      "explanation": "The correct answer is 'Stück Kuchen', which means 'piece of cake'.",
+      "hint": "Think of a sweet dessert.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Wo ist _______ Speisekarte?",
+      "content": {
+        "sentence": "Wo ist _______ Speisekarte?",
+        "correctAnswer": "die",
+        "acceptableAnswers": [
+          "die"
+        ],
+        "options": [
+          "der",
+          "die",
+          "das"
+        ]
+      },
+      "explanation": "'Die' is the correct article for 'Speisekarte', which is feminine.",
+      "hint": "Remember the gender of the noun.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I would like tea.'",
+      "content": {
+        "correctAnswer": "Ich möchte Tee.",
+        "acceptableAnswers": [
+          "Ich hätte gerne Tee.",
+          "Ich will Tee."
+        ]
+      },
+      "explanation": "Both sentences correctly express the desire for tea in German.",
+      "hint": "Use 'möchte' for polite requests.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich habe einen Kaffee.'",
+      "content": {
+        "ttsText": "Ich habe einen Kaffee.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I have a coffee.",
+          "I want a coffee.",
+          "I like coffee."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation is 'I have a coffee.'",
+      "hint": "Focus on the verb 'haben'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I would like a piece of cake.'",
+      "content": {
+        "targetText": "Ich möchte ein Stück Kuchen.",
+        "context": "You are ordering dessert at a café.",
+        "acceptableVariants": [
+          "Ich hätte gerne ein Stück Kuchen."
+        ]
+      },
+      "explanation": "Both sentences are correct ways to order dessert politely.",
+      "hint": "Use 'möchte' to express your wish.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'der Tisch' mean?",
+      "content": {
+        "options": [
+          "the chair",
+          "the table",
+          "the menu"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Der Tisch' translates to 'the table' in English.",
+      "hint": "It's where you sit in a café.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich möchte einen _______.",
+      "content": {
+        "sentence": "Ich möchte einen _______.",
+        "correctAnswer": "Kaffee",
+        "acceptableAnswers": [
+          "Kaffee"
+        ],
+        "options": [
+          "Kaffee",
+          "Tee",
+          "Kuchen"
+        ]
+      },
+      "explanation": "The correct answer is 'Kaffee', which means 'coffee'.",
+      "hint": "Think of what you drink in the morning.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

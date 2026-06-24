@@ -1,0 +1,372 @@
+{
+  "lesson": {
+    "title": "The Verb Sein (To Be)",
+    "type": "GRAMMAR",
+    "slug": "de-a1-sein"
+  },
+  "unit": "Articles & Genders",
+  "unitOrder": 2,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn about the German verb 'sein' (to be) and how to use it in simple sentences. You will also practice basic vocabulary and articles while getting familiar with the concept of gender in German nouns.",
+      "culturalNote": "In Germany, the verb 'sein' is fundamental in everyday conversation, often used to describe states of being, such as feelings and professions."
+    },
+    "vocabulary": [
+      {
+        "term": "der Tisch",
+        "translation": "the table",
+        "definition": "A piece of furniture with a flat top and one or more legs.",
+        "pronunciation": "dehr tish",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Tisch ist groß.",
+          "translation": "The table is big."
+        },
+        "tip": "Remember, 'der' indicates that 'Tisch' is masculine."
+      },
+      {
+        "term": "die Lampe",
+        "translation": "the lamp",
+        "definition": "An object that produces light.",
+        "pronunciation": "dee lamp-uh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Lampe ist hell.",
+          "translation": "The lamp is bright."
+        },
+        "tip": "'die' shows that 'Lampe' is feminine."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A set of written or printed pages, usually bound with a cover.",
+        "pronunciation": "dahs booḫ",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Buch ist interessant.",
+          "translation": "The book is interesting."
+        },
+        "tip": "'das' indicates that 'Buch' is neuter."
+      },
+      {
+        "term": "der Stuhl",
+        "translation": "the chair",
+        "definition": "A piece of furniture for sitting.",
+        "pronunciation": "dehr shtool",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Stuhl ist neu.",
+          "translation": "The chair is new."
+        },
+        "tip": "'der' shows that 'Stuhl' is masculine."
+      },
+      {
+        "term": "die Tür",
+        "translation": "the door",
+        "definition": "A movable barrier used to open and close an entrance.",
+        "pronunciation": "dee tyr",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Tür ist offen.",
+          "translation": "The door is open."
+        },
+        "tip": "'die' indicates that 'Tür' is feminine."
+      },
+      {
+        "term": "der Hund",
+        "translation": "the dog",
+        "definition": "A domesticated animal, often kept as a pet.",
+        "pronunciation": "dehr hoond",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Hund ist freundlich.",
+          "translation": "The dog is friendly."
+        },
+        "tip": "'der' shows that 'Hund' is masculine."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Verb 'Sein' (To Be)",
+        "explanation": "'Sein' is the most important verb in German, used to indicate existence, identity, or characteristics. It is an irregular verb, and its forms change depending on the subject. Here are its present tense forms: ich bin (I am), du bist (you are), er/sie/es ist (he/she/it is), wir sind (we are), ihr seid (you all are), sie/Sie sind (they/you formal are).",
+        "table": {
+          "headers": [
+            "Subject",
+            "Form of 'Sein'"
+          ],
+          "rows": [
+            [
+              "ich",
+              "bin"
+            ],
+            [
+              "du",
+              "bist"
+            ],
+            [
+              "er/sie/es",
+              "ist"
+            ],
+            [
+              "wir",
+              "sind"
+            ],
+            [
+              "ihr",
+              "seid"
+            ],
+            [
+              "sie/Sie",
+              "sind"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich bin ein Lehrer.",
+            "translation": "I am a teacher.",
+            "breakdown": "Here, 'Ich' is the subject, 'bin' is the form of 'sein' for 'ich', and 'ein Lehrer' is the predicate."
+          },
+          {
+            "original": "Sie sind nett.",
+            "translation": "They are nice.",
+            "breakdown": "'Sie' is the subject, 'sind' is the form of 'sein' for 'sie', and 'nett' is an adjective describing the subject."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'sein' in the wrong form, e.g., 'Ich bist' instead of 'Ich bin'.",
+          "Forgetting to match the subject and the verb, e.g., 'Er sind' instead of 'Er ist'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Meeting at the Cafe",
+      "context": "Anna and Lukas meet at a cafe to catch up.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Lukas, wie geht es dir?",
+          "translation": "Hello Lukas, how are you?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Anna, mir geht es gut. Und dir?",
+          "translation": "Hello Anna, I am fine. And you?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Mir geht es auch gut. Wo bist du?",
+          "translation": "I am also fine. Where are you?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich bin im Cafe.",
+          "translation": "I am at the cafe.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Was ist das für ein Cafe?",
+          "translation": "What kind of cafe is this?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Es ist ein kleines, gemütliches Cafe.",
+          "translation": "It's a small, cozy cafe.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist schön! Ich mag kleine Cafes.",
+          "translation": "That is nice! I like small cafes.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich auch. Was möchtest du trinken?",
+          "translation": "Yes, me too. What would you like to drink?",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Cafes in German-speaking Countries",
+      "text": "Cafes are an important part of social life in Germany, Austria, and Switzerland. People often meet friends for coffee and cake, and it's common to spend hours chatting.",
+      "funFact": "In Vienna, cafes have a rich tradition, and many are famous for their unique atmosphere and history."
+    },
+    "summary": {
+      "keyPoints": [
+        "The verb 'sein' is essential for forming sentences.",
+        "German nouns have genders: masculine (der), feminine (die), and neuter (das).",
+        "Using 'sein' correctly is important for clear communication.",
+        "Everyday conversations often use 'sein' to describe people and things."
+      ],
+      "nextSteps": "Practice using 'sein' in sentences with the vocabulary learned. Try to create your own sentences describing people and objects around you."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct form of 'sein' for 'der Tisch'?",
+      "content": {
+        "options": [
+          "sind",
+          "ist",
+          "seht"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Der Tisch' is singular, so the correct form of 'sein' is 'ist'.",
+      "hint": "Remember to match the form with the singular noun.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence is correct?",
+      "content": {
+        "options": [
+          "Die Lampe sind hell.",
+          "Die Lampe ist hell.",
+          "Die Lampe seht hell."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct verb form for 'die Lampe' (which is singular) is 'ist'.",
+      "hint": "Focus on the gender of the noun.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Der Hund ___ klein.'",
+      "content": {
+        "sentence": "Der Hund ___ klein.",
+        "correctAnswer": "ist",
+        "acceptableAnswers": [
+          "ist"
+        ],
+        "options": [
+          "sind",
+          "ist",
+          "seht"
+        ]
+      },
+      "explanation": "'Der Hund' is singular, so we use 'ist' to complete the sentence.",
+      "hint": "Think about the subject of the sentence.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Das Buch ___ interessant.'",
+      "content": {
+        "sentence": "Das Buch ___ interessant.",
+        "correctAnswer": "ist",
+        "acceptableAnswers": [
+          "ist"
+        ],
+        "options": [
+          "sind",
+          "ist",
+          "seht"
+        ]
+      },
+      "explanation": "Since 'das Buch' is singular, we use 'ist'.",
+      "hint": "Identify the noun's article.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The dog is big.'",
+      "content": {
+        "prompt": "Translate to German: 'The dog is big.'",
+        "correctAnswer": "Der Hund ist groß.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The correct translation includes the article and the verb form.",
+      "hint": "Use the correct article for the noun.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation.",
+      "content": {
+        "ttsText": "Die Tür ist offen.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The door is open.",
+          "The door is closed.",
+          "The door is big."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The audio translates to 'The door is open.'",
+      "hint": "Focus on the key words in the sentence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in German: 'The chair is comfortable.'",
+      "content": {
+        "targetText": "Der Stuhl ist bequem.",
+        "context": "Translate and speak this sentence in German.",
+        "acceptableVariants": [
+          "Der Stuhl ist gemütlich."
+        ]
+      },
+      "explanation": "You can use either 'bequem' or 'gemütlich' to describe the chair.",
+      "hint": "Think about how to describe comfort in German.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct form of 'sein' for 'die Tür'?",
+      "content": {
+        "options": [
+          "sind",
+          "ist",
+          "seht"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Die Tür' is singular, so we use 'ist'.",
+      "hint": "Remember the gender of the noun.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Die Lampe ___ neu.'",
+      "content": {
+        "sentence": "Die Lampe ___ neu.",
+        "correctAnswer": "ist",
+        "acceptableAnswers": [
+          "ist"
+        ],
+        "options": [
+          "sind",
+          "ist",
+          "seht"
+        ]
+      },
+      "explanation": "'Die Lampe' is singular, so we say 'ist'.",
+      "hint": "Identify the noun's article and number.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

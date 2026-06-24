@@ -1,0 +1,313 @@
+{
+  "lesson": {
+    "title": "Unit 2 Review",
+    "type": "REVIEW",
+    "slug": "es-b2-unit2-review"
+  },
+  "unit": "Persuasion & Argument",
+  "unitOrder": 2,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this Unit 2 Review, you will consolidate your knowledge of persuasion and argumentation techniques in Spanish. You will practice vocabulary and grammar that will enhance your ability to construct and analyze arguments effectively.",
+      "culturalNote": "In many Spanish-speaking countries, the art of persuasion is highly valued, especially in political discourse and debates. Understanding the nuances of argumentation can significantly impact social interactions."
+    },
+    "vocabulary": [
+      {
+        "term": "el argumento",
+        "translation": "the argument",
+        "definition": "a statement that supports a position or opinion",
+        "pronunciation": "el ar-gumen-to",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tu argumento no es lo suficientemente fuerte.",
+          "translation": "Your argument is not strong enough."
+        },
+        "tip": "Think of 'argument' as a core part of debate."
+      },
+      {
+        "term": "persuadir",
+        "translation": "to persuade",
+        "definition": "to convince someone to do or believe something",
+        "pronunciation": "per-swa-dir",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Es difícil persuadir a alguien que ya tiene una opinión formada.",
+          "translation": "It's difficult to persuade someone who already has a formed opinion."
+        },
+        "tip": "Remember that 'persuade' and 'persuadir' share the same root."
+      },
+      {
+        "term": "la evidencia",
+        "translation": "the evidence",
+        "definition": "facts or information indicating whether a belief or proposition is true",
+        "pronunciation": "la e-vi-den-cia",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La evidencia debe respaldar tu argumento.",
+          "translation": "The evidence must support your argument."
+        },
+        "tip": "Think of 'evidence' in court cases to remember this term."
+      },
+      {
+        "term": "convencer",
+        "translation": "to convince",
+        "definition": "to cause someone to believe firmly in the truth of something",
+        "pronunciation": "con-vin-cer",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Necesito convencer a mi jefe de mi propuesta.",
+          "translation": "I need to convince my boss of my proposal."
+        },
+        "tip": "Remember that convincing is a key part of persuasion."
+      },
+      {
+        "term": "el debate",
+        "translation": "the debate",
+        "definition": "a formal discussion on a particular topic where opposing arguments are put forward",
+        "pronunciation": "el de-ba-te",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El debate fue muy interesante y educativo.",
+          "translation": "The debate was very interesting and educational."
+        },
+        "tip": "Link 'debate' to public speaking events."
+      },
+      {
+        "term": "la opinión",
+        "translation": "the opinion",
+        "definition": "a belief or judgment about something",
+        "pronunciation": "la o-pi-nión",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es importante respetar la opinión de los demás.",
+          "translation": "It's important to respect others' opinions."
+        },
+        "tip": "Think of 'opinion' polls to remember this term."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subjunctive in Persuasive Contexts",
+        "explanation": "In persuasive writing and speaking, the subjunctive mood expresses desires, doubts, or hypothetical situations. It is often used in clauses that begin with 'que' to indicate what one hopes or wishes for. For example, when persuading someone, you might say, 'Espero que entiendan mi punto de vista.' (I hope they understand my point of view.)",
+        "table": {
+          "headers": [
+            "Subjunctive Form",
+            "Example"
+          ],
+          "rows": [
+            [
+              "hable",
+              "Espero que hable sobre el tema."
+            ],
+            [
+              "convenciera",
+              "Si convenciera a más personas, habría un cambio."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es posible que ella no esté de acuerdo.",
+            "translation": "It is possible that she does not agree.",
+            "breakdown": "This uses the subjunctive 'esté' to express uncertainty."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive (e.g., 'Es cierto que él va' instead of 'Es cierto que él vaya').",
+          "Forgetting to use the subjunctive after expressions of doubt (e.g., 'Dudo que él lo sepa' instead of 'Dudo que él lo sabe')."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Proposal",
+      "context": "A meeting where colleagues are discussing a new project proposal.",
+      "speakers": [
+        "María",
+        "Juan"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Creo que debemos considerar esta propuesta más a fondo.",
+          "translation": "I think we should consider this proposal more thoroughly."
+        },
+        {
+          "speaker": 1,
+          "text": "Es cierto, pero necesito que me convenzas de que es viable.",
+          "translation": "That's true, but I need you to convince me that it is viable."
+        },
+        {
+          "speaker": 0,
+          "text": "La evidencia sugiere que el proyecto podría ser beneficioso.",
+          "translation": "The evidence suggests that the project could be beneficial."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, pero hay riesgos que no podemos ignorar.",
+          "translation": "Yes, but there are risks that we cannot ignore."
+        },
+        {
+          "speaker": 0,
+          "text": "Entiendo tus preocupaciones, pero si colaboramos, podemos mitigarlos.",
+          "translation": "I understand your concerns, but if we collaborate, we can mitigate them."
+        },
+        {
+          "speaker": 1,
+          "text": "Eso tiene sentido. ¿Puedes darme ejemplos específicos?",
+          "translation": "That makes sense. Can you give me specific examples?"
+        },
+        {
+          "speaker": 0,
+          "text": "Claro, he recopilado datos que demuestran el éxito de proyectos similares.",
+          "translation": "Of course, I have gathered data that demonstrates the success of similar projects."
+        },
+        {
+          "speaker": 1,
+          "text": "Perfecto, eso ayudará a convencer al equipo.",
+          "translation": "Perfect, that will help convince the team."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Debate in Latin America",
+      "text": "In many Latin American countries, debate is considered an essential part of education and civic engagement. It promotes critical thinking and allows individuals to express their views in public forums.",
+      "funFact": "In countries like Argentina, debate competitions are popular among students, often leading to significant scholarships."
+    },
+    "summary": {
+      "keyPoints": [
+        "Understanding the key vocabulary related to persuasion and argument.",
+        "Utilizing the subjunctive mood effectively in persuasive contexts.",
+        "Engaging in dialogues that reflect real-world persuasive discussions.",
+        "Recognizing cultural aspects of debate in Spanish-speaking countries."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences and explore more examples of the subjunctive in persuasive language."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'argument'?",
+      "content": {
+        "options": [
+          "el debate",
+          "el argumento",
+          "la opinión",
+          "la evidencia"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'el argumento', which translates to 'argument' in English.",
+      "hint": "Think of a discussion where reasons are presented.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'to persuade' in Spanish?",
+      "content": {
+        "options": [
+          "convencer",
+          "persuadir",
+          "debate",
+          "opinión"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Persuadir' is the Spanish verb that means 'to persuade'.",
+      "hint": "It starts with 'p'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Es importante presentar _______ para apoyar tu argumento.'",
+      "content": {
+        "sentence": "Es importante presentar _______ para apoyar tu argumento.",
+        "correctAnswer": "evidencia",
+        "acceptableAnswers": [
+          "evidencias"
+        ],
+        "options": [
+          "opinión",
+          "debate",
+          "evidencia",
+          "persuasión"
+        ]
+      },
+      "explanation": "The correct answer is 'evidencia', meaning 'evidence'.",
+      "hint": "Think about what you need to support your claims.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'El objetivo de un _______ es presentar diferentes puntos de vista.'",
+      "content": {
+        "sentence": "El objetivo de un _______ es presentar diferentes puntos de vista.",
+        "correctAnswer": "debate",
+        "acceptableAnswers": [
+          "debates"
+        ],
+        "options": [
+          "argumento",
+          "opinion",
+          "debate",
+          "persuadir"
+        ]
+      },
+      "explanation": "The correct answer is 'debate', which refers to a discussion of opposing viewpoints.",
+      "hint": "It's a formal discussion.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I want to convince my friends.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I want to convince my friends.'",
+        "correctAnswer": "Quiero convencer a mis amigos.",
+        "acceptableAnswers": [
+          "Quiero convencer a mis amigos."
+        ]
+      },
+      "explanation": "The correct translation captures the intent to persuade friends.",
+      "hint": "Remember the verb for 'to convince'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Es importante tener una opinión clara.'",
+      "content": {
+        "ttsText": "Es importante tener una opinión clara.",
+        "ttsLang": "es-ES",
+        "options": [
+          "It is important to have a clear opinion.",
+          "It is necessary to argue clearly.",
+          "It is vital to persuade others."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation emphasizes having a clear opinion.",
+      "hint": "Focus on the words 'importante' and 'opinión'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'I need evidence to support my argument.'",
+      "content": {
+        "targetText": "Necesito evidencia para apoyar mi argumento.",
+        "context": "Expressing the need for support in an argument.",
+        "acceptableVariants": [
+          "Necesito pruebas para respaldar mi argumento."
+        ]
+      },
+      "explanation": "This phrase shows the importance of evidence in making an argument.",
+      "hint": "Use the word for 'evidence'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

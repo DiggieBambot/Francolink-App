@@ -1,0 +1,353 @@
+{
+  "lesson": {
+    "title": "Perfekt with Haben - Regular Verbs",
+    "type": "GRAMMAR",
+    "slug": "de-a2-perfekt-haben-regular"
+  },
+  "unit": "Talking About the Past",
+  "unitOrder": 1,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to use the Perfekt tense with regular verbs in German. You will understand how to form sentences about past actions using the auxiliary verb 'haben'.",
+      "culturalNote": "In Germany, it is common to discuss past activities during social gatherings, often using the Perfekt tense, which makes conversations more engaging."
+    },
+    "vocabulary": [
+      {
+        "term": "der Lehrer",
+        "translation": "the teacher",
+        "definition": "A person who teaches, especially in a school.",
+        "pronunciation": "dehr LAY-er",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Lehrer hat das Buch gelesen.",
+          "translation": "The teacher read the book."
+        },
+        "tip": "The plural form is 'die Lehrer' (teachers)."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A written work that is published.",
+        "pronunciation": "dahs booH",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe das Buch gefunden.",
+          "translation": "I found the book."
+        },
+        "tip": "Remember, 'die Bücher' is the plural form."
+      },
+      {
+        "term": "spielen",
+        "translation": "to play",
+        "definition": "To engage in activity for enjoyment.",
+        "pronunciation": "SPEE-len",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Wir haben gestern Fußball gespielt.",
+          "translation": "We played soccer yesterday."
+        },
+        "tip": "The regular verb 'spielen' follows the pattern for Perfekt."
+      },
+      {
+        "term": "kaufen",
+        "translation": "to buy",
+        "definition": "To acquire something by paying for it.",
+        "pronunciation": "KOW-fen",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Sie hat ein neues Auto gekauft.",
+          "translation": "She bought a new car."
+        },
+        "tip": "The past participle is 'gekauft'."
+      },
+      {
+        "term": "machen",
+        "translation": "to do/make",
+        "definition": "To perform an action or create something.",
+        "pronunciation": "MAH-ken",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Er hat die Hausaufgaben gemacht.",
+          "translation": "He did the homework."
+        },
+        "tip": "The past participle is 'gemacht'."
+      },
+      {
+        "term": "besuchen",
+        "translation": "to visit",
+        "definition": "To go to see someone or someplace.",
+        "pronunciation": "beh-ZOO-ken",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Wir haben unsere Freunde besucht.",
+          "translation": "We visited our friends."
+        },
+        "tip": "The past participle is 'besucht'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Perfekt with Haben",
+        "explanation": "In German, the Perfekt tense is used to describe actions that have been completed in the past. For regular verbs, we use the auxiliary verb 'haben' along with the past participle. The past participle usually starts with 'ge-' and ends with '-t' for regular verbs.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Past Participle"
+          ],
+          "rows": [
+            [
+              "ich",
+              "gespielt"
+            ],
+            [
+              "du",
+              "gespielt"
+            ],
+            [
+              "er/sie/es",
+              "gespielt"
+            ],
+            [
+              "wir",
+              "gespielt"
+            ],
+            [
+              "ihr",
+              "gespielt"
+            ],
+            [
+              "sie/Sie",
+              "gespielt"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich habe gestern ein Buch gelesen.",
+            "translation": "I read a book yesterday.",
+            "breakdown": "The subject is 'Ich', the auxiliary verb is 'habe', and 'gelesen' is the past participle."
+          },
+          {
+            "original": "Wir haben Pizza gemacht.",
+            "translation": "We made pizza.",
+            "breakdown": "The subject is 'Wir', the auxiliary verb is 'haben', and 'gemacht' is the past participle."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'sein' instead of 'haben' for regular verbs. Correct: 'Ich habe gespielt.'",
+          "Forgetting to use the past participle form. Correct: 'Ich habe das Buch gekauft.'"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking About the Weekend",
+      "context": "Two friends discussing their weekend activities at a café.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Lukas, was hast du am Wochenende gemacht?",
+          "translation": "Hello Lukas, what did you do on the weekend?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Anna! Ich habe meine Familie besucht.",
+          "translation": "Hello Anna! I visited my family."
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt schön! Hast du etwas Interessantes gemacht?",
+          "translation": "That sounds nice! Did you do something interesting?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, wir haben ein neues Spiel gespielt.",
+          "translation": "Yes, we played a new game."
+        },
+        {
+          "speaker": 0,
+          "text": "Cool! Ich habe ein Buch gelesen und einen Film gesehen.",
+          "translation": "Cool! I read a book and watched a movie."
+        },
+        {
+          "speaker": 1,
+          "text": "Welchen Film hast du gesehen?",
+          "translation": "Which movie did you watch?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich habe 'Die Unendliche Geschichte' gesehen.",
+          "translation": "I watched 'The NeverEnding Story'."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich liebe diesen Film! Hast du Popcorn gemacht?",
+          "translation": "I love that movie! Did you make popcorn?"
+        }
+      ]
+    },
+    "culture": {
+      "title": "Cultural Insights on Movies",
+      "text": "Germans enjoy cinema and often discuss films in social settings. There are many film festivals in Germany, celebrating both local and international cinema.",
+      "funFact": "The Berlinale, or Berlin International Film Festival, is one of the most prestigious film festivals in the world."
+    },
+    "summary": {
+      "keyPoints": [
+        "Perfekt tense is formed using 'haben' and a past participle.",
+        "Regular verbs typically have a past participle that starts with 'ge-' and ends with '-t'.",
+        "Common regular verbs include 'spielen', 'kaufen', and 'machen'.",
+        "Use Perfekt to talk about completed actions in the past."
+      ],
+      "nextSteps": "Practice forming sentences in Perfekt with regular verbs. Try talking about your past weekend activities using this structure."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct form of 'spielen' in the Perfekt with 'haben'?",
+      "content": {
+        "options": [
+          "hat gespielt",
+          "habe gespielt",
+          "haben spielt"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct form is 'hat gespielt' which is the Perfekt form using 'haben'.",
+      "hint": "Remember the auxiliary verb used with 'spielen'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which sentence is correct in the Perfekt?",
+      "content": {
+        "options": [
+          "Ich habe das Buch gekauft.",
+          "Ich kaufe das Buch gehabt.",
+          "Ich hat das Buch gekauft."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct sentence is 'Ich habe das Buch gekauft.', using 'haben' correctly.",
+      "hint": "Look for the right auxiliary verb and past participle.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich ___ (machen) meine Hausaufgaben.",
+      "content": {
+        "sentence": "Ich ___ meine Hausaufgaben.",
+        "correctAnswer": "habe gemacht",
+        "acceptableAnswers": [
+          "habe gemacht"
+        ],
+        "options": [
+          "habe gemacht",
+          "hat gemacht",
+          "haben macht"
+        ]
+      },
+      "explanation": "The correct answer is 'habe gemacht', showing the use of 'haben' in Perfekt.",
+      "hint": "Think about the auxiliary verb used with 'machen'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Wir ___ (besuchen) den Lehrer.",
+      "content": {
+        "sentence": "Wir ___ den Lehrer.",
+        "correctAnswer": "haben besucht",
+        "acceptableAnswers": [
+          "haben besucht"
+        ],
+        "options": [
+          "hat besucht",
+          "haben besucht",
+          "habe besucht"
+        ]
+      },
+      "explanation": "The correct answer is 'haben besucht', indicating a completed action in the past.",
+      "hint": "Recall the structure of Perfekt with 'haben'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'das Buch / haben / wir / gelesen'.",
+      "content": {
+        "words": [
+          "das Buch",
+          "haben",
+          "wir",
+          "gelesen"
+        ],
+        "correctOrder": [
+          "wir",
+          "haben",
+          "das Buch",
+          "gelesen"
+        ],
+        "translation": "We have read the book."
+      },
+      "explanation": "The correct order forms a coherent sentence in Perfekt.",
+      "hint": "Start with the subject of the sentence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I have bought a book.'",
+      "content": {
+        "prompt": "Translate to German: 'I have bought a book.'",
+        "correctAnswer": "Ich habe ein Buch gekauft.",
+        "acceptableAnswers": [
+          "Ich habe das Buch gekauft."
+        ]
+      },
+      "explanation": "The translation correctly uses 'haben' with the past participle.",
+      "hint": "Focus on the structure of Perfekt.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct sentence.",
+      "content": {
+        "ttsText": "Ich habe mit Freunden gespielt.",
+        "ttsLang": "de-DE",
+        "options": [
+          "Ich spiele mit Freunden.",
+          "Ich habe mit Freunden gespielt.",
+          "Ich hat mit Freunden spielen."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct option matches the sentence you heard in Perfekt.",
+      "hint": "Listen carefully to the verb form.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in German: 'I have visited the teacher.'",
+      "content": {
+        "targetText": "Ich habe den Lehrer besucht.",
+        "context": "Translate this English sentence to German.",
+        "acceptableVariants": [
+          "Ich habe den Lehrer besucht."
+        ]
+      },
+      "explanation": "This sentence correctly uses the Perfekt tense.",
+      "hint": "Remember to use 'haben' with the past participle.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

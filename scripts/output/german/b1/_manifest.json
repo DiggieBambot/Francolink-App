@@ -1,0 +1,322 @@
+[
+  {
+    "title": "Subordinate Clauses with Dass & Weil",
+    "type": "GRAMMAR",
+    "slug": "de-b1-subordinate-clauses",
+    "unit": "Expressing Opinions",
+    "unitOrder": 1,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Agreeing & Disagreeing",
+    "type": "CONVERSATION",
+    "slug": "de-b1-agree-disagree",
+    "unit": "Expressing Opinions",
+    "unitOrder": 1,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Giving Opinions & Reasons",
+    "type": "CONVERSATION",
+    "slug": "de-b1-opinions",
+    "unit": "Expressing Opinions",
+    "unitOrder": 1,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Discussing Current Events",
+    "type": "CONVERSATION",
+    "slug": "de-b1-current-events",
+    "unit": "Expressing Opinions",
+    "unitOrder": 1,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 1 Review",
+    "type": "REVIEW",
+    "slug": "de-b1-unit1-review",
+    "unit": "Expressing Opinions",
+    "unitOrder": 1,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Präteritum for Writing",
+    "type": "GRAMMAR",
+    "slug": "de-b1-praeteritum-writing",
+    "unit": "Narrating the Past",
+    "unitOrder": 2,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Plusquamperfekt (Past Perfect)",
+    "type": "GRAMMAR",
+    "slug": "de-b1-plusquamperfekt",
+    "unit": "Narrating the Past",
+    "unitOrder": 2,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Telling a Story",
+    "type": "CONVERSATION",
+    "slug": "de-b1-telling-story",
+    "unit": "Narrating the Past",
+    "unitOrder": 2,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Memorable Experiences",
+    "type": "CONVERSATION",
+    "slug": "de-b1-memorable",
+    "unit": "Narrating the Past",
+    "unitOrder": 2,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 2 Review",
+    "type": "REVIEW",
+    "slug": "de-b1-unit2-review",
+    "unit": "Narrating the Past",
+    "unitOrder": 2,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Professional Vocabulary",
+    "type": "VOCABULARY",
+    "slug": "de-b1-professional-vocab",
+    "unit": "Work & Career",
+    "unitOrder": 3,
+    "lessonOrder": 1
+  },
+  {
+    "title": "The Passive Voice (Werden)",
+    "type": "GRAMMAR",
+    "slug": "de-b1-passive",
+    "unit": "Work & Career",
+    "unitOrder": 3,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Business Emails & Messages",
+    "type": "CONVERSATION",
+    "slug": "de-b1-business-emails",
+    "unit": "Work & Career",
+    "unitOrder": 3,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Meetings & Presentations",
+    "type": "CONVERSATION",
+    "slug": "de-b1-meetings",
+    "unit": "Work & Career",
+    "unitOrder": 3,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 3 Review",
+    "type": "REVIEW",
+    "slug": "de-b1-unit3-review",
+    "unit": "Work & Career",
+    "unitOrder": 3,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Konjunktiv II - Introduction",
+    "type": "GRAMMAR",
+    "slug": "de-b1-konjunktiv-intro",
+    "unit": "Conditionals & Wishes",
+    "unitOrder": 4,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Wenn-Clauses (Conditionals)",
+    "type": "GRAMMAR",
+    "slug": "de-b1-wenn-clauses",
+    "unit": "Conditionals & Wishes",
+    "unitOrder": 4,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Polite Konjunktiv II",
+    "type": "GRAMMAR",
+    "slug": "de-b1-konjunktiv-polite",
+    "unit": "Conditionals & Wishes",
+    "unitOrder": 4,
+    "lessonOrder": 3
+  },
+  {
+    "title": "What Would You Do?",
+    "type": "CONVERSATION",
+    "slug": "de-b1-what-would",
+    "unit": "Conditionals & Wishes",
+    "unitOrder": 4,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 4 Review",
+    "type": "REVIEW",
+    "slug": "de-b1-unit4-review",
+    "unit": "Conditionals & Wishes",
+    "unitOrder": 4,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Media Vocabulary",
+    "type": "VOCABULARY",
+    "slug": "de-b1-media-vocab",
+    "unit": "Media & Communication",
+    "unitOrder": 5,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Indirect Speech (Indirekte Rede)",
+    "type": "GRAMMAR",
+    "slug": "de-b1-indirect-speech",
+    "unit": "Media & Communication",
+    "unitOrder": 5,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Discussing News & Articles",
+    "type": "CONVERSATION",
+    "slug": "de-b1-news",
+    "unit": "Media & Communication",
+    "unitOrder": 5,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Social Media & Digital Life",
+    "type": "CONVERSATION",
+    "slug": "de-b1-social-media",
+    "unit": "Media & Communication",
+    "unitOrder": 5,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 5 Review",
+    "type": "REVIEW",
+    "slug": "de-b1-unit5-review",
+    "unit": "Media & Communication",
+    "unitOrder": 5,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Environment & Nature",
+    "type": "VOCABULARY",
+    "slug": "de-b1-environment",
+    "unit": "Environment & Society",
+    "unitOrder": 6,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Relative Clauses (Der, Die, Das as Pronouns)",
+    "type": "GRAMMAR",
+    "slug": "de-b1-relative-clauses",
+    "unit": "Environment & Society",
+    "unitOrder": 6,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Social Issues & Solutions",
+    "type": "CONVERSATION",
+    "slug": "de-b1-social-issues",
+    "unit": "Environment & Society",
+    "unitOrder": 6,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Expressing Concern & Suggestions",
+    "type": "CONVERSATION",
+    "slug": "de-b1-concern",
+    "unit": "Environment & Society",
+    "unitOrder": 6,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 6 Review",
+    "type": "REVIEW",
+    "slug": "de-b1-unit6-review",
+    "unit": "Environment & Society",
+    "unitOrder": 6,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Describing Places & Scenery",
+    "type": "VOCABULARY",
+    "slug": "de-b1-describing-places",
+    "unit": "Culture & Travel",
+    "unitOrder": 7,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Adjective Endings - Nominative & Accusative",
+    "type": "GRAMMAR",
+    "slug": "de-b1-adjective-endings",
+    "unit": "Culture & Travel",
+    "unitOrder": 7,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Cultural Differences (DACH)",
+    "type": "CONVERSATION",
+    "slug": "de-b1-cultural-diff",
+    "unit": "Culture & Travel",
+    "unitOrder": 7,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Travel Stories & Adventures",
+    "type": "CONVERSATION",
+    "slug": "de-b1-travel-stories",
+    "unit": "Culture & Travel",
+    "unitOrder": 7,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Unit 7 Review",
+    "type": "REVIEW",
+    "slug": "de-b1-unit7-review",
+    "unit": "Culture & Travel",
+    "unitOrder": 7,
+    "lessonOrder": 5
+  },
+  {
+    "title": "Future Plans & Ambitions",
+    "type": "CONVERSATION",
+    "slug": "de-b1-ambitions",
+    "unit": "Future & Aspirations",
+    "unitOrder": 8,
+    "lessonOrder": 1
+  },
+  {
+    "title": "Futur I (Will + Werden)",
+    "type": "GRAMMAR",
+    "slug": "de-b1-futur",
+    "unit": "Future & Aspirations",
+    "unitOrder": 8,
+    "lessonOrder": 2
+  },
+  {
+    "title": "Giving a Short Presentation",
+    "type": "CONVERSATION",
+    "slug": "de-b1-presentation",
+    "unit": "Future & Aspirations",
+    "unitOrder": 8,
+    "lessonOrder": 3
+  },
+  {
+    "title": "Debate & Discussion Skills",
+    "type": "CONVERSATION",
+    "slug": "de-b1-debate",
+    "unit": "Future & Aspirations",
+    "unitOrder": 8,
+    "lessonOrder": 4
+  },
+  {
+    "title": "Final Review & Celebration",
+    "type": "REVIEW",
+    "slug": "de-b1-final-review",
+    "unit": "Future & Aspirations",
+    "unitOrder": 8,
+    "lessonOrder": 5
+  }
+]

@@ -1,0 +1,377 @@
+{
+  "lesson": {
+    "title": "Giving Advice — Deber & Tener Que",
+    "type": "GRAMMAR",
+    "slug": "es-a2-advice"
+  },
+  "unit": "Health & Body",
+  "unitOrder": 4,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to give advice in Spanish using the verbs 'deber' and 'tener que.' These verbs are commonly used to express necessity and obligation regarding health and body.",
+      "culturalNote": "In many Spanish-speaking countries, health is often discussed in family gatherings, where elders give advice based on their experiences."
+    },
+    "vocabulary": [
+      {
+        "term": "la salud",
+        "translation": "health",
+        "definition": "the state of being free from illness or injury",
+        "pronunciation": "lah sah-ood",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Es importante cuidar la salud.",
+          "translation": "It is important to take care of your health."
+        },
+        "tip": "Remember that health ('salud') is feminine in Spanish, so use 'la.'"
+      },
+      {
+        "term": "deber",
+        "translation": "should/must",
+        "definition": "to express obligation or necessity",
+        "pronunciation": "deh-behr",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Debes comer frutas y verduras.",
+          "translation": "You should eat fruits and vegetables."
+        },
+        "tip": "'Deber' is often followed by an infinitive verb to express what someone should do."
+      },
+      {
+        "term": "tener que",
+        "translation": "to have to",
+        "definition": "to express a necessity or obligation",
+        "pronunciation": "teh-nehr keh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Tengo que hacer ejercicio.",
+          "translation": "I have to exercise."
+        },
+        "tip": "Use 'tener que' followed by an infinitive verb to indicate what someone must do."
+      },
+      {
+        "term": "el ejercicio",
+        "translation": "exercise",
+        "definition": "physical activity to improve health and fitness",
+        "pronunciation": "el eh-hehr-see-sio",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Hacer ejercicio es bueno para la salud.",
+          "translation": "Exercising is good for health."
+        },
+        "tip": "Remember that 'ejercicio' is masculine in Spanish, so use 'el.'"
+      },
+      {
+        "term": "la comida",
+        "translation": "food",
+        "definition": "any nutritious substance that people or animals eat or drink",
+        "pronunciation": "lah koh-mee-dah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La comida saludable es importante.",
+          "translation": "Healthy food is important."
+        },
+        "tip": "'Comida' is feminine, so always say 'la comida.'"
+      },
+      {
+        "term": "el agua",
+        "translation": "water",
+        "definition": "a transparent fluid that forms rivers, lakes, and seas, essential for life",
+        "pronunciation": "el ah-gwah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Debes beber más agua.",
+          "translation": "You should drink more water."
+        },
+        "tip": "Even though 'agua' is feminine, use 'el' before it to avoid the double 'a' sound."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Giving Advice with 'Deber' and 'Tener Que'",
+        "explanation": "'Deber' is used to suggest what someone should do, while 'tener que' is used to express what someone has to do. Both are followed by an infinitive verb. For example, 'Debes estudiar' means 'You should study,' and 'Tienes que estudiar' means 'You have to study.'",
+        "table": {
+          "headers": [
+            "Verb",
+            "Usage"
+          ],
+          "rows": [
+            [
+              "Deber",
+              "to express advice"
+            ],
+            [
+              "Tener que",
+              "to express obligation"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Debes dormir más.",
+            "translation": "You should sleep more.",
+            "breakdown": "'Debes' is the conjugated form of 'deber' for 'tú,' followed by 'dormir,' the infinitive verb."
+          },
+          {
+            "original": "Tienes que ir al médico.",
+            "translation": "You have to go to the doctor.",
+            "breakdown": "'Tienes' is the conjugated form of 'tener' for 'tú,' followed by 'ir,' the infinitive verb."
+          }
+        ],
+        "commonMistakes": [
+          "'Debes' is often confused with 'debes,' which is incorrect spelling.",
+          "'Tener que' is sometimes mistakenly used without an infinitive verb."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Giving Health Advice",
+      "context": "A conversation between two friends discussing health tips.",
+      "speakers": [
+        "Juan",
+        "Maria"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, Maria. ¿Cómo te sientes?",
+          "translation": "Hi, Maria. How do you feel?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, Juan. Me siento cansada.",
+          "translation": "Hi, Juan. I feel tired."
+        },
+        {
+          "speaker": 0,
+          "text": "Debes dormir más.",
+          "translation": "You should sleep more."
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, tengo que hacerlo.",
+          "translation": "Yes, I have to do it."
+        },
+        {
+          "speaker": 0,
+          "text": "¿Comes bien?",
+          "translation": "Do you eat well?"
+        },
+        {
+          "speaker": 1,
+          "text": "No, como mucha comida rápida.",
+          "translation": "No, I eat a lot of fast food."
+        },
+        {
+          "speaker": 0,
+          "text": "Debes comer más frutas y verduras.",
+          "translation": "You should eat more fruits and vegetables."
+        },
+        {
+          "speaker": 1,
+          "text": "Tienes razón. También tengo que beber más agua.",
+          "translation": "You are right. I also have to drink more water."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Health in Spanish-speaking Countries",
+      "text": "In many Spanish-speaking countries, health is a priority and there are often community programs promoting physical activity and good nutrition. Families frequently gather for meals, emphasizing the importance of healthy eating habits.",
+      "funFact": "In Mexico, there is a popular tradition called 'la sobremesa,' where families and friends talk and enjoy each other's company after meals, promoting good mental health."
+    },
+    "summary": {
+      "keyPoints": [
+        "Use 'deber' to give advice on what someone should do.",
+        "Use 'tener que' to express obligations.",
+        "Both verbs are followed by an infinitive.",
+        "Healthy habits are important in Spanish-speaking cultures."
+      ],
+      "nextSteps": "Practice using 'deber' and 'tener que' in sentences related to your daily routine and health."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'deber' mean in English?",
+      "content": {
+        "options": [
+          "to have to",
+          "to want",
+          "to should"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Deber' translates to 'should', indicating advice or obligation.",
+      "hint": "Think about what you suggest someone should do.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is a way to say 'You have to drink water' in Spanish?",
+      "content": {
+        "options": [
+          "Deber beber agua",
+          "Tienes que beber agua",
+          "Debes agua"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Tienes que beber agua' is the correct way to say 'You have to drink water'.",
+      "hint": "Look for the phrase that includes 'tienes que'.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Tú ___ hacer ejercicio todos los días.'",
+      "content": {
+        "sentence": "Tú ___ hacer ejercicio todos los días.",
+        "correctAnswer": "debes",
+        "acceptableAnswers": [
+          "deber",
+          "debe"
+        ],
+        "options": [
+          "debes",
+          "tienes que",
+          "puedes"
+        ]
+      },
+      "explanation": "The verb 'debes' is the correct form of 'deber' for 'tú'.",
+      "hint": "Think about what you would say to a friend.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Nosotros ___ comer más frutas.'",
+      "content": {
+        "sentence": "Nosotros ___ comer más frutas.",
+        "correctAnswer": "tenemos que",
+        "acceptableAnswers": [
+          "deber",
+          "deber",
+          "tenemos"
+        ],
+        "options": [
+          "tenemos que",
+          "deber",
+          "tienen que"
+        ]
+      },
+      "explanation": "'Tenemos que' means 'we have to', which fits the context of the sentence.",
+      "hint": "Consider what 'we must do' in relation to eating.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Rearrange the words to form a correct sentence: 'agua / que / beber / tienes'.",
+      "content": {
+        "words": [
+          "agua",
+          "que",
+          "beber",
+          "tienes"
+        ],
+        "correctOrder": [
+          "tienes",
+          "que",
+          "beber",
+          "agua"
+        ],
+        "translation": "You have to drink water."
+      },
+      "explanation": "The correct order forms a meaningful sentence about necessity.",
+      "hint": "Start with 'you have to'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I should eat healthier food.'",
+      "content": {
+        "correctAnswer": "Debo comer comida más saludable.",
+        "acceptableAnswers": [
+          "Debería comer comida más saludable.",
+          "Debo comer alimentos más saludables."
+        ]
+      },
+      "explanation": "Both translations convey the idea of obligation to eat healthier.",
+      "hint": "Use 'debo' for 'I should'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct meaning: 'Debes beber más agua.'",
+      "content": {
+        "ttsText": "Debes beber más agua.",
+        "ttsLang": "es-ES",
+        "options": [
+          "You should drink more water.",
+          "You must eat more food.",
+          "You can play sports."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence advises to drink more water, which matches the correct option.",
+      "hint": "Focus on the advice being given.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'You should exercise regularly.'",
+      "content": {
+        "targetText": "Debes hacer ejercicio regularmente.",
+        "context": "Translate the advice into Spanish.",
+        "acceptableVariants": [
+          "Tienes que hacer ejercicio regularmente."
+        ]
+      },
+      "explanation": "Both sentences express the same advice about exercising.",
+      "hint": "Focus on 'you should' in your translation.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the best advice for good health?",
+      "content": {
+        "options": [
+          "Debes comer más dulces.",
+          "Tienes que hacer ejercicio y beber agua.",
+          "Es bueno no dormir."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The second option gives practical and healthy advice.",
+      "hint": "Consider what contributes to health.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Para buena salud, tú ___ beber agua.'",
+      "content": {
+        "sentence": "Para buena salud, tú ___ beber agua.",
+        "correctAnswer": "debes",
+        "acceptableAnswers": [
+          "tienes que",
+          "deber"
+        ],
+        "options": [
+          "debes",
+          "puedes",
+          "deber"
+        ]
+      },
+      "explanation": "The correct answer emphasizes the necessity of drinking water.",
+      "hint": "Think about what you should do for health.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

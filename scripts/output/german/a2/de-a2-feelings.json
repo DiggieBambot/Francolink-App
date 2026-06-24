@@ -1,0 +1,365 @@
+{
+  "lesson": {
+    "title": "Feelings & Emotions",
+    "type": "VOCABULARY",
+    "slug": "de-a2-feelings"
+  },
+  "unit": "Health & Body",
+  "unitOrder": 4,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to feelings and emotions in German. Understanding these words will help you express how you feel in different situations.",
+      "culturalNote": "In German-speaking countries, discussing feelings can be seen as important for personal relationships. People often ask 'Wie geht's?' (How are you?) to show they care."
+    },
+    "vocabulary": [
+      {
+        "term": "der Freude",
+        "translation": "joy",
+        "definition": "a feeling of great pleasure and happiness",
+        "pronunciation": "dehr froi-duh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe Freude an der Musik.",
+          "translation": "I have joy in music."
+        },
+        "tip": "Remember, 'Freude' is feminine; it’s 'die Freude' in the nominative case."
+      },
+      {
+        "term": "die Angst",
+        "translation": "fear",
+        "definition": "an unpleasant emotion caused by the belief that someone or something is dangerous",
+        "pronunciation": "dee ahngst",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Sie hat Angst vor Spinnen.",
+          "translation": "She has fear of spiders."
+        },
+        "tip": "'Angst' is feminine, so it’s always 'die Angst'."
+      },
+      {
+        "term": "das Glück",
+        "translation": "happiness/luck",
+        "definition": "a state of well-being characterized by emotions ranging from contentment to intense joy",
+        "pronunciation": "dahs gluek",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich fühle viel Glück.",
+          "translation": "I feel a lot of happiness."
+        },
+        "tip": "'Glück' is neuter; remember 'das Glück'."
+      },
+      {
+        "term": "die Traurigkeit",
+        "translation": "sadness",
+        "definition": "a state of feeling sorrowful or unhappy",
+        "pronunciation": "dee trou-er-igkeit",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Traurigkeit ist schwer zu überwinden.",
+          "translation": "The sadness is hard to overcome."
+        },
+        "tip": "'Traurigkeit' is feminine; it’s 'die Traurigkeit'."
+      },
+      {
+        "term": "der Ärger",
+        "translation": "anger",
+        "definition": "a strong feeling of annoyance or displeasure",
+        "pronunciation": "dehr air-ger",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Er hat viel Ärger mit seinem Chef.",
+          "translation": "He has a lot of anger with his boss."
+        },
+        "tip": "'Ärger' is masculine; it’s 'der Ärger'."
+      },
+      {
+        "term": "die Liebe",
+        "translation": "love",
+        "definition": "an intense feeling of deep affection",
+        "pronunciation": "dee lee-buh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Liebe ist das Wichtigste im Leben.",
+          "translation": "Love is the most important thing in life."
+        },
+        "tip": "'Liebe' is feminine; always use 'die Liebe'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Expressing feelings with 'haben' (to have)",
+        "explanation": "In German, we often express feelings using the verb 'haben'. For example, 'Ich habe Freude' means 'I have joy'. Remember that the subject and the object must agree in case.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Verb",
+            "Emotion"
+          ],
+          "rows": [
+            [
+              "Ich",
+              "habe",
+              "Freude"
+            ],
+            [
+              "Du",
+              "hast",
+              "Angst"
+            ],
+            [
+              "Er/Sie/Es",
+              "hat",
+              "Traurigkeit"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wir haben Glück.",
+            "translation": "We have happiness.",
+            "breakdown": "The subject 'wir' (we) uses the verb 'haben' (have) and the emotion 'Glück' (happiness) in the accusative case."
+          }
+        ],
+        "commonMistakes": [
+          "Saying 'Ich bin Freude' instead of 'Ich habe Freude'. Correct phrase is 'Ich habe Freude'.",
+          "Using 'habe' with plural subjects incorrectly. Remember to match the subject with the right form of 'haben'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking about feelings",
+      "context": "A conversation between two friends discussing their emotions after a long week.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Wie geht's dir, Lukas?",
+          "translation": "How are you, Lukas?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Es geht mir gut, aber ich habe viel Ärger im Büro.",
+          "translation": "I'm doing well, but I have a lot of anger at the office.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das tut mir leid. Hast du Freude an deinem neuen Projekt?",
+          "translation": "I'm sorry to hear that. Do you have joy in your new project?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe Freude. Es macht Spaß!",
+          "translation": "Yes, I have joy. It's fun!",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das ist schön! Ich habe auch viel Glück in meiner Beziehung.",
+          "translation": "That's nice! I also have a lot of happiness in my relationship.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das freut mich! Liebe ist wichtig.",
+          "translation": "I’m happy to hear that! Love is important.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, und manchmal habe ich auch Traurigkeit.",
+          "translation": "Yes, and sometimes I also feel sadness.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist normal. Wir müssen darüber sprechen.",
+          "translation": "That's normal. We need to talk about it.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Emotional expression in DACH cultures",
+      "text": "In German-speaking countries, people often express their feelings openly in personal conversations. It is common to ask friends about their emotional well-being.",
+      "funFact": "In Austria, people often say 'Mir geht's gut!' to express that they are doing well, which translates to 'I am good!'"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to feelings and emotions.",
+        "Practiced using the verb 'haben' to express emotions.",
+        "Engaged in a realistic dialogue about feelings.",
+        "Gained cultural insights into emotional expression in DACH countries."
+      ],
+      "nextSteps": "Practice using these new words in sentences. Try to express your own feelings in German!"
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the English translation of 'der Freude'?",
+      "content": {
+        "options": [
+          "joy",
+          "sadness",
+          "anger",
+          "love"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Der Freude' translates to 'joy' in English.",
+      "hint": "Think of a positive feeling.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'sadness' in German?",
+      "content": {
+        "options": [
+          "die Traurigkeit",
+          "die Angst",
+          "das Glück",
+          "der Ärger"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Sadness' is translated to 'die Traurigkeit' in German.",
+      "hint": "It's a negative emotion.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich habe große ___ (joy).' ",
+      "content": {
+        "sentence": "Ich habe große ___.",
+        "correctAnswer": "Freude",
+        "acceptableAnswers": [
+          "Freude"
+        ],
+        "options": [
+          "Angst",
+          "Freude",
+          "Traurigkeit"
+        ]
+      },
+      "explanation": "The correct word is 'Freude', which means 'joy'.",
+      "hint": "It's what you feel when you're very happy.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Sie fühlt sich voller ___ (love).' ",
+      "content": {
+        "sentence": "Sie fühlt sich voller ___.",
+        "correctAnswer": "Liebe",
+        "acceptableAnswers": [
+          "Liebe"
+        ],
+        "options": [
+          "Freude",
+          "Liebe",
+          "Ärger"
+        ]
+      },
+      "explanation": "'Liebe' means 'love' and fits the context of the sentence.",
+      "hint": "Think of a strong positive feeling for someone.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'He feels anger.'",
+      "content": {
+        "prompt": "Translate to German: 'He feels anger.'",
+        "correctAnswer": "Er fühlt Ärger.",
+        "acceptableAnswers": [
+          "Er hat Ärger."
+        ]
+      },
+      "explanation": "The correct translation is 'Er fühlt Ärger.'",
+      "hint": "Use the verb 'fühlen' for 'feels'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'die Liebe'",
+      "content": {
+        "ttsText": "die Liebe",
+        "ttsLang": "de-DE",
+        "options": [
+          "love",
+          "fear",
+          "joy",
+          "sadness"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Liebe' translates to 'love'.",
+      "hint": "It's a strong positive emotion.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in German: 'I have fear.'",
+      "content": {
+        "targetText": "Ich habe Angst.",
+        "context": "Translate and pronounce the English sentence in German.",
+        "acceptableVariants": [
+          "Ich habe Angst."
+        ]
+      },
+      "explanation": "The correct translation is 'Ich habe Angst.'",
+      "hint": "Think of a situation where you might feel scared.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'das Glück' mean in English?",
+      "content": {
+        "options": [
+          "happiness",
+          "anger",
+          "fear",
+          "love"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Das Glück' translates to 'happiness'.",
+      "hint": "It's a state of feeling good.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Er hat viel ___ (anger).' ",
+      "content": {
+        "sentence": "Er hat viel ___.",
+        "correctAnswer": "Ärger",
+        "acceptableAnswers": [
+          "Ärger"
+        ],
+        "options": [
+          "Freude",
+          "Ärger",
+          "Liebe"
+        ]
+      },
+      "explanation": "'Ärger' means 'anger' and fits in the sentence.",
+      "hint": "It's a negative emotion.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

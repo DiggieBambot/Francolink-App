@@ -1,0 +1,354 @@
+{
+  "lesson": {
+    "title": "Expressing Concern & Suggestions",
+    "type": "CONVERSATION",
+    "slug": "de-b1-concern"
+  },
+  "unit": "Environment & Society",
+  "unitOrder": 6,
+  "lessonOrder": 4,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to express concern and make suggestions in German, especially in the context of environmental and societal issues. You will practice using subordinate clauses and the Konjunktiv II for politeness.",
+      "culturalNote": "In Germany, environmental awareness is very high, and many people actively participate in discussions about sustainability and social issues. This reflects a strong sense of community responsibility."
+    },
+    "vocabulary": [
+      {
+        "term": "die Umwelt",
+        "translation": "the environment",
+        "definition": "refers to the natural world and ecological surroundings",
+        "pronunciation": "dee OOM-velt",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Umwelt ist wichtig für unsere Zukunft.",
+          "translation": "The environment is important for our future."
+        },
+        "tip": "Remember that 'Umwelt' is feminine (die) and its plural is 'Umwelten'."
+      },
+      {
+        "term": "die Gesellschaft",
+        "translation": "society",
+        "definition": "refers to a community or group of people living together",
+        "pronunciation": "dee guh-ZELL-shaft",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Gesellschaft muss sich ändern.",
+          "translation": "Society must change."
+        },
+        "tip": "This noun is also feminine (die), and its plural is 'Gesellschaften'."
+      },
+      {
+        "term": "der Vorschlag",
+        "translation": "the suggestion",
+        "definition": "an idea or plan put forward for consideration",
+        "pronunciation": "der FORSH-lahg",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe einen Vorschlag für dich.",
+          "translation": "I have a suggestion for you."
+        },
+        "tip": "This noun is masculine (der), and its plural is 'Vorschläge'."
+      },
+      {
+        "term": "sich Sorgen machen",
+        "translation": "to worry",
+        "definition": "to feel concern or anxiety about something",
+        "pronunciation": "zikh ZOR-gen MAH-khen",
+        "partOfSpeech": "verb phrase",
+        "exampleSentence": {
+          "original": "Ich mache mir Sorgen um die Zukunft.",
+          "translation": "I worry about the future."
+        },
+        "tip": "This phrase is reflexive; remember to conjugate 'machen' according to the subject."
+      },
+      {
+        "term": "der Klimawandel",
+        "translation": "climate change",
+        "definition": "refers to long-term changes in temperature and weather patterns",
+        "pronunciation": "der KLEE-mah-vahn-dell",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Klimawandel betrifft uns alle.",
+          "translation": "Climate change affects us all."
+        },
+        "tip": "This noun is masculine (der), and its plural is 'Klimawandel' (used as singular)."
+      },
+      {
+        "term": "die Lösung",
+        "translation": "the solution",
+        "definition": "the answer to a problem or challenge",
+        "pronunciation": "dee LÖ-soong",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Wir brauchen eine Lösung für das Problem.",
+          "translation": "We need a solution for the problem."
+        },
+        "tip": "This noun is feminine (die), and its plural is 'Lösungen'."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subordinate Clauses (dass/weil/wenn)",
+        "explanation": "In German, subordinate clauses are often used to provide additional information. You can use 'dass' (that) to express thoughts, 'weil' (because) for reasons, and 'wenn' (if) for conditions. Remember to conjugate the verb at the end of the clause.",
+        "table": {
+          "headers": [
+            "Word",
+            "Example"
+          ],
+          "rows": [
+            [
+              "dass",
+              "Ich glaube, dass die Umwelt wichtig ist."
+            ],
+            [
+              "weil",
+              "Ich mache mir Sorgen, weil die Luft verschmutzt ist."
+            ],
+            [
+              "wenn",
+              "Wenn wir nichts tun, wird es schlimmer."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich denke, dass wir mehr für die Umwelt tun sollten.",
+            "translation": "I think that we should do more for the environment.",
+            "breakdown": "This sentence uses 'dass' to introduce the subordinate clause."
+          }
+        ],
+        "commonMistakes": [
+          "Incorrect verb placement in subordinate clauses. Correct: 'Ich denke, dass...' (not 'Ich denke dass...').",
+          "Confusing 'weil' and 'wenn'. Use 'weil' for reasons and 'wenn' for conditions."
+        ]
+      },
+      {
+        "title": "Konjunktiv II for Suggestions",
+        "explanation": "The Konjunktiv II is used to express polite suggestions or hypothetical situations. For example, you can say 'Ich würde vorschlagen...' (I would suggest...) to be more polite.",
+        "table": {
+          "headers": [
+            "Phrase",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Ich würde vorschlagen",
+              "Ich würde vorschlagen, mehr Bäume zu pflanzen."
+            ],
+            [
+              "Man könnte",
+              "Man könnte die Leute mehr informieren."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich würde gerne, dass wir umweltfreundlicher leben.",
+            "translation": "I would like us to live more environmentally friendly.",
+            "breakdown": "This sentence shows the use of Konjunktiv II to express a wish."
+          }
+        ],
+        "commonMistakes": [
+          "Using Indicative instead of Konjunktiv II. Correct: 'Ich würde...' (not 'Ich will...').",
+          "Forgetting to use the subjunctive form in polite requests."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Environmental Concerns",
+      "context": "Two friends discussing ways to improve their community's environmental practices.",
+      "speakers": [
+        "Lena",
+        "Max"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Ich mache mir Sorgen um die Umwelt.",
+          "translation": "I worry about the environment.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich auch. Der Klimawandel ist ein großes Problem.",
+          "translation": "Yes, me too. Climate change is a big problem.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Was könnten wir dagegen tun?",
+          "translation": "What could we do about it?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Wir sollten mehr Bäume pflanzen.",
+          "translation": "We should plant more trees.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das wäre eine gute Idee. Und vielleicht eine Müllsammelaktion organisieren?",
+          "translation": "That would be a good idea. And maybe organize a trash collection event?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Genau! Ich würde vorschlagen, die Leute zu informieren.",
+          "translation": "Exactly! I would suggest informing people.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt super! Wir könnten auch eine Umfrage machen.",
+          "translation": "That sounds great! We could also do a survey.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, das ist eine tolle Idee. Lass uns das planen!",
+          "translation": "Yes, that's a great idea. Let's plan that!",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Environmental Awareness in Germany",
+      "text": "Germany is known for its strong environmental policies and public awareness campaigns. Recycling is a deeply ingrained habit, and many cities have strict regulations to protect the environment.",
+      "funFact": "Germany was one of the first countries to implement a nationwide recycling program, which is now a model for many other countries."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to environment and society.",
+        "Practiced subordinate clauses with 'dass', 'weil', and 'wenn'.",
+        "Used the Konjunktiv II for polite suggestions.",
+        "Engaged in a dialogue about environmental concerns."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences, and try to create your own dialogues using subordinate clauses and the Konjunktiv II."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'die Umwelt' mean in English?",
+      "content": {
+        "options": [
+          "the environment",
+          "the society",
+          "the solution",
+          "the suggestion"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Umwelt' translates to 'the environment' in English.",
+      "hint": "Think about nature and surroundings.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase expresses concern about climate change?",
+      "content": {
+        "options": [
+          "Ich mache mir Sorgen um den Klimawandel.",
+          "Ich habe eine Lösung.",
+          "Das ist ein guter Vorschlag.",
+          "Wir sollten die Gesellschaft verbessern."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The phrase 'Ich mache mir Sorgen um den Klimawandel.' means 'I am concerned about climate change.'",
+      "hint": "Look for the phrase that mentions 'concern'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Wir müssen eine __________ finden, um die Umwelt zu schützen.'",
+      "content": {
+        "sentence": "Wir müssen eine __________ finden, um die Umwelt zu schützen.",
+        "correctAnswer": "Lösung",
+        "acceptableAnswers": [
+          "Lösung"
+        ],
+        "options": [
+          "Lösung",
+          "Gesellschaft",
+          "Vorschlag"
+        ]
+      },
+      "explanation": "The correct word is 'Lösung', which means 'solution' in English.",
+      "hint": "Think about what we need to protect the environment.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich mache mir __________ um die Gesellschaft.'",
+      "content": {
+        "sentence": "Ich mache mir __________ um die Gesellschaft.",
+        "correctAnswer": "Sorgen",
+        "acceptableAnswers": [
+          "Sorgen"
+        ],
+        "options": [
+          "Sorgen",
+          "Vorschläge",
+          "Lösungen"
+        ]
+      },
+      "explanation": "'Sorgen' means 'concerns' and fits the context of the sentence.",
+      "hint": "Think about feelings of anxiety.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'We need to take care of the environment.'",
+      "content": {
+        "correctAnswer": "Wir müssen uns um die Umwelt kümmern.",
+        "acceptableAnswers": [
+          "Wir sollten die Umwelt schützen.",
+          "Wir müssen die Umwelt pflegen."
+        ]
+      },
+      "explanation": "The translation conveys the idea of caring for the environment.",
+      "hint": "Focus on the phrase 'take care of'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation: 'Wir müssen etwas gegen den Klimawandel tun.'",
+      "content": {
+        "ttsText": "Wir müssen etwas gegen den Klimawandel tun.",
+        "ttsLang": "de-DE",
+        "options": [
+          "We must do something against climate change.",
+          "We need to protect society.",
+          "I am concerned about the environment."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation expresses the need to act against climate change.",
+      "hint": "Look for the phrase about action and climate change.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in German: 'What can we do to help the environment?'",
+      "content": {
+        "targetText": "Was können wir tun, um der Umwelt zu helfen?",
+        "context": "You are discussing environmental issues with a friend.",
+        "acceptableVariants": [
+          "Was können wir machen, um der Umwelt zu helfen?"
+        ]
+      },
+      "explanation": "This sentence encourages discussion on environmental help.",
+      "hint": "Think about how to ask for suggestions.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

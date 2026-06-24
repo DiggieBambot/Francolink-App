@@ -1,0 +1,324 @@
+{
+  "lesson": {
+    "title": "My Last Weekend",
+    "type": "CONVERSATION",
+    "slug": "es-a2-last-weekend"
+  },
+  "unit": "Talking About the Past",
+  "unitOrder": 1,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to talk about your past weekend in Spanish. You will practice using the preterite and imperfect tenses to describe activities and events.",
+      "culturalNote": "In many Spanish-speaking countries, weekends are a time for family gatherings and social activities. It's common to have barbecues or gatherings with friends."
+    },
+    "vocabulary": [
+      {
+        "term": "el fin de semana",
+        "translation": "the weekend",
+        "definition": "The time from Friday evening to Sunday.",
+        "pronunciation": "el feen deh weh-kahn-dah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El fin de semana fue divertido.",
+          "translation": "The weekend was fun."
+        },
+        "tip": "Remember that 'fin de semana' means 'weekend' and it's a common phrase in Spanish."
+      },
+      {
+        "term": "salir",
+        "translation": "to go out",
+        "definition": "To leave one's home to participate in social activities.",
+        "pronunciation": "sah-leer",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Salí con mis amigos el sábado.",
+          "translation": "I went out with my friends on Saturday."
+        },
+        "tip": "Think of 'salir' like 'exit' in English; it’s about leaving to have fun."
+      },
+      {
+        "term": "ver",
+        "translation": "to see",
+        "definition": "To watch or to look at something.",
+        "pronunciation": "behr",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Vi una película el viernes.",
+          "translation": "I saw a movie on Friday."
+        },
+        "tip": "The verb 'ver' is irregular, so practice its conjugation."
+      },
+      {
+        "term": "comer",
+        "translation": "to eat",
+        "definition": "To consume food.",
+        "pronunciation": "koh-mehr",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Comí pizza el domingo.",
+          "translation": "I ate pizza on Sunday."
+        },
+        "tip": "Remember that 'comer' is a regular -er verb."
+      },
+      {
+        "term": "jugar",
+        "translation": "to play",
+        "definition": "To engage in a game or sport.",
+        "pronunciation": "hoo-gar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Jugué fútbol el sábado.",
+          "translation": "I played soccer on Saturday."
+        },
+        "tip": "'Jugar' is irregular in the preterite, so be sure to memorize its forms."
+      },
+      {
+        "term": "pasar tiempo",
+        "translation": "to spend time",
+        "definition": "To engage in activities with someone.",
+        "pronunciation": "pah-sar tee-ehm-po",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Pasé tiempo con mi familia.",
+          "translation": "I spent time with my family."
+        },
+        "tip": "This phrase is commonly used to describe social activities."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Preterite vs. Imperfect",
+        "explanation": "The preterite tense is used for actions that are completed in the past, while the imperfect tense describes ongoing or habitual actions. Use the preterite for specific events and the imperfect for background details or routines.",
+        "table": {
+          "headers": [
+            "Preterite",
+            "Imperfect"
+          ],
+          "rows": [
+            [
+              "Completed actions",
+              "Ongoing actions"
+            ],
+            [
+              "Specific events",
+              "Habitual actions"
+            ],
+            [
+              "Actions with a definite beginning or end",
+              "Descriptions"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ayer comí pizza.",
+            "translation": "Yesterday I ate pizza.",
+            "breakdown": "This sentence uses the preterite 'comí' to indicate a completed action."
+          },
+          {
+            "original": "Cuando era niño, jugaba fútbol.",
+            "translation": "When I was a child, I used to play soccer.",
+            "breakdown": "This sentence uses the imperfect 'jugaba' to describe a habitual action in the past."
+          }
+        ],
+        "commonMistakes": [
+          "Using the preterite when the action was habitual. Correction: Use the imperfect.",
+          "Confusing 'era' (imperfect) with 'fue' (preterite). Correction: Use 'era' for descriptions."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking About the Weekend",
+      "context": "A conversation between two friends after the weekend.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, Luis. ¿Cómo estuvo tu fin de semana?",
+          "translation": "Hi, Luis. How was your weekend?"
+        },
+        {
+          "speaker": 1,
+          "text": "Fue muy divertido. Fui a la playa.",
+          "translation": "It was very fun. I went to the beach."
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué bueno! Yo comí pizza el sábado.",
+          "translation": "How nice! I ate pizza on Saturday."
+        },
+        {
+          "speaker": 1,
+          "text": "¿Te gustó la pizza?",
+          "translation": "Did you like the pizza?"
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, estaba deliciosa. También vi una película.",
+          "translation": "Yes, it was delicious. I also saw a movie."
+        },
+        {
+          "speaker": 1,
+          "text": "¿Cuál película viste?",
+          "translation": "Which movie did you see?"
+        },
+        {
+          "speaker": 0,
+          "text": "Vi una comedia. Me reí mucho.",
+          "translation": "I saw a comedy. I laughed a lot."
+        },
+        {
+          "speaker": 1,
+          "text": "¡Genial! El sábado jugué fútbol con mis amigos.",
+          "translation": "Great! On Saturday, I played soccer with my friends."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Weekend Traditions",
+      "text": "In many Spanish-speaking countries, weekends are a time for family and friends to gather. It's common to have barbecues, go to the beach, or visit local markets.",
+      "funFact": "In Mexico, many families celebrate the weekend with a meal called 'comida' which is often the biggest meal of the day."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to weekend activities.",
+        "Practiced using the preterite and imperfect tenses.",
+        "Engaged in a real-life dialogue about the past.",
+        "Gained cultural insights into weekend traditions."
+      ],
+      "nextSteps": "Practice speaking about your own weekend and use the vocabulary and grammar you learned in this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'el fin de semana' mean in English?",
+      "content": {
+        "options": [
+          "The weekend",
+          "The week",
+          "The holiday",
+          "The day"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El fin de semana' translates directly to 'the weekend' in English.",
+      "hint": "Think about what you do on weekends.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which activity means 'to play' in Spanish?",
+      "content": {
+        "options": [
+          "comer",
+          "jugar",
+          "ver",
+          "salir"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Jugar' is the Spanish verb that means 'to play'.",
+      "hint": "It's an activity often done with friends.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Ayer, yo ___ con mis amigos.",
+      "content": {
+        "sentence": "Ayer, yo ___ con mis amigos.",
+        "correctAnswer": "salí",
+        "acceptableAnswers": [
+          "salí",
+          "salió"
+        ],
+        "options": [
+          "comí",
+          "salí",
+          "jugué",
+          "vi"
+        ]
+      },
+      "explanation": "'Salí' is the correct form of the verb 'salir' for first person singular in the past tense.",
+      "hint": "Think about the verb for going out.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: El sábado, nosotros ___ pizza.",
+      "content": {
+        "sentence": "El sábado, nosotros ___ pizza.",
+        "correctAnswer": "comimos",
+        "acceptableAnswers": [
+          "comimos"
+        ],
+        "options": [
+          "comí",
+          "comieron",
+          "comimos",
+          "comió"
+        ]
+      },
+      "explanation": "'Comimos' is the correct form of the verb 'comer' for first person plural in the past tense.",
+      "hint": "It’s about eating food.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I watched a movie on Sunday.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I watched a movie on Sunday.'",
+        "correctAnswer": "Vi una película el domingo.",
+        "acceptableAnswers": [
+          "Vi una película el domingo."
+        ]
+      },
+      "explanation": "The sentence is correctly translated using the past tense of 'ver' (to watch).",
+      "hint": "Use the past tense for 'to see'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'El sábado, jugué fútbol.'",
+      "content": {
+        "ttsText": "El sábado, jugué fútbol.",
+        "ttsLang": "es-ES",
+        "options": [
+          "On Saturday, I played football.",
+          "On Sunday, I watched a movie.",
+          "On Friday, I ate pizza.",
+          "On Saturday, I went out."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation corresponds to the activities mentioned in the sentence.",
+      "hint": "Focus on the day and the activity.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following in Spanish: 'I spent time with my family.'",
+      "content": {
+        "targetText": "Pasé tiempo con mi familia.",
+        "context": "Translate this English sentence to Spanish.",
+        "acceptableVariants": [
+          "Pasé tiempo con mi familia."
+        ]
+      },
+      "explanation": "This sentence correctly uses the past tense of 'pasar' (to spend).",
+      "hint": "Think about the verb 'pasar'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

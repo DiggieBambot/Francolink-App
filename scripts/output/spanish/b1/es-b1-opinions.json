@@ -1,0 +1,352 @@
+{
+  "lesson": {
+    "title": "Giving Opinions & Reasons",
+    "type": "CONVERSATION",
+    "slug": "es-b1-opinions"
+  },
+  "unit": "Expressing Opinions",
+  "unitOrder": 1,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to give your opinions in Spanish and provide reasons to support them. You will practice using phrases that express agreement and disagreement, as well as the subjunctive mood in expressing your views.",
+      "culturalNote": "In many Spanish-speaking countries, expressing opinions is a vital part of social interaction, often seen in family gatherings and discussions among friends."
+    },
+    "vocabulary": [
+      {
+        "term": "opinar",
+        "translation": "to give an opinion",
+        "definition": "to express a belief or judgment about something",
+        "pronunciation": "oh-PEE-nar",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Yo opino que la película es excelente.",
+          "translation": "I think that the movie is excellent."
+        },
+        "tip": "Remember that 'opinar' is often used with 'que' to introduce a clause."
+      },
+      {
+        "term": "estar de acuerdo",
+        "translation": "to agree",
+        "definition": "to have the same opinion or view as someone else",
+        "pronunciation": "es-TAR deh ah-KWEHR-doh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Estamos de acuerdo en que la comida es deliciosa.",
+          "translation": "We agree that the food is delicious."
+        },
+        "tip": "Use this phrase when you want to show agreement with someone else's opinion."
+      },
+      {
+        "term": "no estoy de acuerdo",
+        "translation": "I disagree",
+        "definition": "to express a different opinion or view",
+        "pronunciation": "noh es-TOY deh ah-KWEHR-doh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "No estoy de acuerdo con esa idea.",
+          "translation": "I disagree with that idea."
+        },
+        "tip": "This phrase is helpful for politely expressing disagreement."
+      },
+      {
+        "term": "me parece que",
+        "translation": "it seems to me that",
+        "definition": "a phrase used to introduce your opinion",
+        "pronunciation": "meh pah-REH-seh keh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Me parece que deberíamos ir al cine.",
+          "translation": "It seems to me that we should go to the cinema."
+        },
+        "tip": "This expression softens your opinion, making it more polite."
+      },
+      {
+        "term": "aunque",
+        "translation": "although",
+        "definition": "a conjunction used to introduce a contrast",
+        "pronunciation": "AUN-keh",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Aunque me gusta el chocolate, no puedo comerlo mucho.",
+          "translation": "Although I like chocolate, I can't eat it much."
+        },
+        "tip": "Use 'aunque' to show contrast in your arguments."
+      },
+      {
+        "term": "por lo tanto",
+        "translation": "therefore",
+        "definition": "used to introduce a conclusion based on previous statements",
+        "pronunciation": "por lo TAN-toh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Es caro, por lo tanto no lo compraré.",
+          "translation": "It's expensive, therefore I won't buy it."
+        },
+        "tip": "This phrase is useful for summarizing your opinion."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Subjunctive Mood in Opinions",
+        "explanation": "In Spanish, when expressing opinions or desires that are subjective, we often use the subjunctive mood. This is particularly common in phrases that start with 'que'. For example, 'Es importante que...'.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Subjunctive Form"
+          ],
+          "rows": [
+            [
+              "yo",
+              "opine"
+            ],
+            [
+              "tú",
+              "opines"
+            ],
+            [
+              "él/ella",
+              "opine"
+            ],
+            [
+              "nosotros",
+              "opinemos"
+            ],
+            [
+              "ellos/ellas",
+              "opinen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es bueno que tú opines sobre el tema.",
+            "translation": "It is good that you express your opinion on the topic.",
+            "breakdown": "This sentence uses the subjunctive 'opines' because it expresses a subjective opinion."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive; remember to use the subjunctive for opinions.",
+          "Forgetting to include 'que' when expressing opinions; always include it."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Movie",
+      "context": "Two friends are discussing a movie they just watched at a café.",
+      "speakers": [
+        "Carlos",
+        "Ana"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué opinas de la película?",
+          "translation": "What do you think of the movie?"
+        },
+        {
+          "speaker": 1,
+          "text": "Me parece que fue muy emocionante.",
+          "translation": "It seems to me that it was very exciting."
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, estoy de acuerdo. Los efectos especiales fueron impresionantes.",
+          "translation": "Yes, I agree. The special effects were impressive."
+        },
+        {
+          "speaker": 1,
+          "text": "Aunque la historia era predecible, me gustó.",
+          "translation": "Although the story was predictable, I liked it."
+        },
+        {
+          "speaker": 0,
+          "text": "No estoy de acuerdo, creo que la trama era débil.",
+          "translation": "I disagree, I think the plot was weak."
+        },
+        {
+          "speaker": 1,
+          "text": "Es cierto que algunos personajes no estaban bien desarrollados.",
+          "translation": "It is true that some characters were not well developed."
+        },
+        {
+          "speaker": 0,
+          "text": "Por lo tanto, no le daría una buena calificación.",
+          "translation": "Therefore, I wouldn't give it a good rating."
+        },
+        {
+          "speaker": 1,
+          "text": "Quizás deberíamos ver otra película la próxima vez.",
+          "translation": "Maybe we should watch another movie next time."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Cultural Insights on Opinions",
+      "text": "In many Latin American cultures, discussing opinions is considered a sign of engagement and respect. Family gatherings often involve lively debates about movies, politics, and personal choices.",
+      "funFact": "In some countries, such as Mexico and Argentina, it's common to have heated discussions about football, with everyone sharing their opinions passionately!"
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned vocabulary related to giving opinions.",
+        "Practiced using the subjunctive mood.",
+        "Engaged in a realistic dialogue about opinions.",
+        "Explored cultural aspects of discussing opinions."
+      ],
+      "nextSteps": "Practice giving your own opinions in Spanish by writing a short paragraph about a recent movie or book you enjoyed, using the vocabulary and structures from this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'opinar' mean?",
+      "content": {
+        "options": [
+          "to agree",
+          "to have an opinion",
+          "to disagree",
+          "to think"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Opinar' directly translates to 'to have an opinion' in English.",
+      "hint": "It's about expressing what you think.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which phrase means 'I agree'?",
+      "content": {
+        "options": [
+          "No estoy de acuerdo",
+          "Estoy de acuerdo",
+          "Me parece que",
+          "Aunque"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Estoy de acuerdo' translates to 'I agree' in English.",
+      "hint": "Think about expressing agreement.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: '___ que el clima está cambiando.'",
+      "content": {
+        "sentence": "___ que el clima está cambiando.",
+        "correctAnswer": "Me parece",
+        "acceptableAnswers": [
+          "Me parece"
+        ],
+        "options": [
+          "Opino",
+          "Me parece",
+          "No estoy de acuerdo"
+        ]
+      },
+      "explanation": "'Me parece' means 'I think' or 'It seems to me', making it appropriate here.",
+      "hint": "This phrase is often used to introduce an opinion.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: '___ de acuerdo conmigo, ¿verdad?'",
+      "content": {
+        "sentence": "___ de acuerdo conmigo, ¿verdad?",
+        "correctAnswer": "Estás",
+        "acceptableAnswers": [
+          "Estás"
+        ],
+        "options": [
+          "No",
+          "No estás",
+          "Estás"
+        ]
+      },
+      "explanation": "The correct answer is 'Estás', meaning 'You are' in English.",
+      "hint": "Think about how to ask for agreement.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'aunque / llueva / iré / a la playa'",
+      "content": {
+        "words": [
+          "iré",
+          "aunque",
+          "llueva",
+          "a",
+          "la",
+          "playa"
+        ],
+        "correctOrder": [
+          "iré",
+          "a",
+          "la",
+          "playa",
+          "aunque",
+          "llueva"
+        ],
+        "translation": "I will go to the beach even if it rains."
+      },
+      "explanation": "The correct order conveys the meaning that you will still go to the beach despite the rain.",
+      "hint": "Think about the conjunction and its placement.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I do not agree with you.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I do not agree with you.'",
+        "correctAnswer": "No estoy de acuerdo contigo.",
+        "acceptableAnswers": [
+          "No estoy de acuerdo contigo."
+        ]
+      },
+      "explanation": "The translation correctly captures the sentiment of disagreement.",
+      "hint": "Focus on the phrase for disagreement.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Por lo tanto, debemos actuar.'",
+      "content": {
+        "ttsText": "Por lo tanto, debemos actuar.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Therefore, we must act.",
+          "Although, we must act.",
+          "I think we should act.",
+          "We agree to act."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The phrase means 'Therefore, we must act.'",
+      "hint": "It's about taking action based on a conclusion.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say in Spanish: 'I think this movie is great.'",
+      "content": {
+        "targetText": "Me parece que esta película es genial.",
+        "context": "Express your opinion about a movie.",
+        "acceptableVariants": [
+          "Creo que esta película es genial.",
+          "Me parece que esta película es buena."
+        ]
+      },
+      "explanation": "Both acceptable variants express a positive opinion about a movie.",
+      "hint": "Use 'me parece' to introduce your opinion.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

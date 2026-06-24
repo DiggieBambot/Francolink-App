@@ -1,0 +1,341 @@
+{
+  "lesson": {
+    "title": "Film & Book Reviews",
+    "type": "CONVERSATION",
+    "slug": "de-b2-reviews"
+  },
+  "unit": "Arts & Literature",
+  "unitOrder": 7,
+  "lessonOrder": 3,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn how to discuss and review films and books in German, using nuanced vocabulary and complex sentence structures. You'll also explore idiomatic expressions and formal registers to enhance your conversational skills.",
+      "culturalNote": "Film and literature are significant aspects of German culture, with renowned authors like Goethe and filmmakers like Wim Wenders making their mark on the world stage."
+    },
+    "vocabulary": [
+      {
+        "term": "der Film",
+        "translation": "the film",
+        "definition": "a motion picture or movie",
+        "pronunciation": "dehr film",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Film war sehr spannend.",
+          "translation": "The film was very exciting."
+        },
+        "tip": "Remember, 'der Film' is masculine, so use 'der' for the article."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "a written or printed work",
+        "pronunciation": "dahs book",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich habe das Buch gelesen.",
+          "translation": "I read the book."
+        },
+        "tip": "'Das Buch' is neuter, so always use 'das'."
+      },
+      {
+        "term": "die Handlung",
+        "translation": "the plot",
+        "definition": "the sequence of events in a story",
+        "pronunciation": "dee handlung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Handlung des Films war vorhersehbar.",
+          "translation": "The plot of the film was predictable."
+        },
+        "tip": "'Die Handlung' is feminine, so use 'die' for the article."
+      },
+      {
+        "term": "der Charakter",
+        "translation": "the character",
+        "definition": "a person or being in a story",
+        "pronunciation": "dehr karakter",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Hauptcharakter ist sehr komplex.",
+          "translation": "The main character is very complex."
+        },
+        "tip": "'Der Charakter' is masculine, so remember 'der'."
+      },
+      {
+        "term": "die Kritik",
+        "translation": "the critique/review",
+        "definition": "a formal assessment or evaluation",
+        "pronunciation": "dee kritik",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Kritik an dem Buch war überwältigend positiv.",
+          "translation": "The critique of the book was overwhelmingly positive."
+        },
+        "tip": "'Die Kritik' is feminine; thus, use 'die'."
+      },
+      {
+        "term": "die Szene",
+        "translation": "the scene",
+        "definition": "a specific part of a film or play",
+        "pronunciation": "dee tsene",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Szene war sehr emotional.",
+          "translation": "The scene was very emotional."
+        },
+        "tip": "'Die Szene' is feminine, so use 'die'."
+      },
+      {
+        "term": "spannend",
+        "translation": "exciting",
+        "definition": "causing great interest or excitement",
+        "pronunciation": "shpan-end",
+        "partOfSpeech": "adjective",
+        "exampleSentence": {
+          "original": "Das Buch ist sehr spannend.",
+          "translation": "The book is very exciting."
+        },
+        "tip": "This adjective can be used for both films and books."
+      },
+      {
+        "term": "verfilmen",
+        "translation": "to film (adapt a book into a movie)",
+        "definition": "to adapt a literary work into a film",
+        "pronunciation": "fair-fil-men",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Das Buch wurde erfolgreich verfilmt.",
+          "translation": "The book was successfully adapted into a film."
+        },
+        "tip": "This verb is often used in discussions about adaptations."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Konjunktiv II (Subjunctive II)",
+        "explanation": "The Konjunktiv II is used to express hypothetical situations or wishes. It's often formed using the simple past stem of the verb with specific endings. For example, 'haben' becomes 'hätte' (would have), and 'sein' becomes 'wäre' (would be).",
+        "table": {
+          "headers": [
+            "Verb",
+            "Konjunktiv II"
+          ],
+          "rows": [
+            [
+              "haben",
+              "hätte"
+            ],
+            [
+              "sein",
+              "wäre"
+            ],
+            [
+              "gehen",
+              "ginge"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Wenn ich Zeit hätte, würde ich den Film sehen.",
+            "translation": "If I had time, I would watch the film.",
+            "breakdown": "This sentence uses Konjunktiv II to express a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Using indicative instead of subjunctive: 'Ich hätte gerne das Buch' (I would like the book) instead of 'Ich habe gerne das Buch'.",
+          "Confusing 'würde' with 'will': 'Ich würde gehen' (I would go) is different from 'Ich will gehen' (I want to go)."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Film and a Book",
+      "context": "Two friends, Lukas and Sophie, are discussing their recent experiences with a film and a book over coffee.",
+      "speakers": [
+        "Lukas",
+        "Sophie"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hast du den neuen Film gesehen?",
+          "translation": "Did you see the new film?",
+          "note": "Lukas starts the conversation."
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe ihn letzte Woche gesehen. Er war wirklich spannend!",
+          "translation": "Yes, I saw it last week. It was really exciting!"
+        },
+        {
+          "speaker": 0,
+          "text": "Was hat dir am meisten gefallen?",
+          "translation": "What did you like most about it?"
+        },
+        {
+          "speaker": 1,
+          "text": "Die Handlung war sehr gut durchdacht und die Charaktere waren glaubwürdig.",
+          "translation": "The plot was very well thought out, and the characters were believable."
+        },
+        {
+          "speaker": 0,
+          "text": "Ich habe auch das Buch gelesen, auf dem der Film basiert.",
+          "translation": "I also read the book on which the film is based."
+        },
+        {
+          "speaker": 1,
+          "text": "Wie fandest du das Buch im Vergleich zum Film?",
+          "translation": "How did you find the book compared to the film?"
+        },
+        {
+          "speaker": 0,
+          "text": "Ich denke, das Buch war noch spannender, weil es mehr Details hatte.",
+          "translation": "I think the book was even more exciting because it had more details."
+        },
+        {
+          "speaker": 1,
+          "text": "Das ist oft der Fall. Manchmal sind die Filme einfach nicht so gut wie die Bücher.",
+          "translation": "That is often the case. Sometimes the films are just not as good as the books."
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Literature and Film",
+      "text": "In German-speaking countries, literature and film are not just forms of entertainment; they also reflect and shape societal values and discussions. Renowned literary festivals and film awards, such as the Berlinale, highlight this cultural significance.",
+      "funFact": "Did you know that Germany has over 1,000 film festivals each year, showcasing a wide array of genres and styles?"
+    },
+    "summary": {
+      "keyPoints": [
+        "You learned important vocabulary for discussing films and books.",
+        "The Konjunktiv II is useful for expressing hypothetical situations.",
+        "Cultural insights enhance your understanding of the relevance of arts in German-speaking societies.",
+        "Engaging in dialogues can help improve your conversational skills."
+      ],
+      "nextSteps": "Practice discussing your favorite film or book using the vocabulary and grammar from this lesson."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'the film'?",
+      "content": {
+        "options": [
+          "der Film",
+          "das Buch",
+          "die Szene",
+          "die Kritik"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation of 'the film' in German is 'der Film'.",
+      "hint": "It's a masculine noun.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'spannend' mean in English?",
+      "content": {
+        "options": [
+          "boring",
+          "exciting",
+          "long",
+          "dull"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Spannend' translates to 'exciting', often used to describe thrilling films or books.",
+      "hint": "Think about a movie that keeps you on the edge of your seat.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Die ___ des Buches ist sehr interessant.'",
+      "content": {
+        "sentence": "Die ___ des Buches ist sehr interessant.",
+        "correctAnswer": "Handlung",
+        "acceptableAnswers": [
+          "Handlung"
+        ],
+        "options": [
+          "Charakter",
+          "Kritik",
+          "Handlung",
+          "Szene"
+        ]
+      },
+      "explanation": "'Handlung' means 'plot', which is interesting in the context of a book.",
+      "hint": "Think about the story of the book.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank with the correct article: '___ Charakter ist gut entwickelt.'",
+      "content": {
+        "sentence": "___ Charakter ist gut entwickelt.",
+        "correctAnswer": "Der",
+        "acceptableAnswers": [
+          "Der"
+        ],
+        "options": [
+          "Die",
+          "Der",
+          "Das"
+        ]
+      },
+      "explanation": "'Der' is the correct article for 'Charakter', which is masculine.",
+      "hint": "Remember the gender of the noun.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'The character is well developed.'",
+      "content": {
+        "prompt": "Translate to German: 'The character is well developed.'",
+        "correctAnswer": "Der Charakter ist gut entwickelt.",
+        "acceptableAnswers": []
+      },
+      "explanation": "In German, we use 'Der Charakter' as it is masculine.",
+      "hint": "Focus on the noun's gender.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the sentence and choose the correct translation: 'Der Film wurde gut verfilmt.'",
+      "content": {
+        "ttsText": "Der Film wurde gut verfilmt.",
+        "ttsLang": "de-DE",
+        "options": [
+          "The film was well adapted.",
+          "The book was well adapted.",
+          "The film was boring.",
+          "The character was well developed."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means that the film was adapted well from another source.",
+      "hint": "Pay attention to the word 'verfilmt'.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I enjoyed the book very much.'",
+      "content": {
+        "targetText": "Ich habe das Buch sehr genossen.",
+        "context": "Expressing enjoyment of a book you read.",
+        "acceptableVariants": [
+          "Ich fand das Buch sehr gut.",
+          "Das Buch hat mir sehr gefallen."
+        ]
+      },
+      "explanation": "The phrase means you liked the book a lot.",
+      "hint": "Use 'genossen' for enjoyment.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,359 @@
+{
+  "lesson": {
+    "title": "Hello & Goodbye (Begrüßungen)",
+    "type": "CONVERSATION",
+    "slug": "de-a1-greetings"
+  },
+  "unit": "First Words & Greetings",
+  "unitOrder": 1,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn basic greetings and farewells in German. You will practice how to say 'hello' and 'goodbye' in various contexts.",
+      "culturalNote": "In Germany, it is common to greet people with a handshake. In Austria, a friendly kiss on the cheek is typical among friends."
+    },
+    "vocabulary": [
+      {
+        "term": "Hallo",
+        "translation": "Hello",
+        "definition": "A common informal greeting.",
+        "pronunciation": "HAH-loh",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Hallo, wie geht's?",
+          "translation": "Hello, how are you?"
+        },
+        "tip": "Use 'Hallo' with friends and in informal situations."
+      },
+      {
+        "term": "Guten Morgen",
+        "translation": "Good morning",
+        "definition": "A greeting used in the morning.",
+        "pronunciation": "GOO-ten MOR-gen",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Guten Morgen, Herr Müller.",
+          "translation": "Good morning, Mr. Müller."
+        },
+        "tip": "'Guten Morgen' is used until around noon."
+      },
+      {
+        "term": "Guten Tag",
+        "translation": "Good day/Hello",
+        "definition": "A formal greeting used during the day.",
+        "pronunciation": "GOO-ten TAHG",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Guten Tag, Frau Schmidt.",
+          "translation": "Good day, Mrs. Schmidt."
+        },
+        "tip": "Use 'Guten Tag' in formal situations."
+      },
+      {
+        "term": "Guten Abend",
+        "translation": "Good evening",
+        "definition": "A greeting used in the evening.",
+        "pronunciation": "GOO-ten AH-bent",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Guten Abend, alle zusammen.",
+          "translation": "Good evening, everyone."
+        },
+        "tip": "Use 'Guten Abend' after 5 PM."
+      },
+      {
+        "term": "Auf Wiedersehen",
+        "translation": "Goodbye",
+        "definition": "A formal way to say goodbye.",
+        "pronunciation": "OWF VEE-der-zay-en",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Auf Wiedersehen, Herr Schmidt.",
+          "translation": "Goodbye, Mr. Schmidt."
+        },
+        "tip": "Use 'Auf Wiedersehen' in formal contexts."
+      },
+      {
+        "term": "Tschüss",
+        "translation": "Bye",
+        "definition": "An informal way to say goodbye.",
+        "pronunciation": "CHOOS",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Tschüss, bis bald!",
+          "translation": "Bye, see you soon!"
+        },
+        "tip": "Use 'Tschüss' with friends and family."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Greetings and Farewells",
+        "explanation": "In German, greetings and farewells can vary in formality. 'Hallo' is informal, while 'Guten Tag' and 'Auf Wiedersehen' are more formal. Pay attention to the context when choosing your greeting.",
+        "table": {
+          "headers": [
+            "Formal",
+            "Informal"
+          ],
+          "rows": [
+            [
+              "Guten Morgen",
+              "Hallo"
+            ],
+            [
+              "Guten Tag",
+              "Tschüss"
+            ],
+            [
+              "Guten Abend",
+              "Tschüss"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Guten Morgen, wie geht's?",
+            "translation": "Good morning, how are you?",
+            "breakdown": "This is a formal greeting followed by a question about well-being."
+          }
+        ],
+        "commonMistakes": [
+          "Using 'Hallo' in a very formal situation – use 'Guten Tag' instead.",
+          "Saying 'Tschüss' in a business meeting – use 'Auf Wiedersehen' instead."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Meeting a Friend",
+      "context": "At a café in the afternoon",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo, Lukas!",
+          "translation": "Hello, Lukas!",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo, Anna! Wie geht's?",
+          "translation": "Hello, Anna! How are you?",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Mir geht's gut, danke. Und dir?",
+          "translation": "I’m fine, thank you. And you?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Mir geht's auch gut.",
+          "translation": "I’m also fine.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Was machst du heute?",
+          "translation": "What are you doing today?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Ich gehe ins Kino.",
+          "translation": "I’m going to the cinema.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt gut! Tschüss!",
+          "translation": "That sounds good! Bye!",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Tschüss, bis bald!",
+          "translation": "Bye, see you soon!",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Greetings in German Culture",
+      "text": "In German-speaking countries, greetings are an important part of social interactions. The use of formal versus informal greetings can reflect your relationship with the person you are addressing.",
+      "funFact": "In Switzerland, people often greet each other with a friendly kiss on the cheek, even among acquaintances."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learned common greetings: 'Hallo', 'Guten Morgen', 'Guten Tag', etc.",
+        "Distinguished between formal and informal greetings.",
+        "Practiced a dialogue using greetings and farewells.",
+        "Gained cultural insights into German greeting customs."
+      ],
+      "nextSteps": "Practice using these greetings in different situations. Try to have short conversations with friends or language partners."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'Good Morning'?",
+      "content": {
+        "options": [
+          "Guten Abend",
+          "Guten Morgen",
+          "Hallo",
+          "Auf Wiedersehen"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'Guten Morgen', which means 'Good Morning' in German.",
+      "hint": "Think about what you say in the morning.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'Goodbye'?",
+      "content": {
+        "options": [
+          "Hallo",
+          "Tschüss",
+          "Guten Tag",
+          "Guten Abend"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Tschüss' is a casual way to say 'Goodbye' in German.",
+      "hint": "It's informal and often used among friends.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: '___ Morgen' (Good Morning)",
+      "content": {
+        "sentence": "___ Morgen",
+        "correctAnswer": "Guten",
+        "acceptableAnswers": [
+          "Guten"
+        ],
+        "options": [
+          "Guten",
+          "Hallo"
+        ]
+      },
+      "explanation": "'Guten' is the correct form to complete the phrase for 'Good Morning'.",
+      "hint": "It starts with a 'G'.",
+      "difficulty": "EASY",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich sage ___' (I say goodbye)",
+      "content": {
+        "sentence": "Ich sage ___",
+        "correctAnswer": "Auf Wiedersehen",
+        "acceptableAnswers": [
+          "Auf Wiedersehen",
+          "Tschüss"
+        ],
+        "options": [
+          "Hallo",
+          "Auf Wiedersehen",
+          "Guten Abend"
+        ]
+      },
+      "explanation": "'Auf Wiedersehen' is one way to say goodbye in German.",
+      "hint": "It's a formal goodbye.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'Good Evening'",
+      "content": {
+        "prompt": "Translate to German: 'Good Evening'",
+        "correctAnswer": "Guten Abend",
+        "acceptableAnswers": [
+          "Guten Abend"
+        ]
+      },
+      "explanation": "'Guten Abend' is the correct translation for 'Good Evening'.",
+      "hint": "It's a greeting used in the evening.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the greeting and choose the correct translation.",
+      "content": {
+        "ttsText": "Guten Morgen",
+        "ttsLang": "de-DE",
+        "options": [
+          "Good Night",
+          "Good Morning",
+          "Good Evening"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The audio says 'Guten Morgen', which translates to 'Good Morning'.",
+      "hint": "Focus on the morning greeting.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the German greeting for 'Hello'.",
+      "content": {
+        "targetText": "Hallo",
+        "context": "Greet someone in German.",
+        "acceptableVariants": [
+          "Hallo"
+        ]
+      },
+      "explanation": "'Hallo' is a common informal greeting in German.",
+      "hint": "It's very similar to the English greeting.",
+      "difficulty": "EASY",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'Auf Wiedersehen' mean?",
+      "content": {
+        "options": [
+          "Goodbye",
+          "Hello",
+          "Good Morning",
+          "Good Evening"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Auf Wiedersehen' translates to 'Goodbye' in English.",
+      "hint": "It's a formal way to say goodbye.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: '___ Abend' (Good Evening)",
+      "content": {
+        "sentence": "___ Abend",
+        "correctAnswer": "Guten",
+        "acceptableAnswers": [
+          "Guten"
+        ],
+        "options": [
+          "Guten",
+          "Hallo"
+        ]
+      },
+      "explanation": "'Guten' is the correct form to complete the phrase for 'Good Evening'.",
+      "hint": "It starts with a 'G'.",
+      "difficulty": "HARD",
+      "xp_reward": 4
+    }
+  ]
+}

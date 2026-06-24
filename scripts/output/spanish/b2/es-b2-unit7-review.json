@@ -1,0 +1,362 @@
+{
+  "lesson": {
+    "title": "Unit 7 Review",
+    "type": "REVIEW",
+    "slug": "es-b2-unit7-review"
+  },
+  "unit": "Arts & Literature",
+  "unitOrder": 7,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this review lesson, you will consolidate your knowledge of vocabulary and grammar related to Arts & Literature. You will also engage in a dialogue that encourages nuanced expression and comprehension.",
+      "culturalNote": "Spanish-speaking countries have a rich tradition in arts and literature, from the renowned works of Gabriel García Márquez to the vibrant murals of Diego Rivera."
+    },
+    "vocabulary": [
+      {
+        "term": "el arte",
+        "translation": "the art",
+        "definition": "creative expression through various mediums.",
+        "pronunciation": "el ar-teh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El arte contemporáneo es fascinante.",
+          "translation": "Contemporary art is fascinating."
+        },
+        "tip": "Think of 'art' in both languages as a reflection of culture."
+      },
+      {
+        "term": "la literatura",
+        "translation": "the literature",
+        "definition": "written works considered as art.",
+        "pronunciation": "la lee-teh-ra-too-rah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La literatura española tiene una rica historia.",
+          "translation": "Spanish literature has a rich history."
+        },
+        "tip": "Remember that 'literature' is often tied to culture and identity."
+      },
+      {
+        "term": "el autor",
+        "translation": "the author",
+        "definition": "a person who writes books or other texts.",
+        "pronunciation": "el au-tor",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El autor de este libro es muy conocido.",
+          "translation": "The author of this book is very well-known."
+        },
+        "tip": "Connect 'author' with creativity and storytelling."
+      },
+      {
+        "term": "la novela",
+        "translation": "the novel",
+        "definition": "a long narrative work of fiction.",
+        "pronunciation": "la no-veh-lah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Estoy leyendo una novela de misterio.",
+          "translation": "I am reading a mystery novel."
+        },
+        "tip": "Think of 'novel' as a new story waiting to be discovered."
+      },
+      {
+        "term": "la poesía",
+        "translation": "the poetry",
+        "definition": "literary work in which the expression of feelings and ideas is given intensity by style and rhythm.",
+        "pronunciation": "la po-e-see-ah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "La poesía puede ser muy conmovedora.",
+          "translation": "Poetry can be very moving."
+        },
+        "tip": "Associating poetry with emotion can help you remember its significance."
+      },
+      {
+        "term": "el museo",
+        "translation": "the museum",
+        "definition": "a building where works of art are exhibited.",
+        "pronunciation": "el mu-seh-o",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El museo de arte moderno está en la ciudad.",
+          "translation": "The modern art museum is in the city."
+        },
+        "tip": "Museums are treasure troves of culture; think of them as windows to the past."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subjunctive in Desires and Suggestions",
+        "explanation": "The subjunctive mood is used to express desires, doubts, and suggestions. In B2, you should be comfortable using the present subjunctive for current situations and the imperfect subjunctive for hypothetical situations. Remember to use the correct conjugations based on the subject.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Present Subjunctive"
+          ],
+          "rows": [
+            [
+              "yo",
+              "hable"
+            ],
+            [
+              "tú",
+              "hables"
+            ],
+            [
+              "él/ella",
+              "hable"
+            ],
+            [
+              "nosotros",
+              "hablemos"
+            ],
+            [
+              "ellos",
+              "hablen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Espero que tú vengas a la fiesta.",
+            "translation": "I hope that you come to the party.",
+            "breakdown": "The verb 'venir' is in the present subjunctive because it expresses hope."
+          },
+          {
+            "original": "Si yo fuera un artista, pintaría un mural.",
+            "translation": "If I were an artist, I would paint a mural.",
+            "breakdown": "Here, 'fuera' is in the imperfect subjunctive, indicating a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: 'Es posible que él llega' should be 'llegue'.",
+          "Forget to conjugate correctly for the subject: 'Espero que tú hablas' should be 'hables'."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing a Recent Art Exhibit",
+      "context": "Two friends discussing an art exhibition they visited last weekend.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Viste la exposición de arte moderno en el museo?",
+          "translation": "Did you see the modern art exhibition at the museum?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, me encantó. Las obras eran muy innovadoras.",
+          "translation": "Yes, I loved it. The works were very innovative.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "A mí también. Creo que el artista utilizó colores muy audaces.",
+          "translation": "I thought so too. I believe the artist used very bold colors.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Exactamente. Me hizo reflexionar sobre la naturaleza del arte.",
+          "translation": "Exactly. It made me reflect on the nature of art.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Además, la música de fondo era perfecta para la atmósfera.",
+          "translation": "Moreover, the background music was perfect for the atmosphere.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, añadía una capa emocional a la experiencia.",
+          "translation": "Yes, it added an emotional layer to the experience.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Te gustaría volver a verla con más tiempo?",
+          "translation": "Would you like to go back to see it again with more time?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Definitivamente, debería ser una visita más profunda.",
+          "translation": "Definitely, it should be a deeper visit.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Art in Latin America",
+      "text": "In many Latin American countries, art plays a crucial role in cultural identity and social commentary. Artists often use their work to express political views and reflect societal issues.",
+      "funFact": "Did you know that Diego Rivera's murals in Mexico are not only famous for their beauty but also for their powerful messages about the Mexican Revolution?"
+    },
+    "summary": {
+      "keyPoints": [
+        "Understand and use vocabulary related to arts and literature.",
+        "Apply the subjunctive mood in various contexts.",
+        "Engage in discussions about art with nuanced opinions.",
+        "Recognize cultural significance of art in Spanish-speaking countries."
+      ],
+      "nextSteps": "Continue practicing the subjunctive with more complex sentences and explore more about Latin American literature."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'el arte' mean in English?",
+      "content": {
+        "options": [
+          "The art",
+          "The artist",
+          "The literature",
+          "The novel"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'El arte' translates to 'The art' in English.",
+      "hint": "Think about creative expressions.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word refers to a literary work?",
+      "content": {
+        "options": [
+          "el autor",
+          "la novela",
+          "la poesía",
+          "el museo"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'La novela' is the term for a novel in Spanish.",
+      "hint": "It's a long fictional narrative.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: '___ es una forma de expresión artística.'",
+      "content": {
+        "sentence": "___ es una forma de expresión artística.",
+        "correctAnswer": "el arte",
+        "acceptableAnswers": [
+          "el arte"
+        ],
+        "options": [
+          "la literatura",
+          "el arte",
+          "el autor"
+        ]
+      },
+      "explanation": "'El arte' is the correct answer as it refers to artistic expression.",
+      "hint": "It's a general term for creative works.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'El ___ de la novela es muy conocido.'",
+      "content": {
+        "sentence": "El ___ de la novela es muy conocido.",
+        "correctAnswer": "autor",
+        "acceptableAnswers": [
+          "autor"
+        ],
+        "options": [
+          "artista",
+          "autor",
+          "museo"
+        ]
+      },
+      "explanation": "'Autor' refers to the author of the novel.",
+      "hint": "This person writes books.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'novela una es literatura la'.",
+      "content": {
+        "words": [
+          "novela",
+          "una",
+          "es",
+          "literatura",
+          "la"
+        ],
+        "correctOrder": [
+          "la",
+          "novela",
+          "es",
+          "una",
+          "literatura"
+        ],
+        "translation": "The novel is a literature"
+      },
+      "explanation": "The correct order expresses that a novel is a type of literature.",
+      "hint": "Start with the article.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'The museum is closed.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'The museum is closed.'",
+        "correctAnswer": "El museo está cerrado.",
+        "acceptableAnswers": [
+          "El museo está cerrado"
+        ]
+      },
+      "explanation": "The translation accurately conveys the meaning in Spanish.",
+      "hint": "Remember the word for 'museum.'",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'La poesía es hermosa.'",
+      "content": {
+        "ttsText": "La poesía es hermosa.",
+        "ttsLang": "es-ES",
+        "options": [
+          "Poetry is beautiful.",
+          "The poetry is beautiful.",
+          "Poetry is an art."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation conveys that poetry is indeed beautiful.",
+      "hint": "Listen for the adjective describing poetry.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in Spanish: 'I love reading novels.'",
+      "content": {
+        "targetText": "Me encanta leer novelas.",
+        "context": "Expressing your love for reading.",
+        "acceptableVariants": [
+          "Amo leer novelas.",
+          "Me gusta leer novelas."
+        ]
+      },
+      "explanation": "Both acceptable variants express the same idea in Spanish.",
+      "hint": "Think about how to express love for an activity.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

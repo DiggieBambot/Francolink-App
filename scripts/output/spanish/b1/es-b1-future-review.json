@@ -1,0 +1,401 @@
+{
+  "lesson": {
+    "title": "Future & Conditional Review",
+    "type": "GRAMMAR",
+    "slug": "es-b1-future-review"
+  },
+  "unit": "Future & Aspirations",
+  "unitOrder": 8,
+  "lessonOrder": 2,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will review the future and conditional tenses in Spanish. You will learn how to express aspirations and hypothetical situations using these tenses.",
+      "culturalNote": "In many Spanish-speaking countries, discussing future plans is common, especially during family gatherings and celebrations."
+    },
+    "vocabulary": [
+      {
+        "term": "el futuro",
+        "translation": "the future",
+        "definition": "a time period that is yet to come",
+        "pronunciation": "el foo-too-roh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "El futuro es incierto.",
+          "translation": "The future is uncertain."
+        },
+        "tip": "Think of the future as a time when you can achieve your dreams."
+      },
+      {
+        "term": "la aspiración",
+        "translation": "the aspiration",
+        "definition": "a strong desire to achieve something",
+        "pronunciation": "lah as-pee-rah-syohn",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo la aspiración de ser médico.",
+          "translation": "I have the aspiration to be a doctor."
+        },
+        "tip": "Remember that aspirations often drive our future plans."
+      },
+      {
+        "term": "el condicional",
+        "translation": "the conditional",
+        "definition": "a verb tense used to express hypothetical situations",
+        "pronunciation": "el kon-dee-syoh-nal",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Si tuviera dinero, compraría una casa.",
+          "translation": "If I had money, I would buy a house."
+        },
+        "tip": "The conditional is often used to express wishes or dreams."
+      },
+      {
+        "term": "si",
+        "translation": "if",
+        "definition": "a conjunction used to introduce conditional clauses",
+        "pronunciation": "see",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Si estudias, aprobarás el examen.",
+          "translation": "If you study, you will pass the exam."
+        },
+        "tip": "Remember, 'si' is always followed by a condition."
+      },
+      {
+        "term": "la posibilidad",
+        "translation": "the possibility",
+        "definition": "the state of being possible; potential",
+        "pronunciation": "lah poh-see-bee-li-dahd",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Hay una posibilidad de lluvia mañana.",
+          "translation": "There is a possibility of rain tomorrow."
+        },
+        "tip": "Possibilities often shape our future plans."
+      },
+      {
+        "term": "el sueño",
+        "translation": "the dream",
+        "definition": "a series of thoughts, images, or emotions occurring during sleep; also a goal",
+        "pronunciation": "el sweh-nyoh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi sueño es viajar por el mundo.",
+          "translation": "My dream is to travel the world."
+        },
+        "tip": "Dreams can motivate us to make future plans."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Future Tense (Futuro Simple)",
+        "explanation": "The future tense in Spanish is used to express actions that will happen. It is formed by adding specific endings to the infinitive of the verb. For example, -é, -ás, -á, -emos, -éis, -án.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Future Ending"
+          ],
+          "rows": [
+            [
+              "yo",
+              "-é"
+            ],
+            [
+              "tú",
+              "-ás"
+            ],
+            [
+              "él/ella/usted",
+              "-á"
+            ],
+            [
+              "nosotros",
+              "-emos"
+            ],
+            [
+              "vosotros",
+              "-éis"
+            ],
+            [
+              "ellos/ellas/ustedes",
+              "-án"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo comeré pizza mañana.",
+            "translation": "I will eat pizza tomorrow.",
+            "breakdown": "The verb 'comer' (to eat) is in the future tense, indicating a future action."
+          }
+        ],
+        "commonMistakes": [
+          "Using the present tense instead of the future tense for future actions.",
+          "Forgetting to include the correct future tense endings."
+        ]
+      },
+      {
+        "title": "Conditional Tense (Condicional Simple)",
+        "explanation": "The conditional tense expresses hypothetical situations and is formed by adding endings to the infinitive of the verb. The endings are -ía, -ías, -ía, -íamos, -íais, -ían.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Conditional Ending"
+          ],
+          "rows": [
+            [
+              "yo",
+              "-ía"
+            ],
+            [
+              "tú",
+              "-ías"
+            ],
+            [
+              "él/ella/usted",
+              "-ía"
+            ],
+            [
+              "nosotros",
+              "-íamos"
+            ],
+            [
+              "vosotros",
+              "-íais"
+            ],
+            [
+              "ellos/ellas/ustedes",
+              "-ían"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Yo viajaría a España si tuviera dinero.",
+            "translation": "I would travel to Spain if I had money.",
+            "breakdown": "The verb 'viajar' (to travel) is in the conditional tense, indicating a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Using the future tense instead of the conditional for hypothetical situations.",
+          "Omitting the 'si' clause when forming conditional sentences."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Future Plans",
+      "context": "A conversation between two friends discussing their aspirations for the future.",
+      "speakers": [
+        "Clara",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola Luis, ¿qué harás el próximo año?",
+          "translation": "Hi Luis, what will you do next year?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hola Clara, quiero viajar a México.",
+          "translation": "Hi Clara, I want to travel to Mexico.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¡Qué emocionante! ¿Qué lugares visitarás?",
+          "translation": "How exciting! What places will you visit?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Visitaré Cancún y la Ciudad de México.",
+          "translation": "I will visit Cancun and Mexico City.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Tengo la aspiración de aprender español fluido.",
+          "translation": "I have the aspiration to learn fluent Spanish.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¡Eso sería genial! Si estudias mucho, lo lograrás.",
+          "translation": "That would be great! If you study a lot, you will achieve it.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Sí, espero que sí. ¿Y tú, qué harías si tuvieras más tiempo?",
+          "translation": "Yes, I hope so. And you, what would you do if you had more time?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Me gustaría escribir un libro.",
+          "translation": "I would like to write a book.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Aspirations and Culture in Latin America",
+      "text": "In Latin America, it is common for families to discuss their children's future aspirations during gatherings. Education and career goals are often emphasized.",
+      "funFact": "In many Latin American countries, there are scholarships available for students with high aspirations to study abroad."
+    },
+    "summary": {
+      "keyPoints": [
+        "The future tense expresses actions that will happen.",
+        "The conditional tense expresses hypothetical situations.",
+        "Using 'si' is crucial for forming conditional sentences.",
+        "Aspirations are a common topic in conversations about the future."
+      ],
+      "nextSteps": "Practice forming sentences in the future and conditional tenses. Consider your own aspirations and try to express them in Spanish."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following sentences uses the future tense?",
+      "content": {
+        "options": [
+          "Si estudio, pasaré el examen.",
+          "Si estudiara, pasaría el examen.",
+          "Si estudio, pasaría el examen."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The first option uses the future tense (pasaré) correctly, while the others use the conditional.",
+      "hint": "Look for the verb that indicates a future action.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the correct conditional form of 'hacer' for 'yo'?",
+      "content": {
+        "options": [
+          "haría",
+          "hago",
+          "hice"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct form is 'haría', which is the conditional tense for 'yo'.",
+      "hint": "Think about how to express 'would do' in Spanish.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Si yo ___ (tener) tiempo, viajaría.'",
+      "content": {
+        "sentence": "Si yo ___ tiempo, viajaría.",
+        "correctAnswer": "tuviera",
+        "acceptableAnswers": [
+          "tuviese"
+        ],
+        "options": [
+          "tuviera",
+          "tengo",
+          "tuviese"
+        ]
+      },
+      "explanation": "The correct answer is 'tuviera' because it uses the subjunctive mood after 'si'.",
+      "hint": "Think about the past subjunctive form.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Cuando yo ___ (terminar) mis estudios, buscaré trabajo.'",
+      "content": {
+        "sentence": "Cuando yo ___ mis estudios, buscaré trabajo.",
+        "correctAnswer": "termine",
+        "acceptableAnswers": [],
+        "options": [
+          "terminar",
+          "termino",
+          "termine"
+        ]
+      },
+      "explanation": "The correct answer is 'termine', which is the future subjunctive, used after 'cuando'.",
+      "hint": "Think about the future form after specific conjunctions.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'futuro / el / sueño / es / importante'.",
+      "content": {
+        "words": [
+          "futuro",
+          "el",
+          "sueño",
+          "es",
+          "importante"
+        ],
+        "correctOrder": [
+          "el",
+          "sueño",
+          "es",
+          "importante",
+          "futuro"
+        ],
+        "translation": "The dream is important for the future."
+      },
+      "explanation": "The correct order forms a coherent sentence in Spanish.",
+      "hint": "Start with the subject of the sentence.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I will travel next year.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I will travel next year.'",
+        "correctAnswer": "Viajaré el próximo año.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The translation is correct as it uses the future tense 'viajaré'.",
+      "hint": "Focus on the future tense for the verb.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Si tuviera más tiempo, iría de vacaciones.'",
+      "content": {
+        "ttsText": "Si tuviera más tiempo, iría de vacaciones.",
+        "ttsLang": "es-ES",
+        "options": [
+          "If I had more time, I would go on vacation.",
+          "If I had more time, I will go on vacation.",
+          "If I have more time, I would go on vacation."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation reflects the conditional structure in English.",
+      "hint": "Pay attention to the verb forms.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the following sentence in Spanish: 'I would travel if I had enough money.'",
+      "content": {
+        "targetText": "Viajaría si tuviera suficiente dinero.",
+        "context": "Translate this conditional sentence to Spanish.",
+        "acceptableVariants": [
+          "Viajaría si tuviese suficiente dinero."
+        ]
+      },
+      "explanation": "Both forms are correct; 'tuviera' and 'tuviese' can be used interchangeably.",
+      "hint": "Use the conditional and past subjunctive forms.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

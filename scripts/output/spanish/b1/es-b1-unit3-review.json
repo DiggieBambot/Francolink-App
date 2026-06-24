@@ -1,0 +1,373 @@
+{
+  "lesson": {
+    "title": "Unit 3 Review",
+    "type": "REVIEW",
+    "slug": "es-b1-unit3-review"
+  },
+  "unit": "Work & Career",
+  "unitOrder": 3,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will review key vocabulary and grammar points related to work and career. You will also practice using these concepts in a realistic dialogue.",
+      "culturalNote": "In many Latin American countries, networking is crucial for career advancement, often leading to job opportunities through personal connections."
+    },
+    "vocabulary": [
+      {
+        "term": "el trabajo",
+        "translation": "the job",
+        "definition": "A position of employment.",
+        "pronunciation": "el trah-BAH-ho",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Busco un trabajo en marketing.",
+          "translation": "I am looking for a job in marketing."
+        },
+        "tip": "Remember, 'trabajo' can also mean 'work' in general."
+      },
+      {
+        "term": "la carrera",
+        "translation": "the career",
+        "definition": "A profession or field of study.",
+        "pronunciation": "lah kah-RREH-rah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ella decidió estudiar medicina para su carrera.",
+          "translation": "She decided to study medicine for her career."
+        },
+        "tip": "Think of 'carrera' as a race; it represents the journey of your professional life."
+      },
+      {
+        "term": "el currículum",
+        "translation": "the resume",
+        "definition": "A document summarizing qualifications and experience.",
+        "pronunciation": "el koo-REE-koo-lum",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Enviaste tu currículum a la empresa?",
+          "translation": "Did you send your resume to the company?"
+        },
+        "tip": "In Spanish, 'currículum' is often abbreviated as 'CV' (curriculum vitae)."
+      },
+      {
+        "term": "la entrevista",
+        "translation": "the interview",
+        "definition": "A formal meeting to discuss a job application.",
+        "pronunciation": "lah en-treh-VEE-stah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tienes una entrevista mañana.",
+          "translation": "You have an interview tomorrow."
+        },
+        "tip": "Remember to prepare for common questions before an 'entrevista'."
+      },
+      {
+        "term": "la experiencia",
+        "translation": "the experience",
+        "definition": "Knowledge or skill acquired through practice.",
+        "pronunciation": "lah eks-peh-ree-EN-syah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo cinco años de experiencia en ventas.",
+          "translation": "I have five years of experience in sales."
+        },
+        "tip": "Think about your own 'experiencia' when discussing job qualifications."
+      },
+      {
+        "term": "el jefe",
+        "translation": "the boss",
+        "definition": "A person who manages or oversees others.",
+        "pronunciation": "el HEH-feh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Mi jefe es muy comprensivo.",
+          "translation": "My boss is very understanding."
+        },
+        "tip": "In some cultures, addressing your 'jefe' formally is important."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Present Subjunctive",
+        "explanation": "The present subjunctive is used to express desires, doubts, or hypothetical situations. It is formed by taking the present tense yo form, dropping the -o, and adding the appropriate endings. Remember that the subjunctive is often triggered by expressions like 'quiero que' (I want that) or 'es importante que' (it's important that).",
+        "table": {
+          "headers": [
+            "Subject",
+            "Verb Example (hablar)"
+          ],
+          "rows": [
+            [
+              "yo",
+              "hable"
+            ],
+            [
+              "tú",
+              "hables"
+            ],
+            [
+              "él/ella",
+              "hable"
+            ],
+            [
+              "nosotros",
+              "hablemos"
+            ],
+            [
+              "ellos",
+              "hablen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Es importante que trabajes duro.",
+            "translation": "It's important that you work hard.",
+            "breakdown": "Here, 'trabajes' is in the present subjunctive because it expresses importance."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive: 'Es importante que trabajas' should be 'Es importante que trabajes.'",
+          "Forgetting the trigger phrase: Remember to use phrases like 'quiero que' when forming subjunctive sentences."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Job Opportunities",
+      "context": "Two colleagues, Ana and Luis, are discussing their job prospects over coffee.",
+      "speakers": [
+        "Ana",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hola, Luis. ¿Cómo va tu búsqueda de trabajo?",
+          "translation": "Hi, Luis. How is your job search going?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Hola, Ana. No muy bien. Aún no he encontrado algo adecuado.",
+          "translation": "Hi, Ana. Not very well. I still haven't found something suitable.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Has enviado tu currículum a muchas empresas?",
+          "translation": "Have you sent your resume to many companies?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, pero no he recibido respuestas. Es frustrante.",
+          "translation": "Yes, but I haven't received any responses. It's frustrating.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Es importante que sigas buscando. ¡No te rindas!",
+          "translation": "It's important that you keep looking. Don't give up!",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Gracias, Ana. A veces me siento desanimado.",
+          "translation": "Thank you, Ana. Sometimes I feel discouraged.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "¿Te gustaría practicar para entrevistas juntos?",
+          "translation": "Would you like to practice for interviews together?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "¡Sí, eso sería útil! ¿Qué tal el viernes?",
+          "translation": "Yes, that would be helpful! How about Friday?",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "Networking in Latin America",
+      "text": "In Latin America, personal connections often play a significant role in job searching and career advancement. Many people rely on their networks to find opportunities and make professional contacts.",
+      "funFact": "In some countries, it is common to have informal gatherings, or 'networking events', where professionals meet to exchange ideas and job leads."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review vocabulary related to work and career.",
+        "Practice using the present subjunctive for expressing importance.",
+        "Engage in a dialogue about job searching.",
+        "Understand the importance of networking in Latin American culture."
+      ],
+      "nextSteps": "Practice forming sentences using the present subjunctive and explore job-related vocabulary in context."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the Spanish word for 'the job'?",
+      "content": {
+        "options": [
+          "la carrera",
+          "el trabajo",
+          "el jefe",
+          "la entrevista"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer is 'el trabajo', which means 'the job' in English.",
+      "hint": "Think about the place where you work.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which word means 'the interview' in Spanish?",
+      "content": {
+        "options": [
+          "el currículum",
+          "la entrevista",
+          "la experiencia",
+          "el jefe"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'La entrevista' translates to 'the interview', which is an important part of the job application process.",
+      "hint": "It’s what you do when you meet with a potential employer.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Necesito actualizar mi ___ antes de la entrevista.'",
+      "content": {
+        "sentence": "Necesito actualizar mi ___ antes de la entrevista.",
+        "correctAnswer": "currículum",
+        "acceptableAnswers": [
+          "curriculum",
+          "currículum vitae"
+        ],
+        "options": [
+          "experiencia",
+          "currículum",
+          "jefe",
+          "trabajo"
+        ]
+      },
+      "explanation": "The correct answer is 'currículum', which refers to a resume or CV.",
+      "hint": "It’s a document that lists your work experience.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Mi ___ es muy amable y comprensivo.'",
+      "content": {
+        "sentence": "Mi ___ es muy amable y comprensivo.",
+        "correctAnswer": "jefe",
+        "acceptableAnswers": [
+          "jefa"
+        ],
+        "options": [
+          "jefe",
+          "trabajo",
+          "currículum",
+          "entrevista"
+        ]
+      },
+      "explanation": "'Jefe' means 'boss', and the sentence describes a positive quality of the boss.",
+      "hint": "This is the person who manages your work.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I have experience in this field.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I have experience in this field.'",
+        "correctAnswer": "Tengo experiencia en este campo.",
+        "acceptableAnswers": [
+          "Tengo experiencia en esta área."
+        ]
+      },
+      "explanation": "The correct translation is 'Tengo experiencia en este campo', which accurately conveys the meaning.",
+      "hint": "Think about how to express having experience.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and select the correct translation: 'El trabajo es importante.'",
+      "content": {
+        "ttsText": "El trabajo es importante.",
+        "ttsLang": "es-ES",
+        "options": [
+          "The work is important.",
+          "The job is interesting.",
+          "The career is difficult.",
+          "The interview is long."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct translation of the spoken sentence is 'The work is important.'",
+      "hint": "Focus on the meaning of 'trabajo'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in Spanish: 'I want to improve my career.'",
+      "content": {
+        "targetText": "Quiero mejorar mi carrera.",
+        "context": "Expressing your career aspirations.",
+        "acceptableVariants": [
+          "Deseo mejorar mi carrera."
+        ]
+      },
+      "explanation": "The target sentence accurately expresses the desire to advance in one's career.",
+      "hint": "Think about how to express wanting something.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'la carrera' mean?",
+      "content": {
+        "options": [
+          "the job",
+          "the career",
+          "the interview",
+          "the boss"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'La carrera' translates to 'the career', referring to someone's professional path.",
+      "hint": "Consider what you study or work towards.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: 'Mi ___ no tiene mucha experiencia.'",
+      "content": {
+        "sentence": "Mi ___ no tiene mucha experiencia.",
+        "correctAnswer": "jefe",
+        "acceptableAnswers": [
+          "jefa"
+        ],
+        "options": [
+          "jefe",
+          "trabajo",
+          "currículum",
+          "entrevista"
+        ]
+      },
+      "explanation": "'Jefe' refers to 'boss', and the sentence implies the boss is inexperienced.",
+      "hint": "This is the person who supervises you.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

@@ -1,0 +1,409 @@
+{
+  "lesson": {
+    "title": "Subjunctive — All Uses",
+    "type": "GRAMMAR",
+    "slug": "es-b2-subjunctive-all"
+  },
+  "unit": "Advanced Grammar Review",
+  "unitOrder": 1,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn the various uses of the subjunctive mood in Spanish, including its present and imperfect forms. You'll explore how to express desires, doubts, emotions, and hypothetical situations, making your Spanish more nuanced and expressive.",
+      "culturalNote": "The subjunctive is widely used in Spanish-speaking cultures to convey politeness and indirectness, reflecting the importance of social harmony."
+    },
+    "vocabulary": [
+      {
+        "term": "el deseo",
+        "translation": "the desire",
+        "definition": "A strong feeling of wanting something.",
+        "pronunciation": "el deh-SAY-oh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Tengo el deseo de viajar por el mundo.",
+          "translation": "I have the desire to travel the world."
+        },
+        "tip": "Think of 'desire' as a deep longing, which often uses the subjunctive."
+      },
+      {
+        "term": "la duda",
+        "translation": "the doubt",
+        "definition": "A feeling of uncertainty.",
+        "pronunciation": "la DOO-dah",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "No tengo duda de que ella vendrá.",
+          "translation": "I have no doubt that she will come."
+        },
+        "tip": "Remember that expressing doubt often requires the subjunctive."
+      },
+      {
+        "term": "ojalá",
+        "translation": "I hope",
+        "definition": "An expression used to convey hope.",
+        "pronunciation": "oh-ha-LAH",
+        "partOfSpeech": "phrase",
+        "exampleSentence": {
+          "original": "Ojalá que me den el trabajo.",
+          "translation": "I hope they give me the job."
+        },
+        "tip": "This phrase always triggers the subjunctive."
+      },
+      {
+        "term": "aunque",
+        "translation": "even if",
+        "definition": "Used to express concession.",
+        "pronunciation": "OWN-kay",
+        "partOfSpeech": "conjunction",
+        "exampleSentence": {
+          "original": "Aunque llueva, iremos al parque.",
+          "translation": "Even if it rains, we will go to the park."
+        },
+        "tip": "When followed by a verb expressing uncertainty, use the subjunctive."
+      },
+      {
+        "term": "esperar",
+        "translation": "to hope",
+        "definition": "To wish for something to happen.",
+        "pronunciation": "es-peh-RAR",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Espero que llegues a tiempo.",
+          "translation": "I hope you arrive on time."
+        },
+        "tip": "When used with a dependent clause, it requires the subjunctive."
+      },
+      {
+        "term": "temer",
+        "translation": "to fear",
+        "definition": "To be afraid of something.",
+        "pronunciation": "teh-MER",
+        "partOfSpeech": "verb",
+        "exampleSentence": {
+          "original": "Temo que no lo entiendas.",
+          "translation": "I fear that you do not understand it."
+        },
+        "tip": "Expressing fear often triggers the subjunctive."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "The Present Subjunctive",
+        "explanation": "The present subjunctive is used to express wishes, emotions, doubts, and hypothetical situations. It is formed by taking the present tense yo form of the verb, dropping the -o, and adding the appropriate subjunctive endings. For -ar verbs, the endings are -e, -es, -e, -emos, -éis, -en; for -er and -ir verbs, the endings are -a, -as, -a, -amos, -áis, -an.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Example Verb (hablar)"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "hable"
+            ],
+            [
+              "Tú",
+              "hables"
+            ],
+            [
+              "Él/Ella/Usted",
+              "hable"
+            ],
+            [
+              "Nosotros",
+              "hablemos"
+            ],
+            [
+              "Vosotros",
+              "habléis"
+            ],
+            [
+              "Ellos/Ellas/Ustedes",
+              "hablen"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Quiero que hables con ella.",
+            "translation": "I want you to speak with her.",
+            "breakdown": "In this sentence, 'hables' is the present subjunctive form of 'hablar' used because it follows 'quiero que'."
+          }
+        ],
+        "commonMistakes": [
+          "Using the indicative instead of the subjunctive after expressions of desire. Correct: 'Espero que vengas.' (I hope you come.)",
+          "Forgetting to conjugate the verb in the subjunctive for dependent clauses. Correct: 'Dudo que él sepa la verdad.' (I doubt that he knows the truth.)"
+        ]
+      },
+      {
+        "title": "The Imperfect Subjunctive",
+        "explanation": "The imperfect subjunctive is used in situations that are hypothetical or contrary to fact, often in a dependent clause. It is formed by taking the third person plural form of the preterite, dropping the -ron, and adding the endings -ra, -ras, -ra, -ramos, -ráis, -ran.",
+        "table": {
+          "headers": [
+            "Subject",
+            "Example Verb (hablar)"
+          ],
+          "rows": [
+            [
+              "Yo",
+              "hablara"
+            ],
+            [
+              "Tú",
+              "hablaras"
+            ],
+            [
+              "Él/Ella/Usted",
+              "hablara"
+            ],
+            [
+              "Nosotros",
+              "habláramos"
+            ],
+            [
+              "Vosotros",
+              "hablarais"
+            ],
+            [
+              "Ellos/Ellas/Ustedes",
+              "hablaran"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Si tuviera tiempo, hablaría contigo.",
+            "translation": "If I had time, I would talk with you.",
+            "breakdown": "Here, 'tuviera' is the imperfect subjunctive form of 'tener', used to express a hypothetical situation."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing the imperfect subjunctive with the conditional. Correct: 'Si fuera rico, viajaría.' (If I were rich, I would travel.)",
+          "Using the wrong subjunctive form for past conditions. Correct: 'Si supieras la verdad, actuarías diferente.' (If you knew the truth, you would act differently.)"
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Future Plans and Wishes",
+      "context": "A conversation between two friends making plans for the weekend.",
+      "speakers": [
+        "María",
+        "Luis"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "¿Qué planeas hacer este fin de semana?",
+          "translation": "What do you plan to do this weekend?",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Espero que podamos ir a la playa.",
+          "translation": "I hope we can go to the beach.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Ojalá que el clima sea bueno.",
+          "translation": "I hope the weather is good.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Sí, pero temo que llueva.",
+          "translation": "Yes, but I fear that it will rain.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Aunque llueva, podríamos ir a un café.",
+          "translation": "Even if it rains, we could go to a café.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "Eso suena bien, pero solo si no hay tormenta.",
+          "translation": "That sounds good, but only if there's no storm.",
+          "note": ""
+        },
+        {
+          "speaker": 0,
+          "text": "Si tuviera un auto, podría llevarte.",
+          "translation": "If I had a car, I could take you.",
+          "note": ""
+        },
+        {
+          "speaker": 1,
+          "text": "No te preocupes, puedo ir en bus si es necesario.",
+          "translation": "Don't worry, I can go by bus if necessary.",
+          "note": ""
+        }
+      ]
+    },
+    "culture": {
+      "title": "The Importance of Wishes in Hispanic Culture",
+      "text": "In Hispanic culture, expressing wishes and hopes is seen as a way to foster community and connection. The use of the subjunctive often reflects deeper values such as politeness and respect for others' feelings.",
+      "funFact": "In some countries, like Mexico, it is common to use the phrase 'ojalá' derived from Arabic, which highlights the historical influences on the Spanish language."
+    },
+    "summary": {
+      "keyPoints": [
+        "The subjunctive is used to express desires, doubts, and hypothetical situations.",
+        "The present subjunctive is formed by modifying the present tense verb endings.",
+        "The imperfect subjunctive is used for past hypotheticals.",
+        "Common triggers for the subjunctive include expressions of hope and uncertainty."
+      ],
+      "nextSteps": "Practice forming sentences using both the present and imperfect subjunctive. Engage in conversations where you express desires and hypothetical situations."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following sentences correctly uses the subjunctive mood?",
+      "content": {
+        "options": [
+          "Espero que él viene a la fiesta.",
+          "Es importante que tú estudies para el examen.",
+          "Ella cree que nosotros vamos a ganar.",
+          "Me alegra que ellos compran un coche nuevo."
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "The correct answer uses the subjunctive 'estudies' after the expression of importance.",
+      "hint": "Look for expressions that indicate necessity or importance.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'ojalá' express in Spanish?",
+      "content": {
+        "options": [
+          "Desire",
+          "Doubt",
+          "Regret",
+          "Surprise"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Ojalá' is used to express a strong desire or hope for something.",
+      "hint": "Think about wishes or hopes.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence with the correct form of the verb in the subjunctive: 'Es posible que ellos ___ (venir) a la reunión.'",
+      "content": {
+        "sentence": "Es posible que ellos ___ a la reunión.",
+        "correctAnswer": "vengan",
+        "acceptableAnswers": [
+          "vengan"
+        ],
+        "options": [
+          "vengan",
+          "vienen",
+          "vinieron"
+        ]
+      },
+      "explanation": "The subjunctive form 'vengan' is necessary after expressions of possibility.",
+      "hint": "Look for verbs that indicate uncertainty.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blanks: 'Temo que él no ___ (comprender) la situación.'",
+      "content": {
+        "sentence": "Temo que él no ___ la situación.",
+        "correctAnswer": "comprenda",
+        "acceptableAnswers": [
+          "comprenda"
+        ],
+        "options": [
+          "comprenda",
+          "comprende",
+          "comprendió"
+        ]
+      },
+      "explanation": "The subjunctive 'comprenda' is used after the verb 'temer' indicating fear.",
+      "hint": "Focus on the emotion expressed in the sentence.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "REORDER",
+      "question": "Reorder the words to form a correct sentence: 'aunque / llueva / iremos / a la playa'.",
+      "content": {
+        "words": [
+          "aunque",
+          "llueva",
+          "iremos",
+          "a",
+          "la",
+          "playa"
+        ],
+        "correctOrder": [
+          "iremos",
+          "a",
+          "la",
+          "playa",
+          "aunque",
+          "llueva"
+        ],
+        "translation": "We will go to the beach even if it rains."
+      },
+      "explanation": "The correct order conveys the meaning that the action will happen despite the condition.",
+      "hint": "Think about the conditional structure.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to Spanish: 'I hope that she understands.'",
+      "content": {
+        "prompt": "Translate to Spanish: 'I hope that she understands.'",
+        "correctAnswer": "Espero que ella comprenda.",
+        "acceptableAnswers": [
+          "Espero que ella entienda."
+        ]
+      },
+      "explanation": "Both 'comprenda' and 'entienda' are correct, but 'comprenda' is more formal.",
+      "hint": "Use the subjunctive for hopes.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct response: 'Es mejor que tú ___ (decir) la verdad.'",
+      "content": {
+        "ttsText": "Es mejor que tú digas la verdad.",
+        "ttsLang": "es-ES",
+        "options": [
+          "digas",
+          "dices",
+          "dijo"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer uses the subjunctive form 'digas' after 'es mejor que'.",
+      "hint": "Pay attention to the mood of the verb.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this sentence in Spanish: 'I wish that you would come to my party.'",
+      "content": {
+        "targetText": "Ojalá que tú vengas a mi fiesta.",
+        "context": "Translate the sentence into Spanish.",
+        "acceptableVariants": [
+          "Espero que tú vengas a mi fiesta."
+        ]
+      },
+      "explanation": "The sentence expresses a wish using 'ojalá' and the subjunctive 'vengas'.",
+      "hint": "Consider how to express wishes in Spanish.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    }
+  ]
+}

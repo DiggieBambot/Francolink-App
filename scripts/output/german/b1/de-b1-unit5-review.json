@@ -1,0 +1,356 @@
+{
+  "lesson": {
+    "title": "Unit 5 Review",
+    "type": "REVIEW",
+    "slug": "de-b1-unit5-review"
+  },
+  "unit": "Media & Communication",
+  "unitOrder": 5,
+  "lessonOrder": 5,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will review key vocabulary and grammar points related to the topic of media and communication. You will also engage in a dialogue that incorporates these elements to reinforce your understanding.",
+      "culturalNote": "In Germany, the use of social media has rapidly increased, especially among younger generations. Platforms like Instagram and TikTok are popular for sharing news and personal updates."
+    },
+    "vocabulary": [
+      {
+        "term": "das Internet",
+        "translation": "the Internet",
+        "definition": "A global network connecting millions of computers.",
+        "pronunciation": "das in-ter-net",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Internet ist eine wichtige Informationsquelle.",
+          "translation": "The Internet is an important source of information."
+        },
+        "tip": "Remember that 'das' indicates that this noun is neuter."
+      },
+      {
+        "term": "der Fernseher",
+        "translation": "the television",
+        "definition": "An electronic device for receiving television signals.",
+        "pronunciation": "der fern-seh-er",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich schaue jeden Abend Fernsehen.",
+          "translation": "I watch television every evening."
+        },
+        "tip": "Use 'der' for masculine nouns like 'der Fernseher'."
+      },
+      {
+        "term": "die Nachrichten",
+        "translation": "the news",
+        "definition": "Reports of recent events or updates.",
+        "pronunciation": "die nach-richten",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich lese die Nachrichten jeden Morgen.",
+          "translation": "I read the news every morning."
+        },
+        "tip": "This is a plural noun, so it does not have a singular form."
+      },
+      {
+        "term": "das Handy",
+        "translation": "the mobile phone",
+        "definition": "A portable telephone.",
+        "pronunciation": "das han-dy",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Ich benutze mein Handy, um zu kommunizieren.",
+          "translation": "I use my mobile phone to communicate."
+        },
+        "tip": "Remember that 'das' indicates that this noun is neuter."
+      },
+      {
+        "term": "der Computer",
+        "translation": "the computer",
+        "definition": "An electronic device for processing data.",
+        "pronunciation": "der kom-pyu-ter",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Computer hat viele nützliche Anwendungen.",
+          "translation": "The computer has many useful applications."
+        },
+        "tip": "Use 'der' for masculine nouns like 'der Computer'."
+      },
+      {
+        "term": "die Software",
+        "translation": "the software",
+        "definition": "Programs and operating information used by a computer.",
+        "pronunciation": "die soft-ware",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Software muss regelmäßig aktualisiert werden.",
+          "translation": "The software must be updated regularly."
+        },
+        "tip": "Remember that 'die' indicates that this noun is feminine."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Subordinate Clauses with 'weil' and 'dass'",
+        "explanation": "Subordinate clauses are used to provide additional information. 'Weil' means 'because' and is used to give reasons, while 'dass' means 'that' and is used to introduce statements. These clauses are essential for forming complex sentences in German.",
+        "table": {
+          "headers": [
+            "Clause Type",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Weil",
+              "Ich bleibe zu Hause, weil es regnet."
+            ],
+            [
+              "Dass",
+              "Ich weiß, dass du kommen wirst."
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Ich gehe ins Kino, weil ich den Film sehen möchte.",
+            "translation": "I am going to the cinema because I want to see the movie.",
+            "breakdown": "This sentence uses 'weil' to explain the reason for going to the cinema."
+          },
+          {
+            "original": "Es ist wichtig, dass wir die Nachrichten verfolgen.",
+            "translation": "It is important that we follow the news.",
+            "breakdown": "Here, 'dass' introduces a statement about the importance of following the news."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing 'weil' and 'dass': Remember 'weil' gives a reason, while 'dass' introduces a statement.",
+          "Forgetting to conjugate the verb in the subordinate clause: In 'weil' and 'dass' clauses, the verb comes at the end."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Discussing Media Preferences",
+      "context": "Two friends, Lukas and Lena, are having a conversation about their media consumption habits over coffee.",
+      "speakers": [
+        "Lukas",
+        "Lena"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Was denkst du über das Internet?",
+          "translation": "What do you think about the Internet?",
+          "note": "Lukas starts the conversation."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich finde das Internet sehr nützlich, weil man viele Informationen findet.",
+          "translation": "I find the Internet very useful because you can find a lot of information."
+        },
+        {
+          "speaker": 0,
+          "text": "Ja, besonders für Nachrichten. Ich lese sie oft online.",
+          "translation": "Yes, especially for news. I often read them online."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich bevorzuge es, die Nachrichten im Fernsehen zu sehen.",
+          "translation": "I prefer to watch the news on television."
+        },
+        {
+          "speaker": 0,
+          "text": "Warum? Ist das nicht langweilig?",
+          "translation": "Why? Isn't that boring?"
+        },
+        {
+          "speaker": 1,
+          "text": "Nein, ich finde die Berichterstattung interessanter.",
+          "translation": "No, I find the reporting more interesting."
+        },
+        {
+          "speaker": 0,
+          "text": "Das kann sein. Ich nutze auch gerne mein Handy, um Videos zu schauen.",
+          "translation": "That may be true. I also like to use my mobile phone to watch videos."
+        },
+        {
+          "speaker": 1,
+          "text": "Ich auch! Es gibt so viele gute Inhalte.",
+          "translation": "Me too! There are so many good contents."
+        }
+      ]
+    },
+    "culture": {
+      "title": "Media Consumption in Germany",
+      "text": "In Germany, media consumption is diverse, with a strong emphasis on quality journalism. Many Germans prefer paying for news subscriptions to support independent journalism rather than relying solely on free content.",
+      "funFact": "Germany has one of the highest rates of newspaper readership in Europe, highlighting the importance placed on news and information."
+    },
+    "summary": {
+      "keyPoints": [
+        "Review of vocabulary related to media and communication.",
+        "Understanding of subordinate clauses using 'weil' and 'dass'.",
+        "Familiarity with the passive voice and its usage.",
+        "Engagement in a realistic dialogue showcasing media preferences."
+      ],
+      "nextSteps": "Practice forming sentences using subordinate clauses. Consider discussing your own media habits with a partner to reinforce your learning."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is 'das Internet' in English?",
+      "content": {
+        "options": [
+          "The Internet",
+          "The TV",
+          "The news",
+          "The computer"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Das Internet' translates directly to 'The Internet' in English.",
+      "hint": "Think about online communication.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following is 'der Fernseher'?",
+      "content": {
+        "options": [
+          "The phone",
+          "The computer",
+          "The television",
+          "The tablet"
+        ],
+        "correctIndex": 2
+      },
+      "explanation": "'Der Fernseher' means 'the television' in English, used for watching shows.",
+      "hint": "It’s a device for viewing programs.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Ich benutze oft mein ___ (handy).",
+      "content": {
+        "sentence": "Ich benutze oft mein ___ (handy).",
+        "correctAnswer": "Handy",
+        "acceptableAnswers": [
+          "das Handy"
+        ],
+        "options": [
+          "Computer",
+          "Handy",
+          "Fernseher",
+          "Internet"
+        ]
+      },
+      "explanation": "The correct answer is 'Handy', which means 'mobile phone' in English.",
+      "hint": "Think about your mobile device.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Fill in the blank: Die ___ (Nachrichten) sind wichtig für aktuelle Informationen.",
+      "content": {
+        "sentence": "Die ___ (Nachrichten) sind wichtig für aktuelle Informationen.",
+        "correctAnswer": "Nachrichten",
+        "acceptableAnswers": [
+          "die Nachrichten"
+        ],
+        "options": [
+          "Nachrichten",
+          "Software",
+          "Computer",
+          "Internet"
+        ]
+      },
+      "explanation": "'Nachrichten' translates to 'news', which are essential for current information.",
+      "hint": "Think about what you read daily.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I need new software.'",
+      "content": {
+        "prompt": "Translate to German: 'I need new software.'",
+        "correctAnswer": "Ich brauche neue Software.",
+        "acceptableAnswers": []
+      },
+      "explanation": "The correct translation captures the need for new software in German.",
+      "hint": "Focus on the verb 'need'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen and choose the correct translation: 'Ich nutze den Computer täglich.'",
+      "content": {
+        "ttsText": "Ich nutze den Computer täglich.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I use the computer daily.",
+          "I watch TV daily.",
+          "I read the news daily.",
+          "I need new software."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence means 'I use the computer daily.'",
+      "hint": "Focus on daily usage.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say this in German: 'I watch the news every evening.'",
+      "content": {
+        "targetText": "Ich sehe die Nachrichten jeden Abend.",
+        "context": "You are discussing your daily routine.",
+        "acceptableVariants": [
+          "Ich schaue die Nachrichten jeden Abend."
+        ]
+      },
+      "explanation": "Both sentences correctly convey the same meaning.",
+      "hint": "Use the verb for watching.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: Wir speichern Daten auf dem ___ (Computer).",
+      "content": {
+        "sentence": "Wir speichern Daten auf dem ___ (Computer).",
+        "correctAnswer": "Computer",
+        "acceptableAnswers": [
+          "dem Computer"
+        ],
+        "options": [
+          "Handy",
+          "Internet",
+          "Computer",
+          "Fernseher"
+        ]
+      },
+      "explanation": "The correct answer is 'Computer', where data is stored.",
+      "hint": "Think about where you save files.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which device is commonly used for calls and texts?",
+      "content": {
+        "options": [
+          "Der Computer",
+          "Das Handy",
+          "Der Fernseher",
+          "Das Internet"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Das Handy' is the device used for calls and texts.",
+      "hint": "Consider mobile communication.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}

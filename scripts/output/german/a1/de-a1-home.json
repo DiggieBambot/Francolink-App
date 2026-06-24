@@ -1,0 +1,349 @@
+{
+  "lesson": {
+    "title": "My Home (Mein Zuhause)",
+    "type": "VOCABULARY",
+    "slug": "de-a1-home"
+  },
+  "unit": "Home & Everyday Objects",
+  "unitOrder": 6,
+  "lessonOrder": 1,
+  "content": {
+    "introduction": {
+      "text": "In this lesson, you will learn vocabulary related to your home and everyday objects in German. You will also practice using simple sentences to describe items in your home.",
+      "culturalNote": "In Germany, many people value their homes and often have a special place for plants or decorations. It's common to see well-kept balconies and gardens."
+    },
+    "vocabulary": [
+      {
+        "term": "das Haus",
+        "translation": "the house",
+        "definition": "A building for human habitation.",
+        "pronunciation": "das house",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Haus ist groß.",
+          "translation": "The house is big."
+        },
+        "tip": "Das (the) indicates neuter gender. Plural: die Häuser."
+      },
+      {
+        "term": "die Wohnung",
+        "translation": "the apartment",
+        "definition": "A set of rooms forming an individual residence.",
+        "pronunciation": "dee vohn-ung",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Wohnung ist schön.",
+          "translation": "The apartment is nice."
+        },
+        "tip": "Die (the) indicates feminine gender. Plural: die Wohnungen."
+      },
+      {
+        "term": "der Tisch",
+        "translation": "the table",
+        "definition": "A piece of furniture with a flat top and one or more legs.",
+        "pronunciation": "der tish",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Tisch ist aus Holz.",
+          "translation": "The table is made of wood."
+        },
+        "tip": "Der (the) indicates masculine gender. Plural: die Tische."
+      },
+      {
+        "term": "die Lampe",
+        "translation": "the lamp",
+        "definition": "A device for giving light.",
+        "pronunciation": "dee lamp-eh",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Die Lampe ist hell.",
+          "translation": "The lamp is bright."
+        },
+        "tip": "Die (the) indicates feminine gender. Plural: die Lampen."
+      },
+      {
+        "term": "das Buch",
+        "translation": "the book",
+        "definition": "A set of written or printed pages.",
+        "pronunciation": "das booch",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Das Buch ist interessant.",
+          "translation": "The book is interesting."
+        },
+        "tip": "Das (the) indicates neuter gender. Plural: die Bücher."
+      },
+      {
+        "term": "der Stuhl",
+        "translation": "the chair",
+        "definition": "A separate seat for one person, typically with a back and four legs.",
+        "pronunciation": "der shtool",
+        "partOfSpeech": "noun",
+        "exampleSentence": {
+          "original": "Der Stuhl ist bequem.",
+          "translation": "The chair is comfortable."
+        },
+        "tip": "Der (the) indicates masculine gender. Plural: die Stühle."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Using Articles in German",
+        "explanation": "In German, nouns have gender: masculine (der), feminine (die), and neuter (das). It's important to learn the article with the noun. Plurals usually use 'die' for all genders.",
+        "table": {
+          "headers": [
+            "Gender",
+            "Article"
+          ],
+          "rows": [
+            [
+              "Masculine",
+              "der"
+            ],
+            [
+              "Feminine",
+              "die"
+            ],
+            [
+              "Neuter",
+              "das"
+            ]
+          ]
+        },
+        "examples": [
+          {
+            "original": "Die Lampe ist hell.",
+            "translation": "The lamp is bright.",
+            "breakdown": "Here, 'die' indicates that 'Lampe' is feminine."
+          }
+        ],
+        "commonMistakes": [
+          "Confusing der and die: Remember, der is for masculine nouns, die for feminine.",
+          "For neuter nouns, always use das: das Buch, das Haus."
+        ]
+      }
+    ],
+    "dialogue": {
+      "title": "Talking about Your Home",
+      "context": "Anna and Lukas are visiting each other's homes.",
+      "speakers": [
+        "Anna",
+        "Lukas"
+      ],
+      "lines": [
+        {
+          "speaker": 0,
+          "text": "Hallo Lukas! Wie ist dein Zuhause?",
+          "translation": "Hello Lukas! How is your home?"
+        },
+        {
+          "speaker": 1,
+          "text": "Hallo Anna! Mein Zuhause ist klein, aber gemütlich.",
+          "translation": "Hello Anna! My home is small, but cozy."
+        },
+        {
+          "speaker": 0,
+          "text": "Hast du einen Garten?",
+          "translation": "Do you have a garden?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ja, ich habe einen kleinen Garten.",
+          "translation": "Yes, I have a small garden."
+        },
+        {
+          "speaker": 0,
+          "text": "Wie viele Zimmer hast du?",
+          "translation": "How many rooms do you have?"
+        },
+        {
+          "speaker": 1,
+          "text": "Ich habe zwei Zimmer und eine Küche.",
+          "translation": "I have two rooms and a kitchen."
+        },
+        {
+          "speaker": 0,
+          "text": "Das klingt schön! Wo ist dein Tisch?",
+          "translation": "That sounds nice! Where is your table?"
+        },
+        {
+          "speaker": 1,
+          "text": "Der Tisch ist im Wohnzimmer.",
+          "translation": "The table is in the living room."
+        }
+      ]
+    },
+    "culture": {
+      "title": "German Homes",
+      "text": "In German-speaking countries, people often take pride in their homes and gardens. Many Germans enjoy decorating their homes with plants and art, reflecting their personal style.",
+      "funFact": "In Germany, it's common for people to have a 'Vorfeld' (front yard) where they grow flowers and vegetables."
+    },
+    "summary": {
+      "keyPoints": [
+        "Learn vocabulary for common household items.",
+        "Understand gender and articles in German nouns.",
+        "Practice using simple sentences to describe your home.",
+        "Engage in basic dialogues about living situations."
+      ],
+      "nextSteps": "Practice using the vocabulary in sentences about your own home. Try to describe your favorite room or object in German."
+    }
+  },
+  "exercises": [
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What is the German word for 'table'?",
+      "content": {
+        "options": [
+          "der Tisch",
+          "die Lampe",
+          "das Buch"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The correct answer is 'der Tisch', which means 'table' in German.",
+      "hint": "Think of where you eat your meals.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "Which of the following means 'the lamp' in German?",
+      "content": {
+        "options": [
+          "die Lampe",
+          "der Stuhl",
+          "das Haus"
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "'Die Lampe' translates to 'the lamp' in English.",
+      "hint": "It provides light in a room.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich sitze auf dem ___.'",
+      "content": {
+        "sentence": "Ich sitze auf dem ___.",
+        "correctAnswer": "Stuhl",
+        "acceptableAnswers": [
+          "Stuhl"
+        ],
+        "options": [
+          "Tisch",
+          "Stuhl",
+          "Buch"
+        ]
+      },
+      "explanation": "The correct answer is 'Stuhl', meaning 'chair'.",
+      "hint": "You sit on it.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Das ist mein ___. (book)'",
+      "content": {
+        "sentence": "Das ist mein ___.",
+        "correctAnswer": "Buch",
+        "acceptableAnswers": [
+          "Buch"
+        ],
+        "options": [
+          "Haus",
+          "Buch",
+          "Tisch"
+        ]
+      },
+      "explanation": "'Buch' means 'book' in German, which fits the sentence.",
+      "hint": "You read it.",
+      "difficulty": "EASY",
+      "xp_reward": 3
+    },
+    {
+      "exercise_type": "TRANSLATION",
+      "question": "Translate to German: 'I live in an apartment.'",
+      "content": {
+        "prompt": "Translate to German: 'I live in an apartment.'",
+        "correctAnswer": "Ich wohne in einer Wohnung.",
+        "acceptableAnswers": [
+          "Ich lebe in einer Wohnung."
+        ]
+      },
+      "explanation": "The correct translation conveys the meaning of living in an apartment.",
+      "hint": "Think about the word for 'apartment'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "LISTENING",
+      "question": "Listen to the German sentence and choose the correct translation.",
+      "content": {
+        "ttsText": "Ich habe ein Buch.",
+        "ttsLang": "de-DE",
+        "options": [
+          "I have a book.",
+          "I have a chair.",
+          "I have a table."
+        ],
+        "correctIndex": 0
+      },
+      "explanation": "The sentence 'Ich habe ein Buch' translates to 'I have a book.'",
+      "hint": "Focus on the word 'Buch'.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "SPEAK",
+      "question": "Say the German sentence: 'Das ist mein Tisch.'",
+      "content": {
+        "targetText": "Das ist mein Tisch.",
+        "context": "You are showing someone your table.",
+        "acceptableVariants": [
+          "Das ist mein Tisch."
+        ]
+      },
+      "explanation": "This sentence means 'This is my table.'",
+      "hint": "Remember to pronounce 'Tisch' clearly.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    },
+    {
+      "exercise_type": "MULTIPLE_CHOICE",
+      "question": "What does 'die Wohnung' mean?",
+      "content": {
+        "options": [
+          "the house",
+          "the apartment",
+          "the chair"
+        ],
+        "correctIndex": 1
+      },
+      "explanation": "'Die Wohnung' translates to 'the apartment' in English.",
+      "hint": "It is a type of home.",
+      "difficulty": "MEDIUM",
+      "xp_reward": 4
+    },
+    {
+      "exercise_type": "FILL_BLANK",
+      "question": "Complete the sentence: 'Ich habe einen ___.' (chair)",
+      "content": {
+        "sentence": "Ich habe einen ___.",
+        "correctAnswer": "Stuhl",
+        "acceptableAnswers": [
+          "Stuhl"
+        ],
+        "options": [
+          "Tisch",
+          "Stuhl",
+          "Buch"
+        ]
+      },
+      "explanation": "'Stuhl' is the correct answer meaning 'chair'.",
+      "hint": "You sit on it.",
+      "difficulty": "HARD",
+      "xp_reward": 5
+    }
+  ]
+}
