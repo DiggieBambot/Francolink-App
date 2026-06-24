@@ -45,8 +45,28 @@ export default function Flashcard({
 
   const handleFlip = () => setIsFlipped(!isFlipped);
   
-  const handleSpeak = (e: React.MouseEvent) => {
+  // Cards that pack multiple letters into one term (e.g. "A, B, C, D, E, F, G"
+  // on alphabet lessons) sound run-on when sent to TTS as a single string.
+  // Detect that pattern and play each letter on its own with a short pause so
+  // the learner hears each pronunciation distinctly.
+  const isLetterList = (text: string): boolean => {
+    const parts = text.split(/\s*,\s*/);
+    if (parts.length < 2) return false;
+    // Each part must be a single letter (Latin / French / Spanish / German), or
+    // a 2-char digraph like "ß" (1 grapheme but 1 char) — keep generous.
+    return parts.every((p) => /^[A-Za-zÀ-ÖØ-öø-ÿß]{1,2}$/.test(p));
+  };
+
+  const handleSpeak = async (e: React.MouseEvent) => {
     e.stopPropagation();
+    if (isLetterList(term)) {
+      const letters = term.split(/\s*,\s*/);
+      for (const letter of letters) {
+        await speak(letter);
+        await new Promise((r) => setTimeout(r, 250));
+      }
+      return;
+    }
     speak(term);
   };
   
