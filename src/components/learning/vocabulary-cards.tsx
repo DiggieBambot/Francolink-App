@@ -8,6 +8,8 @@ import { Button } from "@/components/ui";
 
 interface VocabularyWord {
   term: string;
+  /** Optional override sent to TTS instead of `term` (see Flashcard). */
+  ttsText?: string;
   translation?: string;
   definition?: string;
   pronunciation?: string;
@@ -123,6 +125,7 @@ export default function VocabularyCards({
         <Flashcard
           key={currentIndex}
           term={currentWord.term}
+          ttsText={currentWord.ttsText}
           translation={currentWord.translation || currentWord.definition || ""}
           pronunciation={currentWord.pronunciation}
           partOfSpeech={currentWord.partOfSpeech}

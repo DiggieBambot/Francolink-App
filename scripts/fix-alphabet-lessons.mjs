@@ -19,7 +19,7 @@ const s = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
-// ─── Per-letter pronunciation guides ────────────────────────────────────
+// ─── Per-letter pronunciation guides (shown under the card) ─────────────
 const FR = {
   A:"ah", B:"bay", C:"say", D:"day", E:"uh", F:"eff", G:"zhay",
   H:"ahsh", I:"ee", J:"zhee", K:"kah", L:"el", M:"em", N:"en",
@@ -41,6 +41,32 @@ const DE = {
   O:"oh", P:"pay", Q:"koo", R:"air", S:"ess", T:"tay", U:"oo",
   V:"fau", W:"vay", X:"eeks", Y:"üpsilon", Z:"tsett",
   "Ä":"ah-umlaut", "Ö":"oh-umlaut", "Ü":"oo-umlaut", "ß":"ess-tset",
+};
+
+// ─── Letter NAMES spelled-out as native words for TTS ───────────────────
+// Critical: sending bare letters like "H" to TTS produces inconsistent
+// pronunciation (sometimes the letter name, sometimes the phoneme). Spelling
+// out the actual letter name in the target language guarantees the TTS
+// engine reads it as a real word it knows how to pronounce. Sources: official
+// alphabet pronunciations in each language.
+const FR_NAMES = {
+  A:"A",        B:"Bé",       C:"Cé",       D:"Dé",       E:"E",        F:"Effe",     G:"Gé",
+  H:"Ache",     I:"I",        J:"Ji",       K:"Ka",       L:"Elle",     M:"Emme",     N:"Enne",
+  O:"O",        P:"Pé",       Q:"Ku",       R:"Erre",     S:"Esse",     T:"Té",       U:"U",
+  V:"Vé",       W:"Double Vé", X:"Ixe",      Y:"I grec",   Z:"Zède",
+};
+const ES_NAMES = {
+  A:"a",        B:"be",       C:"ce",       D:"de",       E:"e",        F:"efe",      G:"ge",
+  H:"hache",    I:"i",        J:"jota",     K:"ka",       L:"ele",      M:"eme",      N:"ene",
+  "Ñ":"eñe",    O:"o",        P:"pe",       Q:"cu",       R:"erre",     S:"ese",      T:"te",
+  U:"u",        V:"uve",      W:"uve doble", X:"equis",    Y:"ye",       Z:"zeta",
+};
+const DE_NAMES = {
+  A:"A",        B:"Be",       C:"Ce",       D:"De",       E:"E",        F:"Ef",       G:"Ge",
+  H:"Ha",       I:"I",        J:"Jot",      K:"Ka",       L:"El",       M:"Em",       N:"En",
+  O:"O",        P:"Pe",       Q:"Ku",       R:"Er",       S:"Es",       T:"Te",       U:"U",
+  V:"Vau",      W:"We",       X:"Ix",       Y:"Ypsilon",  Z:"Zett",
+  "Ä":"Ä",      "Ö":"Ö",      "Ü":"Ü",      "ß":"Eszett",
 };
 
 // ─── Letter groupings per language ──────────────────────────────────────
@@ -72,12 +98,17 @@ const FR_EXAMPLE = { A:"Amour", H:"Hôtel", O:"Orange", V:"Voyage" };
 const ES_EXAMPLE = { A:"Amor", H:"Hola", O:"Oso", V:"Verde" };
 const DE_EXAMPLE = { A:"Apfel", H:"Haus", O:"Onkel", V:"Vater", "Ä":"Äpfel" };
 
-function buildVocabItem(letters, sounds, exampleWord, langName, exampleFormat, exampleTranslation) {
+function buildVocabItem(letters, sounds, names, exampleWord, langName, exampleFormat, exampleTranslation) {
   const term = letters.join(", ");
   const pron = letters.map((l) => sounds[l]).join(", ");
+  // ttsText uses period separators between spelled-out native letter names so
+  // the TTS engine treats each as its own sentence (natural pause) and reads
+  // a real word it knows — not a bare uppercase letter it has to guess at.
+  const ttsText = letters.map((l) => names[l] || l).join(". ") + ".";
   const first = letters[0];
   return {
     term,
+    ttsText,
     translation: `Letters ${letters[0]}–${letters[letters.length - 1]}`,
     definition: `The letters ${term} of the ${langName} alphabet.`,
     pronunciation: pron,
@@ -90,14 +121,14 @@ function buildVocabItem(letters, sounds, exampleWord, langName, exampleFormat, e
   };
 }
 
-function buildContent({ langName, intro, groups, sounds, exampleWords, exampleFormat, exampleTranslation, dialogueSpeakers, dialogueLines, culture }) {
+function buildContent({ langName, intro, groups, sounds, names, exampleWords, exampleFormat, exampleTranslation, dialogueSpeakers, dialogueLines, culture }) {
   return {
     introduction: {
       text: intro,
       culturalNote: culture.note,
     },
     vocabulary: groups.map((letters) =>
-      buildVocabItem(letters, sounds, exampleWords[letters[0]] || "—", langName, exampleFormat, exampleTranslation)
+      buildVocabItem(letters, sounds, names, exampleWords[letters[0]] || "—", langName, exampleFormat, exampleTranslation)
     ),
     grammar: [],
     dialogue: {
@@ -130,6 +161,7 @@ const FRENCH_CONTENT = buildContent({
     "Listen to every letter of the French alphabet. Tap each card and you'll hear the letters pronounced one by one, with a clear pause between each.",
   groups: FR_GROUPS,
   sounds: FR,
+  names: FR_NAMES,
   exampleWords: FR_EXAMPLE,
   exampleFormat: (l, w) => `${l} comme ${w}.`,
   exampleTranslation: (l, w) => `${l} as in ${w}.`,
@@ -159,6 +191,7 @@ const SPANISH_CONTENT = buildContent({
     "Listen to every letter of the Spanish alphabet, including Ñ. Tap each card and you'll hear the letters pronounced one by one.",
   groups: ES_GROUPS,
   sounds: ES,
+  names: ES_NAMES,
   exampleWords: ES_EXAMPLE,
   exampleFormat: (l, w) => `${l} de ${w}.`,
   exampleTranslation: (l, w) => `${l} as in ${w}.`,
@@ -188,6 +221,7 @@ const GERMAN_CONTENT = buildContent({
     "Listen to every letter of the German alphabet, plus Ä, Ö, Ü and ß. Tap each card and you'll hear the letters pronounced one by one.",
   groups: DE_GROUPS,
   sounds: DE,
+  names: DE_NAMES,
   exampleWords: DE_EXAMPLE,
   exampleFormat: (l, w) => `${l} wie ${w}.`,
   exampleTranslation: (l, w) => `${l} as in ${w}.`,

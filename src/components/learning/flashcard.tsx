@@ -7,6 +7,10 @@ import { Volume2, Lightbulb } from "lucide-react";
 
 interface FlashcardProps {
   term: string;
+  /** Optional override sent to TTS instead of `term`. Used by alphabet
+   *  cards where the displayed term is a list of letters but the
+   *  pronunciation needs each spelled-out letter name (e.g. 'A. Bé. Cé.'). */
+  ttsText?: string;
   translation: string;
   pronunciation?: string;
   partOfSpeech?: string;
@@ -24,6 +28,7 @@ interface FlashcardProps {
 
 export default function Flashcard({
   term,
+  ttsText,
   translation,
   pronunciation,
   partOfSpeech,
@@ -60,7 +65,10 @@ export default function Flashcard({
 
   const handleSpeak = (e: React.MouseEvent) => {
     e.stopPropagation();
-    speak(textForTTS(term));
+    // Prefer an explicit ttsText (alphabet cards hand-craft this with proper
+    // spelled-out letter names like "A. Bé. Cé."). Fall back to comma-to-period
+    // rewriting for the generic letter-list case, otherwise just the term.
+    speak(ttsText || textForTTS(term));
   };
   
   const handleSpeakExample = (e: React.MouseEvent) => {
