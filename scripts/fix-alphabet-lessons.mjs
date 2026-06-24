@@ -1,11 +1,10 @@
 #!/usr/bin/env node
 // scripts/fix-alphabet-lessons.mjs
 //
-// Restores the alphabet lessons to GROUPED letter cards (A-G, H-N, …) — the
-// original visual layout the user prefers. TTS pronunciation is fixed in
-// Flashcard.tsx: when a card's term is a comma-separated letter list, the
-// client speaks each letter in turn with a short pause, instead of sending
-// the whole string to TTS at once.
+// Rebuilds the French / Spanish / German alphabet lessons as ONE card per
+// letter. Each card sends a single spelled-out native letter name to TTS
+// (e.g. "Ache" for H, "Double Vé" for W) — so there is nothing to mispace
+// and no list-smushing. The displayed term is just the bare letter ("A").
 //
 // Usage:
 //   node --env-file=.env.local scripts/fix-alphabet-lessons.mjs            # dry-run
@@ -19,117 +18,121 @@ const s = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
-// ─── Per-letter pronunciation guides (shown under the card) ─────────────
-const FR = {
-  A:"ah", B:"bay", C:"say", D:"day", E:"uh", F:"eff", G:"zhay",
-  H:"ahsh", I:"ee", J:"zhee", K:"kah", L:"el", M:"em", N:"en",
-  O:"oh", P:"pay", Q:"kü", R:"air", S:"ess", T:"tay", U:"ü",
-  V:"vay", W:"doo-bluh-vay", X:"eeks", Y:"ee-grek", Z:"zed",
-};
-
-const ES = {
-  A:"ah", B:"bay", C:"say", D:"day", E:"ay", F:"eff-ay", G:"hay",
-  H:"ah-chay", I:"ee", J:"ho-tah", K:"kah", L:"ell-ay", M:"em-ay",
-  N:"en-ay", "Ñ":"en-yay", O:"oh", P:"pay", Q:"koo", R:"er-ay",
-  S:"ess-ay", T:"tay", U:"oo", V:"oo-vay", W:"do-blay oo-vay",
-  X:"ay-kees", Y:"ee gree-ay-gah", Z:"say-tah",
-};
-
-const DE = {
-  A:"ah", B:"bay", C:"tsay", D:"day", E:"eh", F:"eff", G:"gay",
-  H:"hah", I:"ee", J:"yot", K:"kah", L:"ell", M:"em", N:"en",
-  O:"oh", P:"pay", Q:"koo", R:"air", S:"ess", T:"tay", U:"oo",
-  V:"fau", W:"vay", X:"eeks", Y:"üpsilon", Z:"tsett",
-  "Ä":"ah-umlaut", "Ö":"oh-umlaut", "Ü":"oo-umlaut", "ß":"ess-tset",
-};
-
-// ─── Letter NAMES spelled-out as native words for TTS ───────────────────
-// Critical: sending bare letters like "H" to TTS produces inconsistent
-// pronunciation (sometimes the letter name, sometimes the phoneme). Spelling
-// out the actual letter name in the target language guarantees the TTS
-// engine reads it as a real word it knows how to pronounce. Sources: official
-// alphabet pronunciations in each language.
-const FR_NAMES = {
-  A:"A",        B:"Bé",       C:"Cé",       D:"Dé",       E:"E",        F:"Effe",     G:"Gé",
-  H:"Ache",     I:"I",        J:"Ji",       K:"Ka",       L:"Elle",     M:"Emme",     N:"Enne",
-  O:"O",        P:"Pé",       Q:"Ku",       R:"Erre",     S:"Esse",     T:"Té",       U:"U",
-  V:"Vé",       W:"Double Vé", X:"Ixe",      Y:"I grec",   Z:"Zède",
-};
-const ES_NAMES = {
-  A:"a",        B:"be",       C:"ce",       D:"de",       E:"e",        F:"efe",      G:"ge",
-  H:"hache",    I:"i",        J:"jota",     K:"ka",       L:"ele",      M:"eme",      N:"ene",
-  "Ñ":"eñe",    O:"o",        P:"pe",       Q:"cu",       R:"erre",     S:"ese",      T:"te",
-  U:"u",        V:"uve",      W:"uve doble", X:"equis",    Y:"ye",       Z:"zeta",
-};
-const DE_NAMES = {
-  A:"A",        B:"Be",       C:"Ce",       D:"De",       E:"E",        F:"Ef",       G:"Ge",
-  H:"Ha",       I:"I",        J:"Jot",      K:"Ka",       L:"El",       M:"Em",       N:"En",
-  O:"O",        P:"Pe",       Q:"Ku",       R:"Er",       S:"Es",       T:"Te",       U:"U",
-  V:"Vau",      W:"We",       X:"Ix",       Y:"Ypsilon",  Z:"Zett",
-  "Ä":"Ä",      "Ö":"Ö",      "Ü":"Ü",      "ß":"Eszett",
-};
-
-// ─── Letter groupings per language ──────────────────────────────────────
-// French: 4 groups of ~7 covers 26.
-const FR_GROUPS = [
-  ["A","B","C","D","E","F","G"],
-  ["H","I","J","K","L","M","N"],
-  ["O","P","Q","R","S","T","U"],
-  ["V","W","X","Y","Z"],
-];
-// Spanish: 4 groups (27 with Ñ).
-const ES_GROUPS = [
-  ["A","B","C","D","E","F","G"],
-  ["H","I","J","K","L","M","N","Ñ"],
-  ["O","P","Q","R","S","T","U"],
-  ["V","W","X","Y","Z"],
-];
-// German: 5 groups (30 with Ä Ö Ü ß).
-const DE_GROUPS = [
-  ["A","B","C","D","E","F","G"],
-  ["H","I","J","K","L","M","N"],
-  ["O","P","Q","R","S","T","U"],
-  ["V","W","X","Y","Z"],
-  ["Ä","Ö","Ü","ß"],
+// ─── Per-letter data: [letter, phonetic guide for display, native letter
+// name for TTS, example word, English meaning of example] ──────────────
+const FR_LETTERS = [
+  ["A", "ah",          "A",          "Amour",     "love"],
+  ["B", "bay",         "Bé",         "Bébé",      "baby"],
+  ["C", "say",         "Cé",         "Café",      "coffee"],
+  ["D", "day",         "Dé",         "Dîner",     "dinner"],
+  ["E", "uh",          "E",          "École",     "school"],
+  ["F", "eff",         "Effe",       "Fromage",   "cheese"],
+  ["G", "zhay",        "Gé",         "Gâteau",    "cake"],
+  ["H", "ahsh",        "Ache",       "Hôtel",     "hotel (silent H)"],
+  ["I", "ee",          "I",          "Île",       "island"],
+  ["J", "zhee",        "Ji",         "Jardin",    "garden"],
+  ["K", "kah",         "Ka",         "Kiwi",      "kiwi"],
+  ["L", "el",          "Elle",       "Livre",     "book"],
+  ["M", "em",          "Emme",       "Maison",    "house"],
+  ["N", "en",          "Enne",       "Nuit",      "night"],
+  ["O", "oh",          "O",          "Orange",    "orange"],
+  ["P", "pay",         "Pé",         "Pain",      "bread"],
+  ["Q", "kü",          "Ku",         "Question",  "question"],
+  ["R", "air",         "Erre",       "Restaurant","restaurant (guttural R)"],
+  ["S", "ess",         "Esse",       "Soleil",    "sun"],
+  ["T", "tay",         "Té",         "Tarte",     "tart"],
+  ["U", "ü",           "U",          "Université","university (rounded lips)"],
+  ["V", "vay",         "Vé",         "Voyage",    "journey"],
+  ["W", "doo-bluh-vay","Double Vé",  "Wifi",      "wifi"],
+  ["X", "eeks",        "Ixe",        "Xylophone", "xylophone"],
+  ["Y", "ee-grek",     "I grec",     "Yaourt",    "yogurt"],
+  ["Z", "zed",         "Zède",       "Zèbre",     "zebra"],
 ];
 
-// One memorable example word per language for the first letter of each group.
-const FR_EXAMPLE = { A:"Amour", H:"Hôtel", O:"Orange", V:"Voyage" };
-const ES_EXAMPLE = { A:"Amor", H:"Hola", O:"Oso", V:"Verde" };
-const DE_EXAMPLE = { A:"Apfel", H:"Haus", O:"Onkel", V:"Vater", "Ä":"Äpfel" };
+const ES_LETTERS = [
+  ["A",  "ah",            "a",        "Amor",     "love"],
+  ["B",  "bay",           "be",       "Banana",   "banana"],
+  ["C",  "say",           "ce",       "Casa",     "house"],
+  ["D",  "day",           "de",       "Día",      "day"],
+  ["E",  "ay",            "e",        "Escuela",  "school"],
+  ["F",  "eff-ay",        "efe",      "Familia",  "family"],
+  ["G",  "hay",           "ge",       "Gato",     "cat"],
+  ["H",  "ah-chay",       "hache",    "Hola",     "hello (silent H)"],
+  ["I",  "ee",            "i",        "Iglesia",  "church"],
+  ["J",  "ho-tah",        "jota",     "Jueves",   "Thursday"],
+  ["K",  "kah",           "ka",       "Kilo",     "kilo"],
+  ["L",  "ell-ay",        "ele",      "Luna",     "moon"],
+  ["M",  "em-ay",         "eme",      "Madre",    "mother"],
+  ["N",  "en-ay",         "ene",      "Noche",    "night"],
+  ["Ñ",  "en-yay",        "eñe",      "Niño",     "child"],
+  ["O",  "oh",            "o",        "Oso",      "bear"],
+  ["P",  "pay",           "pe",       "Padre",    "father"],
+  ["Q",  "koo",           "cu",       "Queso",    "cheese"],
+  ["R",  "er-ay",         "erre",     "Rojo",     "red"],
+  ["S",  "ess-ay",        "ese",      "Sol",      "sun"],
+  ["T",  "tay",           "te",       "Tiempo",   "time/weather"],
+  ["U",  "oo",            "u",        "Uno",      "one"],
+  ["V",  "oo-vay",        "uve",      "Verde",    "green"],
+  ["W",  "do-blay oo-vay","uve doble","Wifi",     "wifi"],
+  ["X",  "ay-kees",       "equis",    "Xilófono", "xylophone"],
+  ["Y",  "ee gree-ay-gah","ye",       "Yo",       "I"],
+  ["Z",  "say-tah",       "zeta",     "Zapato",   "shoe"],
+];
 
-function buildVocabItem(letters, sounds, names, exampleWord, langName, exampleFormat, exampleTranslation) {
-  const term = letters.join(", ");
-  const pron = letters.map((l) => sounds[l]).join(", ");
-  // ttsText uses period separators between spelled-out native letter names so
-  // the TTS engine treats each as its own sentence (natural pause) and reads
-  // a real word it knows — not a bare uppercase letter it has to guess at.
-  const ttsText = letters.map((l) => names[l] || l).join(". ") + ".";
-  const first = letters[0];
-  return {
-    term,
-    ttsText,
-    translation: `Letters ${letters[0]}–${letters[letters.length - 1]}`,
-    definition: `The letters ${term} of the ${langName} alphabet.`,
-    pronunciation: pron,
-    partOfSpeech: "letter",
-    exampleSentence: {
-      original: exampleFormat(first, exampleWord),
-      translation: exampleTranslation(first, exampleWord),
-    },
-    tip: `Tap the speaker to hear each letter pronounced in turn.`,
-  };
-}
+const DE_LETTERS = [
+  ["A",  "ah",           "A",        "Apfel",    "apple"],
+  ["B",  "bay",          "Be",       "Brot",     "bread"],
+  ["C",  "tsay",         "Ce",       "Computer", "computer"],
+  ["D",  "day",          "De",       "Danke",    "thanks"],
+  ["E",  "eh",           "E",        "Eis",      "ice cream"],
+  ["F",  "eff",          "Ef",       "Familie",  "family"],
+  ["G",  "gay",          "Ge",       "Garten",   "garden"],
+  ["H",  "hah",          "Ha",       "Haus",     "house"],
+  ["I",  "ee",           "I",        "Insel",    "island"],
+  ["J",  "yot",          "Jot",      "Junge",    "boy"],
+  ["K",  "kah",          "Ka",       "Kaffee",   "coffee"],
+  ["L",  "ell",          "El",       "Liebe",    "love"],
+  ["M",  "em",           "Em",       "Mutter",   "mother"],
+  ["N",  "en",           "En",       "Nacht",    "night"],
+  ["O",  "oh",           "O",        "Onkel",    "uncle"],
+  ["P",  "pay",          "Pe",       "Park",     "park"],
+  ["Q",  "koo",          "Ku",       "Quelle",   "source"],
+  ["R",  "air",          "Er",       "Rot",      "red"],
+  ["S",  "ess",          "Es",       "Sonne",    "sun"],
+  ["T",  "tay",          "Te",       "Tee",      "tea"],
+  ["U",  "oo",           "U",        "Uhr",      "clock"],
+  ["V",  "fau",          "Vau",      "Vater",    "father"],
+  ["W",  "vay",          "We",       "Wasser",   "water"],
+  ["X",  "eeks",         "Ix",       "Xylophon", "xylophone"],
+  ["Y",  "üpsilon",      "Ypsilon",  "Yacht",    "yacht"],
+  ["Z",  "tsett",        "Zett",     "Zucker",   "sugar"],
+  ["Ä",  "ah-umlaut",    "Ä",        "Äpfel",    "apples"],
+  ["Ö",  "oh-umlaut",    "Ö",        "Öl",       "oil"],
+  ["Ü",  "oo-umlaut",    "Ü",        "Über",     "over/about"],
+  ["ß",  "ess-tset",     "Eszett",   "Straße",   "street"],
+];
 
-function buildContent({ langName, intro, groups, sounds, names, exampleWords, exampleFormat, exampleTranslation, dialogueSpeakers, dialogueLines, culture }) {
+function buildContent({ langName, intro, letters, exampleFormat, exampleTranslation, dialogueSpeakers, dialogueLines, culture }) {
   return {
     introduction: {
       text: intro,
       culturalNote: culture.note,
     },
-    vocabulary: groups.map((letters) =>
-      buildVocabItem(letters, sounds, names, exampleWords[letters[0]] || "—", langName, exampleFormat, exampleTranslation)
-    ),
+    vocabulary: letters.map(([letter, pron, name, exampleWord, exampleMeaning]) => ({
+      term: letter,
+      // ttsText is just the native letter name — a single word the TTS engine
+      // already knows. No lists, no run-ons, no pacing problems.
+      ttsText: name,
+      translation: `the letter ${letter}`,
+      definition: `The letter ${letter} of the ${langName} alphabet.`,
+      pronunciation: pron,
+      partOfSpeech: "letter",
+      exampleSentence: {
+        original: exampleFormat(letter, exampleWord),
+        translation: `${letter} as in ${exampleWord} (${exampleMeaning}).`,
+      },
+      tip: `Tap the speaker to hear the letter ${letter}.`,
+    })),
     grammar: [],
     dialogue: {
       title: "Spelling Your Name",
@@ -145,8 +148,8 @@ function buildContent({ langName, intro, groups, sounds, names, exampleWords, ex
     summary: {
       keyPoints: [
         `Every letter of the ${langName} alphabet sounds different from its English name.`,
-        "Tap any card to hear its letters pronounced one by one.",
-        "Use the example word to anchor the sound (e.g. 'A comme Amour').",
+        "Tap any card to hear the letter pronounced.",
+        "Use the example word to anchor the sound.",
         "Practise spelling your own name and town daily.",
       ],
       nextSteps: "Once the letter sounds feel familiar, move on to greetings and common words.",
@@ -154,17 +157,12 @@ function buildContent({ langName, intro, groups, sounds, names, exampleWords, ex
   };
 }
 
-// ─── French content ─────────────────────────────────────────────────────
+// ─── French ─────────────────────────────────────────────────────────────
 const FRENCH_CONTENT = buildContent({
   langName: "French",
-  intro:
-    "Listen to every letter of the French alphabet. Tap each card and you'll hear the letters pronounced one by one, with a clear pause between each.",
-  groups: FR_GROUPS,
-  sounds: FR,
-  names: FR_NAMES,
-  exampleWords: FR_EXAMPLE,
+  intro: "Listen to every letter of the French alphabet, one at a time. Tap a card to hear that letter — and pair it with its example word to anchor the sound.",
+  letters: FR_LETTERS,
   exampleFormat: (l, w) => `${l} comme ${w}.`,
-  exampleTranslation: (l, w) => `${l} as in ${w}.`,
   dialogueSpeakers: ["Sophie", "Marc"],
   dialogueLines: [
     { speaker: 0, text: "Bonjour, comment t'appelles-tu ?", translation: "Hello, what's your name?" },
@@ -179,22 +177,17 @@ const FRENCH_CONTENT = buildContent({
   culture: {
     note: "On the phone, French speakers say 'X comme [word]' to spell things out. You'll hear it everywhere.",
     title: "Spelling Out Loud in French",
-    text: "From customer support to airline check-in, the 'X comme [word]' formula is the everyday way to spell names. The letter W is rare in native French words and is called 'double vé'.",
-    funFact: "France has its own official radio alphabet — Alpha, Bravo, Charlie — used by the military and emergency services.",
+    text: "From customer support to airline check-in, 'X comme [word]' is the everyday way to spell a name. The letter W is rare in native French words and is called 'double vé'.",
+    funFact: "France's own radio alphabet (Alpha, Bravo, Charlie) is used by the military and emergency services, just like NATO's.",
   },
 });
 
-// ─── Spanish content ────────────────────────────────────────────────────
+// ─── Spanish ────────────────────────────────────────────────────────────
 const SPANISH_CONTENT = buildContent({
   langName: "Spanish",
-  intro:
-    "Listen to every letter of the Spanish alphabet, including Ñ. Tap each card and you'll hear the letters pronounced one by one.",
-  groups: ES_GROUPS,
-  sounds: ES,
-  names: ES_NAMES,
-  exampleWords: ES_EXAMPLE,
+  intro: "Listen to every letter of the Spanish alphabet (including Ñ), one at a time. Tap a card to hear that letter.",
+  letters: ES_LETTERS,
   exampleFormat: (l, w) => `${l} de ${w}.`,
-  exampleTranslation: (l, w) => `${l} as in ${w}.`,
   dialogueSpeakers: ["María", "Juan"],
   dialogueLines: [
     { speaker: 0, text: "Hola, ¿cómo te llamas?", translation: "Hello, what's your name?" },
@@ -209,22 +202,17 @@ const SPANISH_CONTENT = buildContent({
   culture: {
     note: "Spanish has 27 letters — the 26 you know from English, plus Ñ.",
     title: "The Ñ — a Symbol of Spanish",
-    text: "Ñ is iconic to Spanish (and a handful of other languages). Historically the sound was written as 'nn', and the squiggle above (the tilde) is a stylised second n.",
+    text: "Ñ is iconic to Spanish (and a handful of other languages). Historically the sound was written as 'nn', and the squiggle (the tilde) is a stylised second n.",
     funFact: "The Spanish word año means 'year', but ano (without the tilde) means 'anus'. The tilde really matters.",
   },
 });
 
-// ─── German content ─────────────────────────────────────────────────────
+// ─── German ─────────────────────────────────────────────────────────────
 const GERMAN_CONTENT = buildContent({
   langName: "German",
-  intro:
-    "Listen to every letter of the German alphabet, plus Ä, Ö, Ü and ß. Tap each card and you'll hear the letters pronounced one by one.",
-  groups: DE_GROUPS,
-  sounds: DE,
-  names: DE_NAMES,
-  exampleWords: DE_EXAMPLE,
+  intro: "Listen to every letter of the German alphabet, plus Ä, Ö, Ü and ß. Tap a card to hear that letter.",
+  letters: DE_LETTERS,
   exampleFormat: (l, w) => `${l} wie ${w}.`,
-  exampleTranslation: (l, w) => `${l} as in ${w}.`,
   dialogueSpeakers: ["Anna", "Lukas"],
   dialogueLines: [
     { speaker: 0, text: "Hallo, wie heißt du?", translation: "Hello, what's your name?" },
@@ -239,20 +227,20 @@ const GERMAN_CONTENT = buildContent({
   culture: {
     note: "German uses four extra characters beyond the 26: Ä, Ö, Ü and ß.",
     title: "Ä, Ö, Ü, ß — Beyond the 26 Letters",
-    text: "The umlaut (two dots) on a vowel changes its sound completely. The ß (Eszett) represents a sharp S. Online, these can be spelled out as 'ae', 'oe', 'ue', 'ss' when needed.",
+    text: "The umlaut (two dots) on a vowel changes the sound. The ß (Eszett) represents a sharp S. Online, these can be spelled as 'ae', 'oe', 'ue', 'ss' when needed.",
     funFact: "Switzerland abolished the ß in official spelling decades ago, but Germany and Austria still use it.",
   },
 });
 
 // ─── Targets ────────────────────────────────────────────────────────────
 const TARGETS = [
-  { slug: "the-alphabet",     title: "The Alphabet",                  content: FRENCH_CONTENT },
-  { slug: "es-a1-alphabet",   title: "The Spanish Alphabet & Sounds", content: SPANISH_CONTENT },
-  { slug: "de-a1-alphabet",   title: "The German Alphabet & Umlauts", content: GERMAN_CONTENT },
+  { slug: "the-alphabet",   title: "The Alphabet",                  content: FRENCH_CONTENT },
+  { slug: "es-a1-alphabet", title: "The Spanish Alphabet & Sounds", content: SPANISH_CONTENT },
+  { slug: "de-a1-alphabet", title: "The German Alphabet & Umlauts", content: GERMAN_CONTENT },
 ];
 
 async function main() {
-  console.log(`\n🔤 Alphabet lesson fix — ${APPLY ? "APPLY" : "DRY RUN"} (grouped cards)\n`);
+  console.log(`\n🔤 Alphabet lesson fix — ${APPLY ? "APPLY" : "DRY RUN"} (per-letter cards)\n`);
 
   for (const t of TARGETS) {
     const { data: lesson } = await s.from("lessons").select("id, slug, title").eq("slug", t.slug).maybeSingle();
@@ -261,8 +249,9 @@ async function main() {
       continue;
     }
     console.log(`  ${t.slug} (${lesson.title})`);
-    console.log(`    → ${t.content.vocabulary.length} grouped cards`);
-    t.content.vocabulary.forEach((v) => console.log(`       • ${v.term}`));
+    console.log(`    → ${t.content.vocabulary.length} per-letter cards`);
+    console.log(`    sample ttsText: term="${t.content.vocabulary[0].term}" → "${t.content.vocabulary[0].ttsText}"`);
+    console.log(`                    term="${t.content.vocabulary[7].term}" → "${t.content.vocabulary[7].ttsText}"`);
 
     if (!APPLY) continue;
     const { error } = await s
