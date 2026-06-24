@@ -16,6 +16,9 @@ export type Skill = "speaking" | "listening" | "reading" | "writing" | "grammar"
 
 export interface VocabItem {
   term: string;
+  /** Optional override sent to TTS instead of `term` (e.g. alphabet cards where
+   *  the displayed term is the bare letter "A" but the audio needs "Ache"). */
+  tts_text?: string;
   translation?: string;
   part_of_speech?: string; // "noun", "verb", "adjective", "phrase", etc.
   pronunciation?: string; // IPA approximation, e.g. /ʃo.sy.ʁ/

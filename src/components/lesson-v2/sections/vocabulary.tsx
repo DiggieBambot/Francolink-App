@@ -93,7 +93,7 @@ export function VocabularySection({ section, view, sectionIdx = 0, theme }: Prop
                       {item.gender}
                     </span>
                   ) : null}
-                  <SpeakButton text={item.term} size="md" className={`ml-auto ${theme?.softBg ?? "bg-emerald-50"} hover:opacity-90`} />
+                  <SpeakButton text={item.tts_text || item.term} size="md" className={`ml-auto ${theme?.softBg ?? "bg-emerald-50"} hover:opacity-90`} />
                 </div>
                 {item.pronunciation ? (
                   <div className="mt-0.5 text-xs text-slate-500">{item.pronunciation}</div>

@@ -90,7 +90,7 @@ export function VocabFocusOverlay({ item, onClose, theme }: Props) {
                 ) : null}
               </div>
               <SpeakButton
-                text={item.term}
+                text={item.tts_text || item.term}
                 size="md"
                 className={`shrink-0 ${theme?.softBg ?? "bg-emerald-50"} hover:opacity-90`}
               />
