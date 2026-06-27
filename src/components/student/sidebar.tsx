@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
   BookOpen,
+  Gamepad2,
   Target,
   Trophy,
   User,
@@ -43,6 +44,7 @@ interface SidebarProps {
 const navItems = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/learn", label: "Learn", icon: BookOpen },
+  { href: "/games", label: "Games", icon: Gamepad2 },
   { href: "/practice", label: "Practice", icon: Target },
   { href: "/student/ai-tutor", label: "AI Tutor", icon: Bot },
   { href: "/leaderboard", label: "Leaderboard", icon: Trophy },
