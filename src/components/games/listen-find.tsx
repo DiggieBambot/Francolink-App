@@ -11,6 +11,7 @@ type PoolItem = { term: string; translation: string; image: string };
 
 interface Props {
   language: string;
+  theme: string;
 }
 
 const ROUND_COUNT = 10;
@@ -24,7 +25,7 @@ const LOCALE_FOR: Record<string, string> = {
 };
 
 /** TTS plays the target word; learner taps the matching picture. */
-export default function ListenAndFind({ language }: Props) {
+export default function ListenAndFind({ language, theme }: Props) {
   const [pool, setPool] = useState<PoolItem[] | null>(null);
   const [round, setRound] = useState(0);
   const [score, setScore] = useState(0);
@@ -37,7 +38,7 @@ export default function ListenAndFind({ language }: Props) {
   useEffect(() => {
     let cancelled = false;
     void (async () => {
-      const res = await fetch(`/api/games/pool?lang=${language}&count=${ROUND_COUNT * OPTIONS_PER_ROUND}`);
+      const res = await fetch(`/api/games/pool?lang=${language}&theme=${theme}&count=${ROUND_COUNT * OPTIONS_PER_ROUND}`);
       if (!res.ok) return;
       const { pool: data } = (await res.json()) as { pool: PoolItem[] };
       if (cancelled) return;
@@ -46,18 +47,18 @@ export default function ListenAndFind({ language }: Props) {
     return () => {
       cancelled = true;
     };
-  }, [language]);
+  }, [language, theme]);
 
   if (!pool) {
     return (
-      <GameShell language={language} title="Listen & Find" currentRound={0} totalRounds={ROUND_COUNT} score={0} finished={false} onRestart={() => {}}>
+      <GameShell language={language} theme={theme} title="Listen & Find" currentRound={0} totalRounds={ROUND_COUNT} score={0} finished={false} onRestart={() => {}}>
         <div className="mx-auto max-w-md py-12 text-center text-gray-500">Loading words…</div>
       </GameShell>
     );
   }
   if (pool.length < OPTIONS_PER_ROUND) {
     return (
-      <GameShell language={language} title="Listen & Find" currentRound={0} totalRounds={ROUND_COUNT} score={0} finished={false} onRestart={() => {}}>
+      <GameShell language={language} theme={theme} title="Listen & Find" currentRound={0} totalRounds={ROUND_COUNT} score={0} finished={false} onRestart={() => {}}>
         <div className="mx-auto max-w-md py-12 text-center text-gray-600">
           Not enough words with pictures for this language yet. Try again soon!
         </div>
@@ -118,6 +119,7 @@ export default function ListenAndFind({ language }: Props) {
   return (
     <GameShell
       language={language}
+      theme={theme}
       title="Listen & Find"
       currentRound={round + 1}
       totalRounds={items.length}

@@ -6,6 +6,9 @@ import { useEffect, useState } from "react";
 
 interface GameShellProps {
   language: string;
+  /** Slug of the current theme; the header back link + end-screen "More games"
+   *  go to the theme picker so the user stays in context. */
+  theme?: string;
   title: string;
   /** 1-indexed for display. */
   currentRound: number;
@@ -21,6 +24,7 @@ interface GameShellProps {
  *  purely on its game logic + round UI. */
 export function GameShell({
   language,
+  theme,
   title,
   currentRound,
   totalRounds,
@@ -29,6 +33,7 @@ export function GameShell({
   onRestart,
   children,
 }: GameShellProps) {
+  const backHref = theme ? `/learn/${language}/games/${theme}` : `/learn/${language}/games`;
   const percent = Math.round((Math.min(currentRound, totalRounds) / totalRounds) * 100);
 
   return (
@@ -36,7 +41,7 @@ export function GameShell({
       {/* Header */}
       <header className="flex items-center gap-3 border-b border-gray-100 bg-white px-4 py-3 sm:px-6">
         <Link
-          href={`/learn/${language}/games`}
+          href={backHref}
           className="rounded-full p-2 text-gray-500 hover:bg-gray-100"
           aria-label="Back to games"
         >
@@ -57,12 +62,12 @@ export function GameShell({
       </header>
 
       {/* Body */}
-      <div className="flex-1 px-4 py-6 sm:px-6">{finished ? <ResultScreen score={score} totalRounds={totalRounds} language={language} onRestart={onRestart} /> : children}</div>
+      <div className="flex-1 px-4 py-6 sm:px-6">{finished ? <ResultScreen score={score} totalRounds={totalRounds} backHref={backHref} onRestart={onRestart} /> : children}</div>
     </div>
   );
 }
 
-function ResultScreen({ score, totalRounds, language, onRestart }: { score: number; totalRounds: number; language: string; onRestart: () => void }) {
+function ResultScreen({ score, totalRounds, backHref, onRestart }: { score: number; totalRounds: number; backHref: string; onRestart: () => void }) {
   const pct = Math.round((score / totalRounds) * 100);
   const [emoji, headline, sub] = (() => {
     if (pct === 100) return ["🏆", "Perfect!", "Wow. Every single answer right."];
@@ -89,7 +94,7 @@ function ResultScreen({ score, totalRounds, language, onRestart }: { score: numb
           <RotateCcw className="h-4 w-4" /> Play again
         </button>
         <Link
-          href={`/learn/${language}/games`}
+          href={backHref}
           className="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-3 font-semibold text-gray-700 hover:bg-gray-50"
         >
           More games →

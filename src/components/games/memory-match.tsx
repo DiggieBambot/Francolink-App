@@ -10,13 +10,14 @@ type Card = { id: number; pairKey: string; kind: "term" | "image"; term: string;
 
 interface Props {
   language: string;
+  theme: string;
 }
 
 const PAIR_COUNT = 6; // 12 cards on the board (6 pairs)
 
 /** 12 cards face-down. Flip two at a time. Match the word-card with the
  *  picture-card of the same vocab item. */
-export default function MemoryMatch({ language }: Props) {
+export default function MemoryMatch({ language, theme }: Props) {
   const [pool, setPool] = useState<PoolItem[] | null>(null);
   const [cards, setCards] = useState<Card[]>([]);
   const [flipped, setFlipped] = useState<number[]>([]);
@@ -30,7 +31,7 @@ export default function MemoryMatch({ language }: Props) {
   useEffect(() => {
     let cancelled = false;
     void (async () => {
-      const res = await fetch(`/api/games/pool?lang=${language}&count=${PAIR_COUNT * 2}`);
+      const res = await fetch(`/api/games/pool?lang=${language}&theme=${theme}&count=${PAIR_COUNT * 2}`);
       if (!res.ok) return;
       const { pool: data } = (await res.json()) as { pool: PoolItem[] };
       if (cancelled) return;
@@ -39,7 +40,7 @@ export default function MemoryMatch({ language }: Props) {
     return () => {
       cancelled = true;
     };
-  }, [language]);
+  }, [language, theme]);
 
   // Build the card array once we have the pool.
   useEffect(() => {
@@ -96,7 +97,7 @@ export default function MemoryMatch({ language }: Props) {
   function restart() {
     setPool(null);
     void (async () => {
-      const res = await fetch(`/api/games/pool?lang=${language}&count=${PAIR_COUNT * 2}`);
+      const res = await fetch(`/api/games/pool?lang=${language}&theme=${theme}&count=${PAIR_COUNT * 2}`);
       const { pool: data } = (await res.json()) as { pool: PoolItem[] };
       setPool(data);
     })();
@@ -107,7 +108,7 @@ export default function MemoryMatch({ language }: Props) {
 
   if (!pool || cards.length === 0) {
     return (
-      <GameShell language={language} title="Memory Match" currentRound={0} totalRounds={totalPairs} score={0} finished={false} onRestart={restart}>
+      <GameShell language={language} theme={theme} title="Memory Match" currentRound={0} totalRounds={totalPairs} score={0} finished={false} onRestart={restart}>
         <div className="mx-auto max-w-md py-12 text-center text-gray-500">Loading words…</div>
       </GameShell>
     );
@@ -116,6 +117,7 @@ export default function MemoryMatch({ language }: Props) {
   return (
     <GameShell
       language={language}
+      theme={theme}
       title="Memory Match"
       currentRound={pairsFound + 1}
       totalRounds={totalPairs}

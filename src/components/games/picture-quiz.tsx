@@ -9,13 +9,14 @@ type PoolItem = { term: string; translation: string; image: string };
 
 interface Props {
   language: string;
+  theme: string;
 }
 
 const ROUND_COUNT = 10;
 const OPTIONS_PER_ROUND = 4;
 
 /** Picture → 4 word options. Tap the right word. */
-export default function PictureQuiz({ language }: Props) {
+export default function PictureQuiz({ language, theme }: Props) {
   const [pool, setPool] = useState<PoolItem[] | null>(null);
   const [round, setRound] = useState(0);
   const [score, setScore] = useState(0);
@@ -28,7 +29,7 @@ export default function PictureQuiz({ language }: Props) {
     let cancelled = false;
     void (async () => {
       // Ask for 4× round count so we always have enough distractors.
-      const res = await fetch(`/api/games/pool?lang=${language}&count=${ROUND_COUNT * OPTIONS_PER_ROUND}`);
+      const res = await fetch(`/api/games/pool?lang=${language}&theme=${theme}&count=${ROUND_COUNT * OPTIONS_PER_ROUND}`);
       if (!res.ok) return;
       const { pool: data } = (await res.json()) as { pool: PoolItem[] };
       if (cancelled) return;
@@ -37,11 +38,11 @@ export default function PictureQuiz({ language }: Props) {
     return () => {
       cancelled = true;
     };
-  }, [language]);
+  }, [language, theme]);
 
   if (!pool) {
     return (
-      <GameShell language={language} title="Picture Quiz" currentRound={0} totalRounds={ROUND_COUNT} score={0} finished={false} onRestart={() => {}}>
+      <GameShell language={language} theme={theme} title="Picture Quiz" currentRound={0} totalRounds={ROUND_COUNT} score={0} finished={false} onRestart={() => {}}>
         <div className="mx-auto max-w-md py-12 text-center text-gray-500">Loading words…</div>
       </GameShell>
     );
@@ -49,7 +50,7 @@ export default function PictureQuiz({ language }: Props) {
 
   if (pool.length < OPTIONS_PER_ROUND) {
     return (
-      <GameShell language={language} title="Picture Quiz" currentRound={0} totalRounds={ROUND_COUNT} score={0} finished={false} onRestart={() => {}}>
+      <GameShell language={language} theme={theme} title="Picture Quiz" currentRound={0} totalRounds={ROUND_COUNT} score={0} finished={false} onRestart={() => {}}>
         <div className="mx-auto max-w-md py-12 text-center text-gray-600">
           Not enough words with pictures for this language yet. Try again soon!
         </div>
@@ -111,6 +112,7 @@ export default function PictureQuiz({ language }: Props) {
   return (
     <GameShell
       language={language}
+      theme={theme}
       title="Picture Quiz"
       currentRound={round + 1}
       totalRounds={items.length}
@@ -126,7 +128,9 @@ export default function PictureQuiz({ language }: Props) {
             <Image src={current.image} alt="" fill sizes="(max-width:640px) 100vw, 600px" className="object-cover" priority />
           ) : null}
         </div>
-        <h2 className="mb-4 text-center text-xl font-bold text-gray-700">What is this in French?</h2>
+        <h2 className="mb-4 text-center text-xl font-bold text-gray-700">
+          What is this in {language.charAt(0).toUpperCase() + language.slice(1)}?
+        </h2>
 
         {/* Options */}
         <div className="mx-auto grid max-w-xl gap-3 sm:grid-cols-2">
