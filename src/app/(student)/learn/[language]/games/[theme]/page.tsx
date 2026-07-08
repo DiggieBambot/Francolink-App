@@ -6,7 +6,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, Camera, Headphones, Layers, Trophy, Rocket } from "lucide-react";
+import { ArrowLeft, Camera, Headphones, Layers, Trophy, Ghost } from "lucide-react";
 import { notFound } from "next/navigation";
 import { themeBySlug, themeIcon } from "@/lib/games/themes";
 
@@ -15,8 +15,8 @@ interface Props {
 }
 
 const GAMES = [
+  { slug: "maze-chase",   title: "Maze Chase",    tagline: "Grab the answer, dodge the chasers!", icon: Ghost, gradient: "from-violet-600 to-fuchsia-600", featured: true },
   { slug: "quiz-show",    title: "Quiz Show",     tagline: "Beat the clock. Build a streak.", icon: Trophy, gradient: "from-fuchsia-500 to-purple-600" },
-  { slug: "word-race",    title: "Word Race",     tagline: "Answer fast — outrun the robot!", icon: Rocket, gradient: "from-rose-500 to-red-600" },
   { slug: "picture-quiz", title: "Picture Quiz",  tagline: "See a picture, tap the word.", icon: Camera, gradient: "from-amber-400 to-orange-500" },
   { slug: "listen-find",  title: "Listen & Find", tagline: "Hear a word, tap the picture.", icon: Headphones, gradient: "from-sky-400 to-blue-500" },
   { slug: "memory-match", title: "Memory Match",  tagline: "Flip cards. Pair word with picture.", icon: Layers, gradient: "from-emerald-400 to-teal-500" },
