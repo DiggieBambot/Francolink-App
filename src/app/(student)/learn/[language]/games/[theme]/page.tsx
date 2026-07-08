@@ -5,16 +5,19 @@
 // which theme will be played.
 
 import Link from "next/link";
-import { ArrowLeft, Camera, Headphones, Layers } from "lucide-react";
+import Image from "next/image";
+import { ArrowLeft, Camera, Headphones, Layers, Trophy, Rocket } from "lucide-react";
 import { notFound } from "next/navigation";
-import { themeBySlug } from "@/lib/games/themes";
+import { themeBySlug, themeIcon } from "@/lib/games/themes";
 
 interface Props {
   params: Promise<{ language: string; theme: string }>;
 }
 
 const GAMES = [
-  { slug: "picture-quiz", title: "Picture Quiz", tagline: "See a picture, tap the word.", icon: Camera, gradient: "from-amber-400 to-orange-500" },
+  { slug: "quiz-show",    title: "Quiz Show",     tagline: "Beat the clock. Build a streak.", icon: Trophy, gradient: "from-fuchsia-500 to-purple-600" },
+  { slug: "word-race",    title: "Word Race",     tagline: "Answer fast — outrun the robot!", icon: Rocket, gradient: "from-rose-500 to-red-600" },
+  { slug: "picture-quiz", title: "Picture Quiz",  tagline: "See a picture, tap the word.", icon: Camera, gradient: "from-amber-400 to-orange-500" },
   { slug: "listen-find",  title: "Listen & Find", tagline: "Hear a word, tap the picture.", icon: Headphones, gradient: "from-sky-400 to-blue-500" },
   { slug: "memory-match", title: "Memory Match",  tagline: "Flip cards. Pair word with picture.", icon: Layers, gradient: "from-emerald-400 to-teal-500" },
 ];
@@ -34,8 +37,15 @@ export default async function ThemePage({ params }: Props) {
       </Link>
 
       <header className="flex items-center gap-4">
-        <div className={`flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${theme.gradient} text-4xl shadow-md`}>
-          {theme.emoji}
+        <div className={`h-16 w-16 overflow-hidden rounded-2xl bg-gradient-to-br ${theme.gradient} p-1.5 shadow-md`}>
+          <Image
+            src={themeIcon(theme.slug)}
+            alt=""
+            width={64}
+            height={64}
+            className="h-full w-full rounded-xl bg-white/95 object-cover"
+            unoptimized
+          />
         </div>
         <div>
           <div className="text-sm font-medium uppercase tracking-wider text-amber-600">{theme.label}</div>
@@ -43,7 +53,7 @@ export default async function ThemePage({ params }: Props) {
         </div>
       </header>
 
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {GAMES.map((g) => {
           const Icon = g.icon;
           return (

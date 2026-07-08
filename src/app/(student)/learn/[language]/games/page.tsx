@@ -4,9 +4,10 @@
 // classifier so we don't go round-trip on first paint.
 
 import Link from "next/link";
+import Image from "next/image";
 import { createClient } from "@supabase/supabase-js";
 import { langCode } from "@/lib/utils/language";
-import { THEMES, classifyVocab } from "@/lib/games/themes";
+import { THEMES, classifyVocab, themeIcon } from "@/lib/games/themes";
 
 interface Props {
   params: Promise<{ language: string }>;
@@ -81,7 +82,16 @@ export default async function GamesLobbyPage({ params }: Props) {
               href={`/learn/${language}/games/${t.slug}`}
               className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${t.gradient} p-5 text-white shadow-md transition-all hover:-translate-y-0.5 hover:shadow-xl`}
             >
-              <div className="text-4xl">{t.emoji}</div>
+              <div className="h-16 w-16 overflow-hidden rounded-2xl bg-white/95 p-1.5 shadow-sm">
+                <Image
+                  src={themeIcon(t.slug)}
+                  alt=""
+                  width={64}
+                  height={64}
+                  className="h-full w-full rounded-xl object-cover transition-transform group-hover:scale-105"
+                  unoptimized
+                />
+              </div>
               <h2 className="mt-3 font-heading text-lg font-bold">{t.label}</h2>
               <div className="mt-1 text-xs text-white/85">{t.count} words</div>
               <span className="mt-4 inline-block rounded-full bg-white/20 px-2.5 py-0.5 text-xs font-semibold backdrop-blur-sm">

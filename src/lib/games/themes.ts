@@ -15,6 +15,14 @@ export interface Theme {
   keywords: string[];
 }
 
+// Public URL for a theme's generated icon (flat sticker illustration). All
+// icons live at a predictable path in Supabase Storage, one PNG per slug.
+const ICON_BASE =
+  "https://biwacllbpdxzdxtmqtpw.supabase.co/storage/v1/object/public/lesson-images/theme-icons";
+export function themeIcon(slug: string): string {
+  return `${ICON_BASE}/${slug}.png`;
+}
+
 export const THEMES: Theme[] = [
   {
     slug: "animals",
