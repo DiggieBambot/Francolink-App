@@ -95,7 +95,6 @@ export default function MazeChase({ language, theme }: Props) {
   const [enemies, setEnemies] = useState<{ r: number; c: number }[]>([]);
   const [answers, setAnswers] = useState<AnswerTile[]>([]);
   const [current, setCurrent] = useState<PoolItem | null>(null);
-  const [mode, setMode] = useState<"pic2word" | "word2pic">("pic2word");
   const [dots, setDots] = useState<Set<string>>(new Set());
   const [bonus, setBonus] = useState<{ r: number; c: number } | null>(null);
   const [lives, setLives] = useState(START_LIVES);
@@ -173,7 +172,6 @@ export default function MazeChase({ language, theme }: Props) {
     }
 
     setCurrent(correct);
-    setMode(roundIdx % 2 === 0 ? "pic2word" : "word2pic");
     setAnswers(tiles);
     setDots(nd);
     // bonus star at a far-ish random open cell
@@ -275,9 +273,9 @@ export default function MazeChase({ language, theme }: Props) {
   }, [player.r, player.c, enemies]);
 
   useEffect(() => {
-    if (status === "playing" && mode === "word2pic" && current) speak(current.term);
+    if (status === "playing" && current) speak(current.term);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [current, mode, status]);
+  }, [current, status]);
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -335,22 +333,15 @@ export default function MazeChase({ language, theme }: Props) {
 
       <div className="flex flex-1 flex-col items-center bg-gradient-to-b from-[#241452] to-[#120a2a] px-3 py-4">
         {current && status === "playing" && (
-          <div className="mb-3 flex min-h-[3.5rem] w-full max-w-[620px] items-center justify-center gap-3 rounded-2xl bg-white/10 px-4 py-2 text-white backdrop-blur">
-            {mode === "pic2word" ? (
-              <>
-                <span className="text-sm font-medium text-white/70">Eat the word for:</span>
-                <div className="relative h-12 w-12 overflow-hidden rounded-xl bg-white/10">
-                  {current.image ? <Image src={current.image} alt="" fill sizes="48px" className="object-cover" /> : null}
-                </div>
-              </>
-            ) : (
-              <>
-                <span className="text-sm font-medium text-white/70">Eat the picture for:</span>
-                <button onClick={() => speak(current.term)} className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1.5 text-lg font-bold hover:bg-white/25">
-                  {current.term} <Volume2 className="h-4 w-4" />
-                </button>
-              </>
-            )}
+          <div className="mb-3 flex w-full max-w-[620px] flex-col items-center gap-1 rounded-2xl bg-white/10 px-4 py-3 text-white backdrop-blur">
+            <span className="text-xs font-medium uppercase tracking-wide text-white/60">Find the picture for</span>
+            <button
+              onClick={() => speak(current.term)}
+              className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-2xl font-extrabold leading-none hover:bg-white/10 sm:text-3xl"
+            >
+              {current.term}
+              <Volume2 className="h-5 w-5 text-white/70" />
+            </button>
           </div>
         )}
 
@@ -373,16 +364,12 @@ export default function MazeChase({ language, theme }: Props) {
             </div>
           )}
 
-          {/* answer tiles */}
+          {/* answer tiles — pictures to choose from */}
           {answers.map((a, i) => a.gone ? null : (
             <div key={i} className="absolute z-[7] flex items-center justify-center" style={{ left: px(a.c), top: px(a.r), width: cell, height: cell }}>
-              {mode === "pic2word" ? (
-                <span className="max-w-[3.6rem] truncate rounded-md bg-amber-400 px-1 font-bold leading-tight text-[#160c33] shadow-md" style={{ fontSize: Math.max(9, cell * 0.26), transform: "scale(1.3)" }} title={a.item.term}>{a.item.term}</span>
-              ) : (
-                <div className="relative overflow-hidden rounded-md bg-white shadow-md ring-2 ring-amber-300" style={{ height: cell * 1.15, width: cell * 1.15 }}>
-                  {a.item.image ? <Image src={a.item.image} alt="" fill sizes="64px" className="object-cover" /> : null}
-                </div>
-              )}
+              <div className="relative overflow-hidden rounded-lg bg-white shadow-lg ring-2 ring-amber-300" style={{ height: cell * 1.35, width: cell * 1.35 }}>
+                {a.item.image ? <Image src={a.item.image} alt="" fill sizes="72px" className="object-cover" /> : null}
+              </div>
             </div>
           ))}
 
@@ -424,13 +411,19 @@ export default function MazeChase({ language, theme }: Props) {
 
       <style jsx>{`
         .pac {
-          background: #fbbf24;
           border-radius: 50%;
-          animation: chomp 0.32s linear infinite;
+          box-shadow: 0 0 12px rgba(251, 191, 36, 0.6);
+          animation: chomp 0.28s steps(1, end) infinite;
         }
+        /* Mouth is a transparent wedge cut on the right (0deg); the container
+           is rotated to face the travel direction. */
         @keyframes chomp {
-          0%, 100% { clip-path: polygon(100% 0, 46% 50%, 100% 100%, 50% 50%, 0 100%, 0 0); }
-          50% { clip-path: polygon(100% 38%, 50% 50%, 100% 62%, 50% 50%, 0 100%, 0 0); }
+          0%, 100% {
+            background: conic-gradient(from -40deg, transparent 0 80deg, #fbbf24 80deg 360deg);
+          }
+          50% {
+            background: conic-gradient(from -12deg, transparent 0 24deg, #fbbf24 24deg 360deg);
+          }
         }
       `}</style>
     </div>
