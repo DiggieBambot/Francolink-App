@@ -107,14 +107,30 @@ export default function MazeChase({ language, theme }: Props) {
   const locale = LOCALE_FOR[language.toLowerCase()] || "fr-FR";
   const { speak } = useInworldTTS({ language: locale });
 
-  const dirRef = useRef<Dir>("none");
   const [facing, setFacing] = useState<Dir>("right");
-  const desiredRef = useRef<Dir>("none");
+  const desiredRef = useRef<Dir>("none");     // the direction currently being held
+  const heldRef = useRef<Dir[]>([]);          // stack of held directions (multi-key)
   const tickRef = useRef(0);
   const boardRef = useRef<HTMLDivElement | null>(null);
   const invulnRef = useRef(0);
   const scaredUntilRef = useRef(0);
   const [scared, setScared] = useState(false);
+
+  // Press/hold helpers: while a direction is held it drives movement; on
+  // release we fall back to whatever is still held (or stop).
+  const holdDir = useCallback((d: Dir) => {
+    if (d === "none") return;
+    if (!heldRef.current.includes(d)) heldRef.current.push(d);
+    desiredRef.current = d;
+    setFacing(d);
+  }, []);
+  const releaseDir = useCallback((d: Dir) => {
+    heldRef.current = heldRef.current.filter((x) => x !== d);
+    const nextDir = heldRef.current[heldRef.current.length - 1] ?? "none";
+    desiredRef.current = nextDir;
+    if (nextDir !== "none") setFacing(nextDir);
+  }, []);
+  const clearHold = useCallback(() => { heldRef.current = []; desiredRef.current = "none"; }, []);
 
   const loadPool = useCallback(async () => {
     const res = await fetch(`/api/games/pool?lang=${language}&theme=${theme}&count=30`);
@@ -179,7 +195,7 @@ export default function MazeChase({ language, theme }: Props) {
     setBonus(far.length ? { r: far[Math.floor(Math.random() * far.length)][0], c: far[Math.floor(Math.random() * far.length)][1] } : null);
     setPlayer({ r: PLAYER_START[0], c: PLAYER_START[1] });
     setEnemies([{ r: ENEMY_START[0], c: ENEMY_START[1] }, { r: ENEMY_START[0], c: ENEMY_START[1] }]);
-    dirRef.current = "none"; desiredRef.current = "none";
+    clearHold();
     invulnRef.current = 6;
   }
 
@@ -198,11 +214,13 @@ export default function MazeChase({ language, theme }: Props) {
       if (scaredUntilRef.current && scaredUntilRef.current <= Date.now()) { scaredUntilRef.current = 0; setScared(false); }
 
       setPlayer((p) => {
-        const [ddr, ddc] = DELTA[desiredRef.current];
-        if (desiredRef.current !== "none" && !isWall(p.r + ddr, p.c + ddc)) { dirRef.current = desiredRef.current; setFacing(desiredRef.current); }
-        const [dr, dc] = DELTA[dirRef.current];
+        // Hold-to-move: the player only advances while a direction is actively
+        // held (keyboard or dpad). No auto-flow — release to stop.
+        const dir = desiredRef.current;
+        if (dir === "none") return p;
+        const [dr, dc] = DELTA[dir];
         const nr = p.r + dr, nc = p.c + dc;
-        if (dirRef.current === "none" || isWall(nr, nc)) return p;
+        if (isWall(nr, nc)) return p; // face the wall, don't move
         return { r: nr, c: nc };
       });
 
@@ -248,7 +266,7 @@ export default function MazeChase({ language, theme }: Props) {
       setLives((l) => { const nl = l - 1; if (nl <= 0) setStatus("lost"); return nl; });
       setPlayer({ r: PLAYER_START[0], c: PLAYER_START[1] });
       setEnemies((es) => es.map(() => ({ r: ENEMY_START[0], c: ENEMY_START[1] })));
-      dirRef.current = "none"; desiredRef.current = "none"; invulnRef.current = 8;
+      clearHold(); invulnRef.current = 8;
       return;
     }
     if (hit && scaredNow) { // eat the enemy → send it home
@@ -279,14 +297,15 @@ export default function MazeChase({ language, theme }: Props) {
   }, [current, status]);
 
   useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      const m: Record<string, Dir> = { ArrowUp: "up", ArrowDown: "down", ArrowLeft: "left", ArrowRight: "right", w: "up", s: "down", a: "left", d: "right", W: "up", S: "down", A: "left", D: "right" };
-      if (m[e.key]) { e.preventDefault(); desiredRef.current = m[e.key]; }
-    }
-    window.addEventListener("keydown", onKey, { passive: false });
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
+    const m: Record<string, Dir> = { ArrowUp: "up", ArrowDown: "down", ArrowLeft: "left", ArrowRight: "right", w: "up", s: "down", a: "left", d: "right", W: "up", S: "down", A: "left", D: "right" };
+    function onDown(e: KeyboardEvent) { if (m[e.key]) { e.preventDefault(); holdDir(m[e.key]); } }
+    function onUp(e: KeyboardEvent) { if (m[e.key]) { e.preventDefault(); releaseDir(m[e.key]); } }
+    window.addEventListener("keydown", onDown, { passive: false });
+    window.addEventListener("keyup", onUp, { passive: false });
+    return () => { window.removeEventListener("keydown", onDown); window.removeEventListener("keyup", onUp); };
+  }, [holdDir, releaseDir]);
 
+  // Swipe = a single step in the swipe direction (tap-to-step feel on touch).
   useEffect(() => {
     const el = boardRef.current; if (!el) return;
     let sx = 0, sy = 0;
@@ -294,7 +313,9 @@ export default function MazeChase({ language, theme }: Props) {
     const te = (e: TouchEvent) => {
       const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
       if (Math.abs(dx) < 20 && Math.abs(dy) < 20) return;
-      desiredRef.current = Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? "right" : "left") : (dy > 0 ? "down" : "up");
+      const dir: Dir = Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? "right" : "left") : (dy > 0 ? "down" : "up");
+      setFacing(dir);
+      setPlayer((p) => { const [dr, dc] = DELTA[dir]; const nr = p.r + dr, nc = p.c + dc; return isWall(nr, nc) ? p : { r: nr, c: nc }; });
     };
     el.addEventListener("touchstart", ts, { passive: true });
     el.addEventListener("touchend", te, { passive: true });
@@ -365,11 +386,14 @@ export default function MazeChase({ language, theme }: Props) {
             </div>
           )}
 
-          {/* answer tiles — pictures to choose from */}
+          {/* answer tiles — big Ludo-style picture tokens */}
           {answers.map((a, i) => a.gone ? null : (
-            <div key={i} className="absolute z-[7] flex items-center justify-center" style={{ left: px(a.c), top: px(a.r), width: cell, height: cell }}>
-              <div className="relative overflow-hidden rounded-lg bg-white shadow-lg ring-2 ring-amber-300" style={{ height: cell * 1.35, width: cell * 1.35 }}>
-                {a.item.image ? <Image src={a.item.image} alt="" fill sizes="72px" className="object-cover" /> : null}
+            <div key={i} className="absolute z-[8] flex items-center justify-center" style={{ left: px(a.c), top: px(a.r), width: cell, height: cell }}>
+              <div
+                className="relative overflow-hidden rounded-xl bg-white ring-[3px] ring-amber-300"
+                style={{ height: cell * 1.9, width: cell * 1.9, boxShadow: "0 6px 16px rgba(0,0,0,0.45)" }}
+              >
+                {a.item.image ? <Image src={a.item.image} alt="" fill sizes="96px" className="object-cover" /> : null}
               </div>
             </div>
           ))}
@@ -401,11 +425,11 @@ export default function MazeChase({ language, theme }: Props) {
 
         <div className="mt-4 grid grid-cols-3 gap-2 sm:hidden" style={{ width: 168 }}>
           <span />
-          <DPad dir="up" onPress={(d) => (desiredRef.current = d)}><ChevronUp className="h-6 w-6" /></DPad>
+          <DPad dir="up" onHold={holdDir} onRelease={releaseDir}><ChevronUp className="h-6 w-6" /></DPad>
           <span />
-          <DPad dir="left" onPress={(d) => (desiredRef.current = d)}><ChevronLeft className="h-6 w-6" /></DPad>
-          <DPad dir="down" onPress={(d) => (desiredRef.current = d)}><ChevronDown className="h-6 w-6" /></DPad>
-          <DPad dir="right" onPress={(d) => (desiredRef.current = d)}><ChevronRight className="h-6 w-6" /></DPad>
+          <DPad dir="left" onHold={holdDir} onRelease={releaseDir}><ChevronLeft className="h-6 w-6" /></DPad>
+          <DPad dir="down" onHold={holdDir} onRelease={releaseDir}><ChevronDown className="h-6 w-6" /></DPad>
+          <DPad dir="right" onHold={holdDir} onRelease={releaseDir}><ChevronRight className="h-6 w-6" /></DPad>
         </div>
         <p className="mt-3 hidden text-xs text-white/50 sm:block">Arrow keys / WASD to move · eat dots and the ⭐ turns the tables · swipe on touch</p>
       </div>
@@ -450,9 +474,16 @@ function Ghost({ color, scared }: { color: string; scared: boolean }) {
   );
 }
 
-function DPad({ dir, onPress, children }: { dir: Dir; onPress: (d: Dir) => void; children: React.ReactNode }) {
+function DPad({ dir, onHold, onRelease, children }: { dir: Dir; onHold: (d: Dir) => void; onRelease: (d: Dir) => void; children: React.ReactNode }) {
   return (
-    <button type="button" onTouchStart={(e) => { e.preventDefault(); onPress(dir); }} onMouseDown={() => onPress(dir)} className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-white active:bg-white/25">
+    <button
+      type="button"
+      onPointerDown={(e) => { e.preventDefault(); onHold(dir); }}
+      onPointerUp={() => onRelease(dir)}
+      onPointerLeave={() => onRelease(dir)}
+      onPointerCancel={() => onRelease(dir)}
+      className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-white active:bg-white/25"
+    >
       {children}
     </button>
   );
