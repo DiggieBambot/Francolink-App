@@ -33,7 +33,7 @@ const COLS = MAZE[0].length;
 
 const TARGET_CORRECT = 8;
 const START_LIVES = 3;
-const STEP_MS = 150;
+const STEP_MS = 200;   // player move cadence (higher = calmer pace)
 const SCARE_MS = 5000;
 
 type Dir = "up" | "down" | "left" | "right" | "none";
@@ -185,8 +185,9 @@ export default function MazeChase({ language, theme }: Props) {
 
   // enemy cadence gets faster with progress; scared mode slows them
   function enemyEvery() {
-    const base = Math.max(2, 3 - Math.floor(solved / 3));
-    return scaredUntilRef.current > Date.now() ? base + 2 : base;
+    // Higher = slower enemies. Start gentle, ramp slightly with progress.
+    const base = Math.max(3, 4 - Math.floor(solved / 4));
+    return scaredUntilRef.current > Date.now() ? base + 3 : base;
   }
 
   useEffect(() => {

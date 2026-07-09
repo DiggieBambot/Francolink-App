@@ -25,6 +25,7 @@ const LIMIT = (() => {
   return arg ? Number(arg.split("=")[1]) : Infinity;
 })();
 const LANG = process.argv.find((a) => a.startsWith("--lang="))?.split("=")[1] || "fr";
+const ONLY_THEME = process.argv.find((a) => a.startsWith("--theme="))?.split("=")[1] || null;
 
 const BUCKET = "lesson-images";
 const PREFIX = "vocab-ai";
@@ -90,22 +91,27 @@ function themeLabel(slug) {
 }
 
 // ─── Prompt builder ─────────────────────────────────────────────────────
-// Note: "kid-friendly" was triggering Cloudflare's NSFW filter on innocuous
-// terms like "bread". Replaced with neutral cheerful descriptors.
+// Tight, single-subject prompt so the picture depicts exactly the word and
+// nothing else (avoids e.g. bread served next to a random cup). "kid-friendly"
+// tripped the NSFW filter, so we use neutral cheerful descriptors.
 function promptFor(term, translation, themeSlug, retryVariant = 0) {
   const subject = translation || term;
-  const label = themeLabel(themeSlug);
+  // variant 0/1: single isolated subject (kills the bread+random-cup problem).
+  // variant 2: a deliberately softer rewording used only if Cloudflare's
+  // (flaky) NSFW filter false-trips on the stricter wording.
+  if (retryVariant >= 2) {
+    return `a cute simple cartoon illustration of ${subject}, plain white background, centered, no text, flashcard style`;
+  }
   const tones = [
     "cheerful, vibrant colors, clean lines, soft shapes",
     "friendly, bright wholesome colors, simple shapes",
   ];
   return [
-    `${subject}`,
-    `simple flat illustration of a ${label}`,
-    `white background`,
-    `centered subject`,
-    tones[retryVariant % tones.length],
-    `no text, no words, no letters, no captions`,
+    `one ${subject} by itself`,
+    `single subject, centered, isolated`,
+    `plain white background`,
+    `simple flat illustration, ${tones[retryVariant % tones.length]}`,
+    `no text, no letters, no labels`,
     `educational flashcard style`,
   ].join(", ");
 }
@@ -170,6 +176,7 @@ async function main() {
       if (!v.term || v.term.length > 28) return;
       const theme = classifyVocab(v.translation);
       if (!theme) return;
+      if (ONLY_THEME && theme !== ONLY_THEME) return;
       work.push({
         lessonId: l.id,
         vocabIdx: idx,
@@ -204,14 +211,16 @@ async function main() {
     const filename = `${LANG}-${slugifyTerm(w.term)}.png`;
     process.stdout.write(`[${i + 1}/${slice.length}] ${w.term.padEnd(24).slice(0, 24)} (${w.translation.padEnd(20).slice(0, 20)}) `);
     try {
-      // One soft retry with a tone-variant prompt if the NSFW filter falsely
-      // trips on an innocuous term (it does, occasionally).
+      // Retry with progressively softer wording if Cloudflare's flaky NSFW
+      // filter false-trips on an innocuous term (it does, e.g. "bread").
       let png;
-      try {
-        png = await generateImage(promptFor(w.term, w.translation, w.theme, 0));
-      } catch (e) {
-        if (!/NSFW/i.test(e.message)) throw e;
-        png = await generateImage(promptFor(w.term, w.translation, w.theme, 1));
+      for (let variant = 0; ; variant++) {
+        try {
+          png = await generateImage(promptFor(w.term, w.translation, w.theme, variant));
+          break;
+        } catch (e) {
+          if (!/NSFW/i.test(e.message) || variant >= 2) throw e;
+        }
       }
       const url = await uploadImage(png, filename);
       const content = lessonCache.get(w.lessonId);

@@ -194,6 +194,21 @@ export function themeBySlug(slug: string): Theme | undefined {
   return THEME_BY_SLUG.get(slug);
 }
 
+// Words that can't be reliably told apart from a picture (identical-looking
+// referents like salt vs sugar) or that have no clear visual (abstract terms).
+// These are excluded from the picture-based games so a round is always fair.
+const GAME_BLOCKLIST = new Set<string>([
+  // visually identical white powders/granules
+  "salt", "sugar", "flour", "powder", "spice", "seasoning", "yeast", "starch",
+  // clear/near-identical liquids
+  "water", "oil", "vinegar", "alcohol",
+  // abstract / non-picturable
+  "free time", "spare time", "time", "moment", "week", "month", "year", "hour",
+  "minute", "second", "day", "weekend", "morning", "afternoon", "evening",
+  "thing", "something", "everything", "nothing", "way", "kind", "type", "part",
+  "half", "quarter", "double", "example", "reason", "idea", "problem", "question",
+]);
+
 /** Classify a vocab item into exactly one theme by matching its English
  *  translation against the keyword lists. Returns the theme slug or `null`. */
 export function classifyVocab(translation: string | undefined): string | null {
@@ -207,9 +222,11 @@ export function classifyVocab(translation: string | undefined): string | null {
     .replace(/\s+/g, " ")
     .trim();
   if (!norm) return null;
+  if (GAME_BLOCKLIST.has(norm)) return null;
 
   // Direct exact match against a keyword set wins.
   const tokens = new Set(norm.split(" "));
+  for (const w of tokens) if (GAME_BLOCKLIST.has(w)) return null;
   for (const theme of THEMES) {
     for (const kw of theme.keywords) {
       if (kw.includes(" ")) {
