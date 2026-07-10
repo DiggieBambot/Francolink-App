@@ -160,7 +160,11 @@ export default function MazeChase({ language, theme }: Props) {
   useEffect(() => {
     function resize() {
       const w = boardRef.current?.parentElement?.clientWidth || 560;
-      setCell(Math.floor(Math.min(w, 620) / COLS));
+      // Size the board as large as fits: bounded by available width (cap ~880)
+      // and by viewport height so it never overflows vertically.
+      const byWidth = Math.floor(Math.min(w, 880) / COLS);
+      const byHeight = Math.floor((window.innerHeight * 0.66) / ROWS);
+      setCell(Math.max(30, Math.min(byWidth, byHeight)));
     }
     resize();
     window.addEventListener("resize", resize);
@@ -391,9 +395,9 @@ export default function MazeChase({ language, theme }: Props) {
             <div key={i} className="absolute z-[8] flex items-center justify-center" style={{ left: px(a.c), top: px(a.r), width: cell, height: cell }}>
               <div
                 className="relative overflow-hidden rounded-xl bg-white ring-[3px] ring-amber-300"
-                style={{ height: cell * 1.9, width: cell * 1.9, boxShadow: "0 6px 16px rgba(0,0,0,0.45)" }}
+                style={{ height: cell * 2.3, width: cell * 2.3, boxShadow: "0 6px 18px rgba(0,0,0,0.5)" }}
               >
-                {a.item.image ? <Image src={a.item.image} alt="" fill sizes="96px" className="object-cover" /> : null}
+                {a.item.image ? <Image src={a.item.image} alt="" fill sizes="160px" className="object-cover" /> : null}
               </div>
             </div>
           ))}
