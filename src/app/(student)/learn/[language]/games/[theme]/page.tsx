@@ -47,10 +47,16 @@ export default async function ThemePage({ params }: Props) {
             unoptimized
           />
         </div>
-        <div>
+        <div className="flex-1">
           <div className="text-sm font-medium uppercase tracking-wider text-amber-600">{theme.label}</div>
           <h1 className="font-heading text-2xl font-bold text-primary md:text-3xl">Pick a game</h1>
         </div>
+        <Link
+          href={`/learn/${language}/games/${theme.slug}/leaderboard`}
+          className="inline-flex items-center gap-2 rounded-full border border-amber-300 bg-amber-50 px-4 py-2 text-sm font-semibold text-amber-700 hover:bg-amber-100"
+        >
+          <Trophy className="h-4 w-4" /> Leaderboard
+        </Link>
       </header>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

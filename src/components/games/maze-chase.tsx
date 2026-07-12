@@ -569,6 +569,9 @@ export default function MazeChase({ language, theme }: Props) {
                     )}
                   </ol>
                 )}
+                <Link href={`/learn/${language}/games/${theme}/leaderboard`} className="mt-2 block rounded-lg px-2 py-1.5 text-center text-xs font-semibold text-amber-300 hover:bg-white/5">
+                  View full leaderboard →
+                </Link>
               </div>
 
               <div className="mt-5 flex gap-3">
