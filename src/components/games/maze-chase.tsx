@@ -13,120 +13,65 @@ interface Props { language: string; theme: string; }
 
 const LOCALE_FOR: Record<string, string> = { french: "fr-FR", spanish: "es-ES", german: "de-DE", english: "en-GB" };
 
-// ─── Maze generation ────────────────────────────────────────────────────────
-// Braided (loopy) mazes so the board feels like Pac-Man and answers/enemies are
-// never trapped in a dead-end. Every level is a fresh, deterministic layout of
-// the same dimensions; higher levels braid less (more dead ends = tenser).
-const CELL_ROWS = 6, CELL_COLS = 7;
-const ROWS = CELL_ROWS * 2 + 1;   // 13
-const COLS = CELL_COLS * 2 + 1;   // 15
-
-function mulberry32(a: number) {
-  return function () {
-    a |= 0; a = (a + 0x6d2b79f5) | 0;
-    let t = Math.imul(a ^ (a >>> 15), 1 | a);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-function generateMaze(seed: number, braidChance: number): string[] {
-  const rnd = mulberry32(seed);
-  const grid: string[][] = Array.from({ length: ROWS }, () => Array(COLS).fill("#"));
-  const visited = Array.from({ length: CELL_ROWS }, () => Array(CELL_COLS).fill(false));
-  const stack: [number, number][] = [[0, 0]];
-  visited[0][0] = true; grid[1][1] = ".";
-  while (stack.length) {
-    const [cr, cc] = stack[stack.length - 1];
-    const dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]].sort(() => rnd() - 0.5);
-    let moved = false;
-    for (const [dr, dc] of dirs) {
-      const nr = cr + dr, nc = cc + dc;
-      if (nr < 0 || nc < 0 || nr >= CELL_ROWS || nc >= CELL_COLS || visited[nr][nc]) continue;
-      visited[nr][nc] = true;
-      grid[2 * cr + 1 + dr][2 * cc + 1 + dc] = ".";
-      grid[2 * nr + 1][2 * nc + 1] = ".";
-      stack.push([nr, nc]); moved = true; break;
-    }
-    if (!moved) stack.pop();
-  }
-  // braid: open some dead ends into loops
-  for (let cr = 0; cr < CELL_ROWS; cr++) for (let cc = 0; cc < CELL_COLS; cc++) {
-    const r = 2 * cr + 1, c = 2 * cc + 1;
-    const openNb = [[0, 1], [1, 0], [0, -1], [-1, 0]].filter(([dr, dc]) => grid[r + dr]?.[c + dc] === ".");
-    if (openNb.length === 1 && rnd() < braidChance) {
-      const cand = [[0, 1], [1, 0], [0, -1], [-1, 0]].filter(([dr, dc]) => {
-        const tr = r + 2 * dr, tc = c + 2 * dc;
-        return grid[r + dr]?.[c + dc] === "#" && grid[tr]?.[tc] === ".";
-      });
-      if (cand.length) { const [dr, dc] = cand[Math.floor(rnd() * cand.length)]; grid[r + dr][c + dc] = "."; }
-    }
-  }
-  return grid.map((row) => row.join(""));
-}
+// ─── Maze ───────────────────────────────────────────────────────────────────
+// A clean, hand-designed, horizontally-symmetric Pac-Man board. The player
+// starts bottom-center; villains share a 3-wide "pen" on the middle row so they
+// fan out instead of stacking on one tile.
+const MAZE_LAYOUT = [
+  "###############",
+  "#......#......#",
+  "#.####.#.####.#",
+  "#.#.........#.#",
+  "#.#.#.###.#.#.#",
+  "#...#.....#...#",
+  "###.#.#.#.#.###",
+  "#...#.....#...#",
+  "#.#.#.###.#.#.#",
+  "#.#.........#.#",
+  "#.####.#.####.#",
+  "#......#......#",
+  "###############",
+];
+const ROWS = MAZE_LAYOUT.length;      // 13
+const COLS = MAZE_LAYOUT[0].length;   // 15
+const PLAYER_START: [number, number] = [11, 7];
+// villain home cells on the open middle row (spread so they don't overlap)
+const ENEMY_HOME: [number, number][] = [[5, 7], [5, 6], [5, 8]];
 
 type Dir = "up" | "down" | "left" | "right" | "none";
 const DELTA: Record<Dir, [number, number]> = { up: [-1, 0], down: [1, 0], left: [0, -1], right: [0, 1], none: [0, 0] };
 const DIR_DEG: Record<Dir, number> = { right: 0, down: 90, left: 180, up: 270, none: 0 };
 const key = (r: number, c: number) => `${r},${c}`;
 
-interface MazeData {
-  grid: string[];
-  playerStart: [number, number];
-  enemyStart: [number, number];
-  open: [number, number][];
-  dist: number[][];          // BFS distance from playerStart
+function isWall(r: number, c: number) {
+  if (r < 0 || c < 0 || r >= ROWS || c >= COLS) return true;
+  return MAZE_LAYOUT[r][c] === "#";
 }
 
-function buildMaze(grid: string[]): MazeData {
-  const isW = (r: number, c: number) => r < 0 || c < 0 || r >= ROWS || c >= COLS || grid[r][c] === "#";
-  const playerStart: [number, number] = [2 * (CELL_ROWS - 1) + 1, 2 * Math.floor(CELL_COLS / 2) + 1];
-  const enemyStart: [number, number] = [2 * Math.floor(CELL_ROWS / 2) + 1, 2 * Math.floor(CELL_COLS / 2) + 1];
-  const open: [number, number][] = [];
-  for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) if (!isW(r, c)) open.push([r, c]);
+const OPEN_CELLS: [number, number][] = [];
+for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) if (!isWall(r, c)) OPEN_CELLS.push([r, c]);
+
+function bfs(sr: number, sc: number) {
   const dist = Array.from({ length: ROWS }, () => Array(COLS).fill(-1));
-  dist[playerStart[0]][playerStart[1]] = 0;
-  const q: [number, number][] = [playerStart];
+  dist[sr][sc] = 0;
+  const q: [number, number][] = [[sr, sc]];
   while (q.length) {
     const [r, c] = q.shift()!;
     for (const [dr, dc] of [DELTA.up, DELTA.down, DELTA.left, DELTA.right]) {
       const nr = r + dr, nc = c + dc;
-      if (!isW(nr, nc) && dist[nr][nc] === -1) { dist[nr][nc] = dist[r][c] + 1; q.push([nr, nc]); }
+      if (!isWall(nr, nc) && dist[nr][nc] === -1) { dist[nr][nc] = dist[r][c] + 1; q.push([nr, nc]); }
     }
   }
-  return { grid, playerStart, enemyStart, open, dist };
+  return dist;
 }
+const PLAYER_DIST = bfs(PLAYER_START[0], PLAYER_START[1]);
 
-type EnemyType = "chaser" | "ambusher" | "roamer";
-interface LevelConfig { seed: number; braid: number; answers: number; enemyBase: number; enemies: EnemyType[]; }
-
-// Four levels: fresh maze, more villains, faster, less forgiving as you climb.
-const LEVELS: LevelConfig[] = [
-  { seed: 1,  braid: 0.8,  answers: 5, enemyBase: 4, enemies: ["chaser", "roamer"] },
-  { seed: 7,  braid: 0.6,  answers: 5, enemyBase: 4, enemies: ["chaser", "ambusher"] },
-  { seed: 13, braid: 0.45, answers: 6, enemyBase: 3, enemies: ["chaser", "ambusher", "roamer"] },
-  { seed: 21, braid: 0.3,  answers: 6, enemyBase: 3, enemies: ["chaser", "ambusher", "roamer"] },
-];
-const MAZE_DATA: MazeData[] = LEVELS.map((l) => buildMaze(generateMaze(l.seed, l.braid)));
-
-const START_LIVES = 3;
-const MAX_LIVES = 5;
-const STEP_MS = 200;      // player move cadence (higher = calmer)
-const SCARE_MS = 5000;    // ⭐ turns villains edible
-const FREEZE_MS = 4500;   // ❄ freezes villains in place
-
-const ENEMY_COLOR: Record<EnemyType, string> = { chaser: "#e11d48", ambusher: "#a855f7", roamer: "#f97316" };
-
-function isWall(grid: string[], r: number, c: number) {
-  if (r < 0 || c < 0 || r >= ROWS || c >= COLS) return true;
-  return grid[r][c] === "#";
-}
-
-function pickAnswerCells(maze: MazeData, count: number): [number, number][] {
-  const [er, ec] = maze.enemyStart;
-  const cand = maze.open.filter(([r, c]) => maze.dist[r][c] >= 4 && Math.abs(r - er) + Math.abs(c - ec) >= 2);
+// Answer tiles: far from the player start and clear of every villain home.
+function pickAnswerCells(count: number): [number, number][] {
+  const cand = OPEN_CELLS.filter(([r, c]) =>
+    PLAYER_DIST[r][c] >= 4 && ENEMY_HOME.every(([er, ec]) => Math.abs(r - er) + Math.abs(c - ec) >= 3));
   if (cand.length <= count) return cand;
-  cand.sort((a, b) => maze.dist[b[0]][b[1]] - maze.dist[a[0]][a[1]]);
+  cand.sort((a, b) => PLAYER_DIST[b[0]][b[1]] - PLAYER_DIST[a[0]][a[1]]);
   const picked: [number, number][] = [cand[0]];
   while (picked.length < count) {
     let best: [number, number] | null = null, bestScore = -1;
@@ -141,22 +86,40 @@ function pickAnswerCells(maze: MazeData, count: number): [number, number][] {
   return picked;
 }
 
-// Pick `n` distinct far-ish open cells avoiding a set of taken keys.
-function pickFarCells(maze: MazeData, n: number, taken: Set<string>, minDist = 6): [number, number][] {
-  const cand = maze.open.filter(([r, c]) => maze.dist[r][c] >= minDist && !taken.has(key(r, c)));
+// Distinct far-ish open cells for power-ups, avoiding taken cells.
+function pickFarCells(n: number, taken: Set<string>, minDist = 6): [number, number][] {
+  const cand = OPEN_CELLS.filter(([r, c]) => PLAYER_DIST[r][c] >= minDist && !taken.has(key(r, c)));
   for (let i = cand.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [cand[i], cand[j]] = [cand[j], cand[i]]; }
   return cand.slice(0, n);
 }
 
+type EnemyType = "chaser" | "ambusher" | "roamer";
+interface LevelConfig { answers: number; enemyBase: number; enemies: EnemyType[]; }
+// Same clean board every level; difficulty comes from more/faster/smarter villains.
+const LEVELS: LevelConfig[] = [
+  { answers: 5, enemyBase: 4, enemies: ["chaser", "roamer"] },
+  { answers: 5, enemyBase: 4, enemies: ["chaser", "ambusher"] },
+  { answers: 6, enemyBase: 3, enemies: ["chaser", "ambusher", "roamer"] },
+  { answers: 6, enemyBase: 3, enemies: ["chaser", "ambusher", "roamer"] },
+];
+
+const START_LIVES = 3;
+const MAX_LIVES = 5;
+const STEP_MS = 200;      // player move cadence (higher = calmer)
+const SCARE_MS = 5000;    // ⭐ turns villains edible
+const FREEZE_MS = 4500;   // ❄ freezes villains in place
+
+const ENEMY_COLOR: Record<EnemyType, string> = { chaser: "#e11d48", ambusher: "#a855f7", roamer: "#f97316" };
+
 type PowerKind = "star" | "freeze" | "heart";
 interface Powerup { r: number; c: number; kind: PowerKind; }
 interface AnswerTile { item: PoolItem; r: number; c: number; correct: boolean; gone?: boolean; }
-interface Enemy { r: number; c: number; type: EnemyType; }
+interface Enemy { r: number; c: number; type: EnemyType; home: [number, number]; }
 
 export default function MazeChase({ language, theme }: Props) {
   const [pool, setPool] = useState<PoolItem[] | null>(null);
   const [level, setLevel] = useState(1);
-  const [player, setPlayer] = useState({ r: 0, c: 0 });
+  const [player, setPlayer] = useState({ r: PLAYER_START[0], c: PLAYER_START[1] });
   const [enemies, setEnemies] = useState<Enemy[]>([]);
   const [answers, setAnswers] = useState<AnswerTile[]>([]);
   const [current, setCurrent] = useState<PoolItem | null>(null);
@@ -181,17 +144,15 @@ export default function MazeChase({ language, theme }: Props) {
   const heldRef = useRef<Dir[]>([]);
   const tickRef = useRef(0);
   const boardRef = useRef<HTMLDivElement | null>(null);
-  const mazeRef = useRef<MazeData>(MAZE_DATA[0]);
   const invulnRef = useRef(0);
   const scaredUntilRef = useRef(0);
   const freezeUntilRef = useRef(0);
   const solvedInLevelRef = useRef(0);
+  const livesRef = useRef(START_LIVES);
 
   useEffect(() => { facingRef.current = facing; }, [facing]);
   useEffect(() => { solvedInLevelRef.current = solvedInLevel; }, [solvedInLevel]);
-
-  const maze = MAZE_DATA[level - 1];
-  useEffect(() => { mazeRef.current = maze; }, [maze]);
+  useEffect(() => { livesRef.current = lives; }, [lives]);
 
   // ── press / hold movement ─────────────────────────────────────────────
   const holdDir = useCallback((d: Dir) => {
@@ -229,7 +190,7 @@ export default function MazeChase({ language, theme }: Props) {
     const data = await loadPool();
     setPool(data);
     await preloadAll(data);
-    if (data.length >= 4) { startRound(data, 1, 0); setStatus("playing"); }
+    if (data.length >= 4) { startRound(data, 1); setStatus("playing"); }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loadPool, preloadAll]);
 
@@ -247,51 +208,48 @@ export default function MazeChase({ language, theme }: Props) {
     return () => window.removeEventListener("resize", resize);
   }, []);
 
-  // Lay out a fresh round for the given (1-based) level.
-  function startRound(data: PoolItem[], levelIdx: number, solvedSoFar: number) {
-    const cfg = LEVELS[levelIdx - 1];
-    const m = MAZE_DATA[levelIdx - 1];
-    mazeRef.current = m;
+  function spawnEnemies(levelIdx: number): Enemy[] {
+    return LEVELS[levelIdx - 1].enemies.map((type, i) => {
+      const home = ENEMY_HOME[i % ENEMY_HOME.length];
+      return { r: home[0], c: home[1], type, home };
+    });
+  }
 
+  // Lay out a fresh round for the given (1-based) level.
+  function startRound(data: PoolItem[], levelIdx: number) {
     const shuffled = [...data].sort(() => Math.random() - 0.5);
     const correct = shuffled[0];
     const items = [correct, ...shuffled.slice(1, 4)];
-    const cells = pickAnswerCells(m, 4);
+    const cells = pickAnswerCells(4);
     const order = [0, 1, 2, 3].sort(() => Math.random() - 0.5);
     const tiles: AnswerTile[] = order.map((itemIdx, i) => ({ item: items[itemIdx], r: cells[i][0], c: cells[i][1], correct: itemIdx === 0 }));
 
-    const answerSet = new Set(tiles.map((t) => key(t.r, t.c)));
-    const reserved = new Set(answerSet);
-    reserved.add(key(m.playerStart[0], m.playerStart[1]));
-    reserved.add(key(m.enemyStart[0], m.enemyStart[1]));
+    const reserved = new Set(tiles.map((t) => key(t.r, t.c)));
+    reserved.add(key(PLAYER_START[0], PLAYER_START[1]));
+    for (const [r, c] of ENEMY_HOME) reserved.add(key(r, c));
 
-    // dots on every remaining open cell
     const nd = new Set<string>();
-    for (const [r, c] of m.open) { const k = key(r, c); if (!reserved.has(k)) nd.add(k); }
+    for (const [r, c] of OPEN_CELLS) { const k = key(r, c); if (!reserved.has(k)) nd.add(k); }
 
     // power-ups: always a ⭐; a ❄ most rounds; a ❤ sometimes when hurt
     const taken = new Set(reserved);
     const ups: Powerup[] = [];
-    const [starCell] = pickFarCells(m, 1, taken);
+    const [starCell] = pickFarCells(1, taken);
     if (starCell) { ups.push({ r: starCell[0], c: starCell[1], kind: "star" }); taken.add(key(starCell[0], starCell[1])); nd.delete(key(starCell[0], starCell[1])); }
-    if (Math.random() < 0.7) { const [f] = pickFarCells(m, 1, taken, 5); if (f) { ups.push({ r: f[0], c: f[1], kind: "freeze" }); taken.add(key(f[0], f[1])); nd.delete(key(f[0], f[1])); } }
-    if (livesRef.current < MAX_LIVES && Math.random() < 0.3) { const [h] = pickFarCells(m, 1, taken, 5); if (h) { ups.push({ r: h[0], c: h[1], kind: "heart" }); nd.delete(key(h[0], h[1])); } }
+    if (Math.random() < 0.7) { const [f] = pickFarCells(1, taken, 5); if (f) { ups.push({ r: f[0], c: f[1], kind: "freeze" }); taken.add(key(f[0], f[1])); nd.delete(key(f[0], f[1])); } }
+    if (livesRef.current < MAX_LIVES && Math.random() < 0.3) { const [h] = pickFarCells(1, taken, 5); if (h) { ups.push({ r: h[0], c: h[1], kind: "heart" }); nd.delete(key(h[0], h[1])); } }
 
     setCurrent(correct);
     setAnswers(tiles);
     setDots(nd);
     setPowerups(ups);
-    setPlayer({ r: m.playerStart[0], c: m.playerStart[1] });
-    setEnemies(cfg.enemies.map((type) => ({ r: m.enemyStart[0], c: m.enemyStart[1], type })));
+    setPlayer({ r: PLAYER_START[0], c: PLAYER_START[1] });
+    setEnemies(spawnEnemies(levelIdx));
     setFacing("up"); clearHold();
     invulnRef.current = 8;
   }
 
-  // keep a ref of lives for use inside startRound (avoids stale closure)
-  const livesRef = useRef(START_LIVES);
-  useEffect(() => { livesRef.current = lives; }, [lives]);
-
-  // Enemy cadence: faster with level and within-level progress; frozen stops,
+  // Enemy cadence: faster with level & within-level progress; frozen stops,
   // scared slows. Lower number = faster.
   function enemyEvery() {
     const cfg = LEVELS[level - 1];
@@ -300,17 +258,16 @@ export default function MazeChase({ language, theme }: Props) {
     return scaredUntilRef.current > Date.now() ? base + 3 : base;
   }
 
-  function nextEnemyMove(e: Enemy, grid: string[], pr: number, pc: number, pf: Dir): Enemy {
+  function nextEnemyMove(e: Enemy, pr: number, pc: number, pf: Dir): Enemy {
     const opts: { r: number; c: number; d: number }[] = [];
     for (const [dr, dc] of [DELTA.up, DELTA.down, DELTA.left, DELTA.right]) {
       const nr = e.r + dr, nc = e.c + dc;
-      if (isWall(grid, nr, nc)) continue;
+      if (isWall(nr, nc)) continue;
       opts.push({ r: nr, c: nc, d: 0 });
     }
     if (!opts.length) return e;
     const scaredNow = scaredUntilRef.current > Date.now();
 
-    // choose a target tile the villain is trying to reach
     let tr = pr, tc = pc;
     if (!scaredNow && e.type === "ambusher") { const [dr, dc] = DELTA[pf === "none" ? "up" : pf]; tr = pr + dr * 3; tc = pc + dc * 3; }
     for (const o of opts) o.d = Math.abs(o.r - tr) + Math.abs(o.c - tc);
@@ -336,12 +293,12 @@ export default function MazeChase({ language, theme }: Props) {
         if (dir === "none") return p;
         const [dr, dc] = DELTA[dir];
         const nr = p.r + dr, nc = p.c + dc;
-        if (isWall(mazeRef.current.grid, nr, nc)) return p;
+        if (isWall(nr, nc)) return p;
         return { r: nr, c: nc };
       });
 
       if (tickRef.current % enemyEvery() === 0 && freezeUntilRef.current <= Date.now()) {
-        setEnemies((es) => es.map((e) => nextEnemyMove(e, mazeRef.current.grid, player.r, player.c, facingRef.current)));
+        setEnemies((es) => es.map((e) => nextEnemyMove(e, player.r, player.c, facingRef.current)));
       }
     }, STEP_MS);
     return () => clearInterval(id);
@@ -355,7 +312,6 @@ export default function MazeChase({ language, theme }: Props) {
 
     if (dots.has(k)) { setDots((d) => { const n = new Set(d); n.delete(k); return n; }); setScore((s) => s + 5); play("tap"); }
 
-    // power-ups
     const up = powerups.find((u) => u.r === player.r && u.c === player.c);
     if (up) {
       setPowerups((ps) => ps.filter((u) => u !== up));
@@ -367,19 +323,18 @@ export default function MazeChase({ language, theme }: Props) {
     const scaredNow = scaredUntilRef.current > Date.now();
     const frozenNow = freezeUntilRef.current > Date.now();
     const hitEnemy = enemies.find((e) => e.r === player.r && e.c === player.c);
-    if (hitEnemy && scaredNow) { // eat it → send home
+    if (hitEnemy && scaredNow) {
       setScore((s) => s + 100); play("correct");
-      setEnemies((es) => es.map((e) => (e === hitEnemy ? { ...e, r: mazeRef.current.enemyStart[0], c: mazeRef.current.enemyStart[1] } : e)));
+      setEnemies((es) => es.map((e) => (e === hitEnemy ? { ...e, r: e.home[0], c: e.home[1] } : e)));
     } else if (hitEnemy && !frozenNow && invulnRef.current === 0) {
       play("incorrect"); setFeedback("wrong");
       setLives((l) => { const nl = l - 1; if (nl <= 0) setStatus("lost"); return nl; });
-      setPlayer({ r: mazeRef.current.playerStart[0], c: mazeRef.current.playerStart[1] });
-      setEnemies((es) => es.map((e) => ({ ...e, r: mazeRef.current.enemyStart[0], c: mazeRef.current.enemyStart[1] })));
+      setPlayer({ r: PLAYER_START[0], c: PLAYER_START[1] });
+      setEnemies((es) => es.map((e) => ({ ...e, r: e.home[0], c: e.home[1] })));
       clearHold(); invulnRef.current = 10;
       return;
     }
 
-    // answer tile
     const tile = answers.find((a) => !a.gone && a.r === player.r && a.c === player.c);
     if (tile && pool && current) {
       if (tile.correct) {
@@ -391,13 +346,13 @@ export default function MazeChase({ language, theme }: Props) {
           else {
             const nl = level + 1;
             setLevel(nl); setSolvedInLevel(0); solvedInLevelRef.current = 0;
-            setLives((l) => Math.min(MAX_LIVES, l + 1)); // bonus life per level
+            setLives((l) => Math.min(MAX_LIVES, l + 1));
             play("complete");
-            startRound(pool, nl, 0);
+            startRound(pool, nl);
           }
         } else {
           setSolvedInLevel(nextSolved);
-          startRound(pool, level, nextSolved);
+          startRound(pool, level);
         }
       } else {
         play("incorrect"); setFeedback("wrong");
@@ -431,7 +386,7 @@ export default function MazeChase({ language, theme }: Props) {
       if (Math.abs(dx) < 20 && Math.abs(dy) < 20) return;
       const dir: Dir = Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? "right" : "left") : (dy > 0 ? "down" : "up");
       setFacing(dir);
-      setPlayer((p) => { const [dr, dc] = DELTA[dir]; const nr = p.r + dr, nc = p.c + dc; return isWall(mazeRef.current.grid, nr, nc) ? p : { r: nr, c: nc }; });
+      setPlayer((p) => { const [dr, dc] = DELTA[dir]; const nr = p.r + dr, nc = p.c + dc; return isWall(nr, nc) ? p : { r: nr, c: nc }; });
     };
     el.addEventListener("touchstart", ts, { passive: true });
     el.addEventListener("touchend", te, { passive: true });
@@ -486,7 +441,7 @@ export default function MazeChase({ language, theme }: Props) {
 
         <div ref={boardRef} className="relative touch-none select-none overflow-hidden rounded-2xl shadow-2xl" style={{ width: boardW, height: boardH, background: "#160c33" }}>
           {/* walls */}
-          {maze.grid.map((row, r) => row.split("").map((ch, c) => ch === "#" ? (
+          {MAZE_LAYOUT.map((row, r) => row.split("").map((ch, c) => ch === "#" ? (
             <div key={`${r}-${c}`} className="absolute rounded-[3px]" style={{ left: px(c), top: px(r), width: cell, height: cell, background: "linear-gradient(135deg,#3b2a7a,#2a1c5c)", boxShadow: "inset 0 0 0 1px rgba(124,92,255,0.35)" }} />
           ) : null))}
 
@@ -592,7 +547,6 @@ function Ghost({ color, scared, frozen }: { color: string; scared: boolean; froz
       ) : (
         <path d="M32 70 l7 -7 l7 7 l7 -7 l7 7 l7 -7 l7 7" fill="none" stroke="#160c33" strokeWidth="4" strokeLinejoin="round" strokeLinecap="round" />
       )}
-      {frozen && <text x="50" y="30" textAnchor="middle" fontSize="22">❄</text>}
     </svg>
   );
 }
