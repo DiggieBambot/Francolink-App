@@ -13,6 +13,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { langCode } from "@/lib/utils/language";
 import { classifyVocab, themeBySlug } from "@/lib/games/themes";
+import { curatedPool } from "@/lib/games/curated";
 
 type VocabItem = {
   term?: string;
@@ -37,6 +38,19 @@ export async function GET(req: NextRequest) {
   }
 
   const code = langCode(langSlug);
+
+  // Prefer a hand-curated, image-verified set when one exists for this theme.
+  // These are French terms, so only serve them for the French course.
+  if (code === "fr") {
+    const curated = curatedPool(themeSlug);
+    if (curated) {
+      for (let i = curated.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [curated[i], curated[j]] = [curated[j], curated[i]];
+      }
+      return NextResponse.json({ pool: curated.slice(0, count), total: curated.length, source: "curated" });
+    }
+  }
 
   const { data: rawCourses, error: cErr } = await admin
     .from("courses")
