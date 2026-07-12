@@ -90,28 +90,47 @@ export default async function ThemeLeaderboardPage({ params }: Props) {
             {rows.length === 0 ? (
               <p className="px-4 py-6 text-center text-sm text-gray-400">No scores yet — be the first! 🎉</p>
             ) : (
-              <ol className="divide-y divide-gray-100 dark:divide-gray-700">
-                {rows.map((r, i) => {
-                  const me = r.user_id === user.id;
-                  return (
-                    <li key={r.user_id} className={`flex items-center gap-3 px-4 py-2.5 ${me ? "bg-amber-50 dark:bg-amber-900/20" : ""}`}>
-                      <span className="flex h-6 w-6 items-center justify-center">{rankBadge(i)}</span>
-                      <div className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-primary to-primary-600 text-xs font-semibold text-white">
-                        {r.avatar_url ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img src={r.avatar_url} alt="" className="h-full w-full object-cover" />
-                        ) : (
-                          (r.name || "P").charAt(0).toUpperCase()
-                        )}
-                      </div>
-                      <span className={`flex-1 truncate text-sm ${me ? "font-semibold text-amber-700 dark:text-amber-300" : "text-gray-800 dark:text-gray-200"}`}>
-                        {r.name}{me && " (You)"}
-                      </span>
-                      <span className="tabular-nums text-sm font-bold text-gray-900 dark:text-white">{r.best_score.toLocaleString()}</span>
-                    </li>
-                  );
-                })}
-              </ol>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-gray-100 text-left text-[11px] uppercase tracking-wide text-gray-400 dark:border-gray-700">
+                      <th className="px-4 py-2 font-semibold">Rank</th>
+                      <th className="px-2 py-2 font-semibold">Player</th>
+                      <th className="px-2 py-2 text-center font-semibold">Plays</th>
+                      <th className="px-4 py-2 text-right font-semibold">Best score</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
+                    {rows.map((r, i) => {
+                      const me = r.user_id === user.id;
+                      return (
+                        <tr key={r.user_id} className={me ? "bg-amber-50 dark:bg-amber-900/20" : ""}>
+                          <td className="px-4 py-2.5">
+                            <span className="flex h-6 w-6 items-center justify-center">{rankBadge(i)}</span>
+                          </td>
+                          <td className="px-2 py-2.5">
+                            <div className="flex items-center gap-2">
+                              <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-primary to-primary-600 text-xs font-semibold text-white">
+                                {r.avatar_url ? (
+                                  // eslint-disable-next-line @next/next/no-img-element
+                                  <img src={r.avatar_url} alt="" className="h-full w-full object-cover" />
+                                ) : (
+                                  (r.name || "P").charAt(0).toUpperCase()
+                                )}
+                              </div>
+                              <span className={`truncate ${me ? "font-semibold text-amber-700 dark:text-amber-300" : "text-gray-800 dark:text-gray-200"}`}>
+                                {r.name}{me && " (You)"}
+                              </span>
+                            </div>
+                          </td>
+                          <td className="px-2 py-2.5 text-center tabular-nums text-gray-500 dark:text-gray-400">{r.plays}</td>
+                          <td className="px-4 py-2.5 text-right font-bold tabular-nums text-gray-900 dark:text-white">{r.best_score.toLocaleString()}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
             )}
           </section>
         ))}
