@@ -56,6 +56,14 @@ export const ANIMALS: CuratedItem[] = [
   { slug: "elephant",   term: "l'éléphant",    translation: "elephant", prompt: "a grey elephant with big ears and a trunk" },
   { slug: "singe",      term: "le singe",      translation: "monkey",   prompt: "a brown monkey sitting" },
   { slug: "grenouille", term: "la grenouille", translation: "frog",     prompt: "a green frog sitting" },
+  { slug: "oiseau",     term: "l'oiseau",      translation: "bird",     prompt: "a small blue bird" },
+  { slug: "poisson",    term: "le poisson",    translation: "fish",     prompt: "a single orange fish" },
+  { slug: "ours",       term: "l'ours",        translation: "bear",     prompt: "a brown bear sitting" },
+  { slug: "tigre",      term: "le tigre",      translation: "tiger",    prompt: "an orange tiger with black stripes" },
+  { slug: "serpent",    term: "le serpent",    translation: "snake",    prompt: "a green snake coiled up" },
+  { slug: "hibou",      term: "le hibou",      translation: "owl",      prompt: "a brown owl" },
+  { slug: "tortue",     term: "la tortue",     translation: "turtle",   prompt: "a green turtle with a shell" },
+  { slug: "girafe",     term: "la girafe",     translation: "giraffe",  prompt: "a tall giraffe with a long neck" },
 ];
 
 const BY_SLUG = new Map(ANIMALS.map((a) => [a.slug, a]));
