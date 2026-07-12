@@ -3,12 +3,13 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Heart, Volume2, RotateCcw, ChevronUp, ChevronDown, ChevronLeft, ChevronRight, Star, Snowflake } from "lucide-react";
+import { ArrowLeft, Heart, Volume2, RotateCcw, ChevronUp, ChevronDown, ChevronLeft, ChevronRight, Star, Snowflake, Trophy } from "lucide-react";
 import { useInworldTTS } from "@/hooks/use-inworld-tts";
 import { useSoundEngine } from "@/hooks/use-sound-engine";
 import { FeedbackRibbon, useTransientFeedback } from "./game-shell";
 
 type PoolItem = { term: string; translation: string; image: string };
+type LbRow = { user_id: string; name: string; avatar_url: string | null; best_score: number; plays: number };
 interface Props { language: string; theme: string; }
 
 const LOCALE_FOR: Record<string, string> = { french: "fr-FR", spanish: "es-ES", german: "de-DE", english: "en-GB" };
@@ -143,6 +144,9 @@ export default function MazeChase({ language, theme }: Props) {
   const [cell, setCell] = useState(38);
   const [scared, setScared] = useState(false);
   const [frozen, setFrozen] = useState(false);
+  const [board, setBoard] = useState<LbRow[] | null>(null);
+  const [myRank, setMyRank] = useState(-1);
+  const submittedRef = useRef(false);
   const { feedback, setFeedback } = useTransientFeedback();
   const { play } = useSoundEngine();
   const locale = LOCALE_FOR[language.toLowerCase()] || "fr-FR";
@@ -384,6 +388,27 @@ export default function MazeChase({ language, theme }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [current, status]);
 
+  // On game end: record the score, then load this game+theme's leaderboard.
+  useEffect(() => {
+    if (status !== "won" && status !== "lost") return;
+    if (submittedRef.current) return;
+    submittedRef.current = true;
+    void (async () => {
+      try {
+        await fetch("/api/games/score", {
+          method: "POST", headers: { "content-type": "application/json" },
+          body: JSON.stringify({ game: "maze-chase", theme, language, score, level, won: status === "won" }),
+        });
+      } catch { /* ignore — leaderboard is best-effort */ }
+      try {
+        const res = await fetch(`/api/games/leaderboard?game=maze-chase&theme=${theme}&lang=${language}&limit=10`);
+        const j = await res.json();
+        setBoard(j.board || []); setMyRank(j.myRank ?? -1);
+      } catch { setBoard([]); }
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [status]);
+
   useEffect(() => {
     const m: Record<string, Dir> = { ArrowUp: "up", ArrowDown: "down", ArrowLeft: "left", ArrowRight: "right", w: "up", s: "down", a: "left", d: "right", W: "up", S: "down", A: "left", D: "right" };
     function onDown(e: KeyboardEvent) { if (m[e.key]) { e.preventDefault(); holdDir(m[e.key]); } }
@@ -414,6 +439,7 @@ export default function MazeChase({ language, theme }: Props) {
     setLevel(1); setSolvedInLevel(0); solvedInLevelRef.current = 0;
     setScore(0); setScared(false); setFrozen(false);
     scaredUntilRef.current = 0; freezeUntilRef.current = 0;
+    setBoard(null); setMyRank(-1); submittedRef.current = false;
     void beginGame();
   }
 
@@ -512,11 +538,40 @@ export default function MazeChase({ language, theme }: Props) {
           )}
 
           {(status === "won" || status === "lost") && (
-            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-[#120a2a]/90 px-6 text-center backdrop-blur-sm">
-              <div className="mb-2 text-5xl">{status === "won" ? "🏆" : "👾"}</div>
+            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center overflow-y-auto bg-[#120a2a]/92 px-5 py-6 text-center backdrop-blur-sm">
+              <div className="mb-1 text-5xl">{status === "won" ? "🏆" : "👾"}</div>
               <h2 className="font-heading text-2xl font-bold text-white">{status === "won" ? "You beat every level!" : "Caught!"}</h2>
               <p className="mt-1 text-sm text-white/70">{score.toLocaleString()} points · reached level {level}</p>
-              <div className="mt-6 flex gap-3">
+
+              <div className="mt-4 w-full max-w-[320px] rounded-2xl bg-white/10 p-3 text-left">
+                <div className="mb-2 flex items-center gap-2 px-1 text-xs font-semibold uppercase tracking-wide text-amber-300">
+                  <Trophy className="h-4 w-4" /> Top scores · {theme}
+                </div>
+                {board === null ? (
+                  <p className="px-1 py-2 text-xs text-white/50">Loading scores…</p>
+                ) : board.length === 0 ? (
+                  <p className="px-1 py-2 text-xs text-white/50">Be the first on the board! 🎉</p>
+                ) : (
+                  <ol className="space-y-1">
+                    {board.slice(0, 5).map((row, i) => (
+                      <li key={row.user_id} className={`flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm ${i === myRank ? "bg-amber-400/20 text-amber-100" : "text-white/80"}`}>
+                        <span className={`w-5 text-center text-xs font-bold ${i === 0 ? "text-amber-300" : "text-white/40"}`}>{i + 1}</span>
+                        <span className="flex-1 truncate">{i === myRank ? `${row.name} (You)` : row.name}</span>
+                        <span className="font-semibold tabular-nums">{row.best_score.toLocaleString()}</span>
+                      </li>
+                    ))}
+                    {myRank >= 5 && board[myRank] && (
+                      <li className="mt-1 flex items-center gap-2 rounded-lg bg-amber-400/20 px-2 py-1.5 text-sm text-amber-100">
+                        <span className="w-5 text-center text-xs font-bold">{myRank + 1}</span>
+                        <span className="flex-1 truncate">{board[myRank].name} (You)</span>
+                        <span className="font-semibold tabular-nums">{board[myRank].best_score.toLocaleString()}</span>
+                      </li>
+                    )}
+                  </ol>
+                )}
+              </div>
+
+              <div className="mt-5 flex gap-3">
                 <button onClick={restart} className="inline-flex items-center gap-2 rounded-xl bg-amber-400 px-5 py-2.5 font-semibold text-[#160c33] hover:bg-amber-300"><RotateCcw className="h-4 w-4" /> Play again</button>
                 <Link href={`/learn/${language}/games/${theme}`} className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-2.5 font-semibold text-white hover:bg-white/10">More games</Link>
               </div>
