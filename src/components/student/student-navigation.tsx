@@ -5,6 +5,7 @@ import Link from "next/link";
 import {
   Home,
   BookOpen,
+  Gamepad2,
   Trophy,
   Video,
   Settings,
@@ -23,6 +24,7 @@ interface NavItem {
 const navigationItems: NavItem[] = [
   { label: "Dashboard", href: "/dashboard", icon: Home },
   { label: "Learn", href: "/learn", icon: BookOpen },
+  { label: "Games", href: "/games", icon: Gamepad2 },
   { label: "AI Tutor", href: "/student/ai-tutor", icon: Bot },
   { label: "Sessions", href: "/student/sessions", icon: Video },
   { label: "Leaderboard", href: "/student/leaderboard", icon: Trophy },
