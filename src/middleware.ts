@@ -27,6 +27,7 @@ const APP_ROUTES = [
   "/onboarding",
   "/join",
   "/dashboard",
+  "/games",
   "/learn",
   "/profile",
   "/settings",
