@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createServerClient } from "@supabase/ssr";
 import { createClient as createServiceRoleClient } from "@supabase/supabase-js";
+import { sendWelcomeOnce } from "@/lib/email/transactional";
 
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = new URL(request.url);
@@ -109,6 +110,10 @@ export async function GET(request: NextRequest) {
         else if (profile?.role === "ADMIN") dest = "/admin";
         response.headers.set("location", `${origin}${dest}`);
       }
+
+      // Welcome email (idempotent; runs after any tutor row is created above so
+      // the role-specific copy is correct). No-ops if there's no profile yet.
+      await sendWelcomeOnce(user.id);
     }
   } catch {
     // fall back to the default redirect already set

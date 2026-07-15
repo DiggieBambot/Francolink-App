@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import { StudentsList } from '@/components/tutor/students-list';
 import { PendingRequests } from '@/components/tutor/pending-requests';
+import { ClassRequests, type ClassRequestItem } from '@/components/tutor/class-requests';
 import { getOrCreateTutorRoom } from '@/lib/lessons/lesson-space';
 import { ClassroomLink } from '@/components/tutor/classroom-link';
 
@@ -102,6 +103,23 @@ export default async function TutorStudentsPage() {
         requested_at: assignedAt.get(c.id) || null,
       }));
   }
+
+  // Open "book a class" requests.
+  const { data: crRows } = await svc
+    .from('class_requests')
+    .select('id, student_id, message, preferred_time, created_at')
+    .eq('tutor_id', user.id)
+    .eq('status', 'open')
+    .order('created_at', { ascending: false });
+
+  const nameById = new Map((students || []).map((s) => [s.id, s.name || s.email]));
+  const classRequests: ClassRequestItem[] = (crRows || []).map((r) => ({
+    id: r.id,
+    studentName: nameById.get(r.student_id) || 'A student',
+    message: r.message,
+    preferredTime: r.preferred_time,
+    createdAt: r.created_at,
+  }));
 
   // Calculate stats
   const totalStudents = students?.length || 0;
@@ -185,6 +203,9 @@ export default async function TutorStudentsPage() {
           <p className="text-2xl font-bold text-gray-900 dark:text-white">{totalXP.toLocaleString()}</p>
         </div>
       </div>
+
+      {/* Open class requests */}
+      <ClassRequests requests={classRequests} />
 
       {/* Pending join requests */}
       <PendingRequests requests={pendingRequests} />

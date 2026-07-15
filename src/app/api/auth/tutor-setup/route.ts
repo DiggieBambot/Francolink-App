@@ -2,6 +2,7 @@
 
 import { createClient as createServiceRoleClient } from '@supabase/supabase-js';
 import { NextRequest, NextResponse } from 'next/server';
+import { sendWelcomeOnce } from '@/lib/email/transactional';
 
 export async function POST(request: NextRequest) {
   try {
@@ -67,6 +68,8 @@ export async function POST(request: NextRequest) {
       console.error('User update error:', updateError);
       throw new Error('Failed to create tutor profile: ' + updateError.message);
     }
+
+    await sendWelcomeOnce(userId);
 
     return NextResponse.json({ success: true, inviteCode });
 

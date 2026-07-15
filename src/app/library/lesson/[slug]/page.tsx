@@ -12,6 +12,10 @@ import { LessonRenderer } from "@/components/lesson-v2/lesson-renderer";
 import { GuestCTA } from "@/components/library/guest-cta";
 import { PublicShell } from "@/components/layout/public-shell";
 import { ShareButton } from "@/components/library/share-button";
+import { createClient as createServiceClient } from "@supabase/supabase-js";
+import { HomeworkPanel } from "@/components/homework/homework-panel";
+import { HomeworkSendPanel } from "@/components/homework/homework-send-panel";
+import { getLiveHomeworkBySlug, getSubmission, getAssignmentForStudent } from "@/lib/homework/queries";
 
 export const dynamic = "force-dynamic";
 
@@ -32,10 +36,12 @@ export default async function PublicLessonPage({
 
   // Determine viewer role (guests allowed).
   let isTutor = false;
+  let userId: string | null = null;
   try {
     const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
     if (user) {
+      userId = user.id;
       const { data: profile } = await supabase
         .from("users")
         .select("role")
@@ -48,6 +54,33 @@ export default async function PublicLessonPage({
   }
 
   const view = isTutor ? "tutor" : "student";
+
+  // Homework content for this lesson (published in a batch), if any.
+  const homework = await getLiveHomeworkBySlug(slug);
+
+  // Student side: assignment-gated — only render the panel if a tutor SENT this
+  // homework to this student.
+  const assignment = homework && userId && !isTutor
+    ? await getAssignmentForStudent(homework.id, userId)
+    : null;
+  const submission = assignment && userId ? await getSubmission(homework!.id, userId) : null;
+
+  // Tutor side: if homework exists, let the tutor send it to their students.
+  let tutorStudents: { id: string; name: string | null; email: string }[] = [];
+  let alreadyAssignedIds: string[] = [];
+  if (isTutor && homework && userId) {
+    const svc = createServiceClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!,
+      { auth: { persistSession: false } }
+    );
+    const [{ data: studs }, { data: assigns }] = await Promise.all([
+      svc.from("users").select("id, name, email").eq("referred_by_tutor_id", userId).order("name"),
+      svc.from("homework_assignments").select("student_id").eq("homework_id", homework.id),
+    ]);
+    tutorStudents = studs || [];
+    alreadyAssignedIds = (assigns || []).map((a) => a.student_id);
+  }
 
   return (
     <PublicShell>
@@ -82,6 +115,30 @@ export default async function PublicLessonPage({
         </div>
       </div>
       <LessonRenderer lesson={found.lesson} initialView={view} lockedView={view} />
+
+      {/* Tutor: send this lesson's homework to students. */}
+      {isTutor && homework ? (
+        <div className="pb-16">
+          <HomeworkSendPanel
+            slug={slug}
+            homeworkTitle={homework.title}
+            students={tutorStudents}
+            alreadyAssignedIds={alreadyAssignedIds}
+          />
+        </div>
+      ) : null}
+
+      {/* Student: only if a tutor assigned this homework to them. */}
+      {!isTutor && homework && assignment ? (
+        <div className="pb-16">
+          <HomeworkPanel
+            homework={homework}
+            submission={submission}
+            isLoggedIn={!!userId}
+            loginHref={`/login?next=${encodeURIComponent(`/library/lesson/${slug}#homework`)}`}
+          />
+        </div>
+      ) : null}
     </div>
     </PublicShell>
   );

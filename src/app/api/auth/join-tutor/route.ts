@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { createClient as createServiceClient } from '@supabase/supabase-js';
+import { notifyTutorNewStudent } from '@/lib/email/transactional';
 
 // Use service role client for database operations
 const supabaseService = createServiceClient(
@@ -109,6 +110,10 @@ export async function POST(request: NextRequest) {
     }
 
     console.log('✅ Join request created (pending tutor approval)');
+
+    // Tell the tutor a student wants to join.
+    const { data: meRow } = await supabaseService.from('users').select('name').eq('id', user.id).maybeSingle();
+    await notifyTutorNewStudent(tutor.id, meRow?.name);
 
     return NextResponse.json({
       success: true,

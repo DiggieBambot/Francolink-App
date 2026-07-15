@@ -3,6 +3,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { NotificationSettings } from "@/components/notifications/notification-settings";
+import { NotificationInbox } from "@/components/notifications/notification-inbox";
 
 export default async function NotificationsPage() {
   const supabase = await createClient();
@@ -19,6 +20,8 @@ export default async function NotificationsPage() {
           Manage how and when FrancoLink reaches you
         </p>
       </div>
+
+      <NotificationInbox />
 
       <NotificationSettings />
     </div>

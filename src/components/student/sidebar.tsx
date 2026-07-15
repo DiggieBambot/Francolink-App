@@ -2,7 +2,7 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -57,6 +57,16 @@ export function Sidebar({ user }: SidebarProps) {
   const pathname = usePathname();
   const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [unread, setUnread] = useState(0);
+
+  useEffect(() => {
+    let alive = true;
+    fetch("/api/notifications")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => { if (alive && d) setUnread(d.unread || 0); })
+      .catch(() => {});
+    return () => { alive = false; };
+  }, [pathname]);
 
   // Use subscription_plan if available, fallback to subscription_tier for backwards compatibility
   const userPlan = user?.subscription_plan || user?.subscription_tier || "FREE";
@@ -206,6 +216,11 @@ export function Sidebar({ user }: SidebarProps) {
                 >
                   <item.icon className="w-5 h-5" />
                   <span className="font-medium">{item.label}</span>
+                  {item.href === "/notifications" && unread > 0 ? (
+                    <span className="ml-auto rounded-full bg-primary px-2 py-0.5 text-xs font-bold text-white">
+                      {unread}
+                    </span>
+                  ) : null}
                 </Link>
               </li>
             );

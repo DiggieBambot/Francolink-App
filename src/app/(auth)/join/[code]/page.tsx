@@ -21,8 +21,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function JoinPage({ params }: PageProps) {
   const { code } = await params;
 
-  console.log('🔍 Join Page - Looking for code:', code);
-
   // Verify service key exists
   if (!process.env.SUPABASE_SERVICE_ROLE_KEY) {
     console.error('❌ Missing SUPABASE_SERVICE_ROLE_KEY');
@@ -48,24 +46,12 @@ export default async function JoinPage({ params }: PageProps) {
     .eq('tutor_invite_code', code)
     .maybeSingle();  // Use maybeSingle to avoid error when not found
 
-  console.log('🔍 Tutor lookup result:', {
-    code,
-    found: !!tutor,
-    tutor: tutor ? { id: tutor.id, name: tutor.name, email: tutor.email } : null,
-    error: error?.message
-  });
+  if (error) {
+    console.error('[join] tutor lookup failed:', error.message);
+  }
 
   // If no tutor found, show error page
   if (!tutor) {
-    // Let's also check what codes exist
-    const { data: allCodes } = await adminClient
-      .from('users')
-      .select('tutor_invite_code')
-      .not('tutor_invite_code', 'is', null)
-      .limit(5);
-    
-    console.log('📋 Available codes:', allCodes?.map(c => c.tutor_invite_code));
-
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="max-w-md w-full p-8 bg-card border border-border rounded-xl shadow-lg text-center">

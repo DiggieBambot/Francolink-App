@@ -7,7 +7,8 @@ import { Button, Card, Input } from "@/components/ui";
 import { Mail, Lock, User, Eye, EyeOff, Loader2, BookOpen, ArrowLeft } from "lucide-react";
 import { GoogleButton } from "./google-button";
 
-export function StudentSignupForm() {
+export function StudentSignupForm({ next }: { next?: string }) {
+  const nextQ = next ? `?next=${encodeURIComponent(next)}` : "";
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,7 +32,11 @@ export function StudentSignupForm() {
         password,
         options: {
           data: { name, full_name: name, role: "USER" },
-          emailRedirectTo: `${window.location.origin}/auth/callback`,
+          // Carry `next` through email confirmation so the callback lands the
+          // student on their destination (e.g. a shared /room link).
+          emailRedirectTo: `${window.location.origin}/auth/callback${
+            next ? `?next=${encodeURIComponent(next)}` : ""
+          }`,
         },
       });
       if (error) {
@@ -41,9 +46,12 @@ export function StudentSignupForm() {
       }
       if (data.user && !data.session) {
         alert("Please check your email to confirm your account!");
-        window.location.href = "/login/student";
+        window.location.href = `/login/student${nextQ}`;
       } else if (data.session) {
-        window.location.href = "/onboarding";
+        // No email-confirmation step: send the welcome email, then go to the
+        // destination if given. (When confirmation IS on, the callback sends it.)
+        try { await fetch("/api/email/welcome", { method: "POST" }); } catch {}
+        window.location.href = next || "/onboarding";
       }
     } catch {
       setError("Something went wrong. Please try again.");
@@ -61,7 +69,7 @@ export function StudentSignupForm() {
         <p className="mt-1 text-gray-600">Browse lessons free and learn live with a tutor</p>
       </div>
 
-      <GoogleButton label="Sign up with Google" />
+      <GoogleButton label="Sign up with Google" next={next} />
 
       <div className="my-6 flex items-center">
         <div className="flex-1 border-t border-gray-200" />
@@ -109,7 +117,7 @@ export function StudentSignupForm() {
 
       <p className="mt-6 text-center text-gray-600">
         Already have an account?{" "}
-        <Link href="/login/student" className="font-semibold text-secondary hover:underline">Log in</Link>
+        <Link href={`/login/student${nextQ}`} className="font-semibold text-secondary hover:underline">Log in</Link>
       </p>
       <p className="mt-3 text-center">
         <Link href="/signup" className="inline-flex items-center gap-1 text-xs font-medium text-gray-400 hover:text-gray-600">

@@ -7,6 +7,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
+import { notifyStudentConfirmed } from "@/lib/email/transactional";
+import { notifyUser } from "@/lib/notifications/create";
 
 function svc() {
   return createServiceClient(
@@ -81,6 +83,17 @@ export async function POST(req: NextRequest) {
     .update({ status: "active", assigned_at: new Date().toISOString() })
     .eq("tutor_id", user.id)
     .eq("student_id", studentId);
+
+  // Tell the student they're connected — in-app + email.
+  const { data: tutorRow } = await service.from("users").select("name").eq("id", user.id).maybeSingle();
+  await notifyUser({
+    userId: studentId,
+    type: "tutor_confirmed",
+    title: "You're connected with your tutor",
+    body: `${tutorRow?.name || "Your tutor"} confirmed you as their student.`,
+    url: "/dashboard",
+  });
+  await notifyStudentConfirmed(studentId, tutorRow?.name);
 
   return NextResponse.json({ success: true, status: "accepted" });
 }

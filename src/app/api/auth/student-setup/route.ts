@@ -2,6 +2,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { sendWelcomeOnce, notifyTutorNewStudent } from '@/lib/email/transactional';
 
 // Use service role for this operation
 const supabase = createClient(
@@ -135,6 +136,11 @@ export async function POST(request: NextRequest) {
     }
 
     console.log('🎉 Student setup complete!');
+
+    // Welcome the new student, and tell the tutor they have a request.
+    await sendWelcomeOnce(userId);
+    if (!relationError) await notifyTutorNewStudent(tutorId, name);
+
     return NextResponse.json({ success: true });
 
   } catch (error) {

@@ -1,6 +1,7 @@
 // src/app/(student)/dashboard/page.tsx
 
 import { createClient } from "@/lib/supabase/server";
+import { createClient as createServiceClient } from "@supabase/supabase-js";
 import {
   Flame,
   Zap,
@@ -23,6 +24,8 @@ import { CourseCard } from "@/components/dashboard/course-card";
 import { StreakCard } from "@/components/dashboard/streak-card";
 import { DailyLessonLimit } from "@/components/dashboard/daily-lesson-limit";
 import { JoinTutorCode } from "@/components/dashboard/join-tutor-code";
+import { BookClassButton } from "@/components/dashboard/book-class-button";
+import { SubscribePrompt } from "@/components/dashboard/subscribe-prompt";
 import { formatNumber } from "@/lib/utils";
 import { getLessonUsage } from "@/lib/utils/lesson-limits";
 import { langSlug, LANGUAGE_INFO } from "@/lib/utils/language";
@@ -72,11 +75,19 @@ export default async function DashboardPage() {
 
   let tutor = null;
   if (profile?.referred_by_tutor_id) {
-    const { data: tutorData } = await supabase
+    // Cross-user read: RLS blocks a student from selecting their tutor's row,
+    // so use the service client (this is why the teacher card was showing
+    // "No teacher assigned" for connected students).
+    const svc = createServiceClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!,
+      { auth: { persistSession: false } }
+    );
+    const { data: tutorData } = await svc
       .from("users")
       .select("id, name, email, avatar_url, tutor_plan")
       .eq("id", profile.referred_by_tutor_id)
-      .single();
+      .maybeSingle();
     tutor = tutorData;
   }
 
@@ -191,6 +202,8 @@ export default async function DashboardPage() {
       {/* ============================================
           TEACHER CARD
           ============================================ */}
+      <SubscribePrompt plan={profile?.subscription_plan} />
+
       {tutor ? (
         <div className="bg-white rounded-2xl shadow-soft border border-gray-100 p-5 flex items-center gap-4">
           {/* Avatar */}
@@ -217,7 +230,8 @@ export default async function DashboardPage() {
           </div>
 
           {/* Actions */}
-          <div className="flex gap-2">
+          <div className="flex items-center gap-2">
+            <BookClassButton tutorName={tutor.name || "your tutor"} />
             <Link
               href="/student/sessions"
               className="p-2.5 bg-primary-50 text-primary rounded-xl hover:bg-primary-100 transition-colors"

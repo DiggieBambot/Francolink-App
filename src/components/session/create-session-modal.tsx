@@ -43,11 +43,14 @@ export function CreateSessionModal({ isOpen, onClose }: CreateSessionModalProps)
   }, [isOpen]);
 
   const fetchLessons = async () => {
+    // Library lessons live in tutor_lessons (the /library catalogue), not the
+    // legacy `lessons`/units/courses model. Only offer published ones.
     const { data } = await supabase
-      .from('lessons')
+      .from('tutor_lessons')
       .select('id, title')
+      .eq('status', 'published')
       .order('title');
-    
+
     if (data) setLessons(data);
   };
 

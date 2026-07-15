@@ -5,8 +5,9 @@ import { BookOpen, GraduationCap, ArrowRight } from "lucide-react";
  * Entry screen for /login and /signup: pick Student or Tutor, then go to the
  * role-specific page. Renders inside the (auth) split-screen layout.
  */
-export function RoleChooser({ mode }: { mode: "login" | "signup" }) {
+export function RoleChooser({ mode, next }: { mode: "login" | "signup"; next?: string }) {
   const isSignup = mode === "signup";
+  const q = next ? `?next=${encodeURIComponent(next)}` : "";
   const options = [
     {
       role: "student" as const,
@@ -15,7 +16,7 @@ export function RoleChooser({ mode }: { mode: "login" | "signup" }) {
       desc: isSignup
         ? "Browse lessons free and learn live with a tutor."
         : "Log in to continue learning.",
-      href: `/${mode}/student`,
+      href: `/${mode}/student${q}`,
       accent: "primary",
     },
     {
@@ -25,7 +26,7 @@ export function RoleChooser({ mode }: { mode: "login" | "signup" }) {
       desc: isSignup
         ? "Teach, bring your students, and earn commission."
         : "Log in to your teaching dashboard.",
-      href: `/${mode}/tutor`,
+      href: `/${mode}/tutor${q}`,
       accent: "secondary",
     },
   ];
@@ -65,9 +66,9 @@ export function RoleChooser({ mode }: { mode: "login" | "signup" }) {
 
       <p className="mt-8 text-center text-gray-600">
         {isSignup ? (
-          <>Already have an account? <Link href="/login" className="font-semibold text-secondary hover:underline">Log in</Link></>
+          <>Already have an account? <Link href={`/login${q}`} className="font-semibold text-secondary hover:underline">Log in</Link></>
         ) : (
-          <>New to FrancoLink? <Link href="/signup" className="font-semibold text-secondary hover:underline">Sign up</Link></>
+          <>New to FrancoLink? <Link href={`/signup${q}`} className="font-semibold text-secondary hover:underline">Sign up</Link></>
         )}
       </p>
     </div>

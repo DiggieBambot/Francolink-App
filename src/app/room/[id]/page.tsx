@@ -5,6 +5,7 @@ import { notFound, redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { LessonRoom } from "@/components/lesson-v2/lesson-room";
+import { JoinClassPrompt } from "@/components/room/join-class-prompt";
 import type { Lesson } from "@/lib/lessons/types";
 
 export const dynamic = "force-dynamic";
@@ -43,6 +44,33 @@ export default async function RoomPage({
   // link joins as the student. No pre-approval needed.
   const isTutor = session.tutor_id === user.id;
   const currentRole: "tutor" | "student" = isTutor ? "tutor" : "student";
+
+  // A student who entered via the shared link but isn't connected to this tutor
+  // yet gets a one-time "Join class" prompt. Skip if already connected to this
+  // tutor, or if a request row already exists (pending), or connected elsewhere.
+  let joinPromptTutorName: string | null = null;
+  if (!isTutor) {
+    const [{ data: meRow }, { data: rel }] = await Promise.all([
+      svc.from("users").select("referred_by_tutor_id").eq("id", user.id).maybeSingle(),
+      svc
+        .from("tutor_students")
+        .select("student_id")
+        .eq("tutor_id", session.tutor_id)
+        .eq("student_id", user.id)
+        .maybeSingle(),
+    ]);
+    const notConnectedHere = meRow?.referred_by_tutor_id !== session.tutor_id;
+    const noExistingRequest = !rel;
+    const notBoundElsewhere = !meRow?.referred_by_tutor_id;
+    if (notConnectedHere && noExistingRequest && notBoundElsewhere) {
+      const { data: tutorRow } = await svc
+        .from("users")
+        .select("name")
+        .eq("id", session.tutor_id)
+        .maybeSingle();
+      joinPromptTutorName = tutorRow?.name || "your tutor";
+    }
+  }
 
   // Current lesson (may be null — either party picks one in-room).
   let lesson: Lesson | null = null;
@@ -99,16 +127,21 @@ export default async function RoomPage({
   const name = profile?.name || profile?.email?.split("@")[0] || "User";
 
   return (
-    <LessonRoom
-      initialLesson={lesson}
-      initialLessonId={session.tutor_lesson_id}
-      lessonList={lessonList || []}
-      sessionId={id}
-      currentUserId={user.id}
-      currentRole={currentRole}
-      currentName={name}
-      initialHighlights={highlights || []}
-      initialChat={initialChat}
-    />
+    <>
+      {joinPromptTutorName ? (
+        <JoinClassPrompt sessionId={id} tutorName={joinPromptTutorName} />
+      ) : null}
+      <LessonRoom
+        initialLesson={lesson}
+        initialLessonId={session.tutor_lesson_id}
+        lessonList={lessonList || []}
+        sessionId={id}
+        currentUserId={user.id}
+        currentRole={currentRole}
+        currentName={name}
+        initialHighlights={highlights || []}
+        initialChat={initialChat}
+      />
+    </>
   );
 }

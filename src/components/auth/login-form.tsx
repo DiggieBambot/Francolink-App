@@ -8,8 +8,9 @@ import { Button, Card, Input } from "@/components/ui";
 import { Mail, Lock, Eye, EyeOff, Loader2, GraduationCap, BookOpen, ArrowLeft } from "lucide-react";
 import { GoogleButton } from "./google-button";
 
-export function LoginForm({ role }: { role: "student" | "tutor" }) {
+export function LoginForm({ role, next }: { role: "student" | "tutor"; next?: string }) {
   const router = useRouter();
+  const nextQ = next ? `?next=${encodeURIComponent(next)}` : "";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -17,7 +18,7 @@ export function LoginForm({ role }: { role: "student" | "tutor" }) {
   const [isLoading, setIsLoading] = useState(false);
 
   const isTutor = role === "tutor";
-  const signupHref = isTutor ? "/signup/tutor" : "/signup/student";
+  const signupHref = (isTutor ? "/signup/tutor" : "/signup/student") + nextQ;
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
@@ -30,7 +31,7 @@ export function LoginForm({ role }: { role: "student" | "tutor" }) {
         setError(error.message);
         return;
       }
-      // Route by actual role so everyone lands in the right area.
+      // Honour an explicit next (e.g. a shared /room link); otherwise route by role.
       let dest = "/dashboard";
       const uid = signInData.user?.id;
       if (uid) {
@@ -38,7 +39,7 @@ export function LoginForm({ role }: { role: "student" | "tutor" }) {
         if (profile?.role === "TUTOR") dest = "/tutor";
         else if (profile?.role === "ADMIN") dest = "/admin";
       }
-      router.push(dest);
+      router.push(next || dest);
       router.refresh();
     } catch {
       setError("Something went wrong. Please try again.");
@@ -61,7 +62,7 @@ export function LoginForm({ role }: { role: "student" | "tutor" }) {
         </p>
       </div>
 
-      <GoogleButton />
+      <GoogleButton next={next} />
 
       <div className="my-6 flex items-center">
         <div className="flex-1 border-t border-gray-200" />
@@ -106,7 +107,7 @@ export function LoginForm({ role }: { role: "student" | "tutor" }) {
         <Link href={signupHref} className="font-semibold text-secondary hover:underline">Create an account</Link>
       </p>
       <p className="mt-3 text-center">
-        <Link href="/login" className="inline-flex items-center gap-1 text-xs font-medium text-gray-400 hover:text-gray-600">
+        <Link href={`/login${nextQ}`} className="inline-flex items-center gap-1 text-xs font-medium text-gray-400 hover:text-gray-600">
           <ArrowLeft className="h-3 w-3" /> {isTutor ? "I'm a student" : "I'm a tutor"} — switch
         </Link>
       </p>

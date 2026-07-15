@@ -11,6 +11,7 @@ import {
   DollarSign,
   Settings,
   BookOpen,
+  PencilLine,
   LogOut
 } from 'lucide-react';
 
@@ -30,10 +31,15 @@ const navigation = [
     href: '/tutor/schedule', 
     icon: Calendar 
   },
-  { 
-    name: 'Students', 
-    href: '/tutor/students', 
-    icon: Users 
+  {
+    name: 'Students',
+    href: '/tutor/students',
+    icon: Users
+  },
+  {
+    name: 'Homework',
+    href: '/tutor/homework',
+    icon: PencilLine
   },
   { 
     name: 'Commissions', 
