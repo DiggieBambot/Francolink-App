@@ -1,4 +1,4 @@
-import { createClient } from '@/lib/supabase/server';
+import { createClient as createServiceClient } from '@supabase/supabase-js';
 import { createClient as createBrowserClient } from '@/lib/supabase/client';
 
 export interface AppConfig {
@@ -59,23 +59,47 @@ const DEFAULT_CONFIG: AppConfig = {
   og_image: '/og-image.png'
 };
 
+// App config (branding/theme/SEO) is read on EVERY request site-wide (root
+// layout + metadata). It changes only when an admin edits settings, so we cache
+// it in-process with a short TTL and read it with a cookie-free service client
+// (the old cookie-bound client forced every page to render dynamically, and for
+// logged-out visitors RLS silently returned nothing anyway).
+let _configCache: AppConfig | null = null;
+let _configCacheAt = 0;
+const CONFIG_TTL_MS = 5 * 60 * 1000;
+
+function serviceClient() {
+  return createServiceClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { auth: { persistSession: false } }
+  );
+}
+
+/** Clear the cached config (call after an admin saves settings). */
+export function clearAppConfigCache(): void {
+  _configCache = null;
+  _configCacheAt = 0;
+}
+
 /**
- * Fetch app configuration from database (Server-side)
+ * Fetch app configuration from database (Server-side). Cached in-process.
  */
 export async function getAppConfig(): Promise<AppConfig> {
+  if (_configCache && Date.now() - _configCacheAt < CONFIG_TTL_MS) {
+    return _configCache;
+  }
   try {
-    const supabase = await createClient();
-    
+    const supabase = serviceClient();
+
     const { data: settings } = await supabase
       .from('app_settings')
       .select('key, value')
       .in('category', ['branding', 'theme', 'contact', 'social', 'seo']);
 
-    if (!settings) return DEFAULT_CONFIG;
-
     const config: any = { ...DEFAULT_CONFIG };
-    
-    settings.forEach(setting => {
+
+    (settings || []).forEach(setting => {
       const key = setting.key as keyof AppConfig;
       if (key in config) {
         if (setting.value === 'true') config[key] = true;
@@ -84,10 +108,12 @@ export async function getAppConfig(): Promise<AppConfig> {
       }
     });
 
+    _configCache = config;
+    _configCacheAt = Date.now();
     return config;
   } catch (error) {
     console.error('Error fetching app config:', error);
-    return DEFAULT_CONFIG;
+    return _configCache || DEFAULT_CONFIG;
   }
 }
 

@@ -28,14 +28,24 @@ export async function updateSession(request: NextRequest) {
     }
   );
 
-  const { data: { user } } = await supabase.auth.getUser();
-
   const pathname = request.nextUrl.pathname;
 
+  // Public content that needs neither auth protection nor a token refresh:
+  // skip the getUser() network round-trip entirely (this was running on every
+  // homepage/library hit and dominated their server time).
+  const PUBLIC_CONTENT = [
+    '/', '/library', '/how-it-works', '/get-started', '/tutors',
+    '/about', '/pricing', '/contact', '/terms', '/privacy',
+  ];
+  const isPublicContent =
+    pathname === '/' || PUBLIC_CONTENT.some(r => r !== '/' && (pathname === r || pathname.startsWith(r + '/')));
+  if (isPublicContent) return supabaseResponse;
+
+  const { data: { user } } = await supabase.auth.getUser();
+
   const publicRoutes = [
-    '/tutors', '/join', '/about', '/pricing', '/contact',
-    '/terms', '/privacy', '/api/webhooks', '/auth/callback', '/auth/signout',
-    '/admin/login',  // ← ADD THIS
+    '/join', '/api/webhooks', '/auth/callback', '/auth/signout',
+    '/admin/login',
   ];
 
   const isPublicRoute = publicRoutes.some(route =>

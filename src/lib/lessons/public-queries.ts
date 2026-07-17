@@ -28,7 +28,7 @@ export interface CatalogueLesson {
   section_count: number;
 }
 
-function toCatalogue(row: {
+interface CatalogueRow {
   id: string;
   slug: string;
   title: string;
@@ -37,35 +37,61 @@ function toCatalogue(row: {
   duration_minutes: number | null;
   topic_tags: string[];
   source_url: string | null;
-  content: Lesson;
-}): CatalogueLesson {
+  hero_image_url?: string | null;
+  title_translation?: string | null;
+  section_count?: number | null;
+}
+
+function toCatalogue(row: CatalogueRow): CatalogueLesson {
   return {
     id: row.id,
     slug: row.slug,
     title: row.title,
-    title_translation: row.content?.title_translation,
+    title_translation: row.title_translation || undefined,
     level: row.level,
     language: row.language,
     duration_minutes: row.duration_minutes,
     topic_tags: row.topic_tags || [],
     category: categoryForLesson(row.language, row.source_url, row.topic_tags),
-    hero_image_url: row.content?.hero_image_url,
-    section_count: row.content?.sections?.length || 0,
+    hero_image_url: row.hero_image_url || undefined,
+    section_count: row.section_count || 0,
   };
 }
+
+// Slim projection — reads scalar columns instead of the whole `content` JSON.
+const CATALOGUE_COLS =
+  "id, slug, title, level, language, duration_minutes, topic_tags, source_url, hero_image_url, title_translation, section_count";
 
 export async function getPublishedLessons(): Promise<CatalogueLesson[]> {
   const supabase = serviceClient();
   const { data, error } = await supabase
     .from("tutor_lessons")
+    .select(CATALOGUE_COLS)
+    .eq("status", "published")
+    .order("title");
+
+  if (!error) return (data as CatalogueRow[]).map(toCatalogue);
+
+  // Fallback for before the catalogue-columns migration is applied: derive the
+  // same fields from `content` (slower, but keeps the library working).
+  console.warn("[catalogue] slim select failed, falling back to content:", error.message);
+  const { data: full, error: fullErr } = await supabase
+    .from("tutor_lessons")
     .select("id, slug, title, level, language, duration_minutes, topic_tags, source_url, content")
     .eq("status", "published")
     .order("title");
-  if (error) {
-    console.error("[catalogue] query failed:", error.message);
+  if (fullErr) {
+    console.error("[catalogue] fallback query failed:", fullErr.message);
     return [];
   }
-  return (data || []).map(toCatalogue);
+  return (full || []).map((r: { content: Lesson } & CatalogueRow) =>
+    toCatalogue({
+      ...r,
+      hero_image_url: r.content?.hero_image_url,
+      title_translation: r.content?.title_translation,
+      section_count: r.content?.sections?.length || 0,
+    })
+  );
 }
 
 export async function getPublishedLessonBySlug(slug: string): Promise<{ lesson: Lesson; level: string } | null> {

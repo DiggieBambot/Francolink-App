@@ -5,7 +5,10 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Mulish, Roboto } from "next/font/google";
 import { getAppConfig } from "@/lib/config";
-export const dynamic = 'force-dynamic';
+
+// NOTE: no `force-dynamic` here — it forced every page in the app to render
+// dynamically on each request. App pages that read cookies opt into dynamic
+// automatically; public pages (library, marketing) can now be cached/ISR.
 export const dynamicParams = true;
 const mulish = Mulish({
   subsets: ["latin"],

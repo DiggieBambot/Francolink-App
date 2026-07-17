@@ -11,7 +11,7 @@ import { LessonCard } from "@/components/library/lesson-card";
 import { PublicShell } from "@/components/layout/public-shell";
 import { Container } from "@/components/ui";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
 

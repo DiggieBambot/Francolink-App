@@ -12,7 +12,9 @@ import { Container, Eyebrow } from "@/components/ui";
 import { LevelExplorer } from "@/components/library/level-explorer";
 import { LanguageTabs } from "@/components/library/language-tabs";
 
-export const dynamic = "force-dynamic";
+// Public catalogue — cache and revalidate periodically instead of rendering
+// per request. New/edited lessons appear within the revalidate window.
+export const revalidate = 300;
 export const metadata = {
   title: "Lesson Materials | FrancoLink",
   description: "Free lesson materials — French & English. Search by level or topic.",
