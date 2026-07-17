@@ -9,6 +9,12 @@
 --   defense-in-depth layer for any direct client access.
 -- ============================================
 
+-- users.role is guarded by a CHECK constraint (whitelist). Widen it to allow
+-- the new COMMUNITY_MANAGER value.
+alter table public.users drop constraint if exists users_role_check;
+alter table public.users add constraint users_role_check
+  check (role in ('USER', 'TUTOR', 'ADMIN', 'COMMUNITY_MANAGER'));
+
 -- Helper: is the current auth user an agent (admin or community manager)?
 create or replace function public.is_support_agent()
 returns boolean language sql stable security definer set search_path = public as $$
