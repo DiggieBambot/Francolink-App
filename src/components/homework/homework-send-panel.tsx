@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Send, Check, Loader2, Users } from "lucide-react";
+import { Send, Check, Loader2, Users, Eye, ChevronDown } from "lucide-react";
+import type { HomeworkQuestion } from "@/lib/homework/types";
 
 interface Student {
   id: string;
@@ -13,11 +14,14 @@ interface Student {
 interface Props {
   slug: string;
   homeworkTitle: string;
+  instructions?: string | null;
+  questions?: HomeworkQuestion[];
   students: Student[];
   alreadyAssignedIds: string[];
 }
 
-export function HomeworkSendPanel({ slug, homeworkTitle, students, alreadyAssignedIds }: Props) {
+export function HomeworkSendPanel({ slug, homeworkTitle, instructions, questions = [], students, alreadyAssignedIds }: Props) {
+  const [showPreview, setShowPreview] = useState(false);
   const [assigned, setAssigned] = useState<Set<string>>(new Set(alreadyAssignedIds));
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [sending, setSending] = useState(false);
@@ -68,6 +72,43 @@ export function HomeworkSendPanel({ slug, homeworkTitle, students, alreadyAssign
           Assign <span className="font-semibold">{homeworkTitle}</span> to your students. They&apos;ll get a
           notification to complete it, and their answers come back to your Homework tab.
         </p>
+
+        {/* Preview: what the student will see. */}
+        {questions.length > 0 ? (
+          <div className="mb-4 overflow-hidden rounded-xl border border-primary-100 bg-white dark:border-gray-700 dark:bg-gray-800">
+            <button
+              onClick={() => setShowPreview((v) => !v)}
+              className="flex w-full items-center justify-between px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary-50/50 dark:text-primary-200 dark:hover:bg-gray-700/40"
+            >
+              <span className="inline-flex items-center gap-2">
+                <Eye className="h-4 w-4" /> Preview homework ({questions.length} question{questions.length === 1 ? "" : "s"})
+              </span>
+              <ChevronDown className={`h-4 w-4 transition-transform ${showPreview ? "rotate-180" : ""}`} />
+            </button>
+            {showPreview ? (
+              <div className="border-t border-primary-100 px-4 py-3 dark:border-gray-700">
+                {instructions ? (
+                  <p className="mb-3 text-sm italic text-gray-500 dark:text-gray-400">{instructions}</p>
+                ) : null}
+                <ol className="space-y-3">
+                  {questions.map((q, i) => (
+                    <li key={i} className="text-sm">
+                      <p className="font-medium text-gray-900 dark:text-gray-100">
+                        {i + 1}. {q.prompt}
+                        <span className="ml-2 rounded-full bg-gray-100 px-2 py-0.5 text-[10px] font-semibold uppercase text-gray-500 dark:bg-gray-700 dark:text-gray-300">
+                          {q.type === "long" ? "paragraph" : "short"}
+                        </span>
+                      </p>
+                      {q.prompt_translation ? (
+                        <p className="text-xs italic text-gray-400">{q.prompt_translation}</p>
+                      ) : null}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ) : null}
+          </div>
+        ) : null}
 
         {students.length === 0 ? (
           <p className="rounded-lg bg-white/70 px-4 py-3 text-sm text-gray-600 dark:bg-gray-800/40 dark:text-gray-300">

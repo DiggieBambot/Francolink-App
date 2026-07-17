@@ -122,6 +122,8 @@ export default async function PublicLessonPage({
           <HomeworkSendPanel
             slug={slug}
             homeworkTitle={homework.title}
+            instructions={homework.instructions}
+            questions={homework.questions}
             students={tutorStudents}
             alreadyAssignedIds={alreadyAssignedIds}
           />
