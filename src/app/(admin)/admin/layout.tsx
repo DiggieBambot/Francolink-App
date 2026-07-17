@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
-import { LayoutDashboard, Users, CreditCard, BarChart3, Settings, FileText, Plug, ChevronRight, Bot, Shield, GraduationCap } from 'lucide-react';
+import { LayoutDashboard, Users, CreditCard, BarChart3, Settings, FileText, Plug, ChevronRight, Bot, Shield, GraduationCap, TrendingUp, LifeBuoy, MessageSquare } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Admin Panel | FrancoLink',
@@ -17,22 +17,33 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   if (!user) redirect('/admin/login');
 
   const { data: userData } = await supabase.from('users').select('role').eq('id', user.id).single();
-  if (userData?.role !== 'ADMIN') redirect('/admin/login');
+  const role = (userData?.role || '').toUpperCase();
+  if (role !== 'ADMIN' && role !== 'COMMUNITY_MANAGER') redirect('/admin/login');
+  const isCM = role === 'COMMUNITY_MANAGER';
 
-  const navigation = [
-    { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
-    { name: 'Users', href: '/admin/users', icon: Users },
-    { name: 'Content', href: '/admin/content', icon: FileText },
-    { name: 'Tutor Lessons', href: '/admin/tutor-lessons', icon: GraduationCap },
-    { name: 'Import from Drive', href: '/admin/import-from-drive', icon: FileText },
-    { name: 'Payments', href: '/admin/payments', icon: CreditCard },
-    { name: 'Pricing', href: '/admin/pricing', icon: DollarSign },
-    { name: 'Analytics', href: '/admin/analytics', icon: BarChart3 },
-    { name: 'Integrations', href: '/admin/integrations', icon: Plug },
-    { name: 'Settings', href: '/admin/settings', icon: Settings },
-    { name: 'AI Settings', href: '/admin/settings/ai', icon: Bot },
-    { name: 'App Settings', href: '/admin/app-settings', icon: AppWindow },
-  ];
+  // Community managers get a scoped nav: support + moderation only.
+  const navigation = isCM
+    ? [
+        { name: 'Support', href: '/admin/support', icon: LifeBuoy },
+        { name: 'Moderation', href: '/admin/moderation', icon: MessageSquare },
+      ]
+    : [
+        { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
+        { name: 'Growth', href: '/admin/growth', icon: TrendingUp },
+        { name: 'Support', href: '/admin/support', icon: LifeBuoy },
+        { name: 'Moderation', href: '/admin/moderation', icon: MessageSquare },
+        { name: 'Users', href: '/admin/users', icon: Users },
+        { name: 'Content', href: '/admin/content', icon: FileText },
+        { name: 'Tutor Lessons', href: '/admin/tutor-lessons', icon: GraduationCap },
+        { name: 'Import from Drive', href: '/admin/import-from-drive', icon: FileText },
+        { name: 'Payments', href: '/admin/payments', icon: CreditCard },
+        { name: 'Pricing', href: '/admin/pricing', icon: DollarSign },
+        { name: 'Analytics', href: '/admin/analytics', icon: BarChart3 },
+        { name: 'Integrations', href: '/admin/integrations', icon: Plug },
+        { name: 'Settings', href: '/admin/settings', icon: Settings },
+        { name: 'AI Settings', href: '/admin/settings/ai', icon: Bot },
+        { name: 'App Settings', href: '/admin/app-settings', icon: AppWindow },
+      ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -65,6 +76,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
               );
             })}
           </div>
+          {!isCM && (
           <div className="border-t mx-4 mt-4 pt-4">
             <p className="px-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Configuration</p>
             <div className="mt-2 space-y-1">
@@ -76,6 +88,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
               </Link>
             </div>
           </div>
+          )}
         </nav>
         <main className="flex-1 overflow-y-auto">
           <div className="container py-6 px-8">{children}</div>
