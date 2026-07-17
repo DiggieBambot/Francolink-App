@@ -22,6 +22,7 @@ import {
   Sparkles,
   Bot,
   Bell,
+  PencilLine,
 } from "lucide-react";
 import { Logo } from "@/components/layout";
 import { cn, formatNumber } from "@/lib/utils";
@@ -46,6 +47,7 @@ const navItems = [
   { href: "/learn", label: "Learn", icon: BookOpen },
   { href: "/games", label: "Games", icon: Gamepad2 },
   { href: "/practice", label: "Practice", icon: Target },
+  { href: "/student/homework", label: "Homework", icon: PencilLine },
   { href: "/student/ai-tutor", label: "AI Tutor", icon: Bot },
   { href: "/leaderboard", label: "Leaderboard", icon: Trophy },
   { href: "/profile", label: "Profile", icon: User },
