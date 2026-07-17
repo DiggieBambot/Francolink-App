@@ -1,6 +1,7 @@
 import { PWAInstallPrompt } from "@/components/shared/pwa-install-prompt";
 import { ServiceWorkerRegistrar } from "@/components/shared/service-worker-registrar";
 import { GoogleAnalytics } from "@/components/shared/google-analytics";
+import { AttributionCookie } from "@/components/analytics/attribution";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Mulish, Roboto } from "next/font/google";
@@ -93,6 +94,7 @@ export default async function RootLayout({
       </head>
       <body className={`${roboto.variable} ${mulish.variable} font-body`}>
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || "G-YLH30JTCQT"} />
+        <AttributionCookie />
         <ServiceWorkerRegistrar />
         <PWAInstallPrompt />
         {children}

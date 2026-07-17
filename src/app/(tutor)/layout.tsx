@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { ActivityPinger } from "@/components/analytics/activity-pinger";
+import { AttributionCapture } from "@/components/analytics/attribution";
 import {
   LayoutDashboard,
   Users,
@@ -119,6 +121,8 @@ export default async function TutorLayout({
       <div className="lg:pl-64">
         <main className="min-h-screen p-4 sm:p-6 lg:p-8">{children}</main>
       </div>
+      <ActivityPinger />
+      <AttributionCapture />
     </div>
   );
 }
