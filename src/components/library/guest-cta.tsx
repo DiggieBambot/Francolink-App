@@ -1,20 +1,27 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { GraduationCap, Users, ArrowRight } from "lucide-react";
-import { createClient } from "@/lib/supabase/server";
+import { createClient } from "@/lib/supabase/client";
 
 /**
- * Server component. Renders a sign-up call-to-action only for logged-out
- * visitors. Logged-in users see nothing.
+ * Client component. Renders a sign-up call-to-action for logged-out visitors and
+ * hides itself for logged-in ones. Client-side so it doesn't force the public
+ * catalogue pages (which embed it) to render dynamically on every request.
  */
-export async function GuestCTA({ variant = "bar" }: { variant?: "bar" | "card" }) {
-  let loggedIn = false;
-  try {
-    const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
-    loggedIn = !!user;
-  } catch {
-    loggedIn = false;
-  }
+export function GuestCTA({ variant = "bar" }: { variant?: "bar" | "card" }) {
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    let alive = true;
+    createClient()
+      .auth.getUser()
+      .then(({ data }) => { if (alive) setLoggedIn(!!data.user); })
+      .catch(() => {});
+    return () => { alive = false; };
+  }, []);
+
   if (loggedIn) return null;
 
   if (variant === "card") {

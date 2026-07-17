@@ -1,73 +1,43 @@
 // Public lesson catalogue — clean & premium category grid. Guest-accessible.
 
-import Link from "next/link";
-import Image from "next/image";
 import { Search } from "lucide-react";
 import { getPublishedLessons } from "@/lib/lessons/public-queries";
-import { categoriesForLanguage } from "@/lib/lessons/categories";
-import { getLevelTheme } from "@/lib/lessons/level-theme";
 import { GuestCTA } from "@/components/library/guest-cta";
 import { PublicShell } from "@/components/layout/public-shell";
 import { Container, Eyebrow } from "@/components/ui";
-import { LevelExplorer } from "@/components/library/level-explorer";
-import { LanguageTabs } from "@/components/library/language-tabs";
+import { LibraryBrowser, type BrowserLesson } from "@/components/library/library-browser";
 
-// Public catalogue — cache and revalidate periodically instead of rendering
-// per request. New/edited lessons appear within the revalidate window.
+// Fully static/ISR: the page reads no request-time data — language and level
+// filtering happen client-side in LibraryBrowser. New/edited lessons appear
+// within the revalidate window.
 export const revalidate = 300;
 export const metadata = {
   title: "Lesson Materials | FrancoLink",
   description: "Free lesson materials — French & English. Search by level or topic.",
 };
 
-const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
-
-export default async function LibraryPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ lang?: string }>;
-}) {
-  const { lang: rawLang } = await searchParams;
-  const lang = rawLang === "en" ? "en" : "fr";
+export default async function LibraryPage() {
   const lessons = await getPublishedLessons();
 
-  // Filter lessons by selected language
-  const langLessons = lessons.filter((l) => l.language === lang);
-  const categories = categoriesForLanguage(lang);
-
-  // Aggregate per category
-  const byCat = new Map<string, { count: number; levels: Set<string>; cover?: string }>();
-  for (const l of langLessons) {
-    const e = byCat.get(l.category) || { count: 0, levels: new Set<string>() };
-    e.count++;
-    e.levels.add(l.level);
-    if (!e.cover && l.hero_image_url) e.cover = l.hero_image_url;
-    byCat.set(l.category, e);
-  }
-
-  // Lightweight lessons for the client-side level filter.
-  const lite = langLessons.map((l) => ({
+  const browserLessons: BrowserLesson[] = lessons.map((l) => ({
     id: l.id,
     slug: l.slug,
     title: l.title,
     title_translation: l.title_translation,
     level: l.level,
     language: l.language,
+    category: l.category,
     hero_image_url: l.hero_image_url,
     duration_minutes: l.duration_minutes,
     section_count: l.section_count,
   }));
-
-  // Count per language for the tabs
-  const frCount = lessons.filter((l) => l.language === "fr").length;
-  const enCount = lessons.filter((l) => l.language === "en").length;
 
   return (
     <PublicShell>
       <div className="min-h-screen bg-gray-50">
         <GuestCTA />
 
-        {/* Header / hero */}
+        {/* Header / hero (static) */}
         <header className="border-b border-gray-100 bg-white">
           <Container className="max-w-5xl py-14 text-center">
             <Eyebrow>Lesson Library</Eyebrow>
@@ -86,7 +56,7 @@ export default async function LibraryPage({
                 <input
                   name="q"
                   type="text"
-                  placeholder={lang === "en" ? "e.g. business, travel, interview…" : "e.g. business, voyage, famille…"}
+                  placeholder="e.g. business, travel, family…"
                   className="flex-1 bg-transparent py-3 text-sm outline-none placeholder:text-gray-400"
                 />
               </div>
@@ -100,78 +70,8 @@ export default async function LibraryPage({
           </Container>
         </header>
 
-        {/* Language tabs */}
-        <Container className="max-w-6xl pt-8">
-          <LanguageTabs activeLang={lang} frCount={frCount} enCount={enCount} />
-        </Container>
-
-        {/* Draggable level filter + category grid (categories when "All") */}
-        <Container className="max-w-6xl py-12">
-          <LevelExplorer lessons={lite}>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {categories.map((cat) => {
-              const agg = byCat.get(cat.slug);
-              const count = agg?.count || 0;
-              const levels = agg ? LEVELS.filter((l) => agg.levels.has(l)) : [];
-              const cover = agg?.cover;
-              return (
-                <Link
-                  key={cat.slug}
-                  href={`/library/${cat.slug}`}
-                  className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-soft ring-1 ring-gray-100 transition duration-300 hover:-translate-y-1 hover:shadow-medium"
-                >
-                  <div className={`relative h-44 w-full overflow-hidden bg-gradient-to-br ${cat.gradient}`}>
-                    {cover ? (
-                      <Image
-                        src={cover}
-                        alt={cat.name}
-                        fill
-                        sizes="(max-width:640px) 100vw, 380px"
-                        className="object-cover transition duration-500 group-hover:scale-105"
-                      />
-                    ) : null}
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary-900/85 via-primary-900/30 to-transparent" />
-                    <span className="absolute right-3 top-3 text-2xl drop-shadow">{cat.emoji}</span>
-                    <div className="absolute inset-x-0 bottom-0 p-4">
-                      <div className="flex items-center gap-2">
-                        <h2 className="font-heading text-xl font-bold text-white drop-shadow-sm">{cat.name}</h2>
-                        <span className="rounded-full bg-white/20 px-2 py-0.5 text-[11px] font-semibold text-white backdrop-blur">
-                          {count} lessons
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-1 flex-col p-5">
-                    <p className="text-sm leading-relaxed text-gray-600">{cat.description}</p>
-                    {levels.length ? (
-                      <div className="mt-4 flex flex-wrap gap-1.5">
-                        {levels.map((lv) => {
-                          const t = getLevelTheme(lv);
-                          return (
-                            <span
-                              key={lv}
-                              className={`rounded-md px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide ${t.softBg} ${t.softText}`}
-                            >
-                              {lv}
-                            </span>
-                          );
-                        })}
-                      </div>
-                    ) : null}
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-          </LevelExplorer>
-
-          {langLessons.length === 0 ? (
-            <p className="mt-10 text-center text-sm text-gray-500">
-              No published {lang === "en" ? "English" : "French"} lessons yet. Check back soon!
-            </p>
-          ) : null}
-        </Container>
+        {/* Language tabs + level filter + category grid (all client-side) */}
+        <LibraryBrowser lessons={browserLessons} />
       </div>
     </PublicShell>
   );

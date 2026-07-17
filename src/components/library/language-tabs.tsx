@@ -7,9 +7,11 @@ interface LanguageTabsProps {
   activeLang: "fr" | "en";
   frCount: number;
   enCount: number;
+  /** When provided, tabs switch language in-place (no navigation). */
+  onSelect?: (lang: "fr" | "en") => void;
 }
 
-export function LanguageTabs({ activeLang, frCount, enCount }: LanguageTabsProps) {
+export function LanguageTabs({ activeLang, frCount, enCount, onSelect }: LanguageTabsProps) {
   const tabs = [
     { lang: "fr" as const, label: "French", flag: "\u{1F1EB}\u{1F1F7}", count: frCount },
     { lang: "en" as const, label: "English", flag: "\u{1F1EC}\u{1F1E7}", count: enCount },
@@ -19,16 +21,13 @@ export function LanguageTabs({ activeLang, frCount, enCount }: LanguageTabsProps
     <div className="flex items-center gap-2">
       {tabs.map((tab) => {
         const isActive = tab.lang === activeLang;
-        return (
-          <Link
-            key={tab.lang}
-            href={`/library?lang=${tab.lang}`}
-            className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition ${
-              isActive
-                ? "bg-primary text-white shadow-soft"
-                : "bg-white text-gray-600 ring-1 ring-gray-200 hover:bg-gray-50 hover:text-primary"
-            }`}
-          >
+        const cls = `inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition ${
+          isActive
+            ? "bg-primary text-white shadow-soft"
+            : "bg-white text-gray-600 ring-1 ring-gray-200 hover:bg-gray-50 hover:text-primary"
+        }`;
+        const inner = (
+          <>
             <span className="text-lg">{tab.flag}</span>
             <span>{tab.label}</span>
             <span
@@ -38,6 +37,15 @@ export function LanguageTabs({ activeLang, frCount, enCount }: LanguageTabsProps
             >
               {tab.count}
             </span>
+          </>
+        );
+        return onSelect ? (
+          <button key={tab.lang} type="button" onClick={() => onSelect(tab.lang)} className={cls}>
+            {inner}
+          </button>
+        ) : (
+          <Link key={tab.lang} href={`/library?lang=${tab.lang}`} className={cls}>
+            {inner}
           </Link>
         );
       })}
