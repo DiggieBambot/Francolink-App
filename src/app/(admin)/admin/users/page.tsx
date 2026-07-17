@@ -20,6 +20,7 @@ interface PageProps {
     page?: string;
     search?: string;
     plan?: string;
+    role?: string;
   }>;
 }
 
@@ -30,6 +31,7 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
   const page = parseInt(params.page || "1");
   const search = params.search || "";
   const planFilter = params.plan || "";
+  const roleFilter = params.role || "";
   const perPage = 20;
   const offset = (page - 1) * perPage;
 
@@ -49,6 +51,13 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
   if (planFilter) {
     query = query.eq("subscription_plan", planFilter);
   }
+
+  // Apply role filter. "both" = a tutor who is also learning under another tutor.
+  if (roleFilter === "student") query = query.eq("role", "USER");
+  else if (roleFilter === "tutor") query = query.eq("role", "TUTOR");
+  else if (roleFilter === "both") query = query.eq("role", "TUTOR").not("referred_by_tutor_id", "is", null);
+  else if (roleFilter === "admin") query = query.eq("role", "ADMIN");
+  else if (roleFilter === "community_manager") query = query.eq("role", "COMMUNITY_MANAGER");
 
   const { data: users, count, error } = await query;
 
@@ -92,15 +101,22 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
     }
   };
 
-  const getRoleBadge = (role: string) => {
+  const getRoleBadge = (user: { role?: string; referred_by_tutor_id?: string | null }) => {
+    const role = (user.role || "USER").toUpperCase();
     if (role === "ADMIN") {
-      return (
-        <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-700">
-          Admin
-        </span>
-      );
+      return <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-700">Admin</span>;
     }
-    return null;
+    if (role === "COMMUNITY_MANAGER") {
+      return <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-fuchsia-100 text-fuchsia-700">Community Mgr</span>;
+    }
+    if (role === "TUTOR") {
+      // A tutor who is also learning under another tutor = Student · Tutor.
+      if (user.referred_by_tutor_id) {
+        return <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-teal-100 text-teal-700">Student · Tutor</span>;
+      }
+      return <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-700">Tutor</span>;
+    }
+    return <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-700">Student</span>;
   };
 
   const formatDate = (date: string) => {
@@ -194,6 +210,20 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
             </div>
           </div>
 
+          {/* Role Filter */}
+          <select
+            name="role"
+            defaultValue={roleFilter}
+            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+          >
+            <option value="">All Roles</option>
+            <option value="student">Student</option>
+            <option value="tutor">Tutor</option>
+            <option value="both">Student · Tutor</option>
+            <option value="admin">Admin</option>
+            <option value="community_manager">Community Mgr</option>
+          </select>
+
           {/* Plan Filter */}
           <select
             name="plan"
@@ -215,7 +245,7 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
           </button>
 
           {/* Clear */}
-          {(search || planFilter) && (
+          {(search || planFilter || roleFilter) && (
             <Link
               href="/admin/users"
               className="px-6 py-2 bg-gray-100 text-gray-700 font-medium rounded-lg hover:bg-gray-200 transition-colors"
@@ -234,6 +264,9 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
               <tr>
                 <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900">
                   User
+                </th>
+                <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900">
+                  Role
                 </th>
                 <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900">
                   Plan
@@ -268,18 +301,18 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
                         </div>
                       )}
                       <div>
-                        <div className="flex items-center gap-2">
-                          <p className="font-medium text-gray-900">
-                            {user.name || "No name"}
-                          </p>
-                          {getRoleBadge(user.role)}
-                        </div>
+                        <p className="font-medium text-gray-900">
+                          {user.name || "No name"}
+                        </p>
                         <p className="text-sm text-gray-500 flex items-center gap-1">
                           <Mail className="w-3 h-3" />
                           {user.email}
                         </p>
                       </div>
                     </div>
+                  </td>
+                  <td className="px-6 py-4">
+                    {getRoleBadge(user)}
                   </td>
                   <td className="px-6 py-4">
                     {getPlanBadge(user.subscription_plan || "FREE")}
@@ -320,7 +353,7 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
 
               {(!users || users.length === 0) && (
                 <tr>
-                  <td colSpan={5} className="px-6 py-12 text-center">
+                  <td colSpan={6} className="px-6 py-12 text-center">
                     <Users className="w-12 h-12 text-gray-300 mx-auto mb-4" />
                     <p className="text-gray-500">No users found</p>
                   </td>
@@ -339,7 +372,7 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
             </p>
             <div className="flex items-center gap-2">
               <Link
-                href={`/admin/users?page=${page - 1}${search ? `&search=${search}` : ""}${planFilter ? `&plan=${planFilter}` : ""}`}
+                href={`/admin/users?page=${page - 1}${search ? `&search=${search}` : ""}${planFilter ? `&plan=${planFilter}` : ""}${roleFilter ? `&role=${roleFilter}` : ""}`}
                 className={`p-2 rounded-lg border ${
                   page <= 1
                     ? "border-gray-200 text-gray-300 pointer-events-none"
@@ -352,7 +385,7 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
                 Page {page} of {totalPages}
               </span>
               <Link
-                href={`/admin/users?page=${page + 1}${search ? `&search=${search}` : ""}${planFilter ? `&plan=${planFilter}` : ""}`}
+                href={`/admin/users?page=${page + 1}${search ? `&search=${search}` : ""}${planFilter ? `&plan=${planFilter}` : ""}${roleFilter ? `&role=${roleFilter}` : ""}`}
                 className={`p-2 rounded-lg border ${
                   page >= totalPages
                     ? "border-gray-200 text-gray-300 pointer-events-none"
