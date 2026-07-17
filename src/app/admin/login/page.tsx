@@ -34,13 +34,15 @@ export default function AdminLoginPage() {
       if (error) { setError(error.message); setIsLoading(false); return; }
       if (data.session) {
         const { data: profile } = await supabase.from("users").select("role").eq("id", data.user.id).single();
-        if (profile?.role !== "ADMIN") {
+        const role = (profile?.role || "").toUpperCase();
+        if (role !== "ADMIN" && role !== "COMMUNITY_MANAGER") {
           await supabase.auth.signOut();
-          setError("Access denied. Administrator privileges required.");
+          setError("Access denied. Staff privileges required.");
           setIsLoading(false);
           return;
         }
-        window.location.href = "/admin";
+        // Community managers get the scoped support inbox; admins get the console.
+        window.location.href = role === "COMMUNITY_MANAGER" ? "/admin/support" : "/admin";
       }
     } catch {
       setError("Authentication failed. Please try again.");

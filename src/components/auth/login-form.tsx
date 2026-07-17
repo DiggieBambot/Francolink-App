@@ -38,6 +38,7 @@ export function LoginForm({ role, next }: { role: "student" | "tutor"; next?: st
         const { data: profile } = await supabase.from("users").select("role").eq("id", uid).maybeSingle();
         if (profile?.role === "TUTOR") dest = "/tutor";
         else if (profile?.role === "ADMIN") dest = "/admin";
+        else if (profile?.role === "COMMUNITY_MANAGER") dest = "/admin/support";
       }
       router.push(next || dest);
       router.refresh();
