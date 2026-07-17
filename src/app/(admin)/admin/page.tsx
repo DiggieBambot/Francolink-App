@@ -1,9 +1,15 @@
 // src/app/(admin)/admin/page.tsx
 
 import { createClient } from "@/lib/supabase/server";
+import { redirect } from "next/navigation";
 import { Users, BookOpen, CreditCard, TrendingUp } from "lucide-react";
+import { getDashboardUser, isAdmin } from "@/lib/admin/access";
 
 export default async function AdminDashboardPage() {
+  // Community managers get a scoped home (support), not the full admin console.
+  const me = await getDashboardUser();
+  if (me && !isAdmin(me)) redirect("/admin/support");
+
   const supabase = await createClient();
 
   // Get stats
@@ -69,6 +75,25 @@ export default async function AdminDashboardPage() {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Growth & Support */}
+      <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 mb-6">
+        <h2 className="text-lg font-semibold text-gray-900 mb-4">Growth &amp; Support</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/admin/growth" className="p-4 border border-gray-200 rounded-lg hover:border-indigo-300 hover:bg-indigo-50 transition-colors">
+            <h3 className="font-medium text-gray-900">📈 Growth analytics</h3>
+            <p className="text-sm text-gray-500">Signups, active users, retention, acquisition</p>
+          </a>
+          <a href="/admin/support" className="p-4 border border-gray-200 rounded-lg hover:border-indigo-300 hover:bg-indigo-50 transition-colors">
+            <h3 className="font-medium text-gray-900">🎧 Support inbox</h3>
+            <p className="text-sm text-gray-500">Respond to tickets & questions</p>
+          </a>
+          <a href="/admin/moderation" className="p-4 border border-gray-200 rounded-lg hover:border-indigo-300 hover:bg-indigo-50 transition-colors">
+            <h3 className="font-medium text-gray-900">🛡️ Moderation</h3>
+            <p className="text-sm text-gray-500">Recent classroom chat</p>
+          </a>
+        </div>
       </div>
 
       {/* Quick Actions */}

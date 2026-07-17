@@ -55,11 +55,14 @@ export async function updateSession(request: NextRequest) {
 
   if (pathname.startsWith('/admin')) {
     if (!user) {
-      return NextResponse.redirect(new URL('/admin/login', request.url));  // ← was /login
+      return NextResponse.redirect(new URL('/admin/login', request.url));
     }
     const { data: userData } = await supabase.from('users').select('role').eq('id', user.id).single();
     if (!userData) return NextResponse.redirect(new URL('/onboarding', request.url));
-    if (userData?.role !== 'ADMIN') return NextResponse.redirect(new URL('/admin/login', request.url));  // ← was /dashboard
+    // Admins and community managers may enter; individual pages gate finer access.
+    if (userData?.role !== 'ADMIN' && userData?.role !== 'COMMUNITY_MANAGER') {
+      return NextResponse.redirect(new URL('/admin/login', request.url));
+    }
     return supabaseResponse;
   }
 
