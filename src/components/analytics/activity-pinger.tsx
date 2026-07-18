@@ -11,7 +11,14 @@ export function ActivityPinger() {
     try { last = localStorage.getItem("fl_active_ping"); } catch {}
     if (last === today) return;
 
-    fetch("/api/activity/ping", { method: "POST" })
+    let tz = "";
+    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch {}
+
+    fetch("/api/activity/ping", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ tz }),
+    })
       .then((r) => { if (r.ok) { try { localStorage.setItem("fl_active_ping", today); } catch {} } })
       .catch(() => {});
   }, []);

@@ -42,8 +42,8 @@ export async function logActivity(userId: string, kind: ActivityKind, opts: LogO
   }
 }
 
-/** Update last_seen_at, and record one 'active' event per user per day. */
-export async function heartbeat(userId: string): Promise<void> {
+/** Update last_seen_at (+ timezone), and record one 'active' event per user per day. */
+export async function heartbeat(userId: string, timezone?: string): Promise<void> {
   if (!userId) return;
   const s = svc();
   try {
@@ -52,7 +52,9 @@ export async function heartbeat(userId: string): Promise<void> {
     const lastSeen = u?.last_seen_at ? new Date(u.last_seen_at) : null;
     const isNewDay = !lastSeen || lastSeen.toISOString().slice(0, 10) !== now.toISOString().slice(0, 10);
 
-    await s.from("users").update({ last_seen_at: now.toISOString() }).eq("id", userId);
+    const patch: Record<string, unknown> = { last_seen_at: now.toISOString() };
+    if (timezone) patch.timezone = timezone;
+    await s.from("users").update(patch).eq("id", userId);
     if (isNewDay) {
       await s.from("user_activity").insert({ user_id: userId, kind: "active" });
     }

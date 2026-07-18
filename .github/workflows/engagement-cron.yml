@@ -1,0 +1,19 @@
+name: Engagement email cron
+
+# Vercel Hobby only allows daily crons, but timezone-aware sending needs an
+# HOURLY trigger (to catch each zone's 10am on Tue/Thu/Sun). GitHub Actions
+# runs this hourly and pings the endpoint; the endpoint decides who is due.
+on:
+  schedule:
+    - cron: "0 * * * *" # every hour, on the hour (UTC)
+  workflow_dispatch: {} # allow manual runs from the Actions tab
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger engagement send
+        run: |
+          curl -sS -X GET "https://app.francolink.net/api/cron/engagement" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            --max-time 300 --fail-with-body

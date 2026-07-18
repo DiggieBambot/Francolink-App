@@ -1,6 +1,8 @@
-// Engagement campaign cron. Scheduled ~3x/week (see vercel.json). For each
-// eligible learner it picks the single most relevant nudge from their activity
-// signals, respects opt-out, and frequency-caps so nobody is over-emailed.
+// Engagement campaign cron. Triggered HOURLY by an external scheduler
+// (.github/workflows/engagement-cron.yml — Vercel Hobby can't do sub-daily
+// crons). Each run sends only to users for whom it's currently ~10am local on
+// Tue/Thu/Sun. Picks the single most relevant nudge, respects opt-out, and
+// frequency-caps (max 3/week, 36h gap) so nobody is over-emailed.
 //
 // Query params:
 //   ?dry=1                — compute + return who WOULD get what, send nothing
@@ -28,6 +30,26 @@ function hashId(id: string): number {
   let h = 0;
   for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) | 0;
   return Math.abs(h);
+}
+
+// Locally-timed sending: Tue/Thu/Sun at ~10am in the user's own timezone.
+// The cron is triggered hourly (external scheduler); each run only sends to
+// users for whom it's currently the target hour on a target day.
+const TARGET_HOUR = 10;
+const TARGET_DAYS = new Set(["Sun", "Tue", "Thu"]);
+
+function isSendTime(tz: string | null | undefined): boolean {
+  const zone = tz || "UTC";
+  try {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: zone, weekday: "short", hour: "2-digit", hourCycle: "h23",
+    }).formatToParts(new Date());
+    const wd = parts.find((p) => p.type === "weekday")?.value || "";
+    const hr = parseInt(parts.find((p) => p.type === "hour")?.value || "-1", 10);
+    return hr === TARGET_HOUR && TARGET_DAYS.has(wd);
+  } catch {
+    return false; // invalid tz string → skip this run (they'll match on UTC next cycle isn't possible, but avoids crashes)
+  }
 }
 
 export const maxDuration = 300;
@@ -92,7 +114,7 @@ export async function GET(req: Request) {
   // --- Real run -------------------------------------------------------------
   const { data: users, error } = await s
     .from("users")
-    .select("id, email, name, learning_language, current_streak, last_seen_at, is_active, email_marketing_opt_out")
+    .select("id, email, name, learning_language, current_streak, last_seen_at, timezone, is_active, email_marketing_opt_out")
     .eq("role", "USER")
     .eq("is_active", true)
     .eq("email_marketing_opt_out", false)
@@ -117,12 +139,15 @@ export async function GET(req: Request) {
 
   const now = Date.now();
   const dayStep = Math.floor(now / DAY); // idempotency key: one engagement email per user per day max
-  let sent = 0, failed = 0, skippedCap = 0, skippedNothing = 0, skippedTest = 0;
+  let sent = 0, failed = 0, skippedCap = 0, skippedNothing = 0, skippedTest = 0, skippedTime = 0;
   const planned: { to: string; type: string }[] = [];
 
   for (const u of users || []) {
     if (sent >= limit) break;
     if (isTestAccount(u)) { skippedTest++; continue; }
+
+    // Locally-timed gate (skipped in dry-run so targeting is previewable anytime).
+    if (!dry && !isSendTime(u.timezone)) { skippedTime++; continue; }
 
     // Frequency cap.
     const recents = recentByUser.get(u.id) || [];
@@ -160,7 +185,7 @@ export async function GET(req: Request) {
   // --- Tutor pass -----------------------------------------------------------
   const { data: tutors } = await s
     .from("users")
-    .select("id, email, name, last_seen_at")
+    .select("id, email, name, last_seen_at, timezone")
     .eq("role", "TUTOR")
     .eq("is_active", true)
     .eq("email_marketing_opt_out", false)
@@ -195,6 +220,7 @@ export async function GET(req: Request) {
     for (const u of tutors || []) {
       if (sent >= limit) break;
       if (isTestAccount(u)) { skippedTest++; continue; }
+      if (!dry && !isSendTime(u.timezone)) { skippedTime++; continue; }
       const recents = recentByUser.get(u.id) || [];
       if (recents.some((t) => now - t < MIN_GAP_MS)) { skippedCap++; continue; }
       if (recents.filter((t) => now - t < 7 * DAY).length >= MAX_PER_7D) { skippedCap++; continue; }
@@ -232,7 +258,7 @@ export async function GET(req: Request) {
 
   return NextResponse.json({
     ok: true, campaign: CAMPAIGN, mode: dry ? "dry-run" : "live",
-    sent, failed, skippedCap, skippedNothing, skippedTest,
+    sent, failed, skippedCap, skippedNothing, skippedTest, skippedTime,
     ...(dry ? { planned } : {}),
   });
 }
