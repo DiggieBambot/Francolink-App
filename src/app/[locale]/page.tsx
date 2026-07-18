@@ -3,11 +3,12 @@ import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { CurrencySwitcher } from "@/components/currency-switcher";
+import Image from "next/image";
 import Link from "next/link";
 import {
   GraduationCap, Users, Sparkles, BookOpen, BarChart3, Globe,
   CheckCircle, ArrowRight, Star, Zap, Award, Building2, ChevronRight,
-  Play, Shield, Clock, MessageCircle,
+  Shield, Clock, MessageCircle,
 } from "lucide-react";
 import { LANGUAGES } from "@/lib/constants";
 import { Navbar } from "@/components/layout/navbar";
@@ -305,7 +306,13 @@ function HomeContent() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 mb-12">
             <div className="col-span-2 md:col-span-1">
               <div className="mb-5">
-                <img src="/logo-new.png" alt="Francolink" className="h-9 w-auto brightness-0 invert" />
+                <Image
+                  src="/dark-logo-transparent.png"
+                  alt="Francolink"
+                  width={180}
+                  height={60}
+                  className="h-12 w-auto"
+                />
               </div>
               <p className="text-sm text-white/50 leading-relaxed max-w-xs">{t("footer.description")}</p>
             </div>
