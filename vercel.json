@@ -4,10 +4,6 @@
     {
       "path": "/api/cron/learning-tips",
       "schedule": "0 9 * * *"
-    },
-    {
-      "path": "/api/cron/engagement",
-      "schedule": "0 15 * * 1,3,5"
     }
   ]
 }
