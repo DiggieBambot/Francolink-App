@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
     root: process.cwd(),
   },
   images: {
+    unoptimized: true,
     remotePatterns: [
       { protocol: "https", hostname: "images.pexels.com" },
       { protocol: "https", hostname: "biwacllbpdxzdxtmqtpw.supabase.co" },
