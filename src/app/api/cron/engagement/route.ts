@@ -13,7 +13,12 @@ import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { sendCampaignEmail } from "@/lib/email/send";
 import { unsubscribeUrl } from "@/lib/email/link-token";
 import { languageName } from "@/lib/email/campaigns/learning-tips";
-import { CAMPAIGN, pickMessage, render, type MessageType, type UserSignals } from "@/lib/email/campaigns/engagement";
+import {
+  CAMPAIGN, pickMessage, render, renderTutor, pickTutorMessage,
+  type MessageType, type UserSignals, type TutorMessageType, type TutorSignals,
+} from "@/lib/email/campaigns/engagement";
+
+const TUTOR_TYPES = new Set(["requests", "grow", "winback_tutor", "assign", "keep_growing"]);
 
 export const maxDuration = 300;
 export const dynamic = "force-dynamic";
@@ -52,9 +57,9 @@ export async function GET(req: Request) {
   // --- Browser preview: render one message, no auth/DB/send ------------------
   if (preview) {
     const lang = languageName(url.searchParams.get("lang"));
-    const { html } = render(preview, {
-      firstName: "Alex", lang, daysSinceSeen: 5, streak: 4, hasPendingHomework: preview === "homework",
-    });
+    const html = TUTOR_TYPES.has(preview)
+      ? renderTutor(preview as TutorMessageType, { firstName: "Marie", daysSinceSeen: 5, studentCount: 3, pendingRequests: preview === "requests" ? 2 : 0, daysSinceLastAssign: 20 }).html
+      : render(preview as MessageType, { firstName: "Alex", lang, daysSinceSeen: 5, streak: 4, hasPendingHomework: preview === "homework" }).html;
     return new NextResponse(html, { headers: { "content-type": "text/html; charset=utf-8" } });
   }
 
@@ -63,10 +68,12 @@ export async function GET(req: Request) {
 
   // --- Test send ------------------------------------------------------------
   if (testEmail) {
-    const type = (url.searchParams.get("type") as MessageType) || "nudge";
+    const type = url.searchParams.get("type") || "nudge";
     const lang = languageName(url.searchParams.get("lang") || "fr");
-    const sig: UserSignals = { firstName: testEmail.split("@")[0], lang, daysSinceSeen: 5, streak: 4, hasPendingHomework: type === "homework" };
-    const m = render(type, sig);
+    const first = testEmail.split("@")[0];
+    const m = TUTOR_TYPES.has(type)
+      ? renderTutor(type as TutorMessageType, { firstName: first, daysSinceSeen: 5, studentCount: 3, pendingRequests: type === "requests" ? 2 : 0, daysSinceLastAssign: 20 })
+      : render(type as MessageType, { firstName: first, lang, daysSinceSeen: 5, streak: 4, hasPendingHomework: type === "homework" });
     const id = await sendCampaignEmail({ to: testEmail, subject: m.subject, html: m.html, text: m.text });
     return NextResponse.json({ ok: true, sentTo: testEmail, type, resendId: id });
   }
@@ -136,6 +143,69 @@ export async function GET(req: Request) {
     } catch (e) {
       failed++;
       console.error(`[engagement] failed for ${u.email}:`, (e as Error).message);
+    }
+  }
+
+  // --- Tutor pass -----------------------------------------------------------
+  const { data: tutors } = await s
+    .from("users")
+    .select("id, email, name, last_seen_at")
+    .eq("role", "TUTOR")
+    .eq("is_active", true)
+    .eq("email_marketing_opt_out", false)
+    .not("email", "is", null);
+
+  if ((tutors || []).length > 0) {
+    const [{ data: allUsers }, { data: rels }, { data: hwAssigns }] = await Promise.all([
+      s.from("users").select("id, referred_by_tutor_id"),
+      s.from("tutor_students").select("tutor_id, student_id"),
+      s.from("homework_assignments").select("tutor_id, assigned_at"),
+    ]);
+    const referredBy = new Map((allUsers || []).map((u) => [u.id, u.referred_by_tutor_id]));
+    const connectedByTutor = new Map<string, number>();
+    for (const u of allUsers || []) {
+      if (u.referred_by_tutor_id) connectedByTutor.set(u.referred_by_tutor_id, (connectedByTutor.get(u.referred_by_tutor_id) || 0) + 1);
+    }
+    const pendingByTutor = new Map<string, number>();
+    for (const r of rels || []) {
+      if (referredBy.get(r.student_id) !== r.tutor_id) pendingByTutor.set(r.tutor_id, (pendingByTutor.get(r.tutor_id) || 0) + 1);
+    }
+    const lastAssignByTutor = new Map<string, number>();
+    for (const a of hwAssigns || []) {
+      const t = new Date(a.assigned_at).getTime();
+      if (t > (lastAssignByTutor.get(a.tutor_id) || 0)) lastAssignByTutor.set(a.tutor_id, t);
+    }
+
+    for (const u of tutors || []) {
+      if (sent >= limit) break;
+      if (isTestAccount(u)) { skippedTest++; continue; }
+      const recents = recentByUser.get(u.id) || [];
+      if (recents.some((t) => now - t < MIN_GAP_MS)) { skippedCap++; continue; }
+      if (recents.filter((t) => now - t < 7 * DAY).length >= MAX_PER_7D) { skippedCap++; continue; }
+
+      const lastAssign = lastAssignByTutor.get(u.id);
+      const sig: TutorSignals = {
+        firstName: (u.name || u.email.split("@")[0]).split(/\s+/)[0],
+        daysSinceSeen: u.last_seen_at ? (now - new Date(u.last_seen_at).getTime()) / DAY : Infinity,
+        studentCount: connectedByTutor.get(u.id) || 0,
+        pendingRequests: pendingByTutor.get(u.id) || 0,
+        daysSinceLastAssign: lastAssign ? (now - lastAssign) / DAY : Infinity,
+      };
+      const type = pickTutorMessage(sig);
+      if (!type) { skippedNothing++; continue; }
+      if (dry) { planned.push({ to: u.email, type: `tutor:${type}` }); continue; }
+
+      const unsub = unsubscribeUrl(u.id, CAMPAIGN);
+      const m = renderTutor(type, sig, unsub);
+      try {
+        const resendId = await sendCampaignEmail({ to: u.email, subject: m.subject, html: m.html, text: m.text, unsubscribeUrl: unsub });
+        const { error: insErr } = await s.from("email_campaign_sends").insert({ user_id: u.id, campaign: CAMPAIGN, step: dayStep, resend_id: resendId });
+        if (insErr && !insErr.message.includes("duplicate")) throw insErr;
+        sent++;
+      } catch (e) {
+        failed++;
+        console.error(`[engagement] tutor failed for ${u.email}:`, (e as Error).message);
+      }
     }
   }
 

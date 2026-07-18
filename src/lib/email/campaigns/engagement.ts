@@ -32,6 +32,26 @@ export function pickMessage(s: UserSignals): MessageType | null {
   return "discover";
 }
 
+// ── Tutor track ──────────────────────────────────────────────────────────────
+export type TutorMessageType = "requests" | "grow" | "winback_tutor" | "assign" | "keep_growing";
+
+export interface TutorSignals {
+  firstName: string;
+  daysSinceSeen: number;
+  studentCount: number;
+  pendingRequests: number;
+  daysSinceLastAssign: number; // Infinity if never assigned homework
+}
+
+export function pickTutorMessage(s: TutorSignals): TutorMessageType | null {
+  if (s.pendingRequests > 0) return "requests";      // actionable: accept waiting students
+  if (s.studentCount === 0) return "grow";           // no class yet
+  if (s.daysSinceSeen >= 7) return "winback_tutor";
+  if (s.daysSinceLastAssign >= 14) return "assign";  // has students, not assigning work
+  if (s.daysSinceSeen < 1) return null;              // active today
+  return "keep_growing";
+}
+
 function build(firstName: string, subject: string, paras: string[], ctaText: string, ctaHref: string, unsubscribeUrl?: string): RenderedEmail {
   const bodyHtml = paras.map((p) => `<p style="margin:0 0 16px 0;font-size:16px;">${p}</p>`).join("");
   const text = `Hi ${firstName},\n\n${paras.map((p) => p.replace(/<[^>]+>/g, "")).join("\n\n")}\n\n${ctaText}: ${ctaHref}`;
@@ -103,6 +123,75 @@ export function render(type: MessageType, s: UserSignals, unsubscribeUrl?: strin
         ],
         "Explore lessons",
         `${APP_URL}/library`,
+        unsubscribeUrl
+      );
+  }
+}
+
+export function renderTutor(type: TutorMessageType, s: TutorSignals, unsubscribeUrl?: string): RenderedEmail {
+  const name = escapeHtml(s.firstName);
+  const students = `${APP_URL}/tutor/students`;
+
+  switch (type) {
+    case "requests":
+      return build(
+        name,
+        `${s.pendingRequests} student${s.pendingRequests === 1 ? "" : "s"} waiting to join your class`,
+        [
+          `You have <b>${s.pendingRequests} pending request${s.pendingRequests === 1 ? "" : "s"}</b> from student${s.pendingRequests === 1 ? "" : "s"} who want to learn with you.`,
+          `Accept them from your Students tab and you can start sending lessons and homework right away.`,
+        ],
+        "Review requests",
+        students,
+        unsubscribeUrl
+      );
+    case "grow":
+      return build(
+        name,
+        `${name}, bring your students to FrancoLink`,
+        [
+          `Your teaching space is ready — the fastest way to get going is to invite your students.`,
+          `Grab your invite link from the Students tab and share it. When a student joins and upgrades, you earn commission too.`,
+        ],
+        "Get my invite link",
+        students,
+        unsubscribeUrl
+      );
+    case "winback_tutor":
+      return build(
+        name,
+        `Your students are ready when you are`,
+        [
+          `It's been a little while! Your students learn best with regular live sessions.`,
+          `Hop back in, open your classroom, and run a quick lesson — even 15 minutes keeps them moving.`,
+        ],
+        "Open my classroom",
+        `${APP_URL}/tutor`,
+        unsubscribeUrl
+      );
+    case "assign":
+      return build(
+        name,
+        `Keep your students practising between lessons`,
+        [
+          `You have students but haven't sent homework in a while. A few questions after a lesson really cements what they learn.`,
+          `Open any library lesson, hit <b>Send homework</b>, and pick your students — their answers come back to your Homework tab.`,
+        ],
+        "Send homework",
+        `${APP_URL}/library`,
+        unsubscribeUrl
+      );
+    case "keep_growing":
+    default:
+      return build(
+        name,
+        `Grow your class on FrancoLink`,
+        [
+          `You're up and running — nice! Want more students? Share your invite link with a few more learners this week.`,
+          `Every student who joins and upgrades earns you monthly commission.`,
+        ],
+        "Grow my class",
+        students,
         unsubscribeUrl
       );
   }
