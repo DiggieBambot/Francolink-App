@@ -14,11 +14,21 @@ import { sendCampaignEmail } from "@/lib/email/send";
 import { unsubscribeUrl } from "@/lib/email/link-token";
 import { languageName } from "@/lib/email/campaigns/learning-tips";
 import {
-  CAMPAIGN, pickMessage, render, renderTutor, pickTutorMessage,
+  CAMPAIGN, pickMessage, render, renderTutor, pickTutorMessage, TUTOR_VALUE_THEMES,
   type MessageType, type UserSignals, type TutorMessageType, type TutorSignals,
 } from "@/lib/email/campaigns/engagement";
 
-const TUTOR_TYPES = new Set(["requests", "grow", "winback_tutor", "assign", "keep_growing"]);
+const TUTOR_TYPES = new Set([
+  "requests", "winback_tutor", "assign",
+  "whats_new", "commission", "materials_free", "features", "teaching_easy",
+]);
+
+// Stable small hash for per-tutor theme rotation.
+function hashId(id: string): number {
+  let h = 0;
+  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) | 0;
+  return Math.abs(h);
+}
 
 export const maxDuration = 300;
 export const dynamic = "force-dynamic";
@@ -57,8 +67,9 @@ export async function GET(req: Request) {
   // --- Browser preview: render one message, no auth/DB/send ------------------
   if (preview) {
     const lang = languageName(url.searchParams.get("lang"));
+    const sampleExtras = { newLessonCount: 12, newLessonSamples: ["Comment ça va ?", "At the Restaurant", "Job Interview"] };
     const html = TUTOR_TYPES.has(preview)
-      ? renderTutor(preview as TutorMessageType, { firstName: "Marie", daysSinceSeen: 5, studentCount: 3, pendingRequests: preview === "requests" ? 2 : 0, daysSinceLastAssign: 20 }).html
+      ? renderTutor(preview as TutorMessageType, { firstName: "Marie", daysSinceSeen: 5, studentCount: 3, pendingRequests: preview === "requests" ? 2 : 0, daysSinceLastAssign: 20 }, undefined, sampleExtras).html
       : render(preview as MessageType, { firstName: "Alex", lang, daysSinceSeen: 5, streak: 4, hasPendingHomework: preview === "homework" }).html;
     return new NextResponse(html, { headers: { "content-type": "text/html; charset=utf-8" } });
   }
@@ -72,7 +83,7 @@ export async function GET(req: Request) {
     const lang = languageName(url.searchParams.get("lang") || "fr");
     const first = testEmail.split("@")[0];
     const m = TUTOR_TYPES.has(type)
-      ? renderTutor(type as TutorMessageType, { firstName: first, daysSinceSeen: 5, studentCount: 3, pendingRequests: type === "requests" ? 2 : 0, daysSinceLastAssign: 20 })
+      ? renderTutor(type as TutorMessageType, { firstName: first, daysSinceSeen: 5, studentCount: 3, pendingRequests: type === "requests" ? 2 : 0, daysSinceLastAssign: 20 }, undefined, { newLessonCount: 12, newLessonSamples: ["Comment ça va ?", "At the Restaurant", "Job Interview"] })
       : render(type as MessageType, { firstName: first, lang, daysSinceSeen: 5, streak: 4, hasPendingHomework: type === "homework" });
     const id = await sendCampaignEmail({ to: testEmail, subject: m.subject, html: m.html, text: m.text });
     return NextResponse.json({ ok: true, sentTo: testEmail, type, resendId: id });
@@ -156,11 +167,16 @@ export async function GET(req: Request) {
     .not("email", "is", null);
 
   if ((tutors || []).length > 0) {
-    const [{ data: allUsers }, { data: rels }, { data: hwAssigns }] = await Promise.all([
+    const [{ data: allUsers }, { data: rels }, { data: hwAssigns }, { data: freshLessons }] = await Promise.all([
       s.from("users").select("id, referred_by_tutor_id"),
       s.from("tutor_students").select("tutor_id, student_id"),
       s.from("homework_assignments").select("tutor_id, assigned_at"),
+      s.from("tutor_lessons").select("title").eq("status", "published")
+        .gte("published_at", new Date(now - 21 * DAY).toISOString())
+        .order("published_at", { ascending: false }).limit(30),
     ]);
+    const newLessonCount = (freshLessons || []).length;
+    const newLessonSamples = (freshLessons || []).slice(0, 3).map((l) => l.title as string);
     const referredBy = new Map((allUsers || []).map((u) => [u.id, u.referred_by_tutor_id]));
     const connectedByTutor = new Map<string, number>();
     for (const u of allUsers || []) {
@@ -191,12 +207,17 @@ export async function GET(req: Request) {
         pendingRequests: pendingByTutor.get(u.id) || 0,
         daysSinceLastAssign: lastAssign ? (now - lastAssign) / DAY : Infinity,
       };
-      const type = pickTutorMessage(sig);
+      // Rotate the value theme per tutor per send. Skip "what's new" when there's nothing new.
+      let rotationTheme = TUTOR_VALUE_THEMES[(dayStep + hashId(u.id)) % TUTOR_VALUE_THEMES.length];
+      if (rotationTheme === "whats_new" && newLessonCount === 0) {
+        rotationTheme = TUTOR_VALUE_THEMES[(dayStep + hashId(u.id) + 1) % TUTOR_VALUE_THEMES.length];
+      }
+      const type = pickTutorMessage(sig, rotationTheme);
       if (!type) { skippedNothing++; continue; }
       if (dry) { planned.push({ to: u.email, type: `tutor:${type}` }); continue; }
 
       const unsub = unsubscribeUrl(u.id, CAMPAIGN);
-      const m = renderTutor(type, sig, unsub);
+      const m = renderTutor(type, sig, unsub, { newLessonCount, newLessonSamples });
       try {
         const resendId = await sendCampaignEmail({ to: u.email, subject: m.subject, html: m.html, text: m.text, unsubscribeUrl: unsub });
         const { error: insErr } = await s.from("email_campaign_sends").insert({ user_id: u.id, campaign: CAMPAIGN, step: dayStep, resend_id: resendId });

@@ -33,7 +33,15 @@ export function pickMessage(s: UserSignals): MessageType | null {
 }
 
 // ── Tutor track ──────────────────────────────────────────────────────────────
-export type TutorMessageType = "requests" | "grow" | "winback_tutor" | "assign" | "keep_growing";
+// Behavioural (time-sensitive) types + rotating value themes.
+export type TutorMessageType =
+  | "requests" | "winback_tutor" | "assign"                       // behavioural
+  | "whats_new" | "commission" | "materials_free" | "features" | "teaching_easy"; // value
+
+/** Rotating value themes — cycled so tutors get varied content each send. */
+export const TUTOR_VALUE_THEMES: TutorMessageType[] = [
+  "whats_new", "commission", "materials_free", "features", "teaching_easy",
+];
 
 export interface TutorSignals {
   firstName: string;
@@ -43,13 +51,18 @@ export interface TutorSignals {
   daysSinceLastAssign: number; // Infinity if never assigned homework
 }
 
-export function pickTutorMessage(s: TutorSignals): TutorMessageType | null {
-  if (s.pendingRequests > 0) return "requests";      // actionable: accept waiting students
-  if (s.studentCount === 0) return "grow";           // no class yet
-  if (s.daysSinceSeen >= 7) return "winback_tutor";
-  if (s.daysSinceLastAssign >= 14) return "assign";  // has students, not assigning work
-  if (s.daysSinceSeen < 1) return null;              // active today
-  return "keep_growing";
+export interface TutorExtras {
+  newLessonCount?: number;
+  newLessonSamples?: string[];
+}
+
+// Behaviour takes priority; otherwise send the rotated value theme.
+export function pickTutorMessage(s: TutorSignals, rotationTheme: TutorMessageType): TutorMessageType | null {
+  if (s.pendingRequests > 0) return "requests";
+  if (s.daysSinceSeen >= 10) return "winback_tutor";
+  if (s.studentCount > 0 && s.daysSinceLastAssign >= 14) return "assign";
+  if (s.daysSinceSeen < 1) return null;              // active today — skip
+  return rotationTheme;
 }
 
 function build(firstName: string, subject: string, paras: string[], ctaText: string, ctaHref: string, unsubscribeUrl?: string): RenderedEmail {
@@ -128,11 +141,13 @@ export function render(type: MessageType, s: UserSignals, unsubscribeUrl?: strin
   }
 }
 
-export function renderTutor(type: TutorMessageType, s: TutorSignals, unsubscribeUrl?: string): RenderedEmail {
+export function renderTutor(type: TutorMessageType, s: TutorSignals, unsubscribeUrl?: string, extras: TutorExtras = {}): RenderedEmail {
   const name = escapeHtml(s.firstName);
   const students = `${APP_URL}/tutor/students`;
+  const library = `${APP_URL}/library`;
 
   switch (type) {
+    // ── Behavioural ──────────────────────────────────────────────────────────
     case "requests":
       return build(
         name,
@@ -141,21 +156,7 @@ export function renderTutor(type: TutorMessageType, s: TutorSignals, unsubscribe
           `You have <b>${s.pendingRequests} pending request${s.pendingRequests === 1 ? "" : "s"}</b> from student${s.pendingRequests === 1 ? "" : "s"} who want to learn with you.`,
           `Accept them from your Students tab and you can start sending lessons and homework right away.`,
         ],
-        "Review requests",
-        students,
-        unsubscribeUrl
-      );
-    case "grow":
-      return build(
-        name,
-        `${name}, bring your students to FrancoLink`,
-        [
-          `Your teaching space is ready — the fastest way to get going is to invite your students.`,
-          `Grab your invite link from the Students tab and share it. When a student joins and upgrades, you earn commission too.`,
-        ],
-        "Get my invite link",
-        students,
-        unsubscribeUrl
+        "Review requests", students, unsubscribeUrl
       );
     case "winback_tutor":
       return build(
@@ -165,34 +166,74 @@ export function renderTutor(type: TutorMessageType, s: TutorSignals, unsubscribe
           `It's been a little while! Your students learn best with regular live sessions.`,
           `Hop back in, open your classroom, and run a quick lesson — even 15 minutes keeps them moving.`,
         ],
-        "Open my classroom",
-        `${APP_URL}/tutor`,
-        unsubscribeUrl
+        "Open my classroom", `${APP_URL}/tutor`, unsubscribeUrl
       );
     case "assign":
       return build(
         name,
         `Keep your students practising between lessons`,
         [
-          `You have students but haven't sent homework in a while. A few questions after a lesson really cements what they learn.`,
-          `Open any library lesson, hit <b>Send homework</b>, and pick your students — their answers come back to your Homework tab.`,
+          `A few homework questions after a lesson really cement what your students learn — and it's two clicks.`,
+          `Open any library lesson, hit <b>Send homework</b>, pick your students, and their answers come back to your Homework tab for feedback.`,
         ],
-        "Send homework",
-        `${APP_URL}/library`,
-        unsubscribeUrl
+        "Send homework", library, unsubscribeUrl
       );
-    case "keep_growing":
+
+    // ── Value themes ─────────────────────────────────────────────────────────
+    case "whats_new": {
+      const n = extras.newLessonCount || 0;
+      const samples = (extras.newLessonSamples || []).slice(0, 3);
+      const sampleLine = samples.length ? ` including <b>${samples.map(escapeHtml).join("</b>, <b>")}</b>` : "";
+      return build(
+        name,
+        `🆕 ${n} new lesson${n === 1 ? "" : "s"} added to your library`,
+        [
+          `We just added <b>${n} fresh lesson${n === 1 ? "" : "s"}</b>${sampleLine} — all ready to teach, no prep.`,
+          `Pick one for your next session, or send it to a student as homework. New materials land regularly, so there's always something to keep your classes fresh.`,
+        ],
+        "Browse new lessons", library, unsubscribeUrl
+      );
+    }
+    case "commission":
+      return build(
+        name,
+        `Turn your students into recurring income 💸`,
+        [
+          `Every student you bring to FrancoLink who upgrades earns you <b>10% commission every month</b> — recurring, on top of your teaching.`,
+          `Share your invite link, build your class, and watch it add up. Your link is in the Students tab.`,
+        ],
+        "Get my invite link", students, unsubscribeUrl
+      );
+    case "materials_free":
+      return build(
+        name,
+        `Ready-made lessons — free for you to teach with`,
+        [
+          `Every lesson in our library is <b>free for you to use</b>: structured, CEFR-aligned, with tutor notes, examples and answers built in.`,
+          `No slides to make, no worksheets to hunt down. Open a lesson and teach — we've done the prep.`,
+        ],
+        "Explore the library", library, unsubscribeUrl
+      );
+    case "features":
+      return build(
+        name,
+        `Everything you need to run your class, in one place`,
+        [
+          `Your teaching toolkit keeps growing: a <b>live classroom link</b> to share like a meeting, <b>send-homework</b> with feedback, and automatic <b>progress tracking</b> for every student.`,
+          `It all works together — teach live, assign practice, see who's keeping up, right from your dashboard.`,
+        ],
+        "See my dashboard", `${APP_URL}/tutor`, unsubscribeUrl
+      );
+    case "teaching_easy":
     default:
       return build(
         name,
-        `Grow your class on FrancoLink`,
+        `Teach more, prep less`,
         [
-          `You're up and running — nice! Want more students? Share your invite link with a few more learners this week.`,
-          `Every student who joins and upgrades earns you monthly commission.`,
+          `Planning eats a tutor's time. Our materials do the heavy lifting — pick a lesson, share your classroom link, teach live, then send homework in two clicks.`,
+          `Your students progress and stay motivated; you focus on the teaching, not the busywork.`,
         ],
-        "Grow my class",
-        students,
-        unsubscribeUrl
+        "Start a lesson", library, unsubscribeUrl
       );
   }
 }
