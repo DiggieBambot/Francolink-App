@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { Shield, Lock, Mail, Eye, EyeOff, Loader2, AlertTriangle } from "lucide-react";
+import { AdminGoogleButton } from "@/components/auth/admin-google-button";
 
 export default function AdminLoginPage() {
   const [email, setEmail] = useState("");
@@ -22,6 +23,11 @@ export default function AdminLoginPage() {
     updateTime();
     const interval = setInterval(updateTime, 1000);
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const err = new URLSearchParams(window.location.search).get("error");
+    if (err) setError(err);
   }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -133,7 +139,7 @@ export default function AdminLoginPage() {
 
         /* Panel */
         .panel {
-          position: relative; z-index: 10; width: 440px;
+          position: relative; z-index: 10; width: min(440px, calc(100vw - 40px));
           opacity: 0; transform: translateY(20px);
           animation: fadein 0.7s cubic-bezier(0.16,1,0.3,1) forwards 0.15s;
         }
@@ -171,6 +177,7 @@ export default function AdminLoginPage() {
           border: 1px solid rgba(30,58,95,0.4);
           border-radius: 20px; padding: 36px;
           backdrop-filter: blur(24px);
+          -webkit-backdrop-filter: blur(24px);
           box-shadow:
             0 0 0 1px rgba(255,255,255,0.02),
             0 40px 80px rgba(0,0,0,0.6),
@@ -261,16 +268,50 @@ export default function AdminLoginPage() {
         .sbtn:active:not(:disabled) { transform: translateY(0); }
         .sbtn:disabled { opacity: 0.4; cursor: not-allowed; }
 
-        .div { border: none; border-top: 1px solid rgba(30,58,95,0.3); margin: 28px 0 22px; }
+        /* OR divider — sits between password auth and SSO */
+        .orsep { display: flex; align-items: center; gap: 12px; margin: 24px 0 20px; }
+        .orsep::before, .orsep::after { content: ''; flex: 1; height: 1px; background: rgba(30,58,95,0.35); }
+        .orsep span { font-size: 9px; color: rgba(100,130,180,0.45); letter-spacing: 0.18em; text-transform: uppercase; }
+
+        /* Google button — same panel language, cooler/neutral accent so it reads
+           as a secondary path next to the orange primary CTA */
+        .gbtn {
+          width: 100%;
+          background: rgba(10,20,45,0.5);
+          border: 1px solid rgba(30,58,95,0.55);
+          border-radius: 10px; padding: 13px;
+          font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500;
+          color: #a8bfe0;
+          display: flex; align-items: center; justify-content: center; gap: 10px;
+          cursor: pointer; transition: all 0.2s; letter-spacing: 0.02em;
+        }
+        .gbtn:hover:not(:disabled) {
+          border-color: rgba(120,160,220,0.6);
+          background: rgba(15,30,65,0.7);
+          color: #dce6f7;
+          transform: translateY(-1px);
+          box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+        }
+        .gbtn:active:not(:disabled) { transform: translateY(0); }
+        .gbtn:disabled { opacity: 0.5; cursor: not-allowed; }
 
         .meta {
           display: flex; align-items: center; justify-content: space-between;
+          margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(30,58,95,0.3);
           font-size: 10px; color: rgba(100,130,180,0.25); letter-spacing: 0.1em;
         }
         .back { color: rgba(234,88,12,0.35); text-decoration: none; font-size: 10px; letter-spacing: 0.1em; transition: color 0.2s; }
         .back:hover { color: rgba(234,88,12,0.7); }
 
         @keyframes spin { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
+
+        /* Small screens: hide the floating status bar (it collides with the
+           panel once there's no room above it) and tighten card padding */
+        @media (max-width: 480px) {
+          .sb { display: none; }
+          .card { padding: 26px; }
+          .c { width: 60px; height: 60px; }
+        }
       `}</style>
 
       <div className="ar">
@@ -313,7 +354,8 @@ export default function AdminLoginPage() {
                 <div className="fwrap">
                   <div className="ficon"><Mail size={15} /></div>
                   <input type="email" className="finput" placeholder="admin@francolink.net"
-                    value={email} onChange={(e) => setEmail(e.target.value)} required autoComplete="email" />
+                    value={email} onChange={(e) => setEmail(e.target.value)} required autoComplete="email"
+                    autoFocus disabled={isLoading} />
                 </div>
               </div>
               <div className="fl">
@@ -322,8 +364,9 @@ export default function AdminLoginPage() {
                   <div className="ficon"><Lock size={15} /></div>
                   <input type={showPassword ? "text" : "password"} className="finput pr"
                     placeholder="••••••••••••" value={password}
-                    onChange={(e) => setPassword(e.target.value)} required autoComplete="current-password" />
-                  <button type="button" className="ftoggle" onClick={() => setShowPassword(!showPassword)}>
+                    onChange={(e) => setPassword(e.target.value)} required autoComplete="current-password"
+                    disabled={isLoading} />
+                  <button type="button" className="ftoggle" onClick={() => setShowPassword(!showPassword)} disabled={isLoading}>
                     {showPassword ? <EyeOff size={15} /> : <Eye size={15} />}
                   </button>
                 </div>
@@ -335,7 +378,10 @@ export default function AdminLoginPage() {
                 }
               </button>
             </form>
-            <hr className="div" />
+
+            <div className="orsep"><span>Or continue with</span></div>
+            <AdminGoogleButton />
+
             <div className="meta">
               <span>v2.0 // SECURE CHANNEL</span>
               <a href="/login" className="back">← User Login</a>

@@ -59,6 +59,27 @@ export async function GET(request: NextRequest) {
         .eq("id", user.id)
         .maybeSingle();
 
+      // Admin-console Google sign-in: NEVER auto-provision a staff role via
+      // OAuth. Only an account that already has ADMIN/COMMUNITY_MANAGER may
+      // pass; anyone else is rejected and signed out, same as a bad password
+      // on /admin/login. This must run before the generic role-routing below.
+      if (searchParams.get("staff") === "1") {
+        const role = (profile?.role || "").toUpperCase();
+        if (role !== "ADMIN" && role !== "COMMUNITY_MANAGER") {
+          await supabase.auth.signOut();
+          // Carry the sign-out's cleared cookies (mutated onto `response` by
+          // the same cookie handler) instead of losing them in a fresh redirect.
+          const deny = NextResponse.redirect(
+            `${origin}/admin/login?error=${encodeURIComponent("Access denied. This Google account has no staff access.")}`
+          );
+          response.headers.getSetCookie().forEach((c) => deny.headers.append("Set-Cookie", c));
+          return deny;
+        }
+        const dest = role === "COMMUNITY_MANAGER" ? "/admin/support" : "/admin";
+        response.headers.set("location", `${origin}${dest}`);
+        return response;
+      }
+
       // Google OAuth tutor signup: user chose the tutor path but isn't a tutor
       // yet. Students are role "USER" here (not "STUDENT"); upgrade anyone who
       // isn't already a TUTOR/ADMIN. Brand-new Google users may have no row yet,
