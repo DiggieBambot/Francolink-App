@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="World news">
+  <rect width="1600" height="900" fill="#0f172a"/>
+  <circle cx="800" cy="450" r="300" fill="#14b8a6" opacity=".82"/>
+  <path d="M545 350c120-95 240-120 360-75 90 35 110 110 45 155-60 42-25 115 70 120 90 4 140 52 120 115-175 120-430 105-580-35-110-102-115-213-15-280z" fill="#fff" opacity=".88"/>
+  <path d="M690 205c-65 145-65 345 0 490M910 205c65 145 65 345 0 490M500 450h600" fill="none" stroke="#0f172a" stroke-width="10" opacity=".45"/>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Sports news">
+  <rect width="1600" height="900" fill="#0f172a"/>
+  <rect y="620" width="1600" height="280" fill="#16a34a" opacity=".35"/>
+  <circle cx="800" cy="430" r="210" fill="#fff" opacity=".92"/>
+  <path d="M800 220v420M590 430h420M660 290c90 70 190 70 280 0M660 570c90-70 190-70 280 0" fill="none" stroke="#0f172a" stroke-width="18"/>
+</svg>

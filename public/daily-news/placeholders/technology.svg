@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Technology news">
+  <rect width="1600" height="900" fill="#0f172a"/>
+  <path d="M0 650h1600v250H0z" fill="#14b8a6" opacity=".18"/>
+  <g fill="none" stroke="#f59e0b" stroke-width="8" opacity=".8">
+    <path d="M300 250h1000v420H300z"/>
+    <path d="M520 760h560M760 670v90M840 670v90"/>
+  </g>
+  <g fill="#fff" opacity=".9">
+    <circle cx="510" cy="420" r="18"/>
+    <circle cx="650" cy="420" r="18"/>
+    <circle cx="790" cy="420" r="18"/>
+    <circle cx="930" cy="420" r="18"/>
+    <circle cx="1070" cy="420" r="18"/>
+  </g>
+  <path d="M510 420h560" stroke="#fff" stroke-width="6" opacity=".55"/>
+</svg>

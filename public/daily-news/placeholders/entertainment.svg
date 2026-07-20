@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Entertainment news">
+  <rect width="1600" height="900" fill="#0f172a"/>
+  <path d="M280 260h1040v460H280z" fill="#fff" opacity=".9"/>
+  <path d="M340 320h920v340H340z" fill="#111827"/>
+  <path d="M720 390l210 100-210 100z" fill="#f59e0b"/>
+  <g fill="#14b8a6" opacity=".8">
+    <circle cx="330" cy="260" r="34"/><circle cx="1270" cy="260" r="34"/>
+    <circle cx="330" cy="720" r="34"/><circle cx="1270" cy="720" r="34"/>
+  </g>
+</svg>

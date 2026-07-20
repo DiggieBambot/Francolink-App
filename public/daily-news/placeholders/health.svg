@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Health news">
+  <rect width="1600" height="900" fill="#0f172a"/>
+  <circle cx="1210" cy="200" r="260" fill="#14b8a6" opacity=".22"/>
+  <circle cx="360" cy="700" r="280" fill="#f59e0b" opacity=".18"/>
+  <path d="M735 260h130v185h185v130H865v185H735V575H550V445h185z" fill="#fff" opacity=".92"/>
+</svg>

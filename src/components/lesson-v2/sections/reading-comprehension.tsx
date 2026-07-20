@@ -60,31 +60,27 @@ export function ReadingComprehensionSectionComp({
       </article>
 
       {/* Comprehension questions (answers shown in tutor view only) */}
-      {(() => {
-        const questions = (section as { questions?: { question: string; answer?: string }[] }).questions;
-        if (!questions?.length) return null;
-        return (
-          <div className="mx-auto mt-8 max-w-[68ch]">
-            <h4 className="mb-3 font-heading text-lg font-bold text-primary">Compréhension</h4>
-            <ol className="space-y-3">
-              {questions.map((q, i) => (
-                <li key={i} className="rounded-xl border border-gray-100 bg-white p-4 shadow-soft">
-                  <p className="font-medium text-gray-800">
-                    <span className="mr-2 font-bold text-primary">{i + 1}.</span>
-                    {q.question}
+      {section.questions?.length ? (
+        <div className="mx-auto mt-8 max-w-[68ch]">
+          <h4 className="mb-3 font-heading text-lg font-bold text-primary">Compréhension</h4>
+          <ol className="space-y-3">
+            {section.questions.map((q, i) => (
+              <li key={i} className="rounded-xl border border-gray-100 bg-white p-4 shadow-soft">
+                <p className="font-medium text-gray-800">
+                  <span className="mr-2 font-bold text-primary">{i + 1}.</span>
+                  {q.question}
+                </p>
+                {view === "tutor" && q.answer ? (
+                  <p className="mt-2 rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-900">
+                    <span className="font-semibold">Réponse : </span>
+                    {q.answer}
                   </p>
-                  {view === "tutor" && q.answer ? (
-                    <p className="mt-2 rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-900">
-                      <span className="font-semibold">Réponse : </span>
-                      {q.answer}
-                    </p>
-                  ) : null}
-                </li>
-              ))}
-            </ol>
-          </div>
-        );
-      })()}
+                ) : null}
+              </li>
+            ))}
+          </ol>
+        </div>
+      ) : null}
 
       <TutorNotes view={view} instruction={section.tutor_instruction} />
     </SectionCard>

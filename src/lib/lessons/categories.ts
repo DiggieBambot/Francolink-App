@@ -85,6 +85,14 @@ export const ENGLISH_CATEGORIES: Category[] = [
     gradient: "from-emerald-400 to-green-500",
     language: "en",
   },
+  {
+    slug: "daily-news",
+    name: "Daily News",
+    description: "Fresh, real-world stories across tech, health, sports, entertainment, world & science — rewritten for learners.",
+    emoji: "📰",
+    gradient: "from-rose-500 to-orange-500",
+    language: "en",
+  },
 ];
 
 // ─── Combined ────────────────────────────────────────────────────────────────
@@ -111,6 +119,12 @@ export function categoryForLesson(
   const path = (sourceUrl || "").toLowerCase();
   const tags = (topicTags || []).map((t) => t.toLowerCase()).join(" ");
   const hay = `${path} ${tags}`;
+
+  // Daily News lessons carry a "Daily News" topic tag (see daily-news
+  // pipeline). Route them to their own section regardless of sector
+  // (technology/health/etc.) — check this before the generic English rules
+  // so a business or travel story doesn't get miscategorized away from it.
+  if (/\bdaily news\b/.test(tags)) return "daily-news";
 
   if (lang === "en") {
     if (/\bkid|young learner|english for kid/.test(hay)) return "en-kids";

@@ -129,6 +129,8 @@ export interface ReadingComprehensionSection extends BaseSection {
   /** Optional image to accompany the passage. */
   image_hint?: string;
   image_url?: string;
+  /** Optional comprehension questions (answer shown in tutor view only). */
+  questions?: { question: string; answer?: string }[];
 }
 
 export interface FreeResponseSection extends BaseSection {

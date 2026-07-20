@@ -1,0 +1,699 @@
+import * as cheerio from "cheerio";
+import OpenAI from "openai";
+import type { SupabaseClient } from "@supabase/supabase-js";
+import type { Lesson, Section, VocabItem } from "@/lib/lessons/types";
+import { CATEGORY_PLACEHOLDERS, getDailyNewsConfig, GOOGLE_NEWS_TOPICS } from "./config";
+import type {
+  BannerImage,
+  BuiltLesson,
+  CandidateScore,
+  DailyNewsCategory,
+  DailyNewsConfig,
+  DailyNewsRunResult,
+  GeneratedDailyNewsLesson,
+  NewsCandidate,
+} from "./types";
+import {
+  compactText,
+  fetchWithTimeout,
+  parseJsonObject,
+  sha256,
+  slugify,
+  stripHtml,
+  withRetries,
+} from "./utils";
+
+const MAX_SOURCE_TEXT_CHARS = 9000;
+const MIN_EXTRACTED_TEXT_CHARS = 700;
+
+type DbClient = SupabaseClient;
+
+interface RunOptions {
+  dryRun?: boolean;
+  config?: Partial<DailyNewsConfig>;
+}
+
+interface InsertedRun {
+  id: string;
+}
+
+interface InsertedLesson {
+  id: string;
+  slug: string;
+  title: string;
+}
+
+function googleNewsUrl(category: DailyNewsCategory): string {
+  const topic = GOOGLE_NEWS_TOPICS[category];
+  return `https://news.google.com/rss/headlines/section/topic/${topic}?hl=en-US&gl=US&ceid=US:en`;
+}
+
+function getOpenAI(): OpenAI {
+  if (!process.env.OPENAI_API_KEY) {
+    throw new Error("OPENAI_API_KEY is not configured");
+  }
+  return new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+}
+
+function authHeaders(): HeadersInit {
+  return {
+    accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+  };
+}
+
+// Google News RSS `link` values (format /rss/articles/CBMi...) do NOT
+// server-redirect to the publisher — the article's actual URL is embedded in
+// a signed payload on the interstitial page and must be decoded through
+// Google's internal batchexecute RPC. This is the same technique used by the
+// public `google-news-url-decoder` tools; it's unofficial and could break if
+// Google changes the format (verified live against a real feed item, PRD §6).
+// Any failure at any step falls back to the original Google link, per PRD §6:
+// "If resolution fails, keep the Google link but flag it."
+async function decodeGoogleNewsArticleUrl(googleUrl: string): Promise<string | null> {
+  const idMatch = googleUrl.match(/\/articles\/([^?]+)/);
+  if (!idMatch) return null;
+  const articleId = idMatch[1];
+
+  // Step 1: fetch the interstitial page, following its self-redirect by hand
+  // (fetch() doesn't persist cookies across calls like a browser does, and
+  // Google's consent-cookie hop is required before it serves the real page).
+  let cookie = "";
+  let html = "";
+  let url = googleUrl;
+  for (let hop = 0; hop < 3; hop++) {
+    const res = await fetchWithTimeout(
+      url,
+      { redirect: "manual", headers: { ...authHeaders(), ...(cookie ? { cookie } : {}) } },
+      10000
+    );
+    const setCookie = res.headers.get("set-cookie");
+    if (setCookie) cookie = setCookie.split(";")[0];
+    if (res.status >= 300 && res.status < 400) {
+      const loc = res.headers.get("location");
+      if (!loc) return null;
+      url = loc.startsWith("http") ? loc : new URL(loc, url).toString();
+      continue;
+    }
+    html = await res.text();
+    break;
+  }
+  if (!html) return null;
+
+  const sgMatch = html.match(/data-n-a-sg="([^"]+)"/);
+  const tsMatch = html.match(/data-n-a-ts="([^"]+)"/);
+  if (!sgMatch || !tsMatch) return null;
+
+  // Step 2: exchange (articleId, timestamp, signature) for the real URL via
+  // Google's batchexecute RPC (endpoint "Fbv4je" = "garturlreq").
+  const inner = JSON.stringify([
+    "garturlreq",
+    [["X", "X", ["X", "X"], null, null, 1, 1, "US:en", null, 1, null, null, null, null, null, 0, 1],
+      "X", "X", 1, [1, 1, 1], 1, 1, null, 0, 0, null, 0],
+    articleId,
+    tsMatch[1],
+    sgMatch[1],
+  ]);
+  const body = `f.req=${encodeURIComponent(JSON.stringify([[["Fbv4je", inner, null, "generic"]]]))}`;
+
+  const decodeRes = await fetchWithTimeout(
+    "https://news.google.com/_/DotsSplashUi/data/batchexecute?rpcids=Fbv4je",
+    { method: "POST", headers: { "content-type": "application/x-www-form-urlencoded;charset=UTF-8" }, body },
+    10000
+  );
+  const text = await decodeRes.text();
+  const jsonLine = text.split("\n").find((line) => line.trim().startsWith("[["));
+  if (!jsonLine) return null;
+
+  const outer = JSON.parse(jsonLine) as unknown[];
+  const payload = (outer[0] as unknown[])?.[2];
+  if (typeof payload !== "string") return null;
+  const decoded = JSON.parse(payload) as unknown[];
+  const decodedUrl = decoded[1];
+  return typeof decodedUrl === "string" ? decodedUrl : null;
+}
+
+async function resolveNewsUrl(url: string): Promise<string> {
+  try {
+    const decoded = await decodeGoogleNewsArticleUrl(url);
+    if (decoded) return decoded;
+  } catch (error) {
+    console.warn(`[daily-news] Google News URL decode failed, keeping Google link:`, error);
+  }
+  return url;
+}
+
+export async function fetchGoogleNewsCandidates(config: DailyNewsConfig): Promise<NewsCandidate[]> {
+  const candidates: NewsCandidate[] = [];
+  const cutoffMs = Date.now() - 72 * 60 * 60 * 1000;
+
+  for (const category of config.categories) {
+    try {
+      const res = await withRetries(() => fetchWithTimeout(googleNewsUrl(category), {}, 12000), 2);
+      if (!res.ok) throw new Error(`Google News ${category} returned ${res.status}`);
+      const xml = await res.text();
+      const $ = cheerio.load(xml, { xmlMode: true });
+      const items = $("item").slice(0, config.maxCandidatesPerCategory).toArray();
+
+      for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        const title = stripHtml($(item).find("title").first().text());
+        const googleUrl = $(item).find("link").first().text().trim();
+        const pubDate = $(item).find("pubDate").first().text().trim();
+        const publishedAt = pubDate ? new Date(pubDate) : new Date();
+        if (Number.isNaN(publishedAt.getTime()) || publishedAt.getTime() < cutoffMs) continue;
+
+        const sourceName = stripHtml($(item).find("source").first().text()) || null;
+        const snippet = stripHtml($(item).find("description").first().text());
+        const sourceUrl = await resolveNewsUrl(googleUrl);
+
+        candidates.push({
+          category,
+          title,
+          snippet,
+          sourceName,
+          sourceUrl,
+          googleUrl,
+          publishedAt: publishedAt.toISOString(),
+          feedRank: i + 1,
+          contentHash: sha256(sourceUrl),
+        });
+      }
+    } catch (error) {
+      console.error(`[daily-news] fetch failed for ${category}:`, error);
+    }
+  }
+
+  return candidates;
+}
+
+export async function filterExistingCandidates(
+  supabase: DbClient,
+  candidates: NewsCandidate[]
+): Promise<NewsCandidate[]> {
+  if (!candidates.length) return candidates;
+  const hashes = candidates.map((c) => c.contentHash);
+  const { data, error } = await supabase
+    .from("daily_news_lessons")
+    .select("content_hash")
+    .in("content_hash", hashes);
+
+  if (error) {
+    throw new Error(`Could not check daily news dedupe table: ${error.message}`);
+  }
+
+  const existing = new Set((data || []).map((row: { content_hash: string }) => row.content_hash));
+  return candidates.filter((candidate) => !existing.has(candidate.contentHash));
+}
+
+export async function scoreCandidates(
+  openai: OpenAI,
+  candidates: NewsCandidate[],
+  config: DailyNewsConfig
+): Promise<Array<NewsCandidate & { score: CandidateScore }>> {
+  if (!candidates.length) return [];
+
+  const payload = candidates.map((candidate, index) => ({
+    index,
+    category: candidate.category,
+    title: candidate.title,
+    snippet: compactText(candidate.snippet, 500),
+    source_name: candidate.sourceName,
+    feed_rank: candidate.feedRank,
+  }));
+
+  const completion = await withRetries(
+    () =>
+      openai.chat.completions.create({
+        model: config.openaiModel,
+        temperature: 0.1,
+        response_format: { type: "json_object" },
+        messages: [
+          {
+            role: "system",
+            content:
+              "You are curating short news stories to turn into English lessons for learners worldwide. You will receive JSON candidate stories. For EACH candidate, score it 0-3 on: significance, discussability, global_intelligibility, self_contained. Return JSON with a single key scores containing an array of objects: { index, significance, discussability, global_intelligibility, self_contained, appropriate }. appropriate must be false if the story centers on graphic violence, tragedy with no learning value, explicit/adult content, or heavily partisan political conflict. No prose.",
+          },
+          { role: "user", content: JSON.stringify(payload) },
+        ],
+      }),
+    2
+  );
+
+  const raw = completion.choices[0]?.message.content || "{}";
+  const parsed = parseJsonObject<{ scores?: Omit<CandidateScore, "total">[] } | Omit<CandidateScore, "total">[]>(raw);
+  const scores = Array.isArray(parsed) ? parsed : parsed.scores || [];
+  const byIndex = new Map<number, CandidateScore>();
+
+  for (const score of scores) {
+    const total =
+      Number(score.significance || 0) +
+      Number(score.discussability || 0) +
+      Number(score.global_intelligibility || 0) +
+      Number(score.self_contained || 0);
+    byIndex.set(score.index, { ...score, total });
+  }
+
+  return candidates
+    .map((candidate, index) => {
+      const score = byIndex.get(index);
+      return score ? { ...candidate, score } : null;
+    })
+    .filter((item): item is NewsCandidate & { score: CandidateScore } => !!item);
+}
+
+export function selectCandidates(
+  scored: Array<NewsCandidate & { score: CandidateScore }>,
+  config: DailyNewsConfig
+): Array<NewsCandidate & { score: CandidateScore }> {
+  const selected: Array<NewsCandidate & { score: CandidateScore }> = [];
+  for (const category of config.categories) {
+    const best = scored
+      .filter((item) => item.category === category)
+      .filter((item) => item.score.appropriate && item.score.total >= config.minScoreThreshold)
+      .sort((a, b) => b.score.total - a.score.total || a.feedRank - b.feedRank)[0];
+    if (best) selected.push(best);
+  }
+  return selected
+    .sort((a, b) => b.score.total - a.score.total || a.feedRank - b.feedRank)
+    .slice(0, config.lessonsPerDay);
+}
+
+export async function extractArticleText(candidate: NewsCandidate): Promise<{ text: string; usedFallback: boolean }> {
+  try {
+    const res = await fetchWithTimeout(candidate.sourceUrl, { headers: authHeaders() }, 12000);
+    if (!res.ok) throw new Error(`article returned ${res.status}`);
+    const html = await res.text();
+    const $ = cheerio.load(html);
+    $("script, style, nav, header, footer, aside, form, noscript, iframe").remove();
+    const candidates = [
+      $("article").text(),
+      $("main").text(),
+      $("[role='main']").text(),
+      $("body").text(),
+    ]
+      .map((text) => text.replace(/\s+/g, " ").trim())
+      .filter(Boolean);
+    const text = candidates.sort((a, b) => b.length - a.length)[0] || "";
+    if (text.length >= MIN_EXTRACTED_TEXT_CHARS) {
+      return { text: compactText(text, MAX_SOURCE_TEXT_CHARS), usedFallback: false };
+    }
+  } catch (error) {
+    console.warn(`[daily-news] article extraction failed for ${candidate.sourceUrl}:`, error);
+  }
+
+  return {
+    text: compactText(`${candidate.title}\n\n${candidate.snippet}`, 1400),
+    usedFallback: true,
+  };
+}
+
+function validateGeneratedLesson(value: GeneratedDailyNewsLesson): void {
+  if (!value.title || !value.article_body) throw new Error("Generated lesson is missing title/article_body");
+  if (!Array.isArray(value.vocabulary) || value.vocabulary.length < 6) throw new Error("Generated lesson needs 6 vocabulary items");
+  if (!Array.isArray(value.comprehension_questions) || value.comprehension_questions.length < 5) {
+    throw new Error("Generated lesson needs 5 comprehension questions");
+  }
+  if (!Array.isArray(value.discussion_questions) || value.discussion_questions.length < 5) {
+    throw new Error("Generated lesson needs 5 discussion questions");
+  }
+  if (!Array.isArray(value.further_discussion_questions) || value.further_discussion_questions.length < 3) {
+    throw new Error("Generated lesson needs 3 further discussion questions");
+  }
+}
+
+export async function generateLessonJson(
+  openai: OpenAI,
+  candidate: NewsCandidate,
+  sourceText: string,
+  usedFallback: boolean,
+  config: DailyNewsConfig
+): Promise<GeneratedDailyNewsLesson> {
+  const completion = await withRetries(
+    () =>
+      openai.chat.completions.create({
+        model: config.openaiModel,
+        temperature: 0.35,
+        response_format: { type: "json_object" },
+        messages: [
+          {
+            role: "system",
+            content:
+              `You create English-learning lessons from news stories, in the style of Engoo Daily News. Write everything in your OWN words at CEFR level ${config.targetLevel}. Produce a JSON object with fields ONLY: title, article_body, vocabulary, comprehension_questions, discussion_questions, further_discussion_questions, image_query.\n` +
+              `- title: a clear, learner-friendly headline (max ~12 words).\n` +
+              `- article_body: 200-300 words, 3-4 short paragraphs, neutral tone, no invented facts.\n` +
+              `- vocabulary: EXACTLY 6 items {word, ipa, part_of_speech, definition, example}; choose useful words that appear in your article; the example must use the word in a natural sentence.\n` +
+              `- comprehension_questions: EXACTLY 5 questions answerable directly from the article.\n` +
+              `- discussion_questions: EXACTLY 5 opinion/experience questions related to the topic.\n` +
+              `- further_discussion_questions: EXACTLY 3 deeper/abstract questions.\n` +
+              `- image_query: a concrete 2-4 word stock photo search phrase.\n` +
+              `If the provided text is only a short snippet, stay conservative: do not invent names, numbers, or quotes. Return only JSON.`,
+          },
+          {
+            role: "user",
+            content: JSON.stringify({
+              source_title: candidate.title,
+              source_name: candidate.sourceName,
+              source_url: candidate.sourceUrl,
+              category: candidate.category,
+              fallback_snippet_only: usedFallback,
+              source_text: sourceText,
+            }),
+          },
+        ],
+      }),
+    2
+  );
+  const raw = completion.choices[0]?.message.content || "{}";
+  const lesson = parseJsonObject<GeneratedDailyNewsLesson>(raw);
+  validateGeneratedLesson(lesson);
+  return lesson;
+}
+
+export async function fetchBannerImage(
+  category: DailyNewsCategory,
+  query: string | undefined
+): Promise<BannerImage> {
+  const fallback: BannerImage = {
+    url: CATEGORY_PLACEHOLDERS[category],
+    credit_name: "FrancoLink",
+    credit_url: null,
+    query_used: query || category,
+    source: "placeholder",
+  };
+
+  if (!process.env.PEXELS_API_KEY || !query) return fallback;
+
+  try {
+    const params = new URLSearchParams({
+      query,
+      orientation: "landscape",
+      size: "large",
+      per_page: "1",
+    });
+    const res = await fetchWithTimeout(`https://api.pexels.com/v1/search?${params.toString()}`, {
+      headers: { Authorization: process.env.PEXELS_API_KEY },
+    });
+    if (!res.ok) throw new Error(`Pexels returned ${res.status}`);
+    const body = (await res.json()) as {
+      photos?: Array<{
+        url?: string;
+        photographer?: string;
+        photographer_url?: string;
+        src?: { landscape?: string; large2x?: string; large?: string };
+      }>;
+    };
+    const photo = body.photos?.[0];
+    const photoUrl = photo?.src?.landscape || photo?.src?.large2x || photo?.src?.large;
+    if (!photo || !photoUrl) return fallback;
+    return {
+      url: photoUrl,
+      credit_name: photo.photographer || "Pexels",
+      credit_url: photo.photographer_url || photo.url || null,
+      query_used: query,
+      source: "pexels",
+    };
+  } catch (error) {
+    console.warn(`[daily-news] Pexels failed for ${query}:`, error);
+    return fallback;
+  }
+}
+
+function questionsWithAnswers(questions: string[], article: string): Array<{ question: string; answer: string }> {
+  const answer = compactText(article.split(/[.!?]\s+/).find(Boolean) || "See the article for details.", 180);
+  return questions.slice(0, 5).map((question) => ({ question, answer }));
+}
+
+export function buildTutorLesson(
+  category: DailyNewsCategory,
+  candidate: NewsCandidate,
+  generated: GeneratedDailyNewsLesson,
+  bannerImage: BannerImage,
+  level: string
+): Lesson {
+  const vocabItems: VocabItem[] = generated.vocabulary.slice(0, 6).map((item) => ({
+    term: item.word,
+    translation: item.definition,
+    part_of_speech: item.part_of_speech,
+    pronunciation: item.ipa,
+    example: item.example,
+    note: "Daily News vocabulary",
+    image_query: item.word,
+  }));
+
+  const sections: Section[] = [
+    {
+      kind: "reading_comprehension",
+      number: 1,
+      title: "Article",
+      student_instruction: "Read the article, then answer the comprehension questions.",
+      tutor_instruction: "Ask the learner to summarize each paragraph in their own words before answering.",
+      passage: generated.article_body,
+      image_url: bannerImage.url,
+      image_hint: bannerImage.credit_name
+        ? `Photo: ${bannerImage.credit_name}${bannerImage.source === "pexels" ? " / Pexels" : ""}`
+        : bannerImage.query_used,
+      questions: questionsWithAnswers(generated.comprehension_questions, generated.article_body),
+    },
+    {
+      kind: "vocabulary_with_examples",
+      number: 2,
+      title: "Vocabulary",
+      student_instruction: "Study the key words from the article and say each example aloud.",
+      tutor_instruction: "Check pronunciation and ask the learner to create one new sentence per word.",
+      items: vocabItems,
+    },
+    {
+      kind: "free_response",
+      number: 3,
+      title: "Discussion",
+      student_instruction: "Share your opinions and experiences with your tutor.",
+      tutor_instruction: "Encourage full-sentence answers and follow-up questions.",
+      questions: generated.discussion_questions.slice(0, 5),
+    },
+    {
+      kind: "free_response",
+      number: 4,
+      title: "Further Discussion",
+      student_instruction: "Think more deeply about the topic and explain your reasons.",
+      tutor_instruction: "Let the learner lead, then correct gently after they finish each answer.",
+      questions: generated.further_discussion_questions.slice(0, 3),
+    },
+  ];
+
+  return {
+    slug: "",
+    title: generated.title,
+    language: "en",
+    level,
+    duration_minutes: 25,
+    topic_tags: ["Daily News", category, candidate.sourceName || "News"].filter(Boolean),
+    objectives: [
+      {
+        student_label: "Read and understand a current news story in English.",
+        skill: "reading",
+        cefr_can_do: `Can understand the main points of a short ${level} news article.`,
+      },
+      {
+        student_label: "Use six news-related vocabulary words in context.",
+        skill: "vocabulary",
+        cefr_can_do: "Can explain and reuse key words from a familiar topic.",
+      },
+      {
+        student_label: "Discuss opinions and predictions about a real-world topic.",
+        skill: "speaking",
+        cefr_can_do: "Can give reasons for opinions in a guided conversation.",
+      },
+    ],
+    learning_tips: [
+      "Read once for the main idea before checking vocabulary.",
+      "Use the discussion questions to practice giving reasons.",
+      "Open the source link after class if you want more context.",
+    ],
+    tutor_overview: {
+      skills_covered: ["reading", "vocabulary", "speaking"],
+      estimated_minutes: 25,
+      teaching_tips: [
+        "Start with the headline and ask the learner to predict the story.",
+        "Avoid debating unknown facts; keep the focus on clear English expression.",
+        `Source: ${candidate.sourceName || "Google News"} (${candidate.sourceUrl})`,
+      ],
+      common_mistakes: [
+        "Copying phrases from the article without explaining them.",
+        "Giving one-word answers to opinion questions.",
+      ],
+    },
+    hero_image_hint: generated.image_query || category,
+    hero_image_url: bannerImage.url,
+    sections,
+  };
+}
+
+export async function buildDailyNewsLesson(
+  openai: OpenAI,
+  candidate: NewsCandidate,
+  config: DailyNewsConfig
+): Promise<BuiltLesson> {
+  const { text, usedFallback } = await extractArticleText(candidate);
+  const generated = await generateLessonJson(openai, candidate, text, usedFallback, config);
+  const bannerImage = await fetchBannerImage(candidate.category, generated.image_query || generated.title);
+  const lesson = buildTutorLesson(candidate.category, candidate, generated, bannerImage, config.targetLevel);
+  return { lesson, generated, bannerImage };
+}
+
+async function createRunLog(
+  supabase: DbClient,
+  config: DailyNewsConfig,
+  mode: "dry-run" | "live"
+): Promise<string | undefined> {
+  const { data, error } = await supabase
+    .from("daily_news_runs")
+    .insert({
+      mode,
+      categories: config.categories,
+      target_cefr_level: config.targetLevel,
+    })
+    .select("id")
+    .single();
+  if (error) throw new Error(`Could not create daily news run: ${error.message}`);
+  return (data as InsertedRun).id;
+}
+
+async function updateRunLog(
+  supabase: DbClient,
+  runId: string | undefined,
+  result: DailyNewsRunResult,
+  details: Record<string, unknown>
+) {
+  if (!runId) return;
+  await supabase
+    .from("daily_news_runs")
+    .update({
+      fetched_count: result.fetched,
+      selected_count: result.selected,
+      generated_count: result.generated,
+      failed_count: result.failed,
+      published_count: result.published,
+      details,
+    })
+    .eq("id", runId);
+}
+
+export async function runDailyNewsPipeline(
+  supabase: DbClient,
+  options: RunOptions = {}
+): Promise<DailyNewsRunResult> {
+  const config = getDailyNewsConfig(options.config);
+  const mode = options.dryRun ? "dry-run" : "live";
+  const result: DailyNewsRunResult = {
+    ok: true,
+    mode,
+    fetched: 0,
+    selected: 0,
+    generated: 0,
+    failed: 0,
+    published: 0,
+    candidates: [],
+    selectedCandidates: [],
+    lessons: [],
+    errors: [],
+  };
+
+  let runId: string | undefined;
+  try {
+    runId = options.dryRun ? undefined : await createRunLog(supabase, config, mode);
+    result.runId = runId;
+
+    const fetched = await fetchGoogleNewsCandidates(config);
+    result.fetched = fetched.length;
+    result.candidates = fetched;
+
+    const candidates = options.dryRun ? fetched : await filterExistingCandidates(supabase, fetched);
+    const openai = getOpenAI();
+    const scored = await scoreCandidates(openai, candidates, config);
+    const selected = selectCandidates(scored, config);
+    result.selected = selected.length;
+    result.selectedCandidates = selected;
+
+    if (options.dryRun) {
+      await updateRunLog(supabase, runId, result, { selected });
+      return result;
+    }
+
+    for (const candidate of selected) {
+      try {
+        const built = await buildDailyNewsLesson(openai, candidate, config);
+        const datePart = new Date().toISOString().slice(0, 10);
+        const slug = `daily-news-${candidate.category}-${datePart}-${slugify(built.lesson.title)}-${candidate.contentHash.slice(0, 8)}`;
+        built.lesson.slug = slug;
+
+        const status = config.autoPublish ? "published" : "review";
+        const { data: inserted, error: lessonError } = await supabase
+          .from("tutor_lessons")
+          .insert({
+            slug,
+            title: built.lesson.title,
+            language: "en",
+            level: config.targetLevel,
+            duration_minutes: built.lesson.duration_minutes,
+            topic_tags: built.lesson.topic_tags,
+            source_url: candidate.sourceUrl,
+            status,
+            content: built.lesson,
+            conversion_notes: null,
+            published_at: config.autoPublish ? new Date().toISOString() : null,
+          })
+          .select("id, slug, title")
+          .single();
+
+        if (lessonError) throw new Error(lessonError.message);
+        const lessonRow = inserted as InsertedLesson;
+
+        const { error: metaError } = await supabase.from("daily_news_lessons").insert({
+          lesson_id: lessonRow.id,
+          run_id: runId,
+          category: candidate.category,
+          cefr_level: config.targetLevel,
+          source_name: candidate.sourceName,
+          source_url: candidate.sourceUrl,
+          published_at: candidate.publishedAt,
+          content_hash: candidate.contentHash,
+          feed_rank: candidate.feedRank,
+          score: candidate.score,
+          banner_image: built.bannerImage,
+        });
+        if (metaError) throw new Error(metaError.message);
+
+        result.generated++;
+        if (config.autoPublish) result.published++;
+        result.lessons.push({
+          id: lessonRow.id,
+          slug: lessonRow.slug,
+          title: lessonRow.title,
+          category: candidate.category,
+        });
+      } catch (error) {
+        result.failed++;
+        const message = error instanceof Error ? error.message : String(error);
+        result.errors.push(`${candidate.title}: ${message}`);
+        console.error(`[daily-news] generation failed for ${candidate.title}:`, error);
+      }
+    }
+  } catch (error) {
+    result.ok = false;
+    result.failed++;
+    result.errors.push(error instanceof Error ? error.message : String(error));
+  } finally {
+    await updateRunLog(supabase, runId, result, {
+      errors: result.errors,
+      lessons: result.lessons,
+      selected: result.selectedCandidates.map((item) => ({
+        title: item.title,
+        category: item.category,
+        source_url: item.sourceUrl,
+        score: item.score,
+      })),
+    });
+  }
+
+  return result;
+}
