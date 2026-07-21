@@ -200,7 +200,7 @@ function FilteredCard({ lesson }: { lesson: LiteLesson }) {
             alt={lesson.title}
             fill
             sizes="(max-width:640px) 100vw, 320px"
-            className="object-cover transition group-hover:scale-[1.03]"
+            className="object-cover object-top transition group-hover:scale-[1.03]"
           />
         ) : (
           <div className="flex h-full items-center justify-center text-3xl opacity-40">{lesson.language === "en" ? "🇬🇧" : "🇫🇷"}</div>
