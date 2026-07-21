@@ -4,6 +4,7 @@ import { SectionHeader } from "../section-header";
 import { TutorNotes } from "../tutor-notes";
 import { SectionCard } from "../section-card";
 import { RevealTranslation } from "../reveal-translation";
+import { useLessonTTSLocale } from "../lesson-language-context";
 import type { LessonView, ReadingComprehensionSection } from "@/lib/lessons/types";
 import type { LevelTheme } from "@/lib/lessons/level-theme";
 
@@ -20,6 +21,7 @@ export function ReadingComprehensionSectionComp({
   sectionIdx = 0,
   theme,
 }: Props) {
+  const ttsLocale = useLessonTTSLocale();
   return (
     <SectionCard theme={theme}>
       <SectionHeader
@@ -51,7 +53,7 @@ export function ReadingComprehensionSectionComp({
       {/* Magazine-style reading column — ReadAloud renders the paragraphs and
           washes a highlight across them as it reads aloud. */}
       <article className="mx-auto max-w-[68ch]">
-        <ReadAloud text={section.passage} />
+        <ReadAloud text={section.passage} lang={ttsLocale} />
         {section.passage_translation ? (
           <div className="mt-5 border-t border-gray-100 pt-4">
             <RevealTranslation text={section.passage_translation} size="sm" />

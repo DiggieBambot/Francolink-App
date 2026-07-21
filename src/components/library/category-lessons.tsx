@@ -7,12 +7,39 @@ import type { CatalogueLesson } from "@/lib/lessons/public-queries";
 
 const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
 
+// Fixed display order + label for Daily News's sub-sectors (see
+// src/lib/daily-news — lessons carry topic_tags: ["Daily News", <sector>, ...]).
+const DAILY_NEWS_SECTOR_ORDER = ["technology", "health", "sports", "entertainment", "world", "science"];
+const DAILY_NEWS_SECTOR_LABEL: Record<string, string> = {
+  technology: "Technology",
+  health: "Health",
+  sports: "Sports",
+  entertainment: "Entertainment",
+  world: "World",
+  science: "Science",
+};
+
+function dailyNewsSector(lesson: CatalogueLesson): string {
+  return (lesson.topic_tags?.[1] || "news").toLowerCase();
+}
+
 // Client-side level filter for a category page, so the page reads no
-// request-time searchParams and can be ISR-cached.
-export function CategoryLessons({ lessons }: { lessons: CatalogueLesson[] }) {
+// request-time searchParams and can be ISR-cached. When `category` is
+// "daily-news", lessons are additionally grouped under sector headings
+// (Technology, Health, Sports, ...) instead of one flat grid.
+export function CategoryLessons({ lessons, category }: { lessons: CatalogueLesson[]; category?: string }) {
   const [level, setLevel] = useState<string | null>(null);
   const presentLevels = LEVELS.filter((lv) => lessons.some((l) => l.level === lv));
   const shown = level ? lessons.filter((l) => l.level === level) : lessons;
+  const grouped = category === "daily-news";
+
+  const sections = grouped
+    ? DAILY_NEWS_SECTOR_ORDER.map((sector) => ({
+        sector,
+        label: DAILY_NEWS_SECTOR_LABEL[sector] || sector,
+        items: shown.filter((l) => dailyNewsSector(l) === sector),
+      })).filter((s) => s.items.length > 0)
+    : null;
 
   return (
     <>
@@ -47,6 +74,24 @@ export function CategoryLessons({ lessons }: { lessons: CatalogueLesson[] }) {
 
       {shown.length === 0 ? (
         <p className="py-16 text-center text-gray-500">No lessons here yet.</p>
+      ) : sections ? (
+        <div className="space-y-10">
+          {sections.map((s) => (
+            <div key={s.sector}>
+              <h2 className="mb-4 flex items-center gap-2 font-heading text-xl font-bold text-primary">
+                {s.label}
+                <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-semibold text-gray-500">
+                  {s.items.length}
+                </span>
+              </h2>
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                {s.items.map((l) => (
+                  <LessonCard key={l.id} lesson={l} />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       ) : (
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {shown.map((l) => (

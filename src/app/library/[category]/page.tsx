@@ -67,7 +67,7 @@ export default async function CategoryPage({
         </header>
 
         <Container className="max-w-6xl py-8">
-          <CategoryLessons lessons={inCat} />
+          <CategoryLessons lessons={inCat} category={category} />
         </Container>
       </div>
     </PublicShell>

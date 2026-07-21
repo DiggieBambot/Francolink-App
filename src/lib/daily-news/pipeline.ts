@@ -442,8 +442,16 @@ export function buildTutorLesson(
 
   const sections: Section[] = [
     {
-      kind: "reading_comprehension",
+      kind: "vocabulary_with_examples",
       number: 1,
+      title: "Vocabulary",
+      student_instruction: "Study these key words before reading — you'll meet them in the article.",
+      tutor_instruction: "Check pronunciation and ask the learner to guess the topic from these words before reading.",
+      items: vocabItems,
+    },
+    {
+      kind: "reading_comprehension",
+      number: 2,
       title: "Article",
       student_instruction: "Read the article, then answer the comprehension questions.",
       tutor_instruction: "Ask the learner to summarize each paragraph in their own words before answering.",
@@ -453,14 +461,6 @@ export function buildTutorLesson(
         ? `Photo: ${bannerImage.credit_name}${bannerImage.source === "pexels" ? " / Pexels" : ""}`
         : bannerImage.query_used,
       questions: questionsWithAnswers(generated.comprehension_questions, generated.article_body),
-    },
-    {
-      kind: "vocabulary_with_examples",
-      number: 2,
-      title: "Vocabulary",
-      student_instruction: "Study the key words from the article and say each example aloud.",
-      tutor_instruction: "Check pronunciation and ask the learner to create one new sentence per word.",
-      items: vocabItems,
     },
     {
       kind: "free_response",
