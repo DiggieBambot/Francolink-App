@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import Image from "next/image";
-import { X, ImageOff } from "lucide-react";
+import { X } from "lucide-react";
 import { SpeakButton } from "./speak-button";
 import { RevealTranslation } from "./reveal-translation";
 import type { VocabItem } from "@/lib/lessons/types";
@@ -58,8 +58,8 @@ export function VocabFocusOverlay({ item, onClose, theme }: Props) {
         </button>
 
         {/* Square thumbnail on the left */}
-        <div className="relative h-40 w-40 shrink-0 bg-gradient-to-br from-slate-100 to-slate-200">
-          {item.image_url ? (
+        {item.image_url ? (
+          <div className="relative h-40 w-40 shrink-0 bg-gradient-to-br from-slate-100 to-slate-200">
             <Image
               src={item.image_url}
               alt={item.term}
@@ -68,12 +68,8 @@ export function VocabFocusOverlay({ item, onClose, theme }: Props) {
               className="object-cover"
               priority
             />
-          ) : (
-            <div className="flex h-full flex-col items-center justify-center gap-1 text-slate-400">
-              <ImageOff className="h-7 w-7" />
-            </div>
-          )}
-        </div>
+          </div>
+        ) : null}
 
         {/* Content on the right */}
         <div className="flex min-w-0 flex-1 flex-col justify-between p-4">
