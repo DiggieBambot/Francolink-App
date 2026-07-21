@@ -71,7 +71,10 @@ export function getDailyNewsConfig(overrides: Partial<DailyNewsConfig> = {}): Da
     targetLevel: overrides.targetLevel ?? parseLevel(process.env.TARGET_CEFR_LEVEL || process.env.DAILY_NEWS_TARGET_CEFR_LEVEL),
     minScoreThreshold: overrides.minScoreThreshold ?? intEnv("MIN_SCORE_THRESHOLD", 7),
     maxCandidatesPerCategory: overrides.maxCandidatesPerCategory ?? intEnv("MAX_CANDIDATES_PER_CATEGORY", 10),
-    lessonsPerDay: overrides.lessonsPerDay ?? intEnv("LESSONS_PER_DAY", 6),
+    // Smaller batches per run (was 6) trade category coverage for longer,
+    // higher-quality articles per lesson — override with LESSONS_PER_DAY if
+    // you want to go back to one-per-category-per-day.
+    lessonsPerDay: overrides.lessonsPerDay ?? intEnv("LESSONS_PER_DAY", 2),
     autoPublish: overrides.autoPublish ?? (process.env.AUTO_PUBLISH === "true" || process.env.DAILY_NEWS_AUTO_PUBLISH === "true"),
     openaiModel: overrides.openaiModel ?? process.env.OPENAI_MODEL ?? process.env.DAILY_NEWS_OPENAI_MODEL ?? "gpt-4o-mini",
   };

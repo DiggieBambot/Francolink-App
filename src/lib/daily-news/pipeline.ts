@@ -27,6 +27,15 @@ import {
 const MAX_SOURCE_TEXT_CHARS = 9000;
 const MIN_EXTRACTED_TEXT_CHARS = 700;
 
+// Longer, more complex articles at higher CEFR levels — 3 paragraphs minimum
+// so there's room for a real narrative arc, not just a headline restated.
+const ARTICLE_LENGTH_BY_LEVEL: Record<string, { words: string; paragraphs: number }> = {
+  A2: { words: "180-240", paragraphs: 3 },
+  B1: { words: "260-340", paragraphs: 3 },
+  B2: { words: "320-420", paragraphs: 4 },
+  C1: { words: "380-480", paragraphs: 4 },
+};
+
 type DbClient = SupabaseClient;
 
 interface RunOptions {
@@ -330,6 +339,7 @@ export async function generateLessonJson(
   usedFallback: boolean,
   config: DailyNewsConfig
 ): Promise<GeneratedDailyNewsLesson> {
+  const lengthSpec = ARTICLE_LENGTH_BY_LEVEL[config.targetLevel] || ARTICLE_LENGTH_BY_LEVEL.B1;
   const completion = await withRetries(
     () =>
       openai.chat.completions.create({
@@ -342,12 +352,12 @@ export async function generateLessonJson(
             content:
               `You create ${config.language === "fr" ? "French" : "English"}-learning lessons from news stories, in the style of Engoo Daily News. Write the title, article_body, vocabulary, and all questions in YOUR OWN words, IN ${config.language === "fr" ? "FRENCH" : "ENGLISH"} (the language being learned), at CEFR level ${config.targetLevel}. Produce a JSON object with fields ONLY: title, article_body, vocabulary, comprehension_questions, discussion_questions, further_discussion_questions, image_query, image_subject.\n` +
               `- title: a clear, learner-friendly headline in ${config.language === "fr" ? "French" : "English"} (max ~12 words).\n` +
-              `- article_body: 200-300 words in ${config.language === "fr" ? "French" : "English"}, 3-4 short paragraphs, neutral tone, no invented facts.\n` +
+              `- article_body: ${lengthSpec.words} words in ${config.language === "fr" ? "French" : "English"}, EXACTLY ${lengthSpec.paragraphs} paragraphs (separate paragraphs with a blank line), neutral tone, no invented facts. Use longer, more complex sentences for higher levels and shorter, simpler ones for lower levels.\n` +
               `- vocabulary: EXACTLY 6 items {word, ipa, part_of_speech, definition, example} — word/definition/example in ${config.language === "fr" ? "French" : "English"}; part_of_speech stays in English (e.g. "noun", "verb"); choose useful words that appear in your article; the example must use the word in a natural sentence.\n` +
               `- comprehension_questions: EXACTLY 5 questions (in ${config.language === "fr" ? "French" : "English"}) answerable directly from the article.\n` +
               `- discussion_questions: EXACTLY 5 opinion/experience questions (in ${config.language === "fr" ? "French" : "English"}) related to the topic.\n` +
               `- further_discussion_questions: EXACTLY 3 deeper/abstract questions (in ${config.language === "fr" ? "French" : "English"}).\n` +
-              `- image_subject: the specific real named person, organization, place, or event this story is about (e.g. "Andy Burnham", "NASA Psyche spacecraft", "Wimbledon") — ALWAYS in English regardless of lesson language, used to find an ACTUAL accurate photo. Leave empty ("") if the story has no single clear named subject.\n` +
+              `- image_subject: the SINGLE specific real named person, organization, place, or event this story is centrally about (e.g. "Andy Burnham", "NASA Psyche spacecraft", "Wimbledon") — ALWAYS in English regardless of lesson language, used to find an ACTUAL accurate solo photo of that exact subject. Only fill this in if you are confident a real, clearly-labelled photo of THIS exact subject (not a similarly-named or same-role different person, and not a group/crowd photo) is likely to exist. Leave empty ("") if the story has no single clear named subject, or if the subject is a role/title rather than one specific named entity (e.g. "the health secretary" without naming who).\n` +
               `- image_query: a concrete 2-4 word generic stock-photo search phrase describing the scene — ALWAYS in English, used ONLY if no real photo of image_subject can be found (e.g. "coffee cup desk", "video game controller").\n` +
               `If the provided text is only a short snippet, stay conservative: do not invent names, numbers, or quotes. Return only JSON.`,
           },
@@ -453,9 +463,91 @@ function pickBestWikimediaCandidate(candidates: WikimediaCandidate[]): Wikimedia
   return landscapeInTop || candidates[0];
 }
 
+// Wikipedia's own infobox photo for a subject's article is curated by
+// editors specifically to depict THAT subject (almost always a solo
+// portrait for a person) — far more precise than a free-text Commons
+// search, which can surface any file merely tagged/captioned with the name,
+// including group or event photos where the subject is one of several
+// people pictured. This is tried first; a subject with no Wikipedia article
+// (or no image on it) falls through to the Commons search below.
+async function fetchWikipediaPortrait(subject: string): Promise<BannerImage | null> {
+  const trimmed = subject.trim();
+  if (!trimmed) return null;
+  try {
+    const search = async (query: string) => {
+      const params = new URLSearchParams({
+        action: "query",
+        generator: "search",
+        gsrsearch: query,
+        gsrlimit: "1",
+        gsrnamespace: "0",
+        prop: "pageimages|info",
+        piprop: "original",
+        inprop: "url",
+        format: "json",
+        origin: "*",
+      });
+      const res = await fetchWithTimeout(`https://en.wikipedia.org/w/api.php?${params.toString()}`, {}, 10000);
+      if (!res.ok) return null;
+      const body = (await res.json()) as {
+        query?: { pages?: Record<string, { title?: string; original?: { source?: string } }> };
+      };
+      const page = Object.values(body.query?.pages || {})[0];
+      if (!page?.original?.source) return null;
+      return page;
+    };
+
+    const page = (await search(`intitle:"${trimmed}"`)) || (await search(trimmed));
+    if (!page?.original?.source) return null;
+
+    // The infobox image is hosted on Commons; look it up there by filename to
+    // get proper artist/license attribution for the credit line.
+    const filename = decodeURIComponent(page.original.source.split("/").pop() || "");
+    if (!filename) return null;
+    const params = new URLSearchParams({
+      action: "query",
+      titles: `File:${filename}`,
+      prop: "imageinfo",
+      iiprop: "extmetadata|url",
+      iiurlwidth: "1200",
+      format: "json",
+      origin: "*",
+    });
+    const res = await fetchWithTimeout(`https://commons.wikimedia.org/w/api.php?${params.toString()}`, {}, 10000);
+    const body = res.ok
+      ? ((await res.json()) as {
+          query?: {
+            pages?: Record<
+              string,
+              { imageinfo?: Array<{ thumburl?: string; url?: string; extmetadata?: Record<string, { value?: string }> }> }
+            >;
+          };
+        })
+      : undefined;
+    const info = Object.values(body?.query?.pages || {})[0]?.imageinfo?.[0];
+    const artistRaw = info?.extmetadata?.Artist?.value;
+
+    return {
+      url: info?.thumburl || info?.url || page.original.source,
+      credit_name: (artistRaw && stripHtml(artistRaw)) || "Wikipedia contributor",
+      credit_url: `https://en.wikipedia.org/wiki/${encodeURIComponent(page.title || trimmed)}`,
+      query_used: subject,
+      source: "wikimedia",
+      license: info?.extmetadata?.LicenseShortName?.value || undefined,
+    };
+  } catch (error) {
+    console.warn(`[daily-news] Wikipedia portrait lookup failed for "${subject}":`, error);
+    return null;
+  }
+}
+
 async function fetchWikimediaImage(query: string): Promise<BannerImage | null> {
   const trimmed = query.trim();
   if (!trimmed) return null;
+
+  const portrait = await fetchWikipediaPortrait(trimmed);
+  if (portrait) return portrait;
+
   try {
     // Exact-phrase title search first: requires the full name/phrase to
     // literally appear in the file title, which avoids loose keyword
@@ -463,6 +555,11 @@ async function fetchWikimediaImage(query: string): Promise<BannerImage | null> {
     // "Ella Bank Road, Langley", or a person's name loosely matching an
     // unrelated document that happens to share a word). Only fall back to a
     // looser full-text search if the exact phrase has no hits at all.
+    //
+    // NOTE: this Commons full-text fallback only runs when the subject has
+    // no Wikipedia article/image at all, so it's inherently a lower-
+    // precision path — a plain-text file caption match, not a curated
+    // infobox photo. Still exact-phrase-first to limit false positives.
     const exact = await searchWikimediaCommons(`intitle:"${trimmed}"`);
     const candidates = exact.length ? exact : await searchWikimediaCommons(trimmed);
     const best = pickBestWikimediaCandidate(candidates);
