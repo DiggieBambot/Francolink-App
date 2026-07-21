@@ -56,6 +56,11 @@ export interface GeneratedDailyNewsLesson {
   discussion_questions: string[];
   further_discussion_questions: string[];
   image_query?: string;
+  /** The specific real named person/place/organization/event the story is
+   *  about, if any (e.g. "Andy Burnham", "NASA Psyche spacecraft"). Used to
+   *  find an actual accurate photo on Wikimedia Commons before falling back
+   *  to generic stock. */
+  image_subject?: string;
 }
 
 export interface BannerImage {
@@ -63,7 +68,9 @@ export interface BannerImage {
   credit_name: string | null;
   credit_url: string | null;
   query_used: string;
-  source: "pexels" | "placeholder";
+  source: "wikimedia" | "pexels" | "placeholder";
+  /** License short name (e.g. "CC BY-SA 4.0"), only set for Wikimedia images. */
+  license?: string;
 }
 
 export interface DailyNewsRunResult {

@@ -338,14 +338,15 @@ export async function generateLessonJson(
           {
             role: "system",
             content:
-              `You create English-learning lessons from news stories, in the style of Engoo Daily News. Write everything in your OWN words at CEFR level ${config.targetLevel}. Produce a JSON object with fields ONLY: title, article_body, vocabulary, comprehension_questions, discussion_questions, further_discussion_questions, image_query.\n` +
+              `You create English-learning lessons from news stories, in the style of Engoo Daily News. Write everything in your OWN words at CEFR level ${config.targetLevel}. Produce a JSON object with fields ONLY: title, article_body, vocabulary, comprehension_questions, discussion_questions, further_discussion_questions, image_query, image_subject.\n` +
               `- title: a clear, learner-friendly headline (max ~12 words).\n` +
               `- article_body: 200-300 words, 3-4 short paragraphs, neutral tone, no invented facts.\n` +
               `- vocabulary: EXACTLY 6 items {word, ipa, part_of_speech, definition, example}; choose useful words that appear in your article; the example must use the word in a natural sentence.\n` +
               `- comprehension_questions: EXACTLY 5 questions answerable directly from the article.\n` +
               `- discussion_questions: EXACTLY 5 opinion/experience questions related to the topic.\n` +
               `- further_discussion_questions: EXACTLY 3 deeper/abstract questions.\n` +
-              `- image_query: a concrete 2-4 word stock photo search phrase.\n` +
+              `- image_subject: the specific real named person, organization, place, or event this story is about (e.g. "Andy Burnham", "NASA Psyche spacecraft", "Wimbledon"), used to find an ACTUAL accurate photo. Leave empty ("") if the story has no single clear named subject.\n` +
+              `- image_query: a concrete 2-4 word generic stock-photo search phrase describing the scene, used ONLY if no real photo of image_subject can be found (e.g. "coffee cup desk", "video game controller").\n` +
               `If the provided text is only a short snippet, stay conservative: do not invent names, numbers, or quotes. Return only JSON.`,
           },
           {
@@ -369,27 +370,121 @@ export async function generateLessonJson(
   return lesson;
 }
 
-export async function fetchBannerImage(
-  category: DailyNewsCategory,
-  query: string | undefined
-): Promise<BannerImage> {
-  const fallback: BannerImage = {
-    url: CATEGORY_PLACEHOLDERS[category],
-    credit_name: "FrancoLink",
-    credit_url: null,
-    query_used: query || category,
-    source: "placeholder",
+// ── Wikimedia Commons (real photos of named people/places/events, free +
+//    properly licensed with author attribution) ─────────────────────────────
+
+interface WikimediaCandidate {
+  url: string;
+  width: number;
+  height: number;
+  artist: string | null;
+  license: string | null;
+  pageTitle: string;
+}
+
+async function searchWikimediaCommons(query: string): Promise<WikimediaCandidate[]> {
+  const params = new URLSearchParams({
+    action: "query",
+    generator: "search",
+    gsrsearch: query,
+    gsrnamespace: "6", // File: namespace
+    gsrlimit: "6",
+    prop: "imageinfo",
+    iiprop: "url|extmetadata|size|mime",
+    iiurlwidth: "1200",
+    format: "json",
+    origin: "*",
+  });
+  const res = await fetchWithTimeout(`https://commons.wikimedia.org/w/api.php?${params.toString()}`, {}, 10000);
+  if (!res.ok) throw new Error(`Wikimedia Commons returned ${res.status}`);
+  const body = (await res.json()) as {
+    query?: {
+      pages?: Record<
+        string,
+        {
+          title?: string;
+          imageinfo?: Array<{
+            url?: string;
+            thumburl?: string;
+            width?: number;
+            height?: number;
+            mime?: string;
+            extmetadata?: Record<string, { value?: string }>;
+          }>;
+        }
+      >;
+    };
   };
 
-  if (!process.env.PEXELS_API_KEY || !query) return fallback;
-
-  try {
-    const params = new URLSearchParams({
-      query,
-      orientation: "landscape",
-      size: "large",
-      per_page: "1",
+  const pages = Object.values(body.query?.pages || {});
+  const candidates: WikimediaCandidate[] = [];
+  for (const page of pages) {
+    const info = page.imageinfo?.[0];
+    if (!info) continue;
+    if (info.mime && !info.mime.startsWith("image/")) continue;
+    if (info.mime === "image/svg+xml") continue; // icons/diagrams, not photos
+    const width = info.width || 0;
+    const height = info.height || 0;
+    if (width < 600 || height < 350) continue; // too small for a banner
+    const artistRaw = info.extmetadata?.Artist?.value;
+    candidates.push({
+      url: info.thumburl || info.url || "",
+      width,
+      height,
+      artist: artistRaw ? stripHtml(artistRaw) : null,
+      license: info.extmetadata?.LicenseShortName?.value || null,
+      pageTitle: page.title || "",
     });
+  }
+  return candidates.filter((c) => !!c.url);
+}
+
+function pickBestWikimediaCandidate(candidates: WikimediaCandidate[]): WikimediaCandidate | null {
+  if (!candidates.length) return null;
+  // `candidates` is already relevance-ordered by Commons' own search (the
+  // strongest signal that it's actually the right subject). Only use
+  // landscape/size as a tie-breaker among the top few relevance results,
+  // rather than re-sorting the whole list by aspect ratio (which previously
+  // could promote a less-relevant but more-landscape image to the top).
+  const top = candidates.slice(0, 3);
+  const landscapeInTop = top.find((c) => c.width / Math.max(1, c.height) >= 1.1);
+  return landscapeInTop || candidates[0];
+}
+
+async function fetchWikimediaImage(query: string): Promise<BannerImage | null> {
+  const trimmed = query.trim();
+  if (!trimmed) return null;
+  try {
+    // Exact-phrase title search first: requires the full name/phrase to
+    // literally appear in the file title, which avoids loose keyword
+    // collisions (e.g. singer "Ella Langley" matching a street named
+    // "Ella Bank Road, Langley", or a person's name loosely matching an
+    // unrelated document that happens to share a word). Only fall back to a
+    // looser full-text search if the exact phrase has no hits at all.
+    const exact = await searchWikimediaCommons(`intitle:"${trimmed}"`);
+    const candidates = exact.length ? exact : await searchWikimediaCommons(trimmed);
+    const best = pickBestWikimediaCandidate(candidates);
+    if (!best) return null;
+    return {
+      url: best.url,
+      credit_name: best.artist || "Wikimedia Commons contributor",
+      credit_url: `https://commons.wikimedia.org/wiki/${encodeURIComponent(best.pageTitle)}`,
+      query_used: query,
+      source: "wikimedia",
+      license: best.license || undefined,
+    };
+  } catch (error) {
+    console.warn(`[daily-news] Wikimedia Commons search failed for "${query}":`, error);
+    return null;
+  }
+}
+
+// ── Pexels (generic stock fallback, for topics with no clear named subject) ─
+
+async function fetchPexelsImage(query: string): Promise<BannerImage | null> {
+  if (!process.env.PEXELS_API_KEY || !query) return null;
+  try {
+    const params = new URLSearchParams({ query, orientation: "landscape", size: "large", per_page: "1" });
     const res = await fetchWithTimeout(`https://api.pexels.com/v1/search?${params.toString()}`, {
       headers: { Authorization: process.env.PEXELS_API_KEY },
     });
@@ -404,7 +499,7 @@ export async function fetchBannerImage(
     };
     const photo = body.photos?.[0];
     const photoUrl = photo?.src?.landscape || photo?.src?.large2x || photo?.src?.large;
-    if (!photo || !photoUrl) return fallback;
+    if (!photo || !photoUrl) return null;
     return {
       url: photoUrl,
       credit_name: photo.photographer || "Pexels",
@@ -413,9 +508,57 @@ export async function fetchBannerImage(
       source: "pexels",
     };
   } catch (error) {
-    console.warn(`[daily-news] Pexels failed for ${query}:`, error);
-    return fallback;
+    console.warn(`[daily-news] Pexels failed for "${query}":`, error);
+    return null;
   }
+}
+
+// ── Orchestration: Wikimedia (named subject ONLY — its search is tuned for
+//    encyclopedic subjects, not generic scenes, so a loose "coffee cup desk"
+//    query can match something unrelated) -> Pexels (generic query) ->
+//    per-category placeholder. ───────────────────────────────────────────────
+
+// Generic role/title phrases (no specific person's name attached) are unsafe
+// to search on Wikimedia by "subject" — e.g. "U.K. Prime Minister" can match a
+// photo of a DIFFERENT, unrelated person who once held that role. Only reject
+// an exact/near-exact match against this phrase, not any subject that merely
+// contains one of these words (so "NASA Psyche spacecraft" is unaffected).
+const GENERIC_ROLE_PHRASES = new Set([
+  "prime minister", "the prime minister", "new prime minister",
+  "president", "the president", "new president",
+  "ceo", "the ceo", "chairman", "the chairman",
+  "governor", "the governor", "mayor", "the mayor",
+  "minister", "the minister", "spokesperson", "official", "government",
+  "the government", "administration", "the administration",
+]);
+
+function isGenericRolePhrase(subject: string): boolean {
+  const normalized = subject.trim().toLowerCase().replace(/^(u\.?k\.?|us|u\.?s\.?a?\.?)\s+/, "");
+  return GENERIC_ROLE_PHRASES.has(normalized);
+}
+
+export async function fetchBannerImage(
+  category: DailyNewsCategory,
+  imageQuery: string | undefined,
+  imageSubject?: string
+): Promise<BannerImage> {
+  const fallback: BannerImage = {
+    url: CATEGORY_PLACEHOLDERS[category],
+    credit_name: "FrancoLink",
+    credit_url: null,
+    query_used: imageSubject || imageQuery || category,
+    source: "placeholder",
+  };
+
+  if (imageSubject && !isGenericRolePhrase(imageSubject)) {
+    const bySubject = await fetchWikimediaImage(imageSubject);
+    if (bySubject) return bySubject;
+  }
+  if (imageQuery) {
+    const pexels = await fetchPexelsImage(imageQuery);
+    if (pexels) return pexels;
+  }
+  return fallback;
 }
 
 function questionsWithAnswers(questions: string[], article: string): Array<{ question: string; answer: string }> {
@@ -458,7 +601,13 @@ export function buildTutorLesson(
       passage: generated.article_body,
       image_url: bannerImage.url,
       image_hint: bannerImage.credit_name
-        ? `Photo: ${bannerImage.credit_name}${bannerImage.source === "pexels" ? " / Pexels" : ""}`
+        ? `Photo: ${bannerImage.credit_name}${
+            bannerImage.source === "wikimedia"
+              ? ` (${bannerImage.license || "CC"}) via Wikimedia Commons`
+              : bannerImage.source === "pexels"
+                ? " / Pexels"
+                : ""
+          }`
         : bannerImage.query_used,
       questions: questionsWithAnswers(generated.comprehension_questions, generated.article_body),
     },
@@ -535,7 +684,11 @@ export async function buildDailyNewsLesson(
 ): Promise<BuiltLesson> {
   const { text, usedFallback } = await extractArticleText(candidate);
   const generated = await generateLessonJson(openai, candidate, text, usedFallback, config);
-  const bannerImage = await fetchBannerImage(candidate.category, generated.image_query || generated.title);
+  const bannerImage = await fetchBannerImage(
+    candidate.category,
+    generated.image_query || generated.title,
+    generated.image_subject
+  );
   const lesson = buildTutorLesson(candidate.category, candidate, generated, bannerImage, config.targetLevel);
   return { lesson, generated, bannerImage };
 }
