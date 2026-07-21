@@ -122,7 +122,7 @@ export default async function AdminDailyNewsPage() {
                 <article key={row.id} className="overflow-hidden rounded-lg border bg-card">
                   {imageUrl ? (
                     <div className="relative aspect-[16/7] bg-muted">
-                      <Image src={imageUrl} alt={lesson?.title || row.category} fill sizes="(max-width: 1280px) 100vw, 640px" className="object-cover object-top" />
+                      <Image src={imageUrl} alt={lesson?.title || row.category} fill sizes="(max-width: 1280px) 100vw, 640px" className="object-contain" />
                     </div>
                   ) : null}
                   <div className="space-y-3 p-4">

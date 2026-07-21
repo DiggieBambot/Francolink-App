@@ -42,7 +42,7 @@ export function ReadingComprehensionSectionComp({
               alt={section.title || "Reading passage"}
               fill
               sizes="(max-width: 768px) 100vw, 720px"
-              className="object-cover object-top"
+              className="object-contain"
             />
           </div>
           {section.image_hint ? (
