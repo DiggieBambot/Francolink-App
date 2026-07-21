@@ -6,7 +6,6 @@ import { NextResponse } from "next/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/server";
 import { runDailyNewsPipeline } from "@/lib/daily-news/pipeline";
-import { getDailyNewsConfig } from "@/lib/daily-news/config";
 
 export const maxDuration = 300;
 export const dynamic = "force-dynamic";
@@ -45,9 +44,15 @@ function serviceClient() {
   );
 }
 
+function parseLang(value: string | null | undefined): "en" | "fr" | undefined {
+  const v = (value || "").toLowerCase();
+  return v === "fr" || v === "en" ? v : undefined;
+}
+
 export async function GET(req: Request) {
   const url = new URL(req.url);
   const dryRun = url.searchParams.get("dry") === "1";
+  const lang = parseLang(url.searchParams.get("lang"));
 
   if (!authorizedCron(req)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -55,7 +60,7 @@ export async function GET(req: Request) {
 
   const result = await runDailyNewsPipeline(serviceClient(), {
     dryRun,
-    config: getDailyNewsConfig(),
+    config: lang ? { language: lang } : {},
   });
   return NextResponse.json(result, { status: result.ok ? 200 : 500 });
 }
@@ -65,9 +70,11 @@ export async function POST(req: Request) {
   if (!("ok" in auth)) return NextResponse.json({ error: auth.error }, { status: auth.status });
 
   const body = await req.json().catch(() => ({}));
+  const lang = parseLang(body?.language);
   const result = await runDailyNewsPipeline(serviceClient(), {
     dryRun: body?.dryRun === true,
     config: {
+      ...(lang ? { language: lang } : {}),
       ...(body?.targetLevel ? { targetLevel: body.targetLevel } : {}),
       ...(body?.lessonsPerDay ? { lessonsPerDay: Number(body.lessonsPerDay) } : {}),
       ...(body?.maxCandidatesPerCategory ? { maxCandidatesPerCategory: Number(body.maxCandidatesPerCategory) } : {}),

@@ -48,6 +48,14 @@ export const FRENCH_CATEGORIES: Category[] = [
     gradient: "from-emerald-400 to-green-500",
     language: "fr",
   },
+  {
+    slug: "fr-daily-news",
+    name: "Daily News",
+    description: "Des actualités fraîches et réelles — tech, santé, sport, divertissement, monde et science — réécrites pour les apprenants.",
+    emoji: "📰",
+    gradient: "from-rose-500 to-orange-500",
+    language: "fr",
+  },
 ];
 
 // ─── English categories ──────────────────────────────────────────────────────
@@ -121,10 +129,10 @@ export function categoryForLesson(
   const hay = `${path} ${tags}`;
 
   // Daily News lessons carry a "Daily News" topic tag (see daily-news
-  // pipeline). Route them to their own section regardless of sector
-  // (technology/health/etc.) — check this before the generic English rules
-  // so a business or travel story doesn't get miscategorized away from it.
-  if (/\bdaily news\b/.test(tags)) return "daily-news";
+  // pipeline). Route them to their own per-language section regardless of
+  // sector (technology/health/etc.) — check this before the generic rules
+  // below so a business or travel story doesn't get miscategorized away from it.
+  if (/\bdaily news\b/.test(tags)) return lang === "en" ? "daily-news" : "fr-daily-news";
 
   if (lang === "en") {
     if (/\bkid|young learner|english for kid/.test(hay)) return "en-kids";

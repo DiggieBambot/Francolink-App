@@ -1,4 +1,4 @@
-import type { CefrLevel, DailyNewsCategory, DailyNewsConfig } from "./types";
+import type { CefrLevel, DailyNewsCategory, DailyNewsConfig, DailyNewsLanguage } from "./types";
 
 export const DAILY_NEWS_CATEGORIES: DailyNewsCategory[] = [
   "technology",
@@ -16,6 +16,14 @@ export const GOOGLE_NEWS_TOPICS: Record<DailyNewsCategory, string> = {
   entertainment: "ENTERTAINMENT",
   world: "WORLD",
   science: "SCIENCE",
+};
+
+// Google News locale params per language — topic tokens (TECHNOLOGY, HEALTH,
+// ...) are language-independent; hl/gl/ceid control which language/region of
+// news is returned.
+export const GOOGLE_NEWS_LOCALE: Record<DailyNewsLanguage, { hl: string; gl: string; ceid: string }> = {
+  en: { hl: "en-US", gl: "US", ceid: "US:en" },
+  fr: { hl: "fr-FR", gl: "FR", ceid: "FR:fr" },
 };
 
 export const CATEGORY_PLACEHOLDERS: Record<DailyNewsCategory, string> = {
@@ -44,6 +52,11 @@ function parseLevel(value?: string): CefrLevel {
   return LEVELS.has(level) ? level : "B1";
 }
 
+function parseLanguage(value?: string): DailyNewsLanguage {
+  const lang = (value || "en").toLowerCase();
+  return lang === "fr" ? "fr" : "en";
+}
+
 function intEnv(name: string, fallback: number): number {
   const raw = process.env[name];
   if (!raw) return fallback;
@@ -53,6 +66,7 @@ function intEnv(name: string, fallback: number): number {
 
 export function getDailyNewsConfig(overrides: Partial<DailyNewsConfig> = {}): DailyNewsConfig {
   return {
+    language: overrides.language ?? parseLanguage(process.env.DAILY_NEWS_LANGUAGE),
     categories: overrides.categories ?? parseCategories(process.env.CATEGORIES || process.env.DAILY_NEWS_CATEGORIES),
     targetLevel: overrides.targetLevel ?? parseLevel(process.env.TARGET_CEFR_LEVEL || process.env.DAILY_NEWS_TARGET_CEFR_LEVEL),
     minScoreThreshold: overrides.minScoreThreshold ?? intEnv("MIN_SCORE_THRESHOLD", 7),

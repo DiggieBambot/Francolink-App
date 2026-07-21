@@ -2,13 +2,14 @@ import * as cheerio from "cheerio";
 import OpenAI from "openai";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Lesson, Section, VocabItem } from "@/lib/lessons/types";
-import { CATEGORY_PLACEHOLDERS, getDailyNewsConfig, GOOGLE_NEWS_TOPICS } from "./config";
+import { CATEGORY_PLACEHOLDERS, getDailyNewsConfig, GOOGLE_NEWS_LOCALE, GOOGLE_NEWS_TOPICS } from "./config";
 import type {
   BannerImage,
   BuiltLesson,
   CandidateScore,
   DailyNewsCategory,
   DailyNewsConfig,
+  DailyNewsLanguage,
   DailyNewsRunResult,
   GeneratedDailyNewsLesson,
   NewsCandidate,
@@ -43,9 +44,10 @@ interface InsertedLesson {
   title: string;
 }
 
-function googleNewsUrl(category: DailyNewsCategory): string {
+function googleNewsUrl(category: DailyNewsCategory, language: DailyNewsLanguage): string {
   const topic = GOOGLE_NEWS_TOPICS[category];
-  return `https://news.google.com/rss/headlines/section/topic/${topic}?hl=en-US&gl=US&ceid=US:en`;
+  const { hl, gl, ceid } = GOOGLE_NEWS_LOCALE[language];
+  return `https://news.google.com/rss/headlines/section/topic/${topic}?hl=${hl}&gl=${gl}&ceid=${ceid}`;
 }
 
 function getOpenAI(): OpenAI {
@@ -148,7 +150,7 @@ export async function fetchGoogleNewsCandidates(config: DailyNewsConfig): Promis
 
   for (const category of config.categories) {
     try {
-      const res = await withRetries(() => fetchWithTimeout(googleNewsUrl(category), {}, 12000), 2);
+      const res = await withRetries(() => fetchWithTimeout(googleNewsUrl(category, config.language), {}, 12000), 2);
       if (!res.ok) throw new Error(`Google News ${category} returned ${res.status}`);
       const xml = await res.text();
       const $ = cheerio.load(xml, { xmlMode: true });
@@ -231,7 +233,7 @@ export async function scoreCandidates(
           {
             role: "system",
             content:
-              "You are curating short news stories to turn into English lessons for learners worldwide. You will receive JSON candidate stories. For EACH candidate, score it 0-3 on: significance, discussability, global_intelligibility, self_contained. Return JSON with a single key scores containing an array of objects: { index, significance, discussability, global_intelligibility, self_contained, appropriate }. appropriate must be false if the story centers on graphic violence, tragedy with no learning value, explicit/adult content, or heavily partisan political conflict. No prose.",
+              `You are curating short news stories to turn into ${config.language === "fr" ? "French" : "English"} lessons for learners worldwide. You will receive JSON candidate stories. For EACH candidate, score it 0-3 on: significance, discussability, global_intelligibility, self_contained. Return JSON with a single key scores containing an array of objects: { index, significance, discussability, global_intelligibility, self_contained, appropriate }. appropriate must be false if the story centers on graphic violence, tragedy with no learning value, explicit/adult content, or heavily partisan political conflict. No prose.`,
           },
           { role: "user", content: JSON.stringify(payload) },
         ],
@@ -338,15 +340,15 @@ export async function generateLessonJson(
           {
             role: "system",
             content:
-              `You create English-learning lessons from news stories, in the style of Engoo Daily News. Write everything in your OWN words at CEFR level ${config.targetLevel}. Produce a JSON object with fields ONLY: title, article_body, vocabulary, comprehension_questions, discussion_questions, further_discussion_questions, image_query, image_subject.\n` +
-              `- title: a clear, learner-friendly headline (max ~12 words).\n` +
-              `- article_body: 200-300 words, 3-4 short paragraphs, neutral tone, no invented facts.\n` +
-              `- vocabulary: EXACTLY 6 items {word, ipa, part_of_speech, definition, example}; choose useful words that appear in your article; the example must use the word in a natural sentence.\n` +
-              `- comprehension_questions: EXACTLY 5 questions answerable directly from the article.\n` +
-              `- discussion_questions: EXACTLY 5 opinion/experience questions related to the topic.\n` +
-              `- further_discussion_questions: EXACTLY 3 deeper/abstract questions.\n` +
-              `- image_subject: the specific real named person, organization, place, or event this story is about (e.g. "Andy Burnham", "NASA Psyche spacecraft", "Wimbledon"), used to find an ACTUAL accurate photo. Leave empty ("") if the story has no single clear named subject.\n` +
-              `- image_query: a concrete 2-4 word generic stock-photo search phrase describing the scene, used ONLY if no real photo of image_subject can be found (e.g. "coffee cup desk", "video game controller").\n` +
+              `You create ${config.language === "fr" ? "French" : "English"}-learning lessons from news stories, in the style of Engoo Daily News. Write the title, article_body, vocabulary, and all questions in YOUR OWN words, IN ${config.language === "fr" ? "FRENCH" : "ENGLISH"} (the language being learned), at CEFR level ${config.targetLevel}. Produce a JSON object with fields ONLY: title, article_body, vocabulary, comprehension_questions, discussion_questions, further_discussion_questions, image_query, image_subject.\n` +
+              `- title: a clear, learner-friendly headline in ${config.language === "fr" ? "French" : "English"} (max ~12 words).\n` +
+              `- article_body: 200-300 words in ${config.language === "fr" ? "French" : "English"}, 3-4 short paragraphs, neutral tone, no invented facts.\n` +
+              `- vocabulary: EXACTLY 6 items {word, ipa, part_of_speech, definition, example} — word/definition/example in ${config.language === "fr" ? "French" : "English"}; part_of_speech stays in English (e.g. "noun", "verb"); choose useful words that appear in your article; the example must use the word in a natural sentence.\n` +
+              `- comprehension_questions: EXACTLY 5 questions (in ${config.language === "fr" ? "French" : "English"}) answerable directly from the article.\n` +
+              `- discussion_questions: EXACTLY 5 opinion/experience questions (in ${config.language === "fr" ? "French" : "English"}) related to the topic.\n` +
+              `- further_discussion_questions: EXACTLY 3 deeper/abstract questions (in ${config.language === "fr" ? "French" : "English"}).\n` +
+              `- image_subject: the specific real named person, organization, place, or event this story is about (e.g. "Andy Burnham", "NASA Psyche spacecraft", "Wimbledon") — ALWAYS in English regardless of lesson language, used to find an ACTUAL accurate photo. Leave empty ("") if the story has no single clear named subject.\n` +
+              `- image_query: a concrete 2-4 word generic stock-photo search phrase describing the scene — ALWAYS in English, used ONLY if no real photo of image_subject can be found (e.g. "coffee cup desk", "video game controller").\n` +
               `If the provided text is only a short snippet, stay conservative: do not invent names, numbers, or quotes. Return only JSON.`,
           },
           {
@@ -566,20 +568,87 @@ function questionsWithAnswers(questions: string[], article: string): Array<{ que
   return questions.slice(0, 5).map((question) => ({ question, answer }));
 }
 
+// Static UI chrome (section titles/instructions, objectives, tips) matches
+// the lesson's own language, same convention as every other lesson on the
+// site (French lessons have French instructions throughout).
+const UI_STRINGS: Record<DailyNewsLanguage, {
+  vocabTitle: string; vocabStudent: string; vocabTutor: string; vocabNote: string;
+  articleTitle: string; articleStudent: string; articleTutor: string;
+  discussionTitle: string; discussionStudent: string; discussionTutor: string;
+  furtherTitle: string; furtherStudent: string; furtherTutor: string;
+  objective1: string; objective1CanDo: (level: string) => string;
+  objective2: string; objective2CanDo: string;
+  objective3: string; objective3CanDo: string;
+  tip1: string; tip2: string; tip3: string;
+  teachingTip1: string; teachingTip2: string;
+  mistake1: string; mistake2: string;
+}> = {
+  en: {
+    vocabTitle: "Vocabulary", vocabStudent: "Study these key words before reading — you'll meet them in the article.",
+    vocabTutor: "Check pronunciation and ask the learner to guess the topic from these words before reading.",
+    vocabNote: "Daily News vocabulary",
+    articleTitle: "Article", articleStudent: "Read the article, then answer the comprehension questions.",
+    articleTutor: "Ask the learner to summarize each paragraph in their own words before answering.",
+    discussionTitle: "Discussion", discussionStudent: "Share your opinions and experiences with your tutor.",
+    discussionTutor: "Encourage full-sentence answers and follow-up questions.",
+    furtherTitle: "Further Discussion", furtherStudent: "Think more deeply about the topic and explain your reasons.",
+    furtherTutor: "Let the learner lead, then correct gently after they finish each answer.",
+    objective1: "Read and understand a current news story in English.",
+    objective1CanDo: (level) => `Can understand the main points of a short ${level} news article.`,
+    objective2: "Use six news-related vocabulary words in context.",
+    objective2CanDo: "Can explain and reuse key words from a familiar topic.",
+    objective3: "Discuss opinions and predictions about a real-world topic.",
+    objective3CanDo: "Can give reasons for opinions in a guided conversation.",
+    tip1: "Read once for the main idea before checking vocabulary.",
+    tip2: "Use the discussion questions to practice giving reasons.",
+    tip3: "Open the source link after class if you want more context.",
+    teachingTip1: "Start with the headline and ask the learner to predict the story.",
+    teachingTip2: "Avoid debating unknown facts; keep the focus on clear English expression.",
+    mistake1: "Copying phrases from the article without explaining them.",
+    mistake2: "Giving one-word answers to opinion questions.",
+  },
+  fr: {
+    vocabTitle: "Vocabulaire", vocabStudent: "Étudie ces mots clés avant la lecture — tu les retrouveras dans l'article.",
+    vocabTutor: "Vérifie la prononciation et demande à l'apprenant de deviner le sujet à partir de ces mots avant de lire.",
+    vocabNote: "Vocabulaire Daily News",
+    articleTitle: "Article", articleStudent: "Lis l'article, puis réponds aux questions de compréhension.",
+    articleTutor: "Demande à l'apprenant de résumer chaque paragraphe avec ses propres mots avant de répondre.",
+    discussionTitle: "Discussion", discussionStudent: "Partage tes opinions et expériences avec ton tuteur.",
+    discussionTutor: "Encourage des réponses en phrases complètes et pose des questions de relance.",
+    furtherTitle: "Pour aller plus loin", furtherStudent: "Réfléchis plus en profondeur au sujet et explique tes raisons.",
+    furtherTutor: "Laisse l'apprenant s'exprimer, puis corrige avec douceur après chaque réponse.",
+    objective1: "Lire et comprendre une actualité récente en français.",
+    objective1CanDo: (level) => `Peut comprendre l'essentiel d'un court article d'actualité de niveau ${level}.`,
+    objective2: "Utiliser six mots de vocabulaire liés à l'actualité en contexte.",
+    objective2CanDo: "Peut expliquer et réutiliser des mots clés sur un sujet familier.",
+    objective3: "Discuter d'opinions et de prédictions sur un sujet réel.",
+    objective3CanDo: "Peut donner des raisons pour justifier une opinion dans une conversation guidée.",
+    tip1: "Lis une première fois pour l'idée générale avant de vérifier le vocabulaire.",
+    tip2: "Utilise les questions de discussion pour t'entraîner à justifier tes opinions.",
+    tip3: "Ouvre le lien source après la leçon si tu veux plus de contexte.",
+    teachingTip1: "Commence par le titre et demande à l'apprenant de deviner l'histoire.",
+    teachingTip2: "Évite de débattre de faits inconnus ; concentre-toi sur une expression claire en français.",
+    mistake1: "Recopier des phrases de l'article sans les expliquer.",
+    mistake2: "Donner des réponses en un seul mot aux questions d'opinion.",
+  },
+};
+
 export function buildTutorLesson(
   category: DailyNewsCategory,
   candidate: NewsCandidate,
   generated: GeneratedDailyNewsLesson,
   bannerImage: BannerImage,
-  level: string
+  level: string,
+  language: DailyNewsLanguage = "en"
 ): Lesson {
+  const t = UI_STRINGS[language];
   const vocabItems: VocabItem[] = generated.vocabulary.slice(0, 6).map((item) => ({
     term: item.word,
     translation: item.definition,
     part_of_speech: item.part_of_speech,
     pronunciation: item.ipa,
     example: item.example,
-    note: "Daily News vocabulary",
+    note: t.vocabNote,
     image_query: item.word,
   }));
 
@@ -587,17 +656,17 @@ export function buildTutorLesson(
     {
       kind: "vocabulary_with_examples",
       number: 1,
-      title: "Vocabulary",
-      student_instruction: "Study these key words before reading — you'll meet them in the article.",
-      tutor_instruction: "Check pronunciation and ask the learner to guess the topic from these words before reading.",
+      title: t.vocabTitle,
+      student_instruction: t.vocabStudent,
+      tutor_instruction: t.vocabTutor,
       items: vocabItems,
     },
     {
       kind: "reading_comprehension",
       number: 2,
-      title: "Article",
-      student_instruction: "Read the article, then answer the comprehension questions.",
-      tutor_instruction: "Ask the learner to summarize each paragraph in their own words before answering.",
+      title: t.articleTitle,
+      student_instruction: t.articleStudent,
+      tutor_instruction: t.articleTutor,
       passage: generated.article_body,
       image_url: bannerImage.url,
       image_hint: bannerImage.credit_name
@@ -614,17 +683,17 @@ export function buildTutorLesson(
     {
       kind: "free_response",
       number: 3,
-      title: "Discussion",
-      student_instruction: "Share your opinions and experiences with your tutor.",
-      tutor_instruction: "Encourage full-sentence answers and follow-up questions.",
+      title: t.discussionTitle,
+      student_instruction: t.discussionStudent,
+      tutor_instruction: t.discussionTutor,
       questions: generated.discussion_questions.slice(0, 5),
     },
     {
       kind: "free_response",
       number: 4,
-      title: "Further Discussion",
-      student_instruction: "Think more deeply about the topic and explain your reasons.",
-      tutor_instruction: "Let the learner lead, then correct gently after they finish each answer.",
+      title: t.furtherTitle,
+      student_instruction: t.furtherStudent,
+      tutor_instruction: t.furtherTutor,
       questions: generated.further_discussion_questions.slice(0, 3),
     },
   ];
@@ -632,44 +701,25 @@ export function buildTutorLesson(
   return {
     slug: "",
     title: generated.title,
-    language: "en",
+    language,
     level,
     duration_minutes: 25,
     topic_tags: ["Daily News", category, candidate.sourceName || "News"].filter(Boolean),
     objectives: [
-      {
-        student_label: "Read and understand a current news story in English.",
-        skill: "reading",
-        cefr_can_do: `Can understand the main points of a short ${level} news article.`,
-      },
-      {
-        student_label: "Use six news-related vocabulary words in context.",
-        skill: "vocabulary",
-        cefr_can_do: "Can explain and reuse key words from a familiar topic.",
-      },
-      {
-        student_label: "Discuss opinions and predictions about a real-world topic.",
-        skill: "speaking",
-        cefr_can_do: "Can give reasons for opinions in a guided conversation.",
-      },
+      { student_label: t.objective1, skill: "reading", cefr_can_do: t.objective1CanDo(level) },
+      { student_label: t.objective2, skill: "vocabulary", cefr_can_do: t.objective2CanDo },
+      { student_label: t.objective3, skill: "speaking", cefr_can_do: t.objective3CanDo },
     ],
-    learning_tips: [
-      "Read once for the main idea before checking vocabulary.",
-      "Use the discussion questions to practice giving reasons.",
-      "Open the source link after class if you want more context.",
-    ],
+    learning_tips: [t.tip1, t.tip2, t.tip3],
     tutor_overview: {
       skills_covered: ["reading", "vocabulary", "speaking"],
       estimated_minutes: 25,
       teaching_tips: [
-        "Start with the headline and ask the learner to predict the story.",
-        "Avoid debating unknown facts; keep the focus on clear English expression.",
+        t.teachingTip1,
+        t.teachingTip2,
         `Source: ${candidate.sourceName || "Google News"} (${candidate.sourceUrl})`,
       ],
-      common_mistakes: [
-        "Copying phrases from the article without explaining them.",
-        "Giving one-word answers to opinion questions.",
-      ],
+      common_mistakes: [t.mistake1, t.mistake2],
     },
     hero_image_hint: generated.image_query || category,
     hero_image_url: bannerImage.url,
@@ -689,7 +739,7 @@ export async function buildDailyNewsLesson(
     generated.image_query || generated.title,
     generated.image_subject
   );
-  const lesson = buildTutorLesson(candidate.category, candidate, generated, bannerImage, config.targetLevel);
+  const lesson = buildTutorLesson(candidate.category, candidate, generated, bannerImage, config.targetLevel, config.language);
   return { lesson, generated, bannerImage };
 }
 
@@ -785,7 +835,7 @@ export async function runDailyNewsPipeline(
           .insert({
             slug,
             title: built.lesson.title,
-            language: "en",
+            language: config.language,
             level: config.targetLevel,
             duration_minutes: built.lesson.duration_minutes,
             topic_tags: built.lesson.topic_tags,

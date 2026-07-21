@@ -10,7 +10,10 @@ export type DailyNewsCategory =
 
 export type CefrLevel = "A2" | "B1" | "B2" | "C1";
 
+export type DailyNewsLanguage = "en" | "fr";
+
 export interface DailyNewsConfig {
+  language: DailyNewsLanguage;
   categories: DailyNewsCategory[];
   targetLevel: CefrLevel;
   minScoreThreshold: number;

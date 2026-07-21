@@ -22,6 +22,7 @@ export function ReadingComprehensionSectionComp({
   theme,
 }: Props) {
   const ttsLocale = useLessonTTSLocale();
+  const isEnglish = ttsLocale.toLowerCase().startsWith("en");
   return (
     <SectionCard theme={theme}>
       <SectionHeader
@@ -64,7 +65,9 @@ export function ReadingComprehensionSectionComp({
       {/* Comprehension questions (answers shown in tutor view only) */}
       {section.questions?.length ? (
         <div className="mx-auto mt-8 max-w-[68ch]">
-          <h4 className="mb-3 font-heading text-lg font-bold text-primary">Compréhension</h4>
+          <h4 className="mb-3 font-heading text-lg font-bold text-primary">
+            {isEnglish ? "Comprehension" : "Compréhension"}
+          </h4>
           <ol className="space-y-3">
             {section.questions.map((q, i) => (
               <li key={i} className="rounded-xl border border-gray-100 bg-white p-4 shadow-soft">
@@ -74,7 +77,7 @@ export function ReadingComprehensionSectionComp({
                 </p>
                 {view === "tutor" && q.answer ? (
                   <p className="mt-2 rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-900">
-                    <span className="font-semibold">Réponse : </span>
+                    <span className="font-semibold">{isEnglish ? "Answer: " : "Réponse : "}</span>
                     {q.answer}
                   </p>
                 ) : null}

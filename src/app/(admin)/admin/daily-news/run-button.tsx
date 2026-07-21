@@ -8,6 +8,7 @@ export function RunDailyNewsButton() {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
   const [message, setMessage] = useState<string | null>(null);
+  const [language, setLanguage] = useState<"en" | "fr">("en");
 
   function run() {
     setMessage(null);
@@ -15,7 +16,7 @@ export function RunDailyNewsButton() {
       const res = await fetch("/api/cron/daily-news", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ dryRun: false }),
+        body: JSON.stringify({ dryRun: false, language }),
       });
       const body = await res.json().catch(() => ({}));
       if (!res.ok) {
@@ -29,6 +30,22 @@ export function RunDailyNewsButton() {
 
   return (
     <div className="flex flex-col items-end gap-2">
+      <div className="flex overflow-hidden rounded-md border text-xs font-semibold">
+        <button
+          type="button"
+          onClick={() => setLanguage("en")}
+          className={`px-2.5 py-1 ${language === "en" ? "bg-primary text-white" : "bg-background text-muted-foreground"}`}
+        >
+          🇬🇧 EN
+        </button>
+        <button
+          type="button"
+          onClick={() => setLanguage("fr")}
+          className={`px-2.5 py-1 ${language === "fr" ? "bg-primary text-white" : "bg-background text-muted-foreground"}`}
+        >
+          🇫🇷 FR
+        </button>
+      </div>
       <button
         type="button"
         onClick={run}

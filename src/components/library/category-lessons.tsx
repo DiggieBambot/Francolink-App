@@ -10,33 +10,32 @@ const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
 // Fixed display order + label for Daily News's sub-sectors (see
 // src/lib/daily-news — lessons carry topic_tags: ["Daily News", <sector>, ...]).
 const DAILY_NEWS_SECTOR_ORDER = ["technology", "health", "sports", "entertainment", "world", "science"];
-const DAILY_NEWS_SECTOR_LABEL: Record<string, string> = {
-  technology: "Technology",
-  health: "Health",
-  sports: "Sports",
-  entertainment: "Entertainment",
-  world: "World",
-  science: "Science",
+const DAILY_NEWS_SECTOR_LABEL: Record<"en" | "fr", Record<string, string>> = {
+  en: { technology: "Technology", health: "Health", sports: "Sports", entertainment: "Entertainment", world: "World", science: "Science" },
+  fr: { technology: "Technologie", health: "Santé", sports: "Sport", entertainment: "Divertissement", world: "Monde", science: "Science" },
 };
 
 function dailyNewsSector(lesson: CatalogueLesson): string {
   return (lesson.topic_tags?.[1] || "news").toLowerCase();
 }
 
+const DAILY_NEWS_SLUGS = new Set(["daily-news", "fr-daily-news"]);
+
 // Client-side level filter for a category page, so the page reads no
-// request-time searchParams and can be ISR-cached. When `category` is
-// "daily-news", lessons are additionally grouped under sector headings
+// request-time searchParams and can be ISR-cached. When `category` is a
+// Daily News section, lessons are additionally grouped under sector headings
 // (Technology, Health, Sports, ...) instead of one flat grid.
 export function CategoryLessons({ lessons, category }: { lessons: CatalogueLesson[]; category?: string }) {
   const [level, setLevel] = useState<string | null>(null);
   const presentLevels = LEVELS.filter((lv) => lessons.some((l) => l.level === lv));
   const shown = level ? lessons.filter((l) => l.level === level) : lessons;
-  const grouped = category === "daily-news";
+  const grouped = category ? DAILY_NEWS_SLUGS.has(category) : false;
+  const labels = category === "fr-daily-news" ? DAILY_NEWS_SECTOR_LABEL.fr : DAILY_NEWS_SECTOR_LABEL.en;
 
   const sections = grouped
     ? DAILY_NEWS_SECTOR_ORDER.map((sector) => ({
         sector,
-        label: DAILY_NEWS_SECTOR_LABEL[sector] || sector,
+        label: labels[sector] || sector,
         items: shown.filter((l) => dailyNewsSector(l) === sector),
       })).filter((s) => s.items.length > 0)
     : null;

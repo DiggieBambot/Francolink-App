@@ -19,6 +19,7 @@ type NewsRow = {
     title: string;
     status: string;
     level: string;
+    language: string;
     topic_tags: string[];
   } | null;
 };
@@ -47,7 +48,7 @@ export default async function AdminDailyNewsPage() {
       published_at,
       banner_image,
       score,
-      tutor_lessons:lesson_id(id, slug, title, status, level, topic_tags)
+      tutor_lessons:lesson_id(id, slug, title, status, level, language, topic_tags)
     `)
     .order("created_at", { ascending: false })
     .limit(80);
@@ -127,6 +128,11 @@ export default async function AdminDailyNewsPage() {
                   <div className="space-y-3 p-4">
                     <div className="flex items-center justify-between gap-3">
                       <div className="flex flex-wrap gap-1">
+                        {lesson?.language ? (
+                          <span className="rounded bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary">
+                            {lesson.language === "fr" ? "🇫🇷 FR" : "🇬🇧 EN"}
+                          </span>
+                        ) : null}
                         <span className="rounded bg-muted px-2 py-0.5 text-xs font-semibold">{row.category}</span>
                         {lesson?.level ? <span className="rounded bg-muted px-2 py-0.5 text-xs font-semibold">{lesson.level}</span> : null}
                         {lesson?.status ? <span className="rounded bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-900">{lesson.status}</span> : null}
