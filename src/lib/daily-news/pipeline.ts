@@ -53,9 +53,9 @@ interface InsertedLesson {
   title: string;
 }
 
-function googleNewsUrl(category: DailyNewsCategory, language: DailyNewsLanguage): string {
+function googleNewsUrl(category: DailyNewsCategory, locale: { hl: string; gl: string; ceid: string }): string {
   const topic = GOOGLE_NEWS_TOPICS[category];
-  const { hl, gl, ceid } = GOOGLE_NEWS_LOCALE[language];
+  const { hl, gl, ceid } = locale;
   return `https://news.google.com/rss/headlines/section/topic/${topic}?hl=${hl}&gl=${gl}&ceid=${ceid}`;
 }
 
@@ -156,41 +156,53 @@ async function resolveNewsUrl(url: string): Promise<string> {
 export async function fetchGoogleNewsCandidates(config: DailyNewsConfig): Promise<NewsCandidate[]> {
   const candidates: NewsCandidate[] = [];
   const cutoffMs = Date.now() - 72 * 60 * 60 * 1000;
+  const seenUrls = new Set<string>();
+
+  const locales = GOOGLE_NEWS_LOCALE[config.language];
+  // Split the per-category cap across editions so one language doesn't fetch
+  // 4x as many candidates as another (e.g. French: France + Belgium +
+  // Switzerland + Canada editions, ~1/4 of the cap each).
+  const perEditionLimit = Math.max(2, Math.ceil(config.maxCandidatesPerCategory / locales.length));
 
   for (const category of config.categories) {
-    try {
-      const res = await withRetries(() => fetchWithTimeout(googleNewsUrl(category, config.language), {}, 12000), 2);
-      if (!res.ok) throw new Error(`Google News ${category} returned ${res.status}`);
-      const xml = await res.text();
-      const $ = cheerio.load(xml, { xmlMode: true });
-      const items = $("item").slice(0, config.maxCandidatesPerCategory).toArray();
+    let feedRank = 0;
+    for (const locale of locales) {
+      try {
+        const res = await withRetries(() => fetchWithTimeout(googleNewsUrl(category, locale), {}, 12000), 2);
+        if (!res.ok) throw new Error(`Google News ${category} (${locale.ceid}) returned ${res.status}`);
+        const xml = await res.text();
+        const $ = cheerio.load(xml, { xmlMode: true });
+        const items = $("item").slice(0, perEditionLimit).toArray();
 
-      for (let i = 0; i < items.length; i++) {
-        const item = items[i];
-        const title = stripHtml($(item).find("title").first().text());
-        const googleUrl = $(item).find("link").first().text().trim();
-        const pubDate = $(item).find("pubDate").first().text().trim();
-        const publishedAt = pubDate ? new Date(pubDate) : new Date();
-        if (Number.isNaN(publishedAt.getTime()) || publishedAt.getTime() < cutoffMs) continue;
+        for (const item of items) {
+          const title = stripHtml($(item).find("title").first().text());
+          const googleUrl = $(item).find("link").first().text().trim();
+          const pubDate = $(item).find("pubDate").first().text().trim();
+          const publishedAt = pubDate ? new Date(pubDate) : new Date();
+          if (Number.isNaN(publishedAt.getTime()) || publishedAt.getTime() < cutoffMs) continue;
 
-        const sourceName = stripHtml($(item).find("source").first().text()) || null;
-        const snippet = stripHtml($(item).find("description").first().text());
-        const sourceUrl = await resolveNewsUrl(googleUrl);
+          const sourceName = stripHtml($(item).find("source").first().text()) || null;
+          const snippet = stripHtml($(item).find("description").first().text());
+          const sourceUrl = await resolveNewsUrl(googleUrl);
+          if (seenUrls.has(sourceUrl)) continue; // same story picked up by multiple editions
+          seenUrls.add(sourceUrl);
 
-        candidates.push({
-          category,
-          title,
-          snippet,
-          sourceName,
-          sourceUrl,
-          googleUrl,
-          publishedAt: publishedAt.toISOString(),
-          feedRank: i + 1,
-          contentHash: sha256(sourceUrl),
-        });
+          feedRank++;
+          candidates.push({
+            category,
+            title,
+            snippet,
+            sourceName,
+            sourceUrl,
+            googleUrl,
+            publishedAt: publishedAt.toISOString(),
+            feedRank,
+            contentHash: sha256(sourceUrl),
+          });
+        }
+      } catch (error) {
+        console.error(`[daily-news] fetch failed for ${category} (${locale.ceid}):`, error);
       }
-    } catch (error) {
-      console.error(`[daily-news] fetch failed for ${category}:`, error);
     }
   }
 

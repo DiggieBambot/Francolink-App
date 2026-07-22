@@ -19,11 +19,19 @@ export const GOOGLE_NEWS_TOPICS: Record<DailyNewsCategory, string> = {
 };
 
 // Google News locale params per language — topic tokens (TECHNOLOGY, HEALTH,
-// ...) are language-independent; hl/gl/ceid control which language/region of
-// news is returned.
-export const GOOGLE_NEWS_LOCALE: Record<DailyNewsLanguage, { hl: string; gl: string; ceid: string }> = {
-  en: { hl: "en-US", gl: "US", ceid: "US:en" },
-  fr: { hl: "fr-FR", gl: "FR", ceid: "FR:fr" },
+// ...) are language-independent; hl/gl/ceid control which language/region
+// edition of news is returned. Each language maps to a LIST of editions so
+// French isn't limited to France-only news: it pulls from France, Belgium,
+// Switzerland, and Canada (Quebec) editions and merges the results, giving
+// broader Francophonie coverage instead of one country's domestic news.
+export const GOOGLE_NEWS_LOCALE: Record<DailyNewsLanguage, Array<{ hl: string; gl: string; ceid: string }>> = {
+  en: [{ hl: "en-US", gl: "US", ceid: "US:en" }],
+  fr: [
+    { hl: "fr-FR", gl: "FR", ceid: "FR:fr" },
+    { hl: "fr-BE", gl: "BE", ceid: "BE:fr" },
+    { hl: "fr-CH", gl: "CH", ceid: "CH:fr" },
+    { hl: "fr-CA", gl: "CA", ceid: "CA:fr" },
+  ],
 };
 
 export const CATEGORY_PLACEHOLDERS: Record<DailyNewsCategory, string> = {
