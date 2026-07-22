@@ -7,7 +7,7 @@ import { createClient } from "@supabase/supabase-js";
 import { getResend, DEFAULT_FROM } from "@/lib/email/resend";
 import { emailShell, escapeHtml, APP_URL } from "@/lib/email/shell";
 
-const REPLY_TO = "njinu@francolink.net";
+const REPLY_TO = "support@francolink.net";
 
 function svc() {
   return createClient(

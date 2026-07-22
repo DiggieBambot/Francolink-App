@@ -21,4 +21,4 @@ export function getResend(): Resend {
 }
 
 /** Default From: header used by re-engagement and welcome emails. */
-export const DEFAULT_FROM = "Tutor Njinu <njinu@francolink.net>";
+export const DEFAULT_FROM = "Francolink Team <support@francolink.net>";

@@ -6,7 +6,7 @@
 
 import { getResend, DEFAULT_FROM } from "@/lib/email/resend";
 
-const REPLY_TO = "njinu@francolink.net";
+const REPLY_TO = "support@francolink.net";
 
 export interface SendArgs {
   to: string;

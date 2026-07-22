@@ -4,7 +4,7 @@
 // (tables, inline styles, no external images, no <head> CSS) so it renders the
 // same in Gmail, Outlook, Apple Mail and the rest.
 //
-// Voice across all campaigns is "Tutor Njinu" — warm, concise, one CTA.
+// Voice across all campaigns is the "Francolink Team" — warm, concise, one CTA.
 
 export const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://app.francolink.net";
 
@@ -43,7 +43,7 @@ export function emailShell({ firstName, bodyHtml, ctaHref, ctaText, unsubscribeU
             <a href="${ctaHref}" style="display:inline-block;background:#f97316;color:#fff;text-decoration:none;font-weight:600;padding:12px 22px;border-radius:8px;">${escapeHtml(ctaText)}</a>
           </p>
           <p style="margin:0 0 4px 0;font-size:15px;">À bientôt,</p>
-          <p style="margin:0;font-size:15px;">— Njinu<br/><span style="color:#64748b;font-size:13px;">Tutor at Francolink</span></p>
+          <p style="margin:0;font-size:15px;">— The Francolink Team<br/><span style="color:#64748b;font-size:13px;">francolink.net</span></p>
         </td></tr>
       </table>
       <p style="font-size:12px;color:#94a3b8;margin:16px 0 0 0;">

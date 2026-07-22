@@ -61,8 +61,7 @@ ${textBody}
 ${ctaText}: ${ctaHref}
 
 À bientôt,
-— Njinu
-Tutor at Francolink
+— The Francolink Team
 ${unsubscribeUrl ? `\nUnsubscribe from tips: ${unsubscribeUrl}` : ""}`;
 
   const html = emailShell({ firstName, bodyHtml, ctaHref, ctaText, unsubscribeUrl });
@@ -88,7 +87,7 @@ export const STEPS: CampaignStep[] = [
         unsubscribeUrl,
         subject: `Tip #1: the 15-minute rule for learning ${escapeHtml(lang)}`,
         paras: [
-          `I'm Njinu, one of the tutors here. Over the next couple of weeks I'll send you a handful of short, practical tips for learning ${escapeHtml(lang)} — no fluff, just the things that actually move the needle.`,
+          `Welcome to Francolink! Over the next couple of weeks we'll send you a handful of short, practical tips for learning ${escapeHtml(lang)} — no fluff, just the things that actually move the needle.`,
           `Tip #1: <strong>15 focused minutes a day beats a 2-hour binge once a week.</strong> Your brain consolidates language while you sleep, so daily contact — even tiny — compounds far faster than the occasional marathon.`,
           `Pick a fixed moment (morning coffee, the commute, before bed) and do one short lesson. That's it. Want to start your streak right now?`,
         ],
@@ -105,7 +104,7 @@ export const STEPS: CampaignStep[] = [
         unsubscribeUrl,
         subject: `Tip #2: learn the words that do 80% of the work`,
         paras: [
-          `Njinu again. Here's something most ${escapeHtml(lang)} courses get backwards.`,
+          `Here's something most ${escapeHtml(lang)} courses get backwards.`,
           `Tip #2: <strong>The 1,000 most common words make up around 80% of everyday speech.</strong> You don't need a huge vocabulary to start understanding and being understood — you need the <em>right</em> small one first.`,
           `That's exactly why our lessons are sequenced by real frequency, so the first words you learn are the ones you'll actually hear and use. If you haven't taken the 90-second placement test yet, that's what tailors the order to you.`,
         ],
