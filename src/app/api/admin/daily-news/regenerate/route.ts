@@ -57,6 +57,7 @@ async function regenerate(req: Request) {
   const url = new URL(req.url);
   const lang = url.searchParams.get("lang");
   const limit = Number(url.searchParams.get("limit") || "0") || undefined;
+  const slug = url.searchParams.get("slug"); // target one lesson by slug, any status (e.g. already published)
 
   const supabase = serviceClient();
   const { data: rows, error } = await supabase
@@ -70,7 +71,11 @@ async function regenerate(req: Request) {
 
   // Supabase infers this FK join as an array; it's one-to-one via lesson_id.
   let targets = (rows || []) as unknown as DailyNewsRow[];
-  targets = targets.filter((r) => r.tutor_lessons?.status === "review");
+  if (slug) {
+    targets = targets.filter((r) => r.tutor_lessons?.slug === slug);
+  } else {
+    targets = targets.filter((r) => r.tutor_lessons?.status === "review");
+  }
   if (lang === "en" || lang === "fr") targets = targets.filter((r) => r.tutor_lessons?.language === lang);
   if (limit) targets = targets.slice(0, limit);
 

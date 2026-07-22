@@ -71,7 +71,7 @@ export interface BannerImage {
   credit_name: string | null;
   credit_url: string | null;
   query_used: string;
-  source: "wikimedia" | "pexels" | "placeholder";
+  source: "source-article" | "wikimedia" | "pexels" | "placeholder";
   /** License short name (e.g. "CC BY-SA 4.0"), only set for Wikimedia images. */
   license?: string;
 }

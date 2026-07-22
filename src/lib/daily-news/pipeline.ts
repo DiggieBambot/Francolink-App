@@ -313,12 +313,26 @@ export function selectCandidates(
     .slice(0, config.lessonsPerDay);
 }
 
-export async function extractArticleText(candidate: NewsCandidate): Promise<{ text: string; usedFallback: boolean }> {
+export async function extractArticleText(
+  candidate: NewsCandidate
+): Promise<{ text: string; usedFallback: boolean; sourceImageUrl: string | null }> {
   try {
     const res = await fetchWithTimeout(candidate.sourceUrl, { headers: authHeaders() }, 12000);
     if (!res.ok) throw new Error(`article returned ${res.status}`);
     const html = await res.text();
     const $ = cheerio.load(html);
+
+    // The publisher's own lead image for THIS exact story (og:image/
+    // twitter:image) is the most precise, on-topic photo we can get — it's
+    // literally what the source chose to illustrate this article, unlike a
+    // generic stock-photo search. Read it before stripping tags.
+    const ogImage =
+      $('meta[property="og:image"]').attr("content") ||
+      $('meta[property="og:image:secure_url"]').attr("content") ||
+      $('meta[name="twitter:image"]').attr("content") ||
+      null;
+    const sourceImageUrl = ogImage ? new URL(ogImage, candidate.sourceUrl).toString() : null;
+
     $("script, style, nav, header, footer, aside, form, noscript, iframe").remove();
     const candidates = [
       $("article").text(),
@@ -330,8 +344,13 @@ export async function extractArticleText(candidate: NewsCandidate): Promise<{ te
       .filter(Boolean);
     const text = candidates.sort((a, b) => b.length - a.length)[0] || "";
     if (text.length >= MIN_EXTRACTED_TEXT_CHARS) {
-      return { text: compactText(text, MAX_SOURCE_TEXT_CHARS), usedFallback: false };
+      return { text: compactText(text, MAX_SOURCE_TEXT_CHARS), usedFallback: false, sourceImageUrl };
     }
+    return {
+      text: compactText(`${candidate.title}\n\n${candidate.snippet}`, 1400),
+      usedFallback: true,
+      sourceImageUrl,
+    };
   } catch (error) {
     console.warn(`[daily-news] article extraction failed for ${candidate.sourceUrl}:`, error);
   }
@@ -339,6 +358,7 @@ export async function extractArticleText(candidate: NewsCandidate): Promise<{ te
   return {
     text: compactText(`${candidate.title}\n\n${candidate.snippet}`, 1400),
     usedFallback: true,
+    sourceImageUrl: null,
   };
 }
 
@@ -637,9 +657,36 @@ async function fetchPexelsImage(query: string): Promise<BannerImage | null> {
   }
 }
 
-// ── Orchestration: Wikimedia (named subject ONLY — its search is tuned for
-//    encyclopedic subjects, not generic scenes, so a loose "coffee cup desk"
-//    query can match something unrelated) -> Pexels (generic query) ->
+// ── Source article's own lead image (og:image) — the most precise option:
+//    it's literally the photo the publisher chose to illustrate THIS exact
+//    story (a spacecraft, an event, a product — not just a named person),
+//    so it can't be topically wrong the way a keyword-searched stock photo
+//    can. Credited back to the publisher, not rehosted as our own.
+
+const IMAGE_EXT_BLOCKLIST = /\.(svg|ico)(\?|$)/i;
+
+function fetchSourceArticleImage(sourceImageUrl: string | null, candidate: NewsCandidate): BannerImage | null {
+  if (!sourceImageUrl) return null;
+  if (IMAGE_EXT_BLOCKLIST.test(sourceImageUrl)) return null; // logo/favicon, not a photo
+  let hostname = "";
+  try {
+    hostname = new URL(candidate.sourceUrl).hostname.replace(/^www\./, "");
+  } catch {
+    // ignore
+  }
+  return {
+    url: sourceImageUrl,
+    credit_name: candidate.sourceName || hostname || "the source",
+    credit_url: candidate.sourceUrl,
+    query_used: candidate.title,
+    source: "source-article",
+  };
+}
+
+// ── Orchestration: source article's own image (most precise, credited to
+//    the publisher) -> Wikimedia (named subject ONLY — its search is tuned
+//    for encyclopedic subjects, not generic scenes, so a loose "coffee cup
+//    desk" query can match something unrelated) -> Pexels (generic query) ->
 //    per-category placeholder. ───────────────────────────────────────────────
 
 // Generic role/title phrases (no specific person's name attached) are unsafe
@@ -664,7 +711,9 @@ function isGenericRolePhrase(subject: string): boolean {
 export async function fetchBannerImage(
   category: DailyNewsCategory,
   imageQuery: string | undefined,
-  imageSubject?: string
+  imageSubject?: string,
+  sourceImageUrl?: string | null,
+  candidate?: NewsCandidate
 ): Promise<BannerImage> {
   const fallback: BannerImage = {
     url: CATEGORY_PLACEHOLDERS[category],
@@ -674,6 +723,10 @@ export async function fetchBannerImage(
     source: "placeholder",
   };
 
+  if (sourceImageUrl && candidate) {
+    const fromSource = fetchSourceArticleImage(sourceImageUrl, candidate);
+    if (fromSource) return fromSource;
+  }
   if (imageSubject && !isGenericRolePhrase(imageSubject)) {
     const bySubject = await fetchWikimediaImage(imageSubject);
     if (bySubject) return bySubject;
@@ -797,7 +850,9 @@ export function buildTutorLesson(
               ? ` (${bannerImage.license || "CC"}) via Wikimedia Commons`
               : bannerImage.source === "pexels"
                 ? " / Pexels"
-                : ""
+                : bannerImage.source === "source-article"
+                  ? " (source article)"
+                  : ""
           }`
         : bannerImage.query_used,
       questions: questionsWithAnswers(generated.comprehension_questions, generated.article_body),
@@ -854,12 +909,14 @@ export async function buildDailyNewsLesson(
   candidate: NewsCandidate,
   config: DailyNewsConfig
 ): Promise<BuiltLesson> {
-  const { text, usedFallback } = await extractArticleText(candidate);
+  const { text, usedFallback, sourceImageUrl } = await extractArticleText(candidate);
   const generated = await generateLessonJson(openai, candidate, text, usedFallback, config);
   const bannerImage = await fetchBannerImage(
     candidate.category,
     generated.image_query || generated.title,
-    generated.image_subject
+    generated.image_subject,
+    sourceImageUrl,
+    candidate
   );
   const lesson = buildTutorLesson(candidate.category, candidate, generated, bannerImage, config.targetLevel, config.language);
   return { lesson, generated, bannerImage };
