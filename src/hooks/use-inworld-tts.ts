@@ -11,8 +11,8 @@ interface UseInworldTTSOptions {
 export function useInworldTTS(options: UseInworldTTSOptions = {}) {
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const fallbackUtteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
 
   const stop = useCallback(() => {
     if (audioRef.current) {
@@ -20,10 +20,6 @@ export function useInworldTTS(options: UseInworldTTSOptions = {}) {
       audioRef.current.currentTime = 0;
       audioRef.current = null;
     }
-    if (typeof window !== "undefined" && "speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-    }
-    fallbackUtteranceRef.current = null;
     setIsSpeaking(false);
     setIsLoading(false);
   }, []);
@@ -36,6 +32,7 @@ export function useInworldTTS(options: UseInworldTTSOptions = {}) {
 
       const language = options.language || "fr-FR";
       setIsLoading(true);
+      setError(false);
 
       try {
         const response = await fetch("/api/tts", {
@@ -49,9 +46,11 @@ export function useInworldTTS(options: UseInworldTTSOptions = {}) {
           }),
         });
 
+        // No browser speechSynthesis fallback: we only ever want the real
+        // Inworld voice, not the robotic OS voice standing in silently.
         if (!response.ok) {
           setIsLoading(false);
-          await playFallback(trimmed, language, fallbackUtteranceRef, setIsSpeaking);
+          setError(true);
           return;
         }
 
@@ -79,51 +78,26 @@ export function useInworldTTS(options: UseInworldTTSOptions = {}) {
             setIsSpeaking(true);
           };
           audioEl.onended = finish;
-          audioEl.onerror = finish;
+          audioEl.onerror = () => {
+            setError(true);
+            finish();
+          };
           audioEl.onpause = () => {
             // Treat manual stop as end; play() resolution may not have fired yet.
             if (audioEl.currentTime === 0) finish();
           };
-          audioEl.play().catch(finish);
+          audioEl.play().catch(() => {
+            setError(true);
+            finish();
+          });
         });
       } catch {
         setIsLoading(false);
-        await playFallback(trimmed, language, fallbackUtteranceRef, setIsSpeaking);
+        setError(true);
       }
     },
     [options.language, options.voice, options.speed, stop]
   );
 
-  return { speak, stop, isSpeaking, isLoading };
-}
-
-function playFallback(
-  text: string,
-  lang: string,
-  utteranceRef: { current: SpeechSynthesisUtterance | null },
-  setIsSpeaking: (v: boolean) => void
-): Promise<void> {
-  if (typeof window === "undefined" || !("speechSynthesis" in window)) return Promise.resolve();
-  return new Promise<void>((resolve) => {
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = lang;
-    utterance.rate = 0.85;
-    const voices = window.speechSynthesis.getVoices();
-    const voice = voices.find((v) => v.lang.startsWith(lang.split("-")[0]));
-    if (voice) utterance.voice = voice;
-    let finished = false;
-    const finish = () => {
-      if (finished) return;
-      finished = true;
-      setIsSpeaking(false);
-      utteranceRef.current = null;
-      resolve();
-    };
-    utterance.onstart = () => setIsSpeaking(true);
-    utterance.onend = finish;
-    utterance.onerror = finish;
-    utteranceRef.current = utterance;
-    window.speechSynthesis.speak(utterance);
-  });
+  return { speak, stop, isSpeaking, isLoading, error };
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { Fragment, type ReactNode, useState, useRef, useCallback, useEffect } from "react";
-import { Volume2, Square, Loader2 } from "lucide-react";
+import { Volume2, Square, Loader2, AlertCircle } from "lucide-react";
 
 interface ReadAloudProps {
   /** The full raw passage (may contain **bold** markers and blank-line paragraph breaks). */
@@ -13,10 +13,11 @@ const stripBold = (t: string) => t.replace(/\*\*/g, "");
 
 /**
  * Reading-passage player. Renders the passage as proper paragraphs (drop-cap
- * on the first, **bold** markers honoured) and reads it aloud via the reliable
+ * on the first, **bold** markers honoured) and reads it aloud via the Inworld
  * backend TTS (`/api/tts`), washing a mild yellow highlight across the text as
- * a continuous sweep keyed to playback progress. Web Speech API is only the
- * fallback when the backend call fails.
+ * a continuous sweep keyed to playback progress. There is no Web Speech API
+ * fallback — if the backend call fails we surface an error rather than
+ * silently swap in the robotic OS voice.
  *
  * This is the single source of truth for the passage — the section component
  * should not render the paragraphs again separately.
@@ -27,6 +28,7 @@ export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
   const [progressChar, setProgressChar] = useState(0);
   const [speaking, setSpeaking] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const rafRef = useRef<number | null>(null);
 
@@ -46,9 +48,6 @@ export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
       audioRef.current.src = "";
       audioRef.current = null;
     }
-    if (typeof window !== "undefined" && "speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-    }
   }, []);
 
   const stop = useCallback(() => {
@@ -60,39 +59,12 @@ export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
 
   useEffect(() => () => cleanup(), [cleanup]);
 
-  // Web Speech fallback — used only if the backend TTS call fails.
-  const speakFallback = useCallback(() => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) {
-      setLoading(false);
-      return;
-    }
-    window.speechSynthesis.cancel();
-    const utter = new SpeechSynthesisUtterance(plain);
-    utter.lang = lang;
-    utter.rate = 0.9;
-    const voices = window.speechSynthesis.getVoices();
-    const langPrefix = lang.split("-")[0];
-    const voice =
-      voices.find((v) => v.lang === lang) || voices.find((v) => v.lang.startsWith(langPrefix));
-    if (voice) utter.voice = voice;
-    utter.onstart = () => {
-      setLoading(false);
-      setSpeaking(true);
-    };
-    utter.onboundary = (e) => {
-      if (e.name && e.name !== "word") return;
-      setProgressChar(e.charIndex);
-    };
-    utter.onend = () => stop();
-    utter.onerror = () => stop();
-    window.speechSynthesis.speak(utter);
-  }, [plain, lang, stop]);
-
   const speak = useCallback(async () => {
     stop();
     const trimmed = plain.trim();
     if (!trimmed) return;
     setLoading(true);
+    setError(false);
 
     try {
       const res = await fetch("/api/tts", {
@@ -101,7 +73,8 @@ export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
         body: JSON.stringify({ text: trimmed, language: lang, speed: 0.95 }),
       });
       if (!res.ok) {
-        speakFallback();
+        setLoading(false);
+        setError(true);
         return;
       }
       const { audio, format } = await res.json();
@@ -135,15 +108,20 @@ export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
         stop();
       };
       audioEl.onended = finish;
-      audioEl.onerror = finish;
+      audioEl.onerror = () => {
+        setError(true);
+        finish();
+      };
       audioEl.play().catch(() => {
         URL.revokeObjectURL(url);
-        speakFallback();
+        setError(true);
+        stop();
       });
     } catch {
-      speakFallback();
+      setLoading(false);
+      setError(true);
     }
-  }, [plain, lang, stop, speakFallback]);
+  }, [plain, lang, stop]);
 
   // Render one raw paragraph: split into **bold** / plain segments, then into
   // word+space tokens. Each token carries its global offset in the plain text
@@ -202,16 +180,20 @@ export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
         <button
           type="button"
           onClick={speaking || loading ? stop : speak}
-          className="inline-flex items-center gap-1.5 rounded-lg bg-blue-50 px-3 py-1.5 text-sm font-medium text-blue-700 transition-colors hover:bg-blue-100"
+          className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
+            error ? "bg-red-50 text-red-700 hover:bg-red-100" : "bg-blue-50 text-blue-700 hover:bg-blue-100"
+          }`}
         >
           {loading ? (
             <Loader2 className="h-4 w-4 animate-spin" />
           ) : speaking ? (
             <Square className="h-4 w-4" />
+          ) : error ? (
+            <AlertCircle className="h-4 w-4" />
           ) : (
             <Volume2 className="h-4 w-4" />
           )}
-          {loading ? "Loading…" : speaking ? "Stop" : "Read aloud"}
+          {loading ? "Loading…" : speaking ? "Stop" : error ? "Audio failed — retry" : "Read aloud"}
         </button>
         {speaking && <span className="animate-pulse text-xs text-slate-400">Reading…</span>}
       </div>
