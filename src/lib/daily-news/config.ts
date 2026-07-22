@@ -20,16 +20,29 @@ export const GOOGLE_NEWS_TOPICS: Record<DailyNewsCategory, string> = {
 
 // Google News locale params per language — topic tokens (TECHNOLOGY, HEALTH,
 // ...) are language-independent; hl/gl/ceid control which language/region
-// edition of news is returned. Each language maps to a LIST of editions so
-// French isn't limited to France-only news: it pulls from France, Belgium,
-// Switzerland, and Canada (Quebec) editions and merges the results, giving
-// broader Francophonie coverage instead of one country's domestic news.
+// edition of news is returned. Each language maps to a LIST of source
+// editions, merged together — this is the SOURCE pool the story is pulled
+// from, not the lesson's output language (generateLessonJson always writes
+// in config.language regardless of which edition a story came from).
+//
+// French learners are mostly NOT reading French domestic press day-to-day —
+// they want globally-relevant stories (world affairs, US/international tech,
+// etc.) rewritten in French. Google News has no US/UK edition IN French
+// (ceid=US:fr returns nothing), so instead of only Francophone editions we
+// also pull the big English-language global/world editions (US, UK) as raw
+// source material — those get the broadest "anywhere in the world" story
+// selection — alongside a couple of Francophone editions for stories that
+// are genuinely Francophone-specific (French/Belgian/Swiss/Quebec politics,
+// culture) learners would still want to see.
 export const GOOGLE_NEWS_LOCALE: Record<DailyNewsLanguage, Array<{ hl: string; gl: string; ceid: string }>> = {
-  en: [{ hl: "en-US", gl: "US", ceid: "US:en" }],
+  en: [
+    { hl: "en-US", gl: "US", ceid: "US:en" },
+    { hl: "en-GB", gl: "GB", ceid: "GB:en" },
+  ],
   fr: [
+    { hl: "en-US", gl: "US", ceid: "US:en" },
+    { hl: "en-GB", gl: "GB", ceid: "GB:en" },
     { hl: "fr-FR", gl: "FR", ceid: "FR:fr" },
-    { hl: "fr-BE", gl: "BE", ceid: "BE:fr" },
-    { hl: "fr-CH", gl: "CH", ceid: "CH:fr" },
     { hl: "fr-CA", gl: "CA", ceid: "CA:fr" },
   ],
 };
