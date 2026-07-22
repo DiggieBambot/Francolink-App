@@ -6,6 +6,8 @@ import { NextResponse } from "next/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/server";
 import { runDailyNewsPipeline } from "@/lib/daily-news/pipeline";
+import { DAILY_NEWS_CATEGORIES } from "@/lib/daily-news/config";
+import type { DailyNewsCategory } from "@/lib/daily-news/types";
 
 export const maxDuration = 300;
 export const dynamic = "force-dynamic";
@@ -49,6 +51,14 @@ function parseLang(value: string | null | undefined): "en" | "fr" | undefined {
   return v === "fr" || v === "en" ? v : undefined;
 }
 
+function parseCategories(value: unknown): DailyNewsCategory[] | undefined {
+  if (!Array.isArray(value) || !value.length) return undefined;
+  const valid = value.filter((c): c is DailyNewsCategory =>
+    DAILY_NEWS_CATEGORIES.includes(c as DailyNewsCategory)
+  );
+  return valid.length ? valid : undefined;
+}
+
 export async function GET(req: Request) {
   const url = new URL(req.url);
   const dryRun = url.searchParams.get("dry") === "1";
@@ -71,12 +81,20 @@ export async function POST(req: Request) {
 
   const body = await req.json().catch(() => ({}));
   const lang = parseLang(body?.language);
+  const categories = parseCategories(body?.categories);
   const result = await runDailyNewsPipeline(serviceClient(), {
     dryRun: body?.dryRun === true,
     config: {
       ...(lang ? { language: lang } : {}),
+      ...(categories ? { categories } : {}),
       ...(body?.targetLevel ? { targetLevel: body.targetLevel } : {}),
-      ...(body?.lessonsPerDay ? { lessonsPerDay: Number(body.lessonsPerDay) } : {}),
+      // Manually picking categories implies "generate one per category I
+      // picked" unless lessonsPerDay is explicitly overridden too.
+      ...(body?.lessonsPerDay
+        ? { lessonsPerDay: Number(body.lessonsPerDay) }
+        : categories
+          ? { lessonsPerDay: categories.length }
+          : {}),
       ...(body?.maxCandidatesPerCategory ? { maxCandidatesPerCategory: Number(body.maxCandidatesPerCategory) } : {}),
     },
   });

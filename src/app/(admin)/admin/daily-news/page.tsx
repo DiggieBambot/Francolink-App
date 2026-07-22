@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ExternalLink, Newspaper } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { RunDailyNewsButton } from "./run-button";
+import { DailyNewsFilterBar } from "./filter-bar";
 
 type NewsRow = {
   id: string;
@@ -34,10 +35,15 @@ type RunRow = {
   created_at: string;
 };
 
-export default async function AdminDailyNewsPage() {
+interface PageProps {
+  searchParams: Promise<{ lang?: string; category?: string }>;
+}
+
+export default async function AdminDailyNewsPage({ searchParams }: PageProps) {
+  const { lang, category: categoryFilter } = await searchParams;
   const supabase = await createClient();
 
-  const { data: rows, error } = await supabase
+  let query = supabase
     .from("daily_news_lessons")
     .select(`
       id,
@@ -53,6 +59,10 @@ export default async function AdminDailyNewsPage() {
     .order("created_at", { ascending: false })
     .limit(80);
 
+  if (categoryFilter) query = query.eq("category", categoryFilter);
+
+  const { data: rows, error } = await query;
+
   const { data: runs } = await supabase
     .from("daily_news_runs")
     .select("id, mode, fetched_count, selected_count, generated_count, failed_count, created_at")
@@ -61,7 +71,12 @@ export default async function AdminDailyNewsPage() {
 
   // Supabase infers the tutor_lessons FK join as an array (it can't see the
   // unique constraint from here); it's actually one-to-one via lesson_id.
-  const lessons = (rows || []) as unknown as NewsRow[];
+  // Language can't be filtered in the query above (it lives on the joined
+  // tutor_lessons row), so filter it here.
+  let lessons = (rows || []) as unknown as NewsRow[];
+  if (lang === "en" || lang === "fr") {
+    lessons = lessons.filter((row) => row.tutor_lessons?.language === lang);
+  }
   const recentRuns = (runs || []) as RunRow[];
 
   return (
@@ -112,7 +127,10 @@ export default async function AdminDailyNewsPage() {
       </section>
 
       <section className="space-y-3">
-        <h2 className="text-lg font-semibold">Generated Lessons</h2>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h2 className="text-lg font-semibold">Generated Lessons</h2>
+          <DailyNewsFilterBar />
+        </div>
         {lessons.length ? (
           <div className="grid gap-4 xl:grid-cols-2">
             {lessons.map((row) => {
@@ -169,7 +187,7 @@ export default async function AdminDailyNewsPage() {
           </div>
         ) : (
           <div className="rounded border border-dashed p-10 text-center text-muted-foreground">
-            No Daily News lessons yet.
+            {lang || categoryFilter ? "No lessons match this filter." : "No Daily News lessons yet."}
           </div>
         )}
       </section>
