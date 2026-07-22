@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
-import { LayoutDashboard, Users, CreditCard, BarChart3, Settings, FileText, Plug, ChevronRight, Bot, Shield, GraduationCap, TrendingUp, LifeBuoy, MessageSquare, Newspaper } from 'lucide-react';
+import { LayoutDashboard, Users, CreditCard, BarChart3, Settings, FileText, Plug, ChevronRight, Bot, Shield, GraduationCap, TrendingUp, LifeBuoy, MessageSquare, Newspaper, Megaphone } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Admin Panel | FrancoLink',
@@ -21,15 +21,17 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   if (role !== 'ADMIN' && role !== 'COMMUNITY_MANAGER') redirect('/admin/login');
   const isCM = role === 'COMMUNITY_MANAGER';
 
-  // Community managers get a scoped nav: support + moderation only.
+  // Community managers get a scoped nav: outreach + support + moderation only.
   const navigation = isCM
     ? [
+        { name: 'My Outreach', href: '/admin/outreach', icon: Megaphone },
         { name: 'Support', href: '/admin/support', icon: LifeBuoy },
         { name: 'Moderation', href: '/admin/moderation', icon: MessageSquare },
       ]
     : [
         { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
         { name: 'Growth', href: '/admin/growth', icon: TrendingUp },
+        { name: 'Outreach', href: '/admin/outreach', icon: Megaphone },
         { name: 'Support', href: '/admin/support', icon: LifeBuoy },
         { name: 'Moderation', href: '/admin/moderation', icon: MessageSquare },
         { name: 'Users', href: '/admin/users', icon: Users },
