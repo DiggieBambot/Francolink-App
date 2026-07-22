@@ -27,13 +27,25 @@ import {
 const MAX_SOURCE_TEXT_CHARS = 9000;
 const MIN_EXTRACTED_TEXT_CHARS = 700;
 
-// Longer, more complex articles at higher CEFR levels — 3 paragraphs minimum
-// so there's room for a real narrative arc, not just a headline restated.
+// Longer, more complex articles at higher CEFR levels — roughly double the
+// original spec so there's real room for a narrative arc and direct quotes,
+// not just a headline restated in a few sentences.
 const ARTICLE_LENGTH_BY_LEVEL: Record<string, { words: string; paragraphs: number }> = {
-  A2: { words: "180-240", paragraphs: 3 },
-  B1: { words: "260-340", paragraphs: 3 },
-  B2: { words: "320-420", paragraphs: 4 },
-  C1: { words: "380-480", paragraphs: 4 },
+  A2: { words: "360-480", paragraphs: 5 },
+  B1: { words: "520-680", paragraphs: 6 },
+  B2: { words: "640-840", paragraphs: 7 },
+  C1: { words: "760-960", paragraphs: 8 },
+};
+
+// Comprehension-question difficulty scales with level: lower levels stay
+// literal (answer is one sentence away), higher levels demand inference,
+// synthesis across paragraphs, or reading between the lines — genuinely
+// harder than what the CEFR level alone would suggest, not just longer.
+const QUESTION_DIFFICULTY_BY_LEVEL: Record<string, string> = {
+  A2: "mostly direct/literal (the answer is stated plainly in one sentence), but push 1-2 of the 5 to require combining two sentences.",
+  B1: "mixed: some direct, but at least half should require connecting information across two different paragraphs or inferring a reason/cause that isn't stated outright.",
+  B2: "mostly inferential: most questions should require synthesizing across multiple paragraphs, inferring motive/implication, or explaining WHY something happened rather than just WHAT happened. Avoid questions answerable by copying one sentence.",
+  C1: "genuinely challenging: almost every question should require inference, evaluating an implied opinion or tone, comparing two viewpoints in the article, or reasoning about consequences/nuance the article implies but never states directly. No question should be answerable by lifting a single sentence verbatim.",
 };
 
 type DbClient = SupabaseClient;
@@ -352,6 +364,7 @@ export async function generateLessonJson(
   config: DailyNewsConfig
 ): Promise<GeneratedDailyNewsLesson> {
   const lengthSpec = ARTICLE_LENGTH_BY_LEVEL[config.targetLevel] || ARTICLE_LENGTH_BY_LEVEL.B1;
+  const questionDifficulty = QUESTION_DIFFICULTY_BY_LEVEL[config.targetLevel] || QUESTION_DIFFICULTY_BY_LEVEL.B1;
   const completion = await withRetries(
     () =>
       openai.chat.completions.create({
@@ -364,9 +377,9 @@ export async function generateLessonJson(
             content:
               `You create ${config.language === "fr" ? "French" : "English"}-learning lessons from news stories, in the style of Engoo Daily News. Write the title, article_body, vocabulary, and all questions in YOUR OWN words, IN ${config.language === "fr" ? "FRENCH" : "ENGLISH"} (the language being learned), at CEFR level ${config.targetLevel}. Produce a JSON object with fields ONLY: title, article_body, vocabulary, comprehension_questions, discussion_questions, further_discussion_questions, image_query, image_subject.\n` +
               `- title: a clear, learner-friendly headline in ${config.language === "fr" ? "French" : "English"} (max ~12 words).\n` +
-              `- article_body: ${lengthSpec.words} words in ${config.language === "fr" ? "French" : "English"}, EXACTLY ${lengthSpec.paragraphs} paragraphs (separate paragraphs with a blank line), neutral tone, no invented facts. Use longer, more complex sentences for higher levels and shorter, simpler ones for lower levels.\n` +
+              `- article_body: ${lengthSpec.words} words in ${config.language === "fr" ? "French" : "English"}, EXACTLY ${lengthSpec.paragraphs} paragraphs (separate paragraphs with a blank line), neutral tone, no invented facts. Use longer, more complex sentences for higher levels and shorter, simpler ones for lower levels. If the source material contains a direct quote or reported direct speech from a named person, include at least one real quote (translated/adapted into ${config.language === "fr" ? "French" : "English"} if needed, attributed to who said it, using quotation marks) — it makes the story feel alive instead of a flat summary. Never invent a quote that isn't grounded in the source.\n` +
               `- vocabulary: EXACTLY 6 items {word, ipa, part_of_speech, definition, example} — word/definition/example in ${config.language === "fr" ? "French" : "English"}; part_of_speech stays in English (e.g. "noun", "verb"); choose useful words that appear in your article; the example must use the word in a natural sentence.\n` +
-              `- comprehension_questions: EXACTLY 5 questions (in ${config.language === "fr" ? "French" : "English"}) answerable directly from the article.\n` +
+              `- comprehension_questions: EXACTLY 5 questions (in ${config.language === "fr" ? "French" : "English"}) about the article, at THIS difficulty for CEFR ${config.targetLevel}: ${questionDifficulty} Push the difficulty a notch harder than a typical ${config.targetLevel} textbook would — these should make a learner genuinely re-read the article, not just recall it.\n` +
               `- discussion_questions: EXACTLY 5 opinion/experience questions (in ${config.language === "fr" ? "French" : "English"}) related to the topic.\n` +
               `- further_discussion_questions: EXACTLY 3 deeper/abstract questions (in ${config.language === "fr" ? "French" : "English"}).\n` +
               `- image_subject: the SINGLE specific real named person, organization, place, or event this story is centrally about (e.g. "Andy Burnham", "NASA Psyche spacecraft", "Wimbledon") — ALWAYS in English regardless of lesson language, used to find an ACTUAL accurate solo photo of that exact subject. Only fill this in if you are confident a real, clearly-labelled photo of THIS exact subject (not a similarly-named or same-role different person, and not a group/crowd photo) is likely to exist. Leave empty ("") if the story has no single clear named subject, or if the subject is a role/title rather than one specific named entity (e.g. "the health secretary" without naming who).\n` +
