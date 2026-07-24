@@ -62,6 +62,37 @@ export default async function AdminOutreachPage() {
     { label: "Signups attributed", value: totalSignups },
   ];
 
+  // ── Weekly breakdown (Mon-anchored weeks, most recent first, last 8) ──────
+  const managerNames = new Set(rows.map((r) => r.users?.name || r.users?.email || "—"));
+  const showPerManager = isAdmin && managerNames.size > 1;
+
+  const weekMap = new Map<
+    string,
+    { start: Date; outreach: number; signups: number; byManager: Map<string, number> }
+  >();
+  for (const r of rows) {
+    const d = new Date(r.created_at);
+    // Monday 00:00 of this row's week.
+    const monday = new Date(d);
+    const dow = (monday.getDay() + 6) % 7; // 0 = Monday
+    monday.setDate(monday.getDate() - dow);
+    monday.setHours(0, 0, 0, 0);
+    const key = monday.toISOString().slice(0, 10);
+    const bucket = weekMap.get(key) || { start: monday, outreach: 0, signups: 0, byManager: new Map() };
+    bucket.outreach += 1;
+    bucket.signups += conversions.get(r.tracking_code) || 0;
+    const who = r.users?.name || r.users?.email || "—";
+    bucket.byManager.set(who, (bucket.byManager.get(who) || 0) + 1);
+    weekMap.set(key, bucket);
+  }
+  const weeks = [...weekMap.values()].sort((a, b) => b.start.getTime() - a.start.getTime()).slice(0, 8);
+  const fmtWeek = (start: Date) => {
+    const end = new Date(start);
+    end.setDate(end.getDate() + 6);
+    const opts: Intl.DateTimeFormatOptions = { month: "short", day: "numeric" };
+    return `${start.toLocaleDateString(undefined, opts)} – ${end.toLocaleDateString(undefined, opts)}`;
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex flex-wrap items-start justify-between gap-4">
@@ -111,6 +142,47 @@ export default async function AdminOutreachPage() {
           </div>
         ))}
       </div>
+
+      {weeks.length ? (
+        <section className="rounded-lg border bg-card">
+          <div className="border-b px-4 py-3">
+            <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Weekly activity</h2>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="text-left text-xs uppercase tracking-wide text-muted-foreground">
+                <tr className="border-b">
+                  <th className="px-4 py-2">Week</th>
+                  <th className="px-4 py-2 text-right">Outreach</th>
+                  <th className="px-4 py-2 text-right">Signups</th>
+                  {showPerManager ? <th className="px-4 py-2">Breakdown</th> : null}
+                </tr>
+              </thead>
+              <tbody>
+                {weeks.map((w) => (
+                  <tr key={w.start.toISOString()} className="border-b last:border-0">
+                    <td className="whitespace-nowrap px-4 py-2 font-medium">{fmtWeek(w.start)}</td>
+                    <td className="px-4 py-2 text-right">{w.outreach}</td>
+                    <td className="px-4 py-2 text-right">
+                      <span className={`font-semibold ${w.signups > 0 ? "text-green-700" : "text-muted-foreground"}`}>
+                        {w.signups}
+                      </span>
+                    </td>
+                    {showPerManager ? (
+                      <td className="px-4 py-2 text-xs text-muted-foreground">
+                        {[...w.byManager.entries()]
+                          .sort((a, b) => b[1] - a[1])
+                          .map(([name, n]) => `${name}: ${n}`)
+                          .join("  ·  ")}
+                      </td>
+                    ) : null}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ) : null}
 
       {rows.length ? (
         <div className="overflow-x-auto rounded-lg border bg-card">
