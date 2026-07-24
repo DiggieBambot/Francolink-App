@@ -210,7 +210,7 @@ function FilteredCard({ lesson }: { lesson: LiteLesson }) {
         </span>
       </div>
       <div className="flex flex-1 flex-col p-4">
-        <h3 className="line-clamp-2 font-heading font-bold text-primary">{lesson.title}</h3>
+        <h3 className="font-heading font-bold text-primary">{lesson.title}</h3>
         {lesson.title_translation ? (
           <p className="mt-0.5 line-clamp-1 text-xs text-gray-500">{lesson.title_translation}</p>
         ) : null}

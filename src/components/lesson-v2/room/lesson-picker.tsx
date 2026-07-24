@@ -98,7 +98,7 @@ export function LessonPicker({
                   </div>
                   {/* Meta */}
                   <div className="flex flex-1 flex-col p-2.5">
-                    <p className="line-clamp-2 text-sm font-semibold text-slate-900">{l.title}</p>
+                    <p className="text-sm font-semibold text-slate-900">{l.title}</p>
                     <div className="mt-auto flex items-center gap-2 pt-2 text-[11px] text-slate-500">
                       {l.duration_minutes ? (
                         <span className="inline-flex items-center gap-1">
