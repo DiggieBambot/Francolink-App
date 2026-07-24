@@ -87,9 +87,21 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create a PENDING join request. We do NOT set referred_by_tutor_id yet —
-    // that happens when the tutor accepts. The relationship row marks the request;
-    // "pending" = row exists but the student's referred_by_tutor_id is not this tutor.
+    // Auto-assign: the student is attributed to this tutor immediately (no manual
+    // approval). referred_by_tutor_id drives both the tutor's student list and
+    // commission attribution.
+    const { error: attrError } = await supabaseService
+      .from('users')
+      .update({ referred_by_tutor_id: tutor.id, updated_at: new Date().toISOString() })
+      .eq('id', user.id);
+    if (attrError) {
+      console.error('❌ Error attributing student to tutor:', attrError);
+      return NextResponse.json(
+        { error: 'Failed to join tutor' },
+        { status: 500 }
+      );
+    }
+
     const { error: relError } = await supabaseService
       .from('tutor_students')
       .upsert({
@@ -102,23 +114,23 @@ export async function POST(request: NextRequest) {
       });
 
     if (relError) {
-      console.error('❌ Error creating join request:', relError);
+      console.error('❌ Error creating relationship:', relError);
       return NextResponse.json(
-        { error: 'Failed to send join request' },
+        { error: 'Failed to join tutor' },
         { status: 500 }
       );
     }
 
-    console.log('✅ Join request created (pending tutor approval)');
+    console.log('✅ Student auto-assigned to tutor');
 
-    // Tell the tutor a student wants to join.
+    // Tell the tutor a student just joined.
     const { data: meRow } = await supabaseService.from('users').select('name').eq('id', user.id).maybeSingle();
     await notifyTutorNewStudent(tutor.id, meRow?.name);
 
     return NextResponse.json({
       success: true,
-      pending: true,
-      message: `Request sent to ${tutor.name || 'your tutor'}. You'll be connected once they accept.`,
+      pending: false,
+      message: `You're connected with ${tutor.name || 'your tutor'}.`,
       tutor: {
         id: tutor.id,
         name: tutor.name,

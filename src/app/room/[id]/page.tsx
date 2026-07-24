@@ -5,7 +5,6 @@ import { notFound, redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { LessonRoom } from "@/components/lesson-v2/lesson-room";
-import { JoinClassPrompt } from "@/components/room/join-class-prompt";
 import type { Lesson } from "@/lib/lessons/types";
 
 export const dynamic = "force-dynamic";
@@ -40,37 +39,15 @@ export default async function RoomPage({
     .single();
   if (sessionErr || !session) notFound();
 
-  // Role is decided by "did you create this room?". Everyone else who has the
-  // link joins as the student. No pre-approval needed.
+  // Each room is private to one tutor↔student pair. Only the tutor who owns it
+  // and that specific student may enter — a chat is never visible to any other
+  // student. Anyone else with the link is turned away.
   const isTutor = session.tutor_id === user.id;
-  const currentRole: "tutor" | "student" = isTutor ? "tutor" : "student";
-
-  // A student who entered via the shared link but isn't connected to this tutor
-  // yet gets a one-time "Join class" prompt. Skip if already connected to this
-  // tutor, or if a request row already exists (pending), or connected elsewhere.
-  let joinPromptTutorName: string | null = null;
-  if (!isTutor) {
-    const [{ data: meRow }, { data: rel }] = await Promise.all([
-      svc.from("users").select("referred_by_tutor_id").eq("id", user.id).maybeSingle(),
-      svc
-        .from("tutor_students")
-        .select("student_id")
-        .eq("tutor_id", session.tutor_id)
-        .eq("student_id", user.id)
-        .maybeSingle(),
-    ]);
-    const notConnectedHere = meRow?.referred_by_tutor_id !== session.tutor_id;
-    const noExistingRequest = !rel;
-    const notBoundElsewhere = !meRow?.referred_by_tutor_id;
-    if (notConnectedHere && noExistingRequest && notBoundElsewhere) {
-      const { data: tutorRow } = await svc
-        .from("users")
-        .select("name")
-        .eq("id", session.tutor_id)
-        .maybeSingle();
-      joinPromptTutorName = tutorRow?.name || "your tutor";
-    }
+  const isThisStudent = session.student_id === user.id;
+  if (!isTutor && !isThisStudent) {
+    redirect("/dashboard?error=not_your_room");
   }
+  const currentRole: "tutor" | "student" = isTutor ? "tutor" : "student";
 
   // Current lesson (may be null — either party picks one in-room).
   let lesson: Lesson | null = null;
@@ -128,9 +105,6 @@ export default async function RoomPage({
 
   return (
     <>
-      {joinPromptTutorName ? (
-        <JoinClassPrompt sessionId={id} tutorName={joinPromptTutorName} />
-      ) : null}
       <LessonRoom
         initialLesson={lesson}
         initialLessonId={session.tutor_lesson_id}

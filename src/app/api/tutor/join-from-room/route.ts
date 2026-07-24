@@ -56,7 +56,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  // Was there already a request row? (Avoid emailing the tutor twice.)
+  // Was there already a relationship row? (Avoid emailing the tutor twice.)
   const { data: existingRel } = await service
     .from("tutor_students")
     .select("student_id")
@@ -64,7 +64,13 @@ export async function POST(req: NextRequest) {
     .eq("student_id", user.id)
     .maybeSingle();
 
-  // Create / refresh the pending request.
+  // Auto-assign: attribute the student to this tutor immediately.
+  const { error: attrError } = await service
+    .from("users")
+    .update({ referred_by_tutor_id: tutorId, updated_at: new Date().toISOString() })
+    .eq("id", user.id);
+  if (attrError) return NextResponse.json({ error: attrError.message }, { status: 500 });
+
   const { error } = await service
     .from("tutor_students")
     .upsert(
@@ -78,5 +84,5 @@ export async function POST(req: NextRequest) {
     await notifyTutorNewStudent(tutorId, me2?.name);
   }
 
-  return NextResponse.json({ ok: true, status: "pending" });
+  return NextResponse.json({ ok: true, status: "connected" });
 }

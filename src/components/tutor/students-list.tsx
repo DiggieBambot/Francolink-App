@@ -14,7 +14,8 @@ import {
   UserPlus,
   Copy,
   Check,
-  User
+  User,
+  Video
 } from 'lucide-react';
 
 interface Student {
@@ -28,26 +29,27 @@ interface Student {
   last_activity_date: string | null;
   subscription_plan: string | null;
   created_at: string;
+  spaceId: string;
 }
 
 interface StudentsListProps {
   students: Student[];
   inviteLink: string | null;
-  roomId: string;
 }
 
-export function StudentsList({ students, inviteLink, roomId }: StudentsListProps) {
+export function StudentsList({ students, inviteLink }: StudentsListProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState<'xp' | 'streak' | 'recent'>('xp');
   const [copied, setCopied] = useState(false);
   const [invitedId, setInvitedId] = useState<string | null>(null);
 
-  const inviteToRoom = async (studentId: string) => {
+  const copyRoomLink = async (student: Student) => {
     try {
-      // Build from the current host so the link works locally and in prod.
-      const roomLink = `${window.location.origin}/room/${roomId}`;
+      // Each student has their own private room. Copy that student's unique link
+      // so their session and chat are never shared with anyone else.
+      const roomLink = `${window.location.origin}/room/${student.spaceId}`;
       await navigator.clipboard.writeText(roomLink);
-      setInvitedId(studentId);
+      setInvitedId(student.id);
       setTimeout(() => setInvitedId(null), 2000);
     } catch {
       /* ignore */
@@ -238,18 +240,27 @@ export function StudentsList({ students, inviteLink, roomId }: StudentsListProps
                     </div>
                   </div>
 
-                  {/* Action: copy the classroom link to send to this student */}
-                  <button
-                    onClick={() => inviteToRoom(student.id)}
-                    title="Copy your classroom link to send to this student"
-                    className="inline-flex items-center gap-1.5 rounded-lg bg-primary-600 px-3 py-2 text-sm font-semibold text-white hover:bg-primary-700"
-                  >
-                    {invitedId === student.id ? (
-                      <><Check className="w-4 h-4" /> Link copied</>
-                    ) : (
-                      <><BookOpen className="w-4 h-4" /> Invite to class</>
-                    )}
-                  </button>
+                  {/* Actions: enter this student's private room, or copy its link */}
+                  <div className="flex items-center gap-2">
+                    <a
+                      href={`/room/${student.spaceId}`}
+                      title="Open this student's private classroom"
+                      className="inline-flex items-center gap-1.5 rounded-lg bg-primary-600 px-3 py-2 text-sm font-semibold text-white hover:bg-primary-700"
+                    >
+                      <Video className="w-4 h-4" /> Enter room
+                    </a>
+                    <button
+                      onClick={() => copyRoomLink(student)}
+                      title="Copy this student's private room link to send to them"
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-primary-200 px-3 py-2 text-sm font-semibold text-primary-700 hover:bg-primary-50 dark:border-primary-800 dark:text-primary-300 dark:hover:bg-primary-900/20"
+                    >
+                      {invitedId === student.id ? (
+                        <><Check className="w-4 h-4" /> Link copied</>
+                      ) : (
+                        <><Copy className="w-4 h-4" /> Copy link</>
+                      )}
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}

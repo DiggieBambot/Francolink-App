@@ -1,11 +1,11 @@
 // GET /space/new
-// Opens the tutor's reusable classroom (Google-Meet style). Creates it on first
-// use, then redirects into /room/[id]. The tutor shares that room link with a
-// student via the People tab or any other channel.
+// There is no longer a shared classroom — every student has their own private
+// room. Send tutors to their student list, where each student has an "Enter
+// room" action that opens that student's private space. Students join via the
+// link their tutor sends them.
 
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
-import { getOrCreateTutorRoom } from "@/lib/lessons/lesson-space";
 
 export async function GET(req: NextRequest) {
   const origin = new URL(req.url).origin;
@@ -16,10 +16,9 @@ export async function GET(req: NextRequest) {
   const { data: me } = await supabase.from("users").select("role").eq("id", user.id).maybeSingle();
   const role = (me?.role || "").toUpperCase();
   if (role !== "TUTOR" && role !== "ADMIN") {
-    // Students don't create rooms — they join via a link a tutor sends them.
-    return NextResponse.redirect(`${origin}/dashboard?error=tutors_only`);
+    // Students don't create rooms — they open their space via /space/open.
+    return NextResponse.redirect(`${origin}/space/open`);
   }
 
-  const room = await getOrCreateTutorRoom(user.id);
-  return NextResponse.redirect(`${origin}/room/${room.id}`);
+  return NextResponse.redirect(`${origin}/tutor/students`);
 }

@@ -22,8 +22,7 @@ import {
 import { StudentsList } from '@/components/tutor/students-list';
 import { PendingRequests } from '@/components/tutor/pending-requests';
 import { ClassRequests, type ClassRequestItem } from '@/components/tutor/class-requests';
-import { getOrCreateTutorRoom } from '@/lib/lessons/lesson-space';
-import { ClassroomLink } from '@/components/tutor/classroom-link';
+import { getOrCreateLessonSpace } from '@/lib/lessons/lesson-space';
 
 export default async function TutorStudentsPage() {
   const supabase = await createClient();
@@ -136,9 +135,14 @@ export default async function TutorStudentsPage() {
     ? `${appUrl}/join/${tutorData.tutor_invite_code}`
     : null;
 
-  // The tutor's reusable classroom (Meet-style). The link itself is built
-  // client-side from the current host so it works on localhost and in prod.
-  const room = await getOrCreateTutorRoom(user.id);
+  // Every student gets their own private room (one persistent space per pair).
+  // Resolve each student's space id so the list can link/copy directly to it.
+  const studentsWithSpace = await Promise.all(
+    (students || []).map(async (s) => {
+      const space = await getOrCreateLessonSpace(user.id, s.id);
+      return { ...s, spaceId: space.id };
+    })
+  );
 
   return (
     <div className="p-4 md:p-8 max-w-7xl mx-auto">
@@ -165,9 +169,6 @@ export default async function TutorStudentsPage() {
           </div>
         )}
       </div>
-
-      {/* Live classroom link (Meet-style) */}
-      <ClassroomLink roomId={room.id} />
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
@@ -211,7 +212,7 @@ export default async function TutorStudentsPage() {
       <PendingRequests requests={pendingRequests} />
 
       {/* Students List */}
-      <StudentsList students={students || []} inviteLink={inviteLink} roomId={room.id} />
+      <StudentsList students={studentsWithSpace} inviteLink={inviteLink} />
     </div>
   );
 }

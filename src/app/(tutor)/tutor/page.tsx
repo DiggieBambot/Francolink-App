@@ -138,13 +138,13 @@ export default async function TutorDashboardPage() {
         <div className="flex flex-col gap-3 rounded-2xl border bg-white p-5">
           <div className="text-sm font-semibold text-slate-700">Quick actions</div>
           <Link
-            href="/space/new"
+            href="/tutor/students"
             className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-700"
           >
             <Sparkles className="h-4 w-4" /> Start a session
           </Link>
           <p className="-mt-1 text-center text-xs text-slate-400">
-            Opens your classroom — invite a student from inside with the room link.
+            Pick a student to open their private room.
           </p>
           <Link href="/library" className="inline-flex items-center justify-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">
             <BookOpen className="h-4 w-4" /> Browse lessons

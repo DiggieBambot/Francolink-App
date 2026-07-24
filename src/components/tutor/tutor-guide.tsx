@@ -37,8 +37,8 @@ const SLIDES: Slide[] = [
     icon: Video,
     gradient: "from-primary-600 to-primary-400",
     title: "2. Start a session",
-    body: "Click “Start Session” to open your live classroom, then copy the room link and send it to a student (any chat, email, or the People tab). They join instantly — no account hoops.",
-    hint: "Start Session → copy room link",
+    body: "Open My Students and hit “Enter room” next to a student to start their private classroom — or “Copy link” to send them their own room link. Each student's room and chat stay private to them.",
+    hint: "My Students → Enter room",
   },
   {
     icon: BookOpen,
