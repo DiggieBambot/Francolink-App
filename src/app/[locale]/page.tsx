@@ -1,6 +1,8 @@
 export const dynamic = 'force-dynamic';
 import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
+import { redirect } from "next/navigation";
+import { createClient } from "@/lib/supabase/server";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { CurrencySwitcher } from "@/components/currency-switcher";
 import Image from "next/image";
@@ -20,6 +22,23 @@ interface PageProps {
 export default async function LocaleHomePage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
+
+  // Logged-in users land on their dashboard, not the marketing page — this is
+  // what a reopened PWA (start_url "/") shows. Logged-out visitors see the page.
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (user) {
+    const { data: profile } = await supabase
+      .from("users")
+      .select("role")
+      .eq("id", user.id)
+      .maybeSingle();
+    const role = (profile?.role || "").toUpperCase();
+    if (role === "TUTOR") redirect("/tutor");
+    if (role === "ADMIN") redirect("/admin");
+    redirect("/dashboard");
+  }
+
   return <HomeContent />;
 }
 
