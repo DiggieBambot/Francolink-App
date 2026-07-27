@@ -49,6 +49,9 @@ export default async function CategoryPage({
           <div className={`relative h-56 w-full bg-gradient-to-br sm:h-64 ${cat.gradient}`}>
             {cover ? (
               <Image src={cover} alt={cat.name} fill priority sizes="100vw" className="object-cover" />
+            ) : cat.image ? (
+              // eslint-disable-next-line @next/next/no-img-element -- local SVG banner, no optimizer needed
+              <img src={cat.image} alt={cat.name} className="absolute inset-0 h-full w-full object-cover" />
             ) : null}
             <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/50 to-primary-900/20" />
             <Container className="absolute inset-x-0 bottom-0 max-w-6xl pb-7">

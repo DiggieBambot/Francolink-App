@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 640" width="1600" height="640" fill="none" role="img" aria-label="French grammar">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="640" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6d28d9"/>
+      <stop offset="0.55" stop-color="#5b21b6"/>
+      <stop offset="1" stop-color="#3730a3"/>
+    </linearGradient>
+    <linearGradient id="nib" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e9d5ff"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.72" cy="0.28" r="0.6">
+      <stop offset="0" stop-color="#8b5cf6" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="640" fill="url(#bg)"/>
+  <rect width="1600" height="640" fill="url(#glow)"/>
+
+  <!-- faint conjugation table, right side -->
+  <g stroke="#ffffff" stroke-opacity="0.14" stroke-width="2">
+    <line x1="980" y1="120" x2="1520" y2="120"/>
+    <line x1="980" y1="196" x2="1520" y2="196"/>
+    <line x1="980" y1="272" x2="1520" y2="272"/>
+    <line x1="980" y1="348" x2="1520" y2="348"/>
+    <line x1="980" y1="424" x2="1520" y2="424"/>
+    <line x1="1180" y1="90" x2="1180" y2="454"/>
+  </g>
+  <g font-family="Georgia, 'Times New Roman', serif" fill="#ffffff" fill-opacity="0.5" font-size="30">
+    <text x="1004" y="170">je</text><text x="1210" y="170" fill-opacity="0.72">suis</text>
+    <text x="1004" y="246">tu</text><text x="1210" y="246" fill-opacity="0.72">es</text>
+    <text x="1004" y="322">il / elle</text><text x="1210" y="322" fill-opacity="0.72">est</text>
+    <text x="1004" y="398">nous</text><text x="1210" y="398" fill-opacity="0.72">sommes</text>
+  </g>
+
+  <!-- large accented glyphs, decorative -->
+  <g font-family="Georgia, 'Times New Roman', serif" fill="#ffffff">
+    <text x="120" y="470" font-size="440" fill-opacity="0.10" font-style="italic">é</text>
+    <text x="470" y="300" font-size="150" fill-opacity="0.16">à</text>
+    <text x="650" y="500" font-size="130" fill-opacity="0.13">ç</text>
+    <text x="360" y="540" font-size="110" fill-opacity="0.12">ê</text>
+    <text x="820" y="250" font-size="96" fill-opacity="0.12">ô</text>
+  </g>
+
+  <!-- floating accent marks -->
+  <g fill="#c4b5fd" fill-opacity="0.8">
+    <path d="M300 150 l26 -34 14 10 -30 30z"/>
+    <path d="M900 470 l26 -34 14 10 -30 30z" fill-opacity="0.6"/>
+    <circle cx="560" cy="140" r="7" fill-opacity="0.7"/>
+    <circle cx="740" cy="120" r="5" fill-opacity="0.5"/>
+  </g>
+
+  <!-- fountain pen nib drawing an underline -->
+  <g transform="translate(150 300) rotate(-18)">
+    <path d="M0 0 L150 0 L92 150 L58 150 Z" fill="url(#nib)"/>
+    <path d="M75 0 L75 150" stroke="#5b21b6" stroke-opacity="0.5" stroke-width="4"/>
+    <circle cx="75" cy="86" r="12" fill="#4c1d95"/>
+    <path d="M75 150 L75 176" stroke="#e9d5ff" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <path d="M150 520 C 360 476, 560 476, 780 508" stroke="#e9d5ff" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round" fill="none"/>
+</svg>

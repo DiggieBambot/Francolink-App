@@ -7,6 +7,8 @@ export interface Category {
   description: string;
   /** Emoji used as the card illustration. */
   emoji: string;
+  /** Optional banner image (shown when no lesson supplies a cover). */
+  image?: string;
   /** Tailwind gradient classes for the card header. */
   gradient: string;
   /** Which language this category belongs to. */
@@ -54,6 +56,7 @@ export const FRENCH_CATEGORIES: Category[] = [
     description:
       "La grammaire française expliquée pas à pas — conjugaisons, accords et les erreurs à éviter, avec exercices et devoirs.",
     emoji: "📐",
+    image: "/images/categories/grammar.svg",
     gradient: "from-violet-500 to-indigo-500",
     language: "fr",
   },
