@@ -5,13 +5,14 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import {
   Users, GraduationCap, CreditCard, TrendingUp, Activity, Radio, ArrowRight, LifeBuoy,
-  Filter, Footprints, CalendarCheck,
+  Filter, Footprints, CalendarCheck, FlaskConical,
 } from "lucide-react";
 import { getDashboardUser, isAdmin } from "@/lib/admin/access";
 import {
   getOverview, getSignupsOverTime, getActiveOverTime, getRetentionCohorts,
   getAcquisition, getActivationFunnel, getRevenue,
   getActivationFunnelBySource, getFirstSessionDropoff, getNoLessonReturnByCohort,
+  getOnboardingExperiment,
 } from "@/lib/admin/analytics";
 import { BarSeries } from "@/components/admin/bar-series";
 import { CohortHeatmap } from "@/components/admin/cohort-heatmap";
@@ -33,6 +34,7 @@ export default async function GrowthPage() {
     getAcquisition(), getActivationFunnel(), getRevenue(),
     getActivationFunnelBySource(), getFirstSessionDropoff(), getNoLessonReturnByCohort(8),
   ]);
+  const onboardingExp = await getOnboardingExperiment();
 
   const acqTotal = acquisition.reduce((s, a) => s + a.count, 0) || 1;
   const funnelTop = funnel[0]?.count || 1;
@@ -197,6 +199,36 @@ export default async function GrowthPage() {
           </div>
         </div>
       </div>
+
+      {/* Onboarding experiment (PRD §3) */}
+      {onboardingExp.length > 0 && (
+        <div className="mb-8 rounded-2xl border border-gray-100 bg-white p-5 shadow-soft">
+          <h2 className="mb-1 flex items-center gap-2 font-heading font-bold text-gray-900">
+            <FlaskConical className="h-4 w-4 text-primary" /> Onboarding experiment — placement rate
+          </h2>
+          <p className="mb-4 text-xs text-gray-500">
+            Does the fast, lesson-first flow lift the placement-taken rate vs the current 4-step flow?
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {onboardingExp.map((v) => (
+              <div key={v.variant} className="rounded-xl border border-gray-100 p-4">
+                <div className="mb-1 flex items-center justify-between">
+                  <span className="text-sm font-semibold capitalize text-gray-800">
+                    {v.variant === "fast" ? "Fast (lesson-first)" : v.variant}
+                  </span>
+                  <span className="text-2xl font-extrabold text-primary">{v.pct}%</span>
+                </div>
+                <p className="text-xs text-gray-500">
+                  {v.placement} of {v.users} took placement
+                </p>
+                <div className="mt-2 h-2 overflow-hidden rounded-full bg-gray-100">
+                  <div className="h-full bg-secondary" style={{ width: `${v.pct}%` }} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Acquisition + Funnel + Plans */}
       <div className="grid gap-6 lg:grid-cols-3">

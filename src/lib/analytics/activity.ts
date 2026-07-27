@@ -17,6 +17,7 @@ export type ActivityKind =
   | "login"
   | "signup"
   | "signup_completed"    // account created (granular first-session funnel)
+  | "onboarding_assigned" // bucketed into an onboarding experiment variant
   | "dashboard_viewed"    // first dashboard view after signup
   | "placement_started"   // opened the placement test
   | "placement_completed" // finished (or skipped) the placement test
@@ -32,6 +33,7 @@ export type ActivityKind =
 // allowlist. Server-internal kinds (active/login/signup/heartbeat) are excluded.
 export const CLIENT_EMITTABLE_KINDS: ActivityKind[] = [
   "signup_completed",
+  "onboarding_assigned",
   "dashboard_viewed",
   "placement_started",
   "placement_completed",

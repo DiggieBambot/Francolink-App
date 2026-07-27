@@ -2,10 +2,11 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { trackEvent } from "@/lib/analytics/client";
+import { onboardingVariant, type OnboardingVariant } from "@/lib/flags";
 import { Button, Card } from "@/components/ui";
 import { ChevronRight, ChevronLeft, Loader2, Brain, BookOpen } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -55,6 +56,50 @@ export default function OnboardingPage() {
   const [selectedLevel, setSelectedLevel] = useState("");
   const [selectedGoal, setSelectedGoal] = useState(15);
   const [isLoading, setIsLoading] = useState(false);
+  const [variant, setVariant] = useState<OnboardingVariant>("control");
+
+  // Assign the onboarding experiment bucket once, on mount. Deterministic per
+  // user, so the analytics can re-derive the same bucket later.
+  useEffect(() => {
+    let done = false;
+    (async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (done || !user) return;
+      const v = onboardingVariant(user.id);
+      setVariant(v);
+      trackEvent("onboarding_assigned", { once: "onboarding_assigned", metadata: { variant: v } });
+    })();
+    return () => { done = true; };
+  }, [supabase]);
+
+  // Fast variant: skip the level/goal/placement screens entirely and drop the
+  // student straight into their first A1 lesson with sensible defaults. Placement
+  // is deferred — the dashboard's "find your level" banner picks it up later.
+  const handleFastStart = async () => {
+    setIsLoading(true);
+    try {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        await supabase
+          .from("users")
+          .update({ daily_goal_minutes: 15, learning_language: selectedLanguage })
+          .eq("id", user.id);
+        await supabase
+          .from("user_languages")
+          .upsert(
+            { user_id: user.id, language_code: selectedLanguage, is_active: true, placement_taken: false },
+            { onConflict: "user_id,language_code" }
+          );
+      }
+      const slug = languageSlugs[selectedLanguage] || selectedLanguage;
+      router.push(`/learn/${slug}/a1`);
+      router.refresh();
+    } catch (error) {
+      console.error("Error starting fast onboarding:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handleComplete = async () => {
     setIsLoading(true);
@@ -146,18 +191,20 @@ export default function OnboardingPage() {
 
   return (
     <Card className="w-full max-w-lg">
-      {/* Progress Indicator */}
-      <div className="flex items-center justify-center gap-2 mb-8">
-        {[1, 2, 3, 4].map((s) => (
-          <div
-            key={s}
-            className={cn(
-              "w-3 h-3 rounded-full transition-colors",
-              s === step ? "bg-secondary" : s < step ? "bg-secondary/50" : "bg-gray-200"
-            )}
-          />
-        ))}
-      </div>
+      {/* Progress Indicator — hidden in the fast variant (single step). */}
+      {variant === "control" && (
+        <div className="flex items-center justify-center gap-2 mb-8">
+          {[1, 2, 3, 4].map((s) => (
+            <div
+              key={s}
+              className={cn(
+                "w-3 h-3 rounded-full transition-colors",
+                s === step ? "bg-secondary" : s < step ? "bg-secondary/50" : "bg-gray-200"
+              )}
+            />
+          ))}
+        </div>
+      )}
 
       {/* Step 1: Choose Language */}
       {step === 1 && (
@@ -191,12 +238,17 @@ export default function OnboardingPage() {
 
           <Button
             className="w-full mt-8"
-            disabled={!selectedLanguage}
-            onClick={() => setStep(2)}
+            disabled={!selectedLanguage || isLoading}
+            onClick={variant === "fast" ? handleFastStart : () => setStep(2)}
           >
-            Continue
+            {variant === "fast" ? (isLoading ? "Starting…" : "Start learning") : "Continue"}
             <ChevronRight className="w-5 h-5 ml-2" />
           </Button>
+          {variant === "fast" && (
+            <p className="mt-3 text-center text-xs text-gray-400">
+              Jump right in — we&apos;ll help you find your exact level after your first lesson.
+            </p>
+          )}
         </div>
       )}
 

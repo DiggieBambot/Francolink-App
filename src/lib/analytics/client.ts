@@ -4,6 +4,7 @@
 
 export type ClientEvent =
   | "signup_completed"
+  | "onboarding_assigned"
   | "dashboard_viewed"
   | "placement_started"
   | "placement_completed"

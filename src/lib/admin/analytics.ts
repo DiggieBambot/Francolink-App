@@ -283,6 +283,57 @@ export async function getNoLessonReturnByCohort(weeks = 8): Promise<NoLessonRetu
     .sort((a, b) => (a.cohort < b.cohort ? 1 : -1));
 }
 
+/**
+ * Onboarding experiment (PRD §3): placement-taken rate for each variant, scoped
+ * to users who were actually bucketed (have an onboarding_assigned event). This
+ * is the A/B readout — does the fast, lesson-first flow lift the placement rate?
+ */
+export interface OnboardingExperimentRow {
+  variant: string;
+  users: number;
+  placement: number;
+  pct: number;
+}
+export async function getOnboardingExperiment(): Promise<OnboardingExperimentRow[]> {
+  const s = svc();
+  const { data: events } = await s
+    .from("user_activity")
+    .select("user_id, metadata, occurred_at")
+    .eq("kind", "onboarding_assigned")
+    .order("occurred_at", { ascending: true });
+
+  // First assignment wins (a user's bucket is stable anyway).
+  const variantByUser = new Map<string, string>();
+  for (const e of events || []) {
+    const v = (e.metadata as { variant?: string } | null)?.variant;
+    if (v && !variantByUser.has(e.user_id as string)) variantByUser.set(e.user_id as string, v);
+  }
+  if (variantByUser.size === 0) return [];
+
+  const { data: users } = await s
+    .from("users")
+    .select("id, placement_test_taken")
+    .in("id", [...variantByUser.keys()]);
+  const tookPlacement = new Map((users || []).map((u) => [u.id, !!u.placement_test_taken]));
+
+  const buckets = new Map<string, { users: number; placement: number }>();
+  for (const [userId, variant] of variantByUser) {
+    const row = buckets.get(variant) || { users: 0, placement: 0 };
+    row.users++;
+    if (tookPlacement.get(userId)) row.placement++;
+    buckets.set(variant, row);
+  }
+
+  return [...buckets.entries()]
+    .map(([variant, r]) => ({
+      variant,
+      users: r.users,
+      placement: r.placement,
+      pct: r.users ? Math.round((r.placement / r.users) * 1000) / 10 : 0,
+    }))
+    .sort((a, b) => a.variant.localeCompare(b.variant));
+}
+
 /** Plan distribution + free→paid conversion. */
 export async function getRevenue(): Promise<{ plans: { plan: string; count: number }[]; conversion: number }> {
   const s = svc();
