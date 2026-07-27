@@ -66,7 +66,7 @@ export async function logActivity(userId: string, kind: ActivityKind, opts: LogO
  * Does this student have a lesson scheduled on `dayKey` (their local calendar
  * day)? Used to tag the daily heartbeat so we can measure between-lesson return.
  */
-async function hasLessonOnDay(userId: string, tz: string, localDay: string): Promise<boolean> {
+export async function hasLessonOnDay(userId: string, tz: string, localDay: string): Promise<boolean> {
   const s = svc();
   const { data } = await s
     .from("session_participants")

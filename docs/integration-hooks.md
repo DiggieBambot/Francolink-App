@@ -54,7 +54,29 @@ await logActivity(userId, "homework_submitted", { metadata: { lessonId } });
   (`getHomeworkEngagement`). A future homework module only needs to keep emitting
   it (or writing the table) — no analytics changes required.
 
-## 3. Query tutor ↔ student connections
+## 3. Record daily activity (streak)
+
+The single hook that advances a user's streak. Not tied to lessons — any
+activity feeds the same streak. Games only need to call this; no streak logic
+belongs in game code.
+
+```ts
+import { recordActivity } from "@/lib/streak/record-activity";
+
+await recordActivity(userId, { kind: "game" }); // or "lesson" | "homework" | ...
+// → { currentStreak, longestStreak, isNewDay, streakBroken }
+```
+
+- Server-only, never throws, idempotent per calendar day (in the user's
+  timezone) — call it from as many activities as you like; it counts once a day.
+- Advances `users.current_streak` / `longest_streak` / `last_activity_date`, and
+  emits the §1 daily-activity event tagged with `had_lesson` (the between-lesson
+  return signal). So one call feeds both the streak and the retention analytics.
+- Already wired into `/api/lessons/complete` and `/api/homework/submit`. Streak is
+  shown on the student dashboard; the daily push reminder
+  (`/api/cron/push-reminders`) uses `current_streak` for "keep your streak alive".
+
+## 4. Query tutor ↔ student connections
 
 `tutor_students` (status `active`) is the source of truth; a student can have
 many teachers. `referred_by_tutor_id` on `users` is **first-touch commission

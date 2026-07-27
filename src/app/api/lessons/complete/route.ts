@@ -2,6 +2,7 @@
 
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+import { recordActivity } from '@/lib/streak/record-activity';
 
 export async function POST(request: NextRequest) {
   try {
@@ -81,18 +82,17 @@ export async function POST(request: NextRequest) {
       if (userData) {
         await supabase
           .from('users')
-          .update({ 
+          .update({
             total_xp: (userData.total_xp || 0) + lesson.xp_reward,
-            last_activity_date: new Date().toISOString().split('T')[0],
           })
           .eq('id', user.id);
       }
     }
 
-    // Update streak
-    await supabase.rpc('update_user_streak', {
-      p_user_id: user.id,
-    });
+    // Advance the streak via the standalone activity service (owns
+    // last_activity_date + the daily activity signal). Any activity — lesson,
+    // game, homework — feeds the same streak through this one hook.
+    await recordActivity(user.id, { kind: 'lesson' });
 
     // Increment lessons_today counter
     const today = new Date().toISOString().split('T')[0];

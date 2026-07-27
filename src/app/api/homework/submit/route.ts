@@ -7,6 +7,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { logActivity } from "@/lib/analytics/activity";
+import { recordActivity } from "@/lib/streak/record-activity";
 
 function svc() {
   return createServiceClient(
@@ -87,6 +88,9 @@ export async function POST(req: NextRequest) {
   // Canonical funnel/retention event — feeds the §1 analytics "Submitted
   // homework" step and homework-doer retention (see docs/integration-hooks.md).
   await logActivity(user.id, "homework_submitted", { metadata: { homeworkId } });
+
+  // Homework counts as activity toward the daily streak.
+  await recordActivity(user.id, { kind: "homework" });
 
   return NextResponse.json({ submission: saved });
 }
