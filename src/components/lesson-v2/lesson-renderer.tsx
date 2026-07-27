@@ -13,6 +13,7 @@ import { MatchingQASectionComp } from "./sections/matching-qa";
 import { WordOrderSectionComp } from "./sections/word-order";
 import { ImageQuestionPromptsSectionComp } from "./sections/image-question-prompts";
 import { FreeResponseSectionComp } from "./sections/free-response";
+import { GrammarExplainerSectionComp } from "./sections/grammar-explainer";
 import { GenericActivitySection } from "./sections/generic-activity";
 import { StepperSidebar } from "./stepper-sidebar";
 import { LessonLanguageProvider } from "./lesson-language-context";
@@ -38,6 +39,8 @@ function renderSection(s: Section, view: LessonView, sectionIdx: number, theme: 
       return <DialogueReadAloudSectionComp section={s as never} view={view} sectionIdx={sectionIdx} theme={theme} />;
     case "reading_comprehension":
       return <ReadingComprehensionSectionComp section={s as never} view={view} sectionIdx={sectionIdx} theme={theme} />;
+    case "grammar_explainer":
+      return <GrammarExplainerSectionComp section={s as never} view={view} sectionIdx={sectionIdx} theme={theme} />;
     case "matching_qa":
       return <MatchingQASectionComp section={s as never} view={view} theme={theme} />;
     case "word_order":

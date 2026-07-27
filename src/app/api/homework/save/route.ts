@@ -20,14 +20,21 @@ function svc() {
 function cleanQuestions(input: unknown): HomeworkQuestion[] | null {
   if (!Array.isArray(input)) return null;
   const out: HomeworkQuestion[] = [];
+  const TYPES = ["short", "long", "fill_blank", "mcq", "reorder"];
   for (const q of input) {
     if (!q || typeof q.prompt !== "string" || !q.prompt.trim()) continue;
-    out.push({
+    const type: HomeworkQuestion["type"] = TYPES.includes(q.type) ? q.type : "short";
+    const item: HomeworkQuestion = {
       prompt: q.prompt.trim(),
       prompt_translation: typeof q.prompt_translation === "string" ? q.prompt_translation.trim() || undefined : undefined,
       hint: typeof q.hint === "string" ? q.hint.trim() || undefined : undefined,
-      type: q.type === "long" ? "long" : "short",
-    });
+      type,
+    };
+    // Preserve interactive fields so a tutor edit doesn't strip the interactivity.
+    if (Array.isArray(q.options)) item.options = q.options.filter((o: unknown) => typeof o === "string");
+    if (typeof q.answer === "string" && q.answer.trim()) item.answer = q.answer.trim();
+    if (typeof q.sentence === "string" && q.sentence.trim()) item.sentence = q.sentence.trim();
+    out.push(item);
   }
   return out;
 }

@@ -49,6 +49,15 @@ export const FRENCH_CATEGORIES: Category[] = [
     language: "fr",
   },
   {
+    slug: "fr-grammar",
+    name: "Grammar",
+    description:
+      "La grammaire française expliquée pas à pas — conjugaisons, accords et les erreurs à éviter, avec exercices et devoirs.",
+    emoji: "📐",
+    gradient: "from-violet-500 to-indigo-500",
+    language: "fr",
+  },
+  {
     slug: "fr-daily-news",
     name: "Daily News",
     description: "Des actualités fraîches et réelles — tech, santé, sport, divertissement, monde et science — réécrites pour les apprenants.",
@@ -133,6 +142,11 @@ export function categoryForLesson(
   // sector (technology/health/etc.) — check this before the generic rules
   // below so a business or travel story doesn't get miscategorized away from it.
   if (/\bdaily news\b/.test(tags)) return lang === "en" ? "daily-news" : "fr-daily-news";
+
+  // The curated grammar syllabus is seeded with source_url "seed:fr-grammar"
+  // (see scripts/seed-fr-grammar). Route only those into the Grammar category —
+  // matching on source keeps loosely "grammar"-tagged conversation lessons out.
+  if (/seed:fr-grammar/.test(path)) return "fr-grammar";
 
   if (lang === "en") {
     if (/\bkid|young learner|english for kid/.test(hay)) return "en-kids";

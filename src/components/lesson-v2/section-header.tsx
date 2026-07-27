@@ -11,6 +11,7 @@ import {
   PenLine,
   Users,
   Sparkles,
+  GraduationCap,
   type LucideIcon,
 } from "lucide-react";
 import type { LessonView } from "@/lib/lessons/types";
@@ -41,6 +42,7 @@ const KIND_ICONS: Record<string, LucideIcon> = {
   debate: MessagesSquare,
   conversation: MessageCircle,
   role_play: Users,
+  grammar_explainer: GraduationCap,
 };
 
 const KIND_LABELS: Record<string, string> = {
@@ -59,6 +61,7 @@ const KIND_LABELS: Record<string, string> = {
   debate: "Debate",
   conversation: "Conversation",
   role_play: "Role play",
+  grammar_explainer: "The pattern",
 };
 
 export function SectionHeader({

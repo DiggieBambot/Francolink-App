@@ -10,7 +10,8 @@ export type SectionKind =
   | "matching_qa"
   | "word_order"
   | "image_question_prompts"
-  | "free_response";
+  | "free_response"
+  | "grammar_explainer";
 
 export type Skill = "speaking" | "listening" | "reading" | "writing" | "grammar" | "vocabulary";
 
@@ -133,6 +134,36 @@ export interface ReadingComprehensionSection extends BaseSection {
   questions?: { question: string; answer?: string }[];
 }
 
+export interface GrammarTableRow {
+  /** Cells rendered left-to-right. The `speak` index (if set) gets a TTS button. */
+  cells: string[];
+}
+export interface GrammarTable {
+  headers: string[];
+  rows: GrammarTableRow[];
+  /** Column index whose cell is the French form to read aloud (0-based). */
+  speak_col?: number;
+}
+export interface GrammarMistake {
+  wrong: string;
+  right: string;
+  note?: string;
+}
+export interface GrammarExplainerSection extends BaseSection {
+  kind: "grammar_explainer";
+  /** Plain-language rule, may contain **bold** markers for key forms. */
+  explanation: string;
+  explanation_translation?: string;
+  /** Optional conjugation / agreement table. */
+  table?: GrammarTable;
+  /** A second table (e.g. contrasting être vs avoir). */
+  table_secondary?: GrammarTable;
+  /** Short worked examples (French + gloss), each playable. */
+  examples?: { text: string; translation?: string }[];
+  /** Student-visible "common mistakes" — the heart of the expert layer. */
+  common_mistakes?: GrammarMistake[];
+}
+
 export interface FreeResponseSection extends BaseSection {
   kind: "free_response";
   example_answer?: string;
@@ -151,7 +182,8 @@ export type Section =
   | MatchingQASection
   | WordOrderSection
   | ImageQuestionPromptsSection
-  | FreeResponseSection;
+  | FreeResponseSection
+  | GrammarExplainerSection;
 
 export interface Objective {
   student_label: string;

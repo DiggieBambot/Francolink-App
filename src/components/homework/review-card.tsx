@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { CheckCircle2, Loader2, ExternalLink } from "lucide-react";
-import type { HomeworkQuestion } from "@/lib/homework/types";
+import { CheckCircle2, Loader2, ExternalLink, XCircle } from "lucide-react";
+import { answerMatches, type HomeworkQuestion } from "@/lib/homework/types";
 
 export interface ReviewItem {
   submissionId: string;
@@ -65,17 +65,55 @@ export function ReviewCard({ item }: { item: ReviewItem }) {
         </span>
       </div>
 
+      {(() => {
+        const auto = item.questions.filter((q) => q.answer && q.type !== "short" && q.type !== "long");
+        if (!auto.length) return null;
+        const correct = item.questions.reduce(
+          (n, q, i) => n + (answerMatches(q, item.answers[i] ?? "") === true ? 1 : 0),
+          0
+        );
+        return (
+          <p className="mb-3 text-xs font-semibold text-gray-500 dark:text-gray-400">
+            Auto-graded: {correct}/{auto.length} correct
+          </p>
+        );
+      })()}
+
       <ol className="mb-4 space-y-3">
-        {item.questions.map((q, i) => (
-          <li key={i} className="text-sm">
-            <p className="font-medium text-gray-800 dark:text-gray-200">
-              {i + 1}. {q.prompt}
-            </p>
-            <p className="mt-1 whitespace-pre-wrap rounded-lg bg-gray-50 px-3 py-2 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
-              {item.answers[i]?.trim() || <span className="italic text-gray-400">No answer</span>}
-            </p>
-          </li>
-        ))}
+        {item.questions.map((q, i) => {
+          const given = item.answers[i]?.trim() || "";
+          const result = answerMatches(q, given); // true / false / null
+          return (
+            <li key={i} className="text-sm">
+              <p className="font-medium text-gray-800 dark:text-gray-200">
+                {i + 1}. {q.prompt}
+              </p>
+              <div className="mt-1 flex items-start gap-2">
+                <p
+                  className={`flex-1 whitespace-pre-wrap rounded-lg px-3 py-2 ${
+                    result === true
+                      ? "bg-emerald-50 text-emerald-900 dark:bg-emerald-900/15 dark:text-emerald-100"
+                      : result === false
+                        ? "bg-red-50 text-red-900 dark:bg-red-900/15 dark:text-red-100"
+                        : "bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100"
+                  }`}
+                >
+                  {given || <span className="italic text-gray-400">No answer</span>}
+                </p>
+                {result === true ? (
+                  <CheckCircle2 className="mt-2 h-4 w-4 shrink-0 text-emerald-500" />
+                ) : result === false ? (
+                  <XCircle className="mt-2 h-4 w-4 shrink-0 text-red-500" />
+                ) : null}
+              </div>
+              {result === false && q.answer ? (
+                <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                  Expected: <span className="font-semibold">{q.answer}</span>
+                </p>
+              ) : null}
+            </li>
+          );
+        })}
       </ol>
 
       {status === "reviewed" ? (
