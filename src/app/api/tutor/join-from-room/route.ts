@@ -46,30 +46,27 @@ export async function POST(req: NextRequest) {
     .eq("id", user.id)
     .maybeSingle();
 
-  if (me?.referred_by_tutor_id === tutorId) {
-    return NextResponse.json({ ok: true, status: "connected" });
-  }
-  if (me?.referred_by_tutor_id) {
-    return NextResponse.json(
-      { error: "You're already connected to another tutor." },
-      { status: 409 }
-    );
-  }
-
-  // Was there already a relationship row? (Avoid emailing the tutor twice.)
+  // Was there already a connection to THIS tutor? (Idempotent; also avoids
+  // emailing the tutor twice.) A student may be connected to many tutors.
   const { data: existingRel } = await service
     .from("tutor_students")
     .select("student_id")
     .eq("tutor_id", tutorId)
     .eq("student_id", user.id)
     .maybeSingle();
+  if (existingRel) {
+    return NextResponse.json({ ok: true, status: "connected" });
+  }
 
-  // Auto-assign: attribute the student to this tutor immediately.
-  const { error: attrError } = await service
-    .from("users")
-    .update({ referred_by_tutor_id: tutorId, updated_at: new Date().toISOString() })
-    .eq("id", user.id);
-  if (attrError) return NextResponse.json({ error: attrError.message }, { status: 500 });
+  // Commission attribution is first-touch — only set it if unset. A student can
+  // be connected to multiple teachers; this just adds the connection below.
+  if (!me?.referred_by_tutor_id) {
+    const { error: attrError } = await service
+      .from("users")
+      .update({ referred_by_tutor_id: tutorId, updated_at: new Date().toISOString() })
+      .eq("id", user.id);
+    if (attrError) return NextResponse.json({ error: attrError.message }, { status: 500 });
+  }
 
   const { error } = await service
     .from("tutor_students")

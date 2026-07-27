@@ -26,6 +26,7 @@ import { DailyLessonLimit } from "@/components/dashboard/daily-lesson-limit";
 import { JoinTutorCode } from "@/components/dashboard/join-tutor-code";
 import { BookClassButton } from "@/components/dashboard/book-class-button";
 import { SubscribePrompt } from "@/components/dashboard/subscribe-prompt";
+import { TrackOnce } from "@/components/analytics/track-once";
 import { formatNumber } from "@/lib/utils";
 import { getLessonUsage } from "@/lib/utils/lesson-limits";
 import { langSlug, LANGUAGE_INFO } from "@/lib/utils/language";
@@ -73,23 +74,34 @@ export default async function DashboardPage() {
     .eq("language_code", userLanguage)
     .single();
 
-  let tutor = null;
-  if (profile?.referred_by_tutor_id) {
-    // Cross-user read: RLS blocks a student from selecting their tutor's row,
-    // so use the service client (this is why the teacher card was showing
-    // "No teacher assigned" for connected students).
-    const svc = createServiceClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!,
-      { auth: { persistSession: false } }
-    );
-    const { data: tutorData } = await svc
-      .from("users")
-      .select("id, name, email, avatar_url, tutor_plan")
-      .eq("id", profile.referred_by_tutor_id)
-      .maybeSingle();
-    tutor = tutorData;
+  // A student can have multiple teachers. Their teachers are the active
+  // tutor_students connections. Cross-user reads need the service client (RLS
+  // blocks a student from selecting a tutor's row).
+  const svc = createServiceClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { auth: { persistSession: false } }
+  );
+  let teachers: { id: string; name: string | null; email: string | null; avatar_url: string | null; tutor_plan: string | null }[] = [];
+  if (user?.id) {
+    const { data: links } = await svc
+      .from("tutor_students")
+      .select("tutor_id")
+      .eq("student_id", user.id)
+      .eq("status", "active");
+    const tutorIds = (links || []).map((l) => l.tutor_id).filter((id) => id && id !== user.id);
+    if (tutorIds.length > 0) {
+      const { data: rows } = await svc
+        .from("users")
+        .select("id, name, email, avatar_url, tutor_plan")
+        .in("id", tutorIds);
+      // Put the first-touch (commission) teacher first, if present.
+      teachers = (rows || []).sort((a) =>
+        a.id === profile?.referred_by_tutor_id ? -1 : 1
+      );
+    }
   }
+  const tutor = teachers[0] || null;
 
   const { data: completedLessons } = await supabase
     .from("lesson_progress")
@@ -185,6 +197,7 @@ export default async function DashboardPage() {
 
   return (
     <div className="space-y-8 max-w-7xl mx-auto">
+      <TrackOnce event="dashboard_viewed" once="dashboard_viewed" />
       {/* ============================================
           WELCOME HEADER
           ============================================ */}
@@ -205,13 +218,14 @@ export default async function DashboardPage() {
       <SubscribePrompt plan={profile?.subscription_plan} />
 
       {tutor ? (
-        <div className="bg-white rounded-2xl shadow-soft border border-gray-100 p-5 flex items-center gap-4">
+        <div className="space-y-3">
+          <div className="bg-white rounded-2xl shadow-soft border border-gray-100 p-5 flex items-center gap-4">
           {/* Avatar */}
           <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-600 flex items-center justify-center text-lg font-bold text-white flex-shrink-0 shadow-sm">
             {tutor.avatar_url ? (
               <img
                 src={tutor.avatar_url}
-                alt={tutor.name}
+                alt={tutor.name || "Teacher"}
                 className="w-full h-full object-cover rounded-full"
               />
             ) : (
@@ -222,7 +236,7 @@ export default async function DashboardPage() {
           {/* Info */}
           <div className="flex-1 min-w-0">
             <p className="text-[11px] text-gray-400 font-medium uppercase tracking-wider">
-              My Teacher
+              {teachers.length > 1 ? "My Teachers" : "My Teacher"}
             </p>
             <p className="font-heading font-bold text-primary truncate">
               {tutor.name || "Your Tutor"}
@@ -247,6 +261,36 @@ export default async function DashboardPage() {
               <MessageSquare className="w-5 h-5" />
             </Link>
           </div>
+          </div>
+
+          {/* Additional teachers */}
+          {teachers.slice(1).map((t) => (
+            <div key={t.id} className="bg-white rounded-2xl shadow-soft border border-gray-100 p-4 flex items-center gap-4">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary-600 flex items-center justify-center text-base font-bold text-white flex-shrink-0 shadow-sm overflow-hidden">
+                {t.avatar_url ? (
+                  <img src={t.avatar_url} alt={t.name || "Teacher"} className="w-full h-full object-cover rounded-full" />
+                ) : (
+                  t.name?.charAt(0)?.toUpperCase() || "T"
+                )}
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="font-heading font-bold text-primary truncate">{t.name || "Your Tutor"}</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <BookClassButton tutorName={t.name || "your tutor"} />
+                <Link
+                  href="/messages"
+                  className="p-2.5 bg-gray-50 text-gray-500 rounded-xl hover:bg-gray-100 transition-colors"
+                  title="Message"
+                >
+                  <MessageSquare className="w-5 h-5" />
+                </Link>
+              </div>
+            </div>
+          ))}
+
+          {/* Add another teacher with a class code */}
+          <JoinTutorCode userId={user?.id} />
         </div>
       ) : (
         <div className="space-y-3">

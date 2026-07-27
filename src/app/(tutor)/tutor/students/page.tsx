@@ -48,60 +48,47 @@ export default async function TutorStudentsPage() {
     .eq('id', user.id)
     .single();
 
-  // Fetch tutor's students with progress
-  const { data: students } = await svc
-    .from('users')
-    .select(`
-      id,
-      name,
-      email,
-      avatar_url,
-      total_xp,
-      current_streak,
-      current_level,
-      last_activity_date,
-      subscription_plan,
-      created_at
-    `)
-    .eq('referred_by_tutor_id', user.id)
-    .order('total_xp', { ascending: false });
-
-  // Pending join requests: a relationship row exists, but the student isn't
-  // attributed to this tutor yet (referred_by_tutor_id !== this tutor).
+  // A student's teachers are the active tutor_students connections. A student can
+  // have many teachers, so this — not referred_by_tutor_id — is the source of
+  // truth for "who is in my class".
   const { data: rels } = await svc
     .from('tutor_students')
     .select('student_id, assigned_at')
-    .eq('tutor_id', user.id);
+    .eq('tutor_id', user.id)
+    .eq('status', 'active');
 
-  const candidateIds = (rels || [])
+  const studentIds = (rels || [])
     .map((r) => r.student_id)
     .filter((id) => id && id !== user.id);
 
-  let pendingRequests: {
+  let students: {
     id: string;
     name: string | null;
     email: string;
     avatar_url: string | null;
-    requested_at: string | null;
+    total_xp: number | null;
+    current_streak: number | null;
+    current_level: string | null;
+    last_activity_date: string | null;
+    subscription_plan: string | null;
+    created_at: string;
   }[] = [];
 
-  if (candidateIds.length > 0) {
-    const { data: candidates } = await svc
+  if (studentIds.length > 0) {
+    const { data: rows } = await svc
       .from('users')
-      .select('id, name, email, avatar_url, referred_by_tutor_id')
-      .in('id', candidateIds);
-
-    const assignedAt = new Map((rels || []).map((r) => [r.student_id, r.assigned_at]));
-    pendingRequests = (candidates || [])
-      .filter((c) => c.referred_by_tutor_id !== user.id)
-      .map((c) => ({
-        id: c.id,
-        name: c.name,
-        email: c.email,
-        avatar_url: c.avatar_url,
-        requested_at: assignedAt.get(c.id) || null,
-      }));
+      .select(`
+        id, name, email, avatar_url, total_xp, current_streak,
+        current_level, last_activity_date, subscription_plan, created_at
+      `)
+      .in('id', studentIds)
+      .order('total_xp', { ascending: false });
+    students = rows || [];
   }
+
+  // With code/link auto-join there is no manual approval step, so there are no
+  // pending requests to show.
+  const pendingRequests: never[] = [];
 
   // Open "book a class" requests.
   const { data: crRows } = await svc
@@ -155,19 +142,34 @@ export default async function TutorStudentsPage() {
           </p>
         </div>
         
-        {/* Invite Link Box */}
-        {inviteLink && (
-          <div className="flex items-center gap-2 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 rounded-lg p-3">
-            <UserPlus className="w-5 h-5 text-primary dark:text-primary-400" />
-            <div className="text-sm">
-              <p className="text-primary-900 dark:text-primary-100 font-medium">Invite Link</p>
-              <p className="text-primary dark:text-primary-400 text-xs truncate max-w-[200px]">
-                {inviteLink}
-              </p>
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-stretch">
+          {/* Class code — students type this to join your class */}
+          {tutorData?.tutor_invite_code && (
+            <div className="flex items-center gap-3 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 rounded-lg p-3">
+              <UserPlus className="w-5 h-5 text-primary dark:text-primary-400 flex-shrink-0" />
+              <div className="text-sm">
+                <p className="text-primary-900 dark:text-primary-100 font-medium">Class code</p>
+                <p className="text-primary dark:text-primary-400 font-mono font-bold tracking-widest text-lg leading-tight">
+                  {tutorData.tutor_invite_code}
+                </p>
+              </div>
+              <CopyButton text={tutorData.tutor_invite_code} />
             </div>
-            <CopyButton text={inviteLink} />
-          </div>
-        )}
+          )}
+
+          {/* Invite Link Box */}
+          {inviteLink && (
+            <div className="flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-3">
+              <div className="text-sm">
+                <p className="text-gray-700 dark:text-gray-200 font-medium">Or share a link</p>
+                <p className="text-gray-500 dark:text-gray-400 text-xs truncate max-w-[200px]">
+                  {inviteLink}
+                </p>
+              </div>
+              <CopyButton text={inviteLink} />
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Stats */}

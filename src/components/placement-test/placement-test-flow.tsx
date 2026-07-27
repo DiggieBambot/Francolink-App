@@ -5,6 +5,7 @@
 import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import { trackEvent } from "@/lib/analytics/client";
 import { Button } from "@/components/ui";
 import { 
   getQuestionsByLanguage,
@@ -120,6 +121,7 @@ export default function PlacementTestFlow({ userId, userName, language, language
 
   // Start the test
   const startTest = () => {
+    trackEvent("placement_started");
     const firstQuestion = getNextQuestion(testState);
     if (firstQuestion) {
       setCurrentQuestion(firstQuestion);
@@ -213,6 +215,8 @@ export default function PlacementTestFlow({ userId, userName, language, language
 
       if (error) {
         console.error("Error saving placement test results:", error);
+      } else {
+        trackEvent("placement_completed", { metadata: { level, score, skipped: false } });
       }
     } catch (error) {
       console.error("Error saving placement test results:", error);
@@ -292,6 +296,7 @@ export default function PlacementTestFlow({ userId, userName, language, language
           learning_language: langCode,
         })
         .eq("id", userId);
+      trackEvent("placement_completed", { metadata: { level: "A1", score: 0, skipped: true } });
     } catch (error) {
       console.error("Error skipping placement test:", error);
     }

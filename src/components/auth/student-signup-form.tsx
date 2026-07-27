@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
+import { trackEvent } from "@/lib/analytics/client";
 import { Button, Card, Input } from "@/components/ui";
 import { Mail, Lock, User, Eye, EyeOff, Loader2, BookOpen, ArrowLeft } from "lucide-react";
 import { GoogleButton } from "./google-button";
@@ -50,6 +51,7 @@ export function StudentSignupForm({ next }: { next?: string }) {
       } else if (data.session) {
         // No email-confirmation step: send the welcome email, then go to the
         // destination if given. (When confirmation IS on, the callback sends it.)
+        trackEvent("signup_completed", { once: "signup_completed" });
         try { await fetch("/api/email/welcome", { method: "POST" }); } catch {}
         window.location.href = next || "/onboarding";
       }

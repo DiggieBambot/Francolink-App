@@ -5,11 +5,13 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import {
   Users, GraduationCap, CreditCard, TrendingUp, Activity, Radio, ArrowRight, LifeBuoy,
+  Filter, Footprints, CalendarCheck,
 } from "lucide-react";
 import { getDashboardUser, isAdmin } from "@/lib/admin/access";
 import {
   getOverview, getSignupsOverTime, getActiveOverTime, getRetentionCohorts,
   getAcquisition, getActivationFunnel, getRevenue,
+  getActivationFunnelBySource, getFirstSessionDropoff, getNoLessonReturnByCohort,
 } from "@/lib/admin/analytics";
 import { BarSeries } from "@/components/admin/bar-series";
 import { CohortHeatmap } from "@/components/admin/cohort-heatmap";
@@ -17,7 +19,7 @@ import { CohortHeatmap } from "@/components/admin/cohort-heatmap";
 export const dynamic = "force-dynamic";
 
 const SOURCE_COLORS: Record<string, string> = {
-  organic: "bg-emerald-500", paid: "bg-blue-500", social: "bg-fuchsia-500",
+  "tutor-invite": "bg-primary", organic: "bg-emerald-500", paid: "bg-blue-500", social: "bg-fuchsia-500",
   referral: "bg-amber-500", direct: "bg-slate-500", other: "bg-gray-400", unknown: "bg-gray-300",
 };
 
@@ -26,13 +28,15 @@ export default async function GrowthPage() {
   if (!me) redirect("/admin/login");
   if (!isAdmin(me)) redirect("/admin/support");
 
-  const [overview, signups, active, cohorts, acquisition, funnel, revenue] = await Promise.all([
+  const [overview, signups, active, cohorts, acquisition, funnel, revenue, funnelBySource, dropoff, noLessonReturn] = await Promise.all([
     getOverview(), getSignupsOverTime(30), getActiveOverTime(30), getRetentionCohorts(8),
     getAcquisition(), getActivationFunnel(), getRevenue(),
+    getActivationFunnelBySource(), getFirstSessionDropoff(), getNoLessonReturnByCohort(8),
   ]);
 
   const acqTotal = acquisition.reduce((s, a) => s + a.count, 0) || 1;
   const funnelTop = funnel[0]?.count || 1;
+  const dropoffTop = dropoff[0]?.count || 1;
 
   const kpis = [
     { label: "Total users", value: overview.totalUsers, icon: Users, sub: `${overview.students} students · ${overview.tutors} tutors` },
@@ -92,6 +96,106 @@ export default async function GrowthPage() {
           % of each week&apos;s signups still active in later weeks. Fills in as data accrues.
         </p>
         <CohortHeatmap cohorts={cohorts} />
+      </div>
+
+      {/* Activation funnel by acquisition source */}
+      <div className="mb-8 rounded-2xl border border-gray-100 bg-white p-5 shadow-soft">
+        <h2 className="mb-1 flex items-center gap-2 font-heading font-bold text-gray-900">
+          <Filter className="h-4 w-4 text-primary" /> Activation funnel by source
+        </h2>
+        <p className="mb-4 text-xs text-gray-500">
+          Do tutor-invited students activate differently from organic ones? % is of that source&apos;s signups.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[560px] text-sm">
+            <thead>
+              <tr className="border-b border-gray-100 text-left text-xs uppercase tracking-wide text-gray-400">
+                <th className="py-2 pr-3 font-semibold">Source</th>
+                <th className="py-2 px-3 font-semibold">Signed up</th>
+                <th className="py-2 px-3 font-semibold">Took placement</th>
+                <th className="py-2 px-3 font-semibold">Connected</th>
+                <th className="py-2 px-3 font-semibold">Homework</th>
+              </tr>
+            </thead>
+            <tbody>
+              {funnelBySource.map((r) => {
+                const pct = (n: number) => (r.signed ? `${Math.round((n / r.signed) * 100)}%` : "—");
+                return (
+                  <tr key={r.source} className="border-b border-gray-50 last:border-0">
+                    <td className="py-2 pr-3">
+                      <span className="inline-flex items-center gap-2 capitalize text-gray-800">
+                        <span className={`h-2.5 w-2.5 rounded-full ${SOURCE_COLORS[r.source] || "bg-gray-400"}`} />
+                        {r.source}
+                      </span>
+                    </td>
+                    <td className="py-2 px-3 font-semibold text-gray-900">{r.signed}</td>
+                    <td className="py-2 px-3 text-gray-700">{r.placement} <span className="text-xs text-gray-400">({pct(r.placement)})</span></td>
+                    <td className="py-2 px-3 text-gray-700">{r.connected} <span className="text-xs text-gray-400">({pct(r.connected)})</span></td>
+                    <td className="py-2 px-3 text-gray-700">{r.submitted} <span className="text-xs text-gray-400">({pct(r.submitted)})</span></td>
+                  </tr>
+                );
+              })}
+              {funnelBySource.length === 0 ? (
+                <tr><td colSpan={5} className="py-3 text-xs text-gray-400">No data yet.</td></tr>
+              ) : null}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* First-session drop-off + no-lesson-day return */}
+      <div className="mb-8 grid gap-6 lg:grid-cols-2">
+        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-soft">
+          <h2 className="mb-1 flex items-center gap-2 font-heading font-bold text-gray-900">
+            <Footprints className="h-4 w-4 text-primary" /> First-session drop-off
+          </h2>
+          <p className="mb-4 text-xs text-gray-500">
+            Where new users abandon between signup and placement. % is of signups.
+          </p>
+          <div className="space-y-2.5">
+            {dropoff.map((d) => (
+              <div key={d.step}>
+                <div className="mb-1 flex justify-between text-sm">
+                  <span className="text-gray-700">{d.step}</span>
+                  <span className="font-semibold text-gray-900">
+                    {d.count} <span className="text-xs font-normal text-gray-400">({Math.round((d.count / dropoffTop) * 100)}%)</span>
+                  </span>
+                </div>
+                <div className="h-2 overflow-hidden rounded-full bg-gray-100">
+                  <div className="h-full bg-primary" style={{ width: `${(d.count / dropoffTop) * 100}%` }} />
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-3 text-xs text-gray-400">Populates from new signups going forward.</p>
+        </div>
+
+        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-soft">
+          <h2 className="mb-1 flex items-center gap-2 font-heading font-bold text-gray-900">
+            <CalendarCheck className="h-4 w-4 text-emerald-600" /> Between-lesson return
+          </h2>
+          <p className="mb-4 text-xs text-gray-500">
+            % of each cohort who opened the app on a day with no scheduled lesson — the habit signal.
+          </p>
+          <div className="space-y-3">
+            {noLessonReturn.map((r) => (
+              <div key={r.cohort}>
+                <div className="mb-1 flex justify-between text-sm">
+                  <span className="text-gray-700">Week of {r.cohort}</span>
+                  <span className="font-semibold text-gray-900">
+                    {r.pct}% <span className="text-xs font-normal text-gray-400">({r.returnedNoLesson}/{r.users})</span>
+                  </span>
+                </div>
+                <div className="h-2 overflow-hidden rounded-full bg-gray-100">
+                  <div className="h-full bg-emerald-500" style={{ width: `${r.pct}%` }} />
+                </div>
+              </div>
+            ))}
+            {noLessonReturn.length === 0 ? (
+              <p className="text-xs text-gray-400">Populates once students return between lessons.</p>
+            ) : null}
+          </div>
+        </div>
       </div>
 
       {/* Acquisition + Funnel + Plans */}

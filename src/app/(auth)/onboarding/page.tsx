@@ -5,6 +5,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import { trackEvent } from "@/lib/analytics/client";
 import { Button, Card } from "@/components/ui";
 import { ChevronRight, ChevronLeft, Loader2, Brain, BookOpen } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -122,6 +123,8 @@ export default function OnboardingPage() {
             placement_taken_at: new Date().toISOString(),
           }, { onConflict: "user_id,language_code" });
       }
+
+      trackEvent("placement_completed", { metadata: { level: "A1", score: 0, skipped: true } });
 
       // Redirect to the selected language using slug for route
       const slug = languageSlugs[selectedLanguage] || selectedLanguage;

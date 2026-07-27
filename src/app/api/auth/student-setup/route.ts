@@ -3,6 +3,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { sendWelcomeOnce, notifyTutorNewStudent } from '@/lib/email/transactional';
+import { logActivity } from '@/lib/analytics/activity';
 
 // Use service role for this operation
 const supabase = createClient(
@@ -85,7 +86,6 @@ export async function POST(request: NextRequest) {
       .update({
         name,
         role: 'USER',
-        referred_by_tutor_id: tutorId,
         updated_at: new Date().toISOString(),
       })
       .eq('id', userId);
@@ -101,7 +101,6 @@ export async function POST(request: NextRequest) {
           email,
           name,
           role: 'USER',
-          referred_by_tutor_id: tutorId,
           created_at: new Date().toISOString(),
           updated_at: new Date().toISOString(),
         });
@@ -115,6 +114,26 @@ export async function POST(request: NextRequest) {
     }
 
     console.log('✅ Student profile created/updated');
+
+    // First-touch: tag the acquisition source as "tutor-invite" and set the
+    // commission-earning tutor — both only if not already set, so the first
+    // teacher wins. A student can connect to more teachers later without changing
+    // either. The connection itself is the tutor_students row below.
+    const { data: srcRow } = await supabase
+      .from('users')
+      .select('signup_source, referred_by_tutor_id')
+      .eq('id', userId)
+      .maybeSingle();
+    const firstTouch: Record<string, unknown> = {};
+    if (!srcRow?.signup_source) firstTouch.signup_source = 'tutor-invite';
+    if (!srcRow?.referred_by_tutor_id) firstTouch.referred_by_tutor_id = tutorId;
+    if (Object.keys(firstTouch).length > 0) {
+      await supabase.from('users').update(firstTouch).eq('id', userId);
+    }
+
+    // Funnel: record the granular signup event (server-side so it's reliable even
+    // if the client emitter never runs).
+    await logActivity(userId, 'signup_completed', { metadata: { via: 'tutor-invite' } });
 
     // 3. Create tutor-student relationship
     console.log('📝 Creating tutor-student relationship...');

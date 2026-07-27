@@ -55,27 +55,23 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true, status: "declined" });
   }
 
-  // Accept: connect the student to this tutor. Only set referred_by if the student
-  // isn't already attributed to a different tutor.
+  // Accept: connect the student to this tutor. Students may have multiple
+  // teachers, so we never reject on an existing connection. Commission is
+  // first-touch — only set referred_by if it isn't set yet.
   const { data: student } = await service
     .from("users")
     .select("referred_by_tutor_id")
     .eq("id", studentId)
     .maybeSingle();
 
-  if (student?.referred_by_tutor_id && student.referred_by_tutor_id !== user.id) {
-    return NextResponse.json(
-      { error: "This student is already connected to another tutor." },
-      { status: 409 }
-    );
-  }
-
-  const { error: upErr } = await service
-    .from("users")
-    .update({ referred_by_tutor_id: user.id, updated_at: new Date().toISOString() })
-    .eq("id", studentId);
-  if (upErr) {
-    return NextResponse.json({ error: "Failed to connect student" }, { status: 500 });
+  if (!student?.referred_by_tutor_id) {
+    const { error: upErr } = await service
+      .from("users")
+      .update({ referred_by_tutor_id: user.id, updated_at: new Date().toISOString() })
+      .eq("id", studentId);
+    if (upErr) {
+      return NextResponse.json({ error: "Failed to connect student" }, { status: 500 });
+    }
   }
 
   await service

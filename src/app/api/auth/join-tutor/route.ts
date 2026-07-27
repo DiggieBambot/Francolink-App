@@ -71,37 +71,36 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Already connected to THIS tutor
-    if (student?.referred_by_tutor_id === tutor.id) {
+    // A student may have multiple teachers. Connections live in tutor_students;
+    // if they're already connected to THIS tutor, just say so (idempotent).
+    const { data: existingLink } = await supabaseService
+      .from('tutor_students')
+      .select('student_id')
+      .eq('tutor_id', tutor.id)
+      .eq('student_id', user.id)
+      .maybeSingle();
+    if (existingLink) {
       return NextResponse.json(
         { error: `You're already connected with ${tutor.name || 'this tutor'}.` },
         { status: 400 }
       );
     }
 
-    // Connected to a DIFFERENT tutor
-    if (student?.referred_by_tutor_id) {
-      return NextResponse.json(
-        { error: 'You already have a tutor assigned. Please contact support to change tutors.' },
-        { status: 400 }
-      );
+    // Commission attribution is first-touch: the first teacher a student connects
+    // to keeps it. Only set referred_by_tutor_id if it isn't set yet; adding more
+    // teachers later never changes it.
+    if (!student?.referred_by_tutor_id) {
+      const { error: attrError } = await supabaseService
+        .from('users')
+        .update({ referred_by_tutor_id: tutor.id, updated_at: new Date().toISOString() })
+        .eq('id', user.id);
+      if (attrError) {
+        console.error('❌ Error attributing student to tutor:', attrError);
+        return NextResponse.json({ error: 'Failed to join tutor' }, { status: 500 });
+      }
     }
 
-    // Auto-assign: the student is attributed to this tutor immediately (no manual
-    // approval). referred_by_tutor_id drives both the tutor's student list and
-    // commission attribution.
-    const { error: attrError } = await supabaseService
-      .from('users')
-      .update({ referred_by_tutor_id: tutor.id, updated_at: new Date().toISOString() })
-      .eq('id', user.id);
-    if (attrError) {
-      console.error('❌ Error attributing student to tutor:', attrError);
-      return NextResponse.json(
-        { error: 'Failed to join tutor' },
-        { status: 500 }
-      );
-    }
-
+    // The connection itself (this is what puts the student in the tutor's list).
     const { error: relError } = await supabaseService
       .from('tutor_students')
       .upsert({

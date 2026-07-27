@@ -120,15 +120,24 @@ export default async function TutorDashboardPage() {
       <div className="grid gap-4 lg:grid-cols-3">
         <div className="rounded-2xl border bg-white p-5 lg:col-span-2">
           <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-slate-700">
-            <Link2 className="h-4 w-4 text-secondary-600" /> Your invite link
+            <Link2 className="h-4 w-4 text-secondary-600" /> Your class code &amp; invite link
           </div>
           <p className="mb-3 text-sm text-slate-500">
-            Share this with students. When they join and subscribe, you earn 10% then 5% every month.
+            Give students your class code, or share the link. When they join and subscribe, you earn 10% then 5% every month.
           </p>
-          {inviteLink ? (
-            <div className="flex items-center gap-2 rounded-lg border bg-slate-50 p-2">
-              <span className="flex-1 truncate text-sm text-slate-700">{inviteLink}</span>
-              <CopyButton text={inviteLink} />
+          {me?.tutor_invite_code ? (
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 rounded-lg border border-secondary-200 bg-secondary-50 p-2.5">
+                <span className="text-xs font-semibold uppercase tracking-wide text-secondary-700">Code</span>
+                <span className="flex-1 font-mono text-lg font-bold tracking-widest text-secondary-800">{me.tutor_invite_code}</span>
+                <CopyButton text={me.tutor_invite_code} />
+              </div>
+              {inviteLink && (
+                <div className="flex items-center gap-2 rounded-lg border bg-slate-50 p-2">
+                  <span className="flex-1 truncate text-sm text-slate-700">{inviteLink}</span>
+                  <CopyButton text={inviteLink} />
+                </div>
+              )}
             </div>
           ) : (
             <p className="text-sm text-slate-400">No invite code yet — refresh your profile.</p>
