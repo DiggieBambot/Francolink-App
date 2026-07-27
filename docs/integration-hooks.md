@@ -46,8 +46,13 @@ await logActivity(userId, "homework_submitted", { metadata: { lessonId } });
 - Client events POST to `/api/activity/event` and are rejected unless the kind is
   in `CLIENT_EMITTABLE_KINDS` (see `@/lib/analytics/activity`).
 - The activation funnel + first-session drop-off in `/admin/growth` read these
-  event kinds. `homework_submitted` is already defined and wired into the funnel
-  query — it just needs the homework module to emit it.
+  event kinds.
+- **`homework_submitted`** is the canonical homework event. It is already emitted
+  by `/api/homework/submit` and read by the analytics: the funnel's "Submitted
+  homework" step (`getHomeworkSubmitters`, which unions the event with the
+  `homework_submissions` table) and homework-doer retention
+  (`getHomeworkEngagement`). A future homework module only needs to keep emitting
+  it (or writing the table) — no analytics changes required.
 
 ## 3. Query tutor ↔ student connections
 

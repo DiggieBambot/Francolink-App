@@ -84,7 +84,9 @@ export async function POST(req: NextRequest) {
     .single();
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
-  await logActivity(user.id, "homework_submit", { metadata: { homeworkId } });
+  // Canonical funnel/retention event — feeds the §1 analytics "Submitted
+  // homework" step and homework-doer retention (see docs/integration-hooks.md).
+  await logActivity(user.id, "homework_submitted", { metadata: { homeworkId } });
 
   return NextResponse.json({ submission: saved });
 }

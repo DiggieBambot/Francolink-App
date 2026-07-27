@@ -12,7 +12,7 @@ import {
   getOverview, getSignupsOverTime, getActiveOverTime, getRetentionCohorts,
   getAcquisition, getActivationFunnel, getRevenue,
   getActivationFunnelBySource, getFirstSessionDropoff, getNoLessonReturnByCohort,
-  getOnboardingExperiment,
+  getOnboardingExperiment, getHomeworkEngagement,
 } from "@/lib/admin/analytics";
 import { BarSeries } from "@/components/admin/bar-series";
 import { CohortHeatmap } from "@/components/admin/cohort-heatmap";
@@ -34,7 +34,9 @@ export default async function GrowthPage() {
     getAcquisition(), getActivationFunnel(), getRevenue(),
     getActivationFunnelBySource(), getFirstSessionDropoff(), getNoLessonReturnByCohort(8),
   ]);
-  const onboardingExp = await getOnboardingExperiment();
+  const [onboardingExp, homework] = await Promise.all([
+    getOnboardingExperiment(), getHomeworkEngagement(),
+  ]);
 
   const acqTotal = acquisition.reduce((s, a) => s + a.count, 0) || 1;
   const funnelTop = funnel[0]?.count || 1;
@@ -196,6 +198,31 @@ export default async function GrowthPage() {
             {noLessonReturn.length === 0 ? (
               <p className="text-xs text-gray-400">Populates once students return between lessons.</p>
             ) : null}
+          </div>
+        </div>
+      </div>
+
+      {/* Homework-doer retention (PRD §4) */}
+      <div className="mb-8 rounded-2xl border border-gray-100 bg-white p-5 shadow-soft">
+        <h2 className="mb-1 flex items-center gap-2 font-heading font-bold text-gray-900">
+          <GraduationCap className="h-4 w-4 text-primary" /> Homework doers
+        </h2>
+        <p className="mb-4 text-xs text-gray-500">
+          Students who have ever submitted homework, and how many are still active (seen in 7 days).
+          Populates once the homework module emits <code className="rounded bg-gray-100 px-1">homework_submitted</code>.
+        </p>
+        <div className="flex flex-wrap gap-8">
+          <div>
+            <p className="text-3xl font-extrabold text-primary">{homework.doers}</p>
+            <p className="text-xs text-gray-500">homework doers</p>
+          </div>
+          <div>
+            <p className="text-3xl font-extrabold text-emerald-600">{homework.retained7d}</p>
+            <p className="text-xs text-gray-500">active in last 7d</p>
+          </div>
+          <div>
+            <p className="text-3xl font-extrabold text-gray-900">{homework.pct}%</p>
+            <p className="text-xs text-gray-500">7-day retention</p>
           </div>
         </div>
       </div>

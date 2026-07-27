@@ -158,23 +158,37 @@ export async function getAcquisition(): Promise<{ source: string; count: number 
   return [...m.entries()].map(([source, count]) => ({ source, count })).sort((a, b) => b.count - a.count);
 }
 
+/**
+ * Distinct students who have submitted homework — the union of the
+ * homework_submissions table and the canonical `homework_submitted` analytics
+ * event. Reading both means a future homework module that only emits the event
+ * (or only writes the table) is still counted, with no rework.
+ */
+export async function getHomeworkSubmitters(): Promise<Set<string>> {
+  const s = svc();
+  const [{ data: rows }, { data: events }] = await Promise.all([
+    s.from("homework_submissions").select("student_id"),
+    s.from("user_activity").select("user_id").eq("kind", "homework_submitted"),
+  ]);
+  const set = new Set<string>();
+  for (const r of rows || []) if (r.student_id) set.add(r.student_id as string);
+  for (const e of events || []) if (e.user_id) set.add(e.user_id as string);
+  return set;
+}
+
 /** Signup → activation funnel. */
 export async function getActivationFunnel(): Promise<{ step: string; count: number }[]> {
-  const [signed, placement, connected, submitted] = await Promise.all([
+  const [signed, placement, connected, submitters] = await Promise.all([
     count("users", (q) => q.eq("role", "USER")),
     count("users", (q) => q.eq("role", "USER").eq("placement_test_taken", true)),
     count("users", (q) => q.eq("role", "USER").not("referred_by_tutor_id", "is", null)),
-    // distinct students who submitted homework
-    (async () => {
-      const { data } = await svc().from("homework_submissions").select("student_id");
-      return new Set((data || []).map((r) => r.student_id)).size;
-    })(),
+    getHomeworkSubmitters(),
   ]);
   return [
     { step: "Signed up", count: signed },
     { step: "Took placement", count: placement },
     { step: "Connected to tutor", count: connected },
-    { step: "Submitted homework", count: submitted },
+    { step: "Submitted homework", count: submitters.size },
   ];
 }
 
@@ -192,11 +206,10 @@ export interface FunnelBySourceRow {
 }
 export async function getActivationFunnelBySource(): Promise<FunnelBySourceRow[]> {
   const s = svc();
-  const [{ data: users }, { data: hw }] = await Promise.all([
+  const [{ data: users }, submitters] = await Promise.all([
     s.from("users").select("id, signup_source, placement_test_taken, referred_by_tutor_id").eq("role", "USER"),
-    s.from("homework_submissions").select("student_id"),
+    getHomeworkSubmitters(),
   ]);
-  const submitters = new Set((hw || []).map((r) => r.student_id));
   const by = new Map<string, FunnelBySourceRow>();
   for (const u of users || []) {
     const source = u.signup_source || "unknown";
@@ -332,6 +345,36 @@ export async function getOnboardingExperiment(): Promise<OnboardingExperimentRow
       pct: r.users ? Math.round((r.placement / r.users) * 1000) / 10 : 0,
     }))
     .sort((a, b) => a.variant.localeCompare(b.variant));
+}
+
+/**
+ * Homework-doer retention (PRD §4): how many students have ever submitted
+ * homework, and what share of them are still active (seen in the last 7 days).
+ * Becomes meaningful the moment the homework module starts emitting the event.
+ */
+export interface HomeworkEngagement {
+  doers: number;
+  retained7d: number;
+  pct: number;
+}
+export async function getHomeworkEngagement(): Promise<HomeworkEngagement> {
+  const submitters = await getHomeworkSubmitters();
+  if (submitters.size === 0) return { doers: 0, retained7d: 0, pct: 0 };
+  const s = svc();
+  const since = new Date(Date.now() - 7 * DAY).toISOString();
+  const { data } = await s
+    .from("users")
+    .select("id, last_seen_at")
+    .in("id", [...submitters]);
+  let retained = 0;
+  for (const u of data || []) {
+    if (u.last_seen_at && new Date(u.last_seen_at).toISOString() >= since) retained++;
+  }
+  return {
+    doers: submitters.size,
+    retained7d: retained,
+    pct: submitters.size ? Math.round((retained / submitters.size) * 1000) / 10 : 0,
+  };
 }
 
 /** Plan distribution + free→paid conversion. */
