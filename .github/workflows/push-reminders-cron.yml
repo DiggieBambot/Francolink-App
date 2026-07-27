@@ -1,0 +1,19 @@
+name: Push reminders cron
+
+# Daily push reminders need an HOURLY trigger so each timezone gets its
+# notification_time hit. GitHub Actions pings the endpoint every hour; the
+# endpoint decides who is currently due (Vercel Hobby can't do sub-daily crons).
+on:
+  schedule:
+    - cron: "0 * * * *" # every hour, on the hour (UTC)
+  workflow_dispatch: {} # allow manual runs from the Actions tab
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger push reminders
+        run: |
+          curl -sS -X GET "https://app.francolink.net/api/cron/push-reminders" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            --max-time 300 --fail-with-body

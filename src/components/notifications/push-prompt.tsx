@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Bell, X, AlertCircle, CheckCircle } from "lucide-react";
 import { usePushNotifications } from "@/hooks/usePushNotifications";
 
-export function PushPrompt() {
+export function PushPrompt({ eligible = false }: { eligible?: boolean }) {
   const { permission, isSubscribed, isLoading, subscribe } = usePushNotifications();
   const [dismissed, setDismissed] = useState(false);
   const [show, setShow] = useState(false);
@@ -13,15 +13,18 @@ export function PushPrompt() {
   // Check if VAPID key is configured — if not, don't show the prompt at all
   const vapidConfigured = !!process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY;
 
+  // Only ask AFTER a meaningful action — `eligible` is true once the student has
+  // earned XP (completed a lesson/game/placement). Never prompt cold on load;
+  // an unprompted permission request tanks grant rates and iOS rejects it.
   useEffect(() => {
-    if (!vapidConfigured) return;
+    if (!vapidConfigured || !eligible) return;
     const timer = setTimeout(() => {
       if (permission === "default" && !isSubscribed) {
         setShow(true);
       }
-    }, 3000);
+    }, 1500);
     return () => clearTimeout(timer);
-  }, [permission, isSubscribed, vapidConfigured]);
+  }, [permission, isSubscribed, vapidConfigured, eligible]);
 
   // Auto-hide success after 3s
   useEffect(() => {
