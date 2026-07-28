@@ -112,6 +112,8 @@ export interface DialogueReadAloudSection extends BaseSection {
 export interface MatchingQASection extends BaseSection {
   kind: "matching_qa";
   pairs: MatchingPair[];
+  /** Set false to hide the audio buttons (e.g. drills whose text is English). */
+  speak?: boolean;
 }
 export interface WordOrderSection extends BaseSection {
   kind: "word_order";

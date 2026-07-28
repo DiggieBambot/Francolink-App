@@ -13,6 +13,7 @@ interface Props {
 }
 
 export function MatchingQASectionComp({ section, view, theme }: Props) {
+  const speak = section.speak !== false;
   return (
     <SectionCard theme={theme}>
       <SectionHeader
@@ -31,7 +32,7 @@ export function MatchingQASectionComp({ section, view, theme }: Props) {
               <div className="flex items-center gap-2">
                 <span className="text-xs font-semibold text-slate-400">Q{i + 1}</span>
                 <span className="text-sm text-slate-900">{p.question}</span>
-                <SpeakButton text={p.question} size="sm" />
+                {speak ? <SpeakButton text={p.question} size="sm" /> : null}
               </div>
               {p.question_translation ? (
                 <div className="ml-7">
@@ -51,7 +52,7 @@ export function MatchingQASectionComp({ section, view, theme }: Props) {
                 >
                   {view === "tutor" ? p.answer : "____________"}
                 </span>
-                {view === "tutor" ? <SpeakButton text={p.answer} size="sm" /> : null}
+                {view === "tutor" && speak ? <SpeakButton text={p.answer} size="sm" /> : null}
               </div>
               {view === "tutor" && p.answer_translation ? (
                 <div className="ml-6">
