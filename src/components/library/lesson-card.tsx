@@ -16,6 +16,25 @@ function conceptLabel(tags: string[]): string | null {
   return null;
 }
 
+// What kind of grammar point this is, for the small caption under the concept
+// name on the card — checked in order, first match wins.
+const SUBTITLE_RULES: { test: (tags: string[]) => boolean; label: string }[] = [
+  { test: (t) => t.includes("verbs") || t.includes("verb"), label: "Conjugaison" },
+  { test: (t) => t.includes("agreement"), label: "Accord" },
+  { test: (t) => t.includes("partitive") || t.includes("articles"), label: "Articles" },
+  { test: (t) => t.includes("gender") || t.includes("plural"), label: "Genre & nombre" },
+  { test: (t) => t.includes("negation"), label: "Négation" },
+  { test: (t) => t.includes("questions"), label: "Questions" },
+  { test: (t) => t.includes("possessives"), label: "Possessifs" },
+  { test: (t) => t.includes("prepositions"), label: "Prépositions" },
+  { test: (t) => t.includes("il y a"), label: "Expression" },
+];
+
+function grammarSubtitle(tags: string[]): string {
+  const lower = tags.map((t) => t.trim().toLowerCase());
+  return SUBTITLE_RULES.find((r) => r.test(lower))?.label ?? "Grammaire";
+}
+
 /** Decorative tile shown when a lesson has no hero photo (e.g. grammar). */
 function PlaceholderArt({
   lesson,
@@ -53,7 +72,7 @@ function PlaceholderArt({
             {concept}
           </span>
           <span className="mt-1.5 block text-[10px] font-semibold uppercase tracking-[0.2em] text-white/75">
-            Conjugaison
+            {grammarSubtitle(lesson.topic_tags)}
           </span>
         </div>
       ) : (
