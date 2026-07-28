@@ -49,7 +49,9 @@ const ENEMY_HOME: [number, number][] = [[5, 7], [5, 6], [5, 8]];
 
 type Dir = "up" | "down" | "left" | "right" | "none";
 const DELTA: Record<Dir, [number, number]> = { up: [-1, 0], down: [1, 0], left: [0, -1], right: [0, 1], none: [0, 0] };
-const DIR_DEG: Record<Dir, number> = { right: 0, down: 90, left: 180, up: 270, none: 0 };
+// The mouth wedge (conic-gradient in .pac below) points UP at rotate(0deg),
+// not right — so each direction needs its CSS-clockwise rotation from "up".
+const DIR_DEG: Record<Dir, number> = { up: 0, right: 90, down: 180, left: 270, none: 0 };
 const key = (r: number, c: number) => `${r},${c}`;
 
 function isWall(grid: string[], r: number, c: number) {
