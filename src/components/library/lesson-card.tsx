@@ -63,7 +63,7 @@ function PlaceholderArt({
   );
 }
 
-export function LessonCard({ lesson }: { lesson: CatalogueLesson }) {
+export function LessonCard({ lesson, sequence }: { lesson: CatalogueLesson; sequence?: number }) {
   const t = getLevelTheme(lesson.level);
   const cat = CATEGORY_BY_SLUG[lesson.category];
   const gradient = cat?.gradient ?? "from-slate-500 to-slate-700";
@@ -95,6 +95,11 @@ export function LessonCard({ lesson }: { lesson: CatalogueLesson }) {
         <span className={`absolute left-2 top-2 rounded-md px-1.5 py-0.5 text-[10px] font-bold uppercase text-white shadow ${t.accentBg}`}>
           {lesson.level}
         </span>
+        {sequence != null ? (
+          <span className="absolute right-2 top-2 rounded-full bg-black/60 px-2 py-0.5 text-[10px] font-bold text-white shadow backdrop-blur-sm">
+            Lesson {sequence}
+          </span>
+        ) : null}
       </div>
 
       <div className="flex flex-1 flex-col p-4">

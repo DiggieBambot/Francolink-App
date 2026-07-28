@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { getLevelTheme } from "@/lib/lessons/level-theme";
+import { isSyllabusCategory } from "@/lib/lessons/syllabus-order";
 import { LessonCard } from "./lesson-card";
 import type { CatalogueLesson } from "@/lib/lessons/public-queries";
 
@@ -30,6 +31,7 @@ export function CategoryLessons({ lessons, category }: { lessons: CatalogueLesso
   const presentLevels = LEVELS.filter((lv) => lessons.some((l) => l.level === lv));
   const shown = level ? lessons.filter((l) => l.level === level) : lessons;
   const grouped = category ? DAILY_NEWS_SLUGS.has(category) : false;
+  const numbered = category ? isSyllabusCategory(category) : false;
   const labels = category === "fr-daily-news" ? DAILY_NEWS_SECTOR_LABEL.fr : DAILY_NEWS_SECTOR_LABEL.en;
 
   const sections = grouped
@@ -93,8 +95,8 @@ export function CategoryLessons({ lessons, category }: { lessons: CatalogueLesso
         </div>
       ) : (
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {shown.map((l) => (
-            <LessonCard key={l.id} lesson={l} />
+          {shown.map((l, i) => (
+            <LessonCard key={l.id} lesson={l} sequence={numbered ? i + 1 : undefined} />
           ))}
         </div>
       )}

@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { getPublishedLessons } from "@/lib/lessons/public-queries";
 import { CATEGORY_BY_SLUG } from "@/lib/lessons/categories";
+import { sortForCategory } from "@/lib/lessons/syllabus-order";
 import { CategoryLessons } from "@/components/library/category-lessons";
 import { PublicShell } from "@/components/layout/public-shell";
 import { Container } from "@/components/ui";
@@ -38,7 +39,10 @@ export default async function CategoryPage({
   if (!cat) notFound();
 
   const all = await getPublishedLessons();
-  const inCat = all.filter((l) => l.category === category);
+  const inCat = sortForCategory(
+    all.filter((l) => l.category === category),
+    category
+  );
   const cover = inCat.find((l) => l.hero_image_url)?.hero_image_url;
 
   return (
