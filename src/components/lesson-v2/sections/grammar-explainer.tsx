@@ -1,7 +1,7 @@
 "use client";
 
 import { Fragment } from "react";
-import { AlertTriangle, ArrowRight, Sparkles } from "lucide-react";
+import { AlertTriangle, ArrowRight, Sparkles, Lightbulb, KeyRound } from "lucide-react";
 import { SectionHeader } from "../section-header";
 import { SectionCard } from "../section-card";
 import { TutorNotes } from "../tutor-notes";
@@ -151,6 +151,11 @@ export function GrammarExplainerSectionComp({ section, view, theme }: Props) {
                       {ex.translation}
                     </p>
                   ) : null}
+                  {ex.note ? (
+                    <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                      <RichText text={ex.note} />
+                    </p>
+                  ) : null}
                 </div>
               </div>
             ))}
@@ -183,8 +188,53 @@ export function GrammarExplainerSectionComp({ section, view, theme }: Props) {
                     </span>
                   </div>
                   {m.note ? (
-                    <p className="mt-2 text-sm text-amber-900/80 dark:text-amber-100/70">{m.note}</p>
+                    <p className="mt-2 text-sm text-amber-900/80 dark:text-amber-100/70">
+                      <RichText text={m.note} />
+                    </p>
                   ) : null}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+
+        {/* Exceptions & good-to-know — irregular cases, edge rules. */}
+        {section.exceptions?.length ? (
+          <div className="mt-8">
+            <h4 className="mb-3 flex items-center gap-2 font-heading text-lg font-bold text-indigo-700 dark:text-indigo-300">
+              <KeyRound className="h-5 w-5" />
+              {isEnglish ? "Exceptions & good to know" : "Exceptions & à retenir"}
+            </h4>
+            <ul className="space-y-2.5">
+              {section.exceptions.map((ex, i) => (
+                <li
+                  key={i}
+                  className="rounded-xl border border-indigo-100 bg-indigo-50/60 p-4 dark:border-indigo-900/40 dark:bg-indigo-900/10"
+                >
+                  <p className="font-semibold text-indigo-900 dark:text-indigo-200">
+                    <RichText text={ex.title} />
+                  </p>
+                  <p className="mt-1 text-sm text-indigo-900/80 dark:text-indigo-100/70">
+                    <RichText text={ex.detail} />
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+
+        {/* Tips / memory aids. */}
+        {section.tips?.length ? (
+          <div className="mt-8 rounded-2xl border border-emerald-100 bg-emerald-50/60 p-5 dark:border-emerald-900/40 dark:bg-emerald-900/10">
+            <h4 className="mb-2 flex items-center gap-2 font-heading text-lg font-bold text-emerald-700 dark:text-emerald-300">
+              <Lightbulb className="h-5 w-5" />
+              {isEnglish ? "Tips & memory aids" : "Astuces & mémo"}
+            </h4>
+            <ul className="space-y-1.5">
+              {section.tips.map((tip, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm text-emerald-950/85 dark:text-emerald-100/80">
+                  <span aria-hidden className="mt-0.5 text-emerald-500">✦</span>
+                  <span><RichText text={tip} /></span>
                 </li>
               ))}
             </ul>

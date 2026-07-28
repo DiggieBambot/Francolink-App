@@ -159,9 +159,13 @@ export interface GrammarExplainerSection extends BaseSection {
   /** A second table (e.g. contrasting être vs avoir). */
   table_secondary?: GrammarTable;
   /** Short worked examples (French + gloss), each playable. */
-  examples?: { text: string; translation?: string }[];
+  examples?: { text: string; translation?: string; note?: string }[];
   /** Student-visible "common mistakes" — the heart of the expert layer. */
   common_mistakes?: GrammarMistake[];
+  /** Memory aids / pro tips (encouraging, practical). */
+  tips?: string[];
+  /** Exceptions & "good to know" — irregular cases, edge rules. */
+  exceptions?: { title: string; detail: string }[];
 }
 
 export interface FreeResponseSection extends BaseSection {
