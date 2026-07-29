@@ -34,16 +34,21 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Clean up the code
-    const cleanCode = code.trim().toLowerCase();
+    // Match the code case-INSENSITIVELY. Invite codes are stored in mixed
+    // conventions (most are UPPERCASE from auth/callback, some lowercase from
+    // the settings regenerator), so a lowercase-only lookup silently failed
+    // for the uppercase majority. Escape LIKE wildcards first — some codes
+    // contain '_', which ilike would otherwise treat as "any character".
+    const cleanCode = String(code).trim();
+    const codePattern = cleanCode.replace(/[\\%_]/g, '\\$&');
 
     console.log('🔍 Looking for tutor with code:', cleanCode);
 
-    // Find tutor by invite code
+    // Find tutor by invite code (case-insensitive exact match)
     const { data: tutor, error: tutorError } = await supabaseService
       .from('users')
       .select('id, name, email, tutor_plan')
-      .eq('tutor_invite_code', cleanCode)
+      .ilike('tutor_invite_code', codePattern)
       .single();
 
     if (tutorError || !tutor) {

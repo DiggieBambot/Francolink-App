@@ -39,11 +39,14 @@ export default async function JoinPage({ params }: PageProps) {
     process.env.SUPABASE_SERVICE_ROLE_KEY!
   );
 
-  // Try to find tutor
+  // Try to find tutor — match case-INSENSITIVELY so a link with the code in a
+  // different case still resolves. Escape LIKE wildcards ('_' appears in some
+  // codes) so ilike does an exact, not pattern, match.
+  const codePattern = String(code).trim().replace(/[\\%_]/g, '\\$&');
   const { data: tutor, error } = await adminClient
     .from('users')
     .select('id, name, avatar_url, tutor_plan, email')
-    .eq('tutor_invite_code', code)
+    .ilike('tutor_invite_code', codePattern)
     .maybeSingle();  // Use maybeSingle to avoid error when not found
 
   if (error) {
