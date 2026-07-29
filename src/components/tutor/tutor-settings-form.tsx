@@ -225,7 +225,7 @@ export function TutorSettingsForm({ profile, userEmail }: TutorSettingsFormProps
               {profile?.tutor_plan || 'Basic'} Plan
             </p>
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              Student limit: {profile?.student_limit || 'Unlimited'}
+              Student limit: Unlimited
             </p>
           </div>
           <button className="px-4 py-2 border border-primary text-primary rounded-lg hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-colors">

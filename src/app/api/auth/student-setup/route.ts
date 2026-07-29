@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
     
     const { data: tutors, error: tutorError } = await supabase
       .from('users')
-      .select('id, email, name, student_limit, tutor_plan')
+      .select('id, email, name, tutor_plan')
       .eq('id', tutorId)
       .limit(1);
 
@@ -58,22 +58,7 @@ export async function POST(request: NextRequest) {
 
     console.log('✅ Tutor found:', tutor.email);
 
-    // Check student limit
-    if (tutor.student_limit) {
-      const { count } = await supabase
-        .from('tutor_students')
-        .select('*', { count: 'exact', head: true })
-        .eq('tutor_id', tutorId)
-        .eq('status', 'active');
-
-      console.log('🔍 Current student count:', count, 'Limit:', tutor.student_limit);
-
-      if ((count || 0) >= tutor.student_limit) {
-        return NextResponse.json({ 
-          error: 'Tutor has reached their student limit. Please contact them.' 
-        }, { status: 403 });
-      }
-    }
+    // Tutors can take on unlimited students — no per-tutor student cap.
 
     // 2. Update user record (don't upsert - just update existing auth user)
     console.log('📝 Updating student profile...');
