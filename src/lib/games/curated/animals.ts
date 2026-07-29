@@ -34,6 +34,10 @@ export interface CuratedItem {
   prompt: string;
   /** Optional accuracy overlay; omit for pictures that read clearly on their own. */
   annotate?: CuratedAnnotation;
+  /** Body theme only: half-extent (0..0.5) of the square crop around `annotate`,
+   *  so each part's picture is zoomed to its region and the tiles stay visually
+   *  distinct at in-game size instead of all showing the same full figure. */
+  zoom?: number;
 }
 
 /** Public URL for a curated animal picture. */

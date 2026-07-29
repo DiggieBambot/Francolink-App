@@ -10,6 +10,7 @@ import { FOOD, curatedImage as foodImage } from "./food";
 import { CLOTHES, curatedImage as clothesImage } from "./clothes";
 import { COLORS, curatedImage as colorsImage } from "./colors";
 import { NUMBERS, curatedImage as numbersImage } from "./numbers";
+import { BODY, curatedImage as bodyImage } from "./body";
 
 export type { CuratedItem };
 
@@ -19,6 +20,7 @@ const REGISTRY: Record<string, { items: CuratedItem[]; image: (slug: string) => 
   clothes: { items: CLOTHES, image: clothesImage },
   colors: { items: COLORS, image: colorsImage },
   numbers: { items: NUMBERS, image: numbersImage },
+  body: { items: BODY, image: bodyImage },
 };
 
 export function curatedPool(themeSlug: string):
