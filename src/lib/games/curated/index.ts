@@ -11,6 +11,11 @@ import { CLOTHES, curatedImage as clothesImage } from "./clothes";
 import { COLORS, curatedImage as colorsImage } from "./colors";
 import { NUMBERS, curatedImage as numbersImage } from "./numbers";
 import { BODY, curatedImage as bodyImage } from "./body";
+import { TRAVEL, curatedImage as travelImage } from "./travel";
+import { HOME, curatedImage as homeImage } from "./home";
+import { NATURE, curatedImage as natureImage } from "./nature";
+import { WEATHER, curatedImage as weatherImage } from "./weather";
+import { SPORTS, curatedImage as sportsImage } from "./sports";
 
 export type { CuratedItem };
 
@@ -21,6 +26,11 @@ const REGISTRY: Record<string, { items: CuratedItem[]; image: (slug: string) => 
   colors: { items: COLORS, image: colorsImage },
   numbers: { items: NUMBERS, image: numbersImage },
   body: { items: BODY, image: bodyImage },
+  travel: { items: TRAVEL, image: travelImage },
+  home: { items: HOME, image: homeImage },
+  nature: { items: NATURE, image: natureImage },
+  weather: { items: WEATHER, image: weatherImage },
+  sports: { items: SPORTS, image: sportsImage },
 };
 
 export function curatedPool(themeSlug: string):
