@@ -183,7 +183,12 @@ export function LessonRoom({
         <>
           <StepControls totalSteps={lesson.sections.length} />
           <div className="lg:pr-[340px]">
-            <LessonRenderer lesson={lesson} initialView={currentRole} lockedView={currentRole} />
+            {/* Key by lessonId so switching lessons fully remounts the renderer.
+                Exercise components hold answer state in useState; without this,
+                a lesson switch reuses instances (sections are index-keyed) and
+                the old lesson's tiles/blanks bleed into the new lesson's
+                answers — the "answers from another exercise" mixup. */}
+            <LessonRenderer key={lessonId ?? "none"} lesson={lesson} initialView={currentRole} lockedView={currentRole} />
           </div>
         </>
       ) : (
