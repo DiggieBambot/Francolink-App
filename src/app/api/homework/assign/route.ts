@@ -6,6 +6,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { notifyMany } from "@/lib/notifications/create";
+import { notifyStudentHomeworkAssigned } from "@/lib/email/transactional";
 
 function svc() {
   return createServiceClient(
@@ -74,6 +75,13 @@ export async function POST(req: NextRequest) {
     body: `${hw.title} — tap to complete it.`,
     url: `/library/lesson/${hw.lesson_slug}#homework`,
   });
+
+  const { data: tutor } = await service.from("users").select("name").eq("id", user.id).maybeSingle();
+  await Promise.all(
+    validIds.map((studentId) =>
+      notifyStudentHomeworkAssigned(studentId, hw.lesson_slug, hw.title, tutor?.name)
+    )
+  );
 
   return NextResponse.json({ ok: true, assigned: validIds.length });
 }

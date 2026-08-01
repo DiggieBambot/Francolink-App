@@ -5,6 +5,14 @@ import Link from "next/link";
 import { Send, Check, Loader2, Users, Eye, ChevronDown } from "lucide-react";
 import type { HomeworkQuestion } from "@/lib/homework/types";
 
+const TYPE_LABEL: Record<HomeworkQuestion["type"], string> = {
+  fill_blank: "fill the blank",
+  mcq: "multiple choice",
+  reorder: "word order",
+  short: "short written",
+  long: "written",
+};
+
 interface Student {
   id: string;
   name: string | null;
@@ -90,18 +98,73 @@ export function HomeworkSendPanel({ slug, homeworkTitle, instructions, questions
                 {instructions ? (
                   <p className="mb-3 text-sm italic text-gray-500 dark:text-gray-400">{instructions}</p>
                 ) : null}
-                <ol className="space-y-3">
+                <p className="mb-3 text-xs text-gray-500 dark:text-gray-400">
+                  This is the full exercise with the answer key — students never see the answers.
+                </p>
+                <ol className="space-y-4">
                   {questions.map((q, i) => (
                     <li key={i} className="text-sm">
                       <p className="font-medium text-gray-900 dark:text-gray-100">
                         {i + 1}. {q.prompt}
                         <span className="ml-2 rounded-full bg-gray-100 px-2 py-0.5 text-[10px] font-semibold uppercase text-gray-500 dark:bg-gray-700 dark:text-gray-300">
-                          {q.type === "long" ? "paragraph" : "short"}
+                          {TYPE_LABEL[q.type]}
                         </span>
                       </p>
                       {q.prompt_translation ? (
                         <p className="text-xs italic text-gray-400">{q.prompt_translation}</p>
                       ) : null}
+
+                      {q.sentence ? (
+                        <p className="mt-1 text-sm text-gray-700 dark:text-gray-300">
+                          {q.sentence.split("___")[0]}
+                          <span className="mx-1 font-semibold text-primary">＿＿＿</span>
+                          {q.sentence.split("___")[1] ?? ""}
+                        </p>
+                      ) : null}
+
+                      {q.type === "mcq" && q.options ? (
+                        <ul className="mt-1.5 space-y-1">
+                          {q.options.map((opt) => {
+                            const right = opt === q.answer;
+                            return (
+                              <li
+                                key={opt}
+                                className={`rounded-md px-2 py-1 text-xs ${
+                                  right
+                                    ? "bg-emerald-50 font-semibold text-emerald-800 dark:bg-emerald-900/20 dark:text-emerald-200"
+                                    : "text-gray-600 dark:text-gray-400"
+                                }`}
+                              >
+                                {right ? "✓ " : "• "}
+                                {opt}
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      ) : null}
+
+                      {q.type === "reorder" && q.options ? (
+                        <div className="mt-1.5 flex flex-wrap gap-1.5">
+                          {q.options.map((tok, j) => (
+                            <span
+                              key={`${tok}-${j}`}
+                              className="rounded-md border border-gray-300 bg-white px-2 py-0.5 text-xs text-gray-700 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200"
+                            >
+                              {tok}
+                            </span>
+                          ))}
+                        </div>
+                      ) : null}
+
+                      {q.hint ? <p className="mt-1 text-xs text-gray-400">💡 {q.hint}</p> : null}
+
+                      {q.answer ? (
+                        <p className="mt-1 text-xs font-medium text-emerald-700 dark:text-emerald-300">
+                          Answer: {q.answer}
+                        </p>
+                      ) : (
+                        <p className="mt-1 text-xs italic text-gray-400">Written answer — you grade this one.</p>
+                      )}
                     </li>
                   ))}
                 </ol>

@@ -103,6 +103,26 @@ export function renderClassRequest(
   };
 }
 
+export function renderHomeworkAssigned(
+  firstName: string,
+  lessonSlug: string,
+  homeworkTitle: string,
+  tutorName?: string | null
+): RenderedEmail {
+  const tutor = escapeHtml(tutorName || "Your tutor");
+  const title = escapeHtml(homeworkTitle);
+  const ctaHref = `${APP_URL}/library/lesson/${lessonSlug}#homework`;
+  const bodyHtml =
+    `<p style="margin:0 0 16px 0;font-size:16px;"><b>${tutor}</b> sent you homework: <b>${title}</b>.</p>
+     <p style="margin:0 0 16px 0;font-size:16px;">Complete it on the lesson page, then submit it back to your tutor.</p>`;
+  const text = `${tutorName || "Your tutor"} sent you homework: ${homeworkTitle}. Complete it here: ${ctaHref}`;
+  return {
+    subject: "New homework from your tutor 📝",
+    html: emailShell({ firstName, bodyHtml, ctaHref, ctaText: "Open the homework" }),
+    text,
+  };
+}
+
 // ── Senders ─────────────────────────────────────────────────────────────────
 export async function sendWelcomeOnce(userId: string): Promise<void> {
   const s = svc();
@@ -155,4 +175,22 @@ export async function notifyTutorClassRequest(
   if (!t?.email) return;
   const { subject, html, text } = renderClassRequest(firstNameOf(t.name, t.email), studentName, message, preferredTime);
   await send(t.email, subject, html, text);
+}
+
+export async function notifyStudentHomeworkAssigned(
+  studentId: string,
+  lessonSlug: string,
+  homeworkTitle: string,
+  tutorName?: string | null
+): Promise<void> {
+  const s = svc();
+  const { data: st } = await s.from("users").select("email, name").eq("id", studentId).maybeSingle();
+  if (!st?.email) return;
+  const { subject, html, text } = renderHomeworkAssigned(
+    firstNameOf(st.name, st.email),
+    lessonSlug,
+    homeworkTitle,
+    tutorName
+  );
+  await send(st.email, subject, html, text);
 }
