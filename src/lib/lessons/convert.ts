@@ -330,6 +330,50 @@ export function repairWordOrder(lesson: Lesson): void {
   }
 }
 
+/**
+ * Post-process fill_in_blank_dialogue(_extended) sections so an exchange's
+ * `blank` flag only means "this line's text contains an inline (N) marker".
+ * Generation sometimes tags blank:true on every exchange in a section
+ * (including tutor lines with no marker at all) — the UI then misreads the
+ * section as the whole-line "blank per exchange" shape and discards every
+ * line's real sentence, rendering nothing but an empty drop target throughout.
+ * Also tops up answer_pool so every required answer has enough copies (a
+ * blank whose only valid answer is already used up elsewhere is unsolvable).
+ */
+export function repairFillBlanks(lesson: Lesson): void {
+  const MARKER = /\(\d+\)/;
+  for (const section of lesson.sections) {
+    if (section.kind !== "fill_in_blank_dialogue" && section.kind !== "fill_in_blank_dialogue_extended") continue;
+
+    const anyMarkers = section.exchanges.some((e) => MARKER.test(e.text || ""));
+    if (anyMarkers) {
+      // Inline-marker shape: `blank` must hold the actual marker number(s) in
+      // this line's own text (matching the number|number[] type), not a plain
+      // boolean — the UI derives which blanks exist from these numbers.
+      for (const ex of section.exchanges) {
+        const nums = Array.from(String(ex.text || "").matchAll(/\((\d+)\)/g), (m) => parseInt(m[1], 10));
+        ex.blank = nums.length === 0 ? undefined : nums.length === 1 ? nums[0] : nums;
+      }
+    }
+
+    // Ensure the pool has at least one copy of every answer each blank needs,
+    // and at least as many copies as the number of blanks that require it.
+    const need: Record<string, number> = {};
+    for (const answers of Object.values(section.valid_answers_by_blank || {})) {
+      const first = (answers || [])[0];
+      if (first) need[first] = (need[first] || 0) + 1;
+    }
+    if (Object.keys(need).length > 0) {
+      const pool = section.answer_pool || (section.answer_pool = []);
+      const have: Record<string, number> = {};
+      for (const p of pool) have[p] = (have[p] || 0) + 1;
+      for (const [word, count] of Object.entries(need)) {
+        for (let i = (have[word] || 0); i < count; i++) pool.push(word);
+      }
+    }
+  }
+}
+
 // Quick heuristic: does this string look English (no diacritics, mostly English
 // stop-words)? Used as a tripwire for French content that Gemini accidentally
 // translated to English.

@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { randomUUID } from "crypto";
 import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
-import { fetchDocText, geminiConvert, repairWordOrder, validateLesson, GOOGLE_DOC_MIME } from "@/lib/lessons/convert";
+import { fetchDocText, geminiConvert, repairWordOrder, repairFillBlanks, validateLesson, GOOGLE_DOC_MIME } from "@/lib/lessons/convert";
 import { hydrateImages } from "@/lib/lessons/hydrate-images";
 import type { Lesson } from "@/lib/lessons/types";
 
@@ -68,6 +68,7 @@ async function convertAndUpsert(
   const docText = await fetchDocText(docId, mimeType);
   const lesson: Lesson = await geminiConvert(docText);
   repairWordOrder(lesson);
+  repairFillBlanks(lesson);
 
   const { data: existing } = await supabase
     .from("tutor_lessons")

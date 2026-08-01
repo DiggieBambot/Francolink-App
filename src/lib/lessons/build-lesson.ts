@@ -3,11 +3,11 @@
 // In-memory cache keyed by docId so repeat visits are instant.
 
 import type { Lesson } from "./types";
-import { fetchDocText, geminiConvert, repairWordOrder } from "./convert";
+import { fetchDocText, geminiConvert, repairWordOrder, repairFillBlanks } from "./convert";
 import { hydrateImages } from "./hydrate-images";
 
 // Bump when prompt/schema changes — invalidates older cached lessons.
-const SCHEMA_VERSION = "v10-openai";
+const SCHEMA_VERSION = "v11-fillblank-repair";
 
 type CacheEntry = { lesson: Lesson; createdAt: number; version: string };
 const cache = new Map<string, CacheEntry>();
@@ -39,6 +39,7 @@ export async function buildLesson(docId: string): Promise<Lesson> {
 
   // Deterministic repair before image hydration so caches use final content.
   repairWordOrder(lesson);
+  repairFillBlanks(lesson);
   try {
     await hydrateImages(lesson);
   } catch (err) {

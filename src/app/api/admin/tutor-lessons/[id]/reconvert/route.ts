@@ -9,6 +9,7 @@ import {
   fetchDocText,
   geminiConvert,
   repairWordOrder,
+  repairFillBlanks,
   validateLesson,
   GOOGLE_DOC_MIME,
   DOCX_MIME,
@@ -63,6 +64,7 @@ export async function POST(_req: Request, ctx: { params: Promise<{ id: string }>
 
     const lesson: Lesson = await geminiConvert(text);
     repairWordOrder(lesson);
+    repairFillBlanks(lesson);
     try {
       await hydrateImages(lesson);
     } catch (err) {

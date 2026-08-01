@@ -66,9 +66,18 @@ function isAnswerCorrect(
 // Some lessons use a different shape: each exchange IS a blank, with
 //   { speaker: "sentence with ____", text: "<answer>", blank: true }
 // (instead of inline "(1)" markers). Detect that and render a drag-and-drop fill.
+//
+// Generation sometimes mistags every exchange with blank:true even when the
+// text already has inline "(N)" markers (the normal shape below). If any
+// exchange contains a marker, this is NOT the whole-line shape — treating it as
+// one would discard every sentence's real text (including the tutor's) and show
+// nothing but an empty drop target on every line.
 function isBlankPerExchange(section: FillBlankDialogueSection | FillBlankDialogueExtendedSection): boolean {
   const ex = section.exchanges;
-  return Array.isArray(ex) && ex.length > 0 && ex.every((e) => (e as { blank?: unknown }).blank === true);
+  if (!Array.isArray(ex) || ex.length === 0) return false;
+  if (!ex.every((e) => (e as { blank?: unknown }).blank === true)) return false;
+  if (ex.some((e) => /\(\d+\)/.test((e as { text?: string }).text || ""))) return false;
+  return true;
 }
 
 export function FillBlankDialogueSectionComp({ section, view, sectionIdx = 0, theme }: Props) {
@@ -91,9 +100,15 @@ export function FillBlankDialogueSectionComp({ section, view, sectionIdx = 0, th
   const remoteUpdatedAt = isTutorObserving ? room?.studentAnswers[anchor]?.updatedAt : undefined;
 
   // All blank numbers used in this section, in order of first appearance.
+  // Derived from the actual "(N)" markers in each line's text — not ex.blank,
+  // which generation populates unreliably (missing, or a plain `true` instead
+  // of the marker number). The markers are the same source of truth already
+  // used to render each blank, so this is always consistent with what's shown.
   const orderedBlanks: number[] = [];
   for (const ex of section.exchanges) {
-    for (const n of blankNumbers(ex.blank)) {
+    for (const n of blankNumbers(ex.blank).concat(
+      Array.from(String(ex.text || "").matchAll(/\((\d+)\)/g), (m) => parseInt(m[1], 10))
+    )) {
       if (!orderedBlanks.includes(n)) orderedBlanks.push(n);
     }
   }
@@ -122,6 +137,13 @@ export function FillBlankDialogueSectionComp({ section, view, sectionIdx = 0, th
     if (next == null) return;
     play("tap");
     setLocalAnswers((prev) => ({ ...prev, [next]: poolItem }));
+  };
+
+  /** Drop (or tap) a pool word directly onto a specific blank. */
+  const placeAt = (num: number, poolItem: string) => {
+    if (isTutorObserving) return;
+    play("tap");
+    setLocalAnswers((prev) => ({ ...prev, [num]: poolItem }));
   };
 
   const clearBlank = (num: number) => {
@@ -256,6 +278,13 @@ export function FillBlankDialogueSectionComp({ section, view, sectionIdx = 0, th
                         return (
                           <span
                             key={idx}
+                            onDragOver={(e) => { if (!isTutorObserving) e.preventDefault(); }}
+                            onDrop={(e) => {
+                              if (isTutorObserving) return;
+                              e.preventDefault();
+                              const word = e.dataTransfer.getData("text/plain");
+                              if (word) placeAt(num, word);
+                            }}
                             className="mx-0.5 inline-flex items-center rounded border border-dashed border-rose-300 bg-rose-50/60 px-1.5 py-0.5 text-xs font-bold text-rose-700"
                             title={`Blank ${num}`}
                           >
@@ -282,7 +311,7 @@ export function FillBlankDialogueSectionComp({ section, view, sectionIdx = 0, th
         <div className="mt-5 rounded-xl border bg-slate-50/70 p-3">
           <div className="flex items-center justify-between">
             <div className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
-              Answer pool {isTutorObserving ? "(read-only)" : "— tap to fill the next blank"}
+              Answer pool {isTutorObserving ? "(read-only)" : "— drag onto a blank (or tap to fill the next one)"}
             </div>
             {allFilled ? (
               <span
@@ -307,10 +336,12 @@ export function FillBlankDialogueSectionComp({ section, view, sectionIdx = 0, th
               return (
                 <span
                   key={i}
+                  draggable={!disabled}
+                  onDragStart={(e) => { if (!disabled) e.dataTransfer.setData("text/plain", a); }}
                   className={`inline-flex items-center gap-0.5 rounded-full border shadow-sm transition ${
                     disabled
                       ? "border-slate-200 bg-slate-100"
-                      : "border-slate-200 bg-white hover:-translate-y-0.5 hover:shadow-md"
+                      : "border-slate-200 bg-white hover:-translate-y-0.5 hover:shadow-md cursor-grab active:cursor-grabbing"
                   }`}
                 >
                   <button
