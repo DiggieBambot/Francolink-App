@@ -9,7 +9,6 @@ import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { ArrowLeft, Send } from "lucide-react";
 import { HomeworkCatalogue, type CatalogueItem } from "@/components/homework/homework-catalogue";
-import { frGrammarLessons } from "@/lib/seed/fr-grammar";
 import { getTutorStudents } from "@/lib/tutor/students";
 import type { HomeworkQuestion } from "@/lib/homework/types";
 
@@ -39,7 +38,7 @@ export default async function SendHomeworkPage() {
     { auth: { persistSession: false } }
   );
 
-  const [{ data: hw }, students, { data: assigns }] = await Promise.all([
+  const [{ data: hw }, students, { data: assigns }, { data: lessons }] = await Promise.all([
     svc
       .from("lesson_homework")
       .select("id, lesson_slug, title, instructions, questions")
@@ -48,11 +47,12 @@ export default async function SendHomeworkPage() {
       .order("lesson_slug"),
     getTutorStudents(user.id),
     svc.from("homework_assignments").select("homework_id, student_id").eq("tutor_id", user.id),
+    svc.from("tutor_lessons").select("slug, title, level"),
   ]);
 
-  // Lesson titles come from the seed catalogue so the tutor sees what the
-  // homework belongs to, not just the homework's own title.
-  const lessonTitles = new Map(frGrammarLessons.map((l) => [l.slug, l.title]));
+  // Lesson titles come from the database, not the seed catalogue: src/lib/seed
+  // is gitignored, so importing it here would break the production build.
+  const lessonMeta = new Map((lessons || []).map((l) => [l.slug, l]));
 
   const assignedByHw = new Map<string, string[]>();
   for (const a of assigns || []) {
@@ -66,8 +66,8 @@ export default async function SendHomeworkPage() {
     title: h.title,
     instructions: h.instructions,
     questions: (h.questions || []) as HomeworkQuestion[],
-    level: levelOf(h.lesson_slug),
-    lessonTitle: lessonTitles.get(h.lesson_slug) || h.lesson_slug,
+    level: lessonMeta.get(h.lesson_slug)?.level || levelOf(h.lesson_slug),
+    lessonTitle: lessonMeta.get(h.lesson_slug)?.title || h.lesson_slug,
     assignedStudentIds: assignedByHw.get(h.id) || [],
   }));
 
