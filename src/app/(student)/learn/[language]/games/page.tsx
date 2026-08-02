@@ -1,56 +1,15 @@
 // src/app/(student)/learn/[language]/games/page.tsx
 //
-// Theme picker. Server-rendered: fetches the themes API directly via the
-// classifier so we don't go round-trip on first paint.
+// Theme picker. Server-rendered: counts are computed once (shared with the
+// themes API) so the first paint shows the same themes a client fetch would.
 
 import Link from "next/link";
 import Image from "next/image";
-import { createClient } from "@supabase/supabase-js";
-import { langCode } from "@/lib/utils/language";
-import { THEMES, classifyVocab, themeIcon } from "@/lib/games/themes";
+import { themeIcon } from "@/lib/games/themes";
+import { getThemeCounts } from "@/lib/games/theme-counts";
 
 interface Props {
   params: Promise<{ language: string }>;
-}
-
-const admin = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
-
-const MIN_ITEMS = 6;
-
-async function getThemeCounts(langSlug: string) {
-  const code = langCode(langSlug);
-  const { data: courses } = await admin.from("courses").select("id, language:languages(code)").eq("is_published", true);
-  const courseIds = (courses || []).filter((c: any) => c.language?.code === code).map((c: any) => c.id);
-  if (courseIds.length === 0) return [];
-  const { data: units } = await admin.from("units").select("id").in("course_id", courseIds);
-  const unitIds = (units || []).map((u: any) => u.id);
-  if (unitIds.length === 0) return [];
-  const { data: lessons } = await admin.from("lessons").select("content").in("unit_id", unitIds);
-
-  const counts: Record<string, number> = {};
-  const seen: Record<string, Set<string>> = {};
-  for (const l of (lessons || []) as Array<{ content: any }>) {
-    const vocab = l.content?.vocabulary || [];
-    for (const v of vocab) {
-      const img = v.image_url || v.image;
-      if (!img || !v.term || v.term.length > 28) continue;
-      const slug = classifyVocab(v.translation);
-      if (!slug) continue;
-      const key = v.term.toLowerCase().trim();
-      if (!seen[slug]) seen[slug] = new Set();
-      if (seen[slug].has(key)) continue;
-      seen[slug].add(key);
-      counts[slug] = (counts[slug] || 0) + 1;
-    }
-  }
-
-  return THEMES
-    .map((t) => ({ ...t, count: counts[t.slug] || 0 }))
-    .filter((t) => t.count >= MIN_ITEMS)
-    .sort((a, b) => b.count - a.count);
 }
 
 export default async function GamesLobbyPage({ params }: Props) {
@@ -79,7 +38,7 @@ export default async function GamesLobbyPage({ params }: Props) {
           {themes.map((t) => (
             <Link
               key={t.slug}
-              href={`/learn/${language}/games/${t.slug}`}
+              href={`/learn/${language}/games/${t.slug}/learn`}
               className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${t.gradient} p-5 text-white shadow-md transition-all hover:-translate-y-0.5 hover:shadow-xl`}
             >
               <div className="h-16 w-16 overflow-hidden rounded-2xl bg-white/95 p-1.5 shadow-sm">
