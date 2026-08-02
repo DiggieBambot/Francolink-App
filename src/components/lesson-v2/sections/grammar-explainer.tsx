@@ -33,7 +33,7 @@ function RichText({ text }: { text: string }) {
         }
         if (p.startsWith("*") && p.endsWith("*") && p.length > 2) {
           return (
-            <em key={i} className="font-medium italic text-gray-900 dark:text-gray-100">
+            <em key={i} className="font-medium italic text-gray-900">
               {p.slice(1, -1)}
             </em>
           );
@@ -47,7 +47,7 @@ function RichText({ text }: { text: string }) {
 function ConjugationTable({ table }: { table: GrammarTable }) {
   const speakCol = table.speak_col ?? -1;
   return (
-    <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-soft dark:border-gray-700">
+    <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-soft">
       <table className="w-full border-collapse text-sm">
         <thead>
           <tr className="bg-primary/10">
@@ -65,15 +65,13 @@ function ConjugationTable({ table }: { table: GrammarTable }) {
           {table.rows.map((row, r) => (
             <tr
               key={r}
-              className="border-t border-gray-100 odd:bg-white even:bg-gray-50/60 dark:border-gray-800 dark:odd:bg-gray-900 dark:even:bg-gray-800/40"
+              className="border-t border-gray-100 odd:bg-white even:bg-gray-50/60"
             >
               {row.cells.map((cell, c) => (
                 <td
                   key={c}
-                  className={`px-4 py-2.5 align-middle ${
-                    c === speakCol
-                      ? "font-semibold text-gray-900 dark:text-gray-100"
-                      : "text-gray-600 dark:text-gray-300"
+                  className={`px-4 py-2.5 align-middle ${c === speakCol ? "font-semibold text-gray-900"
+                      : "text-gray-600"
                   }`}
                 >
                   <span className="inline-flex items-center gap-1.5">
@@ -109,12 +107,12 @@ export function GrammarExplainerSectionComp({ section, view, theme }: Props) {
 
       {/* The rule — a calm, magazine-style prose column. */}
       <article className="mx-auto max-w-[68ch]">
-        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-soft dark:border-gray-800 dark:bg-gray-900/40">
-          <p className="text-[15px] leading-relaxed text-gray-800 dark:text-gray-200">
+        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-soft">
+          <p className="text-[15px] leading-relaxed text-gray-800">
             <RichText text={section.explanation} />
           </p>
           {section.explanation_translation ? (
-            <div className="mt-4 border-t border-gray-100 pt-3 dark:border-gray-800">
+            <div className="mt-4 border-t border-gray-100 pt-3">
               <RevealTranslation text={section.explanation_translation} size="sm" />
             </div>
           ) : null}
@@ -142,17 +140,17 @@ export function GrammarExplainerSectionComp({ section, view, theme }: Props) {
               >
                 <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                 <div className="min-w-0 flex-1">
-                  <p className="flex items-center gap-1.5 font-medium text-gray-900 dark:text-gray-100">
+                  <p className="flex items-center gap-1.5 font-medium text-gray-900">
                     <RichText text={ex.text} />
                     <SpeakButton text={ex.text.replace(/\*\*/g, "")} size="sm" />
                   </p>
                   {ex.translation ? (
-                    <p className="mt-0.5 text-sm italic text-gray-500 dark:text-gray-400">
+                    <p className="mt-0.5 text-sm italic text-gray-500">
                       {ex.translation}
                     </p>
                   ) : null}
                   {ex.note ? (
-                    <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                    <p className="mt-1 text-xs text-gray-500">
                       <RichText text={ex.note} />
                     </p>
                   ) : null}
@@ -165,7 +163,7 @@ export function GrammarExplainerSectionComp({ section, view, theme }: Props) {
         {/* Common mistakes — student-visible, the expert layer. */}
         {section.common_mistakes?.length ? (
           <div className="mt-8">
-            <h4 className="mb-3 flex items-center gap-2 font-heading text-lg font-bold text-amber-700 dark:text-amber-300">
+            <h4 className="mb-3 flex items-center gap-2 font-heading text-lg font-bold text-amber-700">
               <AlertTriangle className="h-5 w-5" />
               {isEnglish ? "Common mistakes" : "Erreurs fréquentes"}
             </h4>
@@ -173,22 +171,22 @@ export function GrammarExplainerSectionComp({ section, view, theme }: Props) {
               {section.common_mistakes.map((m, i) => (
                 <li
                   key={i}
-                  className="rounded-xl border border-amber-200 bg-amber-50/70 p-4 dark:border-amber-900/40 dark:bg-amber-900/10"
+                  className="rounded-xl border border-amber-200 bg-amber-50/70 p-4"
                 >
                   <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-                    <span className="inline-flex items-center gap-2 rounded-lg bg-red-50 px-3 py-1.5 text-sm text-red-700 line-through decoration-red-400 dark:bg-red-900/20 dark:text-red-300">
+                    <span className="inline-flex items-center gap-2 rounded-lg bg-red-50 px-3 py-1.5 text-sm text-red-700 line-through decoration-red-400">
                       <span aria-hidden className="not-line-through">✗</span>
                       <span className="line-through">{m.wrong}</span>
                     </span>
                     <ArrowRight className="hidden h-4 w-4 shrink-0 text-amber-500 sm:block" />
-                    <span className="inline-flex items-center gap-2 rounded-lg bg-emerald-50 px-3 py-1.5 text-sm font-medium text-emerald-800 dark:bg-emerald-900/20 dark:text-emerald-200">
+                    <span className="inline-flex items-center gap-2 rounded-lg bg-emerald-50 px-3 py-1.5 text-sm font-medium text-emerald-800">
                       <span aria-hidden>✓</span>
                       {m.right}
                       <SpeakButton text={m.right} size="sm" />
                     </span>
                   </div>
                   {m.note ? (
-                    <p className="mt-2 text-sm text-amber-900/80 dark:text-amber-100/70">
+                    <p className="mt-2 text-sm text-amber-900/80">
                       <RichText text={m.note} />
                     </p>
                   ) : null}
@@ -201,7 +199,7 @@ export function GrammarExplainerSectionComp({ section, view, theme }: Props) {
         {/* Exceptions & good-to-know — irregular cases, edge rules. */}
         {section.exceptions?.length ? (
           <div className="mt-8">
-            <h4 className="mb-3 flex items-center gap-2 font-heading text-lg font-bold text-indigo-700 dark:text-indigo-300">
+            <h4 className="mb-3 flex items-center gap-2 font-heading text-lg font-bold text-indigo-700">
               <KeyRound className="h-5 w-5" />
               {isEnglish ? "Exceptions & good to know" : "Exceptions & à retenir"}
             </h4>
@@ -209,12 +207,12 @@ export function GrammarExplainerSectionComp({ section, view, theme }: Props) {
               {section.exceptions.map((ex, i) => (
                 <li
                   key={i}
-                  className="rounded-xl border border-indigo-100 bg-indigo-50/60 p-4 dark:border-indigo-900/40 dark:bg-indigo-900/10"
+                  className="rounded-xl border border-indigo-100 bg-indigo-50/60 p-4"
                 >
-                  <p className="font-semibold text-indigo-900 dark:text-indigo-200">
+                  <p className="font-semibold text-indigo-900">
                     <RichText text={ex.title} />
                   </p>
-                  <p className="mt-1 text-sm text-indigo-900/80 dark:text-indigo-100/70">
+                  <p className="mt-1 text-sm text-indigo-900/80">
                     <RichText text={ex.detail} />
                   </p>
                 </li>
@@ -225,14 +223,14 @@ export function GrammarExplainerSectionComp({ section, view, theme }: Props) {
 
         {/* Tips / memory aids. */}
         {section.tips?.length ? (
-          <div className="mt-8 rounded-2xl border border-emerald-100 bg-emerald-50/60 p-5 dark:border-emerald-900/40 dark:bg-emerald-900/10">
-            <h4 className="mb-2 flex items-center gap-2 font-heading text-lg font-bold text-emerald-700 dark:text-emerald-300">
+          <div className="mt-8 rounded-2xl border border-emerald-100 bg-emerald-50/60 p-5">
+            <h4 className="mb-2 flex items-center gap-2 font-heading text-lg font-bold text-emerald-700">
               <Lightbulb className="h-5 w-5" />
               {isEnglish ? "Tips & memory aids" : "Astuces & mémo"}
             </h4>
             <ul className="space-y-1.5">
               {section.tips.map((tip, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-emerald-950/85 dark:text-emerald-100/80">
+                <li key={i} className="flex items-start gap-2 text-sm text-emerald-950/85">
                   <span aria-hidden className="mt-0.5 text-emerald-500">✦</span>
                   <span><RichText text={tip} /></span>
                 </li>
