@@ -69,24 +69,24 @@ export function HomeworkSendPanel({ slug, homeworkTitle, instructions, questions
 
   return (
     <section className="mx-auto mt-8 max-w-5xl px-6">
-      <div className="rounded-2xl border border-primary-200 bg-primary-50/60 p-6 shadow-sm dark:border-primary-800 dark:bg-primary-900/10">
+      <div className="rounded-2xl border border-primary-200 bg-primary-50/60 p-6 shadow-sm">
         <div className="mb-1 flex items-center gap-2">
           <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-white">
             <Send className="h-5 w-5" />
           </span>
-          <h2 className="text-lg font-bold text-primary-950 dark:text-primary-100">Send homework</h2>
+          <h2 className="text-lg font-bold text-primary-950">Send homework</h2>
         </div>
-        <p className="mb-4 text-sm text-primary-900/80 dark:text-primary-100/70">
+        <p className="mb-4 text-sm text-primary-900/80">
           Assign <span className="font-semibold">{homeworkTitle}</span> to your students. They&apos;ll get a
           notification to complete it, and their answers come back to your Homework tab.
         </p>
 
         {/* Preview: what the student will see. */}
         {questions.length > 0 ? (
-          <div className="mb-4 overflow-hidden rounded-xl border border-primary-100 bg-white dark:border-gray-700 dark:bg-gray-800">
+          <div className="mb-4 overflow-hidden rounded-xl border border-primary-100 bg-white">
             <button
               onClick={() => setShowPreview((v) => !v)}
-              className="flex w-full items-center justify-between px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary-50/50 dark:text-primary-200 dark:hover:bg-gray-700/40"
+              className="flex w-full items-center justify-between px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary-50/50"
             >
               <span className="inline-flex items-center gap-2">
                 <Eye className="h-4 w-4" /> Preview homework ({questions.length} question{questions.length === 1 ? "" : "s"})
@@ -94,19 +94,19 @@ export function HomeworkSendPanel({ slug, homeworkTitle, instructions, questions
               <ChevronDown className={`h-4 w-4 transition-transform ${showPreview ? "rotate-180" : ""}`} />
             </button>
             {showPreview ? (
-              <div className="border-t border-primary-100 px-4 py-3 dark:border-gray-700">
+              <div className="border-t border-primary-100 px-4 py-3">
                 {instructions ? (
-                  <p className="mb-3 text-sm italic text-gray-500 dark:text-gray-400">{instructions}</p>
+                  <p className="mb-3 text-sm italic text-gray-500">{instructions}</p>
                 ) : null}
-                <p className="mb-3 text-xs text-gray-500 dark:text-gray-400">
+                <p className="mb-3 text-xs text-gray-500">
                   This is the full exercise with the answer key — students never see the answers.
                 </p>
                 <ol className="space-y-4">
                   {questions.map((q, i) => (
                     <li key={i} className="text-sm">
-                      <p className="font-medium text-gray-900 dark:text-gray-100">
+                      <p className="font-medium text-gray-900">
                         {i + 1}. {q.prompt}
-                        <span className="ml-2 rounded-full bg-gray-100 px-2 py-0.5 text-[10px] font-semibold uppercase text-gray-500 dark:bg-gray-700 dark:text-gray-300">
+                        <span className="ml-2 rounded-full bg-gray-100 px-2 py-0.5 text-[10px] font-semibold uppercase text-gray-500">
                           {TYPE_LABEL[q.type]}
                         </span>
                       </p>
@@ -115,7 +115,7 @@ export function HomeworkSendPanel({ slug, homeworkTitle, instructions, questions
                       ) : null}
 
                       {q.sentence ? (
-                        <p className="mt-1 text-sm text-gray-700 dark:text-gray-300">
+                        <p className="mt-1 text-sm text-gray-700">
                           {q.sentence.split("___")[0]}
                           <span className="mx-1 font-semibold text-primary">＿＿＿</span>
                           {q.sentence.split("___")[1] ?? ""}
@@ -129,10 +129,8 @@ export function HomeworkSendPanel({ slug, homeworkTitle, instructions, questions
                             return (
                               <li
                                 key={opt}
-                                className={`rounded-md px-2 py-1 text-xs ${
-                                  right
-                                    ? "bg-emerald-50 font-semibold text-emerald-800 dark:bg-emerald-900/20 dark:text-emerald-200"
-                                    : "text-gray-600 dark:text-gray-400"
+                                className={`rounded-md px-2 py-1 text-xs ${right ? "bg-emerald-50 font-semibold text-emerald-800"
+                                    : "text-gray-600"
                                 }`}
                               >
                                 {right ? "✓ " : "• "}
@@ -148,7 +146,7 @@ export function HomeworkSendPanel({ slug, homeworkTitle, instructions, questions
                           {q.options.map((tok, j) => (
                             <span
                               key={`${tok}-${j}`}
-                              className="rounded-md border border-gray-300 bg-white px-2 py-0.5 text-xs text-gray-700 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200"
+                              className="rounded-md border border-gray-300 bg-white px-2 py-0.5 text-xs text-gray-700"
                             >
                               {tok}
                             </span>
@@ -159,7 +157,7 @@ export function HomeworkSendPanel({ slug, homeworkTitle, instructions, questions
                       {q.hint ? <p className="mt-1 text-xs text-gray-400">💡 {q.hint}</p> : null}
 
                       {q.answer ? (
-                        <p className="mt-1 text-xs font-medium text-emerald-700 dark:text-emerald-300">
+                        <p className="mt-1 text-xs font-medium text-emerald-700">
                           Answer: {q.answer}
                         </p>
                       ) : (
@@ -174,7 +172,7 @@ export function HomeworkSendPanel({ slug, homeworkTitle, instructions, questions
         ) : null}
 
         {students.length === 0 ? (
-          <p className="rounded-lg bg-white/70 px-4 py-3 text-sm text-gray-600 dark:bg-gray-800/40 dark:text-gray-300">
+          <p className="rounded-lg bg-white/70 px-4 py-3 text-sm text-gray-600">
             You have no connected students yet.{" "}
             <Link href="/tutor/students" className="font-semibold text-primary hover:underline">
               Share your invite link
@@ -183,14 +181,13 @@ export function HomeworkSendPanel({ slug, homeworkTitle, instructions, questions
           </p>
         ) : (
           <>
-            <div className="mb-4 divide-y divide-primary-100 overflow-hidden rounded-xl border border-primary-100 bg-white dark:divide-gray-700 dark:border-gray-700 dark:bg-gray-800">
+            <div className="mb-4 divide-y divide-primary-100 overflow-hidden rounded-xl border border-primary-100 bg-white">
               {students.map((s) => {
                 const isAssigned = assigned.has(s.id);
                 return (
                   <label
                     key={s.id}
-                    className={`flex items-center gap-3 px-4 py-2.5 ${
-                      isAssigned ? "opacity-70" : "cursor-pointer hover:bg-primary-50/50 dark:hover:bg-gray-700/40"
+                    className={`flex items-center gap-3 px-4 py-2.5 ${isAssigned ? "opacity-70" : "cursor-pointer hover:bg-primary-50/50"
                     }`}
                   >
                     <input
@@ -200,11 +197,11 @@ export function HomeworkSendPanel({ slug, homeworkTitle, instructions, questions
                       disabled={isAssigned}
                       onChange={() => toggle(s.id)}
                     />
-                    <span className="flex-1 text-sm text-gray-900 dark:text-white">
+                    <span className="flex-1 text-sm text-gray-900">
                       {s.name || s.email}
                     </span>
                     {isAssigned ? (
-                      <span className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+                      <span className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-600">
                         <Check className="h-3.5 w-3.5" /> Sent
                       </span>
                     ) : null}
@@ -215,7 +212,7 @@ export function HomeworkSendPanel({ slug, homeworkTitle, instructions, questions
 
             {error ? <p className="mb-3 text-sm text-red-600">{error}</p> : null}
             {justSent > 0 ? (
-              <p className="mb-3 text-sm font-medium text-emerald-700 dark:text-emerald-300">
+              <p className="mb-3 text-sm font-medium text-emerald-700">
                 Sent to {justSent} student{justSent === 1 ? "" : "s"}. They&apos;ve been notified.
               </p>
             ) : null}

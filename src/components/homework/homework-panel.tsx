@@ -61,29 +61,29 @@ export function HomeworkPanel({ homework, submission, isLoggedIn, loginHref }: P
 
   return (
     <section id="homework" className="mx-auto mt-8 max-w-5xl px-6">
-      <div className="rounded-2xl border border-amber-200 bg-amber-50/60 p-6 shadow-sm dark:border-amber-900/40 dark:bg-amber-900/10">
+      <div className="rounded-2xl border border-amber-200 bg-amber-50/60 p-6 shadow-sm">
         <div className="mb-3 flex items-center gap-2">
           <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-amber-500 text-white">
             <PencilLine className="h-5 w-5" />
           </span>
           <div>
-            <h2 className="text-lg font-bold text-amber-950 dark:text-amber-100">{homework.title}</h2>
-            <p className="text-xs font-medium uppercase tracking-wide text-amber-700 dark:text-amber-300">
+            <h2 className="text-lg font-bold text-amber-950">{homework.title}</h2>
+            <p className="text-xs font-medium uppercase tracking-wide text-amber-700">
               Homework · submit to your tutor
             </p>
           </div>
         </div>
 
         {homework.instructions ? (
-          <p className="mb-5 text-sm text-amber-900/90 dark:text-amber-100/80">{homework.instructions}</p>
+          <p className="mb-5 text-sm text-amber-900/90">{homework.instructions}</p>
         ) : null}
 
         {reviewed && submission?.tutor_feedback ? (
-          <div className="mb-5 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm dark:border-emerald-900/40 dark:bg-emerald-900/15">
-            <div className="mb-1 flex items-center gap-1.5 font-semibold text-emerald-800 dark:text-emerald-200">
+          <div className="mb-5 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm">
+            <div className="mb-1 flex items-center gap-1.5 font-semibold text-emerald-800">
               <MessageSquareText className="h-4 w-4" /> Tutor feedback
             </div>
-            <p className="text-emerald-900 dark:text-emerald-100">{submission.tutor_feedback}</p>
+            <p className="text-emerald-900">{submission.tutor_feedback}</p>
           </div>
         ) : null}
 
@@ -113,7 +113,7 @@ export function HomeworkPanel({ homework, submission, isLoggedIn, loginHref }: P
               <Lock className="h-4 w-4" /> Sign in to do homework
             </Link>
           ) : reviewed ? (
-            <span className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 dark:text-emerald-300">
+            <span className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700">
               <CheckCircle2 className="h-4 w-4" /> Reviewed by your tutor
             </span>
           ) : (
@@ -122,7 +122,7 @@ export function HomeworkPanel({ homework, submission, isLoggedIn, loginHref }: P
                 <button
                   onClick={() => setChecked(true)}
                   disabled={saving}
-                  className="inline-flex items-center gap-2 rounded-lg border border-amber-400 bg-white px-4 py-2 text-sm font-semibold text-amber-700 hover:bg-amber-50 disabled:opacity-50 dark:bg-transparent dark:text-amber-300"
+                  className="inline-flex items-center gap-2 rounded-lg border border-amber-400 bg-white px-4 py-2 text-sm font-semibold text-amber-700 hover:bg-amber-50 disabled:opacity-50"
                 >
                   Check my answers
                 </button>
@@ -136,11 +136,11 @@ export function HomeworkPanel({ homework, submission, isLoggedIn, loginHref }: P
                 {done ? "Update submission" : "Submit to tutor"}
               </button>
               {checked && autoQuestions.length > 0 ? (
-                <span className="text-sm font-medium text-amber-800 dark:text-amber-200">
+                <span className="text-sm font-medium text-amber-800">
                   {correctCount}/{autoQuestions.length} correct so far
                 </span>
               ) : done ? (
-                <span className="text-sm font-medium text-emerald-700 dark:text-emerald-300">
+                <span className="text-sm font-medium text-emerald-700">
                   Submitted — your tutor will see it.
                 </span>
               ) : null}
@@ -171,23 +171,23 @@ function QuestionInput({
 
   const label = (
     <div className="mb-1.5">
-      <label className="block text-sm font-semibold text-gray-900 dark:text-gray-100">
+      <label className="block text-sm font-semibold text-gray-900">
         {index + 1}. {q.prompt}
       </label>
       {q.prompt_translation ? (
-        <p className="text-xs italic text-gray-500 dark:text-gray-400">{q.prompt_translation}</p>
+        <p className="text-xs italic text-gray-500">{q.prompt_translation}</p>
       ) : null}
     </div>
   );
 
   const inputBase =
-    "w-full rounded-lg border bg-white px-3 py-2 text-sm text-gray-900 focus:ring-2 focus:ring-amber-200 disabled:bg-gray-50 disabled:text-gray-500 dark:bg-gray-800 dark:text-white";
+    "w-full rounded-lg border bg-white px-3 py-2 text-sm text-gray-900 focus:ring-2 focus:ring-amber-200 disabled:bg-gray-50 disabled:text-gray-500";
   const borderState =
     result === true
       ? "border-emerald-400"
       : result === false
         ? "border-red-400"
-        : "border-gray-300 dark:border-gray-600 focus:border-amber-500";
+        : "border-gray-300 focus:border-amber-500";
 
   return (
     <div>
@@ -204,14 +204,12 @@ function QuestionInput({
                 type="button"
                 disabled={disabled}
                 onClick={() => onChange(opt)}
-                className={`flex items-center justify-between rounded-lg border px-3 py-2 text-left text-sm transition-colors disabled:cursor-not-allowed ${
-                  isRight
-                    ? "border-emerald-400 bg-emerald-50 text-emerald-900 dark:bg-emerald-900/20 dark:text-emerald-200"
+                className={`flex items-center justify-between rounded-lg border px-3 py-2 text-left text-sm transition-colors disabled:cursor-not-allowed ${isRight ? "border-emerald-400 bg-emerald-50 text-emerald-900"
                     : selected
                       ? showResult
-                        ? "border-red-400 bg-red-50 text-red-800 dark:bg-red-900/20"
-                        : "border-amber-500 bg-amber-50 text-amber-900 dark:bg-amber-900/20 dark:text-amber-100"
-                      : "border-gray-300 bg-white text-gray-800 hover:border-amber-400 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100"
+                        ? "border-red-400 bg-red-50 text-red-800"
+                        : "border-amber-500 bg-amber-50 text-amber-900"
+                      : "border-gray-300 bg-white text-gray-800 hover:border-amber-400"
                 }`}
               >
                 {opt}
@@ -223,7 +221,7 @@ function QuestionInput({
       ) : q.type === "fill_blank" ? (
         <div>
           {q.sentence ? (
-            <p className="mb-1.5 text-sm text-gray-700 dark:text-gray-300">
+            <p className="mb-1.5 text-sm text-gray-700">
               {q.sentence.split("___")[0]}
               <span className="mx-1 font-semibold text-amber-700">＿＿＿</span>
               {q.sentence.split("___")[1] ?? ""}
@@ -290,7 +288,7 @@ function ReorderInput({
 
   return (
     <div className={`rounded-lg border p-2 ${state}`}>
-      <div className="mb-2 min-h-[2.25rem] rounded-md bg-gray-50 px-2 py-1.5 text-sm dark:bg-gray-900">
+      <div className="mb-2 min-h-[2.25rem] rounded-md bg-gray-50 px-2 py-1.5 text-sm">
         {chosen.length ? (
           <div className="flex flex-wrap gap-1.5">
             {chosen.map((tok, i) => (
@@ -316,7 +314,7 @@ function ReorderInput({
             type="button"
             disabled={disabled}
             onClick={() => onChange([...chosen, tok].join(" "))}
-            className="rounded-md border border-gray-300 bg-white px-2 py-1 text-xs text-gray-800 hover:border-amber-400 disabled:opacity-60 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100"
+            className="rounded-md border border-gray-300 bg-white px-2 py-1 text-xs text-gray-800 hover:border-amber-400 disabled:opacity-60"
           >
             {tok}
           </button>

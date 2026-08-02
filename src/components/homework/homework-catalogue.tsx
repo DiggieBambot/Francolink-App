@@ -61,7 +61,7 @@ export function HomeworkCatalogue({ items, students }: Props) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search homework…"
-            className="w-full rounded-lg border border-gray-300 bg-white py-2 pl-9 pr-3 text-sm text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary-100 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+            className="w-full rounded-lg border border-gray-300 bg-white py-2 pl-9 pr-3 text-sm text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary-100"
           />
         </div>
         <div className="flex flex-wrap gap-1.5">
@@ -70,10 +70,8 @@ export function HomeworkCatalogue({ items, students }: Props) {
               key={l}
               type="button"
               onClick={() => setLevel(l)}
-              className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${
-                level === l
-                  ? "bg-primary text-white"
-                  : "border border-gray-300 bg-white text-gray-600 hover:border-primary dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300"
+              className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${level === l ? "bg-primary text-white"
+                  : "border border-gray-300 bg-white text-gray-600 hover:border-primary"
               }`}
             >
               {l === "all" ? "All levels" : l}
@@ -82,12 +80,12 @@ export function HomeworkCatalogue({ items, students }: Props) {
         </div>
       </div>
 
-      <p className="mb-3 text-xs text-gray-500 dark:text-gray-400">
+      <p className="mb-3 text-xs text-gray-500">
         {filtered.length} homework set{filtered.length === 1 ? "" : "s"} ready to send. Pick one to
         preview it and choose which students receive it.
       </p>
 
-      <ul className="divide-y divide-gray-100 overflow-hidden rounded-xl border border-gray-200 bg-white dark:divide-gray-700 dark:border-gray-700 dark:bg-gray-800">
+      <ul className="divide-y divide-gray-100 overflow-hidden rounded-xl border border-gray-200 bg-white">
         {filtered.map((i) => {
           const isOpen = openSlug === i.slug;
           const sentCount = i.assignedStudentIds.length;
@@ -96,15 +94,14 @@ export function HomeworkCatalogue({ items, students }: Props) {
               <button
                 type="button"
                 onClick={() => setOpenSlug(isOpen ? null : i.slug)}
-                className={`flex w-full items-center gap-3 px-4 py-3 text-left transition-colors ${
-                  isOpen ? "bg-primary-50/60 dark:bg-primary-900/10" : "hover:bg-gray-50 dark:hover:bg-gray-700/40"
+                className={`flex w-full items-center gap-3 px-4 py-3 text-left transition-colors ${isOpen ? "bg-primary-50/60" : "hover:bg-gray-50"
                 }`}
               >
-                <span className="rounded-md bg-gray-100 px-2 py-0.5 text-[10px] font-bold text-gray-600 dark:bg-gray-700 dark:text-gray-300">
+                <span className="rounded-md bg-gray-100 px-2 py-0.5 text-[10px] font-bold text-gray-600">
                   {i.level}
                 </span>
                 <span className="min-w-0 flex-1">
-                  <span className="block truncate text-sm font-semibold text-gray-900 dark:text-white">
+                  <span className="block truncate text-sm font-semibold text-gray-900">
                     {i.title}
                   </span>
                   <span className="block truncate text-xs text-gray-500">
@@ -112,7 +109,7 @@ export function HomeworkCatalogue({ items, students }: Props) {
                   </span>
                 </span>
                 {sentCount > 0 ? (
-                  <span className="hidden shrink-0 rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 sm:inline dark:bg-emerald-900/30 dark:text-emerald-300">
+                  <span className="hidden shrink-0 rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 sm:inline">
                     sent to {sentCount}
                   </span>
                 ) : null}
@@ -143,7 +140,7 @@ export function HomeworkCatalogue({ items, students }: Props) {
           />
         </div>
       ) : (
-        <p className="mt-4 flex items-center justify-center gap-2 rounded-xl border border-dashed border-gray-300 py-6 text-sm text-gray-500 dark:border-gray-600">
+        <p className="mt-4 flex items-center justify-center gap-2 rounded-xl border border-dashed border-gray-300 py-6 text-sm text-gray-500">
           <Send className="h-4 w-4" /> Select a homework set above to send it.
         </p>
       )}
