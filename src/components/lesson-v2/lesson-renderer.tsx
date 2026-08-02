@@ -42,7 +42,7 @@ function renderSection(s: Section, view: LessonView, sectionIdx: number, theme: 
     case "grammar_explainer":
       return <GrammarExplainerSectionComp section={s as never} view={view} sectionIdx={sectionIdx} theme={theme} />;
     case "matching_qa":
-      return <MatchingQASectionComp section={s as never} view={view} theme={theme} />;
+      return <MatchingQASectionComp section={s as never} view={view} theme={theme} sectionIdx={sectionIdx} />;
     case "word_order":
       return <WordOrderSectionComp section={s as never} view={view} theme={theme} sectionIdx={sectionIdx} />;
     case "image_question_prompts":

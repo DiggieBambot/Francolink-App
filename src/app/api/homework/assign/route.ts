@@ -7,6 +7,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { notifyMany } from "@/lib/notifications/create";
 import { notifyStudentHomeworkAssigned } from "@/lib/email/transactional";
+import { getTutorStudentIds } from "@/lib/tutor/students";
 
 function svc() {
   return createServiceClient(
@@ -44,13 +45,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "No published homework for this lesson yet" }, { status: 404 });
   }
 
-  // Only allow assigning to this tutor's own connected students.
-  const { data: mine } = await service
-    .from("users")
-    .select("id")
-    .eq("referred_by_tutor_id", user.id)
-    .in("id", studentIds);
-  const validIds = (mine || []).map((r) => r.id);
+  // Only allow assigning to this tutor's own connected students. Active
+  // tutor_students rows are the source of truth — see @/lib/tutor/students.
+  const myStudentIds = new Set(await getTutorStudentIds(user.id));
+  const validIds = (studentIds as string[]).filter((id) => myStudentIds.has(id));
   if (validIds.length === 0) {
     return NextResponse.json({ error: "None of those students are connected to you" }, { status: 403 });
   }

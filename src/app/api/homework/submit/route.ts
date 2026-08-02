@@ -1,7 +1,7 @@
 // POST /api/homework/submit  { homeworkId, answers: string[] }
 // A signed-in student submits (or re-submits, until a tutor reviews) their
-// answers. tutor_id is captured from the student's referred_by_tutor_id so the
-// tutor's review dashboard can find it.
+// answers. tutor_id is taken from the assignment row — the tutor who actually
+// sent it — so the right review dashboard picks it up.
 
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";

@@ -15,6 +15,7 @@ import { ShareButton } from "@/components/library/share-button";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { HomeworkPanel } from "@/components/homework/homework-panel";
 import { HomeworkSendPanel } from "@/components/homework/homework-send-panel";
+import { getTutorStudents } from "@/lib/tutor/students";
 import { getLiveHomeworkBySlug, getSubmission, getAssignmentForStudent } from "@/lib/homework/queries";
 
 export const dynamic = "force-dynamic";
@@ -58,9 +59,11 @@ export default async function PublicLessonPage({
   // Homework content for this lesson (published in a batch), if any.
   const homework = await getLiveHomeworkBySlug(slug);
 
-  // Student side: assignment-gated — only render the panel if a tutor SENT this
-  // homework to this student.
-  const assignment = homework && userId && !isTutor
+  // Assignment-gated — only render the panel if a tutor SENT this homework to
+  // this user. Role is deliberately not part of the test: a tutor or admin can
+  // also be somebody's student, and if homework was assigned to them they must
+  // be able to see and submit it.
+  const assignment = homework && userId
     ? await getAssignmentForStudent(homework.id, userId)
     : null;
   const submission = assignment && userId ? await getSubmission(homework!.id, userId) : null;
@@ -74,11 +77,11 @@ export default async function PublicLessonPage({
       process.env.SUPABASE_SERVICE_ROLE_KEY!,
       { auth: { persistSession: false } }
     );
-    const [{ data: studs }, { data: assigns }] = await Promise.all([
-      svc.from("users").select("id, name, email").eq("referred_by_tutor_id", userId).order("name"),
+    const [studs, { data: assigns }] = await Promise.all([
+      getTutorStudents(userId),
       svc.from("homework_assignments").select("student_id").eq("homework_id", homework.id),
     ]);
-    tutorStudents = studs || [];
+    tutorStudents = studs;
     alreadyAssignedIds = (assigns || []).map((a) => a.student_id);
   }
 
@@ -130,8 +133,9 @@ export default async function PublicLessonPage({
         </div>
       ) : null}
 
-      {/* Student: only if a tutor assigned this homework to them. */}
-      {!isTutor && homework && assignment ? (
+      {/* Anyone this homework was assigned to — including a tutor or admin who
+          is also somebody's student — gets the panel to complete it. */}
+      {homework && assignment ? (
         <div className="pb-16">
           <HomeworkPanel
             homework={homework}

@@ -100,16 +100,22 @@ export default async function TutorHomeworkPage() {
 
   return (
     <div className="mx-auto max-w-4xl p-4 md:p-8">
-      <div className="mb-6 flex items-center gap-3">
+      <div className="mb-6 flex flex-wrap items-center gap-3">
         <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-white">
           <PencilLine className="h-6 w-6" />
         </span>
-        <div>
+        <div className="flex-1">
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Homework</h1>
           <p className="text-sm text-gray-500 dark:text-gray-400">
             {pending > 0 ? `${pending} awaiting your review` : "All caught up"}
           </p>
         </div>
+        <Link
+          href="/tutor/homework/send"
+          className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700"
+        >
+          <Send className="h-4 w-4" /> Send homework
+        </Link>
       </div>
 
       {/* Sent — awaiting submission */}
