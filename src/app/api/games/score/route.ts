@@ -7,7 +7,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 
-const GAMES = new Set(["maze-chase", "memory-match", "picture-quiz", "listen-find", "quiz-show"]);
+const GAMES = new Set([
+  "maze-chase", "memory-match", "picture-quiz", "listen-find", "quiz-show",
+  // Action games (phase 2–4) — slugs added here so scores persist; the
+  // components POST as they're built. Whitelist is enforced at route.ts:24.
+  "snake", "galaxy-shooter", "basket-catch",
+]);
 
 export async function POST(req: NextRequest) {
   const supabase = await createClient();
