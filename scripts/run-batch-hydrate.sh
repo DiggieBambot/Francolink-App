@@ -3,8 +3,16 @@
 # all English lesson images. Each call processes up to 3 lessons to stay
 # well under the Vercel function timeout.
 
-BASE_URL="https://app.francolink.net"
-SERVICE_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJpd2FjbGxicGR4emR4dG1xdHB3Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MDQ5OTUyMSwiZXhwIjoyMDg2MDc1NTIxfQ.5wCIs9XmsWykIg-AiZWaFg2koN0GKn_tXrZbXPXRakg"
+BASE_URL="${BASE_URL:-https://app.francolink.net}"
+
+# Read the key from the environment — never inline it. This file is committed,
+# and the service-role key bypasses every RLS policy.
+SERVICE_KEY="${SUPABASE_SERVICE_ROLE_KEY:-}"
+if [ -z "$SERVICE_KEY" ]; then
+  echo "SUPABASE_SERVICE_ROLE_KEY is not set." >&2
+  echo "Run with it loaded, e.g.:  set -a && . .env.local && set +a && ./scripts/run-batch-hydrate.sh" >&2
+  exit 1
+fi
 LANGUAGE="en"
 LIMIT=3
 OFFSET=${1:-0}
