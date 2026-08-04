@@ -14,7 +14,8 @@ export interface LessonRoomContextValue {
   currentUserId: string;
   currentRole: "tutor" | "student";
   canHighlight: boolean;
-  highlights: Set<string>;
+  /** Anchor id → the role that highlighted it (drives per-role colour). */
+  highlights: Map<string, "tutor" | "student">;
   toggleHighlight: (anchor: { id: string; text: string; sectionIdx: number }) => void;
   presence: RoomPresence[];
   /** Broadcast a TTS play event to peers (called by SpeakButton inside a room). */

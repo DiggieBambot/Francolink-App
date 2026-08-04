@@ -87,11 +87,16 @@ export default async function RoomPage({
     .order("title");
 
   // Load persisted highlights so a refresh restores them (service: a joined
-  // student isn't an RLS "member" of an open classroom).
-  const { data: highlights } = await svc
+  // student isn't an RLS "member" of an open classroom). The author's role is
+  // derived from created_by so each side's highlight keeps its own colour.
+  const { data: highlightRows } = await svc
     .from("tutor_lesson_highlights")
-    .select("anchor_id, text")
+    .select("anchor_id, created_by")
     .eq("session_id", id);
+  const highlights = (highlightRows || []).map((h) => ({
+    anchor_id: h.anchor_id as string,
+    role: (h.created_by === session.tutor_id ? "tutor" : "student") as "tutor" | "student",
+  }));
 
   // Chat history: keep the last 30 days for this room, restore it on entry, and
   // sweep anything older (service so a link-joined student loads it too).

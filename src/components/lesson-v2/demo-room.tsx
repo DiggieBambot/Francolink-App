@@ -22,7 +22,7 @@ const PRESENCE: RoomPresence[] = [
 ];
 
 export function DemoRoom({ lesson }: DemoRoomProps) {
-  const [highlights, setHighlights] = useState<Set<string>>(new Set());
+  const [highlights, setHighlights] = useState<Map<string, "tutor" | "student">>(new Map());
   const [revealedTranslations, setRevealedTranslations] = useState<Set<string>>(new Set());
   const [tutorIncoming, setTutorIncoming] = useState<IncomingSpeak>(null);
   const [studentIncoming, setStudentIncoming] = useState<IncomingSpeak>(null);
@@ -47,8 +47,8 @@ export function DemoRoom({ lesson }: DemoRoomProps) {
   // Clicking the same word again clears it.
   const toggleHighlight = useCallback((anchor: { id: string }) => {
     setHighlights((prev) => {
-      const next = new Set<string>();
-      if (!prev.has(anchor.id)) next.add(anchor.id);
+      const next = new Map<string, "tutor" | "student">();
+      if (!prev.has(anchor.id)) next.set(anchor.id, "tutor");
       return next;
     });
   }, []);

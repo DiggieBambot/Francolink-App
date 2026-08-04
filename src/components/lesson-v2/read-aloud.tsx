@@ -2,6 +2,7 @@
 
 import { Fragment, type ReactNode, useState, useRef, useCallback, useEffect } from "react";
 import { Volume2, Square, Loader2, AlertCircle } from "lucide-react";
+import { useLessonRoom } from "./lesson-room-context";
 
 interface ReadAloudProps {
   /** The full raw passage (may contain **bold** markers and blank-line paragraph breaks). */
@@ -31,6 +32,8 @@ export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
   const [error, setError] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const rafRef = useRef<number | null>(null);
+  // In a live room, playing the passage also plays it on the other side.
+  const room = useLessonRoom();
 
   const plain = stripBold(text);
   const rawParagraphs = text
@@ -63,6 +66,9 @@ export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
     stop();
     const trimmed = plain.trim();
     if (!trimmed) return;
+    // Tell the other participant to play the same passage (their
+    // IncomingTtsAutoplay handles it; the sender ignores its own echo).
+    room?.broadcastSpeak(trimmed);
     setLoading(true);
     setError(false);
 

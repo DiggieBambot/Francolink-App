@@ -30,7 +30,7 @@ interface LessonRoomProps {
   /** The room's student (null for an open classroom not yet paired). Tutor-only affordances. */
   studentId?: string | null;
   studentName?: string | null;
-  initialHighlights: { anchor_id: string; text: string }[];
+  initialHighlights: { anchor_id: string; role: "tutor" | "student" }[];
   initialChat?: { id: string; from: string; name: string; role: "tutor" | "student"; text: string; at: number }[];
 }
 
@@ -195,7 +195,7 @@ export function LessonRoom({
         sessionId,
         currentUserId,
         currentRole,
-        canHighlight: currentRole === "tutor",
+        canHighlight: true,
         highlights: room.highlights,
         toggleHighlight: room.toggleHighlight,
         presence: room.presence,
@@ -276,9 +276,9 @@ export function LessonRoom({
         ) : null}
       </div>
 
-      {currentRole === "tutor" && lesson ? (
+      {lesson ? (
         <div className="fixed bottom-4 left-1/2 z-40 -translate-x-1/2 rounded-full border bg-emerald-50/95 px-4 py-2 text-xs font-medium text-emerald-900 shadow-md backdrop-blur">
-          Click any French phrase to highlight it for your student.
+          Click any French phrase to highlight it — {currentRole === "tutor" ? "your student" : "your tutor"} sees it live.
         </div>
       ) : null}
 

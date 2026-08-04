@@ -10,7 +10,7 @@ interface UseLessonRoomArgs {
   currentUserId: string;
   currentRole: "tutor" | "student";
   currentName: string;
-  initialHighlights?: { anchor_id: string }[];
+  initialHighlights?: { anchor_id: string; role: "tutor" | "student" }[];
   initialChatMessages?: {
     id: string; from: string; name: string; role: "tutor" | "student"; text: string; at: number;
   }[];
@@ -32,8 +32,11 @@ export function useLessonRoom({
 }: UseLessonRoomArgs) {
   const supabase = createBrowserClient();
   const channelRef = useRef<RealtimeChannel | null>(null);
-  const [highlights, setHighlights] = useState<Set<string>>(
-    () => new Set(initialHighlights.map((h) => h.anchor_id))
+  // Anchor id → the role of whoever highlighted it. Each side has ONE active
+  // highlight (single-active per role), and the two coexist so tutor and student
+  // highlights are independent and can be coloured differently.
+  const [highlights, setHighlights] = useState<Map<string, "tutor" | "student">>(
+    () => new Map(initialHighlights.map((h) => [h.anchor_id, h.role]))
   );
   const [presence, setPresence] = useState<RoomPresence[]>([]);
   const [incomingSpeak, setIncomingSpeak] = useState<
@@ -70,10 +73,19 @@ export function useLessonRoom({
       setPresence(flat);
     });
 
-    // Replace the full set in one event — supports single-active highlight semantics.
-    channel.on("broadcast", { event: "highlight:set" }, ({ payload }) => {
-      const ids = (payload as { ids?: string[] }).ids;
-      if (Array.isArray(ids)) setHighlights(new Set(ids));
+    // One side moved (or cleared) its own highlight. Update only that role's
+    // entry so the other participant's highlight is left untouched.
+    channel.on("broadcast", { event: "highlight:role" }, ({ payload }) => {
+      const p = payload as { role?: "tutor" | "student"; id?: string | null; from?: string };
+      if (!p.role || p.from === currentUserId) return; // own echo already applied
+      const role = p.role;
+      const id = p.id ?? null;
+      setHighlights((prev) => {
+        const next = new Map(prev);
+        for (const [k, r] of next) if (r === role) next.delete(k);
+        if (id) next.set(id, role);
+        return next;
+      });
     });
 
     channel.on("broadcast", { event: "tts:play" }, ({ payload }) => {
@@ -157,33 +169,48 @@ export function useLessonRoom({
     };
   }, [sessionId, currentUserId, currentRole, currentName, supabase]);
 
-  // Tutor toggle: single-active highlight. Clicking word A then B leaves only B
-  // highlighted. Clicking the same word again clears it.
+  // Either side may highlight. Single-active PER ROLE: clicking word A then B
+  // moves *your* highlight to B; clicking your own highlighted word clears it.
+  // The other participant's highlight is never affected.
   const toggleHighlight = useCallback(
     async (anchor: HighlightAnchor) => {
-      if (currentRole !== "tutor") return; // only tutor highlights
-      const already = highlights.has(anchor.id);
-      const nextIds = already ? [] : [anchor.id];
+      // My current highlight, if any.
+      let mineId: string | null = null;
+      for (const [k, r] of highlights) if (r === currentRole) mineId = k;
+      const clearing = mineId === anchor.id;
+      const nextId = clearing ? null : anchor.id;
 
-      // Optimistic local update.
-      setHighlights(new Set(nextIds));
-
-      // Broadcast the full new set.
-      await channelRef.current?.send({
-        type: "broadcast",
-        event: "highlight:set",
-        payload: { ids: nextIds, text: anchor.text, sectionIdx: anchor.sectionIdx },
+      // Optimistic local update: drop my old highlight, set my new one.
+      setHighlights((prev) => {
+        const next = new Map(prev);
+        if (mineId) next.delete(mineId);
+        if (nextId) next.set(nextId, currentRole);
+        return next;
       });
 
-      // Persist: always replace the session's row set so refresh restores accurately.
+      // Broadcast only my role's change.
+      await channelRef.current?.send({
+        type: "broadcast",
+        event: "highlight:role",
+        payload: {
+          role: currentRole,
+          id: nextId,
+          from: currentUserId,
+          text: anchor.text,
+          sectionIdx: anchor.sectionIdx,
+        },
+      });
+
+      // Persist only MY row so a refresh restores both sides' highlights.
       await supabase
         .from("tutor_lesson_highlights")
         .delete()
-        .eq("session_id", sessionId);
-      if (!already) {
+        .eq("session_id", sessionId)
+        .eq("created_by", currentUserId);
+      if (nextId) {
         await supabase.from("tutor_lesson_highlights").insert({
           session_id: sessionId,
-          anchor_id: anchor.id,
+          anchor_id: nextId,
           text: anchor.text,
           section_idx: anchor.sectionIdx,
           created_by: currentUserId,
