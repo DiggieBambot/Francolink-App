@@ -12,6 +12,7 @@ import {
   Settings,
   BookOpen,
   PencilLine,
+  Globe,
   LogOut
 } from 'lucide-react';
 
@@ -50,6 +51,11 @@ const navigation = [
     name: 'Content Library', 
     href: '/tutor/lessons', 
     icon: BookOpen 
+  },
+  {
+    name: 'Public Profile',
+    href: '/tutor/public-profile',
+    icon: Globe
   },
   { 
     name: 'Settings', 
