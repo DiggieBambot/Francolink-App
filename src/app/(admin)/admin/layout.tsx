@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
-import { LayoutDashboard, Users, CreditCard, BarChart3, Settings, FileText, Plug, ChevronRight, Bot, Shield, GraduationCap, TrendingUp, LifeBuoy, MessageSquare, Newspaper, Megaphone } from 'lucide-react';
+import { LayoutDashboard, Users, CreditCard, BarChart3, Settings, FileText, Plug, ChevronRight, Bot, Shield, GraduationCap, TrendingUp, LifeBuoy, MessageSquare, Newspaper, Megaphone, Globe } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Admin Panel | FrancoLink',
@@ -42,6 +42,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         { name: 'Payments', href: '/admin/payments', icon: CreditCard },
         { name: 'Pricing', href: '/admin/pricing', icon: DollarSign },
         { name: 'Analytics', href: '/admin/analytics', icon: BarChart3 },
+        { name: 'Website', href: '/admin/website', icon: Globe },
         { name: 'Integrations', href: '/admin/integrations', icon: Plug },
         { name: 'Settings', href: '/admin/settings', icon: Settings },
         { name: 'AI Settings', href: '/admin/settings/ai', icon: Bot },
