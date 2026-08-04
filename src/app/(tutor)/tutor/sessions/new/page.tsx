@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { ArrowLeft, Sparkles } from "lucide-react";
+import { sendLiveClassInvite } from "@/lib/notifications/live-invite";
 
 export const dynamic = "force-dynamic";
 
@@ -34,6 +35,20 @@ async function createSessionAction(formData: FormData) {
   if (error || !inserted) {
     redirect(`/tutor/sessions/new?error=${encodeURIComponent(error?.message || "create failed")}`);
   }
+
+  // Ring the student before we leave — redirect() throws, so it must come first.
+  const { data: lesson } = await supabase
+    .from("tutor_lessons")
+    .select("title")
+    .eq("id", lessonId)
+    .maybeSingle();
+  await sendLiveClassInvite({
+    tutorId: user.id,
+    studentId,
+    roomId: inserted!.id,
+    lessonTitle: title || lesson?.title || null,
+  });
+
   redirect(`/room/${inserted!.id}`);
 }
 

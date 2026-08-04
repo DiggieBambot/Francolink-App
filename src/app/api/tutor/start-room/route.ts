@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { NextRequest, NextResponse } from "next/server";
+import { sendLiveClassInvite } from "@/lib/notifications/live-invite";
 
 /**
  * Creates a tutor_lesson_sessions row and returns the room id.
@@ -45,6 +46,20 @@ export async function POST(request: NextRequest) {
     console.error("start-room error:", error?.message);
     return NextResponse.json({ error: "Failed to create session" }, { status: 500 });
   }
+
+  // Ring the student: in-app popup on their dashboard + Web Push if subscribed.
+  const { data: lesson } = await supabase
+    .from("tutor_lessons")
+    .select("title")
+    .eq("id", lessonId)
+    .maybeSingle();
+
+  await sendLiveClassInvite({
+    tutorId: user.id,
+    studentId,
+    roomId: session.id,
+    lessonTitle: lesson?.title ?? null,
+  });
 
   return NextResponse.json({ roomId: session.id });
 }

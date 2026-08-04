@@ -12,8 +12,12 @@ import { StepControls } from "./step-controls";
 import { ToolsRail } from "./room/tools-rail";
 import { LessonBrowser } from "./room/lesson-browser";
 import type { PickerLesson } from "./room/lesson-picker";
-import { Users, Sparkles, BookOpen, RefreshCw, UserPlus, Check } from "lucide-react";
+import { Users, Sparkles, BookOpen, RefreshCw, UserPlus, Check, Video, Send } from "lucide-react";
 import type { Lesson } from "@/lib/lessons/types";
+
+/** Visible time on one lesson before it counts as covered. */
+const DWELL_MS = 2 * 60 * 1000;
+const DWELL_TICK_MS = 15 * 1000;
 
 interface LessonRoomProps {
   initialLesson: Lesson | null;
@@ -23,6 +27,9 @@ interface LessonRoomProps {
   currentUserId: string;
   currentRole: "tutor" | "student";
   currentName: string;
+  /** The room's student (null for an open classroom not yet paired). Tutor-only affordances. */
+  studentId?: string | null;
+  studentName?: string | null;
   initialHighlights: { anchor_id: string; text: string }[];
   initialChat?: { id: string; from: string; name: string; role: "tutor" | "student"; text: string; at: number }[];
 }
@@ -35,6 +42,8 @@ export function LessonRoom({
   currentUserId,
   currentRole,
   currentName,
+  studentId = null,
+  studentName = null,
   initialHighlights,
   initialChat = [],
 }: LessonRoomProps) {
@@ -45,7 +54,14 @@ export function LessonRoom({
   const [pickerOpen, setPickerOpen] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
   const [inviteCopied, setInviteCopied] = useState(false);
+  const [ringing, setRinging] = useState(false);
+  const [sendingHw, setSendingHw] = useState(false);
   const lastIncoming = useRef(0);
+
+  const showToast = (msg: string, ms = 3000) => {
+    setToast(msg);
+    window.setTimeout(() => setToast(null), ms);
+  };
 
   async function copyInvite() {
     try {
@@ -56,6 +72,54 @@ export function LessonRoom({
       window.setTimeout(() => setToast(null), 2500);
     } catch {
       /* ignore */
+    }
+  }
+
+  // Ring the student: fires the dashboard popup + Web Push for this room.
+  async function ringStudent() {
+    if (ringing) return;
+    setRinging(true);
+    try {
+      const res = await fetch("/api/tutor/ring-room", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sessionId }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.ok) {
+        showToast(`Rang ${studentName || "your student"} — they'll see a “Join class” popup.`);
+      } else if (data.reason === "no_student") {
+        showToast("No student is paired to this room yet — use Invite to share the link.");
+      } else {
+        showToast(data.error || "Could not ring the student.");
+      }
+    } catch {
+      showToast("Could not ring the student.");
+    } finally {
+      setRinging(false);
+    }
+  }
+
+  // Send the current lesson's homework to the room's student.
+  async function sendHomework() {
+    if (sendingHw || !lessonId) return;
+    setSendingHw(true);
+    try {
+      const res = await fetch("/api/tutor/room-homework", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sessionId, lessonId }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.ok) {
+        showToast(`Homework sent to ${studentName || "your student"} — they've been notified.`);
+      } else {
+        showToast(data.error || "Could not send homework.");
+      }
+    } catch {
+      showToast("Could not send homework.");
+    } finally {
+      setSendingHw(false);
     }
   }
 
@@ -86,6 +150,34 @@ export function LessonRoom({
       /* ignore */
     }
   }
+
+  // ── Coverage tracking ────────────────────────────────────────────────────
+  // A lesson counts as "covered" once it's been open in the room for DWELL_MS,
+  // so browsing past a lesson doesn't land in the student's history. The timer
+  // restarts on every lesson switch and pauses while the tab is hidden — a room
+  // left open in a background tab overnight shouldn't log anything.
+  useEffect(() => {
+    if (!lessonId) return;
+    let elapsed = 0;
+    let lastTick = Date.now();
+    let recorded = false;
+
+    const tick = () => {
+      const now = Date.now();
+      if (!document.hidden) elapsed += now - lastTick;
+      lastTick = now;
+      if (recorded || elapsed < DWELL_MS) return;
+      recorded = true;
+      void fetch(`/api/space/${sessionId}/covered`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ lessonId, minutes: Math.round(elapsed / 60000) }),
+      }).catch(() => {});
+    };
+
+    const timer = setInterval(tick, DWELL_TICK_MS);
+    return () => clearInterval(timer);
+  }, [lessonId, sessionId]);
 
   useEffect(() => {
     const inc = room.incomingLessonChange;
@@ -141,6 +233,17 @@ export function LessonRoom({
           {room.presence.length === 0 ? <span className="text-xs text-slate-400">connecting…</span> : null}
         </div>
         <span className="h-4 w-px bg-slate-200" />
+        {currentRole === "tutor" && studentId ? (
+          <button
+            onClick={ringStudent}
+            disabled={ringing}
+            className="inline-flex items-center gap-1 rounded-full bg-emerald-600 px-2.5 py-0.5 text-xs font-semibold text-white hover:bg-emerald-700 disabled:opacity-60"
+            title={`Ring ${studentName || "your student"} — pops a “Join class” alert on their dashboard`}
+          >
+            <Video className="h-3 w-3" />
+            {ringing ? "Ringing…" : `Ring${studentName ? ` ${studentName.split(" ")[0]}` : ""}`}
+          </button>
+        ) : null}
         <button
           onClick={copyInvite}
           className="inline-flex items-center gap-1 rounded-full bg-secondary px-2.5 py-0.5 text-xs font-semibold text-white hover:bg-secondary-600"
@@ -149,6 +252,17 @@ export function LessonRoom({
           {inviteCopied ? <Check className="h-3 w-3" /> : <UserPlus className="h-3 w-3" />}
           {inviteCopied ? "Copied!" : "Invite"}
         </button>
+        {currentRole === "tutor" && studentId && lesson ? (
+          <button
+            onClick={sendHomework}
+            disabled={sendingHw}
+            className="inline-flex items-center gap-1 rounded-full bg-primary-600 px-2.5 py-0.5 text-xs font-semibold text-white hover:bg-primary-700 disabled:opacity-60"
+            title="Send this lesson's homework to your student"
+          >
+            <Send className="h-3 w-3" />
+            {sendingHw ? "Sending…" : "Send homework"}
+          </button>
+        ) : null}
         {lesson ? (
           <>
             <span className="h-4 w-px bg-slate-200" />

@@ -39,6 +39,24 @@ export default async function RoomPage({
     .single();
   if (sessionErr || !session) notFound();
 
+  // The paired student (null for an open classroom whose sentinel stores
+  // student_id === tutor_id). Drives the tutor's in-room Ring / Send-homework.
+  const pairedStudentId =
+    session.student_id && session.student_id !== session.tutor_id ? session.student_id : null;
+  let pairedStudentName: string | null = null;
+  if (pairedStudentId) {
+    const { data: stu } = await svc
+      .from("users")
+      .select("name, first_name, last_name, email")
+      .eq("id", pairedStudentId)
+      .maybeSingle();
+    pairedStudentName =
+      stu?.name ||
+      [stu?.first_name, stu?.last_name].filter(Boolean).join(" ") ||
+      stu?.email?.split("@")[0] ||
+      null;
+  }
+
   // Each room is private to one tutor↔student pair. Only the tutor who owns it
   // and that specific student may enter — a chat is never visible to any other
   // student. Anyone else with the link is turned away.
@@ -113,6 +131,8 @@ export default async function RoomPage({
         currentUserId={user.id}
         currentRole={currentRole}
         currentName={name}
+        studentId={pairedStudentId}
+        studentName={pairedStudentName}
         initialHighlights={highlights || []}
         initialChat={initialChat}
       />
