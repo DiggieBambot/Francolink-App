@@ -48,7 +48,13 @@ export function ToolsRail() {
   }
 
   return (
-    <aside className="fixed right-0 top-0 z-40 flex h-screen w-[340px] max-w-[88vw] flex-col border-l bg-white shadow-xl">
+    <aside
+      className="fixed inset-y-0 right-0 z-50 flex w-full flex-col border-l bg-white shadow-xl sm:w-[340px] sm:max-w-[88vw]"
+      style={{
+        paddingTop: "env(safe-area-inset-top)",
+        paddingBottom: "env(safe-area-inset-bottom)",
+      }}
+    >
       {/* Tabs */}
       <div className="flex items-center border-b">
         {([
