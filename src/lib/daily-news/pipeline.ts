@@ -399,7 +399,7 @@ export async function generateLessonJson(
               `- title: a clear, learner-friendly headline in ${config.language === "fr" ? "French" : "English"} (max ~12 words).\n` +
               `- article_body: ${lengthSpec.words} words in ${config.language === "fr" ? "French" : "English"}, EXACTLY ${lengthSpec.paragraphs} paragraphs (separate paragraphs with a blank line), neutral tone, no invented facts. Use longer, more complex sentences for higher levels and shorter, simpler ones for lower levels. If the source material contains a direct quote or reported direct speech from a named person, include at least one real quote (translated/adapted into ${config.language === "fr" ? "French" : "English"} if needed, attributed to who said it, using quotation marks) — it makes the story feel alive instead of a flat summary. Never invent a quote that isn't grounded in the source.\n` +
               `- vocabulary: EXACTLY 6 items {word, ipa, part_of_speech, definition, example} — word/definition/example in ${config.language === "fr" ? "French" : "English"}; part_of_speech stays in English (e.g. "noun", "verb"); choose useful words that appear in your article; the example must use the word in a natural sentence.\n` +
-              `- comprehension_questions: EXACTLY 5 questions (in ${config.language === "fr" ? "French" : "English"}) about the article, at THIS difficulty for CEFR ${config.targetLevel}: ${questionDifficulty} Push the difficulty a notch harder than a typical ${config.targetLevel} textbook would — these should make a learner genuinely re-read the article, not just recall it.\n` +
+              `- comprehension_questions: EXACTLY 5 items, each an object {question, answer} (both in ${config.language === "fr" ? "French" : "English"}), at THIS difficulty for CEFR ${config.targetLevel}: ${questionDifficulty} Push the difficulty a notch harder than a typical ${config.targetLevel} textbook would — these should make a learner genuinely re-read the article, not just recall it. The "answer" is the tutor's model answer to THAT specific question: a concise, correct 1-2 sentence response grounded ONLY in the article (each answer must be DIFFERENT and actually answer its own question — never repeat the same answer). Do not invent facts not in the article.\n` +
               `- discussion_questions: EXACTLY 5 opinion/experience questions (in ${config.language === "fr" ? "French" : "English"}) related to the topic.\n` +
               `- further_discussion_questions: EXACTLY 3 deeper/abstract questions (in ${config.language === "fr" ? "French" : "English"}).\n` +
               `- image_subject: the SINGLE specific real named person, organization, place, or event this story is centrally about (e.g. "Andy Burnham", "NASA Psyche spacecraft", "Wimbledon") — ALWAYS in English regardless of lesson language, used to find an ACTUAL accurate solo photo of that exact subject. Only fill this in if you are confident a real, clearly-labelled photo of THIS exact subject (not a similarly-named or same-role different person, and not a group/crowd photo) is likely to exist. Leave empty ("") if the story has no single clear named subject, or if the subject is a role/title rather than one specific named entity (e.g. "the health secretary" without naming who).\n` +
@@ -738,9 +738,20 @@ export async function fetchBannerImage(
   return fallback;
 }
 
-function questionsWithAnswers(questions: string[], article: string): Array<{ question: string; answer: string }> {
-  const answer = compactText(article.split(/[.!?]\s+/).find(Boolean) || "See the article for details.", 180);
-  return questions.slice(0, 5).map((question) => ({ question, answer }));
+function questionsWithAnswers(
+  questions: Array<{ question: string; answer: string }> | string[],
+  article: string
+): Array<{ question: string; answer: string }> {
+  // Fallback answer only used when the model didn't supply one (or for legacy
+  // string-only generations) — the first sentence of the article.
+  const fallback = compactText(article.split(/[.!?]\s+/).find(Boolean) || "See the article for details.", 180);
+  return questions.slice(0, 5).map((q) => {
+    if (typeof q === "string") return { question: q, answer: fallback };
+    return {
+      question: q.question,
+      answer: compactText(q.answer || fallback, 400),
+    };
+  });
 }
 
 // Static UI chrome (section titles/instructions, objectives, tips) matches

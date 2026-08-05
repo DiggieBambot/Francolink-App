@@ -55,7 +55,9 @@ export interface GeneratedDailyNewsLesson {
     definition: string;
     example: string;
   }>;
-  comprehension_questions: string[];
+  /** Each comprehension question with its own model answer grounded in the
+   *  article. (Legacy generations may be plain strings — handled defensively.) */
+  comprehension_questions: Array<{ question: string; answer: string }>;
   discussion_questions: string[];
   further_discussion_questions: string[];
   image_query?: string;
