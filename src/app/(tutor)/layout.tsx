@@ -54,6 +54,7 @@ export default async function TutorLayout({
     { name: "My Students", href: "/tutor/students", icon: "Users" },
     { name: "Lessons", href: "/tutor/lessons", icon: "BookOpen" },
     { name: "Live Sessions", href: "/tutor/sessions", icon: "Video" },
+    { name: "Homework", href: "/tutor/homework", icon: "PencilLine" },
     { name: "Schedule", href: "/tutor/schedule", icon: "Calendar" },
     { name: "Commissions", href: "/tutor/commisions", icon: "DollarSign" },
     { name: "Settings", href: "/tutor/settings", icon: "Settings" },
