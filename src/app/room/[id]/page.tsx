@@ -5,6 +5,7 @@ import { notFound, redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { LessonRoom } from "@/components/lesson-v2/lesson-room";
+import { MAX_GROUP_LEARNERS } from "@/lib/lessons/room-limits";
 import type { Lesson } from "@/lib/lessons/types";
 
 export const dynamic = "force-dynamic";
@@ -34,7 +35,7 @@ export default async function RoomPage({
   const svc = service();
   const { data: session, error: sessionErr } = await svc
     .from("tutor_lesson_sessions")
-    .select("id, tutor_id, student_id, tutor_lesson_id, status, title")
+    .select("id, tutor_id, student_id, tutor_lesson_id, status, title, is_group")
     .eq("id", id)
     .single();
   if (sessionErr || !session) notFound();
@@ -57,13 +58,43 @@ export default async function RoomPage({
       null;
   }
 
-  // Each room is private to one tutor↔student pair. Only the tutor who owns it
-  // and that specific student may enter — a chat is never visible to any other
-  // student. Anyone else with the link is turned away.
+  // Access is membership in lesson_room_participants. A 1:1 room has exactly two
+  // rows and behaves as it always did; a group room holds up to
+  // MAX_GROUP_LEARNERS students. Everything in a room — chat, highlights,
+  // answers — is visible to every member, so this gate is the whole privacy
+  // boundary and nobody joins by accident.
   const isTutor = session.tutor_id === user.id;
-  const isThisStudent = session.student_id === user.id;
-  if (!isTutor && !isThisStudent) {
-    redirect("/dashboard?error=not_your_room");
+  const { data: memberRows } = await svc
+    .from("lesson_room_participants")
+    .select("user_id, role")
+    .eq("session_id", id);
+  const members = memberRows || [];
+  // The student_id branch is a deliberate fallback: a session created before
+  // this table existed (or by a path that somehow skipped the seeding trigger)
+  // must never lock out its own student.
+  const isMember =
+    isTutor ||
+    members.some((m) => m.user_id === user.id) ||
+    session.student_id === user.id;
+
+  if (!isMember) {
+    // Not a member yet. A group room admits a newcomer holding the link, up to
+    // capacity; a 1:1 room never does.
+    if (!session.is_group) {
+      redirect("/dashboard?error=not_your_room");
+    }
+    const learnerCount = members.filter((m) => m.role === "student").length;
+    if (learnerCount >= MAX_GROUP_LEARNERS) {
+      redirect("/dashboard?error=room_full");
+    }
+    // The DB trigger is the real capacity guard — the count above can race
+    // against four other people opening the link at the same moment.
+    const { error: joinErr } = await svc
+      .from("lesson_room_participants")
+      .insert({ session_id: id, user_id: user.id, role: "student" });
+    if (joinErr && joinErr.code !== "23505") {
+      redirect("/dashboard?error=room_full");
+    }
   }
   const currentRole: "tutor" | "student" = isTutor ? "tutor" : "student";
 

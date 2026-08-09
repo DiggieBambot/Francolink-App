@@ -6,48 +6,107 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { ArrowLeft, Sparkles } from "lucide-react";
 import { sendLiveClassInvite } from "@/lib/notifications/live-invite";
+import { MAX_GROUP_LEARNERS } from "@/lib/lessons/room-limits";
+import { tutorCanRunGroups } from "@/lib/lessons/group-access";
 
 export const dynamic = "force-dynamic";
 
 async function createSessionAction(formData: FormData) {
   "use server";
-  const studentId = String(formData.get("student_id") || "");
+  // getAll: the group form submits one student_id per checked learner.
+  const studentIds = formData
+    .getAll("student_id")
+    .map((v) => String(v))
+    .filter(Boolean);
   const lessonId = String(formData.get("lesson_id") || "");
   const title = String(formData.get("title") || "").trim() || null;
-  if (!studentId || !lessonId) return;
+  if (studentIds.length === 0 || !lessonId) return;
 
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/login");
 
+  const fail = (msg: string) =>
+    redirect(`/tutor/sessions/new?error=${encodeURIComponent(msg)}`);
+
+  if (studentIds.length > MAX_GROUP_LEARNERS) {
+    fail(`A group class holds at most ${MAX_GROUP_LEARNERS} students.`);
+  }
+
+  // Every student must actually be this tutor's. The form only ever offers
+  // their own, but the form is not the security boundary.
+  const { data: mine } = await supabase
+    .from("tutor_students")
+    .select("student_id")
+    .eq("tutor_id", user.id)
+    .eq("status", "active")
+    .in("student_id", studentIds);
+  if ((mine?.length || 0) !== studentIds.length) {
+    fail("One of those students is not assigned to you.");
+  }
+
+  const isGroup = studentIds.length > 1;
+
+  // Group classes are a professional-tier feature. Checked server-side: the
+  // form hides the control for everyone else, but that is presentation only.
+  if (isGroup && !(await tutorCanRunGroups(user.id))) {
+    fail("Group classes are available on the Professional tier.");
+  }
+
   const { data: inserted, error } = await supabase
     .from("tutor_lesson_sessions")
     .insert({
       tutor_id: user.id,
-      student_id: studentId,
+      // A group has no single student. student_id is not nullable, so it holds
+      // the established "no claimed student" sentinel: the tutor's own id.
+      student_id: isGroup ? user.id : studentIds[0],
       tutor_lesson_id: lessonId,
       title,
       status: "active",
+      is_group: isGroup,
       started_at: new Date().toISOString(),
     })
     .select("id")
     .single();
   if (error || !inserted) {
-    redirect(`/tutor/sessions/new?error=${encodeURIComponent(error?.message || "create failed")}`);
+    fail(error?.message || "create failed");
   }
 
-  // Ring the student before we leave — redirect() throws, so it must come first.
+  // A 1:1 session gets its participant rows from the seeding trigger. A group
+  // has to name its learners explicitly.
+  if (isGroup) {
+    const { error: partErr } = await supabase.from("lesson_room_participants").insert(
+      studentIds.map((id) => ({
+        session_id: inserted!.id,
+        user_id: id,
+        role: "student",
+      }))
+    );
+    if (partErr) {
+      fail(
+        partErr.message.includes("session_full")
+          ? `A group class holds at most ${MAX_GROUP_LEARNERS} students.`
+          : partErr.message
+      );
+    }
+  }
+
+  // Ring everyone before we leave — redirect() throws, so it must come first.
   const { data: lesson } = await supabase
     .from("tutor_lessons")
     .select("title")
     .eq("id", lessonId)
     .maybeSingle();
-  await sendLiveClassInvite({
-    tutorId: user.id,
-    studentId,
-    roomId: inserted!.id,
-    lessonTitle: title || lesson?.title || null,
-  });
+  await Promise.all(
+    studentIds.map((studentId) =>
+      sendLiveClassInvite({
+        tutorId: user.id,
+        studentId,
+        roomId: inserted!.id,
+        lessonTitle: title || lesson?.title || null,
+      })
+    )
+  );
 
   redirect(`/room/${inserted!.id}`);
 }
@@ -61,6 +120,8 @@ export default async function NewSessionPage({
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/login?next=/tutor/sessions/new");
+
+  const canRunGroups = await tutorCanRunGroups(user.id);
 
   // Pull this tutor's students.
   const { data: students } = await supabase
@@ -110,33 +171,76 @@ export default async function NewSessionPage({
 
       <form action={createSessionAction} className="space-y-5 rounded-2xl border bg-white p-6 shadow-sm">
         <div>
-          <label className="mb-1 block text-sm font-medium text-slate-700">Student</label>
+          <label className="mb-1 block text-sm font-medium text-slate-700">
+            {canRunGroups ? "Students" : "Student"}
+          </label>
           {students && students.length > 0 ? (
-            <select
-              name="student_id"
-              required
-              className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm focus:border-emerald-500 focus:outline-none"
-            >
-              <option value="">— choose a student —</option>
-              {students.map((s) => {
-                const u = s.users as unknown as {
-                  id: string;
-                  first_name?: string;
-                  last_name?: string;
-                  email?: string;
-                } | null;
-                if (!u) return null;
-                const name =
-                  [u.first_name, u.last_name].filter(Boolean).join(" ") ||
-                  u.email?.split("@")[0] ||
-                  u.id.slice(0, 8);
-                return (
-                  <option key={u.id} value={u.id}>
-                    {name} {u.email ? `· ${u.email}` : ""}
-                  </option>
-                );
-              })}
-            </select>
+            canRunGroups ? (
+              <>
+                <p className="mb-2 text-xs text-slate-500">
+                  Tick one student for a private lesson, or up to {MAX_GROUP_LEARNERS} for
+                  a group class. Everyone you tick gets rung when the room opens.
+                </p>
+                <div className="max-h-56 space-y-1 overflow-y-auto rounded-md border border-slate-200 p-2">
+                  {students.map((s) => {
+                    const u = s.users as unknown as {
+                      id: string;
+                      first_name?: string;
+                      last_name?: string;
+                      email?: string;
+                    } | null;
+                    if (!u) return null;
+                    const name =
+                      [u.first_name, u.last_name].filter(Boolean).join(" ") ||
+                      u.email?.split("@")[0] ||
+                      u.id.slice(0, 8);
+                    return (
+                      <label
+                        key={u.id}
+                        className="flex cursor-pointer items-center gap-2 rounded px-2 py-1.5 text-sm hover:bg-slate-50"
+                      >
+                        <input
+                          type="checkbox"
+                          name="student_id"
+                          value={u.id}
+                          className="h-4 w-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"
+                        />
+                        <span className="font-medium text-slate-800">{name}</span>
+                        {u.email ? (
+                          <span className="text-xs text-slate-400">{u.email}</span>
+                        ) : null}
+                      </label>
+                    );
+                  })}
+                </div>
+              </>
+            ) : (
+              <select
+                name="student_id"
+                required
+                className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm focus:border-emerald-500 focus:outline-none"
+              >
+                <option value="">— choose a student —</option>
+                {students.map((s) => {
+                  const u = s.users as unknown as {
+                    id: string;
+                    first_name?: string;
+                    last_name?: string;
+                    email?: string;
+                  } | null;
+                  if (!u) return null;
+                  const name =
+                    [u.first_name, u.last_name].filter(Boolean).join(" ") ||
+                    u.email?.split("@")[0] ||
+                    u.id.slice(0, 8);
+                  return (
+                    <option key={u.id} value={u.id}>
+                      {name} {u.email ? `· ${u.email}` : ""}
+                    </option>
+                  );
+                })}
+              </select>
+            )
           ) : (
             <p className="text-sm text-slate-500">
               No active students yet. Invite one from{" "}

@@ -16,6 +16,9 @@ interface UseLessonRoomArgs {
   }[];
 }
 
+/** Trailing throttle on outgoing answer broadcasts, in ms. */
+const ANSWER_THROTTLE_MS = 150;
+
 interface HighlightAnchor {
   id: string;
   text: string;
@@ -46,9 +49,15 @@ export function useLessonRoom({
   const [chatMessages, setChatMessages] = useState<
     { id: string; from: string; name: string; role: "tutor" | "student"; text: string; at: number }[]
   >(initialChatMessages);
-  const [studentAnswers, setStudentAnswers] = useState<
-    Record<string, { state: unknown; updatedAt: number }>
+  // Live exercise answers, keyed student → anchor. A room holds up to
+  // MAX_GROUP_LEARNERS students, so answers cannot be keyed by anchor alone:
+  // two learners on the same exercise would overwrite each other.
+  const [answersByStudent, setAnswersByStudent] = useState<
+    Record<string, Record<string, { state: unknown; updatedAt: number }>>
   >({});
+  // Which learner the tutor is currently watching. null = "first one to answer",
+  // resolved below, so a 1:1 room needs no selection at all.
+  const [viewedStudentId, setViewedStudentId] = useState<string | null>(null);
   const [currentSectionIdx, setCurrentSectionIdxState] = useState<number | null>(null);
   const [incomingScroll, setIncomingScroll] = useState<
     { idx: number; frac: number; at: number } | null
@@ -140,12 +149,16 @@ export function useLessonRoom({
 
     channel.on("broadcast", { event: "exercise:answer" }, ({ payload }) => {
       const p = payload as { anchor?: string; state?: unknown; from?: string };
-      if (!p?.anchor) return;
+      if (!p?.anchor || !p.from) return;
       // Only accept broadcasts from the OTHER side (avoid echoing our own).
       if (p.from === currentUserId) return;
-      setStudentAnswers((prev) => ({
+      const sender = p.from;
+      setAnswersByStudent((prev) => ({
         ...prev,
-        [p.anchor!]: { state: p.state, updatedAt: Date.now() },
+        [sender]: {
+          ...(prev[sender] || {}),
+          [p.anchor!]: { state: p.state, updatedAt: Date.now() },
+        },
       }));
     });
 
@@ -253,17 +266,48 @@ export function useLessonRoom({
   );
 
   // Student-only: broadcast a change in their exercise answer.
-  const reportAnswer = useCallback(
-    (anchor: string, state: unknown) => {
-      if (currentRole !== "student") return;
+  //
+  // Trailing-throttled per anchor: this fires on every keystroke and every tile
+  // drop, and with five learners in the room that is five times the traffic the
+  // 1:1 design ever saw. The tutor only needs to see the settled answer, so we
+  // send at most once per ANSWER_THROTTLE_MS and always flush the final value.
+  const answerTimers = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
+  const answerPending = useRef<Record<string, unknown>>({});
+
+  const flushAnswer = useCallback(
+    (anchor: string) => {
+      const state = answerPending.current[anchor];
+      delete answerPending.current[anchor];
+      delete answerTimers.current[anchor];
       void channelRef.current?.send({
         type: "broadcast",
         event: "exercise:answer",
         payload: { anchor, state, from: currentUserId },
       });
     },
-    [currentRole, currentUserId]
+    [currentUserId]
   );
+
+  const reportAnswer = useCallback(
+    (anchor: string, state: unknown) => {
+      if (currentRole !== "student") return;
+      answerPending.current[anchor] = state;
+      if (answerTimers.current[anchor]) return; // a flush is already scheduled
+      answerTimers.current[anchor] = setTimeout(
+        () => flushAnswer(anchor),
+        ANSWER_THROTTLE_MS
+      );
+    },
+    [currentRole, flushAnswer]
+  );
+
+  // Never strand a half-sent answer if the room unmounts mid-throttle.
+  useEffect(() => {
+    const timers = answerTimers.current;
+    return () => {
+      for (const t of Object.values(timers)) clearTimeout(t);
+    };
+  }, []);
 
   // Tutor-only: broadcast the new current section to both sides.
   const setCurrentSectionIdx = useCallback(
@@ -336,9 +380,43 @@ export function useLessonRoom({
     [sessionId, currentUserId, currentName]
   );
 
+  // The learners the tutor can switch between: anyone present as a student,
+  // plus anyone who has answered but has since dropped off the channel (so a
+  // student's work does not vanish from the tutor's view on a flaky connection).
+  const learners: RoomPresence[] = (() => {
+    const byId = new Map<string, RoomPresence>();
+    for (const p of presence) {
+      if (p.role === "student") byId.set(p.user_id, p);
+    }
+    for (const id of Object.keys(answersByStudent)) {
+      if (!byId.has(id)) {
+        byId.set(id, { user_id: id, role: "student", name: "Student" });
+      }
+    }
+    return Array.from(byId.values());
+  })();
+
+  // Resolve the selection. A 1:1 room never sets viewedStudentId, so it falls
+  // through to the only learner and behaves exactly as it did before.
+  const effectiveViewedId =
+    (viewedStudentId && answersByStudent[viewedStudentId] ? viewedStudentId : null) ??
+    (viewedStudentId && learners.some((l) => l.user_id === viewedStudentId)
+      ? viewedStudentId
+      : null) ??
+    learners[0]?.user_id ??
+    null;
+
+  // Sections read this and are unaware that groups exist: it is always "the
+  // answers of the learner currently being watched".
+  const studentAnswers = (effectiveViewedId && answersByStudent[effectiveViewedId]) || {};
+
   return {
     highlights,
     presence,
+    learners,
+    viewedStudentId: effectiveViewedId,
+    setViewedStudentId,
+    answersByStudent,
     toggleHighlight,
     broadcastSpeak,
     incomingSpeak,

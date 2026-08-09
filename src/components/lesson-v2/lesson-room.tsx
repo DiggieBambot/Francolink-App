@@ -12,7 +12,7 @@ import { StepControls } from "./step-controls";
 import { ToolsRail } from "./room/tools-rail";
 import { LessonBrowser } from "./room/lesson-browser";
 import type { PickerLesson } from "./room/lesson-picker";
-import { Users, Sparkles, BookOpen, RefreshCw, UserPlus, Check, Video, Send } from "lucide-react";
+import { Users, Sparkles, BookOpen, RefreshCw, UserPlus, Check, Video, Send, Eye } from "lucide-react";
 import type { Lesson } from "@/lib/lessons/types";
 
 /** Visible time on one lesson before it counts as covered. */
@@ -204,6 +204,10 @@ export function LessonRoom({
         revealedTranslations: room.revealedTranslations,
         toggleTranslation: room.toggleTranslation,
         studentAnswers: room.studentAnswers,
+        answersByStudent: room.answersByStudent,
+        learners: room.learners,
+        viewedStudentId: room.viewedStudentId,
+        setViewedStudentId: room.setViewedStudentId,
         reportAnswer: room.reportAnswer,
         currentSectionIdx: room.currentSectionIdx,
         setCurrentSectionIdx: room.setCurrentSectionIdx,
@@ -223,15 +227,53 @@ export function LessonRoom({
         </span>
         <span className="h-4 w-px bg-slate-200" />
         <Users className="h-4 w-4 text-slate-500" />
+        {/* A full group is 6 people. Show the first four and count the rest so
+            the pill never outgrows a narrow phone. */}
         <div className="flex -space-x-2">
-          {room.presence.map((p) => (
+          {room.presence.slice(0, 4).map((p) => (
             <span key={p.user_id} title={`${p.name} (${p.role})`} className="relative">
               <Avatar seed={p.avatar_seed || p.name} size={28} />
               <span className={`absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full ring-2 ring-white ${p.role === "tutor" ? "bg-emerald-500" : "bg-blue-500"}`} />
             </span>
           ))}
+          {room.presence.length > 4 ? (
+            <span
+              title={room.presence.slice(4).map((p) => p.name).join(", ")}
+              className="relative inline-flex h-7 w-7 items-center justify-center rounded-full bg-slate-200 text-[11px] font-semibold text-slate-600 ring-2 ring-white"
+            >
+              +{room.presence.length - 4}
+            </span>
+          ) : null}
           {room.presence.length === 0 ? <span className="text-xs text-slate-400">connecting…</span> : null}
         </div>
+
+        {/* Tutor watching a group: pick whose answers fill the exercises. Hidden
+            in a 1:1 room, where there is nothing to switch between. */}
+        {currentRole === "tutor" && room.learners.length > 1 ? (
+          <>
+            <span className="h-4 w-px bg-slate-200" />
+            <div className="flex items-center gap-1">
+              <Eye className="h-3.5 w-3.5 text-slate-500" />
+              {room.learners.map((l) => {
+                const active = l.user_id === room.viewedStudentId;
+                return (
+                  <button
+                    key={l.user_id}
+                    onClick={() => room.setViewedStudentId(l.user_id)}
+                    title={`Watch ${l.name}'s answers`}
+                    className={`rounded-full px-2 py-0.5 text-xs font-medium transition ${
+                      active
+                        ? "bg-blue-600 text-white"
+                        : "text-slate-600 hover:bg-slate-100"
+                    }`}
+                  >
+                    {l.name.split(" ")[0]}
+                  </button>
+                );
+              })}
+            </div>
+          </>
+        ) : null}
         <span className="h-4 w-px bg-slate-200" />
         {currentRole === "tutor" && studentId ? (
           <button

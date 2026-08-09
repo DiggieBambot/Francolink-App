@@ -26,8 +26,19 @@ export interface LessonRoomContextValue {
   revealedTranslations: Set<string>;
   /** Tutor-only: toggle a translation's visibility for the student. */
   toggleTranslation: (key: string) => void;
-  /** Live student answers for interactive exercises. Tutor reads to watch progress. */
+  /** Live answers of the learner currently being watched, keyed by exercise
+   *  anchor. In a 1:1 room that is simply "the student". Exercise sections read
+   *  only this and stay unaware of group rooms. */
   studentAnswers: Record<string, { state: unknown; updatedAt: number }>;
+  /** Every learner's answers, keyed user id → anchor. For views that show the
+   *  whole group at once rather than one learner at a time. */
+  answersByStudent: Record<string, Record<string, { state: unknown; updatedAt: number }>>;
+  /** Students the tutor can switch between (present, or with answers on file). */
+  learners: RoomPresence[];
+  /** The learner whose answers `studentAnswers` currently resolves to. */
+  viewedStudentId: string | null;
+  /** Tutor-only: watch a different learner. */
+  setViewedStudentId: (userId: string) => void;
   /** Student broadcasts a change in their answer for one exercise anchor. */
   reportAnswer: (anchor: string, state: unknown) => void;
   /** Tutor-driven current step. When set, both sides scroll to it. */
