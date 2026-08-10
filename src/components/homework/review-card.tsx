@@ -15,6 +15,8 @@ export interface ReviewItem {
   feedback: string | null;
   questions: HomeworkQuestion[];
   answers: string[];
+  /** Whose student this is. Shown only where submissions span tutors (admin). */
+  tutorName?: string | null;
 }
 
 export function ReviewCard({ item }: { item: ReviewItem }) {
@@ -46,7 +48,14 @@ export function ReviewCard({ item }: { item: ReviewItem }) {
     <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-800">
       <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
         <div>
-          <p className="font-semibold text-gray-900 dark:text-white">{item.studentName}</p>
+          <p className="font-semibold text-gray-900 dark:text-white">
+            {item.studentName}
+            {item.tutorName ? (
+              <span className="ml-2 text-xs font-normal text-gray-400">
+                tutor: {item.tutorName}
+              </span>
+            ) : null}
+          </p>
           <Link
             href={`/library/lesson/${item.lessonSlug}`}
             className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
