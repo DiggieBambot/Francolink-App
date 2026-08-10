@@ -49,3 +49,11 @@ ssh-keygen*
 # PM2 config — holds real secrets on the server. Copy the .example and fill it
 # in there; never commit the filled-in version.
 ecosystem.config.js
+
+# Local scratch: throwaway probe/one-off scripts kept at the repo root.
+_*.mts
+_*.mjs
+
+# Tool state, not project source.
+.zcode/
+supabase/.temp/
