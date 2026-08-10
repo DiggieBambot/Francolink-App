@@ -12,7 +12,7 @@ import { StepControls } from "./step-controls";
 import { ToolsRail } from "./room/tools-rail";
 import { LessonBrowser } from "./room/lesson-browser";
 import type { PickerLesson } from "./room/lesson-picker";
-import { Users, Sparkles, BookOpen, RefreshCw, UserPlus, Check, Video, Send, Eye, DoorOpen, ChevronDown } from "lucide-react";
+import { Users, Sparkles, BookOpen, RefreshCw, UserPlus, Check, Video, Send, Eye, DoorOpen, ChevronDown, LogOut } from "lucide-react";
 import type { Lesson } from "@/lib/lessons/types";
 
 /** Visible time on one lesson before it counts as covered. */
@@ -60,6 +60,7 @@ export function LessonRoom({
   const [ringing, setRinging] = useState(false);
   const [sendingHw, setSendingHw] = useState(false);
   const [roomMenuOpen, setRoomMenuOpen] = useState(false);
+  const [ending, setEnding] = useState(false);
   const lastIncoming = useRef(0);
 
   const showToast = (msg: string, ms = 3000) => {
@@ -124,6 +125,32 @@ export function LessonRoom({
       showToast("Could not send homework.");
     } finally {
       setSendingHw(false);
+    }
+  }
+
+  // End the class: marks the session completed so it stops showing as live in
+  // the switcher and on /tutor/sessions. Confirmed first — it is not obvious
+  // from the button alone that this closes the room for the student too.
+  async function endClass() {
+    if (ending) return;
+    if (!window.confirm("End this class? The room will close for everyone.")) return;
+    setEnding(true);
+    try {
+      const res = await fetch("/api/tutor/end-room", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sessionId }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.ok) {
+        window.location.href = "/tutor/sessions";
+        return;
+      }
+      showToast(data.error || "Could not end the class.");
+    } catch {
+      showToast("Could not end the class.");
+    } finally {
+      setEnding(false);
     }
   }
 
@@ -377,6 +404,20 @@ export function LessonRoom({
               className="inline-flex items-center gap-1 rounded-full bg-primary-600 px-2.5 py-0.5 text-xs font-semibold text-white hover:bg-primary-700"
             >
               <RefreshCw className="h-3 w-3" /> Change lesson
+            </button>
+          </>
+        ) : null}
+        {currentRole === "tutor" ? (
+          <>
+            <span className="h-4 w-px bg-slate-200" />
+            <button
+              onClick={endClass}
+              disabled={ending}
+              className="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold text-rose-600 hover:bg-rose-50 disabled:opacity-60"
+              title="End this class and close the room"
+            >
+              <LogOut className="h-3 w-3" />
+              {ending ? "Ending…" : "End class"}
             </button>
           </>
         ) : null}
