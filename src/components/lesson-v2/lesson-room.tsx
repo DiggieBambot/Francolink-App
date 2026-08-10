@@ -12,7 +12,7 @@ import { StepControls } from "./step-controls";
 import { ToolsRail } from "./room/tools-rail";
 import { LessonBrowser } from "./room/lesson-browser";
 import type { PickerLesson } from "./room/lesson-picker";
-import { Users, Sparkles, BookOpen, RefreshCw, UserPlus, Check, Video, Send, Eye } from "lucide-react";
+import { Users, Sparkles, BookOpen, RefreshCw, UserPlus, Check, Video, Send, Eye, DoorOpen, ChevronDown } from "lucide-react";
 import type { Lesson } from "@/lib/lessons/types";
 
 /** Visible time on one lesson before it counts as covered. */
@@ -32,6 +32,8 @@ interface LessonRoomProps {
   studentName?: string | null;
   initialHighlights: { anchor_id: string; role: "tutor" | "student" }[];
   initialChat?: { id: string; from: string; name: string; role: "tutor" | "student"; text: string; at: number }[];
+  /** The tutor's other live rooms, for the in-room room switcher. Tutor-only. */
+  otherRooms?: { id: string; label: string; isGroup: boolean }[];
 }
 
 export function LessonRoom({
@@ -46,6 +48,7 @@ export function LessonRoom({
   studentName = null,
   initialHighlights,
   initialChat = [],
+  otherRooms = [],
 }: LessonRoomProps) {
   const room = useLessonRoom({ sessionId, currentUserId, currentRole, currentName, initialHighlights, initialChatMessages: initialChat });
 
@@ -56,6 +59,7 @@ export function LessonRoom({
   const [inviteCopied, setInviteCopied] = useState(false);
   const [ringing, setRinging] = useState(false);
   const [sendingHw, setSendingHw] = useState(false);
+  const [roomMenuOpen, setRoomMenuOpen] = useState(false);
   const lastIncoming = useRef(0);
 
   const showToast = (msg: string, ms = 3000) => {
@@ -246,6 +250,66 @@ export function LessonRoom({
           ) : null}
           {room.presence.length === 0 ? <span className="text-xs text-slate-400">connecting…</span> : null}
         </div>
+
+        {/* Tutor with more than one class open: hop straight to another room
+            without going back out to the dashboard. Students never see this. */}
+        {currentRole === "tutor" && otherRooms.length > 0 ? (
+          <>
+            <span className="h-4 w-px bg-slate-200" />
+            <div className="relative">
+              <button
+                onClick={() => setRoomMenuOpen((v) => !v)}
+                className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold text-slate-600 hover:bg-slate-100"
+                title="Switch to another of your live rooms"
+              >
+                <DoorOpen className="h-3.5 w-3.5" />
+                Rooms
+                <span className="rounded-full bg-slate-200 px-1.5 text-[10px] font-bold text-slate-600">
+                  {otherRooms.length}
+                </span>
+                <ChevronDown className="h-3 w-3" />
+              </button>
+
+              {roomMenuOpen ? (
+                <>
+                  {/* Click-away catcher. */}
+                  <div className="fixed inset-0 z-40" onClick={() => setRoomMenuOpen(false)} />
+                  <div className="absolute right-0 top-full z-50 mt-2 w-60 overflow-hidden rounded-xl border bg-white shadow-lg">
+                    <p className="border-b px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                      Your other live rooms
+                    </p>
+                    <ul className="max-h-64 overflow-y-auto py-1">
+                      {otherRooms.map((r) => (
+                        <li key={r.id}>
+                          {/* A full navigation, not a client push: the room's
+                              realtime channel and presence must be torn down and
+                              rebuilt for the new session. */}
+                          <a
+                            href={`/room/${r.id}`}
+                            className="flex items-center gap-2 px-3 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                          >
+                            {r.isGroup ? (
+                              <Users className="h-3.5 w-3.5 shrink-0 text-slate-400" />
+                            ) : (
+                              <Video className="h-3.5 w-3.5 shrink-0 text-slate-400" />
+                            )}
+                            <span className="truncate">{r.label}</span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                    <a
+                      href="/tutor/sessions/new"
+                      className="flex items-center gap-2 border-t px-3 py-2 text-sm font-semibold text-emerald-700 hover:bg-emerald-50"
+                    >
+                      <Sparkles className="h-3.5 w-3.5" /> Start another class
+                    </a>
+                  </div>
+                </>
+              ) : null}
+            </div>
+          </>
+        ) : null}
 
         {/* Tutor watching a group: pick whose answers fill the exercises. Hidden
             in a 1:1 room, where there is nothing to switch between. */}

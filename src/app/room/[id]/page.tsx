@@ -10,6 +10,9 @@ import type { Lesson } from "@/lib/lessons/types";
 
 export const dynamic = "force-dynamic";
 
+/** Most rooms offered in the in-room switcher. */
+const ROOM_SWITCHER_LIMIT = 8;
+
 function service() {
   return createServiceClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -98,6 +101,64 @@ export default async function RoomPage({
   }
   const currentRole: "tutor" | "student" = isTutor ? "tutor" : "student";
 
+  // The tutor's other live rooms, for the in-room switcher. A tutor running
+  // back-to-back or parallel classes can hop straight between them instead of
+  // going out to the dashboard. Students never see this.
+  //
+  // Scoped to rooms started in the last day and capped: sessions are rarely
+  // marked ended, so "status = active" alone accumulates indefinitely — one
+  // tutor currently has 22. The switcher is for the classes you are actually
+  // teaching today, not an archive; /tutor/sessions remains the full list.
+  let otherRooms: { id: string; label: string; isGroup: boolean }[] = [];
+  if (isTutor) {
+    const since = new Date(Date.now() - 24 * 3600_000).toISOString();
+    const { data: siblingRows } = await svc
+      .from("tutor_lesson_sessions")
+      .select("id, student_id, title, is_group, started_at")
+      .eq("tutor_id", user.id)
+      .eq("status", "active")
+      .neq("id", id)
+      .gte("started_at", since)
+      .order("started_at", { ascending: false })
+      .limit(ROOM_SWITCHER_LIMIT);
+    const siblings = siblingRows || [];
+
+    // Name each room after its student. Group rooms have no single student, so
+    // they fall back to the session title.
+    const otherStudentIds = siblings
+      .map((s) => s.student_id)
+      .filter((sid): sid is string => Boolean(sid)) as string[];
+    const nameById = new Map<string, string>();
+    if (otherStudentIds.length > 0) {
+      const { data: others } = await svc
+        .from("users")
+        .select("id, name, first_name, last_name, email")
+        .in("id", otherStudentIds);
+      for (const o of others || []) {
+        nameById.set(
+          o.id,
+          o.name ||
+            [o.first_name, o.last_name].filter(Boolean).join(" ") ||
+            o.email?.split("@")[0] ||
+            "Student"
+        );
+      }
+    }
+
+    otherRooms = siblings.map((s) => {
+      // student_id === the tutor's own id is the "no claimed student" sentinel.
+      const named =
+        s.student_id && s.student_id !== user.id ? nameById.get(s.student_id) : null;
+      return {
+        id: s.id as string,
+        label: s.is_group
+          ? s.title || "Group class"
+          : named || s.title || "Untitled room",
+        isGroup: Boolean(s.is_group),
+      };
+    });
+  }
+
   // Current lesson (may be null — either party picks one in-room).
   let lesson: Lesson | null = null;
   if (session.tutor_lesson_id) {
@@ -171,6 +232,7 @@ export default async function RoomPage({
         studentName={pairedStudentName}
         initialHighlights={highlights || []}
         initialChat={initialChat}
+        otherRooms={otherRooms}
       />
     </>
   );
