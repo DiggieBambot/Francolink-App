@@ -15,10 +15,16 @@ const COLUMNS = [
     ],
   },
   {
+    title: "Earning opportunities",
+    links: [
+      { href: "/teach", label: "Become a tutor" },
+      { href: "/teach#tiers", label: "Tutor pay and tiers" },
+    ],
+  },
+  {
     title: "Company",
     links: [
       { href: "/about", label: "About us" },
-      { href: "/teach", label: "Teach with us" },
       { href: "/faq", label: "FAQ" },
       { href: "/contact", label: "Contact" },
       { href: "/blog", label: "Blog" },
@@ -46,7 +52,7 @@ export async function SiteFooter() {
   return (
     <footer className="bg-primary text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-6">
           <div className="lg:col-span-2">
             <Image
               src="/dark-logo-transparent.png"

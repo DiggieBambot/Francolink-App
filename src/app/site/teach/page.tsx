@@ -81,7 +81,7 @@ export default async function TeachPage() {
         </div>
       </Section>
 
-      <Section tone="tint">
+      <Section tone="tint" id="tiers">
         <SectionHeading
           eyebrow="Tiers"
           title="Where you'd be placed"

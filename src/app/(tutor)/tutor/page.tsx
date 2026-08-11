@@ -58,6 +58,31 @@ export default async function TutorDashboardPage() {
     .order("updated_at", { ascending: false })
     .limit(5);
 
+  // Is this tutor already a FrancoLink tutor (listed and paid by us), or have
+  // they applied? Drives the banner below — distinct from simply having a
+  // TUTOR account, which only means they can teach students they brought.
+  const [{ data: flProfile }, { data: flApplication }] = await Promise.all([
+    supabase
+      .from("tutor_public_profiles")
+      .select("slug, approval_status, is_public, accepts_bookings")
+      .eq("user_id", user.id)
+      .maybeSingle(),
+    supabase
+      .from("tutor_applications")
+      .select("status")
+      .eq("applicant_user_id", user.id)
+      .order("created_at", { ascending: false })
+      .limit(1)
+      .maybeSingle(),
+  ]);
+  const isListed =
+    flProfile?.approval_status === "approved" &&
+    flProfile?.is_public &&
+    flProfile?.accepts_bookings;
+  const applicationOpen = ["new", "reviewing", "interviewing"].includes(
+    flApplication?.status ?? ""
+  );
+
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
   const inviteLink = me?.tutor_invite_code ? `${appUrl}/join/${me.tutor_invite_code}` : null;
   const planLabel = me?.tutor_plan === "PREMIUM" ? "Premium" : me?.tutor_plan === "PREMIUM_PLUS" ? "Premium+" : "Basic";
@@ -79,6 +104,44 @@ export default async function TutorDashboardPage() {
           </span>
         </div>
       </div>
+
+      {/* Become a FrancoLink tutor — we send the students and pay per lesson.
+          Hidden once they're listed; shows status while an application is open. */}
+      {!isListed && (
+        <div className="rounded-2xl border border-secondary-200 bg-gradient-to-br from-secondary-50 to-white p-5">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="min-w-0">
+              <div className="flex items-center gap-2 text-secondary-700">
+                <Sparkles className="h-4 w-4" />
+                <span className="text-xs font-semibold uppercase tracking-wide">
+                  Earning opportunity
+                </span>
+              </div>
+              <h2 className="mt-2 text-lg font-bold text-slate-900">
+                Become a FrancoLink tutor
+              </h2>
+              <p className="mt-1 max-w-2xl text-sm text-slate-600">
+                Right now you teach students you bring yourself. Get listed on
+                francolink.net and we&apos;ll send you students, take the payment,
+                and pay you a fixed amount per lesson.
+              </p>
+            </div>
+            {applicationOpen ? (
+              <span className="shrink-0 rounded-xl bg-warning-light px-4 py-2.5 text-sm font-bold text-amber-900">
+                Application under review
+              </span>
+            ) : (
+              <Link
+                href="/tutor/apply"
+                className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-white hover:bg-primary-800"
+              >
+                Apply to join
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Earnings + students stat row */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

@@ -114,6 +114,40 @@ export async function POST(request: Request) {
   const targetId = editingSomeoneElse ? input.user_id! : user.id;
   let targetName = me?.name ?? "";
 
+  // A tutor may only write a listing once we've accepted their application.
+  // Having a TUTOR account just means they can teach students they brought
+  // themselves; being listed on francolink.net is a separate thing we approve.
+  // Admins are exempt — they author listings on a tutor's behalf, and the
+  // accept flow seeds the row before the tutor ever opens the editor.
+  if (!editingSomeoneElse && callerRole !== "ADMIN") {
+    const [{ data: accepted }, { data: existingProfile }] = await Promise.all([
+      supabase
+        .from("tutor_applications")
+        .select("id")
+        .eq("applicant_user_id", user.id)
+        .eq("status", "accepted")
+        .limit(1)
+        .maybeSingle(),
+      supabase
+        .from("tutor_public_profiles")
+        .select("user_id")
+        .eq("user_id", user.id)
+        .maybeSingle(),
+    ]);
+    // An existing row means an admin already created one for them (via the
+    // accept flow or by hand), so editing it is fine.
+    if (!accepted && !existingProfile) {
+      return NextResponse.json(
+        {
+          error:
+            "Apply to become a FrancoLink tutor first — we review every application before a profile can go live.",
+          needsApplication: true,
+        },
+        { status: 403 }
+      );
+    }
+  }
+
   if (editingSomeoneElse) {
     const { data: target } = await supabase
       .from("users")
