@@ -16,6 +16,17 @@ export const metadata: Metadata = {
     default: "FrancoLink — learn a language with certified tutors",
     template: "%s | FrancoLink",
   },
+  // The root layout also declares openGraph, and Next resolves ITS relative
+  // url against the APP's metadataBase — which put app.francolink.net into
+  // og:url on every marketing page, so shared links pointed at the product
+  // instead of the website. Redeclaring it here resolves against SITE_URL.
+  // Pages may still override `openGraph.url` (tutor profiles do).
+  openGraph: {
+    type: "website",
+    siteName: "FrancoLink",
+    url: "/",
+  },
+  alternates: { canonical: "/" },
 };
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {

@@ -67,6 +67,7 @@ function handleHostSplit(request: NextRequest): NextResponse | null {
 const SITE_ROUTES = [
   "/",
   "/tutors",
+  "/teach",
   "/how-it-works",
   "/pricing",
   "/about",

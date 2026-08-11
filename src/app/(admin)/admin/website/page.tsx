@@ -46,12 +46,18 @@ export default async function AdminWebsitePage() {
       .limit(100),
   ]);
 
+  const { data: applications } = await db
+    .from("tutor_applications")
+    .select("*")
+    .order("created_at", { ascending: false })
+    .limit(200);
+
   // Every tutor account, so you can author a listing for one directly instead
   // of waiting for them to fill it in themselves.
   const { data: allTutors } = await db
     .from("users")
-    .select("id, name, email, tutor_invite_code")
-    .eq("role", "TUTOR")
+    .select("id, name, email, tutor_invite_code, role")
+    .in("role", ["TUTOR", "ADMIN"])
     .order("name", { ascending: true });
 
   const withProfile = new Set(
@@ -65,6 +71,7 @@ export default async function AdminWebsitePage() {
       testimonials={testimonials.data ?? []}
       faqs={faqs.data ?? []}
       messages={messages.data ?? []}
+      applications={applications ?? []}
       tutors={(allTutors ?? []).map((t) => ({
         ...t,
         has_profile: withProfile.has(t.id),

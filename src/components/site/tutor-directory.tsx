@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { SlidersHorizontal } from "lucide-react";
 import type { TutorCard as TutorCardData } from "@/lib/site/queries";
 import { TutorCard } from "@/components/site/tutor-card";
+import type { Tier, TierPricing } from "@/lib/site/pricing";
 import { LANGUAGE_LABEL } from "@/lib/site/format";
 import { cn } from "@/lib/utils";
 
@@ -14,7 +15,13 @@ const ANY = "any";
  * (tens of tutors, not thousands) that filtering in the browser beats a
  * round-trip per filter change — revisit if the directory grows past ~200.
  */
-export function TutorDirectory({ tutors }: { tutors: TutorCardData[] }) {
+export function TutorDirectory({
+  tutors,
+  pricing,
+}: {
+  tutors: TutorCardData[];
+  pricing: Record<Tier, TierPricing>;
+}) {
   const [language, setLanguage] = useState(ANY);
   const [level, setLevel] = useState(ANY);
 
@@ -68,7 +75,7 @@ export function TutorDirectory({ tutors }: { tutors: TutorCardData[] }) {
       {visible.length > 0 ? (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((tutor) => (
-            <TutorCard key={tutor.slug} tutor={tutor} />
+            <TutorCard key={tutor.slug} tutor={tutor} pricing={pricing[tutor.tier]} />
           ))}
         </div>
       ) : (

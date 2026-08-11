@@ -38,7 +38,8 @@ export default async function AdminTutorProfilePage({
     .select("id, name, email, role, tutor_invite_code")
     .eq("id", userId)
     .maybeSingle();
-  if (!tutor || (tutor.role || "").toUpperCase() !== "TUTOR") notFound();
+  const role = (tutor?.role || "").toUpperCase();
+  if (!tutor || (role !== "TUTOR" && role !== "ADMIN")) notFound();
 
   const [{ data: profile }, { data: availability }] = await Promise.all([
     db.from("tutor_public_profiles").select("*").eq("user_id", userId).maybeSingle(),

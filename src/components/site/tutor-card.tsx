@@ -2,9 +2,31 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BadgeCheck, MapPin } from "lucide-react";
 import type { TutorCard as TutorCardData } from "@/lib/site/queries";
-import { LANGUAGE_LABEL, formatRate } from "@/lib/site/format";
+import { LANGUAGE_LABEL } from "@/lib/site/format";
+import {
+  TIER_LABEL,
+  cheapestLesson,
+  formatPrice,
+  type TierPricing,
+} from "@/lib/site/pricing";
+import { cn } from "@/lib/utils";
 
-export function TutorCard({ tutor }: { tutor: TutorCardData }) {
+const TIER_STYLE: Record<string, string> = {
+  professional: "bg-primary text-white",
+  certified: "bg-primary-50 text-primary",
+  community: "bg-gray-100 text-gray-600",
+};
+
+export function TutorCard({
+  tutor,
+  pricing,
+}: {
+  tutor: TutorCardData;
+  /** Price list for this tutor's tier. FrancoLink sets it, the tutor doesn't. */
+  pricing?: TierPricing;
+}) {
+  const from = cheapestLesson(pricing);
+
   return (
     <Link
       href={`/tutors/${tutor.slug}`}
@@ -17,7 +39,8 @@ export function TutorCard({ tutor }: { tutor: TutorCardData }) {
             alt={tutor.name}
             width={72}
             height={72}
-            className="w-18 h-18 rounded-2xl object-cover shrink-0"
+            unoptimized
+            className="w-[72px] h-[72px] rounded-2xl object-cover shrink-0"
           />
         ) : (
           <div className="w-[72px] h-[72px] rounded-2xl bg-primary flex items-center justify-center text-2xl font-heading font-extrabold text-white shrink-0">
@@ -29,8 +52,16 @@ export function TutorCard({ tutor }: { tutor: TutorCardData }) {
           <h3 className="font-heading font-bold text-lg text-primary truncate">
             {tutor.name}
           </h3>
+          <span
+            className={cn(
+              "inline-block mt-1 px-2 py-0.5 rounded-md text-[11px] font-bold uppercase tracking-wide",
+              TIER_STYLE[tutor.tier] ?? TIER_STYLE.community
+            )}
+          >
+            {TIER_LABEL[tutor.tier]}
+          </span>
           {tutor.headline && (
-            <p className="text-sm text-gray-600 line-clamp-2 mt-1">
+            <p className="text-sm text-gray-600 line-clamp-2 mt-2">
               {tutor.headline}
             </p>
           )}
@@ -57,25 +88,26 @@ export function TutorCard({ tutor }: { tutor: TutorCardData }) {
             {tutor.levels[0]}–{tutor.levels[tutor.levels.length - 1]}
           </span>
         )}
-        {tutor.trial_available && (
+        {tutor.trial_available && pricing?.trial && (
           <span className="px-2.5 py-1 rounded-lg bg-success-light text-green-700 text-xs font-semibold inline-flex items-center gap-1">
             <BadgeCheck className="w-3.5 h-3.5" />
-            Free trial
+            Trial {formatPrice(pricing.trial.priceCents, pricing.trial.currency)}
           </span>
         )}
       </div>
 
       <div className="mt-auto px-6 py-4 border-t border-gray-50 flex items-center justify-between">
         <div className="text-sm">
-          {tutor.hourly_rate_cents != null ? (
+          {from ? (
             <>
+              <span className="text-gray-500">from </span>
               <span className="font-heading font-extrabold text-primary text-lg">
-                {formatRate(tutor.hourly_rate_cents, tutor.currency)}
+                {formatPrice(from.priceCents, from.currency)}
               </span>
-              <span className="text-gray-500"> / hour</span>
+              <span className="text-gray-500"> / {from.durationMinutes} min</span>
             </>
           ) : (
-            <span className="text-gray-500">Rate on request</span>
+            <span className="text-gray-500">See lesson prices</span>
           )}
         </div>
         <span className="inline-flex items-center gap-1 text-sm font-bold text-primary group-hover:gap-2 transition-all">

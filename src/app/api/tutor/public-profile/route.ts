@@ -51,8 +51,6 @@ const Body = z.object({
   intro_video_url: z.string().url().max(500).nullable().default(null),
   country: z.string().trim().max(80).optional().default(""),
   timezone: z.string().trim().max(60).optional().default(""),
-  hourly_rate_cents: z.number().int().min(0).max(100_000).nullable().default(null),
-  currency: z.string().trim().length(3).default("EUR"),
   trial_available: z.boolean().default(true),
   is_public: z.boolean().default(false),
   availability: z.array(Slot).max(60).default([]),
@@ -60,6 +58,10 @@ const Body = z.object({
   // without a round trip through the review queue. Ignored for tutors.
   user_id: z.uuid().optional(),
   approve: z.boolean().optional(),
+  // Admin-only commercial controls. A tutor cannot set their own tier (it
+  // decides their pay) nor switch themselves on for bookings.
+  tier: z.enum(["community", "certified", "professional"]).optional(),
+  accepts_bookings: z.boolean().optional(),
 });
 
 /** "Marie-Claire Dupont" → "marie-claire-dupont" */
@@ -118,8 +120,14 @@ export async function POST(request: Request) {
       .select("id, name, role")
       .eq("id", targetId)
       .maybeSingle();
-    if (!target || (target.role || "").toUpperCase() !== "TUTOR") {
-      return NextResponse.json({ error: "That user isn't a tutor" }, { status: 400 });
+    // ADMIN is allowed here too: the founder teaches, and forcing a role
+    // change just to appear in the directory would cost them the admin panel.
+    const targetRole = (target?.role || "").toUpperCase();
+    if (!target || (targetRole !== "TUTOR" && targetRole !== "ADMIN")) {
+      return NextResponse.json(
+        { error: "That user can't be listed as a tutor" },
+        { status: 400 }
+      );
     }
     targetName = target.name ?? "";
   }
@@ -183,9 +191,12 @@ export async function POST(request: Request) {
         intro_video_url: input.intro_video_url,
         country: input.country || null,
         timezone: input.timezone || null,
-        hourly_rate_cents: input.hourly_rate_cents,
-        currency: input.currency,
         trial_available: input.trial_available,
+        // Only an admin may move these; a tutor's save leaves them untouched.
+        ...(callerRole === "ADMIN" && input.tier ? { tier: input.tier } : {}),
+        ...(callerRole === "ADMIN" && input.accepts_bookings !== undefined
+          ? { accepts_bookings: input.accepts_bookings }
+          : {}),
         is_public: input.is_public,
         approval_status: approvalStatus,
         rejection_reason: null,

@@ -58,9 +58,13 @@ async function resolveTarget(
     .select("id, role")
     .eq("id", requestedUserId)
     .maybeSingle();
-  if (!target || (target.role || "").toUpperCase() !== "TUTOR") {
+  const targetRole = (target?.role || "").toUpperCase();
+  if (!target || (targetRole !== "TUTOR" && targetRole !== "ADMIN")) {
     return {
-      error: NextResponse.json({ error: "That user isn't a tutor" }, { status: 400 }),
+      error: NextResponse.json(
+        { error: "That user can't be listed as a tutor" },
+        { status: 400 }
+      ),
     };
   }
   return { targetId: target.id };

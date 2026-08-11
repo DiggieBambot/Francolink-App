@@ -58,6 +58,13 @@ const Action = z.discriminatedUnion("action", [
   z.object({ action: z.literal("toggle_faq"), id: z.uuid(), is_published: z.boolean() }),
   z.object({ action: z.literal("delete_faq"), id: z.uuid() }),
   z.object({
+    action: z.literal("set_application_status"),
+    id: z.uuid(),
+    status: z.enum(["new", "reviewing", "interviewing", "accepted", "rejected", "spam"]),
+    proposed_tier: z.enum(["community", "certified", "professional"]).optional(),
+    review_notes: z.string().trim().max(2000).optional(),
+  }),
+  z.object({
     action: z.literal("set_message_status"),
     id: z.uuid(),
     status: z.enum(["new", "read", "replied", "spam"]),
@@ -130,6 +137,19 @@ export async function POST(request: Request) {
 
     case "delete_faq":
       ({ error } = await db.from("site_faqs").delete().eq("id", input.id));
+      break;
+
+    case "set_application_status":
+      ({ error } = await db
+        .from("tutor_applications")
+        .update({
+          status: input.status,
+          ...(input.proposed_tier ? { proposed_tier: input.proposed_tier } : {}),
+          ...(input.review_notes !== undefined
+            ? { review_notes: input.review_notes }
+            : {}),
+        })
+        .eq("id", input.id));
       break;
 
     case "set_message_status":

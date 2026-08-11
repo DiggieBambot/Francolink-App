@@ -57,6 +57,23 @@ interface TutorRow {
   has_profile: boolean;
 }
 
+interface ApplicationRow {
+  id: string;
+  full_name: string;
+  email: string;
+  country: string | null;
+  teaches: string[] | null;
+  levels: string[] | null;
+  years_experience: number | null;
+  weekly_hours: number | null;
+  qualifications: string | null;
+  about: string;
+  link: string | null;
+  status: string;
+  proposed_tier: string | null;
+  created_at: string;
+}
+
 interface MessageRow {
   id: string;
   name: string;
@@ -67,7 +84,7 @@ interface MessageRow {
   created_at: string;
 }
 
-type Tab = "profiles" | "tutors" | "testimonials" | "faqs" | "messages";
+type Tab = "profiles" | "applications" | "tutors" | "testimonials" | "faqs" | "messages";
 
 export function WebsiteAdmin({
   siteUrl,
@@ -76,6 +93,7 @@ export function WebsiteAdmin({
   faqs,
   messages,
   tutors,
+  applications,
 }: {
   siteUrl: string;
   profiles: ProfileRow[];
@@ -83,6 +101,7 @@ export function WebsiteAdmin({
   faqs: FaqRow[];
   messages: MessageRow[];
   tutors: TutorRow[];
+  applications: ApplicationRow[];
 }) {
   const router = useRouter();
   const [tab, setTab] = useState<Tab>("profiles");
@@ -112,9 +131,11 @@ export function WebsiteAdmin({
 
   const pending = profiles.filter((p) => p.approval_status === "pending").length;
   const unread = messages.filter((m) => m.status === "new").length;
+  const newApps = applications.filter((a) => a.status === "new").length;
 
   const TABS: [Tab, string, number | null][] = [
     ["profiles", "Listings", pending || null],
+    ["applications", "Applications", newApps || null],
     ["tutors", "All tutors", null],
     ["testimonials", "Testimonials", null],
     ["faqs", "FAQs", null],
@@ -176,6 +197,9 @@ export function WebsiteAdmin({
           busy={busy}
           act={act}
         />
+      )}
+      {tab === "applications" && (
+        <ApplicationsTab applications={applications} busy={busy} act={act} />
       )}
       {tab === "tutors" && <TutorsTab tutors={tutors} />}
       {tab === "testimonials" && (
@@ -313,6 +337,131 @@ function ProfilesTab({
           </li>
         );
       })}
+    </ul>
+  );
+}
+
+/* ----------------------------------------------------------- applications */
+
+const APP_STATUSES = ["new", "reviewing", "interviewing", "accepted", "rejected", "spam"];
+
+/** Inbound "apply to teach" submissions. Accepting one is a manual step:
+ *  create the account, then author their listing from the All tutors tab. */
+function ApplicationsTab({
+  applications,
+  busy,
+  act,
+}: {
+  applications: ApplicationRow[];
+  busy: string | null;
+  act: Act;
+}) {
+  if (applications.length === 0) {
+    return <Empty>No applications yet. The form is live at /teach.</Empty>;
+  }
+
+  return (
+    <ul className="space-y-4">
+      {applications.map((a) => (
+        <li
+          key={a.id}
+          className={cn(
+            "p-5 rounded-2xl border",
+            a.status === "new"
+              ? "bg-secondary-50 border-secondary-200"
+              : "bg-white border-gray-200"
+          )}
+        >
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div className="min-w-0 flex-1">
+              <h2 className="font-heading font-bold text-primary">
+                {a.full_name}{" "}
+                <span className="font-normal text-gray-500 text-sm">
+                  &lt;{a.email}&gt;
+                </span>
+              </h2>
+              <p className="text-xs text-gray-500 mt-1">
+                {[
+                  a.country,
+                  (a.teaches ?? []).join(", ") || null,
+                  (a.levels ?? []).length ? (a.levels ?? []).join(", ") : null,
+                  a.years_experience != null ? `${a.years_experience} yrs` : null,
+                  a.weekly_hours != null ? `${a.weekly_hours} h/week` : null,
+                  new Date(a.created_at).toLocaleDateString(),
+                ]
+                  .filter(Boolean)
+                  .join(" · ")}
+              </p>
+              {a.qualifications && (
+                <p className="text-sm text-gray-700 mt-3 whitespace-pre-line">
+                  <span className="font-semibold">Qualifications: </span>
+                  {a.qualifications}
+                </p>
+              )}
+              <p className="text-sm text-gray-700 mt-2 whitespace-pre-line">
+                {a.about}
+              </p>
+              {a.link && (
+                <a
+                  href={a.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-2 text-sm text-primary underline underline-offset-4 break-all"
+                >
+                  {a.link}
+                </a>
+              )}
+            </div>
+
+            <div className="flex flex-col gap-2 shrink-0 w-44">
+              <select
+                value={a.status}
+                disabled={busy === `a-${a.id}`}
+                onChange={(e) =>
+                  act(`a-${a.id}`, {
+                    action: "set_application_status",
+                    id: a.id,
+                    status: e.target.value,
+                  })
+                }
+                className="px-3 py-2.5 rounded-xl border border-gray-200 bg-white text-sm"
+              >
+                {APP_STATUSES.map((s) => (
+                  <option key={s} value={s}>
+                    {s}
+                  </option>
+                ))}
+              </select>
+
+              <select
+                value={a.proposed_tier ?? ""}
+                disabled={busy === `a-${a.id}`}
+                onChange={(e) =>
+                  act(`a-${a.id}`, {
+                    action: "set_application_status",
+                    id: a.id,
+                    status: a.status,
+                    proposed_tier: e.target.value,
+                  })
+                }
+                className="px-3 py-2.5 rounded-xl border border-gray-200 bg-white text-sm"
+              >
+                <option value="">Tier…</option>
+                <option value="community">Community</option>
+                <option value="certified">Certified</option>
+                <option value="professional">Professional</option>
+              </select>
+
+              <a
+                href={`mailto:${a.email}?subject=${encodeURIComponent("Your FrancoLink teaching application")}`}
+                className="px-3 py-2.5 rounded-xl border border-gray-200 text-sm font-semibold text-primary text-center"
+              >
+                Reply
+              </a>
+            </div>
+          </div>
+        </li>
+      ))}
     </ul>
   );
 }

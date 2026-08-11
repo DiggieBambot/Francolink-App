@@ -15,7 +15,13 @@ import {
 import { CtaButton } from "@/components/site/ui";
 import { AvailabilityTable } from "@/components/site/availability-table";
 import { getPublicTutor, getPublicTutorSlugs } from "@/lib/site/queries";
-import { LANGUAGE_LABEL, formatRate } from "@/lib/site/format";
+import { LANGUAGE_LABEL } from "@/lib/site/format";
+import {
+  TIER_BLURB,
+  TIER_LABEL,
+  formatPrice,
+  getPricingByTier,
+} from "@/lib/site/pricing";
 import { appUrl, siteUrl } from "@/lib/site/hosts";
 
 export const revalidate = 3600;
@@ -56,8 +62,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function TutorProfilePage({ params }: PageProps) {
   const { slug } = await params;
-  const tutor = await getPublicTutor(slug);
+  const [tutor, allPricing] = await Promise.all([
+    getPublicTutor(slug),
+    getPricingByTier(),
+  ]);
   if (!tutor) notFound();
+  const pricing = allPricing[tutor.tier];
 
   const languages = tutor.teaches.map((c) => LANGUAGE_LABEL[c] ?? c.toUpperCase());
   // Joining a tutor's class happens in the app, via their invite code.
@@ -154,16 +164,18 @@ export default async function TutorProfilePage({ params }: PageProps) {
 
               <div className="mt-7 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <CtaButton href={bookHref} external>
-                  {tutor.trial_available
-                    ? "Book a free trial lesson"
+                  {tutor.trial_available && pricing.trial
+                    ? `Book a first lesson — ${formatPrice(pricing.trial.priceCents, pricing.trial.currency)}`
                     : "Book a lesson"}
                 </CtaButton>
-                {tutor.hourly_rate_cents != null && (
-                  <span className="text-gray-600 self-center">
-                    <strong className="font-heading font-extrabold text-primary text-xl">
-                      {formatRate(tutor.hourly_rate_cents, tutor.currency)}
-                    </strong>{" "}
-                    / hour
+                {pricing.lessons.length > 0 && (
+                  <span className="text-gray-600 self-center text-sm">
+                    {pricing.lessons
+                      .map(
+                        (l) =>
+                          `${formatPrice(l.priceCents, l.currency)} / ${l.durationMinutes} min`
+                      )
+                      .join("  ·  ")}
                   </span>
                 )}
               </div>
@@ -275,6 +287,27 @@ export default async function TutorProfilePage({ params }: PageProps) {
         {/* ------------------------------------------------------------ ASIDE */}
         <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
           <div className="p-6 rounded-2xl bg-white border border-gray-100 shadow-soft">
+            <h3 className="font-heading font-bold text-primary mb-2">
+              {TIER_LABEL[tutor.tier]}
+            </h3>
+            <p className="text-sm text-gray-600 leading-relaxed mb-4">
+              {TIER_BLURB[tutor.tier]}
+            </p>
+            <div className="pb-4 mb-4 border-b border-gray-50 space-y-1">
+              {pricing.lessons.map((l) => (
+                <p key={l.durationMinutes} className="text-sm">
+                  <span className="font-heading font-extrabold text-primary">
+                    {formatPrice(l.priceCents, l.currency)}
+                  </span>
+                  <span className="text-gray-500"> / {l.durationMinutes} min</span>
+                </p>
+              ))}
+              {pricing.trial && (
+                <p className="text-xs text-green-700 font-semibold pt-1">
+                  First lesson {formatPrice(pricing.trial.priceCents, pricing.trial.currency)}
+                </p>
+              )}
+            </div>
             <h3 className="font-heading font-bold text-primary mb-4">Teaches</h3>
             <div className="flex flex-wrap gap-2">
               {languages.map((label) => (

@@ -7,6 +7,7 @@
 // tutor who hasn't opted in yet.
 
 import { createClient } from "@supabase/supabase-js";
+import type { Tier } from "./pricing";
 
 function serviceClient() {
   return createClient(
@@ -38,8 +39,8 @@ export interface TutorCard {
   levels: string[];
   specialties: string[];
   years_experience: number | null;
-  hourly_rate_cents: number | null;
-  currency: string;
+  /** Drives the lesson price — FrancoLink sets prices, tutors don't. */
+  tier: Tier;
   trial_available: boolean;
 }
 
@@ -95,8 +96,7 @@ interface ProfileRow {
   intro_video_url: string | null;
   country: string | null;
   timezone: string | null;
-  hourly_rate_cents: number | null;
-  currency: string | null;
+  tier: string | null;
   trial_available: boolean;
   users: JoinedUser | JoinedUser[] | null;
 }
@@ -104,7 +104,7 @@ interface ProfileRow {
 const PROFILE_SELECT = `
   user_id, slug, headline, bio, teaches, speaks, levels, specialties,
   qualifications, years_experience, photo_url, intro_video_url, country,
-  timezone, hourly_rate_cents, currency, trial_available,
+  timezone, tier, trial_available,
   users:users!tutor_public_profiles_user_id_fkey ( id, name, avatar_url, tutor_invite_code )
 `;
 
@@ -125,8 +125,7 @@ function toCard(row: ProfileRow): TutorCard {
     levels: row.levels ?? [],
     specialties: row.specialties ?? [],
     years_experience: row.years_experience,
-    hourly_rate_cents: row.hourly_rate_cents,
-    currency: row.currency || "EUR",
+    tier: (row.tier as Tier) || "community",
     trial_available: row.trial_available,
   };
 }
@@ -138,6 +137,7 @@ export async function getPublicTutors(): Promise<TutorCard[]> {
     .select(PROFILE_SELECT)
     .eq("is_public", true)
     .eq("approval_status", "approved")
+    .eq("accepts_bookings", true)
     .order("display_order", { ascending: true })
     .order("created_at", { ascending: true });
 
@@ -155,6 +155,7 @@ export async function getPublicTutor(slug: string): Promise<TutorProfile | null>
     .eq("slug", slug)
     .eq("is_public", true)
     .eq("approval_status", "approved")
+    .eq("accepts_bookings", true)
     .maybeSingle();
 
   if (error || !data) return null;
@@ -197,7 +198,8 @@ export async function getPublicTutorSlugs(): Promise<string[]> {
     .from("tutor_public_profiles")
     .select("slug")
     .eq("is_public", true)
-    .eq("approval_status", "approved");
+    .eq("approval_status", "approved")
+    .eq("accepts_bookings", true);
   return (data ?? []).map((r) => r.slug as string);
 }
 

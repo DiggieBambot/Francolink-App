@@ -36,9 +36,9 @@ interface ProfileRow {
   intro_video_url?: string | null;
   country?: string | null;
   timezone?: string | null;
-  hourly_rate_cents?: number | null;
-  currency?: string | null;
   trial_available?: boolean;
+  tier?: string;
+  accepts_bookings?: boolean;
   is_public?: boolean;
   approval_status?: string;
   rejection_reason?: string | null;
@@ -80,11 +80,11 @@ export function PublicProfileForm({
   const [timezone, setTimezone] = useState(
     profile?.timezone ?? Intl.DateTimeFormat().resolvedOptions().timeZone
   );
-  const [rate, setRate] = useState(
-    profile?.hourly_rate_cents != null ? (profile.hourly_rate_cents / 100).toString() : ""
-  );
-  const [currency, setCurrency] = useState(profile?.currency ?? "EUR");
   const [trial, setTrial] = useState(profile?.trial_available ?? true);
+  const [tier, setTier] = useState(profile?.tier ?? "community");
+  const [acceptsBookings, setAcceptsBookings] = useState(
+    profile?.accepts_bookings ?? false
+  );
   const [isPublic, setIsPublic] = useState(profile?.is_public ?? false);
   const [slots, setSlots] = useState<Slot[]>(availability);
 
@@ -113,12 +113,15 @@ export function PublicProfileForm({
       intro_video_url: videoUrl || null,
       country,
       timezone,
-      hourly_rate_cents: rate ? Math.round(Number(rate) * 100) : null,
-      currency,
       trial_available: trial,
       is_public: isPublic,
       availability: slots,
-      ...(asAdmin && { user_id: targetUserId, approve: approveNow }),
+      ...(asAdmin && {
+        user_id: targetUserId,
+        approve: approveNow,
+        tier,
+        accepts_bookings: acceptsBookings,
+      }),
     };
 
     try {
@@ -332,33 +335,44 @@ export function PublicProfileForm({
         </div>
       </Card>
 
-      <Card title="Rate and availability">
-        <div className="grid sm:grid-cols-3 gap-5">
-          <Text label="Hourly rate" type="number" value={rate} onChange={setRate} placeholder="25" />
+      <Card title="Lessons and availability">
+        {asAdmin ? (
           <label className="block">
-            <span className="block text-sm font-semibold text-primary mb-2">Currency</span>
+            <span className="block text-sm font-semibold text-primary mb-2">
+              Tier
+            </span>
+            <span className="block text-xs text-gray-500 mb-2">
+              Sets what the lesson sells for and what this tutor is paid.
+              FrancoLink sets prices — tutors never set their own rate.
+            </span>
             <select
-              value={currency}
-              onChange={(e) => setCurrency(e.target.value)}
+              value={tier}
+              onChange={(e) => setTier(e.target.value)}
               className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white outline-none focus:border-primary"
             >
-              {["EUR", "USD", "GBP", "CAD", "XAF"].map((c) => (
-                <option key={c}>{c}</option>
-              ))}
+              <option value="community">Community — fluent, no formal qualification</option>
+              <option value="certified">Certified — recognised teaching qualification</option>
+              <option value="professional">Professional — qualified + proven experience</option>
             </select>
           </label>
-          <label className="flex items-center gap-3 sm:mt-8">
-            <input
-              type="checkbox"
-              checked={trial}
-              onChange={(e) => setTrial(e.target.checked)}
-              className="w-5 h-5 rounded accent-[#092845]"
-            />
-            <span className="text-sm font-semibold text-primary">
-              I offer a free trial lesson
-            </span>
-          </label>
-        </div>
+        ) : (
+          <p className="text-sm text-gray-600 bg-gray-50 px-4 py-3 rounded-xl">
+            Lesson prices are set by FrancoLink from your tier — you don&apos;t
+            need to set a rate. Ask us if you think your tier is wrong.
+          </p>
+        )}
+
+        <label className="flex items-center gap-3">
+          <input
+            type="checkbox"
+            checked={trial}
+            onChange={(e) => setTrial(e.target.checked)}
+            className="w-5 h-5 rounded accent-[#092845]"
+          />
+          <span className="text-sm font-semibold text-primary">
+            Offer the discounted first lesson to new students
+          </span>
+        </label>
 
         <AvailabilityEditor slots={slots} onChange={setSlots} />
       </Card>
@@ -381,6 +395,26 @@ export function PublicProfileForm({
             </span>
           </span>
         </label>
+
+        {asAdmin && (
+          <label className="flex items-start gap-3 pt-4 border-t border-gray-100">
+            <input
+              type="checkbox"
+              checked={acceptsBookings}
+              onChange={(e) => setAcceptsBookings(e.target.checked)}
+              className="w-5 h-5 mt-0.5 rounded accent-[#092845]"
+            />
+            <span>
+              <span className="block text-sm font-semibold text-primary">
+                Open for bookings
+              </span>
+              <span className="block text-sm text-gray-500 mt-0.5">
+                Required to appear in the directory at all. Untick to take this
+                tutor off the site without deleting anything.
+              </span>
+            </span>
+          </label>
+        )}
 
         {asAdmin && (
           <label className="flex items-start gap-3 pt-4 border-t border-gray-100">
