@@ -32,12 +32,6 @@ const Qualification = z.object({
   year: z.number().int().min(1950).max(2100).optional(),
 });
 
-const Slot = z.object({
-  weekday: z.number().int().min(0).max(6),
-  start_minute: z.number().int().min(0).max(1440),
-  end_minute: z.number().int().min(0).max(1440),
-});
-
 const Body = z.object({
   headline: z.string().trim().max(200).optional().default(""),
   bio: z.string().trim().max(4000).optional().default(""),
@@ -53,7 +47,6 @@ const Body = z.object({
   timezone: z.string().trim().max(60).optional().default(""),
   trial_available: z.boolean().default(true),
   is_public: z.boolean().default(false),
-  availability: z.array(Slot).max(60).default([]),
   // Admin-only: author a profile for another tutor, and optionally publish it
   // without a round trip through the review queue. Ignored for tutors.
   user_id: z.uuid().optional(),
@@ -175,15 +168,6 @@ export async function POST(request: Request) {
   // stays user-scoped for anything about the caller.
   const db = editingSomeoneElse ? serviceClient() : supabase;
 
-  const invalidSlot = input.availability.find(
-    (s) => s.end_minute <= s.start_minute
-  );
-  if (invalidSlot) {
-    return NextResponse.json(
-      { error: "Each availability slot must end after it starts." },
-      { status: 400 }
-    );
-  }
 
   const { data: existing } = await db
     .from("tutor_public_profiles")
@@ -243,20 +227,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Couldn't save your profile." }, { status: 500 });
   }
 
-  // Availability is a full replace — simpler and safer than diffing slots.
-  await db.from("tutor_availability").delete().eq("tutor_id", targetId);
-  if (input.availability.length > 0) {
-    const { error: slotError } = await db.from("tutor_availability").insert(
-      input.availability.map((s) => ({ ...s, tutor_id: targetId }))
-    );
-    if (slotError) {
-      console.error("[tutor/public-profile] availability insert failed", slotError);
-      return NextResponse.json(
-        { error: "Profile saved, but your availability didn't save." },
-        { status: 500 }
-      );
-    }
-  }
 
   return NextResponse.json({ ok: true, slug, approval_status: approvalStatus });
 }

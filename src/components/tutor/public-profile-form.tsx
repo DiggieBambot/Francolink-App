@@ -1,19 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, Clock, Loader2, Plus, Save, Trash2 } from "lucide-react";
-import { LANGUAGE_LABEL, WEEKDAY_SHORT, formatMinute } from "@/lib/site/format";
+import { CheckCircle2, Loader2, Plus, Save, Trash2 } from "lucide-react";
+import { LANGUAGE_LABEL } from "@/lib/site/format";
 import { PhotoUpload } from "@/components/site/photo-upload";
 import { cn } from "@/lib/utils";
 
 const LANGUAGES = ["fr", "en", "es", "de", "ar", "it", "pt"];
 const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
 
-interface Slot {
-  weekday: number;
-  start_minute: number;
-  end_minute: number;
-}
 
 interface Qualification {
   title: string;
@@ -47,7 +42,6 @@ interface ProfileRow {
 export function PublicProfileForm({
   tutorName,
   profile,
-  availability,
   siteUrl,
   /**
    * Set when an admin is authoring someone else's profile. Changes who the
@@ -58,7 +52,6 @@ export function PublicProfileForm({
 }: {
   tutorName: string;
   profile: ProfileRow | null;
-  availability: Slot[];
   siteUrl: string;
   targetUserId?: string;
 }) {
@@ -86,7 +79,6 @@ export function PublicProfileForm({
     profile?.accepts_bookings ?? false
   );
   const [isPublic, setIsPublic] = useState(profile?.is_public ?? false);
-  const [slots, setSlots] = useState<Slot[]>(availability);
 
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
@@ -115,7 +107,6 @@ export function PublicProfileForm({
       timezone,
       trial_available: trial,
       is_public: isPublic,
-      availability: slots,
       ...(asAdmin && {
         user_id: targetUserId,
         approve: approveNow,
@@ -212,7 +203,7 @@ export function PublicProfileForm({
           <Text label="Country" value={country} onChange={setCountry} placeholder="France" />
           <Text
             label="Timezone"
-            hint="Your availability below is shown in this zone."
+            hint="Students see your bookable hours converted from this zone."
             value={timezone}
             onChange={setTimezone}
             placeholder="Europe/Paris"
@@ -374,7 +365,22 @@ export function PublicProfileForm({
           </span>
         </label>
 
-        <AvailabilityEditor slots={slots} onChange={setSlots} />
+        <div className="pt-2">
+          <span className="block text-sm font-semibold text-primary mb-1">
+            Bookable hours
+          </span>
+          <p className="text-sm text-gray-600">
+            Your weekly hours and time off live on their own page, so editing
+            your bio never touches your calendar —{" "}
+            <a
+              href="/tutor/availability"
+              className="font-semibold text-primary underline underline-offset-4"
+            >
+              set your availability
+            </a>
+            .
+          </p>
+        </div>
       </Card>
 
       <Card title="Listing">
@@ -541,105 +547,3 @@ function Chips({
   );
 }
 
-/** Weekly recurring hours, entered in the tutor's own timezone. */
-function AvailabilityEditor({
-  slots,
-  onChange,
-}: {
-  slots: Slot[];
-  onChange: (s: Slot[]) => void;
-}) {
-  const [weekday, setWeekday] = useState(1);
-  const [start, setStart] = useState("09:00");
-  const [end, setEnd] = useState("12:00");
-
-  function toMinutes(hhmm: string): number {
-    const [h, m] = hhmm.split(":").map(Number);
-    return h * 60 + m;
-  }
-
-  function add() {
-    const s = toMinutes(start);
-    const e = toMinutes(end);
-    if (!(e > s)) return;
-    onChange(
-      [...slots, { weekday, start_minute: s, end_minute: e }].sort(
-        (a, b) => a.weekday - b.weekday || a.start_minute - b.start_minute
-      )
-    );
-  }
-
-  return (
-    <div>
-      <span className="block text-sm font-semibold text-primary mb-2">
-        Weekly availability
-      </span>
-      <span className="block text-xs text-gray-500 mb-3">
-        Recurring hours students see on your profile. These are indicative — you
-        still confirm the exact time with each student.
-      </span>
-
-      <div className="flex flex-wrap items-end gap-3 p-4 rounded-xl bg-gray-50 mb-4">
-        <select
-          value={weekday}
-          onChange={(e) => setWeekday(Number(e.target.value))}
-          className="px-3 py-2.5 rounded-xl border border-gray-200 bg-white outline-none"
-        >
-          {[1, 2, 3, 4, 5, 6, 0].map((d) => (
-            <option key={d} value={d}>
-              {WEEKDAY_SHORT[d]}
-            </option>
-          ))}
-        </select>
-        <input
-          type="time"
-          value={start}
-          onChange={(e) => setStart(e.target.value)}
-          className="px-3 py-2.5 rounded-xl border border-gray-200 outline-none"
-        />
-        <span className="pb-2.5 text-gray-400">→</span>
-        <input
-          type="time"
-          value={end}
-          onChange={(e) => setEnd(e.target.value)}
-          className="px-3 py-2.5 rounded-xl border border-gray-200 outline-none"
-        />
-        <button
-          type="button"
-          onClick={add}
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-white text-sm font-bold"
-        >
-          <Plus className="w-4 h-4" />
-          Add
-        </button>
-      </div>
-
-      {slots.length === 0 ? (
-        <p className="text-sm text-gray-500">
-          No hours added — your profile will say you arrange times directly.
-        </p>
-      ) : (
-        <ul className="flex flex-wrap gap-2">
-          {slots.map((s, i) => (
-            <li
-              key={`${s.weekday}-${s.start_minute}-${i}`}
-              className="inline-flex items-center gap-2 pl-3 pr-2 py-1.5 rounded-xl bg-success-light text-green-800 text-sm font-semibold"
-            >
-              <Clock className="w-3.5 h-3.5" />
-              {WEEKDAY_SHORT[s.weekday]} {formatMinute(s.start_minute)}–
-              {formatMinute(s.end_minute)}
-              <button
-                type="button"
-                onClick={() => onChange(slots.filter((_, j) => j !== i))}
-                aria-label="Remove slot"
-                className="p-1 hover:text-red-600"
-              >
-                <Trash2 className="w-3.5 h-3.5" />
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
-}

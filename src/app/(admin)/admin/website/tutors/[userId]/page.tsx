@@ -85,7 +85,6 @@ export default async function AdminTutorProfilePage({
       <PublicProfileForm
         tutorName={tutor.name || ""}
         profile={profile ?? null}
-        availability={availability ?? []}
         siteUrl={SITE_URL}
         targetUserId={tutor.id}
       />

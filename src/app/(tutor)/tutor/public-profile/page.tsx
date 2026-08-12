@@ -143,7 +143,6 @@ export default async function TutorPublicProfilePage() {
       <PublicProfileForm
         tutorName={me?.name || ""}
         profile={profile ?? null}
-        availability={availability ?? []}
         siteUrl={SITE_URL}
       />
     </div>
