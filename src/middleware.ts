@@ -188,6 +188,13 @@ if (SKIP_INTL.some((p) => pathname.startsWith(p))) {
 }
 
 export const config = {
+  // Supabase's auth client refreshes the session in here on every request. On
+  // the Edge runtime that fetch fails outright in local dev — the edge sandbox
+  // cannot reach Supabase — and auth-js retries with backoff, adding 40-50s to
+  // every single request before the page finally renders. Node is the runtime
+  // Vercel recommends for middleware now (Edge is the legacy path), and it is
+  // where the Supabase client is happiest.
+  runtime: "nodejs",
   matcher: [
     "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:js|svg|png|jpg|jpeg|gif|webp|ico|txt|xml|json|webmanifest|wav|mp3)$).*)",
   ],
