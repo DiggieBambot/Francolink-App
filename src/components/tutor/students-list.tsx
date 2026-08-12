@@ -15,7 +15,8 @@ import {
   Copy,
   Check,
   User,
-  Video
+  Video,
+  History
 } from 'lucide-react';
 
 interface Student {
@@ -248,6 +249,13 @@ export function StudentsList({ students, inviteLink }: StudentsListProps) {
                       className="inline-flex items-center gap-1.5 rounded-lg bg-primary-600 px-3 py-2 text-sm font-semibold text-white hover:bg-primary-700"
                     >
                       <Video className="w-4 h-4" /> Enter room
+                    </a>
+                    <a
+                      href={`/tutor/students/${student.id}/history`}
+                      title="Lessons you've covered with this student"
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 px-3 py-2 text-sm font-semibold text-gray-600 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
+                    >
+                      <History className="w-4 h-4" /> History
                     </a>
                     <button
                       onClick={() => copyRoomLink(student)}

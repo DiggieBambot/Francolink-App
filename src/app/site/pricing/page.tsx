@@ -52,7 +52,7 @@ const PLANS: Plan[] = [
       ["Unlimited lessons", true],
       ["All levels (A1–C2)", true],
       ["Advanced progress tracking", true],
-      ["15 min AI tutor per day", true],
+      ["300 AI tutor messages per month", true],
       ["Offline mode", true],
       ["Priority support", true],
     ],
@@ -66,7 +66,7 @@ const PLANS: Plan[] = [
     badge: "Best value",
     features: [
       ["Everything in Premium", true],
-      ["60 min AI tutor per day", true],
+      ["1,500 AI tutor messages per month", true],
       ["Advanced pronunciation analysis", true],
       ["Priority tutor matching", true],
       ["Offline mode", true],

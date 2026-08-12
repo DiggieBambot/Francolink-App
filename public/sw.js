@@ -43,11 +43,19 @@ self.addEventListener('push', (event) => {
     if (event.data) data = { body: event.data.text() };
   }
   const title = data.title || 'FrancoLink';
+  // A live-class invite is time-critical: keep it on screen until the student
+  // acts on it, vibrate, and give it a direct "Join" action. The tag is set by
+  // notifyUser() from the notification `type`.
+  const isLiveInvite = data.tag === 'live_invite';
   const options = {
     body: data.body || '',
     icon: data.icon || '/icons/icon-192.png',
     badge: data.badge || '/icons/icon-192.png',
     tag: data.tag,
+    renotify: !!data.tag,
+    requireInteraction: isLiveInvite,
+    vibrate: isLiveInvite ? [200, 100, 200, 100, 200] : undefined,
+    actions: isLiveInvite ? [{ action: 'join', title: 'Join class' }] : undefined,
     data: { url: data.url || '/' },
   };
   event.waitUntil(self.registration.showNotification(title, options));

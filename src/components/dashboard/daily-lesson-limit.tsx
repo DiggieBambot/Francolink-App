@@ -43,7 +43,7 @@ export function DailyLessonLimit({ usage }: DailyLessonLimitProps) {
         >
           <span className="flex items-center justify-center gap-1">
             <Sparkles className="h-3 w-3" />
-            Upgrade to Premium+ for 60 min AI Tutor
+            Upgrade to Premium+ for 1,500 AI Tutor messages a month
           </span>
         </button>
       </div>

@@ -8,7 +8,12 @@ export interface PlanConfig {
   dailyLessonLimit: number;
   accessibleLevels: CEFRLevel[];
   hasAiTutor: boolean;
-  aiMinutesPerDay: number;
+  /**
+   * Monthly pool of AI tutor exchanges. One message sent by the student = one
+   * unit. A pool rather than a daily cap so a student can hold one long
+   * practice session instead of being cut off mid-conversation every day.
+   */
+  aiMessagesPerMonth: number;
   maxLanguages: number;
 }
 
@@ -19,7 +24,7 @@ export const PLANS: Record<PlanKey, PlanConfig> = {
     dailyLessonLimit: 1,
     accessibleLevels: ["A1", "A2", "B1", "B2"],
     hasAiTutor: false,
-    aiMinutesPerDay: 0,
+    aiMessagesPerMonth: 0,
     maxLanguages: 1,
   },
   PREMIUM: {
@@ -27,7 +32,7 @@ export const PLANS: Record<PlanKey, PlanConfig> = {
     dailyLessonLimit: Infinity,
     accessibleLevels: ["A1", "A2", "B1", "B2", "C1", "C2"],
     hasAiTutor: true,
-    aiMinutesPerDay: 15,
+    aiMessagesPerMonth: 300,
     maxLanguages: Infinity,
   },
   PREMIUM_PLUS: {
@@ -35,7 +40,7 @@ export const PLANS: Record<PlanKey, PlanConfig> = {
     dailyLessonLimit: Infinity,
     accessibleLevels: ["A1", "A2", "B1", "B2", "C1", "C2"],
     hasAiTutor: true,
-    aiMinutesPerDay: 60,
+    aiMessagesPerMonth: 1500,
     maxLanguages: Infinity,
   },
 } as const;

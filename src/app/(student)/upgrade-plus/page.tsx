@@ -18,9 +18,9 @@ import { UpgradeButton } from "@/components/pricing";
 const upgradeBenefits = [
   {
     icon: MessageSquare,
-    current: "15 min AI Tutor daily",
-    upgraded: "60 min AI Tutor daily",
-    description: "4x more conversation practice time",
+    current: "300 AI Tutor messages a month",
+    upgraded: "1,500 AI Tutor messages a month",
+    description: "5x more conversation practice",
   },
   {
     icon: BarChart3,

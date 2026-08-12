@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowLeft, RotateCcw, Trophy, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { triggerPWAInstallMoment } from "@/components/shared/pwa-install-prompt";
 
 interface GameShellProps {
   language: string;
@@ -35,6 +36,12 @@ export function GameShell({
 }: GameShellProps) {
   const backHref = theme ? `/learn/${language}/games/${theme}` : `/learn/${language}/games`;
   const percent = Math.round((Math.min(currentRound, totalRounds) / totalRounds) * 100);
+
+  // Finishing a game is the moment the app has proven itself — good time to
+  // offer the home-screen install rather than interrupting on first page view.
+  useEffect(() => {
+    if (finished) triggerPWAInstallMoment();
+  }, [finished]);
 
   return (
     <div className="flex min-h-[calc(100vh-3rem)] flex-col">

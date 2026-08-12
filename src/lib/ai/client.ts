@@ -1,9 +1,22 @@
 // src/lib/ai/client.ts
 
 import OpenAI from 'openai';
+import { createClient as createSupabaseClient } from '@supabase/supabase-js';
 import { createClient } from '@/lib/supabase/server';
+import { PLANS } from '@/lib/config/subscription';
 
 export type AIProvider = 'openai' | 'anthropic';
+
+/**
+ * Default model for the conversational tutor.
+ *
+ * Deliberately a mini model rather than `gpt-4o`: tutor turns are short,
+ * conversational, and heavily steered by the system prompt, and the frontier
+ * model costs roughly 6x per message for no gain a learner would notice. At the
+ * Premium+ pool that difference is the gap between a healthy margin and a
+ * marginal one. Overridable from Admin > Settings via `openai_tutor_model`.
+ */
+export const TUTOR_MODEL_DEFAULT = 'gpt-4.1-mini';
 
 export interface AIConfig {
   provider: AIProvider;
@@ -22,11 +35,43 @@ export interface AIConfig {
     tutorEnabled: boolean;
     contentProcessingEnabled: boolean;
   };
+  /**
+   * Monthly AI tutor message pools per plan. These are exchanges, not minutes —
+   * the usage counter increments once per student message.
+   */
   limits: {
-    freeMinutesPerDay: number;
-    premiumMinutesPerDay: number;
-    premiumPlusMinutesPerDay: number;
+    freeMessagesPerMonth: number;
+    premiumMessagesPerMonth: number;
+    premiumPlusMessagesPerMonth: number;
   };
+}
+
+/**
+ * Read app settings with the service-role key when it is available.
+ *
+ * The AI settings live in `app_settings`, which students generally cannot read
+ * under RLS. Using the request-scoped client here would silently return zero
+ * rows for exactly the users the settings are meant to govern, so the admin
+ * toggles would never reach them.
+ */
+async function fetchAISettings(): Promise<
+  { rows: { key: string; value: string }[] } | { error: unknown }
+> {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  const supabase =
+    url && serviceKey
+      ? createSupabaseClient(url, serviceKey)
+      : await createClient();
+
+  const { data, error } = await supabase
+    .from('app_settings')
+    .select('key, value, value_type')
+    .eq('category', 'ai');
+
+  if (error) return { error };
+  return { rows: (data ?? []) as { key: string; value: string }[] };
 }
 
 // Cache for AI config to avoid repeated DB calls
@@ -44,30 +89,24 @@ export async function getAIConfig(): Promise<AIConfig> {
   }
 
   try {
-    const supabase = await createClient();
+    const result = await fetchAISettings();
 
-    // Fetch all AI settings
-    const { data: settings, error } = await supabase
-      .from('app_settings')
-      .select('key, value, value_type')
-      .eq('category', 'ai');
-
-    if (error) {
-      console.error('Failed to fetch AI settings:', error);
+    if ('error' in result) {
+      console.error('Failed to fetch AI settings:', result.error);
       // Fall back to environment variables
       return getEnvConfig();
     }
 
     // Parse settings into config object
     const settingsMap = new Map<string, string>();
-    settings?.forEach(s => settingsMap.set(s.key, s.value));
+    result.rows.forEach(s => settingsMap.set(s.key, s.value));
 
     const config: AIConfig = {
       provider: (settingsMap.get('ai_provider') || 'openai') as AIProvider,
       openai: {
         apiKey: settingsMap.get('openai_api_key') || process.env.OPENAI_API_KEY || '',
         defaultModel: settingsMap.get('openai_default_model') || 'gpt-4o',
-        tutorModel: settingsMap.get('openai_tutor_model') || 'gpt-4o',
+        tutorModel: settingsMap.get('openai_tutor_model') || TUTOR_MODEL_DEFAULT,
         ttsModel: settingsMap.get('openai_tts_model') || 'tts-1',
         ttsVoice: settingsMap.get('openai_tts_voice') || 'alloy',
       },
@@ -76,13 +115,24 @@ export async function getAIConfig(): Promise<AIConfig> {
         defaultModel: settingsMap.get('anthropic_default_model') || 'claude-3-5-sonnet-20241022',
       },
       features: {
-        tutorEnabled: settingsMap.get('ai_tutor_enabled') === 'true',
+        // Fail open: an unseeded settings row must not disable the tutor.
+        // Only an explicit "false" from the admin panel turns it off.
+        tutorEnabled: settingsMap.get('ai_tutor_enabled') !== 'false',
         contentProcessingEnabled: settingsMap.get('ai_content_processing_enabled') !== 'false',
       },
       limits: {
-        freeMinutesPerDay: parseInt(settingsMap.get('free_ai_minutes_per_day') || '0', 10),
-        premiumMinutesPerDay: parseInt(settingsMap.get('premium_ai_minutes_per_day') || '30', 10),
-        premiumPlusMinutesPerDay: parseInt(settingsMap.get('premium_plus_ai_minutes_per_day') || '120', 10),
+        freeMessagesPerMonth: parseLimit(
+          settingsMap.get('free_ai_messages_per_month'),
+          PLANS.FREE.aiMessagesPerMonth
+        ),
+        premiumMessagesPerMonth: parseLimit(
+          settingsMap.get('premium_ai_messages_per_month'),
+          PLANS.PREMIUM.aiMessagesPerMonth
+        ),
+        premiumPlusMessagesPerMonth: parseLimit(
+          settingsMap.get('premium_plus_ai_messages_per_month'),
+          PLANS.PREMIUM_PLUS.aiMessagesPerMonth
+        ),
       },
     };
 
@@ -98,6 +148,16 @@ export async function getAIConfig(): Promise<AIConfig> {
 }
 
 /**
+ * Parse a numeric limit, falling back to the plan default when the setting is
+ * missing, blank, or not a number. `0` is a valid value (feature off).
+ */
+function parseLimit(raw: string | undefined, fallback: number): number {
+  if (raw === undefined || raw === null || raw === '') return fallback;
+  const parsed = parseInt(raw, 10);
+  return Number.isFinite(parsed) && parsed >= 0 ? parsed : fallback;
+}
+
+/**
  * Fallback to environment variables
  */
 function getEnvConfig(): AIConfig {
@@ -106,7 +166,7 @@ function getEnvConfig(): AIConfig {
     openai: {
       apiKey: process.env.OPENAI_API_KEY || '',
       defaultModel: 'gpt-4o',
-      tutorModel: 'gpt-4o',
+      tutorModel: TUTOR_MODEL_DEFAULT,
       ttsModel: 'tts-1',
       ttsVoice: 'alloy',
     },
@@ -119,9 +179,9 @@ function getEnvConfig(): AIConfig {
       contentProcessingEnabled: true,
     },
     limits: {
-      freeMinutesPerDay: 0,
-      premiumMinutesPerDay: 30,
-      premiumPlusMinutesPerDay: 120,
+      freeMessagesPerMonth: PLANS.FREE.aiMessagesPerMonth,
+      premiumMessagesPerMonth: PLANS.PREMIUM.aiMessagesPerMonth,
+      premiumPlusMessagesPerMonth: PLANS.PREMIUM_PLUS.aiMessagesPerMonth,
     },
   };
 }

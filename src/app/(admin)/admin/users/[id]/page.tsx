@@ -46,6 +46,19 @@ export default async function AdminUserDetailPage({ params }: PageProps) {
     .eq("user_id", id)
     .eq("status", "COMPLETED");
 
+  // What this student's AI tutor usage has actually cost us. Without this the
+  // per-tier margin is guesswork.
+  const { data: tutorSpend } = await supabase
+    .from("ai_tutor_messages")
+    .select("cost_usd")
+    .eq("user_id", id)
+    .not("cost_usd", "is", null);
+
+  const aiTutorCost = (tutorSpend ?? []).reduce(
+    (sum: number, row: { cost_usd: number | null }) => sum + (row.cost_usd ?? 0),
+    0
+  );
+
   // Fetch user's enrollments
   const { data: enrollments } = await supabase
     .from("enrollments")
@@ -339,19 +352,25 @@ export default async function AdminUserDetailPage({ params }: PageProps) {
             </div>
           </div>
 
-          {/* Daily Usage */}
+          {/* Usage */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">
-              Today&apos;s Usage
-            </h2>
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">Usage</h2>
             <div className="space-y-3">
               <div>
-                <p className="text-sm text-gray-500">Lessons Completed</p>
+                <p className="text-sm text-gray-500">Lessons Completed Today</p>
                 <p className="text-gray-900">{user.lessons_today || 0} / 3</p>
               </div>
               <div>
-                <p className="text-sm text-gray-500">AI Minutes Used</p>
-                <p className="text-gray-900">{user.ai_minutes_used_today || 0} min</p>
+                <p className="text-sm text-gray-500">
+                  AI Tutor Messages ({user.ai_usage_period || "this month"})
+                </p>
+                <p className="text-gray-900">
+                  {user.ai_minutes_used_today || 0} messages
+                </p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">AI Tutor Cost (all time)</p>
+                <p className="text-gray-900">${aiTutorCost.toFixed(4)}</p>
               </div>
             </div>
           </div>

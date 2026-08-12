@@ -184,18 +184,22 @@ export async function getLimitsConfig() {
       "free_accessible_levels",
       ["A1", "A2", "B1", "B2"]
     ),
-    premiumAiMinutes: await getSetting("limits", "premium_ai_minutes", 15),
-    premiumPlusAiMinutes: await getSetting(
-      "limits",
-      "premium_plus_ai_minutes",
-      60
+    // These live in the "ai" category alongside the rest of the AI settings —
+    // that is where the admin panel writes them.
+    premiumAiMessages: await getSetting("ai", "premium_ai_messages_per_month", 300),
+    premiumPlusAiMessages: await getSetting(
+      "ai",
+      "premium_plus_ai_messages_per_month",
+      1500
     ),
   };
 }
 
 export async function getFeaturesConfig() {
   return {
-    aiTutorEnabled: await getSetting("features", "ai_tutor_enabled", false),
+    // Written by the AI settings panel under the "ai" category. Defaults to on
+    // so an unseeded row does not silently disable the tutor.
+    aiTutorEnabled: await getSetting("ai", "ai_tutor_enabled", true),
     offlineModeEnabled: await getSetting(
       "features",
       "offline_mode_enabled",

@@ -1,5 +1,6 @@
 import { MobileBottomNav } from "@/components/shared/mobile-bottom-nav";
 import { AITutorFab } from "@/components/student/ai-tutor-fab";
+import { DiggieChat } from "@/components/shared/diggie-chat";
 import { PushPrompt } from "@/components/notifications/push-prompt";
 import { LiveInviteWatcher } from "@/components/notifications/live-invite-watcher";
 import { IosInstallPrompt } from "@/components/notifications/ios-install-prompt";
@@ -198,6 +199,9 @@ export default async function StudentLayout({
 
       {/* AI Tutor Floating Button */}
       <AITutorFab plan={profile?.subscription_plan || "FREE"} />
+
+      {/* DiggieChat support widget */}
+      <DiggieChat />
 
       {/* Main Content */}
       <div className="lg:pl-64">

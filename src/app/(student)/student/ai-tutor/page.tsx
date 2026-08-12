@@ -1,5 +1,6 @@
 "use client";
-import { useInworldTTS } from "@/hooks/use-inworld-tts";
+import { useTutorTTS } from "@/hooks/use-tutor-tts";
+import { PLANS } from "@/lib/config/subscription";
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
@@ -19,21 +20,55 @@ import {
   VolumeX,
 } from "lucide-react";
 
+interface Correction {
+  original: string;
+  corrected: string;
+  explanation?: string;
+  tag?: string;
+}
+
 interface Message {
   id: string;
   role: "user" | "assistant";
   content: string;
   timestamp: Date;
   isPlaying?: boolean;
+  /** Corrections the tutor made to the student's previous message. */
+  corrections?: Correction[];
 }
+
+interface LessonProgress {
+  title: string;
+  sectionIndex: number;
+  totalSections: number;
+  finished: boolean;
+}
+
+/** BCP-47 locales for the browser's speech recognition, per learning language. */
+const RECOGNITION_LOCALES: Record<string, string> = {
+  fr: "fr-FR",
+  es: "es-ES",
+  de: "de-DE",
+  en: "en-US",
+};
 
 interface UsageData {
   hasAccess: boolean;
+  tutorEnabled: boolean;
   plan: string;
-  minutesUsed: number;
-  dailyLimit: number;
-  remainingMinutes: number;
+  /** Student messages sent this month. The quota is a monthly pool. */
+  messagesUsed: number;
+  /** `null` means unlimited. */
+  monthlyLimit: number | null;
+  /** `null` means unlimited. */
+  remainingMessages: number | null;
+  /** Quota period, as YYYY-MM. */
+  period?: string;
   isPrivileged: boolean;
+  learningLanguage?: string;
+  level?: string;
+  /** Most recent lesson the student's human tutor covered, if any. */
+  suggestedLesson?: { id: string; title: string } | null;
 }
 
 export default function AITutorPage() {
@@ -46,10 +81,21 @@ export default function AITutorPage() {
   const [isRecording, setIsRecording] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [autoSpeak, setAutoSpeak] = useState(true);
+  const [conversationId, setConversationId] = useState<string | null>(null);
+  const [lesson, setLesson] = useState<LessonProgress | null>(null);
+  // Learned from the usage/chat responses, so voice and speech recognition
+  // follow the student instead of assuming French at A1.
+  const [learningLanguage, setLearningLanguage] = useState("fr");
+  const [studentLevel, setStudentLevel] = useState("A1");
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const recognitionRef = useRef<any>(null);
-  const { speak: inworldSpeak, stop: inworldStop, isSpeaking: inworldSpeaking } = useInworldTTS({ language: "fr-FR", speed: 0.9 });
+  // Voice follows the student's own language and level rather than a
+  // hardcoded French default.
+  const { speak: ttsSpeak, stop: ttsStop } = useTutorTTS({
+    language: learningLanguage,
+    level: studentLevel,
+  });
 
   const fetchUsage = useCallback(async () => {
     try {
@@ -57,6 +103,8 @@ export default function AITutorPage() {
       if (res.ok) {
         const data = await res.json();
         setUsage(data);
+        if (data.learningLanguage) setLearningLanguage(data.learningLanguage);
+        if (data.level) setStudentLevel(data.level);
       }
     } catch (err) {
       console.error("Failed to fetch AI usage:", err);
@@ -68,6 +116,15 @@ export default function AITutorPage() {
   useEffect(() => {
     fetchUsage();
   }, [fetchUsage]);
+
+  // Lesson mode is entered by link (?lesson=<tutor_lesson_id>) from a lesson
+  // page. Read it off the URL rather than useSearchParams so the page does not
+  // need a Suspense boundary.
+  const [lessonId, setLessonId] = useState<string | null>(null);
+  useEffect(() => {
+    const id = new URLSearchParams(window.location.search).get("lesson");
+    if (id) setLessonId(id);
+  }, []);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -82,7 +139,7 @@ export default function AITutorPage() {
         const recognition = new SpeechRecognition();
         recognition.continuous = false;
         recognition.interimResults = true;
-        recognition.lang = "fr-FR";
+        recognition.lang = RECOGNITION_LOCALES[learningLanguage] || "fr-FR";
 
         recognition.onresult = (event: any) => {
           const transcript = Array.from(event.results)
@@ -102,7 +159,7 @@ export default function AITutorPage() {
         recognitionRef.current = recognition;
       }
     }
-  }, []);
+  }, [learningLanguage]);
 
   const toggleRecording = () => {
     if (!recognitionRef.current) {
@@ -123,7 +180,7 @@ export default function AITutorPage() {
   const speakText = (text: string, messageId: string) => {
     // Toggle off if already speaking
     if (isSpeaking) {
-      inworldStop();
+      ttsStop();
       setIsSpeaking(false);
       setMessages((prev) => prev.map((m) => ({ ...m, isPlaying: false })));
       return;
@@ -137,8 +194,8 @@ export default function AITutorPage() {
     );
     setIsSpeaking(true);
 
-    // Speak via Inworld TTS then clear state when done
-    inworldSpeak(text).then(() => {
+    // Speak, then clear the playing state when the audio finishes
+    ttsSpeak(text).then(() => {
       setIsSpeaking(false);
       setMessages((prev) => prev.map((m) => ({ ...m, isPlaying: false })));
     }).catch(() => {
@@ -182,7 +239,11 @@ export default function AITutorPage() {
       const res = await fetch("/api/ai-tutor/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: apiMessages }),
+        body: JSON.stringify({
+          messages: apiMessages,
+          conversationId,
+          lessonId,
+        }),
       });
 
       const data = await res.json();
@@ -191,9 +252,11 @@ export default function AITutorPage() {
         if (data.code === "LIMIT_REACHED") {
           setError(data.error);
           setUsage((prev) =>
-            prev ? { ...prev, remainingMinutes: 0, minutesUsed: data.minutesUsed } : prev
+            prev
+              ? { ...prev, remainingMessages: 0, messagesUsed: data.messagesUsed }
+              : prev
           );
-        } else if (data.code === "NO_ACCESS") {
+        } else if (data.code === "NO_ACCESS" || data.code === "DISABLED") {
           setError(data.error);
         } else {
           setError(data.error || "Something went wrong. Please try again.");
@@ -206,22 +269,29 @@ export default function AITutorPage() {
         role: "assistant",
         content: data.reply,
         timestamp: new Date(),
+        corrections: data.corrections?.length ? data.corrections : undefined,
       };
 
       setMessages((prev) => [...prev, assistantMessage]);
+
+      // Keep the server-side conversation so a reload can resume it, and track
+      // how far through a lesson the tutor has walked.
+      if (data.conversationId) setConversationId(data.conversationId);
+      if (data.lesson) setLesson(data.lesson);
+      if (data.level) setStudentLevel(data.level);
 
       // Auto-speak the response
       if (autoSpeak && data.reply) {
         setTimeout(() => speakText(data.reply, assistantMessage.id), 300);
       }
 
-      if (data.remainingMinutes !== undefined) {
+      if (data.remainingMessages !== undefined) {
         setUsage((prev) =>
           prev
             ? {
                 ...prev,
-                minutesUsed: data.minutesUsed,
-                remainingMinutes: data.remainingMinutes,
+                messagesUsed: data.messagesUsed,
+                remainingMessages: data.remainingMessages,
               }
             : prev
         );
@@ -240,7 +310,8 @@ export default function AITutorPage() {
     }
   };
 
-  const isLimitReached = usage && !usage.isPrivileged && usage.remainingMinutes <= 0;
+  const isLimitReached =
+    usage && usage.remainingMessages !== null && usage.remainingMessages <= 0;
   const noAccess = usage && !usage.hasAccess;
 
   // Loading state
@@ -250,6 +321,32 @@ export default function AITutorPage() {
         <div className="text-center">
           <Loader2 className="w-8 h-8 text-primary animate-spin mx-auto mb-3" />
           <p className="text-gray-500">Loading AI Tutor...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Tutor switched off from the admin panel
+  if (usage && !usage.tutorEnabled && !usage.isPrivileged) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+        <div className="max-w-md w-full bg-white rounded-2xl shadow-sm p-8 text-center">
+          <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Bot className="w-8 h-8 text-gray-400" />
+          </div>
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">
+            AI Tutor Unavailable
+          </h1>
+          <p className="text-gray-600 mb-6">
+            The AI Tutor is temporarily switched off. Please check back soon —
+            your monthly allowance is untouched.
+          </p>
+          <Link
+            href="/dashboard"
+            className="block w-full bg-primary text-white font-medium py-3 rounded-xl hover:bg-primary/90 transition-colors text-center"
+          >
+            Back to Dashboard
+          </Link>
         </div>
       </div>
     );
@@ -273,14 +370,18 @@ export default function AITutorPage() {
             <div className="bg-gray-50 rounded-xl p-4 text-left">
               <div className="flex justify-between items-center mb-1">
                 <span className="font-medium text-gray-900">Premium</span>
-                <span className="text-primary font-bold">15 min/day</span>
+                <span className="text-primary font-bold">
+                  {PLANS.PREMIUM.aiMessagesPerMonth} messages/mo
+                </span>
               </div>
               <p className="text-sm text-gray-500">Daily AI tutor practice sessions</p>
             </div>
             <div className="bg-primary/5 border border-primary/20 rounded-xl p-4 text-left">
               <div className="flex justify-between items-center mb-1">
                 <span className="font-medium text-gray-900">Premium Plus</span>
-                <span className="text-primary font-bold">60 min/day</span>
+                <span className="text-primary font-bold">
+                  {PLANS.PREMIUM_PLUS.aiMessagesPerMonth} messages/mo
+                </span>
               </div>
               <p className="text-sm text-gray-500">Extended AI tutor sessions + priority</p>
             </div>
@@ -304,11 +405,19 @@ export default function AITutorPage() {
     );
   }
 
-  const displayLimit = usage?.isPrivileged
+  const isUnlimited = !usage || usage.monthlyLimit === null;
+  const displayLimit = isUnlimited
     ? "Unlimited"
-    : usage?.dailyLimit === Infinity
-    ? "Unlimited"
-    : `${usage?.remainingMinutes} / ${usage?.dailyLimit} min`;
+    : `${usage!.remainingMessages} left this month`;
+
+  // Fraction of the monthly pool still available, for the meter.
+  const poolRemaining =
+    isUnlimited || !usage?.monthlyLimit
+      ? 1
+      : (usage.remainingMessages ?? 0) / usage.monthlyLimit;
+  // Warn on the last fifth of the pool rather than the last three messages —
+  // early enough for a student to pace the rest of the month.
+  const poolLow = !isUnlimited && poolRemaining <= 0.2;
 
   return (
     <div className="flex flex-col h-screen bg-gray-50">
@@ -338,10 +447,18 @@ export default function AITutorPage() {
                 </div>
                 <div>
                   <h1 className="font-bold text-gray-900 text-sm">AI Tutor</h1>
-                  <p className="text-xs text-green-600 flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
-                    Online
-                  </p>
+                  {lesson ? (
+                    <p className="text-xs text-gray-500">
+                      {lesson.title} · step{" "}
+                      {Math.min(lesson.sectionIndex + 1, lesson.totalSections)} of{" "}
+                      {lesson.totalSections}
+                    </p>
+                  ) : (
+                    <p className="text-xs text-green-600 flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
+                      Online
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
@@ -358,18 +475,28 @@ export default function AITutorPage() {
                 {autoSpeak ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
               </button>
 
-              {/* Usage indicator */}
+              {/* Monthly pool meter */}
               <div className="flex items-center gap-2 text-sm">
                 <Clock className="w-4 h-4 text-gray-400" />
-                <span
-                  className={`font-medium ${
-                    usage && !usage.isPrivileged && usage.remainingMinutes <= 3
-                      ? "text-red-600"
-                      : "text-gray-900"
-                  }`}
-                >
-                  {displayLimit}
-                </span>
+                <div className="flex flex-col items-end gap-1">
+                  <span
+                    className={`font-medium text-xs ${
+                      poolLow ? "text-amber-600" : "text-gray-900"
+                    }`}
+                  >
+                    {displayLimit}
+                  </span>
+                  {!isUnlimited && (
+                    <div className="w-20 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                      <div
+                        className={`h-full rounded-full transition-all ${
+                          poolLow ? "bg-amber-500" : "bg-primary"
+                        }`}
+                        style={{ width: `${Math.max(0, Math.min(100, poolRemaining * 100))}%` }}
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -401,6 +528,25 @@ export default function AITutorPage() {
               <p className="text-xs text-gray-400 mb-6">
                 🎤 Tap the mic to speak &nbsp;·&nbsp; 🔊 Responses are read aloud automatically
               </p>
+
+              {/* One-tap way into lesson mode: practise what the student's own
+                  tutor last taught them. */}
+              {usage?.suggestedLesson && !lessonId && (
+                <button
+                  onClick={() => {
+                    setLessonId(usage.suggestedLesson!.id);
+                    setInput(
+                      `Let's practise "${usage.suggestedLesson!.title}" together.`
+                    );
+                    inputRef.current?.focus();
+                  }}
+                  className="mb-4 inline-flex items-center gap-2 px-4 py-2.5 bg-primary text-white rounded-xl text-sm font-medium hover:bg-primary/90 transition-colors"
+                >
+                  <Sparkles className="w-4 h-4" />
+                  Practise &ldquo;{usage.suggestedLesson.title}&rdquo;
+                </button>
+              )}
+
               <div className="flex flex-wrap justify-center gap-2">
                 {[
                   "Bonjour! Comment allez-vous?",
@@ -455,6 +601,34 @@ export default function AITutorPage() {
                       {msg.content}
                     </p>
                   </div>
+
+                  {/* Corrections are the part worth keeping — surface them as
+                      their own card rather than burying them in the reply. */}
+                  {msg.corrections?.length ? (
+                    <div className="mt-2 rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 space-y-2">
+                      {msg.corrections.map((c, i) => (
+                        <div key={i} className="text-xs">
+                          <div className="flex flex-wrap items-center gap-1.5">
+                            <span className="line-through text-amber-700/70">
+                              {c.original}
+                            </span>
+                            <span className="text-amber-700">→</span>
+                            <span className="font-semibold text-amber-900">
+                              {c.corrected}
+                            </span>
+                            {c.tag && (
+                              <span className="px-1.5 py-0.5 rounded bg-amber-200/70 text-amber-900 text-[10px] uppercase tracking-wide">
+                                {c.tag.replace(/_/g, " ")}
+                              </span>
+                            )}
+                          </div>
+                          {c.explanation && (
+                            <p className="text-amber-800/80 mt-0.5">{c.explanation}</p>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
                   <div className={`flex items-center gap-2 mt-1 ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                     <p className="text-xs text-gray-400">
                       {msg.timestamp.toLocaleTimeString([], {
@@ -564,7 +738,7 @@ export default function AITutorPage() {
               onKeyDown={handleKeyDown}
               placeholder={
                 isLimitReached
-                  ? "Daily limit reached. Upgrade for more time!"
+                  ? "Daily limit reached. Upgrade for more messages!"
                   : isRecording
                   ? "Listening..."
                   : "Type or speak a message..."

@@ -90,19 +90,19 @@ const SETTING_LABELS: Record<string, { label: string; description: string; group
   },
   
   // Limits
-  free_ai_minutes_per_day: { 
-    label: 'Free Tier Daily Minutes', 
-    description: 'AI minutes for free users (0 = disabled)',
+  free_ai_messages_per_month: { 
+    label: 'Free Tier Monthly Messages', 
+    description: 'AI tutor messages per month for free users (0 = disabled)',
     group: 'limits'
   },
-  premium_ai_minutes_per_day: { 
-    label: 'Premium Daily Minutes', 
-    description: 'AI minutes for Premium subscribers',
+  premium_ai_messages_per_month: { 
+    label: 'Premium Monthly Messages', 
+    description: 'AI tutor messages per month for Premium subscribers',
     group: 'limits'
   },
-  premium_plus_ai_minutes_per_day: { 
-    label: 'Premium+ Daily Minutes', 
-    description: 'AI minutes for Premium Plus subscribers',
+  premium_plus_ai_messages_per_month: { 
+    label: 'Premium+ Monthly Messages', 
+    description: 'AI tutor messages per month for Premium Plus subscribers',
     group: 'limits'
   },
 };

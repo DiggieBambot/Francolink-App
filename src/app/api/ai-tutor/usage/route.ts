@@ -1,11 +1,8 @@
 // src/app/api/ai-tutor/usage/route.ts
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
-import { PLANS, PlanKey, isPaidPlan } from "@/lib/config/subscription";
-
-function getToday(): string {
-  return new Date().toISOString().split("T")[0];
-}
+import { getTutorAccess } from "@/lib/ai/tutor-access";
+import { buildTutorContext } from "@/lib/ai/tutor-context";
 
 export async function GET() {
   try {
@@ -16,43 +13,46 @@ export async function GET() {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const { data, error } = await supabase
-      .from("users")
-      .select("subscription_plan, ai_minutes_used_today, ai_usage_reset_date, role")
-      .eq("id", user.id)
-      .single();
-
-    if (error || !data) {
+    const access = await getTutorAccess(supabase, user.id);
+    if (!access) {
       return NextResponse.json({ error: "Failed to fetch user data" }, { status: 500 });
     }
 
-    const role = data.role?.toUpperCase() || "STUDENT";
-    const isPrivileged = role === "ADMIN" || role === "TESTER";
-    const plan = (data.subscription_plan || "FREE") as PlanKey;
-    const planConfig = PLANS[plan];
-    const today = getToday();
+    // The page needs the level and language before the first message so the
+    // voice and the microphone are right from the opening turn.
+    const context = await buildTutorContext(
+      supabase,
+      user.id,
+      access.learningLanguage
+    );
 
-    let minutesUsed = data.ai_minutes_used_today ?? 0;
-
-    if (data.ai_usage_reset_date !== today) {
-      await supabase
-        .from("users")
-        .update({ ai_minutes_used_today: 0, ai_usage_reset_date: today })
-        .eq("id", user.id);
-      minutesUsed = 0;
-    }
-
-    const hasAccess = isPaidPlan(plan) || isPrivileged;
-    const dailyLimit = isPrivileged ? Infinity : planConfig.aiMinutesPerDay;
-    const remaining = isPrivileged ? Infinity : Math.max(0, dailyLimit - minutesUsed);
+    // Offer the last lesson the student's human tutor covered as a one-tap way
+    // into lesson mode. Without an entry point, "lesson mode" is a capability
+    // nobody ever reaches — an empty chat box gives a student no idea what to
+    // do, which is the most common way a tutor chat goes unused.
+    const { data: recent } = await supabase
+      .from("lesson_coverage")
+      .select("tutor_lesson_id, lesson_title")
+      .eq("student_id", user.id)
+      .not("tutor_lesson_id", "is", null)
+      .order("covered_on", { ascending: false })
+      .limit(1)
+      .maybeSingle();
 
     return NextResponse.json({
-      hasAccess,
-      plan,
-      minutesUsed: isPrivileged ? 0 : minutesUsed,
-      dailyLimit,
-      remainingMinutes: remaining,
-      isPrivileged,
+      hasAccess: access.hasAccess,
+      tutorEnabled: access.tutorEnabled,
+      learningLanguage: access.learningLanguage,
+      level: context.level,
+      suggestedLesson: recent?.tutor_lesson_id
+        ? { id: recent.tutor_lesson_id, title: recent.lesson_title }
+        : null,
+      plan: access.plan,
+      messagesUsed: access.messagesUsed,
+      monthlyLimit: access.monthlyLimit,
+      remainingMessages: access.remainingMessages,
+      period: access.period,
+      isPrivileged: access.isPrivileged,
     });
   } catch (error) {
     console.error("AI usage check error:", error);
