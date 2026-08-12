@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Users } from "lucide-react";
 import { Section, SectionHeading, CtaButton } from "@/components/site/ui";
 import { TutorDirectory } from "@/components/site/tutor-directory";
 import { getPublicTutors } from "@/lib/site/queries";
@@ -46,22 +45,21 @@ export default async function TutorsPage() {
       </div>
 
       <Section>
-        {tutors.length > 0 ? (
-          <TutorDirectory tutors={tutors} pricing={pricing} />
-        ) : (
-          <div className="text-center py-16">
-            <Users className="w-14 h-14 text-gray-300 mx-auto mb-5" />
-            <h2 className="font-heading font-bold text-2xl text-primary mb-2">
-              Booking opens shortly
-            </h2>
-            <p className="text-gray-600 max-w-md mx-auto mb-8">
-              We&apos;re finishing onboarding for our first tutors. In the
-              meantime you can start learning in the app straight away.
-            </p>
-            <CtaButton href={appUrl("/signup")} external>
-              Start free in the app
-            </CtaButton>
-          </div>
+        {/* The directory renders its own empty state per language — a language
+            with no tutors yet collects emails instead of showing nothing. */}
+        <TutorDirectory tutors={tutors} pricing={pricing} />
+
+        {tutors.length === 0 && (
+          <p className="mt-12 text-center text-gray-600">
+            Learning on your own in the meantime?{" "}
+            <a
+              href={appUrl("/signup")}
+              className="font-bold text-primary underline underline-offset-4"
+            >
+              The app is free to start
+            </a>
+            .
+          </p>
         )}
       </Section>
 
