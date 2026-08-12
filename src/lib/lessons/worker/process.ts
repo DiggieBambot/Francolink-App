@@ -203,8 +203,11 @@ export async function processLesson(
 
     if (error) throw new Error(`Write failed: ${error.message}`);
     applied = true;
-  } else {
-    // Nothing to write, but record that we looked, so a repeat sweep skips it.
+  } else if (opts.auto_apply) {
+    // Examined and found nothing to change — record that, so a repeat sweep
+    // skips it. Only when the run was actually allowed to write: a dry run
+    // must not stamp the lesson as passed, or the real run that follows would
+    // skip everything the dry run just previewed.
     await supa
       .from("tutor_lessons")
       .update({ ai_pass_hash: contentHash(lessonRow.content), ai_pass_at: new Date().toISOString() })
