@@ -188,7 +188,7 @@ export function LessonWorkerConsole({
                   type="button"
                   onClick={() => setLevels(on ? levels.filter((l) => l !== lv) : [...levels, lv])}
                   className={`rounded-full border px-3 py-1 text-sm transition ${
-                    on ? "border-primary bg-primary text-primary-foreground" : "hover:bg-muted"
+                    on ? "border-primary-600 bg-primary-600 text-white" : "hover:bg-muted"
                   }`}
                 >
                   {lv}
@@ -206,8 +206,15 @@ export function LessonWorkerConsole({
             hint="Write fixes straight to the lesson. Every write is logged and revertible." />
           <Toggle checked={onlyStale} onChange={setOnlyStale} label="Skip unchanged lessons"
             hint="Only lessons edited since their last AI pass. Keeps a repeat sweep cheap." />
-          <Toggle checked={applyFindings} onChange={setApplyFindings} label="Act on editorial findings"
-            hint="Also rewrite sections the reviewer flagged for style or level, not just schema defects." />
+          {/* Acting on findings requires findings to exist, so this is dead
+              while the review is skipped. Disable it rather than let the run
+              claim to do something it cannot. */}
+          <Toggle checked={applyFindings && !skipCritique} onChange={setApplyFindings}
+            disabled={skipCritique}
+            label="Act on editorial findings"
+            hint={skipCritique
+              ? "Unavailable while the AI review is skipped — there are no findings to act on."
+              : "Also rewrite sections the reviewer flagged for style or level, not just schema defects."} />
           <Toggle checked={skipCritique} onChange={setSkipCritique} label="Skip AI review"
             hint="Schema defects only. Roughly ten times cheaper, catches less." />
           <Toggle checked={includeMissing} onChange={setIncludeMissing} label="Write missing lessons"
@@ -228,7 +235,7 @@ export function LessonWorkerConsole({
             type="button"
             onClick={start}
             disabled={busy || running}
-            className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground disabled:opacity-50"
+            className="inline-flex items-center gap-2 rounded-xl bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700 disabled:opacity-50"
           >
             {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Play className="h-4 w-4" />}
             Start run
@@ -398,19 +405,28 @@ function Toggle({
   onChange,
   label,
   hint,
+  disabled = false,
 }: {
   checked: boolean;
   onChange: (v: boolean) => void;
   label: string;
   hint: string;
+  disabled?: boolean;
 }) {
   return (
-    <label className="flex cursor-pointer items-start gap-2.5 rounded-xl border p-3 hover:bg-muted/50">
+    <label
+      className={`flex items-start gap-2.5 rounded-xl border p-3 ${
+        disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer hover:bg-muted/50"
+      }`}
+    >
       <input
         type="checkbox"
         checked={checked}
+        disabled={disabled}
         onChange={(e) => onChange(e.target.checked)}
-        className="mt-0.5 h-4 w-4 shrink-0 accent-[hsl(var(--primary))]"
+        // This theme has no --primary hsl triplet (it uses the primary-100..900
+        // scale), so accent-[hsl(var(--primary))] resolved to nothing.
+        className="mt-0.5 h-4 w-4 shrink-0 accent-primary-600"
       />
       <span>
         <span className="block text-sm font-medium">{label}</span>
