@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Compass, HeartHandshake, Target } from "lucide-react";
 import { Section, SectionHeading, CtaButton } from "@/components/site/ui";
-import { appUrl } from "@/lib/site/hosts";
 
 export const metadata: Metadata = {
   title: "About us",
@@ -99,8 +98,8 @@ export default function AboutPage() {
             like to meet you.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <CtaButton href={appUrl("/become-tutor")} variant="secondary" external>
-              Apply as a tutor
+            <CtaButton href="/teach" variant="secondary">
+              Apply to teach with us
             </CtaButton>
             <CtaButton href="/contact" variant="ghost">
               Talk to us

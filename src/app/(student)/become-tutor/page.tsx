@@ -31,10 +31,13 @@ export default function BecomeTutorPage() {
           <GraduationCap className="w-8 h-8 text-secondary" />
         </div>
         <h1 className="text-3xl font-heading font-extrabold text-primary mb-3">
-          Become a Tutor
+          Teach your own students
         </h1>
         <p className="text-gray-500 text-lg">
-          Start teaching and earning on Francolink. Your student account stays intact.
+          Turn on tutor tools and teach students you invite yourself — your
+          student account stays intact. This is not the same as becoming a
+          FrancoLink tutor, where we send you students and pay you per lesson;
+          that goes through an application once you&apos;re set up here.
         </p>
       </div>
 

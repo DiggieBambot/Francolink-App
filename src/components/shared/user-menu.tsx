@@ -120,7 +120,7 @@ export function UserMenu({ user }: UserMenuProps) {
                 className="flex items-center gap-3 px-4 py-2.5 text-sm text-secondary hover:bg-secondary-50 transition-colors"
               >
                 <GraduationCap className="w-4 h-4" />
-                <span className="font-medium">Become a Tutor</span>
+                <span className="font-medium">Teach on FrancoLink</span>
               </Link>
             )}
 

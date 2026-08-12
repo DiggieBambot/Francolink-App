@@ -28,7 +28,7 @@ export const PLATFORM_LABEL: Record<string, string> = Object.fromEntries(
 /** Common landing pages she'll want to point people at. */
 export const OUTREACH_DESTINATIONS = [
   { value: "/", label: "Home page" },
-  { value: "/become-tutor", label: "Become a tutor" },
+  { value: "/become-tutor", label: "Teach your own students" },
   { value: "/library", label: "Lesson library" },
   { value: "/tutors", label: "Find a tutor" },
   { value: "/pricing", label: "Pricing" },
