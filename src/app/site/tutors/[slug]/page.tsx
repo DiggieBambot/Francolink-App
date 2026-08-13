@@ -14,7 +14,9 @@ import {
 } from "lucide-react";
 import { CtaButton } from "@/components/site/ui";
 import { AvailabilityTable } from "@/components/site/availability-table";
+import { SlotPicker } from "@/components/site/slot-picker";
 import { getPublicTutor, getPublicTutorSlugs } from "@/lib/site/queries";
+import { getBookableSlots } from "@/lib/booking/availability";
 import { LANGUAGE_LABEL } from "@/lib/site/format";
 import {
   TIER_BLURB,
@@ -68,6 +70,10 @@ export default async function TutorProfilePage({ params }: PageProps) {
   ]);
   if (!tutor) notFound();
   const pricing = allPricing[tutor.tier];
+
+  // Real bookable slots, not just the weekly rules — excludes time off,
+  // existing bookings and the minimum notice.
+  const availability = await getBookableSlots(tutor.user_id);
 
   const languages = tutor.teaches.map((c) => LANGUAGE_LABEL[c] ?? c.toUpperCase());
   // Joining a tutor's class happens in the app, via their invite code.
@@ -243,14 +249,28 @@ export default async function TutorProfilePage({ params }: PageProps) {
             </section>
           )}
 
-          <section>
+          <section id="book">
             <h2 className="font-heading font-extrabold text-2xl text-primary mb-5">
-              Weekly availability
+              Pick a time
             </h2>
-            <AvailabilityTable
-              slots={tutor.availability}
-              timezone={tutor.timezone}
-            />
+            {availability.slots.length > 0 ? (
+              <SlotPicker
+                slots={availability.slots}
+                tutorTimezone={availability.timezone}
+                tutorName={tutor.name}
+                prices={pricing.lessons}
+                trial={pricing.trial}
+                trialAvailable={tutor.trial_available}
+                bookHref={bookHref}
+              />
+            ) : (
+              // No open slots — fall back to showing the weekly pattern so the
+              // profile still says something useful about when they teach.
+              <AvailabilityTable
+                slots={tutor.availability}
+                timezone={tutor.timezone}
+              />
+            )}
           </section>
 
           {tutor.testimonials.length > 0 && (
