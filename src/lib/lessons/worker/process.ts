@@ -20,8 +20,26 @@ export function adminClient(): SupabaseClient {
   );
 }
 
+/** Stable stringify: object keys in sorted order at every depth.
+ *
+ *  The staleness hash is written from the JS object we just saved and later
+ *  recomputed from what Postgres returns. jsonb does not preserve key order,
+ *  so a plain JSON.stringify gives two different strings for identical
+ *  content, and every edited lesson looks stale on the next sweep. Sorting
+ *  makes the hash depend on the content alone. */
+function canonical(value: unknown): string {
+  if (value === null || typeof value !== "object") return JSON.stringify(value) ?? "null";
+  if (Array.isArray(value)) return `[${value.map(canonical).join(",")}]`;
+  const entries = Object.entries(value as Record<string, unknown>)
+    // `undefined` is dropped by JSON.stringify and absent from jsonb, so it
+    // must not contribute here either.
+    .filter(([, v]) => v !== undefined)
+    .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0));
+  return `{${entries.map(([k, v]) => `${JSON.stringify(k)}:${canonical(v)}`).join(",")}}`;
+}
+
 export function contentHash(content: unknown): string {
-  return createHash("sha256").update(JSON.stringify(content)).digest("hex").slice(0, 32);
+  return createHash("sha256").update(canonical(content)).digest("hex").slice(0, 32);
 }
 
 export interface RunOptions {
