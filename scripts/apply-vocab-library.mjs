@@ -36,17 +36,13 @@ function normalize(s) {
     .replace(/[̀-ͯ]/g, "").replace(/[^a-z ]+/g, " ")
     .replace(/\s+/g, " ").trim();
 }
+// Exact match only — mirrors conceptFor() in src/lib/vocab-library/concepts.ts.
 function conceptFor(...hints) {
   for (const hint of hints) {
     const n = normalize(hint);
     if (!n) continue;
-    const exact = CONCEPTS.find((c) => c.slug === n || c.aliases.includes(n));
-    if (exact) return exact;
-    const words = new Set(n.split(" "));
-    const hit = CONCEPTS.filter(
-      (c) => words.has(c.slug) || c.aliases.some((a) => !a.includes(" ") && words.has(a))
-    );
-    if (hit.length === 1) return hit[0];
+    const hit = CONCEPTS.find((c) => c.slug === n || c.aliases.includes(n));
+    if (hit) return hit;
   }
   return null;
 }

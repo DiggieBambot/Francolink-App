@@ -97,21 +97,19 @@ function normalize(s: string): string {
 
 /**
  * Resolve an English hint (image_query or translation) to a library concept.
- * Falls back to a word-level match so "a knee bending in sport" still lands on
- * "knee", but only when exactly one concept's word appears — an ambiguous hint
- * gets no match and the caller keeps its existing photo path.
+ *
+ * Matching is deliberately EXACT — whole-hint against a slug or a listed alias.
+ * A word-level fallback looks tempting ("a knee bending in sport" → knee) but
+ * misfires badly on the wider corpus: "shaking hands" in a B1 business lesson
+ * became the cartoon child's hand, and "jouer au foot" became a foot. Adding
+ * an alias is cheap; a wrong picture in a lesson is not.
  */
 export function conceptFor(...hints: (string | undefined)[]): Concept | null {
   for (const hint of hints) {
     const n = normalize(hint || "");
     if (!n) continue;
-    const exact = BY_ALIAS.get(n);
-    if (exact) return exact;
-    const words = new Set(n.split(" "));
-    const hit = CONCEPTS.filter(
-      (c) => words.has(c.slug) || c.aliases.some((a) => !a.includes(" ") && words.has(a))
-    );
-    if (hit.length === 1) return hit[0];
+    const hit = BY_ALIAS.get(n);
+    if (hit) return hit;
   }
   return null;
 }
