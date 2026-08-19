@@ -5,6 +5,7 @@
 
 import { createClient } from "@supabase/supabase-js";
 import type { Lesson, Section } from "./types";
+import { conceptFor, isLibraryUrl, libraryImageUrl } from "@/lib/vocab-library";
 
 const BUCKET = "lesson-images";
 const VOCAB_PREFIX = "vocab-photos";
@@ -25,6 +26,15 @@ function asciiSlug(s: string, maxLen = 60): string {
 
 function alreadyHosted(url: string | undefined): boolean {
   return typeof url === "string" && url.includes(`/${BUCKET}/`);
+}
+
+// Shared vocab picture library (see src/lib/vocab-library). A generated,
+// unambiguous illustration beats a stock photo for concrete vocabulary — a
+// photo search for "knee" returns a whole person — so we look there first and
+// only fall back to Pexels for concepts the library doesn't cover yet.
+function libraryUrlFor(...hints: (string | undefined)[]): string | null {
+  const concept = conceptFor(...hints);
+  return concept ? libraryImageUrl(concept.slug) : null;
 }
 
 // Global Pexels throttle. The free tier allows ~200 requests/hour. We pace
@@ -182,6 +192,13 @@ export async function hydrateImages(
       case "vocabulary_with_examples": {
         for (let i = 0; i < s.items.length; i++) {
           const it = s.items[i];
+          if (isLibraryUrl(it.image_url)) continue;
+          const fromLibrary = libraryUrlFor(it.image_query, it.translation);
+          if (fromLibrary) {
+            it.image_url = fromLibrary;
+            stats.vocab++;
+            continue;
+          }
           if (alreadyHosted(it.image_url)) continue;
           const termSlug = asciiSlug(it.term);
           if (!termSlug) continue;

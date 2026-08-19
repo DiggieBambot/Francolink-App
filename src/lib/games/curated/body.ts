@@ -10,9 +10,20 @@
 // satisfy the shared CuratedItem shape.
 
 import type { CuratedItem } from "./animals";
+import { libraryImageUrl } from "@/lib/vocab-library";
+
+// Body pictures now come from the shared vocab library, so the games and the
+// lessons show the exact same figure for a given part. `slug` here is the
+// French stem, mapped to the library's English concept key.
+const CONCEPT_BY_SLUG: Record<string, string> = {
+  tete: "head", cheveux: "hair", oeil: "eye", nez: "nose", bouche: "mouth",
+  oreille: "ear", cou: "neck", epaule: "shoulder", bras: "arm", main: "hand",
+  ventre: "tummy", jambe: "leg", genou: "knee", pied: "foot",
+};
 
 export function curatedImage(slug: string): string {
-  return `/games/body/${slug}.png`;
+  const concept = CONCEPT_BY_SLUG[slug];
+  return concept ? libraryImageUrl(concept) : `/games/body/${slug}.png`;
 }
 
 export const BODY: CuratedItem[] = [

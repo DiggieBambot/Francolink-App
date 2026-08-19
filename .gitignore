@@ -57,3 +57,7 @@ _*.mjs
 # Tool state, not project source.
 .zcode/
 supabase/.temp/
+
+# Local dry-run output of scripts/generate-vocab-library.mjs — the library
+# itself lives in Supabase Storage, these are just previews to eyeball.
+/public/vocab-library/
