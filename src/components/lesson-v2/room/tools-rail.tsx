@@ -2,10 +2,11 @@
 
 import dynamic from "next/dynamic";
 import { useState } from "react";
-import { MessageSquare, PenTool, Users, X, PanelRightOpen, BookOpen, Copy, Check } from "lucide-react";
+import { MessageSquare, PenTool, Users, X, PanelRightOpen, BookOpen, Copy, Check, Sparkles } from "lucide-react";
 import { useLessonRoom } from "../lesson-room-context";
 import { Avatar } from "../avatar";
 import { ChatPanel } from "./chat-panel";
+import { DiggieChatPanel } from "@/components/shared/diggie-chat-panel";
 
 // tldraw is heavy + browser-only → load it client-side only when the tab opens.
 const WhiteboardPanel = dynamic(
@@ -13,7 +14,7 @@ const WhiteboardPanel = dynamic(
   { ssr: false, loading: () => <div className="p-4 text-sm text-slate-400">Loading whiteboard…</div> }
 );
 
-type Tab = "chat" | "whiteboard" | "people";
+type Tab = "chat" | "whiteboard" | "people" | "ai";
 
 export function ToolsRail() {
   const room = useLessonRoom();
@@ -61,6 +62,7 @@ export function ToolsRail() {
           { id: "chat", label: "Chat", Icon: MessageSquare },
           { id: "whiteboard", label: "Board", Icon: PenTool },
           { id: "people", label: "People", Icon: Users },
+          { id: "ai", label: "AI", Icon: Sparkles },
         ] as const).map(({ id, label, Icon }) => (
           <button
             key={id}
@@ -90,6 +92,7 @@ export function ToolsRail() {
       {/* Panels */}
       <div className="relative flex-1 overflow-hidden">
         {tab === "chat" ? <ChatPanel /> : null}
+        {tab === "ai" ? <DiggieChatPanel /> : null}
         {tab === "whiteboard" ? (
           <WhiteboardPanel sessionId={room.sessionId} userId={room.currentUserId} />
         ) : null}
