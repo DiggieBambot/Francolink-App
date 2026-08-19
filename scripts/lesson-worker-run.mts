@@ -89,12 +89,18 @@ const opts: RunOptions = {
   repair_model: "gpt-4o-mini",
 };
 
+// --slugs targets specific lessons, which is how you re-run the handful a
+// previous sweep left in a worse state without paying for the whole catalogue.
+// It implies --all: a named lesson is one you explicitly want reprocessed.
+const slugs = (val("--slugs") ?? "").split(",").map((s) => s.trim()).filter(Boolean);
+
 let q = supa
   .from("tutor_lessons")
   .select("id, slug, title, level, language, content, ai_pass_hash")
   .eq("language", language)
   .limit(limit);
 if (levels.length) q = q.in("level", levels);
+if (slugs.length) q = q.in("slug", slugs);
 
 const { data: lessons, error } = await q;
 if (error) {
@@ -103,7 +109,7 @@ if (error) {
 }
 
 const queue = (lessons ?? []).filter((l) =>
-  has("--all") ? true : l.ai_pass_hash !== contentHash(l.content)
+  has("--all") || slugs.length ? true : l.ai_pass_hash !== contentHash(l.content)
 );
 
 console.log(C.bold(`\nLesson worker`));
