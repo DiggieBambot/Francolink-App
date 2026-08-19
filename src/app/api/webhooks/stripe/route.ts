@@ -1,5 +1,4 @@
 // src/app/api/webhooks/stripe/route.ts
-import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
@@ -23,7 +22,10 @@ async function getAppSetting(key: string): Promise<string | null> {
 
 export async function POST(request: Request) {
   const body = await request.text();
-  const signature = headers().get('stripe-signature');
+  // Read straight off the Request. next/headers' headers() is async in Next 15+,
+  // and calling .get() on the returned promise threw before any of this ran —
+  // every webhook POST answered 500, so no Stripe event was ever processed.
+  const signature = request.headers.get('stripe-signature');
 
   if (!signature) {
     console.error('No Stripe signature found');
@@ -40,8 +42,13 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Stripe not configured' }, { status: 500 });
   }
 
-  if (stripeEnabled !== 'true') {
-    console.log('Stripe is disabled, ignoring webhook');
+  // Kill switch, not a feature flag: only an explicit 'false' turns webhooks
+  // off. It used to require an explicit 'true', so a missing or mistyped
+  // app_settings row silently dropped every event — and because the response
+  // is a 200, Stripe reported success. A student could pay for a lesson and
+  // have the booking quietly never confirm, with no error anywhere to find.
+  if (stripeEnabled === 'false') {
+    console.log('Stripe is disabled by app_settings.stripe_enabled=false, ignoring webhook');
     return NextResponse.json({ received: true, message: 'Stripe disabled' });
   }
 
