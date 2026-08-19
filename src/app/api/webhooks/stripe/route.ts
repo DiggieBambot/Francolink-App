@@ -63,6 +63,16 @@ export async function POST(request: Request) {
 
   try {
     switch (event.type) {
+      // Lesson bookings are one-off payments, not subscriptions. They carry
+      // metadata.kind === 'lesson_booking' so they never touch the plan logic.
+      case 'checkout.session.completed':
+        await handleCheckoutCompleted(event.data.object as Stripe.Checkout.Session);
+        break;
+
+      case 'checkout.session.expired':
+        await handleCheckoutExpired(event.data.object as Stripe.Checkout.Session);
+        break;
+
       case 'invoice.payment_succeeded':
         await handlePaymentSucceeded(event.data.object as Stripe.Invoice);
         break;
@@ -297,4 +307,110 @@ async function determinePlanFromPriceId(priceId: string | undefined): Promise<st
   }
   
   return 'PREMIUM'; // Default to Premium if unknown
+}
+/* ------------------------------------------------------------------ bookings */
+
+/**
+ * Confirms a paid lesson and provisions the room.
+ *
+ * Idempotent: Stripe retries webhooks, and a second delivery must not create a
+ * second room or re-send notifications. The status guard is what makes that
+ * safe — only a booking still in `pending_payment` is acted on.
+ */
+async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
+  if (session.metadata?.kind !== 'lesson_booking') return; // a subscription
+
+  const bookingId = session.metadata?.booking_id || session.client_reference_id;
+  if (!bookingId) {
+    console.error('[webhook] lesson_booking with no booking_id', session.id);
+    return;
+  }
+
+  // Only confirm if money actually moved. `complete` sessions can still be
+  // unpaid for async payment methods.
+  if (session.payment_status !== 'paid') {
+    console.log('[webhook] checkout complete but unpaid, leaving held:', bookingId);
+    return;
+  }
+
+  const { data: booking } = await supabase
+    .from('bookings')
+    .select('id, tutor_id, student_id, status, room_session_id')
+    .eq('id', bookingId)
+    .maybeSingle();
+
+  if (!booking) {
+    console.error('[webhook] no such booking', bookingId);
+    return;
+  }
+  if (booking.status !== 'pending_payment') {
+    // Already handled — a retry, or an admin got there first.
+    console.log('[webhook] booking already settled:', bookingId, booking.status);
+    return;
+  }
+
+  // One shared room per tutor/student pair; reused across their lessons.
+  let roomId = booking.room_session_id as string | null;
+  if (!roomId) {
+    try {
+      const { getOrCreateLessonSpace } = await import('@/lib/lessons/lesson-space');
+      const space = await getOrCreateLessonSpace(booking.tutor_id, booking.student_id);
+      roomId = space.id;
+    } catch (e) {
+      // A missing room must not lose a paid booking — confirm anyway and let
+      // an admin or the next room visit sort it out.
+      console.error('[webhook] room provisioning failed for', bookingId, e);
+    }
+  }
+
+  const { error } = await supabase
+    .from('bookings')
+    .update({
+      status: 'confirmed',
+      stripe_payment_intent_id:
+        typeof session.payment_intent === 'string' ? session.payment_intent : null,
+      room_session_id: roomId,
+      expires_at: null,
+    })
+    .eq('id', bookingId)
+    // Guard against a concurrent retry flipping it twice.
+    .eq('status', 'pending_payment');
+
+  if (error) {
+    console.error('[webhook] confirming booking failed', bookingId, error);
+    return;
+  }
+
+  // Connect the pair so the room and homework tools see the relationship.
+  await supabase
+    .from('tutor_students')
+    .upsert(
+      {
+        tutor_id: booking.tutor_id,
+        student_id: booking.student_id,
+        status: 'active',
+      },
+      { onConflict: 'tutor_id,student_id' }
+    )
+    .then(
+      () => {},
+      (e: unknown) => console.error('[webhook] linking tutor and student failed', e)
+    );
+
+  console.log('[webhook] booking confirmed:', bookingId);
+}
+
+/** Releases the slot when a student abandons checkout. */
+async function handleCheckoutExpired(session: Stripe.Checkout.Session) {
+  if (session.metadata?.kind !== 'lesson_booking') return;
+  const bookingId = session.metadata?.booking_id || session.client_reference_id;
+  if (!bookingId) return;
+
+  await supabase
+    .from('bookings')
+    .update({ status: 'expired' })
+    .eq('id', bookingId)
+    .eq('status', 'pending_payment');
+
+  console.log('[webhook] booking hold released:', bookingId);
 }

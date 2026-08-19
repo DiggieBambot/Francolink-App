@@ -258,10 +258,12 @@ export default async function TutorProfilePage({ params }: PageProps) {
                 slots={availability.slots}
                 tutorTimezone={availability.timezone}
                 tutorName={tutor.name}
+                tutorSlug={tutor.slug}
                 prices={pricing.lessons}
                 trial={pricing.trial}
                 trialAvailable={tutor.trial_available}
-                bookHref={bookHref}
+                appUrl={appUrl("")}
+                profileUrl={siteUrl(`/tutors/${tutor.slug}`)}
               />
             ) : (
               // No open slots — fall back to showing the weekly pattern so the

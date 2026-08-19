@@ -119,6 +119,7 @@ const APP_ROUTES = [
   "/progress",
   "/practice",
   "/lessons",
+  "/book",
   "/upgrade-plus",
   "/admin",
   "/preview",

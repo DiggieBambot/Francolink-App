@@ -47,17 +47,71 @@ export default async function TutorLayout({
     redirect("/dashboard");
   }
 
+  // A tutor here is one of two things, and the sidebar should say which.
+  // Everyone can teach students they brought themselves; only an accepted
+  // FrancoLink tutor gets a public listing, bookings and per-lesson pay.
+  const [{ data: flProfile }, { data: flApplication }] = await Promise.all([
+    supabase
+      .from("tutor_public_profiles")
+      .select("approval_status, is_public, accepts_bookings")
+      .eq("user_id", user.id)
+      .maybeSingle(),
+    supabase
+      .from("tutor_applications")
+      .select("status")
+      .eq("applicant_user_id", user.id)
+      .order("created_at", { ascending: false })
+      .limit(1)
+      .maybeSingle(),
+  ]);
+
+  // Someone an admin has set up counts as a member even before they publish —
+  // otherwise they'd have no way to reach the editor to finish their profile.
+  const isFrancolinkTutor =
+    Boolean(flProfile) || flApplication?.status === "accepted";
+  const applicationOpen = ["new", "reviewing", "interviewing"].includes(
+    flApplication?.status ?? ""
+  );
+
   // Icons are passed by NAME (string) — Server Components can't hand component
   // functions to the client TutorSidebar.
-  const navigation = [
-    { name: "Dashboard", href: "/tutor", icon: "LayoutDashboard" },
-    { name: "My Students", href: "/tutor/students", icon: "Users" },
-    { name: "Lessons", href: "/tutor/lessons", icon: "BookOpen" },
-    { name: "Live Sessions", href: "/tutor/sessions", icon: "Video" },
-    { name: "Homework", href: "/tutor/homework", icon: "PencilLine" },
-    { name: "Schedule", href: "/tutor/schedule", icon: "Calendar" },
-    { name: "Commissions", href: "/tutor/commisions", icon: "DollarSign" },
-    { name: "Settings", href: "/tutor/settings", icon: "Settings" },
+  const groups = [
+    {
+      label: "Teaching",
+      items: [
+        { name: "Dashboard", href: "/tutor", icon: "LayoutDashboard" },
+        { name: "My Students", href: "/tutor/students", icon: "Users" },
+        { name: "Lessons", href: "/tutor/lessons", icon: "BookOpen" },
+        { name: "Live Sessions", href: "/tutor/sessions", icon: "Video" },
+        { name: "Homework", href: "/tutor/homework", icon: "PencilLine" },
+        { name: "Schedule", href: "/tutor/schedule", icon: "Calendar" },
+      ],
+    },
+    isFrancolinkTutor
+      ? {
+          label: "FrancoLink tutor",
+          items: [
+            { name: "Public profile", href: "/tutor/public-profile", icon: "Globe" },
+            { name: "Availability", href: "/tutor/availability", icon: "CalendarClock" },
+          ],
+        }
+      : {
+          label: "Earning opportunity",
+          items: [
+            {
+              name: applicationOpen ? "Application pending" : "Become a FrancoLink tutor",
+              href: "/tutor/apply",
+              icon: "Sparkles",
+            },
+          ],
+        },
+    {
+      label: "Account",
+      items: [
+        { name: "Commissions", href: "/tutor/commisions", icon: "DollarSign" },
+        { name: "Settings", href: "/tutor/settings", icon: "Settings" },
+      ],
+    },
   ];
 
   const commissionBalance = Number(userData?.commission_balance || 0);
@@ -72,7 +126,7 @@ export default async function TutorLayout({
       </div>
 
       <TutorSidebar
-        navigation={navigation}
+        groups={groups}
         userName={userData?.name || "Tutor"}
         userEmail={userData?.email || user.email || ""}
         avatarUrl={userData?.avatar_url}

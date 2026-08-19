@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import {
   Video, LogOut, ChevronUp, Settings, User,
   LayoutDashboard, Users, BookOpen, Calendar, DollarSign, PencilLine,
+  Globe, CalendarClock, Sparkles,
   type LucideIcon,
 } from "lucide-react";
 import { useState } from "react";
@@ -14,17 +15,31 @@ import { createClient } from "@/lib/supabase/client";
 // cannot pass component functions as props to Client Components.
 const ICONS: Record<string, LucideIcon> = {
   LayoutDashboard, Users, BookOpen, Video, Calendar, DollarSign, Settings,
-  PencilLine,
+  PencilLine, Globe, CalendarClock, Sparkles,
 };
 
 interface NavigationItem {
   name: string;
   href: string;
   icon: string;
+  /** Cross-host link (the public site) — a plain anchor, not next/link. */
+  external?: boolean;
+}
+
+/**
+ * The sidebar is grouped rather than one flat list because tutors here are two
+ * different things. Most use FrancoLink as a tool for students they brought
+ * themselves; a few are also FrancoLink tutors we send students to and pay.
+ * Showing everyone "Availability" and "Public profile" made no sense for the
+ * majority, so the second group only appears once someone is actually one.
+ */
+interface NavigationGroup {
+  label: string | null;
+  items: NavigationItem[];
 }
 
 interface TutorSidebarProps {
-  navigation: NavigationItem[];
+  groups: NavigationGroup[];
   userName: string;
   userEmail: string;
   avatarUrl?: string | null;
@@ -32,7 +47,7 @@ interface TutorSidebarProps {
 }
 
 export function TutorSidebar({
-  navigation,
+  groups,
   userName,
   userEmail,
   avatarUrl,
@@ -74,13 +89,29 @@ export function TutorSidebar({
   return (
     <nav className="w-64 bg-white border-r border-gray-100 flex flex-col shadow-sm">
       {/* Navigation Links */}
-      <div className="px-3 py-4 space-y-1 flex-1">
-        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider px-3 mb-3">
-          Menu
-        </p>
-        {navigation.map((item) => {
+      <div className="px-3 py-4 flex-1 overflow-y-auto">
+        {groups.map((group, gi) => (
+          <div key={group.label ?? gi} className={gi > 0 ? "mt-6" : ""}>
+            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider px-3 mb-3">
+              {group.label ?? "Menu"}
+            </p>
+            <div className="space-y-1">
+        {group.items.map((item) => {
           const Icon = ICONS[item.icon] ?? LayoutDashboard;
           const active = isActive(item.href);
+
+          if (item.external) {
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-gray-600 transition-all hover:bg-gray-50 hover:text-gray-900"
+              >
+                <Icon className="w-[18px] h-[18px] text-gray-400" />
+                <span>{item.name}</span>
+              </a>
+            );
+          }
 
           return (
             <Link
@@ -107,6 +138,9 @@ export function TutorSidebar({
             </Link>
           );
         })}
+            </div>
+          </div>
+        ))}
       </div>
 
       {/* Quick Action */}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { CalendarDays, Clock, Globe2 } from "lucide-react";
+import { CalendarDays, Clock, Globe2, Loader2 } from "lucide-react";
 import type { BookableSlot } from "@/lib/booking/availability";
 import { formatPrice, type TierPrice } from "@/lib/site/pricing";
 import { cn } from "@/lib/utils";
@@ -17,20 +17,25 @@ export function SlotPicker({
   slots,
   tutorTimezone,
   tutorName,
+  tutorSlug,
   prices,
   trial,
   trialAvailable,
-  bookHref,
+  appUrl,
+  profileUrl,
 }: {
   slots: BookableSlot[];
   tutorTimezone: string;
   tutorName: string;
+  tutorSlug: string;
   prices: TierPrice[];
   trial: TierPrice | null;
   trialAvailable: boolean;
-  /** Where "continue" goes until checkout exists. */
-  bookHref: string;
+  appUrl: string;
+  profileUrl: string;
 }) {
+  const [booking, setBooking] = useState(false);
+  const [bookError, setBookError] = useState<string | null>(null);
   const durations = useMemo(
     () => [...new Set(slots.map((s) => s.durationMinutes))].sort((a, b) => a - b),
     [slots]
@@ -59,6 +64,26 @@ export function SlotPicker({
     }
     return [...map.entries()].sort(([a], [b]) => a.localeCompare(b));
   }, [forDuration, viewerTz]);
+
+  /**
+   * Hands off to the app host rather than calling its API from here.
+   *
+   * The session cookie belongs to app.francolink.net, so a cross-origin fetch
+   * from the website would need third-party cookies — which Safari blocks
+   * outright and Chrome is phasing out. Navigating makes the request
+   * first-party, and /book picks it up from there.
+   */
+  function book(slot: BookableSlot) {
+    setBooking(true);
+    setBookError(null);
+    const params = new URLSearchParams({
+      tutor: tutorSlug,
+      start: slot.start,
+      duration: String(slot.durationMinutes),
+      from: profileUrl,
+    });
+    window.location.href = `${appUrl}/book?${params.toString()}`;
+  }
 
   const priceFor = (mins: number) =>
     prices.find((p) => p.durationMinutes === mins) ?? null;
@@ -181,12 +206,22 @@ export function SlotPicker({
               {chosenPrice === trial && " — discounted first lesson"}
             </p>
           )}
-          <a
-            href={bookHref}
-            className="inline-flex items-center justify-center gap-2 mt-4 px-6 py-3 rounded-xl bg-primary text-white font-bold hover:bg-primary-800"
+          <button
+            type="button"
+            onClick={() => book(chosen)}
+            disabled={booking}
+            className="inline-flex items-center justify-center gap-2 mt-4 px-6 py-3 rounded-xl bg-primary text-white font-bold hover:bg-primary-800 disabled:opacity-60"
           >
-            Continue
-          </a>
+            {booking && <Loader2 className="w-4 h-4 animate-spin" />}
+            {booking
+              ? "Starting checkout…"
+              : chosenPrice
+                ? `Book — ${formatPrice(chosenPrice.priceCents, chosenPrice.currency)}`
+                : "Book this slot"}
+          </button>
+          {bookError && (
+            <p className="mt-3 text-sm text-red-600">{bookError}</p>
+          )}
           <p className="mt-3 text-xs text-gray-500">
             Free cancellation up to 12 hours before the lesson.
           </p>
