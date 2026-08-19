@@ -7,6 +7,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { z } from "zod";
+import { looksHuman } from "@/lib/site/form-token";
 import { DEFAULT_FROM, getResend } from "@/lib/email/resend";
 
 export const runtime = "nodejs";
@@ -18,6 +19,8 @@ const Body = z.object({
   message: z.string().trim().min(10).max(4000),
   // Honeypot — a filled value means a bot.
   company: z.string().optional().default(""),
+  // Proof the form was actually rendered — see lib/site/form-token.
+  form_token: z.string().optional().default(""),
 });
 
 const SUPPORT_INBOX = process.env.SUPPORT_INBOX || "support@francolink.net";
@@ -35,6 +38,13 @@ export async function POST(request: Request) {
 
   // Silently accept honeypot hits: a bot that gets an error learns to retry.
   if (parsed.company.trim() !== "") {
+    return NextResponse.json({ ok: true });
+  }
+
+  // Drive-by bots POST straight at this route without ever loading the form,
+  // so they have no token. Answer 200 so they learn nothing and don't retry.
+  if (!looksHuman(parsed.form_token)) {
+    console.log("[site/contact] rejected: no valid form token");
     return NextResponse.json({ ok: true });
   }
 

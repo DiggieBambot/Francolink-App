@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useFormToken } from "@/hooks/use-form-token";
 import { BellRing, CheckCircle2, Loader2 } from "lucide-react";
 import { LANGUAGE_LABEL } from "@/lib/site/format";
 
@@ -13,6 +14,8 @@ type Status = "idle" | "sending" | "sent" | "error";
  */
 export function TutorWaitlistForm({ language }: { language: string | null }) {
   const [status, setStatus] = useState<Status>("idle");
+  // Proves the form was rendered — blocks bots posting straight at the API.
+  const formToken = useFormToken();
   const [error, setError] = useState<string | null>(null);
 
   const label = language ? (LANGUAGE_LABEL[language] ?? language.toUpperCase()) : null;
@@ -32,6 +35,7 @@ export function TutorWaitlistForm({ language }: { language: string | null }) {
           language,
           note: String(f.get("note") || ""),
           company: String(f.get("company") || ""),
+          form_token: formToken,
         }),
       });
       const body = await res.json().catch(() => ({}));

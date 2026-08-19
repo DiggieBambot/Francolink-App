@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useFormToken } from "@/hooks/use-form-token";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { LANGUAGE_LABEL } from "@/lib/site/format";
 import { cn } from "@/lib/utils";
@@ -14,6 +15,8 @@ export function TeachForm() {
   const [teaches, setTeaches] = useState<string[]>([]);
   const [levels, setLevels] = useState<string[]>([]);
   const [status, setStatus] = useState<Status>("idle");
+  // Proves the form was rendered — blocks bots posting straight at the API.
+  const formToken = useFormToken();
   const [error, setError] = useState<string | null>(null);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -50,6 +53,7 @@ export function TeachForm() {
           about: String(f.get("about") || ""),
           link: String(f.get("link") || ""),
           company: String(f.get("company") || ""),
+          form_token: formToken,
         }),
       });
       const body = await res.json().catch(() => ({}));

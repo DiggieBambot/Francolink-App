@@ -3,6 +3,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { z } from "zod";
+import { looksHuman } from "@/lib/site/form-token";
 
 export const runtime = "nodejs";
 
@@ -13,6 +14,8 @@ const Body = z.object({
   note: z.string().trim().max(500).optional().default(""),
   // Honeypot.
   company: z.string().optional().default(""),
+  // Proof the form was actually rendered — see lib/site/form-token.
+  form_token: z.string().optional().default(""),
 });
 
 export async function POST(request: Request) {
@@ -27,6 +30,13 @@ export async function POST(request: Request) {
   }
 
   if (input.company.trim() !== "") return NextResponse.json({ ok: true });
+
+  // Drive-by bots POST straight at this route without ever loading the form,
+  // so they have no token. Answer 200 so they learn nothing and don't retry.
+  if (!looksHuman(input.form_token)) {
+    console.log("[tutor-waitlist] rejected: no valid form token");
+    return NextResponse.json({ ok: true });
+  }
 
   const db = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
