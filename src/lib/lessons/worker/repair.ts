@@ -58,6 +58,19 @@ function restoreHydrated(original: any, repaired: any): any {
   return out;
 }
 
+// French nouns carry their gender in the article, and a bare noun on a
+// vocabulary card teaches the word while hiding half of what the learner needs.
+// Elision and plurals are exactly where a regex would produce wrong French
+// ("l\'hôtel" but "le héros"), so this is stated as a rule for the model rather
+// than applied mechanically.
+const FR_NOUN_RULE = `
+- FRENCH NOUNS MUST CARRY THEIR ARTICLE in "term", so the learner sees the gender:
+  "le football", "la natation", "l'école", "les vacances" — never a bare "football".
+  Use l' before a vowel or mute h ("l'hôtel"), but le/la before an aspirate h ("le héros").
+  Use les for nouns that are normally plural ("les vacances", "les loisirs").
+  Keep "gender" consistent with the article you choose.
+  Leave the article off verbs, adjectives, adverbs and phrases — this applies to nouns only.`;
+
 // The invariants each section kind must satisfy to actually work in the
 // renderer. Without these the model fixes the literal defect and nothing else —
 // e.g. it rewrites "___" as "(1)" and leaves the answer pool empty, producing a
@@ -72,10 +85,12 @@ const REQUIREMENTS: Record<string, string> = {
 - A blank must have a determinate answer recoverable from the dialogue. If a line is open-ended ("I believe that ___"), rewrite the line so the blank tests something specific.`,
   fill_in_blank_dialogue_extended: `- Same rules as fill_in_blank_dialogue: inline "(N)" markers, a valid_answers_by_blank entry per blank, and every answer present in answer_pool.`,
   word_order: `- "correct" must contain EXACTLY the same words as "scrambled", only reordered. Do not add, drop or reword.`,
-  reading_comprehension: `- Every question needs its own DISTINCT model answer, and each answer must be findable in the passage.`,
+  reading_comprehension: `- Every question needs its own DISTINCT model answer, and each answer must be findable in the passage.
+- "passage_translation" must be a full English translation of the passage. The reader reveals it beside the text, so a partial one is worse than none.
+- The passage must be complete prose: full paragraphs separated by a blank line, ending in a finished sentence. Never stop mid-thought or trail off.`,
   warmup_vocabulary: `- Every item needs "translation" (English) and "pronunciation" (IPA). Use "translation", never "definition".
-- "image_query" is a concrete English scene for a stock-photo search, not the word itself.`,
-  vocabulary_with_examples: `- Every item needs "translation" (English), "pronunciation" (IPA), "example" and "example_translation". Use "translation"/"example", never "definition"/"example_sentence".`,
+- "image_query" is a concrete English scene for a stock-photo search, not the word itself.` + FR_NOUN_RULE,
+  vocabulary_with_examples: `- Every item needs "translation" (English), "pronunciation" (IPA), "example" and "example_translation". Use "translation"/"example", never "definition"/"example_sentence".` + FR_NOUN_RULE,
   matching_qa: `- Each answer must match exactly one question. Duplicate answers make the exercise ambiguous.`,
   grammar_explainer: `- Every table row must have exactly as many cells as the table has headers.`,
 };
@@ -185,6 +200,6 @@ Return { "section": <the repaired section> }.`,
     number: (section as any).number,
   }) as Section;
 
-  const remaining = validateSection(merged, index, lesson.level ?? "B1");
+  const remaining = validateSection(merged, index, lesson.level ?? "B1", lesson.language ?? "fr");
   return { section: merged, costUsd, remaining };
 }

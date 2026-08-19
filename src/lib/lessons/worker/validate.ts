@@ -49,7 +49,11 @@ function words(s: string): number {
 
 // ── per-kind checks ─────────────────────────────────────────────────────────
 
-function checkVocab(sec: any, i: number, out: Defect[]): void {
+/** Articles that already mark gender on a French vocabulary term. */
+const FR_ARTICLE = /^(le |la |l'|les |un |une |des |du |de la |de l')/i;
+const NOUN_POS = /^(noun|nom|substantif)/i;
+
+function checkVocab(sec: any, i: number, out: Defect[], language: string): void {
   const items = Array.isArray(sec.items) ? sec.items : [];
   if (items.length === 0) {
     out.push({ code: "vocab.empty", severity: "error", section_index: i, path: `sections[${i}].items`, message: "Vocabulary section has no items." });
@@ -72,6 +76,11 @@ function checkVocab(sec: any, i: number, out: Defect[]): void {
     }
     if (!it.pronunciation?.trim()) {
       out.push({ code: "vocab.no_pronunciation", severity: "warn", section_index: i, path: p, message: `"${it.term}" has no pronunciation.` });
+    }
+    // A bare French noun teaches the word but hides its gender, which is half
+    // of what the learner needs. "le football" / "la natation" carries it.
+    if (language === "fr" && NOUN_POS.test(String(it.part_of_speech ?? "")) && !FR_ARTICLE.test(String(it.term).trim())) {
+      out.push({ code: "vocab.noun_without_article", severity: "warn", section_index: i, path: p, message: `"${it.term}" is a noun with no article — it should read "le/la/l'/les ${it.term}" so the gender is visible.` });
     }
     // image_query drives the Pexels hydrator; without it the card stays blank.
     if (!it.image_query?.trim() && !it.image_url?.trim()) {
@@ -196,6 +205,12 @@ function checkReading(sec: any, i: number, level: string, out: Defect[]): void {
     out.push({ code: "reading.too_short", severity: "warn", section_index: i, path: `${p}.passage`, message: `Passage is ${n} words; ${level} targets ~${target}.` });
   } else if (n > target * 1.8) {
     out.push({ code: "reading.too_long", severity: "warn", section_index: i, path: `${p}.passage`, message: `Passage is ${n} words; ${level} targets ~${target}.` });
+  }
+
+  // The renderer offers the translation behind a reveal control; without it
+  // the student has no gloss for the passage at all.
+  if (!sec.passage_translation?.trim()) {
+    out.push({ code: "reading.no_translation", severity: "warn", section_index: i, path: `${p}.passage_translation`, message: "Passage has no English translation." });
   }
 
   const qs = Array.isArray(sec.questions) ? sec.questions : [];
@@ -328,7 +343,7 @@ function checkImagePrompts(sec: any, i: number, out: Defect[]): void {
 
 /** Validate a single section in isolation. Used both by the full-lesson sweep
  *  and to re-check a section the repair stage has just rewritten. */
-export function validateSection(sec: Section, index: number, level: string): Defect[] {
+export function validateSection(sec: Section, index: number, level: string, language = "fr"): Defect[] {
   const out: Defect[] = [];
   const s = sec as any;
 
@@ -343,7 +358,7 @@ export function validateSection(sec: Section, index: number, level: string): Def
     out.push({ code: "section.no_tutor_instruction", severity: "warn", section_index: index, path: `sections[${index}]`, message: `${s.kind} has no tutor instruction.` });
   }
 
-  if (VOCAB_KINDS.includes(s.kind)) checkVocab(s, index, out);
+  if (VOCAB_KINDS.includes(s.kind)) checkVocab(s, index, out, language);
   else if (BLANK_KINDS.includes(s.kind)) checkBlanks(s, index, out);
   else if (s.kind === "reading_comprehension") checkReading(s, index, level, out);
   else if (s.kind === "word_order") checkWordOrder(s, index, out);
@@ -385,7 +400,7 @@ export function validateLesson(lesson: Lesson): Defect[] {
     out.push({ code: "lesson.no_practice", severity: "warn", section_index: null, path: "sections", message: "Lesson has no practice exercise." });
   }
 
-  sections.forEach((sec, i) => out.push(...validateSection(sec, i, level)));
+  sections.forEach((sec, i) => out.push(...validateSection(sec, i, level, lesson.language ?? "fr")));
   return out;
 }
 
@@ -396,6 +411,7 @@ export const AUTO_FIXABLE = new Set<string>([
   "vocab.no_translation",
   "vocab.no_pronunciation",
   "vocab.no_image_query",
+  "vocab.noun_without_article",
   "vocab.duplicate_term",
   "blank.no_valid_answer",
   "blank.answer_not_in_pool",
@@ -412,6 +428,7 @@ export const AUTO_FIXABLE = new Set<string>([
   "reading.empty_question",
   "reading.identical_answers",
   "reading.too_short",
+  "reading.no_translation",
   "word_order.no_correct",
   "word_order.not_a_permutation",
   "matching.duplicate_answer",
