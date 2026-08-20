@@ -174,20 +174,26 @@ included. This is the point of the exercise.
 - **Performance.** One extra query per gate check. Fine at current volume. If it
   bites, cache into a `lesson_perk_until` column maintained by the
   `complete-bookings` sweeper — the read path stays identical.
-- **RLS.** Confirm a student can select their own `bookings` rows under RLS,
-  since `getTutorAccess` is called with a user-scoped client.
+- ~~**RLS.**~~ Resolved: the `participants read bookings` policy is
+  `auth.uid() = student_id or auth.uid() = tutor_id`, so a student can read
+  their own bookings and `getTutorAccess` works with its user-scoped client.
 - **Does 30 days want to be configurable?** An `app_settings` row under
   `features` would allow tuning without a deploy. Probably yes, eventually.
 
-## Inconsistencies found while planning
+## Inconsistencies found while planning — fixed
 
-Unrelated to this feature, but they touch the same surfaces:
+All resolved in `5efdad5`, against Stripe as the authority ($7.99/$59.99 and
+$14.99/$119.99, matching what the pricing page already showed):
 
-- **Premium price disagrees with itself.** `app_settings.premium_monthly_price`
-  is `7.99`, but the `pricing_plans` JSON blob says `9.99` for the same plan
-  (with `premium_original_price` also `9.99` and a founding-member discount
-  flag set). Two prices for one product.
-- **The AI Tutor cap is described wrong.** Marketing copy says "AI Tutor
-  (5/day)"; the implementation is a **monthly message pool**
-  (`tutor-access.ts`), and the database column is still called
-  `ai_minutes_used_today` while counting messages per month.
+- Premium's price disagreed across four sources; `app_settings` yearly prices
+  and the `pricing_plans` blob were corrected, as was the admin seed.
+- Feature copy described a better product than the code delivers: "AI Tutor
+  (5/day)" against a 300-message monthly pool, Free "5 lessons per day" against
+  a limit of 1, and — worst — Premium advertised as "Unlimited" AI conversations.
+  Nothing rendered those i18n rows, which is the only reason the last one was
+  not already a support problem.
+- `subscription_tier` and `subscription_plan` now agree on every row (one admin
+  row differed; admins are privileged regardless, so no access changed).
+
+Still true and worth knowing: the usage column is named `ai_minutes_used_today`
+but counts **messages per month**.
