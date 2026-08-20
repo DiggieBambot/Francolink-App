@@ -87,10 +87,20 @@ export async function POST(request: Request) {
     switch (event.type) {
       // Lesson bookings are one-off payments, not subscriptions. They carry
       // metadata.kind === 'lesson_booking' so they never touch the plan logic.
+      // A delayed payment method (bank debit, some wallets) completes the
+      // session while payment_status is still 'unpaid', so handleCheckoutCompleted
+      // leaves the slot held. Stripe reports the outcome later, and until now
+      // nothing listened: the student paid and the hold expired anyway.
+      // Same session object, same handler — the pending_payment guard makes the
+      // second arrival a no-op when the card path already confirmed it.
       case 'checkout.session.completed':
+      case 'checkout.session.async_payment_succeeded':
         await handleCheckoutCompleted(event.data.object as Stripe.Checkout.Session);
         break;
 
+      // A delayed payment that fails leaves the slot held until it expires on
+      // its own. Releasing it is the same operation as an expiry.
+      case 'checkout.session.async_payment_failed':
       case 'checkout.session.expired':
         await handleCheckoutExpired(event.data.object as Stripe.Checkout.Session);
         break;
