@@ -34,7 +34,8 @@ function alreadyHosted(url: string | undefined): boolean {
 // only fall back to Pexels for concepts the library doesn't cover yet.
 function libraryUrlFor(...hints: (string | undefined)[]): string | null {
   const concept = conceptFor(...hints);
-  return concept ? libraryImageUrl(concept.slug) : null;
+  // `hold` marks a picture that failed review — fall through to a photo.
+  return concept && !concept.hold ? libraryImageUrl(concept.slug) : null;
 }
 
 // Global Pexels throttle. The free tier allows ~200 requests/hour. We pace

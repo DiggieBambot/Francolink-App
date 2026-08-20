@@ -5,11 +5,13 @@
 // and uploads it to Supabase Storage at lesson-images/vocab-library/<slug>.png,
 // where both lessons and the kids' games read from.
 //
-// "figure" concepts (body parts) reuse ONE base cartoon child with a highlight
-// ring composited at the right spot and a crop around it — the same technique
-// as scripts/generate-curated-body.mjs, which is what makes "knee" readable
-// instead of a photo of someone's leg. "object" concepts get a single-subject
-// FLUX illustration.
+// Each concept is rendered by the method that gives a child the clearest,
+// least ambiguous picture — see the notes in concepts.ts:
+//   figure   one base cartoon child + a highlight ring + a crop
+//   from     copy an already hand-verified game tile, never regenerate it
+//   object   a single-subject FLUX illustration
+//   shape    drawn with canvas — a model renders "diamond" as a gemstone
+//   numeral  drawn with canvas — image models garble digits
 //
 // Usage:
 //   node --env-file=.env.local scripts/generate-vocab-library.mjs
@@ -46,6 +48,7 @@ const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID;
 const API_TOKEN = process.env.CLOUDFLARE_API_TOKEN;
 const SUPA_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const SUPA_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const GEMINI_KEY = process.env.GEMINI_API_KEY;
 
 if (!DRY && (!SUPA_URL || !SUPA_KEY)) {
   console.error("Missing NEXT_PUBLIC_SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY.");
@@ -59,26 +62,86 @@ function loadConcepts() {
   const m = src.match(/export const CONCEPTS: Concept\[\] = (\[[\s\S]*?\n\]);/);
   if (!m) { console.error("Could not find the CONCEPTS array"); process.exit(1); }
   // eslint-disable-next-line no-eval
-  return eval(m[1].replace(/kind: "(figure|object)"/g, 'kind: "$1"')); // trusted, in-repo source
+  return eval(m[1]); // trusted, in-repo source
 }
 
-async function flux(prompt, seed) {
-  if (!ACCOUNT_ID || !API_TOKEN) {
-    throw new Error("Missing CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_API_TOKEN — needed to generate new images");
-  }
+// A concept's picture always comes from exactly one place.
+function methodOf(c) {
+  if (c.from) return "copy";
+  if (c.kind === "figure") return "figure";
+  if (c.kind === "shape") return "shape";
+  if (c.kind === "numeral") return "numeral";
+  return "flux";
+}
+
+// FLUX.1-schnell, reached through Cloudflare Workers AI first and Hugging Face
+// second. Cloudflare's free tier stops at 10,000 neurons a day, which a full
+// library build blows through; falling back to the SAME model elsewhere keeps
+// every picture in one art style instead of half the set looking foreign.
+let cloudflareExhausted = false;
+
+async function fluxCloudflare(prompt, seed) {
   const url = `https://api.cloudflare.com/client/v4/accounts/${ACCOUNT_ID}/ai/run/${MODEL}`;
-  const body = { prompt, num_steps: 6 };
+  const body = { prompt, steps: 6 };
   if (seed) body.seed = seed;
   const res = await fetch(url, {
     method: "POST",
     headers: { Authorization: `Bearer ${API_TOKEN}`, "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
-  if (!res.ok) throw new Error(`Cloudflare AI ${res.status}: ${(await res.text()).slice(0, 200)}`);
+  if (!res.ok) {
+    const text = (await res.text()).slice(0, 200);
+    if (res.status === 429 || /daily free allocation/.test(text)) {
+      cloudflareExhausted = true;
+      const err = new Error("cloudflare quota");
+      err.quota = true;
+      throw err;
+    }
+    throw new Error(`Cloudflare AI ${res.status}: ${text}`);
+  }
   const json = await res.json();
   const b64 = json?.result?.image;
   if (!b64) throw new Error(`No image: ${JSON.stringify(json).slice(0, 160)}`);
   return Buffer.from(b64, "base64");
+}
+
+// Gemini is the standby when Cloudflare's daily allocation runs out. It is a
+// different model, so the prompt leans hard on the same style words to keep
+// the two halves of the library looking like one set.
+async function imageGemini(prompt) {
+  const res = await fetch(
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+    {
+      method: "POST",
+      headers: { "x-goog-api-key": GEMINI_KEY, "Content-Type": "application/json" },
+      body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }),
+    }
+  );
+  if (!res.ok) throw new Error(`Gemini ${res.status}: ${(await res.text()).slice(0, 200)}`);
+  const json = await res.json();
+  const part = json?.candidates?.[0]?.content?.parts?.find((p) => p.inlineData?.data);
+  if (!part) throw new Error(`Gemini: no image in response`);
+  return Buffer.from(part.inlineData.data, "base64");
+}
+
+async function flux(prompt, seed) {
+  const canCloudflare = ACCOUNT_ID && API_TOKEN && !cloudflareExhausted;
+  if (canCloudflare) {
+    try {
+      return await fluxCloudflare(prompt, seed);
+    } catch (e) {
+      if (!e.quota) throw e;
+      console.log("\n  … Cloudflare daily quota reached — switching to Hugging Face\n");
+    }
+  }
+  if (!GEMINI_KEY) {
+    throw new Error(
+      cloudflareExhausted
+        ? "Cloudflare quota exhausted and no GEMINI_API_KEY to fall back to"
+        : "Missing CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_API_TOKEN"
+    );
+  }
+  return imageGemini(prompt);
 }
 
 const BASE_PROMPT =
@@ -162,6 +225,105 @@ async function renderObject(concept) {
   return canvas.toBuffer("image/png");
 }
 
+// Copy a hand-verified game tile straight in — the games curated these by eye,
+// so regenerating them would only risk making them worse.
+function copyTile(concept) {
+  const p = join(ROOT, "public", "games", concept.from.theme, `${concept.from.slug}.png`);
+  if (!existsSync(p)) throw new Error(`missing tile ${concept.from.theme}/${concept.from.slug}.png`);
+  return readFileSync(p);
+}
+
+const SHAPE_FILL = "#38bdf8";
+const SHAPE_LINE = "#0f172a";
+
+function renderShape(concept) {
+  const canvas = createCanvas(SIZE, SIZE);
+  const ctx = canvas.getContext("2d");
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, SIZE, SIZE);
+  const cx = SIZE / 2, cy = SIZE / 2, r = SIZE * 0.3;
+  ctx.beginPath();
+  switch (concept.shape) {
+    case "circle":
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      break;
+    case "square":
+      ctx.rect(cx - r, cy - r, r * 2, r * 2);
+      break;
+    case "rectangle":
+      ctx.rect(cx - r * 1.35, cy - r * 0.75, r * 2.7, r * 1.5);
+      break;
+    case "triangle":
+      ctx.moveTo(cx, cy - r);
+      ctx.lineTo(cx + r, cy + r * 0.8);
+      ctx.lineTo(cx - r, cy + r * 0.8);
+      ctx.closePath();
+      break;
+    case "oval":
+      ctx.ellipse(cx, cy, r * 1.3, r * 0.85, 0, 0, Math.PI * 2);
+      break;
+    case "diamond":
+      ctx.moveTo(cx, cy - r);
+      ctx.lineTo(cx + r * 0.75, cy);
+      ctx.lineTo(cx, cy + r);
+      ctx.lineTo(cx - r * 0.75, cy);
+      ctx.closePath();
+      break;
+    case "heart": {
+      const t = cy - r * 0.55;
+      ctx.moveTo(cx, cy + r * 0.9);
+      ctx.bezierCurveTo(cx - r * 1.5, cy - r * 0.2, cx - r * 0.6, t - r * 0.75, cx, t);
+      ctx.bezierCurveTo(cx + r * 0.6, t - r * 0.75, cx + r * 1.5, cy - r * 0.2, cx, cy + r * 0.9);
+      break;
+    }
+    case "star": {
+      const spikes = 5, outer = r, inner = r * 0.42;
+      for (let i = 0; i < spikes * 2; i++) {
+        const rad = i % 2 === 0 ? outer : inner;
+        const ang = (Math.PI / spikes) * i - Math.PI / 2;
+        const fn = i === 0 ? "moveTo" : "lineTo";
+        ctx[fn](cx + Math.cos(ang) * rad, cy + Math.sin(ang) * rad);
+      }
+      ctx.closePath();
+      break;
+    }
+    default:
+      throw new Error(`unknown shape "${concept.shape}"`);
+  }
+  ctx.fillStyle = SHAPE_FILL;
+  ctx.fill();
+  ctx.lineWidth = 12;
+  ctx.lineJoin = "round";
+  ctx.strokeStyle = SHAPE_LINE;
+  ctx.stroke();
+  return canvas.toBuffer("image/png");
+}
+
+// Matches the palette and layout of scripts/generate-number-cards.mjs so 11+
+// sits beside the games' 1-10 cards without looking like a different set.
+const NUMERAL_BG = ["#ef4444", "#3b82f6", "#22c55e", "#facc15", "#f97316",
+                    "#a855f7", "#ec4899", "#06b6d4", "#84cc16", "#6366f1"];
+
+function renderNumeral(concept) {
+  const canvas = createCanvas(SIZE, SIZE);
+  const ctx = canvas.getContext("2d");
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, SIZE, SIZE);
+  const bg = NUMERAL_BG[concept.numeral % NUMERAL_BG.length];
+  const pad = SIZE * 0.08, r = SIZE * 0.1;
+  ctx.beginPath();
+  ctx.roundRect(pad, pad, SIZE - pad * 2, SIZE - pad * 2, r);
+  ctx.fillStyle = bg;
+  ctx.fill();
+  ctx.fillStyle = "#ffffff";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  const digits = String(concept.numeral);
+  ctx.font = `bold ${digits.length > 2 ? SIZE * 0.36 : SIZE * 0.48}px sans-serif`;
+  ctx.fillText(digits, SIZE / 2, SIZE / 2);
+  return canvas.toBuffer("image/png");
+}
+
 async function alreadyUploaded(slug) {
   const { data } = await supabase.storage.from(BUCKET).list(PREFIX, { search: `${slug}.png` });
   return Boolean(data?.some((f) => f.name === `${slug}.png`));
@@ -180,7 +342,7 @@ async function main() {
   if (ONLY.length) concepts = concepts.filter((c) => ONLY.includes(c.slug));
   if (!concepts.length) { console.error("No concepts matched --only"); process.exit(1); }
 
-  const needsFigure = concepts.some((c) => c.kind === "figure");
+  const needsFigure = concepts.some((c) => methodOf(c) === "figure");
   const baseImg = needsFigure ? await getBaseFigure() : null;
 
   mkdirSync(LOCAL_DIR, { recursive: true });
@@ -188,19 +350,25 @@ async function main() {
   let ok = 0, skip = 0, fail = 0;
 
   for (const c of concepts) {
-    process.stdout.write(`  ${c.slug.padEnd(12)} ${c.kind.padEnd(7)} `);
+    process.stdout.write(`  ${c.slug.padEnd(20)} ${methodOf(c).padEnd(7)} `);
     try {
       if (!DRY && !FORCE && (await alreadyUploaded(c.slug))) {
         console.log("skip (in library)");
         skip++;
         continue;
       }
-      const buf = c.kind === "figure" ? renderFigure(baseImg, c) : await renderObject(c);
+      const method = methodOf(c);
+      const buf =
+        method === "copy" ? copyTile(c)
+        : method === "figure" ? renderFigure(baseImg, c)
+        : method === "shape" ? renderShape(c)
+        : method === "numeral" ? renderNumeral(c)
+        : await renderObject(c);
       writeFileSync(join(LOCAL_DIR, `${c.slug}.png`), buf);
       if (DRY) console.log(`✓  → public/vocab-library/${c.slug}.png`);
       else console.log(`✓  ${await upload(c.slug, buf)}`);
       ok++;
-      if (c.kind === "object") await new Promise((r) => setTimeout(r, THROTTLE_MS));
+      if (method === "flux") await new Promise((r) => setTimeout(r, THROTTLE_MS));
     } catch (e) {
       console.log(`✗  ${e.message}`);
       fail++;
