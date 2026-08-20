@@ -5,6 +5,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { createServiceClient } from "@/lib/supabase/service";
 
 const BUCKET = "assets";
 const FOLDER = "avatars";
@@ -61,19 +62,25 @@ export async function POST(request: NextRequest) {
   const path = `${FOLDER}/${user.id}.${extFor(file.type)}`;
   const buf = Buffer.from(await file.arrayBuffer());
 
-  const { error: upErr } = await supabase.storage
-    .from(BUCKET)
-    .upload(path, buf, { contentType: file.type, upsert: true });
+  // Service client for the same reason as the tutor-photo route: `assets` has
+  // no INSERT policy for `authenticated`. The user is authorized above and the
+  // path is keyed to their own id.
+  const storage = createServiceClient().storage.from(BUCKET);
+
+  const { error: upErr } = await storage.upload(path, buf, {
+    contentType: file.type,
+    upsert: true,
+  });
   if (upErr) {
     return NextResponse.json({ error: `Upload failed: ${upErr.message}` }, { status: 500 });
   }
 
   // If the prior file used a different extension, remove the stale object.
   if (priorPath && priorPath !== path) {
-    await supabase.storage.from(BUCKET).remove([priorPath]).catch(() => {});
+    await storage.remove([priorPath]);
   }
 
-  const { data: pub } = supabase.storage.from(BUCKET).getPublicUrl(path);
+  const { data: pub } = storage.getPublicUrl(path);
   // Append a cache-buster so the UI shows the new image immediately.
   const url = `${pub.publicUrl}?t=${Date.now()}`;
 
@@ -109,7 +116,8 @@ export async function DELETE() {
   }
 
   if (priorPath) {
-    await supabase.storage.from(BUCKET).remove([priorPath]).catch(() => {});
+    // Best-effort cleanup; the row is already cleared either way.
+    await createServiceClient().storage.from(BUCKET).remove([priorPath]);
   }
   return NextResponse.json({ ok: true });
 }

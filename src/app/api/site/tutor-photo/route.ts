@@ -10,6 +10,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { createServiceClient } from "@/lib/supabase/service";
 
 const BUCKET = "assets";
 const FOLDER = "tutor-photos";
@@ -104,15 +105,22 @@ export async function POST(request: NextRequest) {
   const path = `${FOLDER}/${resolved.targetId}.${extFor(file.type)}`;
   const buf = Buffer.from(await file.arrayBuffer());
 
-  const { error: upErr } = await supabase.storage
-    .from(BUCKET)
-    .upload(path, buf, { contentType: file.type, upsert: true });
+  // The write goes through the service client: `assets` has no INSERT policy
+  // for `authenticated`, and the path is keyed to the *target* user, which a
+  // per-caller policy couldn't express for the admin-uploads-for-a-tutor case.
+  // resolveTarget above is what authorizes this.
+  const storage = createServiceClient().storage.from(BUCKET);
+
+  const { error: upErr } = await storage.upload(path, buf, {
+    contentType: file.type,
+    upsert: true,
+  });
   if (upErr) {
     console.error("[site/tutor-photo] upload failed", upErr);
-    return NextResponse.json({ error: "Upload failed." }, { status: 500 });
+    return NextResponse.json({ error: `Upload failed: ${upErr.message}` }, { status: 500 });
   }
 
-  const { data: pub } = supabase.storage.from(BUCKET).getPublicUrl(path);
+  const { data: pub } = storage.getPublicUrl(path);
   // Cache-buster so a re-upload shows immediately in the editor.
   const url = `${pub.publicUrl}?t=${Date.now()}`;
 
