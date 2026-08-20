@@ -9,14 +9,29 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
-// Helper to get settings from database
-async function getAppSetting(key: string): Promise<string | null> {
+// Helper to get settings from database.
+//
+// The category is part of the identity of a setting, not decoration: app_settings
+// holds both features/stripe_enabled ("true", what the admin toggle writes) and a
+// stale payments/stripe_enabled ("false"). Selecting on key alone matched both,
+// and .single() answers a 2-row result with PGRST116 and null data — so this
+// returned null for the one setting that gates every webhook. It survived only
+// because null is not 'false'. Pinning the category makes the read mean what it says.
+async function getAppSetting(
+  category: string,
+  key: string
+): Promise<string | null> {
   const { data, error } = await supabase
     .from('app_settings')
     .select('value')
+    .eq('category', category)
     .eq('key', key)
-    .single();
-  
+    .maybeSingle();
+
+  if (error) {
+    console.error(`app_settings lookup failed for ${category}/${key}:`, error);
+    return null;
+  }
   return data?.value || null;
 }
 
@@ -33,9 +48,9 @@ export async function POST(request: Request) {
   }
 
   // Get Stripe config from database
-  const stripeSecretKey = await getAppSetting('stripe_secret_key') || process.env.STRIPE_SECRET_KEY;
-  const webhookSecret = await getAppSetting('stripe_webhook_secret') || process.env.STRIPE_WEBHOOK_SECRET;
-  const stripeEnabled = await getAppSetting('stripe_enabled');
+  const stripeSecretKey = await getAppSetting('payments', 'stripe_secret_key') || process.env.STRIPE_SECRET_KEY;
+  const webhookSecret = await getAppSetting('payments', 'stripe_webhook_secret') || process.env.STRIPE_WEBHOOK_SECRET;
+  const stripeEnabled = await getAppSetting('features', 'stripe_enabled');
 
   if (!stripeSecretKey || !webhookSecret) {
     console.error('Stripe not configured');
@@ -142,7 +157,7 @@ async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
   }
 
   // Get commission settings from app_settings
-  const commissionEnabled = await getAppSetting('commission_enabled');
+  const commissionEnabled = await getAppSetting('commissions', 'commission_enabled');
   if (commissionEnabled !== 'true') {
     console.log('Commission system is disabled');
     return;
@@ -163,8 +178,8 @@ async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
     isFirst = (count ?? 0) === 0;
   }
 
-  const firstRate = parseFloat((await getAppSetting('commission_rate_first_month')) || '0.10');
-  const recurringRate = parseFloat((await getAppSetting('commission_rate_recurring')) || '0.05');
+  const firstRate = parseFloat((await getAppSetting('commissions', 'commission_rate_first_month')) || '0.10');
+  const recurringRate = parseFloat((await getAppSetting('commissions', 'commission_rate_recurring')) || '0.05');
   const commissionRate = isFirst ? firstRate : recurringRate;
 
   const grossAmount = invoice.amount_paid / 100; // cents → dollars
@@ -301,10 +316,10 @@ async function handleSubscriptionCancelled(subscription: Stripe.Subscription) {
 async function determinePlanFromPriceId(priceId: string | undefined): Promise<string> {
   if (!priceId) return 'FREE';
 
-  const premiumMonthly = await getAppSetting('stripe_premium_monthly_price_id');
-  const premiumYearly = await getAppSetting('stripe_premium_yearly_price_id');
-  const premiumPlusMonthly = await getAppSetting('stripe_premium_plus_monthly_price_id');
-  const premiumPlusYearly = await getAppSetting('stripe_premium_plus_yearly_price_id');
+  const premiumMonthly = await getAppSetting('payments', 'stripe_premium_monthly_price_id');
+  const premiumYearly = await getAppSetting('payments', 'stripe_premium_yearly_price_id');
+  const premiumPlusMonthly = await getAppSetting('payments', 'stripe_premium_plus_monthly_price_id');
+  const premiumPlusYearly = await getAppSetting('payments', 'stripe_premium_plus_yearly_price_id');
 
   if (priceId === premiumPlusMonthly || priceId === premiumPlusYearly) {
     return 'PREMIUM_PLUS';
