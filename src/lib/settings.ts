@@ -13,25 +13,11 @@ export interface AppSetting {
   is_secret: boolean;
 }
 
-/**
- * Get a single setting value
- */
-export async function getSetting(key: string): Promise<string | null> {
-  const supabase = await createClient();
-  
-  const { data, error } = await supabase
-    .from('app_settings')
-    .select('value')
-    .eq('key', key)
-    .single();
-  
-  if (error || !data) {
-    console.error(`Setting not found: ${key}`, error);
-    return null;
-  }
-  
-  return data.value;
-}
+// A category-blind getSetting used to live here, selecting on key alone with
+// .single(). app_settings is keyed by (category, key), so a key used in two
+// categories made it return null for every caller — the bug that hid the
+// Stripe kill switch. Nothing imported it. Use getSetting from
+// @/lib/config/settings, which takes a category and a default.
 
 /**
  * Get multiple settings by category
@@ -55,25 +41,11 @@ export async function getSettingsByCategory(category: SettingCategory): Promise<
   }, {} as Record<string, string>);
 }
 
-/**
- * Get Stripe configuration
- */
-export async function getStripeConfig() {
-  const settings = await getSettingsByCategory('payments');
-  
-  return {
-    secretKey: settings['stripe_secret_key'] || process.env.STRIPE_SECRET_KEY || '',
-    publishableKey: settings['stripe_publishable_key'] || process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '',
-    webhookSecret: settings['stripe_webhook_secret'] || process.env.STRIPE_WEBHOOK_SECRET || '',
-    enabled: settings['stripe_enabled'] === 'true',
-    priceIds: {
-      premiumMonthly: settings['stripe_premium_monthly_price_id'],
-      premiumYearly: settings['stripe_premium_yearly_price_id'],
-      premiumPlusMonthly: settings['stripe_premium_plus_monthly_price_id'],
-      premiumPlusYearly: settings['stripe_premium_plus_yearly_price_id'],
-    }
-  };
-}
+// getStripeConfig used to live here. It read stripe_enabled from the 'payments'
+// category, where a stale "false" row sat until it was deleted — so anything
+// wired to it would have reported Stripe disabled while the admin toggle in
+// 'features' said otherwise. Nothing imported it. The live one is
+// getStripeConfig in @/lib/config/settings, which reads by category.
 
 /**
  * Get Commission configuration
