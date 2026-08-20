@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Loader2, AlertCircle } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
+import { useTurnstile } from '@/components/auth/turnstile';
 
 interface Props {
   tutorId: string;
@@ -25,11 +26,18 @@ export function StudentJoinForm({ tutorId, inviteCode }: Props) {
   
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const captcha = useTurnstile();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setError(null);
+
+    if (captcha.enabled && !captcha.token) {
+      setError('Please complete the human check below.');
+      setIsLoading(false);
+      return;
+    }
 
     try {
       // 1. Sign up user
@@ -37,6 +45,7 @@ export function StudentJoinForm({ tutorId, inviteCode }: Props) {
         email: formData.email,
         password: formData.password,
         options: {
+          captchaToken: captcha.token ?? undefined,
           data: {
             full_name: formData.name,
             role: 'USER', // Students are regular users
@@ -127,6 +136,8 @@ export function StudentJoinForm({ tutorId, inviteCode }: Props) {
           placeholder="••••••••"
         />
       </div>
+
+        {captcha.widget}
 
       <button
         type="submit"

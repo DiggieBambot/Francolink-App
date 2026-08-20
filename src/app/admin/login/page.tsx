@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
+import { useTurnstile } from "@/components/auth/turnstile";
 import { Shield, Lock, Mail, Eye, EyeOff, Loader2, AlertTriangle } from "lucide-react";
 import { AdminGoogleButton } from "@/components/auth/admin-google-button";
 
@@ -12,6 +13,7 @@ export default function AdminLoginPage() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const captcha = useTurnstile();
   const [time, setTime] = useState("");
 
   useEffect(() => {
@@ -36,8 +38,12 @@ export default function AdminLoginPage() {
     setIsLoading(true);
     try {
       const supabase = createClient();
-      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-      if (error) { setError(error.message); setIsLoading(false); return; }
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+        options: { captchaToken: captcha.token ?? undefined },
+      });
+      if (error) { setError(error.message); captcha.reset(); setIsLoading(false); return; }
       if (data.session) {
         const { data: profile } = await supabase.from("users").select("role").eq("id", data.user.id).single();
         const role = (profile?.role || "").toUpperCase();
@@ -371,6 +377,7 @@ export default function AdminLoginPage() {
                   </button>
                 </div>
               </div>
+              {captcha.widget}
               <button type="submit" className="sbtn" disabled={isLoading}>
                 {isLoading
                   ? <><Loader2 size={14} style={{ animation: 'spin 1s linear infinite' }} />Authenticating...</>

@@ -9,6 +9,7 @@ import { Loader2, AlertCircle, Check, GraduationCap, ArrowLeft, User, Mail, Lock
 import { createClient } from '@/lib/supabase/client';
 import { Card, Input, Button } from '@/components/ui';
 import { GoogleButton } from '@/components/auth/google-button';
+import { useTurnstile } from '@/components/auth/turnstile';
 
 interface Plan {
   key: string;
@@ -34,11 +35,18 @@ export function TutorSignupForm({ selectedPlan, plans }: Props) {
   
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const captcha = useTurnstile();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setError(null);
+
+    if (captcha.enabled && !captcha.token) {
+      setError('Please complete the human check below.');
+      setIsLoading(false);
+      return;
+    }
 
     try {
       // 1. Sign up user
@@ -46,6 +54,7 @@ export function TutorSignupForm({ selectedPlan, plans }: Props) {
         email: formData.email,
         password: formData.password,
         options: {
+          captchaToken: captcha.token ?? undefined,
           data: {
             full_name: formData.fullName,
             role: 'TUTOR', // Explicitly set role metadata
@@ -161,6 +170,8 @@ export function TutorSignupForm({ selectedPlan, plans }: Props) {
             </div>
           </div>
         ) : null}
+
+        {captcha.widget}
 
         <Button type="submit" className="w-full" disabled={isLoading}>
           {isLoading ? (<><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Creating account...</>) : "Create tutor account"}

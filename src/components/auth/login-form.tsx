@@ -7,6 +7,7 @@ import { createClient } from "@/lib/supabase/client";
 import { Button, Card, Input } from "@/components/ui";
 import { Mail, Lock, Eye, EyeOff, Loader2, GraduationCap, BookOpen, ArrowLeft } from "lucide-react";
 import { GoogleButton } from "./google-button";
+import { useTurnstile } from "./turnstile";
 
 export function LoginForm({ role, next }: { role: "student" | "tutor"; next?: string }) {
   const router = useRouter();
@@ -16,6 +17,9 @@ export function LoginForm({ role, next }: { role: "student" | "tutor"; next?: st
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  // Supabase applies its captcha check to sign-in as well as sign-up, so the
+  // login form has to produce a token too or every login would 400.
+  const captcha = useTurnstile();
 
   const isTutor = role === "tutor";
   const signupHref = (isTutor ? "/signup/tutor" : "/signup/student") + nextQ;
@@ -24,11 +28,21 @@ export function LoginForm({ role, next }: { role: "student" | "tutor"; next?: st
     e.preventDefault();
     setError("");
     setIsLoading(true);
+    if (captcha.enabled && !captcha.token) {
+      setError("Please complete the human check below.");
+      setIsLoading(false);
+      return;
+    }
     try {
       const supabase = createClient();
-      const { data: signInData, error } = await supabase.auth.signInWithPassword({ email, password });
+      const { data: signInData, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+        options: { captchaToken: captcha.token ?? undefined },
+      });
       if (error) {
         setError(error.message);
+        captcha.reset();
         return;
       }
       // Honour an explicit next (e.g. a shared /room link); otherwise route by role.
@@ -44,6 +58,7 @@ export function LoginForm({ role, next }: { role: "student" | "tutor"; next?: st
       router.refresh();
     } catch {
       setError("Something went wrong. Please try again.");
+      captcha.reset();
     } finally {
       setIsLoading(false);
     }
@@ -97,6 +112,8 @@ export function LoginForm({ role, next }: { role: "student" | "tutor"; next?: st
         <div className="flex justify-end">
           <Link href="/forgot-password" className="text-sm text-secondary hover:underline">Forgot password?</Link>
         </div>
+
+        {captcha.widget}
 
         <Button type="submit" className="w-full" disabled={isLoading}>
           {isLoading ? (<><Loader2 className="mr-2 h-5 w-5 animate-spin" /> Logging in...</>) : "Log In"}

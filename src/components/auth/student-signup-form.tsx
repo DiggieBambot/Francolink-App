@@ -7,6 +7,7 @@ import { trackEvent } from "@/lib/analytics/client";
 import { Button, Card, Input } from "@/components/ui";
 import { Mail, Lock, User, Eye, EyeOff, Loader2, BookOpen, ArrowLeft } from "lucide-react";
 import { GoogleButton } from "./google-button";
+import { useTurnstile } from "./turnstile";
 
 export function StudentSignupForm({ next }: { next?: string }) {
   const nextQ = next ? `?next=${encodeURIComponent(next)}` : "";
@@ -16,6 +17,7 @@ export function StudentSignupForm({ next }: { next?: string }) {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const captcha = useTurnstile();
 
   async function handleSignup(e: React.FormEvent) {
     e.preventDefault();
@@ -26,12 +28,18 @@ export function StudentSignupForm({ next }: { next?: string }) {
       setIsLoading(false);
       return;
     }
+    if (captcha.enabled && !captcha.token) {
+      setError("Please complete the human check below.");
+      setIsLoading(false);
+      return;
+    }
     try {
       const supabase = createClient();
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: {
+          captchaToken: captcha.token ?? undefined,
           data: { name, full_name: name, role: "USER" },
           // Carry `next` through email confirmation so the callback lands the
           // student on their destination (e.g. a shared /room link).
@@ -42,6 +50,7 @@ export function StudentSignupForm({ next }: { next?: string }) {
       });
       if (error) {
         setError(error.message);
+        captcha.reset();
         setIsLoading(false);
         return;
       }
@@ -57,6 +66,7 @@ export function StudentSignupForm({ next }: { next?: string }) {
       }
     } catch {
       setError("Something went wrong. Please try again.");
+      captcha.reset();
       setIsLoading(false);
     }
   }
@@ -105,6 +115,8 @@ export function StudentSignupForm({ next }: { next?: string }) {
             {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
           </button>
         </div>
+
+        {captcha.widget}
 
         <Button type="submit" className="w-full" disabled={isLoading}>
           {isLoading ? (<><Loader2 className="mr-2 h-5 w-5 animate-spin" /> Creating account...</>) : "Create Account"}

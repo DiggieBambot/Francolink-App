@@ -6,6 +6,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 import { Button, Card, Input } from "@/components/ui";
+import { useTurnstile } from "@/components/auth/turnstile";
 import { Mail, ArrowLeft, Loader2, CheckCircle } from "lucide-react";
 
 export default function ForgotPasswordPage() {
@@ -13,21 +14,30 @@ export default function ForgotPasswordPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+  const captcha = useTurnstile();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setIsLoading(true);
 
+    if (captcha.enabled && !captcha.token) {
+      setError("Please complete the human check below.");
+      setIsLoading(false);
+      return;
+    }
+
     try {
       const supabase = createClient();
 
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
         redirectTo: `${window.location.origin}/reset-password`,
+        captchaToken: captcha.token ?? undefined,
       });
 
       if (error) {
         setError(error.message);
+        captcha.reset();
       } else {
         setSuccess(true);
       }
@@ -112,6 +122,8 @@ export default function ForgotPasswordPage() {
             disabled={isLoading}
           />
         </div>
+
+        {captcha.widget}
 
         <Button type="submit" className="w-full" disabled={isLoading}>
           {isLoading ? (
