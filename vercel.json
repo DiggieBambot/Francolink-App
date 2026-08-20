@@ -16,10 +16,6 @@
     {
       "path": "/api/cron/close-stale-rooms",
       "schedule": "0 3 * * *"
-    },
-    {
-      "path": "/api/cron/complete-bookings",
-      "schedule": "15 * * * *"
     }
   ]
 }

@@ -1,0 +1,20 @@
+name: Settle finished lessons
+
+# Vercel Hobby only allows daily crons, and a lesson that ended must settle
+# within the hour — a tutor should not wait until tomorrow to see a lesson
+# they just taught counted. GitHub Actions runs this hourly and pings the
+# endpoint; the endpoint decides which bookings are due.
+on:
+  schedule:
+    - cron: "15 * * * *" # every hour at :15 (UTC), off the hour to avoid the pile-up
+  workflow_dispatch: {} # allow manual runs from the Actions tab
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Settle bookings whose lesson has finished
+        run: |
+          curl -sS -X GET "https://app.francolink.net/api/cron/complete-bookings" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            --max-time 300 --fail-with-body
