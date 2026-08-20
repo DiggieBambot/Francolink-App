@@ -15,18 +15,24 @@ interface Plan {
   features: string[]; badge: string; highlighted: boolean; cta_label: string;
 }
 
+// These are the fallback shown when app_settings has no pricing_plans row, so
+// they must not invent an offer. Prices are the ones Stripe actually charges
+// (verified against the live price IDs), and the feature lines are the limits
+// in PLANS — not the aspirational ones this seed used to carry: it advertised
+// Premium at $9.99 against a $7.99 charge, "AI Tutor (5/day)" against a monthly
+// pool of 300 messages, and "5 lessons per day" on Free against a limit of 1.
 const DEFAULT_PLANS: Plan[] = [
   { id: 'free', name: 'Free', price_monthly: '0', price_yearly: '0', currency: 'USD',
     stripe_price_monthly: '', stripe_price_yearly: '',
-    features: ['5 lessons per day', 'Basic exercises', 'Progress tracking'],
+    features: ['1 lesson per day', 'Basic exercises', 'Progress tracking'],
     badge: '', highlighted: false, cta_label: 'Get Started Free' },
-  { id: 'premium', name: 'Premium', price_monthly: '9.99', price_yearly: '79.99', currency: 'USD',
+  { id: 'premium', name: 'Premium', price_monthly: '7.99', price_yearly: '59.99', currency: 'USD',
     stripe_price_monthly: '', stripe_price_yearly: '',
-    features: ['Unlimited lessons', 'All exercises', 'Progress tracking', 'AI Tutor (5/day)'],
+    features: ['Unlimited lessons', 'All exercises', 'Progress tracking', '300 AI Tutor messages a month'],
     badge: 'Popular', highlighted: true, cta_label: 'Start Premium' },
-  { id: 'premium_plus', name: 'Premium Plus', price_monthly: '19.99', price_yearly: '159.99', currency: 'USD',
+  { id: 'premium_plus', name: 'Premium Plus', price_monthly: '14.99', price_yearly: '119.99', currency: 'USD',
     stripe_price_monthly: '', stripe_price_yearly: '',
-    features: ['Everything in Premium', 'Unlimited AI Tutor', 'Live tutor sessions', 'Priority support'],
+    features: ['Everything in Premium', '1,500 AI Tutor messages a month', 'Live tutor sessions', 'Priority support'],
     badge: 'Best Value', highlighted: false, cta_label: 'Go Premium Plus' },
 ];
 

@@ -67,9 +67,17 @@ export async function POST(request: Request) {
     return NextResponse.json({ received: true, message: 'Stripe disabled' });
   }
 
-  // Initialize Stripe with key from database
+  // Initialize Stripe with key from database.
+  //
+  // apiVersion only shapes outbound API calls, and this route makes none — the
+  // single Stripe call is webhooks.constructEvent, which is an HMAC check over
+  // the raw body and is version-independent. The shape of event.data.object is
+  // set by the *endpoint's* pinned version in the Stripe dashboard (2024-04-10),
+  // not by this. So this line was only ever typing the client, and the pinned
+  // '2023-10-16' had drifted far enough from the installed SDK (stripe@20.3.1,
+  // which expects 2026-01-28.clover) to fail the type check.
   const stripe = new Stripe(stripeSecretKey, {
-    apiVersion: '2023-10-16'
+    apiVersion: '2026-01-28.clover',
   });
 
   let event: Stripe.Event;
