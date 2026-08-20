@@ -39,8 +39,12 @@ export async function GET(req: Request) {
 
   const url = new URL(req.url);
   const dry = url.searchParams.get("dry") === "1";
-  const hoursParam = Number(url.searchParams.get("hours"));
-  const hours = Number.isFinite(hoursParam) && hoursParam >= 0 ? hoursParam : GRACE_HOURS;
+  // Read the raw param first: Number(null) is 0, so testing the coerced value
+  // turned "no ?hours given" into a zero grace window — settling every lesson
+  // the moment it ended, with no room left to record a no-show.
+  const rawHours = url.searchParams.get("hours");
+  const parsedHours = rawHours === null || rawHours.trim() === "" ? NaN : Number(rawHours);
+  const hours = Number.isFinite(parsedHours) && parsedHours >= 0 ? parsedHours : GRACE_HOURS;
   const cutoff = new Date(Date.now() - hours * 3600_000).toISOString();
 
   const svc = createServiceClient(
