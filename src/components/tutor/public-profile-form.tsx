@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { CheckCircle2, Loader2, Plus, Save, Trash2 } from "lucide-react";
 import { LANGUAGE_LABEL } from "@/lib/site/format";
 import { PhotoUpload } from "@/components/site/photo-upload";
@@ -9,6 +10,42 @@ import { cn } from "@/lib/utils";
 const LANGUAGES = ["fr", "en", "es", "de", "ar", "it", "pt"];
 const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
 
+// The picker list. Tutors tick these instead of typing free text, so the
+// public site gets consistent, filterable labels. Anything a tutor typed
+// before this list existed still round-trips via the "add your own" field.
+const SPECIALTY_OPTIONS = [
+  "DELF",
+  "DALF",
+  "TEF",
+  "TCF",
+  "TEFAQ",
+  "Conversation",
+  "Pronunciation",
+  "Grammar",
+  "Business French",
+  "French for beginners",
+  "Kids and teens",
+  "Exam prep",
+  "Interview preparation",
+  "Immigration French",
+  "Travel French",
+  "Writing and essays",
+  "Reading comprehension",
+  "Listening comprehension",
+  "Academic French",
+  "Medical French",
+  "Legal French",
+  "Homework help",
+];
+
+
+// Free text let a tutor save "Paris", which is not an IANA zone — every slot
+// calculation runs the value through Intl, so one bad row 500'd their public
+// page. The list comes from the runtime itself, so it can never drift.
+const TIMEZONES: string[] =
+  typeof Intl.supportedValuesOf === "function"
+    ? Intl.supportedValuesOf("timeZone")
+    : ["UTC", "Europe/Paris", "Europe/London", "America/New_York", "Africa/Lagos"];
 
 interface Qualification {
   title: string;
@@ -55,6 +92,7 @@ export function PublicProfileForm({
   siteUrl: string;
   targetUserId?: string;
 }) {
+  const router = useRouter();
   const asAdmin = Boolean(targetUserId);
   const [approveNow, setApproveNow] = useState(
     profile?.approval_status === "approved"
@@ -64,7 +102,26 @@ export function PublicProfileForm({
   const [teaches, setTeaches] = useState<string[]>(profile?.teaches ?? []);
   const [speaks, setSpeaks] = useState<string[]>(profile?.speaks ?? []);
   const [levels, setLevels] = useState<string[]>(profile?.levels ?? []);
-  const [specialties, setSpecialties] = useState((profile?.specialties ?? []).join("\n"));
+  const [specialties, setSpecialties] = useState<string[]>(
+    profile?.specialties ?? []
+  );
+  const [customSpecialty, setCustomSpecialty] = useState("");
+  // Anything already saved that is not in the canonical list still gets a
+  // chip, so an older free-text profile can be unticked rather than stranded.
+  const specialtyOptions = [
+    ...SPECIALTY_OPTIONS,
+    ...specialties.filter((s) => !SPECIALTY_OPTIONS.includes(s)),
+  ];
+
+  function addCustomSpecialty() {
+    const v = customSpecialty.trim();
+    if (!v || specialties.includes(v)) {
+      setCustomSpecialty("");
+      return;
+    }
+    setSpecialties([...specialties, v]);
+    setCustomSpecialty("");
+  }
   const [quals, setQuals] = useState<Qualification[]>(profile?.qualifications ?? []);
   const [years, setYears] = useState(profile?.years_experience?.toString() ?? "");
   const [photoUrl, setPhotoUrl] = useState(profile?.photo_url ?? "");
@@ -95,10 +152,7 @@ export function PublicProfileForm({
       teaches,
       speaks,
       levels,
-      specialties: specialties
-        .split("\n")
-        .map((s) => s.trim())
-        .filter(Boolean),
+      specialties,
       qualifications: quals.filter((q) => q.title.trim()),
       years_experience: years ? Number(years) : null,
       photo_url: photoUrl || null,
@@ -124,6 +178,10 @@ export function PublicProfileForm({
       const body = await res.json();
       if (!res.ok) throw new Error(body.error || "Couldn't save.");
       setSaved(true);
+      // A save sends an approved profile back to review, so the status banner
+      // above is now stale — without this it keeps claiming the listing is
+      // live until the tutor reloads by hand.
+      router.refresh();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Couldn't save.");
     } finally {
@@ -201,13 +259,28 @@ export function PublicProfileForm({
         </label>
         <div className="grid sm:grid-cols-2 gap-5">
           <Text label="Country" value={country} onChange={setCountry} placeholder="France" />
-          <Text
-            label="Timezone"
-            hint="Students see your bookable hours converted from this zone."
-            value={timezone}
-            onChange={setTimezone}
-            placeholder="Europe/Paris"
-          />
+          <label className="block">
+            <span className="block text-sm font-semibold text-primary mb-2">
+              Timezone
+            </span>
+            <span className="block text-xs text-gray-500 mb-2">
+              Students see your bookable hours converted from this zone.
+            </span>
+            <select
+              value={timezone}
+              onChange={(e) => setTimezone(e.target.value)}
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary-100 outline-none bg-white"
+            >
+              {!TIMEZONES.includes(timezone) && (
+                <option value={timezone}>{timezone || "Choose a timezone…"}</option>
+              )}
+              {TIMEZONES.map((tz) => (
+                <option key={tz} value={tz}>
+                  {tz.replace(/_/g, " ")}
+                </option>
+              ))}
+            </select>
+          </label>
         </div>
         <PhotoUpload
           value={photoUrl || null}
@@ -243,21 +316,35 @@ export function PublicProfileForm({
           selected={levels}
           onChange={setLevels}
         />
-        <label className="block">
-          <span className="block text-sm font-semibold text-primary mb-2">
-            Specialities
-          </span>
-          <span className="block text-xs text-gray-500 mb-2">
-            One per line — e.g. &ldquo;DELF/DALF exam prep&rdquo;, &ldquo;Business
-            French&rdquo;, &ldquo;Conversation for shy learners&rdquo;.
-          </span>
-          <textarea
-            value={specialties}
-            onChange={(e) => setSpecialties(e.target.value)}
-            rows={5}
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary-100 outline-none resize-y"
+        <Chips
+          label="Specialities"
+          hint="Tick everything you teach. Add your own below if something is missing."
+          options={specialtyOptions.map((v) => ({ value: v, label: v }))}
+          selected={specialties}
+          onChange={setSpecialties}
+        />
+        <div className="flex gap-2">
+          <input
+            value={customSpecialty}
+            onChange={(e) => setCustomSpecialty(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                addCustomSpecialty();
+              }
+            }}
+            maxLength={80}
+            placeholder="Add another speciality…"
+            className="flex-1 px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary-100 outline-none"
           />
-        </label>
+          <button
+            type="button"
+            onClick={addCustomSpecialty}
+            className="px-4 py-3 rounded-xl bg-gray-100 text-gray-700 text-sm font-semibold hover:bg-gray-200"
+          >
+            <Plus className="w-4 h-4" />
+          </button>
+        </div>
       </Card>
 
       <Card title="Qualifications and experience">
@@ -508,11 +595,13 @@ function Text({
 
 function Chips({
   label,
+  hint,
   options,
   selected,
   onChange,
 }: {
   label: string;
+  hint?: string;
   options: { value: string; label: string }[];
   selected: string[];
   onChange: (v: string[]) => void;
@@ -520,6 +609,7 @@ function Chips({
   return (
     <div>
       <span className="block text-sm font-semibold text-primary mb-2">{label}</span>
+      {hint && <span className="block text-xs text-gray-500 mb-2">{hint}</span>}
       <div className="flex flex-wrap gap-2">
         {options.map((opt) => {
           const on = selected.includes(opt.value);

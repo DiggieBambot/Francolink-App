@@ -7,6 +7,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { z } from "zod";
+import { revalidateTutorPages } from "@/lib/site/revalidate";
 import { getDashboardUser, isAdmin } from "@/lib/admin/access";
 
 export const runtime = "nodejs";
@@ -163,6 +164,20 @@ export async function POST(request: Request) {
   if (error) {
     console.error(`[admin/website] ${input.action} failed`, error);
     return NextResponse.json({ error: "That didn't save." }, { status: 500 });
+  }
+
+  // Everything this route edits — listings, testimonials, FAQs — is rendered
+  // by the cached website pages, so drop their cached copies.
+  const userId = "user_id" in input ? input.user_id : null;
+  if (userId) {
+    const { data } = await db
+      .from("tutor_public_profiles")
+      .select("slug")
+      .eq("user_id", userId)
+      .maybeSingle();
+    revalidateTutorPages(data?.slug ?? null);
+  } else {
+    revalidateTutorPages(null);
   }
 
   return NextResponse.json({ ok: true });

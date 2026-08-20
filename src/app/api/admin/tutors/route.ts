@@ -9,6 +9,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { z } from "zod";
+import { revalidateTutorPages } from "@/lib/site/revalidate";
 import { getDashboardUser, isAdmin } from "@/lib/admin/access";
 import { APP_URL } from "@/lib/site/hosts";
 
@@ -263,5 +264,30 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "That didn't save." }, { status: 500 });
   }
 
+  // Publishing decisions change what francolink.net should show, and those
+  // pages are cached for an hour — without this an approval looks like it
+  // silently failed until the cache happens to expire.
+  await revalidateForUser(db, "user_id" in input ? input.user_id : null);
+
   return NextResponse.json({ ok: true });
+}
+
+/**
+ * Refresh the public website for one tutor. Looked up by user_id because the
+ * admin actions above address tutors by id, while the cache is keyed by slug.
+ */
+async function revalidateForUser(
+  db: ReturnType<typeof serviceClient>,
+  userId?: string | null
+) {
+  if (!userId) {
+    revalidateTutorPages(null);
+    return;
+  }
+  const { data } = await db
+    .from("tutor_public_profiles")
+    .select("slug")
+    .eq("user_id", userId)
+    .maybeSingle();
+  revalidateTutorPages(data?.slug ?? null);
 }

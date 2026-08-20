@@ -9,6 +9,8 @@ import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { z } from "zod";
+import { isValidTimezone } from "@/lib/booking/slots";
+import { revalidateTutorPages } from "@/lib/site/revalidate";
 
 /**
  * RLS on tutor_public_profiles / tutor_availability only permits
@@ -38,13 +40,23 @@ const Body = z.object({
   teaches: z.array(z.string().trim().min(2).max(5)).max(6).default([]),
   speaks: z.array(z.string().trim().min(2).max(5)).max(10).default([]),
   levels: z.array(z.string().trim().max(4)).max(6).default([]),
-  specialties: z.array(z.string().trim().max(80)).max(10).default([]),
+  specialties: z.array(z.string().trim().max(80)).max(25).default([]),
   qualifications: z.array(Qualification).max(10).default([]),
   years_experience: z.number().int().min(0).max(70).nullable().default(null),
   photo_url: z.string().url().max(500).nullable().default(null),
   intro_video_url: z.string().url().max(500).nullable().default(null),
   country: z.string().trim().max(80).optional().default(""),
-  timezone: z.string().trim().max(60).optional().default(""),
+  // Must be a real IANA zone: every slot calculation runs it through Intl,
+  // which throws on anything else and would take the public page down.
+  timezone: z
+    .string()
+    .trim()
+    .max(60)
+    .optional()
+    .default("")
+    .refine((tz) => tz === "" || isValidTimezone(tz), {
+      message: "Pick a timezone from the list.",
+    }),
   trial_available: z.boolean().default(true),
   is_public: z.boolean().default(false),
   // Admin-only: author a profile for another tutor, and optionally publish it
@@ -227,6 +239,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Couldn't save your profile." }, { status: 500 });
   }
 
+
+  // The listing just changed — drop the website's cached copies so the change
+  // (or the un-publishing that a re-review causes) is visible immediately.
+  revalidateTutorPages(slug);
 
   return NextResponse.json({ ok: true, slug, approval_status: approvalStatus });
 }

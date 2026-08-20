@@ -8,6 +8,7 @@ import { redirect } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { AvailabilityEditor } from "@/components/tutor/availability-editor";
+import { safeTimezone } from "@/lib/booking/slots";
 
 export const metadata: Metadata = { title: "Your availability | FrancoLink" };
 export const dynamic = "force-dynamic";
@@ -58,8 +59,9 @@ export default async function TutorAvailabilityPage() {
         .gte("starts_at", todayStart.toISOString()),
     ]);
 
-  const timezone =
-    profile?.timezone || me?.timezone || "UTC";
+  // A zone Intl doesn't recognise would throw inside the editor's slot preview
+  // and blank the whole page, so fall back rather than trust the stored value.
+  const timezone = safeTimezone(profile?.timezone || me?.timezone);
 
   const bookable =
     profile?.approval_status === "approved" &&

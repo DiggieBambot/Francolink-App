@@ -6,7 +6,13 @@
 // bookings, minimum notice — is applied here, once.
 
 import { createClient } from "@supabase/supabase-js";
-import { generateSlots, type Interval, type Slot, type WeeklyRule } from "./slots";
+import {
+  generateSlots,
+  safeTimezone,
+  type Interval,
+  type Slot,
+  type WeeklyRule,
+} from "./slots";
 
 /** Must match the availability editor's preview, or the two would disagree. */
 export const BOOKING_DURATIONS = [25, 50];
@@ -53,7 +59,13 @@ export async function getBookableSlots(
   const to = new Date(now.getTime() + BOOKING_WINDOW_DAYS * 24 * 60 * 60_000);
 
   // Best-effort: if this fails we simply show fewer slots, never more.
-  await db.rpc("expire_stale_bookings").catch(() => {});
+  // The query builder is a thenable, not a promise — it has no .catch, so the
+  // failure has to be caught around the await.
+  try {
+    await db.rpc("expire_stale_bookings");
+  } catch {
+    // ignored on purpose
+  }
 
   const [{ data: profile }, { data: rules }, { data: blackouts }, { data: booked }] =
     await Promise.all([
@@ -84,7 +96,7 @@ export async function getBookableSlots(
     profile?.is_public &&
     profile?.accepts_bookings;
 
-  const timezone = profile?.timezone || "UTC";
+  const timezone = safeTimezone(profile?.timezone);
   if (!bookable || !rules || rules.length === 0) {
     return { tutorId, timezone, slots: [] };
   }

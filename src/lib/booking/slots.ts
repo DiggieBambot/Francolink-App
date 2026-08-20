@@ -130,6 +130,29 @@ function zonedDateParts(instant: Date, timeZone: string) {
   };
 }
 
+/**
+ * Whether a string is an IANA zone this runtime knows.
+ *
+ * A profile can hold anything a tutor typed ("Paris"), and every zone-aware
+ * call below goes through Intl, which throws a RangeError on an unknown zone.
+ * One bad row would take down the tutor's public page and their availability
+ * editor, so the value is checked once and fenced off here.
+ */
+export function isValidTimezone(tz: string | null | undefined): boolean {
+  if (!tz) return false;
+  try {
+    new Intl.DateTimeFormat("en-US", { timeZone: tz });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/** The zone if it's usable, otherwise UTC. Never throws. */
+export function safeTimezone(tz: string | null | undefined): string {
+  return isValidTimezone(tz) ? tz! : "UTC";
+}
+
 function overlaps(a: Interval, b: Interval): boolean {
   return a.start < b.end && b.start < a.end;
 }
@@ -143,7 +166,7 @@ function overlaps(a: Interval, b: Interval): boolean {
  */
 export function generateSlots(options: SlotOptions): Slot[] {
   const {
-    timezone,
+    timezone: rawTimezone,
     rules,
     busy,
     durations,
@@ -153,6 +176,8 @@ export function generateSlots(options: SlotOptions): Slot[] {
     bufferMinutes,
     stepMinutes = 30,
   } = options;
+
+  const timezone = safeTimezone(rawTimezone);
 
   if (rules.length === 0 || durations.length === 0) return [];
 
