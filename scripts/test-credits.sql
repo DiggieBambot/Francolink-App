@@ -27,6 +27,24 @@ begin
     raise exception 'no users in this database - nothing to test against';
   end if;
 
+  -- Preflight. Without this, an unapplied migration surfaces as a baffling
+  -- arithmetic failure in A1: delta is still integer, Postgres rounds an
+  -- inserted 2.5 up to 3, and the test reports a maths error rather than the
+  -- deployment problem it actually found.
+  if not exists (
+    select 1 from information_schema.columns
+     where table_schema = 'public' and table_name = 'lesson_credits'
+       and column_name = 'delta' and data_type = 'numeric'
+  ) then
+    raise exception
+      'lesson_credits.delta is not numeric - migration 20260823_credits_simplify.sql has not been applied';
+  end if;
+
+  if not exists (select 1 from public.subscription_plans where plan_key = 'professional') then
+    raise exception
+      'no "professional" plan - migration 20260823_credits_simplify.sql has not been applied';
+  end if;
+
   start_bal := public.credit_balance(u);
 
   -- 1 ── fractional credits survive a round trip -----------------------------
