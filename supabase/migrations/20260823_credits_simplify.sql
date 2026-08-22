@@ -178,8 +178,13 @@ alter table public.lesson_pricing add constraint lesson_pricing_pay_ceiling
 -- ---------------------------------------------------------------------------
 -- 3. No group plans; a plan sells lessons, not minutes
 -- ---------------------------------------------------------------------------
-delete from public.subscription_plan_prices where plan_key = 'group_25';
-delete from public.subscription_plans       where plan_key = 'group_25';
+-- Every plan seeded yesterday is superseded. They must go BEFORE the tier
+-- constraint below is tightened: standard_25 and pro_25 still list 'certified'
+-- in allowed_tiers, and the constraint is validated against existing rows.
+delete from public.subscription_plan_prices
+ where plan_key in ('group_25', 'standard_25', 'pro_25');
+delete from public.subscription_plans
+ where plan_key in ('group_25', 'standard_25', 'pro_25');
 
 -- The trigger reads these, so it is dropped before the columns move.
 drop trigger if exists subscription_plan_prices_margin on public.subscription_plan_prices;
@@ -330,11 +335,6 @@ comment on function public.subscription_refund_due is
 -- ---------------------------------------------------------------------------
 -- 5. Reseed the catalogue
 -- ---------------------------------------------------------------------------
-delete from public.subscription_plan_prices
- where plan_key in ('standard_25', 'pro_25');
-delete from public.subscription_plans
- where plan_key in ('standard_25', 'pro_25');
-
 insert into public.subscription_plans
   (plan_key, name, description, allowed_tiers, per_lesson_cents, rollover_weeks, sort_order)
 values
