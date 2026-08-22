@@ -175,13 +175,16 @@ begin
   n := n + 1;
 
   -- 12 ── an annual plan cancelled in month 1 refunds the other 11 ----------
-  -- Paid $1,039.20 for the year. One month consumed at the MONTHLY rate of
-  -- $108.25 leaves $930.95 -- the student loses the discount they were only
-  -- entitled to by committing to the term, and keeps the rest.
+  -- The subscription created in A6 is 3 lessons/week, so:
+  --   annual  = $25.00 less 20% = $20.00 x 3 x 4.33 x 12 = $3,117.60 paid
+  --   monthly = $25.00          x 3 x 4.33 x  1 =   $324.75 consumed
+  --   refund  = $3,117.60 - $324.75            = $2,792.85
+  -- The student loses the discount they were only entitled to by committing
+  -- to the term, and keeps the rest.
   update public.user_subscriptions set term_months = 12 where id = sub_id;
   cents := public.subscription_refund_due(sub_id);
-  if cents <> 93095 then
-    raise exception 'A12 annual refund: expected 93095c, got %c', cents;
+  if cents <> 279285 then
+    raise exception 'A12 annual refund: expected 279285c, got %c', cents;
   end if;
   n := n + 1;
 
