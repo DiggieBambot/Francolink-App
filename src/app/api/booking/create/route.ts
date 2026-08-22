@@ -9,6 +9,13 @@
 // the request; the PRICE is looked up server-side from lesson_pricing using the
 // tutor's tier, and whether this is a discounted trial is derived from the
 // student's own booking history — never from a flag in the body.
+//
+// A subscriber pays with credits instead of Stripe. That path still writes the
+// hold first and still prices the lesson from lesson_pricing, because
+// price_cents is what the accounts read later; the only difference is that the
+// money came out of a plan rather than a card, and there is no checkout to
+// redirect to. Whether the student CAN pay that way is decided server-side
+// too — a Community plan may not book a Professional tutor.
 
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
@@ -21,6 +28,7 @@ import {
   isSlotStillBookable,
 } from "@/lib/booking/availability";
 import { APP_URL, SITE_URL } from "@/lib/site/hosts";
+import { creditEligibility, payBookingWithCredits } from "@/lib/booking/confirm";
 
 export const runtime = "nodejs";
 
@@ -115,7 +123,16 @@ export async function POST(request: Request) {
     .eq("student_id", user.id)
     .not("status", "in", "(expired,cancelled_by_student)");
 
+  // Can this lesson be paid for out of a plan? Decided before pricing, because
+  // a subscriber never takes the discounted trial — they are already paying.
+  const credit = await creditEligibility(
+    user.id,
+    profile.tier,
+    input.duration_minutes
+  );
+
   const isTrial =
+    !credit &&
     Boolean(profile.trial_available) &&
     (priorBookings ?? 0) === 0;
 
@@ -193,6 +210,22 @@ export async function POST(request: Request) {
     }
     console.error("[booking/create] insert failed", insertError);
     return NextResponse.json({ error: "Couldn't hold that slot." }, { status: 500 });
+  }
+
+  // --- paid from a plan? then there is no checkout --------------------------
+  if (credit) {
+    const paid = await payBookingWithCredits(booking.id, user.id, credit.cost);
+    if (paid) {
+      return NextResponse.json({
+        booking_id: booking.id,
+        paid_with: "credit",
+        credits_spent: credit.cost,
+        credits_left: credit.balance - credit.cost,
+      });
+    }
+    // Fell short between the check and the spend — carry on to Stripe rather
+    // than losing the slot the student already holds.
+    console.log("[booking/create] credit payment declined, falling back to Stripe");
   }
 
   // --- Stripe checkout ------------------------------------------------------

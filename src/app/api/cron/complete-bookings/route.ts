@@ -17,6 +17,7 @@
 
 import { NextResponse } from "next/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
+import { awardReferralBounty } from "@/lib/credits/referral";
 
 export const dynamic = "force-dynamic";
 
@@ -105,8 +106,22 @@ export async function GET(req: Request) {
 
   const settled = updated || [];
   const settledCents = settled.reduce((s, b) => s + (b.tutor_pay_cents || 0), 0);
+
+  // A completed lesson is when a referral has actually worked, so this is
+  // where the one-time referral bounty is awarded. Safe to call for every
+  // settled lesson: a unique index makes the second and later awards for a
+  // student no-ops, so nothing here needs to know which lesson was their
+  // first. It never throws — a bounty must not fail a settlement run.
+  const settledIds = new Set(settled.map((b) => b.id));
+  const students = [
+    ...new Set(rows.filter((b) => settledIds.has(b.id)).map((b) => b.student_id)),
+  ];
+  for (const studentId of students) {
+    await awardReferralBounty(studentId);
+  }
+
   console.log(
-    `[cron/complete-bookings] settled ${settled.length} lesson(s), ${settledCents} cents owed to tutors`
+    `[cron/complete-bookings] settled ${settled.length} lesson(s), ${settledCents} cents owed to tutors, ${students.length} student(s) checked for referral bounty`
   );
 
   return NextResponse.json({
@@ -115,5 +130,6 @@ export async function GET(req: Request) {
     expiredHolds: expired ?? 0,
     completed: settled.length,
     tutorPayCents: settledCents,
+    bountyChecked: students.length,
   });
 }

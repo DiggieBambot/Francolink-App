@@ -560,7 +560,66 @@ whether this was the first.
 `user_subscriptions` row, which is what keeps the percentage model away from
 lesson-plan revenue.
 
-**Still open:** the bounty is written but nothing calls it yet — it hooks into
-the booking-completion path, which does not exist. Same place the tutor's
-per-lesson pay gets credited (on completion, not confirmation, so a
-cancellation never has to claw money back out of a balance).
+Wired into `/api/cron/complete-bookings` on 2026-08-23 — see §20.
+
+
+---
+
+## 20. Booking with credits — built
+
+`supabase/migrations/20260805_bookings.sql` already had the shape this needed:
+platform-set price, `tutor_pay_cents` snapshot per booking, and a completion
+sweeper. Credits slot in as a second way to pay, and nothing downstream changed.
+
+**`src/lib/booking/confirm.ts`** holds the transition a held slot makes when it
+becomes a real lesson — room provisioning, clearing the hold, linking
+`tutor_students`. `payBookingWithCredits()` spends first and confirms second: if
+the spend throws, the booking stays held and expires on its own, which is the
+safe direction, because a confirmed lesson nobody paid for still owes the tutor
+their fee. If the confirm then loses a race, the credits are handed back.
+
+**Eligibility is decided server-side** in `creditEligibility()`: a live
+subscription, a plan whose `allowed_tiers` covers this tutor's tier, and enough
+balance. A Community plan may not book a Professional tutor — without that check
+the cheaper plan buys the more expensive tutor's time at a loss. A subscriber
+also never takes the discounted trial; they are already paying.
+
+**Falling short falls back to Stripe** rather than refusing the booking, so a
+student who runs out mid-week keeps the slot they are holding.
+
+### Cancellation, as promised at booking time
+
+The 12-hour window from the original bookings migration is unchanged.
+`/api/booking/cancel`:
+
+| | credit / card | tutor |
+|---|---|---|
+| Student cancels > 12h before | returned | unpaid |
+| Student cancels < 12h before | consumed | **paid** |
+| Tutor cancels, any time | returned | unpaid |
+
+Inside 12 hours the tutor is paid deliberately — they held the slot and turned
+other work away. A tutor cancelling always refunds the student however late it
+is, since they lost the lesson through no fault of their own.
+
+*The plan doc previously said 24 hours. It was wrong; 12 is what the booking
+migration promises and what students were told.*
+
+### Tutor pay needs no new machinery
+
+The completion sweeper's own comment says it: a tutor's pay is the sum of
+`tutor_pay_cents` over their **completed** bookings. It is derived, not a
+balance that gets credited — so paying on completion rather than confirmation
+was already true, and a cancellation never has to claw money back out of
+anything.
+
+The referral bounty rides on the same sweep.
+
+### Still to build
+
+- **Weekly grant cron** — `grant_weekly_credits()` exists and is tested;
+  nothing calls it on a schedule yet.
+- **Admin credit issuing** — `issueCredits()` exists; no UI.
+- **No-show recording** — `no_show_student` and `no_show_tutor` are valid
+  statuses that only a human can set, and there is no screen for it.
+- **Stripe subscription checkout** — the whole billing half of Part I.
