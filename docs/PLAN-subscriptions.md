@@ -1,6 +1,11 @@
 # Lesson subscriptions — plan (not yet built)
 
-Status: **design, pre-build.** Written 2026-08-22.
+Status: **design, part-built.** Written 2026-08-22, revised 2026-08-23.
+
+> **Part I's pricing grid is superseded by Part III.** The three-tier,
+> group-inclusive model below was replaced by two tiers and a 50-minute
+> lesson unit. Read Part III for the live numbers; Part I is kept for the
+> reasoning that produced them.
 
 Sells a Cambly-style recurring plan: *plan type × lessons per week × plan length*.
 A subscription buys **live lesson credits** with FrancoLink tutors. FrancoLink
@@ -388,3 +393,122 @@ independently useful and de-risks the rest:
 - **With ledger (Part I step 2):** credit pill, `/student/subscription`,
   dashboard re-point.
 - **With credit booking (Part I step 3):** in-app `/book` browser.
+
+
+---
+
+# Part III — the model as built (supersedes Part I's grid)
+
+Decided 2026-08-23, migrated in `supabase/migrations/20260823_credits_simplify.sql`.
+
+## 14. What changed and why
+
+**No group lessons.** Priced against a pessimistic two seats, Group cleared its
+floor by 74c a lesson at the annual discount — one refund wiped out ten lessons
+of profit. Not worth the classroom complexity for that.
+
+**Two tiers, not three.** `certified` folds into `professional`; their
+50-minute pay was identical ($13.00), so no tutor's rate moved.
+
+**A lesson is 50 minutes.** A 25-minute lesson is half a lesson, at exactly half
+the price and half the tutor pay. No premium for the short slot — the point is
+that a student reading "1.5 lessons left" can work out what it buys.
+`lesson_credits.delta` is therefore `numeric(6,1)`, not an integer.
+
+## 15. The numbers
+
+| Tier | Price (50 min) | Tutor pay | Tutor's share | You keep | Margin |
+|---|---|---|---|---|---|
+| Community | $10.00 | $5.00 | 50% | $4.64 | 46.4% |
+| Professional | $25.00 | $13.00 | 52% | $11.21 | 44.8% |
+
+Terms at 0% / −10% / −20%:
+
+| Tier | Term | Price | /25 min | Margin at 0% breakage |
+|---|---|---|---|---|
+| Community | monthly | $10.00 | $5.00 | 46.4% |
+| Community | 3 months | $9.00 | $4.50 | 41.3% |
+| Community | annual | $8.00 | $4.00 | 34.5% |
+| Professional | monthly | $25.00 | $12.50 | 44.8% |
+| Professional | 3 months | $22.50 | $11.25 | 39.2% |
+| Professional | annual | $20.00 | $10.00 | 32.1% |
+
+**Professional pays $13, not the $15 first proposed.** At $15 the annual lesson
+sells for $20 and leaves 22% before any refund. $13 holds 32%, and — more
+importantly — matches Community's 50% share, so both tiers have the same room
+to discount. At $15 the premium tier had the *least* discount headroom, which is
+backwards: annual prepay matters most on the biggest cheque.
+
+## 16. Breakage, and why it can't fund the incentive ladder
+
+Unused credits are real margin — you bill for every credit and pay only for the
+lessons taught:
+
+| | 0% unused | 10% | 20% | 30% |
+|---|---|---|---|---|
+| Community annual $8.00 / pay $5 | 34.5% | 40.8% | 47.0% | 53.3% |
+| Professional annual $20 / pay $13 | 32.1% | 38.6% | 45.1% | 51.6% |
+| Professional annual $20 / pay $18 | **7.1%** | 16.1% | 25.1% | 34.1% |
+
+The ladder runs to $18 for tutors who complete the most lessons. **It cannot be
+underwritten by breakage**, because a tutor good enough to earn the top rung
+teaches engaged students, and engaged students use their credits. The ladder pays
+most exactly where breakage is lowest, so the top rung has to survive at *zero*
+breakage — and $18 against a $20 annual lesson is 90% of revenue.
+
+**So the ladder is split in two:**
+
+- **Per-lesson rate caps at $14.50**, enforced by `lesson_pricing_pay_ceiling`.
+  That clears 25% on the deepest annual price at zero breakage, so it is safe on
+  every plan.
+- **Everything above that is a monthly bonus pool**, funded from breakage already
+  collected and measured. A tutor still reaches $18 effective; the difference is
+  that $18 is never a hard-wired unit cost against a $20 unit price, and a bad
+  month shrinks the pool instead of inverting the margin.
+
+Measure before betting: `rollover_expiry` rows *are* the breakage number, and
+`subscription_ended` catches the rest. The admin-issued-credit phase produces a
+real figure before any of this is load-bearing.
+
+## 17. Cancellation and refunds
+
+Two obligations, both built rather than handled by email:
+
+**14-day withdrawal.** Distance selling in the UK/EU gives 14 days on any
+subscription. Where service has started with express consent, the delivered
+portion is chargeable pro-rata and the rest is refunded.
+
+**Mid-term cancellation refunds unused whole months at the MONTHLY rate** —
+`subscription_refund_due()`. The student loses the discount they were only
+entitled to by committing to the term, which is proportionate; keeping nine
+months of an annual prepay for nothing delivered is the term that gets
+challenged as unfair. Worked example, Professional annual 1/week:
+
+> Paid $1,039.20. Cancels in month 1. One month consumed at the monthly rate of
+> $108.25 → **$930.95 refunded**, full margin kept on what was delivered.
+
+**Credits are an allowance, not stored value — keep the copy that way.** A gym
+membership's unused classes owe nothing back; a gift-card balance does. What
+pushes credits toward stored value is purchase language ("you bought 520
+lessons"), unbounded accumulation, and sale detached from a period. The weekly
+grant with a one-week rollover cap is already the right shape — never describe
+credits as purchased units, and the balance never reads as a wallet.
+
+**Budget on within-term lapse only.** The student who holds 3 credits and uses 2
+is where the margin comes from, and none of the above touches it. Breakage from
+*cancelled term plans* is the legally shaky portion — treat it as upside you do
+not count.
+
+*Not legal advice; consumer law varies by market and this wants 20 minutes with
+someone who knows the markets the students are actually in. The monthly plan
+carries almost none of this risk, which is a further argument for launching
+monthly-first.*
+
+## 18. Supply risk worth restating
+
+$5 per 50-minute lesson is $6/hour. That is viable in North Africa and
+francophone West Africa, and not viable for a tutor in France, Belgium or
+Québec. It is a choice of supply pool, not just a price. Community is where
+quality complaints will land, and with `certified` removed the step up to
+Professional ($25) is large for a student to cross. A middle rung is the obvious
+answer if that gap starts costing conversions.

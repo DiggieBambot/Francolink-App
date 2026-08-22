@@ -116,7 +116,7 @@ export async function creditSummary(userId: string): Promise<CreditSummary> {
       .eq("reason", "booking")
       .gte("created_at", lastGrant.created_at);
 
-    usedThisWeek = (spends ?? []).reduce((n, r) => n + Math.abs(r.delta), 0);
+    usedThisWeek = (spends ?? []).reduce((n, r) => n + Math.abs(Number(r.delta)), 0);
   }
 
   const planName =
@@ -135,9 +135,25 @@ export async function creditSummary(userId: string): Promise<CreditSummary> {
   };
 }
 
-/** How many credits a lesson of this length costs. Plans are priced in 25s. */
+/**
+ * How many credits a lesson of this length costs.
+ *
+ * One credit is one 50-minute lesson. A 25-minute lesson is half of one, on
+ * both sides of the ledger -- half the credit, half the tutor's pay -- so a
+ * student reading "1.5 lessons left" can work out what that buys without
+ * being told.
+ */
 export function creditCost(durationMinutes: number): number {
-  return durationMinutes >= 50 ? 2 : 1;
+  return durationMinutes >= 50 ? 1 : 0.5;
+}
+
+/**
+ * Balances are fractional, so format rather than concatenate: "2 lessons",
+ * not "2.0 lessons", and "1.5 lessons" where the half matters.
+ */
+export function formatCredits(balance: number): string {
+  const n = Number.isInteger(balance) ? String(balance) : balance.toFixed(1);
+  return `${n} ${balance === 1 ? "lesson" : "lessons"}`;
 }
 
 export class InsufficientCredits extends Error {
@@ -221,6 +237,11 @@ export async function issueCredits(
   issuedBy: string
 ): Promise<void> {
   if (amount === 0) throw new Error("issueCredits: amount must not be zero");
+  if (Math.round(amount * 2) !== amount * 2) {
+    // The ledger is numeric(6,1) and lessons come in halves. A third of a
+    // lesson would round silently in the database; better to refuse it here.
+    throw new Error(`issueCredits: amount must be a multiple of 0.5, got ${amount}`);
+  }
 
   const { error } = await service().from("lesson_credits").insert({
     user_id: userId,
