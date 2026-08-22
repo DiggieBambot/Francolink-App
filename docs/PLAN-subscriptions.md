@@ -264,9 +264,7 @@ real bookings before turning on billing.
   (`users.referred_by_tutor_id`) — need to decide whether the referring tutor
   earns anything on subscription revenue, and if so whether that comes out of
   our margin or is a separate acquisition cost.
-- **Commission vs. per-lesson pay.** `commission_ledger` currently pays tutors a
-  cut of student subscriptions. Under this model tutors are paid per lesson
-  taught instead. Two payout systems must not both fire for the same lesson.
+- ~~**Commission vs. per-lesson pay.**~~ **Decided 2026-08-23 — see §19.**
 - **Currency.** `/api/checkout` charges USD only today. Same limitation applies.
 - **Pausing.** Cambly allows it. Cheap to promise, annoying to implement against
   weekly grants. Suggest launching without it.
@@ -512,3 +510,57 @@ Québec. It is a choice of supply pool, not just a price. Community is where
 quality complaints will land, and with `certified` removed the step up to
 Professional ($25) is large for a student to cross. A middle rung is the obvious
 answer if that gap starts costing conversions.
+
+
+---
+
+## 19. Referral pay on lesson plans — decided
+
+`commission_ledger` pays the *referring* tutor 10% of a student's first month
+and 5% of every month after, forever. That is a recruiting fee, not wages: it
+was written for self-study subscriptions, where the revenue is nearly all
+margin.
+
+Lesson plans are not that. Half the revenue is already committed to the
+*teaching* tutor's wages, so a further 5% comes out of what is left —
+professional annual runs 32% before breakage, and the recurring cut quietly
+makes it 25%. Nothing in the system would have reported that.
+
+**Decision: on lesson plans, referral is a one-time bounty.** The legacy
+percentage is untouched and still governs self-study subscriptions.
+
+| | |
+|---|---|
+| Community plan | $10.00 |
+| Professional plan | $20.00 |
+| Paid | once per referred student, ever |
+| Trigger | the student's **first completed lesson** |
+| Reversed | if the plan is refunded under the 14-day withdrawal right |
+
+**Flat, not a percentage.** 10% of a first invoice is $4.33 on a monthly
+community plan and $520 on an annual professional 5/week plan — the same act of
+referral, wildly different pay.
+
+**Paid on first completed lesson, not first payment.** One gate doing two jobs:
+it is the moment the referral has actually worked, and it stops a tutor
+recruiting accounts that pay once and never turn up.
+
+**Sized at about half of one month's gross margin** on a 1-lesson/week plan
+(community ~$20/month, professional ~$48/month), so a referral pays for itself
+inside three weeks.
+
+Built in `supabase/migrations/20260824_referral_bounty.sql` and
+`src/lib/credits/referral.ts`. A unique partial index on
+`(tutor_id, student_id) where kind = 'lesson_plan_bounty'` is what makes "once"
+true even if the application asks twice — `awardReferralBounty()` is therefore
+safe to call after *every* completed lesson, and the caller never has to know
+whether this was the first.
+
+`handlePaymentSucceeded` now returns early for any invoice belonging to a
+`user_subscriptions` row, which is what keeps the percentage model away from
+lesson-plan revenue.
+
+**Still open:** the bounty is written but nothing calls it yet — it hooks into
+the booking-completion path, which does not exist. Same place the tutor's
+per-lesson pay gets credited (on completion, not confirmation, so a
+cancellation never has to claw money back out of a balance).

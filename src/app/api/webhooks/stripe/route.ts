@@ -2,6 +2,7 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
+import { isLessonPlanSubscription } from '@/lib/credits/referral';
 
 // Use service role for webhook (bypasses RLS)
 const supabase = createClient(
@@ -174,6 +175,22 @@ async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
     return;
   }
 
+  // Live lesson plans do NOT pay a recurring percentage. About half of a
+  // lesson plan's revenue is already committed to the teaching tutor's wages,
+  // so skimming another 5% every month turns professional annual from 32%
+  // margin into 25% -- silently, with nothing in the system reporting it.
+  // Referral on lesson plans is a one-time bounty instead, awarded from
+  // awardReferralBounty() when the student completes their first lesson.
+  const invoiceSubId =
+    typeof (invoice as Stripe.Invoice & { subscription?: string }).subscription === 'string'
+      ? (invoice as Stripe.Invoice & { subscription?: string }).subscription!
+      : null;
+
+  if (await isLessonPlanSubscription(invoiceSubId)) {
+    console.log('Lesson plan invoice - referral is a one-time bounty, not a percentage');
+    return;
+  }
+
   // Get commission settings from app_settings
   const commissionEnabled = await getAppSetting('commissions', 'commission_enabled');
   if (commissionEnabled !== 'true') {
@@ -207,11 +224,9 @@ async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
     `Commission (${isFirst ? 'first month' : 'recurring'}): ${grossAmount} x ${commissionRate} = ${commissionAmount}`
   );
 
-  // Subscription id + period (for the ledger row).
-  const subId =
-    typeof (invoice as Stripe.Invoice & { subscription?: string }).subscription === 'string'
-      ? (invoice as Stripe.Invoice & { subscription?: string }).subscription
-      : null;
+  // Period for the ledger row. The subscription id was resolved above as
+  // invoiceSubId, for the lesson-plan check.
+  const subId = invoiceSubId;
   const line = invoice.lines?.data?.[0];
   const periodStart = line?.period?.start ? new Date(line.period.start * 1000).toISOString() : null;
   const periodEnd = line?.period?.end ? new Date(line.period.end * 1000).toISOString() : null;
