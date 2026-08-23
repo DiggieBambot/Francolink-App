@@ -9,6 +9,7 @@ import { AttributionCapture } from "@/components/analytics/attribution";
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { StudentNavigation } from "@/components/student/student-navigation";
+import { CreditPill } from "@/components/student/credit-pill";
 import { UserMenu } from "@/components/shared/user-menu";
 import { MobileSidebar } from "@/components/shared/mobile-sidebar";
 import { LanguageSwitcher } from "@/components/student/language-switcher";
@@ -121,6 +122,7 @@ export default async function StudentLayout({
 
       {/* Navigation */}
       <div className="flex-1 overflow-y-auto px-3 py-4">
+        <CreditPill userId={user.id} />
         <StudentNavigation />
       </div>
 

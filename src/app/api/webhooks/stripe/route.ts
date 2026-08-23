@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 import { isLessonPlanSubscription } from '@/lib/credits/referral';
+import { activateLessonPlan, endLessonPlan } from '@/lib/credits/subscription';
 
 // Use service role for webhook (bypasses RLS)
 const supabase = createClient(
@@ -126,8 +127,22 @@ export async function POST(request: Request) {
         await handleSubscriptionUpdated(event.data.object as Stripe.Subscription);
         break;
       
-      case 'customer.subscription.deleted':
-        await handleSubscriptionCancelled(event.data.object as Stripe.Subscription);
+      case 'customer.subscription.deleted': {
+        const sub = event.data.object as Stripe.Subscription;
+        // A lesson plan ending is not the same operation as a self-study one:
+        // unused credits have to be expired and the referral bounty reviewed.
+        if (sub.metadata?.kind === 'lesson_subscription' || await isLessonPlanSubscription(sub.id)) {
+          await endLessonPlan(sub);
+          break;
+        }
+        await handleSubscriptionCancelled(sub);
+        break;
+      }
+
+      // A failed renewal pauses new grants but leaves granted credits alone,
+      // so lessons already booked still go ahead.
+      case 'invoice.payment_failed':
+        await handlePaymentFailed(event.data.object as Stripe.Invoice);
         break;
       
       default:
@@ -373,7 +388,18 @@ async function determinePlanFromPriceId(priceId: string | undefined): Promise<st
  * safe — only a booking still in `pending_payment` is acted on.
  */
 async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
-  if (session.metadata?.kind !== 'lesson_booking') return; // a subscription
+  // A lesson plan: write user_subscriptions and grant the first week now, so
+  // the student can book the moment they land back on the site.
+  if (session.metadata?.kind === 'lesson_subscription') {
+    if (session.payment_status !== 'paid') {
+      console.log('[webhook] lesson plan checkout not yet paid:', session.id);
+      return;
+    }
+    await activateLessonPlan(session);
+    return;
+  }
+
+  if (session.metadata?.kind !== 'lesson_booking') return; // a self-study subscription
 
   const bookingId = session.metadata?.booking_id || session.client_reference_id;
   if (!bookingId) {
@@ -468,4 +494,31 @@ async function handleCheckoutExpired(session: Stripe.Checkout.Session) {
     .eq('status', 'pending_payment');
 
   console.log('[webhook] booking hold released:', bookingId);
+}
+
+/**
+ * A renewal that failed. The plan goes past_due, which stops the weekly grant
+ * without touching credits already issued -- a student mid-week keeps the
+ * lessons they were promised while the card is sorted out.
+ */
+async function handlePaymentFailed(invoice: Stripe.Invoice) {
+  const subId =
+    typeof (invoice as Stripe.Invoice & { subscription?: string }).subscription === 'string'
+      ? (invoice as Stripe.Invoice & { subscription?: string }).subscription!
+      : null;
+
+  if (!subId) return;
+
+  const { error } = await supabase
+    .from('user_subscriptions')
+    .update({ status: 'past_due' })
+    .eq('stripe_subscription_id', subId)
+    .eq('status', 'active');
+
+  if (error) {
+    console.error('[webhook] marking plan past_due failed', subId, error);
+    return;
+  }
+
+  console.log('[webhook] lesson plan past_due:', subId);
 }

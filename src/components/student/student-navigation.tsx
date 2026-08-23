@@ -14,6 +14,7 @@ import {
   Bell,
   PencilLine,
   History,
+  CreditCard,
   LucideIcon,
 } from "lucide-react";
 
@@ -33,6 +34,7 @@ const navigationItems: NavItem[] = [
   { label: "Lessons Covered", href: "/student/history", icon: History },
   { label: "Leaderboard", href: "/student/leaderboard", icon: Trophy },
   { label: "Placement Test", href: "/placement-test", icon: Brain },
+  { label: "My plan", href: "/student/subscription", icon: CreditCard },
   { label: "Notifications", href: "/notifications", icon: Bell },
   { label: "Settings", href: "/settings", icon: Settings },
 ];
