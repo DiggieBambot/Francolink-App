@@ -192,9 +192,7 @@ a lump grant of 130 annual credits is a liability the student can burn in a
 month while we keep paying tutors. A weekly cron grants `lessons_per_week`
 credits each Monday in the user's timezone while the subscription is `active`.
 
-**Rollover:** up to one week's worth carries over, expiring 30 days after grant.
-Beyond that, unused credits lapse. Say this plainly on the pricing page — it is
-the single most complained-about mechanic in this category.
+**Expiry:** see §21 — superseded by a flat 30-day expiry.
 
 **Consumption:** booking confirmation debits 1 credit inside the same
 transaction that inserts the booking. If the debit fails, the booking is not
@@ -623,3 +621,57 @@ The referral bounty rides on the same sweep.
 - **No-show recording** — `no_show_student` and `no_show_tutor` are valid
   statuses that only a human can set, and there is no screen for it.
 - **Stripe subscription checkout** — the whole billing half of Part I.
+
+
+---
+
+## 21. Credits expire 30 days after they are granted
+
+Decided 2026-08-23. **Replaces the rollover cap**, which held a balance at two
+weeks' worth and burned the excess at the moment of the next grant. The cap was
+both harsher and harder to state; this is one rule, one sentence, and a student
+can check it themselves.
+
+Grant rows carry `expires_at`. A sweep in the hourly credit cron takes what
+lapsed.
+
+### Why the balance is not simply filtered on `expires_at`
+
+That was the first design and it is wrong. A grant of 3 that lapses, with 1
+spent from it while it was live:
+
+```
++3 (lapsed)   -1 (spend)        filtered balance = -1
+```
+
+The spend survives the filter and the grant that funded it does not, so the
+balance goes negative and stays there. Spends are not attached to a particular
+grant, and attaching them would mean lot-tracking every row.
+
+So the ledger stays flat, balance stays a plain `sum(delta)`, and
+`expire_stale_credits()` works out what actually lapsed:
+
+```
+expired_granted = everything granted with expires_at <= now
+consumed        = every negative row ever (spends AND past expiries)
+still_unspent   = max(0, expired_granted - consumed)
+to_expire       = min(still_unspent, current balance)
+```
+
+Counting consumption against the oldest grants first makes this **FIFO** by
+construction — the arithmetic does the lot-tracking without the bookkeeping.
+Past expiry rows count as consumption, so nothing is ever taken twice.
+
+Covered by assertions 13–16 in `scripts/test-credits.sql`, including the
+partly-spent-lapsed-grant case that broke the naive version.
+
+### What it does to the model
+
+30-day expiry is **more generous** than the two-week cap, so it produces *less*
+breakage than §16 assumed. That is fine — every margin in §15 holds at zero
+breakage, and breakage was always upside rather than the plan. It does mean the
+figures in §16 should be re-derived from real `lapsed_30_day` rows before
+anything is priced off them.
+
+Maximum accumulation is now bounded at roughly 30 days of grants — about 21
+credits on a 5-lesson/week plan — rather than 2 weeks' worth.

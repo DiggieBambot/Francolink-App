@@ -36,6 +36,7 @@ export type CreditReason =
   | "tutor_cancelled"
   | "tutor_no_show"
   | "rollover_expiry"
+  | "lapsed_30_day"
   | "subscription_ended"
   | "admin_adjustment";
 

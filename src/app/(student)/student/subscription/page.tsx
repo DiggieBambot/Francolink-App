@@ -26,6 +26,7 @@ const REASON_LABEL: Record<string, string> = {
   tutor_cancelled: "Lesson returned — your tutor cancelled",
   tutor_no_show: "Lesson returned — your tutor didn't arrive",
   rollover_expiry: "Expired — above the rollover limit",
+  lapsed_30_day: "Expired — unused for 30 days",
   subscription_ended: "Expired — plan ended",
   admin_adjustment: "Adjusted by FrancoLink",
 };

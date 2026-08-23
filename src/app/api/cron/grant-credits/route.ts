@@ -15,6 +15,10 @@
 // their Monday — each subscription is granted on the first run after midnight
 // Monday where they live.
 //
+// The same run also expires lessons that have gone unused for 30 days. Both
+// halves are idempotent and cheap, and keeping them together means a student's
+// balance is only ever adjusted by one job.
+//
 // Query params:
 //   ?dry=1   — report who is due, change nothing
 //   ?id=...  — grant one subscription, for testing
@@ -155,9 +159,45 @@ export async function GET(req: Request) {
     }
   }
 
+  // --- expire what has gone stale ------------------------------------------
+  // Runs after the grant so a fresh week is never swept in the same pass.
+  let expiredFrom = 0;
+  let expiredCredits = 0;
+
+  const { data: stale, error: staleError } = await svc.rpc("users_with_stale_credits");
+
+  if (staleError) {
+    console.error("[cron/grant-credits] stale lookup failed", staleError);
+  } else {
+    for (const row of (stale || []) as { user_id: string }[]) {
+      const { data: taken, error: expireError } = await svc.rpc(
+        "expire_stale_credits",
+        { p_user_id: row.user_id }
+      );
+
+      if (expireError) {
+        console.error("[cron/grant-credits] expiry failed for", row.user_id, expireError);
+        continue;
+      }
+
+      const n = Number(taken ?? 0);
+      if (n > 0) {
+        expiredFrom += 1;
+        expiredCredits += n;
+      }
+    }
+  }
+
   console.log(
-    `[cron/grant-credits] granted ${credits} credit(s) across ${granted} subscription(s)`
+    `[cron/grant-credits] granted ${credits} credit(s) across ${granted} subscription(s); expired ${expiredCredits} from ${expiredFrom} student(s)`
   );
 
-  return NextResponse.json({ ok: true, checked: rows.length, granted, credits });
+  return NextResponse.json({
+    ok: true,
+    checked: rows.length,
+    granted,
+    credits,
+    expiredCredits,
+    expiredFrom,
+  });
 }

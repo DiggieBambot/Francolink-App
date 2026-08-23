@@ -5,7 +5,7 @@
 -- deliberately raises at the end, so the whole thing rolls back. Nothing it
 -- writes survives. Success looks like this error:
 --
---     ERROR:  ALL 12 ASSERTIONS PASSED - rolling back
+--     ERROR:  ALL 18 ASSERTIONS PASSED - rolling back
 --
 -- Any other error is a real failure, and the message says which assertion.
 --
@@ -95,8 +95,7 @@ begin
   end if;
   n := n + 1;
 
-  -- 6 ── the weekly grant clamps to the rollover cap -------------------------
-  -- 3 lessons/week with rollover_weeks = 1.0 caps the balance at 6.
+  -- 6 ── the weekly grant issues credits with a 30-day expiry ---------------
   -- Clear any live subscription first: one per user is enforced by a partial
   -- unique index, and this all rolls back regardless.
   delete from public.user_subscriptions
@@ -107,20 +106,26 @@ begin
   values (u, 'professional', 3, 1, 'active', now())
   returning id into sub_id;
 
-  -- Overfill deliberately, then grant.
-  insert into public.lesson_credits (user_id, delta, reason, note)
-  values (u, 20, 'admin_adjustment', 'test overfill');
-
-  perform public.grant_weekly_credits(sub_id, current_date);
   bal := public.credit_balance(u);
-  if bal <> 6.0 then
-    raise exception 'A6 rollover clamp: expected 6.0, got %', bal;
+  perform public.grant_weekly_credits(sub_id, current_date);
+
+  if public.credit_balance(u) <> bal + 3 then
+    raise exception 'A6 weekly grant: expected %, got %', bal + 3, public.credit_balance(u);
   end if;
-  n := n + 1;
+
+  if not exists (
+    select 1 from public.lesson_credits
+     where user_id = u and reason = 'weekly_grant'
+       and expires_at between now() + interval '29 days' and now() + interval '31 days'
+  ) then
+    raise exception 'A6b granted credits carry no 30-day expiry';
+  end if;
+  n := n + 2;
 
   -- 7 ── the same week does not grant twice ----------------------------------
+  bal := public.credit_balance(u);
   perform public.grant_weekly_credits(sub_id, current_date);
-  if public.credit_balance(u) <> 6.0 then
+  if public.credit_balance(u) <> bal then
     raise exception 'A7 double grant in one week: balance moved to %',
       public.credit_balance(u);
   end if;
@@ -185,6 +190,60 @@ begin
   cents := public.subscription_refund_due(sub_id);
   if cents <> 279285 then
     raise exception 'A12 annual refund: expected 279285c, got %c', cents;
+  end if;
+  n := n + 1;
+
+  -- 13 ── expiry is FIFO, and a partly-spent lapsed grant does not go negative
+  -- This is the case that killed the naive `where expires_at > now()` design:
+  --   +3 lapsed, -1 spent from it  ->  a filtered balance reads -1.
+  -- Here it must read 2, and expiry must take exactly the 2 that are left.
+  delete from public.lesson_credits where user_id = u;
+
+  insert into public.lesson_credits (user_id, delta, reason, expires_at)
+  values (u, 3, 'weekly_grant', now() - interval '1 day');   -- lapsed
+  insert into public.lesson_credits (user_id, delta, reason)
+  values (u, -1, 'booking');                                  -- spent from it
+
+  if public.credit_balance(u) <> 2 then
+    raise exception 'A13 balance before expiry: expected 2, got %',
+      public.credit_balance(u);
+  end if;
+  n := n + 1;
+
+  -- 14 ── the sweep takes only the unspent remainder -------------------------
+  bal := public.expire_stale_credits(u);
+  if bal <> 2 then
+    raise exception 'A14 expired amount: expected 2, got %', bal;
+  end if;
+  if public.credit_balance(u) <> 0 then
+    raise exception 'A14b balance after expiry: expected 0, got %',
+      public.credit_balance(u);
+  end if;
+  n := n + 2;
+
+  -- 15 ── running it again takes nothing more --------------------------------
+  if public.expire_stale_credits(u) <> 0 then
+    raise exception 'A15 second sweep expired credits twice';
+  end if;
+  n := n + 1;
+
+  -- 16 ── live credits are untouched by the sweep ----------------------------
+  delete from public.lesson_credits where user_id = u;
+
+  insert into public.lesson_credits (user_id, delta, reason, expires_at)
+  values (u, 2, 'weekly_grant', now() - interval '1 day');    -- lapsed
+  insert into public.lesson_credits (user_id, delta, reason, expires_at)
+  values (u, 3, 'weekly_grant', now() + interval '20 days');  -- still good
+  insert into public.lesson_credits (user_id, delta, reason)
+  values (u, -1, 'booking');
+
+  -- FIFO: the spend came out of the lapsed grant, leaving 1 of it to expire.
+  if public.expire_stale_credits(u) <> 1 then
+    raise exception 'A16 FIFO expiry took the wrong amount';
+  end if;
+  if public.credit_balance(u) <> 3 then
+    raise exception 'A16b live credits were swept: expected 3, got %',
+      public.credit_balance(u);
   end if;
   n := n + 1;
 
