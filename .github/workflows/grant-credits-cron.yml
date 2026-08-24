@@ -1,0 +1,23 @@
+name: Grant weekly lesson credits
+
+# Hourly, and it has to be hourly: a plan's week is the student's own, not UTC,
+# so each subscription is granted on the first run after midnight Monday where
+# they live. Run this daily and someone in Auckland gets the lessons they paid
+# for a day late. Vercel Hobby allows only daily crons, so the schedule lives
+# here instead. grant_weekly_credits() is idempotent per (subscription, week),
+# so an extra run — or a GitHub Actions run that drifts a few minutes — costs
+# nothing. The same call also expires lessons unused for 30 days.
+on:
+  schedule:
+    - cron: "5 * * * *" # every hour at :05 (UTC), off the hour to avoid the pile-up
+  workflow_dispatch: {} # allow manual runs from the Actions tab
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Grant any subscription whose week has rolled over
+        run: |
+          curl -sS -X GET "https://app.francolink.net/api/cron/grant-credits" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            --max-time 300 --fail-with-body

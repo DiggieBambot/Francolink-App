@@ -1,0 +1,17 @@
+name: Send daily learning tips
+
+# Was a Vercel cron until the Hobby plan's two-job limit; same 09:00 UTC slot.
+on:
+  schedule:
+    - cron: "0 9 * * *" # daily at 09:00 (UTC)
+  workflow_dispatch: {}
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send today's tips
+        run: |
+          curl -sS -X GET "https://app.francolink.net/api/cron/learning-tips" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            --max-time 300 --fail-with-body

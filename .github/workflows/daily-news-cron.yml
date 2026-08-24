@@ -1,0 +1,33 @@
+name: Publish the daily news lesson
+
+# Two runs a day, one per language, half an hour apart — the same schedule these
+# had on Vercel before the Hobby cron limit pushed them here. The endpoint
+# decides what to publish; the schedule only says when.
+on:
+  schedule:
+    - cron: "0 6 * * *"  # English
+    - cron: "30 6 * * *" # French
+  workflow_dispatch:
+    inputs:
+      lang:
+        description: "Language to publish (blank for English)"
+        required: false
+        default: ""
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish the English edition
+        if: github.event.schedule == '0 6 * * *' || github.event.inputs.lang == ''
+        run: |
+          curl -sS -X GET "https://app.francolink.net/api/cron/daily-news" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            --max-time 300 --fail-with-body
+
+      - name: Publish the French edition
+        if: github.event.schedule == '30 6 * * *' || github.event.inputs.lang == 'fr'
+        run: |
+          curl -sS -X GET "https://app.francolink.net/api/cron/daily-news?lang=fr" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            --max-time 300 --fail-with-body

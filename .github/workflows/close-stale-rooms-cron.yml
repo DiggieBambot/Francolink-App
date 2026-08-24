@@ -1,0 +1,18 @@
+name: Close stale lesson rooms
+
+# Was a Vercel cron until the Hobby plan's two-job limit; same 03:00 UTC slot,
+# deliberately in the quiet hours since it closes rooms nobody is using.
+on:
+  schedule:
+    - cron: "0 3 * * *" # daily at 03:00 (UTC)
+  workflow_dispatch: {}
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close rooms left open
+        run: |
+          curl -sS -X GET "https://app.francolink.net/api/cron/close-stale-rooms" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            --max-time 300 --fail-with-body
