@@ -1,15 +1,8 @@
 import type { Metadata } from "next";
 import { Section, SectionHeading, CtaButton } from "@/components/site/ui";
 import { TutorDirectory } from "@/components/site/tutor-directory";
-import { getPublicTutors } from "@/lib/site/queries";
-import {
-  TIER_BLURB,
-  TIER_LABEL,
-  cheapestLesson,
-  formatPrice,
-  getPricingByTier,
-  type Tier,
-} from "@/lib/site/pricing";
+import { getPlanNamesByTier, getPublicTutors } from "@/lib/site/queries";
+import { TIER_BLURB, TIER_LABEL, type Tier } from "@/lib/site/pricing";
 import { appUrl } from "@/lib/site/hosts";
 
 export const revalidate = 3600;
@@ -17,16 +10,17 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Our tutors",
   description:
-    "Book a lesson with a FrancoLink tutor. See qualifications, specialities, CEFR levels and weekly availability — one clear price per lesson, set by us, not by the tutor.",
+    "Book a lesson with a FrancoLink tutor. See qualifications, specialities, CEFR levels and weekly availability, then reserve a lesson in a couple of clicks.",
   alternates: { canonical: "/tutors" },
 };
 
-const TIER_ORDER: Tier[] = ["professional", "certified", "community"];
+// Two tiers in the directory: every live tutor is one or the other.
+const TIER_ORDER: Tier[] = ["professional", "community"];
 
 export default async function TutorsPage() {
-  const [tutors, pricing] = await Promise.all([
+  const [tutors, plansByTier] = await Promise.all([
     getPublicTutors(),
-    getPricingByTier(),
+    getPlanNamesByTier(),
   ]);
 
   return (
@@ -37,9 +31,9 @@ export default async function TutorsPage() {
             Meet our tutors
           </h1>
           <p className="mt-5 text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Book directly with any tutor below. You pay one clear price per
-            lesson — we set it, so you never negotiate a rate, and it&apos;s the
-            same whichever tutor in a tier you choose.
+            Browse every tutor teaching on FrancoLink, then reserve a lesson
+            straight from their profile. No rate to negotiate — register free
+            and pick a time that works for you.
           </p>
         </div>
       </div>
@@ -47,7 +41,7 @@ export default async function TutorsPage() {
       <Section>
         {/* The directory renders its own empty state per language — a language
             with no tutors yet collects emails instead of showing nothing. */}
-        <TutorDirectory tutors={tutors} pricing={pricing} />
+        <TutorDirectory tutors={tutors} />
 
         {tutors.length === 0 && (
           <p className="mt-12 text-center text-gray-600">
@@ -66,51 +60,39 @@ export default async function TutorsPage() {
       {/* ------------------------------------------------------------- TIERS */}
       <Section tone="tint">
         <SectionHeading
-          eyebrow="How pricing works"
-          title="Three tutor tiers, one price list"
-          subtitle="Every tutor is placed in a tier when they join, based on their qualifications and teaching experience. The tier sets the lesson price — tutors never set their own rates."
+          eyebrow="How tiers work"
+          title="Two tutor tiers"
+          subtitle="Every tutor is placed in a tier when they join, based on their qualifications and teaching experience. Your plan decides which tiers you can book — tutors never set their own terms."
         />
-        <div className="grid gap-6 md:grid-cols-3">
-          {TIER_ORDER.map((tier) => {
-            const p = pricing[tier];
-            const from = cheapestLesson(p);
-            return (
-              <div
-                key={tier}
-                className="p-7 rounded-2xl bg-white border border-gray-100 shadow-soft flex flex-col"
-              >
-                <h3 className="font-heading font-bold text-lg text-primary">
-                  {TIER_LABEL[tier]}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed mt-2 flex-1">
-                  {TIER_BLURB[tier]}
+        <div className="grid gap-6 md:grid-cols-2">
+          {TIER_ORDER.map((tier) => (
+            <div
+              key={tier}
+              className="p-7 rounded-2xl bg-white border border-gray-100 shadow-soft"
+            >
+              <h3 className="font-heading font-bold text-lg text-primary">
+                {TIER_LABEL[tier]}
+              </h3>
+              <p className="text-sm text-gray-600 leading-relaxed mt-2">
+                {TIER_BLURB[tier]}
+              </p>
+              {/* Which plan reaches this tier. The Community plan cannot book a
+                  Professional tutor, and the booking path enforces it — saying
+                  so here stops that being a surprise at checkout. */}
+              {plansByTier[tier]?.length > 0 && (
+                <p className="mt-4 pt-4 border-t border-gray-50 text-sm">
+                  <span className="text-gray-500">Bookable on the </span>
+                  <span className="font-heading font-bold text-primary">
+                    {plansByTier[tier].join(" and ")}
+                  </span>
+                  <span className="text-gray-500">
+                    {" "}
+                    {plansByTier[tier].length > 1 ? "plans" : "plan"}
+                  </span>
                 </p>
-                <div className="mt-5 pt-5 border-t border-gray-50 space-y-1">
-                  {p.lessons.map((l) => (
-                    <p key={l.durationMinutes} className="text-sm">
-                      <span className="font-heading font-extrabold text-primary">
-                        {formatPrice(l.priceCents, l.currency)}
-                      </span>
-                      <span className="text-gray-500">
-                        {" "}
-                        / {l.durationMinutes} min
-                      </span>
-                    </p>
-                  ))}
-                  {p.trial && (
-                    <p className="text-xs text-green-700 font-semibold pt-1">
-                      First lesson{" "}
-                      {formatPrice(p.trial.priceCents, p.trial.currency)} (
-                      {p.trial.durationMinutes} min)
-                    </p>
-                  )}
-                  {!from && (
-                    <p className="text-sm text-gray-500">Pricing coming soon</p>
-                  )}
-                </div>
-              </div>
-            );
-          })}
+              )}
+            </div>
+          ))}
         </div>
       </Section>
 
