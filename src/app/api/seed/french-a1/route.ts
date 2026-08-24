@@ -2,14 +2,22 @@
 
 import { createClient } from "@supabase/supabase-js";
 import { frenchA1Course } from "@/lib/seed/french-a1";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { requireAdminOrSecret } from "@/lib/auth/require-admin";
 
 const supabaseAdmin = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
+  // This route deletes every course, unit, lesson, exercise, vocabulary row
+  // AND lesson_progress before re-seeding — i.e. it wipes real students'
+  // learning history. It ran unauthenticated with the service role, so any
+  // stranger who guessed the path could destroy the catalogue in one POST.
+  const denied = await requireAdminOrSecret(request);
+  if (denied) return denied;
+
   try {
     console.log("🌱 Starting French A1 seed...");
 

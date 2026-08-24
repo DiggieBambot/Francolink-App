@@ -82,7 +82,27 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ audio: base64, format: "wav", cached: true });
     }
 
-    // 2. Generate via Inworld TTS
+    // 2. Generate via Inworld TTS.
+    //
+    // Everything above this line is free: a cache hit serves an already-paid-for
+    // clip, so anonymous learners keep working exactly as before. Past this
+    // point every call costs money at the provider, which is why the gate sits
+    // here and not at the top of the route — unauthenticated, this was a bill
+    // anyone on the internet could run up in a loop.
+    const { data: { user } } = await (await createUserClient()).auth.getUser();
+    if (!user) {
+      return NextResponse.json(
+        { error: "Sign in to generate audio" },
+        { status: 401 }
+      );
+    }
+
+    // Cap the input too: cache keys are derived from the text, so unbounded
+    // length means unbounded distinct (paid) generations from one account.
+    if (typeof text !== "string" || text.length > 1000) {
+      return NextResponse.json({ error: "text must be a string under 1000 characters" }, { status: 400 });
+    }
+
     const apiKey = process.env.INWORLD_API_KEY;
     if (!apiKey) {
       return NextResponse.json({ error: "TTS not configured" }, { status: 503 });
