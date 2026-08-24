@@ -18,6 +18,7 @@ export type ActivityKind =
   | "signup"
   | "signup_completed"    // account created (granular first-session funnel)
   | "onboarding_assigned" // bucketed into an onboarding experiment variant
+  | "onboarding_goals_selected" // picked why they're learning, during onboarding
   | "dashboard_viewed"    // first dashboard view after signup
   | "placement_started"   // opened the placement test
   | "placement_completed" // finished (or skipped) the placement test
@@ -34,6 +35,7 @@ export type ActivityKind =
 export const CLIENT_EMITTABLE_KINDS: ActivityKind[] = [
   "signup_completed",
   "onboarding_assigned",
+  "onboarding_goals_selected",
   "dashboard_viewed",
   "placement_started",
   "placement_completed",

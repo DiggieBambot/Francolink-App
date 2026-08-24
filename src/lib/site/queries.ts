@@ -223,3 +223,27 @@ export async function getFaqs(): Promise<Faq[]> {
     .order("display_order", { ascending: true });
   return (data as Faq[]) ?? [];
 }
+
+/**
+ * Which plans can book which tutor tier, straight from the plans table.
+ *
+ * The rule lives in `subscription_plans.allowed_tiers` and is enforced at
+ * booking time in lib/booking/confirm.ts. The directory has to say the same
+ * thing, and a hardcoded copy here would drift the first time a plan changes —
+ * so this derives it instead.
+ */
+export async function getPlanNamesByTier(): Promise<Record<string, string[]>> {
+  const { data } = await serviceClient()
+    .from("subscription_plans")
+    .select("name, allowed_tiers, sort_order")
+    .eq("active", true)
+    .order("sort_order", { ascending: true });
+
+  const out: Record<string, string[]> = {};
+  for (const plan of (data ?? []) as { name: string; allowed_tiers: string[] | null }[]) {
+    for (const tier of plan.allowed_tiers ?? []) {
+      out[tier] = [...(out[tier] ?? []), plan.name];
+    }
+  }
+  return out;
+}

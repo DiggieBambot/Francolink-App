@@ -3,6 +3,7 @@
 import { createClient as createServiceRoleClient } from '@supabase/supabase-js';
 import { NextRequest, NextResponse } from 'next/server';
 import { sendWelcomeOnce } from '@/lib/email/transactional';
+import { verifyNewAccount } from '@/lib/auth/verify-new-account';
 
 export async function POST(request: NextRequest) {
   try {
@@ -20,6 +21,18 @@ export async function POST(request: NextRequest) {
 
     if (!userId || !email) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+    }
+
+    // `userId` arrives in the request body, and the upsert below writes
+    // role: 'TUTOR'. Without this check anyone could POST any id and grant
+    // themselves tutor — or aim it at an existing account and reset its
+    // commission_balance and overwrite its email. Prove the caller owns this
+    // brand-new account first; see lib/auth/verify-new-account.ts for why a
+    // plain getUser() can't be used here.
+    const proof = await verifyNewAccount(userId, email);
+    if (!proof.ok) {
+      console.warn('🚫 Rejected tutor-setup:', { userId, reason: proof.reason });
+      return NextResponse.json({ error: 'Unable to complete signup' }, { status: 403 });
     }
 
     // Generate a unique invite code in app code (no DB function dependency).

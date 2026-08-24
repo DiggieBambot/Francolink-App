@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { createClient as createServiceClient } from '@supabase/supabase-js';
 import { notifyTutorNewStudent } from '@/lib/email/transactional';
+import { joinStatusFor } from '@/lib/auth/signup-guard';
 
 // Use service role client for database operations
 const supabaseService = createServiceClient(
@@ -105,13 +106,25 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    // Spam gate. A clean account connects straight away, as before. Anything
+    // that scores as risky lands as 'pending' — the tutor sees it under
+    // Students and decides — and an outright block never reaches them at all.
+    const gate = await joinStatusFor(user.id);
+    if (gate.blocked) {
+      console.warn('🚫 Blocked join from risky account:', user.id, gate.risk.reasons);
+      return NextResponse.json(
+        { error: "We couldn't complete this request. Please contact support@francolink.net." },
+        { status: 403 }
+      );
+    }
+
     // The connection itself (this is what puts the student in the tutor's list).
     const { error: relError } = await supabaseService
       .from('tutor_students')
       .upsert({
         tutor_id: tutor.id,
         student_id: user.id,
-        status: 'active',
+        status: gate.status,
         assigned_at: new Date().toISOString()
       }, {
         onConflict: 'tutor_id,student_id'
@@ -127,14 +140,20 @@ export async function POST(request: NextRequest) {
 
     console.log('✅ Student auto-assigned to tutor');
 
-    // Tell the tutor a student just joined.
+    // Tell the tutor a student just joined. Risky accounts stay silent: the
+    // request is visible in their Students tab, but a suspected bot shouldn't
+    // be able to make our system email a real tutor on demand.
     const { data: meRow } = await supabaseService.from('users').select('name').eq('id', user.id).maybeSingle();
-    await notifyTutorNewStudent(tutor.id, meRow?.name);
+    if (gate.status === 'active') {
+      await notifyTutorNewStudent(tutor.id, meRow?.name);
+    }
 
     return NextResponse.json({
       success: true,
-      pending: false,
-      message: `You're connected with ${tutor.name || 'your tutor'}.`,
+      pending: gate.status === 'pending',
+      message: gate.status === 'pending'
+        ? `Your request was sent to ${tutor.name || 'your tutor'}. They'll confirm you shortly.`
+        : `You're connected with ${tutor.name || 'your tutor'}.`,
       tutor: {
         id: tutor.id,
         name: tutor.name,

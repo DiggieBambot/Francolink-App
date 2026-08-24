@@ -86,9 +86,47 @@ export default async function TutorStudentsPage() {
     students = rows || [];
   }
 
-  // With code/link auto-join there is no manual approval step, so there are no
-  // pending requests to show.
-  const pendingRequests: never[] = [];
+  // Join requests awaiting this tutor's approval. Most joins are still
+  // automatic — a code or link connects a clean account straight away. What
+  // lands here is what the signup risk gate (src/lib/auth/signup-guard.ts) held
+  // back: accounts whose name or email scored as likely spam. The tutor is the
+  // one who knows their own students, so they get the final say rather than us
+  // silently dropping someone real.
+  const { data: pendingRels } = await svc
+    .from('tutor_students')
+    .select('student_id, assigned_at')
+    .eq('tutor_id', user.id)
+    .eq('status', 'pending');
+
+  const pendingIds = (pendingRels || [])
+    .map((r) => r.student_id)
+    .filter((id) => id && id !== user.id);
+
+  let pendingRequests: {
+    id: string;
+    name: string | null;
+    email: string;
+    avatar_url: string | null;
+    requested_at: string | null;
+  }[] = [];
+
+  if (pendingIds.length > 0) {
+    const { data: pendingRows } = await svc
+      .from('users')
+      .select('id, name, email, avatar_url')
+      .in('id', pendingIds);
+
+    const requestedAt = new Map(
+      (pendingRels || []).map((r) => [r.student_id, r.assigned_at as string | null])
+    );
+    pendingRequests = (pendingRows || []).map((u) => ({
+      id: u.id,
+      name: u.name,
+      email: u.email,
+      avatar_url: u.avatar_url,
+      requested_at: requestedAt.get(u.id) ?? null,
+    }));
+  }
 
   // Open "book a class" requests.
   const { data: crRows } = await svc

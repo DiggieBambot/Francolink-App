@@ -9,6 +9,10 @@ import { cn } from "@/lib/utils";
 /**
  * Slot picker on a tutor's public profile.
  *
+ * Lesson prices appear once, on the slot you actually picked — a price next
+ * to every duration turned the picker into a price list, and prices here are
+ * per tier, not per tutor, so there is nothing to compare.
+ *
  * Times render in the VISITOR's timezone, not the tutor's. Showing a Douala
  * clock to someone in Montreal is how people miss lessons — the tutor's zone is
  * shown once, as context, and never used for the times themselves.
@@ -113,7 +117,6 @@ export function SlotPicker({
         <div className="flex flex-wrap items-center gap-2 mb-5">
           <span className="text-sm font-bold text-primary mr-1">Lesson length</span>
           {durations.map((d) => {
-            const p = priceFor(d);
             return (
               <button
                 key={d}
@@ -131,11 +134,6 @@ export function SlotPicker({
                 )}
               >
                 {d} min
-                {p && (
-                  <span className="ml-2 font-semibold opacity-80">
-                    {formatPrice(p.priceCents, p.currency)}
-                  </span>
-                )}
               </button>
             );
           })}

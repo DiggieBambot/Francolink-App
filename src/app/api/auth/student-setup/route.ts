@@ -4,6 +4,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { sendWelcomeOnce, notifyTutorNewStudent } from '@/lib/email/transactional';
 import { logActivity } from '@/lib/analytics/activity';
+import { assessSignup } from '@/lib/auth/signup-risk';
+import { recordRisk } from '@/lib/auth/signup-guard';
+import { verifyNewAccount } from '@/lib/auth/verify-new-account';
 
 // Use service role for this operation
 const supabase = createClient(
@@ -26,6 +29,16 @@ export async function POST(request: NextRequest) {
     if (!userId || !tutorId) {
       console.error('❌ Missing required fields:', { userId, tutorId });
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+    }
+
+    // `userId` and `email` arrive in the request body, so without this check
+    // anyone could attach an arbitrary account to a tutor and make us email
+    // them — which would also route straight around the spam scoring below,
+    // since that scores whatever name and email the body claims.
+    const proof = await verifyNewAccount(userId, email);
+    if (!proof.ok) {
+      console.warn('🚫 Rejected student-setup:', { userId, reason: proof.reason });
+      return NextResponse.json({ error: 'Unable to complete signup' }, { status: 403 });
     }
 
     // 1. Verify tutor exists - Use maybeSingle() instead of single()
@@ -120,15 +133,33 @@ export async function POST(request: NextRequest) {
     // if the client emitter never runs).
     await logActivity(userId, 'signup_completed', { metadata: { via: 'tutor-invite' } });
 
-    // 3. Create tutor-student relationship
+    // 3. Spam gate, then the tutor-student relationship.
+    //
+    // Score the name and email we were just given rather than re-reading the
+    // row: this runs seconds after signup, and the payload is what the person
+    // actually typed. A clean signup auto-connects exactly as before; a risky
+    // one lands as 'pending' for the tutor to accept or decline; a blocked one
+    // gets an account but never reaches a tutor.
+    const risk = assessSignup({ email, name });
+    if (risk.verdict !== 'allow') {
+      console.warn('⚠️ Risky student signup:', { userId, score: risk.score, reasons: risk.reasons });
+      await recordRisk(userId, risk);
+    }
+    if (risk.verdict === 'block') {
+      // The account exists (Supabase already created it), but it gets no tutor
+      // and sends no mail. Deliberately reported as success so a bot learns
+      // nothing about which field tripped the check.
+      return NextResponse.json({ success: true });
+    }
+
     console.log('📝 Creating tutor-student relationship...');
-    
+
     const { error: relationError } = await supabase
       .from('tutor_students')
       .upsert({
         tutor_id: tutorId,
         student_id: userId,
-        status: 'active',
+        status: risk.verdict === 'allow' ? 'active' : 'pending',
         assigned_at: new Date().toISOString(),
       }, {
         onConflict: 'tutor_id,student_id'
@@ -143,9 +174,11 @@ export async function POST(request: NextRequest) {
 
     console.log('🎉 Student setup complete!');
 
-    // Welcome the new student, and tell the tutor they have a request.
+    // Welcome the new student, and tell the tutor they have a request. A
+    // flagged signup stays silent — it's visible in the tutor's Students tab,
+    // but a suspected bot shouldn't be able to make us email a real tutor.
     await sendWelcomeOnce(userId);
-    if (!relationError) await notifyTutorNewStudent(tutorId, name);
+    if (!relationError && risk.verdict === 'allow') await notifyTutorNewStudent(tutorId, name);
 
     return NextResponse.json({ success: true });
 

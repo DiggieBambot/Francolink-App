@@ -7,11 +7,23 @@
 // live at clean root URLs while staying in one Next.js project. Nothing else
 // in the codebase should hardcode these hostnames — import from here.
 
+/**
+ * In development the marketing host defaults to site.localhost, not the live
+ * domain. `localhost:3000` is the APP host, and /tutors there is a redirect to
+ * `siteUrl("/tutors")` — with the production default that redirect walked
+ * straight out of the dev server and onto francolink.net, so local changes
+ * looked like they had never been made. An explicit NEXT_PUBLIC_SITE_URL still
+ * wins, and production builds (including Vercel previews) are untouched.
+ */
+const DEV = process.env.NODE_ENV === "development";
+
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://francolink.net";
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (DEV ? "http://site.localhost:3000" : "https://francolink.net");
 
 export const APP_URL =
-  process.env.NEXT_PUBLIC_APP_URL || "https://app.francolink.net";
+  process.env.NEXT_PUBLIC_APP_URL ||
+  (DEV ? "http://localhost:3000" : "https://app.francolink.net");
 
 /** Path prefix the marketing pages physically live under. */
 export const SITE_PREFIX = "/site";
