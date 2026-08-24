@@ -25,6 +25,20 @@ const levels = [
   { value: "advanced", label: "Advanced", description: "I'm comfortable but want to improve" },
 ];
 
+/**
+ * Why the learner is here. Slugs are stable — they're written to
+ * users.learning_goals and read back by tutor matching — while labels are
+ * free to change. "Select all that apply": most people have two or three.
+ */
+const learningGoals = [
+  { value: "career", label: "Grow your career", emoji: "💼" },
+  { value: "university", label: "Thrive at university", emoji: "🎓" },
+  { value: "exam", label: "Prepare for an exam", emoji: "📝" },
+  { value: "fun", label: "Just for fun", emoji: "🎉" },
+  { value: "travel", label: "Travel abroad", emoji: "🌍" },
+  { value: "family", label: "Talk with family & friends", emoji: "🗣️" },
+];
+
 const goals = [
   { value: 5, label: "5 min/day", description: "Casual" },
   { value: 10, label: "10 min/day", description: "Regular" },
@@ -55,6 +69,9 @@ export default function OnboardingPage() {
   const [selectedLanguage, setSelectedLanguage] = useState("");
   const [selectedLevel, setSelectedLevel] = useState("");
   const [selectedGoal, setSelectedGoal] = useState(15);
+  const [selectedLearningGoals, setSelectedLearningGoals] = useState<string[]>([]);
+  const [otherGoal, setOtherGoal] = useState("");
+  const [otherOpen, setOtherOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [variant, setVariant] = useState<OnboardingVariant>("control");
 
@@ -116,6 +133,29 @@ export default function OnboardingPage() {
             learning_language: selectedLanguage,
           })
           .eq("id", user.id);
+
+        // Written on its own rather than folded into the update above: these
+        // two columns arrive with a migration, and if it hasn't been applied
+        // yet a combined update would take the language and daily goal down
+        // with it. A missing goal is survivable; a lost language isn't.
+        const { error: goalsError } = await supabase
+          .from("users")
+          .update({
+            learning_goals:
+              otherOpen && otherGoal.trim()
+                ? [...selectedLearningGoals, "other"]
+                : selectedLearningGoals,
+            learning_goal_other: otherOpen && otherGoal.trim() ? otherGoal.trim() : null,
+          })
+          .eq("id", user.id);
+        if (goalsError) console.error("Could not save learning goals:", goalsError);
+
+        trackEvent("onboarding_goals_selected", {
+          metadata: {
+            goals: selectedLearningGoals,
+            has_other: otherOpen && Boolean(otherGoal.trim()),
+          },
+        });
 
         // Create user_languages row for the selected language
         await supabase
@@ -194,7 +234,7 @@ export default function OnboardingPage() {
       {/* Progress Indicator — hidden in the fast variant (single step). */}
       {variant === "control" && (
         <div className="flex items-center justify-center gap-2 mb-8">
-          {[1, 2, 3, 4].map((s) => (
+          {[1, 2, 3, 4, 5].map((s) => (
             <div
               key={s}
               className={cn(
@@ -252,8 +292,102 @@ export default function OnboardingPage() {
         </div>
       )}
 
-      {/* Step 2: Choose Level */}
+      {/* Step 2: Learning goals — what they're here for, not just how they'll
+          practise. Multi-select: a learner preparing for the DELF is usually
+          also travelling. */}
       {step === 2 && (
+        <div>
+          <h1 className="text-2xl font-heading font-bold text-primary text-center mb-2">
+            What are your learning goals?
+          </h1>
+          <p className="text-gray-600 text-center mb-8">Select all that apply</p>
+
+          <div className="flex flex-wrap gap-2.5 justify-center">
+            {learningGoals.map((goal) => {
+              const on = selectedLearningGoals.includes(goal.value);
+              return (
+                <button
+                  key={goal.value}
+                  type="button"
+                  aria-pressed={on}
+                  onClick={() =>
+                    setSelectedLearningGoals((prev) =>
+                      prev.includes(goal.value)
+                        ? prev.filter((g) => g !== goal.value)
+                        : [...prev, goal.value]
+                    )
+                  }
+                  className={cn(
+                    "px-4 py-2.5 rounded-xl border-2 font-heading font-semibold text-sm transition-all cursor-pointer inline-flex items-center gap-2",
+                    on
+                      ? "border-secondary bg-secondary-50 text-primary"
+                      : "border-gray-200 text-gray-600 hover:border-secondary/50"
+                  )}
+                >
+                  <span aria-hidden="true">{goal.emoji}</span>
+                  {goal.label}
+                </button>
+              );
+            })}
+
+            <button
+              type="button"
+              aria-pressed={otherOpen}
+              onClick={() => setOtherOpen((v) => !v)}
+              className={cn(
+                "px-4 py-2.5 rounded-xl border-2 font-heading font-semibold text-sm transition-all cursor-pointer",
+                otherOpen
+                  ? "border-secondary bg-secondary-50 text-primary"
+                  : "border-gray-200 text-gray-600 hover:border-secondary/50"
+              )}
+            >
+              Other goal…
+            </button>
+          </div>
+
+          {otherOpen && (
+            <input
+              type="text"
+              value={otherGoal}
+              onChange={(e) => setOtherGoal(e.target.value)}
+              maxLength={120}
+              autoFocus
+              placeholder="Tell us in a few words"
+              className="w-full mt-4 px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-secondary focus:outline-none text-primary"
+            />
+          )}
+
+          <p className="mt-6 text-sm text-gray-500 text-center">
+            We match you with tutors based on your goal, level and availability.
+          </p>
+
+          <div className="flex gap-3 mt-8">
+            <Button variant="secondary" onClick={() => setStep(1)}>
+              <ChevronLeft className="w-5 h-5 mr-2" />
+              Back
+            </Button>
+            <Button
+              className="flex-1"
+              disabled={
+                selectedLearningGoals.length === 0 &&
+                !(otherOpen && otherGoal.trim())
+              }
+              onClick={() => {
+                // "Other" with nothing typed is not a goal — drop it rather
+                // than storing a slug the matcher can't do anything with.
+                if (otherOpen && !otherGoal.trim()) setOtherOpen(false);
+                setStep(3);
+              }}
+            >
+              Next
+              <ChevronRight className="w-5 h-5 ml-2" />
+            </Button>
+          </div>
+        </div>
+      )}
+
+      {/* Step 3: Choose Level */}
+      {step === 3 && (
         <div>
           <h1 className="text-2xl font-heading font-bold text-primary text-center mb-2">
             What&apos;s your current level?
@@ -283,14 +417,14 @@ export default function OnboardingPage() {
           </div>
 
           <div className="flex gap-3 mt-8">
-            <Button variant="secondary" onClick={() => setStep(1)}>
+            <Button variant="secondary" onClick={() => setStep(2)}>
               <ChevronLeft className="w-5 h-5 mr-2" />
               Back
             </Button>
             <Button
               className="flex-1"
               disabled={!selectedLevel}
-              onClick={() => setStep(3)}
+              onClick={() => setStep(4)}
             >
               Continue
               <ChevronRight className="w-5 h-5 ml-2" />
@@ -299,8 +433,8 @@ export default function OnboardingPage() {
         </div>
       )}
 
-      {/* Step 3: Choose Goal */}
-      {step === 3 && (
+      {/* Step 4: Choose Goal */}
+      {step === 4 && (
         <div>
           <h1 className="text-2xl font-heading font-bold text-primary text-center mb-2">
             Set your daily goal
@@ -330,7 +464,7 @@ export default function OnboardingPage() {
           </div>
 
           <div className="flex gap-3 mt-8">
-            <Button variant="secondary" onClick={() => setStep(2)}>
+            <Button variant="secondary" onClick={() => setStep(3)}>
               <ChevronLeft className="w-5 h-5 mr-2" />
               Back
             </Button>
@@ -355,8 +489,8 @@ export default function OnboardingPage() {
         </div>
       )}
 
-      {/* Step 4: Placement Test Choice */}
-      {step === 4 && (
+      {/* Step 5: Placement Test Choice */}
+      {step === 5 && (
         <div>
           <h1 className="text-2xl font-heading font-bold text-primary text-center mb-2">
             How would you like to start?
@@ -403,7 +537,7 @@ export default function OnboardingPage() {
           <Button
             variant="secondary"
             className="w-full mt-6"
-            onClick={() => setStep(3)}
+            onClick={() => setStep(4)}
           >
             <ChevronLeft className="w-5 h-5 mr-2" />
             Back
