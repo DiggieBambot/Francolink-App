@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import { StudentsList } from '@/components/tutor/students-list';
 import { PendingRequests } from '@/components/tutor/pending-requests';
+import { DeclinedRequests } from '@/components/tutor/declined-requests';
 import { ClassRequests, type ClassRequestItem } from '@/components/tutor/class-requests';
 import { getOrCreateLessonSpace } from '@/lib/lessons/lesson-space';
 
@@ -125,6 +126,40 @@ export default async function TutorStudentsPage() {
       email: u.email,
       avatar_url: u.avatar_url,
       requested_at: requestedAt.get(u.id) ?? null,
+    }));
+  }
+
+  // Requests the spam scoring declined on the tutor's behalf. Shown, not
+  // hidden: an auto-decline that leaves no trace looks exactly like a student
+  // who never arrived, so a wrong call would never come back to us. Collapsed
+  // by default and undoable in one click.
+  const { data: declinedRels } = await svc
+    .from('tutor_students')
+    .select('student_id, assigned_at')
+    .eq('tutor_id', user.id)
+    .eq('status', 'declined');
+
+  const declinedIds = (declinedRels || [])
+    .map((r) => r.student_id)
+    .filter((id) => id && id !== user.id);
+
+  let declinedRequests: typeof pendingRequests = [];
+
+  if (declinedIds.length > 0) {
+    const { data: declinedRows } = await svc
+      .from('users')
+      .select('id, name, email, avatar_url')
+      .in('id', declinedIds);
+
+    const declinedAt = new Map(
+      (declinedRels || []).map((r) => [r.student_id, r.assigned_at as string | null])
+    );
+    declinedRequests = (declinedRows || []).map((u) => ({
+      id: u.id,
+      name: u.name,
+      email: u.email,
+      avatar_url: u.avatar_url,
+      requested_at: declinedAt.get(u.id) ?? null,
     }));
   }
 
@@ -250,6 +285,7 @@ export default async function TutorStudentsPage() {
 
       {/* Pending join requests */}
       <PendingRequests requests={pendingRequests} />
+      <DeclinedRequests requests={declinedRequests} />
 
       {/* Students List */}
       <StudentsList students={studentsWithSpace} inviteLink={inviteLink} />

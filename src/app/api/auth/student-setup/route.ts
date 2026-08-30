@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { sendWelcomeOnce, notifyTutorNewStudent } from '@/lib/email/transactional';
 import { logActivity } from '@/lib/analytics/activity';
-import { assessSignup } from '@/lib/auth/signup-risk';
+import { assessSignup, AUTO_DECLINE_THRESHOLD } from '@/lib/auth/signup-risk';
 import { recordRisk } from '@/lib/auth/signup-guard';
 import { verifyNewAccount } from '@/lib/auth/verify-new-account';
 import { resolveJoinTarget } from '@/lib/auth/join-target';
@@ -143,7 +143,15 @@ export async function POST(request: NextRequest) {
       .upsert({
         tutor_id: tutorId,
         student_id: userId,
-        status: risk.verdict === 'allow' ? 'active' : 'pending',
+        // Confidently-spam requests are declined for the tutor rather than
+        // queued at them. The row is still written so it shows under
+        // "Automatically declined" and can be undone; see signup-guard.
+        status:
+          risk.verdict === 'allow'
+            ? 'active'
+            : risk.score >= AUTO_DECLINE_THRESHOLD
+              ? 'declined'
+              : 'pending',
         assigned_at: new Date().toISOString(),
       }, {
         onConflict: 'tutor_id,student_id'

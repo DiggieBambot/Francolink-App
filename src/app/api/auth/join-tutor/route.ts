@@ -139,10 +139,13 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      pending: gate.status === 'pending',
-      message: gate.status === 'pending'
-        ? `Your request was sent to ${tutor.name || 'your tutor'}. They'll confirm you shortly.`
-        : `You're connected with ${tutor.name || 'your tutor'}.`,
+      pending: gate.status !== 'active',
+      // A declined request is reported exactly like a pending one. The tutor
+      // isn't troubled by it, and a bot learns nothing about what tripped the
+      // check — the same reason the block path reports success.
+      message: gate.status === 'active'
+        ? `You're connected with ${tutor.name || 'your tutor'}.`
+        : `Your request was sent to ${tutor.name || 'your tutor'}. They'll confirm you shortly.`,
       tutor: {
         id: tutor.tutorId,
         name: tutor.name,
