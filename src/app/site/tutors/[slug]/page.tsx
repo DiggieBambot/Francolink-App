@@ -90,10 +90,11 @@ export default async function TutorProfilePage({ params }: PageProps) {
 
   // Tutors paste share links; YouTube won't frame those. Normalise or skip.
   const videoUrl = embedVideoUrl(tutor.intro_video_url);
-  // Joining a tutor's class happens in the app, via their invite code.
-  const bookHref = tutor.invite_code
-    ? appUrl(`/join/${tutor.invite_code}`)
-    : appUrl("/signup");
+  // Joining happens in the app. Link by SLUG, never by the tutor's invite
+  // code: this page is public and in our sitemap, so anything in this href is
+  // harvestable. The code is a permanent bearer credential and stays server
+  // side; /join resolves a slug to the same tutor. See lib/auth/join-target.ts.
+  const bookHref = appUrl(`/join/${tutor.slug}`);
 
   // Rich result for the tutor as a person offering a service.
   const jsonLd = {

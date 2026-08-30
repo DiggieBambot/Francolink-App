@@ -7,6 +7,7 @@ import { logActivity } from '@/lib/analytics/activity';
 import { assessSignup } from '@/lib/auth/signup-risk';
 import { recordRisk } from '@/lib/auth/signup-guard';
 import { verifyNewAccount } from '@/lib/auth/verify-new-account';
+import { resolveJoinTarget } from '@/lib/auth/join-target';
 
 // Use service role for this operation
 const supabase = createClient(
@@ -16,18 +17,12 @@ const supabase = createClient(
 
 export async function POST(request: NextRequest) {
   try {
-    const { userId, email, name, tutorId, inviteCode } = await request.json();
+    const { userId, email, name, joinToken } = await request.json();
 
-    console.log('🔍 Student Setup Request:', {
-      userId,
-      tutorId,
-      inviteCode,
-      email,
-      name
-    });
+    console.log('🔍 Student Setup Request:', { userId, joinToken, email, name });
 
-    if (!userId || !tutorId) {
-      console.error('❌ Missing required fields:', { userId, tutorId });
+    if (!userId || !joinToken) {
+      console.error('❌ Missing required fields:', { userId, hasToken: Boolean(joinToken) });
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
@@ -41,33 +36,22 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Unable to complete signup' }, { status: 403 });
     }
 
-    // 1. Verify tutor exists - Use maybeSingle() instead of single()
-    console.log('🔍 Looking up tutor with ID:', tutorId);
-    
-    const { data: tutors, error: tutorError } = await supabase
-      .from('users')
-      .select('id, email, name, tutor_plan')
-      .eq('id', tutorId)
-      .limit(1);
+    // 1. Resolve WHICH tutor from the join token.
+    //
+    // This route used to take a `tutorId` straight from the request body and
+    // only check that such a tutor existed — the `inviteCode` was read and
+    // never verified. So any account could be attached to any tutor by id,
+    // and the invite code was decorative. The token is now the only input,
+    // and the tutor is derived from it server-side.
+    const target = await resolveJoinTarget(joinToken);
 
-    console.log('🔍 Tutor lookup result:', {
-      found: tutors?.length,
-      error: tutorError?.message
-    });
-
-    if (tutorError) {
-      console.error('❌ Tutor lookup error:', tutorError);
-      return NextResponse.json({ 
-        error: 'Database error looking up tutor' 
-      }, { status: 500 });
-    }
-
-    const tutor = tutors?.[0];
-
-    if (!tutor) {
-      console.error('❌ Tutor not found with ID:', tutorId);
+    if (!target) {
+      console.error('❌ No tutor for join token');
       return NextResponse.json({ error: 'Tutor not found' }, { status: 404 });
     }
+
+    const tutorId = target.tutorId;
+    const tutor = { id: target.tutorId, email: target.email, name: target.name, tutor_plan: target.tutorPlan };
 
     console.log('✅ Tutor found:', tutor.email);
 

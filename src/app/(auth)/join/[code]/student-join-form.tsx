@@ -10,11 +10,16 @@ import { createClient } from '@/lib/supabase/client';
 import { useTurnstile } from '@/components/auth/turnstile';
 
 interface Props {
-  tutorId: string;
-  inviteCode: string;
+  /**
+   * The token from the URL — an invite code we issued, or a public directory
+   * slug. Deliberately opaque to this component: the server resolves it to a
+   * tutor. We never send a tutor id, because a client-supplied id is something
+   * the API would have to trust.
+   */
+  joinToken: string;
 }
 
-export function StudentJoinForm({ tutorId, inviteCode }: Props) {
+export function StudentJoinForm({ joinToken }: Props) {
   const router = useRouter();
   const supabase = createClient();
   
@@ -64,8 +69,7 @@ export function StudentJoinForm({ tutorId, inviteCode }: Props) {
           userId: authData.user.id,
           email: formData.email,
           name: formData.name,
-          tutorId: tutorId,
-          inviteCode: inviteCode,
+          joinToken,
         }),
       });
 
@@ -156,7 +160,7 @@ export function StudentJoinForm({ tutorId, inviteCode }: Props) {
 
       <p className="text-center text-sm text-muted-foreground">
         Already have an account?{' '}
-        <Link href={`/login?redirect=/api/auth/join-tutor?code=${inviteCode}`} className="text-primary hover:underline">
+        <Link href={`/login?redirect=/api/auth/join-tutor?code=${encodeURIComponent(joinToken)}`} className="text-primary hover:underline">
           Log in here
         </Link>
       </p>

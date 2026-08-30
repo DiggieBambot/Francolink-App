@@ -70,16 +70,53 @@ export function gibberishScore(rawWord: string): number {
   if (w.length < 3) return 0;
 
   let score = 0;
-  const vowelCount = (w.match(/[aeiouy]/g) || []).length;
+
+  // 'r' and 'l' are *syllabic* in Slavic and Czech names — in Srdjan, Mrkic,
+  // Krstic, Vrdoljak, Brno, Vltava they carry a syllable the way a vowel does,
+  // and counting them as plain consonants gave all of those a perfect 1.00.
+  //
+  // The test is positional, not just "is it an r": a syllabic consonant sits
+  // between two consonants. That distinction is what keeps the exemption from
+  // laundering actual noise — the trailing 'r' of "Xdpdjswr" has nothing to
+  // its right and the leading 'R' of "Rnlbiy" nothing to its left, so neither
+  // qualifies, while the 'r' of "Mrkic" does.
+  const isVowel = (c: string) => "aeiouy".includes(c);
+  const trueVowels = [...w].filter(isVowel).length;
+
+  // Second gate on the exemption: a real syllabic-consonant name still carries
+  // an ordinary vowel too — SrdjAn, MrkIc, KrstIc, VltAvA, BrnO. A string whose
+  // *only* vowel-ish thing is one lone 'r' is not a Slavic name, it's noise:
+  // without this, "Jrzt" and "Hzrxyxv" launder themselves clean through a
+  // single flanked 'r'.
+  const syllabicAllowed = trueVowels > 0 && trueVowels / w.length >= 0.15;
+
+  const vowelLike = [...w].map((c, i) => {
+    if (isVowel(c)) return true;
+    if (!syllabicAllowed) return false;
+    if (c !== "r" && c !== "l") return false;
+    const prev = w[i - 1];
+    const next = w[i + 1];
+    return Boolean(prev) && Boolean(next) && !isVowel(prev) && !isVowel(next);
+  });
+
+  const vowelCount = vowelLike.filter(Boolean).length;
   const vowelRatio = vowelCount / w.length;
 
-  // No vowels at all in a 3+ letter word is decisive ("Wnzvb", "Qzrbbq").
+  // No vowel at all in a 3+ letter word is decisive ("Wnzvb", "Qzrbbq").
   if (vowelCount === 0) score += 1;
   else if (vowelRatio < 0.2) score += 0.6;
   else if (vowelRatio > 0.8) score += 0.4; // "aeiaeia"
 
   // Long consonant runs. French and English tolerate 3 ("strong"), not 4.
-  if (/[bcdfghjklmnpqrstvwxz]{4,}/.test(w)) score += 0.5;
+  // A syllabic r/l breaks a run the same way it breaks the ratio above, so
+  // "krstic" reads as two short runs rather than one of five.
+  let run = 0;
+  let longestRun = 0;
+  for (let i = 0; i < w.length; i++) {
+    run = vowelLike[i] ? 0 : run + 1;
+    longestRun = Math.max(longestRun, run);
+  }
+  if (longestRun >= 4) score += 0.5;
 
   // 'q' without 'u' after it is near-impossible in the languages we serve.
   if (/q(?!u)/.test(w)) score += 0.4;

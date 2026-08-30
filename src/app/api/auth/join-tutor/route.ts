@@ -4,6 +4,7 @@ import { createClient } from '@/lib/supabase/server';
 import { createClient as createServiceClient } from '@supabase/supabase-js';
 import { notifyTutorNewStudent } from '@/lib/email/transactional';
 import { joinStatusFor } from '@/lib/auth/signup-guard';
+import { resolveJoinTarget } from '@/lib/auth/join-target';
 
 // Use service role client for database operations
 const supabaseService = createServiceClient(
@@ -35,25 +36,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Match the code case-INSENSITIVELY. Invite codes are stored in mixed
-    // conventions (most are UPPERCASE from auth/callback, some lowercase from
-    // the settings regenerator), so a lowercase-only lookup silently failed
-    // for the uppercase majority. Escape LIKE wildcards first — some codes
-    // contain '_', which ilike would otherwise treat as "any character".
-    const cleanCode = String(code).trim();
-    const codePattern = cleanCode.replace(/[\\%_]/g, '\\$&');
+    // The token is an invite code we issued or a public directory slug;
+    // resolveJoinTarget owns that decision so this route and the signup route
+    // can never disagree about who a link points to.
+    const tutor = await resolveJoinTarget(String(code));
 
-    console.log('🔍 Looking for tutor with code:', cleanCode);
-
-    // Find tutor by invite code (case-insensitive exact match)
-    const { data: tutor, error: tutorError } = await supabaseService
-      .from('users')
-      .select('id, name, email, tutor_plan')
-      .ilike('tutor_invite_code', codePattern)
-      .single();
-
-    if (tutorError || !tutor) {
-      console.error('❌ Tutor not found:', tutorError);
+    if (!tutor) {
+      console.error('❌ Tutor not found for join token');
       return NextResponse.json(
         { error: 'Invalid invite code. Please check and try again.' },
         { status: 404 }
@@ -82,7 +71,7 @@ export async function POST(request: NextRequest) {
     const { data: existingLink } = await supabaseService
       .from('tutor_students')
       .select('student_id')
-      .eq('tutor_id', tutor.id)
+      .eq('tutor_id', tutor.tutorId)
       .eq('student_id', user.id)
       .maybeSingle();
     if (existingLink) {
@@ -98,7 +87,7 @@ export async function POST(request: NextRequest) {
     if (!student?.referred_by_tutor_id) {
       const { error: attrError } = await supabaseService
         .from('users')
-        .update({ referred_by_tutor_id: tutor.id, updated_at: new Date().toISOString() })
+        .update({ referred_by_tutor_id: tutor.tutorId, updated_at: new Date().toISOString() })
         .eq('id', user.id);
       if (attrError) {
         console.error('❌ Error attributing student to tutor:', attrError);
@@ -122,7 +111,7 @@ export async function POST(request: NextRequest) {
     const { error: relError } = await supabaseService
       .from('tutor_students')
       .upsert({
-        tutor_id: tutor.id,
+        tutor_id: tutor.tutorId,
         student_id: user.id,
         status: gate.status,
         assigned_at: new Date().toISOString()
@@ -145,7 +134,7 @@ export async function POST(request: NextRequest) {
     // be able to make our system email a real tutor on demand.
     const { data: meRow } = await supabaseService.from('users').select('name').eq('id', user.id).maybeSingle();
     if (gate.status === 'active') {
-      await notifyTutorNewStudent(tutor.id, meRow?.name);
+      await notifyTutorNewStudent(tutor.tutorId, meRow?.name);
     }
 
     return NextResponse.json({
@@ -155,7 +144,7 @@ export async function POST(request: NextRequest) {
         ? `Your request was sent to ${tutor.name || 'your tutor'}. They'll confirm you shortly.`
         : `You're connected with ${tutor.name || 'your tutor'}.`,
       tutor: {
-        id: tutor.id,
+        id: tutor.tutorId,
         name: tutor.name,
         email: tutor.email
       }

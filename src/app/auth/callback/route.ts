@@ -1,3 +1,4 @@
+import { randomBytes } from "crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { createServerClient } from "@supabase/ssr";
 import { createClient as createServiceRoleClient } from "@supabase/supabase-js";
@@ -94,10 +95,19 @@ export async function GET(request: NextRequest) {
           { auth: { persistSession: false } }
         );
 
-        // Generate unique invite code
+        // Generate unique invite code.
+        //
+        // crypto, not Math.random(): the code is a permanent bearer credential
+        // (holding it attaches you to this tutor), and V8's PRNG state can be
+        // recovered from a handful of observed outputs — so codes minted with
+        // Math.random() are derivable from other codes without ever seeing
+        // this one. Base32 without I/O/0/1, which get misread when a tutor
+        // reads a code aloud or retypes it from a message.
+        const ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
         let inviteCode = "";
         for (let attempt = 0; attempt < 10; attempt++) {
-          const candidate = Math.random().toString(36).slice(2, 10).toUpperCase();
+          const bytes = randomBytes(10);
+          const candidate = Array.from(bytes, (b) => ALPHABET[b % ALPHABET.length]).join("");
           const { data: clash } = await admin
             .from("users")
             .select("id")
