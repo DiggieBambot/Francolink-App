@@ -52,7 +52,7 @@ export default async function TutorAvailabilityPage() {
         .maybeSingle(),
       // Live bookings block slots in the preview, same as they will for students.
       supabase
-        .from("bookings")
+        .from("booking_details")
         .select("starts_at, ends_at")
         .eq("tutor_id", user.id)
         .in("status", ["pending_payment", "confirmed", "completed"])

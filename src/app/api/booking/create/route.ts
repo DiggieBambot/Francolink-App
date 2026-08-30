@@ -10,25 +10,39 @@
 // tutor's tier, and whether this is a discounted trial is derived from the
 // student's own booking history — never from a flag in the body.
 //
-// A subscriber pays with credits instead of Stripe. That path still writes the
-// hold first and still prices the lesson from lesson_pricing, because
-// price_cents is what the accounts read later; the only difference is that the
-// money came out of a plan rather than a card, and there is no checkout to
-// redirect to. Whether the student CAN pay that way is decided server-side
-// too — a Community plan may not book a Professional tutor.
+// The student price and the tutor's pay are two separate lookups and always
+// have been snapshot onto the row. Since 20260828_tutor_ladder.sql the pay
+// side is no longer a flat tier rate: tutor_pay_cents() raises it to the rung
+// the tutor has earned. That comes out of take, never out of the price.
+//
+// Lessons are paid for out of a PLAN, not one at a time. A student with no
+// live plan is refused here and sent to the picker; there is no per-lesson
+// Stripe path in this route at all. Lessons are paid for with CREDITS, and
+// credits come from one of two places: a subscription, or the one-off starter
+// pack a student buys before they have a plan (20260902_starter_pack.sql).
+//
+// The single discounted trial lesson is gone. Three separately-sold trials
+// netted less than one — Stripe's fixed fee lands on each charge and each
+// lesson grossed about two dollars — so the same three lessons are sold as one
+// pack instead, which nets ten times as much and is one decision rather than
+// three places to drop out.
+//
+// The hold is still written BEFORE the credits are spent, for the same reason
+// it used to be written before Stripe: two students must not be able to hold
+// the same slot. Whether the student CAN pay from their plan is decided
+// server-side too — a Community plan may not book a Professional tutor.
 
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { z } from "zod";
-import { stripe } from "@/lib/stripe";
 import {
   BOOKING_DURATIONS,
   HOLD_MINUTES,
   isSlotStillBookable,
 } from "@/lib/booking/availability";
-import { APP_URL, SITE_URL } from "@/lib/site/hosts";
 import { creditEligibility, payBookingWithCredits } from "@/lib/booking/confirm";
+import { hasActivePlan } from "@/lib/credits/plans";
 
 export const runtime = "nodejs";
 
@@ -50,13 +64,6 @@ function serviceClient() {
 }
 
 export async function POST(request: Request) {
-  if (!stripe) {
-    return NextResponse.json(
-      { error: "Payments aren't configured yet." },
-      { status: 503 }
-    );
-  }
-
   const supabase = await createClient();
   const {
     data: { user },
@@ -115,49 +122,48 @@ export async function POST(request: Request) {
     );
   }
 
-  // --- trial eligibility, derived not declared -----------------------------
-  // Any prior booking that wasn't abandoned means they've used their trial.
-  const { count: priorBookings } = await db
-    .from("bookings")
-    .select("*", { count: "exact", head: true })
-    .eq("student_id", user.id)
-    .not("status", "in", "(expired,cancelled_by_student)");
-
-  // Can this lesson be paid for out of a plan? Decided before pricing, because
-  // a subscriber never takes the discounted trial — they are already paying.
+  // --- can this lesson be paid for out of a plan? --------------------------
+  // This is the gate, and it is the real one. /book redirects a planless
+  // student to the picker, but a redirect is only a suggestion to anybody
+  // posting straight at this route.
   const credit = await creditEligibility(
     user.id,
     profile.tier,
     input.duration_minutes
   );
 
-  const isTrial =
-    !credit &&
-    Boolean(profile.trial_available) &&
-    (priorBookings ?? 0) === 0;
+  if (!credit) {
+    // Two different failures wear the same shape here, and the student needs
+    // to be told which: no plan at all, or a plan that doesn't reach this
+    // tutor / has run out of lessons this month.
+    const planned = await hasActivePlan(user.id);
+    return NextResponse.json(
+      planned
+        ? {
+            error:
+              "Your plan doesn't cover this tutor, or you're out of lessons. " +
+              "Check your subscription.",
+            needsUpgrade: true,
+          }
+        : {
+            error: "Get lessons first — start with a 3-lesson pack or a plan.",
+            needsPlan: true,
+            next: `/start`,
+          },
+      { status: 402 }
+    );
+  }
+
 
   // --- price, from our own table -------------------------------------------
-  const { data: pricing } = await db
+  const { data: price } = await db
     .from("lesson_pricing")
     .select("price_cents, tutor_pay_cents, currency")
     .eq("tier", profile.tier)
     .eq("duration_minutes", input.duration_minutes)
-    .eq("is_trial", isTrial)
+    .eq("is_trial", false)
     .maybeSingle();
 
-  // A trial is only offered at one length; fall back to the normal price
-  // rather than refusing the booking outright.
-  const { data: fallback } = pricing
-    ? { data: null }
-    : await db
-        .from("lesson_pricing")
-        .select("price_cents, tutor_pay_cents, currency")
-        .eq("tier", profile.tier)
-        .eq("duration_minutes", input.duration_minutes)
-        .eq("is_trial", false)
-        .maybeSingle();
-
-  const price = pricing ?? fallback;
   if (!price) {
     console.error("[booking/create] no price for", profile.tier, input.duration_minutes);
     return NextResponse.json(
@@ -165,13 +171,35 @@ export async function POST(request: Request) {
       { status: 500 }
     );
   }
-  const chargedAsTrial = Boolean(pricing) && isTrial;
+
+  // What the TUTOR is paid is not simply the tier rate any more. It is the
+  // tier rate raised to whatever rung of the incentive ladder they have
+  // earned (20260828_tutor_ladder.sql), so a tutor 200 reliable lessons in
+  // earns more than one on their first day at the same tier.
+  //
+  // The student price is untouched by this: the ladder is paid out of take,
+  // not out of the learner. And the function never returns less than the tier
+  // base, so a missing steps row cannot underpay anybody.
+  const { data: ladderPay, error: payError } = await db.rpc("tutor_pay_cents", {
+    p_tutor: profile.user_id,
+    p_duration: input.duration_minutes,
+    p_is_trial: false,
+  });
+  if (payError) {
+    // Fall back to the flat tier rate rather than refusing the booking. An
+    // underpaid tutor is a thing we can correct; a lost lesson is not.
+    console.error("[booking/create] ladder pay lookup failed", payError);
+  }
+  const tutorPayCents =
+    typeof ladderPay === "number" && ladderPay > 0
+      ? ladderPay
+      : price.tutor_pay_cents;
 
   const start = new Date(input.start);
   const end = new Date(start.getTime() + input.duration_minutes * 60_000);
   const expiresAt = new Date(Date.now() + HOLD_MINUTES * 60_000);
 
-  // --- hold the slot BEFORE talking to Stripe ------------------------------
+  // --- hold the slot BEFORE spending the credit ----------------------------
   const { data: booking, error: insertError } = await db
     .from("bookings")
     .insert({
@@ -182,10 +210,10 @@ export async function POST(request: Request) {
       duration_minutes: input.duration_minutes,
       status: "pending_payment",
       price_cents: price.price_cents,
-      tutor_pay_cents: price.tutor_pay_cents,
+      tutor_pay_cents: tutorPayCents,
       currency: price.currency || "USD",
       tier: profile.tier,
-      is_trial: chargedAsTrial,
+      is_trial: false,
       expires_at: expiresAt.toISOString(),
       student_note: input.student_note || null,
     })
@@ -194,17 +222,12 @@ export async function POST(request: Request) {
 
   if (insertError || !booking) {
     // 23P01 is the GiST exclusion constraint: someone else won the race for
-    // this slot in the milliseconds since we checked. 23505 is the one-trial
-    // -per-student index.
-    if (insertError?.code === "23P01") {
+    // this slot in the milliseconds since we checked. The one-trial-per-student
+    // index (23505) cannot fire now that is_trial is always false, but the row
+    // it guards still exists, so the branch stays.
+    if (insertError?.code === "23P01" || insertError?.code === "23505") {
       return NextResponse.json(
         { error: "That time was just taken. Pick another slot." },
-        { status: 409 }
-      );
-    }
-    if (insertError?.code === "23505") {
-      return NextResponse.json(
-        { error: "You've already used your discounted first lesson." },
         { status: 409 }
       );
     }
@@ -212,70 +235,25 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Couldn't hold that slot." }, { status: 500 });
   }
 
-  // --- paid from a plan? then there is no checkout --------------------------
-  if (credit) {
-    const paid = await payBookingWithCredits(booking.id, user.id, credit.cost);
-    if (paid) {
-      return NextResponse.json({
-        booking_id: booking.id,
-        paid_with: "credit",
-        credits_spent: credit.cost,
-        credits_left: credit.balance - credit.cost,
-      });
-    }
-    // Fell short between the check and the spend — carry on to Stripe rather
-    // than losing the slot the student already holds.
-    console.log("[booking/create] credit payment declined, falling back to Stripe");
-  }
+  // --- pay from the credits -------------------------------------------------
+  // credit is non-null: the gate above returned 402 otherwise.
+  const paid = await payBookingWithCredits(booking.id, user.id, credit.cost);
 
-  // --- Stripe checkout ------------------------------------------------------
-  try {
-    const session = await stripe.checkout.sessions.create({
-      mode: "payment",
-      // Stripe expires the session on its own too, but ours must be the
-      // shorter of the two or the hold would lapse while checkout is open.
-      expires_at: Math.floor(expiresAt.getTime() / 1000) + 20 * 60,
-      customer_email: user.email ?? undefined,
-      client_reference_id: booking.id,
-      metadata: { kind: "lesson_booking", booking_id: booking.id },
-      // Also on the payment intent, so a refund or dispute can be traced back.
-      payment_intent_data: {
-        metadata: { kind: "lesson_booking", booking_id: booking.id },
-      },
-      line_items: [
-        {
-          quantity: 1,
-          price_data: {
-            currency: (price.currency || "USD").toLowerCase(),
-            unit_amount: price.price_cents,
-            product_data: {
-              name: `${input.duration_minutes}-minute lesson${chargedAsTrial ? " (first lesson)" : ""}`,
-              description: start.toUTCString(),
-            },
-          },
-        },
-      ],
-      success_url: `${APP_URL}/lessons/booked?id=${booking.id}`,
-      cancel_url: `${SITE_URL}/tutors/${profile.slug}`,
-    });
-
-    await db
-      .from("bookings")
-      .update({ stripe_checkout_session_id: session.id })
-      .eq("id", booking.id);
-
-    return NextResponse.json({ ok: true, url: session.url, booking_id: booking.id });
-  } catch (err) {
-    // Release the hold immediately rather than making the student wait out the
-    // expiry for a slot nobody is paying for.
-    await db
-      .from("bookings")
-      .update({ status: "expired" })
-      .eq("id", booking.id);
-    console.error("[booking/create] stripe session failed", err);
+  if (!paid) {
+    // The balance moved between the eligibility check and the spend — another
+    // tab booked at the same moment. Release the hold immediately rather than
+    // leaving a slot nobody has paid for parked until it expires.
+    await db.from("bookings").update({ status: "expired" }).eq("id", booking.id);
     return NextResponse.json(
-      { error: "Couldn't start checkout. Please try again." },
-      { status: 502 }
+      { error: "You're out of lessons for now. They top up weekly." },
+      { status: 402 }
     );
   }
+
+  return NextResponse.json({
+    booking_id: booking.id,
+    paid_with: "credit",
+    credits_spent: credit.cost,
+    credits_left: credit.balance - credit.cost,
+  });
 }

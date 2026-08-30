@@ -1,0 +1,38 @@
+-- The intro month is switched off, not removed.
+--
+-- 20260831_intro_offer.sql built a discounted first MONTH and set it live at
+-- 40%/30%. It is the right long-run entrance -- it puts the student on a plan
+-- from day one, so continuing is the default rather than a second decision --
+-- but it commits us to 4.33 lessons per signup and then auto-renews into more.
+-- With one founder and a handful of teachers that is a habit we cannot yet
+-- staff, and selling a habit we cannot staff is worse than selling a smaller
+-- thing we can. The starter pack in 20260902 is that smaller thing: exactly
+-- three lessons per signup.
+--
+-- Re-enabling is one statement, whenever supply catches up:
+--
+--   update public.subscription_plans set intro_discount_bps = 4000
+--    where plan_key = 'professional';
+--   update public.subscription_plans set intro_discount_bps = 3000
+--    where plan_key = 'community';
+--
+-- (3000 and not 4000 at community: 40% off $10.00 is $6.00 against $6.50 of
+-- tutor pay. The trigger from 20260831 refuses it, which is the point of it.)
+--
+-- ---------------------------------------------------------------------------
+-- Also correcting the record
+-- ---------------------------------------------------------------------------
+-- 20260831 justifies itself partly by saying the trial "was sold below what we
+-- pay the tutor -- $7.99 against $13.00 professional". That is wrong. $7.99 is
+-- the 25-MINUTE trial and it pays the 25-minute rate of $6.50, not the
+-- 50-minute rate of $13.00. The trial was thin but never a loss:
+--
+--   professional 25min  $7.99 / $6.50 pay   +$1.49
+--   community    25min  $3.99 / $3.25 pay   +$0.74
+--
+-- The trial is retired anyway, for a different and better reason: three of
+-- them sold separately net less than one (see 20260902). The existing is_trial
+-- rows are left in lesson_pricing rather than deleted -- nothing reads them
+-- now that bookings are credit-only, and dropping priced history buys nothing.
+
+update public.subscription_plans set intro_discount_bps = 0;

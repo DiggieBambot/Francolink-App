@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Award, BadgeCheck, GraduationCap, MapPin, Sparkles } from "lucide-react";
+import { FavoriteButton } from "@/components/site/favorite-button";
+import { RegisterCta } from "@/components/site/register-cta";
 import type { TutorCard as TutorCardData } from "@/lib/site/queries";
 import { LANGUAGE_LABEL } from "@/lib/site/format";
-import { appUrl } from "@/lib/site/hosts";
 import { cn } from "@/lib/utils";
 
 /**
@@ -39,6 +40,16 @@ export function TutorCard({ tutor }: { tutor: TutorCardData }) {
 
   return (
     <article className="group relative bg-white rounded-2xl border border-gray-100 shadow-soft hover:shadow-medium hover:border-primary-100 transition-all overflow-hidden">
+
+      {/* Shortlist heart. Pinned to the card corner rather than sitting in the
+          action column: it is a different KIND of action from the two buttons
+          — reversible, private, costs nothing — and putting it beside them
+          would read as a third call to action. */}
+      <FavoriteButton
+        slug={tutor.slug}
+        name={tutor.name}
+        className="absolute top-3 right-3 z-10"
+      />
 
       <div className="p-5 sm:p-6 flex flex-col sm:flex-row gap-5 sm:gap-6">
         {/* ------------------------------------------------------------ PHOTO */}
@@ -147,12 +158,10 @@ export function TutorCard({ tutor }: { tutor: TutorCardData }) {
           >
             Reserve a lesson
           </Link>
-          <a
-            href={appUrl("/signup")}
+          <RegisterCta
+            next={profileHref}
             className="w-full text-center px-4 py-3 rounded-xl border-2 border-primary-100 text-primary font-heading font-bold text-sm hover:bg-primary-50 transition-colors"
-          >
-            Register free
-          </a>
+          />
           <Link
             href={profileHref}
             className="text-center text-xs font-semibold text-gray-500 hover:text-primary"

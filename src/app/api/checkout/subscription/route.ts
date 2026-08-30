@@ -28,7 +28,18 @@ const Body = z.object({
   lessons_per_week: z.number().int().min(1).max(20),
   term_months: z.union([z.literal(1), z.literal(3), z.literal(12)]),
   locale: z.string().trim().max(5).optional().default("en"),
+  // Where to land after checkout — usually the tutor the student came from.
+  // Validated as an internal path below; an absolute URL here would turn our
+  // Stripe success page into an open redirect.
+  next: z.string().trim().max(300).optional(),
 });
+
+/** Our own paths only. See the note on Body.next. */
+function safeNext(next: string | undefined): string | null {
+  if (!next) return null;
+  if (!next.startsWith("/") || next.startsWith("//")) return null;
+  return next;
+}
 
 function service() {
   return createServiceClient(
@@ -86,7 +97,7 @@ export async function POST(request: Request) {
   // --- price it from our own table -----------------------------------------
   const { data: plan } = await db
     .from("subscription_plans")
-    .select("plan_key, name, active")
+    .select("plan_key, name, active, intro_discount_bps")
     .eq("plan_key", input.plan_key)
     .maybeSingle();
 
@@ -149,6 +160,49 @@ export async function POST(request: Request) {
       .eq("id", user.id);
   }
 
+  // --- the discounted first month ------------------------------------------
+  // Once per person and monthly-term only. Both conditions are decided here,
+  // server-side, from our own tables: nothing the client sends can grant
+  // itself an intro rate.
+  //
+  // Monthly-term only because "40% off your first month" and an annual invoice
+  // do not compose -- the first invoice on a yearly plan IS the year. The
+  // longer terms carry their own discount across every lesson instead, which
+  // is worth more in absolute money. See 20260831_intro_offer.sql.
+  let discounts: { coupon: string }[] | undefined;
+  const introBps = (plan.intro_discount_bps as number) ?? 0;
+
+  if (introBps > 0 && input.term_months === 1) {
+    const { data: eligible } = await db.rpc("intro_offer_available", {
+      p_user_id: user.id,
+    });
+
+    if (eligible) {
+      // A deterministic id so we reuse one coupon per rate rather than
+      // creating one per checkout. Stripe 404s on an unknown id, which is the
+      // signal to create it.
+      const couponId = `fl-intro-${input.plan_key}-${introBps}`;
+      try {
+        await stripe.coupons.retrieve(couponId);
+      } catch {
+        try {
+          await stripe.coupons.create({
+            id: couponId,
+            percent_off: introBps / 100,
+            duration: "once",
+            name: `First month ${introBps / 100}% off`,
+          });
+        } catch (e) {
+          // A race with another checkout creating the same id is fine — the
+          // coupon exists either way. Anything else, drop the discount rather
+          // than blocking the sale.
+          console.error("[checkout/subscription] intro coupon failed", e);
+        }
+      }
+      discounts = [{ coupon: couponId }];
+    }
+  }
+
   const localePrefix =
     input.locale && input.locale !== "en" ? `/${input.locale}` : "";
 
@@ -174,11 +228,20 @@ export async function POST(request: Request) {
           quantity: input.lessons_per_week,
         },
       ],
-      success_url: `${APP_URL}${localePrefix}/student/subscription?welcome=1`,
+      // Back to the tutor they were looking at when they hit the gate, if
+      // there was one. Landing on the subscription page after buying a plan in
+      // order to book a specific lesson loses the thread.
+      success_url: safeNext(input.next)
+        ? `${APP_URL}${safeNext(input.next)}`
+        : `${APP_URL}${localePrefix}/student/subscription?welcome=1`,
       cancel_url: `${APP_URL}${localePrefix}/pricing?canceled=1`,
       metadata: meta,
       subscription_data: { metadata: meta },
-      allow_promotion_codes: true,
+      // Stripe rejects a session carrying both a coupon and a promo-code box.
+      // The intro month is the better offer, so it wins when both apply.
+      ...(discounts
+        ? { discounts }
+        : { allow_promotion_codes: true }),
     });
 
     return NextResponse.json({ url: session.url });

@@ -9,6 +9,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { BookingHandoff } from "@/components/booking/booking-handoff";
 import { BOOKING_DURATIONS } from "@/lib/booking/availability";
+import { canBookWithCredits } from "@/lib/credits/plans";
 import { SITE_URL } from "@/lib/site/hosts";
 
 export const metadata: Metadata = {
@@ -45,12 +46,32 @@ export default async function BookPage({ searchParams }: PageProps) {
     data: { user },
   } = await supabase.auth.getUser();
 
+  // The slot, as a path we can hand to whatever has to happen before booking.
+  const self = `/book?tutor=${encodeURIComponent(tutor)}&start=${encodeURIComponent(
+    start
+  )}&duration=${durationMinutes}${from ? `&from=${encodeURIComponent(from)}` : ""}`;
+
   if (!user) {
     // Come back here after signing in, with the slot intact.
-    const self = `/book?tutor=${encodeURIComponent(tutor)}&start=${encodeURIComponent(
-      start
-    )}&duration=${durationMinutes}${from ? `&from=${encodeURIComponent(from)}` : ""}`;
     redirect(`/login?next=${encodeURIComponent(self)}`);
+  }
+
+  // Lessons are bought as a plan, not one at a time. A student with no live
+  // plan goes to the picker and comes straight back here afterwards, so the
+  // slot they clicked survives the detour.
+  //
+  // This is a convenience, not the enforcement — /api/booking/create refuses
+  // the same case server-side, because a page redirect is only a suggestion to
+  // anyone posting by hand.
+  // Lessons are paid for with credits, from a starter pack or a plan. Somebody
+  // holding neither goes to /start and comes straight back here afterwards, so
+  // the slot they clicked survives the detour.
+  //
+  // This is a convenience, not the enforcement — /api/booking/create checks the
+  // precise entitlement for THIS tutor's tier, because a page redirect is only
+  // a suggestion to anyone posting by hand.
+  if (!(await canBookWithCredits(user.id))) {
+    redirect(`/start?next=${encodeURIComponent(self)}`);
   }
 
   return (

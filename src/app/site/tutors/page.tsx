@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Section, SectionHeading, CtaButton } from "@/components/site/ui";
 import { TutorDirectory } from "@/components/site/tutor-directory";
-import { getPlanNamesByTier, getPublicTutors } from "@/lib/site/queries";
+import { TutorCard } from "@/components/site/tutor-card";
+import {
+  getPlanNamesByTier,
+  getPublicTutors,
+  type TutorCard as TutorCardData,
+} from "@/lib/site/queries";
 import { TIER_BLURB, TIER_LABEL, type Tier } from "@/lib/site/pricing";
 import { appUrl } from "@/lib/site/hosts";
 
@@ -13,6 +19,21 @@ export const metadata: Metadata = {
     "Book a lesson with a FrancoLink tutor. See qualifications, specialities, CEFR levels and weekly availability, then reserve a lesson in a couple of clicks.",
   alternates: { canonical: "/tutors" },
 };
+
+/**
+ * What renders while the filter rail waits for the URL on the client, and what
+ * a crawler without JavaScript is served: every tutor, in order, no filters.
+ * The list is the valuable part of this page for SEO — the rail is not.
+ */
+function TutorDirectoryFallback({ tutors }: { tutors: TutorCardData[] }) {
+  return (
+    <div className="space-y-4">
+      {tutors.map((tutor) => (
+        <TutorCard key={tutor.slug} tutor={tutor} />
+      ))}
+    </div>
+  );
+}
 
 // Two tiers in the directory: every live tutor is one or the other.
 const TIER_ORDER: Tier[] = ["professional", "community"];
@@ -40,8 +61,16 @@ export default async function TutorsPage() {
 
       <Section>
         {/* The directory renders its own empty state per language — a language
-            with no tutors yet collects emails instead of showing nothing. */}
-        <TutorDirectory tutors={tutors} />
+            with no tutors yet collects emails instead of showing nothing.
+
+            Suspense is required, not decorative: the filter rail keeps its
+            state in the URL via useSearchParams, and this page is prerendered
+            (revalidate = 3600). Without a boundary Next bails out of the
+            static export entirely and the build fails. The fallback renders
+            the unfiltered list, which is what a crawler should see anyway. */}
+        <Suspense fallback={<TutorDirectoryFallback tutors={tutors} />}>
+          <TutorDirectory tutors={tutors} />
+        </Suspense>
 
         {tutors.length === 0 && (
           <p className="mt-12 text-center text-gray-600">
