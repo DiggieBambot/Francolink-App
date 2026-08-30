@@ -128,6 +128,14 @@ const APP_ROUTES = [
   "/preview",
   "/room",
   "/library",
+  // The workbook funnel. These must be listed here or they fall through to
+  // the intl middleware, which rewrites them to /[locale]/... -- routes that
+  // do not exist, so every one of them 404s. /unlock is the link in the
+  // delivery email, so this list is the difference between a buyer opening
+  // their workbook and a buyer seeing a 404 after paying.
+  "/unlock",
+  "/oto",
+  "/workbook",
   "/how-it-works",
   "/get-started",
   "/space",
