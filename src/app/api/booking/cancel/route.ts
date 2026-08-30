@@ -21,6 +21,7 @@ import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { z } from "zod";
 import { stripe } from "@/lib/stripe";
 import { refundCredits } from "@/lib/credits/ledger";
+import { notifyBookingCancelled } from "@/lib/booking/notify";
 
 export const runtime = "nodejs";
 
@@ -38,6 +39,59 @@ function service() {
     process.env.SUPABASE_SERVICE_ROLE_KEY!,
     { auth: { persistSession: false } }
   );
+}
+
+/**
+ * What cancelling this lesson would cost, WITHOUT cancelling it.
+ *
+ * The rules have always been correct; they were just invisible until the
+ * moment they had already been applied. "Cancel now and the lesson comes back"
+ * and "cancel now and it's gone" are the same button four hours apart, and a
+ * student should be told which one they are pressing.
+ */
+export async function GET(request: Request) {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) {
+    return NextResponse.json({ error: "Sign in first." }, { status: 401 });
+  }
+
+  const id = new URL(request.url).searchParams.get("booking_id");
+  if (!id) {
+    return NextResponse.json({ error: "Which lesson?" }, { status: 400 });
+  }
+
+  // booking_details, not bookings: masked money, participants only.
+  const { data: booking } = await supabase
+    .from("booking_details")
+    .select("id, tutor_id, student_id, status, starts_at, duration_minutes")
+    .eq("id", id)
+    .maybeSingle();
+
+  if (!booking) {
+    return NextResponse.json({ error: "No such lesson." }, { status: 404 });
+  }
+
+  const isTutor = booking.tutor_id === user.id;
+  const hoursUntil =
+    (new Date(booking.starts_at).getTime() - Date.now()) / 3_600_000;
+  const refundable = isTutor || hoursUntil >= FREE_CANCELLATION_HOURS;
+  const lessons = booking.duration_minutes >= 50 ? 1 : 0.5;
+
+  return NextResponse.json({
+    cancellable: booking.status === "confirmed",
+    hours_until: Math.max(0, Math.round(hoursUntil * 10) / 10),
+    free_window_hours: FREE_CANCELLATION_HOURS,
+    refundable,
+    lessons,
+    // Written out here rather than in the component so the wording cannot
+    // drift from the rule it describes.
+    consequence: refundable
+      ? `Your ${lessons === 1 ? "lesson" : "half lesson"} goes straight back to your balance.`
+      : `This is inside the ${FREE_CANCELLATION_HOURS}-hour window, so the lesson still counts and your tutor is still paid for holding the time.`,
+  });
 }
 
 export async function POST(request: Request) {
@@ -107,6 +161,25 @@ export async function POST(request: Request) {
     console.error("[booking/cancel] update failed", booking.id, updateError);
     return NextResponse.json({ error: "Couldn't cancel that lesson." }, { status: 500 });
   }
+
+  // Tell the other side — and confirm it to this one — before the money moves.
+  // The refund is the slower, more failure-prone half, and a tutor learning an
+  // hour late that their afternoon is free is the worse outcome of the two.
+  // Awaited rather than fired off: on serverless the response ending can kill
+  // work still in flight.
+  const refundLine = booking.paid_with === "credit" ? "lesson is back in your balance" : "refund is on its way to your card";
+  await notifyBookingCancelled(booking.id, user.id, {
+    student: refundable
+      ? `Your ${refundLine}.`
+      : `This was inside the ${FREE_CANCELLATION_HOURS}-hour window, so the lesson still counts.`,
+    // A tutor cancelling always refunds the student, so `refundable` alone
+    // can't explain the tutor's pay — the three cases are genuinely different.
+    tutor: isTutor
+      ? "You cancelled this one, so it isn't paid."
+      : refundable
+        ? `Cancelled more than ${FREE_CANCELLATION_HOURS} hours ahead, so this lesson isn't paid.`
+        : "Cancelled inside the 12-hour window, so you're still paid for holding the time.",
+  });
 
   if (!refundable) {
     return NextResponse.json({

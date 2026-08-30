@@ -86,24 +86,44 @@ export async function confirmBooking(
     console.error("[booking/confirm] tutor_students link failed", bookingId, linkError);
   }
 
+  // Tell both sides. This sits here rather than at the two call sites for the
+  // same reason the room does: credits and Stripe must produce the same lesson,
+  // and the guard above means a retried webhook can't mail anybody twice.
+  // Imported lazily so the mail stack isn't pulled into every module that only
+  // wants creditEligibility.
+  try {
+    const { notifyBookingConfirmed } = await import("@/lib/booking/notify");
+    await notifyBookingConfirmed(bookingId);
+  } catch (e) {
+    console.error("[booking/confirm] notify failed", bookingId, e);
+  }
+
   return true;
 }
 
 export interface CreditEligibility {
-  subscriptionId: string;
-  planKey: string;
+  /** Null when the credits came from a starter pack rather than a plan. */
+  subscriptionId: string | null;
+  planKey: string | null;
   /** Credits the lesson costs: 1 for 50 minutes, 0.5 for 25. */
   cost: number;
   balance: number;
 }
 
 /**
- * Can this student pay for this lesson with their plan?
+ * Can this student pay for this lesson out of the credits they hold?
  *
- * Three things have to hold, and all three are checked server-side: they have
- * a live subscription, its plan covers this tutor's tier, and the balance
- * stretches to the lesson. Returns null when any of them fails -- the caller
- * falls back to Stripe rather than refusing the booking.
+ * Three things have to hold, all checked server-side: their credits are
+ * entitled to this tutor's TIER, the balance stretches to the lesson, and the
+ * lesson has a cost at all.
+ *
+ * Entitlement used to mean "has a live subscription whose plan covers this
+ * tier". Since 20260902_starter_pack.sql a student can also hold credits from
+ * a starter pack, which has no subscription behind it, so the question is
+ * asked of student_allowed_tiers() instead -- it unions every live source.
+ * Without that a pack buyer would hold three credits they could not spend.
+ *
+ * Returns null when any of it fails; the caller decides what to do next.
  */
 export async function creditEligibility(
   studentId: string,
@@ -112,31 +132,41 @@ export async function creditEligibility(
 ): Promise<CreditEligibility | null> {
   const db = service();
 
-  const { data: sub } = await db
-    .from("user_subscriptions")
-    .select("id, plan_key, status")
-    .eq("user_id", studentId)
-    .in("status", ["active", "past_due"])
-    .maybeSingle();
+  const { data: tiers, error } = await db.rpc("student_allowed_tiers", {
+    p_user_id: studentId,
+  });
 
-  if (!sub) return null;
+  if (error) {
+    // Fail CLOSED. Treating an entitlement lookup failure as "yes" would give
+    // away lessons; treating it as "no" costs a booking we can retry.
+    console.error("[booking/confirm] entitlement lookup failed", error);
+    return null;
+  }
 
-  const { data: plan } = await db
-    .from("subscription_plans")
-    .select("allowed_tiers")
-    .eq("plan_key", sub.plan_key)
-    .maybeSingle();
-
-  // A Community plan may not book a Professional tutor. Without this the
-  // cheaper plan would buy the more expensive tutor's time at a loss.
-  if (!plan?.allowed_tiers?.includes(tutorTier)) return null;
+  // A Community entitlement may not book a Professional tutor. Without this
+  // the cheaper plan would buy the more expensive tutor's time at a loss.
+  if (!Array.isArray(tiers) || !tiers.includes(tutorTier)) return null;
 
   const cost = creditCost(durationMinutes);
   const balance = await creditBalance(studentId);
 
   if (balance < cost) return null;
 
-  return { subscriptionId: sub.id, planKey: sub.plan_key, cost, balance };
+  // The subscription is looked up only to label the spend; a pack buyer has
+  // none and that is fine.
+  const { data: sub } = await db
+    .from("user_subscriptions")
+    .select("id, plan_key")
+    .eq("user_id", studentId)
+    .in("status", ["active", "past_due"])
+    .maybeSingle();
+
+  return {
+    subscriptionId: sub?.id ?? null,
+    planKey: sub?.plan_key ?? null,
+    cost,
+    balance,
+  };
 }
 
 /**
@@ -185,4 +215,21 @@ export async function payBookingWithCredits(
   }
 
   return true;
+}
+
+/**
+ * Has this student still got their one discounted first lesson?
+ *
+ * Any prior booking that wasn't abandoned spends it — 'expired' and
+ * 'cancelled_by_student' don't count, because neither is a lesson the student
+ * actually received. Derived from history rather than stored on the user, so
+ * it cannot drift out of step with the bookings it describes.
+ */
+export async function isTrialEligible(studentId: string): Promise<boolean> {
+  const { count } = await service()
+    .from("bookings")
+    .select("*", { count: "exact", head: true })
+    .eq("student_id", studentId)
+    .not("status", "in", "(expired,cancelled_by_student)");
+  return (count ?? 0) === 0;
 }

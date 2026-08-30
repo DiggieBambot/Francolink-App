@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { Button, Input } from "@/components/ui";
 import { NotificationSettings } from "@/components/notifications/notification-settings";
+import { CalendarSubscribe } from "@/components/calendar/calendar-subscribe";
 import { 
   User, 
   Mail, 
@@ -259,6 +260,9 @@ export default function SettingsForm({ user }: SettingsFormProps) {
 
       {/* Notification Settings */}
       <NotificationSettings />
+
+      {/* Lessons in the user's own calendar — their phone does the reminding. */}
+      <CalendarSubscribe />
 
       {/* Change Password */}
       <div className="bg-white rounded-2xl shadow-soft p-6">

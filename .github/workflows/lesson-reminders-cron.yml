@@ -1,0 +1,20 @@
+name: Lesson reminders cron
+
+# Lesson reminders need a sub-hourly trigger: the "starting soon" push only
+# helps if it lands within a few minutes of the window. GitHub Actions pings the
+# endpoint every 15 minutes and the endpoint decides which lessons are due
+# (Vercel Hobby can't do sub-daily crons).
+on:
+  schedule:
+    - cron: "*/15 * * * *" # every 15 minutes
+  workflow_dispatch: {} # allow manual runs from the Actions tab
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger lesson reminders
+        run: |
+          curl -sS -X GET "https://app.francolink.net/api/cron/lesson-reminders" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            --max-time 300 --fail-with-body

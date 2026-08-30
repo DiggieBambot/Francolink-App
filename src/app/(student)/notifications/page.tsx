@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { NotificationSettings } from "@/components/notifications/notification-settings";
 import { NotificationInbox } from "@/components/notifications/notification-inbox";
+import { CalendarSubscribe } from "@/components/calendar/calendar-subscribe";
 
 export default async function NotificationsPage() {
   const supabase = await createClient();
@@ -24,6 +25,10 @@ export default async function NotificationsPage() {
       <NotificationInbox />
 
       <NotificationSettings />
+
+      <div className="mt-6">
+        <CalendarSubscribe />
+      </div>
     </div>
   );
 }
