@@ -485,21 +485,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── Tutor bridge ─────────────────────────────────────── */}
-      <section className="sec sec-pad">
-        <div className="wrap max-2 center">
-          <h2 className="h2">A book can explain the grammar. It cannot hear you speak it.</h2>
-          <p className="lead">
-            Learn it in the book, drill it in the exercises — then, when you are
-            ready, say it to a real FrancoLink tutor. 50-minute lessons from $18.
-            Start with the book; most people should.
-          </p>
-          <Link href="/tutors" className="btn btn-ghost btn-lg btn-center">
-            Browse French tutors
-          </Link>
-        </div>
-      </section>
-
       {/* ── Close ────────────────────────────────────────────── */}
       <section className="sec sec-navy sec-pad">
         <div className="wrap max-2 center">
