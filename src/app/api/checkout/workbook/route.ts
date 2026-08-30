@@ -104,6 +104,12 @@ export async function POST(request: Request) {
       // point of the guest path -- and the address it captures is the one the
       // delivery email must go to.
       customer_email: user?.email ?? undefined,
+      // A Customer, and the card kept on file. Both exist for one reason: the
+      // post-purchase offer (/oto) charges this card with a single click, and
+      // an offer that asks for card details a second time converts at a small
+      // fraction of one that does not. Stripe shows the buyer the appropriate
+      // terms at checkout -- this is saved with consent, not silently.
+      customer_creation: "always",
       metadata: {
         kind: "workbook",
         base_product_key: base.product_key,
@@ -112,6 +118,7 @@ export async function POST(request: Request) {
         supabase_user_id: user?.id ?? "",
       },
       payment_intent_data: {
+        setup_future_usage: "off_session",
         metadata: { kind: "workbook", base_product_key: base.product_key },
       },
       line_items: [

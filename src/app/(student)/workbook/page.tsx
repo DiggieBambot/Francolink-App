@@ -15,7 +15,6 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
-import { hasActivePlan, hasUsedStarterPack } from "@/lib/credits/plans";
 import { BookOpen, Headphones, Download, ArrowRight, Lock } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -59,14 +58,6 @@ export default async function LibraryPage() {
   if (!owned.has("workbook_fpp")) return <NothingYet />;
 
   const hasAudio = owned.has("audio_fpp");
-
-  // What to offer, and whether to offer anything. Nobody is sold what they
-  // already own — PRD §4.
-  const [onPlan, usedPack] = await Promise.all([
-    hasActivePlan(user.id),
-    hasUsedStarterPack(user.id),
-  ]);
-  const offer: "pack" | "plan" | null = onPlan ? null : usedPack ? "plan" : "pack";
 
   return (
     <main className="mx-auto max-w-3xl space-y-8 px-4 py-8 sm:px-6">
@@ -116,7 +107,6 @@ export default async function LibraryPage() {
         )}
       </section>
 
-      {offer && <Upsell kind={offer} />}
     </main>
   );
 }
@@ -153,28 +143,6 @@ function Tile({
 // The reason this page exists commercially. Phrased as the next step in
 // learning rather than as an advert, because that is what it actually is: the
 // book explains the grammar, and a person is what turns it into speech.
-function Upsell({ kind }: { kind: "pack" | "plan" }) {
-  return (
-    <section className="rounded-2xl border border-border bg-muted/40 p-6">
-      <h2 className="text-xl font-semibold tracking-tight text-balance">
-        The book can explain the grammar. It can&apos;t hear you speak it.
-      </h2>
-      <p className="mt-2 text-muted-foreground">
-        {kind === "pack"
-          ? "Three 50-minute lessons with a real tutor, who will catch the things a page never can — your liaisons, your rhythm, the words you avoid because you're not sure of them."
-          : "Keep going with a weekly lesson. Same tutors, same rooms, at a lower price per lesson than a one-off."}
-      </p>
-      <Link
-        href={kind === "pack" ? "/start?next=/workbook" : "/start?next=/workbook"}
-        className="mt-4 inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 font-medium text-primary-foreground"
-      >
-        {kind === "pack" ? "See the 3-lesson starter pack" : "See the plans"}
-        <ArrowRight className="h-4 w-4" />
-      </Link>
-    </section>
-  );
-}
-
 function NothingYet() {
   return (
     <main className="mx-auto max-w-md space-y-4 px-6 py-16 text-center">

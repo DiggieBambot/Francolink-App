@@ -108,5 +108,5 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Couldn't open your workbook." }, { status: 500 });
   }
 
-  return NextResponse.json({ ok: true, orderId: data, next: "/workbook" });
+  return NextResponse.json({ ok: true, orderId: data, next: "/oto" });
 }

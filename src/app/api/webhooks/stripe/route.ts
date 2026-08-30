@@ -622,6 +622,36 @@ async function handleWorkbookPurchase(session: Stripe.Checkout.Session) {
     console.error('[webhook] workbook line items failed', session.id, e);
   }
 
+  // The saved card, for the one-click upsell at /oto. Both ids come from
+  // Stripe, never from a client, and neither is ever sent to the browser --
+  // the upsell route charges server-side and returns only an outcome.
+  let customerId: string | null = null;
+  let paymentMethodId: string | null = null;
+  try {
+    customerId =
+      typeof session.customer === 'string'
+        ? session.customer
+        : session.customer?.id ?? null;
+    const pi = session.payment_intent;
+    if (typeof pi === 'string') {
+      const stripeKey =
+        (await getAppSetting('payments', 'stripe_secret_key')) ||
+        process.env.STRIPE_SECRET_KEY;
+      if (stripeKey) {
+        const client = new Stripe(stripeKey, { apiVersion: '2026-01-28.clover' });
+        const intent = await client.paymentIntents.retrieve(pi);
+        paymentMethodId =
+          typeof intent.payment_method === 'string'
+            ? intent.payment_method
+            : intent.payment_method?.id ?? null;
+      }
+    }
+  } catch (e) {
+    // Losing the saved card costs us the one-click upsell, not the sale. The
+    // offer page falls back to a normal Checkout redirect when it is missing.
+    console.error('[webhook] workbook payment method lookup failed', session.id, e);
+  }
+
   const { data, error } = await supabase.rpc('record_digital_order', {
     p_session_id: session.id,
     p_email: email,
@@ -639,6 +669,16 @@ async function handleWorkbookPurchase(session: Stripe.Checkout.Session) {
   const row = Array.isArray(data) ? data[0] : data;
   if (!row?.order_id) {
     throw new Error(`record_digital_order returned nothing for ${session.id}`);
+  }
+
+  if (customerId || paymentMethodId) {
+    await supabase
+      .from('digital_orders')
+      .update({
+        stripe_customer_id: customerId,
+        stripe_payment_method_id: paymentMethodId,
+      })
+      .eq('id', row.order_id);
   }
 
   // A retry. The order exists and the email has already gone out.

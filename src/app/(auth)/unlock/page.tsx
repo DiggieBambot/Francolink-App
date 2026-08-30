@@ -61,13 +61,13 @@ export default async function ClaimPage({ searchParams }: PageProps) {
 
   // Already signed in. Bind it and get out of their way — no form, no screen.
   if (user) {
-    if (order.user_id === user.id) redirect("/workbook");
+    if (order.user_id === user.id) redirect("/oto");
     if (!order.user_id) {
       const { error } = await service().rpc("claim_digital_order", {
         p_token: token,
         p_user_id: user.id,
       });
-      if (!error) redirect("/workbook");
+      if (!error) redirect("/oto");
     }
     // Someone else's order, opened from a forwarded email.
     return (
