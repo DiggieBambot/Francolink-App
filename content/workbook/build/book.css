@@ -1,7 +1,7 @@
 /* Print stylesheet for Le Français Pas à Pas.
    Rendered to PDF by headless Chrome; also the base for the online reader. */
 
-@page { size: A4; margin: 20mm 18mm 18mm; }
+@page { size: A4; margin: 15mm 15mm 14mm; }
 
 :root{
   --navy:#1E3A5F; --ink:#22252B; --muted:#5A6570; --accent:#C08A2D;
@@ -10,10 +10,10 @@
 *{box-sizing:border-box;}
 body{
   font-family:"Instrument Sans",system-ui,sans-serif;
-  color:var(--ink); font-size:10.5pt; line-height:1.55; margin:0;
+  color:var(--ink); font-size:10.4pt; line-height:1.42; margin:0;
   -webkit-print-color-adjust:exact; print-color-adjust:exact;
 }
-p{margin:0 0 .55em;}
+p{margin:0 0 .38em;}
 strong{font-weight:600;color:var(--navy);}
 code{font-family:ui-monospace,Menlo,monospace;font-size:.92em;}
 
@@ -34,15 +34,15 @@ code{font-family:ui-monospace,Menlo,monospace;font-size:.92em;}
 .front{break-after:page;}
 h1.part{
   font-family:"Fraunces",Georgia,serif; font-size:20pt; line-height:1.2;
-  color:var(--navy); border-top:3px solid var(--accent); padding-top:6mm;
-  margin:0 0 6mm; break-before:page;
+  color:var(--navy); border-top:3px solid var(--accent); padding-top:4mm;
+  margin:0 0 4mm; break-before:page;
 }
 h2{
   font-family:"Fraunces",Georgia,serif; font-size:14pt; color:var(--navy);
-  margin:9mm 0 3mm; break-after:avoid; line-height:1.25;
+  margin:5.5mm 0 2mm; break-after:avoid; line-height:1.22;
 }
 h2.nonum{break-before:auto;}
-h3{font-family:"Fraunces",Georgia,serif;font-size:11.5pt;color:var(--navy);margin:6mm 0 2mm;break-after:avoid;}
+h3{font-family:"Fraunces",Georgia,serif;font-size:11.5pt;color:var(--navy);margin:3.5mm 0 1.5mm;break-after:avoid;}
 
 /* ---- toc ---- */
 .toc{list-style:none;padding:0;margin:0;column-count:2;column-gap:10mm;font-size:9.5pt;}
@@ -54,16 +54,22 @@ h3{font-family:"Fraunces",Georgia,serif;font-size:11.5pt;color:var(--navy);margi
 .toc-sec{padding-left:4mm;color:var(--muted);}
 
 /* ---- tables ---- */
-.tw{break-inside:avoid;margin:0 0 4mm;}
+/* Long tables must be allowed to flow. Forcing break-inside:avoid on all of
+   them shunted any table taller than the remaining space onto the next page,
+   which is where most of the white gaps in the first draft came from. The
+   header repeats instead. */
+.tw{margin:0 0 2.5mm;}
+thead{display:table-header-group;}
+tr{break-inside:avoid;}
 table{border-collapse:collapse;width:100%;font-size:9.5pt;}
-th{background:var(--navy);color:#fff;text-align:left;padding:2mm 2.5mm;font-weight:600;font-size:8.5pt;
+th{background:var(--navy);color:#fff;text-align:left;padding:1.5mm 2.2mm;font-weight:600;font-size:8.5pt;
   text-transform:uppercase;letter-spacing:.04em;}
-td{border-bottom:1px solid var(--hair);padding:2mm 2.5mm;vertical-align:top;}
+td{border-bottom:1px solid var(--hair);padding:1.4mm 2.2mm;vertical-align:top;}
 tbody tr:nth-child(even) td{background:var(--tint);}
 
 /* ---- callouts ---- */
 .box{break-inside:avoid;background:var(--tint);border-left:3px solid var(--accent);
-  padding:3mm 4mm;margin:0 0 4mm;font-size:10pt;}
+  padding:2.2mm 3.2mm;margin:0 0 2.5mm;font-size:10pt;}
 .box-l{font-family:"Fraunces",Georgia,serif;font-size:9pt;color:var(--accent);
   text-transform:uppercase;letter-spacing:.1em;margin:0 0 1.5mm;font-weight:600;}
 .box p:last-child{margin-bottom:0;}
@@ -86,15 +92,35 @@ h3.cue.dialogue{border-left-color:var(--navy);background:#F1F5FA;}
 h3.cue.exercice{border-left-color:var(--navy);background:#fff;border:1px solid var(--hair);border-left:3px solid var(--navy);}
 h3.cue.marche{background:#fff;border:1px dashed var(--accent);}
 
-ul.ex{margin:0 0 4mm;padding-left:5mm;}
-ul.ex li{margin-bottom:1mm;}
-ul,ol{margin:0 0 4mm;padding-left:6mm;}
-li{margin-bottom:1mm;}
+ul.ex{margin:0 0 2.5mm;padding-left:4.5mm;}
+ul.ex li{margin-bottom:.8mm;}
+ul,ol{margin:0 0 2.5mm;padding-left:5.5mm;}
+li{margin-bottom:.8mm;}
 .note{background:var(--tint);padding:3mm 4mm;font-size:9.5pt;}
 
-.colophon{break-before:page;text-align:center;color:var(--muted);font-size:9pt;padding-top:60mm;}
+.colophon{break-before:page;text-align:center;color:var(--muted);font-size:9pt;padding-top:40mm;}
 .colophon .lic{margin-top:6mm;font-style:italic;}
 
 /* Never strand a heading or split a short block across pages. */
 h1,h2,h3{page-break-after:avoid;}
-.box,.tw,figure{page-break-inside:avoid;}
+.box,figure{page-break-inside:avoid;}
+
+
+/* ---- French carries the weight, the gloss recedes -----------------------
+   Both halves used to render as one flat run of grey text, so the eye had no
+   idea which language it was looking at. */
+.fr{
+  font-weight:600; font-size:11.4pt; line-height:1.35; color:var(--navy);
+  display:inline;
+}
+.en{
+  color:var(--muted); font-size:9.6pt; font-style:italic;
+  display:inline; margin-left:.35em;
+}
+.sp{
+  font-family:"Fraunces",Georgia,serif; font-weight:600; color:var(--accent);
+  font-size:9.6pt; margin-right:.45em;
+}
+.sp::after{content:" :";}
+li .fr, li .en{display:inline;}
+.box.dialogue p{margin-bottom:.5em;}

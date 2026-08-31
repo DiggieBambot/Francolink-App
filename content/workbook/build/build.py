@@ -88,6 +88,36 @@ CALLOUTS = {
     "✎": ("exercice", "Exercice"),
 }
 
+
+# ---------------------------------------------------------------------------
+# French first.
+#
+# The manuscript separates the French from its English gloss in two consistent
+# ways: examples use "French.  — English." (two spaces before the dash) and
+# dialogue lines use "Name : French  (English)". Marking those apart lets the
+# French carry the weight and the gloss recede -- which is the right hierarchy
+# for a French workbook, and was not happening when both halves were one flat
+# run of grey text.
+#
+# The two-space requirement matters: the expansion writes French-to-French
+# exchanges like "Tu vois le film ? — Oui, je le vois." with a single space,
+# and styling that second half as English would be wrong.
+# ---------------------------------------------------------------------------
+DIALOGUE = re.compile(r"^([^:<]{1,28})\s:\s(.+?)\s{2,}\((.+)\)\s*$")
+EXAMPLE = re.compile(r"^(.+?)\s{2,}—\s(.+)$")
+
+def frenchify(escaped):
+    m = DIALOGUE.match(escaped)
+    if m:
+        return (f'<span class="sp">{m.group(1).strip()}</span>'
+                f'<span class="fr">{m.group(2).strip()}</span>'
+                f'<span class="en">{m.group(3).strip()}</span>')
+    m = EXAMPLE.match(escaped)
+    if m:
+        return (f'<span class="fr">{m.group(1).strip()}</span>'
+                f'<span class="en">— {m.group(2).strip()}</span>')
+    return escaped
+
 def esc(s):
     return html.escape(s, quote=False)
 
@@ -147,16 +177,16 @@ def render_blocks(blocks):
                     nxt = blocks[i+1]["text"]; i += 1
                 text = (body + " " + nxt).strip()
                 out.append(f'<aside class="box {cls}"><p class="box-l">{esc(label)}</p>'
-                           f'<p>{esc(text)}</p></aside>')
+                           f'<p>{frenchify(esc(text))}</p></aside>')
             elif t.startswith("•"):
                 items = [t]
                 while i + 1 < len(blocks) and blocks[i+1]["kind"] == "p" \
                       and blocks[i+1]["text"].startswith("•"):
                     i += 1; items.append(blocks[i]["text"])
-                lis = "".join(f"<li>{esc(x.lstrip('• ').strip())}</li>" for x in items)
+                lis = "".join(f"<li>{frenchify(esc(x.lstrip('• ').strip()))}</li>" for x in items)
                 out.append(f'<ul class="ex">{lis}</ul>')
             else:
-                out.append(f"<p>{esc(t)}</p>")
+                out.append(f"<p>{frenchify(esc(t))}</p>")
         i += 1
     return "\n".join(out)
 
@@ -176,7 +206,7 @@ def render_table(rows):
             head = re.sub(r"^" + re.escape(marker) + r"\s*", "", lines[0]).strip()
             head = re.sub(r"^" + re.escape(label) + r"\s*", "", head).strip()
             body = ([head] if head else []) + [l for l in lines[1:] if l.strip()]
-            ps = "".join(f"<p>{esc(l)}</p>" for l in body)
+            ps = "".join(f"<p>{frenchify(esc(l))}</p>" for l in body)
             return f'<aside class="box {cls}"><p class="box-l">{esc(label)}</p>{ps}</aside>'
         return f'<aside class="box"><p>{esc(cell)}</p></aside>'
     rows = [[c.replace("\n", " ") for c in r] for r in rows]
@@ -230,7 +260,7 @@ def md_to_html(md):
             items = []
             while i < len(lines) and re.match(r"^\s*[-*] ", lines[i]):
                 items.append(re.sub(r"^\s*[-*] ", "", lines[i])); i += 1
-            out.append("<ul>" + "".join(f"<li>{md_inline(x)}</li>" for x in items) + "</ul>")
+            out.append("<ul>" + "".join(f"<li>{frenchify(md_inline(x))}</li>" for x in items) + "</ul>")
             continue
         if re.match(r"^\d+\. ", ln):
             items = []

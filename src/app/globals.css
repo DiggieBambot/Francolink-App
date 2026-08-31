@@ -680,3 +680,9 @@ html {
 .wb ul, .wb ol { margin: 0 0 1.1em; padding-left: 1.3rem; }
 .wb li { margin-bottom: 0.3em; }
 .wb strong { font-weight: 600; }
+/* Same French-first hierarchy the PDF uses, so the two versions read alike. */
+.wb .fr { font-weight: 600; font-size: 1.06em; color: hsl(var(--foreground)); }
+.wb .en { color: hsl(var(--muted-foreground)); font-size: 0.9em; font-style: italic; margin-left: 0.35em; }
+.wb .sp { font-weight: 600; color: hsl(var(--primary)); font-size: 0.88em; margin-right: 0.4em; }
+.wb .sp::after { content: " :"; }
+.wb .box.dialogue p { margin-bottom: 0.5em; }
