@@ -33,25 +33,41 @@ function service() {
 }
 
 interface PageProps {
-  searchParams: Promise<{ t?: string }>;
+  // `t` is the token from the delivery email. `session` is the Stripe checkout
+  // session, which is how someone arrives straight from paying -- before any
+  // email has landed, and before they have an account to sign in with.
+  searchParams: Promise<{ t?: string; session?: string; try?: string }>;
 }
 
 export default async function ClaimPage({ searchParams }: PageProps) {
-  const { t: token } = await searchParams;
+  const { t: token, session, try: tryCount } = await searchParams;
 
-  if (!token) return <Broken />;
+  if (!token && !session) return <Broken />;
 
-  const { data: order } = await service()
+  const db = service();
+  const query = db
     .from("digital_orders")
-    .select("id, email, status, user_id, digital_order_items(product_key)")
-    .eq("claim_token", token)
-    .maybeSingle();
+    .select("id, email, status, user_id, claim_token, digital_order_items(product_key)");
+
+  const { data: order } = await (token
+    ? query.eq("claim_token", token)
+    : query.eq("stripe_checkout_session_id", session!)
+  ).maybeSingle();
+
+  // Arrived from Stripe faster than the webhook could record the order. This
+  // is normal -- the redirect and the webhook race, and the redirect usually
+  // wins. Do not show an error for it: wait, and try again.
+  if (!order && session) {
+    const attempt = Number(tryCount ?? "0");
+    if (attempt < 8) return <Settling session={session} attempt={attempt} />;
+    return <SlowWebhook />;
+  }
 
   // One answer for a bad token and an unpaid order, so the page cannot be used
   // to probe which tokens exist.
   if (!order || order.status !== "paid") return <Broken />;
 
-  const items = (order.digital_order_items ?? []) as { product_key: string }[];
+  const items = (order!.digital_order_items ?? []) as { product_key: string }[];
   const hasAudio = items.some((i) => i.product_key === "audio_fpp");
 
   const supabase = await createClient();
@@ -63,8 +79,8 @@ export default async function ClaimPage({ searchParams }: PageProps) {
   if (user) {
     if (order.user_id === user.id) redirect("/oto");
     if (!order.user_id) {
-      const { error } = await service().rpc("claim_digital_order", {
-        p_token: token,
+      const { error } = await db.rpc("claim_digital_order", {
+        p_token: order.claim_token,
         p_user_id: user.id,
       });
       if (!error) redirect("/oto");
@@ -84,7 +100,48 @@ export default async function ClaimPage({ searchParams }: PageProps) {
   }
 
   return (
-    <ClaimWorkbook token={token} email={order.email} hasAudio={hasAudio} />
+    <ClaimWorkbook
+      token={order.claim_token}
+      email={order.email}
+      hasAudio={hasAudio}
+    />
+  );
+}
+
+// The webhook has not landed yet. Refreshes itself rather than asking the
+// buyer to, and says what is happening — "processing" with no explanation is
+// how a paid customer starts wondering whether the money went anywhere.
+function Settling({ session, attempt }: { session: string; attempt: number }) {
+  const next = `/unlock?session=${encodeURIComponent(session)}&try=${attempt + 1}`;
+  return (
+    <>
+      <meta httpEquiv="refresh" content={`2;url=${next}`} />
+      <Shell title="Payment received — setting up your workbook">
+        <p className="text-muted-foreground">
+          This takes a few seconds. The page will move on by itself.
+        </p>
+        <p className="text-sm text-muted-foreground">
+          Your receipt is already on its way, and a link to open the workbook
+          is in it — so you can close this safely either way.
+        </p>
+      </Shell>
+    </>
+  );
+}
+
+function SlowWebhook() {
+  return (
+    <Shell title="Payment received — your workbook is on its way">
+      <p className="text-muted-foreground">
+        This is taking longer than usual. Nothing is wrong with your payment:
+        the receipt and the link to open your workbook are being emailed to you
+        now, and the link works whenever you get to it.
+      </p>
+      <p className="text-sm text-muted-foreground">
+        If it has not arrived in ten minutes, reply to your receipt and
+        we&apos;ll sort it out straight away.
+      </p>
+    </Shell>
   );
 }
 

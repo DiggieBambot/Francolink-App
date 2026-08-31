@@ -95,7 +95,13 @@ export async function POST(request: Request) {
   const bumpPriceId = bump?.active ? bump.stripe_price_id : null;
 
   const currency = (base.currency || "USD").toLowerCase();
-  const landing = safeNext(input.next) ?? "/workbook";
+
+  // Where Stripe returns them. NOT the library: a guest has no account yet, so
+  // /workbook would bounce them to a login page for an account they do not
+  // have -- seconds after paying, and before they have seen the offer. /unlock
+  // takes the session id, finds the order, and is the one page that works
+  // whether or not they are signed in.
+  const landing = safeNext(input.next);
 
   try {
     const session = await stripe.checkout.sessions.create({
@@ -146,7 +152,9 @@ export async function POST(request: Request) {
             "14-day money-back guarantee. Not for you? Reply to your receipt and we'll refund you.",
         },
       },
-      success_url: `${APP_URL}${landing}?purchase=workbook&session_id={CHECKOUT_SESSION_ID}`,
+      success_url: landing
+        ? `${APP_URL}${landing}?purchase=workbook`
+        : `${APP_URL}/unlock?session={CHECKOUT_SESSION_ID}`,
       cancel_url: `${SITE_URL}/francais-pas-a-pas`,
     });
 

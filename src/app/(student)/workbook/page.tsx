@@ -16,6 +16,12 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { BookOpen, Headphones, Download, ArrowRight, Lock } from "lucide-react";
+import { siteUrl } from "@/lib/site/hosts";
+
+// Phase 1 deliverables. Flip each to true the day the asset actually exists.
+const PDF_READY = false;
+const READER_READY = false;
+const AUDIO_READY = false;
 
 export const metadata: Metadata = {
   title: "My workbook | FrancoLink",
@@ -79,6 +85,7 @@ export default async function LibraryPage() {
           href="/workbook/read"
           cta="Open the workbook"
           primary
+          ready={READER_READY}
         />
         <Tile
           icon={<Download className="h-5 w-5" />}
@@ -86,6 +93,7 @@ export default async function LibraryPage() {
           body="The whole book, print-ready, yours to keep."
           href="/api/workbook/download"
           cta="Download"
+          ready={PDF_READY}
         />
         {hasAudio ? (
           <Tile
@@ -94,15 +102,17 @@ export default async function LibraryPage() {
             body="Every dialogue and drill, at natural speed and again slowly."
             href="/workbook/read#audio"
             cta="Listen"
+            ready={AUDIO_READY}
           />
         ) : (
           <Tile
             icon={<Lock className="h-5 w-5" />}
             title="Audio pack"
             body="Hear every dialogue and pronunciation drill read aloud, twice."
-            href="/francais-pas-a-pas/audio"
+            href={siteUrl("/francais-pas-a-pas")}
             cta="Add it — $17"
             muted
+            external
           />
         )}
       </section>
@@ -111,11 +121,39 @@ export default async function LibraryPage() {
   );
 }
 
+// `ready` is the honest switch. Phase 1 has not produced the PDF, the audio or
+// the online reader yet, and a tile that links to a 404 is worse than one that
+// says plainly that the thing is coming — especially on the first screen a
+// paying customer sees.
 function Tile({
-  icon, title, body, href, cta, primary, muted,
+  icon, title, body, href, cta, primary, muted, ready = true, external,
 }: {
   icon: React.ReactNode; title: string; body: string;
   href: string; cta: string; primary?: boolean; muted?: boolean;
+  ready?: boolean; external?: boolean;
+}) {
+  if (!ready) {
+    return (
+      <div className="flex flex-col gap-3 rounded-2xl border border-dashed border-border bg-muted/30 p-5">
+        <div className="flex items-center gap-2 text-muted-foreground">{icon}</div>
+        <div className="space-y-1">
+          <h2 className="font-semibold text-muted-foreground">{title}</h2>
+          <p className="text-sm text-muted-foreground">{body}</p>
+        </div>
+        <p className="mt-auto text-sm font-medium text-muted-foreground">
+          Ready shortly — we&apos;ll email you the moment it is.
+        </p>
+      </div>
+    );
+  }
+  return <TileLink {...{ icon, title, body, href, cta, primary, muted, external }} />;
+}
+
+function TileLink({
+  icon, title, body, href, cta, primary, muted, external,
+}: {
+  icon: React.ReactNode; title: string; body: string;
+  href: string; cta: string; primary?: boolean; muted?: boolean; external?: boolean;
 }) {
   return (
     <div
@@ -128,14 +166,25 @@ function Tile({
         <h2 className="font-semibold">{title}</h2>
         <p className="text-sm text-muted-foreground">{body}</p>
       </div>
-      <Link
-        href={href}
-        className={`mt-auto inline-flex items-center gap-1.5 text-sm font-medium ${
-          primary ? "text-primary" : "text-foreground"
-        } underline-offset-4 hover:underline`}
-      >
-        {cta} <ArrowRight className="h-3.5 w-3.5" />
-      </Link>
+      {external ? (
+        <a
+          href={href}
+          className={`mt-auto inline-flex items-center gap-1.5 text-sm font-medium ${
+            primary ? "text-primary" : "text-foreground"
+          } underline-offset-4 hover:underline`}
+        >
+          {cta} <ArrowRight className="h-3.5 w-3.5" />
+        </a>
+      ) : (
+        <Link
+          href={href}
+          className={`mt-auto inline-flex items-center gap-1.5 text-sm font-medium ${
+            primary ? "text-primary" : "text-foreground"
+          } underline-offset-4 hover:underline`}
+        >
+          {cta} <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
+      )}
     </div>
   );
 }
