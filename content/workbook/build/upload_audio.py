@@ -37,11 +37,11 @@ def main():
             {"name": BUCKET, "id": BUCKET, "public": False})
     print("bucket:", "created" if '"name"' in r else r[:120])
 
-    files = sorted(PACK.glob("*.mp3"))
+    files = sorted(PACK.glob("*.m4a"))
     ok = fail = 0
     for f in files:
         out = api("POST", f"/storage/v1/object/{BUCKET}/{f.name}",
-                  headers=["Content-Type: audio/mpeg", "x-upsert: true"],
+                  headers=["Content-Type: audio/mp4", "x-upsert: true"],
                   binary=str(f))
         if '"Key"' in out or '"Id"' in out:
             ok += 1

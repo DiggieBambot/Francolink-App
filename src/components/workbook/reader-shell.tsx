@@ -242,10 +242,10 @@ function AudioForSection({ clips, owned }: { clips: Clip[]; owned: boolean }) {
               <p className="mb-1.5 text-sm">{c.text.slice(0, 120)}{c.text.length > 120 ? "…" : ""}</p>
               <div className="flex flex-wrap gap-3">
                 <audio controls preload="none" className="h-9 max-w-full"
-                  src={`/api/workbook/audio/${c.id}-normal.mp3`} />
+                  src={`/api/workbook/audio/${c.id}-normal.m4a`} />
                 {c.slow && (
                   <audio controls preload="none" className="h-9 max-w-full"
-                    src={`/api/workbook/audio/${c.id}-slow.mp3`} />
+                    src={`/api/workbook/audio/${c.id}-slow.m4a`} />
                 )}
               </div>
             </li>

@@ -37,7 +37,7 @@ export async function GET(
 
   // The clip id becomes a storage path, so it may only be what the manifest
   // generates: digits, letters, dots and hyphens. No slashes, no traversal.
-  if (!/^[a-z0-9][a-z0-9.-]{0,60}\.mp3$/i.test(clip)) {
+  if (!/^[a-z0-9][a-z0-9.-]{0,60}\.m4a$/i.test(clip)) {
     return NextResponse.json({ error: "No such clip." }, { status: 400 });
   }
 

@@ -27,8 +27,22 @@ def anchor(heading):
     m = re.match(r"^(\d+(?:\.\d+)?)", (heading or "").strip())
     return "s" + m.group(1).replace(".", "-") if m else None
 
+# Written conventions that must never be spoken. The book writes "Enchanté(e)"
+# to show the feminine agreement and "Oui / Non" to pair two answers; read
+# aloud, the model says the bracket and the slash, which is why "Oui / Non"
+# took 7.3 seconds for two words.
+def speakable(text):
+    text = re.sub(r"\(e\)", "", text)             # Enchanté(e) -> Enchanté
+    # A slash means "or", not a full stop. Turning it into one made the
+    # conjugation tables read "il. elle. on va" — three sentences where the
+    # book means one list.
+    text = re.sub(r"\s*/\s*", ", ", text)          # il / elle / on -> il, elle, on
+    text = re.sub(r"\s*\([^)]*\)", "", text)       # any other written aside
+    text = text.replace("…", " ").replace("«", "").replace("»", "")
+    return " ".join(text.split())
+
 def add(cid, text, kind, slow=True, section=None):
-    text = " ".join(text.split())
+    text = speakable(text)
     if len(text) < 3 or len(text) > 900:
         return
     key = text.lower()
@@ -73,7 +87,7 @@ for idx, b in enumerate(blocks):
     fr = [l for l in fr if l]
     if fr:
         d += 1
-        add(f"dialogue-{d:02d}", " … ".join(fr), "dialogue", section=section_of.get(idx))
+        add(f"dialogue-{d:02d}", "  ".join(fr), "dialogue", section=section_of.get(idx))
 
 for m in re.finditer(r"### 💬 Dialogue · ([^\n]+)\n(.*?)(?=\n###|\n---|\n## )", md, re.S):
     head = md.rfind("\n## ", 0, m.start())
@@ -85,7 +99,7 @@ for m in re.finditer(r"### 💬 Dialogue · ([^\n]+)\n(.*?)(?=\n###|\n---|\n## )
             lines.append(f"{mm.group(1)} : {mm.group(2)}")
     if lines:
         d += 1
-        add(f"dialogue-{d:02d}", " … ".join(lines), "dialogue", section=sec)
+        add(f"dialogue-{d:02d}", "  ".join(lines), "dialogue", section=sec)
 
 # --- 1.1-1.6, the sounds ---------------------------------------------------
 # Written as drills rather than lifted verbatim: a list of example words read

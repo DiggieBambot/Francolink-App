@@ -58,7 +58,24 @@ def say(text, voice, speed, path):
     if not audio:
         return "ERROR no audioContent"
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_bytes(base64.b64decode(audio))
+    raw = base64.b64decode(audio)
+
+    # Inworld returns a bare MPEG frame stream: no ID3 tag, no Xing/Info
+    # header. The audio decodes perfectly, but nothing in it states a
+    # duration, so players show 0:00 and many refuse to seek or play at all.
+    # Re-containering into M4A puts the duration in the container where every
+    # player looks for it, and halves the size as a side effect.
+    tmp = path.with_name(path.stem + ".raw.mp3")
+    tmp.write_bytes(raw)
+    r = subprocess.run(
+        ["afconvert", "-f", "m4af", "-d", "aac", "-b", "96000",
+         str(tmp), str(path)],
+        capture_output=True, text=True)
+    tmp.unlink(missing_ok=True)
+    if r.returncode != 0 or not path.exists():
+        # Better a playable-but-headerless file than none; log and keep going.
+        path.write_bytes(raw)
+        return f"{path.stat().st_size // 1024}KB (no container)"
     return f"{path.stat().st_size // 1024}KB"
 
 def slug(s, n=42):
@@ -100,7 +117,7 @@ def build(voice):
     for c in manifest:
         speeds = [(1.0, "normal")] + ([(0.65, "slow")] if c["slow"] else [])
         for rate, tag in speeds:
-            path = pack / f"{c['id']}-{tag}.mp3"
+            path = pack / f"{c['id']}-{tag}.m4a"
             r = say(c["text"], voice, rate, path)
             if r == "cached":
                 skipped += 1
