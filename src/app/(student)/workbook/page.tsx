@@ -19,8 +19,10 @@ import { BookOpen, Headphones, Download, ArrowRight, Lock } from "lucide-react";
 import { siteUrl } from "@/lib/site/hosts";
 
 // Phase 1 deliverables. Flip each to true the day the asset actually exists.
-const PDF_READY = false;
-const READER_READY = false;
+// The PDF is generated (89 pages) and the reader is live; the audio pack has
+// not been recorded yet, so that tile still says so rather than 404ing.
+const PDF_READY = true;
+const READER_READY = true;
 const AUDIO_READY = false;
 
 export const metadata: Metadata = {

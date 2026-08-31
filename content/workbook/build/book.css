@@ -1,0 +1,100 @@
+/* Print stylesheet for Le Français Pas à Pas.
+   Rendered to PDF by headless Chrome; also the base for the online reader. */
+
+@page { size: A4; margin: 20mm 18mm 18mm; }
+
+:root{
+  --navy:#1E3A5F; --ink:#22252B; --muted:#5A6570; --accent:#C08A2D;
+  --hair:#E4E2DA; --tint:#F6F5F0;
+}
+*{box-sizing:border-box;}
+body{
+  font-family:"Instrument Sans",system-ui,sans-serif;
+  color:var(--ink); font-size:10.5pt; line-height:1.55; margin:0;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+p{margin:0 0 .55em;}
+strong{font-weight:600;color:var(--navy);}
+code{font-family:ui-monospace,Menlo,monospace;font-size:.92em;}
+
+/* ---- cover ---- */
+.cover{
+  height:calc(297mm - 38mm); display:flex; flex-direction:column;
+  justify-content:center; align-items:center; text-align:center;
+  background:var(--navy); color:#FAFAF7; margin:-20mm -18mm 0; padding:0 24mm;
+  break-after:page;
+}
+.cover-k{font-size:9pt;letter-spacing:.3em;text-transform:uppercase;color:#E0B968;margin:0 0 14mm;}
+.cover-t{font-family:"Fraunces",Georgia,serif;font-size:34pt;line-height:1.1;font-weight:600;margin:0;}
+.cover-l{font-family:"Fraunces",Georgia,serif;font-size:13pt;color:#E0B968;margin:10mm 0 0;letter-spacing:.18em;}
+.cover-s{font-size:10pt;color:#B9C4D2;margin:14mm 0 0;line-height:1.6;}
+.cover-a{font-family:"Fraunces",Georgia,serif;font-size:12pt;margin:22mm 0 0;color:#FAFAF7;}
+
+/* ---- structure ---- */
+.front{break-after:page;}
+h1.part{
+  font-family:"Fraunces",Georgia,serif; font-size:20pt; line-height:1.2;
+  color:var(--navy); border-top:3px solid var(--accent); padding-top:6mm;
+  margin:0 0 6mm; break-before:page;
+}
+h2{
+  font-family:"Fraunces",Georgia,serif; font-size:14pt; color:var(--navy);
+  margin:9mm 0 3mm; break-after:avoid; line-height:1.25;
+}
+h2.nonum{break-before:auto;}
+h3{font-family:"Fraunces",Georgia,serif;font-size:11.5pt;color:var(--navy);margin:6mm 0 2mm;break-after:avoid;}
+
+/* ---- toc ---- */
+.toc{list-style:none;padding:0;margin:0;column-count:2;column-gap:10mm;font-size:9.5pt;}
+.toc li{margin:0 0 1.6mm;break-inside:avoid;}
+.toc a{color:var(--ink);text-decoration:none;}
+.toc-part{font-family:"Fraunces",Georgia,serif;color:var(--navy);font-weight:600;
+  margin-top:3mm !important;break-after:avoid;}
+.toc-part a{color:var(--navy);}
+.toc-sec{padding-left:4mm;color:var(--muted);}
+
+/* ---- tables ---- */
+.tw{break-inside:avoid;margin:0 0 4mm;}
+table{border-collapse:collapse;width:100%;font-size:9.5pt;}
+th{background:var(--navy);color:#fff;text-align:left;padding:2mm 2.5mm;font-weight:600;font-size:8.5pt;
+  text-transform:uppercase;letter-spacing:.04em;}
+td{border-bottom:1px solid var(--hair);padding:2mm 2.5mm;vertical-align:top;}
+tbody tr:nth-child(even) td{background:var(--tint);}
+
+/* ---- callouts ---- */
+.box{break-inside:avoid;background:var(--tint);border-left:3px solid var(--accent);
+  padding:3mm 4mm;margin:0 0 4mm;font-size:10pt;}
+.box-l{font-family:"Fraunces",Georgia,serif;font-size:9pt;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.1em;margin:0 0 1.5mm;font-weight:600;}
+.box p:last-child{margin-bottom:0;}
+.box.attention{border-left-color:#B4232A;}
+.box.attention .box-l{color:#B4232A;}
+.box.exercice{background:#fff;border:1px solid var(--hair);border-left:3px solid var(--navy);}
+.box.exercice .box-l{color:var(--navy);}
+.box.dialogue{background:#F1F5FA;border-left-color:var(--navy);}
+.box.dialogue .box-l{color:var(--navy);}
+.box.marche{background:#fff;border:1px dashed var(--accent);}
+
+/* Callout headings inside the expansion, matched to the boxed callouts the
+   original manuscript uses, so the book reads as one book. */
+h3.cue{
+  border-left:3px solid var(--accent); padding:1.5mm 0 1.5mm 3.5mm;
+  margin:6mm 0 2.5mm; background:var(--tint); font-size:11pt;
+}
+h3.cue.attention{border-left-color:#B4232A;}
+h3.cue.dialogue{border-left-color:var(--navy);background:#F1F5FA;}
+h3.cue.exercice{border-left-color:var(--navy);background:#fff;border:1px solid var(--hair);border-left:3px solid var(--navy);}
+h3.cue.marche{background:#fff;border:1px dashed var(--accent);}
+
+ul.ex{margin:0 0 4mm;padding-left:5mm;}
+ul.ex li{margin-bottom:1mm;}
+ul,ol{margin:0 0 4mm;padding-left:6mm;}
+li{margin-bottom:1mm;}
+.note{background:var(--tint);padding:3mm 4mm;font-size:9.5pt;}
+
+.colophon{break-before:page;text-align:center;color:var(--muted);font-size:9pt;padding-top:60mm;}
+.colophon .lic{margin-top:6mm;font-style:italic;}
+
+/* Never strand a heading or split a short block across pages. */
+h1,h2,h3{page-break-after:avoid;}
+.box,.tw,figure{page-break-inside:avoid;}
