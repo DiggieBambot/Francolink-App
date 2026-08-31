@@ -74,3 +74,24 @@ export async function loadBook(): Promise<Section[]> {
 export async function loadExercises(): Promise<ExerciseMap> {
   return JSON.parse(await readFile(path.join(dir(), "exercises.json"), "utf8"));
 }
+
+export interface Clip {
+  id: string;
+  text: string;
+  kind: "dialogue" | "drill" | "phrase" | "conj";
+  slow: boolean;
+  section: string | null;
+}
+
+/** Clips grouped by the section they belong to, ready for the reader. */
+export async function loadAudio(): Promise<Record<string, Clip[]>> {
+  const all: Clip[] = JSON.parse(
+    await readFile(path.join(dir(), "audio.json"), "utf8")
+  );
+  const bySection: Record<string, Clip[]> = {};
+  for (const c of all) {
+    if (!c.section) continue;
+    (bySection[c.section] ??= []).push(c);
+  }
+  return bySection;
+}

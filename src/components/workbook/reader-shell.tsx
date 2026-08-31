@@ -11,16 +11,22 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { trackEvent } from "@/lib/analytics/client";
 import { checkAnswer, type Verdict } from "@/lib/workbook/check";
-import { ChevronLeft, ChevronRight, List, X, Check, Info } from "lucide-react";
+import { ChevronLeft, ChevronRight, List, X, Check, Info, Volume2 } from "lucide-react";
 
 export interface Section { id: string; title: string; part: string; html: string }
 export type ExerciseMap = Record<string, { i: number; text: string; answers: string[] }[]>;
+export interface Clip {
+  id: string; text: string;
+  kind: "dialogue" | "drill" | "phrase" | "conj";
+  slow: boolean; section: string | null;
+}
 
 export function ReaderShell({
-  sections, exercises, current, hasAudio,
+  sections, exercises, audio, current, hasAudio,
 }: {
   sections: Section[];
   exercises: ExerciseMap;
+  audio: Record<string, Clip[]>;
   current?: string;
   hasAudio: boolean;
 }) {
@@ -99,11 +105,7 @@ export function ReaderShell({
           <ExerciseBlock key={n} n={n} items={items} />
         ))}
 
-        {hasAudio && /Dialogue|prononc|liaison|nasal/i.test(section.html) && (
-          <p id="audio" className="mt-6 rounded-xl border border-dashed border-border p-4 text-sm text-muted-foreground">
-            Audio for this section is being recorded — we&apos;ll email you the moment it lands.
-          </p>
-        )}
+        <AudioForSection clips={audio[section.id] ?? []} owned={hasAudio} />
 
         <nav className="mt-10 flex items-center justify-between gap-4 border-t border-border pt-5">
           <button
@@ -203,5 +205,64 @@ function Item({
         </p>
       )}
     </li>
+  );
+}
+
+
+/* The audio pack, where it belongs: beside the thing it is reading.
+   Rendered for everyone who has a clip on this section — a workbook buyer who
+   skipped the $17 bump sees what they are missing, which is a better offer
+   than a banner and is the only place the pack sells itself. */
+function AudioForSection({ clips, owned }: { clips: Clip[]; owned: boolean }) {
+  if (!clips.length) return null;
+
+  const label: Record<Clip["kind"], string> = {
+    dialogue: "Dialogue",
+    drill: "Pronunciation",
+    phrase: "Phrase",
+    conj: "Conjugation",
+  };
+
+  return (
+    <section id="audio" className="mt-8 rounded-2xl border border-border bg-muted/30 p-5">
+      <div className="mb-3 flex items-center gap-2">
+        <Volume2 className="h-4 w-4 text-primary" />
+        <h2 className="text-sm font-semibold">
+          Listen {clips.length > 1 && <span className="font-normal text-muted-foreground">· {clips.length} clips</span>}
+        </h2>
+      </div>
+
+      {owned ? (
+        <ul className="space-y-3">
+          {clips.map((c) => (
+            <li key={c.id}>
+              <p className="mb-1 text-xs uppercase tracking-wide text-muted-foreground">
+                {label[c.kind]}
+              </p>
+              <p className="mb-1.5 text-sm">{c.text.slice(0, 120)}{c.text.length > 120 ? "…" : ""}</p>
+              <div className="flex flex-wrap gap-3">
+                <audio controls preload="none" className="h-9 max-w-full"
+                  src={`/api/workbook/audio/${c.id}-normal.mp3`} />
+                {c.slow && (
+                  <audio controls preload="none" className="h-9 max-w-full"
+                    src={`/api/workbook/audio/${c.id}-slow.mp3`} />
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <>
+          <p className="text-sm text-muted-foreground">
+            {clips.length === 1 ? "There is a recording" : `There are ${clips.length} recordings`}{" "}
+            for this section — read at natural speed and again slowly. Liaison and
+            nasal vowels are hard to learn from a page.
+          </p>
+          <Link href="/workbook" className="mt-3 inline-block text-sm font-medium text-primary underline-offset-4 hover:underline">
+            Add the audio pack — $17
+          </Link>
+        </>
+      )}
+    </section>
   );
 }

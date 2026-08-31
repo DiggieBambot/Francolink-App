@@ -1,0 +1,506 @@
+[
+ {
+  "id": "0.1-phrase-01",
+  "text": "Bonjour",
+  "kind": "phrase",
+  "slow": true,
+  "section": "s0-1"
+ },
+ {
+  "id": "0.1-phrase-02",
+  "text": "Salut",
+  "kind": "phrase",
+  "slow": true,
+  "section": "s0-1"
+ },
+ {
+  "id": "0.1-phrase-03",
+  "text": "Au revoir",
+  "kind": "phrase",
+  "slow": true,
+  "section": "s0-1"
+ },
+ {
+  "id": "0.1-phrase-04",
+  "text": "Merci (beaucoup)",
+  "kind": "phrase",
+  "slow": true,
+  "section": "s0-1"
+ },
+ {
+  "id": "0.1-phrase-05",
+  "text": "S'il vous plaît",
+  "kind": "phrase",
+  "slow": true,
+  "section": "s0-1"
+ },
+ {
+  "id": "0.1-phrase-06",
+  "text": "De rien",
+  "kind": "phrase",
+  "slow": true,
+  "section": "s0-1"
+ },
+ {
+  "id": "0.1-phrase-07",
+  "text": "Oui / Non",
+  "kind": "phrase",
+  "slow": true,
+  "section": "s0-1"
+ },
+ {
+  "id": "0.1-phrase-08",
+  "text": "Excusez-moi",
+  "kind": "phrase",
+  "slow": true,
+  "section": "s0-1"
+ },
+ {
+  "id": "0.1-phrase-09",
+  "text": "Pardon",
+  "kind": "phrase",
+  "slow": true,
+  "section": "s0-1"
+ },
+ {
+  "id": "0.1-phrase-10",
+  "text": "Je suis désolé(e)",
+  "kind": "phrase",
+  "slow": true,
+  "section": "s0-1"
+ },
+ {
+  "id": "0.1-phrase-11",
+  "text": "Comment ça va ?",
+  "kind": "phrase",
+  "slow": true,
+  "section": "s0-1"
+ },
+ {
+  "id": "0.1-phrase-12",
+  "text": "Ça va bien, merci",
+  "kind": "phrase",
+  "slow": true,
+  "section": "s0-1"
+ },
+ {
+  "id": "0.1-phrase-13",
+  "text": "Je m'appelle…",
+  "kind": "phrase",
+  "slow": true,
+  "section": "s0-1"
+ },
+ {
+  "id": "0.1-phrase-14",
+  "text": "Enchanté(e)",
+  "kind": "phrase",
+  "slow": true,
+  "section": "s0-1"
+ },
+ {
+  "id": "0.1-phrase-15",
+  "text": "Je ne comprends pas",
+  "kind": "phrase",
+  "slow": true,
+  "section": "s0-1"
+ },
+ {
+  "id": "0.1-phrase-16",
+  "text": "Je ne sais pas",
+  "kind": "phrase",
+  "slow": true,
+  "section": "s0-1"
+ },
+ {
+  "id": "0.1-phrase-17",
+  "text": "Parlez-vous anglais ?",
+  "kind": "phrase",
+  "slow": true,
+  "section": "s0-1"
+ },
+ {
+  "id": "0.1-phrase-18",
+  "text": "Pouvez-vous répéter ?",
+  "kind": "phrase",
+  "slow": true,
+  "section": "s0-1"
+ },
+ {
+  "id": "0.1-phrase-19",
+  "text": "Combien ça coûte ?",
+  "kind": "phrase",
+  "slow": true,
+  "section": "s0-1"
+ },
+ {
+  "id": "0.1-phrase-20",
+  "text": "J'ai besoin d'aide",
+  "kind": "phrase",
+  "slow": true,
+  "section": "s0-1"
+ },
+ {
+  "id": "dialogue-01",
+  "text": "Léa : Salut ! Comment ça va ? … Sam : Ça va bien, merci ! Et toi ? … Léa : Très bien. Comment tu t'appelles ? … Sam : Je m'appelle Sam. Je suis canadien et j'habite à Toronto. … Léa : Moi, je m'appelle Léa. Quel âge as-tu ? … Sam : J'ai douze ans. Quelle est ta couleur préférée ? … Léa : Ma couleur préférée est le bleu !",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s0-4"
+ },
+ {
+  "id": "dialogue-02",
+  "text": "Serveur : Bonjour ! Vous désirez ? … Cliente : Bonjour. Un café, s'il vous plaît. … Serveur : Très bien. Autre chose ? … Cliente : Non, merci. Combien ça coûte ? … Serveur : Deux euros cinquante, Madame. … Cliente : Voilà. Merci, au revoir !",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s0-4"
+ },
+ {
+  "id": "dialogue-03",
+  "text": "Théo : Qu'est-ce que tu aimes faire le week-end ? … Ana : J'aime jouer au badminton et je dessine. Et toi ? … Théo : Moi, je joue au football et j'écoute de la musique. … Ana : On joue ensemble samedi ? … Théo : Bonne idée ! Je vais apporter le ballon.",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s0-4"
+ },
+ {
+  "id": "dialogue-04",
+  "text": "Client : Bonjour ! Vous avez des croissants ? … Vendeuse : Oui ! Vous en voulez combien ? … Client : Deux, s'il vous plaît. Merci !",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s1-7"
+ },
+ {
+  "id": "dialogue-05",
+  "text": "Léa : Salut ! Tu vas bien ? … Max : Oui, et toi ? Tu as ton livre ? … Léa : Oui, il est dans mon sac.",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s1-7"
+ },
+ {
+  "id": "dialogue-06",
+  "text": "Léa : Salut ! Comment ça va ? … Sam : Ça va bien, merci ! Et toi ? … Léa : Très bien. Comment tu t'appelles ? … Sam : Je m'appelle Sam. Je suis canadien et j'habite à Toronto. Et toi ? … Léa : Moi, je m'appelle Léa. Quel âge as-tu ? … Sam : J'ai douze ans. Quelle est ta couleur préférée ? … Léa : Ma couleur préférée est le bleu !",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s1-8"
+ },
+ {
+  "id": "dialogue-07",
+  "text": "Papa : Tu as faim ? … Enfant : Non, mais j'ai très soif ! Et j'ai chaud. … Papa : On a de l'eau dans le sac. Tu as besoin d'une casquette ? … Enfant : Oui, merci ! Tu as raison, il fait chaud aujourd'hui.",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s1-12"
+ },
+ {
+  "id": "dialogue-08",
+  "text": "Prof : Comment tu t'appelles ? … Élève : Je m'appelle Kobe. … Prof : Où est-ce que tu habites ? … Élève : J'habite à Douala. … Prof : Et pourquoi tu apprends le français ? … Élève : Parce que j'aime voyager !",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s1-14"
+ },
+ {
+  "id": "dialogue-09",
+  "text": "Ana : Qu'est-ce que tu aimes faire le week-end ? … Théo : J'aime jouer au foot et je regarde des films. Et toi ? … Ana : Moi, je dessine et j'écoute de la musique. … Théo : On mange une pizza ensemble samedi ?",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s2-2"
+ },
+ {
+  "id": "dialogue-10",
+  "text": "Prof : À quelle heure tu te réveilles ? … Élève : Je me réveille à six heures. Je me lève, puis je me douche. … Prof : Et tu te couches tard ? … Élève : Non, je me couche à neuf heures. Mes frères se couchent plus tard.",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s3-3"
+ },
+ {
+  "id": "dialogue-11",
+  "text": "Marie : Tu veux réviser avec moi ce soir ? … Paul : Je veux bien, mais je dois d'abord finir mes devoirs. … Marie : On peut se retrouver à la bibliothèque ? … Paul : Bonne idée. Tu sais où elle est ? … Marie : Oui, je connais bien le quartier.",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s3-4"
+ },
+ {
+  "id": "dialogue-12",
+  "text": "Narrateur : Hier, il faisait beau. … : Je me promenais dans le parc. … : Soudain, j'ai vu un petit chat. … : Il dormait sous un arbre. … : Je me suis arrêté et j'ai souri.",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s4-5"
+ },
+ {
+  "id": "dialogue-13",
+  "text": "Sophie : Qu'est-ce que tu ferais si tu gagnais à la loterie ? … Luc : Je voyagerais autour du monde ! Et toi ? … Sophie : Moi, j'achèterais une grande maison. On pourrait faire une fête ! … Luc : Si j'avais su que tu aimais les fêtes, je t'aurais invitée avant !",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s5-2"
+ },
+ {
+  "id": "dialogue-14",
+  "text": "Zoé : Alors, tu as vu les deux appartements ? … Camille : Oui, ce matin. Le premier est **plus grand que** le deuxième, mais il est **beaucoup plus cher**. … Zoé : **Plus cher de** combien ? … Camille : Deux cents euros. Et le quartier est **moins calme que** chez moi. … Zoé : Et le deuxième ? … Camille : Il est **aussi lumineux que** le premier, mais **moins bien situé**. La cuisine est **plus petite**, par contre. … Zoé : Pour moi, la lumière, c'est **le plus important**. … Camille : Je sais. Mais le loyer aussi ! … Zoé : Écoute, le deuxième est **meilleur** pour ton budget, et tu dormiras **mieux** dans un quartier calme. … Camille : Tu as raison. C'est **le moins cher des** deux, et c'est **le plus proche du** métro.",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s2-11"
+ },
+ {
+  "id": "dialogue-15",
+  "text": "Grand-mère : Bon. **Lave**-toi les mains d'abord. … Noah : C'est fait ! Et après ? … Grand-mère : **Prends** trois œufs et **casse**-les dans le bol. **Ne les casse pas** trop fort ! … Noah : Comme ça ? … Grand-mère : Parfait. Maintenant **ajoute** un peu de sel, et **bats**-les bien. … Noah : Et le beurre ? … Grand-mère : **Attends** ! **Sois** patient. **N'ajoute pas** le beurre maintenant. … Noah : D'accord, d'accord… … Grand-mère : **Allons**-y. **Mets** la poêle sur le feu, et **vas-y** doucement. … Noah : Ça sent bon ! … Grand-mère : **N'oublie pas** de baisser le feu. Et **goûte**-la avant de servir ! … Noah : Monsieur Bertrand, vous voulez goûter ? … M. Bertrand : Volontiers ! **Servez**-moi une petite part, et **dites**-moi la recette.",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s2-12"
+ },
+ {
+  "id": "dialogue-16",
+  "text": "Ana : Tu as vu Léa cette semaine ? … Théo : Oui, je **l'**ai vue mardi. Pourquoi ? … Ana : On organise une fête. Mais ne **lui** dis rien ! … Théo : Promis, je **ne lui** dirai **rien**. Tu as invité les cousins ? … Ana : Je **les** ai appelés hier, mais ils **ne m'**ont **pas** répondu. … Théo : Écris-**leur** un message, c'est plus rapide. … Ana : Bonne idée. Et le gâteau, tu **le** commandes ? … Théo : Je **l'**ai déjà commandé ce matin. Le pâtissier **me le** livrera samedi. … Ana : Parfait. Et la musique ? … Théo : Ma sœur s'en occupe. Je **lui** ai demandé hier et elle **m'**a dit oui. … Ana : Et les décorations, tu **les** as achetées ? … Théo : Pas encore. Je **les** achèterai vendredi et je **te les** apporterai. … Ana : Super. Léa va adorer — elle **ne s'y** attend **pas** du tout.",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s3-5"
+ },
+ {
+  "id": "dialogue-17",
+  "text": "Marchande : Bonjour Monsieur ! Vous voulez des tomates ? … Client : Oui, j'**en** voudrais un kilo, s'il vous plaît. … Marchande : Voilà. Et des courgettes ? Elles sont très bonnes aujourd'hui. … Client : J'**en** ai encore à la maison, merci. … Marchande : Vous allez au marché de la place Victor Hugo aussi ? … Client : J'**y** allais avant, mais c'est trop loin. Maintenant je viens ici. … Marchande : Vous avez raison. Il vous faut du fromage ? … Client : Non, je **n'en** ai **pas** besoin. Mais j'ai besoin d'œufs — vous **en** avez ? … Marchande : Bien sûr. Combien ? … Client : Donnez-m'**en** six. … Marchande : Et voilà. Vous pensez à la fête de dimanche ? … Client : J'**y** pense tout le temps ! Ma femme **en** parle **depuis** un mois. … Marchande : Alors bon courage. On se voit samedi prochain ? … Client : J'**y** serai !",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s3-6"
+ },
+ {
+  "id": "dialogue-18",
+  "text": "Yasmine : Tu te souviens de la maison **où** on jouait après l'école ? … Karim : La maison bleue **qui** était au bout de la rue ? Bien sûr. … Yasmine : Elle n'existe plus. C'est un immeuble **que** la mairie a construit l'an dernier. … Karim : C'est le projet **dont** ma mère se plaignait au téléphone ! … Yasmine : Exactement. Et tu vois la boulangerie **qui** fait l'angle ? … Karim : Celle **où** on achetait des pains au chocolat ? … Yasmine : Oui. C'est la seule chose **qui n'a pas** changé. … Karim : Le jour **où** j'ai quitté ce village, je pensais ne jamais revenir. … Yasmine : Et pourtant te voilà. Tu as revu les gens **que** tu connaissais ? … Karim : Quelques-uns. Il y a un ami **dont** j'avais complètement oublié le nom, et **qui** m'a reconnu tout de suite. … Yasmine : C'est le village **qui** te reconnaît, pas l'inverse.",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s3-7"
+ },
+ {
+  "id": "dialogue-19",
+  "text": "Mme Roche : Bonjour. Vous êtes à Montréal **depuis** longtemps ? … Candidat : **Depuis** quatre ans. Je suis arrivé **il y a** quatre ans, en septembre. … Mme Roche : Et vous travaillez dans le tourisme **depuis** quand ? … Candidat : **Depuis** 2019. Avant ça, j'ai été professeur **pendant** trois ans. … Mme Roche : Pourquoi avoir changé ? … Candidat : J'ai enseigné **pendant** trois ans et j'ai adoré, mais je voulais voyager. … Mme Roche : Vous parlez espagnol, je vois. … Candidat : Oui, je l'apprends **depuis** l'enfance — ma mère est colombienne. … Mme Roche : Vous avez quitté votre dernier poste **il y a** combien de temps ? … Candidat : **Il y a** deux mois. J'ai voyagé **pendant** six semaines, et **depuis** mon retour je cherche un poste ici. … Mme Roche : Très bien. On vous rappelle **dans** deux jours.",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s3-8"
+ },
+ {
+  "id": "dialogue-20",
+  "text": "Sophie : Tu es arrivé à onze heures ! Qu'est-ce qui s'est passé ? … Marc : J'ai raté le train. Quand je suis arrivé à la gare, il **était** déjà **parti**. … Sophie : Tu **n'avais pas mis** ton réveil ? … Marc : Si ! Mais la veille, j'**avais travaillé** jusqu'à deux heures du matin. … Sophie : Ah, d'accord. Tu dormais encore, alors. … Marc : Exactement. Et le pire : j'**avais oublié** mon portefeuille à la maison. … Sophie : Non ! Tu **étais** déjà **monté** dans le bus ? … Marc : Oui, et j'ai dû redescendre. Le chauffeur **n'était pas** content. … Sophie : Et ta réunion de neuf heures ? … Marc : Annulée. Le client **avait envoyé** un mail à huit heures, mais je **ne l'avais pas lu**. … Sophie : Donc tu as couru pour rien ! … Marc : Pour rien. Franchement, j'**aurais** mieux **fait** de rester au lit.",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s4-6"
+ },
+ {
+  "id": "dialogue-21",
+  "text": "Julien : Tu as relu le rapport ? … Nadia : Oui, je **l'ai relu** ce matin. Il y a deux accords à corriger. … Julien : Lesquels ? … Nadia : Ici, tu as écrit « les données que nous avons **analysé** ». Le COD est devant, donc : **analysées**. … Julien : Ah oui. Et l'autre ? … Nadia : « Les photos, je les ai **pris** » → **prises**. Même règle. … Julien : Mais plus bas j'ai écrit « nous avons **analysé** les données » sans -es, et tu n'as rien dit. … Nadia : Parce que là, le COD est **après** le verbe. Pas d'accord. … Julien : Donc c'est uniquement une question de position. … Nadia : Uniquement. Et à l'oral, personne n'entend la différence — « analysé » et « analysées », c'est le même son. … Julien : Heureusement. Merci, je corrige ça tout de suite.",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s4-7"
+ },
+ {
+  "id": "dialogue-23",
+  "text": "Léa : Alors, la réunion ? Je n'ai pas pu venir. … Chloé : Le directeur a dit **qu'il était** content des résultats. … Léa : Ah, tant mieux. Et pour le budget ? … Chloé : Il a expliqué **qu'ils avaient dépassé** les prévisions le mois dernier. … Léa : Aïe. Il a dit ce **qu'on ferait** ? … Chloé : Il a annoncé **qu'on réduirait** les dépenses à partir de janvier. … Léa : Et Karim ? Il devait présenter son projet. … Chloé : Il a dit **qu'il l'avait fini** la veille, mais **qu'il préférait** attendre la semaine prochaine. … Léa : Typique. Quelqu'un a parlé de moi ? … Chloé : Le directeur m'a demandé **si tu venais**, et je lui ai répondu **que tu étais** en déplacement. … Léa : Merci. Il a dit autre chose ? … Chloé : Il m'a dit **de te prévenir** et **de t'envoyer** le compte rendu **ce jour-là**. Je l'ai complètement oublié. … Léa : Donc tu me le dis maintenant…",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s5-5"
+ },
+ {
+  "id": "dialogue-25",
+  "text": "Amina : Ton anglais est excellent. Tu l'as appris où ? … Paolo : Tout seul, **en regardant** des séries sans sous-titres. … Amina : Sérieusement ? Ça marche ? … Paolo : **En écoutant** deux heures par jour pendant un an, oui. Au début je ne comprenais rien. … Amina : Moi, je m'endors **en lisant** ma grammaire. … Paolo : C'est normal. On apprend mieux **en faisant** qu'**en lisant**. … Amina : Tu révisais aussi ? … Paolo : Un peu. Je notais les mots **en marchant** — sur mon téléphone. … Amina : **Sachant** que tu travailles douze heures par jour, je ne sais pas où tu trouves le temps. … Paolo : **En dormant** moins ! … Amina : Ça, ce n'est pas une méthode. … Paolo : Non. Mais **étant** curieux, je n'avais pas l'impression de travailler.",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s5-7"
+ },
+ {
+  "id": "dialogue-26",
+  "text": "Guide : Ce château **a été construit** au XVe siècle. … Visiteur : Par qui ? … Guide : **Par** le duc de Berry. Il **a été détruit** pendant la Révolution, puis **reconstruit** en 1830. … Visiteur : Et les jardins ? … Guide : Ils **ont été dessinés** par un élève de Le Nôtre. Aujourd'hui, **on les entretient** avec les méthodes d'origine. … Visiteur : On peut prendre des photos ? … Guide : À l'extérieur, oui. À l'intérieur, ça **ne se fait pas** — la lumière abîme les tapisseries. … Visiteur : Elles sont d'époque ? … Guide : Deux le sont. Les autres **ont été offertes** par une famille locale. **On m'a dit** qu'elles valaient une fortune. … Visiteur : Et cette salle **est fermée** ? … Guide : Elle est en cours de restauration. **On l'ouvrira** au public en mai. … Visiteur : Merci, c'était passionnant. … Guide : Je vous en prie. **On se retrouve** à la boutique ?",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s5-8"
+ },
+ {
+  "id": "dialogue-27",
+  "text": "Rachid : Bon. Samedi, à quelle heure on commence ? … Salomé : Huit heures. Dès que les cartons **seront descendus**, j'appelle le camion. … Rachid : Et la cuisine ? … Salomé : Vendredi soir, j'**aurai** déjà **emballé** toute la vaisselle. … Rachid : Parfait. Quand on **aura vidé** le salon, on s'attaque à la chambre. … Salomé : Ta sœur vient ? … Rachid : Elle **sera rentrée** de Lyon jeudi, donc oui. … Salomé : Et l'électricité au nouvel appartement ? … Rachid : Une fois que le contrat **aura été signé**, ils l'ouvrent en 48 heures. … Salomé : Donc mardi, tout **sera réglé**. … Rachid : En théorie. Dès que j'**aurai reçu** la confirmation, je te préviens. … Salomé : Et dimanche soir, on **aura fini** ? … Rachid : On **aura fini** de porter. Pas de ranger !",
+  "kind": "dialogue",
+  "slow": true,
+  "section": "s5-9"
+ },
+ {
+  "id": "1.1-u",
+  "text": "tu, rue, une, sur, bienvenue",
+  "kind": "drill",
+  "slow": true,
+  "section": "s1-1"
+ },
+ {
+  "id": "1.1-u-ou",
+  "text": "tu, tout. Rue, roue. Su, sous. Vu, vous.",
+  "kind": "drill",
+  "slow": true,
+  "section": "s1-1"
+ },
+ {
+  "id": "1.1-r",
+  "text": "rouge, Paris, très, rire, une rue parisienne",
+  "kind": "drill",
+  "slow": true,
+  "section": "s1-1"
+ },
+ {
+  "id": "1.1-h",
+  "text": "heureux, hôpital, huit, l'homme",
+  "kind": "drill",
+  "slow": true,
+  "section": "s1-1"
+ },
+ {
+  "id": "1.2-accents",
+  "text": "été, père, fête, forêt, où, garçon, à Paris",
+  "kind": "drill",
+  "slow": true,
+  "section": "s1-2"
+ },
+ {
+  "id": "1.2-pairs",
+  "text": "ou, où. A, à. Sur, sûr.",
+  "kind": "drill",
+  "slow": true,
+  "section": "s1-2"
+ },
+ {
+  "id": "1.3-combos",
+  "text": "voiture, chaud, fille, montagne, bateau, rouge, français, sœur",
+  "kind": "drill",
+  "slow": true,
+  "section": "s1-3"
+ },
+ {
+  "id": "1.4-silent",
+  "text": "temps, gris, chat, petit, grand, quand, nez, trop",
+  "kind": "drill",
+  "slow": true,
+  "section": "s1-4"
+ },
+ {
+  "id": "1.4-ent",
+  "text": "il mange, ils mangent. Il parle, ils parlent.",
+  "kind": "drill",
+  "slow": true,
+  "section": "s1-4"
+ },
+ {
+  "id": "1.5-liaison",
+  "text": "nous avons, les élèves, un grand arbre, vous êtes, les amis",
+  "kind": "drill",
+  "slow": true,
+  "section": "s1-5"
+ },
+ {
+  "id": "1.6-nasal",
+  "text": "enfant, temps, chambre. Bon, nom, ombre. Pain, main, fin.",
+  "kind": "drill",
+  "slow": true,
+  "section": "s1-6"
+ },
+ {
+  "id": "1.6-contrast",
+  "text": "an, année. Bon, bonne. Fin, fine. Un, une.",
+  "kind": "drill",
+  "slow": true,
+  "section": "s1-6"
+ },
+ {
+  "id": "conj-01",
+  "text": "je suis, tu es, il / elle / on est, nous sommes, vous êtes, ils / elles sont",
+  "kind": "conj",
+  "slow": true,
+  "section": "s1-11"
+ },
+ {
+  "id": "conj-02",
+  "text": "je ne suis pas, tu n'es pas, il / elle / on n'est pas, nous ne sommes pas, vous n'êtes pas, ils / elles ne sont pas",
+  "kind": "conj",
+  "slow": true,
+  "section": "s1-11"
+ },
+ {
+  "id": "conj-03",
+  "text": "j' ai, tu as, il / elle / on a, nous avons, vous avez, ils / elles ont",
+  "kind": "conj",
+  "slow": true,
+  "section": "s1-12"
+ },
+ {
+  "id": "conj-04",
+  "text": "je n'ai pas, tu n'as pas, il / elle / on n'a pas, nous n'avons pas, vous n'avez pas, ils / elles n'ont pas",
+  "kind": "conj",
+  "slow": true,
+  "section": "s1-12"
+ },
+ {
+  "id": "conj-05",
+  "text": "je danse, tu danses, il / elle / on danse, nous dansons, vous dansez, ils / elles dansent",
+  "kind": "conj",
+  "slow": true,
+  "section": "s2-2"
+ },
+ {
+  "id": "conj-06",
+  "text": "je finis, tu finis, il / elle / on finit, nous finissons, vous finissez, ils / elles finissent",
+  "kind": "conj",
+  "slow": true,
+  "section": "s2-3"
+ },
+ {
+  "id": "conj-07",
+  "text": "je vais, tu vas, il / elle / on va, nous allons, vous allez, ils / elles vont",
+  "kind": "conj",
+  "slow": true,
+  "section": "s2-4"
+ },
+ {
+  "id": "conj-08",
+  "text": "je viens, tu viens, il / elle / on vient, nous venons, vous venez, ils / elles viennent",
+  "kind": "conj",
+  "slow": true,
+  "section": "s2-6"
+ },
+ {
+  "id": "conj-09",
+  "text": "Sujet Pronom réfléchi, je me / m', tu te / t', il / elle / on se / s', nous nous, vous vous, ils / elles se / s'",
+  "kind": "conj",
+  "slow": true,
+  "section": "s3-3"
+ },
+ {
+  "id": "conj-10",
+  "text": "je me lave, tu te laves, il / elle / on se lave, nous nous lavons, vous vous lavez, ils / elles se lavent",
+  "kind": "conj",
+  "slow": true,
+  "section": "s3-3"
+ },
+ {
+  "id": "conj-11",
+  "text": "je connais, tu connais, il / elle / on connaît, nous connaissons, vous connaissez, ils / elles connaissent",
+  "kind": "conj",
+  "slow": true,
+  "section": "s3-4"
+ },
+ {
+  "id": "conj-12",
+  "text": "j' étais, tu étais, il / elle / on était, nous étions, vous étiez, ils / elles étaient",
+  "kind": "conj",
+  "slow": true,
+  "section": "s4-1"
+ },
+ {
+  "id": "conj-13",
+  "text": "je me suis réveillé(e), tu t'es réveillé(e), il / elle / on s'est réveillé(e), nous nous sommes réveillé(e)s, vous vous êtes réveillé(e)s, ils / elles se sont réveillé(e)s",
+  "kind": "conj",
+  "slow": true,
+  "section": "s4-4"
+ },
+ {
+  "id": "conj-14",
+  "text": "je parlerai, tu parleras, il / elle / on parlera, nous parlerons, vous parlerez, ils / elles parleront",
+  "kind": "conj",
+  "slow": true,
+  "section": "s5-1"
+ },
+ {
+  "id": "conj-15",
+  "text": "je parlerais, tu parlerais, il / elle / on parlerait, nous parlerions, vous parleriez, ils / elles parleraient",
+  "kind": "conj",
+  "slow": true,
+  "section": "s5-2"
+ }
+]

@@ -11,7 +11,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
-import { loadBook, loadExercises } from "@/lib/workbook/book";
+import { loadBook, loadExercises, loadAudio } from "@/lib/workbook/book";
 import { ReaderShell } from "@/components/workbook/reader-shell";
 
 export const metadata: Metadata = {
@@ -51,12 +51,17 @@ export default async function ReadPage({ searchParams }: PageProps) {
   }
   if (!owned.has("workbook_fpp")) redirect("/workbook");
 
-  const [sections, exercises] = await Promise.all([loadBook(), loadExercises()]);
+  const [sections, exercises, audio] = await Promise.all([
+    loadBook(),
+    loadExercises(),
+    loadAudio(),
+  ]);
 
   return (
     <ReaderShell
       sections={sections.map(({ id, title, part, html }) => ({ id, title, part, html }))}
       exercises={exercises}
+      audio={audio}
       current={s}
       hasAudio={owned.has("audio_fpp")}
     />

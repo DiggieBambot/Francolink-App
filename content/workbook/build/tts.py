@@ -85,6 +85,39 @@ DIALOGUE = ("dialogue-a",
   "Léa : Très bien. Comment tu t'appelles ? "
   "Sam : Je m'appelle Sam. Je suis canadien et j'habite à Toronto.")
 
+def build(voice):
+    """Generate the pack from audio-manifest.json.
+
+    Idempotent: a clip that already exists on disk is skipped, so a failed run
+    is resumed by running it again rather than paying for everything twice.
+    """
+    manifest = json.loads((pathlib.Path(__file__).parent / "audio-manifest.json").read_text())
+    pack = OUT / "pack"
+    total = sum(2 if c["slow"] else 1 for c in manifest)
+    made = skipped = failed = 0
+    print(f"voice: {voice} · {len(manifest)} clips · {total} renders\n")
+
+    for c in manifest:
+        speeds = [(1.0, "normal")] + ([(0.65, "slow")] if c["slow"] else [])
+        for rate, tag in speeds:
+            path = pack / f"{c['id']}-{tag}.mp3"
+            r = say(c["text"], voice, rate, path)
+            if r == "cached":
+                skipped += 1
+            elif r.startswith("ERROR"):
+                failed += 1
+                print(f"  FAIL {c['id']}-{tag}: {r}")
+            else:
+                made += 1
+                if made % 20 == 0:
+                    print(f"  {made} generated…")
+
+    print(f"\ngenerated {made} · already present {skipped} · failed {failed}")
+    print(f"pack: {pack}")
+    if failed:
+        print("re-run to retry the failures; existing clips are skipped")
+
+
 def test():
     print("=== A. one diagnostic across all four voices ===")
     for v in VOICES:
@@ -107,5 +140,7 @@ if __name__ == "__main__":
     mode = sys.argv[1] if len(sys.argv) > 1 else "test"
     if mode == "test":
         test()
+    elif mode == "build":
+        build(sys.argv[2] if len(sys.argv) > 2 else VOICES[0])
     else:
-        sys.exit("build mode is written once a voice is chosen")
+        sys.exit("usage: tts.py [test | build <voice>]")
