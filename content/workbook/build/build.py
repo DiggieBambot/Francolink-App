@@ -319,10 +319,26 @@ def chapterise(body):
         # The intro is whatever sits between the part heading and its first
         # section; the contents are that part's section headings.
         first_h2 = chunk.find("<h2")
-        intro_html = chunk[:first_h2] if first_h2 != -1 else chunk
+        before_h2 = chunk[:first_h2] if first_h2 != -1 else chunk
         rest = chunk[first_h2:] if first_h2 != -1 else ""
         secs = [re.sub(r"<[^>]+>", "", t).strip()
                 for _, t in re.findall(r'<h2 id="([^"]+)">(.*?)</h2>', rest)]
+
+        # A back-matter chapter (Corrigé, Ressources, Coin du professeur) has no
+        # sections at all, so "everything before the first h2" is the whole
+        # chapter. Putting that inside a fixed-height, centred flex box made it
+        # overflow the page and print on top of the pages after it. Those get a
+        # plain page-breaking heading instead of a full opener.
+        if not secs:
+            out.append(f'<h1 class="chapter-plain" id="{anchor}">{title}</h1>')
+            out.append(chunk)
+            continue
+
+        # Only the opening paragraphs belong on the opener page; anything else
+        # the part says before its first section flows on afterwards.
+        paras = re.findall(r"<(?:p|aside)\b[\s\S]*?</(?:p|aside)>", before_h2)
+        intro_html = "".join(paras[:2])
+        spill = "".join(paras[2:])
 
         # "PARTIE 3 · Niveau A2–B1 — Verbes irréguliers" -> label + title
         if " · " in plain:
@@ -343,6 +359,7 @@ def chapterise(body):
             f"{toc}"
             f"</section>"
         )
+        out.append(spill)
         out.append(rest)
     out.append(body[cursor:])
     return "".join(out)
@@ -370,7 +387,14 @@ def main():
     corrige = re.search(r'<p>Corrigé · Answer Key</p>|<h[12][^>]*>Corrigé', book)
     if corrige:
         cut = corrige.start()
-        book = book[:cut] + expansion_html + "\n" + book[cut:] + "\n" + expansion_key
+        book = book[:cut] + expansion_html + "\n" + book[cut:]
+        # The expansion's answers belong immediately after the original ones,
+        # not stranded past Ressources at the very back of the book.
+        res = re.search(r'<h1 class="part" id="[^"]*ressources[^"]*">', book)
+        if res:
+            book = book[:res.start()] + expansion_key + "\n" + book[res.start():]
+        else:
+            book = book + "\n" + expansion_key
     else:
         book = book + "\n" + expansion_html + "\n" + expansion_key
 

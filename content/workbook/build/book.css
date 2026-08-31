@@ -18,10 +18,14 @@ strong{font-weight:600;color:var(--navy);}
 code{font-family:ui-monospace,Menlo,monospace;font-size:.92em;}
 
 /* ---- cover ---- */
+/* The bleed and the height are derived from @page above (15mm 15mm 14mm).
+   They were still carrying the original 20mm/18mm values after the margins
+   were tightened, which left the cover 5mm out of true and one bad rounding
+   away from spilling onto a second page. */
 .cover{
-  height:calc(297mm - 38mm); display:flex; flex-direction:column;
+  min-height:calc(297mm - 29mm); display:flex; flex-direction:column;
   justify-content:center; align-items:center; text-align:center;
-  background:var(--navy); color:#FAFAF7; margin:-20mm -18mm 0; padding:0 24mm;
+  background:var(--navy); color:#FAFAF7; margin:-15mm -15mm 0; padding:0 22mm;
   break-after:page;
 }
 .cover-k{font-size:9pt;letter-spacing:.3em;text-transform:uppercase;color:#E0B968;margin:0 0 14mm;}
@@ -39,10 +43,21 @@ code{font-family:ui-monospace,Menlo,monospace;font-size:.92em;}
    sections. */
 .opener{
   break-before:page; break-after:page;
-  height:calc(297mm - 29mm);
+  /* min-height, never a fixed height: a fixed one cannot grow, so anything
+     taller than the page overflowed it and printed on top of the pages that
+     followed. This grows instead, and still centres when the content is short. */
+  min-height:calc(297mm - 34mm);
   display:flex; flex-direction:column; justify-content:center;
   border-top:4px solid var(--accent); border-bottom:1px solid var(--hair);
-  padding:0 8mm;
+  padding:4mm 8mm;
+}
+/* Back matter -- Corrigé, Ressources -- has no sections to list, so it takes a
+   page break and a heading rather than a whole opener page. */
+h1.chapter-plain{
+  break-before:page;
+  font-family:"Fraunces",Georgia,serif; font-size:19pt; line-height:1.2;
+  color:var(--navy); border-top:3px solid var(--accent);
+  padding-top:4mm; margin:0 0 5mm; font-weight:600;
 }
 .chapter-n{
   font-family:"Fraunces",Georgia,serif; font-size:11pt; letter-spacing:.28em;
