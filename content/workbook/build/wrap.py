@@ -29,14 +29,30 @@ for kind, anchor, label in toc:
     toc_html.append(f'<li class="{cls}"><a href="#{anchor}">{label}</a></li>')
 
 YEAR = datetime.date.today().year
+ANSWERS = (HERE / "exercises.json").read_text() if (HERE / "exercises.json").exists() else "{}"
 DOC = f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <title>Le Français Pas à Pas — Grammaire &amp; Pratique · A0 → B2</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Instrument+Sans:wght@400;500;600&display=swap">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>{(HERE / 'book.css').read_text()}</style>
+<style>{(HERE / 'screen.css').read_text()}</style>
 </head><body>
+
+<header class="topbar">
+  <button class="navbtn contents" type="button" aria-expanded="false">☰ Contents</button>
+  <b>Le Français Pas à Pas</b>
+  <span class="prog"></span>
+</header>
+
+<nav id="toc-panel" aria-label="Contents">
+  <h2>Contents <button class="navbtn close" type="button">Close</button></h2>
+  <ol>{''.join(toc_html)}</ol>
+</nav>
+
+<div class="layout">
 
 <section class="cover">
   <p class="cover-k">Grammaire &amp; Pratique</p>
@@ -68,12 +84,16 @@ DOC = f"""<!doctype html>
 
 {body}
 
-<section class="colophon">
+<section class="colophon sheet">
   <p>© {YEAR} Njinu Precious Bambot. All rights reserved.</p>
   <p>Published by FrancoLink · francolink.net</p>
   <p class="lic">This copy is licensed to one reader. Please don't redistribute it — the book exists because people pay for it.</p>
 </section>
+</div>
 
+<button class="totop" type="button" aria-label="Back to top">↑</button>
+<script>window.__WB_ANSWERS__ = {ANSWERS};</script>
+<script>{(HERE / 'reader.js').read_text()}</script>
 </body></html>"""
 
 (HERE / "book.html").write_text(DOC)

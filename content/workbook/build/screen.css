@@ -1,0 +1,127 @@
+/* Screen presentation for the workbook.
+   book.css owns the printed page; everything here applies only on screen, so
+   the two can differ without either being a second copy of the content. */
+@media screen {
+  html { scroll-behavior: smooth; }
+  body {
+    font-size: 17px; line-height: 1.6;
+    background: #F4F3EE; color: var(--ink);
+  }
+
+  /* --- shell ------------------------------------------------------------ */
+  .topbar {
+    position: sticky; top: 0; z-index: 30;
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 16px; background: var(--navy); color: #FAFAF7;
+    box-shadow: 0 1px 0 rgba(0,0,0,.15);
+  }
+  .topbar b {
+    font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 15px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;
+  }
+  .topbar .prog { margin-left: auto; font-size: 12px; color: #C9D4E2; white-space: nowrap; }
+  .navbtn {
+    background: rgba(255,255,255,.12); color: #fff; border: 0; border-radius: 8px;
+    padding: 7px 11px; font: inherit; font-size: 13px; cursor: pointer;
+  }
+  .navbtn:hover { background: rgba(255,255,255,.2); }
+
+  .layout { display: block; max-width: 1180px; margin: 0 auto; padding: 0 16px 80px; }
+
+  /* --- contents --------------------------------------------------------- */
+  #toc-panel {
+    position: fixed; inset: 0; z-index: 40; display: none;
+    background: #FFFDF8; overflow-y: auto; padding: 16px 18px 60px;
+  }
+  #toc-panel.open { display: block; }
+  #toc-panel h2 { margin: 0 0 10px; font-size: 17px; }
+  #toc-panel ol { list-style: none; padding: 0; margin: 0; column-count: 1; }
+  #toc-panel a { display: block; padding: 7px 8px; border-radius: 7px; color: var(--ink); text-decoration: none; font-size: 15px; }
+  #toc-panel a:hover { background: #EFEDE4; }
+  #toc-panel .toc-part a { font-family: "Fraunces", Georgia, serif; font-weight: 600; color: var(--navy); margin-top: 8px; }
+  #toc-panel .toc-sec a { padding-left: 18px; font-size: 14px; color: var(--muted); }
+
+  /* --- page ------------------------------------------------------------- */
+  .cover {
+    min-height: 62vh; margin: 0 0 26px; padding: 44px 22px; border-radius: 0 0 18px 18px;
+  }
+  .cover-t { font-size: clamp(30px, 7vw, 50px); }
+  .front, .opener, section.chapter, .sheet {
+    background: #fff; border: 1px solid var(--hair); border-radius: 14px;
+    padding: 26px 22px; margin: 0 0 20px; max-width: 780px; margin-inline: auto;
+  }
+  .opener { min-height: 0; border-top: 5px solid var(--accent); }
+  h1.chapter-t { font-size: clamp(24px, 5vw, 34px); }
+  .opener-toc { columns: 1; }
+  h1.chapter-plain { font-size: 26px; max-width: 780px; margin-inline: auto; }
+  h2 { font-size: clamp(20px, 4vw, 26px); scroll-margin-top: 70px; }
+  h3 { font-size: 18px; }
+  .tw { -webkit-overflow-scrolling: touch; }
+  table { font-size: 15px; }
+  th, td { padding: 8px 10px; }
+  .box { border-radius: 0 10px 10px 0; padding: 14px 16px; margin-bottom: 16px; }
+  .fr { font-size: 1.05em; }
+  .en { font-size: .88em; }
+
+  /* --- exercises -------------------------------------------------------- */
+  .blank {
+    font: inherit; font-size: .95em; width: 8.5em; max-width: 52vw;
+    padding: 5px 9px; border: 2px solid #CFCDC2; border-radius: 8px;
+    background: #FCFCFA; color: var(--navy);
+  }
+  .blank:focus { outline: none; border-color: var(--navy); }
+  .blank.ok { border-color: #2E8B57; background: #EEF7F0; }
+  .blank.near { border-color: #C08A2D; background: #FBF4E6; }
+  .blank.bad { border-color: #C0392B; background: #FBEEEC; }
+  .fb { display: block; font-size: 13.5px; margin-top: 5px; line-height: 1.45; }
+  .fb.ok { color: #1F6B43; } .fb.near { color: #8A6414; } .fb.bad { color: #A5311F; }
+  .exbar {
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--hair);
+    font-size: 13.5px; color: var(--muted);
+  }
+  .exbar button {
+    font: inherit; font-size: 13px; cursor: pointer; border-radius: 7px;
+    border: 1px solid var(--hair); background: #fff; padding: 5px 10px; color: var(--navy);
+  }
+  .exbar button:hover { border-color: var(--navy); }
+  .score { font-weight: 600; color: var(--navy); }
+
+  .totop {
+    position: fixed; right: 16px; bottom: 16px; z-index: 20;
+    background: var(--navy); color: #fff; border: 0; border-radius: 999px;
+    width: 42px; height: 42px; font-size: 17px; cursor: pointer; display: none;
+  }
+  .totop.show { display: block; }
+
+  @media (max-width: 420px) {
+    body { font-size: 16px; }
+    .topbar { padding: 8px 12px; gap: 8px; }
+    .topbar b { font-size: 14px; }
+    .topbar .prog { font-size: 11px; }
+    .navbtn { padding: 6px 9px; font-size: 12px; }
+    .front, .opener, section.chapter, .sheet { padding: 18px 15px; border-radius: 11px; }
+    .blank { width: 7em; }
+  }
+
+  @media (min-width: 900px) {
+    .layout { padding-inline: 24px; }
+    #toc-panel {
+      position: sticky; inset: auto; display: block; float: left;
+      width: 264px; height: calc(100vh - 58px); top: 58px;
+      background: transparent; padding: 18px 12px 40px; margin-right: 22px;
+    }
+    #toc-panel .close { display: none; }
+    .navbtn.contents { display: none; }
+    .front, .opener, section.chapter, .sheet, h1.chapter-plain { margin-inline: 0; }
+  }
+}
+
+@media print {
+  .topbar, #toc-panel, .totop, .exbar { display: none !important; }
+  /* Blanks print as the ruled lines they replaced. */
+  .blank {
+    border: none; border-bottom: 1px solid #999; border-radius: 0;
+    width: 34mm; background: transparent; padding: 0;
+  }
+}

@@ -364,6 +364,76 @@ def chapterise(body):
     out.append(body[cursor:])
     return "".join(out)
 
+
+# ---------------------------------------------------------------------------
+# Turn the blanks into inputs.
+#
+# Every exercise item that has a known answer becomes a real field the reader
+# can type into. Items without one keep their "______" and stay printed text --
+# a workbook that marks a right answer wrong is worse than one that does not
+# mark at all.
+#
+# The data attributes are all the runtime needs; the answers themselves are
+# emitted once as JSON, so the same markup serves the PDF (where the inputs
+# print as ruled lines) and the screen.
+# ---------------------------------------------------------------------------
+ITEM = re.compile(r"^(\d+)\.\s")
+
+def interactivise(body, answers):
+    def blank(ex, i):
+        return (f'<input class="blank" type="text" autocomplete="off" '
+                f'autocapitalize="off" spellcheck="false" '
+                f'data-ex="{ex}" data-i="{i}" aria-label="Exercice {ex}, item {i}">')
+
+    def do_box(m):
+        inner = m.group(0)
+        # The callout renderer strips the "Exercice" label into .box-l, so the
+        # number is left alone at the head of the first paragraph:
+        # <p>26 — Conjuguez à l'imparfait</p>. Item paragraphs use a dot
+        # ("1. Je (danser)..."), so the dash is what tells the two apart.
+        ex = (re.search(r'<p>(\d+)\s*[—–-]', inner)
+              or re.search(r"Exercice\s+(\d+)", inner))
+        if not ex:
+            return inner
+        n = ex.group(1)
+        key = {str(it["i"]) for it in answers.get(n, [])}
+        if not key:
+            return inner
+
+        def one(em):
+            tag, num, rest = em.group(1), em.group(2), em.group(3)
+            if num in key and "______" in rest:
+                rest = rest.replace("______", blank(n, num), 1)
+            return f"<{tag}>{num}. {rest}</{tag}>"
+
+        return re.sub(r"<(p|li)>(\d+)\.\s([\s\S]*?)</\1>", one, inner)
+
+    # Exercise boxes from the manuscript.
+    body = re.sub(r'<aside class="box exercice">[\s\S]*?</aside>', do_box, body)
+
+    # The expansion writes its exercises as a heading plus an ordered list, so
+    # the number lives in the heading and the items in the <li>s after it.
+    def do_md(m):
+        head, lst = m.group(0), m.group(2)
+        ex = re.search(r"Exercice\s+(\d+)", m.group(1))
+        if not ex:
+            return head
+        n = ex.group(1)
+        key = {str(it["i"]): it for it in answers.get(n, [])}
+        if not key:
+            return head
+        idx = [0]
+        def li(lm):
+            idx[0] += 1
+            num = str(idx[0])
+            if num not in key or "______" not in lm.group(0):
+                return lm.group(0)
+            return lm.group(0).replace("______", blank(n, num), 1)
+        return head.replace(lst, re.sub(r"<li>[\s\S]*?</li>", li, lst))
+
+    body = re.sub(r'(<h3 class="cue exercice">[\s\S]*?</h3>)\s*(<ol>[\s\S]*?</ol>)', do_md, body)
+    return body
+
 def main():
     blocks = json.load(open(HERE / "blocks.json"))
     applied = apply_fixes(blocks)
@@ -399,6 +469,10 @@ def main():
         book = book + "\n" + expansion_html + "\n" + expansion_key
 
     book = chapterise(book)
+
+    exercises = json.load(open(HERE / "exercises.json")) if (HERE / "exercises.json").exists() else {}
+    book = interactivise(book, exercises)
+    print(f"interactive blanks: {book.count('class=\"blank\"')}")
     (HERE / "book-body.html").write_text(book)
     words = len(re.sub(r"<[^>]+>", " ", book).split())
     print(f"\nbody written: {len(book):,} bytes · ~{words:,} words")
