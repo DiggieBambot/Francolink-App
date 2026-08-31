@@ -27,19 +27,34 @@ export async function loadBook(): Promise<Section[]> {
   const sections: Section[] = [];
   let part = "";
 
-  // Headings are the only structure needed here: h1 opens a part, h2 opens a
-  // section, everything until the next heading belongs to it.
-  const re = /<(h1 class="part"|h2) id="([^"]+)">([\s\S]*?)<\/(?:h1|h2)>/g;
+  // Two shapes carry structure: a chapter opener <section>, which owns the
+  // part's id and title, and an <h2> for each section inside it. The opener is
+  // matched by its whole block so its own page (intro + contents) stays intact.
+  const re =
+    /<section class="opener" id="([^"]+)">(?:<p class=chapter-n>([\s\S]*?)<\/p>)?<h1 class="chapter-t">([\s\S]*?)<\/h1>|<h2 id="([^"]+)">([\s\S]*?)<\/h2>/g;
   const marks: { tag: string; id: string; title: string; start: number; end: number }[] = [];
   let m: RegExpExecArray | null;
   while ((m = re.exec(html))) {
-    marks.push({
-      tag: m[1].startsWith("h1") ? "h1" : "h2",
-      id: m[2],
-      title: m[3].replace(/<[^>]+>/g, "").trim(),
-      start: m.index,
-      end: re.lastIndex,
-    });
+    // Titles are rendered as text in the reader's nav, so the entities the
+    // generated HTML carries ("&amp;") must come back as characters.
+    const strip = (x: string) =>
+      x.replace(/<[^>]+>/g, "")
+       .replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+       .replace(/&#39;|&apos;/g, "'").replace(/&quot;/g, '"')
+       .trim();
+    if (m[1]) {
+      const label = strip(m[2] || "");
+      const title = strip(m[3]);
+      marks.push({
+        tag: "h1",
+        id: m[1],
+        title: label ? `${label} · ${title}` : title,
+        start: m.index,
+        end: re.lastIndex,
+      });
+    } else {
+      marks.push({ tag: "h2", id: m[4], title: strip(m[5]), start: m.index, end: re.lastIndex });
+    }
   }
 
   marks.forEach((mk, i) => {

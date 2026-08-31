@@ -6,10 +6,20 @@ HERE = pathlib.Path(__file__).parent
 body = (HERE / "book-body.html").read_text()
 
 # Build the table of contents from the headings the body already carries.
+# Parts now carry their id on the opener <section>, not on the heading, so the
+# contents has to look for both shapes or it silently loses every chapter.
 toc = []
-for m in re.finditer(r'<(h1|h2) class="part" id="([^"]+)">(.*?)</\1>|<h2 id="([^"]+)">(.*?)</h2>', body):
-    if m.group(2):
-        toc.append(("part", m.group(2), re.sub(r"<[^>]+>", "", m.group(3))))
+pat = re.compile(
+    r'<section class="opener" id="([^"]+)">'
+    r'(?:<p class=chapter-n>(.*?)</p>)?'
+    r'<h1 class="chapter-t">(.*?)</h1>'
+    r'|<h2 id="([^"]+)">(.*?)</h2>'
+)
+for m in pat.finditer(body):
+    if m.group(1):
+        label = re.sub(r"<[^>]+>", "", m.group(2) or "").strip()
+        title = re.sub(r"<[^>]+>", "", m.group(3)).strip()
+        toc.append(("part", m.group(1), f"{label} · {title}" if label else title))
     else:
         toc.append(("sec", m.group(4), re.sub(r"<[^>]+>", "", m.group(5))))
 

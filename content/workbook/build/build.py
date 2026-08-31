@@ -276,6 +276,77 @@ def md_to_html(md):
         out.append(f"<p>{md_inline(' '.join(buf))}</p>")
     return "\n".join(out)
 
+
+# ---------------------------------------------------------------------------
+# Chapter openers.
+#
+# A part used to be a heading at the top of an otherwise ordinary page, which
+# made the six parts of the book feel like six more sections. Each now gets its
+# own page: the number, the title, the part's own introduction, and the list of
+# what is in it -- so a reader flicking through can see where they are and what
+# is coming.
+#
+# Two duplicates are dropped here as well. The manuscript carries its own
+# "How to use this workbook" and an empty "Table des matières" (it was an
+# unbuilt Word field); wrap.py generates real versions of both, so keeping the
+# originals printed each of them twice.
+# ---------------------------------------------------------------------------
+H1 = re.compile(r'<h1 class="part" id="([^"]+)">(.*?)</h1>')
+DROP_FROM_BODY = ("Comment utiliser ce livret", "Table des matières")
+# Not chapters: these continue the section before them.
+DEMOTE = ("Corrigé · Answer Key (exercices",)
+
+def chapterise(body):
+    marks = [(m.start(), m.end(), m.group(1), m.group(2)) for m in H1.finditer(body)]
+    if not marks:
+        return body
+    out, cursor = [], 0
+    for i, (start, end, anchor, title) in enumerate(marks):
+        out.append(body[cursor:start])
+        nxt = marks[i + 1][0] if i + 1 < len(marks) else len(body)
+        chunk = body[end:nxt]
+        cursor = nxt
+
+        plain = re.sub(r"<[^>]+>", "", title).strip()
+        if any(plain.startswith(d) for d in DROP_FROM_BODY):
+            continue  # wrap.py supplies a better one
+
+        if any(plain.startswith(d) for d in DEMOTE):
+            out.append(f'<h2 id="{anchor}">{title}</h2>')
+            out.append(chunk)
+            continue
+
+        # The intro is whatever sits between the part heading and its first
+        # section; the contents are that part's section headings.
+        first_h2 = chunk.find("<h2")
+        intro_html = chunk[:first_h2] if first_h2 != -1 else chunk
+        rest = chunk[first_h2:] if first_h2 != -1 else ""
+        secs = [re.sub(r"<[^>]+>", "", t).strip()
+                for _, t in re.findall(r'<h2 id="([^"]+)">(.*?)</h2>', rest)]
+
+        # "PARTIE 3 · Niveau A2–B1 — Verbes irréguliers" -> label + title
+        if " · " in plain:
+            label, rest_title = plain.split(" · ", 1)
+        else:
+            label, rest_title = "", plain
+
+        toc = ""
+        if secs:
+            lis = "".join(f"<li>{x}</li>" for x in secs)
+            toc = f'<ol class="opener-toc">{lis}</ol>'
+
+        out.append(
+            f'<section class="opener" id="{anchor}">'
+            f'{f"<p class=chapter-n>{label}</p>" if label else ""}'
+            f'<h1 class="chapter-t">{rest_title}</h1>'
+            f'<div class="opener-intro">{intro_html}</div>'
+            f"{toc}"
+            f"</section>"
+        )
+        out.append(rest)
+    out.append(body[cursor:])
+    return "".join(out)
+
 def main():
     blocks = json.load(open(HERE / "blocks.json"))
     applied = apply_fixes(blocks)
@@ -303,6 +374,7 @@ def main():
     else:
         book = book + "\n" + expansion_html + "\n" + expansion_key
 
+    book = chapterise(book)
     (HERE / "book-body.html").write_text(book)
     words = len(re.sub(r"<[^>]+>", " ", book).split())
     print(f"\nbody written: {len(book):,} bytes · ~{words:,} words")

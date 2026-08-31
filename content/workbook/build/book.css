@@ -32,10 +32,41 @@ code{font-family:ui-monospace,Menlo,monospace;font-size:.92em;}
 
 /* ---- structure ---- */
 .front{break-after:page;}
-h1.part{
-  font-family:"Fraunces",Georgia,serif; font-size:20pt; line-height:1.2;
-  color:var(--navy); border-top:3px solid var(--accent); padding-top:4mm;
-  margin:0 0 4mm; break-before:page;
+/* ---- chapter opener ------------------------------------------------------
+   A part gets its own page: the number, the title, the part's introduction,
+   and what is inside it. Before this, a part was just a heading at the top of
+   an otherwise ordinary page, which made the six parts read like six more
+   sections. */
+.opener{
+  break-before:page; break-after:page;
+  height:calc(297mm - 29mm);
+  display:flex; flex-direction:column; justify-content:center;
+  border-top:4px solid var(--accent); border-bottom:1px solid var(--hair);
+  padding:0 8mm;
+}
+.chapter-n{
+  font-family:"Fraunces",Georgia,serif; font-size:11pt; letter-spacing:.28em;
+  text-transform:uppercase; color:var(--accent); margin:0 0 5mm;
+}
+h1.chapter-t{
+  font-family:"Fraunces",Georgia,serif; font-size:26pt; line-height:1.12;
+  color:var(--navy); margin:0 0 7mm; font-weight:600; max-width:24ch;
+}
+.opener-intro{ font-size:11pt; line-height:1.55; color:var(--muted); max-width:62ch; }
+.opener-intro p{ margin:0 0 .5em; }
+.opener-intro .box{ margin-top:4mm; }
+.opener-toc{
+  margin:9mm 0 0; padding:5mm 0 0; border-top:1px solid var(--hair);
+  columns:2; column-gap:9mm; list-style:none; counter-reset:oc;
+  font-size:9.5pt; color:var(--ink);
+}
+.opener-toc li{
+  margin:0 0 2mm; break-inside:avoid; counter-increment:oc;
+  padding-left:7mm; position:relative;
+}
+.opener-toc li::before{
+  content:counter(oc); position:absolute; left:0;
+  font-family:"Fraunces",Georgia,serif; color:var(--accent); font-size:8.5pt;
 }
 h2{
   font-family:"Fraunces",Georgia,serif; font-size:14pt; color:var(--navy);
