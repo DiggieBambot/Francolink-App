@@ -18,6 +18,13 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 
+/** The stamp is user-supplied text going into a document we serve. */
+function escapeHtml(s: string): string {
+  return s.replace(/[&<>"']/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!)
+  );
+}
+
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
@@ -29,7 +36,11 @@ function service() {
   );
 }
 
-export async function GET() {
+export async function GET(request: Request) {
+  // Two formats from one route: the PDF to keep, and the interactive HTML to
+  // work in. Both are the same book generated from the same source, so they
+  // share the same entitlement check and the same per-buyer stamp.
+  const format = new URL(request.url).searchParams.get("format") === "html" ? "html" : "pdf";
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) {
@@ -56,25 +67,44 @@ export async function GET() {
     );
   }
 
+  const name =
+    (user.user_metadata?.name as string | undefined) ||
+    (user.user_metadata?.full_name as string | undefined) ||
+    order.email;
+  const stamp = `Licensed to ${name} · order ${order.id.slice(0, 8)}`;
+
+  const file = format === "html" ? "book.html" : "book.pdf";
   let bytes: Buffer;
   try {
-    bytes = await readFile(path.join(process.cwd(), "assets", "workbook", "book.pdf"));
+    bytes = await readFile(path.join(process.cwd(), "assets", "workbook", file));
   } catch {
-    console.error("[workbook/download] book.pdf missing from the deployment");
+    console.error(`[workbook/download] ${file} missing from the deployment`);
     return NextResponse.json(
       { error: "The download isn't available right now. We're on it — try again shortly." },
       { status: 503 }
     );
   }
 
-  const name =
-    (user.user_metadata?.name as string | undefined) ||
-    (user.user_metadata?.full_name as string | undefined) ||
-    order.email;
+  if (format === "html") {
+    // Same stamp as the PDF, in the colophon rather than on every page —
+    // there are no pages to put it on.
+    const html = bytes
+      .toString("utf8")
+      .replace(
+        "</section>\n</div>",
+        `<p style="margin-top:14px;font-size:12px;color:#5A6570">${escapeHtml(stamp)}</p></section>\n</div>`
+      );
+    return new NextResponse(html, {
+      headers: {
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Disposition": 'attachment; filename="Le-Francais-Pas-a-Pas.html"',
+        "Cache-Control": "private, no-store",
+      },
+    });
+  }
 
   const pdf = await PDFDocument.load(bytes);
   const font = await pdf.embedFont(StandardFonts.Helvetica);
-  const stamp = `Licensed to ${name} · order ${order.id.slice(0, 8)}`;
   const size = 7;
 
   for (const page of pdf.getPages()) {

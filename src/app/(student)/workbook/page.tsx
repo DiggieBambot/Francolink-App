@@ -15,7 +15,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
-import { BookOpen, Headphones, Download, ArrowRight, Lock } from "lucide-react";
+import { BookOpen, Headphones, Download, FileCode, ArrowRight, Lock } from "lucide-react";
 import { siteUrl } from "@/lib/site/hosts";
 
 // Phase 1 deliverables. Flip each to true the day the asset actually exists.
@@ -95,6 +95,14 @@ export default async function LibraryPage() {
           body="The whole book, print-ready, yours to keep."
           href="/api/workbook/download"
           cta="Download"
+          ready={PDF_READY}
+        />
+        <Tile
+          icon={<FileCode className="h-5 w-5" />}
+          title="Take it offline"
+          body="The interactive workbook as a single file — exercises still mark themselves, with no internet needed."
+          href="/api/workbook/download?format=html"
+          cta="Download the interactive version"
           ready={PDF_READY}
         />
         {hasAudio ? (
