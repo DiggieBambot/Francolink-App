@@ -19,11 +19,11 @@ import { BookOpen, Headphones, Download, FileCode, ArrowRight, Lock } from "luci
 import { siteUrl } from "@/lib/site/hosts";
 
 // Phase 1 deliverables. Flip each to true the day the asset actually exists.
-// The PDF is generated (89 pages) and the reader is live; the audio pack has
-// not been recorded yet, so that tile still says so rather than 404ing.
+// All three now do: the PDF (76 pages), the online reader, and the audio pack
+// (122 renders in the private workbook-audio bucket, mastered to -20 dBFS).
 const PDF_READY = true;
 const READER_READY = true;
-const AUDIO_READY = false;
+const AUDIO_READY = true;
 
 export const metadata: Metadata = {
   title: "My workbook | FrancoLink",
