@@ -24,7 +24,7 @@ export function renderWorkbookDelivery(
   hasAudio: boolean
 ): RenderedEmail {
   const audioLine = hasAudio
-    ? "<p style=\"margin:0 0 16px 0;font-size:16px;\">Your <strong>audio pack</strong> is in there too — every dialogue read at natural speed and again slowly, so you can hear the liaisons rather than guess at them.</p>"
+    ? "<p style=\"margin:0 0 16px 0;font-size:16px;\">Your <strong>audio pack</strong> is in there too — every dialogue read at natural speed and again slowly, plus the pronunciation drills — so you can hear the liaisons rather than guess at them.</p>"
     : "";
 
   const bodyHtml = `

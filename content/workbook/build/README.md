@@ -52,3 +52,32 @@ Two things learned the hard way and encoded in `tts.py`:
 Clips are served by `/api/workbook/audio/[clip]`, which checks the buyer owns
 `audio_fpp` and returns a 30-minute signed URL. The bucket is private; the
 reader shows non-buyers what exists on that section and offers the $17 pack.
+
+
+### The pack as shipped — 122 renders, not 124
+
+Generation stopped two clips short when the Inworld account ran out of
+credits, and the decision was not to top up. What shipped:
+
+| | clips | slow pass |
+|---|---|---|
+| dialogues | 25 | 25 |
+| conjugations | 15 | 15 |
+| pronunciation drills | 12 | 11 — `1.2-accents` is normal only |
+| survival phrases | 19 of 20 | none, by design |
+
+The missing pieces are `0.1-phrase-19` ("Combien ça coûte ?") and
+`1.2-accents-slow`. Both were deleted from the bucket rather than left as
+unmastered leftovers from an earlier run, so the bucket matches
+`src/lib/workbook/content/audio.json` exactly: 122 and 122.
+
+The copy was corrected to match. "Every dialogue and pronunciation drill,
+read at natural speed and again slowly" was half true — every dialogue does
+carry both speeds, one drill does not, and phrases are single-speed because a
+slow "Bonjour" is not a lesson. Fixed on the sales page, the library tiles,
+the claim screen, the delivery email, and in `digital_products.description`,
+which is the sentence Stripe shows at checkout.
+
+To finish the pack later: add credits, run `tts.py build "Étienne"` (it skips
+what exists), then `master_audio.py` and `upload_audio.py`, and add the two
+ids back to `audio.json`.

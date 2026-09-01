@@ -109,7 +109,7 @@ export default async function LibraryPage() {
           <Tile
             icon={<Headphones className="h-5 w-5" />}
             title="Audio pack"
-            body="Every dialogue and drill, at natural speed and again slowly."
+            body="Every dialogue twice — natural speed and slow — plus the pronunciation drills and the survival phrases."
             href="/workbook/read#audio"
             cta="Listen"
             ready={AUDIO_READY}
@@ -118,7 +118,7 @@ export default async function LibraryPage() {
           <Tile
             icon={<Lock className="h-5 w-5" />}
             title="Audio pack"
-            body="Hear every dialogue and pronunciation drill read aloud, twice."
+            body="Hear every dialogue read aloud twice — natural speed and slow — plus the pronunciation drills."
             href={siteUrl("/francais-pas-a-pas")}
             cta="Add it — $17"
             muted

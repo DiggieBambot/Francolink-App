@@ -440,9 +440,10 @@ export default function Page() {
               </h3>
               <p className="muted">
                 Add the audio pack for the liaison, the nasal vowels and the
-                French <em>u</em> — every dialogue and drill read at natural
-                speed, then again slowly. Optional, added at checkout, not
-                needed to use the book.
+                French <em>u</em> — every dialogue read at natural speed and then
+                again slowly, plus the pronunciation drills and the survival
+                phrases. Optional, added at checkout, not needed to use the
+                book.
               </p>
             </div>
             <div className="audio-price">

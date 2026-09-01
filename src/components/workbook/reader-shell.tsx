@@ -255,8 +255,11 @@ function AudioForSection({ clips, owned }: { clips: Clip[]; owned: boolean }) {
         <>
           <p className="text-sm text-muted-foreground">
             {clips.length === 1 ? "There is a recording" : `There are ${clips.length} recordings`}{" "}
-            for this section — read at natural speed and again slowly. Liaison and
-            nasal vowels are hard to learn from a page.
+            for this section
+            {/* Only promise the slow pass where it exists: the survival
+                phrases are single-speed by design, and one drill is too. */}
+            {clips.some((c) => c.slow) ? " — read at natural speed and again slowly" : ""}.
+            {" "}Liaison and nasal vowels are hard to learn from a page.
           </p>
           <Link href="/workbook" className="mt-3 inline-block text-sm font-medium text-primary underline-offset-4 hover:underline">
             Add the audio pack — $17

@@ -135,7 +135,7 @@ export function ClaimWorkbook({
         {hasAudio && (
           <li className="flex items-center gap-2">
             <Headphones className="h-4 w-4 shrink-0 text-primary" />
-            <span>Audio pack — every dialogue, natural speed and slow</span>
+            <span>Audio pack — every dialogue twice, plus the drills</span>
           </li>
         )}
       </ul>
