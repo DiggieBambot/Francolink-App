@@ -70,7 +70,10 @@ for b in blocks:
     rows = b["rows"]
     if len(rows) > 5 and len(rows[0]) == 3 and "Prononciation" in " ".join(rows[0]):
         for i, r in enumerate(rows[1:], 1):
-            add(f"0.1-phrase-{i:02d}", r[0], "phrase", section="s0-1")
+            # No slow pass: "Bonjour" read slowly is not a lesson, and the
+            # model is erratic on one- and two-word inputs — several slow
+            # takes came back SHORTER than their normal counterpart.
+            add(f"0.1-phrase-{i:02d}", r[0], "phrase", slow=False, section="s0-1")
 
 # --- dialogues -------------------------------------------------------------
 # One clip per dialogue, not per line: the point is to hear a conversation.

@@ -3,140 +3,133 @@
   "id": "0.1-phrase-01",
   "text": "Bonjour",
   "kind": "phrase",
-  "slow": true,
+  "slow": false,
   "section": "s0-1"
  },
  {
   "id": "0.1-phrase-02",
   "text": "Salut",
   "kind": "phrase",
-  "slow": true,
+  "slow": false,
   "section": "s0-1"
  },
  {
   "id": "0.1-phrase-03",
   "text": "Au revoir",
   "kind": "phrase",
-  "slow": true,
+  "slow": false,
   "section": "s0-1"
  },
  {
   "id": "0.1-phrase-04",
   "text": "Merci",
   "kind": "phrase",
-  "slow": true,
+  "slow": false,
   "section": "s0-1"
  },
  {
   "id": "0.1-phrase-05",
   "text": "S'il vous plaît",
   "kind": "phrase",
-  "slow": true,
+  "slow": false,
   "section": "s0-1"
  },
  {
   "id": "0.1-phrase-06",
   "text": "De rien",
   "kind": "phrase",
-  "slow": true,
+  "slow": false,
   "section": "s0-1"
  },
  {
   "id": "0.1-phrase-07",
   "text": "Oui, Non",
   "kind": "phrase",
-  "slow": true,
+  "slow": false,
   "section": "s0-1"
  },
  {
   "id": "0.1-phrase-08",
   "text": "Excusez-moi",
   "kind": "phrase",
-  "slow": true,
+  "slow": false,
   "section": "s0-1"
  },
  {
   "id": "0.1-phrase-09",
   "text": "Pardon",
   "kind": "phrase",
-  "slow": true,
+  "slow": false,
   "section": "s0-1"
  },
  {
   "id": "0.1-phrase-10",
   "text": "Je suis désolé",
   "kind": "phrase",
-  "slow": true,
+  "slow": false,
   "section": "s0-1"
  },
  {
   "id": "0.1-phrase-11",
   "text": "Comment ça va ?",
   "kind": "phrase",
-  "slow": true,
+  "slow": false,
   "section": "s0-1"
  },
  {
   "id": "0.1-phrase-12",
   "text": "Ça va bien, merci",
   "kind": "phrase",
-  "slow": true,
+  "slow": false,
   "section": "s0-1"
  },
  {
   "id": "0.1-phrase-13",
   "text": "Je m'appelle",
   "kind": "phrase",
-  "slow": true,
+  "slow": false,
   "section": "s0-1"
  },
  {
   "id": "0.1-phrase-14",
   "text": "Enchanté",
   "kind": "phrase",
-  "slow": true,
+  "slow": false,
   "section": "s0-1"
  },
  {
   "id": "0.1-phrase-15",
   "text": "Je ne comprends pas",
   "kind": "phrase",
-  "slow": true,
+  "slow": false,
   "section": "s0-1"
  },
  {
   "id": "0.1-phrase-16",
   "text": "Je ne sais pas",
   "kind": "phrase",
-  "slow": true,
+  "slow": false,
   "section": "s0-1"
  },
  {
   "id": "0.1-phrase-17",
   "text": "Parlez-vous anglais ?",
   "kind": "phrase",
-  "slow": true,
+  "slow": false,
   "section": "s0-1"
  },
  {
   "id": "0.1-phrase-18",
   "text": "Pouvez-vous répéter ?",
   "kind": "phrase",
-  "slow": true,
-  "section": "s0-1"
- },
- {
-  "id": "0.1-phrase-19",
-  "text": "Combien ça coûte ?",
-  "kind": "phrase",
-  "slow": true,
+  "slow": false,
   "section": "s0-1"
  },
  {
   "id": "0.1-phrase-20",
   "text": "J'ai besoin d'aide",
   "kind": "phrase",
-  "slow": true,
+  "slow": false,
   "section": "s0-1"
  },
  {
@@ -346,7 +339,7 @@
   "id": "1.2-accents",
   "text": "été, père, fête, forêt, où, garçon, à Paris",
   "kind": "drill",
-  "slow": true,
+  "slow": false,
   "section": "s1-2"
  },
  {

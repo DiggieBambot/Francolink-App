@@ -14,12 +14,58 @@ so every diagnostic is generated at both speeds.
   python3 tts.py test          # ~28 clips: 4 voices + the hard sounds
   python3 tts.py build         # the full pack, once a voice is chosen
 """
-import base64, json, os, pathlib, subprocess, sys, tempfile
+import base64, json, math, os, pathlib, re, shutil, subprocess, sys, tempfile
 
 KEY = os.environ.get("INWORLD_API_KEY")
 OUT = pathlib.Path(__file__).parent / "audio"
 API = "https://api.inworld.ai/tts/v1/voice"
 VOICES = ["Hélène", "Alain", "Mathieu", "Étienne"]
+
+def plausible_seconds(text):
+    """Roughly how long this should take at an unhurried reading pace."""
+    return max(0.9, len(text) / 12.0)
+
+def say_stable(text, voice, speed, path, tries=3):
+    """Generate a short clip a few times and keep the most plausible take.
+
+    The model is unstable on one- and two-word inputs: "Oui, Non" came back at
+    8.3 seconds, "Pardon" at 5.4. Same text, same settings, wildly different
+    output — so the fix is not better prompting, it is picking from a few.
+    Only used where it matters; long clips are consistent and generated once.
+    """
+    import tempfile as _tf
+    want = plausible_seconds(text)
+    best = None
+    for _ in range(tries):
+        with _tf.NamedTemporaryFile(suffix=".m4a", delete=False) as f:
+            cand = pathlib.Path(f.name)
+        cand.unlink(missing_ok=True)
+        r = say(text, voice, speed, cand)
+        if r.startswith("ERROR") or not cand.exists():
+            continue
+        d = _duration(cand)
+        if d is None:
+            cand.unlink(missing_ok=True); continue
+        score = abs(math.log(d / want)) if d > 0 else 99
+        if best is None or score < best[0]:
+            if best: best[1].unlink(missing_ok=True)
+            best = (score, cand, d)
+        else:
+            cand.unlink(missing_ok=True)
+        if score < 0.30:            # close enough; stop paying for more
+            break
+    if not best:
+        return "ERROR no usable take"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    shutil.move(str(best[1]), str(path))
+    return f"{path.stat().st_size // 1024}KB ({best[2]:.1f}s)"
+
+
+def _duration(p):
+    r = subprocess.run(["afinfo", str(p)], capture_output=True, text=True)
+    m = re.search(r"estimated duration:\s*([\d.]+)", r.stdout)
+    return float(m.group(1)) if m else None
+
 
 def say(text, voice, speed, path):
     """POST through curl rather than urllib.
@@ -118,7 +164,8 @@ def build(voice):
         speeds = [(1.0, "normal")] + ([(0.65, "slow")] if c["slow"] else [])
         for rate, tag in speeds:
             path = pack / f"{c['id']}-{tag}.m4a"
-            r = say(c["text"], voice, rate, path)
+            gen = say_stable if len(c["text"]) < 30 else say
+            r = gen(c["text"], voice, rate, path)
             if r == "cached":
                 skipped += 1
             elif r.startswith("ERROR"):
