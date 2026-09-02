@@ -23,6 +23,7 @@
 // Usage:
 //   npx tsx --env-file=.env.local scripts/purge-spam-accounts.mjs
 //   npx tsx --env-file=.env.local scripts/purge-spam-accounts.mjs --min-score=8
+//   npx tsx --env-file=.env.local scripts/purge-spam-accounts.mjs --include-tutors
 //   npx tsx --env-file=.env.local scripts/purge-spam-accounts.mjs --apply --confirm-delete
 
 import { writeFileSync } from "node:fs";
@@ -35,6 +36,11 @@ import {
 
 const APPLY = process.argv.includes("--apply");
 const CONFIRMED = process.argv.includes("--confirm-delete");
+// Tutor-role accounts are protected by default. The bots register as tutors
+// too — a tutor account mints an invite code and can be listed — so this opens
+// a narrow path to them, gated on having no students, no public profile and no
+// activity. A real teacher who has ever taught anyone is unreachable this way.
+const INCLUDE_TUTORS = process.argv.includes("--include-tutors");
 const MIN_SCORE = Number(
   process.argv.find((a) => a.startsWith("--min-score="))?.split("=")[1] ?? AUTO_DECLINE_THRESHOLD
 );
@@ -99,6 +105,13 @@ async function main() {
     canonCount.set(c, (canonCount.get(c) || 0) + 1);
   }
 
+  // Who has students, and who is publicly listed — the two things that make a
+  // tutor account unmistakably real.
+  const tutorLinks = await readAll("tutor_students", "tutor_id").catch(() => []);
+  const hasStudents = new Set(tutorLinks.map((r) => r.tutor_id));
+  const profiles = await readAll("tutor_public_profiles", "user_id").catch(() => []);
+  const isListed = new Set(profiles.map((r) => r.user_id));
+
   const targets = [];
   const flaggedPrivileged = [];
   const skipped = { protected: 0, engaged: 0, clean: 0 };
@@ -112,9 +125,23 @@ async function main() {
       : risk.reasons;
 
     if (score < MIN_SCORE) { skipped.clean++; continue; }
-    if (PROTECTED_ROLES.has(String(u.role || "").toUpperCase())) {
-      skipped.protected++;
-      flaggedPrivileged.push({ u, score, reasons });
+    const role = String(u.role || "").toUpperCase();
+    if (PROTECTED_ROLES.has(role)) {
+      // A tutor with students or a public profile is real, full stop — no
+      // score gets to overrule that.
+      const deletableTutor =
+        INCLUDE_TUTORS &&
+        role === "TUTOR" &&
+        !hasStudents.has(u.id) &&
+        !isListed.has(u.id) &&
+        !isEngaged(u, progressIds, sessionIds);
+
+      if (!deletableTutor) {
+        skipped.protected++;
+        flaggedPrivileged.push({ u, score, reasons });
+        continue;
+      }
+      targets.push({ u, score, reasons: [...reasons, "empty_tutor_account"] });
       continue;
     }
     if (isEngaged(u, progressIds, sessionIds)) { skipped.engaged++; continue; }

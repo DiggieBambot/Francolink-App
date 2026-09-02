@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createServerClient } from "@supabase/ssr";
 import { createClient as createServiceRoleClient } from "@supabase/supabase-js";
 import { sendWelcomeOnce } from "@/lib/email/transactional";
+import { assessSignup, AUTO_DECLINE_THRESHOLD } from "@/lib/auth/signup-risk";
 
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = new URL(request.url);
@@ -86,7 +87,35 @@ export async function GET(request: NextRequest) {
       // isn't already a TUTOR/ADMIN. Brand-new Google users may have no row yet,
       // so upsert (create-or-update) rather than update.
       const alreadyPrivileged = profile?.role === "TUTOR" || profile?.role === "ADMIN";
-      if (next.startsWith("/tutor") && !alreadyPrivileged) {
+
+      // Score before granting the role. `next` is a query parameter the caller
+      // controls, so this branch is a self-service role grant: anyone who sends
+      // /auth/callback?next=/tutor becomes a TUTOR and gets an invite code, no
+      // verification anywhere. That is how 94 scripted accounts ended up
+      // holding tutor invite codes — a tutor account is more useful to a bot
+      // than a student one, since it mints a credential and can be listed.
+      //
+      // A flagged account still signs in; it just stays a plain USER instead of
+      // being handed a role. Someone real who trips this can be promoted by an
+      // admin, which is a far cheaper mistake than auto-granting the role.
+      const tutorRisk = assessSignup({
+        email: user.email ?? "",
+        name:
+          user.user_metadata?.full_name ||
+          user.user_metadata?.name ||
+          null,
+      });
+      const tutorGrantAllowed = tutorRisk.score < AUTO_DECLINE_THRESHOLD;
+
+      if (next.startsWith("/tutor") && !alreadyPrivileged && !tutorGrantAllowed) {
+        console.warn("🚫 Refused OAuth tutor role grant:", {
+          email: user.email,
+          score: tutorRisk.score,
+          reasons: tutorRisk.reasons,
+        });
+      }
+
+      if (next.startsWith("/tutor") && !alreadyPrivileged && tutorGrantAllowed) {
         // Privileged writes need the service-role client (RLS would block a
         // self role-change, and a new user has no row for RLS to match).
         const admin = createServiceRoleClient(
