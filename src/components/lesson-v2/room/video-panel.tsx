@@ -30,28 +30,71 @@ type Phase =
   | "unavailable";
 
 /**
+ * Pull a readable string out of whatever was thrown.
+ *
+ * daily-js rejects with plain objects, not Errors, so `String(e)` gives
+ * "[object Object]" — which is what the room showed, and it hid the only
+ * information worth having. Every shape gets dug through before giving up.
+ */
+function messageOf(e: unknown): string {
+  if (!e) return "";
+  if (typeof e === "string") return e;
+  if (e instanceof Error) return e.message;
+
+  const o = e as Record<string, unknown>;
+  for (const k of ["errorMsg", "message", "msg", "error", "reason", "type"]) {
+    const v = o[k];
+    if (typeof v === "string" && v) return v;
+    // Daily nests: { error: { msg: "..." } }
+    if (v && typeof v === "object") {
+      const inner = messageOf(v);
+      if (inner) return inner;
+    }
+  }
+  try {
+    const json = JSON.stringify(e);
+    if (json && json !== "{}") return json;
+  } catch {
+    /* circular */
+  }
+  return "";
+}
+
+/**
  * Turn a browser or Daily error into something the person can act on.
  *
  * The raw text is still logged. What is shown is the sentence that tells them
  * what to DO — a denied camera and an unreachable server are both "couldn't
  * start video" and have nothing else in common.
  */
-function friendlyError(raw: string): string {
+function friendlyError(e: unknown): string {
+  const raw = messageOf(e);
   const m = raw.toLowerCase();
+
   if (m.includes("permission") || m.includes("notallowed") || m.includes("denied")) {
     return "Your browser blocked the camera. Allow it in the address bar, then rejoin.";
   }
-  if (m.includes("notfound") || m.includes("device")) {
+  if (m.includes("notfound") || m.includes("devices-not-found")) {
     return "No camera or microphone found. Plug one in, then rejoin.";
   }
-  if (m.includes("notreadable") || m.includes("in use")) {
+  if (m.includes("notreadable") || m.includes("in use") || m.includes("device-in-use")) {
     return "Your camera is in use by another app or tab. Close it, then rejoin.";
   }
   if (m.includes("duplicate")) {
     return "Video was already running. Rejoin to restart it.";
   }
+  if (m.includes("timeout") || m.includes("timed out")) {
+    return "Video took too long to connect — this is usually a firewall or VPN blocking it. Try another network.";
+  }
+  if (m.includes("expired") || m.includes("not-allowed") || m.includes("rejected")) {
+    return "This room's video session expired. Reload the page to start a new one.";
+  }
+  // Nothing matched: show the raw text rather than a comforting non-answer.
   return raw || "Couldn't start video.";
 }
+
+/** A join that never resolves is worse than one that fails. */
+const JOIN_TIMEOUT_MS = 25_000;
 
 function Tile({
   participant,
@@ -209,17 +252,25 @@ export function VideoPanel({ sessionId }: { sessionId: string }) {
         .on("participant-left", update)
         .on("joined-meeting", update)
         .on("error", (e) => {
+          // Logged whole, not just the message: when the friendly text is
+          // wrong, this object is the only way to find out why.
           console.error("[video] daily error", e);
-          setError(
-            friendlyError(
-              (e as { errorMsg?: string } | undefined)?.errorMsg ??
-                "Video disconnected."
-            )
-          );
+          setError(friendlyError(e) || "Video disconnected.");
           setPhase("error");
         });
 
-      await call.join({ url: body.roomUrl, token: body.token });
+      // daily-js can sit in "joining" indefinitely when UDP is blocked — a
+      // corporate firewall, some VPNs, a few mobile networks. Failing with an
+      // explanation beats a spinner nobody can interpret.
+      await Promise.race([
+        call.join({ url: body.roomUrl, token: body.token }),
+        new Promise((_, reject) =>
+          setTimeout(
+            () => reject(new Error("timeout: video did not connect")),
+            JOIN_TIMEOUT_MS
+          )
+        ),
+      ]);
       setPhase("joined");
       sync(call);
     } catch (e) {
@@ -227,8 +278,7 @@ export function VideoPanel({ sessionId }: { sessionId: string }) {
       // words for a denied camera, a blocked browser and an expired room, and
       // the person who has to act on it is usually the one reading it.
       console.error("[video] join failed", e);
-      const raw = e instanceof Error ? e.message : String(e);
-      setError(friendlyError(raw));
+      setError(friendlyError(e));
       setPhase("error");
       const call = callRef.current;
       callRef.current = null;

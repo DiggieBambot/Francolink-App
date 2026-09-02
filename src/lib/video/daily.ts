@@ -71,6 +71,22 @@ export async function ensureRoom(sessionId: string): Promise<string> {
 
   try {
     const existing = await daily(`/rooms/${name}`);
+    const exp = existing?.config?.exp as number | undefined;
+
+    // An expired Daily room still answers GET but refuses joins, so returning
+    // it unchanged would break video permanently for any session older than
+    // the TTL — and it would fail as a long hang, not a clear error. Push the
+    // expiry out instead of recreating: the room name is derived from the
+    // session, so the same room is the right one for the whole lesson.
+    if (exp && exp * 1000 < Date.now() + 5 * 60_000) {
+      await daily(`/rooms/${name}`, {
+        method: "POST",
+        body: JSON.stringify({
+          properties: { exp: Math.floor(Date.now() / 1000) + ROOM_TTL_SECONDS },
+        }),
+      });
+    }
+
     return existing.url as string;
   } catch {
     // Not found (or unreadable) — fall through and create it.
