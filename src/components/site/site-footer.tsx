@@ -55,7 +55,7 @@ export async function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-6">
           <div className="lg:col-span-2">
             <Image
-              src="/dark-logo-transparent.png"
+              src="/dark-logo-transparent.webp"
               alt="FrancoLink"
               width={200}
               height={56}

@@ -326,7 +326,7 @@ function HomeContent() {
             <div className="col-span-2 md:col-span-1">
               <div className="mb-5">
                 <Image
-                  src="/dark-logo-transparent.png"
+                  src="/dark-logo-transparent.webp"
                   alt="Francolink"
                   width={180}
                   height={60}

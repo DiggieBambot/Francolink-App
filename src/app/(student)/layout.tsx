@@ -58,7 +58,7 @@ export default async function StudentLayout({
       {/* Logo */}
       <div className="h-16 flex items-center px-5 border-b border-gray-100">
         <Link href="/dashboard" className="flex items-center group">
-          <Image src="/logo-new.png" alt="Francolink" width={242} height={44} className="group-hover:scale-[1.02] transition-transform" priority />
+          <Image src="/logo-new.webp" alt="Francolink" width={242} height={44} className="group-hover:scale-[1.02] transition-transform" priority />
         </Link>
       </div>
 
@@ -163,7 +163,7 @@ export default async function StudentLayout({
           <div className="flex items-center gap-3">
             <MobileSidebar>{sidebarContent}</MobileSidebar>
             <Link href="/dashboard" className="flex items-center">
-              <Image src="/logo-new.png" alt="Francolink" width={176} height={32} priority />
+              <Image src="/logo-new.webp" alt="Francolink" width={176} height={32} priority />
             </Link>
           </div>
           <div className="flex items-center gap-2">

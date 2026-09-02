@@ -1,6 +1,10 @@
 /* src/app/globals.css */
 
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap');
+/* Mulish and Roboto are self-hosted by next/font/google in app/layout.tsx.
+   A second copy used to be pulled in here over a render-blocking @import,
+   which blocked first paint on a fonts.googleapis.com -> fonts.gstatic.com
+   round trip that next/font already made unnecessary. On every marketing page
+   the LCP element is a text node, so it was waiting on exactly this. */
 @import "tailwindcss";
 
 /* ============================================

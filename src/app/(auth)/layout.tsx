@@ -24,7 +24,7 @@ export default function AuthLayout({
           {/* Logo */}
           <div>
             <Link href="/" className="flex items-center">
-              <Image src="/logo-new.png" alt="Francolink" width={160} height={46} className="brightness-0 invert opacity-90" priority />
+              <Image src="/logo-new.webp" alt="Francolink" width={160} height={46} className="brightness-0 invert opacity-90" priority />
             </Link>
           </div>
 

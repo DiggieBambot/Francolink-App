@@ -8,7 +8,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <Link href="/" className="inline-flex items-center">
             <Image
-              src="/dark-logo-transparent.png"
+              src="/dark-logo-transparent.webp"
               alt="Francolink"
               width={180}
               height={60}

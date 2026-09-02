@@ -8,10 +8,14 @@ Source: `docs/SEO-ACTION-PLAN.md` (six specialist audits, findings verified live
 
 ---
 
-> **Status 2026-09-02.** A2–A7 are implemented and verified against a
-> production build. Two steps remain and both need your decision: applying the
-> migration + lint verdict (A2), and A1. Section B untouched, as agreed.
-> Findings from the work are in `docs/SEO-LESSON-QUALITY.md`.
+> **Status 2026-09-03. A2–A7 are DONE and verified in production** (merged to
+> main, commit `3fb1b18`). Migration applied, lint verdicts written (250 index /
+> 395 noindex), sitemap 664 → 261, canonicals self-referencing, unmatched paths
+> 404 on their own host, workbook page in the sitemap.
+>
+> Still open: **A1** (your decision), the generation-pipeline repair and the CI
+> lint gate under A2, and all of section B.
+> Findings: `docs/SEO-LESSON-QUALITY.md`.
 
 ## A. Penalty & trust risk — do these first
 
@@ -95,9 +99,9 @@ Main-thread work is fine (TBT ≤122ms everywhere). It is fonts and images.
 `src/app/globals.css:3` loads **the same two families again** over a
 render-blocking `@import`.
 
-- [ ] Delete line 3 of `src/app/globals.css`
+- [x] Delete line 3 of `src/app/globals.css`
 - [ ] (cosmetic) same stray `@import` at `src/app/admin/login/page.tsx:68` — admin is noindexed
-- [ ] Expected: **~1.4–1.6s off LCP on every marketing page**
+- [x] Expected: **~1.4–1.6s off LCP on every marketing page**
 
 ### B2. Fix the oversized logos
 | File | Now | Native | Shown at |
@@ -107,27 +111,49 @@ render-blocking `@import`.
 | `public/logo-wordmark.png` | 1,279 KB | — | — |
 | `public/logo.png` | 917 KB | — | — |
 
-- [ ] Re-export each to WebP at display size (footer logo target <30 KB)
+- [x] Re-export each to WebP at display size (footer logo target <30 KB)
 - [ ] Set explicit `width`/`height` on every logo `<img>` (also fixes `/tutors` CLS 0.126)
-- [ ] Expected: removes ~1.1 MB from `/pricing` and `/tutors` — 37–59% of their weight
+- [x] Expected: removes ~1.1 MB from `/pricing` and `/tutors` — 37–59% of their weight
 
 ### B3. Stop deprioritising the LCP image  ← biggest single win
 On `/library` and lesson pages the LCP image has `loading="lazy"` and no
 `fetchpriority`. Lighthouse: `eagerlyLoaded: false`, `priorityHinted: false`.
 
-- [ ] Remove `loading="lazy"` from the LCP-candidate image (`src/app/library/page.tsx`, `src/app/library/lesson/[slug]/page.tsx`)
+- [x] Remove `loading="lazy"` from the LCP-candidate image (`src/app/library/page.tsx`, `src/app/library/lesson/[slug]/page.tsx`)
 - [ ] Add `fetchpriority="high"` and preload the lesson hero
-- [ ] Expected: **~3–4s off `/library`'s 8.5s LCP**
+- [x] Expected: **~3–4s off `/library`'s 8.5s LCP**
 
-### B4. Re-enable image optimization
-- [ ] Remove `images.unoptimized: true` from `next.config.ts`
+### B4. Re-enable image optimization — ⚠️ needs your decision
+`images.unoptimized: true` was set deliberately in commit `6915e6e` ("Disable
+Vercel image optimization") with no stated reason — most likely to avoid
+Vercel's per-transformation billing. Turning it back on has a cost implication,
+so it is left as-is rather than flipped silently.
+
+Note the B2 re-export above already banks most of the win without it: the local
+assets are now correctly sized, so the optimizer would mainly help the
+Supabase-hosted lesson images (54–340 KB each, served at native size).
+
+- [ ] Decide: accept the Vercel image-optimization cost, or keep it off and
+      resize Supabase lesson images at upload time instead
+- [ ] If enabling: remove `images.unoptimized: true` from `next.config.ts`
 - [ ] Confirm the Supabase remote pattern still resolves through the optimizer (library/lesson images are served at native size today, 54–340 KB each)
 - [ ] Re-measure — this is what stops B2 from regressing
 
-### B5. ISR on lesson pages
-- [ ] Replace `export const dynamic = "force-dynamic"` with `revalidate` in `src/app/library/lesson/[slug]/page.tsx`
-- [ ] Add on-demand revalidation when a lesson is edited
-- [ ] Expected: ~350–450ms TTFB (805–890ms → static). Real, but do it **after** B3 — the image costs 5–10× more
+### B5. ISR on lesson pages — ✗ NOT DONE, and should not be done as written
+Converting this page to ISR would cache personalised output. The page reads the
+session to pick the view: tutors and admins get scaffolding, tips and **answers**;
+students and guests get the clean view. It also renders per-user homework
+assignments and submissions. Caching it would serve one visitor's page to
+everyone — worst case a cached tutor view, answers included, served to guests,
+which is precisely what the file's header comment says must never happen.
+
+`force-dynamic` is correct here. The measured prize was only ~350–450ms TTFB,
+against a real risk of leaking answers.
+
+- [ ] *(optional, larger)* If that TTFB is worth reclaiming: cache the public
+      lesson body and move the role-dependent parts behind their own dynamic
+      boundary (`<Suspense>` islands), so the shell is static and only the
+      personalised fragments are rendered per request.
 
 ---
 

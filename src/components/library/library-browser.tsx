@@ -60,7 +60,7 @@ export function LibraryBrowser({ lessons }: { lessons: BrowserLesson[] }) {
       <div className="mx-auto max-w-6xl px-6 py-12">
         <LevelExplorer lessons={langLessons}>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {categories.map((cat) => {
+            {categories.map((cat, i) => {
               const agg = byCat.get(cat.slug);
               const count = agg?.count || 0;
               const levels = agg ? LEVELS.filter((l) => agg.levels.has(l)) : [];
@@ -78,6 +78,11 @@ export function LibraryBrowser({ lessons }: { lessons: BrowserLesson[] }) {
                         alt={cat.name}
                         fill
                         sizes="(max-width:640px) 100vw, 380px"
+                        // The first row is above the fold and holds the LCP
+                        // element. Left lazy, the browser deprioritised the one
+                        // image the score depends on: ~3.9s of load delay before
+                        // ~4.0s of loading, for an 8.5s LCP on this page.
+                        priority={i < 3}
                         className="object-cover transition duration-500 group-hover:scale-105"
                       />
                     ) : null}

@@ -27,7 +27,7 @@ export function SiteHeader() {
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link href="/" className="flex items-center shrink-0">
             <Image
-              src="/logo-new.png"
+              src="/logo-new.webp"
               alt="FrancoLink"
               width={200}
               height={44}

@@ -15,7 +15,7 @@ export function Logo({ className, size = "md", showText = true }: LogoProps) {
   return (
     <Link href="/" className={cn("flex items-center group", className)}>
       <Image
-        src={showText ? "/logo-new.png" : "/logo-icon.png"}
+        src={showText ? "/logo-new.webp" : "/logo-icon.webp"}
         alt="Francolink"
         width={showText ? Math.round(h * 5.5) : h}
         height={h}
