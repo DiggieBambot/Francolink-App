@@ -52,6 +52,7 @@ function Tile({
   rounded = "rounded-lg",
 }: {
   participant: DailyParticipant | null;
+  /** Shown only until the person actually arrives — see `name` below. */
   label: string;
   /** Always true for your own tile — hearing yourself is unusable. */
   muted?: boolean;
@@ -64,28 +65,38 @@ function Tile({
 
   const camOff = participant?.tracks?.video?.state !== "playable";
 
+  // The person's own name, which Daily carries from the meeting token. "Them"
+  // is a placeholder for the seconds before anyone has joined, not a label to
+  // teach beside — a student should see their tutor's name on the tile.
+  const name = participant?.user_name?.trim() || label;
+
   return (
-    <div className={cn("relative overflow-hidden bg-slate-800", rounded, className)}>
+    <div className={cn("relative overflow-hidden bg-slate-900", rounded, className)}>
+      {/* object-CONTAIN, not cover. The two sides are almost never the same
+          shape — a tutor on a laptop is 16:9 and a student on a phone is 9:16
+          — and cover crops the difference away, which on a portrait phone
+          means slicing off most of a face. Letterboxing against the dark
+          background shows the whole frame at whatever shape it arrives in. */}
       <video
         ref={videoRef}
         autoPlay
         playsInline
         muted
-        className={cn("h-full w-full object-cover", camOff && "hidden")}
+        className={cn("h-full w-full object-contain", camOff && "hidden")}
       />
       {!muted && <audio ref={audioRef} autoPlay playsInline />}
 
       {camOff && (
         <div className="flex h-full w-full flex-col items-center justify-center gap-1.5">
           <UserRound className="h-6 w-6 text-slate-600" />
-          <span className="text-[11px] font-semibold text-slate-400">
-            {participant ? "Camera off" : "Waiting…"}
+          <span className="px-2 text-center text-[11px] font-semibold text-slate-400">
+            {participant ? `${name} — camera off` : "Waiting…"}
           </span>
         </div>
       )}
 
-      <span className="absolute bottom-1 left-1 rounded bg-black/60 px-1.5 py-0.5 text-[10px] font-semibold text-white">
-        {label}
+      <span className="absolute bottom-1 left-1 max-w-[calc(100%-2rem)] truncate rounded bg-black/60 px-1.5 py-0.5 text-[10px] font-semibold text-white">
+        {name}
       </span>
 
       {participant && participant.tracks?.audio?.state !== "playable" && (
@@ -207,7 +218,7 @@ export function VideoStage() {
         <>
           <Tile
             participant={remote}
-            label="Them"
+            label="Your tutor"
             rounded="rounded-none"
             className="absolute inset-0"
           />
@@ -245,9 +256,22 @@ export function VideoRail() {
 
   return (
     <div className="border-b bg-slate-900 p-2">
-      <div className="grid grid-cols-2 gap-2">
-        <Tile participant={remote} label="Them" className="aspect-video" />
-        <Tile participant={local} label="You" muted className="aspect-video" />
+      {/* Fixed HEIGHT on small screens, not a fixed ratio: two 16:9 tiles
+          side by side on a phone are 100px tall each and the strip still ate
+          a quarter of the screen. A short strip keeps both faces without
+          taxing the material underneath. */}
+      <div className="grid h-24 grid-cols-2 gap-2 lg:h-auto">
+        <Tile
+          participant={remote}
+          label="Waiting…"
+          className="h-full lg:aspect-video lg:h-auto"
+        />
+        <Tile
+          participant={local}
+          label="You"
+          muted
+          className="h-full lg:aspect-video lg:h-auto"
+        />
       </div>
       <div className="mt-2">
         <VideoControls />

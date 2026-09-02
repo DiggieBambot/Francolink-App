@@ -87,6 +87,11 @@ export function RoomShell({
   canEndClass: boolean;
 }) {
   const [railOpen, setRailOpen] = useState(false);
+  // How much of the screen the mobile sheet takes. It starts SHORT on purpose:
+  // a sheet tall enough to read a long chat is a sheet that has hidden the
+  // lesson, and the lesson is what the class is about. Short by default,
+  // taller when someone actually wants to read — their choice, not ours.
+  const [sheetTall, setSheetTall] = useState(false);
   const [tab, setTab] = useState(railTabs[0]?.key ?? "chat");
   const { phase, elapsed } = useRoomVideo();
 
@@ -252,18 +257,28 @@ export function RoomShell({
         </button>
       ) : (
         <>
+          {/* No scrim. A scrim says "the thing behind this is disabled", and
+              the thing behind this is the lesson, which is still being taught.
+              Tapping the material should just work. */}
+          {/* Two heights, toggled by the grabber. Default is the short one so
+              the lesson keeps most of the screen — the previous 70dvh sheet,
+              stacked under the video strip, left the material a sliver. */}
           <div
-            className="fixed inset-0 z-40 bg-slate-900/30 lg:hidden"
-            onClick={() => setRailOpen(false)}
-          />
-          {/* A sheet, not a full-screen takeover: it stops at 70% so the
-              material stays visible behind it. Hiding the lesson to read one
-              chat message is what the old full-width rail did. */}
-          <div
-            className="fixed inset-x-0 bottom-0 z-50 flex h-[70dvh] flex-col rounded-t-2xl border-t bg-white shadow-2xl lg:hidden"
+            className={cn(
+              "fixed inset-x-0 bottom-0 z-50 flex flex-col rounded-t-2xl border-t bg-white shadow-2xl transition-[height] duration-200 lg:hidden",
+              sheetTall ? "h-[80dvh]" : "h-[42dvh]"
+            )}
             style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
           >
-            <div className="flex items-center justify-between border-b px-3 py-2">
+            <button
+              type="button"
+              onClick={() => setSheetTall((v) => !v)}
+              className="flex w-full shrink-0 items-center justify-center py-2"
+              aria-label={sheetTall ? "Shrink panel" : "Expand panel"}
+            >
+              <span className="h-1 w-10 rounded-full bg-slate-300" />
+            </button>
+            <div className="flex items-center justify-between border-b px-3 pb-2">
               <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700">
                 <Sparkles className="h-3.5 w-3.5" />
                 {peerName ?? "Live class"}
@@ -276,7 +291,10 @@ export function RoomShell({
                 ) : null}
                 <button
                   type="button"
-                  onClick={() => setRailOpen(false)}
+                  onClick={() => {
+                    setRailOpen(false);
+                    setSheetTall(false);
+                  }}
                   className="rounded p-1 text-slate-400 hover:bg-slate-100"
                   aria-label="Close"
                 >
