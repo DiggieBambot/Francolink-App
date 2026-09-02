@@ -39,7 +39,15 @@ export function TutorCard({ tutor }: { tutor: TutorCardData }) {
   const profileHref = `/tutors/${tutor.slug}`;
 
   return (
-    <article className="group relative bg-white rounded-2xl border border-gray-100 shadow-soft hover:shadow-medium hover:border-primary-100 transition-all overflow-hidden">
+    // @container, not sm:. The card is used in two places at once — as a
+    // full-width row in the directory, and in a three-up grid on the homepage
+    // — and Tailwind's sm: asks about the VIEWPORT, not the column. On a wide
+    // screen the grid columns are ~380px but sm: is still true, so the
+    // horizontal layout applied inside a box far too narrow for it and the
+    // 208px action column landed on top of the tutor's details. Container
+    // queries ask the only question that matters here: how much room do I
+    // actually have?
+    <article className="@container group relative bg-white rounded-2xl border border-gray-100 shadow-soft hover:shadow-medium hover:border-primary-100 transition-all overflow-hidden">
 
       {/* Shortlist heart. Pinned to the card corner rather than sitting in the
           action column: it is a different KIND of action from the two buttons
@@ -48,10 +56,10 @@ export function TutorCard({ tutor }: { tutor: TutorCardData }) {
       <FavoriteButton
         slug={tutor.slug}
         name={tutor.name}
-        className="absolute top-3 right-3 z-10"
+        className="absolute top-3 right-3 z-10 bg-white/90 backdrop-blur-sm"
       />
 
-      <div className="p-5 sm:p-6 flex flex-col sm:flex-row gap-5 sm:gap-6">
+      <div className="p-5 @lg:p-6 flex flex-col @lg:flex-row gap-5 @lg:gap-6">
         {/* ------------------------------------------------------------ PHOTO */}
         <Link
           href={profileHref}
@@ -64,10 +72,10 @@ export function TutorCard({ tutor }: { tutor: TutorCardData }) {
               width={128}
               height={128}
               unoptimized
-              className="w-28 h-28 sm:w-32 sm:h-32 object-cover"
+              className="w-28 h-28 @lg:w-32 @lg:h-32 object-cover"
             />
           ) : (
-            <div className="w-28 h-28 sm:w-32 sm:h-32 bg-primary flex items-center justify-center text-4xl font-heading font-extrabold text-white">
+            <div className="w-28 h-28 @lg:w-32 @lg:h-32 bg-primary flex items-center justify-center text-4xl font-heading font-extrabold text-white">
               {tutor.name.charAt(0).toUpperCase()}
             </div>
           )}
@@ -88,7 +96,7 @@ export function TutorCard({ tutor }: { tutor: TutorCardData }) {
 
         {/* ------------------------------------------------------------- INFO */}
         <div className="min-w-0 flex-1">
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 pr-10 @lg:pr-0">
             <Link href={profileHref} className="min-w-0">
               <h3 className="font-heading font-bold text-xl text-primary truncate group-hover:underline underline-offset-4">
                 {tutor.name}
@@ -151,7 +159,7 @@ export function TutorCard({ tutor }: { tutor: TutorCardData }) {
         </div>
 
         {/* ---------------------------------------------------------- ACTIONS */}
-        <div className="sm:w-52 shrink-0 flex flex-col gap-2.5 sm:border-l sm:border-gray-50 sm:pl-6 sm:justify-center">
+        <div className="@lg:w-52 shrink-0 flex flex-col gap-2.5 @lg:border-l @lg:border-gray-50 @lg:pl-6 @lg:justify-center">
           <Link
             href={`${profileHref}#book`}
             className="w-full text-center px-4 py-3 rounded-xl bg-primary text-white font-heading font-bold text-sm hover:bg-primary-600 transition-colors"
