@@ -287,12 +287,17 @@ export function VideoRail() {
         {/* Self-view inset. object-cover here on purpose: this tile only has
             to confirm you are in frame, and a crop is a fair trade for it
             being small. The remote tile never crops. */}
+        {/* Sized as a PROPORTION of the video block, not in fixed pixels.
+            Fixed sizes meant the inset stayed 96px wide whether the rail was
+            360px or a phone was 430px, so it read as a thumbnail rather than
+            a camera you could actually check yourself in. A percentage keeps
+            it the same visual weight at every width. */}
         <Tile
           participant={local}
           label="You"
           muted
           cover
-          className="absolute bottom-2 right-2 z-10 h-14 w-24 shadow-lg ring-1 ring-slate-700 lg:h-16 lg:w-28"
+          className="absolute bottom-2 right-2 z-10 aspect-video w-[34%] max-w-[11rem] shadow-lg ring-1 ring-slate-700 lg:w-[40%]"
         />
       </div>
 
