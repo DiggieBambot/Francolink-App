@@ -50,6 +50,7 @@ function Tile({
   muted,
   className,
   rounded = "rounded-lg",
+  cover = false,
 }: {
   participant: DailyParticipant | null;
   /** Shown only until the person actually arrives — see `name` below. */
@@ -58,6 +59,8 @@ function Tile({
   muted?: boolean;
   className?: string;
   rounded?: string;
+  /** Crop to fill instead of letterboxing. Only for the small self-view. */
+  cover?: boolean;
 }) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -82,7 +85,11 @@ function Tile({
         autoPlay
         playsInline
         muted
-        className={cn("h-full w-full object-contain", camOff && "hidden")}
+        className={cn(
+          "h-full w-full",
+          cover ? "object-cover" : "object-contain",
+          camOff && "hidden"
+        )}
       />
       {!muted && <audio ref={audioRef} autoPlay playsInline />}
 
@@ -227,6 +234,7 @@ export function VideoStage() {
             participant={local}
             label="You"
             muted
+            cover
             className="absolute bottom-20 right-4 z-10 aspect-video w-40 shadow-xl ring-2 ring-slate-900 sm:w-56"
           />
           <div className="absolute inset-x-0 bottom-5 z-20">
@@ -242,7 +250,17 @@ export function VideoStage() {
   );
 }
 
-/** The small view: two tiles above the rail's tabs. */
+/**
+ * The rail view: ONE large remote tile with your own camera inset in its
+ * corner.
+ *
+ * It used to be two tiles side by side. In a 360px column that gives each
+ * person about 170px of width, and since the two sides are rarely the same
+ * shape, both faces ended up small inside thick letterbox bars — a lot of
+ * black for very little person. Every video product converges on
+ * remote-large/self-inset for the same reason: you are looking at THEM, and
+ * your own camera only has to answer "is my face in frame".
+ */
 export function VideoRail() {
   const { phase, local, remote } = useRoomVideo();
 
@@ -255,25 +273,30 @@ export function VideoRail() {
   }
 
   return (
-    <div className="border-b bg-slate-900 p-2">
-      {/* Fixed HEIGHT on small screens, not a fixed ratio: two 16:9 tiles
-          side by side on a phone are 100px tall each and the strip still ate
-          a quarter of the screen. A short strip keeps both faces without
-          taxing the material underneath. */}
-      <div className="grid h-24 grid-cols-2 gap-2 lg:h-auto">
+    <div className="border-b bg-slate-900">
+      {/* Fixed height on phones so the strip cannot eat the lesson; 16:9 on
+          desktop where the rail has room to give. */}
+      <div className="relative h-32 w-full lg:aspect-video lg:h-auto">
         <Tile
           participant={remote}
           label="Waiting…"
-          className="h-full lg:aspect-video lg:h-auto"
+          rounded="rounded-none"
+          className="absolute inset-0"
         />
+
+        {/* Self-view inset. object-cover here on purpose: this tile only has
+            to confirm you are in frame, and a crop is a fair trade for it
+            being small. The remote tile never crops. */}
         <Tile
           participant={local}
           label="You"
           muted
-          className="h-full lg:aspect-video lg:h-auto"
+          cover
+          className="absolute bottom-2 right-2 z-10 h-14 w-24 shadow-lg ring-1 ring-slate-700 lg:h-16 lg:w-28"
         />
       </div>
-      <div className="mt-2">
+
+      <div className="py-2">
         <VideoControls />
       </div>
     </div>
