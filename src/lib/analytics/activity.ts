@@ -27,7 +27,14 @@ export type ActivityKind =
   | "homework_submitted"  // canonical funnel event for a graded homework submission
   | "homework_assign"
   | "class_request"
-  | "room_join";
+  | "room_join"
+  // Workbook funnel (PRD 8.7). "opened" is what the ">= 3 separate days"
+  // engagement metric is counted from, so it fires per section view, not once
+  // per session.
+  | "workbook_claimed"
+  | "workbook_section_opened"
+  | "workbook_exercise_attempted"
+  | "workbook_exercise_completed";
 
 // Events that other modules (games, homework, onboarding) may emit through the
 // client emitter at /api/activity/event. Keep this list in sync with the route's
@@ -42,6 +49,10 @@ export const CLIENT_EMITTABLE_KINDS: ActivityKind[] = [
   "lesson_view",
   "homework_submitted",
   "room_join",
+  "workbook_claimed",
+  "workbook_section_opened",
+  "workbook_exercise_attempted",
+  "workbook_exercise_completed",
 ];
 
 interface LogOpts {

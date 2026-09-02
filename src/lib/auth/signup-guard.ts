@@ -11,7 +11,7 @@
 // Scoring itself lives in ./signup-risk so it stays pure and testable.
 
 import { createClient as createServiceClient } from "@supabase/supabase-js";
-import { assessSignup, type SignupRisk } from "./signup-risk";
+import { assessSignup, AUTO_DECLINE_THRESHOLD, type SignupRisk } from "./signup-risk";
 
 export type { SignupRisk };
 
@@ -71,18 +71,32 @@ export async function recordRisk(userId: string, risk: SignupRisk): Promise<void
 }
 
 /**
- * The connection status a student should get when joining a tutor:
- * `active` for a clean account, `pending` for anything that scored at or above
- * the review threshold. `blocked` means don't create the row at all.
+ * The connection status a student should get when joining a tutor.
+ *
+ *   active   — clean, connects and mails the tutor exactly as before.
+ *   pending  — borderline. The tutor is asked; they know their own students
+ *              better than a heuristic does.
+ *   declined — confidently spam. Turned away without bothering the tutor, but
+ *              the row is still written so it appears under "Automatically
+ *              declined" and can be undone in one click. No mail either way.
+ *   blocked  — no row at all.
+ *
+ * The gap between pending and declined is the whole point: a tutor drowning in
+ * scripted requests is not being helped by a queue of them, and a heuristic
+ * confident enough to auto-decline should still have to show its work.
  */
 export async function joinStatusFor(
   userId: string
-): Promise<{ status: "active" | "pending"; blocked: boolean; risk: SignupRisk }> {
+): Promise<{ status: "active" | "pending" | "declined"; blocked: boolean; risk: SignupRisk }> {
   const risk = await assessUser(userId);
   if (risk.verdict !== "allow") await recordRisk(userId, risk);
-  return {
-    status: risk.verdict === "allow" ? "active" : "pending",
-    blocked: risk.verdict === "block",
-    risk,
-  };
+
+  const status =
+    risk.verdict === "allow"
+      ? "active"
+      : risk.score >= AUTO_DECLINE_THRESHOLD
+        ? "declined"
+        : "pending";
+
+  return { status, blocked: risk.verdict === "block", risk };
 }

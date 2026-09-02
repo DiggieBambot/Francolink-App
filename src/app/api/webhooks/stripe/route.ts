@@ -399,6 +399,39 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
     return;
   }
 
+  // A starter pack: three lessons, bought outright by someone with no plan.
+  if (session.metadata?.kind === 'starter_pack') {
+    if (session.payment_status !== 'paid') {
+      console.log('[webhook] starter pack checkout not yet paid:', session.id);
+      return;
+    }
+    // Idempotent in the database, on the session id — Stripe retries
+    // deliveries and a second one must not grant a second pack.
+    const { data: granted, error } = await supabase.rpc('grant_starter_pack', {
+      p_session_id: session.id,
+    });
+    if (error) {
+      console.error('[webhook] grant_starter_pack failed', session.id, error);
+      // Throw so Stripe retries: the student has paid and is owed the credits.
+      throw new Error(`grant_starter_pack failed: ${error.message}`);
+    }
+    console.log('[webhook] starter pack granted:', session.id, granted, 'lessons');
+    return;
+  }
+
+  // The workbook: a one-off digital sale, and the only checkout on the platform
+  // that a guest can complete. Nothing was written before Stripe -- see
+  // /api/checkout/workbook for why -- so this is where the order comes into
+  // existence.
+  if (session.metadata?.kind === 'workbook') {
+    if (session.payment_status !== 'paid') {
+      console.log('[webhook] workbook checkout not yet paid:', session.id);
+      return;
+    }
+    await handleWorkbookPurchase(session);
+    return;
+  }
+
   if (session.metadata?.kind !== 'lesson_booking') return; // a self-study subscription
 
   const bookingId = session.metadata?.booking_id || session.client_reference_id;
@@ -481,8 +514,19 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
   console.log('[webhook] booking confirmed:', bookingId);
 }
 
-/** Releases the slot when a student abandons checkout. */
+/** Releases the slot, or the pending pack row, when checkout is abandoned. */
 async function handleCheckoutExpired(session: Stripe.Checkout.Session) {
+  // A pack holds nothing scarce — no slot, no tutor time — so this is just
+  // bookkeeping, to stop abandoned rows looking like they might still pay.
+  if (session.metadata?.kind === 'starter_pack') {
+    await supabase
+      .from('starter_pack_purchases')
+      .update({ status: 'abandoned' })
+      .eq('stripe_checkout_session_id', session.id)
+      .eq('status', 'pending');
+    return;
+  }
+
   if (session.metadata?.kind !== 'lesson_booking') return;
   const bookingId = session.metadata?.booking_id || session.client_reference_id;
   if (!bookingId) return;
@@ -521,4 +565,146 @@ async function handlePaymentFailed(invoice: Stripe.Invoice) {
   }
 
   console.log('[webhook] lesson plan past_due:', subId);
+}
+
+
+/**
+ * Record a paid workbook order and send the delivery email.
+ *
+ * Two facts are only knowable here, which is why no row exists yet: the
+ * buyer's email, which Stripe collected on its own page, and whether they took
+ * the audio order bump, which they decided there too.
+ *
+ * The bump is resolved by matching the session's line items against the Price
+ * ids in digital_products. That is the only reliable signal -- an optional item
+ * carries no metadata of ours, and the base product is priced inline and has no
+ * Price id at all, so it comes from metadata instead.
+ */
+async function handleWorkbookPurchase(session: Stripe.Checkout.Session) {
+  const email =
+    session.customer_details?.email || session.customer_email || null;
+  if (!email) {
+    // Cannot deliver to nobody. Loud, because it means a buyer has paid and is
+    // waiting for an email that will never arrive.
+    console.error('[webhook] workbook purchase with no email', session.id);
+    throw new Error(`workbook purchase ${session.id} has no email`);
+  }
+
+  const baseKey = session.metadata?.base_product_key || 'workbook_fpp';
+  const keys = new Set<string>([baseKey]);
+
+  // Anything bought alongside the base product. Priced Stripe-side, so matched
+  // back by Price id rather than trusted from the client.
+  try {
+    const stripeKey =
+      (await getAppSetting('payments', 'stripe_secret_key')) ||
+      process.env.STRIPE_SECRET_KEY;
+    if (stripeKey) {
+      const client = new Stripe(stripeKey, { apiVersion: '2026-01-28.clover' });
+      const items = await client.checkout.sessions.listLineItems(session.id, {
+        limit: 20,
+      });
+      const priceIds = items.data
+        .map((i) => i.price?.id)
+        .filter((id): id is string => Boolean(id));
+
+      if (priceIds.length) {
+        const { data: matched } = await supabase
+          .from('digital_products')
+          .select('product_key, stripe_price_id')
+          .in('stripe_price_id', priceIds);
+        for (const m of matched ?? []) keys.add(m.product_key);
+      }
+    }
+  } catch (e) {
+    // A failed line-item read must not lose the sale. The buyer still gets the
+    // workbook; a missing bump is a support ticket, not a dropped order.
+    console.error('[webhook] workbook line items failed', session.id, e);
+  }
+
+  // The saved card, for the one-click upsell at /oto. Both ids come from
+  // Stripe, never from a client, and neither is ever sent to the browser --
+  // the upsell route charges server-side and returns only an outcome.
+  let customerId: string | null = null;
+  let paymentMethodId: string | null = null;
+  try {
+    customerId =
+      typeof session.customer === 'string'
+        ? session.customer
+        : session.customer?.id ?? null;
+    const pi = session.payment_intent;
+    if (typeof pi === 'string') {
+      const stripeKey =
+        (await getAppSetting('payments', 'stripe_secret_key')) ||
+        process.env.STRIPE_SECRET_KEY;
+      if (stripeKey) {
+        const client = new Stripe(stripeKey, { apiVersion: '2026-01-28.clover' });
+        const intent = await client.paymentIntents.retrieve(pi);
+        paymentMethodId =
+          typeof intent.payment_method === 'string'
+            ? intent.payment_method
+            : intent.payment_method?.id ?? null;
+      }
+    }
+  } catch (e) {
+    // Losing the saved card costs us the one-click upsell, not the sale. The
+    // offer page falls back to a normal Checkout redirect when it is missing.
+    console.error('[webhook] workbook payment method lookup failed', session.id, e);
+  }
+
+  const { data, error } = await supabase.rpc('record_digital_order', {
+    p_session_id: session.id,
+    p_email: email,
+    p_product_keys: Array.from(keys),
+    p_total_cents: session.amount_total ?? 0,
+    p_currency: (session.currency || 'usd').toUpperCase(),
+  });
+
+  if (error) {
+    console.error('[webhook] record_digital_order failed', session.id, error);
+    // Throw so Stripe retries: they have paid and own nothing.
+    throw new Error(`record_digital_order failed: ${error.message}`);
+  }
+
+  const row = Array.isArray(data) ? data[0] : data;
+  if (!row?.order_id) {
+    throw new Error(`record_digital_order returned nothing for ${session.id}`);
+  }
+
+  if (customerId || paymentMethodId) {
+    await supabase
+      .from('digital_orders')
+      .update({
+        stripe_customer_id: customerId,
+        stripe_payment_method_id: paymentMethodId,
+      })
+      .eq('id', row.order_id);
+  }
+
+  // A retry. The order exists and the email has already gone out.
+  if (!row.created) {
+    console.log('[webhook] workbook order already recorded:', session.id);
+    return;
+  }
+
+  // Bought while signed in: bind it now so they never see a claim screen.
+  const userId = session.metadata?.supabase_user_id;
+  if (userId) {
+    const { error: claimError } = await supabase.rpc('claim_digital_order', {
+      p_token: row.claim_token,
+      p_user_id: userId,
+    });
+    if (claimError) {
+      console.error('[webhook] pre-claim failed', session.id, claimError);
+    }
+  }
+
+  const { sendWorkbookDelivery } = await import('@/lib/workbook/delivery');
+  await sendWorkbookDelivery(email, row.claim_token, keys.has('audio_fpp'));
+
+  console.log(
+    '[webhook] workbook delivered:', session.id,
+    Array.from(keys).join('+'),
+    userId ? '(pre-claimed)' : '(guest)'
+  );
 }

@@ -61,3 +61,11 @@ supabase/.temp/
 # Local dry-run output of scripts/generate-vocab-library.mjs — the library
 # itself lives in Supabase Storage, these are just previews to eyeball.
 /public/vocab-library/
+
+# Generated book intermediates. book.html / the PDF are rebuilt by
+# content/workbook/build/*.py; only the reader's copies are committed.
+content/workbook/build/blocks.json
+content/workbook/build/book.html
+content/workbook/build/book-body.html
+content/workbook/build/Le-Francais-Pas-a-Pas.pdf
+content/workbook/build/audio/

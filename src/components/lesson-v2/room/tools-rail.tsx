@@ -6,6 +6,7 @@ import { MessageSquare, PenTool, Users, X, PanelRightOpen, BookOpen, Copy, Check
 import { useLessonRoom } from "../lesson-room-context";
 import { Avatar } from "../avatar";
 import { ChatPanel } from "./chat-panel";
+import { VideoPanel } from "./video-panel";
 import { DiggieChatPanel } from "@/components/shared/diggie-chat-panel";
 
 // tldraw is heavy + browser-only → load it client-side only when the tab opens.
@@ -56,6 +57,12 @@ export function ToolsRail() {
         paddingBottom: "env(safe-area-inset-bottom)",
       }}
     >
+      {/* Video sits ABOVE the tabs, not inside them. The other panels are
+          things you switch between; a face is not — losing sight of your
+          student the moment you open the whiteboard would defeat the point of
+          teaching live. */}
+      <VideoPanel sessionId={room.sessionId} />
+
       {/* Tabs */}
       <div className="flex items-center border-b">
         {([

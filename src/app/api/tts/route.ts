@@ -52,7 +52,12 @@ function asciiSlug(s: string, maxLen: number): string {
 }
 
 function textToFilename(text: string, voice: string, speed: number): string {
-  return `${asciiSlug(text, 60)}_${asciiSlug(voice, 20)}_${speed}.wav`;
+  // Anything cached at a non-default speed predates the speakingRate fix below
+  // and therefore holds normal-speed audio under a "slow" key. The suffix
+  // sidesteps those without throwing away the speed-1.0 cache, which is the
+  // overwhelming majority of it and is correct.
+  const suffix = speed === 1.0 ? "" : "-r2";
+  return `${asciiSlug(text, 60)}_${asciiSlug(voice, 20)}_${speed}${suffix}.wav`;
 }
 
 export async function POST(request: NextRequest) {
@@ -79,7 +84,7 @@ export async function POST(request: NextRequest) {
     if (cached) {
       const arrayBuffer = await cached.arrayBuffer();
       const base64 = Buffer.from(arrayBuffer).toString("base64");
-      return NextResponse.json({ audio: base64, format: "wav", cached: true });
+      return NextResponse.json({ audio: base64, format: "mp3", cached: true });
     }
 
     // 2. Generate via Inworld TTS.
@@ -119,7 +124,12 @@ export async function POST(request: NextRequest) {
         voice_id: voice,
         model_id: "inworld-tts-1",
         language: language.split("-")[0],
-        speed,
+        // The rate lives in audioConfig.speakingRate. A top-level `speed` is
+        // accepted and silently ignored, so every "slow" playback in the app
+        // has been returning normal-speed audio. Measured on identical text:
+        // speed 0.5/0.7/1.0/1.3 gave 5.5s/4.7s/6.9s/4.2s -- no relationship;
+        // speakingRate 0.5/0.65/0.8/1.0 gives 10.2s/7.2s/6.1s/4.7s.
+        audioConfig: { speakingRate: speed },
       }),
     });
 
@@ -141,7 +151,9 @@ export async function POST(request: NextRequest) {
     adminSupabase.storage
       .from(BUCKET)
       .upload(storagePath, audioBuffer, {
-        contentType: "audio/wav",
+        // Inworld returns MP3 (frames start ff fb), never RIFF/WAV. Browsers
+        // sniff and play it either way, which is why this went unnoticed.
+        contentType: "audio/mpeg",
         upsert: false,
       })
       .then(({ error }) => {
@@ -150,7 +162,7 @@ export async function POST(request: NextRequest) {
         }
       });
 
-    return NextResponse.json({ audio: audioBase64, format: "wav", cached: false });
+    return NextResponse.json({ audio: audioBase64, format: "mp3", cached: false });
   } catch (error) {
     console.error("TTS route error:", error);
     return NextResponse.json({ error: "Server error" }, { status: 500 });

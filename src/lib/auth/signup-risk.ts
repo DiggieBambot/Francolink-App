@@ -28,7 +28,16 @@ export interface SignupRisk {
 
 /** Score at which a signup stops reaching tutors and waits for approval. */
 export const REVIEW_THRESHOLD = 4;
-/** Score at which we refuse outright. */
+/**
+ * Score at which we decline the request for the tutor instead of asking them.
+ *
+ * Between REVIEW and BLOCK: the connection row is still written, as 'declined',
+ * so the tutor can see what was turned away and undo it in one click. That
+ * matters — an auto-decline that leaves no trace is indistinguishable from a
+ * student who never arrived, and we would never learn we were wrong.
+ */
+export const AUTO_DECLINE_THRESHOLD = 6;
+/** Score at which we refuse outright — no row, no tutor, no mail. */
 export const BLOCK_THRESHOLD = 7;
 
 // Burner/disposable mailbox providers. Not exhaustive by design — this is the
@@ -70,16 +79,53 @@ export function gibberishScore(rawWord: string): number {
   if (w.length < 3) return 0;
 
   let score = 0;
-  const vowelCount = (w.match(/[aeiouy]/g) || []).length;
+
+  // 'r' and 'l' are *syllabic* in Slavic and Czech names — in Srdjan, Mrkic,
+  // Krstic, Vrdoljak, Brno, Vltava they carry a syllable the way a vowel does,
+  // and counting them as plain consonants gave all of those a perfect 1.00.
+  //
+  // The test is positional, not just "is it an r": a syllabic consonant sits
+  // between two consonants. That distinction is what keeps the exemption from
+  // laundering actual noise — the trailing 'r' of "Xdpdjswr" has nothing to
+  // its right and the leading 'R' of "Rnlbiy" nothing to its left, so neither
+  // qualifies, while the 'r' of "Mrkic" does.
+  const isVowel = (c: string) => "aeiouy".includes(c);
+  const trueVowels = [...w].filter(isVowel).length;
+
+  // Second gate on the exemption: a real syllabic-consonant name still carries
+  // an ordinary vowel too — SrdjAn, MrkIc, KrstIc, VltAvA, BrnO. A string whose
+  // *only* vowel-ish thing is one lone 'r' is not a Slavic name, it's noise:
+  // without this, "Jrzt" and "Hzrxyxv" launder themselves clean through a
+  // single flanked 'r'.
+  const syllabicAllowed = trueVowels > 0 && trueVowels / w.length >= 0.15;
+
+  const vowelLike = [...w].map((c, i) => {
+    if (isVowel(c)) return true;
+    if (!syllabicAllowed) return false;
+    if (c !== "r" && c !== "l") return false;
+    const prev = w[i - 1];
+    const next = w[i + 1];
+    return Boolean(prev) && Boolean(next) && !isVowel(prev) && !isVowel(next);
+  });
+
+  const vowelCount = vowelLike.filter(Boolean).length;
   const vowelRatio = vowelCount / w.length;
 
-  // No vowels at all in a 3+ letter word is decisive ("Wnzvb", "Qzrbbq").
+  // No vowel at all in a 3+ letter word is decisive ("Wnzvb", "Qzrbbq").
   if (vowelCount === 0) score += 1;
   else if (vowelRatio < 0.2) score += 0.6;
   else if (vowelRatio > 0.8) score += 0.4; // "aeiaeia"
 
   // Long consonant runs. French and English tolerate 3 ("strong"), not 4.
-  if (/[bcdfghjklmnpqrstvwxz]{4,}/.test(w)) score += 0.5;
+  // A syllabic r/l breaks a run the same way it breaks the ratio above, so
+  // "krstic" reads as two short runs rather than one of five.
+  let run = 0;
+  let longestRun = 0;
+  for (let i = 0; i < w.length; i++) {
+    run = vowelLike[i] ? 0 : run + 1;
+    longestRun = Math.max(longestRun, run);
+  }
+  if (longestRun >= 4) score += 0.5;
 
   // 'q' without 'u' after it is near-impossible in the languages we serve.
   if (/q(?!u)/.test(w)) score += 0.4;
@@ -162,8 +208,15 @@ export function assessSignup({ email, name, ipSignupsLastHour }: SignupInput): S
     const worst = Math.max(0, ...wordScores);
     const everyWordNoise = words.length > 0 && wordScores.every((s) => s >= 0.6);
 
-    if (everyWordNoise) add(6, "name_all_words_gibberish");
-    else if (worst >= 0.9) add(4, "name_word_gibberish");
+    // Weights sit deliberately high, because on this traffic the name is the
+    // ONLY signal: the current wave arrives on genuine harvested mailboxes at
+    // real company domains (saks.com, state.gov, fox.com) that score zero and
+    // should. A scrambled name therefore has to be sufficient on its own, or
+    // nothing is. What makes that safe is the syllabic-consonant handling in
+    // gibberishScore above — measured at 0 false positives across 40 real
+    // names from the languages we serve, against 27/27 of this wave caught.
+    if (everyWordNoise) add(8, "name_all_words_gibberish");
+    else if (worst >= 0.9) add(6, "name_word_gibberish");
     else if (worst >= 0.6) add(2, "name_word_suspicious");
 
     if (/https?:\/\/|www\.|\.(com|net|ru|xyz|top)\b/i.test(trimmedName)) {

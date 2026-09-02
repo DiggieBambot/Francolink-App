@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@daily-co/daily-js": "^0.92.2",
     "@hookform/resolvers": "^5.2.2",
     "@napi-rs/canvas": "^0.1.94",
     "@supabase/ssr": "^0.8.0",
@@ -22,6 +23,7 @@
     "next": "16.1.6",
     "next-intl": "^4.8.2",
     "openai": "^6.25.0",
+    "pdf-lib": "^1.17.1",
     "pdf-parse": "^2.4.5",
     "pdfjs-dist": "^5.4.624",
     "react": "19.2.3",

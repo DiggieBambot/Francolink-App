@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { CopyButton } from "@/components/tutor/copy-button";
 import { TutorGuideButton } from "@/components/tutor/tutor-guide";
+import { TutorLadderCard } from "@/components/tutor/ladder-card";
 
 export const dynamic = "force-dynamic";
 
@@ -79,6 +80,13 @@ export default async function TutorDashboardPage() {
     flProfile?.approval_status === "approved" &&
     flProfile?.is_public &&
     flProfile?.accepts_bookings;
+
+  // Ladder standing, but only for a listed tutor — a tutor teaching students
+  // they brought themselves is not paid per lesson by us, so a pay ladder
+  // would be describing money that doesn't apply to them.
+  const { data: standing } = isListed
+    ? await supabase.rpc("tutor_ladder_standing", { p_tutor: user.id })
+    : { data: null };
   const applicationOpen = ["new", "reviewing", "interviewing"].includes(
     flApplication?.status ?? ""
   );
@@ -104,6 +112,9 @@ export default async function TutorDashboardPage() {
           </span>
         </div>
       </div>
+
+      {/* Where they stand on the pay ladder. Listed tutors only. */}
+      {standing && <TutorLadderCard standing={standing} />}
 
       {/* Become a FrancoLink tutor — we send the students and pay per lesson.
           Hidden once they're listed; shows status while an application is open. */}

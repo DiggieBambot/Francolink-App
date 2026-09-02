@@ -37,20 +37,30 @@ export default async function BookedPage({
   } = await supabase.auth.getUser();
   if (!user) redirect("/login");
 
+  // booking_details, not bookings: the base table is service-role only since
+  // 20260826_pay_visibility.sql, and the view masks tutor_pay_cents away from
+  // the student while still showing them what they paid.
   const { data: booking } = await supabase
-    .from("bookings")
+    .from("booking_details")
     .select(
-      `id, starts_at, ends_at, status, duration_minutes, price_cents, currency, is_trial,
-       room_session_id, tutor_id, student_id,
-       tutor:users!bookings_tutor_id_fkey ( name )`
+      `id, starts_at, ends_at, status, duration_minutes, price_cents, currency,
+       is_trial, room_session_id, tutor_id, student_id`
     )
     .eq("id", id)
     .maybeSingle();
 
-  // RLS already limits this to the participants; a stranger sees a 404.
+  // The view only returns rows the caller is a participant on; a stranger
+  // sees a 404.
   if (!booking) notFound();
 
-  const tutor = Array.isArray(booking.tutor) ? booking.tutor[0] : booking.tutor;
+  // Fetched separately rather than embedded: PostgREST can infer the join
+  // through a view, but relying on that makes the page break silently if the
+  // view is ever rebuilt without the FK column.
+  const { data: tutor } = await supabase
+    .from("users")
+    .select("name")
+    .eq("id", booking.tutor_id)
+    .maybeSingle();
   const tutorName = tutor?.name ?? "your tutor";
 
   const event = toCalendarEvent(

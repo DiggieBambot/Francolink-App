@@ -17,11 +17,32 @@ function svc() {
   );
 }
 
-function firstNameOf(name?: string | null, email?: string | null): string {
+export function firstNameOf(name?: string | null, email?: string | null): string {
   return (name || (email || "").split("@")[0] || "there").split(/\s+/)[0];
 }
 
-async function send(to: string, subject: string, html: string, text: string): Promise<void> {
+/** A file to hang off the email — used to attach a lesson's .ics invite. */
+export interface EmailAttachment {
+  filename: string;
+  /** Raw file contents; base64-encoded here so Resend takes it as-is. */
+  content: string;
+  contentType?: string;
+}
+
+/**
+ * Send one transactional email. Never throws: a failed send must not roll back
+ * the thing the email is about (a confirmed booking, a cancellation).
+ *
+ * Exported because booking mail lives in its own module but must go out with
+ * exactly these headers — same From, same Reply-To, and no List-Unsubscribe.
+ */
+export async function sendTransactionalEmail(
+  to: string,
+  subject: string,
+  html: string,
+  text: string,
+  attachments?: EmailAttachment[]
+): Promise<void> {
   try {
     const { error } = await getResend().emails.send({
       from: DEFAULT_FROM,
@@ -30,12 +51,23 @@ async function send(to: string, subject: string, html: string, text: string): Pr
       html,
       text,
       replyTo: REPLY_TO,
+      ...(attachments?.length
+        ? {
+            attachments: attachments.map((a) => ({
+              filename: a.filename,
+              content: Buffer.from(a.content).toString("base64"),
+              contentType: a.contentType,
+            })),
+          }
+        : {}),
     });
     if (error) console.error("[transactional] send failed:", error.message);
   } catch (e) {
     console.error("[transactional] send threw:", (e as Error).message);
   }
 }
+
+const send = sendTransactionalEmail;
 
 // ── Pure renderers (also used by the no-send preview route) ─────────────────
 export interface RenderedEmail { subject: string; html: string; text: string; }

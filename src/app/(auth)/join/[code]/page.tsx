@@ -1,10 +1,10 @@
 // src/app/(auth)/join/[code]/page.tsx
 
 import { Metadata } from 'next';
-import { createClient } from '@supabase/supabase-js';
 import { createClient as createServerClient } from '@/lib/supabase/server';
 import { notFound, redirect } from 'next/navigation';
 import { StudentJoinForm } from './student-join-form';
+import { resolveJoinTarget } from '@/lib/auth/join-target';
 import { Check, Star, User, AlertCircle } from 'lucide-react';
 
 interface PageProps {
@@ -33,25 +33,10 @@ export default async function JoinPage({ params }: PageProps) {
     );
   }
 
-  // Use Service Role Client to fetch tutor (Bypasses RLS)
-  const adminClient = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
-  );
-
-  // Try to find tutor — match case-INSENSITIVELY so a link with the code in a
-  // different case still resolves. Escape LIKE wildcards ('_' appears in some
-  // codes) so ilike does an exact, not pattern, match.
-  const codePattern = String(code).trim().replace(/[\\%_]/g, '\\$&');
-  const { data: tutor, error } = await adminClient
-    .from('users')
-    .select('id, name, avatar_url, tutor_plan, email')
-    .ilike('tutor_invite_code', codePattern)
-    .maybeSingle();  // Use maybeSingle to avoid error when not found
-
-  if (error) {
-    console.error('[join] tutor lookup failed:', error.message);
-  }
+  // The URL token is either an invite code we issued privately or a public
+  // directory slug; resolveJoinTarget accepts both and is the only place that
+  // decides which tutor this is. Nothing here reveals the invite code.
+  const tutor = await resolveJoinTarget(code);
 
   // If no tutor found, show error page
   if (!tutor) {
@@ -66,7 +51,7 @@ export default async function JoinPage({ params }: PageProps) {
             We couldn't find a tutor with this invite code. The link may be incorrect or expired.
           </p>
           <p className="text-sm text-muted-foreground bg-muted p-2 rounded mb-6 font-mono">
-            Code: {code}
+            Link: {code}
           </p>
           <a href="/" className="px-6 py-2 bg-foreground text-background rounded-lg font-medium hover:opacity-90 transition-opacity inline-block">
             Go Home
@@ -93,8 +78,8 @@ export default async function JoinPage({ params }: PageProps) {
         <div className="max-w-md mx-auto relative z-10">
           <div className="mb-10">
             <div className="w-24 h-24 rounded-full bg-white/20 border-4 border-white/30 flex items-center justify-center text-4xl font-bold mb-6 overflow-hidden shadow-xl">
-              {tutor.avatar_url ? (
-                <img src={tutor.avatar_url} alt={tutor.name} className="w-full h-full object-cover" />
+              {tutor.avatarUrl ? (
+                <img src={tutor.avatarUrl} alt={tutor.name ?? undefined} className="w-full h-full object-cover" />
               ) : (
                 <span>{tutor.name?.[0]?.toUpperCase() || 'T'}</span>
               )}
@@ -140,7 +125,7 @@ export default async function JoinPage({ params }: PageProps) {
             </p>
           </div>
           
-          <StudentJoinForm tutorId={tutor.id} inviteCode={code} />
+          <StudentJoinForm joinToken={code} />
         </div>
       </div>
     </div>

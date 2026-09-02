@@ -1,0 +1,1415 @@
+{
+ "1": [
+  {
+   "i": 1,
+   "text": "“Thank you very much” → ______",
+   "answers": [
+    "Merci beaucoup"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "“I don't understand” → ______",
+   "answers": [
+    "Je ne comprends pas"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "“My name is…” → ______",
+   "answers": [
+    "Je m'appelle…"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "“How much does it cost?” → ______",
+   "answers": [
+    "Combien ça coûte ?"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "“Nice to meet you” → ______",
+   "answers": [
+    "Enchanté"
+   ]
+  }
+ ],
+ "2": [
+  {
+   "i": 1,
+   "text": "— Comment tu t'appelles ?   — Je ______ Sam.",
+   "answers": [
+    "m'appelle"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "— Ça va ?   — Ça va ______, merci !",
+   "answers": [
+    "bien"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "— D'où viens-tu ?   — Je ______ du Canada.",
+   "answers": [
+    "viens"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "— Tu parles français ?   — ______ peu !",
+   "answers": [
+    "Un"
+   ]
+  }
+ ],
+ "4": [
+  {
+   "i": 1,
+   "text": "Mark and pronounce the liaison: « nous avons » → ______",
+   "answers": [
+    "« nou-Zavons » — s → « z »"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Mark and pronounce: « les élèves » → ______  (which sound does the s become?)",
+   "answers": [
+    "« lé-Zélèves » — s becomes « z »"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Mark and pronounce: « un grand arbre » → ______  (a big tree)",
+   "answers": [
+    "« un gran-Tarbre » — the silent d links as « t »"
+   ]
+  }
+ ],
+ "6": [
+  {
+   "i": 1,
+   "text": "You greet your grandmother's doctor. → ______",
+   "answers": [
+    "vous"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "You ask your best friend a question. → ______",
+   "answers": [
+    "tu"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "You speak to two classmates at once. → ______",
+   "answers": [
+    "vous"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "A waiter takes your order in a restaurant; he addresses you. → ______",
+   "answers": [
+    "vous"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "You talk to a small child in the park. → ______",
+   "answers": [
+    "tu"
+   ]
+  }
+ ],
+ "7": [
+  {
+   "i": 3,
+   "text": "A woman from France introduces herself. Fix the nationality: « Je suis français. » → ______",
+   "answers": [
+    "Je suis française"
+   ]
+  }
+ ],
+ "8": [
+  {
+   "i": 4,
+   "text": "Which is bigger: soixante-quinze or quatre-vingts ? ______",
+   "answers": [
+    "quatre-vingts (80) is bigger than soixante-quinze"
+   ]
+  }
+ ],
+ "10": [
+  {
+   "i": 1,
+   "text": "Je ______ content aujourd'hui.",
+   "answers": [
+    "suis"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Tu ______ très gentil.",
+   "answers": [
+    "es"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Elle ______ française.",
+   "answers": [
+    "est"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "Nous ______ à Paris.",
+   "answers": [
+    "sommes"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "Vous ______ prêts ? (ready)",
+   "answers": [
+    "êtes"
+   ]
+  },
+  {
+   "i": 6,
+   "text": "Make negative: « Ils sont timides. » → ______",
+   "answers": [
+    "Ils ne sont pas timides"
+   ]
+  }
+ ],
+ "11": [
+  {
+   "i": 1,
+   "text": "J'______ deux chats.",
+   "answers": [
+    "ai"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Nous ______ une grande maison.",
+   "answers": [
+    "avons"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Vous ______ du travail demain.",
+   "answers": [
+    "avez"
+   ]
+  }
+ ],
+ "12": [
+  {
+   "i": 1,
+   "text": "Je ______ étudiant. (identity)",
+   "answers": [
+    "suis"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Elle ______ soif. (feeling)",
+   "answers": [
+    "a"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Nous ______ à la maison. (location)",
+   "answers": [
+    "sommes"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "Tu ______ vingt ans. (age)",
+   "answers": [
+    "as"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "Ils ______ fatigués. (state)",
+   "answers": [
+    "sont"
+   ]
+  },
+  {
+   "i": 6,
+   "text": "Vous ______ une voiture rouge. (possession)",
+   "answers": [
+    "avez"
+   ]
+  }
+ ],
+ "13": [
+  {
+   "i": 1,
+   "text": "Turn into est-ce que…: « Elle a un chat gris. » → ______",
+   "answers": [
+    "Est-ce qu'elle a un chat gris ?"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Turn into inversion: « Vous avez un stylo. » → ______",
+   "answers": [
+    "Avez-vous un stylo ?"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Turn into inversion: « Elles ont des livres. » → ______",
+   "answers": [
+    "Ont-elles des livres ?"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "Ask for the missing word: « Je vais ______ ? » (where)",
+   "answers": [
+    "Où"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "Ask the price: « ______ ça coûte ? » (how much)",
+   "answers": [
+    "Combien"
+   ]
+  }
+ ],
+ "14": [
+  {
+   "i": 1,
+   "text": "J'ai un téléphone. → ______",
+   "answers": [
+    "Je n'ai pas de téléphone"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Nous avons une grande maison. → ______  (watch the « de » rule)",
+   "answers": [
+    "Nous n'avons pas de grande maison"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Tu es riche. → ______",
+   "answers": [
+    "Tu n'es pas riche"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "Rewrite with jamais: « Je trouve le temps. » → ______",
+   "answers": [
+    "Je ne trouve jamais le temps"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "Rewrite with rien: « J'ai compris. » → ______",
+   "answers": [
+    "Je n'ai rien compris"
+   ]
+  },
+  {
+   "i": 6,
+   "text": "Rewrite with plus: « Elle habite ici. » → ______",
+   "answers": [
+    "Elle n'habite plus ici"
+   ]
+  }
+ ],
+ "15": [
+  {
+   "i": 1,
+   "text": "Je (regarder) ______ un film.",
+   "answers": [
+    "regarde"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Nous (manger) ______ une pizza.  (careful spelling!)",
+   "answers": [
+    "mangeons"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Ils (jouer) ______ au football.",
+   "answers": [
+    "jouent"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "Vous (commencer) ______ le cours.",
+   "answers": [
+    "commencez"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "Elle (aimer) ______ dessiner.",
+   "answers": [
+    "aime"
+   ]
+  },
+  {
+   "i": 6,
+   "text": "Tu (écouter) ______ de la musique.",
+   "answers": [
+    "écoutes"
+   ]
+  }
+ ],
+ "16": [
+  {
+   "i": 1,
+   "text": "Tu (finir) ______ tes devoirs.",
+   "answers": [
+    "finis"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Nous (choisir) ______ un cadeau.",
+   "answers": [
+    "choisissons"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Ils (réussir) ______ l'examen.",
+   "answers": [
+    "réussissent"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "Je (bondir) ______ sur le lit.",
+   "answers": [
+    "bondis"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "Vous (grandir) ______ vite !",
+   "answers": [
+    "grandissez"
+   ]
+  }
+ ],
+ "17": [
+  {
+   "i": 1,
+   "text": "Je vais ______ Canada en avion.  (au / en / à)",
+   "answers": [
+    "au"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Nous allons ______ France.  (au / en / à)",
+   "answers": [
+    "en"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Tu vas ______ États-Unis.  (au / aux / en)",
+   "answers": [
+    "aux"
+   ]
+  }
+ ],
+ "18": [
+  {
+   "i": 1,
+   "text": "Je ______ du sport tous les jours.",
+   "answers": [
+    "fais"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Il ______ au football avec ses amis.",
+   "answers": [
+    "joue"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Nous ______ de la natation.",
+   "answers": [
+    "faisons"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "Elles ______ aux cartes.",
+   "answers": [
+    "jouent"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "Tu ______ du piano ? (instrument)",
+   "answers": [
+    "joues"
+   ]
+  }
+ ],
+ "20": [
+  {
+   "i": 1,
+   "text": "(je) ______ chat est noir.  (m.)",
+   "answers": [
+    "Mon"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "(je) ______ maison est grande.  (f.)",
+   "answers": [
+    "Ma"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "(tu) ______ parents sont gentils.  (pl.)",
+   "answers": [
+    "Tes"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "(il) ______ sœur a quinze ans.  (f.)",
+   "answers": [
+    "Sa"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "(nous) ______ jardin est joli.  (m.)",
+   "answers": [
+    "Notre"
+   ]
+  },
+  {
+   "i": 6,
+   "text": "(je) ______ amie s'appelle Léa.  (f. + vowel!)",
+   "answers": [
+    "Mon"
+   ]
+  }
+ ],
+ "21": [
+  {
+   "i": 1,
+   "text": "une maison (grand) → une maison ______",
+   "answers": [
+    "grande"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "des chats (noir) → des chats ______",
+   "answers": [
+    "noirs"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "une fille (heureux) → une fille ______",
+   "answers": [
+    "heureuse"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "un (beau) garçon → un ______ garçon  (position?)",
+   "answers": [
+    "beau"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "des voitures (rouge) → des voitures ______",
+   "answers": [
+    "rouges"
+   ]
+  }
+ ],
+ "22": [
+  {
+   "i": 1,
+   "text": "actif → ______",
+   "answers": [
+    "inactif"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "patient → ______",
+   "answers": [
+    "impatient"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "visible → ______",
+   "answers": [
+    "invisible"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "content → ______",
+   "answers": [
+    "mécontent"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "logique → ______",
+   "answers": [
+    "illogique"
+   ]
+  },
+  {
+   "i": 6,
+   "text": "possible → ______",
+   "answers": [
+    "impossible"
+   ]
+  }
+ ],
+ "23": [
+  {
+   "i": 1,
+   "text": "Je (dormir) ______ huit heures.",
+   "answers": [
+    "dors"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Nous (sortir) ______ ce soir.",
+   "answers": [
+    "sortons"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Ils (venir) ______ à la fête.",
+   "answers": [
+    "viennent"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "Tu (prendre) ______ le bus.",
+   "answers": [
+    "prends"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "Elle (offrir) ______ un cadeau.",
+   "answers": [
+    "offre"
+   ]
+  },
+  {
+   "i": 6,
+   "text": "Vous (vendre) ______ votre voiture.",
+   "answers": [
+    "vendez"
+   ]
+  },
+  {
+   "i": 7,
+   "text": "Ils (comprendre) ______ la leçon.",
+   "answers": [
+    "comprennent"
+   ]
+  }
+ ],
+ "24": [
+  {
+   "i": 1,
+   "text": "Je ______ lève à six heures.  (se lever)",
+   "answers": [
+    "me"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Tu ______ laves les mains.  (se laver)",
+   "answers": [
+    "te"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Il ______ brosse les dents.  (se brosser)",
+   "answers": [
+    "se"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "Nous ______ couchons tard.  (se coucher)",
+   "answers": [
+    "nous"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "Elles ______ habillent vite.  (s'habiller)",
+   "answers": [
+    "s'"
+   ]
+  },
+  {
+   "i": 6,
+   "text": "Je ______ appelle Sam.  (s'appeler — vowel!)",
+   "answers": [
+    "m'"
+   ]
+  }
+ ],
+ "25": [
+  {
+   "i": 1,
+   "text": "Je ______ danser toute la nuit.  (pouvoir)",
+   "answers": [
+    "peux"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Nous ______ un café.  (vouloir)",
+   "answers": [
+    "voulons"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Tu ______ étudier ce soir.  (devoir)",
+   "answers": [
+    "dois"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "Elle ______ parler trois langues.  (savoir)",
+   "answers": [
+    "sait"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "savoir ou connaître ? Je ______ bien cette ville.",
+   "answers": [
+    "connais"
+   ]
+  },
+  {
+   "i": 6,
+   "text": "savoir ou connaître ? Ils ______ nager.",
+   "answers": [
+    "savent"
+   ]
+  },
+  {
+   "i": 7,
+   "text": "savoir ou connaître ? Vous ______ mon frère ?",
+   "answers": [
+    "connaissez"
+   ]
+  }
+ ],
+ "26": [
+  {
+   "i": 1,
+   "text": "Je (danser) ______ tous les jours.",
+   "answers": [
+    "dansais"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Nous (avoir) ______ une petite maison.",
+   "answers": [
+    "avions"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Il (être) ______ très gentil.",
+   "answers": [
+    "était"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "Vous (finir) ______ toujours à l'heure.",
+   "answers": [
+    "finissiez"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "Elles (jouer) ______ au parc.",
+   "answers": [
+    "jouaient"
+   ]
+  }
+ ],
+ "27": [
+  {
+   "i": 1,
+   "text": "Hier, il (faire) ______ beau.  [décor]",
+   "answers": [
+    "faisait"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Je (marcher) ______ dans le parc.  [décor]",
+   "answers": [
+    "marchais"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Soudain, je (voir) ______ un chien.  [action]",
+   "answers": [
+    "ai vu"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "Quand j'étais petit, je (jouer) ______ au football chaque jour.  [habitude]",
+   "answers": [
+    "jouais"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "Ce matin, elle (aller) ______ à l'école.  [action — être !]",
+   "answers": [
+    "est allée"
+   ]
+  }
+ ],
+ "28": [
+  {
+   "i": 1,
+   "text": "Demain, je (travailler) ______.",
+   "answers": [
+    "travaillerai"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Nous (voyager) ______ en France l'année prochaine.",
+   "answers": [
+    "voyagerons"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Prediction: « Il (pleuvoir → pleuvra) ______ demain. »",
+   "answers": [
+    "pleuvra"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "Tu (être) ______ content.",
+   "answers": [
+    "seras"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "Elles (aller) ______ à la fête.",
+   "answers": [
+    "iront"
+   ]
+  },
+  {
+   "i": 6,
+   "text": "Je t'(appeler) ______ plus tard.  (stem appeller-)",
+   "answers": [
+    "appellerai"
+   ]
+  },
+  {
+   "i": 7,
+   "text": "Nous (faire) ______ un gâteau.",
+   "answers": [
+    "ferons"
+   ]
+  }
+ ],
+ "29": [
+  {
+   "i": 1,
+   "text": "Politesse: (pouvoir) « ______-vous m'aider ? »",
+   "answers": [
+    "Pourriez"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Souhait: (aimer) « J'______ voyager. »",
+   "answers": [
+    "aimerais"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Hypothèse: « Si tu gagnais, tu (acheter) ______ une maison. »",
+   "answers": [
+    "achèterais"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "Regret: « J'(devoir) ______ étudier plus. »  [conditionnel passé]",
+   "answers": [
+    "aurais dû"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "« Si j'avais su, je (rester) ______ chez moi. »  [conditionnel passé]",
+   "answers": [
+    "serais resté"
+   ]
+  },
+  {
+   "i": 6,
+   "text": "Fix the error: « Si j'aurais le temps, je viendrais. » → ______",
+   "answers": [
+    "Si j'avais le temps, je viendrais"
+   ]
+  }
+ ],
+ "30": [
+  {
+   "i": 1,
+   "text": "Il faut que je (finir) ______ mes devoirs.",
+   "answers": [
+    "finisse"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Je veux que tu (venir) ______ à la fête.",
+   "answers": [
+    "viennes"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Il est important que nous (parler) ______ lentement.",
+   "answers": [
+    "parlions"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "Je ne pense pas qu'il (être) ______ malade.",
+   "answers": [
+    "soit"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "Il faut que vous (faire) ______ attention.",
+   "answers": [
+    "fassiez"
+   ]
+  },
+  {
+   "i": 6,
+   "text": "Je suis content que tu (avoir) ______ raison.",
+   "answers": [
+    "aies"
+   ]
+  },
+  {
+   "i": 7,
+   "text": "Il faut que nous (aller) ______ à l'école.",
+   "answers": [
+    "allions"
+   ]
+  }
+ ],
+ "31": [
+  {
+   "i": 1,
+   "text": "Paul / grand / Marie (+) → ______",
+   "answers": [
+    "Paul est plus grand que Marie"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Ce film / intéressant / l'autre (−) → ______",
+   "answers": [
+    "Ce film est moins intéressant que l'autre"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Tu / rapide / moi (=) → ______",
+   "answers": [
+    "Tu es aussi rapide que moi"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "Ce gâteau est ______ (bon, +) que l'autre.",
+   "answers": [
+    "meilleur"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "C'est ______ (grand, superlatif) ville du pays.",
+   "answers": [
+    "la plus grande"
+   ]
+  }
+ ],
+ "32": [
+  {
+   "i": 1,
+   "text": "(tu / écouter) ______ !",
+   "answers": [
+    "Écoute"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "(vous / faire attention) ______ !",
+   "answers": [
+    "Faites attention"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "(nous / partir) ______ !",
+   "answers": [
+    "Partons"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "(tu / être) ______ gentil !",
+   "answers": [
+    "Sois"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "Négatif : (tu / oublier) « ______ pas ton passeport ! »",
+   "answers": [
+    "N'oublie"
+   ]
+  }
+ ],
+ "33": [
+  {
+   "i": 1,
+   "text": "Je regarde **la télévision**. → ______",
+   "answers": [
+    "Je la regarde"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Il parle **à son frère**. → ______",
+   "answers": [
+    "Il lui parle"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Nous aimons **nos amis**. → ______",
+   "answers": [
+    "Nous les aimons"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "Tu écris **à tes grands-parents** ? → ______",
+   "answers": [
+    "Tu leur écris ?"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "Elle a acheté **le livre**. → ______",
+   "answers": [
+    "Elle l'a acheté"
+   ]
+  },
+  {
+   "i": 6,
+   "text": "Négatif : « Je vois Marie. » → « Je ne ______ vois pas. »",
+   "answers": [
+    "la"
+   ]
+  }
+ ],
+ "34": [
+  {
+   "i": 1,
+   "text": "Tu vas au marché ? — Oui, j'______ vais.",
+   "answers": [
+    "y"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Tu veux de la soupe ? — Oui, j'______ veux.",
+   "answers": [
+    "en"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Il a trois chiens ? — Oui, il ______ a trois.",
+   "answers": [
+    "en"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "Vous pensez à votre examen ? — Oui, nous ______ pensons.",
+   "answers": [
+    "y"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "Elle revient de Paris ? — Oui, elle ______ revient.",
+   "answers": [
+    "en"
+   ]
+  }
+ ],
+ "35": [
+  {
+   "i": 1,
+   "text": "C'est l'homme ______ travaille ici.",
+   "answers": [
+    "qui"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Voici le livre ______ j'ai acheté.",
+   "answers": [
+    "que"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "La ville ______ je suis né est petite.",
+   "answers": [
+    "où"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "C'est le problème ______ nous avons parlé.",
+   "answers": [
+    "dont"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "Les amis ______ viennent ce soir sont sympas.",
+   "answers": [
+    "qui"
+   ]
+  }
+ ],
+ "36": [
+  {
+   "i": 1,
+   "text": "J'apprends le français ______ deux ans. *(et je continue)*",
+   "answers": [
+    "depuis"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Elle est partie ______ une semaine.",
+   "answers": [
+    "il y a"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Nous avons voyagé ______ un mois. *(voyage terminé)*",
+   "answers": [
+    "pendant"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "Il travaille ici ______ janvier.",
+   "answers": [
+    "depuis"
+   ]
+  }
+ ],
+ "37": [
+  {
+   "i": 2,
+   "text": "Elle a dit qu'elle (oublier) ______ son livre.",
+   "answers": [
+    "avait oublié"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Je (ne pas manger) ______, donc j'avais faim.",
+   "answers": [
+    "n'avais pas mangé"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "Ils (partir) ______ avant mon arrivée.",
+   "answers": [
+    "étaient partis"
+   ]
+  }
+ ],
+ "38": [
+  {
+   "i": 1,
+   "text": "Les fleurs ? Je les ai (acheter) ______ hier.",
+   "answers": [
+    "achetées"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "J'ai (acheter) ______ des fleurs.",
+   "answers": [
+    "acheté"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "La lettre que j'ai (recevoir) ______ était longue.",
+   "answers": [
+    "reçue"
+   ]
+  }
+ ],
+ "39": [
+  {
+   "i": 1,
+   "text": "Bien qu'il (être) ______ malade, il est venu.",
+   "answers": [
+    "soit"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Je suis content que vous (venir) ______ hier.",
+   "answers": [
+    "soyez venus"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Attends jusqu'à ce que je (finir) ______.",
+   "answers": [
+    "finisse"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "Il parle fort pour que nous (comprendre) ______.",
+   "answers": [
+    "comprenions"
+   ]
+  },
+  {
+   "i": 5,
+   "text": "Après qu'il (arriver) ______, nous avons mangé. *(piège !)*",
+   "answers": [
+    "est arrivé *(après que → indicatif)*"
+   ]
+  }
+ ],
+ "40": [
+  {
+   "i": 1,
+   "text": "« J'ai faim. » → Il a dit ______",
+   "answers": [
+    "qu'il avait faim"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "« Nous avons gagné. » → Ils ont dit ______",
+   "answers": [
+    "qu'ils avaient gagné"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "« Je te téléphonerai. » → Elle a dit ______",
+   "answers": [
+    "qu'elle me téléphonerait"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "« Attends-moi ! » → Il m'a dit ______",
+   "answers": [
+    "de l'attendre"
+   ]
+  }
+ ],
+ "41": [
+  {
+   "i": 1,
+   "text": "Il pleut ; ______, je vais sortir. *(opposition)*",
+   "answers": [
+    "cependant",
+    "pourtant"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Il n'a pas étudié ; ______, il a échoué. *(conséquence)*",
+   "answers": [
+    "par conséquent",
+    "donc"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "J'aime les langues, ______ le français. *(exemple)*",
+   "answers": [
+    "notamment",
+    "par exemple"
+   ]
+  }
+ ],
+ "42": [
+  {
+   "i": 1,
+   "text": "(travailler) Il écoute de la musique ______.",
+   "answers": [
+    "en travaillant"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "(lire) ______ beaucoup, on apprend vite.",
+   "answers": [
+    "En lisant"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "(faire) Elle s'est blessée ______ du sport.",
+   "answers": [
+    "en faisant"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "(être) ______ malade, il est resté chez lui.",
+   "answers": [
+    "Étant"
+   ]
+  }
+ ],
+ "43": [
+  {
+   "i": 1,
+   "text": "Le professeur corrige les copies. → *(passif)* ______",
+   "answers": [
+    "Les copies sont corrigées par le professeur"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "On a construit ce pont en 1990. → *(passif)* ______",
+   "answers": [
+    "Ce pont a été construit en 1990"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "English is spoken here. → *(avec « on »)* ______",
+   "answers": [
+    "On parle anglais ici"
+   ]
+  },
+  {
+   "i": 4,
+   "text": "I was given a book. → *(avec « on »)* ______",
+   "answers": [
+    "On m'a donné un livre"
+   ]
+  }
+ ],
+ "44": [
+  {
+   "i": 1,
+   "text": "Dans une heure, nous (terminer) ______.",
+   "answers": [
+    "aurons terminé"
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Quand elle (partir) ______, je rangerai.",
+   "answers": [
+    "sera partie"
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Dès que tu (finir) ______, préviens-moi.",
+   "answers": [
+    "auras fini"
+   ]
+  }
+ ]
+}

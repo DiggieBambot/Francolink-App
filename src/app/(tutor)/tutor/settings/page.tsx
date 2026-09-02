@@ -2,6 +2,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { TutorSettingsForm } from '@/components/tutor/tutor-settings-form';
+import { CalendarSubscribe } from '@/components/calendar/calendar-subscribe';
 import { Settings, User, Bell, CreditCard, Shield } from 'lucide-react';
 
 export default async function TutorSettingsPage() {
@@ -31,6 +32,12 @@ export default async function TutorSettingsPage() {
       </div>
 
       <TutorSettingsForm profile={profile} userEmail={user.email || ''} />
+
+      {/* A tutor's teaching schedule belongs in whatever calendar they already
+          live in — that is also where their own lesson alerts come from. */}
+      <div className="mt-6">
+        <CalendarSubscribe />
+      </div>
     </div>
   );
 }

@@ -42,16 +42,23 @@ export interface TutorCard {
   /** Drives the lesson price — FrancoLink sets prices, tutors don't. */
   tier: Tier;
   trial_available: boolean;
+  /** Languages the tutor also speaks — a filter facet, not a selling point. */
+  speaks: string[];
+  /**
+   * Coarse weekly availability, as "weekday-band" keys like "2-evening".
+   * Bands are cut in the TUTOR's timezone here and re-cut per viewer in the
+   * browser; see availabilityBands(). Empty means we have no schedule for
+   * them, which the directory treats as "unknown", never as "never free".
+   */
+  availability_bands: string[];
 }
 
 export interface TutorProfile extends TutorCard {
   user_id: string;
   bio: string | null;
-  speaks: string[];
   qualifications: Qualification[];
   intro_video_url: string | null;
   timezone: string | null;
-  invite_code: string | null;
   availability: AvailabilitySlot[];
   testimonials: Testimonial[];
 }
@@ -78,7 +85,6 @@ interface JoinedUser {
   id: string;
   name: string | null;
   avatar_url: string | null;
-  tutor_invite_code: string | null;
 }
 
 interface ProfileRow {
@@ -105,7 +111,7 @@ const PROFILE_SELECT = `
   user_id, slug, headline, bio, teaches, speaks, levels, specialties,
   qualifications, years_experience, photo_url, intro_video_url, country,
   timezone, tier, trial_available,
-  users:users!tutor_public_profiles_user_id_fkey ( id, name, avatar_url, tutor_invite_code )
+  users:users!tutor_public_profiles_user_id_fkey ( id, name, avatar_url )
 `;
 
 function joinedUser(row: ProfileRow): JoinedUser | null {
@@ -113,7 +119,37 @@ function joinedUser(row: ProfileRow): JoinedUser | null {
   return Array.isArray(u) ? (u[0] ?? null) : u;
 }
 
-function toCard(row: ProfileRow): TutorCard {
+/**
+ * Time-of-day bands. Deliberately three and not twenty-four: somebody
+ * filtering a directory is asking "can they do evenings", not "are they free
+ * at 18:15". Boundaries are local minutes past midnight.
+ */
+export const TIME_BANDS: { key: string; label: string; from: number; to: number }[] = [
+  { key: "morning", label: "Morning", from: 5 * 60, to: 12 * 60 },
+  { key: "afternoon", label: "Afternoon", from: 12 * 60, to: 17 * 60 },
+  { key: "evening", label: "Evening", from: 17 * 60, to: 23 * 60 },
+];
+
+/**
+ * Which "weekday-band" keys a set of availability slots covers.
+ *
+ * A slot counts for a band if it OVERLAPS it at all, rather than having to sit
+ * inside it — a tutor free 16:00–18:00 genuinely can teach you in the evening,
+ * and requiring containment would hide them from the filter that matters most.
+ */
+export function availabilityBands(slots: AvailabilitySlot[]): string[] {
+  const out = new Set<string>();
+  for (const slot of slots) {
+    for (const band of TIME_BANDS) {
+      if (slot.start_minute < band.to && slot.end_minute > band.from) {
+        out.add(`${slot.weekday}-${band.key}`);
+      }
+    }
+  }
+  return [...out];
+}
+
+function toCard(row: ProfileRow, bands: string[] = []): TutorCard {
   const user = joinedUser(row);
   return {
     slug: row.slug,
@@ -127,12 +163,16 @@ function toCard(row: ProfileRow): TutorCard {
     years_experience: row.years_experience,
     tier: (row.tier as Tier) || "community",
     trial_available: row.trial_available,
+    speaks: row.speaks ?? [],
+    availability_bands: bands,
   };
 }
 
 /** Every tutor currently listed in the public directory. */
 export async function getPublicTutors(): Promise<TutorCard[]> {
-  const { data, error } = await serviceClient()
+  const supabase = serviceClient();
+
+  const { data, error } = await supabase
     .from("tutor_public_profiles")
     .select(PROFILE_SELECT)
     .eq("is_public", true)
@@ -142,7 +182,24 @@ export async function getPublicTutors(): Promise<TutorCard[]> {
     .order("created_at", { ascending: true });
 
   if (error || !data) return [];
-  return (data as unknown as ProfileRow[]).map(toCard);
+  const rows = data as unknown as ProfileRow[];
+
+  // Availability for the whole directory in ONE query, not one per tutor. The
+  // filter rail needs it to answer "who can do Tuesday evening", and N+1 here
+  // would be a round-trip per card on a page that is otherwise static.
+  const { data: slots } = await supabase
+    .from("tutor_availability")
+    .select("tutor_id, weekday, start_minute, end_minute")
+    .in("tutor_id", rows.map((r) => r.user_id));
+
+  const byTutor = new Map<string, AvailabilitySlot[]>();
+  for (const s of (slots ?? []) as (AvailabilitySlot & { tutor_id: string })[]) {
+    byTutor.set(s.tutor_id, [...(byTutor.get(s.tutor_id) ?? []), s]);
+  }
+
+  return rows.map((row) =>
+    toCard(row, availabilityBands(byTutor.get(row.user_id) ?? []))
+  );
 }
 
 /** One tutor's full public profile, or null if they aren't listed. */
@@ -178,16 +235,16 @@ export async function getPublicTutor(slug: string): Promise<TutorProfile | null>
       .limit(6),
   ]);
 
+  const availability = (slots as AvailabilitySlot[]) ?? [];
+
   return {
-    ...toCard(row),
+    ...toCard(row, availabilityBands(availability)),
     user_id: row.user_id,
     bio: row.bio,
-    speaks: row.speaks ?? [],
     qualifications: row.qualifications ?? [],
     intro_video_url: row.intro_video_url,
     timezone: row.timezone,
-    invite_code: user?.tutor_invite_code ?? null,
-    availability: (slots as AvailabilitySlot[]) ?? [],
+    availability,
     testimonials: (quotes as Testimonial[]) ?? [],
   };
 }

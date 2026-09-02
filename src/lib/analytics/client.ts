@@ -11,7 +11,13 @@ export type ClientEvent =
   | "placement_completed"
   | "lesson_view"
   | "homework_submitted"
-  | "room_join";
+  | "room_join"
+  // Workbook funnel. PRD 8.7 makes these ship-blocking: without them the
+  // launch cannot tell us whether the front end works.
+  | "workbook_claimed"
+  | "workbook_section_opened"
+  | "workbook_exercise_attempted"
+  | "workbook_exercise_completed";
 
 interface TrackOpts {
   metadata?: Record<string, unknown>;
