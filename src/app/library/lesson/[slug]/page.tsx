@@ -3,11 +3,13 @@
 //   - student / guest → student view (clean, no answers)
 // View is locked (no toggle) so guests never see tutor scaffolding.
 
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Video, GraduationCap } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { getPublishedLessonBySlug } from "@/lib/lessons/public-queries";
+import { APP_URL } from "@/lib/site/hosts";
 import { LessonRenderer } from "@/components/lesson-v2/lesson-renderer";
 import { GuestCTA } from "@/components/library/guest-cta";
 import { PublicShell } from "@/components/layout/public-shell";
@@ -20,10 +22,53 @@ import { getLiveHomeworkBySlug, getSubmission, getAssignmentForStudent } from "@
 
 export const dynamic = "force-dynamic";
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+/**
+ * Lesson pages previously shipped a title and nothing else: no description, no
+ * canonical, no robots directive. That left ~645 indexable URLs presenting
+ * nothing to a SERP, and gave the quality lint no way to keep the templated
+ * ones out of the index.
+ */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
   const { slug } = await params;
   const found = await getPublishedLessonBySlug(slug);
-  return { title: found ? `${found.lesson.title} | FrancoLink` : "Lesson | FrancoLink" };
+
+  if (!found) return { title: "Lesson | FrancoLink" };
+
+  const { lesson, seoIndexable } = found;
+  const canonical = `${APP_URL}/library/lesson/${lesson.slug}`;
+
+  // Prefer what the lesson says it teaches; fall back to level + topic so the
+  // description is still specific to this page rather than a shared blurb.
+  const canDo = lesson.objectives?.map((o) => o.student_label).filter(Boolean) ?? [];
+  const topic = lesson.topic_tags?.slice(0, 3).join(", ");
+  const description = (
+    canDo.length
+      ? `${lesson.title} — a ${lesson.level} lesson. You'll learn to ${canDo
+          .slice(0, 2)
+          .join("; ")
+          .toLowerCase()}.`
+      : `${lesson.title} — a free ${lesson.level} lesson${topic ? ` on ${topic}` : ""} from the FrancoLink library.`
+  ).slice(0, 155);
+
+  return {
+    title: `${lesson.title} | FrancoLink`,
+    description,
+    alternates: { canonical },
+    // Lessons that failed the quality lint stay reachable for students but are
+    // kept out of the index. `follow` so their internal links still pass.
+    robots: seoIndexable ? undefined : { index: false, follow: true },
+    openGraph: {
+      type: "article",
+      title: lesson.title,
+      description,
+      url: canonical,
+      images: lesson.hero_image_url ? [lesson.hero_image_url] : undefined,
+    },
+  };
 }
 
 export default async function PublicLessonPage({

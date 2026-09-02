@@ -4,11 +4,17 @@ import Link from "next/link";
 import { GraduationCap, Users, ArrowRight, Check } from "lucide-react";
 import { STUDENT_BENEFITS, TUTOR_BENEFITS, COMMISSION } from "@/lib/benefits";
 import { PublicShell } from "@/components/layout/public-shell";
+import { siteUrl } from "@/lib/site/hosts";
 
+// This page also exists on the marketing site, which is its canonical home.
+// Both hosts used to serve it and both sitemaps used to list it, leaving Google
+// to pick an owner. The cross-host canonical below settles it: the app keeps
+// serving the page, francolink.net gets the ranking signal.
 export const metadata = {
   title: "How FrancoLink works | For students & tutors",
   description:
     "Browse French lessons free, learn live with a tutor, or teach and earn commission. Here's how FrancoLink works for students and tutors.",
+  alternates: { canonical: siteUrl("/how-it-works") },
 };
 
 export default function HowItWorksPage() {

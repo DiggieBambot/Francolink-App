@@ -5,10 +5,14 @@ import Link from "next/link";
 import { GraduationCap, Users, ArrowRight, Check } from "lucide-react";
 import { STUDENT_BENEFITS, TUTOR_BENEFITS, COMMISSION } from "@/lib/benefits";
 import { PublicShell } from "@/components/layout/public-shell";
+import { appUrl } from "@/lib/site/hosts";
 
+// Self-referencing canonical: the app host emitted none at all, leaving
+// indexation of these pages to Google's duplicate heuristics.
 export const metadata = {
   title: "Get started | FrancoLink",
   description: "Join FrancoLink as a student to learn French, or as a tutor to teach and earn.",
+  alternates: { canonical: appUrl("/get-started") },
 };
 
 export default function GetStartedPage() {

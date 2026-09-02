@@ -7,6 +7,12 @@
 // The home page carries hreflang alternates for the configured locales
 // (en default, /fr, /ar). Other marketing pages are single-locale (they skip
 // next-intl in middleware), so they get no alternates.
+//
+// <lastmod> is only emitted where a real modification time exists. It used to
+// be `new Date()` on every URL, so every page claimed to have changed on every
+// fetch — a signal search engines learn to distrust and then ignore, which is
+// worse than omitting it. Lessons carry their DB `updated_at`; the static
+// marketing pages carry nothing.
 
 import type { MetadataRoute } from "next";
 import { headers } from "next/headers";
@@ -21,27 +27,27 @@ const BASE = APP_URL;
  * tutor profile. The app's catalogue sitemap below is for app.francolink.net.
  */
 async function marketingSitemap(): Promise<MetadataRoute.Sitemap> {
-  const now = new Date();
-
   const entries: MetadataRoute.Sitemap = [
-    { url: `${SITE_URL}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
-    { url: `${SITE_URL}/tutors`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${SITE_URL}/teach`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${SITE_URL}/how-it-works`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${SITE_URL}/pricing`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${SITE_URL}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${SITE_URL}/faq`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${SITE_URL}/testimonials`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${SITE_URL}/contact`, lastModified: now, changeFrequency: "yearly", priority: 0.5 },
-    { url: `${SITE_URL}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${SITE_URL}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${SITE_URL}/`, changeFrequency: "weekly", priority: 1 },
+    { url: `${SITE_URL}/tutors`, changeFrequency: "weekly", priority: 0.9 },
+    // The $27 workbook — a paid product page, and previously absent from this
+    // list entirely, so it relied on internal links alone to get discovered.
+    { url: `${SITE_URL}/francais-pas-a-pas`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${SITE_URL}/teach`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE_URL}/how-it-works`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/pricing`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/about`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${SITE_URL}/faq`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE_URL}/testimonials`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${SITE_URL}/contact`, changeFrequency: "yearly", priority: 0.5 },
+    { url: `${SITE_URL}/privacy`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${SITE_URL}/terms`, changeFrequency: "yearly", priority: 0.3 },
   ];
 
   try {
     for (const slug of await getPublicTutorSlugs()) {
       entries.push({
         url: `${SITE_URL}/tutors/${slug}`,
-        lastModified: now,
         changeFrequency: "weekly",
         priority: 0.8,
       });
@@ -58,12 +64,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return marketingSitemap();
   }
 
-  const now = new Date();
-
   const entries: MetadataRoute.Sitemap = [
     {
       url: `${BASE}/`,
-      lastModified: now,
       changeFrequency: "weekly",
       priority: 1,
       alternates: {
@@ -74,13 +77,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         },
       },
     },
-    { url: `${BASE}/how-it-works`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE}/get-started`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE}/pricing`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE}/pricing/tutors`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${BASE}/library`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${BASE}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${BASE}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    // NOTE: /pricing, /how-it-works, /privacy and /terms exist on BOTH hosts
+    // with diverging copy, and used to be submitted in both sitemaps — leaving
+    // Google to decide which host owned each topic. The marketing site is the
+    // canonical home for all four (see the cross-host canonicals on the app
+    // pages), so they are deliberately absent here. The app keeps serving them;
+    // it just stops competing with francolink.net for the same query.
+    { url: `${BASE}/get-started`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/pricing/tutors`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE}/library`, changeFrequency: "weekly", priority: 0.7 },
   ];
 
   // Published lessons + the categories that contain them.
@@ -89,10 +94,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const categories = new Set<string>();
 
     for (const lesson of lessons) {
+      // Quality gate (scripts/lint-lessons.mjs): lessons carrying template
+      // artefacts — stub objectives, filler vocabulary shared with unrelated
+      // lessons — stay out of the index. They remain fully available in the
+      // app; this only decides what we ask Google to crawl.
+      if (!lesson.seo_indexable) continue;
+
       if (lesson.category) categories.add(lesson.category);
       entries.push({
         url: `${BASE}/library/lesson/${lesson.slug}`,
-        lastModified: now,
+        // Real edit time from the DB — omitted rather than faked when absent.
+        lastModified: lesson.updated_at ? new Date(lesson.updated_at) : undefined,
         changeFrequency: "monthly",
         priority: 0.6,
       });
@@ -101,7 +113,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     for (const category of categories) {
       entries.push({
         url: `${BASE}/library/${category}`,
-        lastModified: now,
         changeFrequency: "weekly",
         priority: 0.7,
       });

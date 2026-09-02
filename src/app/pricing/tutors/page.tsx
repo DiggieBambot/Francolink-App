@@ -2,10 +2,14 @@ import { createClient } from "@/lib/supabase/server";
 import { Check, X, Shield, Zap, Users } from "lucide-react";
 import Link from "next/link";
 import { Metadata } from "next";
+import { appUrl } from "@/lib/site/hosts";
 
+// Self-referencing canonical: the app host emitted none at all, leaving
+// indexation of these pages to Google's duplicate heuristics.
 export const metadata: Metadata = {
   title: 'Tutor Pricing | FrancoLink',
   description: 'Choose the right plan to grow your tutoring business.',
+  alternates: { canonical: appUrl("/pricing/tutors") },
 };
 
 export default async function TutorPricingPage() {

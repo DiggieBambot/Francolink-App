@@ -1,3 +1,17 @@
+// This page also exists on the marketing site, which is its canonical home.
+// Both hosts used to serve it and both sitemaps used to list it, leaving Google
+// to pick an owner. The cross-host canonical below settles it: the app keeps
+// serving the page, francolink.net gets the ranking signal.
+
+import type { Metadata } from "next";
+import { siteUrl } from "@/lib/site/hosts";
+
+export const metadata: Metadata = {
+  title: "Terms of Service | FrancoLink",
+  description: "The terms that govern your use of FrancoLink.",
+  alternates: { canonical: siteUrl("/terms") },
+};
+
 export default function TermsPage() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">

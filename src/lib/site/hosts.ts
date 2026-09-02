@@ -17,9 +17,23 @@
  */
 const DEV = process.env.NODE_ENV === "development";
 
+/**
+ * NOTE: this must be the origin that actually serves 200s.
+ *
+ * `francolink.net` 308-redirects to `www.francolink.net` at the edge, but this
+ * constant used to be the bare apex — so every canonical tag, every sitemap
+ * <loc> and robots.txt's own Host:/Sitemap: lines pointed at a URL that
+ * redirects away from itself. Nothing self-referenced the page it was served
+ * from, which is exactly the conflicting-signal case that makes Search Console
+ * report "Duplicate, Google chose a different canonical".
+ *
+ * If you ever flip the edge redirect to www→apex, flip this back in the same
+ * commit. And check NEXT_PUBLIC_SITE_URL in the Vercel project settings — an
+ * env value set there overrides this default and would silently undo the fix.
+ */
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
-  (DEV ? "http://site.localhost:3000" : "https://francolink.net");
+  (DEV ? "http://site.localhost:3000" : "https://www.francolink.net");
 
 export const APP_URL =
   process.env.NEXT_PUBLIC_APP_URL ||
