@@ -136,6 +136,11 @@ const APP_ROUTES = [
   "/unlock",
   "/oto",
   "/workbook",
+  // The lesson funnel entrance. Same trap as the workbook routes above: every
+  // "Register free" CTA on the website and every booking gate redirect points
+  // at /start, so leaving it off this list 404s the whole funnel — which is
+  // exactly what it did in production until someone tried it.
+  "/start",
   "/how-it-works",
   "/get-started",
   "/space",
