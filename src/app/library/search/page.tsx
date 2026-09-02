@@ -6,9 +6,17 @@ import { getPublishedLessons } from "@/lib/lessons/public-queries";
 import { LessonCard } from "@/components/library/lesson-card";
 import { PublicShell } from "@/components/layout/public-shell";
 import { Container } from "@/components/ui";
+import { appUrl } from "@/lib/site/hosts";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Search | FrancoLink" };
+// Search result pages are unbounded ?q= variants — classic index bloat. One
+// canonical, and no indexing of the permutations.
+export const metadata = {
+  title: "Search | FrancoLink",
+  description: "Search the FrancoLink lesson library by level or topic.",
+  alternates: { canonical: appUrl("/library/search") },
+  robots: { index: false, follow: true },
+};
 
 export default async function SearchPage({
   searchParams,

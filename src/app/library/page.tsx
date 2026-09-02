@@ -6,14 +6,18 @@ import { GuestCTA } from "@/components/library/guest-cta";
 import { PublicShell } from "@/components/layout/public-shell";
 import { Container, Eyebrow } from "@/components/ui";
 import { LibraryBrowser, type BrowserLesson } from "@/components/library/library-browser";
+import { appUrl } from "@/lib/site/hosts";
 
 // Fully static/ISR: the page reads no request-time data — language and level
 // filtering happen client-side in LibraryBrowser. New/edited lessons appear
 // within the revalidate window.
 export const revalidate = 300;
+// Self-referencing canonical: the app host emitted none at all, leaving
+// indexation of these pages to Google's duplicate heuristics.
 export const metadata = {
   title: "Lesson Materials | FrancoLink",
   description: "Free lesson materials — French & English. Search by level or topic.",
+  alternates: { canonical: appUrl("/library") },
 };
 
 export default async function LibraryPage() {

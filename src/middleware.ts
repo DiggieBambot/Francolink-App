@@ -48,9 +48,22 @@ function handleHostSplit(request: NextRequest): NextResponse | null {
       url.pathname = pathname === "/" ? SITE_PREFIX : `${SITE_PREFIX}${pathname}`;
       return NextResponse.rewrite(url);
     }
-    // Anything the website doesn't own belongs to the app — a signup link, a
-    // room deeplink, an old bookmark. Hand it to the app domain.
-    return NextResponse.redirect(new URL(`${pathname}${search}`, APP_URL), 307);
+    // A path the website doesn't own but the app does — a signup link, a room
+    // deeplink, an old bookmark. Hand it to the app domain.
+    if (isAppPath(pathname)) {
+      return NextResponse.redirect(new URL(`${pathname}${search}`, APP_URL), 307);
+    }
+
+    // Anything else is simply not a page. This used to fall through to the same
+    // cross-domain redirect above, which meant every typo, dead link and
+    // case-variant ("/Tutors") answered 307 → app.francolink.net → 404: a
+    // wasted crawl hop for Googlebot, inbound link equity handed to a foreign
+    // host, and 4xx noise in the app's Search Console for URLs it never owned.
+    // Rewriting to a path under the site tree that matches no route renders the
+    // website's own 404, on the website's own host, with no redirect.
+    const notFound = request.nextUrl.clone();
+    notFound.pathname = `${SITE_PREFIX}/_not-found`;
+    return NextResponse.rewrite(notFound, { status: 404 });
   }
 
   // App host: the marketing pages have a canonical home on the other domain.
@@ -84,6 +97,19 @@ const SITE_ROUTES = [
 
 function isSitePath(pathname: string): boolean {
   return SITE_ROUTES.some(
+    (route) => pathname === route || pathname.startsWith(route + "/")
+  );
+}
+
+/**
+ * Paths the app domain genuinely owns. Only these get forwarded off the
+ * marketing host; everything else 404s there instead of bouncing cross-domain
+ * into the app's 404. Reuses APP_ROUTES below — the entries that also appear in
+ * SITE_ROUTES (/tutors, /pricing, /about…) never reach here, because
+ * isSitePath() matches them first.
+ */
+function isAppPath(pathname: string): boolean {
+  return APP_ROUTES.some(
     (route) => pathname === route || pathname.startsWith(route + "/")
   );
 }
