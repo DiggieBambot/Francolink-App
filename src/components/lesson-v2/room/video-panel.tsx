@@ -19,7 +19,39 @@ import DailyIframe, {
 import { Mic, MicOff, Video, VideoOff, PhoneOff, Loader2, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type Phase = "idle" | "joining" | "joined" | "error" | "unconfigured";
+type Phase =
+  | "idle"
+  | "joining"
+  | "joined"
+  | "error"
+  /** No DAILY_API_KEY on this deployment. */
+  | "unconfigured"
+  /** This room's tutor is not a listed FrancoLink tutor. */
+  | "unavailable";
+
+/**
+ * Turn a browser or Daily error into something the person can act on.
+ *
+ * The raw text is still logged. What is shown is the sentence that tells them
+ * what to DO — a denied camera and an unreachable server are both "couldn't
+ * start video" and have nothing else in common.
+ */
+function friendlyError(raw: string): string {
+  const m = raw.toLowerCase();
+  if (m.includes("permission") || m.includes("notallowed") || m.includes("denied")) {
+    return "Your browser blocked the camera. Allow it in the address bar, then rejoin.";
+  }
+  if (m.includes("notfound") || m.includes("device")) {
+    return "No camera or microphone found. Plug one in, then rejoin.";
+  }
+  if (m.includes("notreadable") || m.includes("in use")) {
+    return "Your camera is in use by another app or tab. Close it, then rejoin.";
+  }
+  if (m.includes("duplicate")) {
+    return "Video was already running. Rejoin to restart it.";
+  }
+  return raw || "Couldn't start video.";
+}
 
 function Tile({
   participant,
@@ -92,6 +124,7 @@ function Tile({
 export function VideoPanel({ sessionId }: { sessionId: string }) {
   const [phase, setPhase] = useState<Phase>("idle");
   const [error, setError] = useState<string | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
   const [local, setLocal] = useState<DailyParticipant | null>(null);
   const [remote, setRemote] = useState<DailyParticipant | null>(null);
   const [micOn, setMicOn] = useState(true);
@@ -137,8 +170,29 @@ export function VideoPanel({ sessionId }: { sessionId: string }) {
         setPhase("unconfigured");
         return;
       }
+      if (res.status === 403 && body.unavailable) {
+        // Not an error and not retryable — say why and leave the lesson alone.
+        setNotice(body.error as string);
+        setPhase("unavailable");
+        return;
+      }
       if (!res.ok || !body.roomUrl || !body.token) {
         throw new Error(body.error || "Couldn't start video.");
+      }
+
+      // daily-js allows exactly ONE call object per page and throws
+      // "Duplicate DailyIframe instances are not allowed" on the second. A
+      // failed join can leave an orphan we no longer hold a reference to —
+      // and then every retry throws that instead of the real problem, so the
+      // panel is stuck until a full reload. Clear any existing instance first.
+      const orphan = DailyIframe.getCallInstance();
+      if (orphan) {
+        try {
+          await orphan.leave();
+        } catch {
+          /* already gone */
+        }
+        orphan.destroy();
       }
 
       // createCallObject, not an iframe: the tiles have to live inside a 340px
@@ -156,7 +210,12 @@ export function VideoPanel({ sessionId }: { sessionId: string }) {
         .on("joined-meeting", update)
         .on("error", (e) => {
           console.error("[video] daily error", e);
-          setError("Video disconnected. Try rejoining.");
+          setError(
+            friendlyError(
+              (e as { errorMsg?: string } | undefined)?.errorMsg ??
+                "Video disconnected."
+            )
+          );
           setPhase("error");
         });
 
@@ -164,12 +223,20 @@ export function VideoPanel({ sessionId }: { sessionId: string }) {
       setPhase("joined");
       sync(call);
     } catch (e) {
+      // The real message matters here. "Couldn't start video" is the same
+      // words for a denied camera, a blocked browser and an expired room, and
+      // the person who has to act on it is usually the one reading it.
       console.error("[video] join failed", e);
-      setError(e instanceof Error ? e.message : "Couldn't start video.");
+      const raw = e instanceof Error ? e.message : String(e);
+      setError(friendlyError(raw));
       setPhase("error");
       const call = callRef.current;
       callRef.current = null;
-      call?.destroy();
+      try {
+        call?.destroy();
+      } catch {
+        /* nothing left to clean up */
+      }
     }
   }, [sessionId, sync]);
 
@@ -207,6 +274,14 @@ export function VideoPanel({ sessionId }: { sessionId: string }) {
     return (
       <div className="border-b bg-slate-50 px-3 py-2.5 text-xs text-slate-500">
         Video isn&apos;t set up yet — carry on with chat and the whiteboard.
+      </div>
+    );
+  }
+
+  if (phase === "unavailable") {
+    return (
+      <div className="border-b bg-slate-50 px-3 py-2.5 text-xs text-slate-500">
+        {notice}
       </div>
     );
   }

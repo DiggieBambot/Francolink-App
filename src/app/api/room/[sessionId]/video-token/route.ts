@@ -9,6 +9,15 @@
 // its fallback for sessions created before the participants table existed. If
 // the two ever disagree, someone can open the room and not join the call, or
 // the reverse — both are worse than one duplicated query.
+//
+// Membership is NOT sufficient on its own. Video is only for lessons taught by
+// a listed FrancoLink tutor — someone we interviewed, approved and put in the
+// directory. Anyone with a TUTOR account can open a room today (there are
+// hundreds, most of them teaching students they brought themselves), and every
+// minute of video is a real cost on our Daily account against a lesson we take
+// no money for. So the gate is on the SESSION'S TUTOR being listed, not on who
+// is asking: a student must get video in a listed tutor's room, and neither
+// side gets it anywhere else.
 
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
@@ -66,6 +75,35 @@ export async function POST(
 
   if (!allowed) {
     return NextResponse.json({ error: "That isn't your room." }, { status: 403 });
+  }
+
+  // Is the tutor running this room an official FrancoLink tutor?
+  const { data: listing } = await db
+    .from("tutor_public_profiles")
+    .select("is_public, approval_status, accepts_bookings")
+    .eq("user_id", session.tutor_id)
+    .maybeSingle();
+
+  const listed =
+    Boolean(listing) &&
+    listing!.approval_status === "approved" &&
+    listing!.is_public === true &&
+    listing!.accepts_bookings === true;
+
+  if (!listed) {
+    // Deliberately a soft answer, not a hard failure: the room still works.
+    // Chat, whiteboard, lesson content and homework are all there, and an
+    // independent tutor teaching their own student loses nothing they had
+    // yesterday. `unavailable` is what the panel renders as an explanation
+    // rather than an error, because there is nothing for them to retry.
+    return NextResponse.json(
+      {
+        error:
+          "Live video is for lessons with FrancoLink tutors. Apply to join and it turns on.",
+        unavailable: true,
+      },
+      { status: 403 }
+    );
   }
 
   const { data: profile } = await db
