@@ -3,7 +3,7 @@ import { ServiceWorkerRegistrar } from "@/components/shared/service-worker-regis
 import { GoogleAnalytics } from "@/components/shared/google-analytics";
 import { AttributionCookie } from "@/components/analytics/attribution";
 import "./globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Mulish, Roboto } from "next/font/google";
 import { getAppConfig } from "@/lib/config";
 
@@ -22,6 +22,24 @@ const roboto = Roboto({
   variable: "--font-roboto",
   display: "swap",
 });
+
+/**
+ * Next emits its own viewport tag, so the hand-written <meta> in <head> meant
+ * every page shipped two competing viewport tags. Declaring it here yields
+ * exactly one.
+ *
+ * `maximum-scale=1, user-scalable=no` is also gone: locking zoom is a WCAG 2.1
+ * 1.4.4 failure (text must scale to 200%) and a Lighthouse mobile-usability
+ * flag. It stops a partially-sighted learner enlarging a French sentence they
+ * are trying to read, which on a language-learning site is the wrong trade for
+ * whatever double-tap-zoom annoyance it was added to prevent.
+ */
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#1e3a5f",
+};
 
 export async function generateMetadata(): Promise<Metadata> {
   const config = await getAppConfig();
@@ -73,8 +91,6 @@ export default async function RootLayout({
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
-        <meta name="theme-color" content="#1e3a5f" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />

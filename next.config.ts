@@ -14,6 +14,36 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/api/workbook/download": ["./assets/workbook/**"],
   },
+  /**
+   * Only HSTS was set before this. These three are the ones that cost nothing
+   * and cannot break the product:
+   *
+   *   nosniff        - stops a browser second-guessing a Content-Type
+   *   SAMEORIGIN     - stops the site being framed by someone else. It governs
+   *                    US being embedded, not us embedding Daily, so the video
+   *                    room is unaffected.
+   *   Referrer-Policy- sends the origin cross-site instead of the full URL
+   *
+   * Two headers are deliberately NOT here. A Content-Security-Policy strict
+   * enough to be worth having would have to enumerate Stripe, Supabase, Daily,
+   * GA and tldraw plus the inline style this layout injects for theming, and a
+   * wrong one fails silently in a way that looks like a product bug. And
+   * Permissions-Policy would gate camera/microphone: the lesson room delegates
+   * both to a cross-origin Daily iframe, so a careless value there breaks live
+   * lessons outright. Both need their own change, with the room tested.
+   */
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+        ],
+      },
+    ];
+  },
   turbopack: {
     root: process.cwd(),
   },

@@ -159,9 +159,13 @@ against a real risk of leaking answers.
 
 ## C. Hygiene — cheap, do while you're in there
 
-- [ ] Remove `user-scalable=no, maximum-scale=1` from the viewport meta (WCAG 1.4.4 failure) and de-duplicate — two viewport tags ship on every page
-- [ ] Add security headers — only HSTS is present: `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `X-Frame-Options`/CSP
-- [ ] Delete the stray files sitting in the repo root: `purged-accounts-*.json` (3), `ssh-keygen -t ed25519 …` and its `.pub` — **check these for secrets before deleting**
+- [x] Remove `user-scalable=no, maximum-scale=1` from the viewport meta (WCAG 1.4.4 failure) and de-duplicate — two viewport tags ship on every page
+- [x] Add security headers — `nosniff`, `SAMEORIGIN`, `Referrer-Policy`. CSP and `Permissions-Policy` deliberately deferred: the lesson room delegates camera/mic to a cross-origin Daily iframe, so a careless value breaks live lessons. Needs its own change, with the room tested.
+- [x] `purged-accounts-*.json` (178 real user records) added to `.gitignore` — untracked only by luck before this
+- [ ] 🔴 **SECURITY — see `docs/SECURITY-git-history.md`.** The repo is public and
+      its history still exposes a live Stripe `sk_live_*`, Supabase service-role
+      keys and two SSH private keys. Rotation is required; a history rewrite is
+      a separate decision.
 - [ ] hreflang is emitted only on the app homepage, as an HTTP header. Either extend it to real localized routes or drop the promise
 - [ ] Decide an explicit robots policy for training-only crawlers (CCBot etc. are allowed by default, not by decision)
 
