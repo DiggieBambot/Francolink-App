@@ -11,7 +11,7 @@
 // Both read the same call from RoomVideoProvider, so switching between them
 // never drops the connection.
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { DailyParticipant } from "@daily-co/daily-js";
 import {
   Mic, MicOff, Video, VideoOff, PhoneOff, Loader2, AlertCircle, UserRound,
@@ -102,9 +102,14 @@ function Tile({
         </div>
       )}
 
-      <span className="absolute bottom-1 left-1 max-w-[calc(100%-2rem)] truncate rounded bg-black/60 px-1.5 py-0.5 text-[10px] font-semibold text-white">
-        {name}
-      </span>
+      {/* Only once somebody is actually there. With nobody joined the centre
+          placeholder already says so, and rendering the fallback here too put
+          "Waiting…" on the tile twice. */}
+      {participant ? (
+        <span className="absolute bottom-1 left-1 max-w-[calc(100%-2rem)] truncate rounded bg-black/60 px-1.5 py-0.5 text-[10px] font-semibold text-white">
+          {name}
+        </span>
+      ) : null}
 
       {participant && participant.tracks?.audio?.state !== "playable" && (
         <span className="absolute bottom-1 right-1 rounded bg-black/60 p-1">
@@ -263,6 +268,11 @@ export function VideoStage() {
  */
 export function VideoRail() {
   const { phase, local, remote } = useRoomVideo();
+  // Which feed is the big one. Not a resizable inset: drag handles need a
+  // minimum size, persistence and a touch target, and the thing people
+  // actually want is "make mine big for a second" — to check their framing,
+  // or hold something up to the camera. One tap does that, and one taps back.
+  const [selfLarge, setSelfLarge] = useState(false);
 
   if (phase !== "joined") {
     return (
@@ -278,8 +288,9 @@ export function VideoRail() {
           desktop where the rail has room to give. */}
       <div className="relative h-32 w-full lg:aspect-video lg:h-auto">
         <Tile
-          participant={remote}
-          label="Waiting…"
+          participant={selfLarge ? local : remote}
+          label={selfLarge ? "You" : "Waiting…"}
+          muted={selfLarge}
           rounded="rounded-none"
           className="absolute inset-0"
         />
@@ -292,13 +303,21 @@ export function VideoRail() {
             360px or a phone was 430px, so it read as a thumbnail rather than
             a camera you could actually check yourself in. A percentage keeps
             it the same visual weight at every width. */}
-        <Tile
-          participant={local}
-          label="You"
-          muted
-          cover
-          className="absolute bottom-2 right-2 z-10 aspect-video w-[34%] max-w-[11rem] shadow-lg ring-1 ring-slate-700 lg:w-[40%]"
-        />
+        <button
+          type="button"
+          onClick={() => setSelfLarge((v) => !v)}
+          title={selfLarge ? "Show them large" : "Show yourself large"}
+          className="absolute bottom-2 right-2 z-10 aspect-video w-[34%] max-w-[11rem] overflow-hidden rounded-lg shadow-lg ring-1 ring-slate-700 transition hover:ring-2 hover:ring-white/70 lg:w-[40%]"
+        >
+          <Tile
+            participant={selfLarge ? remote : local}
+            label={selfLarge ? "Waiting…" : "You"}
+            muted={!selfLarge}
+            cover
+            rounded="rounded-none"
+            className="h-full w-full"
+          />
+        </button>
       </div>
 
       <div className="py-2">
