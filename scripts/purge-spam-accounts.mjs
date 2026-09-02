@@ -26,11 +26,12 @@
 //   npx tsx --env-file=.env.local scripts/purge-spam-accounts.mjs --include-tutors
 //   npx tsx --env-file=.env.local scripts/purge-spam-accounts.mjs --apply --confirm-delete
 
-import { writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { createClient } from "@supabase/supabase-js";
 import {
   assessSignup,
   canonicalEmail,
+  gibberishScore,
   AUTO_DECLINE_THRESHOLD,
 } from "../src/lib/auth/signup-risk.ts";
 
@@ -41,6 +42,23 @@ const CONFIRMED = process.argv.includes("--confirm-delete");
 // a narrow path to them, gated on having no students, no public profile and no
 // activity. A real teacher who has ever taught anyone is unreachable this way.
 const INCLUDE_TUTORS = process.argv.includes("--include-tutors");
+
+// An explicit list of accounts to delete, one email per line ('#' comments and
+// blank lines ignored). This exists because the automatic rules cannot be made
+// stricter safely: below the auto-decline threshold the accounts are mostly
+// real students who simply haven't started a lesson yet — Cameroonian and West
+// African names that no vowel-ratio or bigram test separates from a scripted
+// one. Measured on this data, every threshold that caught the leftover spam
+// also flagged real students.
+//
+// So the last mile is human judgement, which is reliable here: a person reads
+// "Osfz Vtutgano" and knows. This flag deletes exactly the accounts listed and
+// nothing else — no scoring, no inference.
+const LIST_FILE = process.argv.find((a) => a.startsWith("--emails-file="))?.split("=")[1];
+
+// Print every account with a suspicious-looking name and let a human decide,
+// including ones the automatic rules protect.
+const REVIEW = process.argv.includes("--review");
 const MIN_SCORE = Number(
   process.argv.find((a) => a.startsWith("--min-score="))?.split("=")[1] ?? AUTO_DECLINE_THRESHOLD
 );
@@ -92,6 +110,58 @@ async function main() {
   const sessions = await readAll("tutor_lesson_sessions", "student_id").catch(() => []);
   const progressIds = new Set(progress.map((r) => r.user_id));
   const sessionIds = new Set(sessions.map((r) => r.student_id));
+
+  // --- explicit list mode -------------------------------------------------
+  if (LIST_FILE) {
+    const wanted = new Set(
+      readFileSync(LIST_FILE, "utf8")
+        .split("\n")
+        .map((l) => l.split("#")[0].trim().toLowerCase())
+        .filter(Boolean)
+    );
+    const found = users.filter((u) => wanted.has(String(u.email || "").toLowerCase()));
+    const missing = [...wanted].filter(
+      (e) => !users.some((u) => String(u.email || "").toLowerCase() === e)
+    );
+
+    console.log(`${found.length} of ${wanted.size} listed account(s) found.`);
+    for (const u of found) console.log(`   ${String(u.name ?? "(none)").slice(0, 24).padEnd(26)} ${u.email}`);
+    if (missing.length) {
+      console.log(`\n${missing.length} not found (already deleted, or a typo):`);
+      missing.forEach((e) => console.log(`   ${e}`));
+    }
+
+    if (!APPLY || !CONFIRMED) {
+      console.log("\nDry run — nothing deleted. Re-run with --apply --confirm-delete");
+      return;
+    }
+    await deleteAll(found.map((u) => ({ u, score: null, reasons: ["listed_by_hand"] })));
+    return;
+  }
+
+  // --- review mode ----------------------------------------------------------
+  if (REVIEW) {
+    const suspicious = users
+      .filter((u) => {
+        const ws = String(u.name || "").split(/\s+/).filter(Boolean).map(gibberishScore);
+        return ws.length > 0 && Math.max(...ws) >= 0.9;
+      })
+      .map((u) => ({ u, engaged: isEngaged(u, progressIds, sessionIds) }));
+
+    console.log(`${suspicious.length} account(s) with a name that looks generated.`);
+    console.log("Shielded ones are protected from every automatic rule — delete with --emails-file.\n");
+    console.log("shielded  role      email");
+    for (const { u, engaged } of suspicious) {
+      console.log(
+        (engaged ? "  yes   " : "   no   ").padEnd(10) +
+        String(u.role || "USER").slice(0, 8).padEnd(10) +
+        u.email
+      );
+    }
+    console.log("\nTo delete a set of these: put their emails in a file, one per line, then");
+    console.log("  --emails-file=spam.txt --apply --confirm-delete");
+    return;
+  }
 
   // Accounts sharing one real inbox via gmail dot-aliasing. Three signups on
   // nouseybeats@gmail.com are one person or one script, not three students —
@@ -179,27 +249,32 @@ async function main() {
     return;
   }
 
+  await deleteAll(targets);
+}
+
+/** Backup, then remove the accounts and every link that points at them. */
+async function deleteAll(rows) {
   const stamp = new Date().toISOString().replace(/[:.]/g, "-");
   const backupPath = `purged-accounts-${stamp}.json`;
-  writeFileSync(backupPath, JSON.stringify(targets, null, 2));
+  writeFileSync(backupPath, JSON.stringify(rows, null, 2));
   console.log(`\nBackup written to ${backupPath} — keep it until you're sure.`);
 
   let ok = 0;
   let failed = 0;
-  for (const t of targets) {
+  for (const t of rows) {
     try {
       await svc.from("tutor_students").delete().eq("student_id", t.u.id);
+      await svc.from("tutor_students").delete().eq("tutor_id", t.u.id);
+      await svc.from("tutor_lesson_sessions").delete().eq("student_id", t.u.id);
       await svc.from("users").delete().eq("id", t.u.id);
       const { error } = await svc.auth.admin.deleteUser(t.u.id);
-      // A missing auth user is fine — the row is what the tutor sees.
       if (error && !/not found/i.test(error.message)) throw new Error(error.message);
       ok++;
     } catch (err) {
       failed++;
-      console.error(`   ✗ ${t.u.email}: ${err.message}`);
+      console.error(`   \u2717 ${t.u.email}: ${err.message}`);
     }
   }
-
   console.log(`\nDeleted ${ok} account(s)${failed ? `, ${failed} failed` : ""}.`);
 }
 
