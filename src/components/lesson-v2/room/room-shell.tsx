@@ -33,12 +33,12 @@
 // as "allow more than one entry" rather than a rewrite.
 
 import { useState } from "react";
-import { MessageSquare, PenTool, Users, Video as VideoIcon, X, Sparkles } from "lucide-react";
+import { MessageSquare, PenTool, Users, Video as VideoIcon, X, Sparkles, Clock, Library } from "lucide-react";
 import { useRoomVideo } from "./video-context";
 import { VideoRail } from "./video-views";
 import { cn } from "@/lib/utils";
 
-export type StageKey = "call" | "lesson" | "board";
+export type StageKey = "call" | "lesson" | "board" | "materials";
 
 export interface StagePanel {
   key: StageKey;
@@ -62,6 +62,62 @@ function mmss(total: number): string {
   const m = Math.floor(total / 60);
   const s = total % 60;
   return `${m}:${String(s).padStart(2, "0")}`;
+}
+
+/**
+ * How long is left, and how loudly to say so.
+ *
+ * A class has a hard end — 30 minutes of room for a 25-minute lesson, 60 for a
+ * 50 — enforced server-side by the video token. The pill's job is to make that
+ * deadline impossible to be surprised by, so it escalates through the brand
+ * palette rather than shouting from the start: navy while there is plenty of
+ * time, warm orange at five minutes ("start wrapping up"), red at one.
+ *
+ * The colours are the site's own primary / secondary / accent. A green timer
+ * would be the only green in the room and would read as a foreign widget
+ * bolted onto the class.
+ */
+function ClassClock({ remaining, elapsed }: { remaining: number | null; elapsed: number }) {
+  // No deadline: an unscheduled room (an independent tutor's own classroom)
+  // has nothing to count down to, so it keeps the honest count-UP it had.
+  if (remaining === null) {
+    return (
+      <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-2.5 py-1 tabular-nums text-xs font-semibold text-slate-600">
+        <Clock className="h-3.5 w-3.5" />
+        {mmss(elapsed)}
+      </span>
+    );
+  }
+
+  const urgent = remaining <= 60;
+  const soon = remaining <= 300;
+
+  return (
+    <span
+      // aria-live on the container would read every single tick aloud. The
+      // urgent state is announced once, when it becomes true, and that is the
+      // only moment a screen-reader user needs told.
+      className={cn(
+        "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 tabular-nums text-xs font-semibold transition-colors",
+        urgent
+          ? "bg-accent-light text-accent"
+          : soon
+            ? "bg-secondary-50 text-secondary-700"
+            : "bg-primary-50 text-primary-600"
+      )}
+      title={
+        urgent || soon
+          ? "The class ends automatically when this reaches zero."
+          : "Time left in this class"
+      }
+    >
+      <Clock className={cn("h-3.5 w-3.5", urgent && "animate-pulse")} />
+      {mmss(remaining)}
+      <span className="sr-only" role="status">
+        {urgent ? "One minute left in this class." : ""}
+      </span>
+    </span>
+  );
 }
 
 export function RoomShell({
@@ -93,7 +149,7 @@ export function RoomShell({
   // taller when someone actually wants to read — their choice, not ours.
   const [sheetTall, setSheetTall] = useState(false);
   const [tab, setTab] = useState(railTabs[0]?.key ?? "chat");
-  const { phase, elapsed } = useRoomVideo();
+  const { phase, elapsed, remaining } = useRoomVideo();
 
   const active = railTabs.find((t) => t.key === tab) ?? railTabs[0];
   const unread = railTabs.reduce((n, t) => n + (t.badge ?? 0), 0);
@@ -181,7 +237,16 @@ export function RoomShell({
           })}
         </div>
 
-        <div className="flex shrink-0 items-center gap-1.5">{actions}</div>
+        <div className="flex shrink-0 items-center gap-1.5">
+          {/* The deadline belongs where both people are already looking. It
+              used to live only in the right rail, which is hidden below lg —
+              so on a tablet or phone the class could end with no warning
+              visible anywhere. */}
+          {phase === "joined" ? (
+            <ClassClock remaining={remaining} elapsed={elapsed} />
+          ) : null}
+          {actions}
+        </div>
       </header>
 
       {/* ------------------------------------------------------------ BODY */}
@@ -220,15 +285,13 @@ export function RoomShell({
             </span>
             <span className="flex items-center gap-2">
               {phase === "joined" ? (
-                <span className="tabular-nums text-sm font-semibold text-slate-600">
-                  {mmss(elapsed)}
-                </span>
+                <ClassClock remaining={remaining} elapsed={elapsed} />
               ) : null}
               {canEndClass && onEndClass ? (
                 <button
                   type="button"
                   onClick={onEndClass}
-                  className="text-xs font-semibold text-rose-600 hover:underline"
+                  className="text-xs font-semibold text-accent hover:underline"
                 >
                   End class
                 </button>
@@ -279,15 +342,13 @@ export function RoomShell({
               <span className="h-1 w-10 rounded-full bg-slate-300" />
             </button>
             <div className="flex items-center justify-between border-b px-3 pb-2">
-              <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700">
+              <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary-600">
                 <Sparkles className="h-3.5 w-3.5" />
                 {peerName ?? "Live class"}
               </span>
               <span className="flex items-center gap-3">
                 {phase === "joined" ? (
-                  <span className="tabular-nums text-sm font-semibold text-slate-600">
-                    {mmss(elapsed)}
-                  </span>
+                  <ClassClock remaining={remaining} elapsed={elapsed} />
                 ) : null}
                 <button
                   type="button"
@@ -310,4 +371,4 @@ export function RoomShell({
   );
 }
 
-export const STAGE_ICONS = { call: VideoIcon, lesson: MessageSquare, board: PenTool, people: Users };
+export const STAGE_ICONS = { call: VideoIcon, lesson: MessageSquare, board: PenTool, people: Users, materials: Library };

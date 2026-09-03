@@ -6,6 +6,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { LessonRoom } from "@/components/lesson-v2/lesson-room";
 import { MAX_GROUP_LEARNERS } from "@/lib/lessons/room-limits";
+import { resolveClassWindow } from "@/lib/lessons/class-window";
 import type { Lesson } from "@/lib/lessons/types";
 
 export const dynamic = "force-dynamic";
@@ -210,6 +211,29 @@ export default async function RoomPage({
     at: new Date(m.created_at as string).getTime(),
   }));
 
+  // Is this room's booked class on right now?
+  //
+  // Resolved here purely so the pre-class state renders at first paint — the
+  // token route resolves it again and is the actual gate, because a token is
+  // what gets a person onto a call and this page is only what they see.
+  // `unscheduled` (no booking has ever used this room) leaves classWindow
+  // undefined, and video behaves exactly as it always has.
+  const classState = await resolveClassWindow(id, { persist: true });
+  const classWindow =
+    classState.kind === "unscheduled"
+      ? undefined
+      : {
+          open: classState.kind === "open",
+          opensAt:
+            classState.kind === "open"
+              ? classState.current.opensAt
+              : classState.next?.opensAt ?? null,
+          startsAt:
+            classState.kind === "open"
+              ? classState.current.startsAt
+              : classState.next?.startsAt ?? null,
+        };
+
   // Display name for presence.
   const { data: profile } = await supabase
     .from("users")
@@ -233,6 +257,7 @@ export default async function RoomPage({
         initialHighlights={highlights || []}
         initialChat={initialChat}
         otherRooms={otherRooms}
+        classWindow={classWindow}
       />
     </>
   );

@@ -65,6 +65,28 @@ export function useLessonRoom({
   const [incomingLessonChange, setIncomingLessonChange] = useState<
     { lessonId: string; title: string; by: string; at: number } | null
   >(null);
+  // ── Shared material browsing ──────────────────────────────────────────────
+  // Picking the lesson used to be a private act: whoever opened the catalogue
+  // was alone in it, and the other person stared at a frozen room until
+  // something changed under them. In a real class both people look at the
+  // shelf together — the tutor scrolls, the student sees what they are
+  // considering. So the catalogue is shared state on the channel, not local
+  // component state.
+  //
+  // What is NOT shared is scroll position. Following someone else's scroll in
+  // a grid is nauseating, and it takes away the one thing a student can
+  // usefully do while the tutor decides: look ahead.
+  const [remoteBrowsing, setRemoteBrowsing] = useState<
+    { open: boolean; by: string; byName: string; at: number } | null
+  >(null);
+  const [remoteFilter, setRemoteFilter] = useState<
+    { q: string; level: string | null; by: string; at: number } | null
+  >(null);
+  // A student cannot change the lesson out from under the class, but they can
+  // ASK. The tutor sees the suggestion and accepts or dismisses it.
+  const [proposal, setProposal] = useState<
+    { lessonId: string; title: string; by: string; byName: string; at: number } | null
+  >(null);
 
   // Subscribe to the session channel for presence + highlight broadcasts.
   useEffect(() => {
@@ -124,6 +146,35 @@ export function useLessonRoom({
       const p = payload as { lessonId?: string; title?: string; by?: string };
       if (!p?.lessonId || p.by === currentUserId) return;
       setIncomingLessonChange({ lessonId: p.lessonId, title: p.title || "a lesson", by: p.by || "", at: Date.now() });
+    });
+
+    channel.on("broadcast", { event: "materials:open" }, ({ payload }) => {
+      const p = payload as { open?: boolean; by?: string; byName?: string };
+      if (!p.by || p.by === currentUserId) return;
+      setRemoteBrowsing({
+        open: Boolean(p.open),
+        by: p.by,
+        byName: p.byName || "They",
+        at: Date.now(),
+      });
+    });
+
+    channel.on("broadcast", { event: "materials:filter" }, ({ payload }) => {
+      const p = payload as { q?: string; level?: string | null; by?: string };
+      if (!p.by || p.by === currentUserId) return;
+      setRemoteFilter({ q: p.q || "", level: p.level ?? null, by: p.by, at: Date.now() });
+    });
+
+    channel.on("broadcast", { event: "materials:propose" }, ({ payload }) => {
+      const p = payload as { lessonId?: string; title?: string; by?: string; byName?: string };
+      if (!p.lessonId || !p.by || p.by === currentUserId) return;
+      setProposal({
+        lessonId: p.lessonId,
+        title: p.title || "a lesson",
+        by: p.by,
+        byName: p.byName || "Your student",
+        at: Date.now(),
+      });
     });
 
     channel.on("broadcast", { event: "chat:message" }, ({ payload }) => {
@@ -380,6 +431,42 @@ export function useLessonRoom({
     [sessionId, currentUserId, currentName]
   );
 
+  const broadcastMaterialsOpen = useCallback(
+    (open: boolean) => {
+      void channelRef.current?.send({
+        type: "broadcast",
+        event: "materials:open",
+        payload: { open, by: currentUserId, byName: currentName },
+      });
+    },
+    [currentUserId, currentName]
+  );
+
+  const broadcastMaterialsFilter = useCallback(
+    (q: string, level: string | null) => {
+      void channelRef.current?.send({
+        type: "broadcast",
+        event: "materials:filter",
+        payload: { q, level, by: currentUserId },
+      });
+    },
+    [currentUserId]
+  );
+
+  const proposeLesson = useCallback(
+    (lessonId: string, title: string) => {
+      void channelRef.current?.send({
+        type: "broadcast",
+        event: "materials:propose",
+        payload: { lessonId, title, by: currentUserId, byName: currentName },
+      });
+    },
+    [currentUserId, currentName]
+  );
+
+  /** The tutor has dealt with a suggestion — accepted or dismissed. */
+  const clearProposal = useCallback(() => setProposal(null), []);
+
   // The learners the tutor can switch between: anyone present as a student,
   // plus anyone who has answered but has since dropped off the channel (so a
   // student's work does not vanish from the tutor's view on a flaky connection).
@@ -432,5 +519,12 @@ export function useLessonRoom({
     sendChat,
     incomingLessonChange,
     broadcastLessonChange,
+    remoteBrowsing,
+    remoteFilter,
+    proposal,
+    broadcastMaterialsOpen,
+    broadcastMaterialsFilter,
+    proposeLesson,
+    clearProposal,
   };
 }

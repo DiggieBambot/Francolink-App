@@ -15,6 +15,7 @@ import { useEffect, useRef, useState } from "react";
 import type { DailyParticipant } from "@daily-co/daily-js";
 import {
   Mic, MicOff, Video, VideoOff, PhoneOff, Loader2, AlertCircle, UserRound,
+  CalendarClock,
 } from "lucide-react";
 import { useRoomVideo } from "./video-context";
 import { cn } from "@/lib/utils";
@@ -169,9 +170,39 @@ export function VideoControls({ size = "sm" }: { size?: "sm" | "lg" }) {
   );
 }
 
+/**
+ * "Starts in 7m 12s" — recomputed every second so a person waiting for class
+ * watches it come down rather than wondering whether the page is stale.
+ */
+function useCountdownTo(iso: string | null): number | null {
+  // A ticking clock, not a ticking countdown: the effect only advances "now",
+  // and the remaining time is derived during render. Storing the difference in
+  // state instead would mean setting state from the effect body on every
+  // change of `iso`, which cascades a second render for no gain.
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => {
+    if (!iso) return;
+    const t = setInterval(() => setNow(Date.now()), 1000);
+    return () => clearInterval(t);
+  }, [iso]);
+  if (!iso) return null;
+  return Math.max(0, Math.round((new Date(iso).getTime() - now) / 1000));
+}
+
+function untilLabel(seconds: number): string {
+  if (seconds >= 3600) {
+    const h = Math.floor(seconds / 3600);
+    const m = Math.round((seconds % 3600) / 60);
+    return m ? `${h}h ${m}m` : `${h}h`;
+  }
+  if (seconds >= 60) return `${Math.floor(seconds / 60)}m ${seconds % 60}s`;
+  return `${seconds}s`;
+}
+
 /** Shared not-live states, so the stage and the rail never disagree. */
 function Inert({ compact }: { compact: boolean }) {
-  const { phase, error, notice, join } = useRoomVideo();
+  const { phase, error, notice, join, opensAt, startsAt } = useRoomVideo();
+  const untilOpen = useCountdownTo(phase === "scheduled" ? opensAt : null);
 
   if (phase === "unconfigured") {
     return (
@@ -183,6 +214,44 @@ function Inert({ compact }: { compact: boolean }) {
   if (phase === "unavailable") {
     return (
       <p className={cn("text-slate-400", compact ? "text-xs" : "text-sm")}>{notice}</p>
+    );
+  }
+  if (phase === "scheduled") {
+    // Nothing is broken and there is nothing to retry — this pair simply has
+    // no class on right now. Say when the next one is and get out of the way;
+    // the rest of the room stays open around this.
+    return (
+      <div className={cn("w-full text-center", compact ? "" : "max-w-xs")}>
+        <CalendarClock
+          className={cn("mx-auto mb-2 text-primary-300", compact ? "h-5 w-5" : "h-7 w-7")}
+        />
+        <p className={cn("font-semibold text-slate-200", compact ? "text-xs" : "text-sm")}>
+          {startsAt
+            ? `Next class ${new Date(startsAt).toLocaleString(undefined, {
+                weekday: "short",
+                hour: "numeric",
+                minute: "2-digit",
+              })}`
+            : "No class booked yet"}
+        </p>
+        <p className={cn("mt-1 text-slate-400", compact ? "text-[11px]" : "text-xs")}>
+          {untilOpen !== null && untilOpen > 0
+            ? `Video opens in ${untilLabel(untilOpen)}`
+            : notice}
+        </p>
+      </div>
+    );
+  }
+  if (phase === "ended") {
+    return (
+      <div className={cn("w-full text-center", compact ? "" : "max-w-xs")}>
+        <p className={cn("font-semibold text-slate-200", compact ? "text-xs" : "text-sm")}>
+          Class finished
+        </p>
+        <p className={cn("mt-1 text-slate-400", compact ? "text-[11px]" : "text-xs")}>
+          Your notes, chat and material stay here.
+        </p>
+      </div>
     );
   }
   if (phase === "joining") {
@@ -206,7 +275,7 @@ function Inert({ compact }: { compact: boolean }) {
         type="button"
         onClick={join}
         className={cn(
-          "inline-flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-600 font-semibold text-white hover:bg-emerald-700",
+          "inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary-500 font-semibold text-white shadow-sm transition hover:bg-primary-600",
           compact ? "px-3 py-2 text-sm" : "px-5 py-3"
         )}
       >

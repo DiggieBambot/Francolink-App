@@ -11,7 +11,7 @@ import { ScrollSync } from "./scroll-sync";
 import { StepControls } from "./step-controls";
 import dynamic from "next/dynamic";
 import { RoomShell, type RailTab, type StageKey, type StagePanel } from "./room/room-shell";
-import { RoomVideoProvider } from "./room/video-context";
+import { RoomVideoProvider, type InitialClassWindow } from "./room/video-context";
 import { VideoStage } from "./room/video-views";
 import { PeoplePanel } from "./room/people-panel";
 import { ChatPanel } from "./room/chat-panel";
@@ -22,10 +22,14 @@ const WhiteboardPanel = dynamic(
   () => import("./room/whiteboard-panel").then((m) => m.WhiteboardPanel),
   { ssr: false, loading: () => <div className="p-4 text-sm text-slate-400">Loading whiteboard…</div> }
 );
-import { LessonBrowser } from "./room/lesson-browser";
+import { MaterialsPanel } from "./room/materials-panel";
 import type { PickerLesson } from "./room/lesson-picker";
-import { Users, Sparkles, BookOpen, RefreshCw, UserPlus, Check, Video, Send, Eye, DoorOpen, ChevronDown, LogOut, PenTool, MessageSquare } from "lucide-react";
+import { Users, Sparkles, BookOpen, RefreshCw, UserPlus, Check, Video, Send, Eye, DoorOpen, ChevronDown, LogOut, PenTool, MessageSquare, Library, X } from "lucide-react";
 import type { Lesson } from "@/lib/lessons/types";
+import { cn } from "@/lib/utils";
+
+/** A student's filtering stays theirs — see toggleMaterials. */
+const noopFilter = () => {};
 
 /** Visible time on one lesson before it counts as covered. */
 const DWELL_MS = 2 * 60 * 1000;
@@ -46,6 +50,11 @@ interface LessonRoomProps {
   initialChat?: { id: string; from: string; name: string; role: "tutor" | "student"; text: string; at: number }[];
   /** The tutor's other live rooms, for the in-room room switcher. Tutor-only. */
   otherRooms?: { id: string; label: string; isGroup: boolean }[];
+  /**
+   * Whether this room's booked class is on right now, resolved server-side.
+   * Absent on a room no booking has ever used, which has no schedule at all.
+   */
+  classWindow?: InitialClassWindow;
 }
 
 export function LessonRoom({
@@ -61,12 +70,13 @@ export function LessonRoom({
   initialHighlights,
   initialChat = [],
   otherRooms = [],
+  classWindow,
 }: LessonRoomProps) {
   const room = useLessonRoom({ sessionId, currentUserId, currentRole, currentName, initialHighlights, initialChatMessages: initialChat });
 
   const [lesson, setLesson] = useState<Lesson | null>(initialLesson);
   const [lessonId, setLessonId] = useState<string | null>(initialLessonId);
-  const [pickerOpen, setPickerOpen] = useState(false);
+  const [materialsOpen, setMaterialsOpen] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
   const [inviteCopied, setInviteCopied] = useState(false);
   const [ringing, setRinging] = useState(false);
@@ -172,37 +182,48 @@ export function LessonRoom({
     }
   }
 
-  async function loadLesson(id: string) {
+  /**
+   * Put a lesson on the stage.
+   *
+   * Every path that changes the material goes through here. It used not to:
+   * `loadLesson` (used when following the other side, and by the old picker)
+   * set local state WITHOUT broadcasting, while `pickBySlug` broadcast — so
+   * one of the two ways of choosing a lesson silently left the other person
+   * on the old one. `broadcast` is explicit for exactly that reason: applying
+   * a change we RECEIVED must not echo it back.
+   */
+  async function applyLesson(
+    id: string,
+    opts: { broadcast: boolean; title?: string; toast?: string } = { broadcast: false }
+  ) {
     try {
       const res = await fetch(`/api/lessons/${id}`);
       if (!res.ok) return;
       const data = await res.json();
+      const title = (data.lesson as Lesson)?.title || opts.title || "this lesson";
       setLesson(data.lesson as Lesson);
       setLessonId(id);
+      if (opts.broadcast) room.broadcastLessonChange(id, title);
+      if (opts.toast) showToast(opts.toast);
     } catch {
       /* ignore */
     }
   }
 
-  /** Picking material takes the stage — video shrinks to the rail. */
-  function showLesson() {
+  /** The tutor opens material for the whole room. */
+  function openForEveryone(l: PickerLesson) {
     setActiveStage("lesson");
+    void applyLesson(l.id, {
+      broadcast: true,
+      title: l.title,
+      toast: `You opened “${l.title}” for the class`,
+    });
   }
 
-  async function pickBySlug(slug: string, title: string) {
-    setPickerOpen(false);
-    try {
-      const res = await fetch(`/api/lessons/by-slug/${slug}`);
-      if (!res.ok) return;
-      const data = await res.json();
-      setLesson(data.lesson as Lesson);
-      setLessonId(data.id as string);
-      room.broadcastLessonChange(data.id, data.title || title);
-      setToast(`You opened “${data.title || title}”`);
-      window.setTimeout(() => setToast(null), 2500);
-    } catch {
-      /* ignore */
-    }
+  /** A student cannot change the material, but can ask for it. */
+  function suggest(l: PickerLesson) {
+    room.proposeLesson(l.id, l.title);
+    showToast(`Suggested “${l.title}” to your tutor`);
   }
 
   // ── Coverage tracking ────────────────────────────────────────────────────
@@ -237,11 +258,43 @@ export function LessonRoom({
     const inc = room.incomingLessonChange;
     if (!inc || inc.at === lastIncoming.current) return;
     lastIncoming.current = inc.at;
-    void loadLesson(inc.lessonId);
+    // Received, so do NOT broadcast back — that is how a two-person room
+    // talks itself into an echo loop.
+    void applyLesson(inc.lessonId, { broadcast: false });
+    setActiveStage("lesson");
     setToast(`Switched to “${inc.title}”`);
     window.setTimeout(() => setToast(null), 2500);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [room.incomingLessonChange]);
+
+  // Follow the other side onto the shelf. This is the whole point of making
+  // material selection shared: when the tutor opens the catalogue the student
+  // goes there too and watches the shortlist narrow, instead of sitting in
+  // front of a frozen room until the lesson changes without warning.
+  const lastBrowse = useRef(0);
+  useEffect(() => {
+    const b = room.remoteBrowsing;
+    if (!b || b.at === lastBrowse.current) return;
+    lastBrowse.current = b.at;
+    if (b.open) {
+      setMaterialsOpen(true);
+      setActiveStage("materials");
+    } else {
+      setMaterialsOpen(false);
+      setActiveStage((cur) => (cur === "materials" ? (lesson ? "lesson" : "call") : cur));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [room.remoteBrowsing]);
+
+  function toggleMaterials(open: boolean) {
+    setMaterialsOpen(open);
+    setActiveStage(open ? "materials" : lesson ? "lesson" : "call");
+    // Only the tutor's shelf is shared. A student browsing ahead is private —
+    // dragging the person teaching the class onto a catalogue they did not
+    // ask for would be the same interruption we just removed, pointed the
+    // other way. A student's opinion reaches the tutor as a suggestion.
+    if (currentRole === "tutor") room.broadcastMaterialsOpen(open);
+  }
 
   // ---------------------------------------------------------------- STAGE
   // Panels are mounted and hidden, never unmounted: a whiteboard that
@@ -276,6 +329,32 @@ export function LessonRoom({
                 />
                 <StepControls totalSteps={lesson.sections.length} />
               </div>
+            ),
+          },
+        ]
+      : []),
+    ...(materialsOpen
+      ? [
+          {
+            key: "materials" as const,
+            label: "Materials",
+            icon: Library,
+            closable: true,
+            content: (
+              <MaterialsPanel
+                lessons={lessonList}
+                currentId={lessonId}
+                canChoose={currentRole === "tutor"}
+                onPick={openForEveryone}
+                onPropose={suggest}
+                onFilterChange={
+                  currentRole === "tutor" ? room.broadcastMaterialsFilter : noopFilter
+                }
+                followingName={
+                  room.remoteBrowsing?.open ? room.remoteBrowsing.byName : null
+                }
+                remoteFilter={room.remoteFilter}
+              />
             ),
           },
         ]
@@ -329,10 +408,10 @@ export function LessonRoom({
         sendChat: room.sendChat,
         incomingLessonChange: room.incomingLessonChange,
         broadcastLessonChange: room.broadcastLessonChange,
-        openLessonPicker: () => setPickerOpen(true),
+        openLessonPicker: () => toggleMaterials(true),
       }}
     >
-      <RoomVideoProvider sessionId={sessionId}>
+      <RoomVideoProvider sessionId={sessionId} initialWindow={classWindow}>
         <RoomShell
           panels={panels}
           activeStage={activeStage}
@@ -342,6 +421,9 @@ export function LessonRoom({
               setBoardOpen(false);
               setActiveStage(lesson ? "lesson" : "call");
             }
+            // Closing the shelf closes it for both — the same rule as opening
+            // it, so the two sides can never end up on different stages.
+            if (key === "materials") toggleMaterials(false);
           }}
           peerName={studentName || (currentRole === "student" ? "Your tutor" : null)}
           onEndClass={endClass}
@@ -506,17 +588,28 @@ export function LessonRoom({
             {sendingHw ? "Sending…" : "Send homework"}
           </button>
         ) : null}
-        {lesson ? (
-          <>
-            <span className="h-4 w-px bg-slate-200" />
-            <button
-              onClick={() => setPickerOpen(true)}
-              className="inline-flex items-center gap-1 rounded-full bg-primary-600 px-2.5 py-0.5 text-xs font-semibold text-white hover:bg-primary-700"
-            >
-              <RefreshCw className="h-3 w-3" /> Change lesson
-            </button>
-          </>
-        ) : null}
+        {/* Always offered, not only once a lesson is open: with no material
+            chosen there was previously nothing in the toolbar that led to
+            any, and the shelf is where a class starts. */}
+        <span className="h-4 w-px bg-slate-200" />
+        <button
+          onClick={() => toggleMaterials(!materialsOpen)}
+          aria-pressed={materialsOpen}
+          className={cn(
+            "inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold transition",
+            materialsOpen
+              ? "bg-primary-600 text-white hover:bg-primary-700"
+              : "bg-primary-50 text-primary-600 hover:bg-primary-100"
+          )}
+          title={
+            currentRole === "tutor"
+              ? "Browse the library together and open a lesson"
+              : "Browse the library and suggest a lesson"
+          }
+        >
+          {lesson ? <RefreshCw className="h-3 w-3" /> : <Library className="h-3 w-3" />}
+          {lesson ? "Change lesson" : "Materials"}
+        </button>
         {currentRole === "tutor" ? (
           <>
             <span className="h-4 w-px bg-slate-200" />
@@ -547,14 +640,44 @@ export function LessonRoom({
         <SectionSync />
         <ScrollSync />
 
-        {pickerOpen ? (
-          <LessonBrowser
-            onPick={(slug, title) => {
-              pickBySlug(slug, title);
-              showLesson();
-            }}
-            onClose={() => setPickerOpen(false)}
-          />
+        {/* A student's suggestion, waiting on the tutor. Deliberately a
+            prompt and not an automatic switch: the tutor is running the
+            lesson, and material changing under them mid-explanation is worse
+            than a student waiting three seconds for a yes. */}
+        {currentRole === "tutor" && room.proposal ? (
+          <div className="fixed bottom-6 left-1/2 z-[60] w-[min(26rem,calc(100vw-2rem))] -translate-x-1/2 rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl">
+            <p className="text-xs font-semibold uppercase tracking-wide text-secondary-600">
+              {room.proposal.byName} suggests
+            </p>
+            <p className="mt-1 text-sm font-semibold text-slate-900">
+              {room.proposal.title}
+            </p>
+            <div className="mt-3 flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  const p = room.proposal!;
+                  room.clearProposal();
+                  setActiveStage("lesson");
+                  void applyLesson(p.lessonId, {
+                    broadcast: true,
+                    title: p.title,
+                    toast: `Opened “${p.title}”`,
+                  });
+                }}
+                className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-primary-500 px-3 py-2 text-sm font-semibold text-white transition hover:bg-primary-600"
+              >
+                <Check className="h-4 w-4" /> Open it
+              </button>
+              <button
+                type="button"
+                onClick={room.clearProposal}
+                className="inline-flex items-center justify-center gap-1.5 rounded-lg px-3 py-2 text-sm font-semibold text-slate-500 hover:bg-slate-100"
+              >
+                <X className="h-4 w-4" /> Not now
+              </button>
+            </div>
+          </div>
         ) : null}
       </RoomVideoProvider>
     </LessonRoomProvider>
