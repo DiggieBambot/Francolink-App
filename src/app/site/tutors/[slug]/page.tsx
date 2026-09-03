@@ -20,6 +20,8 @@ import { SlotPicker } from "@/components/site/slot-picker";
 import { TutorTabs } from "@/components/site/tutor-tabs";
 import { Collapsible } from "@/components/site/collapsible";
 import { getPublicTutor, getPublicTutorSlugs } from "@/lib/site/queries";
+import { JsonLd } from "@/components/site/json-ld";
+import { ORG_ID, breadcrumbSchema } from "@/lib/site/schema";
 import { getBookableSlots } from "@/lib/booking/availability";
 import { LANGUAGE_LABEL, embedVideoUrl } from "@/lib/site/format";
 import { TIER_BLURB, TIER_LABEL, getPricingByTier } from "@/lib/site/pricing";
@@ -97,7 +99,11 @@ export default async function TutorProfilePage({ params }: PageProps) {
   const bookHref = appUrl(`/join/${tutor.slug}`);
 
   // Rich result for the tutor as a person offering a service.
-  const jsonLd = {
+  //
+  // `worksFor` points at the sitewide Organization node by @id rather than
+  // restating it, so every tutor resolves to the same FrancoLink entity instead
+  // of minting a new one per page.
+  const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: tutor.name,
@@ -106,15 +112,31 @@ export default async function TutorProfilePage({ params }: PageProps) {
     image: tutor.photo_url || undefined,
     url: siteUrl(`/tutors/${tutor.slug}`),
     knowsLanguage: [...tutor.teaches, ...tutor.speaks],
-    worksFor: { "@type": "Organization", name: "FrancoLink", url: siteUrl("/") },
+    worksFor: { "@id": ORG_ID },
   };
+
+  // Reuses the `rating` the page already computes for display, so the stars a
+  // visitor sees and the stars Google sees can never disagree. Null when no
+  // student left a rating, and then the property is omitted entirely — a
+  // made-up rating is structured-data spam.
+  if (rating) {
+    jsonLd.aggregateRating = {
+      "@type": "AggregateRating",
+      ratingValue: Number(rating.average.toFixed(1)),
+      reviewCount: rating.count,
+      bestRating: 5,
+    };
+  }
+
+  const breadcrumb = breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Tutors", path: "/tutors" },
+    { name: tutor.name, path: `/tutors/${tutor.slug}` },
+  ]);
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd schema={[jsonLd, breadcrumb]} />
 
       {/* ------------------------------------------------------------- HEADER */}
       {/* The profile reads as a stack of panels rather than a flowing page:

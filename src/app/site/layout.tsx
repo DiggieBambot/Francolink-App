@@ -9,6 +9,8 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SITE_URL } from "@/lib/site/hosts";
+import { JsonLd } from "@/components/site/json-ld";
+import { organizationSchema, websiteSchema, ORG_DESCRIPTION } from "@/lib/site/schema";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -25,6 +27,22 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "FrancoLink",
     url: "/",
+    // The website emitted no og:image at all, and the app default pointed at
+    // /og-image.png, which 404'd — so every shared link rendered blank.
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "FrancoLink — learn French with certified tutors",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FrancoLink — learn French with certified tutors",
+    description: ORG_DESCRIPTION,
+    images: ["/og-image.png"],
   },
   alternates: { canonical: "/" },
 };
@@ -32,6 +50,10 @@ export const metadata: Metadata = {
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col bg-white font-body text-gray-800">
+      {/* Identity, on every page of the website: who FrancoLink is and what it
+          is. Nothing declared this before, so search engines and LLMs had only
+          prose to infer the entity from. */}
+      <JsonLd schema={[organizationSchema(), websiteSchema()]} />
       <SiteHeader />
       <main className="flex-1">{children}</main>
       <SiteFooter />
