@@ -388,8 +388,12 @@ export function RoomShell({
 
           {/* Who you are with, and how long you have been at it. */}
           <div className="flex items-center justify-between border-b px-3 py-2">
+            {/* Only a real name. The tile directly above already says
+                "Waiting…" when nobody has joined, and stacking a second,
+                differently-worded copy of that fact under it said the same
+                thing twice in two voices. */}
             <span className="truncate text-sm font-semibold text-slate-800">
-              {peerName ?? "Waiting for the other side…"}
+              {peerName ?? ""}
             </span>
             <span className="flex items-center gap-2">
               {phase === "joined" ? (

@@ -104,8 +104,12 @@ function Tile({
       {camOff && (
         <div className="flex h-full w-full flex-col items-center justify-center gap-1.5">
           <UserRound className="h-6 w-6 text-slate-600" />
+          {/* Just the state, never the name. The corner chip below already
+              carries the name, and printing it here too rendered it TWICE on
+              one tile — which on the small self-view truncated to the useless
+              "Francais avec Bambot —", eating the whole tile to say nothing. */}
           <span className="px-2 text-center text-[11px] font-semibold text-slate-400">
-            {participant ? `${name} — camera off` : "Waiting…"}
+            {participant ? "Camera off" : "Waiting…"}
           </span>
         </div>
       )}
