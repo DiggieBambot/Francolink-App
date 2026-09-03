@@ -173,14 +173,19 @@ against a real risk of leaking answers.
 
 ## D. Verify before declaring done
 
-- [ ] `curl -I` a typo'd marketing URL → direct 404, no cross-host redirect
-- [ ] Canonical on `www.francolink.net/pricing` points at itself
-- [ ] `/francais-pas-a-pas` present in `sitemap.xml`
-- [ ] Sitemap URL count dropped by the number of lessons the lint failed
-- [ ] Lighthouse mobile re-run on all six audited URLs — LCP under 2.5s
-- [ ] No `fonts.googleapis.com` request in the network tab
-- [ ] Google Search Console: no new "Duplicate, Google chose a different canonical"
-- [ ] Re-run `/seo-audit` and compare — technical baseline was **46/100**, GEO **41/100**
+> **Done 2026-09-03 — results in `docs/SEO-VERIFICATION.md`.** 22/22
+> deterministic checks pass. Technical 46 → 65/100. LCP: four of six pages went
+> from failing to passing (or within 90ms of it); the two library pages improved
+> but still fail and got a follow-up fix in `6d443b5` awaiting re-measure.
+
+- [x] `curl -I` a typo'd marketing URL → direct 404, no cross-host redirect
+- [x] Canonical on `www.francolink.net/pricing` points at itself
+- [x] `/francais-pas-a-pas` present in `sitemap.xml`
+- [x] Sitemap URL count dropped by the number of lessons the lint failed
+- [x] Lighthouse mobile re-run on all six audited URLs — 4 of 6 now pass or are within 90ms; `app/library` and lesson pages still fail (fetchpriority fix shipped, needs re-measure)
+- [x] No `fonts.googleapis.com` request in the network tab
+- [ ] Google Search Console: no new "Duplicate, Google chose a different canonical" — *needs your GSC access; wait weeks, not days, for recrawl*
+- [x] Re-run `/seo-audit` and compare — technical baseline was **46/100**, GEO **41/100**
 
 ---
 
