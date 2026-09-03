@@ -134,46 +134,51 @@ function ClassClock({ remaining, elapsed }: { remaining: number | null; elapsed:
  * a document with a webcam in the corner: a fixed frame around the lesson.
  */
 function ControlBar({
+  peerName,
   railTabs,
   unread,
   onOpenRail,
   onEndClass,
   canEndClass,
 }: {
+  peerName: string | null;
   railTabs: RailTab[];
   unread: number;
   onOpenRail: () => void;
   onEndClass?: () => void;
   canEndClass: boolean;
 }) {
-  const { phase, join } = useRoomVideo();
+  const { phase, join, elapsed, remaining } = useRoomVideo();
 
   return (
     <div
-      className="flex h-16 shrink-0 items-center justify-between gap-2 border-t bg-slate-900 px-3"
+      className="relative flex h-16 shrink-0 items-center gap-2 border-t border-slate-800 bg-slate-900 px-3"
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
-      {/* Left: room tools. On lg these live in the docked rail, so the button
-          is only a way INTO the drawer and belongs to small screens. */}
-      <div className="flex items-center gap-1.5 lg:invisible">
-        <button
-          type="button"
-          onClick={onOpenRail}
-          className="relative inline-flex h-10 items-center gap-1.5 rounded-full bg-slate-800 px-3 text-xs font-semibold text-slate-200 transition hover:bg-slate-700"
-        >
-          <MessageSquare className="h-4 w-4" />
-          <span className="hidden sm:inline">{railTabs[0]?.label ?? "Chat"}</span>
-          {unread ? (
-            <span className="absolute -right-1 -top-1 min-w-[18px] rounded-full bg-accent px-1 text-[10px] font-bold leading-[18px] text-white">
-              {unread}
+      {/* ------------------------------------------------------- IDENTITY */}
+      {/* Who you are with, and how long is left. Both used to be in the right
+          rail, which is hidden below lg — so on a tablet the class could end
+          with no warning visible anywhere — and the clock was ALSO drawn in
+          the header and in the mobile sheet. Three clocks for one class. */}
+      <div className="flex min-w-0 items-center gap-2">
+        {peerName ? (
+          <span className="hidden min-w-0 items-center gap-2 sm:flex">
+            <span className="h-2 w-2 shrink-0 rounded-full bg-primary-400" />
+            <span className="truncate text-sm font-semibold text-slate-100">
+              {peerName}
             </span>
-          ) : null}
-        </button>
+          </span>
+        ) : null}
+        {phase === "joined" ? (
+          <ClassClock remaining={remaining} elapsed={elapsed} />
+        ) : null}
       </div>
 
-      {/* Centre: the call itself. Centred absolutely rather than by flex, so
-          the mute button does not shift sideways when the End-class button
-          appears for a tutor and not for a student. */}
+      {/* -------------------------------------------------------- THE CALL */}
+      {/* Centred absolutely, not by flex: otherwise the mute button shifts
+          sideways as the peer name arrives, or when End class appears for a
+          tutor and not for a student. The control you reach for without
+          looking must not move. */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
         <div className="pointer-events-auto">
           {phase === "joined" ? (
@@ -201,10 +206,26 @@ function ControlBar({
         </div>
       </div>
 
-      {/* Right: ending the class. Destructive, so it is the only thing over
-          here and it is never adjacent to a control someone reaches for
-          during a lesson. */}
+      {/* ------------------------------------------------------------ TOOLS */}
       <div className="ml-auto flex items-center gap-1.5">
+        {/* Above lg the rail is docked and this is nothing but noise. */}
+        <button
+          type="button"
+          onClick={onOpenRail}
+          className="relative inline-flex h-10 items-center gap-1.5 rounded-full bg-slate-800 px-3 text-xs font-semibold text-slate-200 transition hover:bg-slate-700 lg:hidden"
+        >
+          <MessageSquare className="h-4 w-4" />
+          <span className="hidden sm:inline">{railTabs[0]?.label ?? "Chat"}</span>
+          {unread ? (
+            <span className="absolute -right-1 -top-1 min-w-[18px] rounded-full bg-accent px-1 text-[10px] font-bold leading-[18px] text-white">
+              {unread}
+            </span>
+          ) : null}
+        </button>
+
+        {/* Destructive, so it is the last thing on the row and never adjacent
+            to a control someone reaches for mid-lesson. It used to sit one
+            pixel from "Send homework" in a scrolling toolbar. */}
         {canEndClass && onEndClass ? (
           <button
             type="button"
@@ -249,7 +270,7 @@ export function RoomShell({
   // taller when someone actually wants to read — their choice, not ours.
   const [sheetTall, setSheetTall] = useState(false);
   const [tab, setTab] = useState(railTabs[0]?.key ?? "chat");
-  const { phase, elapsed, remaining } = useRoomVideo();
+  const { phase } = useRoomVideo();
 
   // When the clock runs out, bring the call stage forward. Otherwise the
   // class ends while both people are looking at a lesson page, the video
@@ -302,7 +323,13 @@ export function RoomShell({
     <div className="flex h-[100dvh] flex-col overflow-hidden bg-slate-100">
       {/* ------------------------------------------------------------- TOP */}
       <header className="flex h-12 shrink-0 items-stretch gap-1 border-b bg-white pr-2">
-        <div className="flex min-w-0 flex-1 items-stretch overflow-x-auto">
+        {/* The tabs never yield. They used to be `min-w-0 flex-1` against a
+            `shrink-0` actions row — which is fine at 1440px and catastrophic
+            at 375px: the toolbar is ~600px wide, so it took the whole header
+            and squeezed the tab strip to ZERO. On a phone there was no way to
+            get from the lesson back to the call. The actions scroll instead;
+            they are all optional, and the stage tabs are not. */}
+        <div className="flex shrink-0 items-stretch">
           {panels.map((p) => {
             const on = p.key === activeStage;
             return (
@@ -345,14 +372,7 @@ export function RoomShell({
           })}
         </div>
 
-        <div className="flex shrink-0 items-center gap-1.5">
-          {/* The deadline belongs where both people are already looking. It
-              used to live only in the right rail, which is hidden below lg —
-              so on a tablet or phone the class could end with no warning
-              visible anywhere. */}
-          {phase === "joined" ? (
-            <ClassClock remaining={remaining} elapsed={elapsed} />
-          ) : null}
+        <div className="flex min-w-0 flex-1 items-center justify-end overflow-x-auto">
           {actions}
         </div>
       </header>
@@ -386,22 +406,6 @@ export function RoomShell({
         <aside className="hidden w-[360px] shrink-0 flex-col border-l bg-white lg:flex">
           <VideoRail />
 
-          {/* Who you are with, and how long you have been at it. */}
-          <div className="flex items-center justify-between border-b px-3 py-2">
-            {/* Only a real name. The tile directly above already says
-                "Waiting…" when nobody has joined, and stacking a second,
-                differently-worded copy of that fact under it said the same
-                thing twice in two voices. */}
-            <span className="truncate text-sm font-semibold text-slate-800">
-              {peerName ?? ""}
-            </span>
-            <span className="flex items-center gap-2">
-              {phase === "joined" ? (
-                <ClassClock remaining={remaining} elapsed={elapsed} />
-              ) : null}
-            </span>
-          </div>
-
           {railBody}
         </aside>
       </div>
@@ -409,6 +413,7 @@ export function RoomShell({
       {/* ------------------------------------------------------------ BASE */}
       <div className="relative">
         <ControlBar
+          peerName={peerName}
           railTabs={railTabs}
           unread={unread}
           onOpenRail={() => setRailOpen(true)}
@@ -444,12 +449,9 @@ export function RoomShell({
             <div className="flex items-center justify-between border-b px-3 pb-2">
               <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary-600">
                 <Sparkles className="h-3.5 w-3.5" />
-                {peerName ?? "Live class"}
+                {active?.label ?? "Room"}
               </span>
               <span className="flex items-center gap-3">
-                {phase === "joined" ? (
-                  <ClassClock remaining={remaining} elapsed={elapsed} />
-                ) : null}
                 <button
                   type="button"
                   onClick={() => {

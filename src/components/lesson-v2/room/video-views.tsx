@@ -237,7 +237,7 @@ function untilLabel(seconds: number): string {
 
 /** Shared not-live states, so the stage and the rail never disagree. */
 function Inert({ compact }: { compact: boolean }) {
-  const { phase, error, notice, join, opensAt, startsAt } = useRoomVideo();
+  const { phase, error, notice, opensAt, startsAt } = useRoomVideo();
   const untilOpen = useCountdownTo(phase === "scheduled" ? opensAt : null);
 
   if (phase === "unconfigured") {
@@ -310,25 +310,33 @@ function Inert({ compact }: { compact: boolean }) {
     );
   }
 
+  // Deliberately NO join button here.
+  //
+  // The control bar at the bottom owns every call action, at every width. This
+  // area used to carry its own "Start the call", which meant the room showed
+  // two different join buttons at once — and a person who has to decide which
+  // of two identical buttons to press has been given a puzzle, not a choice.
+  // What belongs here is the EXPLANATION; the action belongs on the bar.
   return (
-    <div className={cn("w-full", compact ? "" : "max-w-xs")}>
-      {error && (
-        <p className="mb-2 flex items-start gap-1.5 text-left text-xs text-red-400">
+    <div className={cn("w-full text-center", compact ? "" : "max-w-xs")}>
+      {error ? (
+        <p className="flex items-start gap-1.5 text-left text-xs text-red-400">
           <AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0" />
           {error}
         </p>
+      ) : (
+        <>
+          <Video
+            className={cn(
+              "mx-auto mb-2 text-slate-600",
+              compact ? "h-5 w-5" : "h-8 w-8"
+            )}
+          />
+          <p className={cn("font-medium text-slate-400", compact ? "text-[11px]" : "text-sm")}>
+            Your camera is off. Join the call below when you&apos;re ready.
+          </p>
+        </>
       )}
-      <button
-        type="button"
-        onClick={join}
-        className={cn(
-          "inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary-500 font-semibold text-white shadow-sm transition hover:bg-primary-600",
-          compact ? "px-3 py-2 text-sm" : "px-5 py-3"
-        )}
-      >
-        <Video className={compact ? "h-4 w-4" : "h-5 w-5"} />
-        {error ? "Rejoin video" : "Start the call"}
-      </button>
     </div>
   );
 }
@@ -411,9 +419,15 @@ export function VideoRail() {
   const [selfLarge, setSelfLarge] = useState(false);
 
   if (phase !== "joined") {
+    // Same dark block, same shape, whether or not the call is up. A pale
+    // little strip that becomes a 16:9 video well the moment you join makes
+    // the rail jump and reads as two different products; the space where the
+    // faces will be should look like the space where the faces will be.
     return (
-      <div className="border-b bg-slate-50 px-3 py-2.5 text-center">
-        <Inert compact />
+      <div className="border-b bg-slate-900">
+        <div className="flex h-32 w-full items-center justify-center px-4 lg:aspect-video lg:h-auto">
+          <Inert compact />
+        </div>
       </div>
     );
   }

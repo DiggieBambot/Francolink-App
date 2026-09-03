@@ -31,6 +31,20 @@ import { cn } from "@/lib/utils";
 /** A student's filtering stays theirs — see toggleMaterials. */
 const noopFilter = () => {};
 
+/**
+ * One button language for the room toolbar.
+ *
+ * It used to be five: emerald Ring, slate Board, orange Invite, navy Send
+ * homework, pale-blue Materials — five saturated fills competing in one
+ * 40px strip, none of which meant anything, and one of them the only green
+ * on the site. Colour has to earn its place, so exactly one action is filled
+ * (the one that is urgent right now) and the rest are quiet until hovered.
+ */
+const TOOL_BTN =
+  "inline-flex h-8 shrink-0 items-center gap-1.5 rounded-lg px-2.5 text-xs font-semibold transition-colors";
+const TOOL_QUIET = "text-slate-600 hover:bg-slate-100 hover:text-slate-900";
+const TOOL_LOUD = "bg-primary-500 text-white hover:bg-primary-600";
+
 /** Visible time on one lesson before it counts as covered. */
 const DWELL_MS = 2 * 60 * 1000;
 const DWELL_TICK_MS = 15 * 1000;
@@ -434,7 +448,7 @@ export function LessonRoom({
           railTabs={railTabs}
           actions={
             <div className="flex items-center gap-1.5 overflow-x-auto">
-        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700">
+        <span className="inline-flex shrink-0 items-center gap-1.5 text-xs font-semibold text-primary-600">
           <Sparkles className="h-3.5 w-3.5" /> Live space
         </span>
         <span className="h-4 w-px bg-slate-200" />
@@ -445,7 +459,7 @@ export function LessonRoom({
           {room.presence.slice(0, 4).map((p) => (
             <span key={p.user_id} title={`${p.name} (${p.role})`} className="relative">
               <Avatar seed={p.avatar_seed || p.name} size={28} />
-              <span className={`absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full ring-2 ring-white ${p.role === "tutor" ? "bg-emerald-500" : "bg-blue-500"}`} />
+              <span className={`absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full ring-2 ring-white ${p.role === "tutor" ? "bg-primary-500" : "bg-secondary-500"}`} />
             </span>
           ))}
           {room.presence.length > 4 ? (
@@ -508,7 +522,7 @@ export function LessonRoom({
                     </ul>
                     <a
                       href="/tutor/sessions/new"
-                      className="flex items-center gap-2 border-t px-3 py-2 text-sm font-semibold text-emerald-700 hover:bg-emerald-50"
+                      className="flex items-center gap-2 border-t px-3 py-2 text-sm font-semibold text-primary-600 hover:bg-primary-50"
                     >
                       <Sparkles className="h-3.5 w-3.5" /> Start another class
                     </a>
@@ -535,7 +549,7 @@ export function LessonRoom({
                     title={`Watch ${l.name}'s answers`}
                     className={`rounded-full px-2 py-0.5 text-xs font-medium transition ${
                       active
-                        ? "bg-blue-600 text-white"
+                        ? "bg-primary-500 text-white"
                         : "text-slate-600 hover:bg-slate-100"
                     }`}
                   >
@@ -551,10 +565,10 @@ export function LessonRoom({
           <button
             onClick={ringStudent}
             disabled={ringing}
-            className="inline-flex items-center gap-1 rounded-full bg-emerald-600 px-2.5 py-0.5 text-xs font-semibold text-white hover:bg-emerald-700 disabled:opacity-60"
+            className={cn(TOOL_BTN, TOOL_LOUD, "disabled:opacity-60")}
             title={`Ring ${studentName || "your student"} — pops a “Join class” alert on their dashboard`}
           >
-            <Video className="h-3 w-3" />
+            <Video className="h-3.5 w-3.5" />
             {ringing ? "Ringing…" : `Ring${studentName ? ` ${studentName.split(" ")[0]}` : ""}`}
           </button>
         ) : null}
@@ -566,28 +580,32 @@ export function LessonRoom({
             setBoardOpen(true);
             setActiveStage("board");
           }}
-          className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-700 hover:bg-slate-200"
+          className={cn(TOOL_BTN, TOOL_QUIET)}
           title="Open the whiteboard"
         >
-          <PenTool className="h-3 w-3" />
+          <PenTool className="h-3.5 w-3.5" />
           Board
         </button>
         <button
           onClick={copyInvite}
-          className="inline-flex items-center gap-1 rounded-full bg-secondary px-2.5 py-0.5 text-xs font-semibold text-white hover:bg-secondary-600"
+          className={cn(TOOL_BTN, TOOL_QUIET)}
           title="Copy this room link and send it to your student"
         >
-          {inviteCopied ? <Check className="h-3 w-3" /> : <UserPlus className="h-3 w-3" />}
+          {inviteCopied ? (
+            <Check className="h-3.5 w-3.5 text-primary-500" />
+          ) : (
+            <UserPlus className="h-3.5 w-3.5" />
+          )}
           {inviteCopied ? "Copied!" : "Invite"}
         </button>
         {currentRole === "tutor" && studentId && lesson ? (
           <button
             onClick={sendHomework}
             disabled={sendingHw}
-            className="inline-flex items-center gap-1 rounded-full bg-primary-600 px-2.5 py-0.5 text-xs font-semibold text-white hover:bg-primary-700 disabled:opacity-60"
+            className={cn(TOOL_BTN, TOOL_QUIET, "disabled:opacity-60")}
             title="Send this lesson's homework to your student"
           >
-            <Send className="h-3 w-3" />
+            <Send className="h-3.5 w-3.5" />
             {sendingHw ? "Sending…" : "Send homework"}
           </button>
         ) : null}
@@ -598,19 +616,14 @@ export function LessonRoom({
         <button
           onClick={() => toggleMaterials(!materialsOpen)}
           aria-pressed={materialsOpen}
-          className={cn(
-            "inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold transition",
-            materialsOpen
-              ? "bg-primary-600 text-white hover:bg-primary-700"
-              : "bg-primary-50 text-primary-600 hover:bg-primary-100"
-          )}
+          className={cn(TOOL_BTN, materialsOpen ? TOOL_LOUD : TOOL_QUIET)}
           title={
             currentRole === "tutor"
               ? "Browse the library together and open a lesson"
               : "Browse the library and suggest a lesson"
           }
         >
-          {lesson ? <RefreshCw className="h-3 w-3" /> : <Library className="h-3 w-3" />}
+          {lesson ? <RefreshCw className="h-3.5 w-3.5" /> : <Library className="h-3.5 w-3.5" />}
           {lesson ? "Change lesson" : "Materials"}
         </button>
         {/* "End class" is not here any more — it lives in the control bar at
