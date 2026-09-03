@@ -13,6 +13,9 @@ const HOST_NEUTRAL_EXACT = [
   "/favicon.ico",
   "/robots.txt",
   "/sitemap.xml",
+  // Host-aware: the route handler serves different text per host, so it must
+  // reach the handler rather than be redirected across domains like a page.
+  "/llms.txt",
   "/manifest.webmanifest",
   "/sw.js",
 ];

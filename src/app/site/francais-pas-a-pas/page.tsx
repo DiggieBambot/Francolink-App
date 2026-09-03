@@ -165,6 +165,10 @@ export default function Page() {
       brand: { "@type": "Brand", name: "FrancoLink" },
       author: { "@type": "Person", name: "Njinu Precious Bambot" },
       url: `${SITE_URL}/francais-pas-a-pas`,
+      // Google requires an image for Product rich-result eligibility; without
+      // it the rest of this block cannot produce a snippet.
+      image: `${SITE_URL}/og-image.png`,
+      publisher: { "@id": `${SITE_URL}/#organization` },
       offers: {
         "@type": "Offer", price: "27.00", priceCurrency: "USD",
         availability: "https://schema.org/InStock",

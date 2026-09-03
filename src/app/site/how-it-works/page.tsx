@@ -11,6 +11,9 @@ import {
 } from "lucide-react";
 import { Section, SectionHeading, CtaButton } from "@/components/site/ui";
 import { appUrl } from "@/lib/site/hosts";
+import { siteUrl } from "@/lib/site/hosts";
+import { JsonLd } from "@/components/site/json-ld";
+import { breadcrumbSchema } from "@/lib/site/schema";
 
 export const metadata: Metadata = {
   title: "How it works",
@@ -53,8 +56,35 @@ const JOURNEY = [
 ];
 
 export default function HowItWorksPage() {
+  // The page is already a six-step procedure; HowTo just says so in a form a
+  // search engine or an LLM can read. Built from JOURNEY so the steps cannot
+  // drift away from what the page actually shows.
+  const howTo = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How to learn a language with FrancoLink",
+    description:
+      "From placement test to tracked progress: the six steps of learning with a FrancoLink tutor.",
+    step: JOURNEY.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.title,
+      text: s.body,
+      url: `${siteUrl("/how-it-works")}#step-${i + 1}`,
+    })),
+  };
+
   return (
     <>
+      <JsonLd
+        schema={[
+          howTo,
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "How it works", path: "/how-it-works" },
+          ]),
+        ]}
+      />
       <div className="bg-primary-50 border-b border-primary-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-center">
           <h1 className="font-heading font-extrabold text-4xl sm:text-5xl text-primary tracking-tight">

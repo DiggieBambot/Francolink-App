@@ -9,9 +9,10 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, Video, GraduationCap } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { getPublishedLessonBySlug } from "@/lib/lessons/public-queries";
-import { APP_URL } from "@/lib/site/hosts";
+import { APP_URL, SITE_URL } from "@/lib/site/hosts";
 import { LessonRenderer } from "@/components/lesson-v2/lesson-renderer";
 import { GuestCTA } from "@/components/library/guest-cta";
+import { JsonLd } from "@/components/site/json-ld";
 import { PublicShell } from "@/components/layout/public-shell";
 import { ShareButton } from "@/components/library/share-button";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
@@ -80,6 +81,34 @@ export default async function PublicLessonPage({
   const found = await getPublishedLessonBySlug(slug);
   if (!found) notFound();
 
+  // Structured data for the ~250 indexable lessons. LearningResource is the
+  // right type for a single lesson and it is what tells an LLM this page is a
+  // CEFR-levelled French lesson rather than an article about French.
+  // `isPartOf` ties every lesson back to one Course, and `provider` to the
+  // sitewide Organization node on the marketing host.
+  const lessonSchema = {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    name: found.lesson.title,
+    url: `${APP_URL}/library/lesson/${found.lesson.slug}`,
+    inLanguage: found.lesson.language,
+    educationalLevel: found.lesson.level,
+    learningResourceType: "Lesson",
+    ...(found.lesson.duration_minutes
+      ? { timeRequired: `PT${found.lesson.duration_minutes}M` }
+      : {}),
+    ...(found.lesson.topic_tags?.length
+      ? { teaches: found.lesson.topic_tags.join(", ") }
+      : {}),
+    ...(found.lesson.hero_image_url ? { image: found.lesson.hero_image_url } : {}),
+    isPartOf: {
+      "@type": "Course",
+      name: "FrancoLink lesson library",
+      url: `${APP_URL}/library`,
+      provider: { "@id": `${SITE_URL}/#organization` },
+    },
+  };
+
   // Determine viewer role (guests allowed).
   let isTutor = false;
   let userId: string | null = null;
@@ -133,6 +162,7 @@ export default async function PublicLessonPage({
   return (
     <PublicShell>
     <div className="min-h-screen bg-gray-50">
+      <JsonLd schema={lessonSchema} />
       <GuestCTA />
       <div className="border-b border-gray-100 bg-white">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-2 px-6 py-2.5 text-sm">

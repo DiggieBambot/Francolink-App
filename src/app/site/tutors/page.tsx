@@ -10,6 +10,8 @@ import {
 } from "@/lib/site/queries";
 import { TIER_BLURB, TIER_LABEL, type Tier } from "@/lib/site/pricing";
 import { appUrl } from "@/lib/site/hosts";
+import { JsonLd } from "@/components/site/json-ld";
+import { tutorListSchema, breadcrumbSchema } from "@/lib/site/schema";
 
 export const revalidate = 3600;
 
@@ -46,6 +48,18 @@ export default async function TutorsPage() {
 
   return (
     <>
+      {/* The directory as a list Google can read, plus where it sits in the
+          site. Position + url only — the tutor's own details live on the
+          profile page and are not worth duplicating here. */}
+      <JsonLd
+        schema={[
+          tutorListSchema(tutors.map((t) => t.slug)),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Tutors", path: "/tutors" },
+          ]),
+        ]}
+      />
       <div className="bg-primary-50 border-b border-primary-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-center">
           <h1 className="font-heading font-extrabold text-4xl sm:text-5xl text-primary tracking-tight">

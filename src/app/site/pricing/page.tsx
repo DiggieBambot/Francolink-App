@@ -3,6 +3,8 @@ import { Check, Minus } from "lucide-react";
 import { Section, SectionHeading, CtaButton } from "@/components/site/ui";
 import { appUrl } from "@/lib/site/hosts";
 import { cn } from "@/lib/utils";
+import { JsonLd } from "@/components/site/json-ld";
+import { subscriptionCourseSchema, breadcrumbSchema } from "@/lib/site/schema";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -79,6 +81,17 @@ const PLANS: Plan[] = [
 export default function SitePricingPage() {
   return (
     <>
+      {/* The subscription as a priced Course. The offers below mirror the
+          numbers in PLANS above — when prices change, change both. */}
+      <JsonLd
+        schema={[
+          subscriptionCourseSchema(),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Pricing", path: "/pricing" },
+          ]),
+        ]}
+      />
       <div className="bg-primary-50 border-b border-primary-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-center">
           <h1 className="font-heading font-extrabold text-4xl sm:text-5xl text-primary tracking-tight">
