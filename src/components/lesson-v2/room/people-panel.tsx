@@ -65,7 +65,7 @@ export function PeoplePanel() {
               <div className="text-sm font-medium text-slate-900">{p.name}</div>
               <div
                 className={`text-xs ${
-                  p.role === "tutor" ? "text-emerald-600" : "text-blue-600"
+                  p.role === "tutor" ? "text-primary-600" : "text-secondary-600"
                 }`}
               >
                 {p.role}

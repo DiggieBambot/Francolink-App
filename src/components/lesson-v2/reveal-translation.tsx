@@ -83,7 +83,7 @@ export function RevealTranslation({
       }}
       className={`inline-flex items-center gap-1 ${sizeCls} transition-colors ${
         sharedShown
-          ? "rounded bg-emerald-100 px-1.5 py-0.5 italic text-emerald-900"
+          ? "rounded bg-primary-50 px-1.5 py-0.5 italic text-primary-700"
           : "italic text-slate-400 hover:text-slate-700 not-italic"
       } ${className}`}
       aria-label={sharedShown ? "Hide translation from student" : "Show translation to student"}

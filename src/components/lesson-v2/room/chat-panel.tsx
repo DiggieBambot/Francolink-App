@@ -32,7 +32,7 @@ export function ChatPanel() {
                 <div className={`max-w-[78%] ${mine ? "items-end" : "items-start"} flex flex-col`}>
                   <span className="mb-0.5 text-[10px] font-semibold text-slate-500">
                     {m.name}
-                    <span className={m.role === "tutor" ? "text-emerald-600" : "text-blue-600"}>
+                    <span className={m.role === "tutor" ? "text-primary-600" : "text-secondary-600"}>
                       {" "}· {m.role}
                     </span>
                   </span>
