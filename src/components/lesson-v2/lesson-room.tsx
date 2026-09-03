@@ -24,7 +24,7 @@ const WhiteboardPanel = dynamic(
 );
 import { MaterialsPanel } from "./room/materials-panel";
 import type { PickerLesson } from "./room/lesson-picker";
-import { Users, Sparkles, BookOpen, RefreshCw, UserPlus, Check, Video, Send, Eye, DoorOpen, ChevronDown, LogOut, PenTool, MessageSquare, Library, X } from "lucide-react";
+import { Users, Sparkles, BookOpen, RefreshCw, UserPlus, Check, Video, Send, Eye, DoorOpen, ChevronDown, PenTool, MessageSquare, Library, X } from "lucide-react";
 import type { Lesson } from "@/lib/lessons/types";
 import { cn } from "@/lib/utils";
 
@@ -83,6 +83,10 @@ export function LessonRoom({
   const [sendingHw, setSendingHw] = useState(false);
   const [roomMenuOpen, setRoomMenuOpen] = useState(false);
   const [ending, setEnding] = useState(false);
+  // Ending a class closes the room for the student too, which the button does
+  // not say on its own. This used to be a native window.confirm — correct, and
+  // jarring: an OS dialog on top of a lesson reads as an error, not a choice.
+  const [confirmEnd, setConfirmEnd] = useState(false);
   // Which panel owns the main stage. Follows DMM/Engoo: with no material open
   // the CALL is the stage, because the call is the lesson at that point.
   const [activeStage, setActiveStage] = useState<StageKey>(
@@ -161,7 +165,6 @@ export function LessonRoom({
   // from the button alone that this closes the room for the student too.
   async function endClass() {
     if (ending) return;
-    if (!window.confirm("End this class? The room will close for everyone.")) return;
     setEnding(true);
     try {
       const res = await fetch("/api/tutor/end-room", {
@@ -426,7 +429,7 @@ export function LessonRoom({
             if (key === "materials") toggleMaterials(false);
           }}
           peerName={studentName || (currentRole === "student" ? "Your tutor" : null)}
-          onEndClass={endClass}
+          onEndClass={() => setConfirmEnd(true)}
           canEndClass={currentRole === "tutor"}
           railTabs={railTabs}
           actions={
@@ -610,20 +613,10 @@ export function LessonRoom({
           {lesson ? <RefreshCw className="h-3 w-3" /> : <Library className="h-3 w-3" />}
           {lesson ? "Change lesson" : "Materials"}
         </button>
-        {currentRole === "tutor" ? (
-          <>
-            <span className="h-4 w-px bg-slate-200" />
-            <button
-              onClick={endClass}
-              disabled={ending}
-              className="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold text-rose-600 hover:bg-rose-50 disabled:opacity-60"
-              title="End this class and close the room"
-            >
-              <LogOut className="h-3 w-3" />
-              {ending ? "Ending…" : "End class"}
-            </button>
-          </>
-        ) : null}
+        {/* "End class" is not here any more — it lives in the control bar at
+            the bottom, away from the things a tutor reaches for mid-lesson.
+            It used to sit in this scrolling toolbar one pixel from "Send
+            homework". */}
             </div>
           }
         />
@@ -639,6 +632,49 @@ export function LessonRoom({
         <IncomingTtsAutoplay />
         <SectionSync />
         <ScrollSync />
+
+        {confirmEnd ? (
+          <div
+            className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-900/50 p-4 backdrop-blur-sm"
+            onClick={() => setConfirmEnd(false)}
+          >
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="end-class-title"
+              className="w-full max-w-sm rounded-2xl bg-white p-5 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h2 id="end-class-title" className="text-base font-bold text-slate-900">
+                End this class?
+              </h2>
+              <p className="mt-1.5 text-sm text-slate-500">
+                The room closes for {studentName || "your student"} as well. Chat,
+                notes and the lesson stay saved.
+              </p>
+              <div className="mt-4 flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setConfirmEnd(false);
+                    void endClass();
+                  }}
+                  disabled={ending}
+                  className="inline-flex flex-1 items-center justify-center rounded-lg bg-accent px-3 py-2 text-sm font-semibold text-white transition hover:brightness-110 disabled:opacity-60"
+                >
+                  {ending ? "Ending…" : "End class"}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setConfirmEnd(false)}
+                  className="inline-flex items-center justify-center rounded-lg px-3 py-2 text-sm font-semibold text-slate-500 hover:bg-slate-100"
+                >
+                  Keep teaching
+                </button>
+              </div>
+            </div>
+          </div>
+        ) : null}
 
         {/* A student's suggestion, waiting on the tutor. Deliberately a
             prompt and not an automatic switch: the tutor is running the

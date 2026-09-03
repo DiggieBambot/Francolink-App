@@ -32,10 +32,10 @@
 // multi-tab ("Board 1", "Study Links", two materials at once) drops in later
 // as "allow more than one entry" rather than a rewrite.
 
-import { useState } from "react";
-import { MessageSquare, PenTool, Users, Video as VideoIcon, X, Sparkles, Clock, Library } from "lucide-react";
+import { useEffect, useState } from "react";
+import { MessageSquare, PenTool, Users, Video as VideoIcon, X, Sparkles, Clock, Library, LogOut } from "lucide-react";
 import { useRoomVideo } from "./video-context";
-import { VideoRail } from "./video-views";
+import { VideoRail, VideoControls } from "./video-views";
 import { cn } from "@/lib/utils";
 
 export type StageKey = "call" | "lesson" | "board" | "materials";
@@ -120,6 +120,106 @@ function ClassClock({ remaining, elapsed }: { remaining: number | null; elapsed:
   );
 }
 
+/**
+ * The class control bar.
+ *
+ * Mic, camera, share and leave used to be drawn twice — once floating over
+ * the video stage and once tucked under the rail tiles — so where the mute
+ * button lived depended on which stage you happened to be on, and on a phone
+ * it depended on whether a drawer was open. The controls a person reaches for
+ * without looking cannot move.
+ *
+ * So there is now exactly ONE bar, at the bottom, at every width, always on
+ * screen. That is also what makes the room read like a classroom rather than
+ * a document with a webcam in the corner: a fixed frame around the lesson.
+ */
+function ControlBar({
+  railTabs,
+  unread,
+  onOpenRail,
+  onEndClass,
+  canEndClass,
+}: {
+  railTabs: RailTab[];
+  unread: number;
+  onOpenRail: () => void;
+  onEndClass?: () => void;
+  canEndClass: boolean;
+}) {
+  const { phase, join } = useRoomVideo();
+
+  return (
+    <div
+      className="flex h-16 shrink-0 items-center justify-between gap-2 border-t bg-slate-900 px-3"
+      style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+    >
+      {/* Left: room tools. On lg these live in the docked rail, so the button
+          is only a way INTO the drawer and belongs to small screens. */}
+      <div className="flex items-center gap-1.5 lg:invisible">
+        <button
+          type="button"
+          onClick={onOpenRail}
+          className="relative inline-flex h-10 items-center gap-1.5 rounded-full bg-slate-800 px-3 text-xs font-semibold text-slate-200 transition hover:bg-slate-700"
+        >
+          <MessageSquare className="h-4 w-4" />
+          <span className="hidden sm:inline">{railTabs[0]?.label ?? "Chat"}</span>
+          {unread ? (
+            <span className="absolute -right-1 -top-1 min-w-[18px] rounded-full bg-accent px-1 text-[10px] font-bold leading-[18px] text-white">
+              {unread}
+            </span>
+          ) : null}
+        </button>
+      </div>
+
+      {/* Centre: the call itself. Centred absolutely rather than by flex, so
+          the mute button does not shift sideways when the End-class button
+          appears for a tutor and not for a student. */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+        <div className="pointer-events-auto">
+          {phase === "joined" ? (
+            <VideoControls size="lg" />
+          ) : phase === "idle" || phase === "error" ? (
+            <button
+              type="button"
+              onClick={join}
+              className="inline-flex h-11 items-center gap-2 rounded-full bg-primary-500 px-5 text-sm font-semibold text-white shadow-lg transition hover:bg-primary-600"
+            >
+              <VideoIcon className="h-4 w-4" />
+              {phase === "error" ? "Rejoin" : "Join the call"}
+            </button>
+          ) : (
+            <span className="text-xs font-medium text-slate-400">
+              {phase === "scheduled"
+                ? "Waiting for class to start"
+                : phase === "ended"
+                  ? "Class finished"
+                  : phase === "joining"
+                    ? "Connecting…"
+                    : "Video unavailable"}
+            </span>
+          )}
+        </div>
+      </div>
+
+      {/* Right: ending the class. Destructive, so it is the only thing over
+          here and it is never adjacent to a control someone reaches for
+          during a lesson. */}
+      <div className="ml-auto flex items-center gap-1.5">
+        {canEndClass && onEndClass ? (
+          <button
+            type="button"
+            onClick={onEndClass}
+            className="inline-flex h-10 items-center gap-1.5 rounded-full bg-accent px-4 text-xs font-semibold text-white transition hover:brightness-110"
+          >
+            <LogOut className="h-4 w-4" />
+            <span className="hidden sm:inline">End class</span>
+          </button>
+        ) : null}
+      </div>
+    </div>
+  );
+}
+
 export function RoomShell({
   panels,
   activeStage,
@@ -150,6 +250,14 @@ export function RoomShell({
   const [sheetTall, setSheetTall] = useState(false);
   const [tab, setTab] = useState(railTabs[0]?.key ?? "chat");
   const { phase, elapsed, remaining } = useRoomVideo();
+
+  // When the clock runs out, bring the call stage forward. Otherwise the
+  // class ends while both people are looking at a lesson page, the video
+  // simply stops, and nothing anywhere says why.
+  useEffect(() => {
+    if (phase === "ended") onStageChange("call");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase]);
 
   const active = railTabs.find((t) => t.key === tab) ?? railTabs[0];
   const unread = railTabs.reduce((n, t) => n + (t.badge ?? 0), 0);
@@ -287,15 +395,6 @@ export function RoomShell({
               {phase === "joined" ? (
                 <ClassClock remaining={remaining} elapsed={elapsed} />
               ) : null}
-              {canEndClass && onEndClass ? (
-                <button
-                  type="button"
-                  onClick={onEndClass}
-                  className="text-xs font-semibold text-accent hover:underline"
-                >
-                  End class
-                </button>
-              ) : null}
             </span>
           </div>
 
@@ -303,22 +402,19 @@ export function RoomShell({
         </aside>
       </div>
 
+      {/* ------------------------------------------------------------ BASE */}
+      <div className="relative">
+        <ControlBar
+          railTabs={railTabs}
+          unread={unread}
+          onOpenRail={() => setRailOpen(true)}
+          onEndClass={onEndClass}
+          canEndClass={canEndClass}
+        />
+      </div>
+
       {/* ------------------------------------------------- RAIL (below lg) */}
-      {!railOpen ? (
-        <button
-          type="button"
-          onClick={() => setRailOpen(true)}
-          className="fixed bottom-4 right-4 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary-600 text-white shadow-lg hover:bg-primary-700 lg:hidden"
-          aria-label="Open chat and tools"
-        >
-          <MessageSquare className="h-5 w-5" />
-          {unread ? (
-            <span className="absolute -right-0.5 -top-0.5 min-w-[18px] rounded-full bg-rose-500 px-1 text-[10px] font-bold leading-[18px]">
-              {unread}
-            </span>
-          ) : null}
-        </button>
-      ) : (
+      {railOpen ? (
         <>
           {/* No scrim. A scrim says "the thing behind this is disabled", and
               the thing behind this is the lesson, which is still being taught.
@@ -328,7 +424,7 @@ export function RoomShell({
               stacked under the video strip, left the material a sliver. */}
           <div
             className={cn(
-              "fixed inset-x-0 bottom-0 z-50 flex flex-col rounded-t-2xl border-t bg-white shadow-2xl transition-[height] duration-200 lg:hidden",
+              "fixed inset-x-0 bottom-16 z-50 flex flex-col rounded-t-2xl border-t bg-white shadow-2xl transition-[height] duration-200 lg:hidden",
               sheetTall ? "h-[80dvh]" : "h-[42dvh]"
             )}
             style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
@@ -366,7 +462,7 @@ export function RoomShell({
             {railBody}
           </div>
         </>
-      )}
+      ) : null}
     </div>
   );
 }

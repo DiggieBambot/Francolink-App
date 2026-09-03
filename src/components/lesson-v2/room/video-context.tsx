@@ -45,10 +45,16 @@ interface VideoContextValue {
   remote: DailyParticipant | null;
   micOn: boolean;
   camOn: boolean;
+  /** Whether WE are the one sharing. */
+  screenOn: boolean;
+  /** Somebody is sharing — ours or theirs. Drives the stage swap. */
+  screenActive: boolean;
   join: () => Promise<void>;
   leave: () => Promise<void>;
   toggleMic: () => void;
   toggleCam: () => void;
+  /** Null when the browser cannot share (iOS Safari), so the UI can hide it. */
+  toggleScreen: (() => void) | null;
   /** Seconds since the call connected — drives the lesson timer. */
   elapsed: number;
   /**
@@ -140,6 +146,8 @@ export function RoomVideoProvider({
   const [remote, setRemote] = useState<DailyParticipant | null>(null);
   const [micOn, setMicOn] = useState(true);
   const [camOn, setCamOn] = useState(true);
+  const [screenOn, setScreenOn] = useState(false);
+  const [screenActive, setScreenActive] = useState(false);
   const [elapsed, setElapsed] = useState(0);
   const [remaining, setRemaining] = useState<number | null>(null);
   const [hardEndsAt, setHardEndsAt] = useState<string | null>(null);
@@ -234,6 +242,13 @@ export function RoomVideoProvider({
     setLocal(all.local ?? null);
     const others = Object.values(all).filter((p) => !p.local);
     setRemote(others[0] ?? null);
+    // Daily reports a screen share as a second set of tracks on the person
+    // sharing, not as an extra participant, so this is the only way to know.
+    const everyone = Object.values(all);
+    setScreenOn(all.local?.tracks?.screenVideo?.state === "playable");
+    setScreenActive(
+      everyone.some((p) => p.tracks?.screenVideo?.state === "playable")
+    );
   }, []);
 
   // The countdown effect needs to end the call, but `leave` is defined below
@@ -381,6 +396,34 @@ export function RoomVideoProvider({
     });
   }, []);
 
+  /**
+   * Share the screen, where the browser allows it.
+   *
+   * iOS Safari has no getDisplayMedia at all, so this resolves to null there
+   * and the control is not rendered — a share button that silently does
+   * nothing is worse than no share button, because the person keeps pressing
+   * it while the class waits.
+   */
+  const canShare =
+    typeof navigator !== "undefined" &&
+    typeof navigator.mediaDevices?.getDisplayMedia === "function";
+
+  const toggleScreen = useCallback(() => {
+    const call = callRef.current;
+    if (!call) return;
+    if (screenOn) {
+      call.stopScreenShare();
+    } else {
+      // The browser's own picker can be cancelled; Daily reports that as an
+      // error we do not want surfaced as a failed class.
+      try {
+        call.startScreenShare();
+      } catch {
+        /* the person changed their mind at the picker */
+      }
+    }
+  }, [screenOn]);
+
   const toggleCam = useCallback(() => {
     const call = callRef.current;
     if (!call) return;
@@ -394,7 +437,10 @@ export function RoomVideoProvider({
     <Ctx.Provider
       value={{
         phase, error, notice, local, remote, micOn, camOn,
-        join, leave, toggleMic, toggleCam, elapsed,
+        screenOn, screenActive,
+        join, leave, toggleMic, toggleCam,
+        toggleScreen: canShare ? toggleScreen : null,
+        elapsed,
         remaining, hardEndsAt, opensAt, startsAt,
       }}
     >

@@ -49,7 +49,7 @@
 - Card grid → cover-led tiles with level ribbon, duration, tag row, hover preview of section titles; skeletons instead of layout jump; level filter chips + category rail; recently-used and "assigned to this student" rows at the top.
 - Lesson renderer: proper type scale, generous measure, sectioned scroll-spy, exercise blocks with real states (answered / correct / tutor-highlighted), sticky section header, smooth scroll-sync instead of jump.
 
-## Phase 5 — Engoo-style class template (`RoomShell`)
+## Phase 5 — Engoo-style class template (`RoomShell`)  ✅ DONE
 
 - **Top bar:** lesson title + level · participant chips with mic state · **countdown pill** (green → amber at 5 min → red at 1 min) · End class (destructive, confirm dialog) — promoted out of the rail, always visible, both roles.
 - **Bottom control bar:** mic / cam / screenshare / materials / chat / leave — one row, mobile-safe, replaces the floating FAB.

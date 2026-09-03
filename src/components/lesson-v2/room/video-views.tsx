@@ -15,7 +15,7 @@ import { useEffect, useRef, useState } from "react";
 import type { DailyParticipant } from "@daily-co/daily-js";
 import {
   Mic, MicOff, Video, VideoOff, PhoneOff, Loader2, AlertCircle, UserRound,
-  CalendarClock,
+  CalendarClock, ScreenShare, ScreenShareOff, CheckCircle2,
 } from "lucide-react";
 import { useRoomVideo } from "./video-context";
 import { cn } from "@/lib/utils";
@@ -25,15 +25,17 @@ function useTracks(
   participant: DailyParticipant | null,
   muted: boolean,
   videoRef: React.RefObject<HTMLVideoElement | null>,
-  audioRef: React.RefObject<HTMLAudioElement | null>
+  audioRef: React.RefObject<HTMLAudioElement | null>,
+  /** Render what they are SHARING rather than their camera. */
+  screen = false
 ) {
   useEffect(() => {
-    const v = participant?.tracks?.video;
+    const v = screen ? participant?.tracks?.screenVideo : participant?.tracks?.video;
     const track = v?.state === "playable" ? v.persistentTrack : null;
     if (videoRef.current) {
       videoRef.current.srcObject = track ? new MediaStream([track]) : null;
     }
-  }, [participant, videoRef]);
+  }, [participant, videoRef, screen]);
 
   useEffect(() => {
     if (muted) return;
@@ -52,6 +54,7 @@ function Tile({
   className,
   rounded = "rounded-lg",
   cover = false,
+  screen = false,
 }: {
   participant: DailyParticipant | null;
   /** Shown only until the person actually arrives — see `name` below. */
@@ -62,12 +65,16 @@ function Tile({
   rounded?: string;
   /** Crop to fill instead of letterboxing. Only for the small self-view. */
   cover?: boolean;
+  /** Show their shared screen instead of their camera. */
+  screen?: boolean;
 }) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  useTracks(participant, Boolean(muted), videoRef, audioRef);
+  useTracks(participant, Boolean(muted), videoRef, audioRef, screen);
 
-  const camOff = participant?.tracks?.video?.state !== "playable";
+  const camOff = screen
+    ? participant?.tracks?.screenVideo?.state !== "playable"
+    : participant?.tracks?.video?.state !== "playable";
 
   // The person's own name, which Daily carries from the meeting token. "Them"
   // is a placeholder for the seconds before anyone has joined, not a label to
@@ -121,9 +128,10 @@ function Tile({
   );
 }
 
-/** Mic / camera / leave. Same three controls at both sizes. */
+/** Mic / camera / share / leave. Same controls at both sizes. */
 export function VideoControls({ size = "sm" }: { size?: "sm" | "lg" }) {
-  const { micOn, camOn, toggleMic, toggleCam, leave } = useRoomVideo();
+  const { micOn, camOn, screenOn, toggleMic, toggleCam, toggleScreen, leave } =
+    useRoomVideo();
   const box = size === "lg" ? "h-11 w-11" : "h-8 w-8";
   const icon = size === "lg" ? "h-5 w-5" : "h-4 w-4";
 
@@ -155,6 +163,30 @@ export function VideoControls({ size = "sm" }: { size?: "sm" | "lg" }) {
       >
         {camOn ? <Video className={icon} /> : <VideoOff className={icon} />}
       </button>
+      {/* Absent, not disabled, where the browser has no getDisplayMedia —
+          iOS Safari. A share button that silently does nothing gets pressed
+          repeatedly while the class waits. */}
+      {toggleScreen ? (
+        <button
+          type="button"
+          onClick={toggleScreen}
+          aria-pressed={screenOn}
+          title={screenOn ? "Stop sharing your screen" : "Share your screen"}
+          className={cn(
+            "hidden items-center justify-center rounded-full transition-colors sm:inline-flex",
+            box,
+            screenOn
+              ? "bg-primary-500 text-white hover:bg-primary-600"
+              : "bg-slate-700 text-white hover:bg-slate-600"
+          )}
+        >
+          {screenOn ? (
+            <ScreenShareOff className={icon} />
+          ) : (
+            <ScreenShare className={icon} />
+          )}
+        </button>
+      ) : null}
       <button
         type="button"
         onClick={leave}
@@ -243,13 +275,24 @@ function Inert({ compact }: { compact: boolean }) {
     );
   }
   if (phase === "ended") {
+    // The class hit its hard end. Say so plainly and say what survives — the
+    // first question after a call cuts out is always "did I lose my work?".
     return (
-      <div className={cn("w-full text-center", compact ? "" : "max-w-xs")}>
-        <p className={cn("font-semibold text-slate-200", compact ? "text-xs" : "text-sm")}>
-          Class finished
+      <div className={cn("w-full text-center", compact ? "" : "max-w-sm")}>
+        <span
+          className={cn(
+            "mx-auto mb-3 flex items-center justify-center rounded-full bg-primary-500/15 text-primary-300",
+            compact ? "h-8 w-8" : "h-12 w-12"
+          )}
+        >
+          <CheckCircle2 className={compact ? "h-4 w-4" : "h-6 w-6"} />
+        </span>
+        <p className={cn("font-semibold text-white", compact ? "text-xs" : "text-base")}>
+          That&apos;s time — class finished
         </p>
-        <p className={cn("mt-1 text-slate-400", compact ? "text-[11px]" : "text-xs")}>
-          Your notes, chat and material stay here.
+        <p className={cn("mt-1 text-slate-400", compact ? "text-[11px]" : "text-sm")}>
+          Your chat, notes and the lesson you worked through all stay in this
+          room. Come back to them any time.
         </p>
       </div>
     );
@@ -291,29 +334,49 @@ function Inert({ compact }: { compact: boolean }) {
  * are talking to should be the one you are looking at.
  */
 export function VideoStage() {
-  const { phase, local, remote } = useRoomVideo();
+  const { phase, local, remote, screenOn, screenActive } = useRoomVideo();
+  // Somebody is sharing: what they are showing becomes the thing worth
+  // looking at, and the faces move to the corner. Sharing a screen and then
+  // still being the biggest thing on it is the failure mode of every video
+  // tool that treats the share as just another tile.
+  const sharer = screenOn ? local : remote;
 
   return (
     <div className="relative flex h-full w-full items-center justify-center bg-slate-900">
       {phase === "joined" ? (
         <>
           <Tile
-            participant={remote}
+            participant={screenActive ? sharer : remote}
             label="Your tutor"
+            screen={screenActive}
             rounded="rounded-none"
             className="absolute inset-0"
           />
+          {screenActive ? (
+            <>
+              <span className="absolute left-4 top-4 z-20 inline-flex items-center gap-1.5 rounded-full bg-primary-500/90 px-3 py-1 text-xs font-semibold text-white shadow-lg backdrop-blur">
+                <ScreenShare className="h-3.5 w-3.5" />
+                {screenOn ? "You're sharing your screen" : "Screen shared"}
+              </span>
+              {/* The face of whoever is NOT the share, kept in view — a class
+                  is still a conversation while a document is on screen. */}
+              <Tile
+                participant={screenOn ? remote : local}
+                label={screenOn ? "Them" : "You"}
+                muted={!screenOn}
+                cover
+                className="absolute bottom-4 right-[11.5rem] z-10 aspect-video w-32 shadow-xl ring-2 ring-slate-900 sm:w-44"
+              />
+            </>
+          ) : null}
           {/* Self-view inset, the shape every video product has settled on. */}
           <Tile
             participant={local}
             label="You"
             muted
             cover
-            className="absolute bottom-20 right-4 z-10 aspect-video w-40 shadow-xl ring-2 ring-slate-900 sm:w-56"
+            className="absolute bottom-4 right-4 z-10 aspect-video w-40 shadow-xl ring-2 ring-slate-900 sm:w-56"
           />
-          <div className="absolute inset-x-0 bottom-5 z-20">
-            <VideoControls size="lg" />
-          </div>
         </>
       ) : (
         <div className="px-6 text-center">
@@ -389,9 +452,6 @@ export function VideoRail() {
         </button>
       </div>
 
-      <div className="py-2">
-        <VideoControls />
-      </div>
     </div>
   );
 }
