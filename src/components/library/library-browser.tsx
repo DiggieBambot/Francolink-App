@@ -83,6 +83,11 @@ export function LibraryBrowser({ lessons }: { lessons: BrowserLesson[] }) {
                         // image the score depends on: ~3.9s of load delay before
                         // ~4.0s of loading, for an 8.5s LCP on this page.
                         priority={i < 3}
+                        // `priority` alone made these eager but Next did not
+                        // emit a fetchpriority attribute, so Lighthouse still
+                        // scored the LCP element as priorityHinted:false. Set
+                        // it explicitly on the cards above the fold.
+                        fetchPriority={i < 3 ? "high" : undefined}
                         className="object-cover transition duration-500 group-hover:scale-105"
                       />
                     ) : null}

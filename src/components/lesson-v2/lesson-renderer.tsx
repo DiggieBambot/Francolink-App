@@ -78,6 +78,10 @@ export function LessonRenderer({ lesson, initialView = "tutor", lockedView }: Le
               fill
               sizes="100vw"
               priority
+              // Same as the library covers: `priority` made it eager but no
+              // fetchpriority hint was emitted, leaving ~1s of load delay on
+              // an above-the-fold LCP image that is already in the HTML.
+              fetchPriority="high"
               className="object-cover"
             />
           ) : null}

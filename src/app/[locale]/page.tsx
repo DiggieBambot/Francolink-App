@@ -1,4 +1,41 @@
 export const dynamic = 'force-dynamic';
+
+import type { Metadata } from "next";
+import { APP_URL } from "@/lib/site/hosts";
+
+/**
+ * The app homepage was the last page on this host with no canonical at all,
+ * so `/`, `/fr` and `/ar` had no stated relationship and could be indexed as
+ * three duplicates of each other.
+ *
+ * Declared here on the page rather than in [locale]/layout.tsx on purpose:
+ * layout metadata is inherited by every nested route, which would have
+ * canonicalised /fr/pricing and /fr/student to the homepage. A wrong canonical
+ * is worse than a missing one.
+ *
+ * The alternates also put hreflang in the HTML. Until now it was sent only as
+ * an HTTP Link header, which is valid but easy for tooling to miss.
+ */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const path = locale === "en" ? "/" : `/${locale}`;
+
+  return {
+    alternates: {
+      canonical: `${APP_URL}${path === "/" ? "" : path}`,
+      languages: {
+        en: APP_URL,
+        fr: `${APP_URL}/fr`,
+        ar: `${APP_URL}/ar`,
+        "x-default": APP_URL,
+      },
+    },
+  };
+}
 import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { redirect } from "next/navigation";
