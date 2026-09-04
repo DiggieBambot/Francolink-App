@@ -195,7 +195,19 @@ export function Lobby() {
   const opensIn = opensAt
     ? Math.max(0, Math.round((new Date(opensAt).getTime() - now) / 1000))
     : 0;
-  const locked = phase === "scheduled" && opensIn > 0;
+
+  // "scheduled" means the server has already refused a token for this room —
+  // there is no class on. Joining cannot succeed, so the button must not offer
+  // it.
+  //
+  // This used to be `phase === "scheduled" && opensIn > 0`, which unlocked
+  // the button in the one case it most needed to stay shut: a room with NO
+  // upcoming booking at all, where opensAt is null and opensIn is therefore
+  // zero. The result was a live-looking "Join the class" that called the API,
+  // got a 403, and changed nothing on screen — a button that does nothing,
+  // sitting under a panel that says "No class booked yet".
+  const locked = phase === "scheduled";
+  const waiting = locked && opensIn > 0;
   const busy = phase === "joining";
 
   return (
@@ -295,17 +307,23 @@ export function Lobby() {
         {/* -------------------------------------------------------- CONTROLS */}
         <div className="min-w-0">
           <h2 className="text-lg font-bold text-white">
-            {locked ? "Your class hasn't started yet" : "Ready to join?"}
+            {waiting
+              ? "Your class hasn't started yet"
+              : locked
+                ? "No class booked yet"
+                : "Ready to join?"}
           </h2>
           <p className="mt-1 text-sm text-slate-400">
-            {locked && startsAt
+            {waiting && startsAt
               ? `Starts at ${new Date(startsAt).toLocaleTimeString([], {
                   hour: "numeric",
                   minute: "2-digit",
                 })} — you can join in ${untilLabel(opensIn)}.`
-              : micOn
-                ? "Say something and check the bars move before you go in."
-                : "Your microphone is muted — unmute it to test your sound."}
+              : locked
+                ? "This room has no upcoming class. Book one and the call turns on ten minutes before it starts."
+                : micOn
+                  ? "Say something and check the bars move before you go in."
+                  : "Your microphone is muted — unmute it to test your sound."}
           </p>
 
           {denied ? (
@@ -366,8 +384,10 @@ export function Lobby() {
               <>
                 <Loader2 className="h-4 w-4 animate-spin" /> Connecting…
               </>
-            ) : locked ? (
+            ) : waiting ? (
               `Opens in ${untilLabel(opensIn)}`
+            ) : locked ? (
+              "No class booked"
             ) : (
               <>
                 <Video className="h-4 w-4" /> Join the class

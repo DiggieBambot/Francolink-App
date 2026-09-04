@@ -288,7 +288,11 @@ function ControlBar({
         {/* Destructive, so it is the last thing on the row and never adjacent
             to a control someone reaches for mid-lesson. It used to sit one
             pixel from "Send homework" in a scrolling toolbar. */}
-        {canEndClass && onEndClass ? (
+        {/* Nothing to end when no class is on. "End class" sitting next to
+            "No class booked yet" is the room contradicting itself, and the
+            button's own confirm dialog promises to close a room for a student
+            who was never in one. */}
+        {canEndClass && onEndClass && phase !== "scheduled" ? (
           <button
             type="button"
             onClick={onEndClass}
