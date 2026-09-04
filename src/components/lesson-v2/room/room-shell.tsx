@@ -117,15 +117,32 @@ function ClassClock({
   const urgent = !overrun && leftInLesson <= 60;
   const soon = !overrun && leftInLesson <= 300;
 
+  // How full the pill is. Past the lesson's end it re-fills toward the room
+  // closing, so the bar always means "how much of the current thing is gone"
+  // rather than quietly stopping at 100% and telling you nothing.
+  const progress = overrun
+    ? 1 - remaining / ((durationMinutes === 25 ? 5 : 10) * 60)
+    : intoClass / lessonSeconds;
+
+  const tone = overrun || urgent ? "accent" : soon ? "secondary" : "primary";
+  const track =
+    tone === "accent"
+      ? "bg-accent-light text-accent"
+      : tone === "secondary"
+        ? "bg-secondary-50 text-secondary-700"
+        : "bg-primary-50 text-primary-600";
+  const fill =
+    tone === "accent"
+      ? "bg-accent/25"
+      : tone === "secondary"
+        ? "bg-secondary-300/50"
+        : "bg-primary-200/60";
+
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 tabular-nums text-xs font-semibold transition-colors",
-        overrun || urgent
-          ? "bg-accent-light text-accent"
-          : soon
-            ? "bg-secondary-50 text-secondary-700"
-            : "bg-primary-50 text-primary-600"
+        "relative inline-flex items-center gap-1.5 overflow-hidden rounded-full px-2.5 py-1 tabular-nums text-xs font-semibold transition-colors",
+        track
       )}
       title={
         overrun
@@ -133,17 +150,26 @@ function ClassClock({
           : `${durationMinutes}-minute lesson. The room stays open a few minutes past the end.`
       }
     >
-      <Clock className={cn("h-3.5 w-3.5", (overrun || urgent) && "animate-pulse")} />
+      {/* The fill is the point: a number tells you where you are only if you
+          do the arithmetic, whereas a bar filling up is the arithmetic. It
+          sits behind the text rather than under it so the pill stays one
+          object and does not grow a second row of chrome. */}
+      <span
+        aria-hidden
+        className={cn("absolute inset-y-0 left-0 transition-[width] duration-1000 ease-linear", fill)}
+        style={{ width: `${Math.min(100, Math.max(0, progress * 100))}%` }}
+      />
+      <Clock className={cn("relative h-3.5 w-3.5", (overrun || urgent) && "animate-pulse")} />
       {overrun ? (
-        <>
+        <span className="relative">
           <span className="font-bold">Lesson ended</span>
-          <span className="opacity-70">· closes in {mmss(remaining)}</span>
-        </>
+          <span className="opacity-70"> · closes in {mmss(remaining)}</span>
+        </span>
       ) : (
-        <>
+        <span className="relative">
           {mmss(intoClass)}
-          <span className="opacity-60">/ {durationMinutes}</span>
-        </>
+          <span className="opacity-60"> / {durationMinutes}</span>
+        </span>
       )}
       <span className="sr-only" role="status">
         {urgent ? "One minute left in this lesson." : ""}

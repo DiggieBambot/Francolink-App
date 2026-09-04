@@ -20,8 +20,9 @@
 // that turns on by itself.
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Mic, MicOff, Video, VideoOff, Loader2, AlertCircle, Sparkles } from "lucide-react";
+import { Mic, MicOff, Video, VideoOff, Loader2, AlertCircle } from "lucide-react";
 import { useRoomVideo } from "./video-context";
+import { EffectsButton } from "./video-views";
 import { cn } from "@/lib/utils";
 
 interface Devices {
@@ -99,7 +100,7 @@ function untilLabel(seconds: number): string {
 export function Lobby() {
   const {
     phase, join, opensAt, startsAt, error,
-    startPreview, previewOn, local, blurOn, toggleBlur,
+    startPreview, previewOn, local,
   } = useRoomVideo();
 
   const [devices, setDevices] = useState<Devices>({ mics: [], cams: [] });
@@ -291,23 +292,9 @@ export function Lobby() {
             </button>
 
             {/* Set BEFORE anyone can see you — that is the whole point. The
-                in-call button does the same thing, but by then your room has
-                already been on someone's screen. */}
-            <button
-              type="button"
-              onClick={toggleBlur}
-              aria-pressed={blurOn}
-              disabled={!previewOn}
-              title={blurOn ? "Turn off background blur" : "Blur my background"}
-              className={cn(
-                "inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors disabled:opacity-40",
-                blurOn
-                  ? "bg-primary-500 text-white"
-                  : "bg-slate-700/90 text-white hover:bg-slate-600"
-              )}
-            >
-              <Sparkles className="h-4 w-4" />
-            </button>
+                in-call menu is the same one, but by then your room has already
+                been on someone's screen. */}
+            <EffectsButton box="h-9 w-9" icon="h-4 w-4" />
 
             {/* The meter. Twelve segments rather than a smooth bar: movement
                 you can count is more convincing than a bar that glides, and

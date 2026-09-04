@@ -15,7 +15,7 @@ import { useEffect, useRef, useState } from "react";
 import type { DailyParticipant } from "@daily-co/daily-js";
 import {
   Mic, MicOff, Video, VideoOff, PhoneOff, Loader2, AlertCircle, UserRound,
-  CalendarClock, ScreenShare, ScreenShareOff, CheckCircle2, Sparkles,
+  CalendarClock, ScreenShare, ScreenShareOff, CheckCircle2, Sparkles, Check,
 } from "lucide-react";
 import { useRoomVideo } from "./video-context";
 import { Lobby } from "./lobby";
@@ -133,11 +133,109 @@ function Tile({
   );
 }
 
+/**
+ * Effects, as a menu rather than a single toggle.
+ *
+ * There is no "appearance enhancement" here because Daily has no touch-up or
+ * beauty filter — its video processors are background blur, background image
+ * and face detection, and inventing a slider that quietly does nothing would
+ * be worse than not offering one. What IS on this menu is the pair that
+ * actually changes how a lesson goes: how much of your room people can see,
+ * and how clearly they can hear you.
+ */
+export function EffectsButton({ box, icon }: { box: string; icon: string }) {
+  const { blur, setBlur, denoise, toggleDenoise, previewOn, phase } = useRoomVideo();
+  const [open, setOpen] = useState(false);
+  const live = phase === "joined" || previewOn;
+  const anyOn = blur !== "off" || denoise;
+
+  return (
+    <span className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        disabled={!live}
+        title="Video and sound effects"
+        className={cn(
+          "inline-flex items-center justify-center rounded-full transition-colors disabled:opacity-40",
+          box,
+          anyOn
+            ? "bg-primary-500 text-white hover:bg-primary-600"
+            : "bg-slate-700 text-white hover:bg-slate-600"
+        )}
+      >
+        <Sparkles className={icon} />
+      </button>
+
+      {open ? (
+        <>
+          {/* Click-away catcher, under the menu and over everything else. */}
+          <span
+            className="fixed inset-0 z-40"
+            onClick={() => setOpen(false)}
+            aria-hidden
+          />
+          <div className="absolute bottom-full left-1/2 z-50 mb-2 w-56 -translate-x-1/2 overflow-hidden rounded-xl border border-slate-700 bg-slate-900 shadow-2xl">
+            <p className="border-b border-slate-800 px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-500">
+              Background
+            </p>
+            {([
+              ["off", "None"],
+              ["light", "Slight blur"],
+              ["strong", "Blur it out"],
+            ] as const).map(([level, label]) => (
+              <button
+                key={level}
+                type="button"
+                onClick={() => setBlur(level)}
+                className={cn(
+                  "flex w-full items-center gap-2 px-3 py-2 text-left text-sm transition",
+                  blur === level
+                    ? "bg-primary-500/15 font-semibold text-primary-200"
+                    : "text-slate-300 hover:bg-slate-800"
+                )}
+              >
+                <span className="w-4">{blur === level ? <Check className="h-3.5 w-3.5" /> : null}</span>
+                {label}
+              </button>
+            ))}
+
+            <p className="border-y border-slate-800 px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-500">
+              Sound
+            </p>
+            <button
+              type="button"
+              onClick={toggleDenoise}
+              className={cn(
+                "flex w-full items-start gap-2 px-3 py-2 text-left text-sm transition",
+                denoise
+                  ? "bg-primary-500/15 font-semibold text-primary-200"
+                  : "text-slate-300 hover:bg-slate-800"
+              )}
+            >
+              <span className="mt-0.5 w-4">
+                {denoise ? <Check className="h-3.5 w-3.5" /> : null}
+              </span>
+              <span>
+                Noise cancellation
+                <span className="mt-0.5 block text-[11px] font-normal leading-snug text-slate-500">
+                  Cuts fans, keyboards and traffic so your pronunciation carries.
+                </span>
+              </span>
+            </button>
+          </div>
+        </>
+      ) : null}
+    </span>
+  );
+}
+
 /** Mic / camera / share / leave. Same controls at both sizes. */
 export function VideoControls({ size = "sm" }: { size?: "sm" | "lg" }) {
   const {
     micOn, camOn, screenOn, toggleMic, toggleCam, toggleScreen, leave,
-    localLevel, blurOn, toggleBlur,
+    localLevel,
   } = useRoomVideo();
   const box = size === "lg" ? "h-11 w-11" : "h-8 w-8";
   const icon = size === "lg" ? "h-5 w-5" : "h-4 w-4";
@@ -183,21 +281,7 @@ export function VideoControls({ size = "sm" }: { size?: "sm" | "lg" }) {
       >
         {camOn ? <Video className={icon} /> : <VideoOff className={icon} />}
       </button>
-      <button
-        type="button"
-        onClick={toggleBlur}
-        aria-pressed={blurOn}
-        title={blurOn ? "Turn off background blur" : "Blur my background"}
-        className={cn(
-          "inline-flex items-center justify-center rounded-full transition-colors",
-          box,
-          blurOn
-            ? "bg-primary-500 text-white hover:bg-primary-600"
-            : "bg-slate-700 text-white hover:bg-slate-600"
-        )}
-      >
-        <Sparkles className={icon} />
-      </button>
+      <EffectsButton box={box} icon={icon} />
       {/* Absent, not disabled, where the browser has no getDisplayMedia —
           iOS Safari. A share button that silently does nothing gets pressed
           repeatedly while the class waits. */}

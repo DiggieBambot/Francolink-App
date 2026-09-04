@@ -23,6 +23,15 @@ import DailyIframe, {
   type DailyParticipant,
 } from "@daily-co/daily-js";
 
+/** Off, or how much of the room to lose. */
+export type BlurLevel = "off" | "light" | "strong";
+
+/** Daily's own strength scale, 0..1. */
+const BLUR_STRENGTH: Record<Exclude<BlurLevel, "off">, number> = {
+  light: 0.35,
+  strong: 0.9,
+};
+
 export type VideoPhase =
   | "idle"
   | "joining"
@@ -60,7 +69,19 @@ interface VideoContextValue {
   toggleCam: () => void;
   /** Null when the browser cannot share (iOS Safari), so the UI can hide it. */
   toggleScreen: (() => void) | null;
-  /** Background blur — a bedroom is nobody's business but the tutor's. */
+  /**
+   * What is happening to your picture and your sound.
+   *
+   * Daily offers background-blur, background-image and face-detection as video
+   * processors, and noise-cancellation on audio. It has no "appearance" or
+   * touch-up filter, so there is none here — the honest set is how much of
+   * your room people can see and how clearly they can hear you.
+   */
+  blur: BlurLevel;
+  setBlur: (level: BlurLevel) => void;
+  denoise: boolean;
+  toggleDenoise: () => void;
+  /** Any effect on at all — for the button's active state. */
   blurOn: boolean;
   toggleBlur: () => void;
   /**
@@ -184,7 +205,8 @@ export function RoomVideoProvider({
   const [micOn, setMicOn] = useState(true);
   const [camOn, setCamOn] = useState(true);
   const [screenOn, setScreenOn] = useState(false);
-  const [blurOn, setBlurOn] = useState(false);
+  const [blur, setBlurState] = useState<BlurLevel>("off");
+  const [denoise, setDenoise] = useState(false);
   const [previewOn, setPreviewOn] = useState(false);
   const [screenActive, setScreenActive] = useState(false);
   const [localLevel, setLocalLevel] = useState(0);
@@ -369,7 +391,8 @@ export function RoomVideoProvider({
     // processor go with it. Saying otherwise would leave the lobby offering a
     // blur toggle attached to nothing.
     setPreviewOn(false);
-    setBlurOn(false);
+    setBlurState("off");
+    setDenoise(false);
     if (call) {
       try {
         await call.leave();
@@ -605,26 +628,55 @@ export function RoomVideoProvider({
    * CPU, and where it cannot run, the honest outcome is an unblurred picture
    * and a lesson that carries on — not an error thrown in the middle of one.
    */
-  const toggleBlur = useCallback(() => {
+  const setBlur = useCallback((level: BlurLevel) => {
     const call = callRef.current;
     if (!call) return;
-    const next = !blurOn;
-    setBlurOn(next);
+    setBlurState(level);
     void (async () => {
       try {
         await call.updateInputSettings({
           video: {
-            processor: next
-              ? { type: "background-blur", config: { strength: 0.6 } }
-              : { type: "none" },
+            processor:
+              level === "off"
+                ? { type: "none" }
+                : { type: "background-blur", config: { strength: BLUR_STRENGTH[level] } },
           },
         });
       } catch (e) {
         console.error("[video] background blur unavailable", e);
-        setBlurOn(false);
+        setBlurState("off");
       }
     })();
-  }, [blurOn]);
+  }, []);
+
+  /**
+   * Noise cancellation.
+   *
+   * The closest thing to an "enhancement" that actually exists here, and in a
+   * language lesson it is worth more than any filter on a face: a student
+   * mispronouncing a vowel over a fan, a keyboard, or traffic is a student the
+   * tutor cannot correct.
+   */
+  const toggleDenoise = useCallback(() => {
+    const call = callRef.current;
+    if (!call) return;
+    const next = !denoise;
+    setDenoise(next);
+    void (async () => {
+      try {
+        await call.updateInputSettings({
+          audio: { processor: { type: next ? "noise-cancellation" : "none" } },
+        });
+      } catch (e) {
+        console.error("[video] noise cancellation unavailable", e);
+        setDenoise(false);
+      }
+    })();
+  }, [denoise]);
+
+  const toggleBlur = useCallback(() => {
+    setBlur(blur === "off" ? "strong" : "off");
+  }, [blur, setBlur]);
 
   const toggleCam = useCallback(() => {
     const call = callRef.current;
@@ -642,7 +694,8 @@ export function RoomVideoProvider({
         screenOn, screenActive, localLevel, micSeemsDead,
         join, leave, toggleMic, toggleCam,
         toggleScreen: canShare ? toggleScreen : null,
-        blurOn, toggleBlur,
+        blur, setBlur, denoise, toggleDenoise,
+        blurOn: blur !== "off", toggleBlur,
         startPreview, stopPreview, previewOn,
         elapsed,
         remaining, hardEndsAt, opensAt, startsAt,
