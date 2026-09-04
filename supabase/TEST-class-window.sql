@@ -9,30 +9,44 @@
 -- a room. So: insert a lesson.
 --
 -- HOW TO RUN
--- Edit the two emails in STEP 2 and press Run on the whole file. It is one
--- script, not a set of blocks to run separately — the dashboard executes
--- everything you paste. It creates the room if the pair does not have one yet,
--- and it tells you the URL to open.
+--   1. Select STEP 1 alone and Run it, to get two real emails.
+--   2. Paste them into the two marked lines in STEP 2.
+--   3. Run the rest of the file.
 --
--- Safe to re-run: it replaces its own previous test booking each time.
+-- STEP 1 has to go first and alone: while the emails are placeholders STEP 2
+-- raises, an error aborts the entire run, and the dashboard then renders no
+-- results — so you would see the error and never the list that fixes it.
+--
+-- STEP 2 creates the pair's room if they have never met in one, and prints the
+-- URL to open. Safe to re-run: it replaces its own previous test booking.
 -- =============================================================================
 
 
--- --- STEP 1. Who gets a Classroom, and who gets a Study Space? --------------
--- Run the file once and read this first. `gets_the_classroom` is the single
--- predicate that decides. Pick a tutor with true to test the Classroom, and
--- one with false (or with no row here at all) to test the Study Space.
+-- --- STEP 1. Find two real emails ------------------------------------------
+--
+-- RUN THIS QUERY BY ITSELF FIRST — select just these lines and press Run.
+--
+-- It has to be on its own because STEP 2 aborts the whole run while the emails
+-- are still placeholders, and an aborted run renders no results at all: you
+-- would get the error and never see the list you need to fix it.
+--
+-- `gets_the_classroom` is the single predicate deciding which room a tutor's
+-- students get. Pick one tutor with true (Classroom: video, countdown, hard
+-- stop) and, later, one with false or null (Study Space: no call at all).
 
 select u.email,
+       u.role,
+       (p.approval_status = 'approved' and p.is_public and p.accepts_bookings)
+         as gets_the_classroom,
        p.slug,
        p.approval_status,
        p.is_public,
-       p.accepts_bookings,
-       (p.approval_status = 'approved' and p.is_public and p.accepts_bookings)
-         as gets_the_classroom
-from public.tutor_public_profiles p
-join public.users u on u.id = p.user_id
-order by gets_the_classroom desc nulls last, u.email;
+       p.accepts_bookings
+from public.users u
+left join public.tutor_public_profiles p on p.user_id = u.id
+where upper(coalesce(u.role, '')) in ('TUTOR', 'STUDENT')
+order by u.role, gets_the_classroom desc nulls last, u.email
+limit 60;
 
 
 -- --- STEP 2. Make a class that is happening RIGHT NOW -----------------------
