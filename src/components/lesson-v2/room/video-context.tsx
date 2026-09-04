@@ -64,6 +64,14 @@ interface VideoContextValue {
   blurOn: boolean;
   toggleBlur: () => void;
   /**
+   * Start the camera WITHOUT joining, so the lobby can show you yourself and
+   * apply blur before a single frame reaches anyone else.
+   */
+  startPreview: (devices?: { audioDeviceId?: string; videoDeviceId?: string }) => Promise<void>;
+  stopPreview: () => void;
+  /** True once the pre-join camera is running. */
+  previewOn: boolean;
+  /**
    * Our own live input level, 0..1, while in the call.
    *
    * The lobby proves the microphone works before you join; this is the same
@@ -177,6 +185,7 @@ export function RoomVideoProvider({
   const [camOn, setCamOn] = useState(true);
   const [screenOn, setScreenOn] = useState(false);
   const [blurOn, setBlurOn] = useState(false);
+  const [previewOn, setPreviewOn] = useState(false);
   const [screenActive, setScreenActive] = useState(false);
   const [localLevel, setLocalLevel] = useState(0);
   const [micSeemsDead, setMicSeemsDead] = useState(false);
@@ -356,6 +365,11 @@ export function RoomVideoProvider({
     setPhase("idle");
     setLocal(null);
     setRemote(null);
+    // The call object is destroyed below, and the camera and the blur
+    // processor go with it. Saying otherwise would leave the lobby offering a
+    // blur toggle attached to nothing.
+    setPreviewOn(false);
+    setBlurOn(false);
     if (call) {
       try {
         await call.leave();
@@ -369,6 +383,77 @@ export function RoomVideoProvider({
   useEffect(() => {
     leaveRef.current = leave;
   }, [leave]);
+
+  /**
+   * The single Daily call object.
+   *
+   * daily-js allows exactly ONE per page and throws "Duplicate DailyIframe
+   * instances are not allowed" on the second, so preview and join must share
+   * it rather than each making their own. A failed attempt can also leave an
+   * orphan we no longer hold a reference to, and then every retry throws that
+   * instead of the real problem — hence the getCallInstance sweep.
+   */
+  const ensureCall = useCallback((): DailyCall => {
+    if (callRef.current) return callRef.current;
+    const orphan = DailyIframe.getCallInstance();
+    if (orphan) {
+      try {
+        orphan.destroy();
+      } catch {
+        /* already gone */
+      }
+    }
+    const call = DailyIframe.createCallObject({ subscribeToTracksAutomatically: true });
+    callRef.current = call;
+    const update = () => sync(call);
+    call
+      .on("participant-joined", update)
+      .on("participant-updated", update)
+      .on("participant-left", update)
+      .on("joined-meeting", update)
+      .on("started-camera", update)
+      .on("error", (e) => {
+        console.error("[video] daily error", e);
+        setError(
+          friendlyError(
+            (e as { errorMsg?: string } | undefined)?.errorMsg ?? "Video disconnected."
+          )
+        );
+        setPhase("error");
+      });
+    return call;
+  }, [sync]);
+
+  /**
+   * Camera on, nobody watching.
+   *
+   * This is what makes background blur in the lobby MEAN anything. Blur you
+   * can only switch on after joining is blur applied too late — the whole
+   * reason to want it is that you do not want your room seen, and by then it
+   * has been. Daily's own pre-join camera runs the processor on-device, so
+   * the very first frame published at join is already blurred.
+   */
+  const startPreview = useCallback(
+    async (devices?: { audioDeviceId?: string; videoDeviceId?: string }) => {
+      const call = ensureCall();
+      try {
+        await call.startCamera({
+          ...(devices?.audioDeviceId ? { audioSource: devices.audioDeviceId } : {}),
+          ...(devices?.videoDeviceId ? { videoSource: devices.videoDeviceId } : {}),
+        });
+        setPreviewOn(true);
+        sync(call);
+      } catch (e) {
+        console.error("[video] preview failed", e);
+        setError(friendlyError(e instanceof Error ? e.message : String(e)));
+      }
+    },
+    [ensureCall, sync]
+  );
+
+  const stopPreview = useCallback(() => {
+    setPreviewOn(false);
+  }, []);
 
   const join = useCallback(async (devices?: {
     audioDeviceId?: string;
@@ -412,40 +497,11 @@ export function RoomVideoProvider({
       setClassStartsAt((body.classStartsAt as string) ?? null);
       setDurationMinutes((body.durationMinutes as number) ?? null);
 
-      // daily-js allows exactly ONE call object per page and throws
-      // "Duplicate DailyIframe instances are not allowed" on the second. A
-      // failed join can leave an orphan we no longer hold a reference to —
-      // and then every retry throws that instead of the real problem.
-      const orphan = DailyIframe.getCallInstance();
-      if (orphan) {
-        try {
-          await orphan.leave();
-        } catch {
-          /* already gone */
-        }
-        orphan.destroy();
-      }
-
-      const call = DailyIframe.createCallObject({
-        subscribeToTracksAutomatically: true,
-      });
-      callRef.current = call;
-
-      const update = () => sync(call);
-      call
-        .on("participant-joined", update)
-        .on("participant-updated", update)
-        .on("participant-left", update)
-        .on("joined-meeting", update)
-        .on("error", (e) => {
-          console.error("[video] daily error", e);
-          setError(
-            friendlyError(
-              (e as { errorMsg?: string } | undefined)?.errorMsg ?? "Video disconnected."
-            )
-          );
-          setPhase("error");
-        });
+      // Reuse the lobby's call object where there is one: its camera is
+      // already running with the chosen devices and the blur processor
+      // already attached, so joining publishes an already-blurred first frame
+      // rather than a moment of unblurred room.
+      const call = ensureCall();
 
       // Daily can sit in "joining" indefinitely on a bad network. A spinner
       // that never resolves is the worst of the failure modes: nobody knows
@@ -468,15 +524,12 @@ export function RoomVideoProvider({
       console.error("[video] join failed", e);
       setError(friendlyError(e instanceof Error ? e.message : String(e)));
       setPhase("error");
-      const call = callRef.current;
-      callRef.current = null;
-      try {
-        call?.destroy();
-      } catch {
-        /* nothing left to clean up */
-      }
+      // The call object is deliberately NOT destroyed here. It now owns the
+      // lobby's camera too, and tearing it down on a failed join would drop
+      // the preview, the chosen devices and the blur — so a retry would start
+      // from a black rectangle. Rejoining reuses this same object.
     }
-  }, [sessionId, sync]);
+  }, [sessionId, sync, ensureCall]);
 
   // Leaving the page must release the camera. Without this the light stays on
   // and the next room refuses the device.
@@ -578,6 +631,7 @@ export function RoomVideoProvider({
         join, leave, toggleMic, toggleCam,
         toggleScreen: canShare ? toggleScreen : null,
         blurOn, toggleBlur,
+        startPreview, stopPreview, previewOn,
         elapsed,
         remaining, hardEndsAt, opensAt, startsAt,
         classStartsAt, durationMinutes, intoClass,

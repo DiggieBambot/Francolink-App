@@ -19,8 +19,8 @@
 // early used to show an empty room; now it shows a countdown and a Join button
 // that turns on by itself.
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import { Mic, MicOff, Video, VideoOff, Loader2, AlertCircle } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Mic, MicOff, Video, VideoOff, Loader2, AlertCircle, Sparkles } from "lucide-react";
 import { useRoomVideo } from "./video-context";
 import { cn } from "@/lib/utils";
 
@@ -97,9 +97,11 @@ function untilLabel(seconds: number): string {
 }
 
 export function Lobby() {
-  const { phase, join, opensAt, startsAt, error } = useRoomVideo();
+  const {
+    phase, join, opensAt, startsAt, error,
+    startPreview, previewOn, local, blurOn, toggleBlur,
+  } = useRoomVideo();
 
-  const [stream, setStream] = useState<MediaStream | null>(null);
   const [devices, setDevices] = useState<Devices>({ mics: [], cams: [] });
   const [micId, setMicId] = useState<string>("");
   const [camId, setCamId] = useState<string>("");
@@ -107,31 +109,44 @@ export function Lobby() {
   const [camOn, setCamOn] = useState(true);
   const [denied, setDenied] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const streamRef = useRef<MediaStream | null>(null);
+
+  // Daily hands us the local participant; the preview stream is DERIVED from
+  // its tracks rather than mirrored into state. Switching camera or toggling
+  // blur replaces the track, and a memo keyed on the tracks themselves picks
+  // that up without a second render or a stale copy to keep in step.
+  const videoTrack =
+    local?.tracks?.video?.state === "playable"
+      ? local.tracks.video.persistentTrack ?? null
+      : null;
+  const audioTrack =
+    local?.tracks?.audio?.state === "playable"
+      ? local.tracks.audio.persistentTrack ?? null
+      : null;
+  const stream = useMemo(() => {
+    const tracks = [videoTrack, audioTrack].filter(
+      (t): t is MediaStreamTrack => t !== null
+    );
+    return tracks.length > 0 ? new MediaStream(tracks) : null;
+  }, [videoTrack, audioTrack]);
 
   const level = useMicLevel(stream, micOn);
 
-  const stop = useCallback(() => {
-    streamRef.current?.getTracks().forEach((t) => t.stop());
-    streamRef.current = null;
-  }, []);
-
   // Open the preview, and re-open it when a device is switched.
+  //
+  // Through DAILY, not getUserMedia. That is what makes the blur toggle below
+  // mean anything: the processor runs on the pre-join camera, so the very
+  // first frame anyone else receives is already blurred. A lobby on its own
+  // getUserMedia stream could only fake it — and blur you can switch on after
+  // joining is blur applied after they have already seen the room.
+  //
+  // It also removes a race the old version papered over: two media stacks both
+  // holding the camera, one of which had to let go at exactly the right moment.
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      stop();
       try {
-        const next = await navigator.mediaDevices.getUserMedia({
-          audio: micId ? { deviceId: { exact: micId } } : true,
-          video: camId ? { deviceId: { exact: camId } } : true,
-        });
-        if (cancelled) {
-          next.getTracks().forEach((t) => t.stop());
-          return;
-        }
-        streamRef.current = next;
-        setStream(next);
+        await startPreview({ audioDeviceId: micId, videoDeviceId: camId });
+        if (cancelled) return;
         setDenied(null);
 
         // Labels are empty until permission is granted, so enumerate AFTER.
@@ -157,11 +172,7 @@ export function Lobby() {
     return () => {
       cancelled = true;
     };
-  }, [micId, camId, stop]);
-
-  // Release the devices when the lobby goes away, so the camera light goes out
-  // and Daily is not fighting us for the hardware on join.
-  useEffect(() => stop, [stop]);
+  }, [micId, camId, startPreview]);
 
   useEffect(() => {
     if (videoRef.current) videoRef.current.srcObject = stream;
@@ -245,6 +256,25 @@ export function Lobby() {
               {camOn ? <Video className="h-4 w-4" /> : <VideoOff className="h-4 w-4" />}
             </button>
 
+            {/* Set BEFORE anyone can see you — that is the whole point. The
+                in-call button does the same thing, but by then your room has
+                already been on someone's screen. */}
+            <button
+              type="button"
+              onClick={toggleBlur}
+              aria-pressed={blurOn}
+              disabled={!previewOn}
+              title={blurOn ? "Turn off background blur" : "Blur my background"}
+              className={cn(
+                "inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors disabled:opacity-40",
+                blurOn
+                  ? "bg-primary-500 text-white"
+                  : "bg-slate-700/90 text-white hover:bg-slate-600"
+              )}
+            >
+              <Sparkles className="h-4 w-4" />
+            </button>
+
             {/* The meter. Twelve segments rather than a smooth bar: movement
                 you can count is more convincing than a bar that glides, and
                 "is it working?" is exactly a question about movement. */}
@@ -311,8 +341,9 @@ export function Lobby() {
             type="button"
             disabled={locked || busy}
             onClick={() => {
-              // Hand the hardware over before Daily asks for it.
-              stop();
+              // No handover: Daily already holds the camera, with these
+              // devices and this blur setting. Joining publishes what you have
+              // been looking at.
               void join({ audioDeviceId: micId, videoDeviceId: camId });
             }}
             className={cn(
