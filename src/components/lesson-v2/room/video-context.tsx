@@ -60,6 +60,21 @@ interface VideoContextValue {
   toggleCam: () => void;
   /** Null when the browser cannot share (iOS Safari), so the UI can hide it. */
   toggleScreen: (() => void) | null;
+  /**
+   * Our own live input level, 0..1, while in the call.
+   *
+   * The lobby proves the microphone works before you join; this is the same
+   * proof DURING the class, because "I can't hear you" is a mid-lesson
+   * problem and the answer is always either "you are muted" or "your input
+   * moved". A meter answers both without anyone saying "can you hear me now".
+   */
+  localLevel: number;
+  /**
+   * True when the mic is on but nothing has reached it for a while — the
+   * signature of a muted-at-the-OS mic, or an input that has silently
+   * switched to a device nobody is talking into.
+   */
+  micSeemsDead: boolean;
   /** Seconds since the call connected — drives the lesson timer. */
   elapsed: number;
   /**
@@ -153,6 +168,8 @@ export function RoomVideoProvider({
   const [camOn, setCamOn] = useState(true);
   const [screenOn, setScreenOn] = useState(false);
   const [screenActive, setScreenActive] = useState(false);
+  const [localLevel, setLocalLevel] = useState(0);
+  const [micSeemsDead, setMicSeemsDead] = useState(false);
   const [elapsed, setElapsed] = useState(0);
   const [remaining, setRemaining] = useState<number | null>(null);
   const [hardEndsAt, setHardEndsAt] = useState<string | null>(null);
@@ -212,6 +229,60 @@ export function RoomVideoProvider({
     }, wait + 1000);
     return () => clearTimeout(t);
   }, [phase, opensAt]);
+
+  // Watch our own microphone for the whole call.
+  //
+  // Daily gives us the local audio track; everything else here is the same
+  // analyser the lobby uses. The point is not the meter — it is `micSeemsDead`,
+  // which turns a class spent saying "can you hear me?" into a line of text
+  // that says what is wrong.
+  useEffect(() => {
+    const track =
+      phase === "joined" && micOn ? local?.tracks?.audio?.persistentTrack : null;
+    if (!track) return;
+
+    const Ctor =
+      window.AudioContext ||
+      (window as unknown as { webkitAudioContext?: typeof AudioContext })
+        .webkitAudioContext;
+    if (!Ctor) return;
+
+    const ctx = new Ctor();
+    const source = ctx.createMediaStreamSource(new MediaStream([track]));
+    const analyser = ctx.createAnalyser();
+    analyser.fftSize = 512;
+    source.connect(analyser);
+    const buf = new Uint8Array(analyser.frequencyBinCount);
+
+    let raf = 0;
+    let lastHeard = Date.now();
+    const tick = () => {
+      analyser.getByteTimeDomainData(buf);
+      let sum = 0;
+      for (let i = 0; i < buf.length; i++) {
+        const v = (buf[i] - 128) / 128;
+        sum += v * v;
+      }
+      const level = Math.min(1, Math.sqrt(sum / buf.length) * 3.2);
+      setLocalLevel((prev) => (level > prev ? level : prev * 0.82 + level * 0.18));
+      // A threshold, not zero: a live mic in a silent room still reports a
+      // little noise, so testing for exactly nothing would never fire.
+      if (level > 0.04) lastHeard = Date.now();
+      // Twenty seconds. Long enough that listening to your tutor explain
+      // something does not accuse you of being broken.
+      setMicSeemsDead(Date.now() - lastHeard > 20_000);
+      raf = requestAnimationFrame(tick);
+    };
+    tick();
+
+    return () => {
+      cancelAnimationFrame(raf);
+      source.disconnect();
+      void ctx.close();
+      setLocalLevel(0);
+      setMicSeemsDead(false);
+    };
+  }, [phase, micOn, local]);
 
   // The countdown, and the hard stop.
   //
@@ -450,7 +521,7 @@ export function RoomVideoProvider({
     <Ctx.Provider
       value={{
         phase, error, notice, local, remote, micOn, camOn,
-        screenOn, screenActive,
+        screenOn, screenActive, localLevel, micSeemsDead,
         join, leave, toggleMic, toggleCam,
         toggleScreen: canShare ? toggleScreen : null,
         elapsed,

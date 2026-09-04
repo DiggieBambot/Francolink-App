@@ -135,26 +135,41 @@ function Tile({
 
 /** Mic / camera / share / leave. Same controls at both sizes. */
 export function VideoControls({ size = "sm" }: { size?: "sm" | "lg" }) {
-  const { micOn, camOn, screenOn, toggleMic, toggleCam, toggleScreen, leave } =
-    useRoomVideo();
+  const {
+    micOn, camOn, screenOn, toggleMic, toggleCam, toggleScreen, leave,
+    localLevel,
+  } = useRoomVideo();
   const box = size === "lg" ? "h-11 w-11" : "h-8 w-8";
   const icon = size === "lg" ? "h-5 w-5" : "h-4 w-4";
 
   return (
     <div className="flex items-center justify-center gap-1.5">
-      <button
-        type="button"
-        onClick={toggleMic}
-        aria-pressed={!micOn}
-        title={micOn ? "Mute" : "Unmute"}
-        className={cn(
-          "inline-flex items-center justify-center rounded-full transition-colors",
-          box,
-          micOn ? "bg-slate-700 text-white hover:bg-slate-600" : "bg-red-600 text-white"
-        )}
-      >
-        {micOn ? <Mic className={icon} /> : <MicOff className={icon} />}
-      </button>
+      {/* The mic button IS the meter. A separate level indicator somewhere
+          else on screen is a thing nobody looks at; a ring that grows around
+          the button you already stare at when you wonder whether you are
+          being heard is the same information, free. */}
+      <span className="relative inline-flex">
+        {micOn && localLevel > 0.05 ? (
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-0 rounded-full bg-primary-400/70 transition-transform duration-75"
+            style={{ transform: `scale(${1 + Math.min(localLevel, 1) * 0.45})` }}
+          />
+        ) : null}
+        <button
+          type="button"
+          onClick={toggleMic}
+          aria-pressed={!micOn}
+          title={micOn ? "Mute" : "Unmute"}
+          className={cn(
+            "relative inline-flex items-center justify-center rounded-full transition-colors",
+            box,
+            micOn ? "bg-slate-700 text-white hover:bg-slate-600" : "bg-accent text-white"
+          )}
+        >
+          {micOn ? <Mic className={icon} /> : <MicOff className={icon} />}
+        </button>
+      </span>
       <button
         type="button"
         onClick={toggleCam}
@@ -163,7 +178,7 @@ export function VideoControls({ size = "sm" }: { size?: "sm" | "lg" }) {
         className={cn(
           "inline-flex items-center justify-center rounded-full transition-colors",
           box,
-          camOn ? "bg-slate-700 text-white hover:bg-slate-600" : "bg-red-600 text-white"
+          camOn ? "bg-slate-700 text-white hover:bg-slate-600" : "bg-accent text-white"
         )}
       >
         {camOn ? <Video className={icon} /> : <VideoOff className={icon} />}
@@ -197,7 +212,7 @@ export function VideoControls({ size = "sm" }: { size?: "sm" | "lg" }) {
         onClick={leave}
         title="Leave video (the lesson stays open)"
         className={cn(
-          "inline-flex items-center justify-center rounded-full bg-red-600 text-white hover:bg-red-700",
+          "inline-flex items-center justify-center rounded-full bg-accent text-white transition hover:brightness-110",
           box
         )}
       >

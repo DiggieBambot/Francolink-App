@@ -14,6 +14,7 @@ import { RoomShell, type RailTab, type StageKey, type StagePanel } from "./room/
 import { RoomVideoProvider, type InitialClassWindow } from "./room/video-context";
 import { SpaceShell } from "./room/space-shell";
 import { AfterClass } from "./room/after-class";
+import { AnnotationLayer } from "./room/annotation-layer";
 import { VideoStage } from "./room/video-views";
 import { PeoplePanel } from "./room/people-panel";
 import { ChatPanel } from "./room/chat-panel";
@@ -26,7 +27,7 @@ const WhiteboardPanel = dynamic(
 );
 import { MaterialsPanel } from "./room/materials-panel";
 import type { PickerLesson } from "./room/lesson-picker";
-import { Users, Sparkles, BookOpen, RefreshCw, UserPlus, Check, Video, Send, Eye, DoorOpen, ChevronDown, PenTool, MessageSquare, Library, X } from "lucide-react";
+import { Users, Sparkles, BookOpen, RefreshCw, UserPlus, Check, Video, Send, Eye, DoorOpen, ChevronDown, PenTool, MessageSquare, Library, X, Highlighter, Eraser } from "lucide-react";
 import type { Lesson } from "@/lib/lessons/types";
 import { cn } from "@/lib/utils";
 
@@ -158,6 +159,9 @@ export function LessonRoom({
     initialLesson ? "lesson" : fallbackStage
   );
   const [boardOpen, setBoardOpen] = useState(false);
+  // Pointing at the material. Off by default: a layer that swallows clicks is
+  // a lesson whose exercises cannot be typed into.
+  const [drawMode, setDrawMode] = useState(false);
   const lastIncoming = useRef(0);
 
   const showToast = (msg: string, ms = 3000) => {
@@ -413,7 +417,15 @@ export function LessonRoom({
             label: lesson.title ?? "Lesson",
             icon: BookOpen,
             content: (
-              <div className="mx-auto max-w-5xl px-4 pb-28 pt-4">
+              // `relative` so the annotation layer can cover exactly the
+              // lesson, and no more — ink over the toolbar would be nonsense.
+              <div className="relative mx-auto max-w-5xl px-4 pb-28 pt-4">
+                <AnnotationLayer
+                  active={drawMode}
+                  strokes={room.strokes}
+                  onStroke={room.addStroke}
+                  role={currentRole}
+                />
                 {/* Key by lessonId so switching lessons fully remounts the
                     renderer. Exercise components hold answer state in
                     useState; without this a switch reuses instances (sections
@@ -661,6 +673,37 @@ export function LessonRoom({
             {sendingHw ? "Sending…" : "Send homework"}
           </button>
         ) : null}
+        {/* Circling a conjugation table is the commonest gesture in a language
+            lesson and there was no way to do it — highlights mark a phrase,
+            not a region. Only offered with material on screen, because there
+            is otherwise nothing to point at. */}
+        {lesson ? (
+          <>
+            <span className="h-4 w-px bg-slate-200" />
+            <button
+              onClick={() => {
+                setDrawMode((v) => !v);
+                setActiveStage("lesson");
+              }}
+              aria-pressed={drawMode}
+              className={cn(TOOL_BTN, drawMode ? TOOL_LOUD : TOOL_QUIET)}
+              title="Draw on the lesson — your marks fade after a few seconds"
+            >
+              <Highlighter className="h-3.5 w-3.5" />
+              {drawMode ? "Drawing" : "Draw"}
+            </button>
+            {drawMode ? (
+              <button
+                onClick={room.clearStrokes}
+                className={cn(TOOL_BTN, TOOL_QUIET)}
+                title="Clear everyone's marks now"
+              >
+                <Eraser className="h-3.5 w-3.5" />
+                Clear
+              </button>
+            ) : null}
+          </>
+        ) : null}
         {/* Always offered, not only once a lesson is open: with no material
             chosen there was previously nothing in the toolbar that led to
             any, and the shelf is where a class starts. */}
@@ -758,6 +801,12 @@ export function LessonRoom({
             canEndClass={currentRole === "tutor"}
             railTabs={railTabs}
             actions={actionsNode}
+            raisedHands={room.raisedHands}
+            handRaised={Boolean(room.raisedHands[currentUserId])}
+            onToggleHand={() =>
+              room.setHandRaised(!room.raisedHands[currentUserId])
+            }
+            onLowerHand={room.lowerHand}
           />
         )}
 

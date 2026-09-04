@@ -33,7 +33,7 @@
 // as "allow more than one entry" rather than a rewrite.
 
 import { useEffect, useState } from "react";
-import { MessageSquare, PenTool, Users, Video as VideoIcon, X, Sparkles, Clock, Library, LogOut } from "lucide-react";
+import { MessageSquare, PenTool, Users, Video as VideoIcon, X, Sparkles, Clock, Library, LogOut, Hand, MicOff } from "lucide-react";
 import { useRoomVideo } from "./video-context";
 import { VideoRail, VideoControls } from "./video-views";
 import { cn } from "@/lib/utils";
@@ -141,6 +141,8 @@ function ControlBar({
   onOpenLobby,
   onEndClass,
   canEndClass,
+  handRaised,
+  onToggleHand,
 }: {
   peerName: string | null;
   railTabs: RailTab[];
@@ -150,6 +152,8 @@ function ControlBar({
   onOpenLobby: () => void;
   onEndClass?: () => void;
   canEndClass: boolean;
+  handRaised: boolean;
+  onToggleHand: () => void;
 }) {
   const { phase, elapsed, remaining } = useRoomVideo();
 
@@ -213,6 +217,22 @@ function ControlBar({
 
       {/* ------------------------------------------------------------ TOOLS */}
       <div className="ml-auto flex items-center gap-1.5">
+        {/* Interrupting by voice means talking over your tutor, and chat means
+            they have to be looking at chat. A hand survives both. */}
+        <button
+          type="button"
+          onClick={onToggleHand}
+          aria-pressed={handRaised}
+          title={handRaised ? "Lower your hand" : "Raise your hand"}
+          className={cn(
+            "inline-flex h-10 w-10 items-center justify-center rounded-full text-lg transition-colors",
+            handRaised
+              ? "bg-secondary-500 text-white"
+              : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+          )}
+        >
+          <Hand className={cn("h-4 w-4", handRaised && "animate-pulse")} />
+        </button>
         {/* Above lg the rail is docked and this is nothing but noise. */}
         <button
           type="button"
@@ -246,6 +266,79 @@ function ControlBar({
   );
 }
 
+/**
+ * The two things a room has to interrupt you about, in one strip above the
+ * control bar: somebody is asking to speak, and your own microphone appears
+ * to be picking up nothing.
+ *
+ * Above the bar rather than floating, because both are about the call and the
+ * bar is where the call lives. Both are also the kind of message that must
+ * never cover the material — a class stops when the lesson is hidden.
+ */
+function RoomAlerts({
+  raisedHands,
+  onLowerHand,
+}: {
+  raisedHands: Record<string, { name: string; at: number }>;
+  onLowerHand: (userId: string) => void;
+}) {
+  const { phase, micOn, micSeemsDead, toggleMic } = useRoomVideo();
+  const hands = Object.entries(raisedHands).sort((a, b) => a[1].at - b[1].at);
+
+  if (hands.length === 0 && !(phase === "joined" && micSeemsDead)) return null;
+
+  return (
+    <div className="shrink-0 space-y-px">
+      {hands.length > 0 ? (
+        <div className="flex flex-wrap items-center gap-2 bg-secondary-50 px-3 py-2">
+          <Hand className="h-4 w-4 shrink-0 text-secondary-600" />
+          <span className="text-xs font-semibold text-secondary-700">
+            {hands.length === 1
+              ? `${hands[0][1].name} has a question`
+              : `${hands.length} hands up`}
+          </span>
+          <span className="flex flex-wrap items-center gap-1">
+            {hands.map(([id, h]) => (
+              <button
+                key={id}
+                type="button"
+                onClick={() => onLowerHand(id)}
+                title={`Mark ${h.name}'s question as answered`}
+                className="inline-flex items-center gap-1 rounded-full bg-white px-2 py-0.5 text-[11px] font-semibold text-secondary-700 shadow-sm transition hover:bg-secondary-100"
+              >
+                {h.name.split(" ")[0]}
+                <X className="h-3 w-3" />
+              </button>
+            ))}
+          </span>
+        </div>
+      ) : null}
+
+      {phase === "joined" && micSeemsDead ? (
+        // Not an error — a diagnosis. "I can't hear you" costs minutes of a
+        // paid lesson every time, and the answer is nearly always one of these
+        // two things.
+        <div className="flex items-center gap-2 bg-accent-light px-3 py-2">
+          <MicOff className="h-4 w-4 shrink-0 text-accent" />
+          <span className="min-w-0 flex-1 text-xs font-semibold text-accent">
+            Your mic hasn&apos;t picked anything up for a while — check it
+            isn&apos;t muted on your computer, or pick a different one.
+          </span>
+          {micOn ? (
+            <button
+              type="button"
+              onClick={toggleMic}
+              className="shrink-0 rounded-full bg-white px-2.5 py-0.5 text-[11px] font-bold text-accent shadow-sm"
+            >
+              Mute &amp; retry
+            </button>
+          ) : null}
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 export function RoomShell({
   panels,
   activeStage,
@@ -256,6 +349,10 @@ export function RoomShell({
   peerName,
   onEndClass,
   canEndClass,
+  raisedHands,
+  handRaised,
+  onToggleHand,
+  onLowerHand,
 }: {
   panels: StagePanel[];
   activeStage: StageKey;
@@ -267,6 +364,11 @@ export function RoomShell({
   peerName: string | null;
   onEndClass?: () => void;
   canEndClass: boolean;
+  /** Everyone currently asking to speak, keyed by user id. */
+  raisedHands: Record<string, { name: string; at: number }>;
+  handRaised: boolean;
+  onToggleHand: () => void;
+  onLowerHand: (userId: string) => void;
 }) {
   const [railOpen, setRailOpen] = useState(false);
   // How much of the screen the mobile sheet takes. It starts SHORT on purpose:
@@ -416,6 +518,8 @@ export function RoomShell({
       </div>
 
       {/* ------------------------------------------------------------ BASE */}
+      <RoomAlerts raisedHands={raisedHands} onLowerHand={onLowerHand} />
+
       <div className="relative">
         <ControlBar
           peerName={peerName}
@@ -423,6 +527,8 @@ export function RoomShell({
           unread={unread}
           onOpenRail={() => setRailOpen(true)}
           onOpenLobby={() => onStageChange("call")}
+          handRaised={handRaised}
+          onToggleHand={onToggleHand}
           onEndClass={onEndClass}
           canEndClass={canEndClass}
         />
