@@ -81,6 +81,16 @@ interface VideoContextValue {
   setBlur: (level: BlurLevel) => void;
   denoise: boolean;
   toggleDenoise: () => void;
+  /**
+   * Whether this BROWSER can run the processors at all.
+   *
+   * Neither is universal. Both are on-device models, and Daily reports per
+   * browser whether it can run them — older browsers, some mobile ones and
+   * anything without the right WASM support simply cannot. Offering a control
+   * that quietly refuses is worse than not offering it, so these gate the UI.
+   */
+  canProcessVideo: boolean;
+  canProcessAudio: boolean;
   /** Any effect on at all — for the button's active state. */
   blurOn: boolean;
   toggleBlur: () => void;
@@ -207,6 +217,18 @@ export function RoomVideoProvider({
   const [screenOn, setScreenOn] = useState(false);
   const [blur, setBlurState] = useState<BlurLevel>("off");
   const [denoise, setDenoise] = useState(false);
+  // Asked once. supportedBrowser() is a static read of the user agent and
+  // capabilities, so it cannot change between renders — but it touches
+  // navigator, so it must not run during SSR.
+  const [caps, setCaps] = useState({ video: false, audio: false });
+  useEffect(() => {
+    try {
+      const b = DailyIframe.supportedBrowser();
+      setCaps({ video: b.supportsVideoProcessing, audio: b.supportsAudioProcessing });
+    } catch {
+      // A browser too old to answer is a browser that cannot do either.
+    }
+  }, []);
   const [previewOn, setPreviewOn] = useState(false);
   const [screenActive, setScreenActive] = useState(false);
   const [localLevel, setLocalLevel] = useState(0);
@@ -695,6 +717,7 @@ export function RoomVideoProvider({
         join, leave, toggleMic, toggleCam,
         toggleScreen: canShare ? toggleScreen : null,
         blur, setBlur, denoise, toggleDenoise,
+        canProcessVideo: caps.video, canProcessAudio: caps.audio,
         blurOn: blur !== "off", toggleBlur,
         startPreview, stopPreview, previewOn,
         elapsed,

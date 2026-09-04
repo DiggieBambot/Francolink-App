@@ -144,7 +144,10 @@ function Tile({
  * and how clearly they can hear you.
  */
 export function EffectsButton({ box, icon }: { box: string; icon: string }) {
-  const { blur, setBlur, denoise, toggleDenoise, previewOn, phase } = useRoomVideo();
+  const {
+    blur, setBlur, denoise, toggleDenoise, previewOn, phase,
+    canProcessVideo, canProcessAudio,
+  } = useRoomVideo();
   const [open, setOpen] = useState(false);
   const live = phase === "joined" || previewOn;
   const anyOn = blur !== "off" || denoise;
@@ -180,50 +183,65 @@ export function EffectsButton({ box, icon }: { box: string; icon: string }) {
             <p className="border-b border-slate-800 px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-500">
               Background
             </p>
-            {([
-              ["off", "None"],
-              ["light", "Slight blur"],
-              ["strong", "Blur it out"],
-            ] as const).map(([level, label]) => (
-              <button
-                key={level}
-                type="button"
-                onClick={() => setBlur(level)}
-                className={cn(
-                  "flex w-full items-center gap-2 px-3 py-2 text-left text-sm transition",
-                  blur === level
-                    ? "bg-primary-500/15 font-semibold text-primary-200"
-                    : "text-slate-300 hover:bg-slate-800"
-                )}
-              >
-                <span className="w-4">{blur === level ? <Check className="h-3.5 w-3.5" /> : null}</span>
-                {label}
-              </button>
-            ))}
+            {canProcessVideo ? (
+              ([
+                ["off", "None"],
+                ["light", "Slight blur"],
+                ["strong", "Blur it out"],
+              ] as const).map(([level, label]) => (
+                <button
+                  key={level}
+                  type="button"
+                  onClick={() => setBlur(level)}
+                  className={cn(
+                    "flex w-full items-center gap-2 px-3 py-2 text-left text-sm transition",
+                    blur === level
+                      ? "bg-primary-500/15 font-semibold text-primary-200"
+                      : "text-slate-300 hover:bg-slate-800"
+                  )}
+                >
+                  <span className="w-4">
+                    {blur === level ? <Check className="h-3.5 w-3.5" /> : null}
+                  </span>
+                  {label}
+                </button>
+              ))
+            ) : (
+              <p className="px-3 py-2 text-[11px] leading-snug text-slate-500">
+                This browser can&apos;t run background blur. Chrome or Edge on a
+                computer can.
+              </p>
+            )}
 
             <p className="border-y border-slate-800 px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-500">
               Sound
             </p>
-            <button
-              type="button"
-              onClick={toggleDenoise}
-              className={cn(
-                "flex w-full items-start gap-2 px-3 py-2 text-left text-sm transition",
-                denoise
-                  ? "bg-primary-500/15 font-semibold text-primary-200"
-                  : "text-slate-300 hover:bg-slate-800"
-              )}
-            >
-              <span className="mt-0.5 w-4">
-                {denoise ? <Check className="h-3.5 w-3.5" /> : null}
-              </span>
-              <span>
-                Noise cancellation
-                <span className="mt-0.5 block text-[11px] font-normal leading-snug text-slate-500">
-                  Cuts fans, keyboards and traffic so your pronunciation carries.
+            {canProcessAudio ? (
+              <button
+                type="button"
+                onClick={toggleDenoise}
+                className={cn(
+                  "flex w-full items-start gap-2 px-3 py-2 text-left text-sm transition",
+                  denoise
+                    ? "bg-primary-500/15 font-semibold text-primary-200"
+                    : "text-slate-300 hover:bg-slate-800"
+                )}
+              >
+                <span className="mt-0.5 w-4">
+                  {denoise ? <Check className="h-3.5 w-3.5" /> : null}
                 </span>
-              </span>
-            </button>
+                <span>
+                  Noise cancellation
+                  <span className="mt-0.5 block text-[11px] font-normal leading-snug text-slate-500">
+                    Cuts fans, keyboards and traffic so your pronunciation carries.
+                  </span>
+                </span>
+              </button>
+            ) : (
+              <p className="px-3 py-2 text-[11px] leading-snug text-slate-500">
+                This browser can&apos;t run noise cancellation.
+              </p>
+            )}
           </div>
         </>
       ) : null}
