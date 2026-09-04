@@ -12,6 +12,7 @@ import { StepControls } from "./step-controls";
 import dynamic from "next/dynamic";
 import { RoomShell, type RailTab, type StageKey, type StagePanel } from "./room/room-shell";
 import { RoomVideoProvider, type InitialClassWindow } from "./room/video-context";
+import { SpaceShell } from "./room/space-shell";
 import { VideoStage } from "./room/video-views";
 import { PeoplePanel } from "./room/people-panel";
 import { ChatPanel } from "./room/chat-panel";
@@ -27,6 +28,31 @@ import type { PickerLesson } from "./room/lesson-picker";
 import { Users, Sparkles, BookOpen, RefreshCw, UserPlus, Check, Video, Send, Eye, DoorOpen, ChevronDown, PenTool, MessageSquare, Library, X } from "lucide-react";
 import type { Lesson } from "@/lib/lessons/types";
 import { cn } from "@/lib/utils";
+
+/**
+ * Mounts the video context for a Classroom and nothing at all for a Study
+ * Space. A component rather than a ternary around the whole tree so both
+ * branches render the SAME children — otherwise switching kinds would remount
+ * every panel and lose the board and the student's answers.
+ */
+function ShellFrame({
+  isSpace,
+  sessionId,
+  classWindow,
+  children,
+}: {
+  isSpace: boolean;
+  sessionId: string;
+  classWindow?: InitialClassWindow;
+  children: React.ReactNode;
+}) {
+  if (isSpace) return <>{children}</>;
+  return (
+    <RoomVideoProvider sessionId={sessionId} initialWindow={classWindow}>
+      {children}
+    </RoomVideoProvider>
+  );
+}
 
 /** A student's filtering stays theirs — see toggleMaterials. */
 const noopFilter = () => {};
@@ -65,6 +91,13 @@ interface LessonRoomProps {
   /** The tutor's other live rooms, for the in-room room switcher. Tutor-only. */
   otherRooms?: { id: string; label: string; isGroup: boolean }[];
   /**
+   * Which room this is. "classroom" — a listed FrancoLink tutor's live,
+   * scheduled, video lesson. "space" — everyone else: a shared workspace for
+   * material, chat and the board, with no call at all. Resolved server-side
+   * from the same predicate that decides who can be booked.
+   */
+  roomKind?: "classroom" | "space";
+  /**
    * Whether this room's booked class is on right now, resolved server-side.
    * Absent on a room no booking has ever used, which has no schedule at all.
    */
@@ -85,12 +118,14 @@ export function LessonRoom({
   initialChat = [],
   otherRooms = [],
   classWindow,
+  roomKind = "classroom",
 }: LessonRoomProps) {
+  const isSpace = roomKind === "space";
   const room = useLessonRoom({ sessionId, currentUserId, currentRole, currentName, initialHighlights, initialChatMessages: initialChat });
 
   const [lesson, setLesson] = useState<Lesson | null>(initialLesson);
   const [lessonId, setLessonId] = useState<string | null>(initialLessonId);
-  const [materialsOpen, setMaterialsOpen] = useState(false);
+  const [materialsOpen, setMaterialsOpen] = useState(isSpace && !initialLesson);
   const [toast, setToast] = useState<string | null>(null);
   const [inviteCopied, setInviteCopied] = useState(false);
   const [ringing, setRinging] = useState(false);
@@ -101,10 +136,13 @@ export function LessonRoom({
   // not say on its own. This used to be a native window.confirm — correct, and
   // jarring: an OS dialog on top of a lesson reads as an error, not a choice.
   const [confirmEnd, setConfirmEnd] = useState(false);
-  // Which panel owns the main stage. Follows DMM/Engoo: with no material open
-  // the CALL is the stage, because the call is the lesson at that point.
+  // Which panel owns the main stage. In a Classroom, with no material open,
+  // the CALL is the stage — the call is the lesson at that point. A Study
+  // Space has no call, so what fills the gap is the shelf: you opened a room
+  // with nothing in it, and choosing material is the only thing to do next.
+  const fallbackStage: StageKey = isSpace ? "materials" : "call";
   const [activeStage, setActiveStage] = useState<StageKey>(
-    initialLesson ? "lesson" : "call"
+    initialLesson ? "lesson" : fallbackStage
   );
   const [boardOpen, setBoardOpen] = useState(false);
   const lastIncoming = useRef(0);
@@ -298,14 +336,14 @@ export function LessonRoom({
       setActiveStage("materials");
     } else {
       setMaterialsOpen(false);
-      setActiveStage((cur) => (cur === "materials" ? (lesson ? "lesson" : "call") : cur));
+      setActiveStage((cur) => (cur === "materials" ? (lesson ? "lesson" : fallbackStage) : cur));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [room.remoteBrowsing]);
 
   function toggleMaterials(open: boolean) {
     setMaterialsOpen(open);
-    setActiveStage(open ? "materials" : lesson ? "lesson" : "call");
+    setActiveStage(open ? "materials" : lesson ? "lesson" : fallbackStage);
     // Only the tutor's shelf is shared. A student browsing ahead is private —
     // dragging the person teaching the class onto a catalogue they did not
     // ask for would be the same interruption we just removed, pointed the
@@ -319,12 +357,19 @@ export function LessonRoom({
   // answers. The array shape is also what makes real multi-tab a matter of
   // allowing more than one entry rather than a rewrite.
   const panels: StagePanel[] = [
-    {
-      key: "call",
-      label: "Call",
-      icon: Video,
-      content: <VideoStage />,
-    },
+    // A Study Space has no call, so it has no Call tab. This is the whole
+    // difference in one line: the old room kept the tab and put an apology
+    // behind it.
+    ...(isSpace
+      ? []
+      : [
+          {
+            key: "call" as const,
+            label: "Call",
+            icon: Video,
+            content: <VideoStage />,
+          },
+        ]),
     ...(lesson
       ? [
           {
@@ -397,59 +442,22 @@ export function LessonRoom({
     { key: "ai", label: "AI", icon: Sparkles, content: <DiggieChatPanel /> },
   ];
 
-  return (
-    <LessonRoomProvider
-      value={{
-        sessionId,
-        currentUserId,
-        currentRole,
-        canHighlight: true,
-        highlights: room.highlights,
-        toggleHighlight: room.toggleHighlight,
-        presence: room.presence,
-        broadcastSpeak: room.broadcastSpeak,
-        incomingSpeak: room.incomingSpeak,
-        revealedTranslations: room.revealedTranslations,
-        toggleTranslation: room.toggleTranslation,
-        studentAnswers: room.studentAnswers,
-        answersByStudent: room.answersByStudent,
-        learners: room.learners,
-        viewedStudentId: room.viewedStudentId,
-        setViewedStudentId: room.setViewedStudentId,
-        reportAnswer: room.reportAnswer,
-        currentSectionIdx: room.currentSectionIdx,
-        setCurrentSectionIdx: room.setCurrentSectionIdx,
-        incomingScroll: room.incomingScroll,
-        broadcastScroll: room.broadcastScroll,
-        chatMessages: room.chatMessages,
-        sendChat: room.sendChat,
-        incomingLessonChange: room.incomingLessonChange,
-        broadcastLessonChange: room.broadcastLessonChange,
-        openLessonPicker: () => toggleMaterials(true),
-      }}
-    >
-      <RoomVideoProvider sessionId={sessionId} initialWindow={classWindow}>
-        <RoomShell
-          panels={panels}
-          activeStage={activeStage}
-          onStageChange={setActiveStage}
-          onClosePanel={(key) => {
-            if (key === "board") {
-              setBoardOpen(false);
-              setActiveStage(lesson ? "lesson" : "call");
-            }
-            // Closing the shelf closes it for both — the same rule as opening
-            // it, so the two sides can never end up on different stages.
-            if (key === "materials") toggleMaterials(false);
-          }}
-          peerName={studentName || (currentRole === "student" ? "Your tutor" : null)}
-          onEndClass={() => setConfirmEnd(true)}
-          canEndClass={currentRole === "tutor"}
-          railTabs={railTabs}
-          actions={
+  function closePanel(key: StageKey) {
+    if (key === "board") {
+      setBoardOpen(false);
+      setActiveStage(lesson ? "lesson" : fallbackStage);
+    }
+    // Closing the shelf closes it for both — the same rule as opening it, so
+    // the two sides can never end up on different stages.
+    if (key === "materials") toggleMaterials(false);
+  }
+
+  // The room toolbar, built once and handed to whichever shell renders it.
+  const actionsNode = (
             <div className="flex items-center gap-1.5 overflow-x-auto">
         <span className="inline-flex shrink-0 items-center gap-1.5 text-xs font-semibold text-primary-600">
-          <Sparkles className="h-3.5 w-3.5" /> Live space
+          <Sparkles className="h-3.5 w-3.5" />
+          {isSpace ? "Study space" : "Live space"}
         </span>
         <span className="h-4 w-px bg-slate-200" />
         <Users className="h-4 w-4 text-slate-500" />
@@ -566,10 +574,18 @@ export function LessonRoom({
             onClick={ringStudent}
             disabled={ringing}
             className={cn(TOOL_BTN, TOOL_LOUD, "disabled:opacity-60")}
-            title={`Ring ${studentName || "your student"} — pops a “Join class” alert on their dashboard`}
+            title={
+              isSpace
+                ? `Nudge ${studentName || "your student"} — pops an alert on their dashboard asking them to open this space`
+                : `Ring ${studentName || "your student"} — pops a “Join class” alert on their dashboard`
+            }
           >
             <Video className="h-3.5 w-3.5" />
-            {ringing ? "Ringing…" : `Ring${studentName ? ` ${studentName.split(" ")[0]}` : ""}`}
+            {ringing
+              ? isSpace
+                ? "Nudging…"
+                : "Ringing…"
+              : `${isSpace ? "Nudge" : "Ring"}${studentName ? ` ${studentName.split(" ")[0]}` : ""}`}
           </button>
         ) : null}
         {/* The board is a STAGE panel now, not a rail tab: a whiteboard in a
@@ -631,8 +647,67 @@ export function LessonRoom({
             It used to sit in this scrolling toolbar one pixel from "Send
             homework". */}
             </div>
-          }
-        />
+  );
+
+  return (
+    <LessonRoomProvider
+      value={{
+        sessionId,
+        currentUserId,
+        currentRole,
+        canHighlight: true,
+        highlights: room.highlights,
+        toggleHighlight: room.toggleHighlight,
+        presence: room.presence,
+        broadcastSpeak: room.broadcastSpeak,
+        incomingSpeak: room.incomingSpeak,
+        revealedTranslations: room.revealedTranslations,
+        toggleTranslation: room.toggleTranslation,
+        studentAnswers: room.studentAnswers,
+        answersByStudent: room.answersByStudent,
+        learners: room.learners,
+        viewedStudentId: room.viewedStudentId,
+        setViewedStudentId: room.setViewedStudentId,
+        reportAnswer: room.reportAnswer,
+        currentSectionIdx: room.currentSectionIdx,
+        setCurrentSectionIdx: room.setCurrentSectionIdx,
+        incomingScroll: room.incomingScroll,
+        broadcastScroll: room.broadcastScroll,
+        chatMessages: room.chatMessages,
+        sendChat: room.sendChat,
+        incomingLessonChange: room.incomingLessonChange,
+        broadcastLessonChange: room.broadcastLessonChange,
+        openLessonPicker: () => toggleMaterials(true),
+      }}
+    >
+      {/* A Study Space is not wrapped in RoomVideoProvider at all. Nothing
+          inside it asks for a call, so mounting a Daily-backed context to sit
+          idle would be a camera permission prompt waiting to happen in a room
+          that never uses one. */}
+      <ShellFrame isSpace={isSpace} sessionId={sessionId} classWindow={classWindow}>
+        {isSpace ? (
+          <SpaceShell
+            panels={panels}
+            activeStage={activeStage}
+            onStageChange={setActiveStage}
+            onClosePanel={closePanel}
+            railTabs={railTabs}
+            actions={actionsNode}
+            showUpgrade={currentRole === "tutor"}
+          />
+        ) : (
+          <RoomShell
+            panels={panels}
+            activeStage={activeStage}
+            onStageChange={setActiveStage}
+            onClosePanel={closePanel}
+            peerName={studentName || (currentRole === "student" ? "Your tutor" : null)}
+            onEndClass={() => setConfirmEnd(true)}
+            canEndClass={currentRole === "tutor"}
+            railTabs={railTabs}
+            actions={actionsNode}
+          />
+        )}
 
         {/* Toast is the one thing that still floats: it is transient, it must
             sit above the sheet, and it belongs to no zone. */}
@@ -728,7 +803,7 @@ export function LessonRoom({
             </div>
           </div>
         ) : null}
-      </RoomVideoProvider>
+      </ShellFrame>
     </LessonRoomProvider>
   );
 }

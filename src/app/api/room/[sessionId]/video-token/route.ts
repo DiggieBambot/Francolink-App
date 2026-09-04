@@ -24,6 +24,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { DailyNotConfigured, ensureRoom, meetingToken } from "@/lib/video/daily";
 import { resolveClassWindow } from "@/lib/lessons/class-window";
+import { isListedTutor } from "@/lib/tutors/listing";
 
 export const runtime = "nodejs";
 
@@ -78,20 +79,10 @@ export async function POST(
     return NextResponse.json({ error: "That isn't your room." }, { status: 403 });
   }
 
-  // Is the tutor running this room an official FrancoLink tutor?
-  const { data: listing } = await db
-    .from("tutor_public_profiles")
-    .select("is_public, approval_status, accepts_bookings")
-    .eq("user_id", session.tutor_id)
-    .maybeSingle();
-
-  const listed =
-    Boolean(listing) &&
-    listing!.approval_status === "approved" &&
-    listing!.is_public === true &&
-    listing!.accepts_bookings === true;
-
-  if (!listed) {
+  // Is the tutor running this room a listed FrancoLink tutor? Same predicate
+  // as the booking route and as the room's choice of Classroom vs Study Space
+  // — see lib/tutors/listing.ts for why those must never disagree.
+  if (!(await isListedTutor(session.tutor_id))) {
     // Deliberately a soft answer, not a hard failure: the room still works.
     // Chat, whiteboard, lesson content and homework are all there, and an
     // independent tutor teaching their own student loses nothing they had

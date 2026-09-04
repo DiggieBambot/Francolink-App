@@ -7,6 +7,7 @@ import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { LessonRoom } from "@/components/lesson-v2/lesson-room";
 import { MAX_GROUP_LEARNERS } from "@/lib/lessons/room-limits";
 import { resolveClassWindow } from "@/lib/lessons/class-window";
+import { roomKindFor } from "@/lib/tutors/listing";
 import type { Lesson } from "@/lib/lessons/types";
 
 export const dynamic = "force-dynamic";
@@ -211,6 +212,12 @@ export default async function RoomPage({
     at: new Date(m.created_at as string).getTime(),
   }));
 
+  // Classroom or Study Space? Decided by the room's TUTOR, not by who is
+  // visiting: a student in an independent tutor's room gets the same space
+  // their tutor does. Evaluated per visit, so a tutor who gets approved finds
+  // their existing rooms have become classrooms with no migration.
+  const roomKind = await roomKindFor(session.tutor_id);
+
   // Is this room's booked class on right now?
   //
   // Resolved here purely so the pre-class state renders at first paint — the
@@ -218,7 +225,12 @@ export default async function RoomPage({
   // what gets a person onto a call and this page is only what they see.
   // `unscheduled` (no booking has ever used this room) leaves classWindow
   // undefined, and video behaves exactly as it always has.
-  const classState = await resolveClassWindow(id, { persist: true });
+  // A Study Space has no bookings and no clock; skip the query entirely
+  // rather than asking a question whose answer it would throw away.
+  const classState =
+    roomKind === "space"
+      ? ({ kind: "unscheduled" } as const)
+      : await resolveClassWindow(id, { persist: true });
   const classWindow =
     classState.kind === "unscheduled"
       ? undefined
@@ -258,6 +270,7 @@ export default async function RoomPage({
         initialChat={initialChat}
         otherRooms={otherRooms}
         classWindow={classWindow}
+        roomKind={roomKind}
       />
     </>
   );

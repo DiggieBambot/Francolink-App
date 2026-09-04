@@ -43,6 +43,7 @@ import {
 } from "@/lib/booking/availability";
 import { creditEligibility, payBookingWithCredits } from "@/lib/booking/confirm";
 import { hasActivePlan } from "@/lib/credits/plans";
+import { isListed, listingBySlug } from "@/lib/tutors/listing";
 
 export const runtime = "nodejs";
 
@@ -85,18 +86,13 @@ export async function POST(request: Request) {
   const db = serviceClient();
 
   // --- who, and are they actually bookable --------------------------------
-  const { data: profile } = await db
-    .from("tutor_public_profiles")
-    .select("user_id, slug, tier, trial_available, accepts_bookings, approval_status, is_public")
-    .eq("slug", input.tutor_slug)
-    .maybeSingle();
+  // Same predicate the room uses to decide whether this tutor teaches in a
+  // Classroom or a Study Space — see lib/tutors/listing.ts. They must never
+  // disagree: a tutor who can be booked but gets no video sells a live lesson
+  // that cannot happen.
+  const profile = await listingBySlug(input.tutor_slug);
 
-  if (
-    !profile ||
-    !profile.accepts_bookings ||
-    profile.approval_status !== "approved" ||
-    !profile.is_public
-  ) {
+  if (!isListed(profile)) {
     return NextResponse.json({ error: "That tutor isn't taking bookings." }, { status: 404 });
   }
 
