@@ -74,7 +74,7 @@ A tutor who gets approved later needs no migration: the predicate is evaluated
 per visit, so their existing rooms become classrooms the moment they are
 listed.
 
-## Phase 2 — Classroom parity with Engoo
+## Phase 2 — Classroom parity with Engoo  ✅ DONE
 
 Already shipped (commits `be71923`, `a8a1181`, `7c3e4be`):
 one control bar · shared material selection · countdown with a server-enforced
@@ -82,17 +82,17 @@ hard stop · screen sharing · post-class card · booking-bound schedule gate.
 
 Still missing, in the order they matter:
 
-1. **Lobby.** Enter before `starts_at` and you get a waiting room: camera and
+1. ~~**Lobby.**~~ ✅ Enter before `starts_at` and you get a waiting room: camera and
    mic preview, device pickers, "starts in 4:12", Join enabled at `opensAt`.
    Today you land in the live room with your camera already negotiating.
-2. **Post-class flow.** The finished card is a dead end. Engoo ends with:
+2. ~~**Post-class flow.**~~ ✅ The finished card is a dead end. Engoo ends with:
    rate the lesson, tutor sends homework, "book your next lesson" with the
    tutor's next free slot. We have all three pieces already — `send-homework`,
    `bookings`, availability — and nothing joins them up.
-3. **Tutor annotation on the material.** Highlights exist; drawing a circle
+3. ~~**Tutor annotation on the material.**~~ ✅ Highlights exist; drawing a circle
    round a conjugation table does not.
-4. **Raise hand / attention.** One button, matters in group rooms.
-5. **Device trouble recovery.** "Your tutor can't hear you" — a mic-level
+4. ~~**Raise hand / attention.**~~ ✅ One button, matters in group rooms.
+5. ~~**Device trouble recovery.**~~ ✅ "Your tutor can't hear you" — a mic-level
    meter beats a person saying "can you hear me?" four times.
 
 ## Phase 3 — the theme pass
