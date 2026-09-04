@@ -2,16 +2,19 @@
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useLessonRoom } from "./lesson-room-context";
+import { cn } from "@/lib/utils";
 
 interface StepControlsProps {
   totalSteps: number;
+  /** Sit above a bottom control bar rather than on the viewport floor. */
+  raised?: boolean;
 }
 
 /**
  * Tutor-only floating controls to advance/retreat the current shared step.
  * Both panels scroll to the broadcast section.
  */
-export function StepControls({ totalSteps }: StepControlsProps) {
+export function StepControls({ totalSteps, raised = false }: StepControlsProps) {
   const room = useLessonRoom();
   if (!room || room.currentRole !== "tutor") return null;
 
@@ -22,7 +25,18 @@ export function StepControls({ totalSteps }: StepControlsProps) {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-40 flex items-center gap-2 rounded-full border bg-white/95 px-3 py-1.5 shadow-md backdrop-blur">
+    <div
+      className={cn(
+        "fixed right-4 z-40 flex items-center gap-2 rounded-full border bg-white/95 px-3 py-1.5 shadow-md backdrop-blur",
+        // The Classroom has a 64px control bar pinned to the bottom of the
+        // viewport, and this pager is fixed to that same viewport — so by
+        // default it lands ON TOP of End class. Rooms that have the bar say
+        // so; the demo room and the Study Space have no bar and keep the
+        // lower position, because floating a pager needlessly high leaves a
+        // gap that reads as a mistake.
+        raised ? "bottom-20" : "bottom-4"
+      )}
+    >
       <button
         type="button"
         onClick={() => goto(current - 1)}

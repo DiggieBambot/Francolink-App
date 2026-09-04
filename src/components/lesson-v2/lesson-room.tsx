@@ -447,7 +447,7 @@ export function LessonRoom({
                   initialView={currentRole}
                   lockedView={currentRole}
                 />
-                <StepControls totalSteps={lesson.sections.length} />
+                <StepControls totalSteps={lesson.sections.length} raised={!isSpace} />
               </div>
             ),
           },
