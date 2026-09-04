@@ -9,9 +9,11 @@
 -- a room. So: insert a lesson.
 --
 -- HOW TO RUN
---   1. Select STEP 1 alone and Run it, to get two real emails.
---   2. Paste them into the two marked lines in STEP 2.
---   3. Run the rest of the file.
+--   1. Put a tutor's email in STEP 2 (one already listed there is yours).
+--   2. Run the rest of the file. The student is picked automatically from the
+--      tutor's active students; override it only if you want a specific pair.
+--
+-- STEP 1 is only there when you need to look up who is who.
 --
 -- STEP 1 has to go first and alone: while the emails are placeholders STEP 2
 -- raises, an error aborts the entire run, and the dashboard then renders no
@@ -54,8 +56,12 @@ limit 60;
 
 do $$
 declare
-  v_tutor_email   text := 'TUTOR@EXAMPLE.COM';     -- <-- edit
-  v_student_email text := 'STUDENT@EXAMPLE.COM';   -- <-- edit
+  v_tutor_email   text := 'forexbillionaire24@gmail.com';  -- <-- edit
+
+  -- Leave this empty and the script picks a student the tutor already
+  -- teaches. Hunting for a student email in a 60-row list ordered by role,
+  -- with every tutor above them, is not a thing anyone should have to do.
+  v_student_email text := '';                              -- optional
 
   -- 25 → 30 minutes of room, 50 → 60. Starting five minutes ago leaves ~25
   -- minutes on the clock, enough to watch it go amber (5:00) and red (1:00).
@@ -70,16 +76,32 @@ declare
   v_tier text;
   v_booking uuid;
 begin
-  select id into v_tutor   from public.users where lower(email) = lower(v_tutor_email);
-  select id into v_student from public.users where lower(email) = lower(v_student_email);
-
+  select id into v_tutor from public.users where lower(email) = lower(v_tutor_email);
   if v_tutor is null then
     raise exception
-      'No user with email "%". Check STEP 1 output for real tutor emails.', v_tutor_email;
+      'No user with email "%". Run STEP 1 on its own to list real emails.', v_tutor_email;
   end if;
-  if v_student is null then
-    raise exception
-      'No user with email "%".', v_student_email;
+
+  if coalesce(v_student_email, '') = '' then
+    -- Whoever this tutor most recently took on. Their room probably already
+    -- exists, which makes this the closest thing to a real lesson.
+    select ts.student_id into v_student
+    from public.tutor_students ts
+    where ts.tutor_id = v_tutor and ts.status = 'active'
+    order by ts.created_at desc
+    limit 1;
+
+    if v_student is null then
+      raise exception
+        'Tutor % has no active students. Put a student email in v_student_email — '
+        'this finds one: select email from public.users where upper(role) = ''STUDENT'' limit 20;',
+        v_tutor_email;
+    end if;
+  else
+    select id into v_student from public.users where lower(email) = lower(v_student_email);
+    if v_student is null then
+      raise exception 'No user with email "%".', v_student_email;
+    end if;
   end if;
   if v_tutor = v_student then
     raise exception 'Tutor and student must be different people.';
@@ -131,6 +153,8 @@ begin
   returning id into v_booking;
 
   raise notice '--------------------------------------------------------';
+  raise notice 'Tutor:   %', v_tutor_email;
+  raise notice 'Student: %', (select email from public.users where id = v_student);
   raise notice 'Open this as either person:  /room/%', v_room;
   raise notice 'Booking % — % min, cap % min', v_booking, v_minutes,
     case v_minutes when 25 then 30 when 50 then 60 else v_minutes end;
@@ -154,7 +178,7 @@ select 'https://app.francolink.net/room/' || b.room_session_id as open_this,
          as call_is_cut_at
 from public.bookings b
 join public.users tu on tu.id = b.tutor_id
-where lower(tu.email) = lower('TUTOR@EXAMPLE.COM')   -- <-- edit
+where lower(tu.email) = lower('forexbillionaire24@gmail.com')   -- <-- edit
   and b.price_cents = 0
 order by b.created_at desc
 limit 1;
