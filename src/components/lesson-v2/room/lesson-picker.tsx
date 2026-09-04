@@ -14,6 +14,8 @@ export interface PickerLesson {
   topic_tags?: string[] | null;
   /** Category slug, derived server-side from the same taxonomy the library uses. */
   category?: string | null;
+  /** "fr" | "en" — French and English lessons never share a shelf. */
+  language?: string | null;
 }
 
 export function LessonPicker({

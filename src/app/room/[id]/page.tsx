@@ -196,6 +196,7 @@ export default async function RoomPage({
     duration_minutes: l.duration_minutes as number | null,
     topic_tags: l.topic_tags as string[] | null,
     hero_image: (l as { hero_image?: string | null }).hero_image ?? null,
+    language: ((l as { language?: string | null }).language || "fr").toLowerCase(),
     category: categoryForLesson(
       (l as { language?: string | null }).language,
       (l as { source_url?: string | null }).source_url,
@@ -311,7 +312,14 @@ export default async function RoomPage({
         initialLesson={lesson}
         initialLessonId={session.tutor_lesson_id}
         lessonList={catalogue}
-        categories={CATEGORIES.map((c) => ({ slug: c.slug, name: c.name, emoji: c.emoji }))}
+        categories={CATEGORIES.map((c) => ({
+          slug: c.slug,
+          name: c.name,
+          emoji: c.emoji,
+          description: c.description,
+          gradient: c.gradient,
+          language: c.language,
+        }))}
         sessionId={id}
         currentUserId={user.id}
         currentRole={currentRole}

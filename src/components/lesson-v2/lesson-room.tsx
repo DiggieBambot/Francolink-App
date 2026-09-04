@@ -82,7 +82,14 @@ interface LessonRoomProps {
   initialLessonId: string | null;
   lessonList: PickerLesson[];
   /** Category taxonomy for the in-room shelf, in display order. */
-  categories?: { slug: string; name: string; emoji: string }[];
+  categories?: {
+    slug: string;
+    name: string;
+    emoji: string;
+    description: string;
+    gradient: string;
+    language: "fr" | "en";
+  }[];
   sessionId: string;
   currentUserId: string;
   currentRole: "tutor" | "student";

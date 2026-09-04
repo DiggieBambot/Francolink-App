@@ -25,7 +25,7 @@
 // the one useful thing a student can do while the tutor decides.
 
 import { useMemo, useState } from "react";
-import { BookOpen, Check, Clock, Search, Sparkles, X } from "lucide-react";
+import { BookOpen, Check, ChevronLeft, Clock, Search, Sparkles, X } from "lucide-react";
 import { getLevelTheme } from "@/lib/lessons/level-theme";
 import { cn } from "@/lib/utils";
 import type { PickerLesson } from "./lesson-picker";
@@ -50,7 +50,14 @@ export function MaterialsPanel({
 }: {
   lessons: PickerLesson[];
   /** The taxonomy, in display order. Empty falls back to one flat grid. */
-  categories?: { slug: string; name: string; emoji: string }[];
+  categories?: {
+    slug: string;
+    name: string;
+    emoji: string;
+    description: string;
+    gradient: string;
+    language: "fr" | "en";
+  }[];
   currentId?: string | null;
   /** The tutor opens material for both. A student can only suggest. */
   canChoose: boolean;
@@ -65,6 +72,11 @@ export function MaterialsPanel({
   const [q, setQ] = useState("");
   const [level, setLevel] = useState<string | null>(null);
   const [category, setCategory] = useState<string | null>(null);
+  // French and English lessons never share a shelf. A tutor teaching French
+  // scrolling past English material is being asked to filter by hand, every
+  // time, for a distinction that is never ambiguous — and a mixed catalogue
+  // makes the level chips lie, since the two ladders are not the same ladder.
+  const [lang, setLang] = useState<"fr" | "en">("fr");
   // Whichever side typed most recently owns the shortlist. Tracking "who typed
   // last" rather than merging two filters avoids the state where each person
   // is quietly filtering the other's results away.
@@ -73,18 +85,29 @@ export function MaterialsPanel({
   const activeQ = remoteWins ? remoteFilter!.q : q;
   const activeLevel = remoteWins ? remoteFilter!.level : level;
 
-  const levels = useMemo(() => levelsIn(lessons), [lessons]);
+  const inLanguage = useMemo(
+    () => lessons.filter((l) => (l.language || "fr").toLowerCase() === lang),
+    [lessons, lang]
+  );
+
+  /** Both halves only offered when both actually exist. */
+  const languagesPresent = useMemo(() => {
+    const set = new Set(lessons.map((l) => (l.language || "fr").toLowerCase()));
+    return { fr: set.has("fr"), en: set.has("en") };
+  }, [lessons]);
+
+  const levels = useMemo(() => levelsIn(inLanguage), [inLanguage]);
 
   const filtered = useMemo(() => {
     const term = activeQ.trim().toLowerCase();
-    return lessons.filter((l) => {
+    return inLanguage.filter((l) => {
       if (activeLevel && l.level !== activeLevel) return false;
       if (category && l.category !== category) return false;
       if (!term) return true;
       const hay = `${l.title} ${l.level} ${(l.topic_tags || []).join(" ")}`.toLowerCase();
       return hay.includes(term);
     });
-  }, [lessons, activeQ, activeLevel, category]);
+  }, [inLanguage, activeQ, activeLevel, category]);
 
   /**
    * Only the categories that actually hold something, with their counts.
@@ -98,9 +121,18 @@ export function MaterialsPanel({
       if (l.category) counts.set(l.category, (counts.get(l.category) ?? 0) + 1);
     }
     return categories
-      .filter((c) => counts.has(c.slug))
-      .map((c) => ({ ...c, count: counts.get(c.slug)! }));
-  }, [filtered, categories]);
+      .filter((c) => c.language === lang && counts.has(c.slug))
+      .map((c) => {
+        const inCat = filtered.filter((l) => l.category === c.slug);
+        const lv = [...new Set(inCat.map((l) => l.level).filter(Boolean))].sort();
+        return {
+          ...c,
+          count: counts.get(c.slug)!,
+          from: lv[0] ?? null,
+          to: lv[lv.length - 1] ?? null,
+        };
+      });
+  }, [filtered, categories, lang]);
 
   /**
    * Grouped, unless the person has already narrowed things down.
@@ -113,7 +145,11 @@ export function MaterialsPanel({
    * Once a search or a category is on, the grouping stops helping and starts
    * getting in the way, so it flattens.
    */
-  const grouped = !activeQ.trim() && !category && present.length > 1;
+  // The landing view: category cards, the way a catalogue is meant to open.
+  // Not a wall of 645 covers and not a preview row per category either — the
+  // first question is "what KIND of lesson", and that is four or five cards,
+  // not several hundred.
+  const landing = !activeQ.trim() && !category && present.length > 1;
 
   function setFilters(nextQ: string, nextLevel: string | null) {
     setQ(nextQ);
@@ -127,6 +163,33 @@ export function MaterialsPanel({
       {/* ------------------------------------------------------------ TOOLS */}
       <div className="sticky top-0 z-10 border-b bg-white/95 px-4 py-3 backdrop-blur">
         <div className="flex items-center gap-2">
+          {/* Which language's catalogue. Only offered when both exist. */}
+          {languagesPresent.fr && languagesPresent.en ? (
+            <div className="flex shrink-0 items-center rounded-lg bg-slate-100 p-0.5">
+              {(["fr", "en"] as const).map((code) => (
+                <button
+                  key={code}
+                  type="button"
+                  onClick={() => {
+                    setLang(code);
+                    // A category slug belongs to one language, so carrying it
+                    // across would land on an empty shelf.
+                    setCategory(null);
+                    setFilters("", null);
+                  }}
+                  aria-pressed={lang === code}
+                  className={cn(
+                    "rounded-md px-2.5 py-1.5 text-xs font-bold transition",
+                    lang === code
+                      ? "bg-white text-primary-600 shadow-sm"
+                      : "text-slate-500 hover:text-slate-700"
+                  )}
+                >
+                  {code === "fr" ? "Français" : "English"}
+                </button>
+              ))}
+            </div>
+          ) : null}
           <div className="flex flex-1 items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 focus-within:border-primary-400 focus-within:bg-white focus-within:ring-2 focus-within:ring-primary-100">
             <Search className="h-4 w-4 shrink-0 text-slate-400" />
             <input
@@ -147,7 +210,7 @@ export function MaterialsPanel({
             ) : null}
           </div>
           <span className="hidden shrink-0 text-xs font-medium text-slate-400 sm:inline">
-            {filtered.length} of {lessons.length}
+            {filtered.length} of {inLanguage.length}
           </span>
         </div>
 
@@ -169,13 +232,22 @@ export function MaterialsPanel({
           </div>
         ) : null}
 
-        {present.length > 1 ? (
+        {/* Inside a category, the way out has to be obvious — otherwise the
+            only route back to the full catalogue is clearing a chip you may
+            not have noticed you set. */}
+        {category ? (
+          <button
+            type="button"
+            onClick={() => setCategory(null)}
+            className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-primary-500 hover:underline"
+          >
+            <ChevronLeft className="h-3.5 w-3.5" />
+            All topics
+          </button>
+        ) : null}
+
+        {present.length > 1 && category ? (
           <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
-            <FilterChip
-              on={category === null}
-              onClick={() => setCategory(null)}
-              label="All topics"
-            />
             {present.map((c) => (
               <FilterChip
                 key={c.slug}
@@ -212,47 +284,47 @@ export function MaterialsPanel({
               Clear filters
             </button>
           </div>
-        ) : grouped ? (
-          <div className="space-y-7">
-            {present.map((c) => {
-              const inCat = filtered.filter((l) => l.category === c.slug);
-              // A preview row, not the whole category. Twelve is roughly two
-              // rows at every width the room is used at — enough to see what
-              // the category is like, few enough that the next heading is
-              // still on screen.
-              const preview = inCat.slice(0, 12);
-              return (
-                <section key={c.slug}>
-                  <div className="mb-2.5 flex items-baseline gap-2">
-                    <h3 className="text-sm font-bold text-slate-900">
-                      <span aria-hidden className="mr-1.5">{c.emoji}</span>
-                      {c.name}
-                    </h3>
-                    <span className="text-xs text-slate-400">{c.count}</span>
-                    {inCat.length > preview.length ? (
-                      <button
-                        type="button"
-                        onClick={() => setCategory(c.slug)}
-                        className="ml-auto text-xs font-semibold text-primary-500 hover:underline"
-                      >
-                        See all {inCat.length}
-                      </button>
+        ) : landing ? (
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            {present.map((c) => (
+              <button
+                key={c.slug}
+                type="button"
+                onClick={() => setCategory(c.slug)}
+                className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white text-left shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-primary-200 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
+              >
+                <div
+                  className={cn(
+                    "flex h-24 items-center justify-center bg-gradient-to-br text-4xl",
+                    c.gradient
+                  )}
+                >
+                  <span aria-hidden className="drop-shadow-sm">{c.emoji}</span>
+                </div>
+                <div className="flex flex-1 flex-col p-4">
+                  <p className="text-sm font-bold text-slate-900 group-hover:text-primary-600">
+                    {c.name}
+                  </p>
+                  <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-slate-500">
+                    {c.description}
+                  </p>
+                  <div className="mt-3 flex items-center gap-2 border-t pt-2.5 text-[11px]">
+                    <span className="font-semibold text-slate-400">{c.count} lessons</span>
+                    {c.from ? (
+                      <span className="ml-auto inline-flex items-center gap-1 font-semibold text-slate-500">
+                        <span className="rounded bg-slate-100 px-1.5 py-0.5">{c.from}</span>
+                        {c.to && c.to !== c.from ? (
+                          <>
+                            <span className="text-slate-300">–</span>
+                            <span className="rounded bg-slate-100 px-1.5 py-0.5">{c.to}</span>
+                          </>
+                        ) : null}
+                      </span>
                     ) : null}
                   </div>
-                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-4">
-                    {preview.map((l) => (
-                      <MaterialCard
-                        key={l.id}
-                        lesson={l}
-                        active={l.id === currentId}
-                        canChoose={canChoose}
-                        onSelect={() => (canChoose ? onPick(l) : onPropose(l))}
-                      />
-                    ))}
-                  </div>
-                </section>
-              );
-            })}
+                </div>
+              </button>
+            ))}
           </div>
         ) : (
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-4">

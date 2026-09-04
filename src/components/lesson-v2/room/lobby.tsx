@@ -327,6 +327,15 @@ export function Lobby() {
                 value={camId}
                 onChange={setCamId}
               />
+              {/* A black rectangle is ambiguous: camera off, wrong device, or
+                  another app holding it all look identical. Say which. */}
+              {previewOn && camOn && !videoTrack ? (
+                <p className="flex items-start gap-1.5 text-xs text-secondary-400">
+                  <AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                  No picture from this camera yet. Try another one above, or
+                  close any app already using it.
+                </p>
+              ) : null}
             </div>
           )}
 
@@ -382,9 +391,26 @@ function DevicePicker({
   value: string;
   onChange: (id: string) => void;
 }) {
-  // One device is not a choice, and a disabled select that says "MacBook Pro
-  // Microphone" is just noise on a screen that has a job to do.
-  if (items.length <= 1) return null;
+  // Always shown, even for a single device.
+  //
+  // This used to hide itself below two options, on the reasoning that one
+  // device is not a choice. But a person looking at a black preview needs to
+  // SEE which camera is selected before they can work out that it is the
+  // wrong one, or that the browser has handed them a phone's continuity
+  // camera that is not awake. An absent control reads as "no camera exists",
+  // which is a different and much worse message.
+  if (items.length === 0) {
+    return (
+      <label className="block">
+        <span className="mb-1 block text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+          {label}
+        </span>
+        <div className="rounded-lg border border-slate-700 bg-slate-800/60 px-3 py-2 text-sm text-slate-500">
+          None found
+        </div>
+      </label>
+    );
+  }
   return (
     <label className="block">
       <span className="mb-1 block text-[11px] font-semibold uppercase tracking-wide text-slate-500">
