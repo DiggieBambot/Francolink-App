@@ -118,6 +118,28 @@ export function Lobby() {
     local?.tracks?.video?.state === "playable"
       ? local.tracks.video.persistentTrack ?? null
       : null;
+
+  /**
+   * Why there is no picture, in Daily's own words.
+   *
+   * "None found" plus "try another camera above" was the app guessing, and
+   * guessing wrong in two directions at once: it told someone to pick from an
+   * empty list, and it blamed the device when the usual cause is a permission
+   * the browser is quietly withholding. Daily already knows which of the three
+   * it is — enumerateDevices cannot tell you, because Chrome hides cameras
+   * entirely when permission is refused, which is exactly why the list looked
+   * empty.
+   */
+  const camBlocked = local?.tracks?.video?.blocked;
+  const camReason = !camBlocked
+    ? null
+    : camBlocked.byPermissions
+      ? "Your browser is blocking the camera. Click the camera icon in the address bar, allow it, then reload."
+      : camBlocked.byDeviceInUse
+        ? "Another app is using your camera — close Zoom, Photo Booth or FaceTime and reload."
+        : camBlocked.byDeviceMissing
+          ? "No camera is connected to this computer."
+          : "Your camera could not be started.";
   const audioTrack =
     local?.tracks?.audio?.state === "playable"
       ? local.tracks.audio.persistentTrack ?? null
@@ -345,13 +367,21 @@ export function Lobby() {
                 value={camId}
                 onChange={setCamId}
               />
-              {/* A black rectangle is ambiguous: camera off, wrong device, or
-                  another app holding it all look identical. Say which. */}
+              {/* A black rectangle is ambiguous: camera off, wrong device,
+                  permission withheld and device-in-use all look identical.
+                  Say which, and only offer "pick another" when there is in
+                  fact another to pick. */}
               {previewOn && camOn && !videoTrack ? (
                 <p className="flex items-start gap-1.5 text-xs text-secondary-400">
                   <AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0" />
-                  No picture from this camera yet. Try another one above, or
-                  close any app already using it.
+                  <span>
+                    {camReason ??
+                      (devices.cams.length > 1
+                        ? "No picture yet — try another camera above."
+                        : "No picture from your camera yet.")}
+                    {" "}
+                    You can still join with sound only.
+                  </span>
                 </p>
               ) : null}
             </div>
@@ -390,7 +420,8 @@ export function Lobby() {
               "No class booked"
             ) : (
               <>
-                <Video className="h-4 w-4" /> Join the class
+                <Video className="h-4 w-4" />
+                {videoTrack || !camOn ? "Join the class" : "Join without video"}
               </>
             )}
           </button>
