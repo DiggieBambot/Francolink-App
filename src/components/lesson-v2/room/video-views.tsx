@@ -347,7 +347,7 @@ function Inert({ compact }: { compact: boolean }) {
  * The big view. Remote fills the stage, you sit in the corner — the person you
  * are talking to should be the one you are looking at.
  */
-export function VideoStage() {
+export function VideoStage({ afterClass }: { afterClass?: React.ReactNode }) {
   const { phase, local, remote, screenOn, screenActive } = useRoomVideo();
   // Somebody is sharing: what they are showing becomes the thing worth
   // looking at, and the faces move to the corner. Sharing a screen and then
@@ -392,6 +392,11 @@ export function VideoStage() {
             className="absolute bottom-4 right-4 z-10 aspect-video w-40 shadow-xl ring-2 ring-slate-900 sm:w-56"
           />
         </>
+      ) : phase === "ended" && afterClass ? (
+        // The class hit its hard end. What goes here is not a notice — it is
+        // the rest of the product: rate it, take the homework, book the next
+        // one. See after-class.tsx.
+        <>{afterClass}</>
       ) : phase === "idle" || phase === "scheduled" || phase === "joining" || phase === "error" ? (
         // Before the call, the stage is the lobby: see yourself, pick your
         // devices, watch the meter move. The two commonest ways a lesson goes

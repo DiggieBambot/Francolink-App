@@ -13,6 +13,7 @@ import dynamic from "next/dynamic";
 import { RoomShell, type RailTab, type StageKey, type StagePanel } from "./room/room-shell";
 import { RoomVideoProvider, type InitialClassWindow } from "./room/video-context";
 import { SpaceShell } from "./room/space-shell";
+import { AfterClass } from "./room/after-class";
 import { VideoStage } from "./room/video-views";
 import { PeoplePanel } from "./room/people-panel";
 import { ChatPanel } from "./room/chat-panel";
@@ -98,6 +99,13 @@ interface LessonRoomProps {
    */
   roomKind?: "classroom" | "space";
   /**
+   * The tutor's next free slot, for the "book again" card at the end of class.
+   * Resolved server-side; null when they have none inside the booking window.
+   */
+  nextSlot?: { startsAt: string; durationMinutes: number; href: string } | null;
+  /** The tutor's directory slug, for the fallback "book another lesson" link. */
+  tutorSlug?: string | null;
+  /**
    * Whether this room's booked class is on right now, resolved server-side.
    * Absent on a room no booking has ever used, which has no schedule at all.
    */
@@ -119,6 +127,8 @@ export function LessonRoom({
   otherRooms = [],
   classWindow,
   roomKind = "classroom",
+  nextSlot = null,
+  tutorSlug = null,
 }: LessonRoomProps) {
   const isSpace = roomKind === "space";
   const room = useLessonRoom({ sessionId, currentUserId, currentRole, currentName, initialHighlights, initialChatMessages: initialChat });
@@ -130,12 +140,15 @@ export function LessonRoom({
   const [inviteCopied, setInviteCopied] = useState(false);
   const [ringing, setRinging] = useState(false);
   const [sendingHw, setSendingHw] = useState(false);
+  const [homeworkSent, setHomeworkSent] = useState(false);
   const [roomMenuOpen, setRoomMenuOpen] = useState(false);
   const [ending, setEnding] = useState(false);
   // Ending a class closes the room for the student too, which the button does
   // not say on its own. This used to be a native window.confirm — correct, and
   // jarring: an OS dialog on top of a lesson reads as an error, not a choice.
   const [confirmEnd, setConfirmEnd] = useState(false);
+  // The tutor has ended the class and is on the after-class screen.
+  const [classOver, setClassOver] = useState(false);
   // Which panel owns the main stage. In a Classroom, with no material open,
   // the CALL is the stage — the call is the lesson at that point. A Study
   // Space has no call, so what fills the gap is the shelf: you opened a room
@@ -201,6 +214,7 @@ export function LessonRoom({
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok && data.ok) {
+        setHomeworkSent(true);
         showToast(`Homework sent to ${studentName || "your student"} — they've been notified.`);
       } else {
         showToast(data.error || "Could not send homework.");
@@ -226,7 +240,11 @@ export function LessonRoom({
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok && data.ok) {
-        window.location.href = "/tutor/sessions";
+        // Deliberately NOT a redirect to /tutor/sessions. Bouncing the tutor
+        // straight out skipped the one step the end of a lesson exists for —
+        // sending the homework, while the lesson they just taught is still on
+        // screen and still the obvious thing to assign.
+        setClassOver(true);
         return;
       }
       showToast(data.error || "Could not end the class.");
@@ -367,7 +385,25 @@ export function LessonRoom({
             key: "call" as const,
             label: "Call",
             icon: Video,
-            content: <VideoStage />,
+            content: (
+              <VideoStage
+                afterClass={
+                  <AfterClass
+                    sessionId={sessionId}
+                    role={currentRole}
+                    peerName={
+                      studentName || (currentRole === "student" ? "your tutor" : null)
+                    }
+                    lessonId={lessonId}
+                    onSendHomework={sendHomework}
+                    homeworkSent={homeworkSent}
+                    sendingHomework={sendingHw}
+                    nextSlot={nextSlot ?? null}
+                    tutorSlug={tutorSlug ?? null}
+                  />
+                }
+              />
+            ),
           },
         ]),
     ...(lesson
@@ -685,6 +721,22 @@ export function LessonRoom({
           idle would be a camera permission prompt waiting to happen in a room
           that never uses one. */}
       <ShellFrame isSpace={isSpace} sessionId={sessionId} classWindow={classWindow}>
+        {classOver ? (
+          <div className="h-[100dvh]">
+            <AfterClass
+              sessionId={sessionId}
+              role={currentRole}
+              peerName={studentName || (currentRole === "student" ? "your tutor" : null)}
+              lessonId={lessonId}
+              onSendHomework={sendHomework}
+              homeworkSent={homeworkSent}
+              sendingHomework={sendingHw}
+              nextSlot={nextSlot ?? null}
+              tutorSlug={tutorSlug ?? null}
+            />
+          </div>
+        ) : (
+          <>
         {isSpace ? (
           <SpaceShell
             panels={panels}
@@ -803,6 +855,8 @@ export function LessonRoom({
             </div>
           </div>
         ) : null}
+          </>
+        )}
       </ShellFrame>
     </LessonRoomProvider>
   );
