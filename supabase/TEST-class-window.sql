@@ -1,23 +1,29 @@
 -- =============================================================================
--- Test helpers for the scheduled Classroom.
+-- Set up a live Classroom you can test, without paying through Stripe.
 --
+-- WHY THIS FILE EXISTS
 -- The schedule gate and the 30/60-minute cap only engage on a room that a
 -- CONFIRMED BOOKING points at. Without one, every room resolves as
 -- "unscheduled" and behaves exactly as it did before — which is correct, and
--- also means you cannot test any of the new behaviour by simply opening a room.
+-- also means none of the new class behaviour can be reached by simply opening
+-- a room. So: insert a lesson.
 --
--- Rather than paying through Stripe to get a test lesson, insert one. Run the
--- queries top to bottom; each block says what to do with its output.
+-- HOW TO RUN
+-- Edit the two emails in STEP 2 and press Run on the whole file. It is one
+-- script, not a set of blocks to run separately — the dashboard executes
+-- everything you paste. It creates the room if the pair does not have one yet,
+-- and it tells you the URL to open.
+--
+-- Safe to re-run: it replaces its own previous test booking each time.
 -- =============================================================================
 
 
--- --- A. Who is a listed FrancoLink tutor? -----------------------------------
--- This single predicate decides Classroom vs Study Space. You want at least
--- one row here (to test the Classroom) and at least one tutor NOT here (to
--- test the Study Space).
+-- --- STEP 1. Who gets a Classroom, and who gets a Study Space? --------------
+-- Run the file once and read this first. `gets_the_classroom` is the single
+-- predicate that decides. Pick a tutor with true to test the Classroom, and
+-- one with false (or with no row here at all) to test the Study Space.
 
 select u.email,
-       p.user_id,
        p.slug,
        p.approval_status,
        p.is_public,
@@ -26,90 +32,143 @@ select u.email,
          as gets_the_classroom
 from public.tutor_public_profiles p
 join public.users u on u.id = p.user_id
-order by gets_the_classroom desc, u.email;
+order by gets_the_classroom desc nulls last, u.email;
 
 
--- --- B. Find the room for a tutor/student pair ------------------------------
--- Rooms are permanent: one row per pair, reused for every lesson they have.
--- Put the two emails in and note the id — that is the /room/<id> URL.
+-- --- STEP 2. Make a class that is happening RIGHT NOW -----------------------
+-- ↓↓↓ EDIT THESE TWO LINES ↓↓↓
 
-select s.id as room_id,
-       tu.email as tutor,
-       su.email as student,
-       s.status,
-       s.current_booking_id,
-       s.hard_ends_at
-from public.tutor_lesson_sessions s
-join public.users tu on tu.id = s.tutor_id
-left join public.users su on su.id = s.student_id
-where tu.email = 'TUTOR@EXAMPLE.COM'          -- <-- edit
-order by s.created_at desc;
+do $$
+declare
+  v_tutor_email   text := 'TUTOR@EXAMPLE.COM';     -- <-- edit
+  v_student_email text := 'STUDENT@EXAMPLE.COM';   -- <-- edit
+
+  -- 25 → 30 minutes of room, 50 → 60. Starting five minutes ago leaves ~25
+  -- minutes on the clock, enough to watch it go amber (5:00) and red (1:00).
+  v_minutes int := 25;
+  v_offset  interval := interval '5 minutes';      -- how long ago it started
+                                                   -- use a NEGATIVE-sounding
+                                                   -- future test via STEP 3
+
+  v_tutor uuid;
+  v_student uuid;
+  v_room uuid;
+  v_tier text;
+  v_booking uuid;
+begin
+  select id into v_tutor   from public.users where lower(email) = lower(v_tutor_email);
+  select id into v_student from public.users where lower(email) = lower(v_student_email);
+
+  if v_tutor is null then
+    raise exception
+      'No user with email "%". Check STEP 1 output for real tutor emails.', v_tutor_email;
+  end if;
+  if v_student is null then
+    raise exception
+      'No user with email "%".', v_student_email;
+  end if;
+  if v_tutor = v_student then
+    raise exception 'Tutor and student must be different people.';
+  end if;
+
+  -- The pair's permanent room. One per pair, reused for every lesson they ever
+  -- have — created here if they have never met in one.
+  select s.id into v_room
+  from public.tutor_lesson_sessions s
+  where s.tutor_id = v_tutor and s.student_id = v_student
+  order by s.created_at
+  limit 1;
+
+  if v_room is null then
+    insert into public.tutor_lesson_sessions (tutor_id, student_id, status, started_at)
+    values (v_tutor, v_student, 'active', now())
+    returning id into v_room;
+    raise notice 'Created a room for this pair.';
+  end if;
+
+  -- The pair must be connected or the room's tutor tools do nothing.
+  insert into public.tutor_students (tutor_id, student_id, status)
+  values (v_tutor, v_student, 'active')
+  on conflict (tutor_id, student_id) do nothing;
+
+  select tier into v_tier
+  from public.tutor_public_profiles where user_id = v_tutor;
+
+  -- Clear this file's previous test lesson for the pair. bookings has an
+  -- exclusion constraint against overlapping live bookings for one tutor, so
+  -- without this a second run fails with "conflicting key value".
+  delete from public.bookings
+  where tutor_id = v_tutor
+    and price_cents = 0
+    and tutor_pay_cents = 0;
+
+  insert into public.bookings (
+    tutor_id, student_id, room_session_id,
+    starts_at, ends_at, duration_minutes,
+    status, price_cents, tutor_pay_cents, currency, tier, is_trial
+  )
+  values (
+    v_tutor, v_student, v_room,
+    now() - v_offset,
+    now() - v_offset + (v_minutes || ' minutes')::interval,
+    v_minutes,
+    'confirmed', 0, 0, 'USD', coalesce(v_tier, 'standard'), false
+  )
+  returning id into v_booking;
+
+  raise notice '--------------------------------------------------------';
+  raise notice 'Open this as either person:  /room/%', v_room;
+  raise notice 'Booking % — % min, cap % min', v_booking, v_minutes,
+    case v_minutes when 25 then 30 when 50 then 60 else v_minutes end;
+  raise notice '--------------------------------------------------------';
+end $$;
 
 
--- --- C. Make a class that is happening RIGHT NOW ----------------------------
--- Sets starts_at to five minutes ago, so you land mid-lesson with ~20 minutes
--- on the clock for a 25-minute booking (cap is 30).
+-- --- STEP 3. The room to open ----------------------------------------------
+-- The URL is also printed in the NOTICE above; this repeats it as a row you
+-- can copy. Edit the tutor email to match STEP 2.
+
+select 'https://app.francolink.net/room/' || b.room_session_id as open_this,
+       b.starts_at,
+       b.duration_minutes,
+       b.duration_minutes
+         + case b.duration_minutes when 25 then 5 when 50 then 10 else 0 end
+         as room_minutes_total,
+       b.starts_at
+         + ((case b.duration_minutes when 25 then 30 when 50 then 60
+                  else b.duration_minutes end) || ' minutes')::interval
+         as call_is_cut_at
+from public.bookings b
+join public.users tu on tu.id = b.tutor_id
+where lower(tu.email) = lower('TUTOR@EXAMPLE.COM')   -- <-- edit
+  and b.price_cents = 0
+order by b.created_at desc
+limit 1;
+
+
+-- =============================================================================
+-- WHAT TO EXPECT
 --
--- Edit the three values at the top. The room must already exist — get its id
--- from block B, or just open /room/<id> once as the tutor to create it.
---
--- NOTE: bookings has an exclusion constraint against overlapping live bookings
--- for one tutor. If this errors with "conflicting key value", that tutor
--- already has a booking covering this window — cancel it or shift the time.
-
-insert into public.bookings (
-  tutor_id, student_id, room_session_id,
-  starts_at, ends_at, duration_minutes,
-  status, price_cents, tutor_pay_cents, currency, tier, is_trial
-)
-select
-  s.tutor_id,
-  s.student_id,
-  s.id,
-  now() - interval '5 minutes',
-  now() + interval '20 minutes',
-  25,
-  'confirmed',
-  0, 0, 'USD',
-  coalesce((select tier from public.tutor_public_profiles where user_id = s.tutor_id), 'standard'),
-  false
-from public.tutor_lesson_sessions s
-where s.id = 'ROOM_ID_FROM_BLOCK_B'           -- <-- edit
-returning id, starts_at, ends_at, duration_minutes;
-
--- What to expect in the room after this:
---   * countdown pill in the control bar, ~25:00 and falling
+--   * countdown pill in the control bar, falling
 --   * amber at 5:00 left, red at 1:00
 --   * at 0:00 the call is cut and the after-class screen appears
---   * the cut is enforced by the Daily token's exp, so leaving a tab open
---     past the deadline should NOT keep you connected
-
-
--- --- D. Make a class that has NOT started yet -------------------------------
--- Starts in 30 minutes. Video opens 10 minutes before, so for the first 20
--- minutes you should see the "next class" state and a locked Join button that
--- unlocks by itself.
+--   * the cut is enforced by the Daily token's `exp`, so a tab left open past
+--     the deadline should NOT stay connected — that is the claim worth trying
+--     hardest to break
 --
--- Run C or D, not both — they would overlap and the constraint will refuse.
-
--- insert into public.bookings (
---   tutor_id, student_id, room_session_id,
---   starts_at, ends_at, duration_minutes,
---   status, price_cents, tutor_pay_cents, currency, tier, is_trial
--- )
--- select s.tutor_id, s.student_id, s.id,
---        now() + interval '30 minutes',
---        now() + interval '55 minutes',
---        25, 'confirmed', 0, 0, 'USD',
---        coalesce((select tier from public.tutor_public_profiles where user_id = s.tutor_id), 'standard'),
---        false
--- from public.tutor_lesson_sessions s
--- where s.id = 'ROOM_ID_FROM_BLOCK_B';
+-- To test the LOBBY instead (class not started yet), change STEP 2's
+--     v_offset := interval '5 minutes';
+-- to
+--     v_offset := interval '-30 minutes';
+-- which starts the class 30 minutes from now. Video unlocks 10 minutes before,
+-- so for 20 minutes you should see the next-class state and a locked Join
+-- button that unlocks by itself.
+-- =============================================================================
 
 
--- --- E. Did the student's rating save? --------------------------------------
+-- --- Did the student's rating save? ----------------------------------------
 -- lesson_reviews has existed since August with nothing ever writing to it.
--- After rating a finished lesson, this should return a row.
+-- After rating a finished lesson this should return a row.
 
 select r.rating, r.comment, r.created_at, su.email as student, tu.email as tutor
 from public.lesson_reviews r
@@ -119,7 +178,7 @@ order by r.created_at desc
 limit 10;
 
 
--- --- F. Clean up the test bookings ------------------------------------------
--- Only ever deletes rows this file created (price_cents = 0).
+-- --- Clean up ---------------------------------------------------------------
+-- Uncomment and run when you are done. Only ever touches rows this file made.
 
 -- delete from public.bookings where price_cents = 0 and tutor_pay_cents = 0;
