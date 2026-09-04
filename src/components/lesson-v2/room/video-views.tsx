@@ -15,7 +15,7 @@ import { useEffect, useRef, useState } from "react";
 import type { DailyParticipant } from "@daily-co/daily-js";
 import {
   Mic, MicOff, Video, VideoOff, PhoneOff, Loader2, AlertCircle, UserRound,
-  CalendarClock, ScreenShare, ScreenShareOff, CheckCircle2,
+  CalendarClock, ScreenShare, ScreenShareOff, CheckCircle2, Sparkles,
 } from "lucide-react";
 import { useRoomVideo } from "./video-context";
 import { Lobby } from "./lobby";
@@ -137,7 +137,7 @@ function Tile({
 export function VideoControls({ size = "sm" }: { size?: "sm" | "lg" }) {
   const {
     micOn, camOn, screenOn, toggleMic, toggleCam, toggleScreen, leave,
-    localLevel,
+    localLevel, blurOn, toggleBlur,
   } = useRoomVideo();
   const box = size === "lg" ? "h-11 w-11" : "h-8 w-8";
   const icon = size === "lg" ? "h-5 w-5" : "h-4 w-4";
@@ -182,6 +182,21 @@ export function VideoControls({ size = "sm" }: { size?: "sm" | "lg" }) {
         )}
       >
         {camOn ? <Video className={icon} /> : <VideoOff className={icon} />}
+      </button>
+      <button
+        type="button"
+        onClick={toggleBlur}
+        aria-pressed={blurOn}
+        title={blurOn ? "Turn off background blur" : "Blur my background"}
+        className={cn(
+          "inline-flex items-center justify-center rounded-full transition-colors",
+          box,
+          blurOn
+            ? "bg-primary-500 text-white hover:bg-primary-600"
+            : "bg-slate-700 text-white hover:bg-slate-600"
+        )}
+      >
+        <Sparkles className={icon} />
       </button>
       {/* Absent, not disabled, where the browser has no getDisplayMedia —
           iOS Safari. A share button that silently does nothing gets pressed

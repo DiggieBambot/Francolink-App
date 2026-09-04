@@ -81,6 +81,8 @@ interface LessonRoomProps {
   initialLesson: Lesson | null;
   initialLessonId: string | null;
   lessonList: PickerLesson[];
+  /** Category taxonomy for the in-room shelf, in display order. */
+  categories?: { slug: string; name: string; emoji: string }[];
   sessionId: string;
   currentUserId: string;
   currentRole: "tutor" | "student";
@@ -117,6 +119,7 @@ export function LessonRoom({
   initialLesson,
   initialLessonId,
   lessonList,
+  categories = [],
   sessionId,
   currentUserId,
   currentRole,
@@ -453,6 +456,7 @@ export function LessonRoom({
             content: (
               <MaterialsPanel
                 lessons={lessonList}
+                categories={categories}
                 currentId={lessonId}
                 canChoose={currentRole === "tutor"}
                 onPick={openForEveryone}

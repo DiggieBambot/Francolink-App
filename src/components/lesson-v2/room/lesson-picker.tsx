@@ -12,6 +12,8 @@ export interface PickerLesson {
   hero_image?: string | null;
   duration_minutes?: number | null;
   topic_tags?: string[] | null;
+  /** Category slug, derived server-side from the same taxonomy the library uses. */
+  category?: string | null;
 }
 
 export function LessonPicker({

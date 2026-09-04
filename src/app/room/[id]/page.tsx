@@ -8,6 +8,7 @@ import { LessonRoom } from "@/components/lesson-v2/lesson-room";
 import { MAX_GROUP_LEARNERS } from "@/lib/lessons/room-limits";
 import { resolveClassWindow } from "@/lib/lessons/class-window";
 import { roomKindFor, listingFor } from "@/lib/tutors/listing";
+import { categoryForLesson, CATEGORIES } from "@/lib/lessons/categories";
 import { getBookableSlots } from "@/lib/booking/availability";
 import type { Lesson } from "@/lib/lessons/types";
 
@@ -176,10 +177,31 @@ export default async function RoomPage({
   // Lightweight published-lesson list for the in-room picker (with thumbnail).
   const { data: lessonList } = await supabase
     .from("tutor_lessons")
-    .select("id, slug, title, level, duration_minutes, topic_tags, hero_image:content->>hero_image_url")
+    .select(
+      "id, slug, title, level, duration_minutes, topic_tags, language, source_url, hero_image:content->>hero_image_url"
+    )
     .eq("status", "published")
     .order("level")
     .order("title");
+
+  // Categorise for the in-room shelf. 645 lessons in one flat grid is a pile,
+  // not a catalogue — the same taxonomy the public library uses is derived
+  // here so the room groups them the way a tutor already thinks about them.
+  // Done server-side so the client never ships the classification regexes.
+  const catalogue = (lessonList || []).map((l) => ({
+    id: l.id as string,
+    slug: l.slug as string,
+    title: l.title as string,
+    level: l.level as string,
+    duration_minutes: l.duration_minutes as number | null,
+    topic_tags: l.topic_tags as string[] | null,
+    hero_image: (l as { hero_image?: string | null }).hero_image ?? null,
+    category: categoryForLesson(
+      (l as { language?: string | null }).language,
+      (l as { source_url?: string | null }).source_url,
+      (l.topic_tags as string[] | null) ?? undefined
+    ),
+  }));
 
   // Load persisted highlights so a refresh restores them (service: a joined
   // student isn't an RLS "member" of an open classroom). The author's role is
@@ -288,7 +310,8 @@ export default async function RoomPage({
       <LessonRoom
         initialLesson={lesson}
         initialLessonId={session.tutor_lesson_id}
-        lessonList={lessonList || []}
+        lessonList={catalogue}
+        categories={CATEGORIES.map((c) => ({ slug: c.slug, name: c.name, emoji: c.emoji }))}
         sessionId={id}
         currentUserId={user.id}
         currentRole={currentRole}

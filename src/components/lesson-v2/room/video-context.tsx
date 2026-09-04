@@ -60,6 +60,9 @@ interface VideoContextValue {
   toggleCam: () => void;
   /** Null when the browser cannot share (iOS Safari), so the UI can hide it. */
   toggleScreen: (() => void) | null;
+  /** Background blur — a bedroom is nobody's business but the tutor's. */
+  blurOn: boolean;
+  toggleBlur: () => void;
   /**
    * Our own live input level, 0..1, while in the call.
    *
@@ -82,8 +85,14 @@ interface VideoContextValue {
    * deadline (an independent tutor's own classroom).
    */
   remaining: number | null;
-  /** The deadline itself, ISO, for anything that wants to render a time. */
+  /** When the ROOM closes, ISO — the lesson length plus its grace. */
   hardEndsAt: string | null;
+  /** Scheduled start of the lesson in progress, ISO. */
+  classStartsAt: string | null;
+  /** The lesson's billed length in minutes (25 or 50). */
+  durationMinutes: number | null;
+  /** Seconds since the lesson's scheduled start — the numerator of "3:25 / 25". */
+  intoClass: number;
   /** When video unlocks, while phase is "scheduled". */
   opensAt: string | null;
   /** Scheduled start of the next class, while phase is "scheduled". */
@@ -167,12 +176,16 @@ export function RoomVideoProvider({
   const [micOn, setMicOn] = useState(true);
   const [camOn, setCamOn] = useState(true);
   const [screenOn, setScreenOn] = useState(false);
+  const [blurOn, setBlurOn] = useState(false);
   const [screenActive, setScreenActive] = useState(false);
   const [localLevel, setLocalLevel] = useState(0);
   const [micSeemsDead, setMicSeemsDead] = useState(false);
   const [elapsed, setElapsed] = useState(0);
   const [remaining, setRemaining] = useState<number | null>(null);
   const [hardEndsAt, setHardEndsAt] = useState<string | null>(null);
+  const [classStartsAt, setClassStartsAt] = useState<string | null>(null);
+  const [durationMinutes, setDurationMinutes] = useState<number | null>(null);
+  const [intoClass, setIntoClass] = useState(0);
   const [opensAt, setOpensAt] = useState<string | null>(initialWindow?.opensAt ?? null);
   const [startsAt, setStartsAt] = useState<string | null>(initialWindow?.startsAt ?? null);
 
@@ -301,6 +314,11 @@ export function RoomVideoProvider({
       const serverNow = Date.now() + clockSkew.current;
       const left = Math.max(0, Math.round((deadline - serverNow) / 1000));
       setRemaining(left);
+      if (classStartsAt) {
+        setIntoClass(
+          Math.max(0, Math.round((serverNow - new Date(classStartsAt).getTime()) / 1000))
+        );
+      }
       if (left <= 0) {
         // Leave cleanly ourselves rather than waiting to be dropped, so the
         // camera light goes out and the room can show the post-class state.
@@ -311,7 +329,7 @@ export function RoomVideoProvider({
     tick();
     const t = setInterval(tick, 1000);
     return () => clearInterval(t);
-  }, [phase, hardEndsAt]);
+  }, [phase, hardEndsAt, classStartsAt]);
 
   const sync = useCallback((call: DailyCall) => {
     const all = call.participants();
@@ -391,6 +409,8 @@ export function RoomVideoProvider({
         clockSkew.current = new Date(body.serverNow as string).getTime() - Date.now();
       }
       setHardEndsAt((body.hardEndsAt as string) ?? null);
+      setClassStartsAt((body.classStartsAt as string) ?? null);
+      setDurationMinutes((body.durationMinutes as number) ?? null);
 
       // daily-js allows exactly ONE call object per page and throws
       // "Duplicate DailyIframe instances are not allowed" on the second. A
@@ -508,6 +528,39 @@ export function RoomVideoProvider({
     }
   }, [screenOn]);
 
+  /**
+   * Blur what is behind you.
+   *
+   * Tutors teach from kitchens and bedrooms and students join from wherever
+   * they are; "let me just tidy up first" is a real reason a lesson starts
+   * late. Daily runs the segmentation on-device, so nothing leaves the
+   * browser.
+   *
+   * Failures are swallowed on purpose: the processor needs WebGL and enough
+   * CPU, and where it cannot run, the honest outcome is an unblurred picture
+   * and a lesson that carries on — not an error thrown in the middle of one.
+   */
+  const toggleBlur = useCallback(() => {
+    const call = callRef.current;
+    if (!call) return;
+    const next = !blurOn;
+    setBlurOn(next);
+    void (async () => {
+      try {
+        await call.updateInputSettings({
+          video: {
+            processor: next
+              ? { type: "background-blur", config: { strength: 0.6 } }
+              : { type: "none" },
+          },
+        });
+      } catch (e) {
+        console.error("[video] background blur unavailable", e);
+        setBlurOn(false);
+      }
+    })();
+  }, [blurOn]);
+
   const toggleCam = useCallback(() => {
     const call = callRef.current;
     if (!call) return;
@@ -524,8 +577,10 @@ export function RoomVideoProvider({
         screenOn, screenActive, localLevel, micSeemsDead,
         join, leave, toggleMic, toggleCam,
         toggleScreen: canShare ? toggleScreen : null,
+        blurOn, toggleBlur,
         elapsed,
         remaining, hardEndsAt, opensAt, startsAt,
+        classStartsAt, durationMinutes, intoClass,
       }}
     >
       {children}

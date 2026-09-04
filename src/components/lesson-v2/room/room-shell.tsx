@@ -65,22 +65,44 @@ function mmss(total: number): string {
 }
 
 /**
- * How long is left, and how loudly to say so.
+ * Where you are in the lesson, and how loudly to say so.
  *
- * A class has a hard end — 30 minutes of room for a 25-minute lesson, 60 for a
- * 50 — enforced server-side by the video token. The pill's job is to make that
- * deadline impossible to be surprised by, so it escalates through the brand
- * palette rather than shouting from the start: navy while there is plenty of
- * time, warm orange at five minutes ("start wrapping up"), red at one.
+ * Reads "3:25 / 25" — minutes into the lesson the student actually paid for.
+ * That is the number both people are working to; a bare countdown answers
+ * "how long until this stops" when the question in a classroom is "how far
+ * through are we".
+ *
+ * Two deadlines, not one, because they mean different things:
+ *
+ *   at 25 (or 50)  the LESSON is over — the part that was bought and taught
+ *   at 30 (or 60)  the ROOM closes — grace for goodbyes and homework,
+ *                  enforced server-side by the Daily token's exp
+ *
+ * So the pill escalates through the brand palette toward the LESSON's end,
+ * then changes character once it passes: it stops counting up and starts
+ * saying how long before everyone is turned out.
  *
  * The colours are the site's own primary / secondary / accent. A green timer
  * would be the only green in the room and would read as a foreign widget
  * bolted onto the class.
  */
-function ClassClock({ remaining, elapsed }: { remaining: number | null; elapsed: number }) {
-  // No deadline: an unscheduled room (an independent tutor's own classroom)
-  // has nothing to count down to, so it keeps the honest count-UP it had.
-  if (remaining === null) {
+function ClassClock({
+  remaining,
+  elapsed,
+  intoClass,
+  durationMinutes,
+}: {
+  /** Seconds until the ROOM closes. */
+  remaining: number | null;
+  /** Seconds since the call connected — the fallback for a room with no class. */
+  elapsed: number;
+  /** Seconds since the LESSON's scheduled start. */
+  intoClass: number;
+  durationMinutes: number | null;
+}) {
+  // No booked lesson: an independent tutor's own classroom has nothing to be
+  // "through", so it keeps the honest count-UP it always had.
+  if (durationMinutes === null || remaining === null) {
     return (
       <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-2.5 py-1 tabular-nums text-xs font-semibold text-slate-600">
         <Clock className="h-3.5 w-3.5" />
@@ -89,32 +111,42 @@ function ClassClock({ remaining, elapsed }: { remaining: number | null; elapsed:
     );
   }
 
-  const urgent = remaining <= 60;
-  const soon = remaining <= 300;
+  const lessonSeconds = durationMinutes * 60;
+  const overrun = intoClass >= lessonSeconds;
+  const leftInLesson = lessonSeconds - intoClass;
+  const urgent = !overrun && leftInLesson <= 60;
+  const soon = !overrun && leftInLesson <= 300;
 
   return (
     <span
-      // aria-live on the container would read every single tick aloud. The
-      // urgent state is announced once, when it becomes true, and that is the
-      // only moment a screen-reader user needs told.
       className={cn(
         "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 tabular-nums text-xs font-semibold transition-colors",
-        urgent
+        overrun || urgent
           ? "bg-accent-light text-accent"
           : soon
             ? "bg-secondary-50 text-secondary-700"
             : "bg-primary-50 text-primary-600"
       )}
       title={
-        urgent || soon
-          ? "The class ends automatically when this reaches zero."
-          : "Time left in this class"
+        overrun
+          ? "The lesson is over. The room closes when this reaches zero."
+          : `${durationMinutes}-minute lesson. The room stays open a few minutes past the end.`
       }
     >
-      <Clock className={cn("h-3.5 w-3.5", urgent && "animate-pulse")} />
-      {mmss(remaining)}
+      <Clock className={cn("h-3.5 w-3.5", (overrun || urgent) && "animate-pulse")} />
+      {overrun ? (
+        <>
+          <span className="font-bold">Lesson ended</span>
+          <span className="opacity-70">· closes in {mmss(remaining)}</span>
+        </>
+      ) : (
+        <>
+          {mmss(intoClass)}
+          <span className="opacity-60">/ {durationMinutes}</span>
+        </>
+      )}
       <span className="sr-only" role="status">
-        {urgent ? "One minute left in this class." : ""}
+        {urgent ? "One minute left in this lesson." : ""}
       </span>
     </span>
   );
@@ -155,7 +187,7 @@ function ControlBar({
   handRaised: boolean;
   onToggleHand: () => void;
 }) {
-  const { phase, elapsed, remaining } = useRoomVideo();
+  const { phase, elapsed, remaining, intoClass, durationMinutes } = useRoomVideo();
 
   return (
     <div
@@ -177,7 +209,12 @@ function ControlBar({
           </span>
         ) : null}
         {phase === "joined" ? (
-          <ClassClock remaining={remaining} elapsed={elapsed} />
+          <ClassClock
+              remaining={remaining}
+              elapsed={elapsed}
+              intoClass={intoClass}
+              durationMinutes={durationMinutes}
+            />
         ) : null}
       </div>
 

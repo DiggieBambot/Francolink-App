@@ -125,6 +125,7 @@ export async function POST(
   }
   const hardEndsAt =
     classState.kind === "open" ? new Date(classState.current.hardEndsAt) : null;
+  const current = classState.kind === "open" ? classState.current : null;
 
   const { data: profile } = await db
     .from("users")
@@ -151,6 +152,11 @@ export async function POST(
       // to its own arithmetic, so both sides agree to the second even if one
       // browser's clock is off.
       hardEndsAt: hardEndsAt?.toISOString() ?? null,
+      // The lesson's own length and start, so the room can show "3:25 / 25" —
+      // time into the lesson the student paid for. hardEndsAt is a different
+      // number: when the ROOM closes, which is that plus the grace.
+      classStartsAt: current?.startsAt ?? null,
+      durationMinutes: current?.durationMinutes ?? null,
       serverNow: new Date().toISOString(),
     });
   } catch (err) {

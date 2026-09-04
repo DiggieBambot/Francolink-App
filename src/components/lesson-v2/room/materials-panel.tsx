@@ -39,6 +39,7 @@ function levelsIn(lessons: PickerLesson[]): string[] {
 
 export function MaterialsPanel({
   lessons,
+  categories = [],
   currentId,
   canChoose,
   onPick,
@@ -48,6 +49,8 @@ export function MaterialsPanel({
   remoteFilter,
 }: {
   lessons: PickerLesson[];
+  /** The taxonomy, in display order. Empty falls back to one flat grid. */
+  categories?: { slug: string; name: string; emoji: string }[];
   currentId?: string | null;
   /** The tutor opens material for both. A student can only suggest. */
   canChoose: boolean;
@@ -61,6 +64,7 @@ export function MaterialsPanel({
 }) {
   const [q, setQ] = useState("");
   const [level, setLevel] = useState<string | null>(null);
+  const [category, setCategory] = useState<string | null>(null);
   // Whichever side typed most recently owns the shortlist. Tracking "who typed
   // last" rather than merging two filters avoids the state where each person
   // is quietly filtering the other's results away.
@@ -75,11 +79,41 @@ export function MaterialsPanel({
     const term = activeQ.trim().toLowerCase();
     return lessons.filter((l) => {
       if (activeLevel && l.level !== activeLevel) return false;
+      if (category && l.category !== category) return false;
       if (!term) return true;
       const hay = `${l.title} ${l.level} ${(l.topic_tags || []).join(" ")}`.toLowerCase();
       return hay.includes(term);
     });
-  }, [lessons, activeQ, activeLevel]);
+  }, [lessons, activeQ, activeLevel, category]);
+
+  /**
+   * Only the categories that actually hold something, with their counts.
+   *
+   * An empty "Business French" chip is a promise the catalogue does not keep,
+   * and a taxonomy is only useful where it describes what is in front of you.
+   */
+  const present = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const l of filtered) {
+      if (l.category) counts.set(l.category, (counts.get(l.category) ?? 0) + 1);
+    }
+    return categories
+      .filter((c) => counts.has(c.slug))
+      .map((c) => ({ ...c, count: counts.get(c.slug)! }));
+  }, [filtered, categories]);
+
+  /**
+   * Grouped, unless the person has already narrowed things down.
+   *
+   * 645 lessons in one flat grid is a pile, not a catalogue: you cannot skim
+   * it, and the only way through is the search box — which means you have to
+   * know what you want before you look, exactly when a tutor is browsing for
+   * an idea. Grouped by category you can see what there IS.
+   *
+   * Once a search or a category is on, the grouping stops helping and starts
+   * getting in the way, so it flattens.
+   */
+  const grouped = !activeQ.trim() && !category && present.length > 1;
 
   function setFilters(nextQ: string, nextLevel: string | null) {
     setQ(nextQ);
@@ -135,6 +169,25 @@ export function MaterialsPanel({
           </div>
         ) : null}
 
+        {present.length > 1 ? (
+          <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+            <FilterChip
+              on={category === null}
+              onClick={() => setCategory(null)}
+              label="All topics"
+            />
+            {present.map((c) => (
+              <FilterChip
+                key={c.slug}
+                on={category === c.slug}
+                onClick={() => setCategory(category === c.slug ? null : c.slug)}
+                label={`${c.emoji} ${c.name}`}
+                count={c.count}
+              />
+            ))}
+          </div>
+        ) : null}
+
         {followingName ? (
           <p className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-primary-50 px-2.5 py-1 text-[11px] font-semibold text-primary-600">
             <Sparkles className="h-3 w-3" />
@@ -159,6 +212,48 @@ export function MaterialsPanel({
               Clear filters
             </button>
           </div>
+        ) : grouped ? (
+          <div className="space-y-7">
+            {present.map((c) => {
+              const inCat = filtered.filter((l) => l.category === c.slug);
+              // A preview row, not the whole category. Twelve is roughly two
+              // rows at every width the room is used at — enough to see what
+              // the category is like, few enough that the next heading is
+              // still on screen.
+              const preview = inCat.slice(0, 12);
+              return (
+                <section key={c.slug}>
+                  <div className="mb-2.5 flex items-baseline gap-2">
+                    <h3 className="text-sm font-bold text-slate-900">
+                      <span aria-hidden className="mr-1.5">{c.emoji}</span>
+                      {c.name}
+                    </h3>
+                    <span className="text-xs text-slate-400">{c.count}</span>
+                    {inCat.length > preview.length ? (
+                      <button
+                        type="button"
+                        onClick={() => setCategory(c.slug)}
+                        className="ml-auto text-xs font-semibold text-primary-500 hover:underline"
+                      >
+                        See all {inCat.length}
+                      </button>
+                    ) : null}
+                  </div>
+                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-4">
+                    {preview.map((l) => (
+                      <MaterialCard
+                        key={l.id}
+                        lesson={l}
+                        active={l.id === currentId}
+                        canChoose={canChoose}
+                        onSelect={() => (canChoose ? onPick(l) : onPropose(l))}
+                      />
+                    ))}
+                  </div>
+                </section>
+              );
+            })}
+          </div>
         ) : (
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-4">
             {filtered.slice(0, 300).map((l) => (
@@ -180,10 +275,12 @@ export function MaterialsPanel({
 function FilterChip({
   on,
   label,
+  count,
   onClick,
 }: {
   on: boolean;
   label: string;
+  count?: number;
   onClick: () => void;
 }) {
   return (
@@ -192,13 +289,18 @@ function FilterChip({
       onClick={onClick}
       aria-pressed={on}
       className={cn(
-        "rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide transition",
+        "rounded-full px-2.5 py-1 text-[11px] font-semibold tracking-wide transition",
         on
           ? "bg-primary-500 text-white shadow-sm"
           : "bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-700"
       )}
     >
       {label}
+      {count !== undefined ? (
+        <span className={cn("ml-1.5 tabular-nums", on ? "text-white/70" : "text-slate-400")}>
+          {count}
+        </span>
+      ) : null}
     </button>
   );
 }
