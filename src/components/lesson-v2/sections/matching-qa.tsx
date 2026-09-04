@@ -195,7 +195,7 @@ export function MatchingQASectionComp({ section, view, theme, sectionIdx = 0 }: 
       ) : (
         <>
           {isTutorObserving ? (
-            <div className="mb-3 inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold text-emerald-800">
+            <div className="mb-3 inline-flex items-center gap-1 rounded-full bg-secondary-50 px-2 py-0.5 text-[10px] font-semibold text-secondary-700">
               <Radio className="h-3 w-3 animate-pulse" />
               {remoteUpdatedAt ? "Student working" : "Awaiting student"}
             </div>

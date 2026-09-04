@@ -6,6 +6,9 @@ import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { LessonRoom } from "@/components/lesson-v2/lesson-room";
 import { MAX_GROUP_LEARNERS } from "@/lib/lessons/room-limits";
+import { resolveClassWindow } from "@/lib/lessons/class-window";
+import { roomKindFor, listingFor } from "@/lib/tutors/listing";
+import { getBookableSlots } from "@/lib/booking/availability";
 import type { Lesson } from "@/lib/lessons/types";
 
 export const dynamic = "force-dynamic";
@@ -210,6 +213,68 @@ export default async function RoomPage({
     at: new Date(m.created_at as string).getTime(),
   }));
 
+  // Classroom or Study Space? Decided by the room's TUTOR, not by who is
+  // visiting: a student in an independent tutor's room gets the same space
+  // their tutor does. Evaluated per visit, so a tutor who gets approved finds
+  // their existing rooms have become classrooms with no migration.
+  const roomKind = await roomKindFor(session.tutor_id);
+
+  // Is this room's booked class on right now?
+  //
+  // Resolved here purely so the pre-class state renders at first paint — the
+  // token route resolves it again and is the actual gate, because a token is
+  // what gets a person onto a call and this page is only what they see.
+  // `unscheduled` (no booking has ever used this room) leaves classWindow
+  // undefined, and video behaves exactly as it always has.
+  // A Study Space has no bookings and no clock; skip the query entirely
+  // rather than asking a question whose answer it would throw away.
+  const classState =
+    roomKind === "space"
+      ? ({ kind: "unscheduled" } as const)
+      : await resolveClassWindow(id, { persist: true });
+  const classWindow =
+    classState.kind === "unscheduled"
+      ? undefined
+      : {
+          open: classState.kind === "open",
+          opensAt:
+            classState.kind === "open"
+              ? classState.current.opensAt
+              : classState.next?.opensAt ?? null,
+          startsAt:
+            classState.kind === "open"
+              ? classState.current.startsAt
+              : classState.next?.startsAt ?? null,
+        };
+
+  // The tutor's next free slot, for the card the student sees when class ends.
+  //
+  // Only for a Classroom, only for the student, and best-effort: a slow or
+  // failed availability read must never stop a room from opening. The end of a
+  // lesson is the moment with the most intent in the whole product, and until
+  // now we spent it on a full stop.
+  let nextSlot: { startsAt: string; durationMinutes: number; href: string } | null = null;
+  let tutorSlug: string | null = null;
+  if (roomKind === "classroom" && !isTutor) {
+    try {
+      const listing = await listingFor(session.tutor_id);
+      tutorSlug = listing?.slug ?? null;
+      if (tutorSlug) {
+        const { slots } = await getBookableSlots(session.tutor_id);
+        const first = slots[0];
+        if (first) {
+          nextSlot = {
+            startsAt: first.start,
+            durationMinutes: first.durationMinutes,
+            href: `/tutors/${tutorSlug}?slot=${encodeURIComponent(first.start)}&duration=${first.durationMinutes}`,
+          };
+        }
+      }
+    } catch (e) {
+      console.error("[room] next-slot lookup failed", id, e);
+    }
+  }
+
   // Display name for presence.
   const { data: profile } = await supabase
     .from("users")
@@ -233,6 +298,10 @@ export default async function RoomPage({
         initialHighlights={highlights || []}
         initialChat={initialChat}
         otherRooms={otherRooms}
+        classWindow={classWindow}
+        roomKind={roomKind}
+        nextSlot={nextSlot}
+        tutorSlug={tutorSlug}
       />
     </>
   );

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { Eye, BookOpenCheck, Clock, Target, Lightbulb } from "lucide-react";
+import { Eye, BookOpenCheck, Clock, Target, Lightbulb, AlertTriangle } from "lucide-react";
 import type { Lesson, LessonView, Section } from "@/lib/lessons/types";
 import { getLevelTheme } from "@/lib/lessons/level-theme";
 import { VocabularySection } from "./sections/vocabulary";
@@ -148,7 +148,7 @@ export function LessonRenderer({ lesson, initialView = "tutor", lockedView }: Le
                 onClick={() => setView("student")}
                 className={`inline-flex items-center gap-1 rounded-full px-3 py-1 font-medium transition ${
                   view === "student"
-                    ? "bg-blue-600 text-white shadow"
+                    ? "bg-primary-500 text-white shadow"
                     : "text-slate-600 hover:bg-slate-100"
                 }`}
               >
@@ -159,7 +159,7 @@ export function LessonRenderer({ lesson, initialView = "tutor", lockedView }: Le
                 onClick={() => setView("tutor")}
                 className={`inline-flex items-center gap-1 rounded-full px-3 py-1 font-medium transition ${
                   view === "tutor"
-                    ? "bg-emerald-600 text-white shadow"
+                    ? "bg-primary-700 text-white shadow"
                     : "text-slate-600 hover:bg-slate-100"
                 }`}
               >
@@ -206,42 +206,53 @@ export function LessonRenderer({ lesson, initialView = "tutor", lockedView }: Le
 
             {/* Tips card: shows learning_tips to student, teaching_tips + common mistakes to tutor */}
             {view === "student" ? (
-              <div className="rounded-2xl border border-blue-200 bg-blue-50/60 p-5 shadow-sm">
-                <h3 className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-blue-800">
+              <div className="rounded-2xl border border-primary-100 bg-primary-50/70 p-5 shadow-sm">
+                <h3 className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-primary-600">
                   <Lightbulb className="h-3.5 w-3.5" />
                   Tips for this lesson
                 </h3>
                 {(lesson.learning_tips?.length ?? 0) > 0 ? (
-                  <ul className="list-disc space-y-1 pl-5 text-sm text-blue-950">
+                  <ul className="list-disc space-y-1 pl-5 text-sm text-primary-700">
                     {lesson.learning_tips!.map((t, i) => (
                       <li key={i}>{t}</li>
                     ))}
                   </ul>
                 ) : (
-                  <p className="text-sm text-blue-900/70 italic">
+                  <p className="text-sm italic text-primary-600/70">
                     Take your time, repeat each word aloud after your tutor, and
                     don&apos;t be afraid to ask for help.
                   </p>
                 )}
               </div>
             ) : (
-              <div className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-5 shadow-sm">
-                <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-emerald-800">
-                  Teaching tips
-                </h3>
-                <ul className="mb-3 list-disc space-y-1 pl-5 text-sm text-emerald-950">
-                  {(lesson.tutor_overview?.teaching_tips || []).map((t, i) => (
-                    <li key={i}>{t}</li>
-                  ))}
-                </ul>
-                <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-emerald-800">
-                  Common mistakes
-                </h3>
-                <ul className="list-disc space-y-1 pl-5 text-sm text-emerald-950">
-                  {(lesson.tutor_overview?.common_mistakes || []).map((m, i) => (
-                    <li key={i}>{m}</li>
-                  ))}
-                </ul>
+              // Two different kinds of thing — what to DO, and what to watch
+              // OUT for — used to share one green box, which said nothing
+              // about either. They are separate cards now, and each takes the
+              // colour it actually means: advice in the brand navy, mistakes
+              // in the same red the room uses everywhere else for "careful".
+              <div className="space-y-4">
+                <div className="rounded-2xl border border-primary-100 bg-primary-50/70 p-5 shadow-sm">
+                  <h3 className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-primary-600">
+                    <Lightbulb className="h-3.5 w-3.5" />
+                    Teaching tips
+                  </h3>
+                  <ul className="list-disc space-y-1 pl-5 text-sm text-primary-700">
+                    {(lesson.tutor_overview?.teaching_tips || []).map((t, i) => (
+                      <li key={i}>{t}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="rounded-2xl border border-accent/20 bg-accent-light/50 p-5 shadow-sm">
+                  <h3 className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-accent">
+                    <AlertTriangle className="h-3.5 w-3.5" />
+                    Common mistakes
+                  </h3>
+                  <ul className="list-disc space-y-1 pl-5 text-sm text-slate-700">
+                    {(lesson.tutor_overview?.common_mistakes || []).map((m, i) => (
+                      <li key={i}>{m}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             )}
           </div>

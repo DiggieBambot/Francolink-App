@@ -39,7 +39,7 @@ export function StepControls({ totalSteps }: StepControlsProps) {
         type="button"
         onClick={() => goto(current + 1)}
         disabled={current >= totalSteps - 1}
-        className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-600 text-white hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-40"
+        className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary-500 text-white transition hover:bg-primary-600 disabled:cursor-not-allowed disabled:opacity-40"
         aria-label="Next step"
       >
         <ChevronRight className="h-4 w-4" />

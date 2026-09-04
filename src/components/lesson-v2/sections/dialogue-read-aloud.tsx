@@ -69,7 +69,7 @@ export function DialogueReadAloudSectionComp({ section, view, sectionIdx = 0, th
                   className={`rounded-2xl px-3.5 py-2 text-sm ${
                     isTutor
                       ? "rounded-tl-sm bg-amber-100 text-amber-950"
-                      : "rounded-tr-sm bg-emerald-100 text-emerald-950"
+                      : "rounded-tr-sm bg-primary-50 text-primary-700"
                   }`}
                 >
                   <div className="flex items-start gap-1.5">

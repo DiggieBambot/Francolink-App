@@ -15,8 +15,10 @@ import { useEffect, useRef, useState } from "react";
 import type { DailyParticipant } from "@daily-co/daily-js";
 import {
   Mic, MicOff, Video, VideoOff, PhoneOff, Loader2, AlertCircle, UserRound,
+  CalendarClock, ScreenShare, ScreenShareOff, CheckCircle2,
 } from "lucide-react";
 import { useRoomVideo } from "./video-context";
+import { Lobby } from "./lobby";
 import { cn } from "@/lib/utils";
 
 /** Attaches a participant's tracks to <video>/<audio> as they come and go. */
@@ -24,15 +26,17 @@ function useTracks(
   participant: DailyParticipant | null,
   muted: boolean,
   videoRef: React.RefObject<HTMLVideoElement | null>,
-  audioRef: React.RefObject<HTMLAudioElement | null>
+  audioRef: React.RefObject<HTMLAudioElement | null>,
+  /** Render what they are SHARING rather than their camera. */
+  screen = false
 ) {
   useEffect(() => {
-    const v = participant?.tracks?.video;
+    const v = screen ? participant?.tracks?.screenVideo : participant?.tracks?.video;
     const track = v?.state === "playable" ? v.persistentTrack : null;
     if (videoRef.current) {
       videoRef.current.srcObject = track ? new MediaStream([track]) : null;
     }
-  }, [participant, videoRef]);
+  }, [participant, videoRef, screen]);
 
   useEffect(() => {
     if (muted) return;
@@ -51,6 +55,7 @@ function Tile({
   className,
   rounded = "rounded-lg",
   cover = false,
+  screen = false,
 }: {
   participant: DailyParticipant | null;
   /** Shown only until the person actually arrives — see `name` below. */
@@ -61,12 +66,16 @@ function Tile({
   rounded?: string;
   /** Crop to fill instead of letterboxing. Only for the small self-view. */
   cover?: boolean;
+  /** Show their shared screen instead of their camera. */
+  screen?: boolean;
 }) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  useTracks(participant, Boolean(muted), videoRef, audioRef);
+  useTracks(participant, Boolean(muted), videoRef, audioRef, screen);
 
-  const camOff = participant?.tracks?.video?.state !== "playable";
+  const camOff = screen
+    ? participant?.tracks?.screenVideo?.state !== "playable"
+    : participant?.tracks?.video?.state !== "playable";
 
   // The person's own name, which Daily carries from the meeting token. "Them"
   // is a placeholder for the seconds before anyone has joined, not a label to
@@ -96,8 +105,12 @@ function Tile({
       {camOff && (
         <div className="flex h-full w-full flex-col items-center justify-center gap-1.5">
           <UserRound className="h-6 w-6 text-slate-600" />
+          {/* Just the state, never the name. The corner chip below already
+              carries the name, and printing it here too rendered it TWICE on
+              one tile — which on the small self-view truncated to the useless
+              "Francais avec Bambot —", eating the whole tile to say nothing. */}
           <span className="px-2 text-center text-[11px] font-semibold text-slate-400">
-            {participant ? `${name} — camera off` : "Waiting…"}
+            {participant ? "Camera off" : "Waiting…"}
           </span>
         </div>
       )}
@@ -120,27 +133,43 @@ function Tile({
   );
 }
 
-/** Mic / camera / leave. Same three controls at both sizes. */
+/** Mic / camera / share / leave. Same controls at both sizes. */
 export function VideoControls({ size = "sm" }: { size?: "sm" | "lg" }) {
-  const { micOn, camOn, toggleMic, toggleCam, leave } = useRoomVideo();
+  const {
+    micOn, camOn, screenOn, toggleMic, toggleCam, toggleScreen, leave,
+    localLevel,
+  } = useRoomVideo();
   const box = size === "lg" ? "h-11 w-11" : "h-8 w-8";
   const icon = size === "lg" ? "h-5 w-5" : "h-4 w-4";
 
   return (
     <div className="flex items-center justify-center gap-1.5">
-      <button
-        type="button"
-        onClick={toggleMic}
-        aria-pressed={!micOn}
-        title={micOn ? "Mute" : "Unmute"}
-        className={cn(
-          "inline-flex items-center justify-center rounded-full transition-colors",
-          box,
-          micOn ? "bg-slate-700 text-white hover:bg-slate-600" : "bg-red-600 text-white"
-        )}
-      >
-        {micOn ? <Mic className={icon} /> : <MicOff className={icon} />}
-      </button>
+      {/* The mic button IS the meter. A separate level indicator somewhere
+          else on screen is a thing nobody looks at; a ring that grows around
+          the button you already stare at when you wonder whether you are
+          being heard is the same information, free. */}
+      <span className="relative inline-flex">
+        {micOn && localLevel > 0.05 ? (
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-0 rounded-full bg-primary-400/70 transition-transform duration-75"
+            style={{ transform: `scale(${1 + Math.min(localLevel, 1) * 0.45})` }}
+          />
+        ) : null}
+        <button
+          type="button"
+          onClick={toggleMic}
+          aria-pressed={!micOn}
+          title={micOn ? "Mute" : "Unmute"}
+          className={cn(
+            "relative inline-flex items-center justify-center rounded-full transition-colors",
+            box,
+            micOn ? "bg-slate-700 text-white hover:bg-slate-600" : "bg-accent text-white"
+          )}
+        >
+          {micOn ? <Mic className={icon} /> : <MicOff className={icon} />}
+        </button>
+      </span>
       <button
         type="button"
         onClick={toggleCam}
@@ -149,17 +178,41 @@ export function VideoControls({ size = "sm" }: { size?: "sm" | "lg" }) {
         className={cn(
           "inline-flex items-center justify-center rounded-full transition-colors",
           box,
-          camOn ? "bg-slate-700 text-white hover:bg-slate-600" : "bg-red-600 text-white"
+          camOn ? "bg-slate-700 text-white hover:bg-slate-600" : "bg-accent text-white"
         )}
       >
         {camOn ? <Video className={icon} /> : <VideoOff className={icon} />}
       </button>
+      {/* Absent, not disabled, where the browser has no getDisplayMedia —
+          iOS Safari. A share button that silently does nothing gets pressed
+          repeatedly while the class waits. */}
+      {toggleScreen ? (
+        <button
+          type="button"
+          onClick={toggleScreen}
+          aria-pressed={screenOn}
+          title={screenOn ? "Stop sharing your screen" : "Share your screen"}
+          className={cn(
+            "hidden items-center justify-center rounded-full transition-colors sm:inline-flex",
+            box,
+            screenOn
+              ? "bg-primary-500 text-white hover:bg-primary-600"
+              : "bg-slate-700 text-white hover:bg-slate-600"
+          )}
+        >
+          {screenOn ? (
+            <ScreenShareOff className={icon} />
+          ) : (
+            <ScreenShare className={icon} />
+          )}
+        </button>
+      ) : null}
       <button
         type="button"
         onClick={leave}
         title="Leave video (the lesson stays open)"
         className={cn(
-          "inline-flex items-center justify-center rounded-full bg-red-600 text-white hover:bg-red-700",
+          "inline-flex items-center justify-center rounded-full bg-accent text-white transition hover:brightness-110",
           box
         )}
       >
@@ -169,9 +222,39 @@ export function VideoControls({ size = "sm" }: { size?: "sm" | "lg" }) {
   );
 }
 
+/**
+ * "Starts in 7m 12s" — recomputed every second so a person waiting for class
+ * watches it come down rather than wondering whether the page is stale.
+ */
+function useCountdownTo(iso: string | null): number | null {
+  // A ticking clock, not a ticking countdown: the effect only advances "now",
+  // and the remaining time is derived during render. Storing the difference in
+  // state instead would mean setting state from the effect body on every
+  // change of `iso`, which cascades a second render for no gain.
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => {
+    if (!iso) return;
+    const t = setInterval(() => setNow(Date.now()), 1000);
+    return () => clearInterval(t);
+  }, [iso]);
+  if (!iso) return null;
+  return Math.max(0, Math.round((new Date(iso).getTime() - now) / 1000));
+}
+
+function untilLabel(seconds: number): string {
+  if (seconds >= 3600) {
+    const h = Math.floor(seconds / 3600);
+    const m = Math.round((seconds % 3600) / 60);
+    return m ? `${h}h ${m}m` : `${h}h`;
+  }
+  if (seconds >= 60) return `${Math.floor(seconds / 60)}m ${seconds % 60}s`;
+  return `${seconds}s`;
+}
+
 /** Shared not-live states, so the stage and the rail never disagree. */
 function Inert({ compact }: { compact: boolean }) {
-  const { phase, error, notice, join } = useRoomVideo();
+  const { phase, error, notice, opensAt, startsAt } = useRoomVideo();
+  const untilOpen = useCountdownTo(phase === "scheduled" ? opensAt : null);
 
   if (phase === "unconfigured") {
     return (
@@ -185,6 +268,55 @@ function Inert({ compact }: { compact: boolean }) {
       <p className={cn("text-slate-400", compact ? "text-xs" : "text-sm")}>{notice}</p>
     );
   }
+  if (phase === "scheduled") {
+    // Nothing is broken and there is nothing to retry — this pair simply has
+    // no class on right now. Say when the next one is and get out of the way;
+    // the rest of the room stays open around this.
+    return (
+      <div className={cn("w-full text-center", compact ? "" : "max-w-xs")}>
+        <CalendarClock
+          className={cn("mx-auto mb-2 text-primary-300", compact ? "h-5 w-5" : "h-7 w-7")}
+        />
+        <p className={cn("font-semibold text-slate-200", compact ? "text-xs" : "text-sm")}>
+          {startsAt
+            ? `Next class ${new Date(startsAt).toLocaleString(undefined, {
+                weekday: "short",
+                hour: "numeric",
+                minute: "2-digit",
+              })}`
+            : "No class booked yet"}
+        </p>
+        <p className={cn("mt-1 text-slate-400", compact ? "text-[11px]" : "text-xs")}>
+          {untilOpen !== null && untilOpen > 0
+            ? `Video opens in ${untilLabel(untilOpen)}`
+            : notice}
+        </p>
+      </div>
+    );
+  }
+  if (phase === "ended") {
+    // The class hit its hard end. Say so plainly and say what survives — the
+    // first question after a call cuts out is always "did I lose my work?".
+    return (
+      <div className={cn("w-full text-center", compact ? "" : "max-w-sm")}>
+        <span
+          className={cn(
+            "mx-auto mb-3 flex items-center justify-center rounded-full bg-primary-500/15 text-primary-300",
+            compact ? "h-8 w-8" : "h-12 w-12"
+          )}
+        >
+          <CheckCircle2 className={compact ? "h-4 w-4" : "h-6 w-6"} />
+        </span>
+        <p className={cn("font-semibold text-white", compact ? "text-xs" : "text-base")}>
+          That&apos;s time — class finished
+        </p>
+        <p className={cn("mt-1 text-slate-400", compact ? "text-[11px]" : "text-sm")}>
+          Your chat, notes and the lesson you worked through all stay in this
+          room. Come back to them any time.
+        </p>
+      </div>
+    );
+  }
   if (phase === "joining") {
     return (
       <span className="inline-flex items-center gap-2 text-xs text-slate-400">
@@ -194,25 +326,34 @@ function Inert({ compact }: { compact: boolean }) {
     );
   }
 
+  // Deliberately NO join button here.
+  //
+  // The control bar at the bottom owns every call action, at every width. This
+  // area used to carry its own "Start the call", which meant the room showed
+  // two different join buttons at once — and a person who has to decide which
+  // of two identical buttons to press has been given a puzzle, not a choice.
+  // What belongs here is the EXPLANATION; the action belongs on the bar.
   return (
-    <div className={cn("w-full", compact ? "" : "max-w-xs")}>
-      {error && (
-        <p className="mb-2 flex items-start gap-1.5 text-left text-xs text-red-400">
+    <div className={cn("w-full text-center", compact ? "" : "max-w-xs")}>
+      {error ? (
+        <p className="flex items-start gap-1.5 text-left text-xs text-red-400">
           <AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0" />
           {error}
         </p>
+      ) : (
+        <>
+          <Video
+            className={cn(
+              "mx-auto mb-2 text-slate-600",
+              compact ? "h-5 w-5" : "h-8 w-8"
+            )}
+          />
+          <p className={cn("font-medium text-slate-400", compact ? "text-[11px]" : "text-sm")}>
+            Not in the call yet — open <b className="text-slate-300">Call</b> to
+            check your camera and join.
+          </p>
+        </>
       )}
-      <button
-        type="button"
-        onClick={join}
-        className={cn(
-          "inline-flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-600 font-semibold text-white hover:bg-emerald-700",
-          compact ? "px-3 py-2 text-sm" : "px-5 py-3"
-        )}
-      >
-        <Video className={compact ? "h-4 w-4" : "h-5 w-5"} />
-        {error ? "Rejoin video" : "Start the call"}
-      </button>
     </div>
   );
 }
@@ -221,32 +362,64 @@ function Inert({ compact }: { compact: boolean }) {
  * The big view. Remote fills the stage, you sit in the corner — the person you
  * are talking to should be the one you are looking at.
  */
-export function VideoStage() {
-  const { phase, local, remote } = useRoomVideo();
+export function VideoStage({ afterClass }: { afterClass?: React.ReactNode }) {
+  const { phase, local, remote, screenOn, screenActive } = useRoomVideo();
+  // Somebody is sharing: what they are showing becomes the thing worth
+  // looking at, and the faces move to the corner. Sharing a screen and then
+  // still being the biggest thing on it is the failure mode of every video
+  // tool that treats the share as just another tile.
+  const sharer = screenOn ? local : remote;
 
   return (
     <div className="relative flex h-full w-full items-center justify-center bg-slate-900">
       {phase === "joined" ? (
         <>
           <Tile
-            participant={remote}
+            participant={screenActive ? sharer : remote}
             label="Your tutor"
+            screen={screenActive}
             rounded="rounded-none"
             className="absolute inset-0"
           />
+          {screenActive ? (
+            <>
+              <span className="absolute left-4 top-4 z-20 inline-flex items-center gap-1.5 rounded-full bg-primary-500/90 px-3 py-1 text-xs font-semibold text-white shadow-lg backdrop-blur">
+                <ScreenShare className="h-3.5 w-3.5" />
+                {screenOn ? "You're sharing your screen" : "Screen shared"}
+              </span>
+              {/* The face of whoever is NOT the share, kept in view — a class
+                  is still a conversation while a document is on screen. */}
+              <Tile
+                participant={screenOn ? remote : local}
+                label={screenOn ? "Them" : "You"}
+                muted={!screenOn}
+                cover
+                className="absolute bottom-4 right-[11.5rem] z-10 aspect-video w-32 shadow-xl ring-2 ring-slate-900 sm:w-44"
+              />
+            </>
+          ) : null}
           {/* Self-view inset, the shape every video product has settled on. */}
           <Tile
             participant={local}
             label="You"
             muted
             cover
-            className="absolute bottom-20 right-4 z-10 aspect-video w-40 shadow-xl ring-2 ring-slate-900 sm:w-56"
+            className="absolute bottom-4 right-4 z-10 aspect-video w-40 shadow-xl ring-2 ring-slate-900 sm:w-56"
           />
-          <div className="absolute inset-x-0 bottom-5 z-20">
-            <VideoControls size="lg" />
-          </div>
         </>
+      ) : phase === "ended" && afterClass ? (
+        // The class hit its hard end. What goes here is not a notice — it is
+        // the rest of the product: rate it, take the homework, book the next
+        // one. See after-class.tsx.
+        <>{afterClass}</>
+      ) : phase === "idle" || phase === "scheduled" || phase === "joining" || phase === "error" ? (
+        // Before the call, the stage is the lobby: see yourself, pick your
+        // devices, watch the meter move. The two commonest ways a lesson goes
+        // wrong are "you're on mute" and "I can't hear you", and both are
+        // settled here rather than thirty seconds into a paid lesson.
+        <Lobby />
       ) : (
+        // unconfigured / unavailable / ended — nothing to set up, just say why.
         <div className="px-6 text-center">
           <Inert compact={false} />
         </div>
@@ -275,9 +448,15 @@ export function VideoRail() {
   const [selfLarge, setSelfLarge] = useState(false);
 
   if (phase !== "joined") {
+    // Same dark block, same shape, whether or not the call is up. A pale
+    // little strip that becomes a 16:9 video well the moment you join makes
+    // the rail jump and reads as two different products; the space where the
+    // faces will be should look like the space where the faces will be.
     return (
-      <div className="border-b bg-slate-50 px-3 py-2.5 text-center">
-        <Inert compact />
+      <div className="border-b bg-slate-900">
+        <div className="flex h-32 w-full items-center justify-center px-4 lg:aspect-video lg:h-auto">
+          <Inert compact />
+        </div>
       </div>
     );
   }
@@ -320,9 +499,6 @@ export function VideoRail() {
         </button>
       </div>
 
-      <div className="py-2">
-        <VideoControls />
-      </div>
     </div>
   );
 }

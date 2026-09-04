@@ -139,7 +139,7 @@ function WordOrderBuilder({ item, idx, view, theme, sectionIdx }: BuilderProps) 
             Sentence {idx + 1}
           </div>
           {isTutorObserving ? (
-            <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold text-emerald-800">
+            <span className="inline-flex items-center gap-1 rounded-full bg-secondary-50 px-2 py-0.5 text-[10px] font-semibold text-secondary-700">
               <Radio className="h-3 w-3 animate-pulse" />
               {remoteUpdatedAt ? "Student working" : "Awaiting student"}
             </span>
@@ -232,7 +232,7 @@ function WordOrderBuilder({ item, idx, view, theme, sectionIdx }: BuilderProps) 
       ) : null}
 
       {view === "tutor" && item.expected_topic ? (
-        <div className="mt-2 text-xs italic text-emerald-700">topic: {item.expected_topic}</div>
+        <div className="mt-2 text-xs italic text-secondary-700">topic: {item.expected_topic}</div>
       ) : null}
     </li>
   );

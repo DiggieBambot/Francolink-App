@@ -61,7 +61,7 @@ export function ImageQuestionPromptsSectionComp({ section, view, theme }: Props)
                 </div>
               ) : null}
               {view === "tutor" ? (
-                <div className="mt-2 text-xs italic text-emerald-700">
+                <div className="mt-2 text-xs italic text-secondary-700">
                   image hint: {p.image_hint}
                 </div>
               ) : null}

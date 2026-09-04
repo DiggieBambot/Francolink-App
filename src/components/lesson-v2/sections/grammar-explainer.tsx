@@ -179,7 +179,7 @@ export function GrammarExplainerSectionComp({ section, view, theme }: Props) {
                       <span className="line-through">{m.wrong}</span>
                     </span>
                     <ArrowRight className="hidden h-4 w-4 shrink-0 text-amber-500 sm:block" />
-                    <span className="inline-flex items-center gap-2 rounded-lg bg-emerald-50 px-3 py-1.5 text-sm font-medium text-emerald-800">
+                    <span className="inline-flex items-center gap-2 rounded-lg bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-700">
                       <span aria-hidden>✓</span>
                       {m.right}
                       <SpeakButton text={m.right} size="sm" />
@@ -223,15 +223,15 @@ export function GrammarExplainerSectionComp({ section, view, theme }: Props) {
 
         {/* Tips / memory aids. */}
         {section.tips?.length ? (
-          <div className="mt-8 rounded-2xl border border-emerald-100 bg-emerald-50/60 p-5">
-            <h4 className="mb-2 flex items-center gap-2 font-heading text-lg font-bold text-emerald-700">
+          <div className="mt-8 rounded-2xl border border-primary-100 bg-primary-50/70 p-5">
+            <h4 className="mb-2 flex items-center gap-2 font-heading text-lg font-bold text-primary-600">
               <Lightbulb className="h-5 w-5" />
               {isEnglish ? "Tips & memory aids" : "Astuces & mémo"}
             </h4>
             <ul className="space-y-1.5">
               {section.tips.map((tip, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-emerald-950/85">
-                  <span aria-hidden className="mt-0.5 text-emerald-500">✦</span>
+                <li key={i} className="flex items-start gap-2 text-sm text-slate-700">
+                  <span aria-hidden className="mt-0.5 text-secondary-500">✦</span>
                   <span><RichText text={tip} /></span>
                 </li>
               ))}

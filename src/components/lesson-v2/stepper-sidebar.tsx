@@ -46,10 +46,10 @@ export function StepperSidebar({ sections, theme }: StepperSidebarProps) {
     return () => observer.disconnect();
   }, [sections]);
 
-  const activeBg = theme?.softBg ?? "bg-emerald-50";
-  const activeText = theme?.softText ?? "text-emerald-900";
-  const activeCircle = theme?.accentBg ?? "bg-emerald-500";
-  const seenIcon = theme?.accentText ?? "text-emerald-500";
+  const activeBg = theme?.softBg ?? "bg-primary-50";
+  const activeText = theme?.softText ?? "text-primary-700";
+  const activeCircle = theme?.accentBg ?? "bg-primary-500";
+  const seenIcon = theme?.accentText ?? "text-primary-500";
 
   return (
     <nav className="space-y-0.5 text-sm">

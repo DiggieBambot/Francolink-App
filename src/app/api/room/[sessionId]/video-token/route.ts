@@ -23,6 +23,8 @@ import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { DailyNotConfigured, ensureRoom, meetingToken } from "@/lib/video/daily";
+import { resolveClassWindow } from "@/lib/lessons/class-window";
+import { isListedTutor } from "@/lib/tutors/listing";
 
 export const runtime = "nodejs";
 
@@ -77,20 +79,10 @@ export async function POST(
     return NextResponse.json({ error: "That isn't your room." }, { status: 403 });
   }
 
-  // Is the tutor running this room an official FrancoLink tutor?
-  const { data: listing } = await db
-    .from("tutor_public_profiles")
-    .select("is_public, approval_status, accepts_bookings")
-    .eq("user_id", session.tutor_id)
-    .maybeSingle();
-
-  const listed =
-    Boolean(listing) &&
-    listing!.approval_status === "approved" &&
-    listing!.is_public === true &&
-    listing!.accepts_bookings === true;
-
-  if (!listed) {
+  // Is the tutor running this room a listed FrancoLink tutor? Same predicate
+  // as the booking route and as the room's choice of Classroom vs Study Space
+  // — see lib/tutors/listing.ts for why those must never disagree.
+  if (!(await isListedTutor(session.tutor_id))) {
     // Deliberately a soft answer, not a hard failure: the room still works.
     // Chat, whiteboard, lesson content and homework are all there, and an
     // independent tutor teaching their own student loses nothing they had
@@ -106,6 +98,34 @@ export async function POST(
     );
   }
 
+  // Is this room's class on right now?
+  //
+  // This is where the schedule is enforced, not in the page. The page decides
+  // what somebody SEES; a token is what actually gets a person onto the call,
+  // so a hand-rolled POST to this route has to hit the same wall as the button.
+  //
+  // A room no booking has ever used is unscheduled — an independent tutor's
+  // own classroom — and keeps the behaviour it has always had.
+  const classState = await resolveClassWindow(sessionId, { persist: true });
+  if (classState.kind === "closed") {
+    // Soft, like `unavailable` above: nothing is broken and there is nothing
+    // to retry, so the panel explains and shows the next class instead of
+    // rendering an error.
+    return NextResponse.json(
+      {
+        error: classState.next
+          ? "Video turns on shortly before your next class."
+          : "This room has no upcoming class booked.",
+        scheduled: true,
+        opensAt: classState.next?.opensAt ?? null,
+        startsAt: classState.next?.startsAt ?? null,
+      },
+      { status: 403 }
+    );
+  }
+  const hardEndsAt =
+    classState.kind === "open" ? new Date(classState.current.hardEndsAt) : null;
+
   const { data: profile } = await db
     .from("users")
     .select("name")
@@ -114,16 +134,25 @@ export async function POST(
 
   try {
     const [roomUrl, token] = await Promise.all([
-      ensureRoom(sessionId),
+      ensureRoom(sessionId, hardEndsAt),
       meetingToken({
         sessionId,
         userId: user.id,
         userName: profile?.name || (isTutor ? "Tutor" : "Student"),
         isTutor,
+        hardEndsAt,
       }),
     ]);
 
-    return NextResponse.json({ roomUrl, token });
+    return NextResponse.json({
+      roomUrl,
+      token,
+      // The authoritative deadline. The client counts down to this rather than
+      // to its own arithmetic, so both sides agree to the second even if one
+      // browser's clock is off.
+      hardEndsAt: hardEndsAt?.toISOString() ?? null,
+      serverNow: new Date().toISOString(),
+    });
   } catch (err) {
     if (err instanceof DailyNotConfigured) {
       // Not an error the student caused, and not one they can act on. The room

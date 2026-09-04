@@ -17,11 +17,24 @@
 
 const API = "https://api.daily.co/v1";
 
-/** Lessons are 50 minutes; the room outlives that comfortably then expires. */
+/**
+ * Fallback lifetime for a room with no scheduled class — an independent
+ * tutor's own classroom, which has no booking to derive a deadline from.
+ */
 const ROOM_TTL_SECONDS = 4 * 60 * 60;
 
-/** A token is for one person joining one room, and is short-lived. */
+/** Fallback token lifetime, used on the same unscheduled rooms. */
 const TOKEN_TTL_SECONDS = 4 * 60 * 60;
+
+/**
+ * Grace on the ROOM's own expiry, past the class deadline.
+ *
+ * The token is the hard stop — it is per-person and cut exactly at
+ * hardEndsAt. The room outlives it by a minute so that the last seconds of a
+ * class are ended by "your token expired", which the client handles as a clean
+ * leave, rather than by the room vanishing under everyone at once.
+ */
+const ROOM_GRACE_SECONDS = 60;
 
 export class DailyNotConfigured extends Error {
   constructor() {
@@ -66,8 +79,13 @@ function roomName(sessionId: string): string {
  * room URL on its own is not a way into somebody's lesson. Membership is
  * decided by us, in lesson_room_participants, and expressed as a token.
  */
-export async function ensureRoom(sessionId: string): Promise<string> {
+export async function ensureRoom(sessionId: string, hardEndsAt?: Date | null): Promise<string> {
   const name = roomName(sessionId);
+  // A scheduled class expires with the class. Everything else keeps the flat
+  // TTL, refreshed on entry, because there is no deadline to derive.
+  const expiry = hardEndsAt
+    ? Math.floor(hardEndsAt.getTime() / 1000) + ROOM_GRACE_SECONDS
+    : Math.floor(Date.now() / 1000) + ROOM_TTL_SECONDS;
 
   try {
     const existing = await daily(`/rooms/${name}`);
@@ -78,12 +96,14 @@ export async function ensureRoom(sessionId: string): Promise<string> {
     // the TTL — and it would fail as a long hang, not a clear error. Push the
     // expiry out instead of recreating: the room name is derived from the
     // session, so the same room is the right one for the whole lesson.
-    if (exp && exp * 1000 < Date.now() + 5 * 60_000) {
+    // Push the expiry when it is about to lapse, and also whenever a class
+    // deadline says a different instant — a booking that moved must move the
+    // room with it, in both directions.
+    const needsPush = !exp || exp * 1000 < Date.now() + 5 * 60_000 || exp !== expiry;
+    if (needsPush) {
       await daily(`/rooms/${name}`, {
         method: "POST",
-        body: JSON.stringify({
-          properties: { exp: Math.floor(Date.now() / 1000) + ROOM_TTL_SECONDS },
-        }),
+        body: JSON.stringify({ properties: { exp: expiry } }),
       });
     }
 
@@ -98,7 +118,7 @@ export async function ensureRoom(sessionId: string): Promise<string> {
       name,
       privacy: "private",
       properties: {
-        exp: Math.floor(Date.now() / 1000) + ROOM_TTL_SECONDS,
+        exp: expiry,
         // A 1:1 lesson. Group rooms raise this from the session row.
         max_participants: 10,
         enable_screenshare: true,
@@ -123,6 +143,13 @@ export async function meetingToken(opts: {
   userId: string;
   userName: string;
   isTutor: boolean;
+  /**
+   * The class deadline, for a room that has one. This is THE enforcement of
+   * the time cap: a browser clock can be wrong or lied to, and a client-side
+   * countdown can be stopped with devtools, but Daily refuses a token past its
+   * exp and drops the participant when it lapses mid-call.
+   */
+  hardEndsAt?: Date | null;
 }): Promise<string> {
   const res = await daily("/meeting-tokens", {
     method: "POST",
@@ -132,7 +159,9 @@ export async function meetingToken(opts: {
         user_id: opts.userId,
         user_name: opts.userName,
         is_owner: opts.isTutor,
-        exp: Math.floor(Date.now() / 1000) + TOKEN_TTL_SECONDS,
+        exp: opts.hardEndsAt
+          ? Math.floor(opts.hardEndsAt.getTime() / 1000)
+          : Math.floor(Date.now() / 1000) + TOKEN_TTL_SECONDS,
       },
     }),
   });

@@ -32,13 +32,13 @@
 // multi-tab ("Board 1", "Study Links", two materials at once) drops in later
 // as "allow more than one entry" rather than a rewrite.
 
-import { useState } from "react";
-import { MessageSquare, PenTool, Users, Video as VideoIcon, X, Sparkles } from "lucide-react";
+import { useEffect, useState } from "react";
+import { MessageSquare, PenTool, Users, Video as VideoIcon, X, Sparkles, Clock, Library, LogOut, Hand, MicOff } from "lucide-react";
 import { useRoomVideo } from "./video-context";
-import { VideoRail } from "./video-views";
+import { VideoRail, VideoControls } from "./video-views";
 import { cn } from "@/lib/utils";
 
-export type StageKey = "call" | "lesson" | "board";
+export type StageKey = "call" | "lesson" | "board" | "materials";
 
 export interface StagePanel {
   key: StageKey;
@@ -64,6 +64,281 @@ function mmss(total: number): string {
   return `${m}:${String(s).padStart(2, "0")}`;
 }
 
+/**
+ * How long is left, and how loudly to say so.
+ *
+ * A class has a hard end — 30 minutes of room for a 25-minute lesson, 60 for a
+ * 50 — enforced server-side by the video token. The pill's job is to make that
+ * deadline impossible to be surprised by, so it escalates through the brand
+ * palette rather than shouting from the start: navy while there is plenty of
+ * time, warm orange at five minutes ("start wrapping up"), red at one.
+ *
+ * The colours are the site's own primary / secondary / accent. A green timer
+ * would be the only green in the room and would read as a foreign widget
+ * bolted onto the class.
+ */
+function ClassClock({ remaining, elapsed }: { remaining: number | null; elapsed: number }) {
+  // No deadline: an unscheduled room (an independent tutor's own classroom)
+  // has nothing to count down to, so it keeps the honest count-UP it had.
+  if (remaining === null) {
+    return (
+      <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-2.5 py-1 tabular-nums text-xs font-semibold text-slate-600">
+        <Clock className="h-3.5 w-3.5" />
+        {mmss(elapsed)}
+      </span>
+    );
+  }
+
+  const urgent = remaining <= 60;
+  const soon = remaining <= 300;
+
+  return (
+    <span
+      // aria-live on the container would read every single tick aloud. The
+      // urgent state is announced once, when it becomes true, and that is the
+      // only moment a screen-reader user needs told.
+      className={cn(
+        "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 tabular-nums text-xs font-semibold transition-colors",
+        urgent
+          ? "bg-accent-light text-accent"
+          : soon
+            ? "bg-secondary-50 text-secondary-700"
+            : "bg-primary-50 text-primary-600"
+      )}
+      title={
+        urgent || soon
+          ? "The class ends automatically when this reaches zero."
+          : "Time left in this class"
+      }
+    >
+      <Clock className={cn("h-3.5 w-3.5", urgent && "animate-pulse")} />
+      {mmss(remaining)}
+      <span className="sr-only" role="status">
+        {urgent ? "One minute left in this class." : ""}
+      </span>
+    </span>
+  );
+}
+
+/**
+ * The class control bar.
+ *
+ * Mic, camera, share and leave used to be drawn twice — once floating over
+ * the video stage and once tucked under the rail tiles — so where the mute
+ * button lived depended on which stage you happened to be on, and on a phone
+ * it depended on whether a drawer was open. The controls a person reaches for
+ * without looking cannot move.
+ *
+ * So there is now exactly ONE bar, at the bottom, at every width, always on
+ * screen. That is also what makes the room read like a classroom rather than
+ * a document with a webcam in the corner: a fixed frame around the lesson.
+ */
+function ControlBar({
+  peerName,
+  railTabs,
+  unread,
+  onOpenRail,
+  onOpenLobby,
+  onEndClass,
+  canEndClass,
+  handRaised,
+  onToggleHand,
+}: {
+  peerName: string | null;
+  railTabs: RailTab[];
+  unread: number;
+  onOpenRail: () => void;
+  /** Bring the Call stage forward, where the lobby lives. */
+  onOpenLobby: () => void;
+  onEndClass?: () => void;
+  canEndClass: boolean;
+  handRaised: boolean;
+  onToggleHand: () => void;
+}) {
+  const { phase, elapsed, remaining } = useRoomVideo();
+
+  return (
+    <div
+      className="relative flex h-16 shrink-0 items-center gap-2 border-t border-slate-800 bg-slate-900 px-3"
+      style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+    >
+      {/* ------------------------------------------------------- IDENTITY */}
+      {/* Who you are with, and how long is left. Both used to be in the right
+          rail, which is hidden below lg — so on a tablet the class could end
+          with no warning visible anywhere — and the clock was ALSO drawn in
+          the header and in the mobile sheet. Three clocks for one class. */}
+      <div className="flex min-w-0 items-center gap-2">
+        {peerName ? (
+          <span className="hidden min-w-0 items-center gap-2 sm:flex">
+            <span className="h-2 w-2 shrink-0 rounded-full bg-primary-400" />
+            <span className="truncate text-sm font-semibold text-slate-100">
+              {peerName}
+            </span>
+          </span>
+        ) : null}
+        {phase === "joined" ? (
+          <ClassClock remaining={remaining} elapsed={elapsed} />
+        ) : null}
+      </div>
+
+      {/* -------------------------------------------------------- THE CALL */}
+      {/* Centred absolutely, not by flex: otherwise the mute button shifts
+          sideways as the peer name arrives, or when End class appears for a
+          tutor and not for a student. The control you reach for without
+          looking must not move. */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+        <div className="pointer-events-auto">
+          {phase === "joined" ? (
+            <VideoControls size="lg" />
+          ) : phase === "idle" || phase === "error" || phase === "scheduled" ? (
+            // Deliberately does NOT join. It opens the lobby, which is the one
+            // place that joins — after you have seen yourself and watched the
+            // mic meter move. A second button that joins blind would put the
+            // room back to offering two ways in, one of them worse.
+            <button
+              type="button"
+              onClick={onOpenLobby}
+              className="inline-flex h-11 items-center gap-2 rounded-full bg-primary-500 px-5 text-sm font-semibold text-white shadow-lg transition hover:bg-primary-600"
+            >
+              <VideoIcon className="h-4 w-4" />
+              {phase === "error" ? "Rejoin" : phase === "scheduled" ? "Class details" : "Set up & join"}
+            </button>
+          ) : (
+            <span className="text-xs font-medium text-slate-400">
+              {phase === "ended"
+                  ? "Class finished"
+                  : phase === "joining"
+                    ? "Connecting…"
+                    : "Video unavailable"}
+            </span>
+          )}
+        </div>
+      </div>
+
+      {/* ------------------------------------------------------------ TOOLS */}
+      <div className="ml-auto flex items-center gap-1.5">
+        {/* Interrupting by voice means talking over your tutor, and chat means
+            they have to be looking at chat. A hand survives both. */}
+        <button
+          type="button"
+          onClick={onToggleHand}
+          aria-pressed={handRaised}
+          title={handRaised ? "Lower your hand" : "Raise your hand"}
+          className={cn(
+            "inline-flex h-10 w-10 items-center justify-center rounded-full text-lg transition-colors",
+            handRaised
+              ? "bg-secondary-500 text-white"
+              : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+          )}
+        >
+          <Hand className={cn("h-4 w-4", handRaised && "animate-pulse")} />
+        </button>
+        {/* Above lg the rail is docked and this is nothing but noise. */}
+        <button
+          type="button"
+          onClick={onOpenRail}
+          className="relative inline-flex h-10 items-center gap-1.5 rounded-full bg-slate-800 px-3 text-xs font-semibold text-slate-200 transition hover:bg-slate-700 lg:hidden"
+        >
+          <MessageSquare className="h-4 w-4" />
+          <span className="hidden sm:inline">{railTabs[0]?.label ?? "Chat"}</span>
+          {unread ? (
+            <span className="absolute -right-1 -top-1 min-w-[18px] rounded-full bg-accent px-1 text-[10px] font-bold leading-[18px] text-white">
+              {unread}
+            </span>
+          ) : null}
+        </button>
+
+        {/* Destructive, so it is the last thing on the row and never adjacent
+            to a control someone reaches for mid-lesson. It used to sit one
+            pixel from "Send homework" in a scrolling toolbar. */}
+        {canEndClass && onEndClass ? (
+          <button
+            type="button"
+            onClick={onEndClass}
+            className="inline-flex h-10 items-center gap-1.5 rounded-full bg-accent px-4 text-xs font-semibold text-white transition hover:brightness-110"
+          >
+            <LogOut className="h-4 w-4" />
+            <span className="hidden sm:inline">End class</span>
+          </button>
+        ) : null}
+      </div>
+    </div>
+  );
+}
+
+/**
+ * The two things a room has to interrupt you about, in one strip above the
+ * control bar: somebody is asking to speak, and your own microphone appears
+ * to be picking up nothing.
+ *
+ * Above the bar rather than floating, because both are about the call and the
+ * bar is where the call lives. Both are also the kind of message that must
+ * never cover the material — a class stops when the lesson is hidden.
+ */
+function RoomAlerts({
+  raisedHands,
+  onLowerHand,
+}: {
+  raisedHands: Record<string, { name: string; at: number }>;
+  onLowerHand: (userId: string) => void;
+}) {
+  const { phase, micOn, micSeemsDead, toggleMic } = useRoomVideo();
+  const hands = Object.entries(raisedHands).sort((a, b) => a[1].at - b[1].at);
+
+  if (hands.length === 0 && !(phase === "joined" && micSeemsDead)) return null;
+
+  return (
+    <div className="shrink-0 space-y-px">
+      {hands.length > 0 ? (
+        <div className="flex flex-wrap items-center gap-2 bg-secondary-50 px-3 py-2">
+          <Hand className="h-4 w-4 shrink-0 text-secondary-600" />
+          <span className="text-xs font-semibold text-secondary-700">
+            {hands.length === 1
+              ? `${hands[0][1].name} has a question`
+              : `${hands.length} hands up`}
+          </span>
+          <span className="flex flex-wrap items-center gap-1">
+            {hands.map(([id, h]) => (
+              <button
+                key={id}
+                type="button"
+                onClick={() => onLowerHand(id)}
+                title={`Mark ${h.name}'s question as answered`}
+                className="inline-flex items-center gap-1 rounded-full bg-white px-2 py-0.5 text-[11px] font-semibold text-secondary-700 shadow-sm transition hover:bg-secondary-100"
+              >
+                {h.name.split(" ")[0]}
+                <X className="h-3 w-3" />
+              </button>
+            ))}
+          </span>
+        </div>
+      ) : null}
+
+      {phase === "joined" && micSeemsDead ? (
+        // Not an error — a diagnosis. "I can't hear you" costs minutes of a
+        // paid lesson every time, and the answer is nearly always one of these
+        // two things.
+        <div className="flex items-center gap-2 bg-accent-light px-3 py-2">
+          <MicOff className="h-4 w-4 shrink-0 text-accent" />
+          <span className="min-w-0 flex-1 text-xs font-semibold text-accent">
+            Your mic hasn&apos;t picked anything up for a while — check it
+            isn&apos;t muted on your computer, or pick a different one.
+          </span>
+          {micOn ? (
+            <button
+              type="button"
+              onClick={toggleMic}
+              className="shrink-0 rounded-full bg-white px-2.5 py-0.5 text-[11px] font-bold text-accent shadow-sm"
+            >
+              Mute &amp; retry
+            </button>
+          ) : null}
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 export function RoomShell({
   panels,
   activeStage,
@@ -74,6 +349,10 @@ export function RoomShell({
   peerName,
   onEndClass,
   canEndClass,
+  raisedHands,
+  handRaised,
+  onToggleHand,
+  onLowerHand,
 }: {
   panels: StagePanel[];
   activeStage: StageKey;
@@ -85,6 +364,11 @@ export function RoomShell({
   peerName: string | null;
   onEndClass?: () => void;
   canEndClass: boolean;
+  /** Everyone currently asking to speak, keyed by user id. */
+  raisedHands: Record<string, { name: string; at: number }>;
+  handRaised: boolean;
+  onToggleHand: () => void;
+  onLowerHand: (userId: string) => void;
 }) {
   const [railOpen, setRailOpen] = useState(false);
   // How much of the screen the mobile sheet takes. It starts SHORT on purpose:
@@ -93,7 +377,15 @@ export function RoomShell({
   // taller when someone actually wants to read — their choice, not ours.
   const [sheetTall, setSheetTall] = useState(false);
   const [tab, setTab] = useState(railTabs[0]?.key ?? "chat");
-  const { phase, elapsed } = useRoomVideo();
+  const { phase } = useRoomVideo();
+
+  // When the clock runs out, bring the call stage forward. Otherwise the
+  // class ends while both people are looking at a lesson page, the video
+  // simply stops, and nothing anywhere says why.
+  useEffect(() => {
+    if (phase === "ended") onStageChange("call");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase]);
 
   const active = railTabs.find((t) => t.key === tab) ?? railTabs[0];
   const unread = railTabs.reduce((n, t) => n + (t.badge ?? 0), 0);
@@ -138,7 +430,13 @@ export function RoomShell({
     <div className="flex h-[100dvh] flex-col overflow-hidden bg-slate-100">
       {/* ------------------------------------------------------------- TOP */}
       <header className="flex h-12 shrink-0 items-stretch gap-1 border-b bg-white pr-2">
-        <div className="flex min-w-0 flex-1 items-stretch overflow-x-auto">
+        {/* The tabs never yield. They used to be `min-w-0 flex-1` against a
+            `shrink-0` actions row — which is fine at 1440px and catastrophic
+            at 375px: the toolbar is ~600px wide, so it took the whole header
+            and squeezed the tab strip to ZERO. On a phone there was no way to
+            get from the lesson back to the call. The actions scroll instead;
+            they are all optional, and the stage tabs are not. */}
+        <div className="flex shrink-0 items-stretch">
           {panels.map((p) => {
             const on = p.key === activeStage;
             return (
@@ -181,7 +479,9 @@ export function RoomShell({
           })}
         </div>
 
-        <div className="flex shrink-0 items-center gap-1.5">{actions}</div>
+        <div className="flex min-w-0 flex-1 items-center justify-end overflow-x-auto">
+          {actions}
+        </div>
       </header>
 
       {/* ------------------------------------------------------------ BODY */}
@@ -213,49 +513,29 @@ export function RoomShell({
         <aside className="hidden w-[360px] shrink-0 flex-col border-l bg-white lg:flex">
           <VideoRail />
 
-          {/* Who you are with, and how long you have been at it. */}
-          <div className="flex items-center justify-between border-b px-3 py-2">
-            <span className="truncate text-sm font-semibold text-slate-800">
-              {peerName ?? "Waiting for the other side…"}
-            </span>
-            <span className="flex items-center gap-2">
-              {phase === "joined" ? (
-                <span className="tabular-nums text-sm font-semibold text-slate-600">
-                  {mmss(elapsed)}
-                </span>
-              ) : null}
-              {canEndClass && onEndClass ? (
-                <button
-                  type="button"
-                  onClick={onEndClass}
-                  className="text-xs font-semibold text-rose-600 hover:underline"
-                >
-                  End class
-                </button>
-              ) : null}
-            </span>
-          </div>
-
           {railBody}
         </aside>
       </div>
 
+      {/* ------------------------------------------------------------ BASE */}
+      <RoomAlerts raisedHands={raisedHands} onLowerHand={onLowerHand} />
+
+      <div className="relative">
+        <ControlBar
+          peerName={peerName}
+          railTabs={railTabs}
+          unread={unread}
+          onOpenRail={() => setRailOpen(true)}
+          onOpenLobby={() => onStageChange("call")}
+          handRaised={handRaised}
+          onToggleHand={onToggleHand}
+          onEndClass={onEndClass}
+          canEndClass={canEndClass}
+        />
+      </div>
+
       {/* ------------------------------------------------- RAIL (below lg) */}
-      {!railOpen ? (
-        <button
-          type="button"
-          onClick={() => setRailOpen(true)}
-          className="fixed bottom-4 right-4 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary-600 text-white shadow-lg hover:bg-primary-700 lg:hidden"
-          aria-label="Open chat and tools"
-        >
-          <MessageSquare className="h-5 w-5" />
-          {unread ? (
-            <span className="absolute -right-0.5 -top-0.5 min-w-[18px] rounded-full bg-rose-500 px-1 text-[10px] font-bold leading-[18px]">
-              {unread}
-            </span>
-          ) : null}
-        </button>
-      ) : (
+      {railOpen ? (
         <>
           {/* No scrim. A scrim says "the thing behind this is disabled", and
               the thing behind this is the lesson, which is still being taught.
@@ -265,7 +545,7 @@ export function RoomShell({
               stacked under the video strip, left the material a sliver. */}
           <div
             className={cn(
-              "fixed inset-x-0 bottom-0 z-50 flex flex-col rounded-t-2xl border-t bg-white shadow-2xl transition-[height] duration-200 lg:hidden",
+              "fixed inset-x-0 bottom-16 z-50 flex flex-col rounded-t-2xl border-t bg-white shadow-2xl transition-[height] duration-200 lg:hidden",
               sheetTall ? "h-[80dvh]" : "h-[42dvh]"
             )}
             style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
@@ -279,16 +559,11 @@ export function RoomShell({
               <span className="h-1 w-10 rounded-full bg-slate-300" />
             </button>
             <div className="flex items-center justify-between border-b px-3 pb-2">
-              <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700">
+              <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary-600">
                 <Sparkles className="h-3.5 w-3.5" />
-                {peerName ?? "Live class"}
+                {active?.label ?? "Room"}
               </span>
               <span className="flex items-center gap-3">
-                {phase === "joined" ? (
-                  <span className="tabular-nums text-sm font-semibold text-slate-600">
-                    {mmss(elapsed)}
-                  </span>
-                ) : null}
                 <button
                   type="button"
                   onClick={() => {
@@ -305,9 +580,9 @@ export function RoomShell({
             {railBody}
           </div>
         </>
-      )}
+      ) : null}
     </div>
   );
 }
 
-export const STAGE_ICONS = { call: VideoIcon, lesson: MessageSquare, board: PenTool, people: Users };
+export const STAGE_ICONS = { call: VideoIcon, lesson: MessageSquare, board: PenTool, people: Users, materials: Library };

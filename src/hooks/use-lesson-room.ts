@@ -65,6 +65,42 @@ export function useLessonRoom({
   const [incomingLessonChange, setIncomingLessonChange] = useState<
     { lessonId: string; title: string; by: string; at: number } | null
   >(null);
+  // ── Shared material browsing ──────────────────────────────────────────────
+  // Picking the lesson used to be a private act: whoever opened the catalogue
+  // was alone in it, and the other person stared at a frozen room until
+  // something changed under them. In a real class both people look at the
+  // shelf together — the tutor scrolls, the student sees what they are
+  // considering. So the catalogue is shared state on the channel, not local
+  // component state.
+  //
+  // What is NOT shared is scroll position. Following someone else's scroll in
+  // a grid is nauseating, and it takes away the one thing a student can
+  // usefully do while the tutor decides: look ahead.
+  const [remoteBrowsing, setRemoteBrowsing] = useState<
+    { open: boolean; by: string; byName: string; at: number } | null
+  >(null);
+  const [remoteFilter, setRemoteFilter] = useState<
+    { q: string; level: string | null; by: string; at: number } | null
+  >(null);
+  // A student cannot change the lesson out from under the class, but they can
+  // ASK. The tutor sees the suggestion and accepts or dismisses it.
+  const [proposal, setProposal] = useState<
+    { lessonId: string; title: string; by: string; byName: string; at: number } | null
+  >(null);
+  // ── Raised hands ──────────────────────────────────────────────────────────
+  // In a room the tutor is talking and the student is reading; interrupting by
+  // voice means talking over them, and typing in chat means the tutor has to
+  // be looking at chat. A raised hand is the one signal that survives both.
+  // Keyed by user so a group room shows a queue rather than a single flag.
+  const [raisedHands, setRaisedHands] = useState<
+    Record<string, { name: string; at: number }>
+  >({});
+  // Ephemeral ink on the material — see room/annotation-layer.tsx. Kept
+  // capped: strokes expire on age anyway, and an unbounded array on a long
+  // lesson is a leak nobody would ever notice until it mattered.
+  const [strokes, setStrokes] = useState<
+    { id: string; points: { s: number; x: number; y: number }[]; role: "tutor" | "student"; at: number }[]
+  >([]);
 
   // Subscribe to the session channel for presence + highlight broadcasts.
   useEffect(() => {
@@ -124,6 +160,71 @@ export function useLessonRoom({
       const p = payload as { lessonId?: string; title?: string; by?: string };
       if (!p?.lessonId || p.by === currentUserId) return;
       setIncomingLessonChange({ lessonId: p.lessonId, title: p.title || "a lesson", by: p.by || "", at: Date.now() });
+    });
+
+    channel.on("broadcast", { event: "materials:open" }, ({ payload }) => {
+      const p = payload as { open?: boolean; by?: string; byName?: string };
+      if (!p.by || p.by === currentUserId) return;
+      setRemoteBrowsing({
+        open: Boolean(p.open),
+        by: p.by,
+        byName: p.byName || "They",
+        at: Date.now(),
+      });
+    });
+
+    channel.on("broadcast", { event: "materials:filter" }, ({ payload }) => {
+      const p = payload as { q?: string; level?: string | null; by?: string };
+      if (!p.by || p.by === currentUserId) return;
+      setRemoteFilter({ q: p.q || "", level: p.level ?? null, by: p.by, at: Date.now() });
+    });
+
+    channel.on("broadcast", { event: "materials:propose" }, ({ payload }) => {
+      const p = payload as { lessonId?: string; title?: string; by?: string; byName?: string };
+      if (!p.lessonId || !p.by || p.by === currentUserId) return;
+      setProposal({
+        lessonId: p.lessonId,
+        title: p.title || "a lesson",
+        by: p.by,
+        byName: p.byName || "Your student",
+        at: Date.now(),
+      });
+    });
+
+    channel.on("broadcast", { event: "annotate:stroke" }, ({ payload }) => {
+      const p = payload as {
+        id?: string;
+        points?: { s: number; x: number; y: number }[];
+        role?: "tutor" | "student";
+        by?: string;
+      };
+      if (!p.id || !p.points?.length || p.by === currentUserId) return;
+      setStrokes((prev) =>
+        [
+          ...prev,
+          {
+            id: p.id!,
+            points: p.points!,
+            role: (p.role === "tutor" ? "tutor" : "student") as "tutor" | "student",
+            at: Date.now(),
+          },
+        ].slice(-40)
+      );
+    });
+
+    channel.on("broadcast", { event: "annotate:clear" }, () => {
+      setStrokes([]);
+    });
+
+    channel.on("broadcast", { event: "hand:raise" }, ({ payload }) => {
+      const p = payload as { up?: boolean; by?: string; byName?: string };
+      if (!p.by) return;
+      setRaisedHands((prev) => {
+        const next = { ...prev };
+        if (p.up) next[p.by!] = { name: p.byName || "Someone", at: Date.now() };
+        else delete next[p.by!];
+        return next;
+      });
     });
 
     channel.on("broadcast", { event: "chat:message" }, ({ payload }) => {
@@ -380,6 +481,102 @@ export function useLessonRoom({
     [sessionId, currentUserId, currentName]
   );
 
+  /**
+   * Raise or lower our own hand.
+   *
+   * Our own state is set locally as well as broadcast: a signal that only
+   * appears once it has round-tripped through the server feels broken on a
+   * slow connection, and this is a button someone presses because they are
+   * already waiting.
+   */
+  const setHandRaised = useCallback(
+    (up: boolean) => {
+      setRaisedHands((prev) => {
+        const next = { ...prev };
+        if (up) next[currentUserId] = { name: currentName, at: Date.now() };
+        else delete next[currentUserId];
+        return next;
+      });
+      void channelRef.current?.send({
+        type: "broadcast",
+        event: "hand:raise",
+        payload: { up, by: currentUserId, byName: currentName },
+      });
+    },
+    [currentUserId, currentName]
+  );
+
+  /** Draw a stroke: shown here immediately, and sent to the other side. */
+  const addStroke = useCallback(
+    (points: { s: number; x: number; y: number }[]) => {
+      const id = `${currentUserId}-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
+      const stroke = { id, points, role: currentRole, at: Date.now() };
+      setStrokes((prev) => [...prev, stroke].slice(-40));
+      void channelRef.current?.send({
+        type: "broadcast",
+        event: "annotate:stroke",
+        payload: { id, points, role: currentRole, by: currentUserId },
+      });
+    },
+    [currentUserId, currentRole]
+  );
+
+  /** Wipe the ink for everyone, without waiting for it to age out. */
+  const clearStrokes = useCallback(() => {
+    setStrokes([]);
+    void channelRef.current?.send({ type: "broadcast", event: "annotate:clear", payload: {} });
+  }, []);
+
+  /** The tutor waves a hand down once they have answered it. */
+  const lowerHand = useCallback((userId: string) => {
+    setRaisedHands((prev) => {
+      const next = { ...prev };
+      delete next[userId];
+      return next;
+    });
+    void channelRef.current?.send({
+      type: "broadcast",
+      event: "hand:raise",
+      payload: { up: false, by: userId },
+    });
+  }, []);
+
+  const broadcastMaterialsOpen = useCallback(
+    (open: boolean) => {
+      void channelRef.current?.send({
+        type: "broadcast",
+        event: "materials:open",
+        payload: { open, by: currentUserId, byName: currentName },
+      });
+    },
+    [currentUserId, currentName]
+  );
+
+  const broadcastMaterialsFilter = useCallback(
+    (q: string, level: string | null) => {
+      void channelRef.current?.send({
+        type: "broadcast",
+        event: "materials:filter",
+        payload: { q, level, by: currentUserId },
+      });
+    },
+    [currentUserId]
+  );
+
+  const proposeLesson = useCallback(
+    (lessonId: string, title: string) => {
+      void channelRef.current?.send({
+        type: "broadcast",
+        event: "materials:propose",
+        payload: { lessonId, title, by: currentUserId, byName: currentName },
+      });
+    },
+    [currentUserId, currentName]
+  );
+
+  /** The tutor has dealt with a suggestion — accepted or dismissed. */
+  const clearProposal = useCallback(() => setProposal(null), []);
+
   // The learners the tutor can switch between: anyone present as a student,
   // plus anyone who has answered but has since dropped off the channel (so a
   // student's work does not vanish from the tutor's view on a flaky connection).
@@ -432,5 +629,18 @@ export function useLessonRoom({
     sendChat,
     incomingLessonChange,
     broadcastLessonChange,
+    remoteBrowsing,
+    remoteFilter,
+    proposal,
+    broadcastMaterialsOpen,
+    broadcastMaterialsFilter,
+    proposeLesson,
+    clearProposal,
+    raisedHands,
+    setHandRaised,
+    lowerHand,
+    strokes,
+    addStroke,
+    clearStrokes,
   };
 }

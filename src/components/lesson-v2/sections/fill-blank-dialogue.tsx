@@ -210,7 +210,7 @@ export function FillBlankDialogueSectionComp({ section, view, sectionIdx = 0, th
         )}
         <div className="flex items-center gap-2">
           {isTutorObserving ? (
-            <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold text-emerald-800">
+            <span className="inline-flex items-center gap-1 rounded-full bg-secondary-50 px-2 py-0.5 text-[10px] font-semibold text-secondary-700">
               <Radio className="h-3 w-3 animate-pulse" />
               {remoteUpdatedAt ? "Student working" : "Awaiting student"}
             </span>
@@ -243,7 +243,7 @@ export function FillBlankDialogueSectionComp({ section, view, sectionIdx = 0, th
                   className={`rounded-2xl px-3.5 py-2 text-sm ${
                     isTutor
                       ? "rounded-tl-sm bg-amber-100 text-amber-950"
-                      : "rounded-tr-sm bg-emerald-100 text-emerald-950"
+                      : "rounded-tr-sm bg-primary-50 text-primary-700"
                   }`}
                 >
                   <div className="flex items-start gap-1.5">
