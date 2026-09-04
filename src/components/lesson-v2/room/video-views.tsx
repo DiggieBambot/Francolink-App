@@ -18,6 +18,7 @@ import {
   CalendarClock, ScreenShare, ScreenShareOff, CheckCircle2,
 } from "lucide-react";
 import { useRoomVideo } from "./video-context";
+import { Lobby } from "./lobby";
 import { cn } from "@/lib/utils";
 
 /** Attaches a participant's tracks to <video>/<audio> as they come and go. */
@@ -333,7 +334,8 @@ function Inert({ compact }: { compact: boolean }) {
             )}
           />
           <p className={cn("font-medium text-slate-400", compact ? "text-[11px]" : "text-sm")}>
-            Your camera is off. Join the call below when you&apos;re ready.
+            Not in the call yet — open <b className="text-slate-300">Call</b> to
+            check your camera and join.
           </p>
         </>
       )}
@@ -390,7 +392,14 @@ export function VideoStage() {
             className="absolute bottom-4 right-4 z-10 aspect-video w-40 shadow-xl ring-2 ring-slate-900 sm:w-56"
           />
         </>
+      ) : phase === "idle" || phase === "scheduled" || phase === "joining" || phase === "error" ? (
+        // Before the call, the stage is the lobby: see yourself, pick your
+        // devices, watch the meter move. The two commonest ways a lesson goes
+        // wrong are "you're on mute" and "I can't hear you", and both are
+        // settled here rather than thirty seconds into a paid lesson.
+        <Lobby />
       ) : (
+        // unconfigured / unavailable / ended — nothing to set up, just say why.
         <div className="px-6 text-center">
           <Inert compact={false} />
         </div>

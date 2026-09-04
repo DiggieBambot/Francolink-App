@@ -138,6 +138,7 @@ function ControlBar({
   railTabs,
   unread,
   onOpenRail,
+  onOpenLobby,
   onEndClass,
   canEndClass,
 }: {
@@ -145,10 +146,12 @@ function ControlBar({
   railTabs: RailTab[];
   unread: number;
   onOpenRail: () => void;
+  /** Bring the Call stage forward, where the lobby lives. */
+  onOpenLobby: () => void;
   onEndClass?: () => void;
   canEndClass: boolean;
 }) {
-  const { phase, join, elapsed, remaining } = useRoomVideo();
+  const { phase, elapsed, remaining } = useRoomVideo();
 
   return (
     <div
@@ -183,20 +186,22 @@ function ControlBar({
         <div className="pointer-events-auto">
           {phase === "joined" ? (
             <VideoControls size="lg" />
-          ) : phase === "idle" || phase === "error" ? (
+          ) : phase === "idle" || phase === "error" || phase === "scheduled" ? (
+            // Deliberately does NOT join. It opens the lobby, which is the one
+            // place that joins — after you have seen yourself and watched the
+            // mic meter move. A second button that joins blind would put the
+            // room back to offering two ways in, one of them worse.
             <button
               type="button"
-              onClick={join}
+              onClick={onOpenLobby}
               className="inline-flex h-11 items-center gap-2 rounded-full bg-primary-500 px-5 text-sm font-semibold text-white shadow-lg transition hover:bg-primary-600"
             >
               <VideoIcon className="h-4 w-4" />
-              {phase === "error" ? "Rejoin" : "Join the call"}
+              {phase === "error" ? "Rejoin" : phase === "scheduled" ? "Class details" : "Set up & join"}
             </button>
           ) : (
             <span className="text-xs font-medium text-slate-400">
-              {phase === "scheduled"
-                ? "Waiting for class to start"
-                : phase === "ended"
+              {phase === "ended"
                   ? "Class finished"
                   : phase === "joining"
                     ? "Connecting…"
@@ -417,6 +422,7 @@ export function RoomShell({
           railTabs={railTabs}
           unread={unread}
           onOpenRail={() => setRailOpen(true)}
+          onOpenLobby={() => onStageChange("call")}
           onEndClass={onEndClass}
           canEndClass={canEndClass}
         />

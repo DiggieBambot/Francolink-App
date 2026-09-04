@@ -49,7 +49,12 @@ interface VideoContextValue {
   screenOn: boolean;
   /** Somebody is sharing — ours or theirs. Drives the stage swap. */
   screenActive: boolean;
-  join: () => Promise<void>;
+  /**
+   * Join the call, optionally with the devices picked in the lobby. Without
+   * them Daily takes the browser default, which on a laptop with a dock is
+   * routinely the wrong microphone.
+   */
+  join: (devices?: { audioDeviceId?: string; videoDeviceId?: string }) => Promise<void>;
   leave: () => Promise<void>;
   toggleMic: () => void;
   toggleCam: () => void;
@@ -276,7 +281,10 @@ export function RoomVideoProvider({
     leaveRef.current = leave;
   }, [leave]);
 
-  const join = useCallback(async () => {
+  const join = useCallback(async (devices?: {
+    audioDeviceId?: string;
+    videoDeviceId?: string;
+  }) => {
     if (callRef.current) return;
     setPhase("joining");
     setError(null);
@@ -352,7 +360,12 @@ export function RoomVideoProvider({
       // that never resolves is the worst of the failure modes: nobody knows
       // whether to wait or reload.
       await Promise.race([
-        call.join({ url: body.roomUrl, token: body.token }),
+        call.join({
+          url: body.roomUrl,
+          token: body.token,
+          ...(devices?.audioDeviceId ? { audioSource: devices.audioDeviceId } : {}),
+          ...(devices?.videoDeviceId ? { videoSource: devices.videoDeviceId } : {}),
+        }),
         new Promise((_, reject) =>
           setTimeout(() => reject(new Error("timeout: video did not connect")), 25_000)
         ),
