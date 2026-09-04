@@ -459,7 +459,19 @@ export function RoomVideoProvider({
     audioDeviceId?: string;
     videoDeviceId?: string;
   }) => {
-    if (callRef.current) return;
+    // Guard on the MEETING's state, not on whether a call object exists.
+    //
+    // `if (callRef.current) return` was correct when join() was the only thing
+    // that ever created the call object: a non-null ref meant "already in a
+    // call". The lobby's preview now creates it first, so that test was true
+    // before anyone had joined anything — and Join the class silently did
+    // nothing, every time, for everyone who used the lobby.
+    //
+    // meetingState() is what actually answers the question, and it answers it
+    // from Daily rather than from an inference of ours.
+    const state = callRef.current?.meetingState();
+    if (state === "joining-meeting" || state === "joined-meeting") return;
+
     setPhase("joining");
     setError(null);
 

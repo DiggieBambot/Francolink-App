@@ -171,6 +171,7 @@ function ControlBar({
   unread,
   onOpenRail,
   onOpenLobby,
+  onLobbyVisible,
   onEndClass,
   canEndClass,
   handRaised,
@@ -182,6 +183,8 @@ function ControlBar({
   onOpenRail: () => void;
   /** Bring the Call stage forward, where the lobby lives. */
   onOpenLobby: () => void;
+  /** True when the lobby is already the stage, so this button has no work. */
+  onLobbyVisible: boolean;
   onEndClass?: () => void;
   canEndClass: boolean;
   handRaised: boolean;
@@ -232,14 +235,32 @@ function ControlBar({
             // place that joins — after you have seen yourself and watched the
             // mic meter move. A second button that joins blind would put the
             // room back to offering two ways in, one of them worse.
-            <button
-              type="button"
-              onClick={onOpenLobby}
-              className="inline-flex h-11 items-center gap-2 rounded-full bg-primary-500 px-5 text-sm font-semibold text-white shadow-lg transition hover:bg-primary-600"
-            >
-              <VideoIcon className="h-4 w-4" />
-              {phase === "error" ? "Rejoin" : phase === "scheduled" ? "Class details" : "Set up & join"}
-            </button>
+            //
+            // Which is also why it disappears once the lobby IS the stage: a
+            // button whose only job is "go and look at that panel", rendered
+            // underneath that panel, is a button that does nothing when
+            // pressed — and it was sitting next to a Join that did nothing
+            // either, so the room looked comprehensively broken.
+            onLobbyVisible ? (
+              <span className="text-xs font-medium text-slate-400">
+                {phase === "scheduled"
+                  ? "No class on right now"
+                  : "Check your camera, then join above"}
+              </span>
+            ) : (
+              <button
+                type="button"
+                onClick={onOpenLobby}
+                className="inline-flex h-11 items-center gap-2 rounded-full bg-primary-500 px-5 text-sm font-semibold text-white shadow-lg transition hover:bg-primary-600"
+              >
+                <VideoIcon className="h-4 w-4" />
+                {phase === "error"
+                  ? "Rejoin"
+                  : phase === "scheduled"
+                    ? "Class details"
+                    : "Set up & join"}
+              </button>
+            )
           ) : (
             <span className="text-xs font-medium text-slate-400">
               {phase === "ended"
@@ -568,6 +589,7 @@ export function RoomShell({
           unread={unread}
           onOpenRail={() => setRailOpen(true)}
           onOpenLobby={() => onStageChange("call")}
+          onLobbyVisible={activeStage === "call"}
           handRaised={handRaised}
           onToggleHand={onToggleHand}
           onEndClass={onEndClass}
