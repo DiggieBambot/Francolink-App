@@ -83,13 +83,33 @@ begin
   end if;
 
   if coalesce(v_student_email, '') = '' then
-    -- Whoever this tutor most recently took on. Their room probably already
-    -- exists, which makes this the closest thing to a real lesson.
-    select ts.student_id into v_student
-    from public.tutor_students ts
-    where ts.tutor_id = v_tutor and ts.status = 'active'
-    order by ts.created_at desc
+    -- Prefer a student this tutor ALREADY has a room with: that room is real,
+    -- has their history in it, and is the closest thing to an actual lesson.
+    --
+    -- Ordered by the SESSION's created_at, not the relationship's. This script
+    -- must not assume anything about tutor_students beyond the three columns
+    -- the app itself writes (tutor_id, student_id, status) — that table
+    -- predates the migrations in this repo, so its shape is not knowable from
+    -- here, and guessing at created_at is exactly what broke the last run.
+    select s.student_id into v_student
+    from public.tutor_lesson_sessions s
+    join public.tutor_students ts
+      on ts.tutor_id = s.tutor_id and ts.student_id = s.student_id
+    where s.tutor_id = v_tutor
+      and s.student_id <> v_tutor          -- the "no claimed student" sentinel
+      and ts.status = 'active'
+    order by s.created_at desc
     limit 1;
+
+    -- Otherwise any student they teach; the room gets created below.
+    if v_student is null then
+      select ts.student_id into v_student
+      from public.tutor_students ts
+      where ts.tutor_id = v_tutor
+        and ts.status = 'active'
+        and ts.student_id <> v_tutor
+      limit 1;
+    end if;
 
     if v_student is null then
       raise exception
