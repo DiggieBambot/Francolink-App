@@ -1,8 +1,11 @@
+import { UpcomingClasses } from "@/components/dashboard/upcoming-classes";
+import { getUpcomingClasses } from "@/lib/booking/upcoming";
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import {
   Users, BookOpen, ArrowRight, Wallet, TrendingUp, Link2, GraduationCap, Sparkles,
+  CalendarDays,
 } from "lucide-react";
 import { CopyButton } from "@/components/tutor/copy-button";
 import { TutorGuideButton } from "@/components/tutor/tutor-guide";
@@ -95,6 +98,14 @@ export default async function TutorDashboardPage() {
   const inviteLink = me?.tutor_invite_code ? `${appUrl}/join/${me.tutor_invite_code}` : null;
   const planLabel = me?.tutor_plan === "PREMIUM" ? "Premium" : me?.tutor_plan === "PREMIUM_PLUS" ? "Premium+" : "Basic";
 
+  // Booked, paid lessons. Best-effort: this page must render without them.
+  let bookedClasses: Awaited<ReturnType<typeof getUpcomingClasses>> = [];
+  try {
+    bookedClasses = await getUpcomingClasses(user.id, "tutor", { limit: 6 });
+  } catch (e) {
+    console.error("[tutor/dashboard] booked classes failed", e);
+  }
+
   return (
     <div className="space-y-6">
       {/* Greeting */}
@@ -112,6 +123,12 @@ export default async function TutorDashboardPage() {
           </span>
         </div>
       </div>
+
+      {/* What is actually happening today, above the standings and the stats.
+          A tutor opening this page with a class in ten minutes needs the class,
+          not their pay ladder — and until now the dashboard mentioned neither
+          their booked lessons nor a route to the schedule. */}
+      <UpcomingClasses classes={bookedClasses} role="tutor" />
 
       {/* Where they stand on the pay ladder. Listed tutors only. */}
       {standing && <TutorLadderCard standing={standing} />}
@@ -231,6 +248,9 @@ export default async function TutorDashboardPage() {
           </p>
           <Link href="/library" className="inline-flex items-center justify-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">
             <BookOpen className="h-4 w-4" /> Browse lessons
+          </Link>
+          <Link href="/tutor/schedule" className="inline-flex items-center justify-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+            <CalendarDays className="h-4 w-4" /> Schedule
           </Link>
           <Link href="/tutor/commisions" className="inline-flex items-center justify-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">
             <Wallet className="h-4 w-4" /> Earnings &amp; payouts

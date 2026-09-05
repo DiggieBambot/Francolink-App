@@ -1,4 +1,6 @@
 // src/app/(tutor)/tutor/schedule/page.tsx
+import { BookingCalendar } from "@/components/tutor/booking-calendar";
+import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { UpcomingClasses } from "@/components/dashboard/upcoming-classes";
 import { getUpcomingClasses } from "@/lib/booking/upcoming";
 import { createClient } from '@/lib/supabase/server';
@@ -124,9 +126,54 @@ export default async function TutorSchedulePage() {
     console.error("[tutor/schedule] booked classes failed", e);
   }
 
+  // A month's worth either side, for the calendar. A list answers "what is
+  // next"; a grid answers "how full am I", which is the question behind
+  // opening more availability or taking a week off.
+  const svcCal = createServiceClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { auth: { persistSession: false } }
+  );
+  // Reuse the page's single `now` rather than reading the clock again —
+  // one timestamp per render keeps the list and the grid describing the same
+  // instant, and the lint rule that flags a second read is right to.
+  const calFrom = new Date(now.getTime() - 62 * 86400_000).toISOString();
+  const { data: calRows } = await svcCal
+    .from("bookings")
+    .select("id, starts_at, duration_minutes, student_id, room_session_id, status")
+    .eq("tutor_id", user.id)
+    .in("status", ["confirmed", "completed"])
+    .gte("starts_at", calFrom)
+    .order("starts_at", { ascending: true })
+    .limit(400);
+
+  const calStudentIds = [...new Set((calRows ?? []).map((b) => b.student_id))];
+  const calNames = new Map<string, string>();
+  if (calStudentIds.length > 0) {
+    const { data: calPeople } = await svcCal
+      .from("users")
+      .select("id, name, email")
+      .in("id", calStudentIds);
+    for (const p of calPeople ?? []) {
+      calNames.set(p.id, p.name?.trim() || p.email?.split("@")[0] || "Student");
+    }
+  }
+  const calendarBookings = (calRows ?? []).map((b) => ({
+    id: b.id as string,
+    startsAt: b.starts_at as string,
+    durationMinutes: b.duration_minutes as number,
+    studentName: calNames.get(b.student_id) ?? "Student",
+    roomId: (b.room_session_id as string) ?? null,
+    status: b.status as string,
+  }));
+
   return (
     <div className="p-4 md:p-8 max-w-7xl mx-auto">
       <UpcomingClasses classes={bookedClasses} role="tutor" />
+
+      <div className="mb-8">
+        <BookingCalendar bookings={calendarBookings} />
+      </div>
 
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
