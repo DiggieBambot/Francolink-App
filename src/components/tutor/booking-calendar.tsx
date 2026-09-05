@@ -31,6 +31,53 @@ export interface CalendarBooking {
 
 const DAY_MS = 86_400_000;
 
+/**
+ * What each state looks like.
+ *
+ * Solid blocks with a colour that MEANS something, rather than one pale tint
+ * for everything — a week should be readable at a glance from across the desk,
+ * and "which of these already happened" is the first thing a tutor scans for.
+ *
+ * The palette is the site's own. Navy is the lesson that is still to come,
+ * amber is the one happening now (the only thing on the page that needs you
+ * this minute), slate is done and asks nothing, red is the one that went
+ * wrong. Nothing here is decorative: four states, four colours, and no fifth
+ * colour looking for a job.
+ */
+const TONE = {
+  live: {
+    block: "border-secondary-600 bg-secondary-500 text-white shadow-sm",
+    dot: "bg-secondary-500",
+    label: "Happening now",
+  },
+  upcoming: {
+    block: "border-primary-700 bg-primary-500 text-white shadow-sm",
+    dot: "bg-primary-500",
+    label: "Upcoming",
+  },
+  done: {
+    block: "border-slate-300 bg-slate-100 text-slate-500",
+    dot: "bg-slate-300",
+    label: "Taught",
+  },
+  missed: {
+    block: "border-accent bg-accent-light text-accent",
+    dot: "bg-accent",
+    label: "No-show",
+  },
+} as const;
+
+type Tone = keyof typeof TONE;
+
+function toneFor(b: CalendarBooking, now: number): Tone {
+  if (b.status.startsWith("no_show")) return "missed";
+  if (b.status === "completed") return "done";
+  const start = new Date(b.startsAt).getTime();
+  const end = start + b.durationMinutes * 60_000;
+  if (now >= start && now < end) return "live";
+  return now >= end ? "done" : "upcoming";
+}
+
 /** Monday of the week containing `d`, at local midnight. */
 function weekStart(d: Date): Date {
   const s = new Date(d.getFullYear(), d.getMonth(), d.getDate());
@@ -81,6 +128,7 @@ export function BookingCalendar({ bookings }: { bookings: CalendarBooking[] }) {
   const hours = Array.from({ length: endHour - startHour }, (_, i) => startHour + i);
 
   const today = new Date();
+  const nowMs = today.getTime();
   const todayKey = today.toDateString();
   const nowOffset =
     minutesInto(today) >= startHour * 60 && minutesInto(today) <= endHour * 60
@@ -141,15 +189,37 @@ export function BookingCalendar({ bookings }: { bookings: CalendarBooking[] }) {
         </div>
       </header>
 
+      {/* A legend, because a colour that has to be guessed at is decoration.
+          Only the states actually present this week — an unused key is noise. */}
+      {inWeek.length > 0 ? (
+        <div className="mb-3 flex flex-wrap items-center gap-x-4 gap-y-1.5">
+          {(Object.keys(TONE) as Tone[])
+            .filter((t) => inWeek.some((b) => toneFor(b, nowMs) === t))
+            .map((t) => (
+              <span key={t} className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-slate-500">
+                <span className={cn("h-2.5 w-2.5 rounded-sm", TONE[t].dot)} />
+                {TONE[t].label}
+              </span>
+            ))}
+        </div>
+      ) : null}
+
       {view === "agenda" ? (
-        <Agenda bookings={inWeek} />
+        <Agenda bookings={inWeek} now={nowMs} />
       ) : (
         // Horizontally scrollable: seven columns of readable width do not fit
         // a phone, and squeezing them until they do makes a grid nobody can
         // read rather than one they must scroll.
         <div className="overflow-x-auto">
           <div className="min-w-[640px]">
-            <div className="grid grid-cols-[3rem_repeat(7,1fr)] border-b">
+            {/* Inline, not an arbitrary Tailwind class: `repeat(7, 1fr)` inside
+                brackets is not reliably generated, and when it is missing the
+                whole grid silently collapses to one column — seven day headers
+                stacked vertically, which is exactly what it did. */}
+            <div
+              className="grid overflow-hidden rounded-t-xl border border-b-0 bg-slate-50"
+              style={{ gridTemplateColumns: "3.25rem repeat(7, minmax(0, 1fr))" }}
+            >
               <span />
               {days.map((d) => {
                 const isToday = d.toDateString() === todayKey;
@@ -157,8 +227,8 @@ export function BookingCalendar({ bookings }: { bookings: CalendarBooking[] }) {
                   <span
                     key={d.toISOString()}
                     className={cn(
-                      "pb-2 text-center text-xs font-semibold",
-                      isToday ? "text-primary-600" : "text-slate-500"
+                      "border-l py-2 text-center text-xs font-semibold",
+                      isToday ? "bg-primary-50 text-primary-700" : "text-slate-500"
                     )}
                   >
                     <span className="block">{d.toLocaleDateString([], { weekday: "short" })}</span>
@@ -175,13 +245,19 @@ export function BookingCalendar({ bookings }: { bookings: CalendarBooking[] }) {
               })}
             </div>
 
-            <div className="relative grid grid-cols-[3rem_repeat(7,1fr)]">
+            <div
+              className="relative grid overflow-hidden rounded-b-xl border"
+              style={{ gridTemplateColumns: "3.25rem repeat(7, minmax(0, 1fr))" }}
+            >
               {/* Hour labels + rules */}
               <div className="relative" style={{ height: `${(endHour - startHour) * 3.5}rem` }}>
                 {hours.map((h, i) => (
                   <span
                     key={h}
-                    className="absolute right-1.5 -translate-y-1/2 text-[10px] tabular-nums text-slate-400"
+                    // Sits just BELOW its line rather than centred on it. Centred,
+                    // the first label is half above the grid and the container's
+                    // overflow-hidden cuts it in two.
+                    className="absolute right-1.5 pt-0.5 text-[10px] leading-none tabular-nums text-slate-400"
                     style={{ top: `${(i / (endHour - startHour)) * 100}%` }}
                   >
                     {String(h).padStart(2, "0")}:00
@@ -197,7 +273,10 @@ export function BookingCalendar({ bookings }: { bookings: CalendarBooking[] }) {
                 return (
                   <div
                     key={dayKey}
-                    className="relative border-l"
+                    className={cn(
+                      "relative border-l",
+                      dayKey === todayKey ? "bg-primary-50/40" : undefined
+                    )}
                     style={{ height: `${(endHour - startHour) * 3.5}rem` }}
                   >
                     {hours.map((h, i) => (
@@ -220,24 +299,23 @@ export function BookingCalendar({ bookings }: { bookings: CalendarBooking[] }) {
                       const s = new Date(b.startsAt);
                       const top = ((minutesInto(s) - startHour * 60) / totalMinutes) * 100;
                       const height = (b.durationMinutes / totalMinutes) * 100;
-                      const done = b.status === "completed";
+                      const tone = toneFor(b, nowMs);
                       return (
                         <Link
                           key={b.id}
                           href={b.roomId ? `/room/${b.roomId}` : "#"}
                           className={cn(
-                            "absolute inset-x-0.5 z-20 overflow-hidden rounded-lg border-l-4 px-1.5 py-1 text-[11px] leading-tight transition hover:brightness-95",
-                            done
-                              ? "border-slate-300 bg-slate-100 text-slate-500"
-                              : "border-primary-500 bg-primary-50 text-primary-800"
+                            "absolute inset-x-1 z-20 overflow-hidden rounded-md border-l-[3px] px-1.5 py-1 text-[11px] leading-tight transition hover:brightness-105",
+                            TONE[tone].block,
+                            tone === "live" && "ring-2 ring-secondary-300"
                           )}
                           style={{ top: `${top}%`, minHeight: "1.75rem", height: `${height}%` }}
-                          title={`${b.studentName} · ${b.durationMinutes} min`}
+                          title={`${b.studentName} · ${b.durationMinutes} min · ${TONE[tone].label}`}
                         >
-                          <span className="block truncate font-bold">
+                          <span className="block truncate font-bold tabular-nums">
                             {s.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}
                           </span>
-                          <span className="block truncate">{b.studentName}</span>
+                          <span className="block truncate opacity-90">{b.studentName}</span>
                         </Link>
                       );
                     })}
@@ -258,14 +336,18 @@ export function BookingCalendar({ bookings }: { bookings: CalendarBooking[] }) {
   );
 }
 
-function Agenda({ bookings }: { bookings: CalendarBooking[] }) {
+function Agenda({ bookings, now }: { bookings: CalendarBooking[]; now: number }) {
   if (bookings.length === 0) return null;
   return (
     <ul className="divide-y divide-slate-100">
       {bookings.map((b) => {
         const s = new Date(b.startsAt);
+        const tone = toneFor(b, now);
         return (
           <li key={b.id} className="flex items-center gap-3 py-2.5">
+            {/* Same four colours as the grid, so the toggle changes the
+                layout and not the vocabulary. */}
+            <span className={cn("h-8 w-1 shrink-0 rounded-full", TONE[tone].dot)} />
             <span className="w-28 shrink-0 text-xs font-semibold text-slate-500">
               {s.toLocaleDateString([], { weekday: "short", day: "numeric", month: "short" })}
             </span>

@@ -142,7 +142,10 @@ export default async function TutorSchedulePage() {
     .from("bookings")
     .select("id, starts_at, duration_minutes, student_id, room_session_id, status")
     .eq("tutor_id", user.id)
-    .in("status", ["confirmed", "completed"])
+    // No-shows belong on the grid too: a week with two students who never
+    // turned up is a different week from one with two fewer lessons, and only
+    // one of them is a problem worth seeing.
+    .in("status", ["confirmed", "completed", "no_show_student", "no_show_tutor"])
     .gte("starts_at", calFrom)
     .order("starts_at", { ascending: true })
     .limit(400);
