@@ -59,9 +59,10 @@ declare
   v_tutor_email   text := 'forexbillionaire24@gmail.com';  -- <-- edit
 
   -- Leave this empty and the script picks a student the tutor already
-  -- teaches. Hunting for a student email in a 60-row list ordered by role,
-  -- with every tutor above them, is not a thing anyone should have to do.
-  v_student_email text := '';                              -- optional
+  -- teaches — which is fine for a solo look, and no good for a two-person
+  -- test, because you will not have that person's password. For testing
+  -- both sides, name an account you can actually log in as.
+  v_student_email text := 'ttkay237@gmail.com';            -- <-- edit
 
   -- 25 → 30 minutes of room, 50 → 60. Starting five minutes ago leaves ~25
   -- minutes on the clock, enough to watch it go amber (5:00) and red (1:00).
