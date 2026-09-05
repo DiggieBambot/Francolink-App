@@ -66,9 +66,20 @@ declare
   -- 25 → 30 minutes of room, 50 → 60. Starting five minutes ago leaves ~25
   -- minutes on the clock, enough to watch it go amber (5:00) and red (1:00).
   v_minutes int := 25;
-  v_offset  interval := interval '5 minutes';      -- how long ago it started
-                                                   -- use a NEGATIVE-sounding
-                                                   -- future test via STEP 3
+
+  -- HOW LONG AGO THE CLASS STARTED. Everything is derived from this, so it is
+  -- the one dial worth understanding:
+  --
+  --   '5 minutes'   a class in progress — ~20 min of lesson, cut at 30
+  --   '28 minutes'  TWO MINUTES BEFORE THE HARD STOP. Use this to test the
+  --                 cut without sitting through half an hour: the cap is
+  --                 measured from starts_at, not from when you join, so a
+  --                 class that "started" 28 minutes ago ends in 2.
+  --   '26 minutes'  just past the lesson end, to see the pill flip to
+  --                 "Lesson ended · closes in 4:00"
+  --   '-30 minutes' starts in 30 min — the locked lobby, unlocking itself
+  --                 10 minutes before
+  v_offset  interval := interval '5 minutes';
 
   v_tutor uuid;
   v_student uuid;
@@ -214,13 +225,14 @@ limit 1;
 --     the deadline should NOT stay connected — that is the claim worth trying
 --     hardest to break
 --
--- To test the LOBBY instead (class not started yet), change STEP 2's
---     v_offset := interval '5 minutes';
--- to
---     v_offset := interval '-30 minutes';
--- which starts the class 30 minutes from now. Video unlocks 10 minutes before,
--- so for 20 minutes you should see the next-class state and a locked Join
--- button that unlocks by itself.
+-- See v_offset in STEP 2 for the other states — the locked lobby, the
+-- "lesson ended" pill, and a two-minute run at the hard stop.
+--
+-- TESTING WITH TWO PEOPLE
+-- The room admits its booked tutor and its booked student, nobody else. So put
+-- a student account YOU CAN LOG IN AS in v_student_email — otherwise the
+-- script picks whichever real student the tutor already teaches, and you will
+-- not have their password. Both sides open the same /room/<id>.
 -- =============================================================================
 
 
