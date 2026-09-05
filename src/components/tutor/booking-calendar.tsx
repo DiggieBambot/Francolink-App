@@ -32,6 +32,15 @@ export interface CalendarBooking {
 const DAY_MS = 86_400_000;
 
 /**
+ * Height of one hour.
+ *
+ * 3.5rem was too tight: a 25-minute lesson came out 1.5rem tall, which is not
+ * enough for a time and a name, so every short block truncated and the grid
+ * read as grey slivers. 4.5 gives a 25 a readable two lines.
+ */
+const ROW_REM = 4.5;
+
+/**
  * What each state looks like.
  *
  * Solid blocks with a colour that MEANS something, rather than one pale tint
@@ -56,8 +65,11 @@ const TONE = {
     label: "Upcoming",
   },
   done: {
-    block: "border-slate-300 bg-slate-100 text-slate-500",
-    dot: "bg-slate-300",
+    // Slate-200 with slate-700 text, not slate-100 with slate-500. A lesson
+    // that already happened should recede, not disappear — on a week that is
+    // mostly taught, the near-white version left the grid looking empty.
+    block: "border-slate-400 bg-slate-200 text-slate-700",
+    dot: "bg-slate-400",
     label: "Taught",
   },
   missed: {
@@ -192,12 +204,15 @@ export function BookingCalendar({ bookings }: { bookings: CalendarBooking[] }) {
       {/* A legend, because a colour that has to be guessed at is decoration.
           Only the states actually present this week — an unused key is noise. */}
       {inWeek.length > 0 ? (
-        <div className="mb-3 flex flex-wrap items-center gap-x-4 gap-y-1.5">
+        <div className="mb-3 flex flex-wrap items-center gap-x-4 gap-y-1.5 rounded-lg bg-slate-50 px-3 py-2">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+            Key
+          </span>
           {(Object.keys(TONE) as Tone[])
             .filter((t) => inWeek.some((b) => toneFor(b, nowMs) === t))
             .map((t) => (
               <span key={t} className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-slate-500">
-                <span className={cn("h-2.5 w-2.5 rounded-sm", TONE[t].dot)} />
+                <span className={cn("h-3 w-3 rounded-sm", TONE[t].dot)} />
                 {TONE[t].label}
               </span>
             ))}
@@ -250,7 +265,7 @@ export function BookingCalendar({ bookings }: { bookings: CalendarBooking[] }) {
               style={{ gridTemplateColumns: "3.25rem repeat(7, minmax(0, 1fr))" }}
             >
               {/* Hour labels + rules */}
-              <div className="relative" style={{ height: `${(endHour - startHour) * 3.5}rem` }}>
+              <div className="relative" style={{ height: `${(endHour - startHour) * ROW_REM}rem` }}>
                 {hours.map((h, i) => (
                   <span
                     key={h}
@@ -274,25 +289,40 @@ export function BookingCalendar({ bookings }: { bookings: CalendarBooking[] }) {
                   <div
                     key={dayKey}
                     className={cn(
-                      "relative border-l",
-                      dayKey === todayKey ? "bg-primary-50/40" : undefined
+                      "relative border-l border-slate-200",
+                      dayKey === todayKey
+                        ? "bg-primary-50/60"
+                        : d.getDay() === 0 || d.getDay() === 6
+                          ? "bg-slate-50/60"
+                          : undefined
                     )}
-                    style={{ height: `${(endHour - startHour) * 3.5}rem` }}
+                    style={{ height: `${(endHour - startHour) * ROW_REM}rem` }}
                   >
+                    {/* Alternating bands rather than hairlines alone. Tracking
+                        a row across seven columns is the thing a week grid is
+                        FOR, and a 1px line does not survive the journey. */}
                     {hours.map((h, i) => (
                       <span
                         key={h}
-                        className="absolute inset-x-0 border-t border-slate-100"
-                        style={{ top: `${(i / (endHour - startHour)) * 100}%` }}
+                        className={cn(
+                          "absolute inset-x-0 border-t border-slate-200",
+                          i % 2 === 1 && "bg-slate-50/70"
+                        )}
+                        style={{
+                          top: `${(i / (endHour - startHour)) * 100}%`,
+                          height: `${(1 / (endHour - startHour)) * 100}%`,
+                        }}
                       />
                     ))}
 
                     {dayKey === todayKey && nowOffset !== null ? (
                       <span
                         aria-hidden
-                        className="absolute inset-x-0 z-10 border-t-2 border-accent"
+                        className="absolute inset-x-0 z-30 border-t-2 border-accent"
                         style={{ top: `${nowOffset}%` }}
-                      />
+                      >
+                        <span className="absolute -left-1 -top-[5px] h-2 w-2 rounded-full bg-accent" />
+                      </span>
                     ) : null}
 
                     {dayBookings.map((b) => {
@@ -305,17 +335,19 @@ export function BookingCalendar({ bookings }: { bookings: CalendarBooking[] }) {
                           key={b.id}
                           href={b.roomId ? `/room/${b.roomId}` : "#"}
                           className={cn(
-                            "absolute inset-x-1 z-20 overflow-hidden rounded-md border-l-[3px] px-1.5 py-1 text-[11px] leading-tight transition hover:brightness-105",
+                            "absolute inset-x-1 z-20 overflow-hidden rounded-lg border-l-4 px-2 py-1.5 text-[11px] leading-tight shadow-sm transition hover:-translate-y-px hover:shadow-md",
                             TONE[tone].block,
                             tone === "live" && "ring-2 ring-secondary-300"
                           )}
                           style={{ top: `${top}%`, minHeight: "1.75rem", height: `${height}%` }}
                           title={`${b.studentName} · ${b.durationMinutes} min · ${TONE[tone].label}`}
                         >
-                          <span className="block truncate font-bold tabular-nums">
+                          <span className="block truncate text-[10px] font-bold uppercase tracking-wide opacity-80 tabular-nums">
                             {s.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}
                           </span>
-                          <span className="block truncate opacity-90">{b.studentName}</span>
+                          <span className="block truncate text-xs font-semibold">
+                            {b.studentName}
+                          </span>
                         </Link>
                       );
                     })}
@@ -328,9 +360,15 @@ export function BookingCalendar({ bookings }: { bookings: CalendarBooking[] }) {
       )}
 
       {inWeek.length === 0 ? (
-        <p className="pt-4 text-center text-sm text-slate-400">
-          No lessons booked this week.
-        </p>
+        <div className="mt-4 rounded-xl border border-dashed border-slate-200 bg-slate-50/60 px-4 py-6 text-center">
+          <p className="text-sm font-semibold text-slate-600">
+            Nothing booked this week
+          </p>
+          <p className="mx-auto mt-1 max-w-sm text-xs text-slate-400">
+            Lessons students book appear here automatically. Open more hours in
+            Availability to be bookable.
+          </p>
+        </div>
       ) : null}
     </section>
   );

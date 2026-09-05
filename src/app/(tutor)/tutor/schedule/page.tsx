@@ -172,12 +172,6 @@ export default async function TutorSchedulePage() {
 
   return (
     <div className="p-4 md:p-8 max-w-7xl mx-auto">
-      <UpcomingClasses classes={bookedClasses} role="tutor" />
-
-      <div className="mb-8">
-        <BookingCalendar bookings={calendarBookings} />
-      </div>
-
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>
@@ -193,6 +187,15 @@ export default async function TutorSchedulePage() {
           <Plus className="w-5 h-5" />
           New Session
         </Link>
+      </div>
+
+      {/* The week itself, directly under its own heading. It was rendering
+          ABOVE the page title, which made the calendar look like something
+          that had escaped from another page. */}
+      <UpcomingClasses classes={bookedClasses} role="tutor" />
+
+      <div className="mb-8">
+        <BookingCalendar bookings={calendarBookings} />
       </div>
 
       {/* Quick Stats */}
