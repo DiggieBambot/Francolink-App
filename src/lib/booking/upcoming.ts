@@ -73,16 +73,20 @@ export async function getUpcomingClasses(
   const partnerIds = [
     ...new Set(rows.map((b) => (role === "student" ? b.tutor_id : b.student_id))),
   ];
-  const { data: people } = await db
+  // `name` and `email` only. users has NO first_name/last_name column, and
+  // asking for one makes PostgREST reject the entire query with 42703 — so
+  // every name came back a fallback ("Someone") while the data was sitting
+  // right there in `name`.
+  const { data: people, error: peopleError } = await db
     .from("users")
-    .select("id, name, first_name, last_name, email")
+    .select("id, name, email")
     .in("id", partnerIds);
+  if (peopleError) console.error("[upcoming] name lookup failed", peopleError);
   const nameById = new Map<string, string>();
   for (const p of people ?? []) {
     nameById.set(
       p.id,
-      p.name ||
-        [p.first_name, p.last_name].filter(Boolean).join(" ") ||
+      p.name?.trim() ||
         p.email?.split("@")[0] ||
         (role === "student" ? "Your tutor" : "Your student")
     );
@@ -103,7 +107,9 @@ export async function getUpcomingClasses(
         endsAt: b.ends_at as string,
         durationMinutes: b.duration_minutes as number,
         partnerId,
-        partnerName: nameById.get(partnerId) ?? "Someone",
+        partnerName:
+          nameById.get(partnerId) ??
+          (role === "student" ? "Your tutor" : "Your student"),
         isOpen: t >= opensAt && t < closesAt,
         hasStarted: t >= startsAt,
         opensInSeconds: Math.max(0, Math.round((opensAt - t) / 1000)),

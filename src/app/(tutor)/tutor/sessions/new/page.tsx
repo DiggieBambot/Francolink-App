@@ -126,7 +126,7 @@ export default async function NewSessionPage({
   // Pull this tutor's students.
   const { data: students } = await supabase
     .from("tutor_students")
-    .select("student_id, status, users:student_id(id, first_name, last_name, email)")
+    .select("student_id, status, users:student_id(id, name, email)")
     .eq("tutor_id", user.id)
     .eq("status", "active");
 
@@ -185,13 +185,13 @@ export default async function NewSessionPage({
                   {students.map((s) => {
                     const u = s.users as unknown as {
                       id: string;
-                      first_name?: string;
+                      name?: string;
                       last_name?: string;
                       email?: string;
                     } | null;
                     if (!u) return null;
                     const name =
-                      [u.first_name, u.last_name].filter(Boolean).join(" ") ||
+                      u.name?.trim() ||
                       u.email?.split("@")[0] ||
                       u.id.slice(0, 8);
                     return (
@@ -224,15 +224,12 @@ export default async function NewSessionPage({
                 {students.map((s) => {
                   const u = s.users as unknown as {
                     id: string;
-                    first_name?: string;
-                    last_name?: string;
+                    name?: string;
                     email?: string;
                   } | null;
                   if (!u) return null;
                   const name =
-                    [u.first_name, u.last_name].filter(Boolean).join(" ") ||
-                    u.email?.split("@")[0] ||
-                    u.id.slice(0, 8);
+                    u.name?.trim() || u.email?.split("@")[0] || u.id.slice(0, 8);
                   return (
                     <option key={u.id} value={u.id}>
                       {name} {u.email ? `· ${u.email}` : ""}

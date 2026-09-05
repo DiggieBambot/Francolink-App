@@ -55,14 +55,13 @@ export default async function RoomPage({
   if (pairedStudentId) {
     const { data: stu } = await svc
       .from("users")
-      .select("name, first_name, last_name, email")
+      .select("name, email")
       .eq("id", pairedStudentId)
       .maybeSingle();
-    pairedStudentName =
-      stu?.name ||
-      [stu?.first_name, stu?.last_name].filter(Boolean).join(" ") ||
-      stu?.email?.split("@")[0] ||
-      null;
+    // No first_name/last_name on users — asking for them 400s the whole
+    // query, which is why this room has been saying "Waiting for the other
+    // side…" next to a student it knew perfectly well.
+    pairedStudentName = stu?.name?.trim() || stu?.email?.split("@")[0] || null;
   }
 
   // Access is membership in lesson_room_participants. A 1:1 room has exactly two
@@ -136,16 +135,10 @@ export default async function RoomPage({
     if (otherStudentIds.length > 0) {
       const { data: others } = await svc
         .from("users")
-        .select("id, name, first_name, last_name, email")
+        .select("id, name, email")
         .in("id", otherStudentIds);
       for (const o of others || []) {
-        nameById.set(
-          o.id,
-          o.name ||
-            [o.first_name, o.last_name].filter(Boolean).join(" ") ||
-            o.email?.split("@")[0] ||
-            "Student"
-        );
+        nameById.set(o.id, o.name?.trim() || o.email?.split("@")[0] || "Student");
       }
     }
 

@@ -55,38 +55,67 @@ export function UpcomingClasses({
 
   return (
     <section className="mb-6 space-y-3">
-      {live.map((c) => (
-        <div
-          key={c.bookingId}
-          className="flex flex-col gap-3 rounded-2xl bg-primary-600 p-5 text-white shadow-lg sm:flex-row sm:items-center"
-        >
-          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/15">
-            <Video className="h-5 w-5" />
-          </span>
-          <div className="min-w-0 flex-1">
-            <p className="flex items-center gap-2 text-sm font-bold">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/70" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
-              </span>
-              {new Date(c.startsAt).getTime() <= now
-                ? "Your class is on now"
-                : `Class starts in ${countdown(Math.round((new Date(c.startsAt).getTime() - now) / 1000))}`}
-            </p>
-            <p className="mt-0.5 truncate text-sm text-white/80">
-              {c.partnerName} · {c.durationMinutes} minutes
-            </p>
+      {live.map((c) => {
+        const start = new Date(c.startsAt).getTime();
+        const started = start <= now;
+        return (
+          <div
+            key={c.bookingId}
+            className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary-600 to-primary-700 p-5 text-white shadow-lg"
+          >
+            {/* A soft light behind the card. The live class is the only thing
+                on this screen that is happening RIGHT NOW, and it should not
+                look like the cards that merely sit there. */}
+            <span
+              aria-hidden
+              className="pointer-events-none absolute -right-8 -top-10 h-40 w-40 rounded-full bg-white/10 blur-2xl"
+            />
+
+            <div className="relative">
+              <p className="inline-flex items-center gap-2 rounded-full bg-white/15 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/80" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-white" />
+                </span>
+                {started
+                  ? "Live now"
+                  : `Starts in ${countdown(Math.round((start - now) / 1000))}`}
+              </p>
+
+              {/* The tutor is the point of the lesson, so their name is the
+                  headline rather than a subtitle under a status. */}
+              <p className="mt-3 text-xl font-bold leading-tight">
+                {c.partnerName}
+              </p>
+              <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-sm text-white/75">
+                <span>
+                  {new Date(c.startsAt).toLocaleTimeString([], {
+                    hour: "numeric",
+                    minute: "2-digit",
+                  })}
+                </span>
+                <span aria-hidden className="text-white/40">·</span>
+                <span>{c.durationMinutes} minutes</span>
+              </p>
+
+              {c.roomId ? (
+                <Link
+                  href={`/room/${c.roomId}`}
+                  className="mt-4 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-white text-base font-bold text-primary-700 shadow-sm transition hover:bg-white/90 sm:w-auto sm:px-8"
+                >
+                  <Video className="h-5 w-5" />
+                  Join {started ? "now" : "early"}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              ) : (
+                <p className="mt-4 text-sm text-white/70">
+                  This lesson has no room yet — your tutor will send a link.
+                </p>
+              )}
+            </div>
           </div>
-          {c.roomId ? (
-            <Link
-              href={`/room/${c.roomId}`}
-              className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-bold text-primary-700 transition hover:bg-white/90"
-            >
-              Join now <ArrowRight className="h-4 w-4" />
-            </Link>
-          ) : null}
-        </div>
-      ))}
+        );
+      })}
 
       {later.length > 0 ? (
         <div className="rounded-2xl border border-gray-100 bg-white p-4 shadow-soft">
