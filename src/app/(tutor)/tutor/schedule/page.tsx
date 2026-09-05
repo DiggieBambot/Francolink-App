@@ -1,4 +1,6 @@
 // src/app/(tutor)/tutor/schedule/page.tsx
+import { UpcomingClasses } from "@/components/dashboard/upcoming-classes";
+import { getUpcomingClasses } from "@/lib/booking/upcoming";
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
@@ -109,8 +111,23 @@ export default async function TutorSchedulePage() {
     }
   };
 
+  // The lessons students have actually BOOKED AND PAID FOR.
+  //
+  // Everything else on this page reads tutor_sessions, which is the older
+  // "tutor creates a session and assigns students" flow. Both exist, but a
+  // booking is the one with money against it and a room attached — and it was
+  // appearing on neither of the tutor's two schedule pages.
+  let bookedClasses: Awaited<ReturnType<typeof getUpcomingClasses>> = [];
+  try {
+    bookedClasses = await getUpcomingClasses(user.id, "tutor", { limit: 12 });
+  } catch (e) {
+    console.error("[tutor/schedule] booked classes failed", e);
+  }
+
   return (
     <div className="p-4 md:p-8 max-w-7xl mx-auto">
+      <UpcomingClasses classes={bookedClasses} role="tutor" />
+
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>

@@ -99,7 +99,9 @@ export function CalendarSubscribe() {
             {/* Google can't read webcal:// — it takes the https URL pasted into
                 "From URL". Apple Calendar and Outlook subscribe on the click. */}
             <a
-              href={`https://calendar.google.com/calendar/u/0/r/settings/addbyurl`}
+              // ?cid= arrives pre-filled, so this is one click rather than
+              // "now paste the link you just copied into the box".
+              href={`https://calendar.google.com/calendar/u/0/r/settings/addbyurl?cid=${encodeURIComponent(url)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="px-3 py-2 rounded-xl text-sm font-semibold border border-gray-200 hover:bg-gray-50"
