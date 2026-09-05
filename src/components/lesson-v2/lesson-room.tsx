@@ -401,6 +401,9 @@ export function LessonRoom({
             icon: Video,
             content: (
               <VideoStage
+                peerName={
+                  studentName || (currentRole === "student" ? "your tutor" : null)
+                }
                 afterClass={
                   <AfterClass
                     sessionId={sessionId}

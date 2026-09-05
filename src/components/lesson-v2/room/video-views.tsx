@@ -16,6 +16,7 @@ import type { DailyParticipant } from "@daily-co/daily-js";
 import {
   Mic, MicOff, Video, VideoOff, PhoneOff, Loader2, AlertCircle, UserRound,
   CalendarClock, ScreenShare, ScreenShareOff, CheckCircle2, Sparkles, Check,
+  ChevronUp,
 } from "lucide-react";
 import { useRoomVideo } from "./video-context";
 import { Lobby } from "./lobby";
@@ -130,6 +131,75 @@ function Tile({
         </span>
       )}
     </div>
+  );
+}
+
+/**
+ * A control with a device chooser attached — the little chevron next to Mic
+ * and Camera in every mature call product.
+ *
+ * Without it the only way to change input mid-lesson is to leave the call,
+ * switch in the lobby and come back: during a paid class, with the other
+ * person watching you vanish. The wrong microphone is the commonest thing
+ * that goes wrong in a call and the one people notice only once they are in
+ * it, so the fix belongs where the problem is.
+ */
+function DeviceMenu({
+  items,
+  value,
+  onPick,
+  label,
+}: {
+  items: MediaDeviceInfo[];
+  value: string;
+  onPick: (id: string) => void;
+  label: string;
+}) {
+  const [open, setOpen] = useState(false);
+  if (items.length < 2) return null;
+  return (
+    <span className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-label={`Choose ${label}`}
+        aria-expanded={open}
+        className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-800 text-slate-300 transition hover:bg-slate-700 hover:text-white"
+      >
+        <ChevronUp className="h-3 w-3" />
+      </button>
+      {open ? (
+        <>
+          <span className="fixed inset-0 z-40" onClick={() => setOpen(false)} aria-hidden />
+          <div className="absolute bottom-full left-1/2 z-50 mb-2 w-64 -translate-x-1/2 overflow-hidden rounded-xl border border-slate-700 bg-slate-900 shadow-2xl">
+            <p className="border-b border-slate-800 px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-500">
+              {label}
+            </p>
+            {items.map((d) => (
+              <button
+                key={d.deviceId}
+                type="button"
+                onClick={() => {
+                  onPick(d.deviceId);
+                  setOpen(false);
+                }}
+                className={cn(
+                  "flex w-full items-center gap-2 px-3 py-2 text-left text-sm transition",
+                  d.deviceId === value
+                    ? "bg-primary-500/15 font-semibold text-primary-200"
+                    : "text-slate-300 hover:bg-slate-800"
+                )}
+              >
+                <span className="w-4 shrink-0">
+                  {d.deviceId === value ? <Check className="h-3.5 w-3.5" /> : null}
+                </span>
+                <span className="truncate">{d.label || "Unnamed device"}</span>
+              </button>
+            ))}
+          </div>
+        </>
+      ) : null}
+    </span>
   );
 }
 
@@ -250,21 +320,46 @@ export function EffectsButton({ box, icon }: { box: string; icon: string }) {
 }
 
 /** Mic / camera / share / leave. Same controls at both sizes. */
+/** A control and the word for it. */
+function Labelled({
+  label,
+  show,
+  children,
+}: {
+  label: string;
+  show: boolean;
+  children: React.ReactNode;
+}) {
+  if (!show) return <>{children}</>;
+  return (
+    <span className="flex flex-col items-center gap-0.5">
+      {children}
+      <span className="text-[10px] font-medium leading-none text-slate-400">{label}</span>
+    </span>
+  );
+}
+
 export function VideoControls({ size = "sm" }: { size?: "sm" | "lg" }) {
   const {
     micOn, camOn, screenOn, toggleMic, toggleCam, toggleScreen, leave,
-    localLevel,
+    localLevel, devices, micId, camId, setMicDevice, setCamDevice,
   } = useRoomVideo();
   const box = size === "lg" ? "h-11 w-11" : "h-8 w-8";
   const icon = size === "lg" ? "h-5 w-5" : "h-4 w-4";
+  // Words under the icons at full size. An unlabelled icon row is a quiz, and
+  // a tutor mid-sentence should not have to hover to find out which circle
+  // mutes them. The rail's small size stays bare — there is no room, and the
+  // main bar is right there.
+  const labelled = size === "lg";
 
   return (
-    <div className="flex items-center justify-center gap-1.5">
+    <div className={cn("flex justify-center gap-1.5", labelled ? "items-end" : "items-center")}>
       {/* The mic button IS the meter. A separate level indicator somewhere
           else on screen is a thing nobody looks at; a ring that grows around
           the button you already stare at when you wonder whether you are
           being heard is the same information, free. */}
-      <span className="relative inline-flex">
+      <Labelled label={micOn ? "Mic" : "Muted"} show={labelled}>
+      <span className="relative inline-flex items-end">
         {micOn && localLevel > 0.05 ? (
           <span
             aria-hidden
@@ -285,25 +380,49 @@ export function VideoControls({ size = "sm" }: { size?: "sm" | "lg" }) {
         >
           {micOn ? <Mic className={icon} /> : <MicOff className={icon} />}
         </button>
+        <span className="absolute -bottom-1 -right-1">
+          <DeviceMenu
+            items={devices.mics}
+            value={micId}
+            onPick={setMicDevice}
+            label="Microphone"
+          />
+        </span>
       </span>
-      <button
-        type="button"
-        onClick={toggleCam}
-        aria-pressed={!camOn}
-        title={camOn ? "Turn camera off" : "Turn camera on"}
-        className={cn(
-          "inline-flex items-center justify-center rounded-full transition-colors",
-          box,
-          camOn ? "bg-slate-700 text-white hover:bg-slate-600" : "bg-accent text-white"
-        )}
-      >
-        {camOn ? <Video className={icon} /> : <VideoOff className={icon} />}
-      </button>
-      <EffectsButton box={box} icon={icon} />
+      </Labelled>
+      <Labelled label={camOn ? "Camera" : "Camera off"} show={labelled}>
+      <span className="relative inline-flex items-end">
+        <button
+          type="button"
+          onClick={toggleCam}
+          aria-pressed={!camOn}
+          title={camOn ? "Turn camera off" : "Turn camera on"}
+          className={cn(
+            "inline-flex items-center justify-center rounded-full transition-colors",
+            box,
+            camOn ? "bg-slate-700 text-white hover:bg-slate-600" : "bg-accent text-white"
+          )}
+        >
+          {camOn ? <Video className={icon} /> : <VideoOff className={icon} />}
+        </button>
+        <span className="absolute -bottom-1 -right-1">
+          <DeviceMenu
+            items={devices.cams}
+            value={camId}
+            onPick={setCamDevice}
+            label="Camera"
+          />
+        </span>
+      </span>
+      </Labelled>
+      <Labelled label="Effects" show={labelled}>
+        <EffectsButton box={box} icon={icon} />
+      </Labelled>
       {/* Absent, not disabled, where the browser has no getDisplayMedia —
           iOS Safari. A share button that silently does nothing gets pressed
           repeatedly while the class waits. */}
       {toggleScreen ? (
+        <Labelled label={screenOn ? "Stop" : "Share"} show={labelled}>
         <button
           type="button"
           onClick={toggleScreen}
@@ -323,7 +442,9 @@ export function VideoControls({ size = "sm" }: { size?: "sm" | "lg" }) {
             <ScreenShare className={icon} />
           )}
         </button>
+        </Labelled>
       ) : null}
+      <Labelled label="Leave" show={labelled}>
       <button
         type="button"
         onClick={leave}
@@ -335,6 +456,7 @@ export function VideoControls({ size = "sm" }: { size?: "sm" | "lg" }) {
       >
         <PhoneOff className={icon} />
       </button>
+      </Labelled>
     </div>
   );
 }
@@ -479,7 +601,13 @@ function Inert({ compact }: { compact: boolean }) {
  * The big view. Remote fills the stage, you sit in the corner — the person you
  * are talking to should be the one you are looking at.
  */
-export function VideoStage({ afterClass }: { afterClass?: React.ReactNode }) {
+export function VideoStage({
+  afterClass,
+  peerName,
+}: {
+  afterClass?: React.ReactNode;
+  peerName?: string | null;
+}) {
   const { phase, local, remote, screenOn, screenActive } = useRoomVideo();
   // Somebody is sharing: what they are showing becomes the thing worth
   // looking at, and the faces move to the corner. Sharing a screen and then
@@ -534,7 +662,7 @@ export function VideoStage({ afterClass }: { afterClass?: React.ReactNode }) {
         // devices, watch the meter move. The two commonest ways a lesson goes
         // wrong are "you're on mute" and "I can't hear you", and both are
         // settled here rather than thirty seconds into a paid lesson.
-        <Lobby />
+        <Lobby peerName={peerName} />
       ) : (
         // unconfigured / unavailable / ended — nothing to set up, just say why.
         <div className="px-6 text-center">

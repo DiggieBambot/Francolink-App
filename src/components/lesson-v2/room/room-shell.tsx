@@ -33,7 +33,7 @@
 // as "allow more than one entry" rather than a rewrite.
 
 import { useEffect, useState } from "react";
-import { MessageSquare, PenTool, Users, Video as VideoIcon, X, Sparkles, Clock, Library, LogOut, Hand, MicOff } from "lucide-react";
+import { MessageSquare, PenTool, Users, Video as VideoIcon, X, Sparkles, Clock, Library, LogOut, Hand, MicOff, WifiOff } from "lucide-react";
 import { useRoomVideo } from "./video-context";
 import { VideoRail, VideoControls } from "./video-views";
 import { cn } from "@/lib/utils";
@@ -191,6 +191,36 @@ function ClassClock({
  * screen. That is also what makes the room read like a classroom rather than
  * a document with a webcam in the corner: a fixed frame around the lesson.
  */
+/**
+ * How the connection is holding up.
+ *
+ * A frozen or blocky picture is the commonest complaint in any lesson, and
+ * without this the only available explanation is "the app is broken". Silent
+ * while things are fine — a permanent green tick is decoration, and a room
+ * should only spend attention on a problem.
+ */
+function NetworkPip() {
+  const { phase, network } = useRoomVideo();
+  if (phase !== "joined" || network === "good" || network === "unknown") return null;
+  const bad = network === "bad";
+  return (
+    <span
+      className={cn(
+        "inline-flex items-center gap-1.5 rounded-full px-2 py-1 text-[11px] font-semibold",
+        bad ? "bg-accent-light text-accent" : "bg-secondary-50 text-secondary-700"
+      )}
+      title={
+        bad
+          ? "Your connection is struggling. Turning your camera off usually helps most."
+          : "Your connection is a little unsteady."
+      }
+    >
+      <WifiOff className="h-3.5 w-3.5" />
+      <span className="hidden sm:inline">{bad ? "Weak connection" : "Unsteady"}</span>
+    </span>
+  );
+}
+
 function ControlBar({
   peerName,
   railTabs,
@@ -229,6 +259,7 @@ function ControlBar({
           with no warning visible anywhere — and the clock was ALSO drawn in
           the header and in the mobile sheet. Three clocks for one class. */}
       <div className="flex min-w-0 items-center gap-2">
+        <NetworkPip />
         {peerName ? (
           <span className="hidden min-w-0 items-center gap-2 sm:flex">
             <span className="h-2 w-2 shrink-0 rounded-full bg-primary-400" />

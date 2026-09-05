@@ -91,6 +91,14 @@ interface VideoContextValue {
    */
   canProcessVideo: boolean;
   canProcessAudio: boolean;
+  /** Inputs to choose from, and switching between them WITHOUT leaving. */
+  devices: { mics: MediaDeviceInfo[]; cams: MediaDeviceInfo[]; speakers: MediaDeviceInfo[] };
+  micId: string;
+  camId: string;
+  setMicDevice: (id: string) => void;
+  setCamDevice: (id: string) => void;
+  /** How the connection is holding up, so a bad picture has an explanation. */
+  network: "good" | "warning" | "bad" | "unknown";
   /** Any effect on at all — for the button's active state. */
   blurOn: boolean;
   toggleBlur: () => void;
@@ -220,6 +228,14 @@ export function RoomVideoProvider({
   // Asked once. supportedBrowser() is a static read of the user agent and
   // capabilities, so it cannot change between renders — but it touches
   // navigator, so it must not run during SSR.
+  const [devices, setDevices] = useState<{
+    mics: MediaDeviceInfo[];
+    cams: MediaDeviceInfo[];
+    speakers: MediaDeviceInfo[];
+  }>({ mics: [], cams: [], speakers: [] });
+  const [micId, setMicId] = useState("");
+  const [camId, setCamId] = useState("");
+  const [network, setNetwork] = useState<"good" | "warning" | "bad" | "unknown">("unknown");
   const [caps, setCaps] = useState({ video: false, audio: false });
   useEffect(() => {
     try {
@@ -384,6 +400,26 @@ export function RoomVideoProvider({
     return () => clearInterval(t);
   }, [phase, hardEndsAt, classStartsAt]);
 
+  /**
+   * The input list, re-read whenever it can have changed.
+   *
+   * Labels are empty until permission is granted, so this only says anything
+   * useful once the camera is running — which is why it is called from sync()
+   * rather than once on mount.
+   */
+  const refreshDevices = useCallback(async () => {
+    try {
+      const all = await navigator.mediaDevices.enumerateDevices();
+      setDevices({
+        mics: all.filter((d) => d.kind === "audioinput"),
+        cams: all.filter((d) => d.kind === "videoinput"),
+        speakers: all.filter((d) => d.kind === "audiooutput"),
+      });
+    } catch {
+      /* a browser that will not enumerate is a browser with nothing to offer */
+    }
+  }, []);
+
   const sync = useCallback((call: DailyCall) => {
     const all = call.participants();
     setLocal(all.local ?? null);
@@ -457,6 +493,13 @@ export function RoomVideoProvider({
       .on("participant-left", update)
       .on("joined-meeting", update)
       .on("started-camera", update)
+      .on("available-devices-updated", () => void refreshDevices())
+      .on("network-quality-change", (e) => {
+        const n = (e as { networkState?: string } | undefined)?.networkState;
+        setNetwork(
+          n === "good" || n === "warning" || n === "bad" ? n : "unknown"
+        );
+      })
       .on("error", (e) => {
         console.error("[video] daily error", e);
         setError(
@@ -467,7 +510,7 @@ export function RoomVideoProvider({
         setPhase("error");
       });
     return call;
-  }, [sync]);
+  }, [sync, refreshDevices]);
 
   /**
    * Camera on, nobody watching.
@@ -488,12 +531,13 @@ export function RoomVideoProvider({
         });
         setPreviewOn(true);
         sync(call);
+        void refreshDevices();
       } catch (e) {
         console.error("[video] preview failed", e);
         setError(friendlyError(e instanceof Error ? e.message : String(e)));
       }
     },
-    [ensureCall, sync]
+    [ensureCall, sync, refreshDevices]
   );
 
   const stopPreview = useCallback(() => {
@@ -700,6 +744,24 @@ export function RoomVideoProvider({
     setBlur(blur === "off" ? "strong" : "off");
   }, [blur, setBlur]);
 
+  /**
+   * Change microphone or camera mid-lesson.
+   *
+   * Without this the only way to switch inputs is to leave the call, change
+   * it in the lobby and come back — during a paid lesson, with the other
+   * person watching you disappear. Daily swaps the track in place, so the far
+   * side sees a flicker rather than a departure.
+   */
+  const setMicDevice = useCallback((id: string) => {
+    setMicId(id);
+    void callRef.current?.setInputDevicesAsync({ audioDeviceId: id || null });
+  }, []);
+
+  const setCamDevice = useCallback((id: string) => {
+    setCamId(id);
+    void callRef.current?.setInputDevicesAsync({ videoDeviceId: id || null });
+  }, []);
+
   const toggleCam = useCallback(() => {
     const call = callRef.current;
     if (!call) return;
@@ -718,6 +780,7 @@ export function RoomVideoProvider({
         toggleScreen: canShare ? toggleScreen : null,
         blur, setBlur, denoise, toggleDenoise,
         canProcessVideo: caps.video, canProcessAudio: caps.audio,
+        devices, micId, camId, setMicDevice, setCamDevice, network,
         blurOn: blur !== "off", toggleBlur,
         startPreview, stopPreview, previewOn,
         elapsed,

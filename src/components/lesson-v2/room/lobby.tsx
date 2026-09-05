@@ -97,7 +97,7 @@ function untilLabel(seconds: number): string {
   return `${m}:${String(s).padStart(2, "0")}`;
 }
 
-export function Lobby() {
+export function Lobby({ peerName }: { peerName?: string | null }) {
   const {
     phase, join, opensAt, startsAt, error,
     startPreview, previewOn, local,
@@ -317,14 +317,17 @@ export function Lobby() {
         <div className="min-w-0">
           <h2 className="text-lg font-bold text-white">
             {waiting
-              ? "Your class hasn't started yet"
+              ? peerName
+                ? `Meet ${peerName.split(" ")[0]} here`
+                : "Your class hasn't started yet"
               : locked
                 ? "No class booked yet"
                 : "Ready to join?"}
           </h2>
           <p className="mt-1 text-sm text-slate-400">
             {waiting && startsAt
-              ? `Starts at ${new Date(startsAt).toLocaleTimeString([], {
+              ? `Scheduled for ${new Date(startsAt).toLocaleString([], {
+                  weekday: "long",
                   hour: "numeric",
                   minute: "2-digit",
                 })} — you can join in ${untilLabel(opensIn)}.`
