@@ -27,6 +27,8 @@ import { JoinTutorCode } from "@/components/dashboard/join-tutor-code";
 import { BookClassButton } from "@/components/dashboard/book-class-button";
 import { SubscribePrompt } from "@/components/dashboard/subscribe-prompt";
 import { TrackOnce } from "@/components/analytics/track-once";
+import { UpcomingClasses } from "@/components/dashboard/upcoming-classes";
+import { getUpcomingClasses } from "@/lib/booking/upcoming";
 import { formatNumber } from "@/lib/utils";
 import { getLessonUsage } from "@/lib/utils/lesson-limits";
 import { langSlug, LANGUAGE_INFO } from "@/lib/utils/language";
@@ -195,9 +197,27 @@ export default async function DashboardPage() {
   }
   const isMultiLanguage = enrolledLanguages.size > 1;
 
+  // Best-effort: a slow or failing bookings read must not take the dashboard
+  // down with it.
+  let upcomingClasses: Awaited<ReturnType<typeof getUpcomingClasses>> = [];
+  if (user?.id) {
+    try {
+      upcomingClasses = await getUpcomingClasses(user.id, "student", { limit: 6 });
+    } catch (e) {
+      console.error("[dashboard] upcoming classes failed", e);
+    }
+  }
+
   return (
     <div className="space-y-8 max-w-7xl mx-auto">
       <TrackOnce event="dashboard_viewed" once="dashboard_viewed" />
+
+      {/* Live and upcoming lessons, above everything.
+          A student's route from "I have a lesson" to "I am in it" used to run
+          entirely through the confirmation email: the dashboard's own "View
+          Sessions" button pointed at a page querying the legacy tutor_sessions
+          table by tutor_id, which for a student is empty by construction. */}
+      <UpcomingClasses classes={upcomingClasses} role="student" />
       {/* ============================================
           WELCOME HEADER
           ============================================ */}
