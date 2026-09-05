@@ -115,7 +115,13 @@ export function SpaceShell({
     // screen, which would push the message composer under the browser chrome.
     <div className="flex h-[100dvh] flex-col overflow-hidden bg-slate-100">
       {/* ------------------------------------------------------------- TOP */}
-      <header className="flex h-12 shrink-0 items-stretch gap-1 border-b bg-white pr-2">
+      <header
+        className="flex shrink-0 items-stretch gap-1 border-b bg-white pr-2"
+        style={{
+          height: "calc(3rem + env(safe-area-inset-top))",
+          paddingTop: "env(safe-area-inset-top)",
+        }}
+      >
         {/* The tabs never yield to the toolbar — at 375px a `flex-1` tab strip
             against a ~600px toolbar collapses to zero width and there is no
             way back to the material. */}
@@ -232,7 +238,10 @@ export function SpaceShell({
         <button
           type="button"
           onClick={() => setDrawerOpen(true)}
-          className="fixed bottom-4 right-4 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary-500 text-white shadow-lg transition hover:bg-primary-600 lg:hidden"
+          className="fixed right-4 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary-500 text-white shadow-lg transition hover:bg-primary-600 lg:hidden"
+          // Clear of the home indicator: viewport-fit=cover means the bottom
+          // of the viewport is BEHIND it, not above it.
+          style={{ bottom: "calc(1rem + env(safe-area-inset-bottom))" }}
           aria-label="Open chat and tools"
         >
           <MessageSquare className="h-5 w-5" />

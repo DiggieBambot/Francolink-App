@@ -2,7 +2,6 @@
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useLessonRoom } from "./lesson-room-context";
-import { cn } from "@/lib/utils";
 
 interface StepControlsProps {
   totalSteps: number;
@@ -26,16 +25,20 @@ export function StepControls({ totalSteps, raised = false }: StepControlsProps) 
 
   return (
     <div
-      className={cn(
-        "fixed right-4 z-40 flex items-center gap-2 rounded-full border bg-white/95 px-3 py-1.5 shadow-md backdrop-blur",
-        // The Classroom has a 64px control bar pinned to the bottom of the
-        // viewport, and this pager is fixed to that same viewport — so by
-        // default it lands ON TOP of End class. Rooms that have the bar say
-        // so; the demo room and the Study Space have no bar and keep the
-        // lower position, because floating a pager needlessly high leaves a
-        // gap that reads as a mistake.
-        raised ? "bottom-20" : "bottom-4"
-      )}
+      className="fixed right-4 z-40 flex items-center gap-2 rounded-full border bg-white/95 px-3 py-1.5 shadow-md backdrop-blur"
+      style={{
+        // The Classroom pins a control bar to the bottom of the viewport and
+        // this pager is fixed to the same viewport, so without an offset it
+        // lands on top of End class. `bottom-20` was that offset and it was
+        // WRONG on any phone with a home indicator: the bar is 4rem plus the
+        // safe-area inset, so a flat 5rem left the pager sitting in the last
+        // 18px of it. --room-bar is the bar's real height, published by the
+        // shell; the fallback covers the Study Space and the demo room, which
+        // have no bar and want the floor.
+        bottom: raised
+          ? "calc(var(--room-bar, 4rem) + 0.75rem)"
+          : "calc(1rem + env(safe-area-inset-bottom))",
+      }}
     >
       <button
         type="button"

@@ -546,9 +546,32 @@ export function RoomShell({
   return (
     // 100dvh, not 100vh: on iOS Safari the URL bar makes vh taller than the
     // screen, which would push the message composer under the browser chrome.
-    <div className="flex h-[100dvh] flex-col overflow-hidden bg-slate-100">
+    <div
+      className="flex h-[100dvh] flex-col overflow-hidden bg-slate-100"
+      style={
+        {
+          // The control bar is h-16 PLUS the home-indicator inset, so on an
+          // iPhone it is ~98px, not 64. Anything pinned above it that assumed
+          // 64 (the chat sheet) or 80 (the step pager) overlapped it by the
+          // height of the inset — which is why chat sat on top of the controls
+          // on a 15 Pro Max and in the PWA, where viewport-fit=cover makes the
+          // inset non-zero. One variable, measured once, so the arithmetic
+          // cannot drift again.
+          "--room-bar": "calc(4rem + env(safe-area-inset-bottom))",
+        } as React.CSSProperties
+      }
+    >
       {/* ------------------------------------------------------------- TOP */}
-      <header className="flex h-12 shrink-0 items-stretch gap-1 border-b bg-white pr-2">
+      {/* viewport-fit=cover puts the header under the Dynamic Island in a
+          standalone PWA. env() is 0 in a normal browser tab, so this costs
+          nothing there. */}
+      <header
+        className="flex shrink-0 items-stretch gap-1 border-b bg-white pr-2"
+        style={{
+          height: "calc(3rem + env(safe-area-inset-top))",
+          paddingTop: "env(safe-area-inset-top)",
+        }}
+      >
         {/* The tabs never yield. They used to be `min-w-0 flex-1` against a
             `shrink-0` actions row — which is fine at 1440px and catastrophic
             at 375px: the toolbar is ~600px wide, so it took the whole header
@@ -665,10 +688,12 @@ export function RoomShell({
               stacked under the video strip, left the material a sliver. */}
           <div
             className={cn(
-              "fixed inset-x-0 bottom-16 z-50 flex flex-col rounded-t-2xl border-t bg-white shadow-2xl transition-[height] duration-200 lg:hidden",
+              "fixed inset-x-0 z-50 flex flex-col rounded-t-2xl border-t bg-white shadow-2xl transition-[height] duration-200 lg:hidden",
               sheetTall ? "h-[80dvh]" : "h-[42dvh]"
             )}
-            style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+            // Above the bar, not above the screen. The inset is already inside
+            // --room-bar; adding it here too would leave a second gap.
+            style={{ bottom: "var(--room-bar)" }}
           >
             <button
               type="button"
