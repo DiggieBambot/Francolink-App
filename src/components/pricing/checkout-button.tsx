@@ -8,6 +8,11 @@ interface CheckoutButtonProps {
   plan: "premium" | "premium_plus";
   billingPeriod?: "monthly" | "yearly";
   className?: string;
+  // The pricing cards paint each plan's brand gradient on its CTA inline. This
+  // prop used to be missing, so React dropped the style the page passed and the
+  // paid buttons rendered white-on-white — invisible on the card, and unclickable
+  // in practice. Every Premium sign-up went through a button nobody could see.
+  style?: React.CSSProperties;
   children: React.ReactNode;
   disabled?: boolean;
 }
@@ -16,6 +21,7 @@ export function CheckoutButton({
   plan,
   billingPeriod = "monthly",
   className = "",
+  style,
   children,
   disabled = false,
 }: CheckoutButtonProps) {
@@ -55,6 +61,7 @@ export function CheckoutButton({
     <button
       onClick={handleCheckout}
       disabled={disabled || loading}
+      style={style}
       className={`${className} ${loading ? "opacity-70 cursor-wait" : ""} ${
         disabled ? "cursor-not-allowed" : ""
       }`}

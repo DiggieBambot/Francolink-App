@@ -26,11 +26,13 @@ import { DailyLessonLimit } from "@/components/dashboard/daily-lesson-limit";
 import { JoinTutorCode } from "@/components/dashboard/join-tutor-code";
 import { BookClassButton } from "@/components/dashboard/book-class-button";
 import { SubscribePrompt } from "@/components/dashboard/subscribe-prompt";
+import { PlanCard } from "@/components/dashboard/plan-card";
 import { TrackOnce } from "@/components/analytics/track-once";
 import { UpcomingClasses } from "@/components/dashboard/upcoming-classes";
 import { getUpcomingClasses } from "@/lib/booking/upcoming";
 import { formatNumber } from "@/lib/utils";
 import { getLessonUsage } from "@/lib/utils/lesson-limits";
+import { getSettingsByCategory } from "@/lib/config/settings";
 import { langSlug, LANGUAGE_INFO } from "@/lib/utils/language";
 import Link from "next/link";
 
@@ -62,6 +64,16 @@ export default async function DashboardPage() {
     .select("*")
     .eq("id", user?.id)
     .single();
+
+  // Prices come from the admin pricing settings, so the dashboard card and the
+  // pricing page can never quote different numbers.
+  const pricing = await getSettingsByCategory("pricing");
+  const planPrices = {
+    premiumMonthly: Number(pricing.premium_monthly_price ?? 7.99),
+    premiumYearly: Number(pricing.premium_yearly_price ?? 59.99),
+    premiumPlusMonthly: Number(pricing.premium_plus_monthly_price ?? 14.99),
+    premiumPlusYearly: Number(pricing.premium_plus_yearly_price ?? 119.99),
+  };
 
   // Get user's learning language (default to French for backwards compatibility)
   const userLanguage = profile?.learning_language || "fr";
@@ -451,6 +463,8 @@ export default async function DashboardPage() {
 
         {/* Right Column — 1/3 */}
         <div className="space-y-6">
+          <PlanCard plan={profile?.subscription_plan} prices={planPrices} />
+
           <DailyLessonLimit usage={usage} />
 
           <StreakCard
