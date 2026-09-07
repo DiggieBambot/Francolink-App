@@ -3,6 +3,24 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
+import { createClient as createServiceClient } from "@supabase/supabase-js";
+
+// app_settings is admin-readable only under RLS, so the cookie-bound client
+// returned nothing for ordinary signed-in users and every getSetting() fell back
+// to its default — which is how a fully configured Stripe answered checkout with
+// "Payments are not available yet". These functions are server-only ("use
+// server" above), so reading settings with the service role is safe here.
+async function settingsClient() {
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (serviceKey) {
+    return createServiceClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      serviceKey,
+      { auth: { persistSession: false } }
+    );
+  }
+  return createClient();
+}
 
 // ─── Types ───────────────────────────────────────────────────────
 
@@ -33,7 +51,7 @@ export async function getSetting<T = string>(
   defaultValue: T
 ): Promise<T> {
   try {
-    const supabase = await createClient();
+    const supabase = await settingsClient();
 
     const { data, error } = await supabase
       .from("app_settings")
@@ -74,7 +92,7 @@ export async function getSettingsByCategory(
   category: SettingCategory
 ): Promise<Record<string, any>> {
   try {
-    const supabase = await createClient();
+    const supabase = await settingsClient();
 
     const { data, error } = await supabase
       .from("app_settings")
