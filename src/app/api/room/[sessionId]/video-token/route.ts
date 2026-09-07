@@ -104,21 +104,29 @@ export async function POST(
   // what somebody SEES; a token is what actually gets a person onto the call,
   // so a hand-rolled POST to this route has to hit the same wall as the button.
   //
-  // A room no booking has ever used is unscheduled — an independent tutor's
-  // own classroom — and keeps the behaviour it has always had.
+  // Video requires a PAID, SCHEDULED lesson that is on right now — nothing
+  // else. `closed` is a room whose booking is not in its window; `unscheduled`
+  // is a room no booking has ever touched, which used to get video with a flat
+  // four-hour TTL. That was the hole: a listed tutor could open their own room
+  // any time and run an unlimited call against a lesson nobody paid for, which
+  // is a real cost on the Daily account and the exact thing the caps exist to
+  // stop. `confirmed` is the paid state — a booking only reaches it once
+  // Stripe settles or credits are spent (see lib/booking/confirm.ts).
   const classState = await resolveClassWindow(sessionId, { persist: true });
-  if (classState.kind === "closed") {
+  if (classState.kind !== "open") {
     // Soft, like `unavailable` above: nothing is broken and there is nothing
     // to retry, so the panel explains and shows the next class instead of
     // rendering an error.
     return NextResponse.json(
       {
-        error: classState.next
-          ? "Video turns on shortly before your next class."
-          : "This room has no upcoming class booked.",
+        error: classState.kind === "unscheduled"
+          ? "Live video is for booked lessons. Book one and the call turns on ten minutes before it starts."
+          : classState.next
+            ? "Video turns on shortly before your next class."
+            : "This room has no upcoming class booked.",
         scheduled: true,
-        opensAt: classState.next?.opensAt ?? null,
-        startsAt: classState.next?.startsAt ?? null,
+        opensAt: classState.kind === "closed" ? classState.next?.opensAt ?? null : null,
+        startsAt: classState.kind === "closed" ? classState.next?.startsAt ?? null : null,
       },
       { status: 403 }
     );

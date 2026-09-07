@@ -240,27 +240,35 @@ export default async function RoomPage({
   // Resolved here purely so the pre-class state renders at first paint — the
   // token route resolves it again and is the actual gate, because a token is
   // what gets a person onto a call and this page is only what they see.
-  // `unscheduled` (no booking has ever used this room) leaves classWindow
-  // undefined, and video behaves exactly as it always has.
   // A Study Space has no bookings and no clock; skip the query entirely
   // rather than asking a question whose answer it would throw away.
   const classState =
     roomKind === "space"
       ? ({ kind: "unscheduled" } as const)
       : await resolveClassWindow(id, { persist: true });
+
+  // In a Classroom, video means "a paid lesson is on right now" and nothing
+  // else. A room with no booking at all used to leave this undefined, which
+  // the provider read as "no schedule, video always on" — so a listed tutor
+  // could open their own room whenever they liked and hold an unlimited call
+  // against a lesson nobody paid for. Only `open` opens it now.
   const classWindow =
-    classState.kind === "unscheduled"
+    roomKind === "space"
       ? undefined
       : {
           open: classState.kind === "open",
           opensAt:
             classState.kind === "open"
               ? classState.current.opensAt
-              : classState.next?.opensAt ?? null,
+              : classState.kind === "closed"
+                ? classState.next?.opensAt ?? null
+                : null,
           startsAt:
             classState.kind === "open"
               ? classState.current.startsAt
-              : classState.next?.startsAt ?? null,
+              : classState.kind === "closed"
+                ? classState.next?.startsAt ?? null
+                : null,
         };
 
   // The tutor's next free slot, for the card the student sees when class ends.
