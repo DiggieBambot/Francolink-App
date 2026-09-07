@@ -434,6 +434,114 @@ def interactivise(body, answers):
     body = re.sub(r'(<h3 class="cue exercice">[\s\S]*?</h3>)\s*(<ol>[\s\S]*?</ol>)', do_md, body)
     return body
 
+
+# ---------------------------------------------------------------------------
+# Where the book runs out of road.
+#
+# Every one of these sits at a point where the page has genuinely reached its
+# limit — not at a chapter break, and never mid-lesson. A reader forgives a
+# recommendation that names a real limitation ("this page cannot hear you");
+# they resent one that interrupts an explanation to sell something.
+#
+# Eight across seventy-six pages, roughly one every nine. Six point at tutors
+# and two at the self-study plans, because a reader who wants a human and a
+# reader who wants to drill alone are different people and both are worth
+# keeping.
+#
+# Each carries its own utm_content, so the sales side can see WHICH moment
+# converts rather than only that the book converts.
+# ---------------------------------------------------------------------------
+CTA_BASE = "https://francolink.net"
+
+NEXT_STEPS = [
+    ("s0-4", "tutors", "You need a partner for this one",
+     "These dialogues are written to be acted out in pairs, swapping roles — "
+     "which is difficult on your own. A tutor will take the other part, and "
+     "correct what you cannot hear yourself doing.",
+     "Find a tutor"),
+
+    ("s1-6", "tutors", "Nobody can tell you if your nasals are right",
+     "You have just read six sections about sound. Reading is the one thing "
+     "that cannot confirm you are producing it — a nasal vowel feels correct "
+     "long before it is. Fifty minutes with a teacher settles in one sitting "
+     "what months of guessing will not.",
+     "Book a pronunciation lesson"),
+
+    ("s1-15", "plans", "Make Partie 1 automatic before you move on",
+     "You can now introduce yourself, ask a question and say no. The gap "
+     "between knowing that and doing it without thinking is repetition, spread "
+     "over days — which is exactly what the FrancoLink lessons are built for.",
+     "See the self-study plans"),
+
+    ("s2-6", "plans", "Three tenses is where vocabulary becomes the bottleneck",
+     "Present, near future, recent past. From here your limit stops being "
+     "grammar and starts being words — and words come from daily practice "
+     "rather than from another explanation.",
+     "See the self-study plans"),
+
+    ("s3-6", "tutors", "y and en are a speaking habit, not a writing rule",
+     "You will get these right in an exercise long before they arrive on their "
+     "own in speech. That transfer only happens out loud, with someone who "
+     "notices when you avoid them.",
+     "Practise with a tutor"),
+
+    ("s4-5", "tutors", "This one is learned by telling stories",
+     "Choosing between the imparfait and the passé composé is the hardest "
+     "decision in the book, and no exercise fully teaches it. Narrating "
+     "something real to a person who corrects you as you go does.",
+     "Tell it to a tutor"),
+
+    ("s5-3", "tutors", "The subjunctive is where self-study usually stops",
+     "Most learners understand it on the page and never say it. What closes "
+     "that gap is being made to use it in conversation, often enough that the "
+     "trigger word pulls the form after it.",
+     "Book a B1–B2 lesson"),
+
+    ("s5-6", "tutors", "You cannot practise an argument alone",
+     "This section is about holding a position in French. It is the one skill "
+     "in the book that has no solo version — you need someone on the other "
+     "side of it.",
+     "Find a conversation tutor"),
+]
+
+def next_steps(body):
+    """Append each recommendation to the end of the section it belongs to.
+
+    Runs AFTER chapterise, not before. Chapterise re-slices the body around the
+    part openers and keeps only the first two paragraphs of a part's intro on
+    the opener page — so a recommendation placed at the end of the LAST section
+    of a Partie landed inside the NEXT part's intro region and was torn in half.
+    Two of the eight came out as a bare heading, and two swallowed the
+    colophon.
+
+    A section therefore ends at whichever comes first: the next section
+    heading, the next chapter opener, or the back matter.
+    """
+    BOUND = re.compile(r'<h2 id="[^"]+">|<section class="opener"|<h1 class="chapter-plain"')
+    marks = [(m.start(), m.group(1)) for m in re.finditer(r'<h2 id="([^"]+)">', body)]
+    ends = {}
+    for pos, anchor in marks:
+        nxt = BOUND.search(body, pos + 1)
+        ends[anchor] = nxt.start() if nxt else len(body)
+
+    inserts = []
+    for anchor, kind, head, text, label in NEXT_STEPS:
+        if anchor not in ends:
+            print(f"  ! next-step anchor not found: {anchor}")
+            continue
+        path = "/tutors" if kind == "tutors" else "/pricing"
+        url = f"{CTA_BASE}{path}?utm_source=workbook&utm_medium=book&utm_campaign=fpp&utm_content={anchor}"
+        shown = f"francolink.net{path}"
+        inserts.append((ends[anchor],
+            f'<aside class="box next"><p class="box-l">Pour aller plus loin</p>'
+            f"<p><strong>{esc(head)}</strong> {esc(text)}</p>"
+            f'<p class="next-cta"><a href="{url}">{esc(label)} → {shown}</a></p></aside>'))
+
+    for pos, htmlfrag in sorted(inserts, reverse=True):
+        body = body[:pos] + htmlfrag + body[pos:]
+    print(f"next-step recommendations: {len(inserts)}")
+    return body
+
 def main():
     blocks = json.load(open(HERE / "blocks.json"))
     applied = apply_fixes(blocks)
@@ -469,6 +577,7 @@ def main():
         book = book + "\n" + expansion_html + "\n" + expansion_key
 
     book = chapterise(book)
+    book = next_steps(book)
 
     exercises = json.load(open(HERE / "exercises.json")) if (HERE / "exercises.json").exists() else {}
     book = interactivise(book, exercises)

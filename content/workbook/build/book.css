@@ -127,6 +127,21 @@ tbody tr:nth-child(even) td{background:var(--tint);}
 .box.dialogue .box-l{color:var(--navy);}
 .box.marche{background:#fff;border:1px dashed var(--accent);}
 
+/* "Pour aller plus loin" — the recommendation blocks. Deliberately quieter
+   than every other callout: no fill, one hairline, smaller than the lesson.
+   A reader should be able to skip it without effort, which is precisely why
+   the ones who do read it are worth something. */
+.box.next{
+  background:none; border:0; border-top:1px solid var(--hair);
+  border-left:2px solid var(--accent);
+  padding:2.5mm 0 1mm 3.5mm; margin:5mm 0 3mm; font-size:9.3pt;
+  color:var(--muted); break-inside:avoid;
+}
+.box.next .box-l{color:var(--accent);font-size:8pt;letter-spacing:.14em;}
+.box.next strong{color:var(--navy);}
+.box.next .next-cta{margin:1.5mm 0 0;}
+.box.next a{color:var(--accent);text-decoration:none;font-weight:600;}
+
 /* Callout headings inside the expansion, matched to the boxed callouts the
    original manuscript uses, so the book reads as one book. */
 h3.cue{

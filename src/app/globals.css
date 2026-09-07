@@ -690,3 +690,12 @@ html {
 .wb .sp { font-weight: 600; color: hsl(var(--primary)); font-size: 0.88em; margin-right: 0.4em; }
 .wb .sp::after { content: " :"; }
 .wb .box.dialogue p { margin-bottom: 0.5em; }
+
+/* In-book recommendations. Quieter than the lesson, skippable by design. */
+.wb .box.next { background: none; border: 0; border-top: 1px solid hsl(var(--border));
+  border-left: 2px solid hsl(var(--primary)); border-radius: 0; padding: 0.7rem 0 0.2rem 0.8rem;
+  margin: 1.6rem 0 1rem; font-size: 0.92rem; color: hsl(var(--muted-foreground)); }
+.wb .box.next .box-l { color: hsl(var(--primary)); font-size: 0.68rem; letter-spacing: 0.14em; }
+.wb .box.next strong { color: hsl(var(--foreground)); }
+.wb .box.next a { color: hsl(var(--primary)); font-weight: 600; text-decoration: none; }
+.wb .box.next a:hover { text-decoration: underline; }
