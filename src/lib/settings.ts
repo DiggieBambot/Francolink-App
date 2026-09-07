@@ -1,5 +1,18 @@
 // src/lib/settings.ts
-import { createClient } from "@/lib/supabase/server";
+import { createClient as createServiceClient } from "@supabase/supabase-js";
+
+// app_settings is admin-only under RLS. Read with the request-scoped client and
+// a tutor gets zero rows, so commission_enabled resolved to false and payouts
+// were refused while the admin toggle said "true" — the same silent-default that
+// told students payments were unavailable. This module is server-only, so the
+// service role is the right client for reading settings here.
+function settingsClient() {
+  return createServiceClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { auth: { persistSession: false } }
+  );
+}
 
 export type SettingCategory = 'payments' | 'commissions' | 'ai' | 'features' | 'limits' | 'pricing';
 
@@ -23,15 +36,22 @@ export interface AppSetting {
  * Get multiple settings by category
  */
 export async function getSettingsByCategory(category: SettingCategory): Promise<Record<string, string>> {
-  const supabase = await createClient();
-  
-  const { data, error } = await supabase
+  return getSettingsByCategories([category]);
+}
+
+/**
+ * Get settings across several categories at once, flattened by key.
+ */
+export async function getSettingsByCategories(
+  categories: string[]
+): Promise<Record<string, string>> {
+  const { data, error } = await settingsClient()
     .from('app_settings')
     .select('key, value')
-    .eq('category', category);
+    .in('category', categories);
   
   if (error || !data) {
-    console.error(`Settings not found for category: ${category}`, error);
+    console.error(`Settings not found for categories: ${categories.join(', ')}`, error);
     return {};
   }
   

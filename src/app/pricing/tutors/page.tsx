@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
+import { getSettingsByCategories } from "@/lib/settings";
 import { Check, X, Shield, Zap, Users } from "lucide-react";
 import Link from "next/link";
 import { Metadata } from "next";
@@ -13,16 +13,19 @@ export const metadata: Metadata = {
 };
 
 export default async function TutorPricingPage() {
-  const supabase = await createClient();
-  
   // 1. Fetch Dynamic Settings (Sale Mode, Banner, etc.)
-  const { data: settings } = await supabase
-    .from("app_settings")
-    .select("key, value")
-    .in("category", ["pricing_tutor", "pricing_marketing"]);
+  //
+  // Read through the service role: app_settings is admin-only under RLS, so the
+  // request-scoped client returned nothing for ordinary visitors and every value
+  // below fell back to its default — the sale, the coupon and the sale price
+  // would all have stayed invisible the moment an admin switched them on.
+  const settings = await getSettingsByCategories([
+    "pricing_tutor",
+    "pricing_marketing",
+  ]);
 
   // Helper to get value
-  const getVal = (key: string) => settings?.find(s => s.key === key)?.value;
+  const getVal = (key: string) => settings[key];
 
   // 2. Parse Dynamic Data
   const isSaleActive = getVal('is_global_sale_active') === 'true';

@@ -1,11 +1,13 @@
 // src/app/api/commissions/payout/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { createServerClient } from '@/lib/supabase/server';
+import { createClient } from '@/lib/supabase/server';
 
 // POST: Request a payout
 export async function POST(request: NextRequest) {
   try {
-    const supabase = createServerClient();
+    // createClient is async; calling it without await left `supabase` a Promise,
+    // so every request to this route threw on supabase.auth and answered 500.
+    const supabase = await createClient();
     
     const { data: { user }, error: authError } = await supabase.auth.getUser();
     
@@ -53,10 +55,10 @@ export async function POST(request: NextRequest) {
       .eq('tutor_id', user.id)
       .in('status', ['requested', 'processing']);
 
-    const totalApproved = ledger?.reduce((sum, entry) => 
+    const totalApproved = ledger?.reduce((sum: number, entry: any) => 
       entry.status === 'approved' ? sum + parseFloat(entry.commission_amount) : sum, 0) || 0;
 
-    const pendingPayouts = existingPayouts?.reduce((sum, payout) => 
+    const pendingPayouts = existingPayouts?.reduce((sum: number, payout: any) => 
       sum + parseFloat(payout.amount), 0) || 0;
 
     const availableBalance = totalApproved - pendingPayouts;
