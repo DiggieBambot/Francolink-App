@@ -30,7 +30,7 @@ interface Plan {
 const PLANS: Plan[] = [
   {
     name: "Free",
-    tagline: "Start your journey",
+    tagline: "Try it before you pay",
     monthly: "$0",
     note: "Free forever",
     features: [

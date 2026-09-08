@@ -88,7 +88,7 @@ export default async function JoinPage({ params }: PageProps) {
               Join {tutor.name || 'Your Tutor'}'s <br/>French Class
             </h1>
             <p className="text-primary-100 text-lg leading-relaxed">
-              Start your journey to fluency with personalized lessons, live sessions, and interactive tools.
+              Live sessions with your tutor, lessons set at your level, and daily practice in between.
             </p>
           </div>
 

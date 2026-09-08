@@ -19,8 +19,9 @@ export const LANGUAGES = {
   ],
 } as const;
 
-export const STATS = {
-  studentCount: '5,000+',
-  tutorCount: '120+',
-  lessonsDelivered: '50,000+',
-} as const;
+// NOTE: there was a STATS constant here holding '5,000+' learners, '120+' tutors
+// and '50,000+' lessons delivered. All three were placeholders that no query ever
+// produced, and /testimonials states plainly that there are no reviews yet.
+// Publishing them was an advertising exposure, not just an SEO problem.
+// If real figures are ever wanted here, derive them from the database. Do not
+// reintroduce hardcoded ones.

@@ -59,21 +59,21 @@
 ### Goals
 
 - **Primary goal:** Organic + AI-answer visibility that converts to paid customers. **Priority revenue line: the $27 workbook.** Grammar-intent content (Cluster A in `docs/seo-content-plan.md`) comes first; tutors and the subscription are secondary destinations. Content with no product destination does not get written.
-- **What a customer is worth, roughly:** ⚠️ NEEDS INPUT
+- **What a customer is worth, roughly:** Not established. Use the list price as the floor when judging whether a keyword is worth writing for: $27 for the workbook, $7/mo or $14/mo for a subscription, tutor-set for lessons.
 - **What this business will NOT do:** ⚠️ verify — will not let tutors create student accounts on their behalf (GDPR/PECR); will not claim to be a native-speaker-only marketplace ("being a native speaker doesn't make someone a teacher").
 
 ### Proof and assets
 
 - **Real numbers the business can claim:** ⚠️ verify — 48 published French grammar lessons (A1–B2); 95-page workbook with 45 rules, 45 graded exercises and a full answer key; six-part A0→B2 progression; CEFR A1–C2 lesson library; 5 kids' vocab games; free trial lesson from most tutors.
-  **⚠️ DO NOT USE:** `5,000+ active learners`, `120+ tutors`, `50,000+ lessons delivered` (`src/lib/constants.ts`) and `4.9/5 student rating` are hardcoded placeholders that `/testimonials` contradicts. Flagged as a live business risk in `docs/SEO-ACTION-PLAN.md` §0.1.
+  **⚠️ DO NOT USE:** `5,000+ active learners`, `120+ tutors`, `50,000+ lessons delivered` and `4.9/5 student rating`. These were hardcoded placeholders contradicted by `/testimonials`. **Removed from the codebase on 2026-09-08** (the `STATS` constant, the `/pricing` trust badges and the auth-page line). Never reintroduce them in copy.
 - **Case studies / results that actually exist:** None. `/testimonials` states there are no reviews yet; `src/lib/workbook/reviews.ts` is empty by design.
-- **Certifications, awards, associations, memberships:** ⚠️ NEEDS INPUT for the business. Tutor-level: every tutor is checked for a teaching qualification, proven experience and a live teaching demo before their profile goes live.
-- **Years in business / team size:** ⚠️ NEEDS INPUT
+- **Certifications, awards, associations, memberships:** None at the business level. Founder-level: Njinu Precious Bambot is a Certified Bilingual Language Expert and Coach. Tutor-level: every tutor is checked for a teaching qualification, proven experience and a live teaching demo before their profile goes live.
+- **Years in business / team size:** Not stated, and deliberately not to be claimed. Do not write "founded in", "X years of experience" or team-size copy.
 
 ### Author identity (for author bios and E-E-A-T)
 
-- **Who is credited as author:** The site owner, under their own real name. ⚠️ NEEDS INPUT — exact name to display.
-- **Their credentials, in one line:** ⚠️ NEEDS INPUT — needed for the author bio and `Person` schema (teaching qualification, years teaching French, CEFR level, anything verifiable).
+- **Who is credited as author:** Njinu Precious Bambot
+- **Their credentials, in one line:** Certified Bilingual Language Expert and Coach.
 - **Build required:** no author entity, no `Person` schema and no `/authors/[slug]` page exist yet. The first post should ship with one.
 - **Author page URL:** planned: `https://www.francolink.net/authors/[slug]` — not built
 
@@ -156,7 +156,8 @@ Things no skill may ever do on this site:
 - Never use the hardcoded stats (`5,000+ learners`, `120+ tutors`, `50,000+ lessons`, `4.9/5`) or the phrase "#1 Best Online Language Learning Platform". They are unsubstantiated and are being removed.
 - Never write or imply a testimonial, review count or star rating — there are none yet.
 - Never sell on "native speakers"; FrancoLink's differentiator is *qualified teachers* and a CEFR syllabus.
-- Never use "journey", "unlock", "master your French", "effortless", or "fluent in X weeks". Note: `/pricing` currently ships "Start your journey" as the free-tier heading. That needs changing.
+- Never claim a learner count, a tutor count, a lessons-delivered figure, a star rating, a founding year or a team size. None of these are established.
+- Never use "journey", "unlock", "master your French", "effortless", or "fluent in X weeks". (Removed from the codebase on 2026-09-08.)
 - Never use an em dash in published copy.
 - Never write location-targeted content. There is no service area.
 - Never invent statistics, results, reviews or credentials.
