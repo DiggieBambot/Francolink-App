@@ -17,7 +17,10 @@
 //   --dry            report only, write nothing (DEFAULT — you must pass --apply)
 //   --apply          write repairs to the lessons
 //   --critique       include the AI review stage (~10x the cost)
-//   --findings       also act on editorial findings (implies --critique)
+//   --findings       also act on editorial findings (implies --critique).
+//                    Defaults to error-severity findings in the accuracy and
+//                    language categories — the tiers that are checkable.
+//                    Widen with --finding-severity / --finding-category.
 //   --all            include lessons already passed since their last edit
 //   --exclude a-,b-  skip lessons whose slug starts with any of these prefixes
 
@@ -86,6 +89,8 @@ const opts: RunOptions = {
   auto_apply: apply,
   skip_critique: !critique,
   apply_findings: has("--findings"),
+  finding_severities: (val("--finding-severity") ?? "error").split(",").map((x) => x.trim()) as any,
+  finding_categories: (val("--finding-category") ?? "accuracy,language").split(",").map((x) => x.trim()),
   critique_model: "gpt-4o",
   repair_model: "gpt-4o-mini",
 };
