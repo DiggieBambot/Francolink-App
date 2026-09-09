@@ -49,8 +49,11 @@ function words(s: string): number {
 
 // ── per-kind checks ─────────────────────────────────────────────────────────
 
-/** Articles that already mark gender on a French vocabulary term. */
-const FR_ARTICLE = /^(le |la |l'|les |un |une |des |du |de la |de l')/i;
+/** Articles that already mark gender on a French vocabulary term. Accepts both
+ *  the straight and the typographic apostrophe — the catalogue contains both,
+ *  and matching only the straight one flags correct terms like "l’athlétisme"
+ *  as bare nouns and sends them off for a pointless rewrite. */
+const FR_ARTICLE = /^(le |la |l['’]|les |un |une |des |du |de la |de l['’])/i;
 const NOUN_POS = /^(noun|nom|substantif)/i;
 
 function checkVocab(sec: any, i: number, out: Defect[], language: string): void {
@@ -76,6 +79,13 @@ function checkVocab(sec: any, i: number, out: Defect[], language: string): void 
     }
     if (!it.pronunciation?.trim()) {
       out.push({ code: "vocab.no_pronunciation", severity: "warn", section_index: i, path: p, message: `"${it.term}" has no pronunciation.` });
+    }
+    // The article rule in the repair prompt lists the options as "le/la/l'/les";
+    // the model occasionally copies that placeholder into the term itself,
+    // producing "le/la/l'/les collègue" — which the card shows verbatim and TTS
+    // reads aloud slash by slash.
+    if (language === "fr" && /^(le|la|un|une)(\/(le|la|l'|l’|les|une))+\s/i.test(String(it.term).trim())) {
+      out.push({ code: "vocab.article_placeholder", severity: "error", section_index: i, path: p, message: `"${it.term}" carries an unresolved article placeholder — pick the one correct article for this noun.` });
     }
     // A bare French noun teaches the word but hides its gender, which is half
     // of what the learner needs. "le football" / "la natation" carries it.
@@ -412,6 +422,7 @@ export const AUTO_FIXABLE = new Set<string>([
   "vocab.no_pronunciation",
   "vocab.no_image_query",
   "vocab.noun_without_article",
+  "vocab.article_placeholder",
   "vocab.duplicate_term",
   "blank.no_valid_answer",
   "blank.answer_not_in_pool",

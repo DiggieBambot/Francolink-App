@@ -68,6 +68,10 @@ const FR_NOUN_RULE = `
   "le football", "la natation", "l'école", "les vacances" — never a bare "football".
   Use l' before a vowel or mute h ("l'hôtel"), but le/la before an aspirate h ("le héros").
   Use les for nouns that are normally plural ("les vacances", "les loisirs").
+  Choose ONE article per noun and write it out. Never emit a placeholder like
+  "le/la collègue" or "le/la/l'/les partenaire" — the card shows the term verbatim
+  and the audio reads it aloud. For a noun with distinct masculine and feminine
+  forms, pick the masculine ("le collègue") and note the feminine in "note".
   Keep "gender" consistent with the article you choose.
   Leave the article off verbs, adjectives, adverbs and phrases — this applies to nouns only.`;
 
