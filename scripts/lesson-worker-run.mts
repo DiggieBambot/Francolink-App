@@ -19,6 +19,7 @@
 //   --critique       include the AI review stage (~10x the cost)
 //   --findings       also act on editorial findings (implies --critique)
 //   --all            include lessons already passed since their last edit
+//   --exclude a-,b-  skip lessons whose slug starts with any of these prefixes
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -94,6 +95,12 @@ const opts: RunOptions = {
 // It implies --all: a named lesson is one you explicitly want reprocessed.
 const slugs = (val("--slugs") ?? "").split(",").map((s) => s.trim()).filter(Boolean);
 
+// --exclude drops lessons whose slug starts with any of these prefixes.
+// Chiefly for daily-news-*: that pipeline regenerates its lessons every day
+// without the article rule, so repairing them here is undone by tomorrow's
+// batch. The fix for those belongs in the generator's own prompt.
+const exclude = (val("--exclude") ?? "").split(",").map((s) => s.trim()).filter(Boolean);
+
 let q = supa
   .from("tutor_lessons")
   .select("id, slug, title, level, language, content, ai_pass_hash")
@@ -108,9 +115,9 @@ if (error) {
   process.exit(1);
 }
 
-const queue = (lessons ?? []).filter((l) =>
-  has("--all") || slugs.length ? true : l.ai_pass_hash !== contentHash(l.content)
-);
+const queue = (lessons ?? [])
+  .filter((l) => !exclude.some((p) => l.slug.startsWith(p)))
+  .filter((l) => (has("--all") || slugs.length ? true : l.ai_pass_hash !== contentHash(l.content)));
 
 console.log(C.bold(`\nLesson worker`));
 console.log(
