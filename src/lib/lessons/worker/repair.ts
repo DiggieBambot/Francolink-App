@@ -86,7 +86,9 @@ const REQUIREMENTS: Record<string, string> = {
 - "valid_answers_by_blank" MUST have an entry for EVERY blank number, each a non-empty array of acceptable answers. Its keys are the bare number as a string — "1", "2" — NOT "(1)".
 - "answer_pool" MUST contain every acceptable answer, plus 2-3 plausible distractors. A blank whose answer is missing from the pool is unanswerable.
 - No two blanks may accept the same single answer — that makes the drill ambiguous.
-- A blank must have a determinate answer recoverable from the dialogue. If a line is open-ended ("I believe that ___"), rewrite the line so the blank tests something specific.`,
+- A blank must have a determinate answer recoverable from the dialogue. If a line is open-ended ("I believe that ___"), rewrite the line so the blank tests something specific.
+- The answer must NOT also appear in the line that contains its own gap. "Pour lire, il faut (1) un livre." with answer "un livre" gives the answer away — delete the duplicate so the line reads "Pour lire, il faut (1)."
+- Write the sentence so the gap sits where the missing word belongs, reading naturally once filled.`,
   fill_in_blank_dialogue_extended: `- Same rules as fill_in_blank_dialogue: inline "(N)" markers, a valid_answers_by_blank entry per blank, and every answer present in answer_pool.`,
   word_order: `- "correct" must contain EXACTLY the same words as "scrambled", only reordered. Do not add, drop or reword.`,
   reading_comprehension: `- Every question needs its own DISTINCT model answer, and each answer must be findable in the passage.

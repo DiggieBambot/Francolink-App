@@ -158,6 +158,26 @@ function checkBlanks(sec: any, i: number, out: Defect[]): void {
     return;
   }
 
+  // The answer printed in the same line as its own gap: "Pour lire, il faut
+  // (1) un livre." with answer "un livre". The student reads the answer off the
+  // page, so the drill tests nothing.
+  exchanges.forEach((ex: any, j: number) => {
+    const text = String(ex?.text ?? "");
+    if (!text) return;
+    const visible = norm(text.replace(/\(\d+\)/g, " "));
+    for (const id of Array.from(text.matchAll(/\((\d+)\)/g), (m) => m[1])) {
+      for (const a of valid[id] ?? []) {
+        const na = norm(a);
+        // Very short answers ("le", "un") appear all over a sentence by chance.
+        if (na.length < 3) continue;
+        const re = new RegExp(`(^|\\s)${na.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(\\s|$)`);
+        if (re.test(visible)) {
+          out.push({ code: "blank.answer_in_line", severity: "error", section_index: i, path: `sections[${i}].exchanges[${j}]`, message: `Blank ${id}'s answer "${a}" is already printed in the same line, so there is nothing to work out.` });
+        }
+      }
+    }
+  });
+
   const poolSet = new Set(pool.map(norm));
 
   for (const id of blankIds) {
@@ -430,6 +450,7 @@ export const AUTO_FIXABLE = new Set<string>([
   "blank.underscore_markers",
   "blank.markers_missing",
   "blank.no_answer_text",
+  "blank.answer_in_line",
   // Deliberately NOT auto-fixable: a placeholder stub has no content to
   // preserve, so "repairing" it means inventing a whole exercise. That is
   // authoring, not repair — it belongs behind the same review gate as a

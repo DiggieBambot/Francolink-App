@@ -26,7 +26,13 @@ function normalize(s: string) {
     .replace(/[‘’ʼʻ]/g, "'")
     .replace(/[“”«»]/g, '"')
     .replace(/[.,!?;:]/g, "")
-    .replace(/\s+/g, " ");
+    .replace(/\s+/g, " ")
+    // Trim LAST. Trimming first and stripping punctuation after leaves a
+    // trailing space on French sentences that put one before "?" — so
+    // "Quels plats préfères-tu ?" normalised to "quels plats préfères-tu ",
+    // which no arrangement of the scrambled tokens can ever produce, and the
+    // exercise could not be answered correctly at all.
+    .trim();
 }
 
 /** Deterministic shuffle so server and client render the same order — a

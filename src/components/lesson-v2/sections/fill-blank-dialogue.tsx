@@ -28,7 +28,9 @@ interface Props {
 type Answers = Record<number, string | undefined>;
 
 function normalize(s: string) {
-  return s.trim().toLowerCase().replace(/[‘’ʼʻ]/g, "'").replace(/[.,!?;:]/g, "").replace(/\s+/g, " ");
+  // Trim last: stripping punctuation after a trim leaves a stray space on
+  // anything ending in " ?", which then never matches the expected answer.
+  return s.trim().toLowerCase().replace(/[‘’ʼʻ]/g, "'").replace(/[.,!?;:]/g, "").replace(/\s+/g, " ").trim();
 }
 
 function blankNumbers(b: number | number[] | undefined): number[] {
