@@ -62,14 +62,24 @@ These are worth more than the first ten articles.
 francolink.net/                     ← home, brand
 francolink.net/blog                 ← index, paginated
 francolink.net/blog/[slug]          ← posts, Article schema, named author
-francolink.net/learn/french         ← PILLAR hub (2,500+ words)
-francolink.net/learn/french/grammar ← sub-pillar → sells the BOOK
-francolink.net/learn/french/speaking← sub-pillar → sells LIVE LESSONS
-francolink.net/learn/french/levels  ← sub-pillar (CEFR) → sells the PLATFORM
+francolink.net/guides/french         ← PILLAR hub (2,500+ words)
+francolink.net/guides/french/grammar ← sub-pillar → sells the BOOK
+francolink.net/guides/french/speaking← sub-pillar → sells LIVE LESSONS
+francolink.net/guides/french/levels  ← sub-pillar (CEFR) → sells the PLATFORM
 francolink.net/authors/[slug]       ← E-E-A-T
 francolink.net/tutors, /francais-pas-a-pas, /pricing   ← money pages
 app.francolink.net/library/**       ← the lesson catalogue (stays, gets fixed)
 ```
+
+> **URL decision, 2026-09-10: `/guides`, not `/learn`.** The original plan put the
+> pillars under `/learn/french`, which cannot work: `/learn` is in `APP_ROUTES` in
+> `src/middleware.ts`, so anything under it on the apex host-splits to
+> app.francolink.net and the hub would redirect off the marketing domain.
+> `/guides` keeps the same hierarchy, needs no middleware surgery, and scales to
+> the speaking and CEFR sub-pillars. A flat `/french-grammar` was the alternative
+> and is marginally stronger as a single URL, but it does not scale.
+> Whichever route ships, add `/guides` to `SITE_ROUTES` in `src/middleware.ts`
+> first, the same way `/authors` was added.
 
 Rules: pillars and all editorial on the apex. Product/app functionality stays
 on the subdomain. Cross-host links are plain `<a>` with descriptive anchors —
@@ -201,7 +211,7 @@ indexing signal and clearest revenue line:
 11. The French subjunctive *(book)*
 12. 100 most common French words *(library)*
 
-**Phase 3 — pillars + comparisons (week 10+).** `/learn/french` hub and the
+**Phase 3 — pillars + comparisons (week 10+).** `/guides/french` hub and the
 three sub-pillars once the spokes exist to link up into them. Then the
 competitive comparison pages (`duolingo alternatives`, `preply alternatives`),
 which need domain authority to land.

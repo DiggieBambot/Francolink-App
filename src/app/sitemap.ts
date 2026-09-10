@@ -18,6 +18,8 @@ import type { MetadataRoute } from "next";
 import { headers } from "next/headers";
 import { getPublishedLessons } from "@/lib/lessons/public-queries";
 import { getPublicTutorSlugs } from "@/lib/site/queries";
+import { getAllPosts } from "@/lib/blog/posts";
+import { allAuthorSlugs } from "@/lib/blog/authors";
 import { APP_URL, SITE_URL, isMarketingHost } from "@/lib/site/hosts";
 
 const BASE = APP_URL;
@@ -43,6 +45,28 @@ async function marketingSitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/privacy`, changeFrequency: "yearly", priority: 0.3 },
     { url: `${SITE_URL}/terms`, changeFrequency: "yearly", priority: 0.3 },
   ];
+
+  // Blog. /blog itself is only listed once it has posts on it — while the index
+  // is empty it stays noindex (see app/site/blog/page.tsx), and listing a
+  // noindex URL in a sitemap is a contradictory signal.
+  const posts = getAllPosts();
+  if (posts.length > 0) {
+    entries.push({ url: `${SITE_URL}/blog`, changeFrequency: "weekly", priority: 0.8 });
+    for (const post of posts) {
+      entries.push({
+        url: `${SITE_URL}/blog/${post.slug}`,
+        // A real edit time from frontmatter, not `new Date()`. Same rule as the
+        // lessons below: only claim a lastmod that actually happened.
+        lastModified: new Date(post.updated),
+        changeFrequency: "monthly",
+        priority: 0.7,
+      });
+    }
+  }
+
+  for (const slug of allAuthorSlugs()) {
+    entries.push({ url: `${SITE_URL}/authors/${slug}`, changeFrequency: "monthly", priority: 0.5 });
+  }
 
   try {
     for (const slug of await getPublicTutorSlugs()) {

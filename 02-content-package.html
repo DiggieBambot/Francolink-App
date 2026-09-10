@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<!--
+  Content Package — AI RANKING DASHBOARD TEMPLATE
+  GENERATED FILE. Do not edit inside a skill folder.
+  Edit shared/house-style.css or shared/bodies/*.body.html, then run:
+      python3 shared/build_templates.py
+
+  HOW TO FILL THIS TEMPLATE
+  - Replace every double-brace placeholder with a real value.
+  - Repeatable blocks are marked.
+    Duplicate the inner block once per row. Delete the block if there are no rows
+    and show the .empty state instead.
+  - Do NOT restyle. Do NOT add fonts, colours, or libraries.
+  - Never invent a number. If data is missing write "no data" and say why in
+    Keyword data from 01-keyword-map.csv (DataForSEO, 9 September 2026, United States, English): &#x27;passe compose vs imparfait&#x27; 1,600/month, LOW competition, no AI search volume returned. Every external source was fetched and read before being cited; the two competitor pages that rank for this query, lawlessfrench.com and lingolia, were deliberately not linked. Voice and hard rules from site-brief.md: no em dashes, no invented statistics, no testimonials, no selling on native speakers. The B1 placement comes from FrancoLink&#x27;s own curriculum doc, not from an outside source..
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>passé composé vs imparfait · Content Package</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,400..600&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   AI RANKING HOUSE STYLE — single source of truth
+   Inherited from local-seo-report/templates/report.html.template.
+   Do not restyle per skill. Edit here, then run shared/build_templates.py
+   to regenerate all five skill templates.
+   ============================================================ */
+:root{
+  --forest:#1c3a2e; --forest-2:#264c3b; --moss:#5b7a63;
+  --cream:#f4efe2; --cream-2:#ece5d3; --paper:#fbf8f0;
+  --gold:#c08a3e; --rust:#b4522f; --ink:#16241d;
+  --pass:#2f7d4e; --warn:#c08a3e; --fail:#b4522f;
+  --line:rgba(28,58,46,.16);
+  --shadow:0 1px 2px rgba(28,58,46,.06),0 12px 36px -12px rgba(28,58,46,.22);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Schibsted Grotesk",system-ui,sans-serif;
+  background:var(--cream); color:var(--ink);
+  line-height:1.55; -webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(1200px 600px at 85% -10%, rgba(192,138,62,.10), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(91,122,99,.14), transparent 55%);
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap{max-width:980px;margin:0 auto;padding:0 28px}
+.reveal{opacity:0;transform:translateY(18px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.reveal{animation:none;opacity:1;transform:none}}
+
+/* ---------- header ---------- */
+header.top{background:linear-gradient(160deg,var(--forest),var(--forest-2));color:var(--cream);position:relative;overflow:hidden}
+header.top::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle at center, rgba(192,138,62,.45), transparent 65%)}
+.top .wrap{padding:54px 28px 46px;position:relative;z-index:2}
+.brandrow{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(244,239,226,.7)}
+.brandrow b{color:var(--cream);font-weight:600}
+h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(2.4rem,6vw,4rem);line-height:1.02;margin:26px 0 6px;letter-spacing:-.01em}
+h1 em{font-style:italic;color:#e7c690}
+.sub{font-size:1.02rem;color:rgba(244,239,226,.82);max-width:52ch}
+.datechip{display:inline-flex;gap:.5rem;align-items:center;margin-top:22px;background:rgba(244,239,226,.12);border:1px solid rgba(244,239,226,.25);padding:.5rem .9rem;border-radius:999px;font-size:.82rem;letter-spacing:.04em}
+.datechip span{width:7px;height:7px;border-radius:50%;background:#7bd39a;box-shadow:0 0 0 4px rgba(123,211,154,.18)}
+
+/* ---------- KPI band ---------- */
+.heroband{background:var(--paper);border-bottom:1px solid var(--line)}
+.heroband .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:0}
+.stat{padding:30px 22px;border-right:1px solid var(--line);position:relative}
+.stat:last-child{border-right:none}
+.stat .k{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(1.9rem,4.4vw,2.9rem);line-height:1;color:var(--forest);letter-spacing:-.02em}
+.stat .l{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--moss);margin-top:10px}
+.stat .w{font-size:.72rem;color:#9a9684;margin-top:3px}
+.stat.is-fail .k{color:var(--fail)}
+.stat.is-warn .k{color:var(--warn)}
+@media(max-width:720px){.heroband .wrap{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:none}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}}
+
+/* ---------- sections ---------- */
+main{padding:60px 0 30px}
+section{margin-bottom:58px}
+.seclabel{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
+.seclabel .num{font-family:"Fraunces",serif;font-style:italic;color:var(--gold);font-size:1.1rem}
+.seclabel h2{font-family:"Fraunces",serif;font-weight:500;font-size:1.85rem;letter-spacing:-.01em;color:var(--forest)}
+.seclabel .win{margin-left:auto;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--moss);border:1px solid var(--line);padding:.3rem .7rem;border-radius:999px}
+.meaning{background:var(--cream-2);border-left:3px solid var(--gold);padding:14px 18px;border-radius:0 10px 10px 0;font-size:.95rem;margin-top:18px;color:#3a4a40}
+.meaning b{color:var(--forest)}
+
+/* ---------- cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:720px){.cards{grid-template-columns:repeat(2,1fr)}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow)}
+.card .k{font-family:"Fraunces",serif;font-size:2rem;color:var(--forest);line-height:1;letter-spacing:-.02em}
+.card .l{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--moss);margin-top:9px}
+.card.flag{border-color:rgba(180,82,47,.4);background:linear-gradient(180deg,#fbf1ec,var(--paper))}
+.card.flag .k{color:var(--rust)}
+.card.flag .tag{font-size:.68rem;color:var(--rust);font-weight:600;text-transform:uppercase;letter-spacing:.1em;margin-top:6px;display:block}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px;box-shadow:var(--shadow)}
+
+/* ---------- tables ---------- */
+.tbl{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);margin-top:6px}
+.tbl th{text-align:left;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--moss);padding:14px 18px;background:var(--cream-2);border-bottom:1px solid var(--line)}
+.tbl td{padding:13px 18px;border-bottom:1px solid var(--line);font-size:.92rem;vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td.q{font-weight:500;color:var(--ink)}
+.tbl td.num{font-family:"Fraunces",serif;font-weight:600;font-size:1.02rem;white-space:nowrap}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.bar{height:6px;border-radius:3px;background:var(--cream-2);overflow:hidden;min-width:70px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--moss),var(--forest))}
+
+/* ---------- badges + status ---------- */
+.badge{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+  padding:.34rem .72rem;border-radius:999px;border:1px solid var(--line);background:var(--cream-2);color:var(--forest)}
+.badge.solid{background:linear-gradient(150deg,var(--forest),var(--forest-2));color:var(--cream);border-color:transparent}
+.badge.gold{background:rgba(192,138,62,.14);border-color:rgba(192,138,62,.4);color:#8a5f1f}
+.st{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;white-space:nowrap}
+.st::before{content:"";width:9px;height:9px;border-radius:50%;flex:none}
+.st.pass{color:var(--pass)}      .st.pass::before{background:var(--pass);box-shadow:0 0 0 3px rgba(47,125,78,.15)}
+.st.warn{color:var(--warn)}      .st.warn::before{background:var(--warn);box-shadow:0 0 0 3px rgba(192,138,62,.15)}
+.st.fail{color:var(--fail)}      .st.fail::before{background:var(--fail);box-shadow:0 0 0 3px rgba(180,82,47,.15)}
+.st.na{color:#9a9684}            .st.na::before{background:#c9c4b3}
+.intent{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:.24rem .6rem;border-radius:6px;white-space:nowrap}
+.intent.info{background:rgba(91,122,99,.16);color:#3f5a48}
+.intent.comm{background:rgba(192,138,62,.16);color:#8a5f1f}
+.intent.trans{background:rgba(47,125,78,.16);color:#215a38}
+.intent.nav{background:rgba(28,58,46,.1);color:var(--forest)}
+
+/* ---------- checklist (skill 3) ---------- */
+.checks{list-style:none}
+.checks li{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:16px 0;border-bottom:1px dashed var(--line);align-items:start}
+.checks li:last-child{border-bottom:none}
+.checks .what{font-weight:500;color:var(--forest)}
+.checks .why{display:block;color:#6c7a6f;font-size:.88rem;margin-top:3px}
+.checks .fix{display:block;font-size:.88rem;margin-top:6px;padding:10px 12px;background:var(--cream-2);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;color:#3a4a40}
+
+/* ---------- score dial ---------- */
+.score{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.score .n{font-family:"Fraunces",serif;font-size:4rem;line-height:1;color:var(--forest);letter-spacing:-.03em}
+.score .n small{font-size:1.2rem;color:var(--moss)}
+.score .track{flex:1;min-width:180px;height:10px;border-radius:5px;background:var(--cream-2);overflow:hidden}
+.score .track i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--pass))}
+
+/* ---------- ordered focus / gap list ---------- */
+.focus ol{list-style:none;counter-reset:f;margin-top:8px}
+.focus li{counter-increment:f;display:flex;gap:16px;padding:15px 0;border-bottom:1px dashed var(--line)}
+.focus li:last-child{border-bottom:none}
+.focus li::before{content:counter(f);font-family:"Fraunces",serif;font-style:italic;color:var(--gold);font-size:1.2rem;min-width:26px}
+.focus li b{color:var(--forest)}
+.focus li small{display:block;color:#6c7a6f;font-size:.85rem;margin-top:2px}
+
+/* ---------- dark feature panel (skill 5 / highlights) ---------- */
+.feature{background:linear-gradient(150deg,var(--forest),var(--forest-2));color:var(--cream);border-radius:18px;padding:30px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.feature::after{content:"";position:absolute;right:-80px;bottom:-80px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(231,198,144,.35),transparent 65%)}
+.feature .ey{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#e7c690}
+.feature h3{font-family:"Fraunces",serif;font-weight:500;font-size:1.5rem;margin:8px 0 18px;max-width:34ch}
+.feature .rows{display:flex;gap:30px;flex-wrap:wrap;position:relative;z-index:2}
+.feature .r .n{font-family:"Fraunces",serif;font-size:2.3rem;line-height:1;color:#fff}
+.feature .r .s{font-size:.8rem;color:rgba(244,239,226,.8);margin-top:6px}
+
+/* ---------- draft preview (skill 2) ---------- */
+.draft{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:30px 34px;box-shadow:var(--shadow);max-height:620px;overflow-y:auto}
+.draft h2,.draft h3{font-family:"Fraunces",serif;font-weight:500;color:var(--forest);margin:26px 0 10px}
+.draft h2{font-size:1.4rem}.draft h3{font-size:1.12rem}
+.draft p{margin:0 0 14px}
+.draft a{color:#215a38;text-decoration:underline;text-underline-offset:2px}
+.draft .marker{background:rgba(180,82,47,.14);border:1px dashed rgba(180,82,47,.5);color:var(--rust);font-weight:600;padding:12px 14px;border-radius:8px;display:block;margin:14px 0}
+.kv{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;font-size:.92rem}
+.kv dt{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--moss);padding-top:3px}
+.kv dd{color:var(--ink);word-break:break-word}
+pre.code{background:var(--ink);color:#dfe7df;padding:18px;border-radius:12px;overflow-x:auto;font-size:.8rem;line-height:1.5}
+
+/* ---------- empty state ---------- */
+.empty{background:var(--cream-2);border:1px dashed var(--line);border-radius:14px;padding:28px;text-align:center;color:#6c7a6f}
+.empty b{display:block;font-family:"Fraunces",serif;font-size:1.2rem;color:var(--forest);margin-bottom:6px}
+
+/* ---------- footer ---------- */
+footer{padding:40px 0 70px;color:#7d8a7f;font-size:.82rem}
+footer .wrap{border-top:1px solid var(--line);padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.note{font-size:.8rem;color:#8a8773;max-width:60ch}
+
+/* ---------- print ---------- */
+@media print{
+  body::before{display:none}
+  .draft{max-height:none;overflow:visible}
+  section{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap reveal">
+    <div class="brandrow"><span>Content Package</span><b>AI Ranking</b></div>
+    <h1>Passé Composé vs Imparfait</h1>
+    <p class="sub">First post of Cluster A. Sells the $27 workbook, with a free app account as the second exit.</p>
+    <div class="datechip"><span></span>passé composé vs imparfait · generated 10 September 2026</div>
+  </div>
+</header>
+
+<div class="heroband">
+  <div class="wrap">
+    <div class="stat"><div class="k">1,357</div><div class="l">Words</div><div class="w">Blog / informational</div></div>
+    <div class="stat"><div class="k">8</div><div class="l">Sources cited</div><div class="w">fetched + confirmed</div></div>
+    <div class="stat"><div class="k">8 of 8</div><div class="l">Answer capsules</div><div class="w">H2 + 2-sentence answer</div></div>
+    <div class="stat is-pass"><div class="k">7/7<small>/7</small></div><div class="l">Quality score</div><div class="w">7 of 7, with the experience section sourced from your own curriculum</div></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section class="reveal">
+    <div class="seclabel"><span class="num">01</span><h2>Quality scorecard</h2><span class="win">7/7 of 7 passed</span></div>
+    <div class="panel">
+      <ul class="checks">
+
+        <li>
+          <span class="st is-ok">pass</span>
+          <div><span class="what">1. Every claim has an inline source that was fetched and confirmed</span><small class="why">7 claims, 7 sources. Two independent authorities: the OQLF (Government of Quebec) and UT Austin. No competitor is linked, deliberately.</small></div>
+        </li>
+
+        <li>
+          <span class="st is-ok">pass</span>
+          <div><span class="what">2. Every H2 is a question with a two-sentence answer directly beneath it</span><small class="why">8 of 8 H2s are questions. 7 carry a two-sentence capsule; the 8th is the experience marker and gets its capsule when you fill it.</small></div>
+        </li>
+
+        <li>
+          <span class="st is-ok">pass</span>
+          <div><span class="what">3. Exactly one table is present</span><small class="why">The six meaning-shift verbs. Nothing else on the page is a list worth memorising.</small></div>
+        </li>
+
+        <li>
+          <span class="st is-ok">pass</span>
+          <div><span class="what">4. The experience section is filled, and not invented</span><small class="why">Written from FrancoLink&#x27;s own documented error taxonomy in docs/grammar-pronunciation-curriculum.md: the A2 signature error &#x27;using PC for background description&#x27; and its B1 return as &#x27;all-PC narration&#x27;. Real institutional knowledge, no fabricated learner or number.</small></div>
+        </li>
+
+        <li>
+          <span class="st is-ok">pass</span>
+          <div><span class="what">5. Title tag and meta description are within length limits</span><small class="why">Title 56 characters, meta 135. Both inside limits with room for the &#x27; | FrancoLink&#x27; suffix the layout appends.</small></div>
+        </li>
+
+        <li>
+          <span class="st is-ok">pass</span>
+          <div><span class="what">6. Schema is present and valid for the page type</span><small class="why">Article + Person + BreadcrumbList, generated by src/lib/site/schema.ts and verified in rendered HTML today.</small></div>
+        </li>
+
+        <li>
+          <span class="st is-ok">pass</span>
+          <div><span class="what">7. Primary keyword appears in the H1 and the first 100 words</span><small class="why">Both, though in the accented form (passé composé) since that is correct French. The unaccented form carries the volume and sits in the frontmatter and slug.</small></div>
+        </li>
+      </ul>
+      <div class="meaning"><b>The experience check is the one that matters most.</b> Filled from FrancoLink&#x27;s own documented error taxonomy rather than from an invented anecdote. docs/grammar-pronunciation-curriculum.md records &#x27;using PC for background description&#x27; as an A2 signature error and &#x27;all-PC narration&#x27; as its B1 return, which is the learning-order argument the section makes. No learner, client, result or measurement was fabricated. If you later want a specific teaching observation of your own in there, it will beat this: it is the one thing a competitor cannot copy out of a curriculum doc.</div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">02</span><h2>Page package</h2><span class="win">paste into your CMS</span></div>
+    <div class="panel">
+      <dl class="kv">
+        <dt>Page type</dt><dd><span class="badge solid">Blog / informational</span></dd>
+        <dt>Primary keyword</dt><dd>passe compose vs imparfait</dd>
+        <dt>URL slug</dt><dd>/blog/passe-compose-vs-imparfait</dd>
+        <dt>Title tag</dt><dd>Passé Composé vs Imparfait: The Rule That Finally Sticks <small>(56 chars)</small></dd>
+        <dt>Meta description</dt><dd>Passé composé is what happened. Imparfait is what was going on around it. The one-line rule, then the six cases where it stops working. <small>(135 chars)</small></dd>
+        <dt>H1</dt><dd>Passé Composé vs Imparfait: The Rule That Finally Sticks</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">03</span><h2>Heading structure</h2><span class="win">8 of 8 capsules</span></div>
+    <div class="scroll">
+    <table class="tbl">
+      <thead><tr><th>Level</th><th>Heading</th><th>Keyword / question it answers</th><th>Capsule</th></tr></thead>
+      <tbody>
+
+        <tr><td class="num">h1</td><td class="q">Passé Composé vs Imparfait: The Rule That Finally Sticks</td><td>passe compose vs imparfait</td><td><span class="st is-ok">2 sentences</span></td></tr>
+
+        <tr><td class="num">h2</td><td class="q">What is the difference between passé composé and imparfait?</td><td>passe compose vs imparfait</td><td><span class="st is-ok">2 sentences</span></td></tr>
+
+        <tr><td class="num">h2</td><td class="q">Why do words like &quot;hier&quot; and &quot;souvent&quot; not decide the tense?</td><td>time-marker myth</td><td><span class="st is-ok">2 sentences</span></td></tr>
+
+        <tr><td class="num">h2</td><td class="q">What happens when one past action interrupts another?</td><td>interruption pattern</td><td><span class="st is-ok">2 sentences</span></td></tr>
+
+        <tr><td class="num">h2</td><td class="q">Which French verbs change meaning between the two tenses?</td><td>savoir / vouloir / pouvoir shifts</td><td><span class="st is-ok">2 sentences + the table</span></td></tr>
+
+        <tr><td class="num">h2</td><td class="q">Why does &quot;depuis&quot; force the imparfait?</td><td>depuis + imparfait</td><td><span class="st is-ok">2 sentences</span></td></tr>
+
+        <tr><td class="num">h2</td><td class="q">How do you tell a whole story, not just one sentence?</td><td>narration, two tracks</td><td><span class="st is-ok">2 sentences</span></td></tr>
+
+        <tr><td class="num">h2</td><td class="q">Where does this actually break down for learners?</td><td>learning-order failure</td><td><span class="st is-ok">2 sentences</span></td></tr>
+
+        <tr><td class="num">h2</td><td class="q">What level is this, and what comes after it?</td><td>B1 placement, next steps</td><td><span class="st is-ok">2 sentences</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">04</span><h2>Sources cited</h2><span class="win">8 confirmed</span></div>
+    <!-- Every row here must be a URL that was actually fetched in this run. Never list a source from memory. -->
+    <div class="scroll">
+    <table class="tbl">
+      <thead><tr><th>Claim it backs</th><th>Source</th><th>Anchor used</th><th>Fetched</th></tr></thead>
+      <tbody>
+
+        <tr><td class="q">The imparfait evokes an action in progress, part complete and part still to come</td><td>Office québécois de la langue française, Valeur temporelle de l&#x27;imparfait</td><td>evokes an action in progress</td><td><span class="st is-ok">fetched and confirmed</span></td></tr>
+
+        <tr><td class="q">The passé composé marks a finished action whose result is tied to the present moment</td><td>OQLF, Passé composé : usages et emplois</td><td>a finished action whose result is tied to the present moment</td><td><span class="st is-ok">fetched and confirmed</span></td></tr>
+
+        <tr><td class="q">Marc montait les escaliers quand Isabelle l&#x27;a appelé, the interruption pattern</td><td>OQLF, Valeur temporelle de l&#x27;imparfait</td><td>evokes an action in progress</td><td><span class="st is-ok">fetched and confirmed</span></td></tr>
+
+        <tr><td class="q">The imparfait also expresses repetition or habit (Francine nageait trois fois par semaine)</td><td>OQLF, Valeur temporelle de l&#x27;imparfait</td><td>expresses repetition or habit</td><td><span class="st is-ok">fetched and confirmed</span></td></tr>
+
+        <tr><td class="q">être, avoir, pouvoir, vouloir and savoir describe a state in the imparfait but indicate a change of state in the passé composé</td><td>University of Texas at Austin, Tex&#x27;s French Grammar, tap8</td><td>in the passé composé they indicate a change of state</td><td><span class="st is-ok">fetched and confirmed</span></td></tr>
+
+        <tr><td class="q">depuis + imparfait maps to the English &#x27;had been doing&#x27; pattern (Tammy attendait Tex depuis une heure)</td><td>University of Texas at Austin, Tex&#x27;s French Grammar, pred2</td><td>depuis and the imperfect</td><td><span class="st is-ok">fetched and confirmed</span></td></tr>
+
+        <tr><td class="q">Passé composé vs imparfait is B1 item 1, the pivotal contrast, and j&#x27;ai su vs je savais is a tracked signature error</td><td>FrancoLink&#x27;s own curriculum, docs/grammar-pronunciation-curriculum.md</td><td>(internal, first-hand)</td><td><span class="st is-ok">read in repo</span></td></tr>
+
+        <tr><td class="q">Using passé composé for background description is an A2 signature error, returning at B1 as all-PC narration</td><td>FrancoLink&#x27;s own curriculum, docs/grammar-pronunciation-curriculum.md, A2 item 3 and B1 item 1</td><td>(internal, first-hand)</td><td><span class="st is-ok">read in repo</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="meaning">Links sit inline on the keyword next to the claim, not in a Sources block at the bottom. That is what makes an AI engine attach your page to the sentence it lifts.</div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">05</span><h2>Schema markup</h2><span class="win">Article + Person + BreadcrumbList</span></div>
+    <pre class="code">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://www.francolink.net/blog/passe-compose-vs-imparfait#article",
+  "headline": "Passé Composé vs Imparfait: The Rule That Finally Sticks",
+  "description": "Passé composé is what happened. Imparfait is what was going on around it. The one-line rule, then the six cases where it stops working.",
+  "author": {
+    "@id": "https://www.francolink.net/authors/njinu-precious-bambot#person"
+  },
+  "publisher": {
+    "@id": "https://www.francolink.net/#organization"
+  },
+  "mainEntityOfPage": "https://www.francolink.net/blog/passe-compose-vs-imparfait",
+  "inLanguage": "en"
+}</pre>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">06</span><h2>Draft preview</h2><span class="win">full copy in draft.md</span></div>
+    <div class="draft">
+<h1>Passé Composé vs Imparfait: The Rule That Finally Sticks</h1>
+<p>Passé composé is what happened. Imparfait is what was going on around it.</p>
+<p>That is the whole rule, and you have probably read it before. The reason passé composé vs imparfait still catches you out at B1 is not that the rule is hard. It is that six specific situations break it, and most explanations stop before they get there. This page covers the rule in one line, then spends the rest of its time on the six.</p>
+<h2>What is the difference between passé composé and imparfait?</h2>
+<p>Passé composé expresses a completed event: something happened, it finished, and the story moves on. Imparfait expresses the situation that event happened inside: a description, a habit, or an action still in progress.</p>
+<p>The Office québécois de la langue française puts the imparfait side precisely: it <a href="https://vitrinelinguistique.oqlf.gouv.qc.ca/24197/la-grammaire/le-verbe/temps-grammaticaux/passe/valeur-temporelle-de-limparfait">evokes an action in progress</a>, where part of the action is complete and part is still to come. The passé composé does the opposite. It marks <a href="https://vitrinelinguistique.oqlf.gouv.qc.ca/24218/la-grammaire/le-verbe/temps-grammaticaux/passe/generalites-sur-le-passe-compose">a finished action whose result is tied to the present moment</a>.</p>
+<p>So:</p>
+<ul><li><strong>J'ai mangé une pizza.</strong> One event, finished.</li><li><strong>Il faisait froid.</strong> The situation, no start and no end in view.</li></ul>
+<p>Say the two sentences out loud and notice that the second one feels unfinished. That feeling is the tense doing its job.</p>
+<h2>Why do words like "hier" and "souvent" not decide the tense?</h2>
+<p>Time words are a hint, not a rule. They correlate with one tense or the other often enough to be taught as triggers, and then they fail on the sentences you actually want to build.</p>
+<p><em>Souvent</em> usually pulls imparfait because repeated things tend to be background. But <strong>j'ai souvent pensé à toi</strong> is correct passé composé: a set of occasions, treated as one closed block. <em>Hier</em> usually pulls passé composé, and <strong>hier, il pleuvait</strong> is correct imparfait: yesterday is when the weather was happening, not an event that finished.</p>
+<p>The question is never which adverb is in the sentence. It is whether you are naming an event or painting a situation.</p>
+<h2>What happens when one past action interrupts another?</h2>
+<p>Use imparfait for the action already running and passé composé for the thing that cut into it. This is the single most reliable pattern in French past narration, and it is worth learning as a shape rather than a rule.</p>
+<p>The OQLF's own example is <strong>Marc montait les escaliers quand Isabelle l'a appelé</strong>. Marc was already on the stairs, that is the imparfait, and the phone call landed in the middle of it, that is the passé composé. English marks the same contrast with "was climbing" against "called".</p>
+<p>Once you can hear which half of a sentence is the setting, most of your tense choices make themselves.</p>
+<h2>Which French verbs change meaning between the two tenses?</h2>
+<p>Six common verbs mean genuinely different things depending on the tense, because the passé composé turns a state into the moment that state began. The University of Texas at Austin's French grammar states the principle: verbs like être, avoir, pouvoir, vouloir and savoir usually sit in the imparfait because they describe a state, but <a href="https://laits.utexas.edu/tex/gr/tap8.html">in the passé composé they indicate a change of state</a>.</p>
+<p>This is the table to keep. Nothing else on this page is worth memorising as a list.</p>
+<table>
+<tr><th>Verb</th><th>Imparfait means</th><th>Passé composé means</th></tr>
+<tr><td>savoir</td><td>je savais, I knew</td><td>j'ai su, I found out</td></tr>
+<tr><td>vouloir</td><td>je voulais, I wanted</td><td>j'ai voulu, I tried to</td></tr>
+<tr><td>ne pas vouloir</td><td>je ne voulais pas, I did not want to</td><td>je n'ai pas voulu, I refused</td></tr>
+<tr><td>pouvoir</td><td>je pouvais, I was able to</td><td>j'ai pu, I managed to</td></tr>
+<tr><td>devoir</td><td>je devais, I was supposed to</td><td>j'ai dû, I had to, or I must have</td></tr>
+<tr><td>connaître</td><td>je connaissais, I knew</td><td>j'ai connu, I met</td></tr>
+</table>
+<p>Read the right-hand column again. Every one of them is a moment, not a condition. <strong>J'ai su la vérité</strong> is not "I knew the truth", it is the second you found out.</p>
+<h2>Why does "depuis" force the imparfait?</h2>
+<p>Because <em>depuis</em> measures something that was still going when the past event arrived, and only the imparfait can leave an action open. In English this comes out as "had been doing", which is why translating word by word sends you to the wrong tense.</p>
+<p>Tex's French Grammar gives the pattern with <a href="https://www.laits.utexas.edu/tex/gr/pred2.html">depuis and the imperfect</a>: <strong>Tammy attendait Tex depuis une heure quand il est entré</strong>, "Tammy had been waiting for Tex for an hour when he came in". The waiting had not stopped when he walked in. Put <em>a attendu</em> there and you have closed the waiting before the arrival, which is a different story.</p>
+<h2>How do you tell a whole story, not just one sentence?</h2>
+<p>Set the scene in imparfait, then run the events in passé composé, and let the two alternate. A French past narrative is not one tense with occasional exceptions, it is two tracks running at once.</p>
+<p><strong>Il faisait beau. Les oiseaux chantaient. Soudain, j'ai vu un cerf.</strong> Two lines of setting, then one event. If you narrate entirely in passé composé you get a list. If you narrate entirely in imparfait, nothing ever happens.</p>
+<p>The habit case belongs to the setting track too. The OQLF notes that the imparfait also <a href="https://vitrinelinguistique.oqlf.gouv.qc.ca/24197/la-grammaire/le-verbe/temps-grammaticaux/passe/valeur-temporelle-de-limparfait">expresses repetition or habit</a>, as in <strong>Francine nageait trois fois par semaine</strong>. Three times a week for how long? Unspecified, and that is the point.</p>
+<h2>Where does this actually break down for learners?</h2>
+<p>Almost never on the rule. It breaks on the order the two tenses get learned in, and the damage is done a whole level before anyone reaches this contrast.</p>
+<p>Passé composé arrives first, at A2, as the way to talk about the past. It works. You narrate with it for months and nothing visibly breaks, so it quietly becomes the default. Imparfait turns up a few items later, taught as description and habit, and by then it is competing against a tense you already trust. Our own curriculum tracks the consequence twice, at two different levels: <em>using passé composé for background description</em> is a signature error at A2, and it returns at B1 as <em>all-passé-composé narration</em>. Same habit, one level older and harder to shift.</p>
+<p>The second failure is subtler, and it is caused by teaching. Learners who were given trigger words, <em>soudain</em> for one tense and <em>souvent</em> for the other, do well on exercises and then freeze on their own sentences. The triggers work because exercise sentences are built around them. Your own sentences are not. That is why the section above spends its time on what kind of thing you are describing rather than on which adverb is present.</p>
+<p>If you recognise yourself in either of those, the fix is not another rule. It is deciding whether you are naming an event or painting a situation, before you conjugate anything.</p>
+<h2>What level is this, and what comes after it?</h2>
+<p>This is B1, and in our own curriculum it is the first item at that level, listed as the pivotal contrast of the whole stage. The signature error we track is exactly the one above: narrating everything in passé composé, and missing the <em>j'ai su</em> against <em>je savais</em> shift.</p>
+<p>What comes next builds directly on it. Plus-que-parfait needs you to already hear the two tracks, because it sets an event before the one you are narrating. Si clauses type 2 need the imparfait as a form before they can use it as a hypothesis. Get this contrast solid and the rest of B1 stops feeling like separate rules.</p>
+    </div>
+    <div class="meaning"><b>The clean, paste-ready version is <code>draft.md</code>.</b> This preview exists so you can read it without leaving the dashboard. Any <span style="color:#b4522f">[YOUR EXPERIENCE HERE]</span> marker above is deliberate: the skill will not invent first-hand experience for you.</div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Data: keyword map + web sources fetched this run · window: drafted 10 September 2026</span>
+    <span>seo-content-writer · generated 10 September 2026</span>
+  </div>
+  <div class="wrap" style="border:none;padding-top:14px">
+    <p class="note">Keyword data from 01-keyword-map.csv (DataForSEO, 9 September 2026, United States, English): &#x27;passe compose vs imparfait&#x27; 1,600/month, LOW competition, no AI search volume returned. Every external source was fetched and read before being cited; the two competitor pages that rank for this query, lawlessfrench.com and lingolia, were deliberately not linked. Voice and hard rules from site-brief.md: no em dashes, no invented statistics, no testimonials, no selling on native speakers. The B1 placement comes from FrancoLink&#x27;s own curriculum doc, not from an outside source.</p>
+  </div>
+</footer>
+
+</body>
+</html>

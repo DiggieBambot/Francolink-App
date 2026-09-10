@@ -58,7 +58,9 @@
 
 ### Goals
 
-- **Primary goal:** Organic + AI-answer visibility that converts to paid customers. **Priority revenue line: the $27 workbook.** Grammar-intent content (Cluster A in `docs/seo-content-plan.md`) comes first; tutors and the subscription are secondary destinations. Content with no product destination does not get written.
+- **Primary goal:** Organic + AI-answer visibility that converts to paid customers. **Priority revenue line: the $27 workbook.** Grammar-intent content (Cluster A in `docs/seo-content-plan.md`) comes first. Content with no product destination does not get written.
+- **Second destination, added 2026-09-10: the self-study subscription.** Every Cluster A page carries two exits, not one: the workbook for the reader who wants the rules drilled on paper, and a free account on the self-study app for the reader who wants the syllabus. Do not make the subscription the only CTA on a grammar page, and do not bury it either. Cluster C (CEFR and self-study) is promoted from third priority to joint second alongside tutors.
+- **Stated target, set 2026-09-10:** 1,000 paying subscribers within 6 months, i.e. by 2027-03-10. Organic and AI visibility alone will not deliver this in that window; see the funnel arithmetic recorded on 2026-09-10. The SEO work is a compounding 12 to 24 month asset and should be judged on leading indicators (pages indexed, keywords ranking, free signups from organic), not on the subscriber count at month 6.
 - **What a customer is worth, roughly:** Not established. Use the list price as the floor when judging whether a keyword is worth writing for: $27 for the workbook, $7/mo or $14/mo for a subscription, tutor-set for lessons.
 - **What this business will NOT do:** ⚠️ verify — will not let tutors create student accounts on their behalf (GDPR/PECR); will not claim to be a native-speaker-only marketplace ("being a native speaker doesn't make someone a teacher").
 

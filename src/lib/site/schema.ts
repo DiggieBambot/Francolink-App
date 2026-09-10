@@ -166,6 +166,74 @@ export function subscriptionCourseSchema() {
   };
 }
 
+/**
+ * The author entity. Referenced by @id from every Article so that a search
+ * engine or an LLM resolves all posts to one person rather than to a repeated
+ * string. `sameAs` and `image` are omitted when empty — see rule 3 above.
+ */
+export function personSchema(a: {
+  slug: string;
+  name: string;
+  credential: string;
+  bio: string;
+  image: string | null;
+  sameAs: string[];
+}) {
+  const schema: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": authorId(a.slug),
+    name: a.name,
+    url: `${SITE_URL}/authors/${a.slug}`,
+    jobTitle: a.credential,
+    description: a.bio,
+    worksFor: { "@id": ORG_ID },
+    knowsAbout: ["French language", "French grammar", "CEFR", "Language teaching"],
+  };
+  if (a.image) schema.image = `${SITE_URL}${a.image}`;
+  if (a.sameAs.length) schema.sameAs = a.sameAs;
+  return schema;
+}
+
+export function authorId(slug: string) {
+  return `${SITE_URL}/authors/${slug}#person`;
+}
+
+/**
+ * A blog post. `author` is a reference to the Person entity above rather than
+ * an inline object, which is what makes the byline an entity claim instead of
+ * a label. No `image` unless the post really has one: a missing OG image is a
+ * warning in Search Console, a fabricated one is a broken URL.
+ */
+export function articleSchema(p: {
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  updated: string;
+  authorSlug: string;
+  image?: string | null;
+}) {
+  const url = `${SITE_URL}/blog/${p.slug}`;
+  const schema: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${url}#article`,
+    headline: p.title,
+    description: p.description,
+    datePublished: p.date,
+    dateModified: p.updated,
+    author: { "@id": authorId(p.authorSlug) },
+    publisher: { "@id": ORG_ID },
+    isPartOf: { "@id": WEBSITE_ID },
+    mainEntityOfPage: url,
+    url,
+    inLanguage: "en",
+  };
+  if (p.image) schema.image = `${SITE_URL}${p.image}`;
+  return schema;
+}
+
 export function faqSchema(pairs: [string, string][]) {
   return {
     "@context": "https://schema.org",
