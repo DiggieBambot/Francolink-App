@@ -11,16 +11,23 @@ const adminSupabase = createClient(
 
 const BUCKET = "tts-cache";
 
-// Default voice per language for TTS calls that don't pass an explicit voice.
-// Voice IDs verified against /tts/v1/voices — each one actually supports its
-// target language. (Previously `de` defaulted to "Julia" which is English-only,
-// so German TTS was silently falling back to browser speech.)
+// OpenAI voices, chosen by listening to all eight read the French sounds that
+// expose an anglophone accent — the uvular r, the /y/ in "rue", the eu/oeu
+// vowels, and three liaisons in a row. fable, nova and shimmer were the three
+// that held up; the rest carried too much English.
 const LANGUAGE_VOICES: Record<string, string> = {
-  fr: "Hélène",
-  en: "Olivia",
-  es: "Sofia",
-  de: "Johanna",
+  fr: "fable",
+  en: "nova",
+  es: "shimmer",
+  de: "shimmer",
 };
+
+// A caller may ask for a specific voice (a dialogue giving its two speakers
+// different ones, say). Allowlisted because the value lands in a storage path
+// and in a paid API call.
+const ALLOWED_VOICES = new Set([
+  "alloy", "ash", "ballad", "coral", "echo", "fable", "nova", "onyx", "sage", "shimmer",
+]);
 
 // Map language codes to cache folder names
 const LANGUAGE_FOLDERS: Record<string, string> = {
@@ -52,12 +59,11 @@ function asciiSlug(s: string, maxLen: number): string {
 }
 
 function textToFilename(text: string, voice: string, speed: number): string {
-  // Anything cached at a non-default speed predates the speakingRate fix below
-  // and therefore holds normal-speed audio under a "slow" key. The suffix
-  // sidesteps those without throwing away the speed-1.0 cache, which is the
-  // overwhelming majority of it and is correct.
-  const suffix = speed === 1.0 ? "" : "-r2";
-  return `${asciiSlug(text, 60)}_${asciiSlug(voice, 20)}_${speed}${suffix}.wav`;
+  // "v2" marks the OpenAI generation. The previous provider's clips live under
+  // unsuffixed keys and are a different voice entirely, so they must not be
+  // served for these requests — and they cannot be regenerated either, since
+  // that account is out of credits.
+  return `${asciiSlug(text, 60)}_${asciiSlug(voice, 20)}_${speed}-v2.mp3`;
 }
 
 export async function POST(request: NextRequest) {
@@ -65,8 +71,11 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const language = body.language || "fr";
     const text = body.text;
-    const voice = body.voice || getDefaultVoice(language);
-    const speed = body.speed || 1.0;
+    const requested = typeof body.voice === "string" ? body.voice.toLowerCase() : "";
+    const voice = ALLOWED_VOICES.has(requested) ? requested : getDefaultVoice(language);
+    // OpenAI accepts 0.25–4.0 and actually honours it, unlike the provider this
+    // replaced — see the note that used to live below about speakingRate.
+    const speed = Math.min(Math.max(Number(body.speed) || 1.0, 0.25), 4.0);
 
     if (!text) {
       return NextResponse.json({ error: "text is required" }, { status: 400 });
@@ -87,7 +96,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ audio: base64, format: "mp3", cached: true });
     }
 
-    // 2. Generate via Inworld TTS.
+    // 2. Generate via OpenAI TTS.
     //
     // Everything above this line is free: a cache hit serves an already-paid-for
     // clip, so anonymous learners keep working exactly as before. Past this
@@ -108,51 +117,48 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "text must be a string under 1000 characters" }, { status: 400 });
     }
 
-    const apiKey = process.env.INWORLD_API_KEY;
+    const apiKey = process.env.OPENAI_API_KEY;
     if (!apiKey) {
       return NextResponse.json({ error: "TTS not configured" }, { status: 503 });
     }
 
-    const response = await fetch("https://api.inworld.ai/tts/v1/voice", {
+    const response = await fetch("https://api.openai.com/v1/audio/speech", {
       method: "POST",
       headers: {
-        "Authorization": `Basic ${apiKey}`,
+        Authorization: `Bearer ${apiKey}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        text,
-        voice_id: voice,
-        model_id: "inworld-tts-1",
-        language: language.split("-")[0],
-        // The rate lives in audioConfig.speakingRate. A top-level `speed` is
-        // accepted and silently ignored, so every "slow" playback in the app
-        // has been returning normal-speed audio. Measured on identical text:
-        // speed 0.5/0.7/1.0/1.3 gave 5.5s/4.7s/6.9s/4.2s -- no relationship;
-        // speakingRate 0.5/0.65/0.8/1.0 gives 10.2s/7.2s/6.1s/4.7s.
-        audioConfig: { speakingRate: speed },
+        model: "gpt-4o-mini-tts",
+        voice,
+        input: text,
+        speed,
+        response_format: "mp3",
+        // These voices are English-first and will drift towards an anglophone
+        // reading without being told not to. The learner imitates this audio,
+        // so the accent is the product, not a preference.
+        instructions:
+          "Read the text exactly as written, as a native speaker of the target language, with natural pronunciation, liaison and rhythm. Do not add or omit anything.",
       }),
     });
 
     if (!response.ok) {
       const error = await response.text();
-      console.error("Inworld TTS error:", error);
+      console.error("OpenAI TTS error:", error);
       return NextResponse.json({ error: "TTS generation failed" }, { status: response.status });
     }
 
-    const data = await response.json();
-    const audioBase64 = data.audioContent;
-
-    if (!audioBase64) {
+    // OpenAI returns the audio bytes directly rather than base64 in JSON.
+    const audioBuffer = Buffer.from(await response.arrayBuffer());
+    if (!audioBuffer.length) {
       return NextResponse.json({ error: "No audio returned" }, { status: 500 });
     }
+    const audioBase64 = audioBuffer.toString("base64");
 
     // 3. Save to cache in background with service-role client (user session can't write to storage)
-    const audioBuffer = Buffer.from(audioBase64, "base64");
     adminSupabase.storage
       .from(BUCKET)
       .upload(storagePath, audioBuffer, {
-        // Inworld returns MP3 (frames start ff fb), never RIFF/WAV. Browsers
-        // sniff and play it either way, which is why this went unnoticed.
         contentType: "audio/mpeg",
         upsert: false,
       })
