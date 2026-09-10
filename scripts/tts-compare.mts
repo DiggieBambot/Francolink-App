@@ -31,6 +31,16 @@ const OUT = val("--out") ?? "/tmp/tts-compare";
 /** Characters the real backlog needs, from warm-tts-cache.mjs. */
 const BACKLOG_CHARS = 397_861;
 
+const EXTRA: { slug: string; text: string; why: string }[] = [
+  { slug: "liaison-chain", text: "Les enfants ont attendu un an et demi.", why: "three liaisons in a row" },
+  { slug: "r-and-u", text: "Une rue rurale, très étroite.", why: "French r and u — the classic English-accent tell" },
+  { slug: "eu-sound", text: "Ma sœur peut le faire un peu mieux.", why: "the eu/œu vowels" },
+  { slug: "silent-endings", text: "Ils parlent beaucoup trop vite.", why: "silent final consonants" },
+  { slug: "e-muet", text: "Je ne le sais pas encore.", why: "e muet and elision in speech" },
+  { slug: "dialogue-line", text: "Bonjour, je voudrais réserver une table pour deux personnes, s'il vous plaît.", why: "a natural dialogue line" },
+  { slug: "counting", text: "un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix", why: "counting — every learner hears this" },
+];
+
 const PHRASES: { slug: string; text: string; why: string }[] = [
   { slug: "elision-ecole", text: "l'école", why: "elision before a vowel" },
   { slug: "aspirate-heros", text: "le héros", why: "aspirate h — must NOT elide" },
@@ -160,7 +170,9 @@ const providers: Provider[] = [
   {
     name: "openai",
     rate: 15,
-    voices: ["nova", "shimmer"],
+    // Worth auditioning several: these are English-first voices speaking
+    // French, and how much English accent survives differs a lot per voice.
+    voices: (val("--voices") ?? "nova,shimmer,alloy,sage,coral,ash,echo,fable").split(",").map((v) => v.trim()),
     enabled: !!openaiKey,
     ext: "mp3",
     synth: async (text, voice) => {
@@ -217,6 +229,8 @@ const providers: Provider[] = [
     },
   },
 ];
+
+PHRASES.push(...EXTRA);
 
 const active = providers.filter((p) => p.enabled && (!only || p.name.includes(only)));
 
