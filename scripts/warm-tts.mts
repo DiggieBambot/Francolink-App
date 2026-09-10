@@ -170,10 +170,27 @@ if (!openaiKey) {
 const batch = missing.sort((a, b) => a.text.length - b.text.length).slice(0, LIMIT);
 console.log(`\nGenerating ${batch.length} clips...\n`);
 
+/** This machine's connections to both OpenAI and Supabase drop intermittently
+ *  — a first pass lost 52 of 300 clips to bare "fetch failed". Retrying with
+ *  backoff turns those from lost work into a pause. */
+async function withRetry<T>(fn: () => Promise<T>, attempts = 4): Promise<T> {
+  let last: unknown;
+  for (let i = 1; i <= attempts; i++) {
+    try {
+      return await fn();
+    } catch (err) {
+      last = err;
+      if (i < attempts) await new Promise((r) => setTimeout(r, 800 * 2 ** i));
+    }
+  }
+  throw last;
+}
+
 let done = 0, failed = 0;
 for (const clip of batch) {
   try {
-    const res = await fetch("https://api.openai.com/v1/audio/speech", {
+    const res = await withRetry(async () => {
+      const r = await fetch("https://api.openai.com/v1/audio/speech", {
       method: "POST",
       headers: { Authorization: `Bearer ${openaiKey}`, "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -185,14 +202,18 @@ for (const clip of batch) {
         instructions:
           "Read the text exactly as written, as a native speaker of the target language, with natural pronunciation, liaison and rhythm. Do not add or omit anything.",
       }),
+      });
+      if (!r.ok) throw new Error(`HTTP ${r.status} ${(await r.text()).slice(0, 90)}`);
+      return r;
     });
-    if (!res.ok) throw new Error(`HTTP ${res.status} ${(await res.text()).slice(0, 90)}`);
     const buf = Buffer.from(await res.arrayBuffer());
 
-    const { error } = await supa.storage
-      .from(TTS_BUCKET)
-      .upload(clip.path, buf, { contentType: "audio/mpeg", upsert: false });
-    if (error && !/already exists/i.test(error.message)) throw new Error(error.message);
+    await withRetry(async () => {
+      const { error } = await supa.storage
+        .from(TTS_BUCKET)
+        .upload(clip.path, buf, { contentType: "audio/mpeg", upsert: false });
+      if (error && !/already exists/i.test(error.message)) throw new Error(error.message);
+    });
 
     done++;
     if (done % 25 === 0) console.log(`  ${done}/${batch.length}`);
