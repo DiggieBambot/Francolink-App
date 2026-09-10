@@ -50,6 +50,18 @@ export interface PostMeta {
   draft: boolean;
   /** Minutes, computed from the body. Never hand-written. */
   readingMinutes: number;
+  /**
+   * Path to a real 1200x630 image in /public for this post, or null to fall
+   * back to the site's own OG image. Never a made-up path: a broken og:image
+   * renders a blank card, which is worse than the generic one.
+   */
+  image: string | null;
+}
+
+/** One question-headed section, lifted for FAQPage schema. */
+export interface PostFaq {
+  question: string;
+  answer: string;
 }
 
 export interface Post extends PostMeta {
@@ -98,9 +110,64 @@ function parse(slug: string, raw: string): Post {
     cluster: required(data.cluster, "cluster", slug),
     cta,
     draft: data.draft === true,
+    image: typeof data.image === "string" && data.image.trim() ? data.image.trim() : null,
     readingMinutes: Math.max(1, Math.round(readingTime(content).minutes)),
     body: content,
   };
+}
+
+/**
+ * Pulls the answer capsules out of a post body for FAQPage schema.
+ *
+ * Every H2 in these posts is a question with its answer in the paragraph
+ * directly beneath it, which is the structure seo-content-writer enforces and
+ * the structure answer engines lift from. Deriving the schema from the prose
+ * rather than from a hand-maintained frontmatter list means the two can never
+ * drift apart, and every future post gets FAQPage for free.
+ *
+ * Only headings that actually end in a question mark are included. A section
+ * like "About the author" is not an FAQ entry and must not be claimed as one:
+ * schema that does not match the visible page is spam.
+ */
+export function extractFaqs(body: string): PostFaq[] {
+  const faqs: PostFaq[] = [];
+  const lines = body.split("\n");
+
+  for (let i = 0; i < lines.length; i++) {
+    const heading = /^##\s+(.*\?)\s*$/.exec(lines[i]);
+    if (!heading) continue;
+
+    // The capsule is the first non-empty block after the heading. Stop at the
+    // next heading so a question with no answer beneath it is simply skipped.
+    const answer: string[] = [];
+    for (let j = i + 1; j < lines.length; j++) {
+      const line = lines[j].trim();
+      if (line.startsWith("#")) break;
+      if (!line) {
+        if (answer.length) break;
+        continue;
+      }
+      answer.push(line);
+    }
+    if (!answer.length) continue;
+
+    faqs.push({
+      question: stripInline(heading[1]),
+      answer: stripInline(answer.join(" ")),
+    });
+  }
+  return faqs;
+}
+
+/** Markdown emphasis and links are markup, not answer text. */
+function stripInline(text: string): string {
+  return text
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/\*([^*]+)\*/g, "$1")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 /** True when a post should be visible on the live marketing site. */

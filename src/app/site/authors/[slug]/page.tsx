@@ -37,7 +37,18 @@ export async function generateMetadata({
     title,
     description: author.bio,
     alternates: { canonical: `/authors/${author.slug}` },
-    openGraph: { title, description: author.bio, url: `/authors/${author.slug}`, type: "profile" },
+    openGraph: {
+      title,
+      description: author.bio,
+      url: `/authors/${author.slug}`,
+      type: "profile",
+      // Same trap as the post route: declaring openGraph here replaces the
+      // site layout's object, so the images have to be restated or the page
+      // ships with no card at all.
+      images: [
+        { url: author.image ?? "/og-image.png", width: 1200, height: 630, alt: author.name },
+      ],
+    },
   };
 }
 
