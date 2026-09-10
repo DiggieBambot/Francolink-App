@@ -2,6 +2,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient as createUserClient } from "@/lib/supabase/server";
 import { createClient } from "@supabase/supabase-js";
+import {
+  ALLOWED_VOICES,
+  TTS_BUCKET as BUCKET,
+  ttsCachePath,
+  voiceFor,
+} from "@/lib/tts/cache-key";
 
 // Service-role client for cache writes (user session can't write to storage)
 const adminSupabase = createClient(
@@ -9,62 +15,9 @@ const adminSupabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
-const BUCKET = "tts-cache";
-
-// OpenAI voices, chosen by listening to all eight read the French sounds that
-// expose an anglophone accent — the uvular r, the /y/ in "rue", the eu/oeu
-// vowels, and three liaisons in a row. fable, nova and shimmer were the three
-// that held up; the rest carried too much English.
-const LANGUAGE_VOICES: Record<string, string> = {
-  fr: "fable",
-  en: "nova",
-  es: "shimmer",
-  de: "shimmer",
-};
-
-// A caller may ask for a specific voice (a dialogue giving its two speakers
-// different ones, say). Allowlisted because the value lands in a storage path
-// and in a paid API call.
-const ALLOWED_VOICES = new Set([
-  "alloy", "ash", "ballad", "coral", "echo", "fable", "nova", "onyx", "sage", "shimmer",
-]);
-
-// Map language codes to cache folder names
-const LANGUAGE_FOLDERS: Record<string, string> = {
-  fr: "french",
-  en: "english",
-  es: "spanish",
-  de: "german",
-};
-
-function getDefaultVoice(language: string): string {
-  const langCode = language.split("-")[0].toLowerCase();
-  return LANGUAGE_VOICES[langCode] || LANGUAGE_VOICES.fr;
-}
-
-function getCacheFolder(language: string): string {
-  const langCode = language.split("-")[0].toLowerCase();
-  return LANGUAGE_FOLDERS[langCode] || langCode;
-}
-
-function asciiSlug(s: string, maxLen: number): string {
-  return s
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .replace(/[^a-z0-9]/g, "-")
-    .replace(/-+/g, "-")
-    .replace(/^-|-$/g, "")
-    .slice(0, maxLen);
-}
-
-function textToFilename(text: string, voice: string, speed: number): string {
-  // "v2" marks the OpenAI generation. The previous provider's clips live under
-  // unsuffixed keys and are a different voice entirely, so they must not be
-  // served for these requests — and they cannot be regenerated either, since
-  // that account is out of credits.
-  return `${asciiSlug(text, 60)}_${asciiSlug(voice, 20)}_${speed}-v2.mp3`;
-}
+// Cache-key logic lives in @/lib/tts/cache-key so this route and the warming
+// script cannot drift apart — when they did, warming filled the bucket with
+// clips the route never looked up.
 
 export async function POST(request: NextRequest) {
   try {
@@ -72,7 +25,7 @@ export async function POST(request: NextRequest) {
     const language = body.language || "fr";
     const text = body.text;
     const requested = typeof body.voice === "string" ? body.voice.toLowerCase() : "";
-    const voice = ALLOWED_VOICES.has(requested) ? requested : getDefaultVoice(language);
+    const voice = ALLOWED_VOICES.has(requested) ? requested : voiceFor(language);
     // OpenAI accepts 0.25–4.0 and actually honours it, unlike the provider this
     // replaced — see the note that used to live below about speakingRate.
     const speed = Math.min(Math.max(Number(body.speed) || 1.0, 0.25), 4.0);
@@ -81,9 +34,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "text is required" }, { status: 400 });
     }
 
-    const filename = textToFilename(text, voice, speed);
-    const cacheFolder = getCacheFolder(language);
-    const storagePath = `${cacheFolder}/${filename}`;
+    const storagePath = ttsCachePath(text, voice, speed, language);
 
     // 1. Check cache first (public bucket — admin client works fine)
     const { data: cached } = await adminSupabase.storage
