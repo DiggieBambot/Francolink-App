@@ -10,7 +10,7 @@ import type { Lesson, Section } from "../types";
 import { critiqueLesson, type Finding, type FindingSeverity } from "./critique";
 import { normalizeLesson } from "./normalize";
 import { repairSection } from "./repair";
-import { AUTO_FIXABLE, validateLesson, type Defect } from "./validate";
+import { AUTO_FIXABLE, validateLesson, validateSection, type Defect } from "./validate";
 
 export function adminClient(): SupabaseClient {
   return createClient(
@@ -172,12 +172,17 @@ export async function processLesson(
       );
       costUsd += result.costUsd;
 
-      // ── stage 4: verify. Only keep the repair if it strictly improved the
-      // section — a rewrite that introduces new errors is worse than the
-      // defect it was fixing.
-      const before = work.defects.filter((d) => d.severity === "error").length;
+      // ── stage 4: verify. Only keep the repair if it did not make the section
+      // worse. The baseline must be the section's OWN full defect list, not the
+      // subset we asked to be fixed: work.defects holds only the auto-fixable
+      // ones, so comparing it against the repaired section's complete list
+      // compares a subset with a whole and throws away good work. That is why
+      // slovenie-un-joyau-europeen kept its 67-word C1 passage — the expansion
+      // was produced, then rejected as "4 defects (was 2)".
+      const originalDefects = validateSection(original, index, lesson.level ?? "B1", lesson.language ?? "fr");
+      const before = originalDefects.filter((d) => d.severity === "error").length;
       const after = result.remaining.filter((d) => d.severity === "error").length;
-      const beforeAll = work.defects.length;
+      const beforeAll = originalDefects.length;
       const afterAll = result.remaining.length;
 
       if (after > before || (after === before && afterAll > beforeAll)) {
