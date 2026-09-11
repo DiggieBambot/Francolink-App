@@ -742,6 +742,19 @@ export async function fetchBannerImage(
   return fallback;
 }
 
+/** The model is asked for plain question strings but sometimes returns
+ *  `{ question, answer }` objects. Free-response sections store strings, so
+ *  flatten whatever came back before it reaches the lesson. */
+function questionTexts(questions: unknown[]): string[] {
+  return questions
+    .map((q) => {
+      if (typeof q === "string") return q;
+      const text = (q as { question?: unknown })?.question;
+      return typeof text === "string" ? text : "";
+    })
+    .filter((q) => q.trim().length > 0);
+}
+
 function questionsWithAnswers(
   questions: Array<{ question: string; answer: string }> | string[],
   article: string
@@ -878,7 +891,7 @@ export function buildTutorLesson(
       title: t.discussionTitle,
       student_instruction: t.discussionStudent,
       tutor_instruction: t.discussionTutor,
-      questions: generated.discussion_questions.slice(0, 5),
+      questions: questionTexts(generated.discussion_questions).slice(0, 5),
     },
     {
       kind: "free_response",
@@ -886,7 +899,7 @@ export function buildTutorLesson(
       title: t.furtherTitle,
       student_instruction: t.furtherStudent,
       tutor_instruction: t.furtherTutor,
-      questions: generated.further_discussion_questions.slice(0, 3),
+      questions: questionTexts(generated.further_discussion_questions).slice(0, 3),
     },
   ];
 
