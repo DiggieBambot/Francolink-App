@@ -73,3 +73,8 @@ content/workbook/build/audio/
 # Account-purge exports: real user records (178 in the first file alone).
 # Untracked today only by luck — a `git add .` would have published them.
 purged-accounts-*.json
+
+# SEO audit scratch output
+data.json
+data-*.json
+lesson-critique-findings.md
