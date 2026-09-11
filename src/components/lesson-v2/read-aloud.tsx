@@ -76,7 +76,7 @@ export function ReadAloud({ text, lang = "fr-FR" }: ReadAloudProps) {
       const res = await fetch("/api/tts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: trimmed, language: lang, speed: 0.95 }),
+        body: JSON.stringify({ text: trimmed, language: lang, speed: 1.0 }),
       });
       if (!res.ok) {
         setLoading(false);
