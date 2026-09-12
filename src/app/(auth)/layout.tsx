@@ -35,7 +35,7 @@ export default function AuthLayout({
                 Start learning a new language today
               </h2>
               <p className="text-white/60 text-lg leading-relaxed">
-                Join 5,000+ students learning with certified expert tutors.
+                Learn with certified tutors, on a proper CEFR syllabus from A1 to C2.
               </p>
             </div>
 

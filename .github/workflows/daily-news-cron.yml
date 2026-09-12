@@ -1,33 +1,43 @@
-name: Publish the daily news lesson
+name: Publish the weekly news lessons
 
-# Two runs a day, one per language, half an hour apart — the same schedule these
-# had on Vercel before the Hobby cron limit pushed them here. The endpoint
-# decides what to publish; the schedule only says when.
+# Weekly, not daily. Two runs a day per language was producing roughly 42
+# lessons a week and 255 had piled up, most of them never opened — volume the
+# catalogue does not need and nobody reads. One run a week per language, three
+# lessons each, keeps both editions fresh at a rate a learner can actually keep
+# up with.
+#
+# LESSONS_PER_DAY (see src/lib/daily-news/config.ts) sets how many each run
+# produces; the ?count= parameter below overrides it per run so the schedule and
+# the batch size live in the same file.
 on:
   schedule:
-    - cron: "0 6 * * *"  # English
-    - cron: "30 6 * * *" # French
+    - cron: "0 6 * * 1"  # Monday 06:00 UTC — English
+    - cron: "30 6 * * 1" # Monday 06:30 UTC — French
   workflow_dispatch:
     inputs:
       lang:
         description: "Language to publish (blank for English)"
         required: false
         default: ""
+      count:
+        description: "How many lessons to generate (default 3)"
+        required: false
+        default: "3"
 
 jobs:
   trigger:
     runs-on: ubuntu-latest
     steps:
       - name: Publish the English edition
-        if: github.event.schedule == '0 6 * * *' || github.event.inputs.lang == ''
+        if: github.event.schedule == '0 6 * * 1' || github.event.inputs.lang == ''
         run: |
-          curl -sS -X GET "https://app.francolink.net/api/cron/daily-news" \
+          curl -sS -X GET "https://app.francolink.net/api/cron/daily-news?count=${{ github.event.inputs.count || '3' }}" \
             -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
             --max-time 300 --fail-with-body
 
       - name: Publish the French edition
-        if: github.event.schedule == '30 6 * * *' || github.event.inputs.lang == 'fr'
+        if: github.event.schedule == '30 6 * * 1' || github.event.inputs.lang == 'fr'
         run: |
-          curl -sS -X GET "https://app.francolink.net/api/cron/daily-news?lang=fr" \
+          curl -sS -X GET "https://app.francolink.net/api/cron/daily-news?lang=fr&count=${{ github.event.inputs.count || '3' }}" \
             -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
             --max-time 300 --fail-with-body

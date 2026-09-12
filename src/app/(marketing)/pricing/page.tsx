@@ -10,7 +10,7 @@ type BillingPeriod = "monthly" | "yearly";
 
 const plans = [
   {
-    key: "FREE", name: "Free", description: "Start your journey",
+    key: "FREE", name: "Free", description: "Try it before you pay",
     monthly: "$0", yearlyPerMonth: "$0",
     color: "#6B7280", colorDark: "#374151", colorLight: "#F3F4F6",
     gradient: "linear-gradient(135deg,#374151,#1f2937)",
@@ -296,7 +296,7 @@ export default function PricingPage() {
 
           {/* Trust */}
           <div className="mt-8 flex flex-wrap justify-center gap-6 text-xs text-gray-400">
-            {["🔒 Stripe-secured payments","✓ Cancel anytime, no fees","🌍 5,000+ active learners","⭐ 4.9/5 student rating"].map(t => (
+            {["🔒 Stripe-secured payments","✓ Cancel anytime, no fees","📚 CEFR A1–C2 syllabus","🎓 Tutors vetted by live teaching demo"].map(t => (
               <span key={t}>{t}</span>
             ))}
           </div>

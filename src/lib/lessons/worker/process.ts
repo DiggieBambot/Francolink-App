@@ -7,10 +7,10 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { createHash } from "crypto";
 import type { Lesson, Section } from "../types";
-import { critiqueLesson, type Finding } from "./critique";
+import { critiqueLesson, type Finding, type FindingSeverity } from "./critique";
 import { normalizeLesson } from "./normalize";
 import { repairSection } from "./repair";
-import { AUTO_FIXABLE, validateLesson, type Defect } from "./validate";
+import { AUTO_FIXABLE, validateLesson, validateSection, type Defect } from "./validate";
 
 export function adminClient(): SupabaseClient {
   return createClient(
@@ -50,6 +50,14 @@ export interface RunOptions {
   skip_critique?: boolean;
   /** Also act on subjective critique findings, not just provable defects. */
   apply_findings?: boolean;
+  /** Which finding severities may drive a repair. Defaults to error only —
+   *  the review's warn/nit tier is opinion, and on a 400-lesson catalogue that
+   *  rewrites a great deal of content that was never wrong. */
+  finding_severities?: FindingSeverity[];
+  /** Which finding categories may drive a repair. Defaults to the two that
+   *  actually produce errors: a wrong French word or a wrong fact is checkable,
+   *  whereas "this objective feels advanced for A1" is a matter of taste. */
+  finding_categories?: string[];
 }
 
 export interface ItemOutcome {
@@ -79,8 +87,11 @@ function planRepairs(
   }
 
   if (opts.apply_findings) {
+    const sevOk = opts.finding_severities ?? ["error"];
+    const catOk = opts.finding_categories ?? ["accuracy", "language"];
     for (const f of findings) {
-      if (f.section_index === null || f.severity === "nit") continue;
+      if (f.section_index === null) continue;
+      if (!sevOk.includes(f.severity) || !catOk.includes(f.category)) continue;
       const entry = plan.get(f.section_index) ?? { defects: [], findings: [] };
       entry.findings.push(f);
       plan.set(f.section_index, entry);
@@ -161,12 +172,17 @@ export async function processLesson(
       );
       costUsd += result.costUsd;
 
-      // ── stage 4: verify. Only keep the repair if it strictly improved the
-      // section — a rewrite that introduces new errors is worse than the
-      // defect it was fixing.
-      const before = work.defects.filter((d) => d.severity === "error").length;
+      // ── stage 4: verify. Only keep the repair if it did not make the section
+      // worse. The baseline must be the section's OWN full defect list, not the
+      // subset we asked to be fixed: work.defects holds only the auto-fixable
+      // ones, so comparing it against the repaired section's complete list
+      // compares a subset with a whole and throws away good work. That is why
+      // slovenie-un-joyau-europeen kept its 67-word C1 passage — the expansion
+      // was produced, then rejected as "4 defects (was 2)".
+      const originalDefects = validateSection(original, index, lesson.level ?? "B1", lesson.language ?? "fr");
+      const before = originalDefects.filter((d) => d.severity === "error").length;
       const after = result.remaining.filter((d) => d.severity === "error").length;
-      const beforeAll = work.defects.length;
+      const beforeAll = originalDefects.length;
       const afterAll = result.remaining.length;
 
       if (after > before || (after === before && afterAll > beforeAll)) {

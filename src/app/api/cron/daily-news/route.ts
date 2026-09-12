@@ -63,6 +63,12 @@ export async function GET(req: Request) {
   const url = new URL(req.url);
   const dryRun = url.searchParams.get("dry") === "1";
   const lang = parseLang(url.searchParams.get("lang"));
+  // How many lessons this run should produce. Lets the schedule and the batch
+  // size live together in the workflow file instead of being split between a
+  // cron expression here and an env var in the dashboard. Clamped so a stray
+  // parameter cannot kick off an enormous, expensive run.
+  const countParam = Number(url.searchParams.get("count"));
+  const count = Number.isFinite(countParam) ? Math.min(Math.max(Math.trunc(countParam), 1), 10) : undefined;
 
   if (!authorizedCron(req)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -70,7 +76,10 @@ export async function GET(req: Request) {
 
   const result = await runDailyNewsPipeline(serviceClient(), {
     dryRun,
-    config: lang ? { language: lang } : {},
+    config: {
+      ...(lang ? { language: lang } : {}),
+      ...(count ? { lessonsPerDay: count } : {}),
+    },
   });
   return NextResponse.json(result, { status: result.ok ? 200 : 500 });
 }

@@ -1,0 +1,49 @@
+cluster,keyword,intent,role,search_volume,ai_search_volume,competition,cpc
+Grammar hub,french grammar,informational,primary,1300,240,LOW,4.65
+Conjugation,french verb conjugation,informational,secondary,2400,453,LOW,1.65
+Tenses,french past tense,informational,secondary,1600,238,LOW,1.76
+Tenses,passe compose vs imparfait,informational,secondary,1600,no data,LOW,no data
+Tenses,french tenses,informational,secondary,1300,2596,LOW,3.02
+Mood,french subjunctive,informational,secondary,1000,252,LOW,3.85
+Pronouns,french object pronouns,informational,secondary,720,42,LOW,6.13
+Articles,partitive articles in french,informational,secondary,720,33,LOW,no data
+Book,french grammar book,commercial,secondary,320,14,HIGH,0.75
+Adjectives,french adjective agreement,informational,secondary,260,3,LOW,no data
+Grammar hub,french grammar rules,informational,secondary,260,7,LOW,0.64
+Verbs,reflexive verbs french,informational,support,4400,131,LOW,4.04
+Prepositions,french prepositions,informational,support,2400,148,LOW,4.65
+Verbs,irregular verbs french,informational,support,1900,no data,LOW,2.48
+Pronouns,indirect object pronouns french,informational,support,1900,no data,LOW,no data
+Pronouns,direct object pronouns french,informational,support,1900,no data,LOW,no data
+Articles,indefinite articles in french,informational,support,1600,no data,LOW,no data
+Tenses,imparfait vs passe compose,informational,support,1300,no data,LOW,no data
+Pronouns,y and en french,informational,support,1000,30,LOW,no data
+Verbs,french past participles,informational,support,1000,77,LOW,5.26
+Articles,definite articles in french,informational,support,1000,no data,LOW,3.7
+Pronouns,french subject pronouns,informational,support,1000,no data,LOW,no data
+Conditionals,french si clauses,informational,support,720,no data,LOW,no data
+Mood,when to use subjunctive in french,informational,support,480,45,LOW,no data
+Articles,de vs du french,informational,support,480,2,LOW,2.14
+Syntax,french sentence structure,informational,support,480,16,LOW,5.3
+Pronouns,french pronouns order,informational,support,390,no data,LOW,0.02
+Verbs,etre vs avoir,informational,support,320,23,LOW,no data
+Verbs,être ou avoir,informational,support,320,no data,LOW,no data
+Grammar hub,french grammar pdf,informational,support,110,2,LOW,no data
+Practice,french grammar practice,informational,support,110,no data,MEDIUM,3.93
+Conjugation,french verb conjugation rules,informational,support,110,no data,LOW,1.22
+Practice,french grammar exercises,informational,support,90,no data,LOW,12.53
+Book,french grammar workbook,commercial,support,70,no data,HIGH,0.96
+Book,best french grammar book,commercial,support,70,no data,HIGH,0.27
+Grammar hub,french grammar for beginners,informational,support,50,3,HIGH,4.5
+Grammar hub,learn french grammar,informational,support,50,24,MEDIUM,6.5
+Tenses,french tenses explained,informational,support,40,no data,LOW,2.4
+Grammar hub,how to learn french grammar,informational,support,30,6,MEDIUM,4.82
+Mistakes,common french grammar mistakes,informational,support,10,1,LOW,no data
+Mistakes,french grammar mistakes,informational,support,10,no data,no data,no data
+Mood,french subjunctive explained,informational,support,10,no data,LOW,no data
+Tools,french conjugation,informational,skip,8100,1780,LOW,4.67
+Brand,duolingo french,navigational,skip,8100,no data,LOW,3.83
+Brand,wordreference french,navigational,skip,5400,no data,LOW,no data
+Tools,french grammar checker,transactional,skip,3600,19,LOW,5.66
+Tools,french verb conjugator,transactional,skip,1600,no data,LOW,3.34
+Brand,french conjugation reverso,navigational,skip,880,no data,LOW,no data

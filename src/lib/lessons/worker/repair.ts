@@ -68,6 +68,10 @@ const FR_NOUN_RULE = `
   "le football", "la natation", "l'école", "les vacances" — never a bare "football".
   Use l' before a vowel or mute h ("l'hôtel"), but le/la before an aspirate h ("le héros").
   Use les for nouns that are normally plural ("les vacances", "les loisirs").
+  Choose ONE article per noun and write it out. Never emit a placeholder like
+  "le/la collègue" or "le/la/l'/les partenaire" — the card shows the term verbatim
+  and the audio reads it aloud. For a noun with distinct masculine and feminine
+  forms, pick the masculine ("le collègue") and note the feminine in "note".
   Keep "gender" consistent with the article you choose.
   Leave the article off verbs, adjectives, adverbs and phrases — this applies to nouns only.`;
 
@@ -82,10 +86,13 @@ const REQUIREMENTS: Record<string, string> = {
 - "valid_answers_by_blank" MUST have an entry for EVERY blank number, each a non-empty array of acceptable answers. Its keys are the bare number as a string — "1", "2" — NOT "(1)".
 - "answer_pool" MUST contain every acceptable answer, plus 2-3 plausible distractors. A blank whose answer is missing from the pool is unanswerable.
 - No two blanks may accept the same single answer — that makes the drill ambiguous.
-- A blank must have a determinate answer recoverable from the dialogue. If a line is open-ended ("I believe that ___"), rewrite the line so the blank tests something specific.`,
+- A blank must have a determinate answer recoverable from the dialogue. If a line is open-ended ("I believe that ___"), rewrite the line so the blank tests something specific.
+- The answer must NOT also appear in the line that contains its own gap. "Pour lire, il faut (1) un livre." with answer "un livre" gives the answer away — delete the duplicate so the line reads "Pour lire, il faut (1)."
+- Write the sentence so the gap sits where the missing word belongs, reading naturally once filled.`,
   fill_in_blank_dialogue_extended: `- Same rules as fill_in_blank_dialogue: inline "(N)" markers, a valid_answers_by_blank entry per blank, and every answer present in answer_pool.`,
   word_order: `- "correct" must contain EXACTLY the same words as "scrambled", only reordered. Do not add, drop or reword.`,
-  reading_comprehension: `- Every question needs its own DISTINCT model answer, and each answer must be findable in the passage.
+  reading_comprehension: `- "questions" is an array of objects, each with BOTH keys: { "question": "...", "answer": "..." }. The "answer" key is REQUIRED on every single entry — a question without one is a broken exercise, and writing questions with no answers is the most common way this repair fails.
+- Every answer must be DISTINCT from the others and findable in the passage.
 - "passage_translation" must be a full English translation of the passage. The reader reveals it beside the text, so a partial one is worse than none.
 - The passage must be complete prose: full paragraphs separated by a blank line, ending in a finished sentence. Never stop mid-thought or trail off.`,
   warmup_vocabulary: `- Every item needs "translation" (English) and "pronunciation" (IPA). Use "translation", never "definition".
@@ -132,6 +139,12 @@ function coerceShape(sec: any): any {
   return sec;
 }
 
+/** Passage length a reading section should reach, per CEFR band. Kept in step
+ *  with LEVEL_WORDS in validate.ts. */
+const PASSAGE_WORDS: Record<string, number> = {
+  A1: 130, A2: 170, B1: 240, B2: 310, C1: 390, C2: 460,
+};
+
 const SYSTEM = `You are a meticulous CEFR language-curriculum editor.
 You repair ONE section of a lesson at a time.
 Rules you must never break:
@@ -169,8 +182,17 @@ export async function repairSection(
     : "";
 
   const kind = (section as any).kind;
+
+  // A reading repair needs the actual number. Left to "too short" alone the
+  // model nudges a 67-word passage to 90 and stops, which is why C1 lessons
+  // like slovenie-un-joyau-europeen stayed a single thin paragraph.
+  const extra =
+    kind === "reading_comprehension"
+      ? `\n- The passage MUST be about ${PASSAGE_WORDS[lesson.level ?? "B1"] ?? 240} words for this ${lesson.level} lesson, across 4-6 developed paragraphs separated by a blank line. Expand the existing text rather than replacing it: keep its subject, facts and any **bolded** vocabulary, and write it out to full length.`
+      : "";
+
   const requirements = REQUIREMENTS[kind]
-    ? `\n\nThis section is a "${kind}". It MUST satisfy all of the following once repaired, whether or not each one is listed as a defect:\n${REQUIREMENTS[kind]}`
+    ? `\n\nThis section is a "${kind}". It MUST satisfy all of the following once repaired, whether or not each one is listed as a defect:\n${REQUIREMENTS[kind]}${extra}`
     : "";
 
   const { data, costUsd } = await askJson<{ section: Section }>(

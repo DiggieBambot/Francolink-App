@@ -34,7 +34,11 @@ export type ActivityKind =
   | "workbook_claimed"
   | "workbook_section_opened"
   | "workbook_exercise_attempted"
-  | "workbook_exercise_completed";
+  | "workbook_exercise_completed"
+  // Review prompt (two-step in-app ask). One event per user, tagged with which
+  // branch they took, so the positive:negative ratio is readable without
+  // querying the state table.
+  | "review_prompt_answered";
 
 // Events that other modules (games, homework, onboarding) may emit through the
 // client emitter at /api/activity/event. Keep this list in sync with the route's

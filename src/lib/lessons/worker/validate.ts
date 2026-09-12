@@ -49,8 +49,11 @@ function words(s: string): number {
 
 // ── per-kind checks ─────────────────────────────────────────────────────────
 
-/** Articles that already mark gender on a French vocabulary term. */
-const FR_ARTICLE = /^(le |la |l'|les |un |une |des |du |de la |de l')/i;
+/** Articles that already mark gender on a French vocabulary term. Accepts both
+ *  the straight and the typographic apostrophe — the catalogue contains both,
+ *  and matching only the straight one flags correct terms like "l’athlétisme"
+ *  as bare nouns and sends them off for a pointless rewrite. */
+const FR_ARTICLE = /^(le |la |l['’]|les |un |une |des |du |de la |de l['’])/i;
 const NOUN_POS = /^(noun|nom|substantif)/i;
 
 function checkVocab(sec: any, i: number, out: Defect[], language: string): void {
@@ -76,6 +79,13 @@ function checkVocab(sec: any, i: number, out: Defect[], language: string): void 
     }
     if (!it.pronunciation?.trim()) {
       out.push({ code: "vocab.no_pronunciation", severity: "warn", section_index: i, path: p, message: `"${it.term}" has no pronunciation.` });
+    }
+    // The article rule in the repair prompt lists the options as "le/la/l'/les";
+    // the model occasionally copies that placeholder into the term itself,
+    // producing "le/la/l'/les collègue" — which the card shows verbatim and TTS
+    // reads aloud slash by slash.
+    if (language === "fr" && /^(le|la|un|une)(\/(le|la|l'|l’|les|une))+\s/i.test(String(it.term).trim())) {
+      out.push({ code: "vocab.article_placeholder", severity: "error", section_index: i, path: p, message: `"${it.term}" carries an unresolved article placeholder — pick the one correct article for this noun.` });
     }
     // A bare French noun teaches the word but hides its gender, which is half
     // of what the learner needs. "le football" / "la natation" carries it.
@@ -147,6 +157,26 @@ function checkBlanks(sec: any, i: number, out: Defect[]): void {
     }
     return;
   }
+
+  // The answer printed in the same line as its own gap: "Pour lire, il faut
+  // (1) un livre." with answer "un livre". The student reads the answer off the
+  // page, so the drill tests nothing.
+  exchanges.forEach((ex: any, j: number) => {
+    const text = String(ex?.text ?? "");
+    if (!text) return;
+    const visible = norm(text.replace(/\(\d+\)/g, " "));
+    for (const id of Array.from(text.matchAll(/\((\d+)\)/g), (m) => m[1])) {
+      for (const a of valid[id] ?? []) {
+        const na = norm(a);
+        // Very short answers ("le", "un") appear all over a sentence by chance.
+        if (na.length < 3) continue;
+        const re = new RegExp(`(^|\\s)${na.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(\\s|$)`);
+        if (re.test(visible)) {
+          out.push({ code: "blank.answer_in_line", severity: "error", section_index: i, path: `sections[${i}].exchanges[${j}]`, message: `Blank ${id}'s answer "${a}" is already printed in the same line, so there is nothing to work out.` });
+        }
+      }
+    }
+  });
 
   const poolSet = new Set(pool.map(norm));
 
@@ -412,6 +442,7 @@ export const AUTO_FIXABLE = new Set<string>([
   "vocab.no_pronunciation",
   "vocab.no_image_query",
   "vocab.noun_without_article",
+  "vocab.article_placeholder",
   "vocab.duplicate_term",
   "blank.no_valid_answer",
   "blank.answer_not_in_pool",
@@ -419,6 +450,7 @@ export const AUTO_FIXABLE = new Set<string>([
   "blank.underscore_markers",
   "blank.markers_missing",
   "blank.no_answer_text",
+  "blank.answer_in_line",
   // Deliberately NOT auto-fixable: a placeholder stub has no content to
   // preserve, so "repairing" it means inventing a whole exercise. That is
   // authoring, not repair — it belongs behind the same review gate as a

@@ -13,19 +13,36 @@ interface Props {
 }
 
 export function FreeResponseSectionComp({ section, view, theme }: Props) {
-  // Tolerate both shapes: free_response uses `questions: string[]`, while many
-  // `discussion` sections use `items: [{ question, question_translation }]`.
+  // Tolerate every shape this section has ever been generated in:
+  // `questions: string[]`, `questions: [{ question, answer }]` (some Daily News
+  // generations come back that way), or `items: [{ question, question_translation }]`
+  // on `discussion` sections. An object reaching the JSX crashes the whole page,
+  // so each entry is flattened to its text here, answer and translation kept
+  // alongside it so nothing can fall out of step.
   const items = (section as { items?: { question?: string; question_translation?: string }[] }).items;
-  const questions: string[] = Array.isArray(section.questions)
-    ? section.questions
+  const raw: unknown[] = Array.isArray(section.questions)
+    ? (section.questions as unknown[])
     : Array.isArray(items)
-      ? items.map((it) => it?.question || "").filter(Boolean)
+      ? items
       : [];
-  const questionTranslations: (string | undefined)[] = Array.isArray(section.question_translations)
-    ? section.question_translations
-    : Array.isArray(items)
-      ? items.map((it) => it?.question_translation)
-      : [];
+  const str = (v: unknown): string | undefined =>
+    typeof v === "string" && v.trim() ? v : undefined;
+  const questions = raw
+    .map((q, i) => {
+      const o = (q ?? {}) as { question?: unknown; question_translation?: unknown; answer?: unknown };
+      return {
+        text: typeof q === "string" ? str(q) : str(o.question),
+        translation:
+          str(Array.isArray(section.question_translations) ? section.question_translations[i] : undefined) ||
+          str(o.question_translation),
+        // Object-shaped questions may carry a model answer. Tutor view only,
+        // same as reading comprehension.
+        answer: str(o.answer),
+      };
+    })
+    .filter((q) => Boolean(q.text))
+    .map((q) => ({ ...q, text: q.text as string }));
+
   return (
     <SectionCard theme={theme}>
       <SectionHeader
@@ -60,13 +77,18 @@ export function FreeResponseSectionComp({ section, view, theme }: Props) {
           >
             <div className="flex items-start gap-2">
               <span className="text-xs font-semibold text-slate-400">{i + 1}.</span>
-              <span className="flex-1 text-sm text-slate-900">{q}</span>
-              <SpeakButton text={q} size="sm" />
+              <span className="flex-1 text-sm text-slate-900">{q.text}</span>
+              <SpeakButton text={q.text} size="sm" />
             </div>
-            {questionTranslations?.[i] ? (
+            {q.translation ? (
               <div className="ml-6">
-                <RevealTranslation text={questionTranslations[i]!} />
+                <RevealTranslation text={q.translation} />
               </div>
+            ) : null}
+            {view === "tutor" && q.answer ? (
+              <p className="ml-6 mt-1 rounded-lg bg-emerald-50 px-3 py-1.5 text-sm text-emerald-900">
+                {q.answer}
+              </p>
             ) : null}
           </li>
         ))}

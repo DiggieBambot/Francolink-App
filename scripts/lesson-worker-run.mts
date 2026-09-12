@@ -17,8 +17,12 @@
 //   --dry            report only, write nothing (DEFAULT — you must pass --apply)
 //   --apply          write repairs to the lessons
 //   --critique       include the AI review stage (~10x the cost)
-//   --findings       also act on editorial findings (implies --critique)
+//   --findings       also act on editorial findings (implies --critique).
+//                    Defaults to error-severity findings in the accuracy and
+//                    language categories — the tiers that are checkable.
+//                    Widen with --finding-severity / --finding-category.
 //   --all            include lessons already passed since their last edit
+//   --exclude a-,b-  skip lessons whose slug starts with any of these prefixes
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -46,6 +50,25 @@ const C = {
 };
 
 const supa = adminClient();
+
+/** Supabase from this machine drops connections intermittently — a single
+ *  "TypeError: fetch failed" has aborted three separate sweeps. Anything the
+ *  loop depends on goes through here, so a blip costs one lesson at worst
+ *  rather than the whole run. */
+async function retry<T>(label: string, fn: () => Promise<T>, attempts = 4): Promise<T | null> {
+  for (let i = 1; i <= attempts; i++) {
+    try {
+      return await fn();
+    } catch (err) {
+      if (i === attempts) {
+        console.log(C.red(`  ${label} failed after ${attempts} attempts: ${err instanceof Error ? err.message : err}`));
+        return null;
+      }
+      await new Promise((r) => setTimeout(r, 1000 * 2 ** i));
+    }
+  }
+  return null;
+}
 
 // ── --runs / --revert ───────────────────────────────────────────────────────
 
@@ -85,6 +108,8 @@ const opts: RunOptions = {
   auto_apply: apply,
   skip_critique: !critique,
   apply_findings: has("--findings"),
+  finding_severities: (val("--finding-severity") ?? "error").split(",").map((x) => x.trim()) as any,
+  finding_categories: (val("--finding-category") ?? "accuracy,language").split(",").map((x) => x.trim()),
   critique_model: "gpt-4o",
   repair_model: "gpt-4o-mini",
 };
@@ -93,6 +118,12 @@ const opts: RunOptions = {
 // previous sweep left in a worse state without paying for the whole catalogue.
 // It implies --all: a named lesson is one you explicitly want reprocessed.
 const slugs = (val("--slugs") ?? "").split(",").map((s) => s.trim()).filter(Boolean);
+
+// --exclude drops lessons whose slug starts with any of these prefixes.
+// Chiefly for daily-news-*: that pipeline regenerates its lessons every day
+// without the article rule, so repairing them here is undone by tomorrow's
+// batch. The fix for those belongs in the generator's own prompt.
+const exclude = (val("--exclude") ?? "").split(",").map((s) => s.trim()).filter(Boolean);
 
 let q = supa
   .from("tutor_lessons")
@@ -108,9 +139,9 @@ if (error) {
   process.exit(1);
 }
 
-const queue = (lessons ?? []).filter((l) =>
-  has("--all") || slugs.length ? true : l.ai_pass_hash !== contentHash(l.content)
-);
+const queue = (lessons ?? [])
+  .filter((l) => !exclude.some((p) => l.slug.startsWith(p)))
+  .filter((l) => (has("--all") || slugs.length ? true : l.ai_pass_hash !== contentHash(l.content)));
 
 console.log(C.bold(`\nLesson worker`));
 console.log(
@@ -142,11 +173,24 @@ let done = 0, failed = 0, appliedCount = 0, cost = 0;
 const started = Date.now();
 
 for (const row of queue) {
-  const { data: item } = await supa
-    .from("lesson_worker_items")
-    .insert({ run_id: run.id, lesson_id: row.id, slug: row.slug, title: row.title, level: row.level })
-    .select("*")
-    .single();
+  const item = await retry(`queue ${row.slug}`, async () => {
+    const { data, error } = await supa
+      .from("lesson_worker_items")
+      .insert({ run_id: run.id, lesson_id: row.id, slug: row.slug, title: row.title, level: row.level })
+      .select("*")
+      .single();
+    if (error) throw new Error(error.message);
+    if (!data) throw new Error("insert returned no row");
+    return data;
+  });
+
+  // Could not even record the item — skip this lesson rather than take the
+  // whole sweep down with it.
+  if (!item) {
+    failed++;
+    console.log(`${`${done + failed}/${queue.length}`.padStart(9)}  ${row.slug.slice(0, 40).padEnd(40)} ${C.red("skipped (could not queue)")}`);
+    continue;
+  }
 
   const pre = summarize(
     validateLesson(normalizeLesson({ ...(row.content as any), level: row.level, title: row.title }).lesson)
@@ -185,7 +229,7 @@ for (const row of queue) {
       `${n}  ${row.slug.slice(0, 40).padEnd(40)} ${String(pre.errors).padStart(2)}→${String(post.errors).padEnd(2)} errors  ${tag}`
     );
 
-    await supa
+    await retry(`record ${row.slug}`, async () => supa
       .from("lesson_worker_items")
       .update({
         status: "done",
@@ -196,21 +240,21 @@ for (const row of queue) {
         cost_usd: out.costUsd,
         finished_at: new Date().toISOString(),
       })
-      .eq("id", item.id);
+      .eq("id", item.id));
   } catch (err) {
     failed++;
     const msg = err instanceof Error ? err.message : String(err);
     console.log(`${n}  ${row.slug.slice(0, 40).padEnd(40)} ${C.red("failed")} ${C.dim(msg.slice(0, 60))}`);
-    await supa
+    await retry(`record failure ${row.slug}`, async () => supa
       .from("lesson_worker_items")
       .update({ status: "failed", error: msg, finished_at: new Date().toISOString() })
-      .eq("id", item.id);
+      .eq("id", item.id));
   }
 
-  await supa
+  await retry("update run progress", async () => supa
     .from("lesson_worker_runs")
     .update({ done_items: done, failed_items: failed, applied_count: appliedCount, cost_usd: cost })
-    .eq("id", run.id);
+    .eq("id", run.id));
 }
 
 await supa
