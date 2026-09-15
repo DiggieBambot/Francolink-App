@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<!--
+  Keyword & Fan-Out Map — AI RANKING DASHBOARD TEMPLATE
+  GENERATED FILE. Do not edit inside a skill folder.
+  Edit shared/house-style.css or shared/bodies/*.body.html, then run:
+      python3 shared/build_templates.py
+
+  HOW TO FILL THIS TEMPLATE
+  - Replace every double-brace placeholder with a real value.
+  - Repeatable blocks are marked.
+    Duplicate the inner block once per row. Delete the block if there are no rows
+    and show the .empty state instead.
+  - Do NOT restyle. Do NOT add fonts, colours, or libraries.
+  - Never invent a number. If data is missing write "no data" and say why in
+    All figures from DataForSEO on 15 September 2026: Google volume, CPC and competition from dataforseo_labs/google/keyword_overview and related_keywords, AI volume from ai_optimization/ai_keyword_data, SERP and People Also Ask from serp/google/organic. Location United States, language English, 12-month average, the same basis as the Cluster A map so the two are comparable. site-brief.md asks for worldwide volumes and this is not worldwide: the Labs endpoints require one country, so the largest English-speaking market is the proxy. Treat these as a US floor. Blank cells mean the API returned nothing, never zero and never an estimate. Two headline numbers in this data are NOT usable and are marked skip: &#x27;how to learn french&#x27; reports 90,500 but sat at 3,600 to 4,400 all through 2025 before a 2026 spike, and &#x27;spanish vs french&#x27; reports 4,400 against a baseline near 700 after a single 49,500 month in July. Both averages are artifacts. &#x27;french for work&#x27; reports 3,600 but DataForSEO resolves its core keyword to &#x27;work in french&#x27;, which is dictionary intent, not business French..
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FrancoLink - Cluster D, intent to commit · Keyword & Fan-Out Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,400..600&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   AI RANKING HOUSE STYLE — single source of truth
+   Inherited from local-seo-report/templates/report.html.template.
+   Do not restyle per skill. Edit here, then run shared/build_templates.py
+   to regenerate all five skill templates.
+   ============================================================ */
+:root{
+  --forest:#1c3a2e; --forest-2:#264c3b; --moss:#5b7a63;
+  --cream:#f4efe2; --cream-2:#ece5d3; --paper:#fbf8f0;
+  --gold:#c08a3e; --rust:#b4522f; --ink:#16241d;
+  --pass:#2f7d4e; --warn:#c08a3e; --fail:#b4522f;
+  --line:rgba(28,58,46,.16);
+  --shadow:0 1px 2px rgba(28,58,46,.06),0 12px 36px -12px rgba(28,58,46,.22);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Schibsted Grotesk",system-ui,sans-serif;
+  background:var(--cream); color:var(--ink);
+  line-height:1.55; -webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(1200px 600px at 85% -10%, rgba(192,138,62,.10), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(91,122,99,.14), transparent 55%);
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap{max-width:980px;margin:0 auto;padding:0 28px}
+.reveal{opacity:0;transform:translateY(18px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.reveal{animation:none;opacity:1;transform:none}}
+
+/* ---------- header ---------- */
+header.top{background:linear-gradient(160deg,var(--forest),var(--forest-2));color:var(--cream);position:relative;overflow:hidden}
+header.top::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle at center, rgba(192,138,62,.45), transparent 65%)}
+.top .wrap{padding:54px 28px 46px;position:relative;z-index:2}
+.brandrow{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(244,239,226,.7)}
+.brandrow b{color:var(--cream);font-weight:600}
+h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(2.4rem,6vw,4rem);line-height:1.02;margin:26px 0 6px;letter-spacing:-.01em}
+h1 em{font-style:italic;color:#e7c690}
+.sub{font-size:1.02rem;color:rgba(244,239,226,.82);max-width:52ch}
+.datechip{display:inline-flex;gap:.5rem;align-items:center;margin-top:22px;background:rgba(244,239,226,.12);border:1px solid rgba(244,239,226,.25);padding:.5rem .9rem;border-radius:999px;font-size:.82rem;letter-spacing:.04em}
+.datechip span{width:7px;height:7px;border-radius:50%;background:#7bd39a;box-shadow:0 0 0 4px rgba(123,211,154,.18)}
+
+/* ---------- KPI band ---------- */
+.heroband{background:var(--paper);border-bottom:1px solid var(--line)}
+.heroband .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:0}
+.stat{padding:30px 22px;border-right:1px solid var(--line);position:relative}
+.stat:last-child{border-right:none}
+.stat .k{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(1.9rem,4.4vw,2.9rem);line-height:1;color:var(--forest);letter-spacing:-.02em}
+.stat .l{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--moss);margin-top:10px}
+.stat .w{font-size:.72rem;color:#9a9684;margin-top:3px}
+.stat.is-fail .k{color:var(--fail)}
+.stat.is-warn .k{color:var(--warn)}
+@media(max-width:720px){.heroband .wrap{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:none}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}}
+
+/* ---------- sections ---------- */
+main{padding:60px 0 30px}
+section{margin-bottom:58px}
+.seclabel{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
+.seclabel .num{font-family:"Fraunces",serif;font-style:italic;color:var(--gold);font-size:1.1rem}
+.seclabel h2{font-family:"Fraunces",serif;font-weight:500;font-size:1.85rem;letter-spacing:-.01em;color:var(--forest)}
+.seclabel .win{margin-left:auto;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--moss);border:1px solid var(--line);padding:.3rem .7rem;border-radius:999px}
+.meaning{background:var(--cream-2);border-left:3px solid var(--gold);padding:14px 18px;border-radius:0 10px 10px 0;font-size:.95rem;margin-top:18px;color:#3a4a40}
+.meaning b{color:var(--forest)}
+
+/* ---------- cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:720px){.cards{grid-template-columns:repeat(2,1fr)}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow)}
+.card .k{font-family:"Fraunces",serif;font-size:2rem;color:var(--forest);line-height:1;letter-spacing:-.02em}
+.card .l{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--moss);margin-top:9px}
+.card.flag{border-color:rgba(180,82,47,.4);background:linear-gradient(180deg,#fbf1ec,var(--paper))}
+.card.flag .k{color:var(--rust)}
+.card.flag .tag{font-size:.68rem;color:var(--rust);font-weight:600;text-transform:uppercase;letter-spacing:.1em;margin-top:6px;display:block}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px;box-shadow:var(--shadow)}
+
+/* ---------- tables ---------- */
+.tbl{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);margin-top:6px}
+.tbl th{text-align:left;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--moss);padding:14px 18px;background:var(--cream-2);border-bottom:1px solid var(--line)}
+.tbl td{padding:13px 18px;border-bottom:1px solid var(--line);font-size:.92rem;vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td.q{font-weight:500;color:var(--ink)}
+.tbl td.num{font-family:"Fraunces",serif;font-weight:600;font-size:1.02rem;white-space:nowrap}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.bar{height:6px;border-radius:3px;background:var(--cream-2);overflow:hidden;min-width:70px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--moss),var(--forest))}
+
+/* ---------- badges + status ---------- */
+.badge{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+  padding:.34rem .72rem;border-radius:999px;border:1px solid var(--line);background:var(--cream-2);color:var(--forest)}
+.badge.solid{background:linear-gradient(150deg,var(--forest),var(--forest-2));color:var(--cream);border-color:transparent}
+.badge.gold{background:rgba(192,138,62,.14);border-color:rgba(192,138,62,.4);color:#8a5f1f}
+.st{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;white-space:nowrap}
+.st::before{content:"";width:9px;height:9px;border-radius:50%;flex:none}
+.st.pass{color:var(--pass)}      .st.pass::before{background:var(--pass);box-shadow:0 0 0 3px rgba(47,125,78,.15)}
+.st.warn{color:var(--warn)}      .st.warn::before{background:var(--warn);box-shadow:0 0 0 3px rgba(192,138,62,.15)}
+.st.fail{color:var(--fail)}      .st.fail::before{background:var(--fail);box-shadow:0 0 0 3px rgba(180,82,47,.15)}
+.st.na{color:#9a9684}            .st.na::before{background:#c9c4b3}
+.intent{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:.24rem .6rem;border-radius:6px;white-space:nowrap}
+.intent.info{background:rgba(91,122,99,.16);color:#3f5a48}
+.intent.comm{background:rgba(192,138,62,.16);color:#8a5f1f}
+.intent.trans{background:rgba(47,125,78,.16);color:#215a38}
+.intent.nav{background:rgba(28,58,46,.1);color:var(--forest)}
+
+/* ---------- checklist (skill 3) ---------- */
+.checks{list-style:none}
+.checks li{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:16px 0;border-bottom:1px dashed var(--line);align-items:start}
+.checks li:last-child{border-bottom:none}
+.checks .what{font-weight:500;color:var(--forest)}
+.checks .why{display:block;color:#6c7a6f;font-size:.88rem;margin-top:3px}
+.checks .fix{display:block;font-size:.88rem;margin-top:6px;padding:10px 12px;background:var(--cream-2);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;color:#3a4a40}
+
+/* ---------- score dial ---------- */
+.score{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.score .n{font-family:"Fraunces",serif;font-size:4rem;line-height:1;color:var(--forest);letter-spacing:-.03em}
+.score .n small{font-size:1.2rem;color:var(--moss)}
+.score .track{flex:1;min-width:180px;height:10px;border-radius:5px;background:var(--cream-2);overflow:hidden}
+.score .track i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--pass))}
+
+/* ---------- ordered focus / gap list ---------- */
+.focus ol{list-style:none;counter-reset:f;margin-top:8px}
+.focus li{counter-increment:f;display:flex;gap:16px;padding:15px 0;border-bottom:1px dashed var(--line)}
+.focus li:last-child{border-bottom:none}
+.focus li::before{content:counter(f);font-family:"Fraunces",serif;font-style:italic;color:var(--gold);font-size:1.2rem;min-width:26px}
+.focus li b{color:var(--forest)}
+.focus li small{display:block;color:#6c7a6f;font-size:.85rem;margin-top:2px}
+
+/* ---------- dark feature panel (skill 5 / highlights) ---------- */
+.feature{background:linear-gradient(150deg,var(--forest),var(--forest-2));color:var(--cream);border-radius:18px;padding:30px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.feature::after{content:"";position:absolute;right:-80px;bottom:-80px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(231,198,144,.35),transparent 65%)}
+.feature .ey{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#e7c690}
+.feature h3{font-family:"Fraunces",serif;font-weight:500;font-size:1.5rem;margin:8px 0 18px;max-width:34ch}
+.feature .rows{display:flex;gap:30px;flex-wrap:wrap;position:relative;z-index:2}
+.feature .r .n{font-family:"Fraunces",serif;font-size:2.3rem;line-height:1;color:#fff}
+.feature .r .s{font-size:.8rem;color:rgba(244,239,226,.8);margin-top:6px}
+
+/* ---------- draft preview (skill 2) ---------- */
+.draft{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:30px 34px;box-shadow:var(--shadow);max-height:620px;overflow-y:auto}
+.draft h2,.draft h3{font-family:"Fraunces",serif;font-weight:500;color:var(--forest);margin:26px 0 10px}
+.draft h2{font-size:1.4rem}.draft h3{font-size:1.12rem}
+.draft p{margin:0 0 14px}
+.draft a{color:#215a38;text-decoration:underline;text-underline-offset:2px}
+.draft .marker{background:rgba(180,82,47,.14);border:1px dashed rgba(180,82,47,.5);color:var(--rust);font-weight:600;padding:12px 14px;border-radius:8px;display:block;margin:14px 0}
+.kv{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;font-size:.92rem}
+.kv dt{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--moss);padding-top:3px}
+.kv dd{color:var(--ink);word-break:break-word}
+pre.code{background:var(--ink);color:#dfe7df;padding:18px;border-radius:12px;overflow-x:auto;font-size:.8rem;line-height:1.5}
+
+/* ---------- empty state ---------- */
+.empty{background:var(--cream-2);border:1px dashed var(--line);border-radius:14px;padding:28px;text-align:center;color:#6c7a6f}
+.empty b{display:block;font-family:"Fraunces",serif;font-size:1.2rem;color:var(--forest);margin-bottom:6px}
+
+/* ---------- footer ---------- */
+footer{padding:40px 0 70px;color:#7d8a7f;font-size:.82rem}
+footer .wrap{border-top:1px solid var(--line);padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.note{font-size:.8rem;color:#8a8773;max-width:60ch}
+
+/* ---------- print ---------- */
+@media print{
+  body::before{display:none}
+  .draft{max-height:none;overflow:visible}
+  section{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap reveal">
+    <div class="brandrow"><span>Keyword Map</span><b>AI Ranking</b></div>
+    <h1>Cluster D: deciding to learn French, and French for work</h1>
+    <p class="sub">The cluster that sells subscriptions and tutors. Cluster A sells the $27 workbook to people already learning; this one reaches people deciding whether to start.</p>
+    <div class="datechip"><span></span>FrancoLink - Cluster D, intent to commit · generated 15 September 2026</div>
+  </div>
+</header>
+
+<div class="heroband">
+  <div class="wrap">
+    <div class="stat"><div class="k">34</div><div class="l">Keywords found</div><div class="w">after intent filtering</div></div>
+    <div class="stat"><div class="k">2,400 / month</div><div class="l">Primary kw volume</div><div class="w">United States · monthly</div></div>
+    <div class="stat"><div class="k">294 / month</div><div class="l">AI search volume</div><div class="w">LLM prompt demand</div></div>
+    <div class="stat"><div class="k">10</div><div class="l">Fan-out questions</div><div class="w">the page must answer</div></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section class="reveal">
+    <div class="seclabel"><span class="num">01</span><h2>The primary keyword</h2><span class="win">United States · English</span></div>
+    <div class="panel">
+      <dl class="kv">
+        <dt>Primary</dt><dd><b>is french hard to learn</b> <span class="intent info">informational</span></dd>
+        <dt>Search volume</dt><dd>2,400 / month / month</dd>
+        <dt>AI search volume</dt><dd>294 / month</dd>
+        <dt>Competition</dt><dd>LOW (0.01). Ranking pages average 0.2 referring domains</dd>
+        <dt>CPC</dt><dd>$7.74</dd>
+        <dt>Why this one</dt><dd>The weakest competition in any FrancoLink keyword measured so far, grammar included. Competition 0.01, and the pages that rank average 0.2 referring domains, meaning essentially nobody with authority is contesting it. Page one is Reddit at position 1, a Facebook group at 3, Quora at 5 and YouTube at 7. Four of the eight results are user-generated. A credentialed, structured answer has an unusually clear run.</dd>
+      </dl>
+      <div class="meaning"><b>Use this as the H1 subject and put it in the first 100 words.</b> Two cautions. The AI volume is volatile: 152 to 199 a month through late 2025, then a spike to 1,828 in May 2026 and back to 294 in August, so treat 294 as the current reading and not a trend. And the honest answer to this question is not &#x27;no&#x27;, which is what every thin page says. The FSI puts French in Category I at 600 to 750 hours, which is both encouraging and a real number; cite FSI directly rather than a blog repeating it.</div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">02</span><h2>Keyword map by intent</h2><span class="win">34 keywords</span></div>
+    <div class="scroll">
+    <table class="tbl">
+      <thead><tr><th>Cluster</th><th>Keyword</th><th>Intent</th><th>Volume</th><th>AI vol</th><th>Comp</th><th>Role</th></tr></thead>
+      <tbody>
+
+        <tr>
+          <td>Difficulty</td>
+          <td class="q">is french hard to learn</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">2,400</td>
+          <td class="num">294</td>
+          <td>LOW</td>
+          <td>primary</td>
+        </tr>
+
+        <tr>
+          <td>Commitment</td>
+          <td class="q">best way to learn french</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">2,400</td>
+          <td class="num">300</td>
+          <td>MEDIUM</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>Commitment</td>
+          <td class="q">how long does it take to learn french</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">1,600</td>
+          <td class="num">265</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>Alternatives</td>
+          <td class="q">duolingo alternatives</td>
+          <td><span class="intent comm">commercial</span></td>
+          <td class="num">1,600</td>
+          <td class="num">43</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>Professional</td>
+          <td class="q">french for business</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">1,000</td>
+          <td class="num">247</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>Exams</td>
+          <td class="q">delf exam</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">880</td>
+          <td class="num">79</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>Speaking</td>
+          <td class="q">french conversation practice</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">720</td>
+          <td class="num">14</td>
+          <td>MEDIUM</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>Difficulty</td>
+          <td class="q">is french harder than spanish</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">320</td>
+          <td class="num">14</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>Choice</td>
+          <td class="q">should i learn french or spanish</td>
+          <td><span class="intent comm">commercial</span></td>
+          <td class="num">260</td>
+          <td class="num">17</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>Exams</td>
+          <td class="q">tcf exam</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">170</td>
+          <td class="num">48</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>Choice</td>
+          <td class="q">easiest language to learn for english speakers</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">8,100</td>
+          <td class="num">35</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>Difficulty</td>
+          <td class="q">is french hard to learn for english speakers</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">390</td>
+          <td class="num">no data</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>Difficulty</td>
+          <td class="q">is french easy to learn for english speakers</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">320</td>
+          <td class="num">no data</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>Self-study</td>
+          <td class="q">how to learn a language on your own</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">260</td>
+          <td class="num">no data</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>Self-study</td>
+          <td class="q">how to learn french on your own</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">170</td>
+          <td class="num">no data</td>
+          <td>MEDIUM</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>Levels</td>
+          <td class="q">cefr levels explained</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">170</td>
+          <td class="num">no data</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>Difficulty</td>
+          <td class="q">how hard is french to learn for english speakers</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">170</td>
+          <td class="num">no data</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>Levels</td>
+          <td class="q">french a1 level</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">140</td>
+          <td class="num">61</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>Choice</td>
+          <td class="q">which is easier to learn spanish or french</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">140</td>
+          <td class="num">no data</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>Difficulty</td>
+          <td class="q">is french harder to learn than spanish</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">110</td>
+          <td class="num">no data</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>Difficulty</td>
+          <td class="q">is french easier than german</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">90</td>
+          <td class="num">no data</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>Professional</td>
+          <td class="q">business french course</td>
+          <td><span class="intent comm">commercial</span></td>
+          <td class="num">70</td>
+          <td class="num">no data</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>Professional</td>
+          <td class="q">french job interview</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">70</td>
+          <td class="num">14</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>Professional</td>
+          <td class="q">french interview questions</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">40</td>
+          <td class="num">no data</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>Tools</td>
+          <td class="q">english to french</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">1,000,000</td>
+          <td class="num">no data</td>
+          <td>LOW</td>
+          <td>skip</td>
+        </tr>
+
+        <tr>
+          <td>Tools</td>
+          <td class="q">french to english</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">1,000,000</td>
+          <td class="num">no data</td>
+          <td>LOW</td>
+          <td>skip</td>
+        </tr>
+
+        <tr>
+          <td>Anomaly</td>
+          <td class="q">how to learn french</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">90,500</td>
+          <td class="num">937</td>
+          <td>LOW</td>
+          <td>skip</td>
+        </tr>
+
+        <tr>
+          <td>Brand</td>
+          <td class="q">italki</td>
+          <td><span class="intent nav">navigational</span></td>
+          <td class="num">40,500</td>
+          <td class="num">no data</td>
+          <td>MEDIUM</td>
+          <td>skip</td>
+        </tr>
+
+        <tr>
+          <td>Tools</td>
+          <td class="q">english to french translation google</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">6,600</td>
+          <td class="num">no data</td>
+          <td>LOW</td>
+          <td>skip</td>
+        </tr>
+
+        <tr>
+          <td>Generic</td>
+          <td class="q">how to learn a new language</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">5,400</td>
+          <td class="num">40</td>
+          <td>LOW</td>
+          <td>skip</td>
+        </tr>
+
+        <tr>
+          <td>Anomaly</td>
+          <td class="q">spanish vs french</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">4,400</td>
+          <td class="num">2</td>
+          <td>LOW</td>
+          <td>skip</td>
+        </tr>
+
+        <tr>
+          <td>Wrong intent</td>
+          <td class="q">french for work</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">3,600</td>
+          <td class="num">1,885</td>
+          <td>HIGH</td>
+          <td>skip</td>
+        </tr>
+
+        <tr>
+          <td>In-person</td>
+          <td class="q">french language intensive course</td>
+          <td><span class="intent comm">commercial</span></td>
+          <td class="num">590</td>
+          <td class="num">no data</td>
+          <td>MEDIUM</td>
+          <td>skip</td>
+        </tr>
+
+        <tr>
+          <td>Wrong audience</td>
+          <td class="q">easiest language to learn for spanish speakers</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">480</td>
+          <td class="num">no data</td>
+          <td>LOW</td>
+          <td>skip</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="meaning">Role tells the writer what each keyword is for: <b>primary</b> (H1 + first 100 words), <b>secondary</b> (an H2 of its own), <b>support</b> (use naturally in body copy), <b>skip</b> (wrong intent for this page, do not force it).</div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">03</span><h2>Fan-out questions to answer</h2><span class="win">answer capture</span></div>
+    <div class="panel focus">
+      <p class="note">These are the follow-up queries AI engines expand your topic into. Each one becomes an H2 with a two-sentence answer directly underneath.</p>
+      <ol>
+
+        <li><div><b>How long does it take to learn French?</b><small>People Also Ask, and the highest-volume secondary in the map at 1,600/mo. The FSI Category I figure is the answer, cited to FSI directly rather than to a blog repeating it.</small></div></li>
+
+        <li><div><b>What is the 80/20 rule in French?</b><small>People Also Ask. Notable: this same question also appeared in the &#x27;french grammar&#x27; PAA block on 9 September. It is the one question both clusters share, and nobody on either page answers it properly.</small></div></li>
+
+        <li><div><b>On a scale of 1 to 10, how hard is it to learn French?</b><small>Related searches, and it recurs across four of the difficulty keywords. People want a number. Give them one and justify it.</small></div></li>
+
+        <li><div><b>Is French harder than Spanish?</b><small>Related searches plus its own keyword at 320/mo. The honest answer is split: pronunciation harder, grammar comparable, and saying so beats picking a side.</small></div></li>
+
+        <li><div><b>Which is harder, French or English?</b><small>People Also Ask. Answer from the English speaker&#x27;s position, which is the audience the brief names.</small></div></li>
+
+        <li><div><b>Is French hard to learn for beginners?</b><small>Related searches. Distinct from the head term because it is about the A1 stage specifically, which maps to your own curriculum.</small></div></li>
+
+        <li><div><b>What makes French pronunciation hard?</b><small>Google&#x27;s AI Overview built a section from this: silent letters, nasal vowels, liaisons. Cover it or the page cannot be cited for the &#x27;why it is hard&#x27; half.</small></div></li>
+
+        <li><div><b>How much French vocabulary overlaps with English?</b><small>The AI Overview quotes 30 to 40 percent. Verify against a primary source before repeating it; the Overview attributes it to a competitor blog, not to research.</small></div></li>
+
+        <li><div><b>Does noun gender make French harder?</b><small>AI Overview section two. Links naturally to Cluster A&#x27;s grammar posts, which is how the two clusters join up.</small></div></li>
+
+        <li><div><b>What is the #1 easiest language to learn?</b><small>People Also Ask, and it connects to the 8,100/mo support keyword. Answer it honestly even though the answer is usually not French, then say where French actually sits.</small></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">04</span><h2>Who currently ranks</h2><span class="win">top of SERP</span></div>
+    <!-- Set SERP_TABLE_DISPLAY to none and SERP_EMPTY_DISPLAY to block if no SERP data was pulled. -->
+    <div class="scroll" style="display:block">
+    <table class="tbl">
+      <thead><tr><th>#</th><th>Domain</th><th>Ranking page title</th><th>Angle they take</th></tr></thead>
+      <tbody>
+
+        <tr><td class="num">1</td><td class="q">reddit.com</td><td>How hard is French to learn for native English speakers...</td><td>A five-year-old forum thread at position 1. That is the whole opportunity in one row: no publisher owns this query.</td></tr>
+
+        <tr><td class="num">2</td><td class="q">commeunefrancaise.com</td><td>Before You Start Learning French (Managing Expectations)</td><td>The strongest real competitor, and cited twice by the AI Overview. Angle is expectation-setting, not measurement.</td></tr>
+
+        <tr><td class="num">3</td><td class="q">facebook.com</td><td>Why is French considered easy for native English speakers...</td><td>A Facebook group post on page one. Same signal as Reddit.</td></tr>
+
+        <tr><td class="num">4</td><td class="q">hellofrench.com</td><td>Is French Hard to Learn for English Speakers? (FSI)</td><td>The only result built on the FSI data, and the AI Overview leans on it for both the headline claim and the hours figure. This is the page to beat, and it is beatable by citing FSI directly.</td></tr>
+
+        <tr><td class="num">5</td><td class="q">quora.com</td><td>How hard is it to learn French? How did you learn it?</td><td>Q&amp;A site, two years old.</td></tr>
+
+        <tr><td class="num">6</td><td class="q">af.ca</td><td>Is French easy to learn? - Ottawa</td><td>Alliance Française. Real authority, thin page, and regional.</td></tr>
+
+        <tr><td class="num">7</td><td class="q">youtube.com</td><td>How hard is French to learn? An honest guide</td><td>Video, 656k views, five years old. Not contestable with text but shows the demand.</td></tr>
+
+        <tr><td class="num">8</td><td class="q">cia-france.com</td><td>Is French easy or difficult to learn?</td><td>In-person language school in France. Pronunciation angle only.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="empty" style="display:none">
+      <b>No SERP data pulled</b>
+      This run skipped the live SERP check, so who currently ranks is unknown rather than empty.
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">05</span><h2>Handing off</h2></div>
+    <div class="feature">
+      <div class="ey">Next step</div>
+      <h3>Hand this to seo-content-writer</h3>
+      <div class="rows">
+        <div class="r"><div class="n">34</div><div class="s">keywords in 01-keyword-map.csv</div></div>
+        <div class="r"><div class="n">10</div><div class="s">questions for the writer</div></div>
+        <div class="r"><div class="n">9</div><div class="s">secondary keywords = H2s</div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Data: DataForSEO Labs + Keywords Data + AI Keyword Data · window: 12-month average</span>
+    <span>keyword-fanout-map · generated 15 September 2026</span>
+  </div>
+  <div class="wrap" style="border:none;padding-top:14px">
+    <p class="note">All figures from DataForSEO on 15 September 2026: Google volume, CPC and competition from dataforseo_labs/google/keyword_overview and related_keywords, AI volume from ai_optimization/ai_keyword_data, SERP and People Also Ask from serp/google/organic. Location United States, language English, 12-month average, the same basis as the Cluster A map so the two are comparable. site-brief.md asks for worldwide volumes and this is not worldwide: the Labs endpoints require one country, so the largest English-speaking market is the proxy. Treat these as a US floor. Blank cells mean the API returned nothing, never zero and never an estimate. Two headline numbers in this data are NOT usable and are marked skip: &#x27;how to learn french&#x27; reports 90,500 but sat at 3,600 to 4,400 all through 2025 before a 2026 spike, and &#x27;spanish vs french&#x27; reports 4,400 against a baseline near 700 after a single 49,500 month in July. Both averages are artifacts. &#x27;french for work&#x27; reports 3,600 but DataForSEO resolves its core keyword to &#x27;work in french&#x27;, which is dictionary intent, not business French.</p>
+  </div>
+</footer>
+
+</body>
+</html>

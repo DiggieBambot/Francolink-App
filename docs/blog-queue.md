@@ -6,7 +6,10 @@
 >
 > Post 1, `passe-compose-vs-imparfait`, is live at
 > https://www.francolink.net/blog/passe-compose-vs-imparfait (deployed 2026-09-12).
-> Post 2, `french-tenses`, is written and staged as a draft.
+> Post 2, `french-tenses`, is written and published in PR #5, awaiting merge.
+>
+> **Cluster D added 2026-09-15.** Map in `01-keyword-map-cluster-d.csv`.
+> Queue reordered below to interleave the two clusters.
 
 ## Ordering principle
 
@@ -26,15 +29,40 @@ Not by volume. Three things decide position:
 | # | Target keyword | Vol/mo | AI vol | Working title | Primary CTA |
 |---|---|---|---|---|---|
 | ~~2~~ | ~~french tenses~~ | 1,300 | **2,596** | **WRITTEN 2026-09-15** as *French Tenses: The Eight You Actually Need* | subscription |
-| 3 | french grammar | 1,300 | 240 | French Grammar: The Rules That Cover Most Sentences | workbook |
-| 4 | reflexive verbs french | **4,400** | 131 | French Reflexive Verbs: Why *Je Me Lève* Needs the *Me* | workbook |
-| 5 | french object pronouns | 720 | 42 | French Object Pronouns: le, la, lui, y, en, in Order | workbook |
-| 6 | french subjunctive | 1,000 | 252 | The French Subjunctive, Explained Without the Jargon | workbook |
-| 7 | french verb conjugation | 2,400 | 453 | French Verb Conjugation: The Patterns Behind the Endings | workbook |
-| 8 | french grammar book | 320 | 14 | Choosing a French Grammar Book: What to Check First | workbook |
-| 9 | partitive articles in french | 720 | 33 | De, Du, De la, Des: French Partitives Made Simple | workbook |
-| 10 | french si clauses | 720 | no data | French Si Clauses: The Three Patterns, and the One Error | subscription |
-| 11 | french past participles | 1,000 | 77 | French Past Participle Agreement: When It Actually Changes | workbook |
+| 3 | french grammar (hub) | 1,300 | 240 | French Grammar: The Rules That Cover Most Sentences | workbook |
+| **4** | **is french hard to learn** | **2,400** | 294 | Is French Hard to Learn? What the Hours Actually Say | subscription |
+| **5** | **how long does it take to learn french** | 1,600 | 265 | How Long It Really Takes to Learn French | subscription |
+| **6** | **french for business** | 1,000 | 247 | French for Work: What You Actually Need, and in What Order | tutors |
+| 7 | reflexive verbs french | 4,400 | 131 | French Reflexive Verbs: Why *Je Me Lève* Needs the *Me* | workbook |
+| **8** | **duolingo alternatives** | 1,600 | 43 | Duolingo Alternatives for French, Honestly Compared | subscription |
+| 9 | french object pronouns | 720 | 42 | French Object Pronouns: le, la, lui, y, en, in Order | workbook |
+| **10** | **delf exam** | 880 | 79 | The DELF, Explained: Levels, Format and How to Prepare | tutors |
+| 11 | french subjunctive | 1,000 | 252 | The French Subjunctive, Explained Without the Jargon | workbook |
+| **12** | **should i learn french or spanish** | 260 | 17 | French or Spanish? A Straight Answer | subscription |
+| 13 | french verb conjugation | 2,400 | 453 | French Verb Conjugation: The Patterns Behind the Endings | workbook |
+| 14 | french grammar book | 320 | 14 | Choosing a French Grammar Book: What to Check First | workbook |
+| 15 | partitive articles in french | 720 | 33 | De, Du, De la, Des: French Partitives Made Simple | workbook |
+| 16 | french si clauses | 720 | no data | French Si Clauses: The Three Patterns, and the One Error | subscription |
+| 17 | french past participles | 1,000 | 77 | French Past Participle Agreement: When It Actually Changes | workbook |
+
+**Bold rows are Cluster D**, added 2026-09-15 from `01-keyword-map-cluster-d.csv`.
+They are interleaved rather than appended: Cluster A sells the $27 workbook to
+people who are already learning, Cluster D reaches people deciding whether to
+start and people who need French for work. Alternating keeps both revenue lines
+moving instead of finishing one cluster before the other begins.
+
+### Why Cluster D jumps in at position 4
+
+`is french hard to learn` has the weakest competition of any FrancoLink keyword
+measured so far, grammar included: competition 0.01, and the ranking pages
+average **0.2 referring domains**. Page one is Reddit at position 1, a Facebook
+group at 3, Quora at 5 and YouTube at 7. Four of eight results are
+user-generated. Nobody with authority owns this query.
+
+It also sells the right thing. `site-brief.md` made the subscription a joint
+second destination on 2026-09-10, and the 1,000-subscriber target lives here,
+not in grammar content. `french for business` carries a **$24.78 CPC**, which is
+what advertisers pay for an audience that converts.
 
 ---
 
@@ -100,6 +128,36 @@ case in a form a reader can act on.
 
 ---
 
+### The Cluster D entries
+
+**4. is french hard to learn.** See above. The one thing to get right is the
+answer itself: every thin page says "no, it's easy". The FSI puts French in
+Category I at 600 to 750 hours, which is encouraging *and* a real number. Cite
+FSI directly rather than a blog repeating it, which is what the current
+page-one leader does.
+
+**5. how long does it take to learn french.** 1,600/mo, competition 0.04, and
+the ranking pages average 1.7 referring domains. Same FSI source, different
+question, and it is the natural second half of post 4.
+
+**6. french for business.** 1,000/mo at a **$24.78 CPC**, competition 0.03.
+This is where the "préparer entretien en ligne" idea belongs: `french job
+interview` is only 70/mo and `french interview questions` 40/mo, too small for
+their own posts, but they are legitimate H2 sections here. Sells tutoring.
+
+**8. duolingo alternatives.** 1,600/mo, commercial intent, and Busuu and Babbel
+currently own the adjacent "best app with a proper CEFR syllabus" query
+uncontested per the 2026-09-10 visibility run. Must be an honest comparison or
+it will not be cited.
+
+**10. delf exam.** 880/mo, competition 0.02. Exam candidates are the highest
+intent audience on the site and they buy tutoring. `tcf exam` at 170/mo and an
+$11.28 CPC folds in as a section or a sibling post.
+
+**12. should i learn french or spanish.** Small at 260/mo but zero competition,
+and it catches people at the moment of choosing. Answer it honestly, including
+when the answer is Spanish.
+
 ## Deliberately not on this list
 
 - **french conjugation (8,100/mo), french grammar checker (3,600/mo), french
@@ -112,6 +170,23 @@ case in a form a reader can act on.
 - **common french grammar mistakes.** In the original Cluster A plan, but the
   data says 10/month. Fold the content into other posts instead of giving it
   a page.
+
+Added 2026-09-15, from the Cluster D run:
+
+- **how to learn french (90,500/mo) and spanish vs french (4,400/mo).** Both
+  averages are artifacts of a single 2026 spike. The real baselines are around
+  4,000 and 700. Do not plan against either number.
+- **french for work (3,600/mo).** Looks like business French, is not.
+  DataForSEO resolves its core keyword to "work in french": dictionary intent,
+  and HIGH competition at 0.79.
+- **english to french / french to english (1,000,000/mo each).** Translation
+  tool intent, and the ranking pages carry 4,800+ referring domains.
+- **how to learn a new language (5,400/mo).** Generic, KD 42, ranking pages
+  average 744 referring domains, and it is not French. Fails the brief's
+  "content with no product destination" test.
+- **french language intensive course (590/mo).** The SERP carries a local pack:
+  in-person schools in France. Wrong delivery model.
+- **italki (40,500/mo).** Competitor brand.
 
 ## Still open before post 3
 

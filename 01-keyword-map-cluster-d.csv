@@ -1,0 +1,35 @@
+cluster,keyword,intent,role,search_volume,ai_search_volume,competition,cpc
+Difficulty,is french hard to learn,informational,primary,2400,294,LOW,7.74
+Commitment,best way to learn french,informational,secondary,2400,300,MEDIUM,7.6
+Commitment,how long does it take to learn french,informational,secondary,1600,265,LOW,4.81
+Alternatives,duolingo alternatives,commercial,secondary,1600,43,LOW,3.41
+Professional,french for business,informational,secondary,1000,247,LOW,24.78
+Exams,delf exam,informational,secondary,880,79,LOW,3.96
+Speaking,french conversation practice,informational,secondary,720,14,MEDIUM,6.17
+Difficulty,is french harder than spanish,informational,secondary,320,14,LOW,no data
+Choice,should i learn french or spanish,commercial,secondary,260,17,LOW,no data
+Exams,tcf exam,informational,secondary,170,48,LOW,11.28
+Choice,easiest language to learn for english speakers,informational,support,8100,35,LOW,2.29
+Difficulty,is french hard to learn for english speakers,informational,support,390,no data,LOW,6.48
+Difficulty,is french easy to learn for english speakers,informational,support,320,no data,LOW,6.38
+Self-study,how to learn a language on your own,informational,support,260,no data,LOW,3.6
+Self-study,how to learn french on your own,informational,support,170,no data,MEDIUM,5.67
+Levels,cefr levels explained,informational,support,170,no data,LOW,2.15
+Difficulty,how hard is french to learn for english speakers,informational,support,170,no data,LOW,no data
+Levels,french a1 level,informational,support,140,61,LOW,7.57
+Choice,which is easier to learn spanish or french,informational,support,140,no data,LOW,8.42
+Difficulty,is french harder to learn than spanish,informational,support,110,no data,LOW,no data
+Difficulty,is french easier than german,informational,support,90,no data,LOW,no data
+Professional,business french course,commercial,support,70,no data,LOW,4.84
+Professional,french job interview,informational,support,70,14,LOW,no data
+Professional,french interview questions,informational,support,40,no data,LOW,no data
+Tools,english to french,informational,skip,1000000,no data,LOW,1.28
+Tools,french to english,informational,skip,1000000,no data,LOW,6.18
+Anomaly,how to learn french,informational,skip,90500,937,LOW,4.18
+Brand,italki,navigational,skip,40500,no data,MEDIUM,2.85
+Tools,english to french translation google,informational,skip,6600,no data,LOW,1.18
+Generic,how to learn a new language,informational,skip,5400,40,LOW,4.08
+Anomaly,spanish vs french,informational,skip,4400,2,LOW,no data
+Wrong intent,french for work,informational,skip,3600,1885,HIGH,0.87
+In-person,french language intensive course,commercial,skip,590,no data,MEDIUM,9.12
+Wrong audience,easiest language to learn for spanish speakers,informational,skip,480,no data,LOW,5.07
