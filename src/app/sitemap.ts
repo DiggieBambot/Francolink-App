@@ -20,6 +20,7 @@ import { getPublishedLessons } from "@/lib/lessons/public-queries";
 import { getPublicTutorSlugs } from "@/lib/site/queries";
 import { getAllPosts } from "@/lib/blog/posts";
 import { allAuthorSlugs } from "@/lib/blog/authors";
+import { getAllGuides } from "@/lib/blog/guides";
 import { APP_URL, SITE_URL, isMarketingHost } from "@/lib/site/hosts";
 
 const BASE = APP_URL;
@@ -62,6 +63,17 @@ async function marketingSitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.7,
       });
     }
+  }
+
+  // Pillar guides. Higher priority than posts: they are the hubs the posts
+  // hang off, and they are revised rather than superseded.
+  for (const guide of getAllGuides()) {
+    entries.push({
+      url: `${SITE_URL}/guides/${guide.urlPath}`,
+      lastModified: new Date(guide.updated),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    });
   }
 
   for (const slug of allAuthorSlugs()) {

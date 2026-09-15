@@ -94,6 +94,11 @@ const SITE_ROUTES = [
   // Author pages. The E-E-A-T anchor every blog post's Person schema points at,
   // so it has to resolve on the marketing host, not bounce to the app.
   "/authors",
+  // Pillar guides. docs/seo-content-plan.md originally put these under /learn,
+  // which cannot work: /learn is in APP_ROUTES below, so anything beneath it
+  // host-splits to app.francolink.net and the hub would redirect off the
+  // marketing domain. Decided 2026-09-10.
+  "/guides",
   "/privacy",
   "/terms",
   // The workbook's sales page. Lives on the website, not the app: it is
