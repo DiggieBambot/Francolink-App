@@ -6,7 +6,8 @@
 >
 > Post 1, `passe-compose-vs-imparfait`, is live at
 > https://www.francolink.net/blog/passe-compose-vs-imparfait (deployed 2026-09-12).
-> Post 2, `french-tenses`, is written and published in PR #5, awaiting merge.
+> Post 2, `french-tenses`, and post 3, the `/guides/french/grammar` hub, are written,
+> published and awaiting merge in PR #5. All three now link to each other.
 >
 > **Cluster D added 2026-09-15.** Map in `01-keyword-map-cluster-d.csv`.
 > Queue reordered below to interleave the two clusters.
@@ -29,8 +30,8 @@ Not by volume. Three things decide position:
 | # | Target keyword | Vol/mo | AI vol | Working title | Primary CTA |
 |---|---|---|---|---|---|
 | ~~2~~ | ~~french tenses~~ | 1,300 | **2,596** | **WRITTEN 2026-09-15** as *French Tenses: The Eight You Actually Need* | subscription |
-| 3 | french grammar (hub) | 1,300 | 240 | French Grammar: The Rules That Cover Most Sentences | workbook |
-| **4** | **is french hard to learn** | **2,400** | 294 | Is French Hard to Learn? What the Hours Actually Say | subscription |
+| ~~3~~ | ~~french grammar (hub)~~ | 1,300 | 240 | **WRITTEN 2026-09-15** as *French Grammar: What to Learn, and in What Order*, at `/guides/french/grammar` | workbook |
+| ~~**4**~~ | ~~**is french hard to learn**~~ | **2,400** | 294 | **WRITTEN 2026-09-15** as *Is French Hard to Learn? What the Official Numbers Say* | subscription |
 | **5** | **how long does it take to learn french** | 1,600 | 265 | How Long It Really Takes to Learn French | subscription |
 | **6** | **french for business** | 1,000 | 247 | French for Work: What You Actually Need, and in What Order | tutors |
 | 7 | reflexive verbs french | 4,400 | 131 | French Reflexive Verbs: Why *Je Me Lève* Needs the *Me* | workbook |
@@ -81,47 +82,47 @@ plus-que-parfait, conditionnel présent and subjonctif présent at B1. Two more
 subjonctif imparfait are listed at C1 as recognition-only. The post follows the
 curriculum. Do not restore "six".
 
-**3. french grammar.** The hub, and the primary keyword of the map. Google's AI
+**3. french grammar. WRITTEN 2026-09-15** as the `/guides/french/grammar` hub. The primary keyword of the map. Google's AI
 Overview for this query builds three sections, gender, articles and adjectives,
 and conjugation, and cites a source per section, so the page must answer all
 three to be quotable. Publish after two or three posts exist to link down to,
 or it is a hub with nothing under it.
 
-**4. reflexive verbs french.** The largest un-planned topic found, at 4,400/month
+**7. reflexive verbs french.** The largest un-planned topic found, at 4,400/month
 with LOW competition. Your A2 curriculum already lists the three signature
 errors, dropped reflexive, wrong pronoun person, and reflexive passé composé
 with *avoir*. That is the post, and it writes itself from material you own.
 
-**5. french object pronouns.** Named in `site-brief.md` as one of the things
+**9. french object pronouns.** Named in `site-brief.md` as one of the things
 learners avoid, alongside `y` and `en`. Pronoun *order* is the part nobody
 covers well, and your A2 spec already has the placement errors listed. Combine
 with the `y and en french` keyword at 1,000/month.
 
-**6. french subjunctive.** 1,000/month, 252 in LLMs, LOW competition, and the
+**11. french subjunctive.** 1,000/month, 252 in LLMs, LOW competition, and the
 "without the jargon" angle is the differentiator, because every ranking page
 opens with terminology. Pair with `when to use subjunctive in french` at
 480/month, which is the same intent phrased as the real question.
 
-**7. french verb conjugation.** 2,400/month. Note this is *not* the 8,100/month
+**13. french verb conjugation.** 2,400/month. Note this is *not* the 8,100/month
 `french conjugation`, which DataForSEO resolves to "french verb conjugator",
 meaning tool intent. Do not build a conjugator. Explain the patterns and let
 the tool sites keep that traffic.
 
-**8. french grammar book.** The clearest commercial gap in the visibility run:
+**14. french grammar book.** The clearest commercial gap in the visibility run:
 ChatGPT currently answers "best french grammar workbook for english speakers"
 with McGraw Hill's *Practice Makes Perfect*, a title from 2016. Low volume, high
 competition, and the only post on this list that directly attacks the query the
 $27 workbook needs to win. Must be an honest comparison, not a disguised sales
 page, or it will not be cited.
 
-**9. partitive articles.** 720/month, LOW competition, and in the original plan.
+**15. partitive articles.** 720/month, LOW competition, and in the original plan.
 A clean extractable rule, which is exactly what gets lifted into an AI answer.
 
-**10. french si clauses.** 720/month. Your B1 spec calls *si + conditionnel* the
+**16. french si clauses.** 720/month. Your B1 spec calls *si + conditionnel* the
 cardinal si-clause error, which gives the post its spine. Sells the
 subscription: si clauses are a level marker, not a one-rule fix.
 
-**11. french past participle agreement.** 1,000/month. The hardest of the ten to
+**17. french past participle agreement.** 1,000/month. The hardest of the ten to
 write well and the most defensible once written, because almost nobody
 distinguishes the *avoir* preceding-direct-object case from the *être* subject
 case in a form a reader can act on.
@@ -130,11 +131,19 @@ case in a form a reader can act on.
 
 ### The Cluster D entries
 
-**4. is french hard to learn.** See above. The one thing to get right is the
-answer itself: every thin page says "no, it's easy". The FSI puts French in
-Category I at 600 to 750 hours, which is encouraging *and* a real number. Cite
-FSI directly rather than a blog repeating it, which is what the current
-page-one leader does.
+**4. is french hard to learn. WRITTEN 2026-09-15.** Citing FSI directly rather
+than a blog repeating it turned out to matter more than expected, because the
+figure everyone repeats is wrong.
+
+The State Department's own page puts Category I at **552 to 690 class hours**
+and lists **French at 30 weeks**, the top of the band. The "600 to 750 hours"
+that the page-one leader and Google's AI Overview both quote does not match it.
+Two further things came out of the primary source and appear nowhere on page
+one: French is the joint *slowest* Category I language (30 weeks against 24 for
+Danish, Dutch, Italian, Norwegian, Portuguese, Romanian and Swedish), and the
+hours figure counts classroom time only. FSI's own "typical week" is 23 class
+hours plus 17 of self-study, so 30 weeks implies roughly 510 further hours and
+a real total nearer 1,200 than 690.
 
 **5. how long does it take to learn french.** 1,600/mo, competition 0.04, and
 the ranking pages average 1.7 referring domains. Same FSI source, different
