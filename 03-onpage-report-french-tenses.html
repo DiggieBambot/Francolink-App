@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<!--
+  On-Page Report — AI RANKING DASHBOARD TEMPLATE
+  GENERATED FILE. Do not edit inside a skill folder.
+  Edit shared/house-style.css or shared/bodies/*.body.html, then run:
+      python3 shared/build_templates.py
+
+  HOW TO FILL THIS TEMPLATE
+  - Replace every double-brace placeholder with a real value.
+  - Repeatable blocks are marked.
+    Duplicate the inner block once per row. Delete the block if there are no rows
+    and show the .empty state instead.
+  - Do NOT restyle. Do NOT add fonts, colours, or libraries.
+  - Never invent a number. If data is missing write "no data" and say why in
+    Branch A run against the rendered HTML of the local dev server, fetched with a Host: site.localhost header. No DataForSEO call: the page is not live, and the connector is only needed for live URLs. Every count here was measured off that HTML, including link counts, heading counts, capsule sentence counts, schema keys and word count. Score weighting is identical to the post 1 audit so the two are comparable: schema 25, capsule structure 25, internal links 15, sources 15, author 8, relevance 7, freshness 5. Read 100 carefully. It means this rubric found no defects, not that the page will rank or be cited. The rubric cannot measure whether the writing is good, whether anyone links to it from outside the site, or whether Google agrees the eight-tense framing is the best answer. Two items are provisional until deploy: the canonical resolves to the dev host, and the single inbound link exists in the repo but not in production. Post 1 scored 70 on first run and 93 after fixes; post 2 opened at effectively the same place because the fixes lived in shared code, which is the argument for having audited post 1 before writing the rest of the queue..
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>french tenses · On-Page Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,400..600&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   AI RANKING HOUSE STYLE — single source of truth
+   Inherited from local-seo-report/templates/report.html.template.
+   Do not restyle per skill. Edit here, then run shared/build_templates.py
+   to regenerate all five skill templates.
+   ============================================================ */
+:root{
+  --forest:#1c3a2e; --forest-2:#264c3b; --moss:#5b7a63;
+  --cream:#f4efe2; --cream-2:#ece5d3; --paper:#fbf8f0;
+  --gold:#c08a3e; --rust:#b4522f; --ink:#16241d;
+  --pass:#2f7d4e; --warn:#c08a3e; --fail:#b4522f;
+  --line:rgba(28,58,46,.16);
+  --shadow:0 1px 2px rgba(28,58,46,.06),0 12px 36px -12px rgba(28,58,46,.22);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Schibsted Grotesk",system-ui,sans-serif;
+  background:var(--cream); color:var(--ink);
+  line-height:1.55; -webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(1200px 600px at 85% -10%, rgba(192,138,62,.10), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(91,122,99,.14), transparent 55%);
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap{max-width:980px;margin:0 auto;padding:0 28px}
+.reveal{opacity:0;transform:translateY(18px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.reveal{animation:none;opacity:1;transform:none}}
+
+/* ---------- header ---------- */
+header.top{background:linear-gradient(160deg,var(--forest),var(--forest-2));color:var(--cream);position:relative;overflow:hidden}
+header.top::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle at center, rgba(192,138,62,.45), transparent 65%)}
+.top .wrap{padding:54px 28px 46px;position:relative;z-index:2}
+.brandrow{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(244,239,226,.7)}
+.brandrow b{color:var(--cream);font-weight:600}
+h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(2.4rem,6vw,4rem);line-height:1.02;margin:26px 0 6px;letter-spacing:-.01em}
+h1 em{font-style:italic;color:#e7c690}
+.sub{font-size:1.02rem;color:rgba(244,239,226,.82);max-width:52ch}
+.datechip{display:inline-flex;gap:.5rem;align-items:center;margin-top:22px;background:rgba(244,239,226,.12);border:1px solid rgba(244,239,226,.25);padding:.5rem .9rem;border-radius:999px;font-size:.82rem;letter-spacing:.04em}
+.datechip span{width:7px;height:7px;border-radius:50%;background:#7bd39a;box-shadow:0 0 0 4px rgba(123,211,154,.18)}
+
+/* ---------- KPI band ---------- */
+.heroband{background:var(--paper);border-bottom:1px solid var(--line)}
+.heroband .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:0}
+.stat{padding:30px 22px;border-right:1px solid var(--line);position:relative}
+.stat:last-child{border-right:none}
+.stat .k{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(1.9rem,4.4vw,2.9rem);line-height:1;color:var(--forest);letter-spacing:-.02em}
+.stat .l{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--moss);margin-top:10px}
+.stat .w{font-size:.72rem;color:#9a9684;margin-top:3px}
+.stat.is-fail .k{color:var(--fail)}
+.stat.is-warn .k{color:var(--warn)}
+@media(max-width:720px){.heroband .wrap{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:none}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}}
+
+/* ---------- sections ---------- */
+main{padding:60px 0 30px}
+section{margin-bottom:58px}
+.seclabel{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
+.seclabel .num{font-family:"Fraunces",serif;font-style:italic;color:var(--gold);font-size:1.1rem}
+.seclabel h2{font-family:"Fraunces",serif;font-weight:500;font-size:1.85rem;letter-spacing:-.01em;color:var(--forest)}
+.seclabel .win{margin-left:auto;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--moss);border:1px solid var(--line);padding:.3rem .7rem;border-radius:999px}
+.meaning{background:var(--cream-2);border-left:3px solid var(--gold);padding:14px 18px;border-radius:0 10px 10px 0;font-size:.95rem;margin-top:18px;color:#3a4a40}
+.meaning b{color:var(--forest)}
+
+/* ---------- cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:720px){.cards{grid-template-columns:repeat(2,1fr)}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow)}
+.card .k{font-family:"Fraunces",serif;font-size:2rem;color:var(--forest);line-height:1;letter-spacing:-.02em}
+.card .l{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--moss);margin-top:9px}
+.card.flag{border-color:rgba(180,82,47,.4);background:linear-gradient(180deg,#fbf1ec,var(--paper))}
+.card.flag .k{color:var(--rust)}
+.card.flag .tag{font-size:.68rem;color:var(--rust);font-weight:600;text-transform:uppercase;letter-spacing:.1em;margin-top:6px;display:block}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px;box-shadow:var(--shadow)}
+
+/* ---------- tables ---------- */
+.tbl{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);margin-top:6px}
+.tbl th{text-align:left;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--moss);padding:14px 18px;background:var(--cream-2);border-bottom:1px solid var(--line)}
+.tbl td{padding:13px 18px;border-bottom:1px solid var(--line);font-size:.92rem;vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td.q{font-weight:500;color:var(--ink)}
+.tbl td.num{font-family:"Fraunces",serif;font-weight:600;font-size:1.02rem;white-space:nowrap}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.bar{height:6px;border-radius:3px;background:var(--cream-2);overflow:hidden;min-width:70px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--moss),var(--forest))}
+
+/* ---------- badges + status ---------- */
+.badge{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+  padding:.34rem .72rem;border-radius:999px;border:1px solid var(--line);background:var(--cream-2);color:var(--forest)}
+.badge.solid{background:linear-gradient(150deg,var(--forest),var(--forest-2));color:var(--cream);border-color:transparent}
+.badge.gold{background:rgba(192,138,62,.14);border-color:rgba(192,138,62,.4);color:#8a5f1f}
+.st{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;white-space:nowrap}
+.st::before{content:"";width:9px;height:9px;border-radius:50%;flex:none}
+.st.pass{color:var(--pass)}      .st.pass::before{background:var(--pass);box-shadow:0 0 0 3px rgba(47,125,78,.15)}
+.st.warn{color:var(--warn)}      .st.warn::before{background:var(--warn);box-shadow:0 0 0 3px rgba(192,138,62,.15)}
+.st.fail{color:var(--fail)}      .st.fail::before{background:var(--fail);box-shadow:0 0 0 3px rgba(180,82,47,.15)}
+.st.na{color:#9a9684}            .st.na::before{background:#c9c4b3}
+.intent{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:.24rem .6rem;border-radius:6px;white-space:nowrap}
+.intent.info{background:rgba(91,122,99,.16);color:#3f5a48}
+.intent.comm{background:rgba(192,138,62,.16);color:#8a5f1f}
+.intent.trans{background:rgba(47,125,78,.16);color:#215a38}
+.intent.nav{background:rgba(28,58,46,.1);color:var(--forest)}
+
+/* ---------- checklist (skill 3) ---------- */
+.checks{list-style:none}
+.checks li{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:16px 0;border-bottom:1px dashed var(--line);align-items:start}
+.checks li:last-child{border-bottom:none}
+.checks .what{font-weight:500;color:var(--forest)}
+.checks .why{display:block;color:#6c7a6f;font-size:.88rem;margin-top:3px}
+.checks .fix{display:block;font-size:.88rem;margin-top:6px;padding:10px 12px;background:var(--cream-2);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;color:#3a4a40}
+
+/* ---------- score dial ---------- */
+.score{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.score .n{font-family:"Fraunces",serif;font-size:4rem;line-height:1;color:var(--forest);letter-spacing:-.03em}
+.score .n small{font-size:1.2rem;color:var(--moss)}
+.score .track{flex:1;min-width:180px;height:10px;border-radius:5px;background:var(--cream-2);overflow:hidden}
+.score .track i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--pass))}
+
+/* ---------- ordered focus / gap list ---------- */
+.focus ol{list-style:none;counter-reset:f;margin-top:8px}
+.focus li{counter-increment:f;display:flex;gap:16px;padding:15px 0;border-bottom:1px dashed var(--line)}
+.focus li:last-child{border-bottom:none}
+.focus li::before{content:counter(f);font-family:"Fraunces",serif;font-style:italic;color:var(--gold);font-size:1.2rem;min-width:26px}
+.focus li b{color:var(--forest)}
+.focus li small{display:block;color:#6c7a6f;font-size:.85rem;margin-top:2px}
+
+/* ---------- dark feature panel (skill 5 / highlights) ---------- */
+.feature{background:linear-gradient(150deg,var(--forest),var(--forest-2));color:var(--cream);border-radius:18px;padding:30px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.feature::after{content:"";position:absolute;right:-80px;bottom:-80px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(231,198,144,.35),transparent 65%)}
+.feature .ey{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#e7c690}
+.feature h3{font-family:"Fraunces",serif;font-weight:500;font-size:1.5rem;margin:8px 0 18px;max-width:34ch}
+.feature .rows{display:flex;gap:30px;flex-wrap:wrap;position:relative;z-index:2}
+.feature .r .n{font-family:"Fraunces",serif;font-size:2.3rem;line-height:1;color:#fff}
+.feature .r .s{font-size:.8rem;color:rgba(244,239,226,.8);margin-top:6px}
+
+/* ---------- draft preview (skill 2) ---------- */
+.draft{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:30px 34px;box-shadow:var(--shadow);max-height:620px;overflow-y:auto}
+.draft h2,.draft h3{font-family:"Fraunces",serif;font-weight:500;color:var(--forest);margin:26px 0 10px}
+.draft h2{font-size:1.4rem}.draft h3{font-size:1.12rem}
+.draft p{margin:0 0 14px}
+.draft a{color:#215a38;text-decoration:underline;text-underline-offset:2px}
+.draft .marker{background:rgba(180,82,47,.14);border:1px dashed rgba(180,82,47,.5);color:var(--rust);font-weight:600;padding:12px 14px;border-radius:8px;display:block;margin:14px 0}
+.kv{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;font-size:.92rem}
+.kv dt{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--moss);padding-top:3px}
+.kv dd{color:var(--ink);word-break:break-word}
+pre.code{background:var(--ink);color:#dfe7df;padding:18px;border-radius:12px;overflow-x:auto;font-size:.8rem;line-height:1.5}
+
+/* ---------- empty state ---------- */
+.empty{background:var(--cream-2);border:1px dashed var(--line);border-radius:14px;padding:28px;text-align:center;color:#6c7a6f}
+.empty b{display:block;font-family:"Fraunces",serif;font-size:1.2rem;color:var(--forest);margin-bottom:6px}
+
+/* ---------- footer ---------- */
+footer{padding:40px 0 70px;color:#7d8a7f;font-size:.82rem}
+footer .wrap{border-top:1px solid var(--line);padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.note{font-size:.8rem;color:#8a8773;max-width:60ch}
+
+/* ---------- print ---------- */
+@media print{
+  body::before{display:none}
+  .draft{max-height:none;overflow:visible}
+  section{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap reveal">
+    <div class="brandrow"><span>On-Page Report</span><b>AI Ranking</b></div>
+    <h1>On-page audit: post 2, before publish</h1>
+    <p class="sub">Run against the local render. Second post through the same rubric, to check whether the shared-code fixes from post 1 actually carried.</p>
+    <div class="datechip"><span></span>french tenses · generated 15 September 2026</div>
+  </div>
+</header>
+
+<div class="heroband">
+  <div class="wrap">
+    <div class="stat"><div class="k" style="font-size:1.5rem;padding-top:.6rem">Blog / informational</div><div class="l">Page type</div><div class="w">/blog/ URL - Article + FAQPage schema - og:type=article - explanatory intent throughout - one CTA block after the value, not repeated - no price, booking or enquiry element in the body</div></div>
+    <div class="stat is-pass"><div class="k">100<small>/100</small></div><div class="l">On-page score</div><div class="w">100 / 100 on this rubric, which means no defects it detects, not that it will rank</div></div>
+    <div class="stat"><div class="k">7<small>/7</small></div><div class="l">Checks passed</div><div class="w">Branch A, blog / informational checklist</div></div>
+    <div class="stat is-pass"><div class="k">0</div><div class="l">Critical fixes</div><div class="w">do these first</div></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section class="reveal">
+    <div class="seclabel"><span class="num">01</span><h2>What we checked, and why</h2><span class="win">Branch A, blog / informational</span></div>
+    <div class="panel">
+      <div class="score">
+        <div class="n">100<small>/100</small></div>
+        <div class="track"><i style="width:100%"></i></div>
+      </div>
+      <div class="meaning"><b>This page was assessed as a Blog / informational.</b> Unambiguous, no conflicting signals, same shape as post 1. Branch B was not run. A Service / product (not run) would have been graded on a different checklist, so if this is wrong, say so and re-run.</div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">02</span><h2>Branch A, blog / informational checklist</h2><span class="win">7/7 passed</span></div>
+    <div class="panel">
+      <ul class="checks">
+
+        <li>
+          <span class="st pass">pass</span>
+          <div>
+            <span class="what">1. Topical relevance</span>
+            <small class="why">On target with no drift. Eight of eight H2s answer a facet of the tense question, and &#x27;french tenses&#x27; appears four times across 1,385 words, in the H1 and the first sentence, without stuffing. The one section that could have wandered, &#x27;Where do learners actually waste time on tenses?&#x27;, stays on the keyword by naming two tense-specific failures rather than generic study advice.</small>
+            <!-- Delete the .fix span on a pass. -->
+          </div>
+        </li>
+
+        <li>
+          <span class="st pass">pass</span>
+          <div>
+            <span class="what">2. Freshness</span>
+            <small class="why">Nothing dated in the copy, no statistic with a year attached, no superseded tool. The three sources are a government language authority, which ages well. datePublished and dateModified are both 2026-09-15.</small>
+            <!-- Delete the .fix span on a pass. -->
+          </div>
+        </li>
+
+        <li>
+          <span class="st pass">pass</span>
+          <div>
+            <span class="what">3. Internal links</span>
+            <small class="why">Three contextual outbound links in the prose, to /blog/passe-compose-vs-imparfait where the two-track distinction is required, /pricing where the syllabus is, and the app placement test. One inbound, added during this audit: post 1 now links here from its &#x27;what comes after it&#x27; section, with the anchor &#x27;the eight tenses you actually have to produce&#x27;. One inbound link is the floor, not a good number.</small>
+            <!-- Delete the .fix span on a pass. -->
+          </div>
+        </li>
+
+        <li>
+          <span class="st pass">pass</span>
+          <div>
+            <span class="what">4. Claims backed by sources</span>
+            <small class="why">Three OQLF pages, each opened and quoted rather than recalled, linked inline on the claim. The strongest is the passé simple page, quoted verbatim: the passé composé &#x27;l&#x27;a même remplacé complètement à l&#x27;oral&#x27;. That single quote is what licenses the whole recognition-only argument, and it comes from a government language authority rather than a blog.</small>
+            <!-- Delete the .fix span on a pass. -->
+          </div>
+        </li>
+
+        <li>
+          <span class="st pass">pass</span>
+          <div>
+            <span class="what">5. Author bio</span>
+            <small class="why">Named, credentialed and linked, in the byline and again at the foot, both pointing to /authors/njinu-precious-bambot. Matches site-brief.md exactly.</small>
+            <!-- Delete the .fix span on a pass. -->
+          </div>
+        </li>
+
+        <li>
+          <span class="st pass">pass</span>
+          <div>
+            <span class="what">6. Schema</span>
+            <small class="why">Article, Person, FAQPage and BreadcrumbList, all valid. Article now carries image, which was the post 1 gap. FAQPage holds all eight questions with their capsules, generated by extractFaqs() rather than hand-written, so it cannot drift from the page.</small>
+            <!-- Delete the .fix span on a pass. -->
+          </div>
+        </li>
+
+        <li>
+          <span class="st pass">pass</span>
+          <div>
+            <span class="what">7. Content capsule structure</span>
+            <small class="why">Eight of eight, each exactly two sentences, each standing alone with the heading removed. Verified by reading every generated FAQ answer without its question. Worth recording how close this came to failing: seven of the eight originally opened with a fragment (&#x27;Not to speak.&#x27;, &#x27;At B1, and not because...&#x27;, &#x27;One past event that...&#x27;), the exact defect the post 1 audit caught. They were rewritten before this audit ran, not after.</small>
+            <!-- Delete the .fix span on a pass. -->
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">03</span><h2>Do these first</h2><span class="win">ordered by impact</span></div>
+    <div class="panel focus">
+      <ol>
+
+        <li><div><b>DONE during this audit: post 1 now links to post 2.</b><small>Inbound was zero, the one thing that kept post 1 at 93 and would have repeated here. Post 1&#x27;s closing section already discussed plus-que-parfait, so the link sits on real copy: &#x27;it is one of the eight tenses you actually have to produce&#x27;. Post 1&#x27;s `updated` moved to 2026-09-15, which propagates to dateModified, the visible byline and the sitemap lastmod. Post 1 is live, so this needs a redeploy to take effect in production.</small></div></li>
+
+        <li><div><b>DONE: French verbs were set as code, not italics.</b><small>Three occurrences of `aller` rendered in monospace with a grey background, which is a typographic slip in teaching prose: code formatting signals a literal string, not a French infinitive. Now italics, consistent with the rest of the post and with post 1.</small></div></li>
+
+        <li><div><b>Everything the post 1 audit fixed was inherited, and nothing regressed.</b><small>Verified on this render rather than assumed: og:image present, Article carries image, FAQPage generated with eight questions, and the article outline is exactly eight content headings with the CTA and author chrome outside &lt;article&gt;. None of these needed per-post work, which was the argument for auditing post 1 before writing the rest.</small></div></li>
+
+        <li><div><b>LEFT: one inbound link is the floor, not a target.</b><small>Post 2 has exactly one. internal-link-architect in step 4 is the right tool once more pages exist, and /francais-pas-a-pas and /faq remain the two live pages whose readers want this. The queue&#x27;s post 3, the grammar hub, will naturally link down to both posts.</small></div></li>
+
+        <li><div><b>LEFT: re-check the canonical after deploy.</b><small>Currently http://site.localhost:3000/blog/french-tenses, correct for dev since it is built from SITE_URL. Should render https://www.francolink.net/blog/french-tenses in production. Post 1&#x27;s canonical was verified correct after its deploy, so the pattern is known good, but it is one curl.</small></div></li>
+
+        <li><div><b>NOT DONE, deliberately: no unaccented keyword variant forced into the copy.</b><small>Same judgment as post 1. The body uses accented French spellings correctly throughout. Flagged so the decision stays visible.</small></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">04</span><h2>Current on-page elements</h2><span class="win">as found</span></div>
+    <div class="panel">
+      <dl class="kv">
+        <dt>URL</dt><dd>http://site.localhost:3000/blog/french-tenses (production: https://www.francolink.net/blog/french-tenses)</dd>
+        <dt>Title tag</dt><dd>French Tenses: The Eight You Actually Need | FrancoLink <small>(55 with the site suffix, 42 without chars)</small></dd>
+        <dt>Meta description</dt><dd>French has more tenses than you will ever produce. Eight carry ordinary French through B1, two more finish B2, and the literary ones you only need to read. <small>(155 chars)</small></dd>
+        <dt>H1</dt><dd>French Tenses: The Eight You Actually Need</dd>
+        <dt>Schema found</dt><dd>Article, Person, FAQPage, BreadcrumbList (plus EducationalOrganization and WebSite from the site layout)</dd>
+        <dt>Internal links</dt><dd>1 (from post 1, added during this audit) in · 3 external sources, 3 contextual internal out</dd>
+        <dt>Last updated</dt><dd>2026-09-15</dd>
+        <dt>Word count</dt><dd>1,385</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">05</span><h2>Rewritten elements</h2><span class="win">ready to paste</span></div>
+    <div class="panel">
+      <dl class="kv">
+        <dt>New title tag</dt><dd><b>French Tenses: The Eight You Actually Need</b> <small>(42, unchanged. No rewrite needed. chars)</small></dd>
+        <dt>New meta</dt><dd>Unchanged. <small>(155, inside the limit, and it leads with the answer. chars)</small></dd>
+        <dt>New H1</dt><dd>Unchanged. Carries the target phrase and a number, which is what makes it a promise rather than a label.</dd>
+      </dl>
+      <p class="note" style="margin-top:18px">Heading structure changes, if any, are listed in the checklist above rather than duplicated here.</p>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">06</span><h2>Schema to add</h2><span class="win">None to add</span></div>
+    <pre class="code">Nothing to add. Article, Person, FAQPage and BreadcrumbList all render and validate. FAQPage is generated from the eight question headings by extractFaqs() in src/lib/blog/posts.ts, so it stays in sync with the visible page automatically.</pre>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Data: DataForSEO On-Page · window: local render, 15 September 2026, pre-publish</span>
+    <span>onpage-optimizer · generated 15 September 2026</span>
+  </div>
+  <div class="wrap" style="border:none;padding-top:14px">
+    <p class="note">Branch A run against the rendered HTML of the local dev server, fetched with a Host: site.localhost header. No DataForSEO call: the page is not live, and the connector is only needed for live URLs. Every count here was measured off that HTML, including link counts, heading counts, capsule sentence counts, schema keys and word count. Score weighting is identical to the post 1 audit so the two are comparable: schema 25, capsule structure 25, internal links 15, sources 15, author 8, relevance 7, freshness 5. Read 100 carefully. It means this rubric found no defects, not that the page will rank or be cited. The rubric cannot measure whether the writing is good, whether anyone links to it from outside the site, or whether Google agrees the eight-tense framing is the best answer. Two items are provisional until deploy: the canonical resolves to the dev host, and the single inbound link exists in the repo but not in production. Post 1 scored 70 on first run and 93 after fixes; post 2 opened at effectively the same place because the fixes lived in shared code, which is the argument for having audited post 1 before writing the rest of the queue.</p>
+  </div>
+</footer>
+
+</body>
+</html>
