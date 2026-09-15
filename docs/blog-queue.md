@@ -4,8 +4,9 @@
 > English, 12-month average) and the citation gaps in `05-ai-visibility.html`.
 > Volumes are a US floor for a worldwide audience, not a global total.
 >
-> Post 1, `passe-compose-vs-imparfait`, is written and staged as a draft.
-> These are posts 2 to 11.
+> Post 1, `passe-compose-vs-imparfait`, is live at
+> https://www.francolink.net/blog/passe-compose-vs-imparfait (deployed 2026-09-12).
+> Post 2, `french-tenses`, is written and staged as a draft.
 
 ## Ordering principle
 
@@ -24,7 +25,7 @@ Not by volume. Three things decide position:
 
 | # | Target keyword | Vol/mo | AI vol | Working title | Primary CTA |
 |---|---|---|---|---|---|
-| 2 | french tenses | 1,300 | **2,596** | The French Tenses, and Which Six You Actually Need | subscription |
+| ~~2~~ | ~~french tenses~~ | 1,300 | **2,596** | **WRITTEN 2026-09-15** as *French Tenses: The Eight You Actually Need* | subscription |
 | 3 | french grammar | 1,300 | 240 | French Grammar: The Rules That Cover Most Sentences | workbook |
 | 4 | reflexive verbs french | **4,400** | 131 | French Reflexive Verbs: Why *Je Me Lève* Needs the *Me* | workbook |
 | 5 | french object pronouns | 720 | 42 | French Object Pronouns: le, la, lui, y, en, in Order | workbook |
@@ -39,13 +40,18 @@ Not by volume. Three things decide position:
 
 ## Why each one, specifically
 
-**2. french tenses.** The anomaly in the whole map: 2,596/month of AI search
-volume against 1,300 of Google volume, the only keyword where LLM demand
-exceeds search demand. It was not in the original Cluster A plan. The angle has
-to be reductive, naming the six tenses a B2 learner needs and saying plainly
-that the rest are for reading, which is what the CEFR curriculum already says.
-Sells the subscription, because "which tenses do I need" is a syllabus
-question.
+**2. french tenses. WRITTEN 2026-09-15**, staged as a draft. The anomaly in the
+whole map: 2,596/month of AI search volume against 1,300 of Google volume, the
+only keyword where LLM demand exceeds search demand.
+
+**The working title above was wrong, and the curriculum is what corrected it.**
+It said "which six you actually need". Counting production tenses through B1 in
+`docs/grammar-pronunciation-curriculum.md` gives eight, not six: présent and
+futur proche at A1, passé composé, imparfait and futur simple at A2, then
+plus-que-parfait, conditionnel présent and subjonctif présent at B1. Two more
+(subjonctif passé, conditionnel passé) finish B2, and passé simple and
+subjonctif imparfait are listed at C1 as recognition-only. The post follows the
+curriculum. Do not restore "six".
 
 **3. french grammar.** The hub, and the primary keyword of the map. Google's AI
 Overview for this query builds three sections, gender, articles and adjectives,
