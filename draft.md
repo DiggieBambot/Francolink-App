@@ -23,7 +23,7 @@ That is not a shortcut. It is what a CEFR syllabus looks like when it is ordered
 
 Every French noun is either masculine or feminine, and that gender belongs to the word rather than to the thing it names. This is the single most common place English speakers go wrong, because English has no equivalent and the instinct is to look for logic in the object.
 
-There is no logic to find. *Une table* is feminine and *un livre* is masculine for reasons of word history, not of furniture or literature. The practical consequence is that a noun has to be learned with its article attached, as *le livre* rather than *livre*, because the gender does work on everything around it.
+The Office québécois de la langue française defines [grammatical gender](https://vitrinelinguistique.oqlf.gouv.qc.ca/fiche-gdt/fiche/26559831/genre) as a trait "associé aux noms, aux pronoms ainsi qu'aux mots qui s'accordent avec eux", and notes that French has two. The word "grammatical" is doing the work there: the gender attaches to the noun, and from the noun to everything that agrees with it. There is no logic to find in the object itself. *Une table* is feminine and *un livre* is masculine for reasons of word history, not of furniture or literature. The practical consequence is that a noun has to be learned with its article attached, as *le livre* rather than *livre*, because the gender does work on everything around it.
 
 Our own A1 syllabus lists that error explicitly: assuming gender follows biological or logical sex. The second error on that list is subtler and worth more. The plural **-s** is silent, so you do not hear plurality on the noun at all. You hear it on the article. *Le livre* and *les livres* differ in the word you were tempted to skip.
 
@@ -33,7 +33,7 @@ Articles and adjectives both change form to match the gender and number of their
 
 Articles are also mandatory in French where English drops them. "I like coffee" is *j'aime **le** café*, with the definite article, and leaving it out is the most frequent article error in our A1 material.
 
-Adjectives agree and, unlike English, most of them follow the noun: *un chat noir*, not *un noir chat*. The exceptions are short and frequent, usually taught as **BAGS**: Beauty, Age, Goodness, Size. *Beau, joli, jeune, vieux, bon, grand, petit* go in front.
+Adjectives ["s'accordent en genre et en nombre avec le nom qu'ils accompagnent"](https://vitrinelinguistique.oqlf.gouv.qc.ca/24304/la-grammaire/la-grammaire-actuelle/les-classes-de-mots-et-les-groupes/ladjectif-et-le-groupe-adjectival), and the OQLF is careful to say a qualifying adjective "peut être placé après le nom ou devant celui-ci". Either side is grammatical. What the rule does not tell you is which side to default to, and in our A1 material the default is after the noun: *un chat noir*, not *un noir chat*. The group that goes in front is short and frequent, usually taught as **BAGS**: Beauty, Age, Goodness, Size. *Beau, joli, jeune, vieux, bon, grand, petit*.
 
 One thing worth knowing early: agreement is often silent. The feminine **-e** in *noire* changes nothing you can hear, but the **-e** in *blanche* makes a previously silent consonant sound. That is why agreement feels invisible in speech and then costs marks in writing.
 

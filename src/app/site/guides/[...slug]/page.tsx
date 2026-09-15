@@ -65,18 +65,30 @@ function formatDate(iso: string) {
   });
 }
 
-/** Breadcrumb trail from the URL path, so /guides/french/grammar gets all three levels. */
+/**
+ * Breadcrumb trail from the URL path.
+ *
+ * Intermediate levels are included ONLY when a guide actually exists at that
+ * path. /guides/french/grammar shipped before /guides/french was written, and
+ * the naive version of this declared a "French" crumb pointing at a URL that
+ * 404s: a structured-data claim about a page that does not exist, and a crawl
+ * trap pointed at by every guide beneath it. Once the parent hub ships, the
+ * crumb appears on its own with no change here.
+ */
 function trailFor(guide: { urlPath: string; title: string }) {
   const segments = guide.urlPath.split("/");
   const trail = [{ name: "FrancoLink", path: "/" }];
+
   segments.forEach((seg, i) => {
-    const path = `/guides/${segments.slice(0, i + 1).join("/")}`;
+    const urlPath = segments.slice(0, i + 1).join("/");
     const isLast = i === segments.length - 1;
+    if (!isLast && !getGuide(urlPath)) return;
     trail.push({
       name: isLast ? guide.title : seg.charAt(0).toUpperCase() + seg.slice(1),
-      path,
+      path: `/guides/${urlPath}`,
     });
   });
+
   return trail;
 }
 
@@ -155,6 +167,20 @@ export default async function GuidePage({
             questions. Same reason as the post route. */}
         <aside className="max-w-3xl mx-auto">
           <PostCtaBlock primary={guide.cta} />
+
+          {/* The blog route carries this and guides did not, which left the
+              pillar pages with a weaker author signal than the posts hanging
+              off them. Backwards, for the pages meant to carry the topic. */}
+          <div className="mt-12 pt-8 border-t border-primary-100">
+            <h2 className="font-heading font-bold text-lg text-primary">About the author</h2>
+            <p className="mt-2 text-gray-600 leading-relaxed">{guide.author.bio}</p>
+            <Link
+              href={`/authors/${guide.author.slug}`}
+              className="mt-3 inline-block text-primary font-semibold underline underline-offset-4 decoration-secondary"
+            >
+              More from {guide.author.name}
+            </Link>
+          </div>
         </aside>
       </Section>
     </>
