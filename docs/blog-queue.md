@@ -32,7 +32,7 @@ Not by volume. Three things decide position:
 | ~~2~~ | ~~french tenses~~ | 1,300 | **2,596** | **WRITTEN 2026-09-15** as *French Tenses: The Eight You Actually Need* | subscription |
 | ~~3~~ | ~~french grammar (hub)~~ | 1,300 | 240 | **WRITTEN 2026-09-15** as *French Grammar: What to Learn, and in What Order*, at `/guides/french/grammar` | workbook |
 | ~~**4**~~ | ~~**is french hard to learn**~~ | **2,400** | 294 | **WRITTEN 2026-09-15** as *Is French Hard to Learn? What the Official Numbers Say* | subscription |
-| **5** | **how long does it take to learn french** | 1,600 | 265 | How Long It Really Takes to Learn French | subscription |
+| ~~**5**~~ | ~~**how long does it take to learn french**~~ | 1,600 | 265 | **WRITTEN 2026-09-16** as *How Long Does It Take to Learn French? Do the Arithmetic* | subscription |
 | **6** | **french for business** | 1,000 | 247 | French for Work: What You Actually Need, and in What Order | tutors |
 | 7 | reflexive verbs french | 4,400 | 131 | French Reflexive Verbs: Why *Je Me Lève* Needs the *Me* | workbook |
 | **8** | **duolingo alternatives** | 1,600 | 43 | Duolingo Alternatives for French, Honestly Compared | subscription |
@@ -145,9 +145,21 @@ hours figure counts classroom time only. FSI's own "typical week" is 23 class
 hours plus 17 of self-study, so 30 weeks implies roughly 510 further hours and
 a real total nearer 1,200 than 690.
 
-**5. how long does it take to learn french.** 1,600/mo, competition 0.04, and
-the ranking pages average 1.7 referring domains. Same FSI source, different
-question, and it is the natural second half of post 4.
+**5. how long does it take to learn french. WRITTEN 2026-09-16.** 1,600/mo,
+competition 0.04, ranking pages averaging 1.7 referring domains.
+
+**Cannibalisation was the risk here and it was handled deliberately.** Post 4
+already answers the hours question, so two pages could easily have competed for
+the same answer. The split: post 4 owns *is it hard*, meaning the FSI category,
+what is hard and what is easy. Post 5 owns *how long for me*, meaning the
+arithmetic at three, five, ten, twenty and forty hours a week. They cite the
+same source and link to each other rather than re-arguing it.
+
+The differentiating decision was refusing to publish an hours-per-level table.
+Every competitor has one ("A1 in 80 hours, A2 in 180") and none of them agree,
+because no authority publishes a per-level split: the State Department gives a
+single end-point figure and the Council of Europe defines levels without hours.
+The post says that plainly instead of inventing numbers.
 
 **6. french for business.** 1,000/mo at a **$24.78 CPC**, competition 0.03.
 This is where the "préparer entretien en ligne" idea belongs: `french job
