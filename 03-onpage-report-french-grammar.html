@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<!--
+  On-Page Report — AI RANKING DASHBOARD TEMPLATE
+  GENERATED FILE. Do not edit inside a skill folder.
+  Edit shared/house-style.css or shared/bodies/*.body.html, then run:
+      python3 shared/build_templates.py
+
+  HOW TO FILL THIS TEMPLATE
+  - Replace every double-brace placeholder with a real value.
+  - Repeatable blocks are marked.
+    Duplicate the inner block once per row. Delete the block if there are no rows
+    and show the .empty state instead.
+  - Do NOT restyle. Do NOT add fonts, colours, or libraries.
+  - Never invent a number. If data is missing write "no data" and say why in
+    Branch A run against the rendered HTML of the local dev server with a Host: site.localhost header. No DataForSEO call: the page is not live. Every count was measured off that HTML, including link counts, capsule sentence counts, schema keys and the HTTP status of each breadcrumb target. Weighting is identical to the post 1 and post 2 audits so all three are comparable: schema 25, capsule structure 25, internal links 15, sources 15, author 8, relevance 7, freshness 5. On the opening score of 72: schema was broken (breadcrumb pointing at a 404) and sources had already been repaired before the report was written, with author bio a partial. Both remaining defects were in the route rather than the prose, which is the useful result: posts 1 and 2 inherited a route that three audits had already hardened, while this was a new route on its first run. Expect the same pattern whenever a new template ships. Read 100 as &#x27;no defects this rubric detects&#x27;, not as a prediction about ranking..
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>french grammar (pillar hub) · On-Page Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,400..600&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   AI RANKING HOUSE STYLE — single source of truth
+   Inherited from local-seo-report/templates/report.html.template.
+   Do not restyle per skill. Edit here, then run shared/build_templates.py
+   to regenerate all five skill templates.
+   ============================================================ */
+:root{
+  --forest:#1c3a2e; --forest-2:#264c3b; --moss:#5b7a63;
+  --cream:#f4efe2; --cream-2:#ece5d3; --paper:#fbf8f0;
+  --gold:#c08a3e; --rust:#b4522f; --ink:#16241d;
+  --pass:#2f7d4e; --warn:#c08a3e; --fail:#b4522f;
+  --line:rgba(28,58,46,.16);
+  --shadow:0 1px 2px rgba(28,58,46,.06),0 12px 36px -12px rgba(28,58,46,.22);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Schibsted Grotesk",system-ui,sans-serif;
+  background:var(--cream); color:var(--ink);
+  line-height:1.55; -webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(1200px 600px at 85% -10%, rgba(192,138,62,.10), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(91,122,99,.14), transparent 55%);
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap{max-width:980px;margin:0 auto;padding:0 28px}
+.reveal{opacity:0;transform:translateY(18px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.reveal{animation:none;opacity:1;transform:none}}
+
+/* ---------- header ---------- */
+header.top{background:linear-gradient(160deg,var(--forest),var(--forest-2));color:var(--cream);position:relative;overflow:hidden}
+header.top::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle at center, rgba(192,138,62,.45), transparent 65%)}
+.top .wrap{padding:54px 28px 46px;position:relative;z-index:2}
+.brandrow{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(244,239,226,.7)}
+.brandrow b{color:var(--cream);font-weight:600}
+h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(2.4rem,6vw,4rem);line-height:1.02;margin:26px 0 6px;letter-spacing:-.01em}
+h1 em{font-style:italic;color:#e7c690}
+.sub{font-size:1.02rem;color:rgba(244,239,226,.82);max-width:52ch}
+.datechip{display:inline-flex;gap:.5rem;align-items:center;margin-top:22px;background:rgba(244,239,226,.12);border:1px solid rgba(244,239,226,.25);padding:.5rem .9rem;border-radius:999px;font-size:.82rem;letter-spacing:.04em}
+.datechip span{width:7px;height:7px;border-radius:50%;background:#7bd39a;box-shadow:0 0 0 4px rgba(123,211,154,.18)}
+
+/* ---------- KPI band ---------- */
+.heroband{background:var(--paper);border-bottom:1px solid var(--line)}
+.heroband .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:0}
+.stat{padding:30px 22px;border-right:1px solid var(--line);position:relative}
+.stat:last-child{border-right:none}
+.stat .k{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(1.9rem,4.4vw,2.9rem);line-height:1;color:var(--forest);letter-spacing:-.02em}
+.stat .l{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--moss);margin-top:10px}
+.stat .w{font-size:.72rem;color:#9a9684;margin-top:3px}
+.stat.is-fail .k{color:var(--fail)}
+.stat.is-warn .k{color:var(--warn)}
+@media(max-width:720px){.heroband .wrap{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:none}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}}
+
+/* ---------- sections ---------- */
+main{padding:60px 0 30px}
+section{margin-bottom:58px}
+.seclabel{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
+.seclabel .num{font-family:"Fraunces",serif;font-style:italic;color:var(--gold);font-size:1.1rem}
+.seclabel h2{font-family:"Fraunces",serif;font-weight:500;font-size:1.85rem;letter-spacing:-.01em;color:var(--forest)}
+.seclabel .win{margin-left:auto;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--moss);border:1px solid var(--line);padding:.3rem .7rem;border-radius:999px}
+.meaning{background:var(--cream-2);border-left:3px solid var(--gold);padding:14px 18px;border-radius:0 10px 10px 0;font-size:.95rem;margin-top:18px;color:#3a4a40}
+.meaning b{color:var(--forest)}
+
+/* ---------- cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:720px){.cards{grid-template-columns:repeat(2,1fr)}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow)}
+.card .k{font-family:"Fraunces",serif;font-size:2rem;color:var(--forest);line-height:1;letter-spacing:-.02em}
+.card .l{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--moss);margin-top:9px}
+.card.flag{border-color:rgba(180,82,47,.4);background:linear-gradient(180deg,#fbf1ec,var(--paper))}
+.card.flag .k{color:var(--rust)}
+.card.flag .tag{font-size:.68rem;color:var(--rust);font-weight:600;text-transform:uppercase;letter-spacing:.1em;margin-top:6px;display:block}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px;box-shadow:var(--shadow)}
+
+/* ---------- tables ---------- */
+.tbl{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);margin-top:6px}
+.tbl th{text-align:left;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--moss);padding:14px 18px;background:var(--cream-2);border-bottom:1px solid var(--line)}
+.tbl td{padding:13px 18px;border-bottom:1px solid var(--line);font-size:.92rem;vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td.q{font-weight:500;color:var(--ink)}
+.tbl td.num{font-family:"Fraunces",serif;font-weight:600;font-size:1.02rem;white-space:nowrap}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.bar{height:6px;border-radius:3px;background:var(--cream-2);overflow:hidden;min-width:70px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--moss),var(--forest))}
+
+/* ---------- badges + status ---------- */
+.badge{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+  padding:.34rem .72rem;border-radius:999px;border:1px solid var(--line);background:var(--cream-2);color:var(--forest)}
+.badge.solid{background:linear-gradient(150deg,var(--forest),var(--forest-2));color:var(--cream);border-color:transparent}
+.badge.gold{background:rgba(192,138,62,.14);border-color:rgba(192,138,62,.4);color:#8a5f1f}
+.st{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;white-space:nowrap}
+.st::before{content:"";width:9px;height:9px;border-radius:50%;flex:none}
+.st.pass{color:var(--pass)}      .st.pass::before{background:var(--pass);box-shadow:0 0 0 3px rgba(47,125,78,.15)}
+.st.warn{color:var(--warn)}      .st.warn::before{background:var(--warn);box-shadow:0 0 0 3px rgba(192,138,62,.15)}
+.st.fail{color:var(--fail)}      .st.fail::before{background:var(--fail);box-shadow:0 0 0 3px rgba(180,82,47,.15)}
+.st.na{color:#9a9684}            .st.na::before{background:#c9c4b3}
+.intent{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:.24rem .6rem;border-radius:6px;white-space:nowrap}
+.intent.info{background:rgba(91,122,99,.16);color:#3f5a48}
+.intent.comm{background:rgba(192,138,62,.16);color:#8a5f1f}
+.intent.trans{background:rgba(47,125,78,.16);color:#215a38}
+.intent.nav{background:rgba(28,58,46,.1);color:var(--forest)}
+
+/* ---------- checklist (skill 3) ---------- */
+.checks{list-style:none}
+.checks li{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:16px 0;border-bottom:1px dashed var(--line);align-items:start}
+.checks li:last-child{border-bottom:none}
+.checks .what{font-weight:500;color:var(--forest)}
+.checks .why{display:block;color:#6c7a6f;font-size:.88rem;margin-top:3px}
+.checks .fix{display:block;font-size:.88rem;margin-top:6px;padding:10px 12px;background:var(--cream-2);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;color:#3a4a40}
+
+/* ---------- score dial ---------- */
+.score{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.score .n{font-family:"Fraunces",serif;font-size:4rem;line-height:1;color:var(--forest);letter-spacing:-.03em}
+.score .n small{font-size:1.2rem;color:var(--moss)}
+.score .track{flex:1;min-width:180px;height:10px;border-radius:5px;background:var(--cream-2);overflow:hidden}
+.score .track i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--pass))}
+
+/* ---------- ordered focus / gap list ---------- */
+.focus ol{list-style:none;counter-reset:f;margin-top:8px}
+.focus li{counter-increment:f;display:flex;gap:16px;padding:15px 0;border-bottom:1px dashed var(--line)}
+.focus li:last-child{border-bottom:none}
+.focus li::before{content:counter(f);font-family:"Fraunces",serif;font-style:italic;color:var(--gold);font-size:1.2rem;min-width:26px}
+.focus li b{color:var(--forest)}
+.focus li small{display:block;color:#6c7a6f;font-size:.85rem;margin-top:2px}
+
+/* ---------- dark feature panel (skill 5 / highlights) ---------- */
+.feature{background:linear-gradient(150deg,var(--forest),var(--forest-2));color:var(--cream);border-radius:18px;padding:30px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.feature::after{content:"";position:absolute;right:-80px;bottom:-80px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(231,198,144,.35),transparent 65%)}
+.feature .ey{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#e7c690}
+.feature h3{font-family:"Fraunces",serif;font-weight:500;font-size:1.5rem;margin:8px 0 18px;max-width:34ch}
+.feature .rows{display:flex;gap:30px;flex-wrap:wrap;position:relative;z-index:2}
+.feature .r .n{font-family:"Fraunces",serif;font-size:2.3rem;line-height:1;color:#fff}
+.feature .r .s{font-size:.8rem;color:rgba(244,239,226,.8);margin-top:6px}
+
+/* ---------- draft preview (skill 2) ---------- */
+.draft{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:30px 34px;box-shadow:var(--shadow);max-height:620px;overflow-y:auto}
+.draft h2,.draft h3{font-family:"Fraunces",serif;font-weight:500;color:var(--forest);margin:26px 0 10px}
+.draft h2{font-size:1.4rem}.draft h3{font-size:1.12rem}
+.draft p{margin:0 0 14px}
+.draft a{color:#215a38;text-decoration:underline;text-underline-offset:2px}
+.draft .marker{background:rgba(180,82,47,.14);border:1px dashed rgba(180,82,47,.5);color:var(--rust);font-weight:600;padding:12px 14px;border-radius:8px;display:block;margin:14px 0}
+.kv{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;font-size:.92rem}
+.kv dt{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--moss);padding-top:3px}
+.kv dd{color:var(--ink);word-break:break-word}
+pre.code{background:var(--ink);color:#dfe7df;padding:18px;border-radius:12px;overflow-x:auto;font-size:.8rem;line-height:1.5}
+
+/* ---------- empty state ---------- */
+.empty{background:var(--cream-2);border:1px dashed var(--line);border-radius:14px;padding:28px;text-align:center;color:#6c7a6f}
+.empty b{display:block;font-family:"Fraunces",serif;font-size:1.2rem;color:var(--forest);margin-bottom:6px}
+
+/* ---------- footer ---------- */
+footer{padding:40px 0 70px;color:#7d8a7f;font-size:.82rem}
+footer .wrap{border-top:1px solid var(--line);padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.note{font-size:.8rem;color:#8a8773;max-width:60ch}
+
+/* ---------- print ---------- */
+@media print{
+  body::before{display:none}
+  .draft{max-height:none;overflow:visible}
+  section{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap reveal">
+    <div class="brandrow"><span>On-Page Report</span><b>AI Ranking</b></div>
+    <h1>On-page audit: post 3, the pillar hub</h1>
+    <p class="sub">First page on the new /guides route, so this run was as much about the route as the writing. It found two defects the blog route did not have.</p>
+    <div class="datechip"><span></span>french grammar (pillar hub) · generated 15 September 2026</div>
+  </div>
+</header>
+
+<div class="heroband">
+  <div class="wrap">
+    <div class="stat"><div class="k" style="font-size:1.5rem;padding-top:.6rem">Pillar guide / informational</div><div class="l">Page type</div><div class="w">Article + FAQPage schema - og:type=article - explanatory intent throughout - one CTA block after the value - no price, booking or enquiry element in the body - links down to child articles, which is hub behaviour</div></div>
+    <div class="stat is-pass"><div class="k">100<small>/100</small></div><div class="l">On-page score</div><div class="w">100 / 100 after fixes. It opened at 72, and the gap was the route, not the writing</div></div>
+    <div class="stat"><div class="k">7<small>/7</small></div><div class="l">Checks passed</div><div class="w">Branch A, blog / informational checklist</div></div>
+    <div class="stat is-pass"><div class="k">0</div><div class="l">Critical fixes</div><div class="w">do these first</div></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section class="reveal">
+    <div class="seclabel"><span class="num">01</span><h2>What we checked, and why</h2><span class="win">Branch A, blog / informational</span></div>
+    <div class="panel">
+      <div class="score">
+        <div class="n">100<small>/100</small></div>
+        <div class="track"><i style="width:100%"></i></div>
+      </div>
+      <div class="meaning"><b>This page was assessed as a Pillar guide / informational.</b> A pillar guide is not a third page type for this rubric: it is informational content that happens to sit at the top of a cluster, so Branch A applies unchanged. The only signal that could have pointed at Branch B is the workbook CTA, and it sits once at the end after the teaching. Branch B was not run. A Service / product (not run) would have been graded on a different checklist, so if this is wrong, say so and re-run.</div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">02</span><h2>Branch A, blog / informational checklist</h2><span class="win">7/7 passed</span></div>
+    <div class="panel">
+      <ul class="checks">
+
+        <li>
+          <span class="st pass">pass</span>
+          <div>
+            <span class="what">1. Topical relevance</span>
+            <small class="why">On target. Eight of eight H2s answer a facet of what French grammar is and what order to learn it in, which is the hub&#x27;s job. &#x27;French grammar&#x27; appears six times across 1,292 words, in the H1 and the first sentence. The section most at risk of drifting, &#x27;What is the 80/20 rule in French?&#x27;, stays on topic by refusing the premise rather than padding: it says plainly there is no official rule and redirects to the level table.</small>
+            <!-- Delete the .fix span on a pass. -->
+          </div>
+        </li>
+
+        <li>
+          <span class="st pass">pass</span>
+          <div>
+            <span class="what">2. Freshness</span>
+            <small class="why">Nothing dated in the copy, no statistic carrying a year. All three sources are a government language authority. The guide route deliberately renders only &#x27;Updated&#x27;, never a publication date, so this page cannot read stale the way a dated hub does in January.</small>
+            <!-- Delete the .fix span on a pass. -->
+          </div>
+        </li>
+
+        <li>
+          <span class="st pass">pass</span>
+          <div>
+            <span class="what">3. Internal links</span>
+            <small class="why">Two contextual outbound links in the prose, to both live posts, which is what makes this a hub rather than an article. Two inbound, added when the posts were updated to link back up. The cluster now resolves in both directions, which neither post 1 nor post 2 could claim at their own audits.</small>
+            <!-- Delete the .fix span on a pass. -->
+          </div>
+        </li>
+
+        <li>
+          <span class="st pass">pass</span>
+          <div>
+            <span class="what">4. Claims backed by sources</span>
+            <small class="why">Three OQLF pages, each opened and quoted verbatim. This check FAILED on the first run of this audit: OQLF was unreachable when the page was written, so the gender and adjective sections shipped with no citation at all. They were fetched and added before this report, not written from memory in the meantime. One claim was corrected in the process: OQLF says an adjective &#x27;peut être placé après le nom ou devant celui-ci&#x27;, which does not support &#x27;most follow the noun&#x27;, so the default is now attributed to our own A1 material instead.</small>
+            <!-- Delete the .fix span on a pass. -->
+          </div>
+        </li>
+
+        <li>
+          <span class="st pass">pass</span>
+          <div>
+            <span class="what">5. Author bio</span>
+            <small class="why">Named, credentialed and linked in the byline, plus a full bio block at the foot. The bio block was MISSING on this route until this audit: the blog route carried one and the guides route did not, which left pillar pages with a weaker author signal than the posts hanging off them. Backwards, for the pages meant to carry the topic.</small>
+            <!-- Delete the .fix span on a pass. -->
+          </div>
+        </li>
+
+        <li>
+          <span class="st pass">pass</span>
+          <div>
+            <span class="what">6. Schema</span>
+            <small class="why">Article, Person, FAQPage and BreadcrumbList, all valid, with Article carrying image and an @id scoped to the guide URL. The BreadcrumbList was BROKEN until this audit and is the most serious thing found: it declared a &#x27;French&#x27; crumb pointing at /guides/french, which returns 404. That is a structured-data claim about a page that does not exist, and every future sub-pillar would have inherited it. Intermediate crumbs are now included only when a guide actually exists at that path, so the trail is FrancoLink then the guide, and the middle level appears on its own once the parent hub ships.</small>
+            <!-- Delete the .fix span on a pass. -->
+          </div>
+        </li>
+
+        <li>
+          <span class="st pass">pass</span>
+          <div>
+            <span class="what">7. Content capsule structure</span>
+            <small class="why">Eight of eight, each exactly two sentences, each standing alone with the heading removed. Two were repaired before this report: one opened &#x27;Learn it in the order the CEFR levels put it&#x27;, where &#x27;it&#x27; was ambiguous without the heading, and the gender capsule was pushed to three sentences by the citation added in step 4 before being restructured back to two.</small>
+            <!-- Delete the .fix span on a pass. -->
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">03</span><h2>Do these first</h2><span class="win">ordered by impact</span></div>
+    <div class="panel focus">
+      <ol>
+
+        <li><div><b>DONE, and the most serious finding: the breadcrumb pointed at a 404.</b><small>BreadcrumbList declared /guides/french as an intermediate crumb. That URL returns 404, because the parent hub has not been written yet. Structured data asserting a page that does not exist is a defect on its own, and because the trail is generated from the URL path, every sub-pillar added later would have inherited the same broken crumb. trailFor() now includes an intermediate level only when getGuide() finds a guide at that path.</small></div></li>
+
+        <li><div><b>DONE: the guides route had no author bio block.</b><small>The blog route renders one and the guides route did not, so the pillar pages carried a weaker E-E-A-T signal than the posts beneath them. Added, matching the blog route.</small></div></li>
+
+        <li><div><b>DONE before this report: the sourcing gap from the writing run.</b><small>OQLF was unreachable when post 3 was written, so the gender and adjective sections shipped uncited and the content package scored 6/7 for it. Both are now cited to OQLF pages fetched and quoted. Worth noting what the source changed: it supports &#x27;either side is grammatical&#x27;, not &#x27;most adjectives follow the noun&#x27;, so that claim is now attributed to our own A1 material rather than to the OQLF.</small></div></li>
+
+        <li><div><b>LEFT: /guides and /guides/french both 404.</b><small>Not a defect in this page, but the hub has no navigable parent: the &#x27;Guide&#x27; label in the header is plain text, not a link, because there is nothing to link to. docs/seo-content-plan.md plans /guides/french as the top pillar with speaking and levels beside grammar. Until then this page is an orphan at the top of its own tree.</small></div></li>
+
+        <li><div><b>LEFT: re-check the canonical after deploy.</b><small>Currently the dev host, correct for dev since it derives from SITE_URL. Posts 1 and 2 both verified correct in production, so the pattern is known good, but /guides is a new route and worth one curl.</small></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">04</span><h2>Current on-page elements</h2><span class="win">as found</span></div>
+    <div class="panel">
+      <dl class="kv">
+        <dt>URL</dt><dd>http://site.localhost:3000/guides/french/grammar (production: https://www.francolink.net/guides/french/grammar)</dd>
+        <dt>Title tag</dt><dd>French Grammar: What to Learn, and in What Order | FrancoLink <small>(61 with the site suffix, 48 without chars)</small></dd>
+        <dt>Meta description</dt><dd>French grammar ordered by when you need it: gender, articles, adjectives and verbs, plus the tense choices that matter and what belongs at each CEFR level. <small>(155 chars)</small></dd>
+        <dt>H1</dt><dd>French Grammar: What to Learn, and in What Order</dd>
+        <dt>Schema found</dt><dd>Article, Person, FAQPage, BreadcrumbList (plus EducationalOrganization and WebSite from the site layout)</dd>
+        <dt>Internal links</dt><dd>2 (both posts) in · 3 external sources, 2 contextual internal out</dd>
+        <dt>Last updated</dt><dd>2026-09-15</dd>
+        <dt>Word count</dt><dd>1,292</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">05</span><h2>Rewritten elements</h2><span class="win">ready to paste</span></div>
+    <div class="panel">
+      <dl class="kv">
+        <dt>New title tag</dt><dd><b>French Grammar: What to Learn, and in What Order</b> <small>(48, unchanged. No rewrite needed. chars)</small></dd>
+        <dt>New meta</dt><dd>Unchanged. <small>(155, trimmed twice during writing from 160. chars)</small></dd>
+        <dt>New H1</dt><dd>Unchanged. States the hub&#x27;s job rather than describing the topic, which is what separates a pillar from a definition page.</dd>
+      </dl>
+      <p class="note" style="margin-top:18px">Heading structure changes, if any, are listed in the checklist above rather than duplicated here.</p>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">06</span><h2>Schema to add</h2><span class="win">None to add</span></div>
+    <pre class="code">Nothing to add. All four types render and validate after the breadcrumb fix. FAQPage and the MDX renderer are shared with the blog route; the BreadcrumbList is generated from the URL path by trailFor() in src/app/site/guides/[...slug]/page.tsx and now skips levels that have no page.</pre>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Data: DataForSEO On-Page · window: local render, 15 September 2026, pre-publish</span>
+    <span>onpage-optimizer · generated 15 September 2026</span>
+  </div>
+  <div class="wrap" style="border:none;padding-top:14px">
+    <p class="note">Branch A run against the rendered HTML of the local dev server with a Host: site.localhost header. No DataForSEO call: the page is not live. Every count was measured off that HTML, including link counts, capsule sentence counts, schema keys and the HTTP status of each breadcrumb target. Weighting is identical to the post 1 and post 2 audits so all three are comparable: schema 25, capsule structure 25, internal links 15, sources 15, author 8, relevance 7, freshness 5. On the opening score of 72: schema was broken (breadcrumb pointing at a 404) and sources had already been repaired before the report was written, with author bio a partial. Both remaining defects were in the route rather than the prose, which is the useful result: posts 1 and 2 inherited a route that three audits had already hardened, while this was a new route on its first run. Expect the same pattern whenever a new template ships. Read 100 as &#x27;no defects this rubric detects&#x27;, not as a prediction about ranking.</p>
+  </div>
+</footer>
+
+</body>
+</html>

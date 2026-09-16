@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<!--
+  Content Package — AI RANKING DASHBOARD TEMPLATE
+  GENERATED FILE. Do not edit inside a skill folder.
+  Edit shared/house-style.css or shared/bodies/*.body.html, then run:
+      python3 shared/build_templates.py
+
+  HOW TO FILL THIS TEMPLATE
+  - Replace every double-brace placeholder with a real value.
+  - Repeatable blocks are marked.
+    Duplicate the inner block once per row. Delete the block if there are no rows
+    and show the .empty state instead.
+  - Do NOT restyle. Do NOT add fonts, colours, or libraries.
+  - Never invent a number. If data is missing write "no data" and say why in
+    Keyword data from 01-keyword-map.csv, DataForSEO, 9 September 2026, United States / English. This is the first page on the /guides route, built today: docs/seo-content-plan.md originally specified /learn/french/grammar, which cannot work because /learn is in APP_ROUTES and host-splits to the app domain. The honest failure in this run is sourcing. OQLF went unreachable partway through and did not recover, so two sections that should carry a government language authority carry nothing. That is a real gap, not a rounding error, and it is why this scores 6 rather than 7. Re-fetch before treating the page as finished. Verified on the local render: 200, one H1, eight H2s each with an id, one table, four schema types, breadcrumb resolving three levels, and the guide present in the sitemap..
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>french grammar (pillar hub) · Content Package</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,400..600&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   AI RANKING HOUSE STYLE — single source of truth
+   Inherited from local-seo-report/templates/report.html.template.
+   Do not restyle per skill. Edit here, then run shared/build_templates.py
+   to regenerate all five skill templates.
+   ============================================================ */
+:root{
+  --forest:#1c3a2e; --forest-2:#264c3b; --moss:#5b7a63;
+  --cream:#f4efe2; --cream-2:#ece5d3; --paper:#fbf8f0;
+  --gold:#c08a3e; --rust:#b4522f; --ink:#16241d;
+  --pass:#2f7d4e; --warn:#c08a3e; --fail:#b4522f;
+  --line:rgba(28,58,46,.16);
+  --shadow:0 1px 2px rgba(28,58,46,.06),0 12px 36px -12px rgba(28,58,46,.22);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Schibsted Grotesk",system-ui,sans-serif;
+  background:var(--cream); color:var(--ink);
+  line-height:1.55; -webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(1200px 600px at 85% -10%, rgba(192,138,62,.10), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(91,122,99,.14), transparent 55%);
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap{max-width:980px;margin:0 auto;padding:0 28px}
+.reveal{opacity:0;transform:translateY(18px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.reveal{animation:none;opacity:1;transform:none}}
+
+/* ---------- header ---------- */
+header.top{background:linear-gradient(160deg,var(--forest),var(--forest-2));color:var(--cream);position:relative;overflow:hidden}
+header.top::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle at center, rgba(192,138,62,.45), transparent 65%)}
+.top .wrap{padding:54px 28px 46px;position:relative;z-index:2}
+.brandrow{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(244,239,226,.7)}
+.brandrow b{color:var(--cream);font-weight:600}
+h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(2.4rem,6vw,4rem);line-height:1.02;margin:26px 0 6px;letter-spacing:-.01em}
+h1 em{font-style:italic;color:#e7c690}
+.sub{font-size:1.02rem;color:rgba(244,239,226,.82);max-width:52ch}
+.datechip{display:inline-flex;gap:.5rem;align-items:center;margin-top:22px;background:rgba(244,239,226,.12);border:1px solid rgba(244,239,226,.25);padding:.5rem .9rem;border-radius:999px;font-size:.82rem;letter-spacing:.04em}
+.datechip span{width:7px;height:7px;border-radius:50%;background:#7bd39a;box-shadow:0 0 0 4px rgba(123,211,154,.18)}
+
+/* ---------- KPI band ---------- */
+.heroband{background:var(--paper);border-bottom:1px solid var(--line)}
+.heroband .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:0}
+.stat{padding:30px 22px;border-right:1px solid var(--line);position:relative}
+.stat:last-child{border-right:none}
+.stat .k{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(1.9rem,4.4vw,2.9rem);line-height:1;color:var(--forest);letter-spacing:-.02em}
+.stat .l{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--moss);margin-top:10px}
+.stat .w{font-size:.72rem;color:#9a9684;margin-top:3px}
+.stat.is-fail .k{color:var(--fail)}
+.stat.is-warn .k{color:var(--warn)}
+@media(max-width:720px){.heroband .wrap{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:none}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}}
+
+/* ---------- sections ---------- */
+main{padding:60px 0 30px}
+section{margin-bottom:58px}
+.seclabel{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
+.seclabel .num{font-family:"Fraunces",serif;font-style:italic;color:var(--gold);font-size:1.1rem}
+.seclabel h2{font-family:"Fraunces",serif;font-weight:500;font-size:1.85rem;letter-spacing:-.01em;color:var(--forest)}
+.seclabel .win{margin-left:auto;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--moss);border:1px solid var(--line);padding:.3rem .7rem;border-radius:999px}
+.meaning{background:var(--cream-2);border-left:3px solid var(--gold);padding:14px 18px;border-radius:0 10px 10px 0;font-size:.95rem;margin-top:18px;color:#3a4a40}
+.meaning b{color:var(--forest)}
+
+/* ---------- cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:720px){.cards{grid-template-columns:repeat(2,1fr)}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow)}
+.card .k{font-family:"Fraunces",serif;font-size:2rem;color:var(--forest);line-height:1;letter-spacing:-.02em}
+.card .l{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--moss);margin-top:9px}
+.card.flag{border-color:rgba(180,82,47,.4);background:linear-gradient(180deg,#fbf1ec,var(--paper))}
+.card.flag .k{color:var(--rust)}
+.card.flag .tag{font-size:.68rem;color:var(--rust);font-weight:600;text-transform:uppercase;letter-spacing:.1em;margin-top:6px;display:block}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px;box-shadow:var(--shadow)}
+
+/* ---------- tables ---------- */
+.tbl{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);margin-top:6px}
+.tbl th{text-align:left;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--moss);padding:14px 18px;background:var(--cream-2);border-bottom:1px solid var(--line)}
+.tbl td{padding:13px 18px;border-bottom:1px solid var(--line);font-size:.92rem;vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td.q{font-weight:500;color:var(--ink)}
+.tbl td.num{font-family:"Fraunces",serif;font-weight:600;font-size:1.02rem;white-space:nowrap}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.bar{height:6px;border-radius:3px;background:var(--cream-2);overflow:hidden;min-width:70px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--moss),var(--forest))}
+
+/* ---------- badges + status ---------- */
+.badge{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+  padding:.34rem .72rem;border-radius:999px;border:1px solid var(--line);background:var(--cream-2);color:var(--forest)}
+.badge.solid{background:linear-gradient(150deg,var(--forest),var(--forest-2));color:var(--cream);border-color:transparent}
+.badge.gold{background:rgba(192,138,62,.14);border-color:rgba(192,138,62,.4);color:#8a5f1f}
+.st{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;white-space:nowrap}
+.st::before{content:"";width:9px;height:9px;border-radius:50%;flex:none}
+.st.pass{color:var(--pass)}      .st.pass::before{background:var(--pass);box-shadow:0 0 0 3px rgba(47,125,78,.15)}
+.st.warn{color:var(--warn)}      .st.warn::before{background:var(--warn);box-shadow:0 0 0 3px rgba(192,138,62,.15)}
+.st.fail{color:var(--fail)}      .st.fail::before{background:var(--fail);box-shadow:0 0 0 3px rgba(180,82,47,.15)}
+.st.na{color:#9a9684}            .st.na::before{background:#c9c4b3}
+.intent{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:.24rem .6rem;border-radius:6px;white-space:nowrap}
+.intent.info{background:rgba(91,122,99,.16);color:#3f5a48}
+.intent.comm{background:rgba(192,138,62,.16);color:#8a5f1f}
+.intent.trans{background:rgba(47,125,78,.16);color:#215a38}
+.intent.nav{background:rgba(28,58,46,.1);color:var(--forest)}
+
+/* ---------- checklist (skill 3) ---------- */
+.checks{list-style:none}
+.checks li{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:16px 0;border-bottom:1px dashed var(--line);align-items:start}
+.checks li:last-child{border-bottom:none}
+.checks .what{font-weight:500;color:var(--forest)}
+.checks .why{display:block;color:#6c7a6f;font-size:.88rem;margin-top:3px}
+.checks .fix{display:block;font-size:.88rem;margin-top:6px;padding:10px 12px;background:var(--cream-2);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;color:#3a4a40}
+
+/* ---------- score dial ---------- */
+.score{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.score .n{font-family:"Fraunces",serif;font-size:4rem;line-height:1;color:var(--forest);letter-spacing:-.03em}
+.score .n small{font-size:1.2rem;color:var(--moss)}
+.score .track{flex:1;min-width:180px;height:10px;border-radius:5px;background:var(--cream-2);overflow:hidden}
+.score .track i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--pass))}
+
+/* ---------- ordered focus / gap list ---------- */
+.focus ol{list-style:none;counter-reset:f;margin-top:8px}
+.focus li{counter-increment:f;display:flex;gap:16px;padding:15px 0;border-bottom:1px dashed var(--line)}
+.focus li:last-child{border-bottom:none}
+.focus li::before{content:counter(f);font-family:"Fraunces",serif;font-style:italic;color:var(--gold);font-size:1.2rem;min-width:26px}
+.focus li b{color:var(--forest)}
+.focus li small{display:block;color:#6c7a6f;font-size:.85rem;margin-top:2px}
+
+/* ---------- dark feature panel (skill 5 / highlights) ---------- */
+.feature{background:linear-gradient(150deg,var(--forest),var(--forest-2));color:var(--cream);border-radius:18px;padding:30px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.feature::after{content:"";position:absolute;right:-80px;bottom:-80px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(231,198,144,.35),transparent 65%)}
+.feature .ey{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#e7c690}
+.feature h3{font-family:"Fraunces",serif;font-weight:500;font-size:1.5rem;margin:8px 0 18px;max-width:34ch}
+.feature .rows{display:flex;gap:30px;flex-wrap:wrap;position:relative;z-index:2}
+.feature .r .n{font-family:"Fraunces",serif;font-size:2.3rem;line-height:1;color:#fff}
+.feature .r .s{font-size:.8rem;color:rgba(244,239,226,.8);margin-top:6px}
+
+/* ---------- draft preview (skill 2) ---------- */
+.draft{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:30px 34px;box-shadow:var(--shadow);max-height:620px;overflow-y:auto}
+.draft h2,.draft h3{font-family:"Fraunces",serif;font-weight:500;color:var(--forest);margin:26px 0 10px}
+.draft h2{font-size:1.4rem}.draft h3{font-size:1.12rem}
+.draft p{margin:0 0 14px}
+.draft a{color:#215a38;text-decoration:underline;text-underline-offset:2px}
+.draft .marker{background:rgba(180,82,47,.14);border:1px dashed rgba(180,82,47,.5);color:var(--rust);font-weight:600;padding:12px 14px;border-radius:8px;display:block;margin:14px 0}
+.kv{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;font-size:.92rem}
+.kv dt{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--moss);padding-top:3px}
+.kv dd{color:var(--ink);word-break:break-word}
+pre.code{background:var(--ink);color:#dfe7df;padding:18px;border-radius:12px;overflow-x:auto;font-size:.8rem;line-height:1.5}
+
+/* ---------- empty state ---------- */
+.empty{background:var(--cream-2);border:1px dashed var(--line);border-radius:14px;padding:28px;text-align:center;color:#6c7a6f}
+.empty b{display:block;font-family:"Fraunces",serif;font-size:1.2rem;color:var(--forest);margin-bottom:6px}
+
+/* ---------- footer ---------- */
+footer{padding:40px 0 70px;color:#7d8a7f;font-size:.82rem}
+footer .wrap{border-top:1px solid var(--line);padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.note{font-size:.8rem;color:#8a8773;max-width:60ch}
+
+/* ---------- print ---------- */
+@media print{
+  body::before{display:none}
+  .draft{max-height:none;overflow:visible}
+  section{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap reveal">
+    <div class="brandrow"><span>Content Package</span><b>AI Ranking</b></div>
+    <h1>Post 3: French Grammar, the pillar hub</h1>
+    <p class="sub">The first page on the new /guides route. Links down to both live posts, and both now link back up.</p>
+    <div class="datechip"><span></span>french grammar (pillar hub) · generated 15 September 2026</div>
+  </div>
+</header>
+
+<div class="heroband">
+  <div class="wrap">
+    <div class="stat"><div class="k">1,153</div><div class="l">Words</div><div class="w">Pillar guide / informational</div></div>
+    <div class="stat"><div class="k">5</div><div class="l">Sources cited</div><div class="w">fetched + confirmed</div></div>
+    <div class="stat"><div class="k">8 of 8</div><div class="l">Answer capsules</div><div class="w">H2 + 2-sentence answer</div></div>
+    <div class="stat is-warn"><div class="k">6/7<small>/7</small></div><div class="l">Quality score</div><div class="w">6 of 7. Sourcing failed because OQLF was down, and nothing was invented to cover it</div></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section class="reveal">
+    <div class="seclabel"><span class="num">01</span><h2>Quality scorecard</h2><span class="win">6/7 of 7 passed</span></div>
+    <div class="panel">
+      <ul class="checks">
+
+        <li>
+          <span class="st fail"></span>
+          <div><span class="what">1. Every claim has an inline source, fetched and confirmed</span><small class="why">One external source only. The OQLF verb page was fetched and confirmed and carries the conjugation section. The gender, article and adjective sections have NO external citation, because vitrinelinguistique.oqlf.gouv.qc.ca was unreachable throughout this run (repeated DNS failures, while other hosts resolved normally) and dictionnaire.lerobert.com returned 403. Nothing was cited from memory to paper over it. The two URLs to add once OQLF is back are /la-grammaire/le-nom and /la-grammaire/ladjectif.</small></div>
+        </li>
+
+        <li>
+          <span class="st ok"></span>
+          <div><span class="what">2. Every H2 is a question with a two-sentence answer beneath it</span><small class="why">Eight of eight, verified by reading each generated FAQ answer with its question removed. One capsule opened &#x27;Learn it in the order...&#x27;, where &#x27;it&#x27; was ambiguous without the heading; rewritten to name French grammar explicitly.</small></div>
+        </li>
+
+        <li>
+          <span class="st ok"></span>
+          <div><span class="what">3. Exactly one table</span><small class="why">One: the CEFR ladder, A1 to B2, which is the hub&#x27;s central asset and distinct from the tense table in post 2.</small></div>
+        </li>
+
+        <li>
+          <span class="st ok"></span>
+          <div><span class="what">4. The experience section is filled, and not invented</span><small class="why">From the curriculum&#x27;s own signature errors, the same approach as posts 1 and 2. The load-bearing observation is that &#x27;using passé composé for background description&#x27; is logged at A2 and returns at B1 as &#x27;all-passé-composé narration&#x27;.</small></div>
+        </li>
+
+        <li>
+          <span class="st ok"></span>
+          <div><span class="what">5. Title and meta within limits</span><small class="why">Title 48 characters, 61 with the site suffix. Meta 155, trimmed twice from 160.</small></div>
+        </li>
+
+        <li>
+          <span class="st ok"></span>
+          <div><span class="what">6. Schema present and valid</span><small class="why">Article, Person, FAQPage and BreadcrumbList. The breadcrumb resolves three levels from the URL path: FrancoLink, French, then the guide. FAQPage carries all eight questions.</small></div>
+        </li>
+
+        <li>
+          <span class="st ok"></span>
+          <div><span class="what">7. Primary keyword in H1 and first 100 words</span><small class="why">&#x27;French Grammar&#x27; opens the H1 and appears in the first sentence.</small></div>
+        </li>
+      </ul>
+      <div class="meaning"><b>The experience check is the one that matters most.</b> Built from the curriculum, as with posts 1 and 2. The A2-to-B1 error carry-over is the part a competitor cannot reconstruct, because it comes from a syllabus document rather than from published grammar reference.</div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">02</span><h2>Page package</h2><span class="win">paste into your CMS</span></div>
+    <div class="panel">
+      <dl class="kv">
+        <dt>Page type</dt><dd><span class="badge solid">Pillar guide / informational</span></dd>
+        <dt>Primary keyword</dt><dd>french grammar</dd>
+        <dt>URL slug</dt><dd>/guides/french/grammar</dd>
+        <dt>Title tag</dt><dd>French Grammar: What to Learn, and in What Order <small>(48 chars)</small></dd>
+        <dt>Meta description</dt><dd>French grammar ordered by when you need it: gender, articles, adjectives and verbs, plus the tense choices that matter and what belongs at each CEFR level. <small>(155 chars)</small></dd>
+        <dt>H1</dt><dd>French Grammar: What to Learn, and in What Order</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">03</span><h2>Heading structure</h2><span class="win">8 of 8 capsules</span></div>
+    <div class="scroll">
+    <table class="tbl">
+      <thead><tr><th>Level</th><th>Heading</th><th>Keyword / question it answers</th><th>Capsule</th></tr></thead>
+      <tbody>
+
+        <tr><td class="num">h1</td><td class="q">French Grammar: What to Learn, and in What Order</td><td></td><td><span class="st "></span></td></tr>
+
+        <tr><td class="num">h2</td><td class="q">How much French grammar do you actually need?</td><td></td><td><span class="st "></span></td></tr>
+
+        <tr><td class="num">h2</td><td class="q">Why does every French noun have a gender?</td><td></td><td><span class="st "></span></td></tr>
+
+        <tr><td class="num">h2</td><td class="q">How do French articles and adjectives agree with the noun?</td><td></td><td><span class="st "></span></td></tr>
+
+        <tr><td class="num">h2</td><td class="q">How does French verb conjugation work?</td><td></td><td><span class="st "></span></td></tr>
+
+        <tr><td class="num">h2</td><td class="q">Which French past tense do you use, and when?</td><td></td><td><span class="st "></span></td></tr>
+
+        <tr><td class="num">h2</td><td class="q">How many French tenses do you actually need?</td><td></td><td><span class="st "></span></td></tr>
+
+        <tr><td class="num">h2</td><td class="q">What order should you learn French grammar in?</td><td></td><td><span class="st "></span></td></tr>
+
+        <tr><td class="num">h2</td><td class="q">What is the 80/20 rule in French?</td><td></td><td><span class="st "></span></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">04</span><h2>Sources cited</h2><span class="win">5 confirmed</span></div>
+    <!-- Every row here must be a URL that was actually fetched in this run. Never list a source from memory. -->
+    <div class="scroll">
+    <table class="tbl">
+      <thead><tr><th>Claim it backs</th><th>Source</th><th>Anchor used</th><th>Fetched</th></tr></thead>
+      <tbody>
+
+        <tr><td class="q">The French verb system spans indicative, subjunctive, conditional, imperative and non-finite forms; regular verbs group by -er, -ir, -re</td><td>Office québécois de la langue française, Le verbe</td><td></td><td><span class="st "></span></td></tr>
+
+        <tr><td class="q">Tense-by-level ordering, A1 to B2, and the A2/B1 signature errors</td><td>FrancoLink curriculum, docs/grammar-pronunciation-curriculum.md</td><td></td><td><span class="st "></span></td></tr>
+
+        <tr><td class="q">Noun gender is grammatical not logical; silent plural -s; article carries audible plurality</td><td>FrancoLink curriculum, A1-04</td><td></td><td><span class="st "></span></td></tr>
+
+        <tr><td class="q">Article obligatory after aimer; adjective agreement and BAGS placement; silent vs audible agreement</td><td>FrancoLink curriculum, A1-05 and A1-06</td><td></td><td><span class="st "></span></td></tr>
+
+        <tr><td class="q">UNCITED: the gender, article and adjective sections carry no external source</td><td>OQLF was unreachable during this run (DNS failure, repeated); dictionnaire.lerobert.com returned 403</td><td></td><td><span class="st "></span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="meaning">Links sit inline on the keyword next to the claim, not in a Sources block at the bottom. That is what makes an AI engine attach your page to the sentence it lifts.</div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">05</span><h2>Schema markup</h2><span class="win">Article + FAQPage + Person + BreadcrumbList</span></div>
+    <pre class="code">Generated at render time by src/app/site/guides/[...slug]/page.tsx. FAQPage comes from extractFaqs(), shared with the blog route. The BreadcrumbList is derived from the URL path, so a three-level guide gets a three-level trail automatically.</pre>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">06</span><h2>Draft preview</h2><span class="win">full copy in draft.md</span></div>
+    <div class="draft">
+<h1>French Grammar: What to Learn, and in What Order</h1>
+<p>French grammar is not hard so much as badly ordered. Most courses present it as a list of topics of equal size, so a learner spends the same effort on a tense they will use every day and one they will only ever read, then stalls somewhere around A2 without knowing why.</p>
+<p>This is the map: what the system is made of, and the order that makes it stick.</p>
+<h2>How much French grammar do you actually need?</h2>
+<p>Four systems carry almost everything you will say: noun gender, articles and adjective agreement, verb conjugation, and the choice between past tenses. Everything else is either a variation on one of those or a reading skill you will never need to produce.</p>
+<p>That is not a shortcut. It is what a CEFR syllabus looks like when it is ordered by use rather than by grammatical family.</p>
+<h2>Why does every French noun have a gender?</h2>
+<p>Every French noun is either masculine or feminine, and that gender belongs to the word rather than to the thing it names. This is the single most common place English speakers go wrong, because English has no equivalent and the instinct is to look for logic in the object.</p>
+<p>There is no logic to find. <em>Une table</em> is feminine and <em>un livre</em> is masculine for reasons of word history, not of furniture or literature. The practical consequence is that a noun has to be learned with its article attached, as <em>le livre</em> rather than <em>livre</em>, because the gender does work on everything around it.</p>
+<p>Our own A1 syllabus lists that error explicitly: assuming gender follows biological or logical sex. The second error on that list is subtler and worth more. The plural <strong>-s</strong> is silent, so you do not hear plurality on the noun at all. You hear it on the article. <em>Le livre</em> and <em>les livres</em> differ in the word you were tempted to skip.</p>
+<h2>How do French articles and adjectives agree with the noun?</h2>
+<p>Articles and adjectives both change form to match the gender and number of their noun, so one noun&#x27;s gender ripples outward across the phrase. Getting the noun wrong therefore costs you two further errors in the same sentence.</p>
+<p>Articles are also mandatory in French where English drops them. &quot;I like coffee&quot; is <em>j&#x27;aime <strong>le</strong> café</em>, with the definite article, and leaving it out is the most frequent article error in our A1 material.</p>
+<p>Adjectives agree and, unlike English, most of them follow the noun: <em>un chat noir</em>, not <em>un noir chat</em>. The exceptions are short and frequent, usually taught as <strong>BAGS</strong>: Beauty, Age, Goodness, Size. <em>Beau, joli, jeune, vieux, bon, grand, petit</em> go in front.</p>
+<p>One thing worth knowing early: agreement is often silent. The feminine <strong>-e</strong> in <em>noire</em> changes nothing you can hear, but the <strong>-e</strong> in <em>blanche</em> makes a previously silent consonant sound. That is why agreement feels invisible in speech and then costs marks in writing.</p>
+<h2>How does French verb conjugation work?</h2>
+<p>French verbs change form according to who is acting, when, and in which mood, and regular verbs fall into three groups by their infinitive ending: <strong>-er</strong>, <strong>-ir</strong> and <strong>-re</strong>. The Office québécois de la langue française <a href="https://vitrinelinguistique.oqlf.gouv.qc.ca/la-grammaire/le-verbe">catalogues the whole verb system</a> across the indicative, subjunctive, conditional, imperative and non-finite forms.</p>
+<p>Counted as separate forms, that is around twenty things. In practice the <strong>-er</strong> group is by far the largest, which is why it is the first verb pattern in almost every syllabus including ours, and why learning it properly pays for itself immediately.</p>
+<p>Two verbs do disproportionate work. <em>Avoir</em> and <em>être</em> build the compound tenses, so they are irregular verbs you cannot postpone.</p>
+<h2>Which French past tense do you use, and when?</h2>
+<p>Passé composé is for a completed event and imparfait is for the situation around it. This one contrast decides more of your sentences than any other grammar point in French, and it is where most self-taught learners stall.</p>
+<p>The rule is short. The cases where it stops behaving are the part worth studying: six common verbs change meaning between the two tenses, <em>depuis</em> forces one of them, and narration alternates between both. That is covered in full in <a href="/blog/passe-compose-vs-imparfait">passé composé vs imparfait</a>.</p>
+<h2>How many French tenses do you actually need?</h2>
+<p>You need eight to hold a normal conversation and write ordinary prose, and two more to finish B2. Two of the tenses that frighten people in grammar books, the passé simple and the imperfect subjunctive, are reading skills rather than speaking skills.</p>
+<p>The full breakdown, with what each tense is for and which are recognition-only, is in <a href="/blog/french-tenses">the French tenses</a>.</p>
+<h2>What order should you learn French grammar in?</h2>
+<p>Learn French grammar in the order the CEFR levels put it, because each item depends on one before it. That ordering is not a matter of taste: adjective agreement needs noun gender, compound tenses need the auxiliaries, and the subjunctive needs enough verb forms in your head that a new set of endings reads as a variation rather than a fresh alphabet.</p>
+<table><thead><tr><th>Level</th><th>What belongs here</th></tr></thead><tbody><tr><td>A1</td><td>Subject pronouns, <em>être</em> and <em>avoir</em>, <strong>-er</strong> verbs, noun gender and number, articles, adjective agreement, negation, questions, <em>aller</em> + infinitive</td></tr><tr><td>A2</td><td>Passé composé with both auxiliaries, imparfait, reflexive verbs, object pronouns, futur simple, comparatives, imperative, <em>y</em> and <em>en</em></td></tr><tr><td>B1</td><td>Passé composé against imparfait, plus-que-parfait, conditionnel présent, subjonctif présent, si clauses types 1 and 2</td></tr><tr><td>B2</td><td>Subjonctif passé, conditionnel passé, si clauses type 3, passive voice, reported speech with full tense shift</td></tr></tbody></table>
+<p>Here is what that ordering protects you from. In our curriculum the same failure is recorded at two different levels: <em>using passé composé for background description</em> is a signature error at A2, and it returns at B1 as <em>all-passé-composé narration</em>. It is one habit, a level older and harder to shift, and it happens because passé composé arrives first and becomes the default before imparfait can compete.</p>
+<p>Most self-study never gets that information, because a grammar reference sorted alphabetically or by word class cannot tell you what to learn on Tuesday. A syllabus sorted by level can.</p>
+<h2>What is the 80/20 rule in French?</h2>
+<p>There is no official 80/20 rule in French, and the phrase is usually a claim about vocabulary rather than grammar. The useful version is the one above: a small number of grammar systems account for most of what you say, and the rest is either a variation or a reading skill.</p>
+<p>If you want it concretely, the A1 and A2 rows in that table are roughly where a learner can handle ordinary daily situations. Everything above them extends your range rather than adding basic function, which is worth knowing before you spend a month on a tense nobody will say to you.</p>
+    </div>
+    <div class="meaning"><b>The clean, paste-ready version is <code>draft.md</code>.</b> This preview exists so you can read it without leaving the dashboard. Any <span style="color:#b4522f">[YOUR EXPERIENCE HERE]</span> marker above is deliberate: the skill will not invent first-hand experience for you.</div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Data: keyword map + web sources fetched this run · window: 12-month average (DataForSEO, 9 September 2026)</span>
+    <span>seo-content-writer · generated 15 September 2026</span>
+  </div>
+  <div class="wrap" style="border:none;padding-top:14px">
+    <p class="note">Keyword data from 01-keyword-map.csv, DataForSEO, 9 September 2026, United States / English. This is the first page on the /guides route, built today: docs/seo-content-plan.md originally specified /learn/french/grammar, which cannot work because /learn is in APP_ROUTES and host-splits to the app domain. The honest failure in this run is sourcing. OQLF went unreachable partway through and did not recover, so two sections that should carry a government language authority carry nothing. That is a real gap, not a rounding error, and it is why this scores 6 rather than 7. Re-fetch before treating the page as finished. Verified on the local render: 200, one H1, eight H2s each with an id, one table, four schema types, breadcrumb resolving three levels, and the guide present in the sitemap.</p>
+  </div>
+</footer>
+
+</body>
+</html>
