@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Sparkles, X, Check, Crown } from "lucide-react";
+import { useAiTutorEnabled } from "@/lib/context/ai-tutor-context";
+import { withoutTutorCopy } from "@/lib/ai/tutor-copy";
 
 const DISMISS_KEY = "fl_subscribe_prompt_dismissed_at";
 const SNOOZE_DAYS = 3;
@@ -13,6 +15,7 @@ const SNOOZE_DAYS = 3;
 export function SubscribePrompt({ plan }: { plan?: string }) {
   const [show, setShow] = useState(false);
   const [closing, setClosing] = useState(false);
+  const tutorEnabled = useAiTutorEnabled();
 
   const isFree = !plan || plan === "FREE";
 
@@ -71,11 +74,11 @@ export function SubscribePrompt({ plan }: { plan?: string }) {
         {/* Body */}
         <div className="px-7 py-6">
           <ul className="mb-6 space-y-3">
-            {[
+            {withoutTutorCopy([
               "Unlimited daily lessons from the full library",
               "AI Tutor to practise speaking anytime",
               "Extra practice, games & progress tracking",
-            ].map((f) => (
+            ], tutorEnabled).map((f) => (
               <li key={f} className="flex items-start gap-3 text-sm text-gray-700">
                 <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-secondary-100">
                   <Check className="h-3 w-3 text-secondary-700" strokeWidth={3} />

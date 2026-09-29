@@ -5,6 +5,8 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { Check, X, Crown, Sparkles, Zap, Trophy } from "lucide-react";
 import { CheckoutButton } from "@/components/pricing";
+import { useAiTutorEnabled } from "@/lib/context/ai-tutor-context";
+import { withoutTutorCopy } from "@/lib/ai/tutor-copy";
 
 type BillingPeriod = "monthly" | "yearly";
 
@@ -106,6 +108,7 @@ function useConfetti(canvasRef: React.RefObject<HTMLCanvasElement | null>, activ
 
 export default function PricingPage() {
   const [billing, setBilling] = useState<BillingPeriod>("monthly");
+  const tutorEnabled = useAiTutorEnabled();
   const [confettiActive, setConfettiActive] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   useConfetti(canvasRef, confettiActive);
@@ -256,7 +259,7 @@ export default function PricingPage() {
 
                     {/* Features */}
                     <ul className="space-y-2 mb-6">
-                      {plan.features.map((f,i) => (
+                      {withoutTutorCopy(plan.features, tutorEnabled, (f) => f.text).map((f,i) => (
                         <li key={i} className="flex items-center gap-2.5">
                           {f.included
                             ? <span className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0"
@@ -312,7 +315,7 @@ export default function PricingPage() {
               ["Is there a free trial?","Unit 1 is free forever. Upgrade when you're ready for the full experience."],
               ["What's the AI tutor?","Real-time French conversation practice with pronunciation feedback — like a native speaker on demand."],
               ["Can I switch plans?","Anytime. Upgrades are instant; downgrades take effect at next billing cycle."],
-            ].map(([q,a],i) => (
+            ].filter(([q]) => tutorEnabled || !q.includes("AI tutor")).map(([q,a],i) => (
               <details key={i} className="group bg-white rounded-xl border border-gray-100">
                 <summary className="flex items-center justify-between px-5 py-4 cursor-pointer font-semibold text-gray-900 text-sm">
                   {q}

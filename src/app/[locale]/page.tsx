@@ -40,6 +40,7 @@ import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { getFeaturesConfig } from "@/lib/config/settings";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { CurrencySwitcher } from "@/components/currency-switcher";
 import Image from "next/image";
@@ -76,10 +77,13 @@ export default async function LocaleHomePage({ params }: PageProps) {
     redirect("/dashboard");
   }
 
-  return <HomeContent />;
+  const { aiTutorEnabled } = await getFeaturesConfig();
+  return <HomeContent aiTutorEnabled={aiTutorEnabled} />;
 }
 
-function HomeContent() {
+// With the AI tutor switched off (Admin → Settings → AI) its feature card is
+// dropped rather than advertising something students can't use.
+function HomeContent({ aiTutorEnabled }: { aiTutorEnabled: boolean }) {
   const t = useTranslations();
 
   return (
@@ -201,9 +205,9 @@ function HomeContent() {
               { icon: Users, title: t("landing.feature_live"), desc: t("landing.feature_live_desc"), iconBg: "bg-secondary-100", iconColor: "text-secondary-700" },
               { icon: Zap, title: t("landing.feature_free"), desc: t("landing.feature_free_desc"), iconBg: "bg-green-50", iconColor: "text-green-600" },
               { icon: BookOpen, title: t("landing.feature_curriculum"), desc: t("landing.feature_curriculum_desc"), iconBg: "bg-primary-100", iconColor: "text-primary" },
-              { icon: MessageCircle, title: t("landing.feature_ai"), desc: t("landing.feature_ai_desc"), iconBg: "bg-secondary-100", iconColor: "text-secondary-700" },
+              { icon: MessageCircle, title: t("landing.feature_ai"), desc: t("landing.feature_ai_desc"), iconBg: "bg-secondary-100", iconColor: "text-secondary-700", aiTutor: true },
               { icon: BarChart3, title: t("landing.feature_track"), desc: t("landing.feature_track_desc"), iconBg: "bg-green-50", iconColor: "text-green-600" },
-            ].map((feature) => (
+            ].filter((feature) => aiTutorEnabled || !("aiTutor" in feature)).map((feature) => (
               <div key={feature.title} className="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-transparent hover:shadow-medium transition-all duration-300 hover:-translate-y-1">
                 <div className={`w-14 h-14 ${feature.iconBg} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   <feature.icon className={`w-7 h-7 ${feature.iconColor}`} />

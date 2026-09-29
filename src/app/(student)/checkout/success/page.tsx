@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { CheckCircle, Sparkles, ArrowRight } from "lucide-react";
+import { getFeaturesConfig } from "@/lib/config/settings";
 
 interface PageProps {
   searchParams: Promise<{
@@ -14,6 +15,7 @@ interface PageProps {
 export default async function CheckoutSuccessPage({ searchParams }: PageProps) {
   const { session_id } = await searchParams;
   const supabase = await createClient();
+  const { aiTutorEnabled } = await getFeaturesConfig();
 
   const {
     data: { user },
@@ -75,11 +77,13 @@ export default async function CheckoutSuccessPage({ searchParams }: PageProps) {
                 <CheckCircle className="w-4 h-4 text-green-500" />
                 All CEFR levels (A1–C2)
               </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-green-500" />
-                {profile?.subscription_plan === "PREMIUM_PLUS" ? "60" : "15"} min
-                AI Tutor daily
-              </li>
+              {aiTutorEnabled && (
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-500" />
+                  {profile?.subscription_plan === "PREMIUM_PLUS" ? "1,500" : "300"} AI Tutor
+                  messages a month
+                </li>
+              )}
               <li className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-green-500" />
                 Priority support

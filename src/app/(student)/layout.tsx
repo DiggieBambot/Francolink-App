@@ -9,6 +9,7 @@ import { ActivityPinger } from "@/components/analytics/activity-pinger";
 import { AttributionCapture } from "@/components/analytics/attribution";
 import { createClient } from "@/lib/supabase/server";
 import { getFeaturesConfig } from "@/lib/config/settings";
+import { AiTutorProvider } from "@/lib/context/ai-tutor-context";
 import { redirect } from "next/navigation";
 import { StudentNavigation } from "@/components/student/student-navigation";
 import { CreditPill } from "@/components/student/credit-pill";
@@ -52,7 +53,8 @@ export default async function StudentLayout({
   const activeLanguage = profile?.learning_language || "fr";
 
   // With the tutor switched off in Admin → Settings → AI, the API already
-  // refuses students; hide every way in too, so nobody lands on a dead page.
+  // refuses students; hide every way in too, so nobody lands on a dead page,
+  // and stop selling it (AiTutorProvider feeds the plan cards and prompts).
   // Admins and testers keep it, matching the API, to verify before re-enabling.
   const { aiTutorEnabled } = await getFeaturesConfig();
   const showAiTutor = aiTutorEnabled || profile?.role === "ADMIN" || profile?.role === "TESTER";
@@ -149,7 +151,8 @@ export default async function StudentLayout({
   );
 
   return (
-    // ── safe-area-inset: prevents content going behind iPhone notch/home bar ──
+    <AiTutorProvider enabled={showAiTutor}>
+    {/* ── safe-area-inset: prevents content going behind iPhone notch/home bar ── */}
     <div
       className="bg-gray-50"
       style={{
@@ -222,5 +225,6 @@ export default async function StudentLayout({
         </main>
       </div>
     </div>
+    </AiTutorProvider>
   );
 }
