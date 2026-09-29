@@ -5,6 +5,8 @@ import { Home, BookOpen, Bot, Trophy, User } from "lucide-react";
 
 interface MobileBottomNavProps {
   plan?: string;
+  /** False when the tutor is switched off in Admin → Settings → AI. */
+  showAiTutor?: boolean;
 }
 
 const tabs = [
@@ -15,8 +17,9 @@ const tabs = [
   { href: "/profile", label: "Profile", icon: User },
 ];
 
-export function MobileBottomNav({ plan = "FREE" }: MobileBottomNavProps) {
+export function MobileBottomNav({ plan = "FREE", showAiTutor = true }: MobileBottomNavProps) {
   const pathname = usePathname();
+  const visibleTabs = showAiTutor ? tabs : tabs.filter((tab) => tab.href !== "/student/ai-tutor");
 
   const isActive = (href: string) => {
     if (href === "/dashboard") return pathname === "/dashboard";
@@ -36,7 +39,7 @@ export function MobileBottomNav({ plan = "FREE" }: MobileBottomNavProps) {
       style={{ backgroundColor: "#0f1f3d" }}
     >
       <div className="flex items-center justify-around h-16 px-2">
-        {tabs.map((tab) => {
+        {visibleTabs.map((tab) => {
           const active = isActive(tab.href);
           const Icon = tab.icon;
           return (
