@@ -30,7 +30,20 @@ export function generateMetadata(): Metadata {
       ? DESCRIPTION
       : "Language-learning guides, grammar explainers and study tips from FrancoLink. Launching soon.",
     alternates: { canonical: "/blog" },
-    openGraph: { title: TITLE, description: DESCRIPTION, url: "/blog", type: "website" },
+    openGraph: {
+      title: TITLE,
+      description: DESCRIPTION,
+      url: "/blog",
+      type: "website",
+      // Restated, not inherited. Declaring openGraph on a page REPLACES the
+      // site layout's object rather than merging into it, so omitting images
+      // drops the site default and the page ships with no social card. The
+      // post and author routes were fixed for this; the index was missed, and
+      // production confirmed it: every post had a card and /blog had none.
+      images: [
+        { url: "/og-image.png", width: 1200, height: 630, alt: TITLE },
+      ],
+    },
     robots: live ? undefined : { index: false, follow: true },
   };
 }
