@@ -5,6 +5,7 @@
 //   npx tsx scripts/warm-tts.mts --source self --lang fr --live
 //   npx tsx scripts/warm-tts.mts --source self --lang fr --live --limit 200
 //   npx tsx scripts/warm-tts.mts --source tutor --lang fr --live
+//   npx tsx scripts/warm-tts.mts --source self --lang es --live --concurrency 4
 //
 // --source self  : the self-learning course (lessons + units + courses)
 // --source tutor : the tutor-led catalogue (tutor_lessons)
@@ -38,6 +39,7 @@ const LANG = (val("--lang") ?? "fr").toLowerCase();
 const SOURCE = (val("--source") ?? "self").toLowerCase();
 const LIMIT = parseInt(val("--limit") ?? "100000", 10);
 const SPEED = Number(val("--speed") ?? 1.0);
+const CONCURRENCY = Math.max(1, parseInt(val("--concurrency") ?? "1", 10));
 
 const supa = adminClient();
 const openaiKey = process.env.OPENAI_API_KEY;
@@ -187,7 +189,10 @@ async function withRetry<T>(fn: () => Promise<T>, attempts = 4): Promise<T> {
 }
 
 let done = 0, failed = 0;
-for (const clip of batch) {
+// One clip at a time took ~1.5h per 700 clips. Clips are independent, so a
+// small pool (--concurrency N) shares the waiting without tripping rate limits.
+const queue = [...batch];
+async function warmOne(clip: (typeof batch)[number]) {
   try {
     const res = await withRetry(async () => {
       const r = await fetch("https://api.openai.com/v1/audio/speech", {
@@ -222,5 +227,11 @@ for (const clip of batch) {
     console.log(`  FAIL "${clip.text.slice(0, 40)}" — ${err instanceof Error ? err.message.slice(0, 80) : err}`);
   }
 }
+
+await Promise.all(
+  Array.from({ length: CONCURRENCY }, async () => {
+    for (let clip = queue.shift(); clip; clip = queue.shift()) await warmOne(clip);
+  }),
+);
 
 console.log(`\nDone. Generated ${done}, failed ${failed}, ${missing.length - done} still missing.\n`);

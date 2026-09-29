@@ -78,3 +78,6 @@ purged-accounts-*.json
 data.json
 data-*.json
 lesson-critique-findings.md
+
+# Content backups taken before bulk lesson fixes (large, local only)
+scripts/output/backups/
