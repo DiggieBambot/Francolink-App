@@ -5,7 +5,7 @@
 // src/lib/account/delete-account.ts for what is deleted and what is kept.
 
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { getRequestAuth } from "@/lib/supabase/request-auth";
 import { deleteStudentAccount } from "@/lib/account/delete-account";
 
 const STATUS: Record<string, number> = {
@@ -17,10 +17,8 @@ const STATUS: Record<string, number> = {
 };
 
 export async function POST(request: NextRequest) {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  // Web (cookie) or mobile app (bearer token).
+  const { user, supabase, via } = await getRequestAuth(request);
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   // The typed confirmation guards against a stray request, not just a stray click.
@@ -35,6 +33,7 @@ export async function POST(request: NextRequest) {
   }
 
   // The login is gone or disabled; clear this browser's session cookies too.
-  await supabase.auth.signOut().catch(() => {});
+  // (The mobile app has no cookies — it signs itself out on this response.)
+  if (via === "cookie") await supabase.auth.signOut().catch(() => {});
   return NextResponse.json({ ok: true, mode: result.mode });
 }
