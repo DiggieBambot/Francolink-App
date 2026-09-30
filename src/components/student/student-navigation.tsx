@@ -39,8 +39,11 @@ const navigationItems: NavItem[] = [
   { label: "Settings", href: "/settings", icon: Settings },
 ];
 
-export function StudentNavigation() {
+export function StudentNavigation({ showAiTutor = true }: { showAiTutor?: boolean }) {
   const pathname = usePathname();
+  const items = showAiTutor
+    ? navigationItems
+    : navigationItems.filter((item) => item.href !== "/student/ai-tutor");
 
   const isActive = (href: string): boolean => {
     if (href === "/dashboard") {
@@ -54,7 +57,7 @@ export function StudentNavigation() {
       <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider px-3 mb-3">
         Menu
       </p>
-      {navigationItems.map((item) => {
+      {items.map((item) => {
         const active = isActive(item.href);
         const Icon = item.icon;
 

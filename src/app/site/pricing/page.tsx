@@ -5,13 +5,24 @@ import { appUrl } from "@/lib/site/hosts";
 import { cn } from "@/lib/utils";
 import { JsonLd } from "@/components/site/json-ld";
 import { subscriptionCourseSchema, breadcrumbSchema } from "@/lib/site/schema";
+import { getFeaturesConfig } from "@/lib/config/settings";
+import { withoutTutorCopy } from "@/lib/ai/tutor-copy";
 
-export const metadata: Metadata = {
-  title: "Pricing",
-  description:
-    "FrancoLink pricing: a free plan to get started, Premium for unlimited CEFR lessons and AI practice, and Premium+ for the full experience. Live tutor lessons are priced by each tutor.",
-  alternates: { canonical: "/pricing" },
-};
+// The plan lists follow the AI tutor switch in Admin → Settings → AI. The page
+// is otherwise static, so re-render it every few minutes to pick up a flip
+// without a deploy.
+export const revalidate = 300;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { aiTutorEnabled } = await getFeaturesConfig();
+  return {
+    title: "Pricing",
+    description: `FrancoLink pricing: a free plan to get started, Premium for unlimited CEFR lessons${
+      aiTutorEnabled ? " and AI practice" : ""
+    }, and Premium+ for the full experience. Live tutor lessons are priced by each tutor.`,
+    alternates: { canonical: "/pricing" },
+  };
+}
 
 // Prices are also rendered inside the app's own pricing page, which owns
 // checkout and currency conversion. This page is the public shop window —
@@ -78,7 +89,9 @@ const PLANS: Plan[] = [
   },
 ];
 
-export default function SitePricingPage() {
+export default async function SitePricingPage() {
+  const { aiTutorEnabled } = await getFeaturesConfig();
+
   return (
     <>
       {/* The subscription as a priced Course. The offers below mirror the
@@ -98,8 +111,8 @@ export default function SitePricingPage() {
             Simple pricing
           </h1>
           <p className="mt-5 text-lg text-gray-600 max-w-2xl mx-auto">
-            One subscription covers the whole app — lessons, games, homework and
-            AI practice. Live lessons are billed separately by each tutor at the
+            One subscription covers the whole app — lessons, games,
+            homework{aiTutorEnabled ? " and AI practice" : " and practice"}. Live lessons are billed separately by each tutor at the
             rate shown on their profile.
           </p>
         </div>
@@ -168,7 +181,7 @@ export default function SitePricingPage() {
               </p>
 
               <ul className="mt-8 space-y-3">
-                {plan.features.map(([label, included]) => (
+                {withoutTutorCopy(plan.features, aiTutorEnabled, ([label]) => label).map(([label, included]) => (
                   <li key={label} className="flex items-start gap-3 text-sm">
                     {included ? (
                       <Check className="w-4 h-4 text-secondary shrink-0 mt-0.5" />

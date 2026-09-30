@@ -3,6 +3,8 @@
 import { useRouter } from 'next/navigation';
 import { Lock, Zap, Clock, X, Crown } from 'lucide-react';
 import { type DenialReason } from '@/lib/utils/lesson-limits';
+import { useAiTutorEnabled } from '@/lib/context/ai-tutor-context';
+import { withoutTutorCopy } from '@/lib/ai/tutor-copy';
 
 // ─── Content map per denial reason ──────────────────────────────
 
@@ -66,6 +68,7 @@ export function UpgradeModal({
 }: UpgradeModalProps) {
   const router = useRouter();
   const content = CONTENT[reason];
+  const bullets = withoutTutorCopy(content.bullets, useAiTutorEnabled());
 
   const handleClose = () => {
     if (onClose) {
@@ -109,7 +112,7 @@ export function UpgradeModal({
           Upgrade to Premium and get:
         </p>
         <ul className="space-y-2">
-          {content.bullets.map((bullet, i) => (
+          {bullets.map((bullet, i) => (
             <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
               <Zap className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" />
               {bullet}

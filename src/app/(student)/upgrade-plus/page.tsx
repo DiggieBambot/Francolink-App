@@ -14,6 +14,8 @@ import {
   Headphones,
 } from "lucide-react";
 import { UpgradeButton } from "@/components/pricing";
+import { getFeaturesConfig } from "@/lib/config/settings";
+import { withoutTutorCopy } from "@/lib/ai/tutor-copy";
 
 const upgradeBenefits = [
   {
@@ -57,6 +59,9 @@ const testimonials = [
 
 export default async function UpgradePlusPage() {
   const supabase = await createClient();
+  const { aiTutorEnabled } = await getFeaturesConfig();
+  const benefits = withoutTutorCopy(upgradeBenefits, aiTutorEnabled, (b) => b.upgraded);
+  const quotes = withoutTutorCopy(testimonials, aiTutorEnabled, (t) => t.text);
 
   const {
     data: { user },
@@ -117,7 +122,9 @@ export default async function UpgradePlusPage() {
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             You&apos;re already making great progress with Premium. Upgrade to
-            Premium+ and supercharge your learning with 4x more AI tutor time.
+            {aiTutorEnabled
+              ? "Premium+ and supercharge your learning with 4x more AI tutor time."
+              : "Premium+ for advanced pronunciation analysis, deeper analytics and priority support."}
           </p>
         </div>
 
@@ -140,7 +147,7 @@ export default async function UpgradePlusPage() {
           {/* Benefits Comparison */}
           <div className="p-6">
             <div className="space-y-6">
-              {upgradeBenefits.map((benefit, index) => (
+              {benefits.map((benefit, index) => (
                 <div key={index} className="flex items-start gap-4">
                   <div className="p-2 bg-purple-100 rounded-xl shrink-0">
                     <benefit.icon className="w-5 h-5 text-purple-600" />
@@ -198,7 +205,7 @@ export default async function UpgradePlusPage() {
             What Premium+ members say
           </h3>
           <div className="grid md:grid-cols-2 gap-4">
-            {testimonials.map((testimonial, index) => (
+            {quotes.map((testimonial, index) => (
               <div
                 key={index}
                 className="bg-white rounded-xl p-6 shadow-sm border border-gray-100"

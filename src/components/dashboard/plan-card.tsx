@@ -11,6 +11,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { Check, Crown, Sparkles } from "lucide-react";
 import { CheckoutButton } from "@/components/pricing/checkout-button";
+import { useAiTutorEnabled } from "@/lib/context/ai-tutor-context";
+import { withoutTutorCopy } from "@/lib/ai/tutor-copy";
 
 export interface PlanPrices {
   premiumMonthly: number;
@@ -44,6 +46,7 @@ export function PlanCard({
   prices: PlanPrices;
 }) {
   const [yearly, setYearly] = useState(false);
+  const tutorEnabled = useAiTutorEnabled();
 
   const current = (plan || "FREE").toUpperCase();
   const isFree = current === "FREE";
@@ -121,7 +124,7 @@ export function PlanCard({
                 </div>
 
                 <ul className="mt-3 space-y-2">
-                  {PERKS[offer.key].map((perk) => (
+                  {withoutTutorCopy(PERKS[offer.key], tutorEnabled).map((perk) => (
                     <li
                       key={perk}
                       className="flex items-start gap-2.5 text-sm text-gray-600"

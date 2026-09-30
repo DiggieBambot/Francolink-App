@@ -3,6 +3,7 @@
 import { Zap, Infinity as InfinityIcon, Crown, Sparkles } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import type { LessonUsage } from '@/lib/utils/lesson-limits';
+import { useAiTutorEnabled } from '@/lib/context/ai-tutor-context';
 
 interface DailyLessonLimitProps {
   usage: LessonUsage;
@@ -10,6 +11,7 @@ interface DailyLessonLimitProps {
 
 export function DailyLessonLimit({ usage }: DailyLessonLimitProps) {
   const router = useRouter();
+  const tutorEnabled = useAiTutorEnabled();
 
   // Premium+ users: top tier badge (no upsell)
   if (usage.plan === 'PREMIUM_PLUS') {
@@ -43,7 +45,7 @@ export function DailyLessonLimit({ usage }: DailyLessonLimitProps) {
         >
           <span className="flex items-center justify-center gap-1">
             <Sparkles className="h-3 w-3" />
-            Upgrade to Premium+ for 1,500 AI Tutor messages a month
+            {tutorEnabled ? 'Upgrade to Premium+ for 1,500 AI Tutor messages a month' : 'Upgrade to Premium+'}
           </span>
         </button>
       </div>
