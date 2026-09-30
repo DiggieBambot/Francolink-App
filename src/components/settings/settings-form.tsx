@@ -106,6 +106,9 @@ export default function SettingsForm({ user }: SettingsFormProps) {
   const [success, setSuccess] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [deleteText, setDeleteText] = useState("");
+  const [deleting, setDeleting] = useState(false);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
 
   // Save profile settings
   const handleSaveProfile = async () => {
@@ -169,12 +172,35 @@ export default function SettingsForm({ user }: SettingsFormProps) {
     }
   };
 
-  // Delete account
+  // Delete account — permanent. The server cancels any subscription first and
+  // refuses (with a reason) if the account can't be deleted yet.
   const handleDeleteAccount = async () => {
-    // In production, you'd call an API route that uses the service role key
-    // to delete the user from auth and the database
-    alert("Account deletion would be handled by an API route in production");
+    setDeleting(true);
+    setDeleteError(null);
+    try {
+      const res = await fetch("/api/account/delete", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ confirm: deleteText.trim() }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setDeleteError(data.error || "Something went wrong. Please try again.");
+        setDeleting(false);
+        return;
+      }
+      // Session is already cleared server-side; leave the app entirely.
+      window.location.assign("/?account_deleted=1");
+    } catch {
+      setDeleteError("Something went wrong. Please check your connection and try again.");
+      setDeleting(false);
+    }
+  };
+
+  const closeDeleteConfirm = () => {
     setShowDeleteConfirm(false);
+    setDeleteText("");
+    setDeleteError(null);
   };
 
   const dailyGoalOptions = [
@@ -440,20 +466,54 @@ export default function SettingsForm({ user }: SettingsFormProps) {
             Delete Account
           </Button>
         ) : (
-          <div className="flex items-center gap-3">
-            <Button
-              onClick={handleDeleteAccount}
-              className="bg-red-600 hover:bg-red-700 gap-2"
-            >
-              <Trash2 className="w-4 h-4" />
-              Yes, Delete My Account
-            </Button>
-            <Button
-              onClick={() => setShowDeleteConfirm(false)}
-              variant="outline"
-            >
-              Cancel
-            </Button>
+          <div className="space-y-4">
+            <div className="rounded-xl bg-red-50 border border-red-100 p-4 text-sm text-gray-700">
+              <p className="font-semibold text-red-700 mb-2">This will permanently:</p>
+              <ul className="list-disc pl-5 space-y-1">
+                <li>delete your profile, lesson progress, XP, streaks, vocabulary and homework</li>
+                <li>cancel any subscription immediately (no refund for the current period)</li>
+                <li>remove any unused lesson credits</li>
+                <li>sign you out on every device — you won&apos;t be able to log in again</li>
+              </ul>
+              <p className="mt-2 text-xs text-gray-500">
+                Records of past payments and lessons are kept for accounting, with your name
+                and email removed.
+              </p>
+            </div>
+
+            <div>
+              <label htmlFor="delete-confirm" className="block text-sm font-medium text-gray-700 mb-1">
+                Type <span className="font-mono font-bold">DELETE</span> to confirm
+              </label>
+              <Input
+                id="delete-confirm"
+                value={deleteText}
+                onChange={(e) => setDeleteText(e.target.value)}
+                placeholder="DELETE"
+                autoComplete="off"
+              />
+            </div>
+
+            {deleteError && (
+              <p className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg px-3 py-2" role="alert">
+                {deleteError}
+              </p>
+            )}
+
+            <div className="flex items-center gap-3">
+              <Button
+                onClick={handleDeleteAccount}
+                variant="danger"
+                disabled={deleteText.trim() !== "DELETE" || deleting}
+                className="gap-2 disabled:opacity-50"
+              >
+                {deleting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}
+                {deleting ? "Deleting…" : "Permanently delete my account"}
+              </Button>
+              <Button onClick={closeDeleteConfirm} variant="ghost" disabled={deleting}>
+                Cancel
+              </Button>
+            </div>
           </div>
         )}
       </div>

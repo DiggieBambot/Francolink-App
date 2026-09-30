@@ -6,9 +6,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createServiceClient } from "@/lib/supabase/service";
+import { AVATAR_BUCKET, AVATAR_FOLDER, avatarStoragePath } from "@/lib/storage/avatar";
 
-const BUCKET = "assets";
-const FOLDER = "avatars";
+const BUCKET = AVATAR_BUCKET;
+const FOLDER = AVATAR_FOLDER;
 const MAX_BYTES = 4 * 1024 * 1024; // 4 MB
 const ALLOWED_TYPES = new Set(["image/png", "image/jpeg", "image/webp", "image/gif"]);
 
@@ -20,14 +21,7 @@ function extFor(mime: string): string {
   return "png";
 }
 
-function storagePathFromUrl(url: string | null | undefined): string | null {
-  if (!url) return null;
-  // public URL looks like: <base>/storage/v1/object/public/assets/avatars/<id>.<ext>
-  const marker = `/object/public/${BUCKET}/`;
-  const i = url.indexOf(marker);
-  if (i < 0) return null;
-  return url.slice(i + marker.length);
-}
+const storagePathFromUrl = avatarStoragePath;
 
 export async function POST(request: NextRequest) {
   const supabase = await createClient();
