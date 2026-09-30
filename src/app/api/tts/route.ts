@@ -1,6 +1,6 @@
 // src/app/api/tts/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import { createClient as createUserClient } from "@/lib/supabase/server";
+import { getRequestAuth } from "@/lib/supabase/request-auth";
 import { createClient } from "@supabase/supabase-js";
 import {
   ALLOWED_VOICES,
@@ -54,7 +54,8 @@ export async function POST(request: NextRequest) {
     // point every call costs money at the provider, which is why the gate sits
     // here and not at the top of the route — unauthenticated, this was a bill
     // anyone on the internet could run up in a loop.
-    const { data: { user } } = await (await createUserClient()).auth.getUser();
+    // Web (cookie) or mobile app (bearer token).
+    const { user } = await getRequestAuth(request);
     if (!user) {
       return NextResponse.json(
         { error: "Sign in to generate audio" },
