@@ -12,6 +12,7 @@ const STATUS: Record<string, number> = {
   NOT_FOUND: 404,
   ROLE_NOT_ALLOWED: 403,
   UPCOMING_LESSONS: 409,
+  PLAY_SUBSCRIPTION: 409,
   BILLING: 502,
   FAILED: 500,
 };
