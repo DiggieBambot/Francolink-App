@@ -101,6 +101,8 @@ const SITE_ROUTES = [
   "/guides",
   "/privacy",
   "/terms",
+  // Google Play's required web link for account deletion. Must work signed-out.
+  "/delete-account",
   // The workbook's sales page. Lives on the website, not the app: it is
   // indexable, it is what ads point at, and buying does not need a session.
   "/francais-pas-a-pas",
