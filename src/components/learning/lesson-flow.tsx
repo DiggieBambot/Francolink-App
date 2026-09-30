@@ -1,7 +1,7 @@
 // src/components/learning/lesson-flow.tsx
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import {
@@ -125,18 +125,48 @@ function CelebrationOverlay({
   );
 }
 
+// How long the feedback banner stays up before the next exercise. A wrong
+// answer is the moment the learner needs to read the right one, so it gets
+// real time — longer when there is a tip or explanation to read too — and a
+// Continue button for anyone who has finished reading sooner.
+const FEEDBACK_MS = { correct: 900, wrong: 3000, wrongWithTip: 5000 };
+
+/** The expected answer as readable text: a sentence, not a JSON array. */
+function formatCorrectAnswer(answer: unknown): string {
+  if (typeof answer === "string") return answer;
+  if (Array.isArray(answer)) {
+    // Matching exercises pass their pairs.
+    if (answer.every((p) => p && typeof p === "object" && "left" in p && "right" in p)) {
+      return answer.map((p: { left: string; right: string }) => `${p.left} → ${p.right}`).join(" · ");
+    }
+    return answer.map(String).join(" ");
+  }
+  return JSON.stringify(answer);
+}
+
 // ── Answer feedback banner shown at bottom of exercise card ────────────────
 function AnswerFeedback({
   correct,
   correctAnswer,
   hint,
   explanation,
+  durationMs,
+  onContinue,
 }: {
   correct: boolean;
   correctAnswer?: string;
   hint?: string;
   explanation?: string;
+  durationMs: number;
+  onContinue: () => void;
 }) {
+  // Countdown bar: starts full, drains over durationMs.
+  const [draining, setDraining] = useState(false);
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setDraining(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
   return (
     <div
       className={`mt-4 rounded-xl p-4 border-2 ${
@@ -189,6 +219,27 @@ function AnswerFeedback({
           )}
         </div>
       </div>
+
+      {!correct && (
+        <div className="mt-3 flex items-center gap-3">
+          <div className="h-1 flex-1 overflow-hidden rounded-full bg-red-100">
+            <div
+              className="h-full bg-red-300 ease-linear"
+              style={{
+                width: draining ? "0%" : "100%",
+                transition: `width ${durationMs}ms linear`,
+              }}
+            />
+          </div>
+          <button
+            type="button"
+            onClick={onContinue}
+            className="rounded-lg bg-white px-3 py-1.5 text-xs font-bold text-red-700 border border-red-200 hover:bg-red-100 transition-colors"
+          >
+            Continue
+          </button>
+        </div>
+      )}
     </div>
   );
 }
@@ -242,8 +293,21 @@ export default function LessonFlow({
     correctAnswer?: string;
     hint?: string;
     explanation?: string;
+    durationMs: number;
     show: boolean;
   } | null>(null);
+  // The pending auto-advance, so Continue can run it early exactly once.
+  const pendingAdvance = useRef<{ timer: ReturnType<typeof setTimeout>; run: () => void } | null>(null);
+  useEffect(() => () => {
+    if (pendingAdvance.current) clearTimeout(pendingAdvance.current.timer);
+  }, []);
+  const advanceNow = useCallback(() => {
+    const pending = pendingAdvance.current;
+    if (!pending) return;
+    clearTimeout(pending.timer);
+    pendingAdvance.current = null;
+    pending.run();
+  }, []);
   const [celebration, setCelebration] = useState<
     "xp" | "streak" | "leaderboard" | "perfect" | null
   >(null);
@@ -297,6 +361,11 @@ export default function LessonFlow({
     const xp = correct ? currentExercise.xp_reward : 0;
     const isSpeak = currentExercise.exercise_type === "SPEAK";
     const alreadyAnswered = answers[currentExercise.id] !== undefined;
+    const feedbackMs = correct
+      ? FEEDBACK_MS.correct
+      : currentExercise.hint || currentExercise.explanation
+      ? FEEDBACK_MS.wrongWithTip
+      : FEEDBACK_MS.wrong;
 
     // Play sound immediately
     if (!alreadyAnswered || isSpeak) {
@@ -332,15 +401,13 @@ export default function LessonFlow({
       }
 
       // Show feedback banner for non-SPEAK exercises
+      const explanation = correct ? undefined : currentExercise.explanation;
       setLastAnswerResult({
         correct,
-        correctAnswer: correct
-          ? undefined
-          : typeof correctAnswer === "string"
-          ? correctAnswer
-          : JSON.stringify(correctAnswer),
+        correctAnswer: correct ? undefined : formatCorrectAnswer(correctAnswer),
         hint: currentExercise.hint,
-        explanation: correct ? undefined : currentExercise.explanation,
+        explanation,
+        durationMs: feedbackMs,
         show: true,
       });
     }
@@ -371,8 +438,10 @@ export default function LessonFlow({
     if (isSpeak) {
       advance();
     } else {
-      // Give student time to read the feedback before advancing
-      setTimeout(advance, correct ? 900 : 1800);
+      // Give the student time to read the feedback before advancing; Continue
+      // on the banner runs the same advance early.
+      if (pendingAdvance.current) clearTimeout(pendingAdvance.current.timer);
+      pendingAdvance.current = { timer: setTimeout(advanceNow, feedbackMs), run: advance };
     }
   };
 
@@ -535,6 +604,8 @@ export default function LessonFlow({
               correctAnswer={lastAnswerResult.correctAnswer}
               hint={lastAnswerResult.hint}
               explanation={lastAnswerResult.explanation}
+              durationMs={lastAnswerResult.durationMs}
+              onContinue={advanceNow}
             />
           )}
       </>
