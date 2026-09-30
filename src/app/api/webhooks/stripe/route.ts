@@ -309,9 +309,13 @@ async function handleSubscriptionCreated(subscription: Stripe.Subscription) {
       subscription_plan: plan,
       subscription_period: period,
       stripe_subscription_id: subscription.id,
-      subscription_started_at: new Date().toISOString()
+      subscription_started_at: new Date().toISOString(),
+      subscription_source: 'stripe',
     })
-    .eq('stripe_customer_id', customerId);
+    .eq('stripe_customer_id', customerId)
+    // Never touch a subscription bought through Google Play (see
+    // supabase/migrations/20260930_subscription_source.sql).
+    .or('subscription_source.is.null,subscription_source.eq.stripe');
 }
 
 /**
@@ -334,7 +338,10 @@ async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
       subscription_plan: plan,
       subscription_period: period
     })
-    .eq('stripe_customer_id', customerId);
+    .eq('stripe_customer_id', customerId)
+    // Never touch a subscription bought through Google Play (see
+    // supabase/migrations/20260930_subscription_source.sql).
+    .or('subscription_source.is.null,subscription_source.eq.stripe');
 }
 
 /**
@@ -353,9 +360,13 @@ async function handleSubscriptionCancelled(subscription: Stripe.Subscription) {
       subscription_plan: 'FREE',
       subscription_period: null,
       stripe_subscription_id: null,
-      subscription_ends_at: new Date().toISOString()
+      subscription_ends_at: new Date().toISOString(),
+      subscription_source: null,
     })
-    .eq('stripe_customer_id', customerId);
+    .eq('stripe_customer_id', customerId)
+    // Never touch a subscription bought through Google Play (see
+    // supabase/migrations/20260930_subscription_source.sql).
+    .or('subscription_source.is.null,subscription_source.eq.stripe');
 }
 
 /**

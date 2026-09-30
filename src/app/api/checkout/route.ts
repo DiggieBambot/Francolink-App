@@ -106,9 +106,21 @@ export async function POST(request: NextRequest) {
     // Get user profile to check for existing Stripe customer
     const { data: profile } = await supabase
       .from("users")
-      .select("stripe_customer_id, email, name")
+      .select("stripe_customer_id, email, name, subscription_source, subscription_ends_at")
       .eq("id", user.id)
       .single();
+
+    // Already paying through Google Play (the Android app): a web subscription
+    // on top would charge them twice. Plan changes happen where they pay.
+    if (
+      profile?.subscription_source === "google_play" &&
+      (!profile.subscription_ends_at || new Date(profile.subscription_ends_at) > new Date())
+    ) {
+      return NextResponse.json(
+        { error: "Your subscription is managed in Google Play. You can change or cancel it in the Google Play app." },
+        { status: 409 }
+      );
+    }
 
     let customerId = profile?.stripe_customer_id;
 

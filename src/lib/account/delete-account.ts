@@ -25,6 +25,7 @@ import type Stripe from "stripe";
 import { createServiceClient } from "@/lib/supabase/service";
 import { stripe } from "@/lib/stripe";
 import { AVATAR_BUCKET, avatarStoragePath } from "@/lib/storage/avatar";
+import { fetchPlayState } from "@/lib/billing/revenuecat";
 
 const SELF_SERVICE_ROLES = new Set(["", "USER", "STUDENT"]);
 
@@ -71,14 +72,14 @@ const LIVE_SUBSCRIPTION_STATUSES = ["active", "trialing", "past_due", "unpaid", 
 
 export type DeleteAccountResult =
   | { ok: true; mode: "deleted" | "anonymised" }
-  | { ok: false; code: "NOT_FOUND" | "ROLE_NOT_ALLOWED" | "UPCOMING_LESSONS" | "BILLING" | "FAILED"; message: string };
+  | { ok: false; code: "NOT_FOUND" | "ROLE_NOT_ALLOWED" | "UPCOMING_LESSONS" | "PLAY_SUBSCRIPTION" | "BILLING" | "FAILED"; message: string };
 
 export async function deleteStudentAccount(userId: string): Promise<DeleteAccountResult> {
   const db = createServiceClient();
 
   const { data: user, error: userErr } = await db
     .from("users")
-    .select("id, role, avatar_url, stripe_subscription_id")
+    .select("id, role, avatar_url, stripe_subscription_id, subscription_source")
     .eq("id", userId)
     .maybeSingle();
   if (userErr) return failed("load the account", userErr.message);
@@ -106,6 +107,23 @@ export async function deleteStudentAccount(userId: string): Promise<DeleteAccoun
       code: "UPCOMING_LESSONS",
       message: `You have ${upcoming} upcoming lesson${upcoming === 1 ? "" : "s"} booked. Please cancel ${upcoming === 1 ? "it" : "them"} (or wait until ${upcoming === 1 ? "it's" : "they're"} done) before deleting your account.`,
     };
+  }
+
+  // A Google Play subscription can only be cancelled by the customer, in
+  // Google Play. Deleting while it still renews would leave Google charging an
+  // account that no longer exists, so ask them to turn renewal off first. They
+  // keep access to the end of the paid period either way.
+  if (user.subscription_source === "google_play") {
+    const play = await fetchPlayState(userId);
+    if ("error" in play) return failed("check the Google Play subscription", play.error);
+    if (play.willRenew) {
+      return {
+        ok: false,
+        code: "PLAY_SUBSCRIPTION",
+        message:
+          "Your Premium subscription is billed by Google Play and will renew. Please cancel it first in the Google Play app (Profile → Payments & subscriptions → Subscriptions → FrancoLink), then delete your account.",
+      };
+    }
   }
 
   // 1. Stop billing.
@@ -190,6 +208,7 @@ async function anonymise(db: ReturnType<typeof createServiceClient>, userId: str
       subscription_plan: "FREE",
       stripe_subscription_id: null,
       subscription_ends_at: null,
+      subscription_source: null,
       referred_by_tutor_id: null,
       tutor_invite_code: null,
       calendar_feed_token: null,
