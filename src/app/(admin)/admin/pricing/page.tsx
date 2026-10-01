@@ -130,6 +130,16 @@ export default async function PricingPage() {
   </div>
 </Link>
 
+      <Link
+        href="/admin/pricing/private-rate"
+        className="block p-4 bg-card border border-border rounded-lg hover:border-foreground/20 hover:shadow-md transition-all"
+      >
+        <h2 className="font-semibold text-foreground">Private rates</h2>
+        <p className="text-sm text-muted-foreground">
+          Unlisted lesson packs for invited students.
+        </p>
+      </Link>
+
       {/* Navigation Cards */}
       <div className="grid gap-6 md:grid-cols-2">
         {/* Tutor Plans Card */}

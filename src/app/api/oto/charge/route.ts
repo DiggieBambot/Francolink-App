@@ -63,7 +63,8 @@ export async function POST(request: Request) {
     .from("starter_pack_purchases")
     .select("*", { count: "exact", head: true })
     .eq("user_id", user.id)
-    .eq("status", "paid");
+    .eq("status", "paid")
+    .eq("pack_visibility", "public");
   if ((already ?? 0) > 0) {
     return NextResponse.json(
       { error: "You've already used your starter pack.", next: "/workbook" },
@@ -73,10 +74,11 @@ export async function POST(request: Request) {
 
   const { data: pack } = await db
     .from("starter_packs")
-    .select("pack_key, tier, lessons, price_cents, currency, active")
+    .select("pack_key, tier, lessons, price_cents, currency, active, visibility")
     .eq("pack_key", input.pack_key)
     .maybeSingle();
-  if (!pack?.active) {
+  // Private packs are sold only through /api/checkout/private-pack.
+  if (!pack?.active || pack.visibility !== "public") {
     return NextResponse.json({ error: "That pack isn't available." }, { status: 404 });
   }
 
