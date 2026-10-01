@@ -19,7 +19,11 @@ import { notFound } from "next/navigation";
 import { Check, ChevronDown, Star } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { getPrivatePackByToken } from "@/lib/credits/private-packs";
-import { RATE_COPY, rateLang } from "@/lib/credits/private-rate-copy";
+import {
+  RATE_COPY,
+  rateLang,
+  resolveContent,
+} from "@/lib/credits/private-rate-copy";
 import { getPublicTutor, getPublicTutors } from "@/lib/site/queries";
 import { siteUrl } from "@/lib/site/hosts";
 import { PrivatePackPicker } from "@/components/student/private-pack-picker";
@@ -31,7 +35,9 @@ interface PageProps {
   searchParams: Promise<{ lang?: string }>;
 }
 
-export async function generateMetadata({ searchParams }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  searchParams,
+}: PageProps): Promise<Metadata> {
   const { lang } = await searchParams;
   return {
     title: `${RATE_COPY[rateLang(lang)].title} | FrancoLink`,
@@ -41,8 +47,14 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
   };
 }
 
-export default async function PrivateRateLinkPage({ params, searchParams }: PageProps) {
-  const [{ token }, { lang: langParam }] = await Promise.all([params, searchParams]);
+export default async function PrivateRateLinkPage({
+  params,
+  searchParams,
+}: PageProps) {
+  const [{ token }, { lang: langParam }] = await Promise.all([
+    params,
+    searchParams,
+  ]);
   const lang = rateLang(langParam);
   const t = RATE_COPY[lang];
 
@@ -50,21 +62,30 @@ export default async function PrivateRateLinkPage({ params, searchParams }: Page
   if (!pack) notFound();
 
   const supabase = await createClient();
-  const [{ data: { user } }, tutors] = await Promise.all([
-    supabase.auth.getUser(),
-    getPublicTutors(),
-  ]);
+  const [
+    {
+      data: { user },
+    },
+    tutors,
+  ] = await Promise.all([supabase.auth.getUser(), getPublicTutors()]);
 
   // Packs aren't tied to a tutor yet, because there is one. When there are
   // more, give starter_packs a tutor_id and read it here instead.
   const tutor = tutors[0] ? await getPublicTutor(tutors[0].slug) : null;
-  const profileUrl = tutor ? siteUrl(`/tutors/${tutor.slug}`) : siteUrl("/tutors");
+  const profileUrl = tutor
+    ? siteUrl(`/tutors/${tutor.slug}`)
+    : siteUrl("/tutors");
 
   const langQ = lang === "fr" ? "?lang=fr" : "";
   const here = `/private-rate/${token}${langQ}`;
   const next = `?next=${encodeURIComponent(here)}`;
-  const other = lang === "fr" ? `/private-rate/${token}` : `/private-rate/${token}?lang=fr`;
+  const other =
+    lang === "fr" ? `/private-rate/${token}` : `/private-rate/${token}?lang=fr`;
   const days = pack.creditDays ?? 30;
+  const c = resolveContent(pack.pageCopy, lang, {
+    lessons: pack.lessons,
+    days,
+  });
 
   const rated = (tutor?.testimonials ?? []).filter((q) => q.rating != null);
   const quotes = (tutor?.testimonials ?? []).slice(0, 2);
@@ -83,9 +104,9 @@ export default async function PrivateRateLinkPage({ params, searchParams }: Page
           </Link>
         </div>
         <h1 className="mt-2 font-heading font-extrabold text-3xl sm:text-4xl text-primary">
-          {t.welcome}
+          {c.welcome}
         </h1>
-        <p className="mt-3 text-gray-600 leading-relaxed">{t.welcomeBody}</p>
+        <p className="mt-3 text-gray-600 leading-relaxed">{c.welcomeBody}</p>
 
         {tutor && (
           <div className="mt-6 rounded-2xl bg-white border border-gray-100 p-5 flex gap-4 items-start">
@@ -107,9 +128,13 @@ export default async function PrivateRateLinkPage({ params, searchParams }: Page
               <div className="text-xs font-semibold uppercase tracking-wide text-gray-400">
                 {t.yourTutor}
               </div>
-              <div className="font-heading font-bold text-lg text-primary">{tutor.name}</div>
+              <div className="font-heading font-bold text-lg text-primary">
+                {tutor.name}
+              </div>
               {tutor.headline && (
-                <p className="text-sm text-gray-600 leading-snug">{tutor.headline}</p>
+                <p className="text-sm text-gray-600 leading-snug">
+                  {tutor.headline}
+                </p>
               )}
               <div className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1 text-sm text-gray-500">
                 {tutor.years_experience ? (
@@ -118,12 +143,18 @@ export default async function PrivateRateLinkPage({ params, searchParams }: Page
                 {rated.length > 0 && (
                   <span className="inline-flex items-center gap-1">
                     <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                    {(rated.reduce((s, q) => s + (q.rating ?? 0), 0) / rated.length).toFixed(1)}
+                    {(
+                      rated.reduce((s, q) => s + (q.rating ?? 0), 0) /
+                      rated.length
+                    ).toFixed(1)}
                     {" · "}
                     {t.reviews(rated.length)}
                   </span>
                 )}
-                <a href={profileUrl} className="font-semibold text-secondary hover:underline">
+                <a
+                  href={profileUrl}
+                  className="font-semibold text-secondary hover:underline"
+                >
                   {t.seeProfile}
                 </a>
               </div>
@@ -134,7 +165,10 @@ export default async function PrivateRateLinkPage({ params, searchParams }: Page
         {quotes.length > 0 && (
           <div className="mt-3 grid gap-3 sm:grid-cols-2">
             {quotes.map((q) => (
-              <figure key={q.id} className="rounded-2xl bg-white border border-gray-100 p-4">
+              <figure
+                key={q.id}
+                className="rounded-2xl bg-white border border-gray-100 p-4"
+              >
                 <blockquote className="text-sm text-gray-700 leading-relaxed line-clamp-4">
                   “{q.quote}”
                 </blockquote>
@@ -150,16 +184,25 @@ export default async function PrivateRateLinkPage({ params, searchParams }: Page
 
       {/* How it works */}
       <section>
-        <h2 className="font-heading font-bold text-2xl text-primary">{t.howTitle}</h2>
+        <h2 className="font-heading font-bold text-2xl text-primary">
+          {t.howTitle}
+        </h2>
         <ol className="mt-4 space-y-3">
-          {t.steps.map((s, i) => (
-            <li key={s.title} className="flex gap-4 rounded-2xl bg-white border border-gray-100 p-4">
+          {c.steps.map((s, i) => (
+            <li
+              key={i}
+              className="flex gap-4 rounded-2xl bg-white border border-gray-100 p-4"
+            >
               <span className="w-8 h-8 shrink-0 rounded-full bg-primary text-white font-heading font-bold flex items-center justify-center">
                 {i + 1}
               </span>
               <div>
-                <div className="font-heading font-bold text-primary">{s.title}</div>
-                <p className="text-sm text-gray-600 leading-relaxed">{s.body}</p>
+                <div className="font-heading font-bold text-primary">
+                  {s.title}
+                </div>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  {s.body}
+                </p>
               </div>
             </li>
           ))}
@@ -168,8 +211,10 @@ export default async function PrivateRateLinkPage({ params, searchParams }: Page
 
       {/* Where lessons happen */}
       <section>
-        <h2 className="font-heading font-bold text-2xl text-primary">{t.roomTitle}</h2>
-        <p className="mt-2 text-gray-600 leading-relaxed">{t.roomBody}</p>
+        <h2 className="font-heading font-bold text-2xl text-primary">
+          {t.roomTitle}
+        </h2>
+        <p className="mt-2 text-gray-600 leading-relaxed">{c.roomBody}</p>
 
         {/* A sketch of the room, not a screenshot: a screenshot goes stale the
             first time the room changes, and this only has to say "lesson on
@@ -201,8 +246,8 @@ export default async function PrivateRateLinkPage({ params, searchParams }: Page
         </div>
 
         <ul className="mt-4 space-y-1.5 text-sm text-gray-700">
-          {t.roomPoints.map((p) => (
-            <li key={p} className="flex items-start gap-2">
+          {c.roomPoints.map((p, i) => (
+            <li key={i} className="flex items-start gap-2">
               <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
               {p}
             </li>
@@ -212,7 +257,9 @@ export default async function PrivateRateLinkPage({ params, searchParams }: Page
 
       {/* Price */}
       <section id="price">
-        <h2 className="font-heading font-bold text-2xl text-primary">{t.priceTitle}</h2>
+        <h2 className="font-heading font-bold text-2xl text-primary">
+          {t.priceTitle}
+        </h2>
         <div className="mt-4">
           <PrivatePackPicker
             packs={[pack]}
@@ -223,7 +270,10 @@ export default async function PrivateRateLinkPage({ params, searchParams }: Page
         </div>
         {user ? (
           <p className="mt-4 text-sm text-gray-600">
-            <a href={profileUrl} className="font-semibold text-secondary hover:underline">
+            <a
+              href={profileUrl}
+              className="font-semibold text-secondary hover:underline"
+            >
               {t.bookNow}
             </a>
           </p>
@@ -241,20 +291,26 @@ export default async function PrivateRateLinkPage({ params, searchParams }: Page
       </section>
 
       {/* Questions */}
-      <section>
-        <h2 className="font-heading font-bold text-2xl text-primary">{t.faqTitle}</h2>
-        <div className="mt-4 divide-y divide-gray-100 rounded-2xl bg-white border border-gray-100">
-          {t.faq(days).map((f) => (
-            <details key={f.q} className="group p-4">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-primary">
-                {f.q}
-                <ChevronDown className="w-4 h-4 shrink-0 transition-transform group-open:rotate-180" />
-              </summary>
-              <p className="mt-2 text-sm text-gray-600 leading-relaxed">{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
+      {c.faq.length > 0 && (
+        <section>
+          <h2 className="font-heading font-bold text-2xl text-primary">
+            {t.faqTitle}
+          </h2>
+          <div className="mt-4 divide-y divide-gray-100 rounded-2xl bg-white border border-gray-100">
+            {c.faq.map((f, i) => (
+              <details key={i} className="group p-4">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-primary">
+                  {f.q}
+                  <ChevronDown className="w-4 h-4 shrink-0 transition-transform group-open:rotate-180" />
+                </summary>
+                <p className="mt-2 text-sm text-gray-600 leading-relaxed">
+                  {f.a}
+                </p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }

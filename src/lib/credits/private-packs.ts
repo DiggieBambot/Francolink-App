@@ -28,6 +28,8 @@ export interface PrivatePack {
   priceCents: number;
   currency: string;
   creditDays: number | null;
+  /** Admin-edited page words, {en, fr}; see private-rate-copy.ts. */
+  pageCopy: unknown;
   /** What one 50-minute lesson of this tier costs at list, for the
    *  struck-through price. Null if the tier has no list price. */
   listLessonCents: number | null;
@@ -40,12 +42,13 @@ interface PackRow {
   price_cents: number;
   currency: string | null;
   credit_days: number | null;
+  page_copy: unknown;
   active: boolean;
   visibility: string;
 }
 
 const PACK_COLUMNS =
-  "pack_key, tier, lessons, price_cents, currency, credit_days, active, visibility";
+  "pack_key, tier, lessons, price_cents, currency, credit_days, active, visibility, page_copy";
 
 /** List prices by tier, for the struck-through figure. */
 async function listPrices(): Promise<Map<string, number>> {
@@ -74,6 +77,7 @@ function toPacks(rows: PackRow[], list: Map<string, number>): PrivatePack[] {
       priceCents: p.price_cents,
       currency: p.currency || "USD",
       creditDays: p.credit_days,
+      pageCopy: p.page_copy ?? {},
       listLessonCents: list.get(p.tier) ?? null,
     });
   }
