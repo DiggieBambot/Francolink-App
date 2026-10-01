@@ -1,8 +1,13 @@
 // Private rates: who may buy an unlisted pack.
 //
-// Add a student's email here, then send them /private-rate. They sign in (or
-// sign up) with that email and see the pack; nobody else does. Revoking stops
-// future purchases and leaves lessons already bought untouched.
+// Two ways to sell a private pack:
+//
+//   secret link  send /private-rate/<token>. Anyone holding it sees the price
+//                and can buy. "New link" kills every old copy at once.
+//   invite       add an email, send /private-rate. Only that email can buy.
+//
+// Revoking or rotating stops future purchases and leaves lessons already
+// bought untouched.
 
 import type { Metadata } from "next";
 import { revalidatePath } from "next/cache";
@@ -50,6 +55,34 @@ async function addInvite(formData: FormData) {
   revalidatePath("/admin/pricing/private-rate");
 }
 
+async function newLink(formData: FormData) {
+  "use server";
+  await assertAdmin();
+  const packKey = String(formData.get("pack_key") || "");
+  if (!packKey) return;
+  // Same shape as the migration's: 32 hex characters, 122 random bits.
+  const token = crypto.randomUUID().replace(/-/g, "");
+  await service()
+    .from("starter_packs")
+    .update({ share_token: token })
+    .eq("pack_key", packKey)
+    .eq("visibility", "private");
+  revalidatePath("/admin/pricing/private-rate");
+}
+
+async function linkOff(formData: FormData) {
+  "use server";
+  await assertAdmin();
+  const packKey = String(formData.get("pack_key") || "");
+  if (!packKey) return;
+  await service()
+    .from("starter_packs")
+    .update({ share_token: null })
+    .eq("pack_key", packKey)
+    .eq("visibility", "private");
+  revalidatePath("/admin/pricing/private-rate");
+}
+
 async function revokeInvite(formData: FormData) {
   "use server";
   await assertAdmin();
@@ -73,7 +106,7 @@ export default async function PrivateRatePage() {
   const [{ data: packs }, { data: invites }] = await Promise.all([
     db
       .from("starter_packs")
-      .select("pack_key, lessons, price_cents, credit_days, active")
+      .select("pack_key, lessons, price_cents, credit_days, active, share_token")
       .eq("visibility", "private")
       .order("sort_order"),
     db
@@ -111,9 +144,10 @@ export default async function PrivateRatePage() {
       <div>
         <h1 className="text-3xl font-bold text-foreground">Private rates</h1>
         <p className="text-muted-foreground mt-1">
-          Invite a student by email, then send them{" "}
-          <code className="text-foreground">{APP_URL}/private-rate</code>. They
-          must sign in with the same email.
+          Send the secret link to anyone you want to have the rate. Or, to
+          limit it to specific people, invite them by email below and send{" "}
+          <code className="text-foreground">{APP_URL}/private-rate</code>{" "}
+          instead.
         </p>
       </div>
 
@@ -128,6 +162,42 @@ export default async function PrivateRatePage() {
               {!p.active && " · not on sale"}
             </div>
             <div className="text-xs text-muted-foreground mt-1">{p.pack_key}</div>
+
+            <div className="mt-3 pt-3 border-t border-border">
+              <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                Secret link
+              </div>
+              {p.share_token ? (
+                <input
+                  readOnly
+                  value={`${APP_URL}/private-rate/${p.share_token}`}
+                  className="mt-1 w-full px-2 py-1.5 rounded-md border border-border bg-background text-foreground text-xs font-mono"
+                />
+              ) : (
+                <p className="mt-1 text-sm text-muted-foreground">Off</p>
+              )}
+              <div className="mt-2 flex gap-4">
+                <form action={newLink}>
+                  <input type="hidden" name="pack_key" value={p.pack_key} />
+                  <button type="submit" className="text-sm font-semibold text-primary hover:underline">
+                    {p.share_token ? "New link" : "Turn on"}
+                  </button>
+                </form>
+                {p.share_token && (
+                  <form action={linkOff}>
+                    <input type="hidden" name="pack_key" value={p.pack_key} />
+                    <button type="submit" className="text-sm font-semibold text-red-700 hover:underline">
+                      Turn off
+                    </button>
+                  </form>
+                )}
+              </div>
+              {p.share_token && (
+                <p className="mt-1 text-xs text-muted-foreground">
+                  New link stops the old one working for everyone.
+                </p>
+              )}
+            </div>
           </div>
         ))}
       </div>

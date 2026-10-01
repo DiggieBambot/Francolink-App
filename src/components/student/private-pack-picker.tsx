@@ -14,7 +14,17 @@ const money = (cents: number, currency = "USD") =>
     minimumFractionDigits: cents % 100 === 0 ? 0 : 2,
   }).format(cents / 100);
 
-export function PrivatePackPicker({ packs }: { packs: PrivatePack[] }) {
+export function PrivatePackPicker({
+  packs,
+  token,
+  signupHref,
+}: {
+  packs: PrivatePack[];
+  /** The secret link's token, when the page was opened from one. */
+  token?: string;
+  /** Set when signed out: the button sends them to sign up instead. */
+  signupHref?: string;
+}) {
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -25,7 +35,10 @@ export function PrivatePackPicker({ packs }: { packs: PrivatePack[] }) {
       const res = await fetch("/api/checkout/private-pack", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ pack_key: packKey }),
+        body: JSON.stringify({
+          pack_key: packKey,
+          ...(token ? { token } : {}),
+        }),
       });
       const body = await res.json().catch(() => ({}));
       if (!res.ok || !body.url)
@@ -95,19 +108,28 @@ export function PrivatePackPicker({ packs }: { packs: PrivatePack[] }) {
               </li>
             </ul>
 
-            <button
-              type="button"
-              onClick={() => buy(p.packKey)}
-              disabled={busy !== null}
-              className="mt-5 w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-heading font-bold transition-colors disabled:opacity-60 bg-primary text-white hover:bg-primary-600"
-            >
-              {busy === p.packKey && (
-                <Loader2 className="w-4 h-4 animate-spin" />
-              )}
-              {busy === p.packKey
-                ? "Taking you to checkout…"
-                : `Buy ${p.lessons} lessons`}
-            </button>
+            {signupHref ? (
+              <a
+                href={signupHref}
+                className="mt-5 w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-heading font-bold transition-colors bg-primary text-white hover:bg-primary-600"
+              >
+                Create an account to buy
+              </a>
+            ) : (
+              <button
+                type="button"
+                onClick={() => buy(p.packKey)}
+                disabled={busy !== null}
+                className="mt-5 w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-heading font-bold transition-colors disabled:opacity-60 bg-primary text-white hover:bg-primary-600"
+              >
+                {busy === p.packKey && (
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                )}
+                {busy === p.packKey
+                  ? "Taking you to checkout…"
+                  : `Buy ${p.lessons} lessons`}
+              </button>
+            )}
           </div>
         );
       })}

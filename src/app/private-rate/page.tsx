@@ -2,7 +2,8 @@
 //
 // Unlisted: nothing links here. The tutor sends the URL to the student
 // directly, and the page shows a pack only if the signed-in email has an
-// invite to it (20261001_private_pack.sql).
+// invite to it (20261001_private_pack.sql). The secret-link variant, which
+// needs no invite, is /private-rate/[token].
 
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
@@ -24,7 +25,7 @@ export default async function PrivateRatePage() {
   const packs = await getPrivatePacksFor(user.email);
 
   return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
+    <>
       <h1 className="font-heading font-extrabold text-3xl text-primary">
         Your lesson rate
       </h1>
@@ -47,6 +48,6 @@ export default async function PrivateRatePage() {
           them, or ask them to check it.
         </p>
       )}
-    </div>
+    </>
   );
 }
