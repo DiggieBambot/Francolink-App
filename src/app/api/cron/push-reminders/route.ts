@@ -4,14 +4,23 @@
 // matches their chosen notification_time hour, so everyone gets one reminder a
 // day at roughly the time they picked, in their own timezone.
 //
+// Two audiences, same rules:
+//   - web subscribers (push_subscriptions, Web Push) — one per user;
+//   - mobile app installs (device_push_tokens, Expo push) — one per phone,
+//     each with its own reminder time.
+// Nobody is reminded on a day they've already studied (users.last_activity_date
+// is today in their timezone) — at most one nudge a day, and only when useful.
+//
 // Message priority: an active streak → "keep your streak alive"; otherwise a
-// generic practice nudge. Respects per-user notify_streak / notify_reminders.
+// generic practice nudge in the language they're learning. Respects
+// notify_streak / notify_reminders.
 //
 // Query params:
 //   ?dry=1   — compute who is due and what they'd get; send nothing.
 
 import { NextResponse } from "next/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
+import { sendExpoPush, type ExpoMessage } from "@/lib/notifications/expo-push";
 import { sendPush, vapidConfigured } from "@/lib/notifications/push";
 
 export const maxDuration = 300;
@@ -45,61 +54,115 @@ function localHour(tz: string | null | undefined): number {
   }
 }
 
+/** Today's date (YYYY-MM-DD) in the given IANA timezone. */
+function localDate(tz: string | null | undefined): string {
+  try {
+    return new Date().toLocaleDateString("en-CA", { timeZone: tz || "UTC" });
+  } catch {
+    return new Date().toISOString().slice(0, 10);
+  }
+}
+
+const LANGUAGE: Record<string, { name: string; flag: string }> = {
+  fr: { name: "French", flag: "🇫🇷" },
+  es: { name: "Spanish", flag: "🇪🇸" },
+  en: { name: "English", flag: "🇬🇧" },
+  de: { name: "German", flag: "🇩🇪" },
+};
+
+interface Learner {
+  id: string;
+  timezone: string | null;
+  current_streak: number | null;
+  last_activity_date: string | null;
+  learning_language: string | null;
+}
+
+/** The reminder for this learner, or null if they shouldn't get one now. */
+function reminderFor(
+  u: Learner | undefined,
+  pref: { notification_time: string | null; notify_reminders: boolean; notify_streak: boolean }
+): { title: string; body: string } | null {
+  if (!pref.notify_reminders && !pref.notify_streak) return null;
+  const targetHour = parseInt(String(pref.notification_time || "09:00").slice(0, 2), 10);
+  if (localHour(u?.timezone) !== targetHour) return null;
+  // Already studied today: nothing to remind.
+  if (u?.last_activity_date && String(u.last_activity_date).slice(0, 10) === localDate(u.timezone)) return null;
+
+  const streak = u?.current_streak || 0;
+  const lang = LANGUAGE[u?.learning_language || "fr"] ?? LANGUAGE.fr;
+  if (pref.notify_streak && streak > 0) {
+    return { title: `🔥 ${streak}-day streak`, body: `Keep your ${streak}-day streak alive — do a quick lesson today!` };
+  }
+  if (pref.notify_reminders) {
+    return { title: `Time for ${lang.name} ${lang.flag}`, body: "A few minutes today keeps you moving. Tap to practice." };
+  }
+  return null; // streak pref on but no streak, and reminders off
+}
+
 export async function GET(req: Request) {
   if (!authorized(req)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  if (!vapidConfigured()) return NextResponse.json({ error: "VAPID not configured" }, { status: 503 });
 
   const url = new URL(req.url);
   const dry = url.searchParams.get("dry") === "1";
   const supabase = svc();
+  const webReady = vapidConfigured();
 
-  const { data: subs, error } = await supabase
-    .from("push_subscriptions")
-    .select("user_id, notification_time, notify_reminders, notify_streak");
+  // Web subscribers (only when Web Push is configured) and app installs.
+  const { data: subs, error } = webReady
+    ? await supabase.from("push_subscriptions").select("user_id, notification_time, notify_reminders, notify_streak")
+    : { data: [], error: null };
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-  if (!subs || subs.length === 0) return NextResponse.json({ ok: true, due: 0, sent: 0 });
+  // A missing table (migration not run yet) just means no app installs.
+  const { data: devices } = await supabase
+    .from("device_push_tokens")
+    .select("user_id, token, notification_time, notify_reminders");
 
-  // Pull the timezone + streak for everyone who has a subscription.
-  const ids = subs.map((s) => s.user_id);
+  const ids = [...new Set([...(subs ?? []).map((s) => s.user_id), ...(devices ?? []).map((d) => d.user_id)])];
+  if (!ids.length) return NextResponse.json({ ok: true, due: 0, sent: 0 });
+
   const { data: users } = await supabase
     .from("users")
-    .select("id, timezone, current_streak")
+    .select("id, timezone, current_streak, last_activity_date, learning_language")
     .in("id", ids);
-  const byId = new Map((users || []).map((u) => [u.id, u]));
+  const byId = new Map((users || []).map((u) => [u.id, u as Learner]));
 
-  const due: { userId: string; title: string; body: string }[] = [];
-  for (const sub of subs) {
-    if (!sub.notify_reminders && !sub.notify_streak) continue;
-    const u = byId.get(sub.user_id);
-    const targetHour = parseInt(String(sub.notification_time || "09:00").slice(0, 2), 10);
-    if (localHour(u?.timezone) !== targetHour) continue;
+  const webDue: { userId: string; title: string; body: string }[] = [];
+  for (const sub of subs ?? []) {
+    const msg = reminderFor(byId.get(sub.user_id), sub);
+    if (msg) webDue.push({ userId: sub.user_id, ...msg });
+  }
 
-    const streak = u?.current_streak || 0;
-    let title: string;
-    let body: string;
-    if (sub.notify_streak && streak > 0) {
-      title = `🔥 ${streak}-day streak`;
-      body = `Keep your ${streak}-day streak alive — do a quick lesson today!`;
-    } else if (sub.notify_reminders) {
-      title = "Time for French 🇫🇷";
-      body = "A few minutes today keeps you moving. Tap to practice.";
-    } else {
-      continue; // streak pref on but no streak, and reminders off
-    }
-    due.push({ userId: sub.user_id, title, body });
+  const appDue: ExpoMessage[] = [];
+  for (const d of devices ?? []) {
+    // The app's one switch covers both the streak and the practice reminder.
+    const msg = reminderFor(byId.get(d.user_id), { ...d, notify_streak: d.notify_reminders });
+    if (msg) appDue.push({ to: d.token, ...msg, data: { url: "/" } });
   }
 
   if (dry) {
-    return NextResponse.json({ ok: true, dry: true, due: due.length, sample: due.slice(0, 10) });
+    return NextResponse.json({
+      ok: true,
+      dry: true,
+      web: { configured: webReady, due: webDue.length, sample: webDue.slice(0, 10) },
+      app: { due: appDue.length, sample: appDue.slice(0, 10).map((m) => ({ title: m.title, body: m.body })) },
+    });
   }
 
-  let sent = 0;
+  let webSent = 0;
   await Promise.all(
-    due.map(async (d) => {
+    webDue.map(async (d) => {
       const ok = await sendPush(d.userId, { title: d.title, body: d.body, deeplink: "/dashboard", tag: "daily-reminder" });
-      if (ok) sent++;
+      if (ok) webSent++;
     })
   );
+  const appSent = appDue.length ? await sendExpoPush(appDue) : 0;
 
-  return NextResponse.json({ ok: true, due: due.length, sent });
+  return NextResponse.json({
+    ok: true,
+    due: webDue.length + appDue.length,
+    sent: webSent + appSent,
+    web: { due: webDue.length, sent: webSent },
+    app: { due: appDue.length, sent: appSent },
+  });
 }

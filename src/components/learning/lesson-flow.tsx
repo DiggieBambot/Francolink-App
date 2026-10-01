@@ -507,7 +507,8 @@ export default function LessonFlow({
 
           // Streak update + sound if milestone
           const streakResult = await updateStreak(supabase, userId);
-          const newStreak = streakResult?.streak ?? userData.streak_count ?? 0;
+          // Only the lesson that moves the streak onto a milestone plays it.
+          const newStreak = streakResult.isNewDay ? streakResult.currentStreak : 0;
           if (newStreak > 0 && newStreak % 7 === 0) {
             setTimeout(() => play("streak"), 800);
           }
