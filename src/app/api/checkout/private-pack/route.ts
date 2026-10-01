@@ -1,12 +1,13 @@
 // Buying a private pack: an unlisted block of lessons at a rate agreed with
-// the student, sold only to an email on private_pack_invites.
+// the student. Sold to an email on private_pack_invites, or to anyone holding
+// the pack's secret link (the token comes back in the body).
 //
 // Same purchase table and the same webhook path as the starter pack
 // (metadata.kind 'starter_pack'), so granting, expiry and tier entitlement all
 // come for free. What differs is who may buy, and that they may buy again.
 //
 // Nothing the client sends decides money or eligibility: the body names a
-// pack, and the server checks the signed-in user's email has an invite to it.
+// pack, and the server checks the user has an invite to it or a live token.
 
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
@@ -14,12 +15,17 @@ import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { z } from "zod";
 import { stripe } from "@/lib/stripe";
 import { APP_URL } from "@/lib/site/hosts";
-import { getPrivatePacksFor } from "@/lib/credits/private-packs";
+import {
+  getPrivatePackByToken,
+  getPrivatePacksFor,
+} from "@/lib/credits/private-packs";
 
 export const runtime = "nodejs";
 
 const Body = z.object({
   pack_key: z.string().trim().min(1).max(40),
+  // Present when bought from /private-rate/<token>.
+  token: z.string().trim().max(64).optional(),
 });
 
 function service() {
@@ -56,11 +62,17 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "That pack isn't valid." }, { status: 400 });
   }
 
-  // The invite IS the authorisation. Not invited, or revoked, reads the same
-  // as a pack that doesn't exist.
-  const pack = (await getPrivatePacksFor(user.email)).find(
-    (p) => p.packKey === input.pack_key
-  );
+  // The invite or the link IS the authorisation. Neither, or a revoked
+  // invite, or a rotated link, reads the same as a pack that doesn't exist.
+  const viaLink = input.token
+    ? await getPrivatePackByToken(input.token)
+    : null;
+  const pack =
+    viaLink?.packKey === input.pack_key
+      ? viaLink
+      : (await getPrivatePacksFor(user.email)).find(
+          (p) => p.packKey === input.pack_key
+        );
   if (!pack) {
     return NextResponse.json({ error: "That pack isn't available." }, { status: 404 });
   }
@@ -118,7 +130,9 @@ export async function POST(request: Request) {
         },
       ],
       success_url: `${APP_URL}/dashboard`,
-      cancel_url: `${APP_URL}/private-rate`,
+      cancel_url: `${APP_URL}/private-rate${
+        viaLink ? `/${input.token}` : ""
+      }`,
     });
 
     await db

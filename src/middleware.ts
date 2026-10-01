@@ -180,6 +180,9 @@ const APP_ROUTES = [
   // at /start, so leaving it off this list 404s the whole funnel — which is
   // exactly what it did in production until someone tried it.
   "/start",
+  // Private lesson rates. Unlisted, but every link to it is sent to a paying
+  // student, so a 404 here is a lost sale.
+  "/private-rate",
   "/how-it-works",
   "/get-started",
   "/space",

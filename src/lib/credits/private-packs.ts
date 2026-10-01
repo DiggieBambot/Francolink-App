@@ -1,9 +1,13 @@
-// Private packs: unlisted lesson packs sold only to invited emails.
+// Private packs: unlisted lesson packs, sold two ways.
 //
-// See 20261001_private_pack.sql. The invite is keyed on email because the
-// student is invited before they have an account; everything here matches it
-// against the signed-in user's email, lowercased the same way the table
-// stores it.
+//   invite  the signed-in user's email is on private_pack_invites
+//           (20261001_private_pack.sql). Tight: only those people.
+//   link    the buyer holds /private-rate/<share_token>
+//           (20261002_private_pack_link.sql). Loose: whoever has the link.
+//
+// Invites are keyed on email because the student is invited before they have
+// an account; everything here matches it against the signed-in user's email,
+// lowercased the same way the table stores it.
 
 import { createClient } from "@supabase/supabase-js";
 
@@ -29,44 +33,37 @@ export interface PrivatePack {
   listLessonCents: number | null;
 }
 
-/** The private packs this email has a live invite to, and that are on sale. */
-export async function getPrivatePacksFor(
-  email: string | null | undefined,
-): Promise<PrivatePack[]> {
-  if (!email) return [];
+interface PackRow {
+  pack_key: string;
+  tier: string;
+  lessons: number;
+  price_cents: number;
+  currency: string | null;
+  credit_days: number | null;
+  active: boolean;
+  visibility: string;
+}
 
-  const db = service();
-  const [{ data }, { data: list }] = await Promise.all([
-    db
-      .from("private_pack_invites")
-      .select(
-        "starter_packs!inner(pack_key, tier, lessons, price_cents, currency, credit_days, active, visibility)",
-      )
-      .eq("email", normalizeEmail(email))
-      .is("revoked_at", null),
-    db
-      .from("lesson_pricing")
-      .select("tier, price_cents")
-      .eq("duration_minutes", 50)
-      .eq("is_trial", false),
-  ]);
-  const listByTier = new Map(
-    (list ?? []).map((r) => [r.tier as string, r.price_cents as number]),
+const PACK_COLUMNS =
+  "pack_key, tier, lessons, price_cents, currency, credit_days, active, visibility";
+
+/** List prices by tier, for the struck-through figure. */
+async function listPrices(): Promise<Map<string, number>> {
+  const { data } = await service()
+    .from("lesson_pricing")
+    .select("tier, price_cents")
+    .eq("duration_minutes", 50)
+    .eq("is_trial", false);
+  return new Map(
+    (data ?? []).map((r) => [r.tier as string, r.price_cents as number]),
   );
+}
 
+/** Rows that are private and on sale, de-duplicated, in the shape the UI wants. */
+function toPacks(rows: PackRow[], list: Map<string, number>): PrivatePack[] {
   const seen = new Set<string>();
   const out: PrivatePack[] = [];
-  for (const row of data ?? []) {
-    const p = row.starter_packs as unknown as {
-      pack_key: string;
-      tier: string;
-      lessons: number;
-      price_cents: number;
-      currency: string | null;
-      credit_days: number | null;
-      active: boolean;
-      visibility: string;
-    };
+  for (const p of rows) {
     if (!p?.active || p.visibility !== "private" || seen.has(p.pack_key))
       continue;
     seen.add(p.pack_key);
@@ -77,8 +74,50 @@ export async function getPrivatePacksFor(
       priceCents: p.price_cents,
       currency: p.currency || "USD",
       creditDays: p.credit_days,
-      listLessonCents: listByTier.get(p.tier) ?? null,
+      listLessonCents: list.get(p.tier) ?? null,
     });
   }
   return out;
+}
+
+/** The private packs this email has a live invite to, and that are on sale. */
+export async function getPrivatePacksFor(
+  email: string | null | undefined,
+): Promise<PrivatePack[]> {
+  if (!email) return [];
+
+  const [{ data }, list] = await Promise.all([
+    service()
+      .from("private_pack_invites")
+      .select(`starter_packs!inner(${PACK_COLUMNS})`)
+      .eq("email", normalizeEmail(email))
+      .is("revoked_at", null),
+    listPrices(),
+  ]);
+
+  const rows = (data ?? []).map(
+    (r) => r.starter_packs as unknown as PackRow,
+  );
+  return toPacks(rows, list);
+}
+
+/** Token shape check before touching the database: 32 hex characters. */
+export const isShareToken = (token: string) => /^[0-9a-f]{20,64}$/.test(token);
+
+/** The private pack a secret link opens, if the link is live. */
+export async function getPrivatePackByToken(
+  token: string,
+): Promise<PrivatePack | null> {
+  if (!isShareToken(token)) return null;
+
+  const [{ data }, list] = await Promise.all([
+    service()
+      .from("starter_packs")
+      .select(PACK_COLUMNS)
+      .eq("share_token", token)
+      .maybeSingle(),
+    listPrices(),
+  ]);
+
+  return data ? (toPacks([data as PackRow], list)[0] ?? null) : null;
 }
