@@ -11,31 +11,13 @@
 
 import type { Metadata } from "next";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
-import { createClient as createServiceClient } from "@supabase/supabase-js";
+import Link from "next/link";
 import { APP_URL } from "@/lib/site/hosts";
 import { normalizeEmail } from "@/lib/credits/private-packs";
+import { assertAdmin, service } from "./admin";
 
 export const metadata: Metadata = { title: "Private rates | Admin" };
 export const dynamic = "force-dynamic";
-
-function service() {
-  return createServiceClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!,
-    { auth: { persistSession: false } }
-  );
-}
-
-/** Server actions are public endpoints; each one checks for itself. */
-async function assertAdmin() {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) redirect("/admin/login");
-  const { data } = await supabase.from("users").select("role").eq("id", user.id).single();
-  if ((data?.role || "").toUpperCase() !== "ADMIN") redirect("/admin/login");
-}
 
 async function addInvite(formData: FormData) {
   "use server";
@@ -162,6 +144,12 @@ export default async function PrivateRatePage() {
               {!p.active && " · not on sale"}
             </div>
             <div className="text-xs text-muted-foreground mt-1">{p.pack_key}</div>
+            <Link
+              href={`/admin/pricing/private-rate/${p.pack_key}`}
+              className="mt-2 inline-block text-sm font-semibold text-primary hover:underline"
+            >
+              Edit price and page text
+            </Link>
 
             <div className="mt-3 pt-3 border-t border-border">
               <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">

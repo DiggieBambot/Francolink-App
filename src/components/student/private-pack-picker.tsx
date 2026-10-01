@@ -6,7 +6,11 @@
 import { useState } from "react";
 import { Check, Loader2 } from "lucide-react";
 import type { PrivatePack } from "@/lib/credits/private-packs";
-import { RATE_COPY, type RateLang } from "@/lib/credits/private-rate-copy";
+import {
+  RATE_COPY,
+  resolveContent,
+  type RateLang,
+} from "@/lib/credits/private-rate-copy";
 
 const money = (cents: number, currency = "USD") =>
   new Intl.NumberFormat("en-US", {
@@ -39,7 +43,10 @@ export function PrivatePackPicker({
       const res = await fetch("/api/checkout/private-pack", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ pack_key: packKey, ...(token ? { token } : {}) }),
+        body: JSON.stringify({
+          pack_key: packKey,
+          ...(token ? { token } : {}),
+        }),
       });
       const body = await res.json().catch(() => ({}));
       if (!res.ok || !body.url) throw new Error(body.error || t.checkoutError);
@@ -60,6 +67,10 @@ export function PrivatePackPicker({
             ? p.listLessonCents
             : null;
         const days = p.creditDays ?? 30;
+        const content = resolveContent(p.pageCopy, lang, {
+          lessons: p.lessons,
+          days,
+        });
         const buttonClass =
           "mt-5 w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-heading font-bold transition-colors disabled:opacity-60 bg-primary text-white hover:bg-primary-600";
         return (
@@ -96,7 +107,7 @@ export function PrivatePackPicker({
             )}
 
             <ul className="mt-3 space-y-1.5 text-sm text-gray-600">
-              {[t.lessonLength(p.lessons), t.useWithin(days), t.noSubscription].map(
+              {[content.lessonLength, t.useWithin(days), t.noSubscription].map(
                 (line) => (
                   <li key={line} className="flex items-start gap-2">
                     <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
