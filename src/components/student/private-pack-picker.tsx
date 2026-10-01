@@ -96,7 +96,7 @@ export function PrivatePackPicker({
             <ul className="mt-3 space-y-1.5 text-sm text-gray-600">
               <li className="flex items-start gap-2">
                 <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                {p.lessons} lessons of 50 minutes
+                {p.lessons} lessons of 50–60 minutes
               </li>
               <li className="flex items-start gap-2">
                 <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
