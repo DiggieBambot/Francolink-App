@@ -141,6 +141,19 @@
   100% { opacity: 1; transform: scale(1); }
 }
 
+/* Lesson celebration / encouragement */
+@keyframes celebration {
+  0% { opacity: 0; transform: scale(0.6); }
+  60% { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes pop {
+  0% { transform: scale(0.6); }
+  60% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+
 /* ============================================
    BASE STYLES
    ============================================ */

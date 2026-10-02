@@ -36,6 +36,19 @@ import ErrorCorrection from "@/components/exercises/error-correction";
 import { updateStreak } from "@/lib/utils/streak";
 import { incrementLessonCount } from "@/lib/utils/lesson-limits";
 import { useSoundEngine } from "@/hooks/use-sound-engine";
+import { useConfettiBurst } from "@/components/games/use-confetti";
+import {
+  EncouragementToast,
+  CompletionEncouragement,
+  type ToastMessage,
+} from "./encouragement";
+import {
+  pickEncouragement,
+  lessonCompleteMessage,
+  STREAK_MILESTONES,
+  type EncouragementEvent,
+  type CourseProgress,
+} from "@/lib/learning/encouragement";
 
 type LessonPhase =
   | "intro"
@@ -55,6 +68,8 @@ interface LessonFlowProps {
   language: string;
   level: string;
   existingProgress: any;
+  /** Lessons done / total in this level, before this lesson. */
+  levelProgress?: { completed: number; total: number } | null;
 }
 
 const LANGUAGE_TTS_MAP: Record<string, string> = {
@@ -113,7 +128,7 @@ function CelebrationOverlay({
     <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
       <div
         className={`bg-gradient-to-br ${cfg.color} rounded-3xl px-10 py-8 text-center shadow-2xl
-          animate-[celebration_0.4s_cubic-bezier(0.16,1,0.3,1)_forwards]`}
+          motion-safe:animate-[celebration_0.4s_cubic-bezier(0.16,1,0.3,1)_forwards]`}
       >
         <div className="text-6xl mb-3">{cfg.emoji}</div>
         <div className="flex items-center gap-2 justify-center">
@@ -144,6 +159,20 @@ function formatCorrectAnswer(answer: unknown): string {
   return JSON.stringify(answer);
 }
 
+const CORRECT_LINES = [
+  "Correct! Well done!",
+  "Yes! You nailed it.",
+  "Exactly right!",
+  "Great answer!",
+  "That's it — keep going!",
+];
+const WRONG_LINES = [
+  "Not quite — that's how it sticks",
+  "Almost! Check the answer below",
+  "Good try — mistakes are how we learn",
+  "Not this time, but you're learning",
+];
+
 // ── Answer feedback banner shown at bottom of exercise card ────────────────
 function AnswerFeedback({
   correct,
@@ -160,6 +189,11 @@ function AnswerFeedback({
   durationMs: number;
   onContinue: () => void;
 }) {
+  // One line per banner, picked at mount so it doesn't flicker on re-render.
+  const [line] = useState(() => {
+    const pool = correct ? CORRECT_LINES : WRONG_LINES;
+    return pool[Math.floor(Math.random() * pool.length)];
+  });
   // Countdown bar: starts full, drains over durationMs.
   const [draining, setDraining] = useState(false);
   useEffect(() => {
@@ -178,7 +212,7 @@ function AnswerFeedback({
       <div className="flex items-start gap-3">
         <div
           className={`p-1.5 rounded-full flex-shrink-0 ${
-            correct ? "bg-green-100" : "bg-red-100"
+            correct ? "bg-green-100 motion-safe:animate-[pop_0.45s_ease-out]" : "bg-red-100"
           }`}
         >
           {correct ? (
@@ -193,7 +227,7 @@ function AnswerFeedback({
               correct ? "text-green-800" : "text-red-800"
             }`}
           >
-            {correct ? "Correct! Well done!" : "Not quite right"}
+            {line}
           </p>
 
           {/* Show correct answer on wrong */}
@@ -251,6 +285,7 @@ export default function LessonFlow({
   language,
   level,
   existingProgress,
+  levelProgress = null,
 }: LessonFlowProps) {
   const router = useRouter();
   const supabase = createClient();
@@ -312,6 +347,20 @@ export default function LessonFlow({
     "xp" | "streak" | "leaderboard" | "perfect" | null
   >(null);
 
+  // ── Encouragement toasts ────────────────────────────────────────────────
+  const [toast, setToast] = useState<ToastMessage | null>(null);
+  const toastSeed = useRef(0);
+  const correctRun = useRef(0);
+  const lastWasWrong = useRef(false);
+  const lastToastIndex = useRef(-10);
+  const clearToast = useCallback(() => setToast(null), []);
+  const showEncouragement = useCallback((event: EncouragementEvent) => {
+    toastSeed.current += 1;
+    setToast({ ...pickEncouragement(event, toastSeed.current), id: toastSeed.current });
+  }, []);
+  const { fire: fireConfetti, overlay: confettiOverlay } = useConfettiBurst();
+  const confettiFired = useRef(false);
+
   // When a FREE user finishes their daily lesson, show an upgrade CTA on
   // the completion screen so they can keep practicing today.
   const [showFreeDailyLimitCTA, setShowFreeDailyLimitCTA] = useState(false);
@@ -326,9 +375,43 @@ export default function LessonFlow({
       ? Math.round((correctAnswers / totalExercises) * 100)
       : 100;
 
+  // Level progress including this lesson once it's passed (and wasn't already).
+  const passedNow = scorePercent >= 70;
+  const completionProgress: CourseProgress | null =
+    levelProgress && levelProgress.total > 0
+      ? {
+          before: levelProgress.completed,
+          total: levelProgress.total,
+          completed: Math.min(
+            levelProgress.total,
+            levelProgress.completed + (passedNow && existingProgress?.status !== "COMPLETED" ? 1 : 0)
+          ),
+        }
+      : null;
+
+  // Confetti once when a passing lesson reaches the completion screen.
+  useEffect(() => {
+    if (currentPhase !== "complete") {
+      confettiFired.current = false;
+      return;
+    }
+    if (passedNow && !confettiFired.current) {
+      confettiFired.current = true;
+      fireConfetti();
+    }
+  }, [currentPhase, passedNow, fireConfetti]);
+
   // Phase navigation
   const goToNextPhase = () => {
     play("phase_change");
+    if (
+      currentPhase === "vocabulary" ||
+      currentPhase === "grammar" ||
+      currentPhase === "dialogue" ||
+      currentPhase === "culture"
+    ) {
+      showEncouragement({ type: "phase-complete", phase: currentPhase });
+    }
     const idx = phases.indexOf(currentPhase);
     if (idx < phases.length - 1) {
       setCurrentPhase(phases[idx + 1]);
@@ -370,6 +453,29 @@ export default function LessonFlow({
     // Play sound immediately
     if (!alreadyAnswered || isSpeak) {
       play(correct ? "correct" : "incorrect");
+    }
+
+    // Encouragement: at most one toast per two questions, in priority order.
+    if (!alreadyAnswered) {
+      const wasWrong = lastWasWrong.current;
+      correctRun.current = correct ? correctRun.current + 1 : 0;
+      lastWasWrong.current = !correct;
+
+      const remaining = totalExercises - currentExerciseIndex - 1;
+      let event: EncouragementEvent | null = null;
+      if (correct && STREAK_MILESTONES.includes(correctRun.current)) {
+        event = { type: "streak", count: correctRun.current };
+      } else if (correct && wasWrong) {
+        event = { type: "comeback" };
+      } else if (totalExercises >= 6 && currentExerciseIndex + 1 === Math.ceil(totalExercises / 2)) {
+        event = { type: "halfway" };
+      } else if (totalExercises >= 5 && remaining > 0 && remaining <= 2) {
+        event = { type: "almost-done", remaining };
+      }
+      if (event && currentExerciseIndex - lastToastIndex.current >= 2) {
+        lastToastIndex.current = currentExerciseIndex;
+        showEncouragement(event);
+      }
     }
 
     if (isSpeak && !alreadyAnswered) {
@@ -586,7 +692,9 @@ export default function LessonFlow({
         case "REORDER":
           return <Reorder {...props} language={ttsLanguage} />;
         case "WRITING":
+          return <Writing {...props} />;
         case "ERROR_CORRECTION":
+          return <ErrorCorrection {...props} />;
         case "LISTENING":
           return <Listening {...props} language={ttsLanguage} />;
         default:
@@ -612,6 +720,14 @@ export default function LessonFlow({
       </>
     );
   };
+
+  const overlays = (
+    <>
+      <CelebrationOverlay type={celebration} onDone={() => setCelebration(null)} />
+      <EncouragementToast message={toast} onDone={clearToast} />
+      {confettiOverlay}
+    </>
+  );
 
   // Exit confirm modal
   const ExitConfirmModal = () => (
@@ -647,7 +763,7 @@ export default function LessonFlow({
           </div>
         </div>
         {showExitConfirm && <ExitConfirmModal />}
-        <CelebrationOverlay type={celebration} onDone={() => setCelebration(null)} />
+        {overlays}
 
         <div className="max-w-3xl mx-auto px-4 py-8">
           <div className="bg-white rounded-2xl shadow-sm p-6 md:p-8">
@@ -748,7 +864,7 @@ export default function LessonFlow({
           </div>
         </div>
         {showExitConfirm && <ExitConfirmModal />}
-        <CelebrationOverlay type={celebration} onDone={() => setCelebration(null)} />
+        {overlays}
         <div className="flex-1 flex flex-col max-w-lg mx-auto w-full py-6">
           <h2 className="text-xl font-bold text-center text-gray-900 mb-2 px-4">Vocabulary</h2>
           <p className="text-center text-gray-500 mb-6 px-4">Learn these words before practicing</p>
@@ -782,7 +898,7 @@ export default function LessonFlow({
           </div>
         </div>
         {showExitConfirm && <ExitConfirmModal />}
-        <CelebrationOverlay type={celebration} onDone={() => setCelebration(null)} />
+        {overlays}
         <div className="flex-1 flex flex-col max-w-3xl mx-auto w-full">
           <GrammarSection grammar={content.grammar} language={ttsLanguage} onComplete={goToNextPhase} onProgress={setPhaseProgress} />
         </div>
@@ -807,7 +923,7 @@ export default function LessonFlow({
           </div>
         </div>
         {showExitConfirm && <ExitConfirmModal />}
-        <CelebrationOverlay type={celebration} onDone={() => setCelebration(null)} />
+        {overlays}
         <div className="flex-1 flex flex-col max-w-3xl mx-auto w-full">
           <DialogueViewer
             title={content.dialogue.title}
@@ -841,7 +957,7 @@ export default function LessonFlow({
           </div>
         </div>
         {showExitConfirm && <ExitConfirmModal />}
-        <CelebrationOverlay type={celebration} onDone={() => setCelebration(null)} />
+        {overlays}
         <div className="flex-1 flex items-center justify-center px-4 py-6">
           <div className="max-w-lg w-full bg-white rounded-2xl shadow-sm p-6 text-center">
             <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -878,7 +994,7 @@ export default function LessonFlow({
           </div>
         </div>
         {showExitConfirm && <ExitConfirmModal />}
-        <CelebrationOverlay type={celebration} onDone={() => setCelebration(null)} />
+        {overlays}
         <div className="flex-1 flex items-center justify-center px-4 py-6">
           <div className="max-w-lg w-full bg-white rounded-2xl shadow-sm p-8 text-center">
             <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -922,7 +1038,7 @@ export default function LessonFlow({
           </div>
         </div>
         {showExitConfirm && <ExitConfirmModal />}
-        <CelebrationOverlay type={celebration} onDone={() => setCelebration(null)} />
+        {overlays}
 
         <div className="flex-1 max-w-3xl mx-auto w-full px-4 py-6">
           <div className="text-center mb-4">
@@ -949,7 +1065,7 @@ export default function LessonFlow({
             <h2 className="font-bold text-gray-900">Review Your Mistakes</h2>
           </div>
         </div>
-        <CelebrationOverlay type={celebration} onDone={() => setCelebration(null)} />
+        {overlays}
 
         <div className="flex-1 max-w-3xl mx-auto w-full px-4 py-6">
           <p className="text-gray-600 mb-6">
@@ -1021,9 +1137,17 @@ export default function LessonFlow({
   // ═══════════════════════════════════════════════════════════════
   if (currentPhase === "complete") {
     const passed = scorePercent >= 70;
+    const progress = completionProgress;
+    const completionMessage = lessonCompleteMessage({
+      scorePercent,
+      passed,
+      level,
+      progress,
+      seed: lesson.order_index ?? 0,
+    });
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-6">
-        <CelebrationOverlay type={celebration} onDone={() => setCelebration(null)} />
+        {overlays}
         <div className="max-w-lg w-full bg-white rounded-2xl shadow-sm p-8 text-center">
           <div className={`w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 ${passed ? "bg-green-100" : "bg-orange-100"}`}>
             {passed ? (
@@ -1040,6 +1164,7 @@ export default function LessonFlow({
               ? "Great job! You've mastered this lesson."
               : "You need 70% to pass. Review and try again!"}
           </p>
+          <CompletionEncouragement message={completionMessage} progress={progress} level={level} />
           <div className="grid grid-cols-3 gap-4 mb-8">
             <div className="bg-gray-50 rounded-xl p-4">
               <div className="text-2xl font-bold text-gray-900">{scorePercent}%</div>
