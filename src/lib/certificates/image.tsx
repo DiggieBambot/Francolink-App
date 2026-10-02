@@ -2,12 +2,12 @@
 // the website shows this picture, the app shows it, print and PDF print it,
 // and the social images frame it. Change it here and it changes everywhere.
 //
-// The design: a black certificate with angled dark panels, metallic diagonal
+// The design: the level's own colour as the ground, with angled panels, metallic diagonal
 // ribbons in two corners, a thin metal frame, CERTIFICATE / OF COMPLETION in
 // a classical serif, the name in script, a medal between two signature lines.
-// The metal is the level's colour -- B1 is the classic gold; A1 blue, A2
-// cyan, B2 bronze, C1 red, C2 purple -- so a learner's certificates read as
-// a set, and each level looks like an achievement of its own.
+// The ground is the level's page colour (A1 navy, A2 teal, B1 dark gold,
+// B2 dark orange, C1 dark red, C2 deep purple) and the metal its accent, so
+// each certificate looks like the course it certifies.
 //
 // Formats (all PNG):
 //   certificate  2000×1414   the document itself (A4 landscape ratio)
@@ -33,8 +33,15 @@ export const SIZES: Record<CertificateFormat, { width: number; height: number }>
   story: { width: 1080, height: 1920 },
 };
 
-/** Each level's metal: highlight, body and shadow of the same colour. */
+/**
+ * Each level's colours. `from`/`to` are the level's page gradient (the
+ * header on /learn/<language>/<level>, lib/level-colors.ts), so the
+ * certificate is the colour of the course it certifies. The metal --
+ * highlight, body, shadow -- is that level's accent.
+ */
 interface Metal {
+  from: string;
+  to: string;
   light: string;
   mid: string;
   dark: string;
@@ -43,12 +50,12 @@ interface Metal {
 }
 
 const METALS: Record<string, Metal> = {
-  A1: { light: "#DBEAFE", mid: "#3B82F6", dark: "#1E3A8A", ink: "#60A5FA" },
-  A2: { light: "#CFFAFE", mid: "#06B6D4", dark: "#155E75", ink: "#22D3EE" },
-  B1: { light: "#FDF1B8", mid: "#D4A62A", dark: "#7A5A0E", ink: "#E2B640" },
-  B2: { light: "#FFE4CC", mid: "#E8772E", dark: "#8A3A0E", ink: "#F59E5B" },
-  C1: { light: "#FEE2E2", mid: "#E0454B", dark: "#7F1D1D", ink: "#F87171" },
-  C2: { light: "#F3E8FF", mid: "#A855F7", dark: "#581C87", ink: "#C084FC" },
+  A1: { from: "#1e3a6e", to: "#1a3060", light: "#DBEAFE", mid: "#3B82F6", dark: "#1E3A8A", ink: "#60A5FA" },
+  A2: { from: "#0e3a45", to: "#0a2d38", light: "#CFFAFE", mid: "#06B6D4", dark: "#155E75", ink: "#22D3EE" },
+  B1: { from: "#3d2e00", to: "#2e2200", light: "#FDF1B8", mid: "#D4A62A", dark: "#7A5A0E", ink: "#E2B640" },
+  B2: { from: "#3d1a00", to: "#2e1300", light: "#FFE4CC", mid: "#E8772E", dark: "#8A3A0E", ink: "#F59E5B" },
+  C1: { from: "#3d0000", to: "#2e0000", light: "#FEE2E2", mid: "#E0454B", dark: "#7F1D1D", ink: "#F87171" },
+  C2: { from: "#2d0a4e", to: "#200739", light: "#F3E8FF", mid: "#A855F7", dark: "#581C87", ink: "#C084FC" },
 };
 
 const metalFor = (level: string) => METALS[level.toUpperCase()] ?? METALS.B1;
@@ -131,7 +138,9 @@ function CertificateArt({ w, m, t }: { w: number; m: Metal; t: Words }) {
     />
   );
 
-  const panel = (a: string, b: string) => `linear-gradient(135deg, ${a} 0%, ${b} 100%)`;
+  // Panels are light and shade over the level's colour, never grey.
+  const lit = "linear-gradient(135deg, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0.02) 100%)";
+  const shade = "linear-gradient(135deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.28) 100%)";
   const nameSize = t.name.length > 26 ? 92 : t.name.length > 18 ? 112 : 132;
 
   const signature = (top: string, bottom: string) => (
@@ -147,14 +156,14 @@ function CertificateArt({ w, m, t }: { w: number; m: Metal; t: Words }) {
   );
 
   return (
-    <div style={{ width: w, height: h, position: "relative", display: "flex", overflow: "hidden", background: "#0b0b0d" }}>
+    <div style={{ width: w, height: h, position: "relative", display: "flex", overflow: "hidden", backgroundImage: `linear-gradient(135deg, ${m.from} 0%, ${m.to} 100%)` }}>
       {/* Angled dark panels, back to front */}
-      {block(120, 60, 640, 640, 45, panel("#1d1d21", "#101012"))}
-      {block(470, -90, 420, 420, 45, panel("#19191c", "#0f0f11"))}
-      {block(-40, 560, 360, 360, 45, panel("#161619", "#0d0d0f"))}
-      {block(1480, 1070, 640, 640, 45, panel("#101012", "#1d1d21"))}
-      {block(1130, 1220, 420, 420, 45, panel("#0f0f11", "#19191c"))}
-      {block(1640, 570, 360, 360, 45, panel("#0d0d0f", "#161619"))}
+      {block(120, 60, 640, 640, 45, lit)}
+      {block(470, -90, 420, 420, 45, shade)}
+      {block(-40, 560, 360, 360, 45, shade)}
+      {block(1480, 1070, 640, 640, 45, shade)}
+      {block(1130, 1220, 420, 420, 45, lit)}
+      {block(1640, 570, 360, 360, 45, lit)}
 
       {/* Metal ribbons across two corners */}
       {block(1500, 70, 1000, 54, 45, brushed(m))}
@@ -225,8 +234,8 @@ function CertificateArt({ w, m, t }: { w: number; m: Metal; t: Words }) {
           {signature("FRANCOLINK", "Issued by")}
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", position: "relative", width: p(190), height: p(230) }}>
             {/* tails, behind the medal */}
-            <div style={{ position: "absolute", left: p(48), top: p(120), width: p(46), height: p(100), background: "#141416", borderBottom: `${p(4)}px solid ${m.dark}`, transform: "rotate(18deg)", display: "flex" }} />
-            <div style={{ position: "absolute", left: p(96), top: p(120), width: p(46), height: p(100), background: "#141416", borderBottom: `${p(4)}px solid ${m.dark}`, transform: "rotate(-18deg)", display: "flex" }} />
+            <div style={{ position: "absolute", left: p(48), top: p(120), width: p(46), height: p(100), background: "rgba(0,0,0,0.45)", borderBottom: `${p(4)}px solid ${m.dark}`, transform: "rotate(18deg)", display: "flex" }} />
+            <div style={{ position: "absolute", left: p(96), top: p(120), width: p(46), height: p(100), background: "rgba(0,0,0,0.45)", borderBottom: `${p(4)}px solid ${m.dark}`, transform: "rotate(-18deg)", display: "flex" }} />
             <div
               style={{
                 position: "absolute",
@@ -246,7 +255,7 @@ function CertificateArt({ w, m, t }: { w: number; m: Metal; t: Words }) {
                   width: p(126),
                   height: p(126),
                   borderRadius: 999,
-                  background: "#111113",
+                  background: m.to,
                   border: `${p(3)}px solid ${m.dark}`,
                   display: "flex",
                   flexDirection: "column",
@@ -299,9 +308,9 @@ export async function certificateImage(
   const { width, height } = SIZES[format];
   const language = LANGUAGE_NAMES[c.language] ?? c.language;
 
-  // Social formats: the certificate on a softly lit ground, with one line
-  // saying what it is. The ground is the level's metal, darkened.
-  const ground = `radial-gradient(circle at 50% 40%, ${m.dark} 0%, #0b0b0d 75%)`;
+  // Social formats: the certificate on a softly lit ground in the level's
+  // colour, with one line saying what it is.
+  const ground = `radial-gradient(circle at 50% 40%, ${m.from} 0%, ${m.to} 55%, #08080a 100%)`;
   const headline = (size: number) => (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", fontFamily: "Montserrat", fontWeight: 700, color: "#ffffff", textAlign: "center" }}>
       <div style={{ fontSize: size * 0.55, letterSpacing: 6, color: m.ink }}>CERTIFIED</div>
