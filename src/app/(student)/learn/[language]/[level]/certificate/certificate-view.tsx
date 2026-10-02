@@ -4,28 +4,18 @@
 import { useRef, useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import {
-  ArrowLeft, Download, Share2, Award, X,
+  ArrowLeft, Download, Share2, X,
   Twitter, Linkedin, Facebook, Link2, Check, PartyPopper
 } from "lucide-react";
 import { useConfetti } from "@/components/games/use-confetti";
+import {
+  CertificateCard,
+  LANGUAGE_FLAGS as languageFlags,
+  LEVEL_COLORS as levelColors,
+  publicCertificateUrl,
+} from "@/components/learning/certificate-card";
 
 // ── Constants ──────────────────────────────────────────────────────────────
-
-const languageFlags: Record<string, string> = {
-  french: "🇫🇷", fr: "🇫🇷",
-  spanish: "🇪🇸", es: "🇪🇸",
-  english: "🇬🇧", en: "🇬🇧",
-  german: "🇩🇪", de: "🇩🇪",
-};
-
-const levelColors: Record<string, { from: string; to: string; accent: string }> = {
-  A1: { from: "#1e3a5f", to: "#0f2040", accent: "#f59e0b" },
-  A2: { from: "#1e3a5f", to: "#0f2040", accent: "#3b82f6" },
-  B1: { from: "#1a3a2a", to: "#0f2018", accent: "#10b981" },
-  B2: { from: "#2d1b4e", to: "#1a0f30", accent: "#8b5cf6" },
-  C1: { from: "#4a1515", to: "#2d0d0d", accent: "#ef4444" },
-  C2: { from: "#1a1a1a", to: "#0a0a0a", accent: "#f59e0b" },
-};
 
 const levelMessages: Record<string, string> = {
   A1: "You've taken your first steps into a new language — every expert was once a beginner!",
@@ -43,7 +33,9 @@ function SharePanel({ userName, languageName, level, levelName, certNumber, onCl
   levelName: string; certNumber: string; onClose: () => void;
 }) {
   const [copied, setCopied] = useState(false);
-  const url = typeof window !== "undefined" ? window.location.href : "";
+  // The public page, not this one: this one needs the student's login, so a
+  // shared link to it showed everyone else a sign-in screen.
+  const url = publicCertificateUrl(certNumber);
   const shareText = `🎓 I just earned my ${languageName} ${level.toUpperCase()} (${levelName}) certificate on FrancoLink! #LanguageLearning #${languageName} #CEFR`;
   const encodedText = encodeURIComponent(shareText);
   const encodedUrl = encodeURIComponent(url);
@@ -188,9 +180,6 @@ export function CertificateView({ certificate, userName, languageName, levelName
 
   const colors = levelColors[level.toUpperCase()] || levelColors.A1;
   const flag = languageFlags[language] || "🌍";
-  const issuedDate = new Date(certificate.issued_at).toLocaleDateString("en-US", {
-    year: "numeric", month: "long", day: "numeric",
-  });
 
   useEffect(() => {
     if (!isNew) return;
@@ -251,66 +240,16 @@ export function CertificateView({ certificate, userName, languageName, levelName
         </div>
 
         {/* Certificate */}
-        <div className="cert-card max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden"
-          style={{ aspectRatio: "1.414/1" }}>
-          <div className="relative w-full h-full flex"
-            style={{ background: `linear-gradient(135deg, ${colors.from} 0%, ${colors.to} 100%)` }}>
-            <div className="w-3 flex-shrink-0 h-full" style={{ background: colors.accent }} />
-            <div className="flex-1 flex flex-col px-12 py-10 relative">
-              <div className="flex items-start justify-between mb-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center font-black text-xl"
-                    style={{ background: colors.accent, color: colors.from }}>FL</div>
-                  <div>
-                    <p className="text-white font-bold text-lg leading-none">FrancoLink</p>
-                    <p className="text-white/50 text-xs">Language Learning Platform</p>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <p className="text-white/40 text-xs mb-0.5">Certificate No.</p>
-                  <p className="text-white/80 text-xs font-mono font-bold">{certificate.certificate_number}</p>
-                </div>
-              </div>
-              <div className="flex-1 flex flex-col justify-center">
-                <p className="text-white/50 text-xs uppercase tracking-[0.25em] mb-3">Certificate of Completion</p>
-                <p className="text-white/70 text-base mb-2">This certifies that</p>
-                <h1 className="text-4xl md:text-5xl font-black mb-4 leading-tight" style={{ color: colors.accent }}>{userName}</h1>
-                <p className="text-white/70 text-base mb-4">has successfully completed the</p>
-                <div className="flex items-center gap-4 mb-4">
-                  <span className="text-4xl">{flag}</span>
-                  <div>
-                    <h2 className="text-white font-black text-2xl md:text-3xl leading-tight">{languageName} {level.toUpperCase()}</h2>
-                    <p className="text-white/60 text-sm">{levelName} — {certificate.course_title}</p>
-                  </div>
-                </div>
-                <p className="text-white/50 text-sm">demonstrating {levelName.toLowerCase()} proficiency in {languageName}.</p>
-              </div>
-              <div className="flex items-end justify-between mt-6">
-                <div className="flex gap-6">
-                  <div>
-                    <p className="text-white/40 text-xs mb-0.5">Average Score</p>
-                    <p className="font-bold text-xl" style={{ color: colors.accent }}>{certificate.score}%</p>
-                  </div>
-                  <div>
-                    <p className="text-white/40 text-xs mb-0.5">XP Earned</p>
-                    <p className="text-white font-bold text-xl">{certificate.total_xp.toLocaleString()}</p>
-                  </div>
-                  <div>
-                    <p className="text-white/40 text-xs mb-0.5">Issued</p>
-                    <p className="text-white/80 text-sm font-medium">{issuedDate}</p>
-                  </div>
-                </div>
-                <div className="w-20 h-20 rounded-full flex flex-col items-center justify-center border-4"
-                  style={{ borderColor: colors.accent, background: "rgba(255,255,255,0.05)" }}>
-                  <Award className="w-7 h-7 mb-0.5" style={{ color: colors.accent }} />
-                  <p className="text-xs font-black" style={{ color: colors.accent }}>{level.toUpperCase()}</p>
-                  <p className="text-white/50 text-xs leading-none">CERT</p>
-                </div>
-              </div>
-            </div>
-            <div className="w-1.5 flex-shrink-0 h-full opacity-40" style={{ background: colors.accent }} />
-          </div>
-        </div>
+        <CertificateCard
+          userName={userName}
+          language={language}
+          level={level}
+          certificateNumber={certificate.certificate_number}
+          courseTitle={certificate.course_title}
+          score={certificate.score}
+          totalXp={certificate.total_xp}
+          issuedAt={certificate.issued_at}
+        />
 
         {/* Stats */}
         <div className="no-print max-w-4xl mx-auto mt-8 grid grid-cols-3 gap-4 text-center">

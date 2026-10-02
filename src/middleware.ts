@@ -103,6 +103,8 @@ const SITE_ROUTES = [
   "/terms",
   // Google Play's required web link for account deletion. Must work signed-out.
   "/delete-account",
+  // Certificate verification. The link students share; must work signed-out.
+  "/certificates",
   // The workbook's sales page. Lives on the website, not the app: it is
   // indexable, it is what ads point at, and buying does not need a session.
   "/francais-pas-a-pas",
