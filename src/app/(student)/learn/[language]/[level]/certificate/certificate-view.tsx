@@ -241,14 +241,10 @@ export function CertificateView({ certificate, userName, languageName, levelName
 
         {/* Certificate */}
         <CertificateCard
-          userName={userName}
+          certificateNumber={certificate.certificate_number}
+          holderName={userName}
           language={language}
           level={level}
-          certificateNumber={certificate.certificate_number}
-          courseTitle={certificate.course_title}
-          score={certificate.score}
-          totalXp={certificate.total_xp}
-          issuedAt={certificate.issued_at}
         />
 
         {/* Stats */}

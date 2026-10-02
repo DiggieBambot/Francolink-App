@@ -11,50 +11,28 @@
 // 20261005_certificates.sql; numbers carry 40 random bits).
 
 import type { Metadata } from "next";
-import { cache } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BadgeCheck } from "lucide-react";
-import { createClient } from "@supabase/supabase-js";
 import {
   CertificateCard,
   LANGUAGE_NAMES,
   LEVEL_NAMES,
+  certificateImageUrl,
   publicCertificateUrl,
 } from "@/components/learning/certificate-card";
+import { type VerifiedCertificate, verifyCertificate as verify } from "@/lib/certificates/verify";
 import { appUrl } from "@/lib/site/hosts";
 import { PrintButton } from "./print-button";
+import { ShareCertificate } from "./share-certificate";
 
 export const dynamic = "force-dynamic";
-
-interface Verified {
-  certificate_number: string;
-  holder_name: string;
-  language: string;
-  level: string;
-  course_title: string | null;
-  score: number | null;
-  total_xp: number | null;
-  issued_at: string;
-}
-
-// Called by both generateMetadata and the page; cache() makes it one query.
-const verify = cache(async (number: string): Promise<Verified | null> => {
-  if (!/^[A-Z0-9-]{6,40}$/.test(number)) return null;
-  const db = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!,
-    { auth: { persistSession: false } }
-  );
-  const { data } = await db.rpc("verify_certificate", { p_number: number });
-  return (Array.isArray(data) ? data[0] : data) ?? null;
-});
 
 interface PageProps {
   params: Promise<{ number: string }>;
 }
 
-function describe(c: Verified) {
+function describe(c: VerifiedCertificate) {
   const language = LANGUAGE_NAMES[c.language] || c.language;
   const level = c.level.toUpperCase();
   return { language, level, levelName: LEVEL_NAMES[level] || level };
@@ -73,7 +51,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description,
     robots: { index: false, follow: false },
     alternates: { canonical: publicCertificateUrl(c.certificate_number) },
-    openGraph: { title, description, url: publicCertificateUrl(c.certificate_number) },
+    // The wide picture is what LinkedIn, X, Facebook and WhatsApp unfurl when
+    // the link is pasted: the certificate itself, not a generic logo.
+    openGraph: {
+      title,
+      description,
+      url: publicCertificateUrl(c.certificate_number),
+      images: [{ url: certificateImageUrl(c.certificate_number, "wide"), width: 1200, height: 630, alt: title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [certificateImageUrl(c.certificate_number, "wide")],
+    },
   };
 }
 
@@ -113,13 +104,17 @@ export default async function PublicCertificatePage({ params }: PageProps) {
         </div>
 
         <CertificateCard
-          userName={c.holder_name}
+          certificateNumber={c.certificate_number}
+          holderName={c.holder_name}
           language={c.language}
           level={c.level}
-          certificateNumber={c.certificate_number}
-          courseTitle={c.course_title ?? `${language} ${level}`}
-          score={c.score ?? 0}
-          totalXp={c.total_xp ?? 0}
+        />
+
+        <ShareCertificate
+          number={c.certificate_number}
+          holderName={c.holder_name}
+          title={`${language} ${level}`}
+          levelName={levelName}
           issuedAt={c.issued_at}
         />
 
