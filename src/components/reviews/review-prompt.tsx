@@ -13,6 +13,7 @@
 
 import { useState, useEffect } from "react";
 import { Star, X, ThumbsUp, ThumbsDown, CheckCircle, ExternalLink } from "lucide-react";
+import { lessonReviewShowing } from "./lesson-review-gate";
 
 interface Decision {
   show: boolean;
@@ -46,6 +47,9 @@ export function ReviewPrompt() {
         typeof Notification !== "undefined" &&
         Notification.permission === "default"
       ) return;
+
+      // A finished lesson waiting for its rating takes the corner instead.
+      if (await lessonReviewShowing()) return;
 
       try {
         const res = await fetch("/api/reviews/prompt");

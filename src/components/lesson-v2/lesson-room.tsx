@@ -2,12 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useLessonRoom } from "@/hooks/use-lesson-room";
-import { LessonRoomProvider } from "./lesson-room-context";
+import { LessonRoomProvider, type ChatMessage } from "./lesson-room-context";
 import { LessonRenderer } from "./lesson-renderer";
 import { Avatar } from "./avatar";
 import { IncomingTtsAutoplay } from "./incoming-tts-autoplay";
 import { SectionSync } from "./section-sync";
 import { ScrollSync } from "./scroll-sync";
+import { SelectionSync } from "./selection-sync";
 import { StepControls } from "./step-controls";
 import dynamic from "next/dynamic";
 import { RoomShell, type RailTab, type StageKey, type StagePanel } from "./room/room-shell";
@@ -98,7 +99,7 @@ interface LessonRoomProps {
   studentId?: string | null;
   studentName?: string | null;
   initialHighlights: { anchor_id: string; role: "tutor" | "student" }[];
-  initialChat?: { id: string; from: string; name: string; role: "tutor" | "student"; text: string; at: number }[];
+  initialChat?: ChatMessage[];
   /** The tutor's other live rooms, for the in-room room switcher. Tutor-only. */
   otherRooms?: { id: string; label: string; isGroup: boolean }[];
   /**
@@ -158,7 +159,7 @@ export function LessonRoom({
   // not say on its own. This used to be a native window.confirm — correct, and
   // jarring: an OS dialog on top of a lesson reads as an error, not a choice.
   const [confirmEnd, setConfirmEnd] = useState(false);
-  // The tutor has ended the class and is on the after-class screen.
+  // The class was ended (by the tutor) and this person is on the after-class screen.
   const [classOver, setClassOver] = useState(false);
   // Which panel owns the main stage. In a Classroom, with no material open,
   // the CALL is the stage — the call is the lesson at that point. A Study
@@ -173,6 +174,12 @@ export function LessonRoom({
   // a lesson whose exercises cannot be typed into.
   const [drawMode, setDrawMode] = useState(false);
   const lastIncoming = useRef(0);
+
+  // The tutor ended the class: the student goes to the after-class screen
+  // too. Unmounting the room's video provider is what leaves the call.
+  useEffect(() => {
+    if (currentRole === "student" && room.classEndedAt) setClassOver(true);
+  }, [currentRole, room.classEndedAt]);
 
   const showToast = (msg: string, ms = 3000) => {
     setToast(msg);
@@ -258,6 +265,9 @@ export function LessonRoom({
         // straight out skipped the one step the end of a lesson exists for —
         // sending the homework, while the lesson they just taught is still on
         // screen and still the obvious thing to assign.
+        // Sent before our own room unmounts, so the student is moved to their
+        // after-class screen (and its rating) at the same moment.
+        await room.broadcastClassEnded().catch(() => {});
         setClassOver(true);
         return;
       }
@@ -751,6 +761,8 @@ export function LessonRoom({
         canHighlight: true,
         highlights: room.highlights,
         toggleHighlight: room.toggleHighlight,
+        remoteSelections: room.remoteSelections,
+        shareSelection: room.shareSelection,
         presence: room.presence,
         broadcastSpeak: room.broadcastSpeak,
         incomingSpeak: room.incomingSpeak,
@@ -835,6 +847,7 @@ export function LessonRoom({
         <IncomingTtsAutoplay />
         <SectionSync />
         <ScrollSync />
+        <SelectionSync />
 
         {confirmEnd ? (
           <div

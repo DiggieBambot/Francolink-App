@@ -498,15 +498,26 @@ export default async function TutorProfilePage({ params }: PageProps) {
                 content:
                   tutor.testimonials.length > 0 ? (
                     <div className="space-y-5">
-                      {tutor.testimonials.map((t) => (
+                      {tutor.testimonials.slice(0, 20).map((t) => (
                         <figure
                           key={t.id}
                           className="p-6 rounded-2xl bg-primary-50 border border-primary-100"
                         >
                           <Quote className="w-6 h-6 text-secondary mb-3" />
-                          <blockquote className="text-gray-700 leading-relaxed">
-                            {t.quote}
-                          </blockquote>
+                          {typeof t.rating === "number" && (
+                            <p
+                              className="mb-2 text-secondary"
+                              aria-label={`${t.rating} out of 5`}
+                            >
+                              {"★".repeat(t.rating)}
+                              <span className="text-gray-300">{"★".repeat(5 - t.rating)}</span>
+                            </p>
+                          )}
+                          {t.quote && (
+                            <blockquote className="text-gray-700 leading-relaxed">
+                              {t.quote}
+                            </blockquote>
+                          )}
                           <figcaption className="mt-4 text-sm font-bold text-primary">
                             {t.author_name}
                             {t.author_role && (
