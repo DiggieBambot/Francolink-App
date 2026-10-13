@@ -24,6 +24,15 @@ const MAX_LEN = 400;
 const PREFIX_LEN = 24;
 const DEBOUNCE_MS = 200;
 
+// Same hues as <Highlightable>: amber for the tutor, sky for the student.
+// Rendered from here rather than globals.css because Turbopack's CSS parser
+// rejects ::highlight() and fails the whole stylesheet, taking every page
+// down with it. A runtime <style> reaches the browser unparsed.
+const HIGHLIGHT_CSS = `
+::highlight(shared-tutor) { background-color: #fcd34d; color: #0f172a; }
+::highlight(shared-student) { background-color: #7dd3fc; color: #0f172a; }
+`;
+
 type HighlightCtor = new (...ranges: Range[]) => unknown;
 interface HighlightRegistry {
   set(name: string, h: unknown): void;
@@ -204,5 +213,5 @@ export function SelectionSync() {
     };
   }, [remoteSelections, presence]);
 
-  return null;
+  return <style>{HIGHLIGHT_CSS}</style>;
 }
