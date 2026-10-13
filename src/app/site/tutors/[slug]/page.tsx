@@ -24,7 +24,13 @@ import { JsonLd } from "@/components/site/json-ld";
 import { ORG_ID, breadcrumbSchema } from "@/lib/site/schema";
 import { getBookableSlots } from "@/lib/booking/availability";
 import { LANGUAGE_LABEL, embedVideoUrl } from "@/lib/site/format";
-import { TIER_BLURB, TIER_LABEL, getPricingByTier } from "@/lib/site/pricing";
+import { TIER_BLURB, TIER_LABEL } from "@/lib/site/pricing";
+import {
+  FREE_TRIAL_MIN_LESSONS_PER_WEEK,
+  FREE_TRIAL_MINUTES,
+  getPlans,
+  getStarterPacks,
+} from "@/lib/credits/plans";
 import { appUrl, siteUrl } from "@/lib/site/hosts";
 
 export const revalidate = 3600;
@@ -65,14 +71,30 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function TutorProfilePage({ params }: PageProps) {
   const { slug } = await params;
-  const [tutor, allPricing] = await Promise.all([
+  const [tutor, plans, packs] = await Promise.all([
     getPublicTutor(slug),
-    getPricingByTier(),
+    getPlans(),
+    getStarterPacks(),
   ]);
   if (!tutor) notFound();
-  // Prices are still needed by the slot picker — the visitor sees what a slot
-  // costs at the moment they book it, and nowhere else on the profile.
-  const pricing = allPricing[tutor.tier];
+
+  // What lessons with this tutor really cost: lessons are bought as a plan or
+  // a starter pack, so those are the prices to show — the cheapest a lesson
+  // gets on any plan that covers this tutor's tier, after term discounts.
+  const coveringPlans = plans.filter((p) => p.allowedTiers.includes(tutor.tier));
+  const planLessonCents = coveringPlans.flatMap((p) =>
+    p.prices
+      .filter((pr) => pr.buyable)
+      .map((pr) => Math.round((p.perLessonCents * (10000 - pr.discountBps)) / 10000))
+  );
+  const pack = packs.find((p) => p.tier === tutor.tier) ?? null;
+  const pricing = {
+    planFromCents: planLessonCents.length ? Math.min(...planLessonCents) : null,
+    pack: pack ? { lessons: pack.lessons, priceCents: pack.priceCents } : null,
+    currency: pack?.currency ?? coveringPlans[0]?.prices[0]?.currency ?? "USD",
+    freeTrialMinPerWeek: FREE_TRIAL_MIN_LESSONS_PER_WEEK,
+    freeTrialMinutes: FREE_TRIAL_MINUTES,
+  };
 
   // Real bookable slots, not just the weekly rules — excludes time off,
   // existing bookings and the minimum notice.
@@ -553,9 +575,7 @@ export default async function TutorProfilePage({ params }: PageProps) {
                 tutorTimezone={availability.timezone}
                 tutorName={tutor.name}
                 tutorSlug={tutor.slug}
-                prices={pricing.lessons}
-                trial={pricing.trial}
-                trialAvailable={tutor.trial_available}
+                pricing={pricing}
                 appUrl={appUrl("")}
                 profileUrl={siteUrl(`/tutors/${tutor.slug}`)}
               />

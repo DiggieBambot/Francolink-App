@@ -22,9 +22,13 @@
 // what anyone is charged.
 
 import { useMemo, useState } from "react";
-import { Check, Loader2, Sparkles } from "lucide-react";
+import { Check, Gift, Loader2, Sparkles } from "lucide-react";
 import type { Plan } from "@/lib/credits/plans";
-import { WEEKS_PER_MONTH } from "@/lib/credits/plans";
+import {
+  FREE_TRIAL_MIN_LESSONS_PER_WEEK,
+  FREE_TRIAL_MINUTES,
+  WEEKS_PER_MONTH,
+} from "@/lib/credits/plans";
 import { cn } from "@/lib/utils";
 
 const TERMS: { months: 1 | 3 | 12; label: string; note: string }[] = [
@@ -168,6 +172,11 @@ export function PlanPicker({
               )}
             >
               {n} {n === 1 ? "lesson" : "lessons"} / week
+              {n >= FREE_TRIAL_MIN_LESSONS_PER_WEEK && (
+                <span className="block text-[11px] font-semibold opacity-80">
+                  + free first lesson
+                </span>
+              )}
             </button>
           ))}
         </div>
@@ -256,6 +265,14 @@ export function PlanPicker({
               </>
             )}
           </p>
+
+          {perWeek >= FREE_TRIAL_MIN_LESSONS_PER_WEEK && (
+            <p className="mt-3 flex items-start gap-2 text-sm font-semibold text-primary">
+              <Gift className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
+              Includes a free {FREE_TRIAL_MINUTES}-minute first lesson with any
+              tutor your plan covers.
+            </p>
+          )}
 
           {!price.buyable && (
             <p className="mt-3 text-sm font-semibold text-red-700">
