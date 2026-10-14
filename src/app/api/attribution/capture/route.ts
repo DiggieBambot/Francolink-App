@@ -5,6 +5,7 @@ import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
+import { REF_COOKIE, attributeUser } from "@/lib/affiliates";
 
 // Bucket raw utm/referrer into a coarse acquisition channel.
 function classify(a: { utm_source?: string; utm_medium?: string; referrer_host?: string }): string {
@@ -31,11 +32,19 @@ export async function POST() {
     { auth: { persistSession: false } }
   );
 
+  const jar = await cookies();
+
+  // A creator link the visitor arrived through (middleware set the cookie).
+  // Independent of the utm capture below, and it settles who gets the
+  // customer once: attributeUser refuses a second creator.
+  const refCode = jar.get(REF_COOKIE)?.value;
+  if (refCode) await attributeUser(user.id, refCode, "link");
+
   // Only capture once — first signup source wins.
   const { data: me } = await svc.from("users").select("signup_source").eq("id", user.id).maybeSingle();
   if (me?.signup_source) return NextResponse.json({ skipped: true, reason: "already-set" });
 
-  const raw = (await cookies()).get("fl_attrib")?.value;
+  const raw = jar.get("fl_attrib")?.value;
   let a: Record<string, string> = {};
   if (raw) { try { a = JSON.parse(decodeURIComponent(raw)); } catch {} }
 

@@ -4,6 +4,11 @@ import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 import { isLessonPlanSubscription } from '@/lib/credits/referral';
 import { activateLessonPlan, endLessonPlan } from '@/lib/credits/subscription';
+import {
+  handleAffiliateChargeRefunded,
+  handleAffiliateDispute,
+  handleAffiliateInvoicePaid,
+} from '@/lib/affiliates/stripe';
 
 // Use service role for webhook (bypasses RLS)
 const supabase = createClient(
@@ -116,7 +121,21 @@ export async function POST(request: Request) {
         break;
 
       case 'invoice.payment_succeeded':
+        // Creator commission first: it may attribute the customer from the
+        // promotion code on this invoice, which the tutor commission below
+        // then sees and stands aside for.
+        await handleAffiliateInvoicePaid(event.data.object);
         await handlePaymentSucceeded(event.data.object as Stripe.Invoice);
+        break;
+
+      // Creator commission is reversed with the money. Both events must be
+      // enabled on the endpoint in the Stripe dashboard.
+      case 'charge.refunded':
+        await handleAffiliateChargeRefunded(event.data.object);
+        break;
+
+      case 'charge.dispute.created':
+        await handleAffiliateDispute(event.data.object);
         break;
       
       case 'customer.subscription.created':
@@ -175,12 +194,20 @@ async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
   // Find user by Stripe customer ID
   const { data: user, error: userError } = await supabase
     .from('users')
-    .select('id, referred_by_tutor_id, name, email')
+    .select('id, referred_by_tutor_id, referred_by_affiliate_id, name, email')
     .eq('stripe_customer_id', customerId)
     .single();
 
   if (userError || !user) {
     console.log('No user found for customer:', customerId);
+    return;
+  }
+
+  // A customer a creator brought in is paid on through the creator program
+  // (lib/affiliates). Joining a tutor later must not pay a second referrer
+  // for the same subscription.
+  if (user.referred_by_affiliate_id) {
+    console.log('User attributed to a creator - no tutor commission:', user.id);
     return;
   }
 
