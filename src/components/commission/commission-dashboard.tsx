@@ -17,18 +17,23 @@ import {
   Receipt,
 } from 'lucide-react';
 
+import type { CommissionLedgerEntry } from '@/types/commission';
+
 interface CommissionData {
-  ledger: any[];
+  ledger: (CommissionLedgerEntry & { student: { name: string | null; email: string } | null })[];
   summary: {
     total_earned: number;
     available_balance: number;
     referred_students: number;
     paying_students: number;
     this_month: number;
+    pending_request: { amount: number; created_at: string } | null;
   };
   settings: {
     enabled: boolean;
     rate: number;
+    firstMonthRate: number;
+    recurringRate: number;
     minPayoutAmount: number;
   };
 }
@@ -84,7 +89,7 @@ export function CommissionDashboard() {
 
       if (response.ok) {
         setWithdrawAmount('');
-        setWithdrawSuccess(`Withdrawal request for $${amount.toFixed(2)} submitted successfully!`);
+        setWithdrawSuccess(`Withdrawal request for $${amount.toFixed(2)} sent. We'll pay it to your payout account and let you know.`);
         fetchCommissionData();
       } else {
         setWithdrawError(result.error);
@@ -138,6 +143,12 @@ export function CommissionDashboard() {
     );
   }
 
+  // What the webhook actually pays: a higher rate on the first month, then
+  // the recurring rate. This page used to promise one "lifetime" rate read
+  // from a setting nothing paid on.
+  const pct = (r: number) => `${Math.round(r * 100)}%`;
+  const rateLine = `${pct(settings.firstMonthRate)} of a student's first month, then ${pct(settings.recurringRate)} of every month after`;
+
   const conversionRate = summary.referred_students > 0
     ? Math.round((summary.paying_students / summary.referred_students) * 100)
     : 0;
@@ -148,7 +159,7 @@ export function CommissionDashboard() {
       <div className="flex flex-col gap-1">
         <h1 className="font-heading text-2xl font-bold text-primary md:text-3xl">Earnings</h1>
         <p className="text-gray-500">
-          Earn <span className="font-semibold text-secondary-600">{(settings.rate * 100).toFixed(0)}%</span> lifetime commission on every student subscription you refer.
+          Earn {rateLine} on self-study subscriptions from students you refer.
         </p>
       </div>
 
@@ -206,14 +217,25 @@ export function CommissionDashboard() {
         <StatCard
           icon={<Sparkles className="h-4.5 w-4.5" />}
           label="Commission rate"
-          value={`${(settings.rate * 100).toFixed(0)}%`}
-          sub="lifetime, recurring"
+          value={`${pct(settings.firstMonthRate)} / ${pct(settings.recurringRate)}`}
+          sub="first month / after"
           iconWrap="bg-emerald-50 text-emerald-600"
         />
       </div>
 
       {/* Withdrawal */}
-      {summary.available_balance >= settings.minPayoutAmount ? (
+      {summary.pending_request ? (
+        <div className="rounded-2xl border border-secondary-100 bg-secondary-50/60 p-5">
+          <div className="flex items-center gap-3">
+            <CheckCircle2 className="h-5 w-5 shrink-0 text-secondary-600" />
+            <p className="text-sm text-gray-700">
+              <span className="font-semibold">Withdrawal requested —</span>{' '}
+              {formatCurrency(summary.pending_request.amount)} on {formatDate(summary.pending_request.created_at)}. It stays in
+              your balance until we&apos;ve sent it.
+            </p>
+          </div>
+        </div>
+      ) : summary.available_balance >= settings.minPayoutAmount ? (
         <div className="rounded-2xl border border-secondary-100 bg-secondary-50/60 p-6">
           <div className="flex items-start gap-4">
             <div className="rounded-xl bg-white p-3 text-secondary-600 shadow-sm">
@@ -313,7 +335,7 @@ export function CommissionDashboard() {
             step={3}
             icon={<Sparkles className="h-5 w-5" />}
             title="Earn commissions"
-            body={`Get ${(settings.rate * 100).toFixed(0)}% of every subscription payment they make — for as long as they stay subscribed.`}
+            body={`Get ${rateLine}, for as long as they stay subscribed.`}
           />
           <StepCard
             step={4}
@@ -340,7 +362,7 @@ export function CommissionDashboard() {
                   <tr>
                     <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-400">Date</th>
                     <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-400">Student</th>
-                    <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-400">Payment</th>
+                    <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-400">Type</th>
                     <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-400">Rate</th>
                     <th className="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wide text-gray-400">Commission</th>
                   </tr>
@@ -352,10 +374,23 @@ export function CommissionDashboard() {
                       <td className="px-4 py-3 text-sm font-medium text-gray-900">
                         {entry.student?.name || entry.student?.email || 'Unknown'}
                       </td>
-                      <td className="px-4 py-3 text-sm text-gray-500">{formatCurrency(entry.gross_amount)}</td>
-                      <td className="px-4 py-3 text-sm text-gray-500">{(entry.commission_rate * 100).toFixed(0)}%</td>
-                      <td className="px-4 py-3 text-right text-sm font-semibold text-secondary-600">
-                        +{formatCurrency(entry.commission_amount)}
+                      <td className="px-4 py-3 text-sm text-gray-500">
+                        {Number(entry.amount) < 0
+                          ? 'Refund'
+                          : entry.kind === 'lesson_plan_bounty'
+                            ? 'Lesson plan bonus'
+                            : 'Subscription'}
+                      </td>
+                      <td className="px-4 py-3 text-sm text-gray-500">
+                        {entry.commission_rate ? `${Math.round(Number(entry.commission_rate) * 100)}%` : '—'}
+                      </td>
+                      <td
+                        className={`px-4 py-3 text-right text-sm font-semibold ${
+                          Number(entry.amount) < 0 ? 'text-red-600' : 'text-secondary-600'
+                        }`}
+                      >
+                        {Number(entry.amount) < 0 ? '−' : '+'}
+                        {formatCurrency(Math.abs(Number(entry.amount) || 0))}
                       </td>
                     </tr>
                   ))}
