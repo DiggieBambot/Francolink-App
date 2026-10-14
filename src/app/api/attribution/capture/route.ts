@@ -6,12 +6,16 @@ import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { REF_COOKIE, attributeUser } from "@/lib/affiliates";
+import { isOwnHost } from "@/lib/site/hosts";
 
 // Bucket raw utm/referrer into a coarse acquisition channel.
 function classify(a: { utm_source?: string; utm_medium?: string; referrer_host?: string }): string {
   const src = (a.utm_source || "").toLowerCase();
   const med = (a.utm_medium || "").toLowerCase();
-  const ref = (a.referrer_host || "").toLowerCase();
+  // Cookies written before the shared-domain fix carry our own website as the
+  // referrer; that was a page change, not a referral.
+  const rawRef = (a.referrer_host || "").toLowerCase();
+  const ref = rawRef && isOwnHost(rawRef) ? "" : rawRef;
 
   if (med.includes("cpc") || med.includes("paid") || med.includes("ppc") || src.includes("ads")) return "paid";
   if (/facebook|instagram|tiktok|twitter|x\.com|t\.co|linkedin|youtube|reddit|pinterest/.test(src + " " + ref) || med.includes("social")) return "social";

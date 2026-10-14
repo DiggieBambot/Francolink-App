@@ -17,7 +17,7 @@
 // existing subscriber clicked.
 
 import { createServiceClient } from "@/lib/supabase/service";
-import { APP_URL, SITE_URL } from "@/lib/site/hosts";
+import { SITE_URL, sharedCookieDomain } from "@/lib/site/hosts";
 
 export const REF_COOKIE = "fl_ref";
 export const REF_COOKIE_DAYS = 60;
@@ -58,28 +58,8 @@ export function normalizeCode(raw: string | null | undefined): string | null {
   return /^[a-z0-9]{3,24}$/.test(code) ? code : null;
 }
 
-/**
- * The cookie domain that both francolink.net and app.francolink.net can read.
- *
- * Creators link to the website, but signup and checkout happen on the app
- * host; a host-only cookie set on www.francolink.net would never be seen by
- * either. Undefined (host-only) when the two hosts share no parent, as in dev.
- */
-export function refCookieDomain(): string | undefined {
-  try {
-    const a = new URL(SITE_URL).hostname.replace(/^www\./, "").split(".");
-    const b = new URL(APP_URL).hostname.split(".");
-    const shared: string[] = [];
-    while (a.length && b.length && a[a.length - 1] === b[b.length - 1]) {
-      shared.unshift(a.pop()!);
-      b.pop();
-    }
-    // Need at least "francolink.net"; "net" or "localhost" alone is not a site.
-    return shared.length >= 2 ? `.${shared.join(".")}` : undefined;
-  } catch {
-    return undefined;
-  }
-}
+/** See sharedCookieDomain: creators link to the website, checkout is on the app. */
+export const refCookieDomain = sharedCookieDomain;
 
 /** The customer-facing link for a creator. */
 export function affiliateLink(code: string): string {
