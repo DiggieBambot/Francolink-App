@@ -2,9 +2,19 @@
 
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import { LifeBuoy, TrendingUp, Inbox } from "lucide-react";
+import { LifeBuoy, TrendingUp, Inbox, ExternalLink, MessageCircle } from "lucide-react";
 import { getDashboardUser, isAdmin } from "@/lib/admin/access";
-import { listTickets, ticketCounts } from "@/lib/admin/support";
+import {
+  listTickets,
+  ticketCounts,
+  listContactMessages,
+  contactCounts,
+  CONTACT_STATUSES,
+} from "@/lib/admin/support";
+import { ContactMessagesInbox } from "@/components/admin/contact-messages-inbox";
+
+// Live chats (website bubble, in-app Help & support) are answered in DiggieChat.
+const DIGGIECHAT_INBOX = "https://chat.diggiestack.com/";
 
 export const dynamic = "force-dynamic";
 
@@ -30,15 +40,24 @@ function ago(iso: string) {
 export default async function SupportInboxPage({
   searchParams,
 }: {
-  searchParams: Promise<{ status?: string }>;
+  searchParams: Promise<{ status?: string; view?: string }>;
 }) {
   const me = await getDashboardUser();
   if (!me) redirect("/admin/login");
 
-  const { status = "open" } = await searchParams;
-  const [tickets, counts] = await Promise.all([listTickets(status), ticketCounts()]);
+  const params = await searchParams;
+  const view = params.view === "tickets" ? "tickets" : "messages";
+  const status = params.status || (view === "messages" ? "new" : "open");
 
-  const tabs = ["open", "pending", "resolved", "closed", "all"];
+  const [tickets, counts, messages, msgCounts] = await Promise.all([
+    view === "tickets" ? listTickets(status) : Promise.resolve([]),
+    ticketCounts(),
+    view === "messages" ? listContactMessages(status) : Promise.resolve([]),
+    contactCounts(),
+  ]);
+
+  const tabs = view === "messages" ? [...CONTACT_STATUSES, "all"] : ["open", "pending", "resolved", "closed", "all"];
+  const tabCounts = view === "messages" ? msgCounts : counts;
 
   return (
     <div className="mx-auto max-w-5xl p-4 md:p-8">
@@ -62,25 +81,60 @@ export default async function SupportInboxPage({
         )}
       </div>
 
+      {/* Where questions come from */}
+      <div className="mb-4 flex flex-wrap gap-2 border-b border-gray-200 pb-3">
+        <Link
+          href="/admin/support?view=messages"
+          className={`rounded-lg px-3.5 py-2 text-sm font-semibold ${view === "messages" ? "bg-primary-50 text-primary" : "text-gray-600 hover:bg-gray-50"}`}
+        >
+          Website messages
+          {msgCounts.new ? <span className="ml-1.5 rounded-full bg-amber-500 px-1.5 text-[11px] font-bold text-white">{msgCounts.new}</span> : null}
+        </Link>
+        <Link
+          href="/admin/support?view=tickets"
+          className={`rounded-lg px-3.5 py-2 text-sm font-semibold ${view === "tickets" ? "bg-primary-50 text-primary" : "text-gray-600 hover:bg-gray-50"}`}
+        >
+          Tickets
+          {counts.open ? <span className="ml-1.5 rounded-full bg-gray-200 px-1.5 text-[11px] font-bold text-gray-600">{counts.open}</span> : null}
+        </Link>
+        <a
+          href={DIGGIECHAT_INBOX}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-semibold text-gray-600 hover:bg-gray-50"
+        >
+          <MessageCircle className="h-4 w-4" /> Live chats (DiggieChat) <ExternalLink className="h-3.5 w-3.5" />
+        </a>
+      </div>
+
       {/* Status tabs */}
       <div className="mb-5 flex flex-wrap gap-2">
         {tabs.map((t) => (
           <Link
             key={t}
-            href={`/admin/support?status=${t}`}
+            href={`/admin/support?view=${view}&status=${t}`}
             className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm font-semibold capitalize transition ${
               status === t ? "bg-primary text-white" : "bg-white text-gray-600 ring-1 ring-gray-200 hover:bg-gray-50"
             }`}
           >
             {t}
             <span className={`rounded-full px-1.5 text-[11px] font-bold ${status === t ? "bg-white/20" : "bg-gray-100 text-gray-500"}`}>
-              {counts[t] || 0}
+              {tabCounts[t] || 0}
             </span>
           </Link>
         ))}
       </div>
 
-      {tickets.length === 0 ? (
+      {view === "messages" ? (
+        messages.length === 0 ? (
+          <div className="rounded-2xl border border-dashed border-gray-200 bg-white p-12 text-center">
+            <Inbox className="mx-auto mb-3 h-8 w-8 text-gray-300" />
+            <p className="font-semibold text-gray-700">No {status === "all" ? "" : `${status} `}website messages</p>
+          </div>
+        ) : (
+          <ContactMessagesInbox messages={messages} />
+        )
+      ) : tickets.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-gray-200 bg-white p-12 text-center">
           <Inbox className="mx-auto mb-3 h-8 w-8 text-gray-300" />
           <p className="font-semibold text-gray-700">No {status} tickets</p>
