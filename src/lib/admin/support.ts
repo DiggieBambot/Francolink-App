@@ -117,3 +117,45 @@ export async function ticketCounts(): Promise<Record<string, number>> {
   for (const r of data || []) { c.all++; c[r.status] = (c[r.status] || 0) + 1; }
   return c;
 }
+
+// ── Website contact-form messages ────────────────────────────────────────────
+
+export interface ContactMessageRow {
+  id: string;
+  name: string;
+  email: string;
+  topic: string | null;
+  message: string;
+  status: string;
+  createdAt: string;
+  lastReply: string | null;
+  repliedAt: string | null;
+}
+
+export const CONTACT_STATUSES = ["new", "read", "replied", "spam"] as const;
+
+export async function listContactMessages(status?: string): Promise<ContactMessageRow[]> {
+  const s = svc();
+  // '*' so the reply columns can't break the inbox before their migration runs.
+  let q = s.from("contact_messages").select("*").order("created_at", { ascending: false }).limit(200);
+  if (status && status !== "all") q = q.eq("status", status);
+  const { data } = await q;
+  return (data || []).map((m) => ({
+    id: m.id,
+    name: m.name,
+    email: m.email,
+    topic: m.topic ?? null,
+    message: m.message,
+    status: m.status,
+    createdAt: m.created_at,
+    lastReply: m.last_reply ?? null,
+    repliedAt: m.replied_at ?? null,
+  }));
+}
+
+export async function contactCounts(): Promise<Record<string, number>> {
+  const { data } = await svc().from("contact_messages").select("status");
+  const counts: Record<string, number> = { all: data?.length || 0 };
+  for (const r of data || []) counts[r.status] = (counts[r.status] || 0) + 1;
+  return counts;
+}
