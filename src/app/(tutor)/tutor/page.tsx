@@ -252,7 +252,7 @@ export default async function TutorDashboardPage() {
           <Link href="/tutor/schedule" className="inline-flex items-center justify-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">
             <CalendarDays className="h-4 w-4" /> Schedule
           </Link>
-          <Link href="/tutor/commisions" className="inline-flex items-center justify-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+          <Link href="/tutor/commissions" className="inline-flex items-center justify-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">
             <Wallet className="h-4 w-4" /> Earnings &amp; payouts
           </Link>
         </div>

@@ -108,7 +108,7 @@ export default async function TutorLayout({
     {
       label: "Account",
       items: [
-        { name: "Commissions", href: "/tutor/commisions", icon: "DollarSign" },
+        { name: "Commissions", href: "/tutor/commissions", icon: "DollarSign" },
         { name: "Settings", href: "/tutor/settings", icon: "Settings" },
       ],
     },

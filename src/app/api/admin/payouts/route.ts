@@ -1,7 +1,10 @@
 // Admin manual-payouts API.
-// GET  → tutors with a payable balance, their saved payout details, and total paid.
-// POST → { tutorId } marks the tutor's current balance as paid: records a
-//        commission_payouts row and resets users.commission_balance to 0.
+// GET  → tutors with a payable balance, any withdrawal they've requested, their
+//        saved payout details, and total paid.
+// POST → { tutorId } records that the admin has paid them: the requested
+//        amount if they asked for one, otherwise their whole balance. The
+//        request row (or a new one) becomes 'completed' and the amount comes
+//        off users.commission_balance.
 //
 // Manual payouts for now — no money actually moves here; this is the bookkeeping
 // an admin does after paying out-of-band via the tutor's chosen method.
@@ -10,6 +13,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { getDashboardUser, isAdmin } from "@/lib/admin/access";
+import { adjustTutorBalance } from "@/lib/credits/referral";
 
 function svc() {
   return createServiceClient(
@@ -59,8 +63,10 @@ export async function GET() {
     .from("commission_payouts")
     .select("tutor_id, amount, status");
   const paidBy = new Map<string, number>();
+  const requestedBy = new Map<string, number>();
   for (const p of payouts || []) {
     if (p.status === "completed") paidBy.set(p.tutor_id, (paidBy.get(p.tutor_id) || 0) + Number(p.amount || 0));
+    if (p.status === "requested") requestedBy.set(p.tutor_id, Number(p.amount || 0));
   }
 
   const rows = (tutors || []).map((t) => ({
@@ -69,6 +75,7 @@ export async function GET() {
     email: t.email,
     balance: Number(t.commission_balance || 0),
     totalPaid: paidBy.get(t.id) || 0,
+    requested: requestedBy.get(t.id) ?? null,
     payoutMethod: (t.payout_details as { method?: string } | null)?.method || null,
     payoutSummary: methodLabel(t.payout_details as Record<string, unknown> | null),
     hasDetails: !!(t.payout_details as { method?: string } | null)?.method,
@@ -88,34 +95,49 @@ export async function POST(req: NextRequest) {
     .select("commission_balance, payout_details")
     .eq("id", tutorId)
     .maybeSingle();
-  const amount = Number(tutor?.commission_balance || 0);
-  if (amount <= 0) return NextResponse.json({ error: "Nothing to pay — balance is zero." }, { status: 400 });
+  const balance = Number(tutor?.commission_balance || 0);
+  if (balance <= 0) return NextResponse.json({ error: "Nothing to pay — balance is zero." }, { status: 400 });
+
+  const { data: request } = await s
+    .from("commission_payouts")
+    .select("id, amount")
+    .eq("tutor_id", tutorId)
+    .eq("status", "requested")
+    .order("created_at", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+  const amount = Math.min(request ? Number(request.amount) : balance, balance);
 
   const now = new Date().toISOString();
   const details = tutor?.payout_details as Record<string, unknown> | null;
   const rawMethod = (details?.method as string) || "bank";
-  const note = `Manual payout via ${methodLabel(details)}`;
-  const base = {
-    tutor_id: tutorId,
-    amount,
-    currency: "USD",
-    status: "completed",
-    notes: note,
-    requested_at: now,
-    processed_at: now,
-    completed_at: now,
-  };
+  const reference = `Manual payout via ${methodLabel(details)}`;
 
-  // payout_method may be a constrained enum ('stripe'|'paypal'|'bank_transfer').
-  // Try the real method; if the column rejects it, fall back to bank_transfer.
-  let insErr = (await s.from("commission_payouts").insert({ ...base, payout_method: rawMethod })).error;
-  if (insErr) {
-    insErr = (await s.from("commission_payouts").insert({ ...base, payout_method: "bank_transfer" })).error;
+  // commission_payouts has: tutor_id, amount, ledger_ids, payout_method,
+  // payout_reference, status, processed_at, created_at. This used to send
+  // currency/notes/requested_at/completed_at as well — columns that don't
+  // exist — so both inserts failed and no payout could ever be recorded.
+  let recordErr;
+  if (request) {
+    ({ error: recordErr } = await s
+      .from("commission_payouts")
+      .update({ amount, status: "completed", processed_at: now, payout_reference: reference })
+      .eq("id", request.id)
+      .eq("status", "requested"));
+  } else {
+    const base = { tutor_id: tutorId, amount, status: "completed", payout_reference: reference, processed_at: now };
+    // payout_method may be a constrained enum ('stripe'|'paypal'|'bank_transfer').
+    // Try the real method; if the column rejects it, fall back to bank_transfer.
+    ({ error: recordErr } = await s.from("commission_payouts").insert({ ...base, payout_method: rawMethod }));
+    if (recordErr) {
+      ({ error: recordErr } = await s.from("commission_payouts").insert({ ...base, payout_method: "bank_transfer" }));
+    }
   }
-  if (insErr) return NextResponse.json({ error: `Couldn't record payout: ${insErr.message}` }, { status: 500 });
+  if (recordErr) return NextResponse.json({ error: `Couldn't record payout: ${recordErr.message}` }, { status: 500 });
 
-  const { error: balErr } = await s.from("users").update({ commission_balance: 0 }).eq("id", tutorId);
-  if (balErr) return NextResponse.json({ error: `Payout recorded but balance not cleared: ${balErr.message}` }, { status: 500 });
+  // Subtract what was paid rather than resetting to 0: commission that landed
+  // after the admin loaded this page is still owed.
+  await adjustTutorBalance(tutorId, -amount);
 
   return NextResponse.json({ ok: true, amount });
 }
