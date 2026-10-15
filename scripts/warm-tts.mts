@@ -24,8 +24,43 @@
 import { config } from "dotenv";
 config({ path: ".env.local" });
 
+import { execFileSync } from "node:child_process";
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { adminClient } from "../src/lib/lessons/worker/process";
 import { TTS_BUCKET, ttsCachePath, voiceFor } from "../src/lib/tts/cache-key";
+
+// OpenAI returns 24 kHz mono speech at 128 kbps. 48 kbps is indistinguishable
+// for a voice and a third of the size -- and storage is the Supabase quota this
+// bucket blew through (Oct 2026, 1.4 GB on a 1 GB plan). Shrunk with ffmpeg
+// when it is installed; without it the clip is stored as delivered.
+const HAS_FFMPEG = (() => {
+  try {
+    execFileSync("ffmpeg", ["-version"], { stdio: "ignore" });
+    return true;
+  } catch {
+    return false;
+  }
+})();
+if (!HAS_FFMPEG) console.warn("ffmpeg not found: clips will be stored at 128 kbps (brew install ffmpeg).");
+
+function shrink(mp3: Buffer): Buffer {
+  if (!HAS_FFMPEG) return mp3;
+  const dir = mkdtempSync(join(tmpdir(), "warm-tts-"));
+  try {
+    writeFileSync(join(dir, "in.mp3"), mp3);
+    execFileSync("ffmpeg", ["-hide_banner", "-loglevel", "error", "-y", "-i", join(dir, "in.mp3"),
+      "-map_metadata", "-1", "-ac", "1", "-ar", "24000", "-c:a", "libmp3lame", "-b:a", "48k",
+      "-f", "mp3", join(dir, "out.mp3")]);
+    const out = readFileSync(join(dir, "out.mp3"));
+    return out.length > 0 && out.length < mp3.length ? out : mp3;
+  } catch {
+    return mp3;
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+}
 
 const argv = process.argv.slice(2);
 const has = (f: string) => argv.includes(f);
@@ -211,7 +246,7 @@ async function warmOne(clip: (typeof batch)[number]) {
       if (!r.ok) throw new Error(`HTTP ${r.status} ${(await r.text()).slice(0, 90)}`);
       return r;
     });
-    const buf = Buffer.from(await res.arrayBuffer());
+    const buf = shrink(Buffer.from(await res.arrayBuffer()));
 
     await withRetry(async () => {
       const { error } = await supa.storage
