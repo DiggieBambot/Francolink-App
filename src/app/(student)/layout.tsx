@@ -214,7 +214,7 @@ export default async function StudentLayout({
       {/* AI Tutor Floating Button */}
       {showAiTutor && <AITutorFab plan={profile?.subscription_plan || "FREE"} />}
 
-      {/* DiggieChat support widget */}
+      {/* Hides DiggieChat's floating bubble; it lives on /support instead */}
       <DiggieChat />
 
       {/* Main Content */}
