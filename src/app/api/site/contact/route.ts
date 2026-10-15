@@ -4,11 +4,12 @@
 // notify the team by email. A failed notification must never fail the request —
 // the row is already saved.
 
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { z } from "zod";
 import { looksHuman } from "@/lib/site/form-token";
 import { DEFAULT_FROM, getResend } from "@/lib/email/resend";
+import { relayContactToDiggieChat } from "@/lib/site/diggiechat-relay";
 
 export const runtime = "nodejs";
 
@@ -54,14 +55,14 @@ export async function POST(request: Request) {
     { auth: { persistSession: false } }
   );
 
-  const { error } = await supabase.from("contact_messages").insert({
+  const { data: saved, error } = await supabase.from("contact_messages").insert({
     name: parsed.name,
     email: parsed.email,
     topic: parsed.topic || null,
     message: parsed.message,
     source: "website",
     user_agent: request.headers.get("user-agent")?.slice(0, 500) ?? null,
-  });
+  }).select("id").single();
 
   if (error) {
     console.error("[site/contact] insert failed", error);
@@ -87,6 +88,20 @@ export async function POST(request: Request) {
   } catch (err) {
     // Already persisted — surface in logs and let the visitor see success.
     console.error("[site/contact] email notification failed", err);
+  }
+
+  // Let DiggieChat answer it and put it in the DiggieChat inbox. After the
+  // response so the visitor never waits on the bot.
+  if (saved) {
+    after(() =>
+      relayContactToDiggieChat({
+        id: saved.id,
+        name: parsed.name,
+        email: parsed.email,
+        topic: parsed.topic || null,
+        message: parsed.message,
+      })
+    );
   }
 
   return NextResponse.json({ ok: true });

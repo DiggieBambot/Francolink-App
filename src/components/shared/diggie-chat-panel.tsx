@@ -10,11 +10,19 @@
 import { useEffect, useRef, useState } from "react";
 import {
   DIGGIECHAT_SITE_ID,
+  identifyDiggieChatVisitor,
   loadDiggieChat,
   type DiggieChatApi,
 } from "@/lib/diggie-chat";
 
-export function DiggieChatPanel() {
+export function DiggieChatPanel({
+  visitorName,
+  visitorEmail,
+}: {
+  /** Signed-in user, so the DiggieChat inbox shows who is asking. */
+  visitorName?: string | null;
+  visitorEmail?: string | null;
+} = {}) {
   const hostRef = useRef<HTMLDivElement>(null);
   const [error, setError] = useState(false);
 
@@ -23,6 +31,7 @@ export function DiggieChatPanel() {
 
     let api: DiggieChatApi | null = null;
     let cancelled = false;
+    identifyDiggieChatVisitor(visitorName, visitorEmail);
 
     loadDiggieChat()
       .then((a) => {
@@ -38,6 +47,8 @@ export function DiggieChatPanel() {
       cancelled = true;
       api?.unmount();
     };
+    // Identity is read once, before the widget loads.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!DIGGIECHAT_SITE_ID) {

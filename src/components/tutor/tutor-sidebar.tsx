@@ -5,7 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import {
   Video, LogOut, ChevronUp, Settings, User,
   LayoutDashboard, Users, BookOpen, Calendar, DollarSign, PencilLine,
-  Globe, CalendarClock, Sparkles,
+  Globe, CalendarClock, Sparkles, LifeBuoy,
   type LucideIcon,
 } from "lucide-react";
 import { useState } from "react";
@@ -15,7 +15,7 @@ import { createClient } from "@/lib/supabase/client";
 // cannot pass component functions as props to Client Components.
 const ICONS: Record<string, LucideIcon> = {
   LayoutDashboard, Users, BookOpen, Video, Calendar, DollarSign, Settings,
-  PencilLine, Globe, CalendarClock, Sparkles,
+  PencilLine, Globe, CalendarClock, Sparkles, LifeBuoy,
 };
 
 interface NavigationItem {

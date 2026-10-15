@@ -17,6 +17,7 @@ import {
 import { TutorSidebar } from "@/components/tutor/tutor-sidebar";
 import { MobileSidebar } from "@/components/shared/mobile-sidebar";
 import { NotificationBell } from "@/components/notifications/notification-bell";
+import { DiggieChat } from "@/components/shared/diggie-chat";
 import { Flame } from "lucide-react";
 
 export const metadata = {
@@ -110,6 +111,7 @@ export default async function TutorLayout({
       label: "Account",
       items: [
         { name: "Commissions", href: "/tutor/commisions", icon: "DollarSign" },
+        { name: "Help & support", href: "/tutor/support", icon: "LifeBuoy" },
         { name: "Settings", href: "/tutor/settings", icon: "Settings" },
       ],
     },
@@ -183,6 +185,7 @@ export default async function TutorLayout({
       </div>
       <ActivityPinger />
       <AttributionCapture />
+      <DiggieChat />
     </div>
   );
 }
