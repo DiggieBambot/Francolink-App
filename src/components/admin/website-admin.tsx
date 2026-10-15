@@ -15,6 +15,7 @@ import {
   X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { APPLICATION_TEMPLATES } from "@/lib/admin/application-templates";
 
 // The admin tables are wide and only partially typed at the query layer; these
 // interfaces cover the fields this screen actually renders.
@@ -71,6 +72,7 @@ interface ApplicationRow {
   link: string | null;
   status: string;
   proposed_tier: string | null;
+  applicant_user_id?: string | null;
   created_at: string;
 }
 
@@ -489,6 +491,23 @@ function ApplicationReply({
   const [sending, setSending] = useState(false);
   const [result, setResult] = useState<string | null>(null);
   const [failed, setFailed] = useState(false);
+  const [templateKey, setTemplateKey] = useState("");
+  const template = APPLICATION_TEMPLATES.find((t) => t.key === templateKey);
+  const [applyStatus, setApplyStatus] = useState(true);
+
+  function applyTemplate(key: string) {
+    setTemplateKey(key);
+    const t = APPLICATION_TEMPLATES.find((x) => x.key === key);
+    if (!t) return;
+    setApplyStatus(true);
+    setMessage(
+      t.body({
+        firstName: application.full_name.split(/\s+/)[0] || application.full_name,
+        email: application.email,
+        hasAccount: Boolean(application.applicant_user_id),
+      })
+    );
+  }
 
   async function send() {
     setSending(true);
@@ -502,7 +521,17 @@ function ApplicationReply({
       });
       const body = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(body.error || "That didn't send.");
+      // The template's status (e.g. rejected) — after the reply, which itself
+      // only nudges "new" to "reviewing".
+      if (template && applyStatus && template.status !== application.status) {
+        await fetch("/api/admin/website", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ action: "set_application_status", id: application.id, status: template.status }),
+        });
+      }
       setMessage("");
+      setTemplateKey("");
       setResult(
         body.notified
           ? "Sent — emailed and added to their notifications."
@@ -520,15 +549,29 @@ function ApplicationReply({
 
   return (
     <div className="mt-4 border-t border-gray-200 pt-4">
-      <label className="block text-sm font-semibold text-gray-700 mb-2">
-        Reply to {application.full_name}
-      </label>
+      <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
+        <label className="block text-sm font-semibold text-gray-700">
+          Reply to {application.full_name}
+        </label>
+        <select
+          value={templateKey}
+          onChange={(e) => applyTemplate(e.target.value)}
+          className="px-3 py-2 rounded-xl border border-gray-200 bg-white text-sm"
+        >
+          <option value="">Use a template…</option>
+          {APPLICATION_TEMPLATES.map((t) => (
+            <option key={t.key} value={t.key}>
+              {t.label}
+            </option>
+          ))}
+        </select>
+      </div>
       <textarea
         value={message}
         onChange={(e) => setMessage(e.target.value)}
-        rows={5}
+        rows={template ? 12 : 5}
         maxLength={5000}
-        placeholder="Write your reply… It goes to their email and, if they have an account, their notification bell."
+        placeholder="Write your reply, or pick a template… It goes to their email and, if they have an account, their notification bell."
         className="w-full px-3 py-2.5 rounded-xl border border-gray-200 bg-white text-sm"
       />
       <div className="mt-2 flex flex-wrap items-center gap-3">
@@ -541,6 +584,16 @@ function ApplicationReply({
           {sending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
           Send reply
         </button>
+        {template && template.status !== application.status && (
+          <label className="inline-flex items-center gap-2 text-sm text-gray-600">
+            <input
+              type="checkbox"
+              checked={applyStatus}
+              onChange={(e) => setApplyStatus(e.target.checked)}
+            />
+            Also mark as <span className="font-semibold">{template.status}</span>
+          </label>
+        )}
         {result && (
           <p className={cn("text-sm", failed ? "text-red-600" : "text-green-700")}>{result}</p>
         )}
