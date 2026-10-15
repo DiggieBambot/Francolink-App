@@ -6,8 +6,7 @@
 // competes with LCP on the SEO pages.
 
 import Script from "next/script";
-
-const SITE_ID = "975f7fab-82c3-402a-952d-aa26cf93e625";
+import { DIGGIECHAT_SITE_ID as SITE_ID } from "@/lib/diggie-chat";
 
 export function DiggieChat() {
   return (

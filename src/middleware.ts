@@ -156,6 +156,7 @@ const APP_ROUTES = [
   "/profile",
   "/settings",
   "/notifications",
+  "/support",
   "/placement-test",
   "/checkout",
   "/student",
