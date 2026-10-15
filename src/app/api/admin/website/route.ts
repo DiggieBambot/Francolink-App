@@ -9,6 +9,9 @@ import { createClient } from "@supabase/supabase-js";
 import { z } from "zod";
 import { revalidateTutorPages } from "@/lib/site/revalidate";
 import { getDashboardUser, isAdmin } from "@/lib/admin/access";
+import { notifyUser } from "@/lib/notifications/create";
+import { sendTransactionalEmail, firstNameOf } from "@/lib/email/transactional";
+import { emailShell, escapeHtml, APP_URL } from "@/lib/email/shell";
 
 export const runtime = "nodejs";
 
@@ -66,6 +69,11 @@ const Action = z.discriminatedUnion("action", [
     review_notes: z.string().trim().max(2000).optional(),
   }),
   z.object({
+    action: z.literal("reply_application"),
+    id: z.uuid(),
+    message: z.string().trim().min(1).max(5000),
+  }),
+  z.object({
     action: z.literal("set_message_status"),
     id: z.uuid(),
     status: z.enum(["new", "read", "replied", "spam"]),
@@ -86,6 +94,13 @@ export async function POST(request: Request) {
   }
 
   const db = serviceClient();
+
+  // Replying isn't a website edit — it notifies a person, so it skips the
+  // shared save/revalidate path below.
+  if (input.action === "reply_application") {
+    return replyToApplication(db, input.id, input.message);
+  }
+
   let error;
 
   switch (input.action) {
@@ -181,4 +196,69 @@ export async function POST(request: Request) {
   }
 
   return NextResponse.json({ ok: true });
+}
+
+/**
+ * Send an admin's reply to a tutor applicant: an in-app notification (the bell)
+ * when they have an account, and always an email. Applicants from the public
+ * /teach form may have signed up later, so fall back to matching by email.
+ */
+async function replyToApplication(
+  db: ReturnType<typeof serviceClient>,
+  id: string,
+  message: string
+) {
+  const { data: app } = await db
+    .from("tutor_applications")
+    .select("id, full_name, email, applicant_user_id, created_user_id")
+    .eq("id", id)
+    .maybeSingle();
+  if (!app) return NextResponse.json({ error: "Application not found" }, { status: 404 });
+
+  let account: { id: string; role: string | null } | null = null;
+  const knownId = app.applicant_user_id || app.created_user_id;
+  if (knownId) {
+    const { data } = await db.from("users").select("id, role").eq("id", knownId).maybeSingle();
+    account = data;
+  }
+  if (!account && app.email) {
+    const { data } = await db
+      .from("users")
+      .select("id, role")
+      .ilike("email", app.email.trim())
+      .limit(1)
+      .maybeSingle();
+    account = data;
+  }
+
+  const isTutor = ["TUTOR", "ADMIN"].includes((account?.role || "").toUpperCase());
+  const path = account ? (isTutor ? "/tutor/apply" : "/notifications") : "/login";
+
+  if (account) {
+    await notifyUser({
+      userId: account.id,
+      type: "application_reply",
+      title: "FrancoLink replied to your teaching application",
+      body: message,
+      url: path,
+    });
+  }
+
+  const firstName = firstNameOf(app.full_name, app.email);
+  const bodyHtml =
+    `<p style="margin:0 0 16px 0;font-size:16px;">We've replied to your FrancoLink teaching application:</p>
+     <div style="margin:0 0 16px 0;padding:16px;border-left:4px solid #f97316;background:#fff7ed;border-radius:6px;font-size:15px;white-space:pre-line;">${escapeHtml(message)}</div>
+     <p style="margin:0 0 16px 0;font-size:15px;color:#475569;">You can reply to this email to answer us directly.</p>`;
+  const ctaHref = `${APP_URL}${path}`;
+  await sendTransactionalEmail(
+    app.email,
+    "Re: your FrancoLink teaching application",
+    emailShell({ firstName, bodyHtml, ctaHref, ctaText: account ? "Open FrancoLink" : "Sign in to FrancoLink" }),
+    `Hi ${firstName},\n\nWe've replied to your FrancoLink teaching application:\n\n${message}\n\nReply to this email to answer us directly. ${ctaHref}`
+  );
+
+  // Moving a fresh application along once we've written to them.
+  await db.from("tutor_applications").update({ status: "reviewing" }).eq("id", id).eq("status", "new");
+
+  return NextResponse.json({ ok: true, notified: Boolean(account) });
 }
