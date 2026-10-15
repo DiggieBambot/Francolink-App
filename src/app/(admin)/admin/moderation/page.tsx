@@ -20,7 +20,7 @@ export default async function ModerationPage() {
 
   const { data: msgs } = await svc
     .from("tutor_lesson_messages")
-    .select("id, session_id, sender_name, sender_role, text, created_at")
+    .select("id, session_id, sender_name, sender_role, text, created_at, attachment_url, attachment_name")
     .order("created_at", { ascending: false })
     .limit(100);
 
@@ -50,7 +50,12 @@ export default async function ModerationPage() {
                 {m.sender_role || "user"}
               </span>
               <div className="min-w-0 flex-1">
-                <p className="text-sm text-gray-800">{m.text}</p>
+                {m.text ? <p className="text-sm text-gray-800">{m.text}</p> : null}
+                {m.attachment_url ? (
+                  <a href={m.attachment_url} target="_blank" rel="noopener noreferrer" className="text-sm text-primary underline">
+                    📎 {m.attachment_name || "attachment"}
+                  </a>
+                ) : null}
                 <p className="text-xs text-gray-400">{m.sender_name || "Someone"} · {new Date(m.created_at).toLocaleString()}</p>
               </div>
             </div>

@@ -45,6 +45,7 @@ const STUDENT_DATA: ReadonlyArray<readonly [table: string, column: string]> = [
   ["lesson_reviews", "student_id"],
   ["notifications", "user_id"],
   ["push_subscriptions", "user_id"],
+  ["device_push_tokens", "user_id"],
   ["review_prompts", "user_id"],
   ["tutor_favorites", "student_id"],
   ["tutor_students", "student_id"],

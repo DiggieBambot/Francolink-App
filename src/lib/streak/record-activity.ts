@@ -12,6 +12,7 @@
 
 import { createClient } from "@supabase/supabase-js";
 import { logActivity, hasLessonOnDay } from "@/lib/analytics/activity";
+import { advanceStreak } from "@/lib/streak/advance-streak";
 
 function svc() {
   return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!, {
@@ -24,13 +25,6 @@ export interface RecordActivityResult {
   longestStreak: number;
   isNewDay: boolean;
   streakBroken: boolean;
-}
-
-/** Days between two YYYY-MM-DD calendar strings (b - a). */
-function dayDiff(a: string, b: string): number {
-  const da = Date.UTC(+a.slice(0, 4), +a.slice(5, 7) - 1, +a.slice(8, 10));
-  const db = Date.UTC(+b.slice(0, 4), +b.slice(5, 7) - 1, +b.slice(8, 10));
-  return Math.round((db - da) / 86400_000);
 }
 
 /**
@@ -47,45 +41,45 @@ export async function recordActivity(
   const s = svc();
 
   try {
-    const { data: u } = await s
+    // streak_freezes arrives with its own migration; without it, read the rest
+    // (a failed read would otherwise look like "no streak" and reset it).
+    const cols = "current_streak, longest_streak, last_activity_date, timezone";
+    let { data: u, error: readError } = await s
       .from("users")
-      .select("current_streak, longest_streak, last_activity_date, timezone")
+      .select(`${cols}, streak_freezes`)
       .eq("id", userId)
-      .maybeSingle();
+      .maybeSingle<{ current_streak: number | null; longest_streak: number | null; last_activity_date: string | null; timezone: string | null; streak_freezes?: number | null }>();
+    if (readError) ({ data: u, error: readError } = await s.from("users").select(cols).eq("id", userId).maybeSingle());
+    if (readError) throw readError;
 
     const tz = u?.timezone || "UTC";
     const today = new Date().toLocaleDateString("en-CA", { timeZone: tz }); // YYYY-MM-DD
-    const last = u?.last_activity_date ? String(u.last_activity_date).slice(0, 10) : null;
-
-    let currentStreak = u?.current_streak || 0;
-    let longestStreak = u?.longest_streak || 0;
-    let isNewDay = false;
-    let streakBroken = false;
-
-    if (!last) {
-      currentStreak = 1;
-      isNewDay = true;
-    } else {
-      const diff = dayDiff(last, today);
-      if (diff <= 0) {
-        // Already counted today (or clock skew) — nothing to advance.
-        return { currentStreak, longestStreak, isNewDay: false, streakBroken: false };
-      } else if (diff === 1) {
-        currentStreak += 1;
-        isNewDay = true;
-      } else {
-        currentStreak = 1;
-        isNewDay = true;
-        streakBroken = true;
-      }
+    const next = advanceStreak(
+      {
+        current: u?.current_streak || 0,
+        longest: u?.longest_streak || 0,
+        lastActivityDate: u?.last_activity_date ? String(u.last_activity_date).slice(0, 10) : null,
+        freezes: u?.streak_freezes || 0,
+      },
+      today
+    );
+    // Already counted today — nothing to advance.
+    if (!next.isNewDay) {
+      return { currentStreak: next.current, longestStreak: next.longest, isNewDay: false, streakBroken: false };
     }
-
-    if (currentStreak > longestStreak) longestStreak = currentStreak;
+    const currentStreak = next.current;
+    const longestStreak = next.longest;
+    const isNewDay = true;
+    const streakBroken = next.streakBroken;
 
     await s
       .from("users")
       .update({ current_streak: currentStreak, longest_streak: longestStreak, last_activity_date: today })
       .eq("id", userId);
+    // Separate write, so a missing streak_freezes column can't block the streak.
+    if (next.freezeUsed || next.freezeEarned) {
+      await s.from("users").update({ streak_freezes: next.freezes }).eq("id", userId);
+    }
 
     // §1 daily-activity signal: tag with whether they had a lesson scheduled today.
     let hadLesson = false;

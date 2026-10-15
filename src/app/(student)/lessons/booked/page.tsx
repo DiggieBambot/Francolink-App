@@ -119,7 +119,7 @@ export default async function BookedPage({
         <p className="text-sm text-gray-600">
           {booking.duration_minutes}-minute lesson with{" "}
           <strong className="text-primary">{tutorName}</strong>
-          {booking.is_trial && " — your discounted first lesson"}
+          {booking.is_trial && " — your free first lesson"}
         </p>
         <p className="text-xs text-gray-500">
           Times shown in your device&apos;s timezone. Free cancellation up to 12

@@ -1,17 +1,19 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { CalendarDays, Clock, Globe2, Loader2 } from "lucide-react";
+import { CalendarDays, Clock, Gift, Globe2, Loader2 } from "lucide-react";
 import type { BookableSlot } from "@/lib/booking/availability";
-import { formatPrice, type TierPrice } from "@/lib/site/pricing";
+import { formatPrice } from "@/lib/site/pricing";
 import { cn } from "@/lib/utils";
 
 /**
  * Slot picker on a tutor's public profile.
  *
- * Lesson prices appear once, on the slot you actually picked — a price next
- * to every duration turned the picker into a price list, and prices here are
- * per tier, not per tutor, so there is nothing to compare.
+ * Lessons are paid for out of a plan or a starter pack, never one at a time,
+ * so the prices shown are the real ones: what a lesson costs on a plan, and
+ * the pack. A per-lesson "Book — $X" here used to quote a number checkout
+ * never charged. The free 25-minute first lesson is called out because it is
+ * the reason to pick a 2+ lessons-a-week plan.
  *
  * Times render in the VISITOR's timezone, not the tutor's. Showing a Douala
  * clock to someone in Montreal is how people miss lessons — the tutor's zone is
@@ -22,9 +24,7 @@ export function SlotPicker({
   tutorTimezone,
   tutorName,
   tutorSlug,
-  prices,
-  trial,
-  trialAvailable,
+  pricing,
   appUrl,
   profileUrl,
 }: {
@@ -32,9 +32,15 @@ export function SlotPicker({
   tutorTimezone: string;
   tutorName: string;
   tutorSlug: string;
-  prices: TierPrice[];
-  trial: TierPrice | null;
-  trialAvailable: boolean;
+  pricing: {
+    /** Cheapest a 50-minute lesson gets on a plan covering this tutor. */
+    planFromCents: number | null;
+    pack: { lessons: number; priceCents: number } | null;
+    currency: string;
+    /** Plans of this many lessons a week or more include the free lesson. */
+    freeTrialMinPerWeek: number;
+    freeTrialMinutes: number;
+  };
   appUrl: string;
   profileUrl: string;
 }) {
@@ -89,8 +95,19 @@ export function SlotPicker({
     window.location.href = `${appUrl}/book?${params.toString()}`;
   }
 
-  const priceFor = (mins: number) =>
-    prices.find((p) => p.durationMinutes === mins) ?? null;
+  const money = (cents: number) => formatPrice(cents, pricing.currency);
+
+  /** What a lesson of this length costs, in the units students actually buy. */
+  const costLine = (mins: number) => {
+    const share = mins >= 50 ? 1 : 0.5;
+    const parts = [
+      share === 1 ? "Uses 1 lesson from your plan or pack" : "Uses half a lesson from your plan or pack",
+    ];
+    if (pricing.planFromCents) {
+      parts.push(`plans from ${money(Math.round(pricing.planFromCents * share))}`);
+    }
+    return parts.join(" · ");
+  };
 
   if (slots.length === 0) {
     return (
@@ -104,15 +121,35 @@ export function SlotPicker({
     );
   }
 
-  const chosen = slots.find((s) => s.start === selected);
-  const chosenPrice = chosen
-    ? trialAvailable && trial && chosen.durationMinutes === trial.durationMinutes
-      ? trial
-      : priceFor(chosen.durationMinutes)
-    : null;
+  // Within the chosen length: the same start time exists once per duration,
+  // and picking 15:00 in the 50-minute view must not book the 25-minute slot.
+  const chosen = forDuration.find((s) => s.start === selected);
+  const freeTrialNote = `Your first ${pricing.freeTrialMinutes}-minute lesson is free with a plan of ${pricing.freeTrialMinPerWeek} or more lessons a week.`;
 
   return (
     <div>
+      <div className="mb-5 p-4 rounded-2xl bg-secondary-50 border border-secondary-100 text-sm text-gray-700">
+        <p className="flex items-start gap-2 font-semibold text-primary">
+          <Gift className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
+          {freeTrialNote}
+        </p>
+        {(pricing.planFromCents || pricing.pack) && (
+          <p className="mt-1.5 pl-6 text-gray-600">
+            {pricing.planFromCents && (
+              <>Lessons from {money(pricing.planFromCents)} (50 min) on a plan</>
+            )}
+            {pricing.planFromCents && pricing.pack && ", or "}
+            {pricing.pack && (
+              <>
+                {pricing.planFromCents ? "a" : "A"} {pricing.pack.lessons}-lesson starter
+                pack for {money(pricing.pack.priceCents)}
+              </>
+            )}
+            .
+          </p>
+        )}
+      </div>
+
       {durations.length > 1 && (
         <div className="flex flex-wrap items-center gap-2 mb-5">
           <span className="text-sm font-bold text-primary mr-1">Lesson length</span>
@@ -198,12 +235,11 @@ export function SlotPicker({
             {" · "}
             {chosen.durationMinutes} min
           </p>
-          {chosenPrice && (
-            <p className="mt-1 text-sm text-gray-600">
-              {formatPrice(chosenPrice.priceCents, chosenPrice.currency)}
-              {chosenPrice === trial && " — discounted first lesson"}
-            </p>
-          )}
+          <p className="mt-1 text-sm text-gray-600">
+            {chosen.durationMinutes === pricing.freeTrialMinutes
+              ? `Free if it's your first lesson and you're on a plan of ${pricing.freeTrialMinPerWeek}+ lessons a week. Otherwise: ${costLine(chosen.durationMinutes).toLowerCase()}.`
+              : `${costLine(chosen.durationMinutes)}.`}
+          </p>
           <button
             type="button"
             onClick={() => book(chosen)}
@@ -211,11 +247,7 @@ export function SlotPicker({
             className="inline-flex items-center justify-center gap-2 mt-4 px-6 py-3 rounded-xl bg-primary text-white font-bold hover:bg-primary-800 disabled:opacity-60"
           >
             {booking && <Loader2 className="w-4 h-4 animate-spin" />}
-            {booking
-              ? "Starting checkout…"
-              : chosenPrice
-                ? `Book — ${formatPrice(chosenPrice.priceCents, chosenPrice.currency)}`
-                : "Book this slot"}
+            {booking ? "Starting checkout…" : "Book this slot"}
           </button>
           {bookError && (
             <p className="mt-3 text-sm text-red-600">{bookError}</p>

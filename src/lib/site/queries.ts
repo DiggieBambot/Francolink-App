@@ -219,7 +219,7 @@ export async function getPublicTutor(slug: string): Promise<TutorProfile | null>
   const row = data as unknown as ProfileRow;
   const user = joinedUser(row);
 
-  const [{ data: slots }, { data: quotes }] = await Promise.all([
+  const [{ data: slots }, { data: quotes }, { data: lessonReviews }] = await Promise.all([
     supabase
       .from("tutor_availability")
       .select("weekday, start_minute, end_minute")
@@ -233,7 +233,47 @@ export async function getPublicTutor(slug: string): Promise<TutorProfile | null>
       .eq("is_published", true)
       .order("display_order", { ascending: true })
       .limit(6),
+    // Student ratings from real lessons -- only the ones an admin approved.
+    supabase
+      .from("lesson_reviews")
+      .select("id, rating, comment, student_id")
+      .eq("tutor_id", row.user_id)
+      .eq("is_published", true)
+      .eq("review_status", "approved")
+      .order("created_at", { ascending: false })
+      // Every approved review feeds the average; the page shows the newest.
+      .limit(1000),
   ]);
+
+  const reviewRows = (lessonReviews ?? []) as {
+    id: string;
+    rating: number;
+    comment: string | null;
+    student_id: string;
+  }[];
+  const { data: students } = reviewRows.length
+    ? await supabase
+        .from("users")
+        .select("id, name")
+        .in("id", Array.from(new Set(reviewRows.map((r) => r.student_id))))
+    : { data: [] as { id: string; name: string | null }[] };
+  const studentName = new Map((students ?? []).map((u) => [u.id as string, (u.name as string | null) ?? ""]));
+
+  const fromLessons: Testimonial[] = reviewRows.map((r) => {
+    // First name and last initial only: this is a public page.
+    const parts = (studentName.get(r.student_id) ?? "").trim().split(/\s+/).filter(Boolean);
+    const author =
+      parts.length > 1 ? `${parts[0]} ${parts[parts.length - 1][0]}.` : parts[0] || "FrancoLink student";
+    return {
+      id: `lesson-${r.id}`,
+      author_name: author,
+      author_role: "Student",
+      author_photo: null,
+      author_country: null,
+      quote: r.comment?.trim() || "",
+      rating: r.rating,
+    };
+  });
 
   const availability = (slots as AvailabilitySlot[]) ?? [];
 
@@ -245,7 +285,7 @@ export async function getPublicTutor(slug: string): Promise<TutorProfile | null>
     intro_video_url: row.intro_video_url,
     timezone: row.timezone,
     availability,
-    testimonials: (quotes as Testimonial[]) ?? [],
+    testimonials: [...fromLessons, ...((quotes as Testimonial[]) ?? [])],
   };
 }
 

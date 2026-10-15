@@ -167,7 +167,12 @@ export async function POST(request: Request) {
   // hour late that their afternoon is free is the worse outcome of the two.
   // Awaited rather than fired off: on serverless the response ending can kill
   // work still in flight.
-  const refundLine = booking.paid_with === "credit" ? "lesson is back in your balance" : "refund is on its way to your card";
+  const refundLine =
+    booking.paid_with === "credit"
+      ? "lesson is back in your balance"
+      : booking.paid_with === "free_trial"
+        ? "free first lesson is available to book again"
+        : "refund is on its way to your card";
   await notifyBookingCancelled(booking.id, user.id, {
     student: refundable
       ? `Your ${refundLine}.`
@@ -190,6 +195,13 @@ export async function POST(request: Request) {
   }
 
   // --- give it back --------------------------------------------------------
+  // A free first lesson has nothing to refund. Cancelling it in time is what
+  // frees the trial: refund_status 'full' takes it out of
+  // bookings_one_trial_per_student.
+  if (booking.paid_with === "free_trial") {
+    return NextResponse.json({ cancelled: true, refunded: true });
+  }
+
   if (booking.paid_with === "credit") {
     const cost = booking.duration_minutes >= 50 ? 1 : 0.5;
     await refundCredits(
