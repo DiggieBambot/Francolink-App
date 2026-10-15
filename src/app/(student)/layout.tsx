@@ -5,6 +5,7 @@ import { PushPrompt } from "@/components/notifications/push-prompt";
 import { ReviewPrompt } from "@/components/reviews/review-prompt";
 import { LiveInviteWatcher } from "@/components/notifications/live-invite-watcher";
 import { IosInstallPrompt } from "@/components/notifications/ios-install-prompt";
+import { NotificationBell } from "@/components/notifications/notification-bell";
 import { ActivityPinger } from "@/components/analytics/activity-pinger";
 import { AttributionCapture } from "@/components/analytics/attribution";
 import { createClient } from "@/lib/supabase/server";
@@ -197,6 +198,7 @@ export default async function StudentLayout({
                 {xp}
               </span>
             </div>
+            <NotificationBell />
           </div>
         </div>
       </header>
@@ -219,6 +221,9 @@ export default async function StudentLayout({
 
       {/* Main Content */}
       <div className="lg:pl-64">
+        <div className="hidden lg:flex sticky top-0 z-30 h-14 items-center justify-end px-8 bg-white/90 backdrop-blur border-b border-gray-100">
+          <NotificationBell />
+        </div>
         {/* pb-24 for mobile bottom nav + extra for home bar */}
         <main className="min-h-screen p-4 sm:p-6 lg:p-8 pb-28 lg:pb-8">
           {children}
