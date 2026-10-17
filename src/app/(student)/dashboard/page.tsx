@@ -184,7 +184,9 @@ export default async function DashboardPage() {
 
   const { data: languageCourses } = await supabase
     .from("courses")
-    .select("id, title, slug, level, units ( lessons ( id ) )")
+    .select(
+      "id, title, slug, level, units ( order_index, lessons ( id, title, slug, order_index, estimated_minutes ) )"
+    )
     .like("slug", `${userLanguageSlug}-%`)
     .eq("is_published", true)
     .order("level");
@@ -208,6 +210,38 @@ export default async function DashboardPage() {
     })
     // Levels they've started, plus the one they're on now.
     .filter((c) => c.completedLessons > 0 || c.level === String(stats.currentLevel).toUpperCase());
+
+  // "Continue Learning": the course at their current level, and the first
+  // lesson in it they haven't completed. Without this the card fell back to a
+  // hardcoded "Getting Started" at 0%.
+  const completedIds = new Set(
+    (completedLessons || []).map((r: any) => r.lessons?.id).filter(Boolean)
+  );
+  const byOrder = (a: any, b: any) => (a.order_index ?? 0) - (b.order_index ?? 0);
+  const continueSource =
+    (languageCourses || []).find(
+      (c: any) => c.level === String(stats.currentLevel).toUpperCase()
+    ) || (languageCourses || [])[0];
+  const continueCard = courses.find((c) => c.id === continueSource?.slug);
+  let continueCourse: Parameters<typeof ContinueLearning>[0]["course"];
+  if (continueSource && continueCard) {
+    const ordered = [...(continueSource.units || [])]
+      .sort(byOrder)
+      .flatMap((u: any) => [...(u.lessons || [])].sort(byOrder));
+    const next = ordered.find((l: any) => !completedIds.has(l.id));
+    const levelPath = `/learn/${userLanguageSlug}/${continueSource.level.toLowerCase()}`;
+    continueCourse = {
+      id: continueSource.slug,
+      title: continueSource.title,
+      language: languageInfo.name,
+      level: continueSource.level,
+      flag: languageInfo.flag,
+      currentLesson: next ? next.title : "Level complete",
+      progress: continueCard.progress,
+      estimatedMinutes: next?.estimated_minutes || 10,
+      href: next?.slug ? `${levelPath}/${next.slug}` : levelPath,
+    };
+  }
 
   if (courses.length === 0) {
     courses.push({
@@ -447,6 +481,7 @@ export default async function DashboardPage() {
         <div className="lg:col-span-2 space-y-6">
           {/* Continue Learning */}
           <ContinueLearning
+          course={continueCourse}
           userLanguage={userLanguageSlug}
           userLevel={(activeLangData?.placement_level || profile?.placement_test_level || "A1").toLowerCase()}
           />
