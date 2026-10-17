@@ -128,6 +128,7 @@ export default async function DashboardPage() {
         title,
         units:unit_id (
           courses:course_id (
+            id,
             level
           )
         )
@@ -171,31 +172,54 @@ export default async function DashboardPage() {
     currentLevel: activeLangData?.placement_level || profile?.placement_test_level || currentLevel,
   };
 
-  // Dynamic placeholder course based on user's language
-  const placeholderCourses = [
-    {
+  // Course cards come from the published courses for the learner's language,
+  // with progress counted from their completed lessons. Enrollments are never
+  // written, so building the cards from them always fell through to a
+  // placeholder showing 0% however many lessons had been done.
+  const completedByCourse = new Map<string, number>();
+  for (const row of completedLessons || []) {
+    const courseId = (row as any).lessons?.units?.courses?.id;
+    if (courseId) completedByCourse.set(courseId, (completedByCourse.get(courseId) || 0) + 1);
+  }
+
+  const { data: languageCourses } = await supabase
+    .from("courses")
+    .select("id, title, slug, level, units ( lessons ( id ) )")
+    .like("slug", `${userLanguageSlug}-%`)
+    .eq("is_published", true)
+    .order("level");
+
+  const courses = (languageCourses || [])
+    .map((c: any) => {
+      const totalLessons = (c.units || []).reduce(
+        (n: number, u: any) => n + (u.lessons?.length || 0),
+        0
+      );
+      const completed = Math.min(completedByCourse.get(c.id) || 0, totalLessons);
+      return {
+        id: c.slug,
+        title: c.title,
+        flag: languageInfo.flag,
+        level: c.level,
+        progress: totalLessons > 0 ? Math.round((completed / totalLessons) * 100) : 0,
+        totalLessons,
+        completedLessons: completed,
+      };
+    })
+    // Levels they've started, plus the one they're on now.
+    .filter((c) => c.completedLessons > 0 || c.level === String(stats.currentLevel).toUpperCase());
+
+  if (courses.length === 0) {
+    courses.push({
       id: `${userLanguageSlug}-a1`,
       title: `${languageInfo.name} Foundations`,
       flag: languageInfo.flag,
       level: "A1",
       progress: 0,
-      totalLessons: 40,
+      totalLessons: 0,
       completedLessons: 0,
-    },
-  ];
-
-  const courses =
-    enrollments && enrollments.length > 0
-      ? enrollments.map((e) => ({
-          id: e.courses?.slug || "",
-          title: e.courses?.title || "",
-          flag: e.courses?.languages?.flag_emoji || "🌍",
-          level: e.courses?.level || "A1",
-          progress: 0,
-          totalLessons: e.courses?.total_lessons || 0,
-          completedLessons: 0,
-        }))
-      : placeholderCourses;
+    });
+  }
 
   // Per-language placement check — show banner if this language hasn't been tested
   const hasPlacementTest = activeLangData?.placement_taken === true;

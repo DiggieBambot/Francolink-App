@@ -86,12 +86,13 @@ interface Clip {
   source: string;
 }
 
-function push(out: Map<string, Clip>, text: unknown, source: string) {
+function push(out: Map<string, Clip>, text: unknown, source: string, minLen = 3) {
   if (typeof text !== "string") return;
   const t = text.trim();
   // Below three characters there is nothing to hear; above the route's own cap
-  // the request would be rejected anyway.
-  if (t.length < 3 || t.length > 1000) return;
+  // the request would be rejected anyway. Exercises pass minLen 1: a listening
+  // answer like "un" is exactly what the learner has to hear.
+  if (t.length < minLen || t.length > 1000) return;
   if (!out.has(t)) out.set(t, { text: t, source });
 }
 
@@ -108,12 +109,14 @@ async function collectSelf(map: Map<string, Clip>) {
   const { data: units } = await supa.from("units").select("id, course_id");
   const unitIds = (units ?? []).filter((u: any) => courseIds.includes(u.course_id)).map((u: any) => u.id);
 
+  const lessonIds = new Set<string>();
   for (let from = 0; ; from += 200) {
     const { data, error } = await supa.from("lessons").select("id, unit_id, content").range(from, from + 199);
     if (error) throw new Error(error.message);
     if (!data?.length) break;
     for (const l of data) {
       if (!unitIds.includes(l.unit_id)) continue;
+      lessonIds.add(l.id);
       const c: any = l.content ?? {};
       for (const v of c.vocabulary ?? []) {
         push(map, v.term, "vocabulary");
@@ -123,6 +126,36 @@ async function collectSelf(map: Map<string, Clip>) {
       for (const g of c.grammar ?? []) for (const e of g.examples ?? []) push(map, e.original, "grammar example");
     }
     if (data.length < 200) break;
+  }
+
+  // Exercises live in their own table and were never warmed, so every
+  // listening clip went to the paid path on first play. These are the strings
+  // each exercise component hands to the TTS hook.
+  for (let from = 0; ; from += 1000) {
+    const { data, error } = await supa
+      .from("exercises").select("lesson_id, exercise_type, content").range(from, from + 999);
+    if (error) throw new Error(error.message);
+    if (!data?.length) break;
+    for (const e of data) {
+      if (!lessonIds.has(e.lesson_id)) continue;
+      const c: any = e.content ?? {};
+      switch (e.exercise_type) {
+        case "LISTENING":
+          if (c.ttsLang && !String(c.ttsLang).toLowerCase().startsWith(LANG)) break;
+          push(map, c.ttsText ?? c.audioText, "listening", 1);
+          break;
+        case "SPEAK":
+          push(map, c.targetText, "speak", 1);
+          break;
+        case "REORDER":
+          if (Array.isArray(c.correctOrder)) push(map, c.correctOrder.join(" "), "reorder", 1);
+          break;
+        case "TRANSLATION":
+          if (c.direction === "to_target") push(map, c.correctAnswer, "translation", 1);
+          break;
+      }
+    }
+    if (data.length < 1000) break;
   }
 }
 
