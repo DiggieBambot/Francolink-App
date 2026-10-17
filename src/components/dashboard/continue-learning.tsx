@@ -28,6 +28,7 @@ interface ContinueLearningProps {
     currentLesson: string;
     progress: number;
     estimatedMinutes: number;
+    href?: string;
   };
   userLanguage?: string;
   userLevel?: string;
@@ -82,7 +83,7 @@ export function ContinueLearning({
         </div>
 
         <div className="flex flex-col items-center gap-2">
-          <Link href={`/learn/${userLanguage}/${userLevel}`}>
+          <Link href={course?.href || `/learn/${userLanguage}/${userLevel}`}>
             <Button size="lg" className="gap-2">
               <Play className="w-5 h-5" />
               Continue
