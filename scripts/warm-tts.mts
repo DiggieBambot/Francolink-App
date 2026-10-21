@@ -29,7 +29,7 @@ import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { adminClient } from "../src/lib/lessons/worker/process";
-import { TTS_BUCKET, ttsCachePath, voiceFor } from "../src/lib/tts/cache-key";
+import { TTS_BUCKET, legacyTtsCachePath, ttsCachePath, voiceFor } from "../src/lib/tts/cache-key";
 
 // OpenAI returns 24 kHz mono speech at 128 kbps. 48 kbps is indistinguishable
 // for a voice and a third of the size -- and storage is the Supabase quota this
@@ -200,6 +200,44 @@ for (let offset = 0; ; offset += 1000) {
   if (!data?.length) break;
   for (const f of data) existing.add(`${folder}/${f.name}`);
   if (data.length < 1000) break;
+}
+
+// ── long texts cached under the old, truncated key ─────────────────────────
+//
+// Until the key gained a hash, every text was keyed on its first 60 slug
+// characters. A clip under such a key is reusable only if exactly one text
+// maps to it -- otherwise there is no telling which sentence it speaks. That
+// can only be judged against the whole corpus, so it is done with --source all.
+
+const byLegacy = new Map<string, typeof wanted>();
+for (const c of wanted) {
+  const legacy = legacyTtsCachePath(c.text, voice, SPEED, LANG);
+  if (legacy === c.path) continue;
+  byLegacy.set(legacy, [...(byLegacy.get(legacy) ?? []), c]);
+}
+const movable: { from: string; to: string }[] = [];
+let ambiguous = 0;
+for (const [legacy, texts] of byLegacy) {
+  if (!existing.has(legacy)) continue;
+  if (texts.length > 1) { ambiguous++; continue; }
+  if (!existing.has(texts[0].path)) movable.push({ from: legacy, to: texts[0].path });
+}
+
+if (byLegacy.size && SOURCE !== "all") {
+  console.log(`\n(${movable.length} long clips could be moved to their new keys; run with --source all to do it.)`);
+} else if (movable.length || ambiguous) {
+  console.log(`\nLong clips under the old key: ${movable.length} to move, ${ambiguous} shared by several texts (left alone).`);
+  if (LIVE) {
+    let moved = 0;
+    for (const m of movable) {
+      const { error } = await supa.storage.from(TTS_BUCKET).move(m.from, m.to);
+      if (error) console.log(`  MOVE FAIL ${m.from} — ${error.message}`);
+      else { moved++; existing.add(m.to); existing.delete(m.from); }
+    }
+    console.log(`  moved ${moved}`);
+  } else {
+    for (const m of movable) existing.add(m.to); // the dry run counts them as cached
+  }
 }
 
 const missing = wanted.filter((c) => !existing.has(c.path));

@@ -63,5 +63,39 @@ export function asciiSlug(s: string, maxLen: number): string {
  *  regenerated — that account is out of credits — so they must not be served
  *  for these requests. */
 export function ttsCachePath(text: string, voice: string, speed: number, language: string): string {
-  return `${folderFor(language)}/${asciiSlug(text, 60)}_${asciiSlug(voice, 20)}_${speed}-v2.mp3`;
+  return `${folderFor(language)}/${textKey(text)}_${asciiSlug(voice, 20)}_${speed}-v2.mp3`;
+}
+
+const SLUG_LEN = 60;
+
+/** The text part of the key. The slug alone was cut at 60 characters, so two
+ *  long dialogue lines that open the same way shared one clip and a learner
+ *  heard the wrong sentence. A text whose slug runs past 60 now also carries a
+ *  hash of the whole text; shorter texts keep the key they always had, so the
+ *  clips already cached for them stay valid. */
+function textKey(text: string): string {
+  const full = asciiSlug(text, Infinity);
+  if (full.length <= SLUG_LEN) return full;
+  return `${full.slice(0, SLUG_LEN)}-${fnv1a(normalizeText(text))}`;
+}
+
+/** The pre-hash key, for moving clips cached under it. Nothing should serve it. */
+export function legacyTtsCachePath(text: string, voice: string, speed: number, language: string): string {
+  return `${folderFor(language)}/${asciiSlug(text, SLUG_LEN)}_${asciiSlug(voice, 20)}_${speed}-v2.mp3`;
+}
+
+/** Callers trim (or don't) differently; the clip shouldn't depend on it. */
+function normalizeText(text: string): string {
+  return String(text).normalize("NFC").trim().replace(/\s+/g, " ");
+}
+
+/** 32-bit FNV-1a as 8 hex characters. Plain JS rather than node:crypto so the
+ *  mobile app's copy of this file computes the same key. */
+function fnv1a(s: string): string {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 0x01000193);
+  }
+  return (h >>> 0).toString(16).padStart(8, "0");
 }
