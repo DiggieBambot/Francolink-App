@@ -17,8 +17,14 @@ export interface ApplicationTemplate {
   key: string;
   label: string;
   /** Status to move the application to when this reply is sent. */
-  status: "reviewing" | "interviewing" | "rejected";
+  status: "reviewing" | "interviewing" | "accepted" | "rejected";
   body: (c: TemplateContext) => string;
+  /**
+   * Accept the application for real (Admin → Tutors "Accept & invite / list")
+   * instead of only setting the status: creates the account and sends its
+   * invite, or the draft listing for an existing account.
+   */
+  acceptOnSend?: boolean;
 }
 
 export const APPLICATION_TEMPLATES: ApplicationTemplate[] = [
@@ -39,6 +45,36 @@ export const APPLICATION_TEMPLATES: ApplicationTemplate[] = [
         steps,
         "It takes about 10 minutes. Please include your teaching experience, qualifications, the levels you teach and your weekly availability. Once it's in, we'll review it and get back to you within a few days.",
         "We look forward to learning more about you.",
+      ].join("\n\n");
+    },
+  },
+  {
+    key: "accepted",
+    label: "Accepted — complete your public tutor profile",
+    status: "accepted",
+    acceptOnSend: true,
+    body: (c) => {
+      const signIn = c.hasAccount
+        ? "Sign in to FrancoLink with your existing account and you'll see a new \"FrancoLink tutor\" section in your dashboard."
+        : `When you sign in to FrancoLink you'll see a new "FrancoLink tutor" section in your dashboard. If you don't have a FrancoLink account yet, we've sent a separate email to ${c.email} so you can set one up.`;
+      return [
+        "Congratulations — we're delighted to welcome you as a FrancoLink tutor! 🎉",
+        signIn,
+        "The next step is to complete your public profile, which is what students see before booking you:",
+        `${APP_URL}/tutor/public-profile`,
+        [
+          "Please add:",
+          "• A clear, friendly profile photo (face visible, good light)",
+          "• A short intro video (1–2 minutes, YouTube or Vimeo) saying who you are and how you teach",
+          "• A headline and a bio about your teaching style and experience",
+          "• The languages and levels you teach",
+          "• Your qualifications and certifications (title, issuer and year)",
+          "• Your lesson rate",
+        ].join("\n"),
+        `Then set the times you're available to teach each week:\n${APP_URL}/tutor/availability`,
+        "Please also reply to this email with copies of your certificates (PDF or photos), so we can verify them for your profile.",
+        "Once your profile is complete, we'll review it and publish your listing on francolink.net so students can start booking you.",
+        "Welcome aboard — we're excited to have you on the team.",
       ].join("\n\n");
     },
   },
