@@ -69,7 +69,6 @@ export const APPLICATION_TEMPLATES: ApplicationTemplate[] = [
           "• A headline and a bio about your teaching style and experience",
           "• The languages and levels you teach",
           "• Your qualifications and certifications (title, issuer and year)",
-          "• Your lesson rate",
         ].join("\n"),
         `Then set the times you're available to teach each week:\n${APP_URL}/tutor/availability`,
         "Please also reply to this email with copies of your certificates (PDF or photos), so we can verify them for your profile.",
