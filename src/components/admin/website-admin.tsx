@@ -73,6 +73,7 @@ interface ApplicationRow {
   status: string;
   proposed_tier: string | null;
   applicant_user_id?: string | null;
+  created_user_id?: string | null;
   created_at: string;
 }
 
@@ -494,6 +495,8 @@ function ApplicationReply({
   const [templateKey, setTemplateKey] = useState("");
   const template = APPLICATION_TEMPLATES.find((t) => t.key === templateKey);
   const [applyStatus, setApplyStatus] = useState(true);
+  // Same rule as Admin → Tutors: an account was made, or it's marked accepted.
+  const alreadyAccepted = application.status === "accepted" || Boolean(application.created_user_id);
 
   function applyTemplate(key: string) {
     setTemplateKey(key);
@@ -514,6 +517,19 @@ function ApplicationReply({
     setResult(null);
     setFailed(false);
     try {
+      // Accept first, so the account invite this message refers to exists.
+      if (template?.acceptOnSend && applyStatus && !alreadyAccepted) {
+        const acc = await fetch("/api/admin/tutors", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ action: "accept_application", id: application.id }),
+        });
+        if (!acc.ok && acc.status !== 409) {
+          const body = await acc.json().catch(() => ({}));
+          throw new Error(body.error || "Couldn't accept the application, so the message wasn't sent.");
+        }
+      }
+
       const res = await fetch("/api/admin/website", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -523,7 +539,7 @@ function ApplicationReply({
       if (!res.ok) throw new Error(body.error || "That didn't send.");
       // The template's status (e.g. rejected) — after the reply, which itself
       // only nudges "new" to "reviewing".
-      if (template && applyStatus && template.status !== application.status) {
+      if (template && !template.acceptOnSend && applyStatus && template.status !== application.status) {
         await fetch("/api/admin/website", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -584,7 +600,7 @@ function ApplicationReply({
           {sending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
           Send reply
         </button>
-        {template && template.status !== application.status && (
+        {template && !template.acceptOnSend && template.status !== application.status && (
           <label className="inline-flex items-center gap-2 text-sm text-gray-600">
             <input
               type="checkbox"
@@ -592,6 +608,19 @@ function ApplicationReply({
               onChange={(e) => setApplyStatus(e.target.checked)}
             />
             Also mark as <span className="font-semibold">{template.status}</span>
+          </label>
+        )}
+        {template?.acceptOnSend && !alreadyAccepted && (
+          <label className="inline-flex items-center gap-2 text-sm text-gray-600">
+            <input
+              type="checkbox"
+              checked={applyStatus}
+              onChange={(e) => setApplyStatus(e.target.checked)}
+            />
+            Also accept them —{" "}
+            {application.applicant_user_id
+              ? "creates their draft listing"
+              : "creates their tutor account (or promotes an existing one with this email) and sends any invite"}
           </label>
         )}
         {result && (
