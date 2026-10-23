@@ -11,6 +11,7 @@ import {
   Target,
   Award,
 } from "lucide-react";
+import { DEMO_EMAIL_PATTERN } from "@/lib/demo";
 
 export default async function AdminAnalyticsPage() {
   const supabase = await createClient();
@@ -18,12 +19,14 @@ export default async function AdminAnalyticsPage() {
   // Get user stats
   const { count: totalUsers } = await supabase
     .from("users")
-    .select("*", { count: "exact", head: true });
+    .select("*", { count: "exact", head: true })
+    .not("email", "ilike", DEMO_EMAIL_PATTERN);
 
   // Get users by plan
   const { data: usersByPlan } = await supabase
     .from("users")
-    .select("subscription_plan");
+    .select("subscription_plan")
+    .not("email", "ilike", DEMO_EMAIL_PATTERN);
 
   const planCounts = { FREE: 0, PREMIUM: 0, PREMIUM_PLUS: 0 };
   usersByPlan?.forEach((u) => {
@@ -40,7 +43,8 @@ export default async function AdminAnalyticsPage() {
   // Get total XP earned
   const { data: xpData } = await supabase
     .from("users")
-    .select("total_xp");
+    .select("total_xp")
+    .not("email", "ilike", DEMO_EMAIL_PATTERN);
   
   const totalXP = xpData?.reduce((sum, u) => sum + (u.total_xp || 0), 0) || 0;
 
@@ -48,18 +52,21 @@ export default async function AdminAnalyticsPage() {
   const { count: activeStreaks } = await supabase
     .from("users")
     .select("*", { count: "exact", head: true })
+    .not("email", "ilike", DEMO_EMAIL_PATTERN)
     .gt("current_streak", 0);
 
   // Get users who completed placement test
   const { count: placementTestsTaken } = await supabase
     .from("users")
     .select("*", { count: "exact", head: true })
+    .not("email", "ilike", DEMO_EMAIL_PATTERN)
     .eq("placement_test_taken", true);
 
   // Get placement test level distribution
   const { data: levelDistribution } = await supabase
     .from("users")
     .select("placement_test_level")
+    .not("email", "ilike", DEMO_EMAIL_PATTERN)
     .eq("placement_test_taken", true);
 
   const levelCounts: Record<string, number> = {};
@@ -88,12 +95,14 @@ export default async function AdminAnalyticsPage() {
   const { count: recentSignups } = await supabase
     .from("users")
     .select("*", { count: "exact", head: true })
+    .not("email", "ilike", DEMO_EMAIL_PATTERN)
     .gte("created_at", sevenDaysAgo.toISOString());
 
   // Get daily goal stats
   const { data: goalData } = await supabase
     .from("users")
-    .select("daily_goal_minutes");
+    .select("daily_goal_minutes")
+    .not("email", "ilike", DEMO_EMAIL_PATTERN);
 
   const goalDistribution: Record<number, number> = {};
   goalData?.forEach((u) => {

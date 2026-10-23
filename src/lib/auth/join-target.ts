@@ -20,6 +20,7 @@
 // is exactly how the old student-setup route could be pointed at any tutor.
 
 import { createClient } from "@supabase/supabase-js";
+import { isDemoEmail } from "@/lib/demo";
 
 export interface JoinTarget {
   tutorId: string;
@@ -86,7 +87,10 @@ export async function resolveJoinTarget(rawToken: string): Promise<JoinTarget | 
   return bySlug ? shape(bySlug, "directory") : null;
 }
 
-function shape(row: Record<string, unknown>, via: JoinTarget["via"]): JoinTarget {
+function shape(row: Record<string, unknown>, via: JoinTarget["via"]): JoinTarget | null {
+  // The demo tutor's invite link appears on camera in product videos; nobody
+  // watching may attach themselves to it.
+  if (isDemoEmail(row.email as string | null)) return null;
   return {
     tutorId: row.id as string,
     name: (row.name as string) ?? null,
