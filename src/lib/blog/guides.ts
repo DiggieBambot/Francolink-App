@@ -30,6 +30,13 @@ export interface Guide {
   /** URL path under /guides, e.g. "french/grammar". No leading slash. */
   urlPath: string;
   title: string;
+  /**
+   * Short name for breadcrumbs and section navigation, e.g. "Expression écrite".
+   * Falls back to the title. A full SEO title is too long to sit in a crumb.
+   */
+  navTitle: string;
+  /** Position among sibling guides, e.g. the exam's own order of its parts. */
+  order: number;
   description: string;
   /** ISO date of the last meaningful revision. The only date a guide shows. */
   updated: string;
@@ -76,6 +83,11 @@ function parse(file: string, raw: string): Guide {
   return {
     urlPath,
     title: required(data.title, "title", file),
+    navTitle:
+      typeof data.navTitle === "string" && data.navTitle.trim()
+        ? data.navTitle.trim()
+        : required(data.title, "title", file),
+    order: typeof data.order === "number" ? data.order : 0,
     description: required(data.description, "description", file),
     updated: required(data.updated, "updated", file),
     author,
@@ -105,4 +117,12 @@ export function getAllGuides(): Guide[] {
 
 export function getGuide(urlPath: string): Guide | null {
   return getAllGuides().find((g) => g.urlPath === urlPath) ?? null;
+}
+
+/** Guides one level below `urlPath`, e.g. the four parts under "tcf-canada". */
+export function getChildGuides(urlPath: string): Guide[] {
+  const depth = urlPath.split("/").length + 1;
+  return getAllGuides().filter(
+    (g) => g.urlPath.startsWith(`${urlPath}/`) && g.urlPath.split("/").length === depth
+  ).sort((a, b) => a.order - b.order || a.urlPath.localeCompare(b.urlPath));
 }
