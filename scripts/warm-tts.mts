@@ -120,7 +120,9 @@ async function collectSelf(map: Map<string, Clip>) {
       const c: any = l.content ?? {};
       for (const v of c.vocabulary ?? []) {
         push(map, v.term, "vocabulary");
-        push(map, v.exampleSentence, "vocab example");
+        // An object { original, translation } — the card speaks .original.
+        // Passing the object itself was silently skipped by push().
+        push(map, v.exampleSentence?.original ?? v.exampleSentence, "vocab example");
       }
       for (const line of c.dialogue?.lines ?? []) push(map, line.text, "dialogue");
       for (const g of c.grammar ?? []) for (const e of g.examples ?? []) push(map, e.original, "grammar example");
