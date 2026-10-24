@@ -166,6 +166,7 @@
 .fpap .faq-sign{font-family:var(--font-display),Georgia,serif;font-size:1.5rem;color:var(--accent);line-height:1;flex:none;}
 .fpap details[open] .faq-sign{transform:rotate(45deg);}
 .fpap .faq-a{padding:0 0 20px;max-width:62ch;margin:0;}
+.fpap .faq-link{color:var(--navy);font-weight:600;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px;}
 
 .fpap-sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;
   display:flex;align-items:center;justify-content:space-between;gap:14px;
