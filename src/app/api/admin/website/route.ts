@@ -12,6 +12,7 @@ import { getDashboardUser, isAdmin } from "@/lib/admin/access";
 import { notifyUser } from "@/lib/notifications/create";
 import { sendTransactionalEmail, firstNameOf } from "@/lib/email/transactional";
 import { emailShell, escapeHtml, APP_URL } from "@/lib/email/shell";
+import { acceptApplication } from "@/lib/tutors/accept";
 
 export const runtime = "nodejs";
 
@@ -155,7 +156,29 @@ export async function POST(request: Request) {
       ({ error } = await db.from("site_faqs").delete().eq("id", input.id));
       break;
 
-    case "set_application_status":
+    case "set_application_status": {
+      // "accepted" is not just a label: it has to create the tutor's account
+      // and draft listing and tell them what to do, or they're left stranded.
+      if (input.status === "accepted") {
+        const { data: app } = await db
+          .from("tutor_applications")
+          .select("created_user_id")
+          .eq("id", input.id)
+          .maybeSingle();
+        if (app && !app.created_user_id) {
+          if (input.proposed_tier) {
+            await db
+              .from("tutor_applications")
+              .update({ proposed_tier: input.proposed_tier })
+              .eq("id", input.id);
+          }
+          const result = await acceptApplication(db, input.id);
+          if ("error" in result) {
+            return NextResponse.json({ error: result.error }, { status: result.status });
+          }
+          return NextResponse.json({ ok: true, message: result.message });
+        }
+      }
       ({ error } = await db
         .from("tutor_applications")
         .update({
@@ -167,6 +190,7 @@ export async function POST(request: Request) {
         })
         .eq("id", input.id));
       break;
+    }
 
     case "set_message_status":
       ({ error } = await db
