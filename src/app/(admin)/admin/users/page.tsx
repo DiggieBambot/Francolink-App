@@ -2,6 +2,12 @@
 
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
+import {
+  ACQUISITION_SOURCES,
+  sourceDetail,
+  sourceLabel,
+  sourceStyle,
+} from "@/lib/admin/acquisition";
 import { 
   Users, 
   Crown, 
@@ -14,6 +20,7 @@ import {
   Zap,
   Flame
 } from "lucide-react";
+import { DEMO_EMAIL_PATTERN } from "@/lib/demo";
 
 interface PageProps {
   searchParams: Promise<{
@@ -21,6 +28,7 @@ interface PageProps {
     search?: string;
     plan?: string;
     role?: string;
+    source?: string;
   }>;
 }
 
@@ -32,6 +40,7 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
   const search = params.search || "";
   const planFilter = params.plan || "";
   const roleFilter = params.role || "";
+  const sourceFilter = params.source || "";
   const perPage = 20;
   const offset = (page - 1) * perPage;
 
@@ -59,7 +68,27 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
   else if (roleFilter === "admin") query = query.eq("role", "ADMIN");
   else if (roleFilter === "community_manager") query = query.eq("role", "COMMUNITY_MANAGER");
 
+  // Acquisition filter. "tutor" isn't a signup_source bucket — it's the
+  // referral subset we can attribute to a specific tutor.
+  if (sourceFilter === "tutor") query = query.not("referred_by_tutor_id", "is", null);
+  else if (sourceFilter === "unknown") query = query.is("signup_source", null);
+  else if (sourceFilter) query = query.eq("signup_source", sourceFilter);
+
   const { data: users, count, error } = await query;
+
+  // Name the referring tutors for this page of rows in one read rather than
+  // one per user.
+  const referrerIds = Array.from(
+    new Set((users ?? []).map((u) => u.referred_by_tutor_id).filter(Boolean))
+  ) as string[];
+  const tutorNames = new Map<string, string>();
+  if (referrerIds.length > 0) {
+    const { data: tutorRows } = await supabase
+      .from("users")
+      .select("id, name, email")
+      .in("id", referrerIds);
+    for (const t of tutorRows ?? []) tutorNames.set(t.id, t.name || t.email);
+  }
 
   const totalPages = Math.ceil((count || 0) / perPage);
 
@@ -67,6 +96,7 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
   const { data: planStats } = await supabase
     .from("users")
     .select("subscription_plan")
+    .not("email", "ilike", DEMO_EMAIL_PATTERN)
     .then(({ data }) => {
       const stats = { FREE: 0, PREMIUM: 0, PREMIUM_PLUS: 0 };
       data?.forEach((u) => {
@@ -224,6 +254,22 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
             <option value="community_manager">Community Mgr</option>
           </select>
 
+          {/* Acquisition Filter */}
+          <select
+            name="source"
+            defaultValue={sourceFilter}
+            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+          >
+            <option value="">All Sources</option>
+            <option value="tutor">Referred by a tutor</option>
+            {ACQUISITION_SOURCES.map((s) => (
+              <option key={s} value={s}>
+                {sourceLabel(s)}
+              </option>
+            ))}
+            <option value="unknown">Unknown</option>
+          </select>
+
           {/* Plan Filter */}
           <select
             name="plan"
@@ -245,7 +291,7 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
           </button>
 
           {/* Clear */}
-          {(search || planFilter || roleFilter) && (
+          {(search || planFilter || roleFilter || sourceFilter) && (
             <Link
               href="/admin/users"
               className="px-6 py-2 bg-gray-100 text-gray-700 font-medium rounded-lg hover:bg-gray-200 transition-colors"
@@ -270,6 +316,9 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
                 </th>
                 <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900">
                   Plan
+                </th>
+                <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900">
+                  Came from
                 </th>
                 <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900">
                   Stats
@@ -323,6 +372,40 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
                     )}
                   </td>
                   <td className="px-6 py-4">
+                    <span
+                      className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${sourceStyle(
+                        user.referred_by_tutor_id ? "referral" : user.signup_source
+                      )}`}
+                    >
+                      {user.referred_by_tutor_id
+                        ? "Referral"
+                        : sourceLabel(user.signup_source)}
+                    </span>
+                    {(() => {
+                      const detail = sourceDetail(
+                        user,
+                        tutorNames.get(user.referred_by_tutor_id || "")
+                      );
+                      if (!detail) return null;
+                      return user.referred_by_tutor_id ? (
+                        <Link
+                          href={`/admin/tutors/${user.referred_by_tutor_id}/students`}
+                          className="block mt-1 text-xs text-indigo-600 hover:text-indigo-800 truncate max-w-[160px]"
+                          title={detail}
+                        >
+                          {detail}
+                        </Link>
+                      ) : (
+                        <p
+                          className="mt-1 text-xs text-gray-500 truncate max-w-[160px]"
+                          title={detail}
+                        >
+                          {detail}
+                        </p>
+                      );
+                    })()}
+                  </td>
+                  <td className="px-6 py-4">
                     <div className="flex items-center gap-4 text-sm">
                       <span className="flex items-center gap-1 text-orange-600">
                         <Flame className="w-4 h-4" />
@@ -353,7 +436,7 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
 
               {(!users || users.length === 0) && (
                 <tr>
-                  <td colSpan={6} className="px-6 py-12 text-center">
+                  <td colSpan={7} className="px-6 py-12 text-center">
                     <Users className="w-12 h-12 text-gray-300 mx-auto mb-4" />
                     <p className="text-gray-500">No users found</p>
                   </td>
@@ -372,7 +455,7 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
             </p>
             <div className="flex items-center gap-2">
               <Link
-                href={`/admin/users?page=${page - 1}${search ? `&search=${search}` : ""}${planFilter ? `&plan=${planFilter}` : ""}${roleFilter ? `&role=${roleFilter}` : ""}`}
+                href={`/admin/users?page=${page - 1}${search ? `&search=${search}` : ""}${planFilter ? `&plan=${planFilter}` : ""}${roleFilter ? `&role=${roleFilter}` : ""}${sourceFilter ? `&source=${sourceFilter}` : ""}`}
                 className={`p-2 rounded-lg border ${
                   page <= 1
                     ? "border-gray-200 text-gray-300 pointer-events-none"
@@ -385,7 +468,7 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
                 Page {page} of {totalPages}
               </span>
               <Link
-                href={`/admin/users?page=${page + 1}${search ? `&search=${search}` : ""}${planFilter ? `&plan=${planFilter}` : ""}${roleFilter ? `&role=${roleFilter}` : ""}`}
+                href={`/admin/users?page=${page + 1}${search ? `&search=${search}` : ""}${planFilter ? `&plan=${planFilter}` : ""}${roleFilter ? `&role=${roleFilter}` : ""}${sourceFilter ? `&source=${sourceFilter}` : ""}`}
                 className={`p-2 rounded-lg border ${
                   page >= totalPages
                     ? "border-gray-200 text-gray-300 pointer-events-none"

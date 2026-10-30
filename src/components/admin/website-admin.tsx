@@ -356,6 +356,8 @@ function ApplicationsTab({
   busy: string | null;
   act: Act;
 }) {
+  const [replying, setReplying] = useState<string | null>(null);
+
   if (applications.length === 0) {
     return <Empty>No applications yet. The form is live at /teach.</Empty>;
   }
@@ -452,17 +454,98 @@ function ApplicationsTab({
                 <option value="professional">Professional</option>
               </select>
 
-              <a
-                href={`mailto:${a.email}?subject=${encodeURIComponent("Your FrancoLink teaching application")}`}
+              <button
+                type="button"
+                onClick={() => setReplying(replying === a.id ? null : a.id)}
                 className="px-3 py-2.5 rounded-xl border border-gray-200 text-sm font-semibold text-primary text-center"
               >
-                Reply
-              </a>
+                {replying === a.id ? "Close" : "Reply"}
+              </button>
             </div>
           </div>
+          {replying === a.id && (
+            <ApplicationReply
+              application={a}
+              onSent={() => setReplying(null)}
+            />
+          )}
         </li>
       ))}
     </ul>
+  );
+}
+
+/** Write back to an applicant: lands in their bell (if they have an account)
+ *  and their inbox. */
+function ApplicationReply({
+  application,
+  onSent,
+}: {
+  application: ApplicationRow;
+  onSent: () => void;
+}) {
+  const router = useRouter();
+  const [message, setMessage] = useState("");
+  const [sending, setSending] = useState(false);
+  const [result, setResult] = useState<string | null>(null);
+  const [failed, setFailed] = useState(false);
+
+  async function send() {
+    setSending(true);
+    setResult(null);
+    setFailed(false);
+    try {
+      const res = await fetch("/api/admin/website", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "reply_application", id: application.id, message }),
+      });
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(body.error || "That didn't send.");
+      setMessage("");
+      setResult(
+        body.notified
+          ? "Sent — emailed and added to their notifications."
+          : "Emailed. No FrancoLink account matches this email yet, so there's no in-app notification."
+      );
+      router.refresh();
+      setTimeout(onSent, 2500);
+    } catch (err) {
+      setFailed(true);
+      setResult(err instanceof Error ? err.message : "That didn't send.");
+    } finally {
+      setSending(false);
+    }
+  }
+
+  return (
+    <div className="mt-4 border-t border-gray-200 pt-4">
+      <label className="block text-sm font-semibold text-gray-700 mb-2">
+        Reply to {application.full_name}
+      </label>
+      <textarea
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        rows={5}
+        maxLength={5000}
+        placeholder="Write your reply… It goes to their email and, if they have an account, their notification bell."
+        className="w-full px-3 py-2.5 rounded-xl border border-gray-200 bg-white text-sm"
+      />
+      <div className="mt-2 flex flex-wrap items-center gap-3">
+        <button
+          type="button"
+          onClick={send}
+          disabled={sending || !message.trim()}
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-white text-sm font-bold disabled:opacity-60"
+        >
+          {sending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
+          Send reply
+        </button>
+        {result && (
+          <p className={cn("text-sm", failed ? "text-red-600" : "text-green-700")}>{result}</p>
+        )}
+      </div>
+    </div>
   );
 }
 
