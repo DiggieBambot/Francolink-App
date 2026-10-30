@@ -283,7 +283,15 @@ function TutorsTable({
                     )}
                   </td>
 
-                  <td className="px-4 py-3 text-center tabular-nums">{t.students}</td>
+                  <td className="px-4 py-3 text-center tabular-nums">
+                    <Link
+                      href={`/admin/tutors/${t.id}/students`}
+                      className="text-primary hover:underline"
+                      title="See who is learning under this tutor"
+                    >
+                      {t.students}
+                    </Link>
+                  </td>
                   <td className="px-4 py-3 text-center tabular-nums">{t.rooms}</td>
                   <td className="px-4 py-3 text-center tabular-nums">{t.homework}</td>
                   <td className="px-4 py-3 text-xs text-gray-500 whitespace-nowrap">

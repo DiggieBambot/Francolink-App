@@ -17,6 +17,7 @@ import {
   CreditCard,
 } from "lucide-react";
 import { UserActions } from "./user-actions";
+import { sourceLabel, sourceStyle } from "@/lib/admin/acquisition";
 
 interface PageProps {
   params: Promise<{
@@ -71,6 +72,27 @@ export default async function AdminUserDetailPage({ params }: PageProps) {
       )
     `)
     .eq("user_id", id);
+
+  // Who referred them, if a tutor did. Worth its own read: this is the first
+  // thing anyone asks when a student looks unfamiliar.
+  let referringTutor: { id: string; name: string | null; email: string } | null = null;
+  if (user.referred_by_tutor_id) {
+    const { data } = await supabase
+      .from("users")
+      .select("id, name, email")
+      .eq("id", user.referred_by_tutor_id)
+      .maybeSingle();
+    referringTutor = data ?? null;
+  }
+
+  const utm: [string, string | null][] = [
+    ["Source", user.utm_source],
+    ["Medium", user.utm_medium],
+    ["Campaign", user.utm_campaign],
+    ["Term", user.utm_term],
+    ["Content", user.utm_content],
+  ];
+  const hasUtm = utm.some(([, v]) => v);
 
   const formatDate = (date: string | null) => {
     if (!date) return "N/A";
@@ -229,6 +251,72 @@ export default async function AdminUserDetailPage({ params }: PageProps) {
                 <p className="text-gray-900">{user.native_language || "English"}</p>
               </div>
             </div>
+          </div>
+
+          {/* Acquisition */}
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">
+              Where they came from
+            </h2>
+
+            <div className="flex flex-wrap items-center gap-3 mb-4">
+              <span
+                className={`inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium ${sourceStyle(
+                  referringTutor ? "referral" : user.signup_source
+                )}`}
+              >
+                {referringTutor ? "Referral" : sourceLabel(user.signup_source)}
+              </span>
+              {referringTutor && (
+                <span className="text-sm text-gray-600">
+                  referred by{" "}
+                  <Link
+                    href={`/admin/tutors/${referringTutor.id}/students`}
+                    className="font-medium text-indigo-600 hover:text-indigo-800"
+                  >
+                    {referringTutor.name || referringTutor.email}
+                  </Link>
+                </span>
+              )}
+            </div>
+
+            {!referringTutor && !user.signup_source && (
+              <p className="text-sm text-gray-500">
+                No first-touch attribution was recorded for this account — it
+                predates tracking, or the landing cookie was missing at signup.
+              </p>
+            )}
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <p className="text-sm text-gray-500">Landing page</p>
+                <p className="text-gray-900 font-mono text-sm break-all">
+                  {user.landing_path || "—"}
+                </p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Referring site</p>
+                <p className="text-gray-900 font-mono text-sm break-all">
+                  {user.referrer_host || "—"}
+                </p>
+              </div>
+            </div>
+
+            {hasUtm && (
+              <div className="mt-4 pt-4 border-t border-gray-100">
+                <p className="text-sm font-medium text-gray-700 mb-2">Campaign tags</p>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                  {utm.map(([label, value]) =>
+                    value ? (
+                      <div key={label}>
+                        <p className="text-xs text-gray-500">utm_{label.toLowerCase()}</p>
+                        <p className="text-sm text-gray-900 break-all">{value}</p>
+                      </div>
+                    ) : null
+                  )}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Placement Test */}

@@ -24,8 +24,43 @@
 import { config } from "dotenv";
 config({ path: ".env.local" });
 
+import { execFileSync } from "node:child_process";
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { adminClient } from "../src/lib/lessons/worker/process";
-import { TTS_BUCKET, ttsCachePath, voiceFor } from "../src/lib/tts/cache-key";
+import { TTS_BUCKET, legacyTtsCachePath, ttsCachePath, voiceFor } from "../src/lib/tts/cache-key";
+
+// OpenAI returns 24 kHz mono speech at 128 kbps. 48 kbps is indistinguishable
+// for a voice and a third of the size -- and storage is the Supabase quota this
+// bucket blew through (Oct 2026, 1.4 GB on a 1 GB plan). Shrunk with ffmpeg
+// when it is installed; without it the clip is stored as delivered.
+const HAS_FFMPEG = (() => {
+  try {
+    execFileSync("ffmpeg", ["-version"], { stdio: "ignore" });
+    return true;
+  } catch {
+    return false;
+  }
+})();
+if (!HAS_FFMPEG) console.warn("ffmpeg not found: clips will be stored at 128 kbps (brew install ffmpeg).");
+
+function shrink(mp3: Buffer): Buffer {
+  if (!HAS_FFMPEG) return mp3;
+  const dir = mkdtempSync(join(tmpdir(), "warm-tts-"));
+  try {
+    writeFileSync(join(dir, "in.mp3"), mp3);
+    execFileSync("ffmpeg", ["-hide_banner", "-loglevel", "error", "-y", "-i", join(dir, "in.mp3"),
+      "-map_metadata", "-1", "-ac", "1", "-ar", "24000", "-c:a", "libmp3lame", "-b:a", "48k",
+      "-f", "mp3", join(dir, "out.mp3")]);
+    const out = readFileSync(join(dir, "out.mp3"));
+    return out.length > 0 && out.length < mp3.length ? out : mp3;
+  } catch {
+    return mp3;
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+}
 
 const argv = process.argv.slice(2);
 const has = (f: string) => argv.includes(f);
@@ -51,12 +86,13 @@ interface Clip {
   source: string;
 }
 
-function push(out: Map<string, Clip>, text: unknown, source: string) {
+function push(out: Map<string, Clip>, text: unknown, source: string, minLen = 3) {
   if (typeof text !== "string") return;
   const t = text.trim();
   // Below three characters there is nothing to hear; above the route's own cap
-  // the request would be rejected anyway.
-  if (t.length < 3 || t.length > 1000) return;
+  // the request would be rejected anyway. Exercises pass minLen 1: a listening
+  // answer like "un" is exactly what the learner has to hear.
+  if (t.length < minLen || t.length > 1000) return;
   if (!out.has(t)) out.set(t, { text: t, source });
 }
 
@@ -73,21 +109,55 @@ async function collectSelf(map: Map<string, Clip>) {
   const { data: units } = await supa.from("units").select("id, course_id");
   const unitIds = (units ?? []).filter((u: any) => courseIds.includes(u.course_id)).map((u: any) => u.id);
 
+  const lessonIds = new Set<string>();
   for (let from = 0; ; from += 200) {
     const { data, error } = await supa.from("lessons").select("id, unit_id, content").range(from, from + 199);
     if (error) throw new Error(error.message);
     if (!data?.length) break;
     for (const l of data) {
       if (!unitIds.includes(l.unit_id)) continue;
+      lessonIds.add(l.id);
       const c: any = l.content ?? {};
       for (const v of c.vocabulary ?? []) {
         push(map, v.term, "vocabulary");
-        push(map, v.exampleSentence, "vocab example");
+        // An object { original, translation } — the card speaks .original.
+        // Passing the object itself was silently skipped by push().
+        push(map, v.exampleSentence?.original ?? v.exampleSentence, "vocab example");
       }
       for (const line of c.dialogue?.lines ?? []) push(map, line.text, "dialogue");
       for (const g of c.grammar ?? []) for (const e of g.examples ?? []) push(map, e.original, "grammar example");
     }
     if (data.length < 200) break;
+  }
+
+  // Exercises live in their own table and were never warmed, so every
+  // listening clip went to the paid path on first play. These are the strings
+  // each exercise component hands to the TTS hook.
+  for (let from = 0; ; from += 1000) {
+    const { data, error } = await supa
+      .from("exercises").select("lesson_id, exercise_type, content").range(from, from + 999);
+    if (error) throw new Error(error.message);
+    if (!data?.length) break;
+    for (const e of data) {
+      if (!lessonIds.has(e.lesson_id)) continue;
+      const c: any = e.content ?? {};
+      switch (e.exercise_type) {
+        case "LISTENING":
+          if (c.ttsLang && !String(c.ttsLang).toLowerCase().startsWith(LANG)) break;
+          push(map, c.ttsText ?? c.audioText, "listening", 1);
+          break;
+        case "SPEAK":
+          push(map, c.targetText, "speak", 1);
+          break;
+        case "REORDER":
+          if (Array.isArray(c.correctOrder)) push(map, c.correctOrder.join(" "), "reorder", 1);
+          break;
+        case "TRANSLATION":
+          if (c.direction === "to_target") push(map, c.correctAnswer, "translation", 1);
+          break;
+      }
+    }
+    if (data.length < 1000) break;
   }
 }
 
@@ -132,6 +202,44 @@ for (let offset = 0; ; offset += 1000) {
   if (!data?.length) break;
   for (const f of data) existing.add(`${folder}/${f.name}`);
   if (data.length < 1000) break;
+}
+
+// ── long texts cached under the old, truncated key ─────────────────────────
+//
+// Until the key gained a hash, every text was keyed on its first 60 slug
+// characters. A clip under such a key is reusable only if exactly one text
+// maps to it -- otherwise there is no telling which sentence it speaks. That
+// can only be judged against the whole corpus, so it is done with --source all.
+
+const byLegacy = new Map<string, typeof wanted>();
+for (const c of wanted) {
+  const legacy = legacyTtsCachePath(c.text, voice, SPEED, LANG);
+  if (legacy === c.path) continue;
+  byLegacy.set(legacy, [...(byLegacy.get(legacy) ?? []), c]);
+}
+const movable: { from: string; to: string }[] = [];
+let ambiguous = 0;
+for (const [legacy, texts] of byLegacy) {
+  if (!existing.has(legacy)) continue;
+  if (texts.length > 1) { ambiguous++; continue; }
+  if (!existing.has(texts[0].path)) movable.push({ from: legacy, to: texts[0].path });
+}
+
+if (byLegacy.size && SOURCE !== "all") {
+  console.log(`\n(${movable.length} long clips could be moved to their new keys; run with --source all to do it.)`);
+} else if (movable.length || ambiguous) {
+  console.log(`\nLong clips under the old key: ${movable.length} to move, ${ambiguous} shared by several texts (left alone).`);
+  if (LIVE) {
+    let moved = 0;
+    for (const m of movable) {
+      const { error } = await supa.storage.from(TTS_BUCKET).move(m.from, m.to);
+      if (error) console.log(`  MOVE FAIL ${m.from} — ${error.message}`);
+      else { moved++; existing.add(m.to); existing.delete(m.from); }
+    }
+    console.log(`  moved ${moved}`);
+  } else {
+    for (const m of movable) existing.add(m.to); // the dry run counts them as cached
+  }
 }
 
 const missing = wanted.filter((c) => !existing.has(c.path));
@@ -211,7 +319,7 @@ async function warmOne(clip: (typeof batch)[number]) {
       if (!r.ok) throw new Error(`HTTP ${r.status} ${(await r.text()).slice(0, 90)}`);
       return r;
     });
-    const buf = Buffer.from(await res.arrayBuffer());
+    const buf = shrink(Buffer.from(await res.arrayBuffer()));
 
     await withRetry(async () => {
       const { error } = await supa.storage

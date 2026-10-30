@@ -4,7 +4,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { createClient } from "@/lib/supabase/client";
+import { createClient as createImplicitClient } from "@supabase/supabase-js";
 import { Button, Card, Input } from "@/components/ui";
 import { useTurnstile } from "@/components/auth/turnstile";
 import { Mail, ArrowLeft, Loader2, CheckCircle } from "lucide-react";
@@ -28,7 +28,16 @@ export default function ForgotPasswordPage() {
     }
 
     try {
-      const supabase = createClient();
+      // Implicit flow, not the app client's PKCE. A PKCE link only works in the
+      // browser that asked for it (the code verifier is a cookie there), so a
+      // reset requested on a laptop and opened on a phone — or in Gmail's
+      // in-app browser — always landed on "Invalid or Expired Link". The
+      // implicit link carries the session itself and works on any device.
+      const supabase = createImplicitClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+        { auth: { flowType: "implicit", persistSession: false, detectSessionInUrl: false } }
+      );
 
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
         redirectTo: `${window.location.origin}/reset-password`,

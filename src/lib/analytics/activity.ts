@@ -35,10 +35,13 @@ export type ActivityKind =
   | "workbook_section_opened"
   | "workbook_exercise_attempted"
   | "workbook_exercise_completed"
-  // Review prompt (two-step in-app ask). One event per user, tagged with which
-  // branch they took, so the positive:negative ratio is readable without
-  // querying the state table.
-  | "review_prompt_answered";
+  // Review prompt (web card). One event per answer, tagged with what they did
+  // (Trustpilot, private feedback, snooze, dismiss), so the mix is readable
+  // without querying the state table.
+  | "review_prompt_answered"
+  // The mobile app handed a review request to the Play Store sheet. Whether
+  // the sheet actually appeared is the store's secret.
+  | "store_review_requested";
 
 // Events that other modules (games, homework, onboarding) may emit through the
 // client emitter at /api/activity/event. Keep this list in sync with the route's
