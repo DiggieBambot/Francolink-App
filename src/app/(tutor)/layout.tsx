@@ -89,24 +89,25 @@ export default async function TutorLayout({
         { name: "Schedule", href: "/tutor/schedule", icon: "Calendar" },
       ],
     },
-    isFrancolinkTutor
-      ? {
-          label: "FrancoLink tutor",
-          items: [
-            { name: "Public profile", href: "/tutor/public-profile", icon: "Globe" },
-            { name: "Availability", href: "/tutor/availability", icon: "CalendarClock" },
-          ],
-        }
-      : {
-          label: "Earning opportunity",
-          items: [
-            {
-              name: applicationOpen ? "Application pending" : "Become a FrancoLink tutor",
-              href: "/tutor/apply",
-              icon: "Sparkles",
-            },
-          ],
-        },
+    // Public profile is always listed: the sidebar is a layout, which Next
+    // doesn't re-render on client navigation, so it can lag behind an
+    // acceptance. The editor itself shows "apply first" to non-members.
+    {
+      label: isFrancolinkTutor ? "FrancoLink tutor" : "Earning opportunity",
+      items: [
+        ...(isFrancolinkTutor
+          ? []
+          : [
+              {
+                name: applicationOpen ? "Application pending" : "Become a FrancoLink tutor",
+                href: "/tutor/apply",
+                icon: "Sparkles",
+              },
+            ]),
+        { name: "Public profile", href: "/tutor/public-profile", icon: "Globe" },
+        { name: "Availability", href: "/tutor/availability", icon: "CalendarClock" },
+      ],
+    },
     {
       label: "Account",
       items: [

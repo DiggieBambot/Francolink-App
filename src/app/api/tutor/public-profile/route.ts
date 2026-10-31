@@ -171,21 +171,26 @@ export async function POST(request: Request) {
     targetName = target.name ?? "";
   }
 
-  // Only an admin can decide a profile is approved. A tutor's own save always
-  // re-enters the queue, so they can't pass review and then swap the content.
-  const approvalStatus =
-    callerRole === "ADMIN" && input.approve ? "approved" : "pending";
-
   // Reads and writes of the profile row itself go through `db`; `supabase`
   // stays user-scoped for anything about the caller.
   const db = editingSomeoneElse ? serviceClient() : supabase;
 
-
   const { data: existing } = await db
     .from("tutor_public_profiles")
-    .select("slug")
+    .select("slug, approval_status")
     .eq("user_id", targetId)
     .maybeSingle();
+
+  // Only an admin can decide a profile is approved. A tutor's own save always
+  // re-enters the queue, so they can't pass review and then swap the content.
+  // An admin saving without ticking "Approve" keeps the current decision —
+  // fixing a typo shouldn't quietly take a live tutor off the site.
+  const approvalStatus =
+    callerRole === "ADMIN" && input.approve
+      ? "approved"
+      : editingSomeoneElse && existing?.approval_status
+        ? existing.approval_status
+        : "pending";
 
   // Slug is assigned once and never changes — inbound links must keep working.
   let slug = existing?.slug;
@@ -226,6 +231,10 @@ export async function POST(request: Request) {
         ...(callerRole === "ADMIN" && input.tier ? { tier: input.tier } : {}),
         ...(callerRole === "ADMIN" && input.accepts_bookings !== undefined
           ? { accepts_bookings: input.accepts_bookings }
+          : {}),
+        // Approving puts them live, which the public pages gate on bookings too.
+        ...(approvalStatus === "approved" && callerRole === "ADMIN" && input.approve
+          ? { accepts_bookings: true }
           : {}),
         is_public: input.is_public,
         approval_status: approvalStatus,

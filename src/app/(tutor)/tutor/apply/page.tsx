@@ -48,6 +48,10 @@ export default async function TutorApplyPage() {
     .eq("user_id", user.id)
     .maybeSingle();
 
+  // A profile row only exists once they've been accepted, so the next step is
+  // the profile editor, not this form.
+  if (profile) redirect("/tutor/public-profile");
+
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
       <Link
