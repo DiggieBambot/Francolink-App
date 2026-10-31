@@ -1,6 +1,7 @@
 import { UpcomingClasses } from "@/components/dashboard/upcoming-classes";
 import { getUpcomingClasses } from "@/lib/booking/upcoming";
 import { createClient } from "@/lib/supabase/server";
+import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import {
@@ -54,13 +55,26 @@ export default async function TutorDashboardPage() {
     .reduce((s, r) => s + parseFloat(String(r.amount || 0)), 0);
   const balance = parseFloat(String(me?.commission_balance || "0"));
 
-  // Recent lesson spaces.
+  // Recent lesson spaces. student_id references auth.users, so PostgREST can't
+  // embed public.users through it (the embed fails the whole query); names are
+  // looked up separately. Cross-user reads need the service client (RLS blocks
+  // a tutor from selecting a student's row).
   const { data: spaces } = await supabase
     .from("tutor_lesson_sessions")
-    .select("id, student_id, tutor_lesson_id, updated_at, users:student_id(name, email), tutor_lessons:tutor_lesson_id(title)")
+    .select("id, student_id, tutor_lesson_id, title, updated_at, tutor_lessons:tutor_lesson_id(title)")
     .eq("tutor_id", user.id)
     .order("updated_at", { ascending: false })
     .limit(5);
+  const spaceStudentIds = [...new Set((spaces || []).map((sp) => sp.student_id).filter(Boolean))];
+  const { data: spaceStudents } = spaceStudentIds.length
+    ? await createServiceClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!, {
+        auth: { persistSession: false },
+      })
+        .from("users")
+        .select("id, name, email")
+        .in("id", spaceStudentIds)
+    : { data: [] };
+  const studentById = new Map((spaceStudents || []).map((s) => [s.id, s]));
 
   // Is this tutor already a FrancoLink tutor (listed and paid by us), or have
   // they applied? Drives the banner below — distinct from simply having a
@@ -329,13 +343,13 @@ export default async function TutorDashboardPage() {
         {spaces && spaces.length > 0 ? (
           <ul className="divide-y">
             {spaces.map((sp) => {
-              const u = sp.users as unknown as { name?: string; email?: string } | null;
+              const u = studentById.get(sp.student_id);
               const l = sp.tutor_lessons as unknown as { title?: string } | null;
               return (
                 <li key={sp.id} className="flex items-center justify-between py-2.5">
                   <div>
                     <div className="text-sm font-medium text-slate-900">{u?.name || u?.email || "Student"}</div>
-                    <div className="text-xs text-slate-500">{l?.title || "No lesson yet"}</div>
+                    <div className="text-xs text-slate-500">{l?.title || sp.title || "No lesson yet"}</div>
                   </div>
                   <Link href={`/room/${sp.id}`} className="inline-flex items-center gap-1 rounded-lg bg-primary-50 px-3 py-1.5 text-xs font-semibold text-primary-700 hover:bg-primary-100">
                     Open <ArrowRight className="h-3 w-3" />
