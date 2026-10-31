@@ -111,6 +111,9 @@ export async function POST(request: Request) {
         .update({
           approval_status: input.decision,
           rejection_reason: input.decision === "rejected" ? (input.reason ?? null) : null,
+          // Approving means "put them live": the public pages also require
+          // accepts_bookings, and nothing else on this screen turns it on.
+          ...(input.decision === "approved" ? { accepts_bookings: true } : {}),
         })
         .eq("user_id", input.user_id));
       break;

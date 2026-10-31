@@ -149,7 +149,9 @@ export default async function TutorDashboardPage() {
       {/* Where they stand on the pay ladder. Listed tutors only. */}
       {standing && <TutorLadderCard standing={standing} />}
 
-      {/* Already a FrancoLink tutor but not live: send them to the editor. */}
+      {/* Already a FrancoLink tutor but not live: send them to the editor.
+          A plain <a> on purpose — tutors reported the client-side Link doing
+          nothing here, and a full navigation always lands. */}
       {!isListed && isMember && (
         <div className="rounded-2xl border border-primary-200 bg-gradient-to-br from-primary-50 to-white p-5">
           <div className="flex flex-wrap items-center justify-between gap-4">
@@ -179,13 +181,14 @@ export default async function TutorDashboardPage() {
                       : "Thanks — our team is checking it. We'll email you once it's live. You can keep editing in the meantime."}
               </p>
             </div>
-            <Link
+            {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- full navigation on purpose, see above */}
+            <a
               href="/tutor/public-profile"
               className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-white hover:bg-primary-800"
             >
               {profileMissing.length > 0 ? "Complete profile" : "Edit profile"}
               <ArrowRight className="h-4 w-4" />
-            </Link>
+            </a>
           </div>
         </div>
       )}
