@@ -109,7 +109,7 @@ export default async function RootLayout({
         />
       </head>
       <body className={`${roboto.variable} ${mulish.variable} font-body`}>
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || "G-YLH30JTCQT"} />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || "G-QQ2955618D"} />
         <AttributionCookie />
         <ServiceWorkerRegistrar />
         <PWAInstallPrompt />
