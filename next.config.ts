@@ -47,6 +47,13 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  // People say "teachers"; the listing lives at /tutors.
+  async redirects() {
+    return [
+      { source: "/teachers", destination: "/tutors", permanent: true },
+      { source: "/teachers/:path*", destination: "/tutors/:path*", permanent: true },
+    ];
+  },
   turbopack: {
     root: process.cwd(),
   },

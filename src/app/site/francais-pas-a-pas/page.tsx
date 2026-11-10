@@ -414,12 +414,13 @@ export default function Page() {
       <section id="buy" className="sec sec-navy sec-pad">
         <div className="wrap max-3 center">
           <h2 className="h2 h2-light">
-            One tutor lesson is $18. This is the whole grammar of French, for $27.
+            One tutor lesson is about $20. This is the whole grammar of French, for $27.
           </h2>
           <ul className="stack">
             {STACK.map((s) => <li key={s}>{s}</li>)}
           </ul>
           <div className="price-block">
+            <span className="price-was">Valued at <s>$149</s></span>
             <span className="price">$27</span>
             <span className="price-note">one payment</span>
           </div>
@@ -454,6 +455,7 @@ export default function Page() {
               </p>
             </div>
             <div className="audio-price">
+              <span className="micro">Valued at <s>$79</s></span>
               <span className="audio-amount">+$17</span>
               <span className="micro">audio pack</span>
             </div>

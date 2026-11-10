@@ -151,38 +151,97 @@ export async function reverseReferralBounty(
 
     if ((count ?? 0) > 0) return;
 
-    await svc.from("commission_ledger").insert({
+    // commission_ledger has no description column. Sending one failed the
+    // insert, the error went unread, and the balance was docked anyway -- with
+    // no negative row for the check above to find, so every later refund event
+    // docked it again. The reason goes to the log instead.
+    const { error } = await svc.from("commission_ledger").insert({
       tutor_id: paid.tutor_id,
       student_id: studentId,
       kind: "lesson_plan_bounty",
       amount: -Math.abs(paid.amount),
       status: "paid",
-      description: `Bounty reversed: ${reason}`,
     });
+    if (error) {
+      console.error("referral: bounty reversal insert failed", error);
+      return;
+    }
 
     await adjustTutorBalance(paid.tutor_id, -Math.abs(paid.amount));
+    console.log(`referral: bounty reversed for student ${studentId}: ${reason}`);
   } catch (err) {
     console.error("referral: reverseReferralBounty threw", err);
   }
 }
 
-/** Move a tutor's running balance by `delta` dollars. */
-async function adjustTutorBalance(tutorId: string, delta: number): Promise<void> {
-  const svc = service();
+/**
+ * Move a tutor's running balance by `delta` dollars.
+ *
+ * Atomic in the database (adjust_commission_balance): reading the balance and
+ * writing it back lost one of two concurrent changes.
+ */
+export async function adjustTutorBalance(tutorId: string, delta: number): Promise<void> {
+  const { error } = await service().rpc("adjust_commission_balance", {
+    p_user_id: tutorId,
+    p_delta: Math.round(delta * 100) / 100,
+  });
+  if (error) console.error("referral: balance adjust failed", tutorId, delta, error);
+}
 
-  const { data: tutor } = await svc
-    .from("users")
-    .select("commission_balance")
-    .eq("id", tutorId)
-    .maybeSingle();
+/**
+ * Take back the tutor's percentage on a refunded self-study invoice.
+ *
+ * Ledger rows carry the subscription and billing period, not the invoice, so
+ * the invoice is matched by those. `fraction` is the cumulative share refunded
+ * (Stripe reports the running total), so a second partial refund only takes
+ * the difference and a repeated event takes nothing.
+ */
+export async function reverseSubscriptionCommission(
+  subscriptionId: string,
+  periodStart: string,
+  fraction: number
+): Promise<void> {
+  try {
+    const share = Math.min(Math.max(fraction, 0), 1);
+    if (share === 0) return;
+    const svc = service();
 
-  const current = parseFloat(String(tutor?.commission_balance ?? "0")) || 0;
-  const next = Math.round((current + delta) * 100) / 100;
+    const { data: rows } = await svc
+      .from("commission_ledger")
+      .select("tutor_id, student_id, amount, commission_rate")
+      .eq("kind", "subscription_share")
+      .eq("subscription_id", subscriptionId)
+      .eq("period_start", periodStart);
 
-  await svc
-    .from("users")
-    .update({ commission_balance: next })
-    .eq("id", tutorId);
+    const earned = (rows ?? []).filter((r) => Number(r.amount) > 0);
+    if (!earned.length) return;
+    const original = earned[0];
+
+    const reversed = -(rows ?? [])
+      .filter((r) => Number(r.amount) < 0)
+      .reduce((sum, r) => sum + Number(r.amount), 0);
+    const target = Math.round(Number(original.amount) * share * 100) / 100;
+    const delta = Math.round((target - reversed) * 100) / 100;
+    if (delta <= 0) return;
+
+    const { error } = await svc.from("commission_ledger").insert({
+      tutor_id: original.tutor_id,
+      student_id: original.student_id,
+      kind: "subscription_share",
+      subscription_id: subscriptionId,
+      period_start: periodStart,
+      amount: -delta,
+      commission_rate: original.commission_rate,
+      status: "paid",
+    });
+    if (error) {
+      console.error("referral: commission reversal insert failed", error);
+      return;
+    }
+    await adjustTutorBalance(original.tutor_id, -delta);
+  } catch (err) {
+    console.error("referral: reverseSubscriptionCommission threw", err);
+  }
 }
 
 /**

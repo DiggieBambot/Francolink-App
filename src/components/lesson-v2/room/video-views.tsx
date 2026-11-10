@@ -22,12 +22,20 @@ import { useRoomVideo } from "./video-context";
 import { Lobby } from "./lobby";
 import { cn } from "@/lib/utils";
 
-/** Attaches a participant's tracks to <video>/<audio> as they come and go. */
+/**
+ * Attaches a participant's VIDEO to a <video> as it comes and goes.
+ *
+ * Audio is deliberately not handled here. Tiles are mounted several times over
+ * (the Call stage and two copies of the rail, kept mounted and CSS-hidden), and
+ * `display:none` does not silence an <audio>. When tiles played sound, one
+ * voice came out of up to three elements a few milliseconds apart -- which is
+ * heard as echo -- and while sharing, the stage tile became your OWN feed and
+ * played your mic back to you. Sound is played once, by <RemoteAudio> in
+ * video-context.tsx.
+ */
 function useTracks(
   participant: DailyParticipant | null,
-  muted: boolean,
   videoRef: React.RefObject<HTMLVideoElement | null>,
-  audioRef: React.RefObject<HTMLAudioElement | null>,
   /** Render what they are SHARING rather than their camera. */
   screen = false
 ) {
@@ -38,21 +46,11 @@ function useTracks(
       videoRef.current.srcObject = track ? new MediaStream([track]) : null;
     }
   }, [participant, videoRef, screen]);
-
-  useEffect(() => {
-    if (muted) return;
-    const a = participant?.tracks?.audio;
-    const track = a?.state === "playable" ? a.persistentTrack : null;
-    if (audioRef.current) {
-      audioRef.current.srcObject = track ? new MediaStream([track]) : null;
-    }
-  }, [participant, muted, audioRef]);
 }
 
 function Tile({
   participant,
   label,
-  muted,
   className,
   rounded = "rounded-lg",
   cover = false,
@@ -61,8 +59,6 @@ function Tile({
   participant: DailyParticipant | null;
   /** Shown only until the person actually arrives — see `name` below. */
   label: string;
-  /** Always true for your own tile — hearing yourself is unusable. */
-  muted?: boolean;
   className?: string;
   rounded?: string;
   /** Crop to fill instead of letterboxing. Only for the small self-view. */
@@ -71,8 +67,7 @@ function Tile({
   screen?: boolean;
 }) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-  useTracks(participant, Boolean(muted), videoRef, audioRef, screen);
+  useTracks(participant, videoRef, screen);
 
   const camOff = screen
     ? participant?.tracks?.screenVideo?.state !== "playable"
@@ -101,7 +96,6 @@ function Tile({
           camOff && "hidden"
         )}
       />
-      {!muted && <audio ref={audioRef} autoPlay playsInline />}
 
       {camOff && (
         <div className="flex h-full w-full flex-col items-center justify-center gap-1.5">
@@ -637,7 +631,6 @@ export function VideoStage({
               <Tile
                 participant={screenOn ? remote : local}
                 label={screenOn ? "Them" : "You"}
-                muted={!screenOn}
                 cover
                 className="absolute bottom-4 right-[11.5rem] z-10 aspect-video w-32 shadow-xl ring-2 ring-slate-900 sm:w-44"
               />
@@ -647,7 +640,6 @@ export function VideoStage({
           <Tile
             participant={local}
             label="You"
-            muted
             cover
             className="absolute bottom-4 right-4 z-10 aspect-video w-40 shadow-xl ring-2 ring-slate-900 sm:w-56"
           />
@@ -714,7 +706,6 @@ export function VideoRail() {
         <Tile
           participant={selfLarge ? local : remote}
           label={selfLarge ? "You" : "Waiting…"}
-          muted={selfLarge}
           rounded="rounded-none"
           className="absolute inset-0"
         />
@@ -736,7 +727,6 @@ export function VideoRail() {
           <Tile
             participant={selfLarge ? remote : local}
             label={selfLarge ? "Waiting…" : "You"}
-            muted={!selfLarge}
             cover
             rounded="rounded-none"
             className="h-full w-full"

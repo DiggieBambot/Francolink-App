@@ -7,6 +7,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createClient as createService } from "@supabase/supabase-js";
+import { ROOM_CHAT_TYPES, isRoomChatUrl } from "@/lib/storage/room-chat";
 
 const RETENTION_DAYS = 30;
 
@@ -22,9 +23,19 @@ export async function POST(req: NextRequest, ctx: { params: Promise<{ id: string
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-  const { text, name, role } = await req.json().catch(() => ({}));
+  const { text, name, role, attachment } = await req.json().catch(() => ({}));
   const clean = (text || "").toString().trim();
-  if (!clean) return NextResponse.json({ error: "text required" }, { status: 400 });
+  // Only files we stored ourselves may be attached: the URL must point into
+  // this room's folder of our public bucket.
+  const att =
+    attachment && isRoomChatUrl(attachment.url, id) && ROOM_CHAT_TYPES[attachment.type]
+      ? {
+          url: attachment.url as string,
+          name: String(attachment.name || "file").slice(0, 120),
+          type: attachment.type as string,
+        }
+      : null;
+  if (!clean && !att) return NextResponse.json({ error: "text required" }, { status: 400 });
 
   const service = svc();
   const { data: space } = await service
@@ -40,6 +51,9 @@ export async function POST(req: NextRequest, ctx: { params: Promise<{ id: string
     sender_name: (name || "").toString().slice(0, 80) || null,
     sender_role: role === "tutor" ? "tutor" : "student",
     text: clean.slice(0, 4000),
+    attachment_url: att?.url ?? null,
+    attachment_name: att?.name ?? null,
+    attachment_type: att?.type ?? null,
   });
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 

@@ -5,7 +5,7 @@
 // migrated yet, we return ok:false rather than breaking the game UX.
 
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { getRequestAuth } from "@/lib/supabase/request-auth";
 
 const GAMES = new Set([
   "maze-chase", "memory-match", "picture-quiz", "listen-find", "quiz-show",
@@ -15,8 +15,8 @@ const GAMES = new Set([
 ]);
 
 export async function POST(req: NextRequest) {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  // Website (cookie) or mobile app (bearer token).
+  const { user, supabase } = await getRequestAuth(req);
   if (!user) return NextResponse.json({ ok: false, error: "unauthorized" }, { status: 401 });
 
   let body: { game?: string; theme?: string; language?: string; score?: number; level?: number; won?: boolean };

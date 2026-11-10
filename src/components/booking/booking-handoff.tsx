@@ -48,7 +48,17 @@ export function BookingHandoff({
           )}`;
           return;
         }
-        if (!res.ok || !body.url) {
+        if (!res.ok) {
+          throw new Error(body.error || "Couldn't start checkout.");
+        }
+        // Lessons are paid from credits (or the free first lesson), so the
+        // booking comes back already confirmed — there is no Stripe URL to
+        // follow any more, only the confirmation page.
+        if (body.booking_id) {
+          window.location.href = `/lessons/booked?id=${encodeURIComponent(body.booking_id)}`;
+          return;
+        }
+        if (!body.url) {
           throw new Error(body.error || "Couldn't start checkout.");
         }
         window.location.href = body.url;
@@ -94,7 +104,7 @@ export function BookingHandoff({
         {when} · {durationMinutes} minutes
       </p>
       <p className="mt-4 text-sm text-gray-500">
-        Taking you to secure checkout. Don&apos;t close this page.
+        Booking your lesson. Don&apos;t close this page.
       </p>
     </div>
   );

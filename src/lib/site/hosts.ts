@@ -78,3 +78,31 @@ export function siteUrl(path = "/"): string {
 export function appUrl(path = "/"): string {
   return `${APP_URL}${path === "/" ? "" : path}`;
 }
+
+/**
+ * The cookie domain both the website and the app can read (".francolink.net"),
+ * or undefined when they share no parent domain, as in dev (site.localhost vs
+ * localhost). A host-only cookie set on www is invisible to app.francolink.net,
+ * where signup and checkout happen.
+ */
+export function sharedCookieDomain(): string | undefined {
+  try {
+    const a = new URL(SITE_URL).hostname.replace(/^www\./, "").split(".");
+    const b = new URL(APP_URL).hostname.split(".");
+    const shared: string[] = [];
+    while (a.length && b.length && a[a.length - 1] === b[b.length - 1]) {
+      shared.unshift(a.pop()!);
+      b.pop();
+    }
+    // Need at least "francolink.net"; "net" or "localhost" alone is not a site.
+    return shared.length >= 2 ? `.${shared.join(".")}` : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+/** True for our own website and app hostnames. */
+export function isOwnHost(hostname: string): boolean {
+  const h = hostname.toLowerCase();
+  return [...hostnamesOf(SITE_URL), ...hostnamesOf(APP_URL)].includes(h);
+}

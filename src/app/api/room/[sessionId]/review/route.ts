@@ -11,6 +11,9 @@
 // The booking is resolved server-side from the session, so a student can only
 // review a lesson they actually attended, and the table's `unique(booking_id)`
 // means one review per lesson however many times this is called.
+//
+// A review is NOT public when it is saved: it waits as `pending` until an
+// admin approves it in /admin/reviews, and only then reaches the tutor's profile.
 
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
@@ -50,12 +53,17 @@ export async function POST(
   // "any booking in this room". A pair reuses one room for every lesson they
   // ever have, so keying on the room alone would let today's rating overwrite
   // (or be refused by) one left months ago.
-  const { data: booking } = await db
+  // A caller that knows which lesson it is asking about (the dashboard
+  // prompt) names it; it must still be a started lesson in THIS room.
+  const bookingId = typeof body.bookingId === "string" ? body.bookingId : null;
+  let query = db
     .from("bookings")
     .select("id, tutor_id, student_id, status, starts_at")
     .eq("room_session_id", sessionId)
     .in("status", ["confirmed", "completed"])
-    .lte("starts_at", new Date().toISOString())
+    .lte("starts_at", new Date().toISOString());
+  if (bookingId) query = query.eq("id", bookingId);
+  const { data: booking } = await query
     .order("starts_at", { ascending: false })
     .limit(1)
     .maybeSingle();
@@ -83,6 +91,13 @@ export async function POST(
       tutor_id: booking.tutor_id,
       rating,
       comment,
+      // Every submission, including an edit of one already approved, goes
+      // back to the queue: the text an admin approved is not the text that
+      // would otherwise go live.
+      is_published: false,
+      review_status: "pending",
+      moderated_at: null,
+      moderated_by: null,
     },
     { onConflict: "booking_id" }
   );

@@ -47,6 +47,37 @@ export interface PromptDecision {
 const NO: PromptDecision = { show: false, trustpilotUrl: TRUSTPILOT_REVIEW_URL };
 
 /**
+ * Has this user earned a review ask at all? The same bar for every channel --
+ * Trustpilot on the web, the store's own review sheet in the app -- so tuning
+ * it here tunes both.
+ */
+async function earnedAsk(
+  s: ReturnType<typeof svc>,
+  userId: string
+): Promise<{ reason: "streak" | "progress"; streak?: number } | null> {
+  const { data: u } = await s
+    .from("users")
+    .select("current_streak, total_xp, created_at")
+    .eq("id", userId)
+    .maybeSingle();
+  if (!u) return null;
+
+  const ageDays = u.created_at
+    ? (Date.now() - new Date(u.created_at).getTime()) / 86_400_000
+    : 0;
+  if (ageDays < MIN_ACCOUNT_AGE_DAYS) return null;
+
+  const streak = u.current_streak ?? 0;
+  const xp = u.total_xp ?? 0;
+
+  // Streak wins the tie: "12 days in a row" is a far better opening line than
+  // "you've earned some XP", so prefer it whenever both are true.
+  if (streak >= STREAK_THRESHOLD) return { reason: "streak", streak };
+  if (xp >= XP_THRESHOLD) return { reason: "progress" };
+  return null;
+}
+
+/**
  * Decide whether to show the review prompt to a user. Reads state and
  * eligibility in two cheap queries. Never throws -- a failure here must not
  * take down the dashboard it renders inside.
@@ -69,30 +100,9 @@ export async function decidePrompt(userId: string): Promise<PromptDecision> {
       if (state.snooze_until && new Date(state.snooze_until) > new Date()) return NO;
     }
 
-    const { data: u } = await s
-      .from("users")
-      .select("current_streak, total_xp, created_at")
-      .eq("id", userId)
-      .maybeSingle();
-    if (!u) return NO;
-
-    const ageDays = u.created_at
-      ? (Date.now() - new Date(u.created_at).getTime()) / 86_400_000
-      : 0;
-    if (ageDays < MIN_ACCOUNT_AGE_DAYS) return NO;
-
-    const streak = u.current_streak ?? 0;
-    const xp = u.total_xp ?? 0;
-
-    // Streak wins the tie: "12 days in a row" is a far better opening line than
-    // "you've earned some XP", so prefer it whenever both are true.
-    if (streak >= STREAK_THRESHOLD) {
-      return { show: true, reason: "streak", streak, trustpilotUrl: TRUSTPILOT_REVIEW_URL };
-    }
-    if (xp >= XP_THRESHOLD) {
-      return { show: true, reason: "progress", trustpilotUrl: TRUSTPILOT_REVIEW_URL };
-    }
-    return NO;
+    const earned = await earnedAsk(s, userId);
+    if (!earned) return NO;
+    return { show: true, ...earned, trustpilotUrl: TRUSTPILOT_REVIEW_URL };
   } catch (e) {
     console.error("[reviews] decidePrompt failed:", (e as Error).message);
     return NO;
@@ -146,5 +156,66 @@ export async function recordAnswer(
     await svc().from("review_prompts").upsert(patch, { onConflict: "user_id" });
   } catch (e) {
     console.error("[reviews] recordAnswer failed:", (e as Error).message);
+  }
+}
+
+// ── App store review ─────────────────────────────────────────────────────────
+//
+// The mobile app asks through the store's own in-app review sheet (Google
+// Play's ReviewManager). Same bar as the web card, tracked separately: a user
+// who reviewed us on Trustpilot can still rate the app, and the two do
+// different jobs (Play ratings move store search ranking; Trustpilot does not).
+//
+// The store decides whether its sheet actually appears and never tells us, so
+// we count requests, not showings, and space them out ourselves.
+
+/** Store requests per user, ever. Play quietly rate-limits on top of this. */
+const MAX_STORE_REQUESTS = 2;
+/** Minimum gap between store requests. */
+const STORE_REQUEST_GAP_DAYS = 30;
+
+/** Should the app request the store review sheet for this user now? */
+export async function decideStoreReview(userId: string): Promise<boolean> {
+  if (!userId) return false;
+  const s = svc();
+  try {
+    const { data: state } = await s
+      .from("review_prompts")
+      .select("store_review_count, store_review_last_at")
+      .eq("user_id", userId)
+      .maybeSingle();
+
+    if ((state?.store_review_count ?? 0) >= MAX_STORE_REQUESTS) return false;
+    if (state?.store_review_last_at) {
+      const days = (Date.now() - new Date(state.store_review_last_at).getTime()) / 86_400_000;
+      if (days < STORE_REQUEST_GAP_DAYS) return false;
+    }
+    return (await earnedAsk(s, userId)) !== null;
+  } catch (e) {
+    console.error("[reviews] decideStoreReview failed:", (e as Error).message);
+    return false;
+  }
+}
+
+/** Record that the app handed the request to the store. */
+export async function markStoreReviewRequested(userId: string): Promise<void> {
+  try {
+    const s = svc();
+    const { data } = await s
+      .from("review_prompts")
+      .select("store_review_count")
+      .eq("user_id", userId)
+      .maybeSingle();
+    await s.from("review_prompts").upsert(
+      {
+        user_id: userId,
+        store_review_count: (data?.store_review_count ?? 0) + 1,
+        store_review_last_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      },
+      { onConflict: "user_id" }
+    );
+  } catch (e) {
+    console.error("[reviews] markStoreReviewRequested failed:", (e as Error).message);
   }
 }

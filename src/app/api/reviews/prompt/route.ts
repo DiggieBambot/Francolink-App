@@ -20,6 +20,8 @@ export async function GET() {
   return NextResponse.json(decision);
 }
 
+// "positive" = clicked through to Trustpilot; "negative" = sent private
+// feedback. The names predate the card offering both to everyone.
 const ACTIONS: Record<string, PromptStatus> = {
   positive: "positive",
   negative: "negative",

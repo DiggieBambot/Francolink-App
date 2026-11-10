@@ -235,6 +235,9 @@ function StudentAfterClass({
           </div>
         ) : null}
 
+        <p className="mt-2 text-[11px] text-slate-500">
+          Reviews are checked by our team before they appear on the tutor&apos;s profile.
+        </p>
         {failed ? <p className="mt-2 text-xs text-accent">{failed}</p> : null}
       </div>
 

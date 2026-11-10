@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { isOwnHost, sharedCookieDomain } from "@/lib/site/hosts";
 
 const COOKIE = "fl_attrib";
 
@@ -16,6 +17,8 @@ export function AttributionCookie() {
       const ref = document.referrer || "";
       let referrerHost = "";
       try { referrerHost = ref ? new URL(ref).hostname : ""; } catch {}
+      // Moving from the website to the app is not a referral.
+      if (referrerHost && isOwnHost(referrerHost)) referrerHost = "";
 
       const data = {
         utm_source: q.get("utm_source") || "",
@@ -29,7 +32,11 @@ export function AttributionCookie() {
 
       const value = encodeURIComponent(JSON.stringify(data));
       const oneYear = 60 * 60 * 24 * 365;
-      document.cookie = `${COOKIE}=${value}; path=/; max-age=${oneYear}; samesite=lax`;
+      // On the parent domain, so first touch on the website survives to signup
+      // on the app. Host-only, the app never saw it and recorded every website
+      // visitor as a "referral" from www.francolink.net.
+      const domain = sharedCookieDomain();
+      document.cookie = `${COOKIE}=${value}; path=/; max-age=${oneYear}; samesite=lax${domain ? `; domain=${domain}` : ""}`;
     } catch {
       /* ignore */
     }

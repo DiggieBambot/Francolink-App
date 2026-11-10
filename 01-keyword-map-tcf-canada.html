@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<!--
+  Keyword & Fan-Out Map — AI RANKING DASHBOARD TEMPLATE
+  GENERATED FILE. Do not edit inside a skill folder.
+  Edit shared/house-style.css or shared/bodies/*.body.html, then run:
+      python3 shared/build_templates.py
+
+  HOW TO FILL THIS TEMPLATE
+  - Replace every double-brace placeholder with a real value.
+  - Repeatable blocks are marked.
+    Duplicate the inner block once per row. Delete the block if there are no rows
+    and show the .empty state instead.
+  - Do NOT restyle. Do NOT add fonts, colours, or libraries.
+  - Never invent a number. If data is missing write "no data" and say why in
+    All figures from DataForSEO on 2 October 2026. Google volume, CPC and competition from dataforseo_labs/google/keyword_overview and keyword_suggestions; AI volume from ai_optimization/ai_keyword_data (location Canada, language English); SERP and People Also Ask from serp/google/organic (Canada, English; French for &#x27;tcf expression écrite&#x27;). Volumes in the table are Canada, 12-month average. site-brief.md asks for worldwide English volumes; the Labs endpoints need one country, and Canada is the market the test exists for. Note that the language setting does not split Labs volumes: Canada returned identical numbers for English and French, so English vs French demand was judged by the language of the query and by country. Comparison countries, &#x27;tcf canada&#x27; monthly: Algeria 6,600, Morocco 3,600, France 1,000, India 720, Nigeria 170. Francophone countries search far more, but site-brief.md excludes French-speaking audiences, and their CPCs are $0.06 to $1.00. India is the growth market: &#x27;tcf canada&#x27; up 400% year on year. Blank AI cells mean the API returned nothing, not zero. &#x27;tcf&#x27; (8,100) is skipped as ambiguous with TCF Bank and other brands. &#x27;réussir tcf canada&#x27;, &#x27;formation tcf canada&#x27; and &#x27;pack ayoub&#x27; are competitor brands..
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TCF Canada guide section · Keyword & Fan-Out Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,400..600&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   AI RANKING HOUSE STYLE — single source of truth
+   Inherited from local-seo-report/templates/report.html.template.
+   Do not restyle per skill. Edit here, then run shared/build_templates.py
+   to regenerate all five skill templates.
+   ============================================================ */
+:root{
+  --forest:#1c3a2e; --forest-2:#264c3b; --moss:#5b7a63;
+  --cream:#f4efe2; --cream-2:#ece5d3; --paper:#fbf8f0;
+  --gold:#c08a3e; --rust:#b4522f; --ink:#16241d;
+  --pass:#2f7d4e; --warn:#c08a3e; --fail:#b4522f;
+  --line:rgba(28,58,46,.16);
+  --shadow:0 1px 2px rgba(28,58,46,.06),0 12px 36px -12px rgba(28,58,46,.22);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Schibsted Grotesk",system-ui,sans-serif;
+  background:var(--cream); color:var(--ink);
+  line-height:1.55; -webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(1200px 600px at 85% -10%, rgba(192,138,62,.10), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(91,122,99,.14), transparent 55%);
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap{max-width:980px;margin:0 auto;padding:0 28px}
+.reveal{opacity:0;transform:translateY(18px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.reveal{animation:none;opacity:1;transform:none}}
+
+/* ---------- header ---------- */
+header.top{background:linear-gradient(160deg,var(--forest),var(--forest-2));color:var(--cream);position:relative;overflow:hidden}
+header.top::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle at center, rgba(192,138,62,.45), transparent 65%)}
+.top .wrap{padding:54px 28px 46px;position:relative;z-index:2}
+.brandrow{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(244,239,226,.7)}
+.brandrow b{color:var(--cream);font-weight:600}
+h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(2.4rem,6vw,4rem);line-height:1.02;margin:26px 0 6px;letter-spacing:-.01em}
+h1 em{font-style:italic;color:#e7c690}
+.sub{font-size:1.02rem;color:rgba(244,239,226,.82);max-width:52ch}
+.datechip{display:inline-flex;gap:.5rem;align-items:center;margin-top:22px;background:rgba(244,239,226,.12);border:1px solid rgba(244,239,226,.25);padding:.5rem .9rem;border-radius:999px;font-size:.82rem;letter-spacing:.04em}
+.datechip span{width:7px;height:7px;border-radius:50%;background:#7bd39a;box-shadow:0 0 0 4px rgba(123,211,154,.18)}
+
+/* ---------- KPI band ---------- */
+.heroband{background:var(--paper);border-bottom:1px solid var(--line)}
+.heroband .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:0}
+.stat{padding:30px 22px;border-right:1px solid var(--line);position:relative}
+.stat:last-child{border-right:none}
+.stat .k{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(1.9rem,4.4vw,2.9rem);line-height:1;color:var(--forest);letter-spacing:-.02em}
+.stat .l{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--moss);margin-top:10px}
+.stat .w{font-size:.72rem;color:#9a9684;margin-top:3px}
+.stat.is-fail .k{color:var(--fail)}
+.stat.is-warn .k{color:var(--warn)}
+@media(max-width:720px){.heroband .wrap{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:none}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}}
+
+/* ---------- sections ---------- */
+main{padding:60px 0 30px}
+section{margin-bottom:58px}
+.seclabel{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
+.seclabel .num{font-family:"Fraunces",serif;font-style:italic;color:var(--gold);font-size:1.1rem}
+.seclabel h2{font-family:"Fraunces",serif;font-weight:500;font-size:1.85rem;letter-spacing:-.01em;color:var(--forest)}
+.seclabel .win{margin-left:auto;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--moss);border:1px solid var(--line);padding:.3rem .7rem;border-radius:999px}
+.meaning{background:var(--cream-2);border-left:3px solid var(--gold);padding:14px 18px;border-radius:0 10px 10px 0;font-size:.95rem;margin-top:18px;color:#3a4a40}
+.meaning b{color:var(--forest)}
+
+/* ---------- cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:720px){.cards{grid-template-columns:repeat(2,1fr)}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow)}
+.card .k{font-family:"Fraunces",serif;font-size:2rem;color:var(--forest);line-height:1;letter-spacing:-.02em}
+.card .l{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--moss);margin-top:9px}
+.card.flag{border-color:rgba(180,82,47,.4);background:linear-gradient(180deg,#fbf1ec,var(--paper))}
+.card.flag .k{color:var(--rust)}
+.card.flag .tag{font-size:.68rem;color:var(--rust);font-weight:600;text-transform:uppercase;letter-spacing:.1em;margin-top:6px;display:block}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px;box-shadow:var(--shadow)}
+
+/* ---------- tables ---------- */
+.tbl{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);margin-top:6px}
+.tbl th{text-align:left;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--moss);padding:14px 18px;background:var(--cream-2);border-bottom:1px solid var(--line)}
+.tbl td{padding:13px 18px;border-bottom:1px solid var(--line);font-size:.92rem;vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td.q{font-weight:500;color:var(--ink)}
+.tbl td.num{font-family:"Fraunces",serif;font-weight:600;font-size:1.02rem;white-space:nowrap}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.bar{height:6px;border-radius:3px;background:var(--cream-2);overflow:hidden;min-width:70px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--moss),var(--forest))}
+
+/* ---------- badges + status ---------- */
+.badge{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+  padding:.34rem .72rem;border-radius:999px;border:1px solid var(--line);background:var(--cream-2);color:var(--forest)}
+.badge.solid{background:linear-gradient(150deg,var(--forest),var(--forest-2));color:var(--cream);border-color:transparent}
+.badge.gold{background:rgba(192,138,62,.14);border-color:rgba(192,138,62,.4);color:#8a5f1f}
+.st{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;white-space:nowrap}
+.st::before{content:"";width:9px;height:9px;border-radius:50%;flex:none}
+.st.pass{color:var(--pass)}      .st.pass::before{background:var(--pass);box-shadow:0 0 0 3px rgba(47,125,78,.15)}
+.st.warn{color:var(--warn)}      .st.warn::before{background:var(--warn);box-shadow:0 0 0 3px rgba(192,138,62,.15)}
+.st.fail{color:var(--fail)}      .st.fail::before{background:var(--fail);box-shadow:0 0 0 3px rgba(180,82,47,.15)}
+.st.na{color:#9a9684}            .st.na::before{background:#c9c4b3}
+.intent{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:.24rem .6rem;border-radius:6px;white-space:nowrap}
+.intent.info{background:rgba(91,122,99,.16);color:#3f5a48}
+.intent.comm{background:rgba(192,138,62,.16);color:#8a5f1f}
+.intent.trans{background:rgba(47,125,78,.16);color:#215a38}
+.intent.nav{background:rgba(28,58,46,.1);color:var(--forest)}
+
+/* ---------- checklist (skill 3) ---------- */
+.checks{list-style:none}
+.checks li{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:16px 0;border-bottom:1px dashed var(--line);align-items:start}
+.checks li:last-child{border-bottom:none}
+.checks .what{font-weight:500;color:var(--forest)}
+.checks .why{display:block;color:#6c7a6f;font-size:.88rem;margin-top:3px}
+.checks .fix{display:block;font-size:.88rem;margin-top:6px;padding:10px 12px;background:var(--cream-2);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;color:#3a4a40}
+
+/* ---------- score dial ---------- */
+.score{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.score .n{font-family:"Fraunces",serif;font-size:4rem;line-height:1;color:var(--forest);letter-spacing:-.03em}
+.score .n small{font-size:1.2rem;color:var(--moss)}
+.score .track{flex:1;min-width:180px;height:10px;border-radius:5px;background:var(--cream-2);overflow:hidden}
+.score .track i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--pass))}
+
+/* ---------- ordered focus / gap list ---------- */
+.focus ol{list-style:none;counter-reset:f;margin-top:8px}
+.focus li{counter-increment:f;display:flex;gap:16px;padding:15px 0;border-bottom:1px dashed var(--line)}
+.focus li:last-child{border-bottom:none}
+.focus li::before{content:counter(f);font-family:"Fraunces",serif;font-style:italic;color:var(--gold);font-size:1.2rem;min-width:26px}
+.focus li b{color:var(--forest)}
+.focus li small{display:block;color:#6c7a6f;font-size:.85rem;margin-top:2px}
+
+/* ---------- dark feature panel (skill 5 / highlights) ---------- */
+.feature{background:linear-gradient(150deg,var(--forest),var(--forest-2));color:var(--cream);border-radius:18px;padding:30px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.feature::after{content:"";position:absolute;right:-80px;bottom:-80px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(231,198,144,.35),transparent 65%)}
+.feature .ey{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#e7c690}
+.feature h3{font-family:"Fraunces",serif;font-weight:500;font-size:1.5rem;margin:8px 0 18px;max-width:34ch}
+.feature .rows{display:flex;gap:30px;flex-wrap:wrap;position:relative;z-index:2}
+.feature .r .n{font-family:"Fraunces",serif;font-size:2.3rem;line-height:1;color:#fff}
+.feature .r .s{font-size:.8rem;color:rgba(244,239,226,.8);margin-top:6px}
+
+/* ---------- draft preview (skill 2) ---------- */
+.draft{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:30px 34px;box-shadow:var(--shadow);max-height:620px;overflow-y:auto}
+.draft h2,.draft h3{font-family:"Fraunces",serif;font-weight:500;color:var(--forest);margin:26px 0 10px}
+.draft h2{font-size:1.4rem}.draft h3{font-size:1.12rem}
+.draft p{margin:0 0 14px}
+.draft a{color:#215a38;text-decoration:underline;text-underline-offset:2px}
+.draft .marker{background:rgba(180,82,47,.14);border:1px dashed rgba(180,82,47,.5);color:var(--rust);font-weight:600;padding:12px 14px;border-radius:8px;display:block;margin:14px 0}
+.kv{display:grid;grid-template-columns:150px 1fr;gap:10px 18px;font-size:.92rem}
+.kv dt{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--moss);padding-top:3px}
+.kv dd{color:var(--ink);word-break:break-word}
+pre.code{background:var(--ink);color:#dfe7df;padding:18px;border-radius:12px;overflow-x:auto;font-size:.8rem;line-height:1.5}
+
+/* ---------- empty state ---------- */
+.empty{background:var(--cream-2);border:1px dashed var(--line);border-radius:14px;padding:28px;text-align:center;color:#6c7a6f}
+.empty b{display:block;font-family:"Fraunces",serif;font-size:1.2rem;color:var(--forest);margin-bottom:6px}
+
+/* ---------- footer ---------- */
+footer{padding:40px 0 70px;color:#7d8a7f;font-size:.82rem}
+footer .wrap{border-top:1px solid var(--line);padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.note{font-size:.8rem;color:#8a8773;max-width:60ch}
+
+/* ---------- print ---------- */
+@media print{
+  body::before{display:none}
+  .draft{max-height:none;overflow:visible}
+  section{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap reveal">
+    <div class="brandrow"><span>Keyword Map</span><b>AI Ranking</b></div>
+    <h1>TCF Canada: keyword map for the hub and its parts</h1>
+    <p class="sub">One cluster per URL. The data says the section is missing its biggest page: a score chart, which out-searches every one of the four part pages.</p>
+    <div class="datechip"><span></span>TCF Canada guide section · generated 2 October 2026</div>
+  </div>
+</header>
+
+<div class="heroband">
+  <div class="wrap">
+    <div class="stat"><div class="k">59</div><div class="l">Keywords found</div><div class="w">after intent filtering</div></div>
+    <div class="stat"><div class="k">1,600</div><div class="l">Primary kw volume</div><div class="w">Canada (plus India, Nigeria, Morocco, Algeria, France for comparison) · monthly</div></div>
+    <div class="stat"><div class="k">86</div><div class="l">AI search volume</div><div class="w">LLM prompt demand</div></div>
+    <div class="stat"><div class="k">11</div><div class="l">Fan-out questions</div><div class="w">the page must answer</div></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section class="reveal">
+    <div class="seclabel"><span class="num">01</span><h2>The primary keyword</h2><span class="win">Canada (plus India, Nigeria, Morocco, Algeria, France for comparison) · English (French-language queries kept where English searchers use them)</span></div>
+    <div class="panel">
+      <dl class="kv">
+        <dt>Primary</dt><dd><b>tcf canada exam</b> <span class="intent info">informational</span></dd>
+        <dt>Search volume</dt><dd>1,600 / month</dd>
+        <dt>AI search volume</dt><dd>86</dd>
+        <dt>Competition</dt><dd>LOW</dd>
+        <dt>CPC</dt><dd>$1.84</dd>
+        <dt>Why this one</dt><dd>The hub&#x27;s primary is &#x27;tcf canada exam&#x27; rather than &#x27;tcf canada&#x27; (18,100). The head term is navigational: page one is test centres registering candidates (af.ca, Alliance Française Vancouver and Edmonton) under an AI Overview built from France Éducation International. &#x27;tcf canada exam&#x27; and &#x27;tcf canada test&#x27; (2,900) carry the explainer intent the hub actually serves. Keep &#x27;TCF Canada&#x27; at the start of the title so the head term is still matched.</dd>
+      </dl>
+      <div class="meaning"><b>Use this as the H1 subject and put it in the first 100 words.</b> Each URL has its own primary (one per cluster), because this map covers five existing pages and one proposed page, not a single page. The part pages are small in English: writing about 1,100/month across all variants, speaking about 900, listening about 700 (most of it practice intent), reading about 400. The score cluster is about 3,200/month on its own.</div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">02</span><h2>Keyword map by intent</h2><span class="win">59 keywords</span></div>
+    <div class="scroll">
+    <table class="tbl">
+      <thead><tr><th>Cluster</th><th>Keyword</th><th>Intent</th><th>Volume</th><th>AI vol</th><th>Comp</th><th>Role</th></tr></thead>
+      <tbody>
+
+        <tr>
+          <td>/guides/tcf-canada</td>
+          <td class="q">tcf canada exam</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">1,600</td>
+          <td class="num">86</td>
+          <td>LOW</td>
+          <td>primary</td>
+        </tr>
+
+        <tr>
+          <td>/guides/tcf-canada/score-chart (NEW)</td>
+          <td class="q">tcf score chart</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">1,000</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>primary</td>
+        </tr>
+
+        <tr>
+          <td>/expression-ecrite</td>
+          <td class="q">tcf expression écrite</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">320</td>
+          <td class="num">2</td>
+          <td>LOW</td>
+          <td>primary</td>
+        </tr>
+
+        <tr>
+          <td>/expression-orale</td>
+          <td class="q">tcf speaking format</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">260</td>
+          <td class="num">2</td>
+          <td>LOW</td>
+          <td>primary</td>
+        </tr>
+
+        <tr>
+          <td>/comprehension-orale</td>
+          <td class="q">tcf canada comprehension orale</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">140</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>primary</td>
+        </tr>
+
+        <tr>
+          <td>/comprehension-ecrite</td>
+          <td class="q">tcf compréhension écrite</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">90</td>
+          <td class="num">6</td>
+          <td>LOW</td>
+          <td>primary</td>
+        </tr>
+
+        <tr>
+          <td>/guides/tcf-canada</td>
+          <td class="q">tcf canada test</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">2,900</td>
+          <td class="num">75</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/guides/tcf-canada</td>
+          <td class="q">tcf exam</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">1,600</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/guides/tcf-canada</td>
+          <td class="q">tcf preparation</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">1,300</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/guides/tcf-canada/score-chart (NEW)</td>
+          <td class="q">nclc tcf canada</td>
+          <td><span class="intent nav">navigational</span></td>
+          <td class="num">480</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/guides/tcf-canada</td>
+          <td class="q">tcf results</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">390</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/comprehension-orale</td>
+          <td class="q">tcf listening practice</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">390</td>
+          <td class="num">missing</td>
+          <td>MEDIUM</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/guides/tcf-canada/score-chart (NEW)</td>
+          <td class="q">nclc 7 tcf canada</td>
+          <td><span class="intent nav">navigational</span></td>
+          <td class="num">320</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/guides/tcf-canada/score-chart (NEW)</td>
+          <td class="q">tcf canada score chart</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">320</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/guides/tcf-canada/score-chart (NEW)</td>
+          <td class="q">tcf score</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">320</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/guides/tcf-canada/score-chart (NEW)</td>
+          <td class="q">tcf clb 7 score</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">260</td>
+          <td class="num">26</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/expression-ecrite</td>
+          <td class="q">expression écrite tcf canada</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">260</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/guides/tcf-canada/score-chart (NEW)</td>
+          <td class="q">tcf to clb</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">210</td>
+          <td class="num">115</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/guides/tcf-canada/score-chart (NEW)</td>
+          <td class="q">tcf canada score</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">210</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/expression-ecrite</td>
+          <td class="q">tcf canada expression écrite</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">210</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/expression-orale</td>
+          <td class="q">tcf expression orale</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">210</td>
+          <td class="num">2</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/expression-orale</td>
+          <td class="q">expression orale tcf canada</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">170</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/comprehension-ecrite</td>
+          <td class="q">tcf reading practice test</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">170</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/guides/tcf-canada</td>
+          <td class="q">tcf exam format</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">140</td>
+          <td class="num">7</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/guides/tcf-canada</td>
+          <td class="q">tcf canada results</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">140</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/guides/tcf-canada/score-chart (NEW)</td>
+          <td class="q">tcf score to clb</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">140</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/expression-ecrite</td>
+          <td class="q">tcf writing tasks</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">140</td>
+          <td class="num">4</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/expression-ecrite</td>
+          <td class="q">tcf writing sample</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">140</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/expression-orale</td>
+          <td class="q">tcf canada expression orale</td>
+          <td><span class="intent nav">navigational</span></td>
+          <td class="num">140</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/expression-orale</td>
+          <td class="q">tcf speaking</td>
+          <td><span class="intent nav">navigational</span></td>
+          <td class="num">140</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/comprehension-orale</td>
+          <td class="q">tcf listening</td>
+          <td><span class="intent nav">navigational</span></td>
+          <td class="num">140</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/guides/tcf-canada</td>
+          <td class="q">what is tcf</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">110</td>
+          <td class="num">292</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/guides/tcf-canada</td>
+          <td class="q">tcf exam fees</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">110</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/comprehension-ecrite</td>
+          <td class="q">tcf reading</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">90</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>secondary</td>
+        </tr>
+
+        <tr>
+          <td>/guides/tcf-canada</td>
+          <td class="q">tcf canada</td>
+          <td><span class="intent nav">navigational</span></td>
+          <td class="num">18,100</td>
+          <td class="num">620</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>/guides/tcf-canada/score-chart (NEW)</td>
+          <td class="q">tcf score calculator</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">110</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>/expression-ecrite</td>
+          <td class="q">tcf writing</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">110</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>/guides/tcf-canada/score-chart (NEW)</td>
+          <td class="q">tcf clb calculator</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">90</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>/guides/tcf-canada</td>
+          <td class="q">tcf canada format</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">50</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>/expression-orale</td>
+          <td class="q">tcf expression orale tâche 3</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">50</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>/expression-orale</td>
+          <td class="q">tcf expression orale tâche 1</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">40</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>/comprehension-ecrite</td>
+          <td class="q">tcf canada comprehension ecrite</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">40</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>/expression-orale</td>
+          <td class="q">tcf expression orale tâche 2</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">30</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>/comprehension-orale</td>
+          <td class="q">tcf compréhension orale</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">30</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>/guides/tcf-canada</td>
+          <td class="q">how to prepare for tcf canada</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">20</td>
+          <td class="num">2</td>
+          <td>MEDIUM</td>
+          <td>support</td>
+        </tr>
+
+        <tr>
+          <td>Not ours</td>
+          <td class="q">tcf</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">8,100</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>skip</td>
+        </tr>
+
+        <tr>
+          <td>Not ours</td>
+          <td class="q">réussir tcf canada</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">4,400</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>skip</td>
+        </tr>
+
+        <tr>
+          <td>Not ours</td>
+          <td class="q">tcf exam booking</td>
+          <td><span class="intent nav">navigational</span></td>
+          <td class="num">3,600</td>
+          <td class="num">missing</td>
+          <td>no data</td>
+          <td>skip</td>
+        </tr>
+
+        <tr>
+          <td>Not ours</td>
+          <td class="q">pack ayoub tcf canada</td>
+          <td><span class="intent comm">commercial</span></td>
+          <td class="num">3,600</td>
+          <td class="num">missing</td>
+          <td>no data</td>
+          <td>skip</td>
+        </tr>
+
+        <tr>
+          <td>Not ours</td>
+          <td class="q">formation tcf canada</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">1,900</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>skip</td>
+        </tr>
+
+        <tr>
+          <td>Not ours</td>
+          <td class="q">tcf canada rendez-vous</td>
+          <td><span class="intent nav">navigational</span></td>
+          <td class="num">1,900</td>
+          <td class="num">missing</td>
+          <td>no data</td>
+          <td>skip</td>
+        </tr>
+
+        <tr>
+          <td>Not ours</td>
+          <td class="q">tcf canada montreal</td>
+          <td><span class="intent nav">navigational</span></td>
+          <td class="num">1,600</td>
+          <td class="num">missing</td>
+          <td>no data</td>
+          <td>skip</td>
+        </tr>
+
+        <tr>
+          <td>Not ours</td>
+          <td class="q">tcf prep</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">1,300</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>skip</td>
+        </tr>
+
+        <tr>
+          <td>Not ours</td>
+          <td class="q">tef vs tcf</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">720</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>skip</td>
+        </tr>
+
+        <tr>
+          <td>Not ours</td>
+          <td class="q">tcf practice test</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">590</td>
+          <td class="num">10</td>
+          <td>LOW</td>
+          <td>skip</td>
+        </tr>
+
+        <tr>
+          <td>Not ours</td>
+          <td class="q">tcf canada test gratuit</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">480</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>skip</td>
+        </tr>
+
+        <tr>
+          <td>Not ours</td>
+          <td class="q">tcf mock test</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">260</td>
+          <td class="num">missing</td>
+          <td>MEDIUM</td>
+          <td>skip</td>
+        </tr>
+
+        <tr>
+          <td>Not ours</td>
+          <td class="q">tef vs tcf which is easier</td>
+          <td><span class="intent comm">commercial</span></td>
+          <td class="num">260</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>skip</td>
+        </tr>
+
+        <tr>
+          <td>Not ours</td>
+          <td class="q">test tcf en ligne gratuit</td>
+          <td><span class="intent info">informational</span></td>
+          <td class="num">210</td>
+          <td class="num">missing</td>
+          <td>LOW</td>
+          <td>skip</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="meaning">Role tells the writer what each keyword is for: <b>primary</b> (H1 + first 100 words), <b>secondary</b> (an H2 of its own), <b>support</b> (use naturally in body copy), <b>skip</b> (wrong intent for this page, do not force it).</div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">03</span><h2>Fan-out questions to answer</h2><span class="win">answer capture</span></div>
+    <div class="panel focus">
+      <p class="note">These are the follow-up queries AI engines expand your topic into. Each one becomes an H2 with a two-sentence answer directly underneath.</p>
+      <ol>
+
+        <li><div><b>What is the TCF Canada, and who needs it?</b><small>Hub. Matches &#x27;what is tcf&#x27; (AI volume 292, the highest AI figure in the set). Already answered.</small></div></li>
+
+        <li><div><b>How is the TCF Canada scored, and what score do I need for NCLC 7 / CLB 7?</b><small>Score chart page. PAA on &#x27;tcf canada&#x27;: &#x27;How much is CLB 7 in TCF?&#x27;. Hub keeps a summary and links down.</small></div></li>
+
+        <li><div><b>What is CLB 5 in TCF Canada?</b><small>Score chart page. PAA on &#x27;tcf canada&#x27; and &#x27;tcf speaking format&#x27;. Needs the CLB 5 row called out, not just CLB 7.</small></div></li>
+
+        <li><div><b>Is CLB 7 B1 or B2?</b><small>Score chart page. PAA on &#x27;tcf score chart&#x27;. Map NCLC to CEFR only if an official source states it; otherwise say there is no official one-to-one mapping.</small></div></li>
+
+        <li><div><b>How difficult is the TCF Canada? Is the TCF exam hard?</b><small>Hub. PAA on two SERPs. Existing &#x27;Which part is the hardest?&#x27; section answers it; rephrase the H2 to match.</small></div></li>
+
+        <li><div><b>Is TCF harder than TEF?</b><small>Skip here. Belongs on a separate TEF vs TCF page (cluster about 1,500/month in Canada).</small></div></li>
+
+        <li><div><b>Where can I take the TCF Canada exam? How much does it cost?</b><small>Hub. Already covered in &#x27;How do you register&#x27;. No fee figures: centres set them.</small></div></li>
+
+        <li><div><b>How many questions are in the TCF reading test?</b><small>Compréhension écrite page. PAA on &#x27;tcf score chart&#x27;. Answered in the first sentence already.</small></div></li>
+
+        <li><div><b>What happens in each speaking task (tâche 1, 2, 3)?</b><small>Expression orale page. Already structured by task.</small></div></li>
+
+        <li><div><b>How do I write tâche 3 (comparing two documents)?</b><small>Expression écrite page. SERP shows competitors teaching a 40-60 / 80-120 word split; ours flags it as advice, not an official rule.</small></div></li>
+
+        <li><div><b>Is there an online course to prepare for the TCF?</b><small>Hub, CTA area. PAA on &#x27;tcf canada&#x27;. Natural place for the tutors offer.</small></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">04</span><h2>Who currently ranks</h2><span class="win">top of SERP</span></div>
+    <!-- Set SERP_TABLE_DISPLAY to none and SERP_EMPTY_DISPLAY to block if no SERP data was pulled. -->
+    <div class="scroll" style="display:block">
+    <table class="tbl">
+      <thead><tr><th>#</th><th>Domain</th><th>Ranking page title</th><th>Angle they take</th></tr></thead>
+      <tbody>
+
+        <tr><td class="num">1</td><td class="q">france-education-international.fr</td><td>TCF - Canada (AI Overview source)</td><td>Official. Cited by the AI Overview for &#x27;tcf canada&#x27;; the overview restates format, validity and the 20-day rule.</td></tr>
+
+        <tr><td class="num">2</td><td class="q">af.ca</td><td>Tests et Diplômes</td><td>Test centre. Position 1 organic for &#x27;tcf canada&#x27;.</td></tr>
+
+        <tr><td class="num">3</td><td class="q">alliancefrancaise.ca</td><td>TEF &amp; TCF French exam at Alliance Francaise Vancouver</td><td>Test centre registration.</td></tr>
+
+        <tr><td class="num">4</td><td class="q">ilac.com</td><td>TEF vs TCF: Which French Test Should You Choose</td><td>Comparison blog ranking on the head term.</td></tr>
+
+        <tr><td class="num">5</td><td class="q">afedmonton.com</td><td>Register for TCF Canada</td><td>Test centre registration.</td></tr>
+
+        <tr><td class="num">7</td><td class="q">canadavisa.com</td><td>Quebec Proof French Language Ability TCF/TCFQ</td><td>Immigration portal.</td></tr>
+
+        <tr><td class="num">9</td><td class="q">learnfrenchcanada.com</td><td>TCF Canada Sample Test: Free Practice Questions 2026</td><td>Prep blog. The only explainer-type result in the top 10 besides FEI.</td></tr>
+
+        <tr><td class="num">11</td><td class="q">freetcf.com</td><td>Free TCF Canada Practice Program</td><td>Practice tool.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="empty" style="display:none">
+      <b>No SERP data pulled</b>
+      This run skipped the live SERP check, so who currently ranks is unknown rather than empty.
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="seclabel"><span class="num">05</span><h2>Handing off</h2></div>
+    <div class="feature">
+      <div class="ey">Next step</div>
+      <h3>Hand this to seo-content-writer</h3>
+      <div class="rows">
+        <div class="r"><div class="n">59</div><div class="s">keywords in 01-keyword-map.csv</div></div>
+        <div class="r"><div class="n">11</div><div class="s">questions for the writer</div></div>
+        <div class="r"><div class="n">28</div><div class="s">secondary keywords = H2s</div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Data: DataForSEO Labs + Keywords Data + AI Keyword Data · window: 12-month average</span>
+    <span>keyword-fanout-map · generated 2 October 2026</span>
+  </div>
+  <div class="wrap" style="border:none;padding-top:14px">
+    <p class="note">All figures from DataForSEO on 2 October 2026. Google volume, CPC and competition from dataforseo_labs/google/keyword_overview and keyword_suggestions; AI volume from ai_optimization/ai_keyword_data (location Canada, language English); SERP and People Also Ask from serp/google/organic (Canada, English; French for &#x27;tcf expression écrite&#x27;). Volumes in the table are Canada, 12-month average. site-brief.md asks for worldwide English volumes; the Labs endpoints need one country, and Canada is the market the test exists for. Note that the language setting does not split Labs volumes: Canada returned identical numbers for English and French, so English vs French demand was judged by the language of the query and by country. Comparison countries, &#x27;tcf canada&#x27; monthly: Algeria 6,600, Morocco 3,600, France 1,000, India 720, Nigeria 170. Francophone countries search far more, but site-brief.md excludes French-speaking audiences, and their CPCs are $0.06 to $1.00. India is the growth market: &#x27;tcf canada&#x27; up 400% year on year. Blank AI cells mean the API returned nothing, not zero. &#x27;tcf&#x27; (8,100) is skipped as ambiguous with TCF Bank and other brands. &#x27;réussir tcf canada&#x27;, &#x27;formation tcf canada&#x27; and &#x27;pack ayoub&#x27; are competitor brands.</p>
+  </div>
+</footer>
+
+</body>
+</html>

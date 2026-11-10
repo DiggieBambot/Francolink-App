@@ -215,7 +215,7 @@ export default async function RoomPage({
   void svc.from("tutor_lesson_messages").delete().eq("session_id", id).lt("created_at", cutoff);
   const { data: msgRows } = await svc
     .from("tutor_lesson_messages")
-    .select("id, sender_id, sender_name, sender_role, text, created_at")
+    .select("id, sender_id, sender_name, sender_role, text, created_at, attachment_url, attachment_name, attachment_type")
     .eq("session_id", id)
     .gte("created_at", cutoff)
     .order("created_at", { ascending: true })
@@ -227,6 +227,15 @@ export default async function RoomPage({
     role: (m.sender_role === "tutor" ? "tutor" : "student") as "tutor" | "student",
     text: m.text as string,
     at: new Date(m.created_at as string).getTime(),
+    ...(m.attachment_url
+      ? {
+          attachment: {
+            url: m.attachment_url as string,
+            name: (m.attachment_name as string) || "file",
+            type: (m.attachment_type as string) || "",
+          },
+        }
+      : {}),
   }));
 
   // Classroom or Study Space? Decided by the room's TUTOR, not by who is

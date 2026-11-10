@@ -5,6 +5,7 @@
 // missing, so calling code doesn't silently no-op.
 
 import { Resend } from "resend";
+import { isDemoEmail } from "@/lib/demo";
 
 let cached: Resend | null = null;
 
@@ -17,6 +18,14 @@ export function getResend(): Resend {
     );
   }
   cached = new Resend(key);
+  // Demo accounts use a domain with no mailbox: drop them from every send so
+  // filming the dashboards never emails anyone or bounces.
+  const send = cached.emails.send.bind(cached.emails);
+  cached.emails.send = (async (payload, options) => {
+    const to = [payload.to].flat().filter((e) => !isDemoEmail(e));
+    if (to.length === 0) return { data: { id: "demo-skipped" }, error: null, headers: null };
+    return send({ ...payload, to } as typeof payload, options);
+  }) as typeof cached.emails.send;
   return cached;
 }
 
