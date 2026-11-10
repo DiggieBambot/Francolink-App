@@ -28,7 +28,9 @@ export default async function LessonPage({ params }: PageProps) {
   if (!user) redirect("/login");
 
   // Fetch lesson with exercises
-  const { data: lesson, error } = await supabase
+  // Slugs are only unique within a course (e.g. "telling-time" exists in both
+  // A1 and A2), so fetch every match and pick the one in this course.
+  const { data: candidates, error } = await supabase
     .from("lessons")
     .select(
       `
@@ -67,8 +69,13 @@ export default async function LessonPage({ params }: PageProps) {
       )
     `
     )
-    .eq("slug", lessonSlug)
-    .single();
+    .eq("slug", lessonSlug);
+
+  const courseSlug = `${language}-${level}`.toLowerCase();
+  const lesson =
+    candidates?.find((l) => (l.unit as any)?.course?.slug === courseSlug) ??
+    candidates?.[0] ??
+    null;
 
   if (error || !lesson) {
     return (

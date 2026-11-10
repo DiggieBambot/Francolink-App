@@ -10,6 +10,7 @@
 import { Heart } from "lucide-react";
 import { useShortlist } from "@/lib/site/shortlist";
 import { cn } from "@/lib/utils";
+import { trackTutorEvent } from "@/lib/analytics/tutor-track";
 
 export function FavoriteButton({
   slug,
@@ -30,6 +31,7 @@ export function FavoriteButton({
         // The card is wrapped in links; a heart click must not navigate.
         e.preventDefault();
         e.stopPropagation();
+        trackTutorEvent(saved ? "favorite_removed" : "favorite_added", slug);
         toggle(slug);
       }}
       aria-pressed={saved}

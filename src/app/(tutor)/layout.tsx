@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { TutorSidebar } from "@/components/tutor/tutor-sidebar";
 import { MobileSidebar } from "@/components/shared/mobile-sidebar";
+import { NotificationBell } from "@/components/notifications/notification-bell";
 import { Flame } from "lucide-react";
 
 export const metadata = {
@@ -91,6 +92,7 @@ export default async function TutorLayout({
       ? {
           label: "FrancoLink tutor",
           items: [
+            { name: "Profile insights", href: "/tutor/insights", icon: "BarChart3" },
             { name: "Public profile", href: "/tutor/public-profile", icon: "Globe" },
             { name: "Availability", href: "/tutor/availability", icon: "CalendarClock" },
           ],
@@ -108,7 +110,7 @@ export default async function TutorLayout({
     {
       label: "Account",
       items: [
-        { name: "Commissions", href: "/tutor/commisions", icon: "DollarSign" },
+        { name: "Commissions", href: "/tutor/commissions", icon: "DollarSign" },
         { name: "Settings", href: "/tutor/settings", icon: "Settings" },
       ],
     },
@@ -152,6 +154,7 @@ export default async function TutorLayout({
             </Link>
           </div>
           <div className="flex items-center gap-3">
+            <NotificationBell inboxHref={null} />
             {commissionBalance > 0 && (
               <Link
                 href="/tutor/commissions"
@@ -174,6 +177,9 @@ export default async function TutorLayout({
 
       {/* Main Content */}
       <div className="lg:pl-64">
+        <div className="hidden lg:flex sticky top-0 z-30 h-14 items-center justify-end px-8 bg-white/90 backdrop-blur border-b border-gray-100">
+          <NotificationBell inboxHref={null} />
+        </div>
         <main className="min-h-screen p-4 sm:p-6 lg:p-8">{children}</main>
       </div>
       <ActivityPinger />

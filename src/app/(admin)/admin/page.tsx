@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { Users, BookOpen, CreditCard, TrendingUp } from "lucide-react";
 import { getDashboardUser, isAdmin } from "@/lib/admin/access";
+import { DEMO_EMAIL_PATTERN } from "@/lib/demo";
 
 export default async function AdminDashboardPage() {
   // Community managers get a scoped home (support), not the full admin console.
@@ -15,7 +16,8 @@ export default async function AdminDashboardPage() {
   // Get stats
   const { count: userCount } = await supabase
     .from("users")
-    .select("*", { count: "exact", head: true });
+    .select("*", { count: "exact", head: true })
+    .not("email", "ilike", DEMO_EMAIL_PATTERN);
 
   const { count: lessonCount } = await supabase
     .from("lessons")
@@ -24,6 +26,7 @@ export default async function AdminDashboardPage() {
   const { count: premiumCount } = await supabase
     .from("users")
     .select("*", { count: "exact", head: true })
+    .not("email", "ilike", DEMO_EMAIL_PATTERN)
     .in("subscription_plan", ["PREMIUM", "PREMIUM_PLUS"]);
 
   const stats = [

@@ -1,18 +1,18 @@
 "use client";
 
-// The two-step review ask.
+// The review ask.
 //
-// Step one is a cheap in-app question with no stakes -- a thumb, not a form.
-// Step two branches: a happy answer gets the Trustpilot link, an unhappy one
-// gets a text box that comes to us. Everybody gets asked; only the people
-// having a good week get asked to say so in public, which is the whole reason
-// this is two steps instead of a bare "Review us on Trustpilot" banner.
+// Everybody who earns the ask gets the Trustpilot link, whatever kind of week
+// they are having. Trustpilot's rules forbid inviting only the people likely to
+// be happy, and a profile flagged for it is worth less than a thin one. The
+// private feedback box sits beside the link as a second option, not a filter in
+// front of it: someone with a complaint can tell us, tell Trustpilot, or both.
 //
 // Deliberately not a modal. It sits where PushPrompt sits, is dismissible on
 // sight, and never blocks the dashboard behind it.
 
 import { useState, useEffect } from "react";
-import { Star, X, ThumbsUp, ThumbsDown, CheckCircle, ExternalLink } from "lucide-react";
+import { Star, X, MessageSquare, CheckCircle, ExternalLink } from "lucide-react";
 import { lessonReviewShowing } from "./lesson-review-gate";
 
 interface Decision {
@@ -22,7 +22,7 @@ interface Decision {
   trustpilotUrl: string;
 }
 
-type Step = "ask" | "positive" | "negative" | "thanks";
+type Step = "ask" | "feedback" | "thanks";
 
 export function ReviewPrompt() {
   const [decision, setDecision] = useState<Decision | null>(null);
@@ -73,25 +73,24 @@ export function ReviewPrompt() {
 
   if (!decision || gone) return null;
 
-  const handleThumbsUp = () => {
-    setStep("positive");
+  const handleTrustpilot = () => {
     answer("positive");
+    setTimeout(() => setGone(true), 300);
   };
-
-  const handleThumbsDown = () => setStep("negative");
 
   const handleSendFeedback = async () => {
     setSending(true);
     await answer("negative", feedback);
     setSending(false);
     setStep("thanks");
-    setTimeout(() => setGone(true), 3500);
   };
 
   const handleDismiss = () => {
     setGone(true);
-    // "Later" on the first question is a snooze, not a no. Once they have told
-    // us how they feel, closing the card means they are done.
+    // Their feedback is already recorded; closing the thank-you is not a no.
+    if (step === "thanks") return;
+    // Closing the first card is a snooze, not a no. Closing the feedback box
+    // half-written means they are done.
     answer(step === "ask" ? "snooze" : "dismiss");
   };
 
@@ -111,7 +110,7 @@ export function ReviewPrompt() {
           <X className="w-4 h-4" />
         </button>
 
-        {/* ── Step 1: the thumb ─────────────────────────────────── */}
+        {/* ── The ask: Trustpilot for everyone, feedback as an option ── */}
         {step === "ask" && (
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -120,72 +119,42 @@ export function ReviewPrompt() {
             <div className="flex-1">
               <h3 className="font-bold text-gray-900 mb-1">{headline}</h3>
               <p className="text-sm text-gray-500 mb-4">
-                How is FrancoLink working out for you so far?
-              </p>
-              <div className="flex gap-2">
-                <button
-                  onClick={handleThumbsUp}
-                  className="flex-1 bg-primary text-white py-2 px-4 rounded-xl text-sm font-bold hover:bg-primary-800 transition-all flex items-center justify-center gap-2"
-                >
-                  <ThumbsUp className="w-4 h-4" />
-                  Loving it
-                </button>
-                <button
-                  onClick={handleThumbsDown}
-                  className="flex-1 border border-gray-200 text-gray-600 py-2 px-4 rounded-xl text-sm font-semibold hover:bg-gray-50 transition-all flex items-center justify-center gap-2"
-                >
-                  <ThumbsDown className="w-4 h-4" />
-                  Not really
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* ── Step 2a: happy -> Trustpilot ──────────────────────── */}
-        {step === "positive" && (
-          <div className="flex items-start gap-4">
-            <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-              <Star className="w-6 h-6 text-green-600" />
-            </div>
-            <div className="flex-1">
-              <h3 className="font-bold text-gray-900 mb-1">That&apos;s great to hear!</h3>
-              <p className="text-sm text-gray-500 mb-4">
-                Would you tell other French learners? It takes about a minute and
-                it genuinely helps people find us.
+                How is FrancoLink working out for you? An honest review on
+                Trustpilot takes about a minute and helps other French learners
+                decide.
               </p>
               <div className="flex gap-2">
                 <a
                   href={decision.trustpilotUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => setTimeout(() => setGone(true), 300)}
+                  onClick={handleTrustpilot}
                   className="flex-1 bg-[#00b67a] text-white py-2 px-4 rounded-xl text-sm font-bold hover:brightness-95 transition-all flex items-center justify-center gap-2"
                 >
                   Review on Trustpilot
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
-                <button
-                  onClick={handleDismiss}
-                  className="px-3 py-2 text-sm text-gray-400 hover:text-gray-600"
-                >
-                  Not now
-                </button>
               </div>
+              <button
+                onClick={() => setStep("feedback")}
+                className="mt-3 text-sm text-gray-500 hover:text-gray-700 underline underline-offset-2"
+              >
+                Or tell us privately what to improve
+              </button>
             </div>
           </div>
         )}
 
-        {/* ── Step 2b: unhappy -> straight to us ────────────────── */}
-        {step === "negative" && (
+        {/* ── Private feedback, straight to us ──────────────────── */}
+        {step === "feedback" && (
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
-              <ThumbsDown className="w-6 h-6 text-amber-600" />
+              <MessageSquare className="w-6 h-6 text-amber-600" />
             </div>
             <div className="flex-1">
-              <h3 className="font-bold text-gray-900 mb-1">Sorry to hear that.</h3>
+              <h3 className="font-bold text-gray-900 mb-1">What would make it better?</h3>
               <p className="text-sm text-gray-500 mb-3">
-                What would make it better? This goes straight to the team.
+                This goes straight to the team.
               </p>
               <textarea
                 value={feedback}
@@ -204,10 +173,10 @@ export function ReviewPrompt() {
                   {sending ? "Sending…" : "Send feedback"}
                 </button>
                 <button
-                  onClick={handleDismiss}
+                  onClick={() => setStep("ask")}
                   className="px-3 py-2 text-sm text-gray-400 hover:text-gray-600"
                 >
-                  Skip
+                  Back
                 </button>
               </div>
             </div>
@@ -216,13 +185,25 @@ export function ReviewPrompt() {
 
         {/* ── Acknowledgement ───────────────────────────────────── */}
         {step === "thanks" && (
-          <div className="flex items-center gap-3">
+          <div className="flex items-start gap-3">
             <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
               <CheckCircle className="w-5 h-5 text-green-600" />
             </div>
-            <div>
+            <div className="flex-1">
               <p className="font-bold text-gray-900">Thank you — got it.</p>
-              <p className="text-sm text-gray-500">We read every one of these.</p>
+              <p className="text-sm text-gray-500">
+                We read every one of these. You&apos;re also welcome to{" "}
+                <a
+                  href={decision.trustpilotUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={handleTrustpilot}
+                  className="text-[#00b67a] font-semibold hover:underline"
+                >
+                  review us on Trustpilot
+                </a>
+                .
+              </p>
             </div>
           </div>
         )}

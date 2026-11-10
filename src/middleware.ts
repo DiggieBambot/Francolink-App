@@ -1,8 +1,9 @@
-import { type NextRequest, NextResponse } from "next/server";
+import { type NextFetchEvent, type NextRequest, NextResponse } from "next/server";
 import { updateSession } from "@/lib/supabase/middleware";
 import createIntlMiddleware from "next-intl/middleware";
 import { routing } from "@/i18n/routing";
 import { APP_URL, SITE_PREFIX, SITE_URL, isMarketingHost } from "@/lib/site/hosts";
+import { REF_COOKIE, REF_COOKIE_DAYS, normalizeCode, refCookieDomain } from "@/lib/affiliates";
 
 const intlMiddleware = createIntlMiddleware(routing);
 
@@ -184,6 +185,8 @@ const APP_ROUTES = [
   "/get-started",
   "/space",
   "/become-tutor",
+  // Creator (affiliate) dashboard.
+  "/creator",
   "/tutor",
   "/tutors",
   "/pricing",
@@ -191,7 +194,63 @@ const APP_ROUTES = [
   "/contact",
 ];
 
-export default async function middleware(request: NextRequest) {
+/**
+ * Creator links: ?ref=<code> on any page, either host.
+ *
+ * Stores the code in a cookie both hosts can read (creators link to the
+ * website; signup and checkout happen on the app) and counts the click. The
+ * latest creator link wins the cookie; who finally gets the customer is
+ * decided once, at signup or checkout (lib/affiliates). The code is not
+ * checked here -- an unknown one is simply never matched later.
+ */
+function withReferral(request: NextRequest, response: Response, event: NextFetchEvent): Response {
+  const code = normalizeCode(request.nextUrl.searchParams.get("ref"));
+  if (!code || !(response instanceof NextResponse)) return response;
+
+  // A reload or second page view with the same link is not a second click.
+  if (request.cookies.get(REF_COOKIE)?.value === code) return response;
+
+  response.cookies.set(REF_COOKIE, code, {
+    path: "/",
+    domain: refCookieDomain(),
+    maxAge: REF_COOKIE_DAYS * 24 * 60 * 60,
+    sameSite: "lax",
+    secure: request.nextUrl.protocol === "https:",
+  });
+
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (supabaseUrl && serviceKey) {
+    let referrerHost: string | null = null;
+    try {
+      const ref = request.headers.get("referer");
+      referrerHost = ref ? new URL(ref).hostname : null;
+    } catch {}
+    // After the response: counting a click must never slow the page down.
+    event.waitUntil(
+      fetch(`${supabaseUrl}/rest/v1/rpc/record_affiliate_click`, {
+        method: "POST",
+        headers: {
+          apikey: serviceKey,
+          Authorization: `Bearer ${serviceKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          p_code: code,
+          p_landing_path: request.nextUrl.pathname,
+          p_referrer_host: referrerHost,
+        }),
+      }).catch(() => {}),
+    );
+  }
+  return response;
+}
+
+export default async function middleware(request: NextRequest, event: NextFetchEvent) {
+  return withReferral(request, await route(request), event);
+}
+
+async function route(request: NextRequest): Promise<Response> {
   const { pathname } = request.nextUrl;
 
   // 0. francolink.net vs app.francolink.net. The marketing site is fully

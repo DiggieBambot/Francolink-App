@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { BookOpen, CalendarCheck, Coins, Users } from "lucide-react";
+import { BookOpen, CalendarCheck, Coins, Gift, Repeat, Users } from "lucide-react";
 import { Section, SectionHeading } from "@/components/site/ui";
 import { TeachForm } from "@/components/site/teach-form";
+import { getSettingsByCategory } from "@/lib/settings";
 import {
   TIER_BLURB,
   TIER_LABEL,
@@ -15,7 +16,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Teach with FrancoLink",
   description:
-    "Apply to teach French, English, Spanish or German with FrancoLink. We bring you the students, the CEFR curriculum and the classroom — you teach. Fixed pay per lesson, no rate haggling.",
+    "Apply to teach French, English, Spanish or German with FrancoLink. We bring you the students, the CEFR curriculum and the classroom — you teach. Fixed pay per lesson, plus commission when students you invite subscribe.",
   alternates: { canonical: "/teach" },
 };
 
@@ -44,8 +45,45 @@ const PERKS = [
   },
 ];
 
+// Same keys and fallbacks the payers read: the Stripe webhook (subscription
+// percentages) and awardReferralBounty in @/lib/credits/referral (plan bounty).
+async function getReferralTerms() {
+  const s = await getSettingsByCategory("commissions");
+  const pct = (key: string, fallback: string) =>
+    Math.round(parseFloat(s[key] || fallback) * 100);
+  const usd = (key: string, fallback: string) =>
+    `$${parseFloat(s[key] || fallback).toFixed(0)}`;
+
+  return {
+    subscriptionEnabled: s["commission_enabled"] === "true",
+    firstMonthPct: pct("commission_rate_first_month", "0.10"),
+    recurringPct: pct("commission_rate_recurring", "0.05"),
+    bountyEnabled: (s["lesson_plan_bounty_enabled"] ?? "true") === "true",
+    bountyCommunity: usd("lesson_plan_bounty_community", "10.00"),
+    bountyProfessional: usd("lesson_plan_bounty_professional", "20.00"),
+  };
+}
+
 export default async function TeachPage() {
-  const pricing = await getPricingByTier();
+  const [pricing, referral] = await Promise.all([
+    getPricingByTier(),
+    getReferralTerms(),
+  ]);
+
+  const referralFaqs = [
+    referral.subscriptionEnabled && {
+      q: "Can FrancoLink tutors earn commission by inviting their students?",
+      a: `Yes. Every tutor gets a personal invite link. When a student who joined through it subscribes to FrancoLink for self-study, you earn ${referral.firstMonthPct}% of their first month and ${referral.recurringPct}% of every month after, for as long as they stay subscribed.`,
+    },
+    referral.bountyEnabled && {
+      q: "Do I earn anything when an invited student books a lesson plan?",
+      a: `Yes — a one-time referral bonus of ${referral.bountyCommunity} (${referral.bountyProfessional} on a Professional plan), paid once the student completes their first lesson.`,
+    },
+    (referral.subscriptionEnabled || referral.bountyEnabled) && {
+      q: "How are referral earnings paid out?",
+      a: "Earnings build up in your tutor dashboard, where you can see every commission line. Request a withdrawal from there and we pay it out. If a payment is refunded, the commission on it is reversed.",
+    },
+  ].filter((f): f is { q: string; a: string } => Boolean(f));
 
   return (
     <>
@@ -81,7 +119,72 @@ export default async function TeachPage() {
         </div>
       </Section>
 
-      <Section tone="tint" id="tiers">
+      {referralFaqs.length > 0 && (
+        <Section tone="tint" id="referrals">
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                mainEntity: referralFaqs.map((f) => ({
+                  "@type": "Question",
+                  name: f.q,
+                  acceptedAnswer: { "@type": "Answer", text: f.a },
+                })),
+              }),
+            }}
+          />
+          <SectionHeading
+            eyebrow="Referral commission"
+            title="Earn commission when your students subscribe"
+            subtitle="Invite your own students with your personal link. On top of what you earn teaching, you're paid every time they subscribe or start a lesson plan."
+          />
+          <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+            {referral.subscriptionEnabled && (
+              <div className="p-7 rounded-2xl bg-white border border-gray-100 shadow-soft">
+                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mb-5">
+                  <Repeat className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-heading font-bold text-lg text-primary mb-2">
+                  {referral.firstMonthPct}% first month, then {referral.recurringPct}% every month
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  When a student you invited subscribes for self-study, you earn{" "}
+                  {referral.firstMonthPct}% of their first month and{" "}
+                  {referral.recurringPct}% of every month after — for as long as
+                  they stay subscribed.
+                </p>
+              </div>
+            )}
+            {referral.bountyEnabled && (
+              <div className="p-7 rounded-2xl bg-white border border-gray-100 shadow-soft">
+                <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mb-5">
+                  <Gift className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-heading font-bold text-lg text-primary mb-2">
+                  {referral.bountyCommunity}–{referral.bountyProfessional} per lesson-plan student
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  A one-time bonus when an invited student starts a lesson plan
+                  — {referral.bountyProfessional} on Professional — paid once
+                  they&apos;ve completed their first lesson.
+                </p>
+              </div>
+            )}
+          </div>
+          <dl className="mt-10 max-w-3xl mx-auto space-y-6">
+            {referralFaqs.map((f) => (
+              <div key={f.q}>
+                <dt className="font-heading font-bold text-primary">{f.q}</dt>
+                <dd className="mt-1 text-sm text-gray-600 leading-relaxed">{f.a}</dd>
+              </div>
+            ))}
+          </dl>
+        </Section>
+      )}
+
+      <Section id="tiers">
         <SectionHeading
           eyebrow="Tiers"
           title="Where you'd be placed"
@@ -120,7 +223,7 @@ export default async function TeachPage() {
         </p>
       </Section>
 
-      <Section>
+      <Section tone="tint">
         <div className="max-w-2xl mx-auto">
           <SectionHeading
             eyebrow="Apply"

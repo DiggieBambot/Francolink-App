@@ -138,13 +138,16 @@ const STACK = [
   "Lifetime access",
 ];
 
-const FAQ: [string, string][] = [
+// The optional third element is a follow-up link, rendered after the answer.
+// It stays out of the FAQPage schema, whose answer text is the plain string.
+const FAQ: [string, string, { href: string; label: string }?][] = [
   ["Is this really A0 to B2?",
    "Yes. It starts at your first phrase and ends with the subjunctive, reported speech, and the connectors used to argue a point in French. Six parts, 45 exercises, every answer given."],
   ["I already know the basics — is it too easy?",
    "Start at Partie 3. Object pronouns, y and en, and the relative pronouns are where nearly every self-taught learner has a hole, and they are what make speech sound French rather than translated."],
   ["Will it help with the TCF or TEF?",
-   "It builds the grammar those exams rest on, and it is written by a teacher who prepares candidates for them. It is not a full exam-prep course — there are no mock papers or timed sections — but the structures the written and spoken sections test are exactly what it drills."],
+   "It builds the grammar those exams rest on, and it is written by a teacher who prepares candidates for them. It is not a full exam-prep course — there are no mock papers or timed sections — but the structures the written and spoken sections test are exactly what it drills.",
+   { href: "/guides/tcf-canada", label: "How the TCF Canada works, part by part" }],
   ["Is it a PDF or an app?",
    "Both, for one price. A PDF to keep and print, plus an online version in your browser where the exercises mark themselves and your progress saves. No download, no app store."],
   ["Do I need an account to buy?",
@@ -411,12 +414,13 @@ export default function Page() {
       <section id="buy" className="sec sec-navy sec-pad">
         <div className="wrap max-3 center">
           <h2 className="h2 h2-light">
-            One tutor lesson is $18. This is the whole grammar of French, for $27.
+            One tutor lesson is about $20. This is the whole grammar of French, for $27.
           </h2>
           <ul className="stack">
             {STACK.map((s) => <li key={s}>{s}</li>)}
           </ul>
           <div className="price-block">
+            <span className="price-was">Valued at <s>$149</s></span>
             <span className="price">$27</span>
             <span className="price-note">one payment</span>
           </div>
@@ -451,6 +455,7 @@ export default function Page() {
               </p>
             </div>
             <div className="audio-price">
+              <span className="micro">Valued at <s>$79</s></span>
               <span className="audio-amount">+$17</span>
               <span className="micro">audio pack</span>
             </div>
@@ -477,13 +482,23 @@ export default function Page() {
         <div className="wrap max-3">
           <h2 className="h2">Before you buy</h2>
           <div className="faq">
-            {FAQ.map(([q, a]) => (
+            {FAQ.map(([q, a, link]) => (
               <details key={q} className="faq-item">
                 <summary className="faq-q">
                   <span>{q}</span>
                   <span className="faq-sign" aria-hidden>+</span>
                 </summary>
-                <p className="faq-a muted">{a}</p>
+                <p className="faq-a muted">
+                  {a}
+                  {link && (
+                    <>
+                      {" "}
+                      <Link href={link.href} className="faq-link">
+                        {link.label}
+                      </Link>
+                    </>
+                  )}
+                </p>
               </details>
             ))}
           </div>

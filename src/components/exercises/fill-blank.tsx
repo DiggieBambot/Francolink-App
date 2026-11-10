@@ -15,6 +15,8 @@ interface FillBlankProps {
       correctAnswer?: string;
       options?: string[];
       caseSensitive?: boolean;
+      /** Other answers that are also right (e.g. "amiga" for "Adiós, ___"). */
+      acceptableAnswers?: string[];
     };
     hint?: string;
     explanation?: string;
@@ -47,12 +49,17 @@ export default function FillBlank({ exercise, onSubmit, disabled }: FillBlankPro
     setIsCorrect(false);
   }, [exercise.id]);
 
-  const checkAnswer = (answer: string): boolean => {
-    if (caseSensitive) {
-      return answer.trim() === correctAnswer;
-    }
-    return answer.trim().toLowerCase() === correctAnswer.toLowerCase();
-  };
+  const matches = (answer: string, target: string): boolean =>
+    caseSensitive
+      ? answer.trim() === target
+      : answer.trim().toLowerCase() === target.toLowerCase();
+
+  // The primary answer drives the "correct answer" display
+  const isPrimaryAnswer = (answer: string): boolean => matches(answer, correctAnswer);
+
+  const checkAnswer = (answer: string): boolean =>
+    isPrimaryAnswer(answer) ||
+    (content.acceptableAnswers ?? []).some((a) => matches(answer, a));
 
   // Handle option selection (multiple choice style)
   const handleOptionSelect = (option: string) => {
@@ -122,7 +129,8 @@ export default function FillBlank({ exercise, onSubmit, disabled }: FillBlankPro
         <div className="grid grid-cols-2 gap-2">
           {options.map((option, index) => {
             const isSelected = selectedOption === option;
-            const isCorrectOption = checkAnswer(option);
+            // Highlight the primary answer, plus whatever the user picked if it was also acceptable
+            const isCorrectOption = isPrimaryAnswer(option) || (isSelected && checkAnswer(option));
             
             let bgColor = "bg-gray-50";
             let borderColor = "border-gray-200";

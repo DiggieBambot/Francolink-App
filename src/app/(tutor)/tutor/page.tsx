@@ -1,11 +1,12 @@
 import { UpcomingClasses } from "@/components/dashboard/upcoming-classes";
 import { getUpcomingClasses } from "@/lib/booking/upcoming";
 import { createClient } from "@/lib/supabase/server";
+import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import {
   Users, BookOpen, ArrowRight, Wallet, TrendingUp, Link2, GraduationCap, Sparkles,
-  CalendarDays,
+  CalendarDays, UserCheck,
 } from "lucide-react";
 import { CopyButton } from "@/components/tutor/copy-button";
 import { TutorGuideButton } from "@/components/tutor/tutor-guide";
@@ -54,13 +55,26 @@ export default async function TutorDashboardPage() {
     .reduce((s, r) => s + parseFloat(String(r.amount || 0)), 0);
   const balance = parseFloat(String(me?.commission_balance || "0"));
 
-  // Recent lesson spaces.
+  // Recent lesson spaces. student_id references auth.users, so PostgREST can't
+  // embed public.users through it (the embed fails the whole query); names are
+  // looked up separately. Cross-user reads need the service client (RLS blocks
+  // a tutor from selecting a student's row).
   const { data: spaces } = await supabase
     .from("tutor_lesson_sessions")
-    .select("id, student_id, tutor_lesson_id, updated_at, users:student_id(name, email), tutor_lessons:tutor_lesson_id(title)")
+    .select("id, student_id, tutor_lesson_id, title, updated_at, tutor_lessons:tutor_lesson_id(title)")
     .eq("tutor_id", user.id)
     .order("updated_at", { ascending: false })
     .limit(5);
+  const spaceStudentIds = [...new Set((spaces || []).map((sp) => sp.student_id).filter(Boolean))];
+  const { data: spaceStudents } = spaceStudentIds.length
+    ? await createServiceClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!, {
+        auth: { persistSession: false },
+      })
+        .from("users")
+        .select("id, name, email")
+        .in("id", spaceStudentIds)
+    : { data: [] };
+  const studentById = new Map((spaceStudents || []).map((s) => [s.id, s]));
 
   // Is this tutor already a FrancoLink tutor (listed and paid by us), or have
   // they applied? Drives the banner below — distinct from simply having a
@@ -68,7 +82,7 @@ export default async function TutorDashboardPage() {
   const [{ data: flProfile }, { data: flApplication }] = await Promise.all([
     supabase
       .from("tutor_public_profiles")
-      .select("slug, approval_status, is_public, accepts_bookings")
+      .select("slug, approval_status, rejection_reason, is_public, accepts_bookings, headline, bio, photo_url")
       .eq("user_id", user.id)
       .maybeSingle(),
     supabase
@@ -93,6 +107,22 @@ export default async function TutorDashboardPage() {
   const applicationOpen = ["new", "reviewing", "interviewing"].includes(
     flApplication?.status ?? ""
   );
+
+  // Already in (an admin set up their row, or they were accepted) but not live
+  // yet: point them at the editor instead of telling them to apply.
+  const isMember = Boolean(flProfile) || flApplication?.status === "accepted";
+  const { count: availabilityCount } = isMember && !isListed
+    ? await supabase
+        .from("tutor_availability")
+        .select("id", { count: "exact", head: true })
+        .eq("tutor_id", user.id)
+    : { count: 0 };
+  const profileMissing = [
+    !flProfile?.headline?.trim() && "headline",
+    !flProfile?.bio?.trim() && "about you",
+    !flProfile?.photo_url && "photo",
+    !availabilityCount && "availability",
+  ].filter(Boolean) as string[];
 
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
   const inviteLink = me?.tutor_invite_code ? `${appUrl}/join/${me.tutor_invite_code}` : null;
@@ -133,9 +163,50 @@ export default async function TutorDashboardPage() {
       {/* Where they stand on the pay ladder. Listed tutors only. */}
       {standing && <TutorLadderCard standing={standing} />}
 
+      {/* Already a FrancoLink tutor but not live: send them to the editor. */}
+      {!isListed && isMember && (
+        <div className="rounded-2xl border border-primary-200 bg-gradient-to-br from-primary-50 to-white p-5">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="min-w-0">
+              <div className="flex items-center gap-2 text-primary">
+                <UserCheck className="h-4 w-4" />
+                <span className="text-xs font-semibold uppercase tracking-wide">
+                  FrancoLink tutor
+                </span>
+              </div>
+              <h2 className="mt-2 text-lg font-bold text-slate-900">
+                {flProfile?.approval_status === "rejected"
+                  ? "Your profile needs a few changes"
+                  : profileMissing.length > 0
+                    ? "Finish your public profile"
+                    : flProfile?.approval_status === "approved"
+                      ? "Turn on your listing"
+                      : "Your profile is under review"}
+              </h2>
+              <p className="mt-1 max-w-2xl text-sm text-slate-600">
+                {flProfile?.approval_status === "rejected" && flProfile.rejection_reason
+                  ? flProfile.rejection_reason
+                  : profileMissing.length > 0
+                    ? `Students find you on francolink.net once your profile is complete. Still missing: ${profileMissing.join(", ")}.`
+                    : flProfile?.approval_status === "approved"
+                      ? "You're approved. Make your profile public and accept bookings so students can find and book you."
+                      : "Thanks — our team is checking it. We'll email you once it's live. You can keep editing in the meantime."}
+              </p>
+            </div>
+            <Link
+              href="/tutor/public-profile"
+              className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-white hover:bg-primary-800"
+            >
+              {profileMissing.length > 0 ? "Complete profile" : "Edit profile"}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      )}
+
       {/* Become a FrancoLink tutor — we send the students and pay per lesson.
           Hidden once they're listed; shows status while an application is open. */}
-      {!isListed && (
+      {!isListed && !isMember && (
         <div className="rounded-2xl border border-secondary-200 bg-gradient-to-br from-secondary-50 to-white p-5">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div className="min-w-0">
@@ -252,7 +323,7 @@ export default async function TutorDashboardPage() {
           <Link href="/tutor/schedule" className="inline-flex items-center justify-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">
             <CalendarDays className="h-4 w-4" /> Schedule
           </Link>
-          <Link href="/tutor/commisions" className="inline-flex items-center justify-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+          <Link href="/tutor/commissions" className="inline-flex items-center justify-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">
             <Wallet className="h-4 w-4" /> Earnings &amp; payouts
           </Link>
         </div>
@@ -269,13 +340,13 @@ export default async function TutorDashboardPage() {
         {spaces && spaces.length > 0 ? (
           <ul className="divide-y">
             {spaces.map((sp) => {
-              const u = sp.users as unknown as { name?: string; email?: string } | null;
+              const u = studentById.get(sp.student_id);
               const l = sp.tutor_lessons as unknown as { title?: string } | null;
               return (
                 <li key={sp.id} className="flex items-center justify-between py-2.5">
                   <div>
                     <div className="text-sm font-medium text-slate-900">{u?.name || u?.email || "Student"}</div>
-                    <div className="text-xs text-slate-500">{l?.title || "No lesson yet"}</div>
+                    <div className="text-xs text-slate-500">{l?.title || sp.title || "No lesson yet"}</div>
                   </div>
                   <Link href={`/room/${sp.id}`} className="inline-flex items-center gap-1 rounded-lg bg-primary-50 px-3 py-1.5 text-xs font-semibold text-primary-700 hover:bg-primary-100">
                     Open <ArrowRight className="h-3 w-3" />

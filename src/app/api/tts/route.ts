@@ -1,5 +1,5 @@
 // src/app/api/tts/route.ts
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import { getRequestAuth } from "@/lib/supabase/request-auth";
 import { createClient } from "@supabase/supabase-js";
 import {
@@ -107,18 +107,22 @@ export async function POST(request: NextRequest) {
     }
     const audioBase64 = audioBuffer.toString("base64");
 
-    // 3. Save to cache in background with service-role client (user session can't write to storage)
-    adminSupabase.storage
-      .from(BUCKET)
-      .upload(storagePath, audioBuffer, {
-        contentType: "audio/mpeg",
-        upsert: false,
-      })
-      .then(({ error }) => {
-        if (error && error.message !== "The resource already exists") {
-          console.error("TTS cache save error:", error.message);
-        }
-      });
+    // 3. Save to cache with the service-role client (user session can't write
+    // to storage). This used to be a bare fire-and-forget promise, which a
+    // serverless function is free to freeze the moment the response is sent —
+    // so the clip was paid for and then often never stored, and the next play
+    // paid for it again. after() keeps the function alive until it lands.
+    after(async () => {
+      const { error } = await adminSupabase.storage
+        .from(BUCKET)
+        .upload(storagePath, audioBuffer, {
+          contentType: "audio/mpeg",
+          upsert: false,
+        });
+      if (error && !/already exists/i.test(error.message)) {
+        console.error("TTS cache save error:", storagePath, error.message);
+      }
+    });
 
     return NextResponse.json({ audio: audioBase64, format: "mp3", cached: false });
   } catch (error) {

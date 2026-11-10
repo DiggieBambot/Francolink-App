@@ -146,6 +146,7 @@
 .fpap .price-block{display:flex;align-items:baseline;justify-content:center;gap:10px;margin-top:34px;}
 .fpap .price{font-family:var(--font-display),Georgia,serif;color:var(--paper);font-size:3.2rem;font-weight:600;line-height:1;}
 .fpap .price-note{color:var(--paper-dim);}
+.fpap .price-was{color:var(--paper-dim);font-size:1.1rem;}
 .fpap .close-p{color:var(--paper-dim);line-height:1.65;margin:18px auto 0;max-width:52ch;}
 
 .fpap .audio{background:var(--tint);border-radius:14px;padding:28px;display:flex;gap:26px;
@@ -166,6 +167,7 @@
 .fpap .faq-sign{font-family:var(--font-display),Georgia,serif;font-size:1.5rem;color:var(--accent);line-height:1;flex:none;}
 .fpap details[open] .faq-sign{transform:rotate(45deg);}
 .fpap .faq-a{padding:0 0 20px;max-width:62ch;margin:0;}
+.fpap .faq-link{color:var(--navy);font-weight:600;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px;}
 
 .fpap-sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;
   display:flex;align-items:center;justify-content:space-between;gap:14px;

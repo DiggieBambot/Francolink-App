@@ -17,6 +17,7 @@ interface Notification {
 function iconFor(type: string) {
   if (type === "homework_assigned") return PencilLine;
   if (type === "homework_reviewed") return MessageSquareText;
+  if (type === "application_reply") return MessageSquareText;
   return Bell;
 }
 
@@ -100,7 +101,7 @@ export function NotificationInbox() {
                 </span>
                 <div className="min-w-0 flex-1">
                   <p className="text-sm font-semibold text-gray-900">{n.title}</p>
-                  {n.body ? <p className="text-sm text-gray-600">{n.body}</p> : null}
+                  {n.body ? <p className="text-sm text-gray-600 whitespace-pre-line">{n.body}</p> : null}
                   <p className="mt-0.5 text-xs text-gray-400">{timeAgo(n.created_at)}</p>
                 </div>
                 {!n.read_at ? <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-primary" /> : null}

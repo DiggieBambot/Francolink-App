@@ -40,7 +40,7 @@ export default function Listening({
 
   const textToSpeak = content.ttsText || content.audioText || "";
   const speakLang = content.ttsLang || language;
-  const { speak, stop, isSpeaking } = useInworldTTS({ language: speakLang });
+  const { speak, stop, isSpeaking, isLoading, error } = useInworldTTS({ language: speakLang });
   const isPlaying = isSpeaking;
 
   // Reset on exercise change
@@ -53,9 +53,9 @@ export default function Listening({
   }, [exercise.id, stop]);
 
   const playAudio = async () => {
-    if (!textToSpeak) return;
-    await speak(textToSpeak);
-    setPlayCount((p) => p + 1);
+    if (!textToSpeak || isLoading || isPlaying) return;
+    // Only a clip that actually played counts as a listen.
+    if (await speak(textToSpeak)) setPlayCount((p) => p + 1);
   };
 
   const handleSelect = (index: number) => {
@@ -90,13 +90,21 @@ export default function Listening({
         >
           <div
             className={`w-20 h-20 rounded-full flex items-center justify-center transition-all ${
-              isPlaying ? "bg-orange-500 animate-pulse" : "bg-white/20 hover:bg-white/30"
+              isPlaying || isLoading ? "bg-orange-500 animate-pulse" : "bg-white/20 hover:bg-white/30"
             }`}
           >
             <Volume2 className="w-10 h-10 text-white" />
           </div>
           <span className="text-white/80 text-sm font-medium">
-            {isPlaying ? "Playing..." : playCount > 0 ? "Tap to play again" : "Tap to listen"}
+            {isPlaying
+              ? "Playing..."
+              : isLoading
+              ? "Loading audio..."
+              : error
+              ? "Couldn't play the audio. Tap to try again"
+              : playCount > 0
+              ? "Tap to play again"
+              : "Tap to listen"}
           </span>
         </button>
       </div>

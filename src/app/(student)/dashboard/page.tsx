@@ -128,6 +128,7 @@ export default async function DashboardPage() {
         title,
         units:unit_id (
           courses:course_id (
+            id,
             level
           )
         )
@@ -171,31 +172,54 @@ export default async function DashboardPage() {
     currentLevel: activeLangData?.placement_level || profile?.placement_test_level || currentLevel,
   };
 
-  // Dynamic placeholder course based on user's language
-  const placeholderCourses = [
-    {
+  // Course cards come from the published courses for the learner's language,
+  // with progress counted from their completed lessons. Enrollments are never
+  // written, so building the cards from them always fell through to a
+  // placeholder showing 0% however many lessons had been done.
+  const completedByCourse = new Map<string, number>();
+  for (const row of completedLessons || []) {
+    const courseId = (row as any).lessons?.units?.courses?.id;
+    if (courseId) completedByCourse.set(courseId, (completedByCourse.get(courseId) || 0) + 1);
+  }
+
+  const { data: languageCourses } = await supabase
+    .from("courses")
+    .select("id, title, slug, level, units ( lessons ( id ) )")
+    .like("slug", `${userLanguageSlug}-%`)
+    .eq("is_published", true)
+    .order("level");
+
+  const courses = (languageCourses || [])
+    .map((c: any) => {
+      const totalLessons = (c.units || []).reduce(
+        (n: number, u: any) => n + (u.lessons?.length || 0),
+        0
+      );
+      const completed = Math.min(completedByCourse.get(c.id) || 0, totalLessons);
+      return {
+        id: c.slug,
+        title: c.title,
+        flag: languageInfo.flag,
+        level: c.level,
+        progress: totalLessons > 0 ? Math.round((completed / totalLessons) * 100) : 0,
+        totalLessons,
+        completedLessons: completed,
+      };
+    })
+    // Levels they've started, plus the one they're on now.
+    .filter((c) => c.completedLessons > 0 || c.level === String(stats.currentLevel).toUpperCase());
+
+  if (courses.length === 0) {
+    courses.push({
       id: `${userLanguageSlug}-a1`,
       title: `${languageInfo.name} Foundations`,
       flag: languageInfo.flag,
       level: "A1",
       progress: 0,
-      totalLessons: 40,
+      totalLessons: 0,
       completedLessons: 0,
-    },
-  ];
-
-  const courses =
-    enrollments && enrollments.length > 0
-      ? enrollments.map((e) => ({
-          id: e.courses?.slug || "",
-          title: e.courses?.title || "",
-          flag: e.courses?.languages?.flag_emoji || "🌍",
-          level: e.courses?.level || "A1",
-          progress: 0,
-          totalLessons: e.courses?.total_lessons || 0,
-          completedLessons: 0,
-        }))
-      : placeholderCourses;
+    });
+  }
 
   // Per-language placement check — show banner if this language hasn't been tested
   const hasPlacementTest = activeLangData?.placement_taken === true;
@@ -229,7 +253,6 @@ export default async function DashboardPage() {
           entirely through the confirmation email: the dashboard's own "View
           Sessions" button pointed at a page querying the legacy tutor_sessions
           table by tutor_id, which for a student is empty by construction. */}
-      <UpcomingClasses classes={upcomingClasses} role="student" />
       {/* ============================================
           WELCOME HEADER
           ============================================ */}
@@ -244,10 +267,19 @@ export default async function DashboardPage() {
         </p>
       </div>
 
-      {/* ============================================
-          TEACHER CARD
-          ============================================ */}
-      <SubscribePrompt plan={profile?.subscription_plan} />
+      {/* The dashboard serves two different things a student pays for, and
+          students mixed them up: classes with a real tutor, and the app's own
+          lessons. Each half gets its own labelled section. */}
+      <section className="space-y-4" aria-labelledby="live-lessons-heading">
+        <SectionHeading
+          id="live-lessons-heading"
+          icon={Video}
+          title="Live lessons with your tutor"
+          subtitle="Video classes you book with a real teacher"
+          tone="rose"
+        />
+
+      <UpcomingClasses classes={upcomingClasses} role="student" />
 
       {tutor ? (
         <div className="space-y-3">
@@ -339,7 +371,7 @@ export default async function DashboardPage() {
               </p>
             </div>
             <a
-              href="https://www.francolink.net/teachers"
+              href="https://www.francolink.net/tutors"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-4 py-2 bg-primary text-white text-sm font-semibold rounded-xl hover:bg-primary-800 transition-colors flex-shrink-0 shadow-sm"
@@ -351,6 +383,18 @@ export default async function DashboardPage() {
           <JoinTutorCode userId={user?.id} />
         </div>
       )}
+      </section>
+
+      <section className="space-y-6" aria-labelledby="self-study-heading">
+        <SectionHeading
+          id="self-study-heading"
+          icon={BookOpen}
+          title="Self-study"
+          subtitle="Lessons, audio and practice you do on your own, at your pace"
+          tone="primary"
+        />
+
+      <SubscribePrompt plan={profile?.subscription_plan} />
 
       {/* ============================================
           PLACEMENT TEST BANNER
@@ -519,6 +563,41 @@ export default async function DashboardPage() {
             </div>
           </div>
         </div>
+      </div>
+      </section>
+    </div>
+  );
+}
+
+const SECTION_TONES = {
+  rose: { bg: "bg-rose-50", fg: "text-rose-600" },
+  primary: { bg: "bg-primary-50", fg: "text-primary" },
+} as const;
+
+function SectionHeading({
+  id,
+  icon: Icon,
+  title,
+  subtitle,
+  tone,
+}: {
+  id: string;
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  subtitle: string;
+  tone: keyof typeof SECTION_TONES;
+}) {
+  const t = SECTION_TONES[tone];
+  return (
+    <div className="flex items-center gap-3 pb-3 border-b border-gray-200">
+      <div className={`w-9 h-9 rounded-xl ${t.bg} flex items-center justify-center flex-shrink-0`}>
+        <Icon className={`w-5 h-5 ${t.fg}`} />
+      </div>
+      <div>
+        <h2 id={id} className="font-heading font-bold text-lg text-primary leading-tight">
+          {title}
+        </h2>
+        <p className="text-xs text-gray-500">{subtitle}</p>
       </div>
     </div>
   );
