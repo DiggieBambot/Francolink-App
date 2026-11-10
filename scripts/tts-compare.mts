@@ -179,7 +179,14 @@ const providers: Provider[] = [
       const res = await fetch("https://api.openai.com/v1/audio/speech", {
         method: "POST",
         headers: { Authorization: `Bearer ${openaiKey}`, "Content-Type": "application/json" },
-        body: JSON.stringify({ model: "gpt-4o-mini-tts", voice, input: text }),
+        // The same instructions the route sends, so this is the voice learners hear.
+        body: JSON.stringify({
+          model: "gpt-4o-mini-tts",
+          voice,
+          input: text,
+          instructions:
+            "Read the text exactly as written, as a native speaker of the target language, with natural pronunciation, liaison and rhythm. Do not add or omit anything.",
+        }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status} ${(await res.text()).slice(0, 120)}`);
       return Buffer.from(await res.arrayBuffer());

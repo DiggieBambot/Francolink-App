@@ -7,6 +7,7 @@
 
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { creditBalance, creditCost, spendCredits, InsufficientCredits } from "@/lib/credits/ledger";
+import { FREE_TRIAL_MIN_LESSONS_PER_WEEK, FREE_TRIAL_MINUTES } from "@/lib/credits/plans";
 
 function service() {
   return createServiceClient(
@@ -218,18 +219,52 @@ export async function payBookingWithCredits(
 }
 
 /**
- * Has this student still got their one discounted first lesson?
+ * Can this student take their free 25-minute first lesson with this tutor?
  *
- * Any prior booking that wasn't abandoned spends it — 'expired' and
- * 'cancelled_by_student' don't count, because neither is a lesson the student
- * actually received. Derived from history rather than stored on the user, so
- * it cannot drift out of step with the bookings it describes.
+ * The trial is not sold on its own and starter packs don't include it: it
+ * comes with an ACTIVE plan of FREE_TRIAL_MIN_LESSONS_PER_WEEK or more, and
+ * with any tutor that plan covers. One per student, ever -- a trial lesson
+ * the student cancelled in time, or the tutor cancelled or missed, doesn't
+ * count. Mirrors bookings_one_trial_per_student (20261012_free_trial_lesson.sql),
+ * which is the real guard under races.
+ *
+ * Derived from history rather than stored on the user, so it cannot drift
+ * out of step with the bookings it describes. Fails closed.
  */
-export async function isTrialEligible(studentId: string): Promise<boolean> {
-  const { count } = await service()
+export async function freeTrialEligibility(
+  studentId: string,
+  tutorTier: string,
+  durationMinutes: number
+): Promise<boolean> {
+  if (durationMinutes !== FREE_TRIAL_MINUTES) return false;
+  const db = service();
+
+  const { data: sub, error } = await db
+    .from("user_subscriptions")
+    .select("lessons_per_week, subscription_plans(allowed_tiers)")
+    .eq("user_id", studentId)
+    .eq("status", "active")
+    .gte("lessons_per_week", FREE_TRIAL_MIN_LESSONS_PER_WEEK)
+    .maybeSingle();
+
+  if (error || !sub) return false;
+
+  const plan = sub.subscription_plans as unknown as { allowed_tiers: string[] | null } | null;
+  if (!plan?.allowed_tiers?.includes(tutorTier)) return false;
+
+  const { data: trials, error: trialsError } = await db
     .from("bookings")
-    .select("*", { count: "exact", head: true })
+    .select("status, refund_status")
     .eq("student_id", studentId)
-    .not("status", "in", "(expired,cancelled_by_student)");
-  return (count ?? 0) === 0;
+    .eq("is_trial", true);
+
+  if (trialsError) return false;
+
+  // Must match the index predicate exactly.
+  const used = (trials ?? []).some(
+    (b) =>
+      !["expired", "cancelled_by_tutor", "no_show_tutor"].includes(b.status) &&
+      !(b.status === "cancelled_by_student" && b.refund_status === "full")
+  );
+  return !used;
 }

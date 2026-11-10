@@ -2,8 +2,13 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
-import { isLessonPlanSubscription } from '@/lib/credits/referral';
+import { adjustTutorBalance, isLessonPlanSubscription, reverseSubscriptionCommission } from '@/lib/credits/referral';
 import { activateLessonPlan, endLessonPlan } from '@/lib/credits/subscription';
+import {
+  handleAffiliateChargeRefunded,
+  handleAffiliateDispute,
+  handleAffiliateInvoicePaid,
+} from '@/lib/affiliates/stripe';
 
 // Use service role for webhook (bypasses RLS)
 const supabase = createClient(
@@ -116,8 +121,28 @@ export async function POST(request: Request) {
         break;
 
       case 'invoice.payment_succeeded':
+        // Creator commission first: it may attribute the customer from the
+        // promotion code on this invoice, which the tutor commission below
+        // then sees and stands aside for.
+        await handleAffiliateInvoicePaid(event.data.object);
         await handlePaymentSucceeded(event.data.object as Stripe.Invoice);
         break;
+
+      // Creator commission is reversed with the money. Both events must be
+      // enabled on the endpoint in the Stripe dashboard.
+      case 'charge.refunded': {
+        const charge = event.data.object as Stripe.Charge;
+        await handleAffiliateChargeRefunded(charge);
+        if (charge.amount) await reverseTutorCommission(stripe, charge, charge.amount_refunded / charge.amount);
+        break;
+      }
+
+      case 'charge.dispute.created': {
+        const dispute = event.data.object as Stripe.Dispute;
+        await handleAffiliateDispute(dispute);
+        await reverseTutorCommission(stripe, typeof dispute.charge === 'string' ? dispute.charge : dispute.charge.id, 1);
+        break;
+      }
       
       case 'customer.subscription.created':
         await handleSubscriptionCreated(event.data.object as Stripe.Subscription);
@@ -175,12 +200,20 @@ async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
   // Find user by Stripe customer ID
   const { data: user, error: userError } = await supabase
     .from('users')
-    .select('id, referred_by_tutor_id, name, email')
+    .select('id, referred_by_tutor_id, referred_by_affiliate_id, name, email')
     .eq('stripe_customer_id', customerId)
     .single();
 
   if (userError || !user) {
     console.log('No user found for customer:', customerId);
+    return;
+  }
+
+  // A customer a creator brought in is paid on through the creator program
+  // (lib/affiliates). Joining a tutor later must not pay a second referrer
+  // for the same subscription.
+  if (user.referred_by_affiliate_id) {
+    console.log('User attributed to a creator - no tutor commission:', user.id);
     return;
   }
 
@@ -246,6 +279,22 @@ async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
   const periodStart = line?.period?.start ? new Date(line.period.start * 1000).toISOString() : null;
   const periodEnd = line?.period?.end ? new Date(line.period.end * 1000).toISOString() : null;
 
+  // Stripe redelivers an event it didn't see a 2xx for, and this handler used
+  // to pay again every time. One commission per subscription period.
+  if (subId && periodStart) {
+    const { count: already } = await supabase
+      .from('commission_ledger')
+      .select('id', { count: 'exact', head: true })
+      .eq('kind', 'subscription_share')
+      .eq('subscription_id', subId)
+      .eq('period_start', periodStart.slice(0, 10))
+      .gt('amount', 0);
+    if ((already ?? 0) > 0) {
+      console.log('Commission already recorded for this period:', subId, periodStart);
+      return;
+    }
+  }
+
   // 1) Write an immutable ledger entry.
   const { error: ledgerError } = await supabase.from('commission_ledger').insert({
     tutor_id: user.referred_by_tutor_id,
@@ -257,35 +306,52 @@ async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
     period_end: periodEnd,
     status: 'paid',
   });
+  // The ledger is the record of what the balance is made of. Crediting the
+  // balance without it left money nobody could account for.
   if (ledgerError) {
     console.error('Error writing commission_ledger:', ledgerError.message);
-    // Don't return — still try to update the running balance below.
+    return;
   }
 
-  // 2) Update the tutor's running balance.
-  const { data: tutor, error: tutorFetchError } = await supabase
-    .from('users')
-    .select('commission_balance')
-    .eq('id', user.referred_by_tutor_id)
-    .single();
-  if (tutorFetchError) {
-    console.error('Error fetching tutor:', tutorFetchError);
-    return;
-  }
-  const currentBalance = parseFloat(tutor?.commission_balance || '0');
-  const newBalance = Math.round((currentBalance + commissionAmount) * 100) / 100;
-  const { error: updateError } = await supabase
-    .from('users')
-    .update({ commission_balance: newBalance })
-    .eq('id', user.referred_by_tutor_id);
-  if (updateError) {
-    console.error('Error updating commission balance:', updateError);
-    return;
-  }
+  // 2) Update the tutor's running balance (atomically).
+  await adjustTutorBalance(user.referred_by_tutor_id, commissionAmount);
 
   console.log(
-    `✅ Commission $${commissionAmount.toFixed(2)} (${isFirst ? '10%' : '5%'}) → tutor ${user.referred_by_tutor_id}. New balance: $${newBalance.toFixed(2)}`
+    `✅ Commission $${commissionAmount.toFixed(2)} (${isFirst ? 'first month' : 'recurring'}) → tutor ${user.referred_by_tutor_id}`
   );
+}
+
+/**
+ * charge.refunded / charge.dispute.created: take back the tutor's percentage
+ * on the refunded share of a self-study invoice. Lesson-plan bounties are
+ * reversed separately, when the plan ends (endLessonPlan).
+ */
+async function reverseTutorCommission(stripe: Stripe, chargeOrId: Stripe.Charge | string, fraction: number) {
+  try {
+    const charge = typeof chargeOrId === 'string' ? await stripe.charges.retrieve(chargeOrId) : chargeOrId;
+    const idOf = (v: string | { id: string } | null | undefined) => (typeof v === 'string' ? v : v?.id);
+
+    // The event payload (endpoint pinned to 2024-04-10) names the invoice on
+    // the charge. This client is on the 2026 API, where a retrieved charge
+    // doesn't, and the link is an invoice payment instead.
+    let id = idOf((charge as Stripe.Charge & { invoice?: string | { id: string } | null }).invoice);
+    const pi = idOf(charge.payment_intent as string | { id: string } | null);
+    if (!id && pi) {
+      const payments = await stripe.invoicePayments.list({ payment: { type: 'payment_intent', payment_intent: pi }, limit: 1 });
+      id = idOf(payments.data[0]?.invoice as string | { id: string } | undefined);
+    }
+    if (!id) return;
+
+    const invoice = await stripe.invoices.retrieve(id);
+    const legacySub = (invoice as Stripe.Invoice & { subscription?: string | { id: string } | null }).subscription;
+    const subId = idOf(legacySub) ?? idOf(invoice.parent?.subscription_details?.subscription);
+    const start = invoice.lines?.data?.[0]?.period?.start;
+    if (!subId || !start) return;
+
+    await reverseSubscriptionCommission(subId, new Date(start * 1000).toISOString().slice(0, 10), fraction);
+  } catch (e) {
+    console.error('Tutor commission reversal failed:', e);
+  }
 }
 
 /**

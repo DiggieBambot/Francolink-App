@@ -73,9 +73,13 @@ export async function getSettingsByCategories(
 export async function getCommissionConfig() {
   const settings = await getSettingsByCategory('commissions');
   
+  // The rates the Stripe webhook actually pays: first month, then recurring.
+  // `commission_rate` is an older single-rate key nothing pays on any more.
   return {
     enabled: settings['commission_enabled'] === 'true',
-    rate: parseFloat(settings['commission_rate'] || '0.10'),
+    rate: parseFloat(settings['commission_rate_first_month'] || '0.10'),
+    firstMonthRate: parseFloat(settings['commission_rate_first_month'] || '0.10'),
+    recurringRate: parseFloat(settings['commission_rate_recurring'] || '0.05'),
     minPayoutAmount: parseFloat(settings['min_payout_amount'] || '50'),
   };
 }

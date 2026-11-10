@@ -24,13 +24,50 @@ export default function ResetPasswordPage() {
   useEffect(() => {
     const checkSession = async () => {
       const supabase = createClient();
-      const { data: { session } } = await supabase.auth.getSession();
-      
-      if (session) {
-        setIsValidSession(true);
-      } else {
+      const hash = new URLSearchParams(window.location.hash.slice(1));
+      const query = new URLSearchParams(window.location.search);
+
+      // Supabase rejected the link (used already, expired, or opened by an
+      // email scanner first). It says why in the URL; show that, not a guess.
+      const linkError =
+        hash.get("error_description") || query.get("error_description");
+      if (linkError) {
+        setError(linkError.replace(/\+/g, " "));
         setIsValidSession(false);
+        return;
       }
+
+      // Implicit-flow link (see forgot-password): the session is in the hash.
+      // The app client is PKCE and won't read it, so set it ourselves.
+      const accessToken = hash.get("access_token");
+      const refreshToken = hash.get("refresh_token");
+      if (accessToken && refreshToken) {
+        const { error } = await supabase.auth.setSession({
+          access_token: accessToken,
+          refresh_token: refreshToken,
+        });
+        window.history.replaceState(null, "", window.location.pathname);
+        setIsValidSession(!error);
+        return;
+      }
+
+      // Token-hash link (Supabase's server-side template style).
+      const tokenHash = query.get("token_hash");
+      if (tokenHash) {
+        const { error } = await supabase.auth.verifyOtp({
+          token_hash: tokenHash,
+          type: "recovery",
+        });
+        window.history.replaceState(null, "", window.location.pathname);
+        if (error) setError(error.message);
+        setIsValidSession(!error);
+        return;
+      }
+
+      // Older PKCE links (?code=) are exchanged by the client on init when
+      // this browser holds the code verifier; getSession waits for that.
+      const { data: { session } } = await supabase.auth.getSession();
+      setIsValidSession(!!session);
     };
 
     checkSession();
@@ -112,9 +149,12 @@ export default function ResetPasswordPage() {
             Invalid or Expired Link
           </h1>
           <p className="text-gray-600 mb-6">
-            This password reset link is invalid or has expired. 
+            This password reset link is invalid or has expired.
             Please request a new one.
           </p>
+          {error && (
+            <p className="text-sm text-gray-500 mb-6">Details: {error}</p>
+          )}
           <div className="space-y-3">
             <Link href="/forgot-password">
               <Button className="w-full">

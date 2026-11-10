@@ -9,6 +9,15 @@ export interface RoomPresence {
   avatar_seed?: string;
 }
 
+/** Text selected with the mouse, located by section + quoted text. */
+export interface SharedSelection {
+  /** data-section-idx the selection sits in. */
+  s: number;
+  text: string;
+  /** Up to a few words before it, to pick the right occurrence. */
+  prefix: string;
+}
+
 export interface LessonRoomContextValue {
   sessionId: string;
   currentUserId: string;
@@ -17,6 +26,10 @@ export interface LessonRoomContextValue {
   /** Anchor id → the role that highlighted it (drives per-role colour). */
   highlights: Map<string, "tutor" | "student">;
   toggleHighlight: (anchor: { id: string; text: string; sectionIdx: number }) => void;
+  /** Other people's current mouse text selections, keyed by user id. */
+  remoteSelections?: Record<string, { role: "tutor" | "student"; sel: SharedSelection }>;
+  /** Share (or clear with null) the text this person has selected. */
+  shareSelection?: (sel: SharedSelection | null) => void;
   presence: RoomPresence[];
   /** Broadcast a TTS play event to peers (called by SpeakButton inside a room). */
   broadcastSpeak: (text: string) => void;
@@ -52,13 +65,19 @@ export interface LessonRoomContextValue {
   /** Live chat messages in the room. */
   chatMessages: ChatMessage[];
   /** Send a chat message. */
-  sendChat: (text: string) => void;
+  sendChat: (text: string, attachment?: ChatAttachment) => void;
   /** Incoming lesson switch from the other participant. */
   incomingLessonChange: { lessonId: string; title: string; by: string; at: number } | null;
   /** Change the shared current lesson (persists + broadcasts). */
   broadcastLessonChange: (lessonId: string, title: string) => void;
   /** Open the lesson picker (lets either side switch the lesson). */
   openLessonPicker: () => void;
+}
+
+export interface ChatAttachment {
+  url: string;
+  name: string;
+  type: string;
 }
 
 export interface ChatMessage {
@@ -68,6 +87,7 @@ export interface ChatMessage {
   role: "tutor" | "student";
   text: string;
   at: number;
+  attachment?: ChatAttachment;
 }
 
 const LessonRoomContext = createContext<LessonRoomContextValue | null>(null);

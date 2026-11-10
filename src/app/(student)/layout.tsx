@@ -3,6 +3,7 @@ import { AITutorFab } from "@/components/student/ai-tutor-fab";
 import { DiggieChat } from "@/components/shared/diggie-chat";
 import { PushPrompt } from "@/components/notifications/push-prompt";
 import { ReviewPrompt } from "@/components/reviews/review-prompt";
+import { LessonReviewPrompt } from "@/components/reviews/lesson-review-prompt";
 import { LiveInviteWatcher } from "@/components/notifications/live-invite-watcher";
 import { IosInstallPrompt } from "@/components/notifications/ios-install-prompt";
 import { NotificationBell } from "@/components/notifications/notification-bell";
@@ -209,6 +210,7 @@ export default async function StudentLayout({
       <LiveInviteWatcher userId={user.id} />
       <PushPrompt eligible={xp > 0} />
       <ReviewPrompt />
+      <LessonReviewPrompt />
       <IosInstallPrompt />
       <ActivityPinger />
       <AttributionCapture />

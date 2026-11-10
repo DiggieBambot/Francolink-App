@@ -21,11 +21,12 @@
 // credits come from one of two places: a subscription, or the one-off starter
 // pack a student buys before they have a plan (20260902_starter_pack.sql).
 //
-// The single discounted trial lesson is gone. Three separately-sold trials
-// netted less than one — Stripe's fixed fee lands on each charge and each
-// lesson grossed about two dollars — so the same three lessons are sold as one
-// pack instead, which nets ten times as much and is one decision rather than
-// three places to drop out.
+// The single discounted trial lesson is no longer SOLD. Three separately-sold
+// trials netted less than one — Stripe's fixed fee lands on each charge and
+// each lesson grossed about two dollars — so the same three lessons are sold
+// as one pack instead. What remains is a FREE 25-minute first lesson that
+// comes with a plan of two or more lessons a week (not with a pack): no
+// charge, no credit spent, the tutor still paid. See freeTrialEligibility().
 //
 // The hold is still written BEFORE the credits are spent, for the same reason
 // it used to be written before Stripe: two students must not be able to hold
@@ -41,7 +42,12 @@ import {
   HOLD_MINUTES,
   isSlotStillBookable,
 } from "@/lib/booking/availability";
-import { creditEligibility, payBookingWithCredits } from "@/lib/booking/confirm";
+import {
+  confirmBooking,
+  creditEligibility,
+  freeTrialEligibility,
+  payBookingWithCredits,
+} from "@/lib/booking/confirm";
 import { hasActivePlan } from "@/lib/credits/plans";
 import { isListed, listingBySlug } from "@/lib/tutors/listing";
 
@@ -118,17 +124,24 @@ export async function POST(request: Request) {
     );
   }
 
-  // --- can this lesson be paid for out of a plan? --------------------------
-  // This is the gate, and it is the real one. /book redirects a planless
-  // student to the picker, but a redirect is only a suggestion to anybody
-  // posting straight at this route.
-  const credit = await creditEligibility(
+  // --- is this their free first lesson? -----------------------------------
+  // Decided from the student's plan and booking history, never from the body.
+  // A free trial skips the credit gate entirely: it costs the student nothing.
+  const freeTrial = await freeTrialEligibility(
     user.id,
     profile.tier,
     input.duration_minutes
   );
 
-  if (!credit) {
+  // --- can this lesson be paid for out of a plan? --------------------------
+  // This is the gate, and it is the real one. /book redirects a planless
+  // student to the picker, but a redirect is only a suggestion to anybody
+  // posting straight at this route.
+  const credit = freeTrial
+    ? null
+    : await creditEligibility(user.id, profile.tier, input.duration_minutes);
+
+  if (!freeTrial && !credit) {
     // Two different failures wear the same shape here, and the student needs
     // to be told which: no plan at all, or a plan that doesn't reach this
     // tutor / has run out of lessons this month.
@@ -157,7 +170,7 @@ export async function POST(request: Request) {
     .select("price_cents, tutor_pay_cents, currency")
     .eq("tier", profile.tier)
     .eq("duration_minutes", input.duration_minutes)
-    .eq("is_trial", false)
+    .eq("is_trial", freeTrial)
     .maybeSingle();
 
   if (!price) {
@@ -179,7 +192,7 @@ export async function POST(request: Request) {
   const { data: ladderPay, error: payError } = await db.rpc("tutor_pay_cents", {
     p_tutor: profile.user_id,
     p_duration: input.duration_minutes,
-    p_is_trial: false,
+    p_is_trial: freeTrial,
   });
   if (payError) {
     // Fall back to the flat tier rate rather than refusing the booking. An
@@ -209,7 +222,7 @@ export async function POST(request: Request) {
       tutor_pay_cents: tutorPayCents,
       currency: price.currency || "USD",
       tier: profile.tier,
-      is_trial: false,
+      is_trial: freeTrial,
       expires_at: expiresAt.toISOString(),
       student_note: input.student_note || null,
     })
@@ -218,12 +231,18 @@ export async function POST(request: Request) {
 
   if (insertError || !booking) {
     // 23P01 is the GiST exclusion constraint: someone else won the race for
-    // this slot in the milliseconds since we checked. The one-trial-per-student
-    // index (23505) cannot fire now that is_trial is always false, but the row
-    // it guards still exists, so the branch stays.
-    if (insertError?.code === "23P01" || insertError?.code === "23505") {
+    // this slot in the milliseconds since we checked.
+    if (insertError?.code === "23P01") {
       return NextResponse.json(
         { error: "That time was just taken. Pick another slot." },
+        { status: 409 }
+      );
+    }
+    // 23505 is the one-trial-per-student index: another tab claimed the free
+    // lesson first. The eligibility check above can't see that race.
+    if (insertError?.code === "23505") {
+      return NextResponse.json(
+        { error: "Your free first lesson is already booked. Pick a time again to book with your plan." },
         { status: 409 }
       );
     }
@@ -231,9 +250,23 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Couldn't hold that slot." }, { status: 500 });
   }
 
+  // --- the free first lesson: nothing to pay ------------------------------
+  if (freeTrial) {
+    const ok = await confirmBooking(booking.id, { paid_with: "free_trial" });
+    if (!ok) {
+      await db.from("bookings").update({ status: "expired" }).eq("id", booking.id);
+      return NextResponse.json({ error: "Couldn't confirm that lesson." }, { status: 500 });
+    }
+    return NextResponse.json({
+      booking_id: booking.id,
+      paid_with: "free_trial",
+      credits_spent: 0,
+    });
+  }
+
   // --- pay from the credits -------------------------------------------------
   // credit is non-null: the gate above returned 402 otherwise.
-  const paid = await payBookingWithCredits(booking.id, user.id, credit.cost);
+  const paid = await payBookingWithCredits(booking.id, user.id, credit!.cost);
 
   if (!paid) {
     // The balance moved between the eligibility check and the spend — another
@@ -249,7 +282,7 @@ export async function POST(request: Request) {
   return NextResponse.json({
     booking_id: booking.id,
     paid_with: "credit",
-    credits_spent: credit.cost,
-    credits_left: credit.balance - credit.cost,
+    credits_spent: credit!.cost,
+    credits_left: credit!.balance - credit!.cost,
   });
 }

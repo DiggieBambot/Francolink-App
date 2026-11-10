@@ -6,7 +6,7 @@
 // Query: ?game=maze-chase&theme=animals&lang=french&limit=20
 
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { getRequestAuth } from "@/lib/supabase/request-auth";
 
 type Row = { user_id: string; name: string; avatar_url: string | null; best_score: number; plays: number; last_played: string };
 
@@ -20,14 +20,14 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ board: [], error: "missing params" }, { status: 400 });
   }
 
-  const supabase = await createClient();
+  // Website (cookie) or mobile app (bearer token); signed out still gets the board.
+  const { user, supabase } = await getRequestAuth(req);
   const { data, error } = await supabase.rpc("game_leaderboard", {
     p_game: game, p_theme: theme, p_language: language, p_limit: limit,
   });
   if (error) return NextResponse.json({ board: [], error: error.message }, { status: 200 });
 
   const board = (data || []) as Row[];
-  const { data: { user } } = await supabase.auth.getUser();
   const myRank = user ? board.findIndex((r) => r.user_id === user.id) : -1;
 
   return NextResponse.json({ board, me: user?.id ?? null, myRank });

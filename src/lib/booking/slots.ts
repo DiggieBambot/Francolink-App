@@ -49,6 +49,9 @@ export interface SlotOptions {
   /**
    * Slots are offered on this cadence within an availability block. 30 means
    * a 09:00–12:00 block offers 09:00, 09:30, 10:00 … rather than every minute.
+   * A lesson longer than the step is offered on a multiple of it instead (a
+   * 50-minute lesson every hour), so its times read as back-to-back lessons
+   * rather than overlapping ones.
    */
   stepMinutes?: number;
 }
@@ -200,11 +203,12 @@ export function generateSlots(options: SlotOptions): Slot[] {
 
       for (const duration of durations) {
         const needed = (duration + bufferMinutes) * MINUTE;
+        const step = Math.ceil(duration / stepMinutes) * stepMinutes;
 
         for (
           let t = blockStart.getTime();
           t + needed <= blockEnd.getTime() + bufferMinutes * MINUTE;
-          t += stepMinutes * MINUTE
+          t += step * MINUTE
         ) {
           const start = new Date(t);
           const end = new Date(t + duration * MINUTE);
