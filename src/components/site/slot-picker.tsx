@@ -5,6 +5,7 @@ import { CalendarDays, Clock, Gift, Globe2, Loader2 } from "lucide-react";
 import type { BookableSlot } from "@/lib/booking/availability";
 import { formatPrice } from "@/lib/site/pricing";
 import { cn } from "@/lib/utils";
+import { trackTutorEvent } from "@/lib/analytics/tutor-track";
 
 /**
  * Slot picker on a tutor's public profile.
@@ -84,6 +85,7 @@ export function SlotPicker({
    * first-party, and /book picks it up from there.
    */
   function book(slot: BookableSlot) {
+    trackTutorEvent("slot_selected", tutorSlug);
     setBooking(true);
     setBookError(null);
     const params = new URLSearchParams({

@@ -92,6 +92,7 @@ export default async function TutorLayout({
       ? {
           label: "FrancoLink tutor",
           items: [
+            { name: "Profile insights", href: "/tutor/insights", icon: "BarChart3" },
             { name: "Public profile", href: "/tutor/public-profile", icon: "Globe" },
             { name: "Availability", href: "/tutor/availability", icon: "CalendarClock" },
           ],

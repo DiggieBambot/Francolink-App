@@ -17,6 +17,10 @@ import {
   CreditCard,
 } from "lucide-react";
 import { UserActions } from "./user-actions";
+import { TutorStatsCard } from "../tutor-stats-card";
+import { InviteToApplyButton } from "../invite-button";
+import { getListingStatuses } from "@/lib/analytics/tutor-funnel";
+import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { sourceLabel, sourceStyle } from "@/lib/admin/acquisition";
 
 interface PageProps {
@@ -39,6 +43,24 @@ export default async function AdminUserDetailPage({ params }: PageProps) {
   if (error || !user) {
     notFound();
   }
+
+  const svc = createServiceClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { auth: { persistSession: false } }
+  );
+  const [listingMap, { data: lastInvite }] = await Promise.all([
+    getListingStatuses(svc),
+    svc
+      .from("tutor_apply_invites")
+      .select("sent_at")
+      .eq("user_id", id)
+      .order("sent_at", { ascending: false })
+      .limit(1)
+      .maybeSingle(),
+  ]);
+  const listingStatus = listingMap.get(id)?.status ?? "not_applied";
+  const isTutorUser = (user.role || "").toUpperCase() === "TUTOR";
 
   // Fetch user's lesson progress
   const { data: lessonProgress, count: lessonsCompleted } = await supabase
@@ -175,9 +197,21 @@ export default async function AdminUserDetailPage({ params }: PageProps) {
             </div>
           </div>
 
-          <UserActions user={user} />
+          <div className="flex items-center gap-3">
+            <InviteToApplyButton
+              userId={user.id}
+              email={user.email}
+              role={user.role}
+              listing={listingStatus}
+              lastInvitedAt={lastInvite?.sent_at ?? null}
+              size="md"
+            />
+            <UserActions user={user} />
+          </div>
         </div>
       </div>
+
+      {isTutorUser && <TutorStatsCard tutorId={user.id} />}
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left Column - Main Info */}

@@ -17,6 +17,7 @@ import {
 import { CtaButton } from "@/components/site/ui";
 import { AvailabilityTable } from "@/components/site/availability-table";
 import { SlotPicker } from "@/components/site/slot-picker";
+import { TrackTutorEvent } from "@/components/site/track-tutor-event";
 import { TutorTabs } from "@/components/site/tutor-tabs";
 import { Collapsible } from "@/components/site/collapsible";
 import { getPublicTutor, getPublicTutorSlugs, isOffSiteReview } from "@/lib/site/queries";
@@ -164,6 +165,7 @@ export default async function TutorProfilePage({ params }: PageProps) {
   return (
     <>
       <JsonLd schema={[jsonLd, breadcrumb]} />
+      <TrackTutorEvent kind="profile_view" slug={tutor.slug} />
 
       {/* ------------------------------------------------------------- HEADER */}
       {/* The profile reads as a stack of panels rather than a flowing page:

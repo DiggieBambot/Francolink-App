@@ -20,7 +20,17 @@ import {
   Zap,
   Flame
 } from "lucide-react";
-import { DEMO_EMAIL_PATTERN } from "@/lib/demo";
+import { DEMO_EMAIL_PATTERN, isDemoEmail } from "@/lib/demo";
+import { createClient as createServiceClient } from "@supabase/supabase-js";
+import {
+  getListingStatuses,
+  getTutorFunnel,
+  emptyNumbers,
+  pct,
+  LISTING_LABEL,
+  type ListingStatus,
+} from "@/lib/analytics/tutor-funnel";
+import { InviteToApplyButton } from "./invite-button";
 
 interface PageProps {
   searchParams: Promise<{
@@ -29,7 +39,47 @@ interface PageProps {
     plan?: string;
     role?: string;
     source?: string;
+    app?: string;
+    live?: string;
   }>;
+}
+
+function serviceDb() {
+  return createServiceClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { auth: { persistSession: false } }
+  );
+}
+
+/**
+ * On the app   = has a phone registered for push (installed + signed in), or
+ *                pays through Google Play.
+ * Live lessons = has a tutor lesson session or a paid/held booking that
+ *                wasn't cancelled or expired.
+ * Read with the service key: the admin page already gates on role, and these
+ * tables' RLS only lets users see their own rows.
+ */
+async function loadSegments() {
+  const db = serviceDb();
+  const [tokens, playSubs, sessions, bookings] = await Promise.all([
+    db.from("device_push_tokens").select("user_id"),
+    db.from("users").select("id").eq("subscription_source", "google_play"),
+    db.from("tutor_lesson_sessions").select("student_id").neq("status", "cancelled"),
+    db
+      .from("bookings")
+      .select("student_id")
+      .in("status", ["confirmed", "completed", "no_show_student", "no_show_tutor"]),
+  ]);
+  const appUserIds = new Set<string>([
+    ...(tokens.data ?? []).map((r) => r.user_id as string),
+    ...(playSubs.data ?? []).map((r) => r.id as string),
+  ]);
+  const liveUserIds = new Set<string>([
+    ...(sessions.data ?? []).map((r) => r.student_id as string),
+    ...(bookings.data ?? []).map((r) => r.student_id as string),
+  ]);
+  return { appUserIds, liveUserIds };
 }
 
 export default async function AdminUsersPage({ searchParams }: PageProps) {
@@ -43,6 +93,15 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
   const sourceFilter = params.source || "";
   const perPage = 20;
   const offset = (page - 1) * perPage;
+
+  const appFilter = params.app || "";
+  const liveFilter = params.live || "";
+
+  // App and live-lesson membership are independent: a student can be on the
+  // app, taking live lessons, both, or neither. Both sets are computed every
+  // load so each row can show its badges, and either filter can combine with
+  // the other.
+  const { appUserIds, liveUserIds } = await loadSegments();
 
   // Build query
   let query = supabase
@@ -74,7 +133,60 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
   else if (sourceFilter === "unknown") query = query.is("signup_source", null);
   else if (sourceFilter) query = query.eq("signup_source", sourceFilter);
 
+  // A sentinel id keeps .in() valid when a set is empty ("yes" then matches nobody).
+  const NONE = "00000000-0000-0000-0000-000000000000";
+  const inList = (ids: Set<string>) => (ids.size ? Array.from(ids) : [NONE]);
+  const notInList = (ids: Set<string>) => `(${inList(ids).join(",")})`;
+  if (appFilter === "yes") query = query.in("id", inList(appUserIds));
+  else if (appFilter === "no") query = query.not("id", "in", notInList(appUserIds));
+  if (liveFilter === "yes") query = query.in("id", inList(liveUserIds));
+  else if (liveFilter === "no") query = query.not("id", "in", notInList(liveUserIds));
+
   const { data: users, count, error } = await query;
+
+  // Tutor view: for Tutor and Student · Tutor, the self-study stats make way
+  // for the same marketplace numbers Live Lessons shows (last 30 days).
+  const tutorView = roleFilter === "tutor" || roleFilter === "both";
+  const db = serviceDb();
+  const pageIds = (users ?? []).map((u) => u.id as string);
+  const [listing, invitesRes] = await Promise.all([
+    getListingStatuses(db),
+    pageIds.length
+      ? db.from("tutor_apply_invites").select("user_id, sent_at").in("user_id", pageIds)
+      : Promise.resolve({ data: [] as { user_id: string; sent_at: string }[] }),
+  ]);
+  const lastInvite = new Map<string, string>();
+  for (const i of invitesRes.data ?? []) {
+    const prev = lastInvite.get(i.user_id);
+    if (!prev || i.sent_at > prev) lastInvite.set(i.user_id, i.sent_at);
+  }
+  const listingOf = (id: string): ListingStatus => listing.get(id)?.status ?? "not_applied";
+  const tutorPageIds = (users ?? [])
+    .filter((u) => (u.role || "").toUpperCase() === "TUTOR")
+    .map((u) => u.id as string);
+  const funnel = tutorView && tutorPageIds.length
+    ? await getTutorFunnel(db, { since: new Date(Date.now() - 30 * 86400_000), tutorIds: tutorPageIds })
+    : null;
+  const studentsOf = new Map<string, number>();
+  if (tutorView && tutorPageIds.length) {
+    const { data: rows } = await db
+      .from("users")
+      .select("referred_by_tutor_id, email")
+      .in("referred_by_tutor_id", tutorPageIds);
+    for (const r of rows ?? []) {
+      if (isDemoEmail(r.email)) continue;
+      studentsOf.set(r.referred_by_tutor_id, (studentsOf.get(r.referred_by_tutor_id) ?? 0) + 1);
+    }
+  }
+  const LISTING_STYLE: Record<ListingStatus, string> = {
+    listed: "bg-green-100 text-green-700",
+    pending: "bg-amber-100 text-amber-700",
+    rejected: "bg-red-100 text-red-700",
+    hidden: "bg-gray-100 text-gray-600",
+    not_applied: "bg-gray-100 text-gray-500",
+  };
+  const usd = (cents: number) =>
+    new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(cents / 100);
 
   // Name the referring tutors for this page of rows in one read rather than
   // one per user.
@@ -282,6 +394,28 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
             <option value="PREMIUM_PLUS">Premium+</option>
           </select>
 
+          {/* Mobile app */}
+          <select
+            name="app"
+            defaultValue={appFilter}
+            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+          >
+            <option value="">App: any</option>
+            <option value="yes">On the app</option>
+            <option value="no">Not on the app</option>
+          </select>
+
+          {/* Live lessons */}
+          <select
+            name="live"
+            defaultValue={liveFilter}
+            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+          >
+            <option value="">Live lessons: any</option>
+            <option value="yes">Takes live lessons</option>
+            <option value="no">No live lessons</option>
+          </select>
+
           {/* Submit */}
           <button
             type="submit"
@@ -291,7 +425,7 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
           </button>
 
           {/* Clear */}
-          {(search || planFilter || roleFilter || sourceFilter) && (
+          {(search || planFilter || roleFilter || sourceFilter || appFilter || liveFilter) && (
             <Link
               href="/admin/users"
               className="px-6 py-2 bg-gray-100 text-gray-700 font-medium rounded-lg hover:bg-gray-200 transition-colors"
@@ -321,7 +455,7 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
                   Came from
                 </th>
                 <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900">
-                  Stats
+                  {tutorView ? "Tutor numbers (30 days)" : "Stats"}
                 </th>
                 <th className="text-left px-6 py-4 text-sm font-semibold text-gray-900">
                   Joined
@@ -370,6 +504,16 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
                         Founder
                       </span>
                     )}
+                    {(appUserIds.has(user.id) || liveUserIds.has(user.id)) && (
+                      <div className="mt-1 flex gap-1">
+                        {appUserIds.has(user.id) && (
+                          <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-sky-100 text-sky-700">App</span>
+                        )}
+                        {liveUserIds.has(user.id) && (
+                          <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-rose-100 text-rose-700">Live</span>
+                        )}
+                      </div>
+                    )}
                   </td>
                   <td className="px-6 py-4">
                     <span
@@ -405,6 +549,32 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
                       );
                     })()}
                   </td>
+                  {tutorView && (user.role || "").toUpperCase() === "TUTOR" ? (
+                    <td className="px-6 py-4">
+                      {(() => {
+                        const n = funnel?.perTutor.get(user.id) ?? emptyNumbers();
+                        const st = listingOf(user.id);
+                        const conv = pct(n.paid, n.views);
+                        return (
+                          <div className="space-y-1.5 text-xs">
+                            <span className={`inline-flex px-2 py-0.5 rounded-full font-medium ${LISTING_STYLE[st]}`}>
+                              {LISTING_LABEL[st]}
+                            </span>
+                            <div className="grid grid-cols-4 gap-x-3 gap-y-0.5 text-gray-600 whitespace-nowrap">
+                              <span title="Students (all-time)"><b className="text-gray-900">{studentsOf.get(user.id) ?? 0}</b> students</span>
+                              <span><b className="text-gray-900">{n.views}</b> views</span>
+                              <span><b className="text-gray-900">{n.favoritesAdded}</b> favs</span>
+                              <span><b className="text-gray-900">{n.paid}</b> bookings</span>
+                              <span><b className="text-gray-900">{n.completed}</b> lessons</span>
+                              <span><b className="text-gray-900">{n.repeatStudents}</b> repeat</span>
+                              <span><b className="text-gray-900">{usd(n.revenueCents)}</b></span>
+                              <span title="Profile view to booking">{conv === null ? "—" : `${conv}%`} conv.</span>
+                            </div>
+                          </div>
+                        );
+                      })()}
+                    </td>
+                  ) : (
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-4 text-sm">
                       <span className="flex items-center gap-1 text-orange-600">
@@ -417,6 +587,7 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
                       </span>
                     </div>
                   </td>
+                  )}
                   <td className="px-6 py-4">
                     <span className="text-sm text-gray-500 flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
@@ -424,12 +595,21 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
                     </span>
                   </td>
                   <td className="px-6 py-4 text-right">
+                    <div className="flex items-center justify-end gap-3">
+                    <InviteToApplyButton
+                      userId={user.id}
+                      email={user.email}
+                      role={user.role}
+                      listing={listingOf(user.id)}
+                      lastInvitedAt={lastInvite.get(user.id) ?? null}
+                    />
                     <Link
                       href={`/admin/users/${user.id}`}
                       className="text-indigo-600 hover:text-indigo-800 font-medium text-sm"
                     >
                       View
                     </Link>
+                    </div>
                   </td>
                 </tr>
               ))}
@@ -455,7 +635,7 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
             </p>
             <div className="flex items-center gap-2">
               <Link
-                href={`/admin/users?page=${page - 1}${search ? `&search=${search}` : ""}${planFilter ? `&plan=${planFilter}` : ""}${roleFilter ? `&role=${roleFilter}` : ""}${sourceFilter ? `&source=${sourceFilter}` : ""}`}
+                href={`/admin/users?page=${page - 1}${search ? `&search=${search}` : ""}${planFilter ? `&plan=${planFilter}` : ""}${roleFilter ? `&role=${roleFilter}` : ""}${sourceFilter ? `&source=${sourceFilter}` : ""}${appFilter ? `&app=${appFilter}` : ""}${liveFilter ? `&live=${liveFilter}` : ""}`}
                 className={`p-2 rounded-lg border ${
                   page <= 1
                     ? "border-gray-200 text-gray-300 pointer-events-none"
@@ -468,7 +648,7 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
                 Page {page} of {totalPages}
               </span>
               <Link
-                href={`/admin/users?page=${page + 1}${search ? `&search=${search}` : ""}${planFilter ? `&plan=${planFilter}` : ""}${roleFilter ? `&role=${roleFilter}` : ""}${sourceFilter ? `&source=${sourceFilter}` : ""}`}
+                href={`/admin/users?page=${page + 1}${search ? `&search=${search}` : ""}${planFilter ? `&plan=${planFilter}` : ""}${roleFilter ? `&role=${roleFilter}` : ""}${sourceFilter ? `&source=${sourceFilter}` : ""}${appFilter ? `&app=${appFilter}` : ""}${liveFilter ? `&live=${liveFilter}` : ""}`}
                 className={`p-2 rounded-lg border ${
                   page >= totalPages
                     ? "border-gray-200 text-gray-300 pointer-events-none"
