@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Clock, Mail, MessageSquare, Users } from "lucide-react";
+import { Building2, Clock, Mail, MessageSquare, Users } from "lucide-react";
 import { Section } from "@/components/site/ui";
 import { ContactForm } from "@/components/site/contact-form";
 import { getAppConfig } from "@/lib/config";
+import { BUSINESS_CONTACT_TOPIC } from "@/lib/site/business";
 
 export const metadata: Metadata = {
   title: "Contact us",
@@ -11,8 +12,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
-export default async function ContactPage() {
-  const config = await getAppConfig();
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ topic?: string }>;
+}) {
+  const [config, { topic }] = await Promise.all([getAppConfig(), searchParams]);
+  // /business links here with ?topic=business so the form opens on the right
+  // topic, with the organisation fields showing.
+  const initialTopic = topic === "business" ? BUSINESS_CONTACT_TOPIC : undefined;
 
   return (
     <>
@@ -31,7 +39,7 @@ export default async function ContactPage() {
       <Section>
         <div className="grid gap-12 lg:grid-cols-5 max-w-5xl mx-auto">
           <div className="lg:col-span-3">
-            <ContactForm />
+            <ContactForm initialTopic={initialTopic} />
           </div>
 
           <aside className="lg:col-span-2 space-y-6">
@@ -64,6 +72,21 @@ export default async function ContactPage() {
               <p className="text-sm text-gray-600">
                 Pick &ldquo;Teaching with FrancoLink&rdquo; in the form and tell
                 us what you teach and where you qualified.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white border border-gray-100 shadow-soft">
+              <Building2 className="w-5 h-5 text-secondary mb-3" />
+              <h2 className="font-heading font-bold text-primary mb-1">
+                For teams and schools?
+              </h2>
+              <p className="text-sm text-gray-600">
+                Pick &ldquo;{BUSINESS_CONTACT_TOPIC}&rdquo; and tell us how many
+                learners. See{" "}
+                <a href="/business" className="underline underline-offset-2 hover:text-primary">
+                  plans for business
+                </a>
+                .
               </p>
             </div>
 

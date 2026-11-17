@@ -84,6 +84,8 @@ const SITE_ROUTES = [
   "/",
   "/tutors",
   "/teach",
+  // FrancoLink for Business (self-study seats). docs/PLAN-business.md.
+  "/business",
   "/how-it-works",
   "/pricing",
   "/about",

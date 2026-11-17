@@ -1,0 +1,19 @@
+name: Expire hand-granted Premium
+
+# Business pilots and seats are granted by hand until a date
+# (src/lib/billing/premium-grants.ts). The paywall only reads the plan, so this
+# daily job is what actually ends them. Idempotent: an extra run costs nothing.
+on:
+  schedule:
+    - cron: "20 2 * * *" # daily 02:20 UTC
+  workflow_dispatch: {}
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: End grants whose date has passed
+        run: |
+          curl -sS -X GET "https://app.francolink.net/api/cron/expire-grants" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            --max-time 120 --fail-with-body
