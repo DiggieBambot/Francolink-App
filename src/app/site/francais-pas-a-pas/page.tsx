@@ -20,24 +20,16 @@
 //     the site layout already.
 
 import type { Metadata } from "next";
-import { Fraunces, Instrument_Sans } from "next/font/google";
 import "./workbook.css";
 import Link from "next/link";
 import { WorkbookCta } from "@/components/site/workbook-cta";
 import { WorkbookTry } from "@/components/site/workbook-try";
 import { WorkbookStickyCta } from "@/components/site/workbook-sticky-cta";
+import { WorkbookSampleForm } from "@/components/site/workbook-sample-form";
 import { REVIEWS, HAS_REVIEWS } from "@/lib/workbook/reviews";
 import { SITE_URL, appUrl } from "@/lib/site/hosts";
 
-// Self-hosted by next/font: no render-blocking @import, no layout shift, and
-// nothing injected into the React tree — an inline <style> and a <link> in the
-// component body are exactly the kind of thing that breaks hydration.
-const fraunces = Fraunces({
-  subsets: ["latin"], display: "swap", variable: "--font-display", weight: ["400", "500", "600"],
-});
-const instrument = Instrument_Sans({
-  subsets: ["latin"], display: "swap", variable: "--font-body", weight: ["400", "500", "600"],
-});
+import { fraunces, instrument } from "./fonts";
 
 const TITLE = "Le Français Pas à Pas — the French grammar workbook, A0 to B2";
 const DESCRIPTION =
@@ -151,7 +143,7 @@ const FAQ: [string, string, { href: string; label: string }?][] = [
   ["Is it a PDF or an app?",
    "Both, for one price. A PDF to keep and print, plus an online version in your browser where the exercises mark themselves and your progress saves. No download, no app store."],
   ["Do I need an account to buy?",
-   "No. You pay first, then set a password — that unlocks the PDF and the online version together."],
+   "No. You pay, and the PDF and the ebook are yours to download straight away, on the next page and in your receipt email. A free account is optional: it adds the online version, which saves your progress."],
   ["Will typing accents be a nightmare?",
    "No. The online version accepts answers without accents, marks them correct, and shows you the accented spelling. You are learning French, not a keyboard layout."],
   ["What if it isn't for me?",
@@ -503,6 +495,27 @@ export default function Page() {
         </div>
       </section>
 
+      {/* ── Free sample ──────────────────────────────────────── */}
+      <section id="sample" className="sec sec-pad">
+        <div className="wrap max-3">
+          <div className="sample-box">
+            <div>
+              <h2 className="h2 h2-sm">Not ready yet? Read Partie 0 free.</h2>
+              <p className="muted">
+                The first chapter of the real book, as a PDF: twenty survival
+                phrases with pronunciation hints and three short dialogues.
+                We&apos;ll email it to you, along with one grammar lesson from
+                later in the book.
+              </p>
+            </div>
+            <div>
+              <WorkbookSampleForm source="sales-page" />
+              <p className="micro">No account. Unsubscribe in one click.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Close ────────────────────────────────────────────── */}
       <section className="sec sec-navy sec-pad">
         <div className="wrap max-2 center">
@@ -518,8 +531,8 @@ export default function Page() {
             One payment · Lifetime access · 14-day money-back guarantee
           </p>
           <p className="micro-light">
-            Already bought it?{" "}
-            <a href={appUrl("/workbook")} className="link-light">Open your workbook</a>
+            Already bought it? Your download links are in your receipt email, or{" "}
+            <a href={appUrl("/workbook")} className="link-light">open it in your account</a>
           </p>
         </div>
       </section>

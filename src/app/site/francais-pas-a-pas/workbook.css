@@ -191,3 +191,34 @@
   .fpap .h2{font-size:2.3rem;}
 }
 @media(prefers-reduced-motion:reduce){.fpap *{transition:none!important;}}
+
+/* ── Download page and the free-sample form ─────────────────────────────── */
+.fpap .dl-list{display:grid;gap:14px;margin:28px 0 32px;}
+.fpap .dl-item{display:grid;grid-template-columns:1fr auto;gap:4px 18px;align-items:center;
+  padding:18px 20px;border:1px solid var(--hair);border-radius:12px;background:#fff;
+  text-decoration:none;color:var(--navy);}
+.fpap .dl-item:hover{border-color:var(--accent);}
+.fpap .dl-name{font-family:var(--font-display),Georgia,serif;font-weight:600;font-size:1.15rem;}
+.fpap .dl-note{grid-column:1;color:var(--muted);font-size:.92rem;line-height:1.5;}
+.fpap .dl-item .btn{grid-column:2;grid-row:1 / span 2;white-space:nowrap;}
+.fpap .dl-online{padding:22px 20px;border-radius:12px;background:var(--tint);margin-bottom:20px;}
+@media (max-width:560px){
+  .fpap .dl-item{grid-template-columns:1fr;}
+  .fpap .dl-item .btn{grid-column:1;grid-row:auto;margin-top:10px;}
+}
+
+.fpap .sample-form{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 0;}
+.fpap .sample-form .sample-input{flex:1 1 220px;min-width:0;padding:14px 14px;font:inherit;
+  border:1px solid var(--hair);border-radius:8px;background:#fff;color:var(--navy);}
+.fpap .sample-form .sample-input:focus{outline:2px solid var(--accent);outline-offset:1px;}
+.fpap .sample-form .btn{flex:0 0 auto;}
+.fpap .sample-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+.fpap .sample-msg{margin:12px 0 0;font-size:.92rem;}
+.fpap .sample-msg-err{color:#C0392B;}
+.fpap .sample-done{padding:18px 20px;border-radius:12px;background:#EEF7F0;color:#1d5c39;margin-top:18px;}
+.fpap .sec-navy .sample-done{background:rgba(255,255,255,.08);color:var(--paper);}
+.fpap .sample-box{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;}
+@media (max-width:760px){ .fpap .sample-box{grid-template-columns:1fr;} }
+.fpap .sample-list{list-style:none;padding:0;margin:12px 0 22px;display:grid;gap:10px;}
+.fpap .sample-list li{position:relative;padding-left:26px;line-height:1.5;}
+.fpap .sample-list li:before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700;}

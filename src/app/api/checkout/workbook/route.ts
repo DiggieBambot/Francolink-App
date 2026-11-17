@@ -96,11 +96,10 @@ export async function POST(request: Request) {
 
   const currency = (base.currency || "USD").toLowerCase();
 
-  // Where Stripe returns them. NOT the library: a guest has no account yet, so
-  // /workbook would bounce them to a login page for an account they do not
-  // have -- seconds after paying, and before they have seen the offer. /unlock
-  // takes the session id, finds the order, and is the one page that works
-  // whether or not they are signed in.
+  // Where Stripe returns them: the download page on francolink.net, which
+  // takes the session id, waits for the webhook if it has to, and hands over
+  // the files with no account (decided 2026-11-17). The account -- and the
+  // /oto offer behind it -- is offered there as the online version.
   const landing = safeNext(input.next);
 
   try {
@@ -154,7 +153,7 @@ export async function POST(request: Request) {
       },
       success_url: landing
         ? `${APP_URL}${landing}?purchase=workbook`
-        : `${APP_URL}/unlock?session={CHECKOUT_SESSION_ID}`,
+        : `${SITE_URL}/francais-pas-a-pas/download?session={CHECKOUT_SESSION_ID}`,
       cancel_url: `${SITE_URL}/francais-pas-a-pas`,
     });
 
