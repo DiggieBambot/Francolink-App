@@ -148,7 +148,17 @@ async function latestActiveGrantEnd(db: SupabaseClient, userId: string): Promise
  * user was downgraded.
  */
 async function downgradeIfOnlyGrant(db: SupabaseClient, userId: string): Promise<boolean> {
-  if (await latestActiveGrantEnd(db, userId)) return false; // another grant still runs
+  const stillRunning = await latestActiveGrantEnd(db, userId);
+  if (stillRunning) {
+    // Another grant still runs: show its end date, not the ended grant's.
+    await db
+      .from("users")
+      .update({ subscription_ends_at: stillRunning })
+      .eq("id", userId)
+      .is("subscription_source", null)
+      .is("stripe_subscription_id", null);
+    return false;
+  }
 
   const { data: user } = await db
     .from("users")
