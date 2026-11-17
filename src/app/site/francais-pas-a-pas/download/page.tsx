@@ -16,6 +16,7 @@ import "../workbook.css";
 import { fraunces, instrument } from "../fonts";
 import { AUDIO_KEY, WORKBOOK_KEY, orderBySession, paidOrderByToken, type PaidOrder } from "@/lib/workbook/files";
 import { appUrl, siteUrl } from "@/lib/site/hosts";
+import { TikTokPurchase } from "@/components/site/tiktok-events";
 
 export const metadata: Metadata = {
   title: "Your workbook | Le Français Pas à Pas",
@@ -53,6 +54,17 @@ export default async function DownloadPage({ searchParams }: PageProps) {
 
   return (
     <Frame>
+      {/* Counted once, on the arrival from Stripe -- not on every later visit
+          from the receipt email. */}
+      {session && !t && (
+        <TikTokPurchase
+          orderId={order.id}
+          value={order.total_cents / 100}
+          currency={order.currency}
+          email={order.email}
+          hasAudio={hasAudio}
+        />
+      )}
       <p className="eyebrow">Le Français Pas à Pas · A0 → B2</p>
       <h1 className="h1">Your workbook is ready.</h1>
       <p className="lead">

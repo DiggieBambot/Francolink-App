@@ -5,7 +5,7 @@
 //
 // Every processor and data category below is taken from what the code does
 // (src/lib/stripe, src/lib/ai, src/app/api/tts, src/lib/video/daily.ts, Resend,
-// web-push, Google Analytics in src/app/layout.tsx, the signup attribution and
+// web-push, Google Analytics in src/app/layout.tsx, the TikTok Pixel on the website, the signup attribution and
 // risk columns on users). When a new service starts receiving user data, add it
 // here and bump LAST_UPDATED — Google Play checks this page against the app's
 // Data safety form.
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   alternates: { canonical: siteUrl("/privacy") },
 };
 
-const LAST_UPDATED = "30 September 2026";
+const LAST_UPDATED = "18 November 2026";
 
 const h2 = "text-2xl font-semibold mt-8 mb-3";
 const h3 = "text-lg font-semibold mt-5 mb-2";
@@ -60,7 +60,7 @@ export default async function PrivacyPage() {
           <li><strong>Usage and device information:</strong> pages visited, features used, when you were last active, browser and device type, and IP address (in our hosting provider&apos;s logs).</li>
           <li><strong>How you found us:</strong> the page you arrived on, the referring website and campaign tags (such as utm_source) in the link you followed.</li>
           <li><strong>Sign-up protection:</strong> when you register we score the sign-up for signs of automated or fake accounts, to keep spam off the platform.</li>
-          <li><strong>Cookies and similar technologies:</strong> cookies that keep you signed in, and Google Analytics cookies that help us understand how the site is used.</li>
+          <li><strong>Cookies and similar technologies:</strong> cookies that keep you signed in, Google Analytics cookies that help us understand how the site is used, and, on our website (francolink.net) only, the TikTok Pixel, which tells TikTok when someone who came from one of our TikTok ads views the workbook, signs up for the free chapter or buys it. Your email address is sent to TikTok only as a one-way hash, to match the visit to an ad. The pixel is not used in the app.</li>
         </ul>
 
         <h3 className={h3}>Voice</h3>
@@ -97,6 +97,7 @@ export default async function PrivacyPage() {
           <li><strong>Daily.co</strong> — video for live lessons with tutors.</li>
           <li><strong>Resend</strong> — sending emails.</li>
           <li><strong>Google</strong> — Google sign-in (if you choose it) and Google Analytics.</li>
+          <li><strong>TikTok</strong> — measuring our TikTok ads, through the TikTok Pixel on francolink.net.</li>
           <li><strong>Your browser or device vendor</strong> — push notification delivery and speech recognition.</li>
         </ul>
         <p>

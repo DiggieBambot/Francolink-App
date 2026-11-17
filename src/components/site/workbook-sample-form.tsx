@@ -5,6 +5,7 @@
 
 import { useState } from "react";
 import { useFormToken } from "@/hooks/use-form-token";
+import { WORKBOOK_CONTENT, ttqIdentifyEmail, ttqTrack } from "@/lib/site/tiktok";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -50,6 +51,9 @@ export function WorkbookSampleForm({
       const body = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(body.error || "Something went wrong. Please try again.");
       setStatus("sent");
+      void ttqIdentifyEmail(String(f.get("email") || "")).then(() =>
+        ttqTrack("SubmitForm", { contents: [WORKBOOK_CONTENT], description: `free-sample:${source}` })
+      );
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
       setStatus("error");

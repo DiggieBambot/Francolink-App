@@ -26,6 +26,7 @@ import { WorkbookCta } from "@/components/site/workbook-cta";
 import { WorkbookTry } from "@/components/site/workbook-try";
 import { WorkbookStickyCta } from "@/components/site/workbook-sticky-cta";
 import { WorkbookSampleForm } from "@/components/site/workbook-sample-form";
+import { TikTokViewContent } from "@/components/site/tiktok-events";
 import { REVIEWS, HAS_REVIEWS } from "@/lib/workbook/reviews";
 import { SITE_URL, appUrl } from "@/lib/site/hosts";
 
@@ -186,6 +187,7 @@ export default function Page() {
     <div className={`fpap ${fraunces.variable} ${instrument.variable}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <WorkbookStickyCta />
+      <TikTokViewContent />
 
       {LAUNCH && (
         <div className="announce">

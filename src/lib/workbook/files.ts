@@ -36,6 +36,8 @@ export interface PaidOrder {
   user_id: string | null;
   claim_token: string;
   products: Set<string>;
+  total_cents: number;
+  currency: string;
 }
 
 type Row = {
@@ -44,6 +46,8 @@ type Row = {
   status: string;
   user_id: string | null;
   claim_token: string;
+  total_cents: number | null;
+  currency: string | null;
   digital_order_items: { product_key: string }[] | null;
 };
 
@@ -55,10 +59,13 @@ function toPaid(row: Row | null): PaidOrder | null {
     user_id: row.user_id,
     claim_token: row.claim_token,
     products: new Set((row.digital_order_items ?? []).map((i) => i.product_key)),
+    total_cents: row.total_cents ?? 0,
+    currency: (row.currency || "USD").toUpperCase(),
   };
 }
 
-const COLUMNS = "id, email, status, user_id, claim_token, digital_order_items(product_key)";
+const COLUMNS =
+  "id, email, status, user_id, claim_token, total_cents, currency, digital_order_items(product_key)";
 
 /**
  * The paid order a delivery token belongs to, or null. A bad token, an unpaid
