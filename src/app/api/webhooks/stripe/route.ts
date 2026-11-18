@@ -196,10 +196,17 @@ async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
   // margin into 25% -- silently, with nothing in the system reporting it.
   // Referral on lesson plans is a one-time bounty instead, awarded from
   // awardReferralBounty() when the student completes their first lesson.
-  const invoiceSubId =
-    typeof (invoice as Stripe.Invoice & { subscription?: string }).subscription === 'string'
-      ? (invoice as Stripe.Invoice & { subscription?: string }).subscription!
-      : null;
+  const invoiceSubId = invoiceSubscriptionId(invoice);
+
+  // Commission is a share of a self-study *subscription*. An invoice with no
+  // subscription is a one-off: a FrancoLink for Business seat invoice sent by
+  // hand from the dashboard (docs/PLAN-business.md). If that ever went to a
+  // customer record belonging to a tutor-referred learner, the tutor would
+  // otherwise earn a percentage of the whole organisation's order.
+  if (!invoiceSubId) {
+    console.log('One-off invoice (no subscription) - no commission:', invoice.id);
+    return;
+  }
 
   if (await isLessonPlanSubscription(invoiceSubId)) {
     console.log('Lesson plan invoice - referral is a one-time bounty, not a percentage');
@@ -557,10 +564,7 @@ async function handleCheckoutExpired(session: Stripe.Checkout.Session) {
  * lessons they were promised while the card is sorted out.
  */
 async function handlePaymentFailed(invoice: Stripe.Invoice) {
-  const subId =
-    typeof (invoice as Stripe.Invoice & { subscription?: string }).subscription === 'string'
-      ? (invoice as Stripe.Invoice & { subscription?: string }).subscription!
-      : null;
+  const subId = invoiceSubscriptionId(invoice);
 
   if (!subId) return;
 
@@ -718,4 +722,22 @@ async function handleWorkbookPurchase(session: Stripe.Checkout.Session) {
     Array.from(keys).join('+'),
     userId ? '(pre-claimed)' : '(guest)'
   );
+}
+
+/**
+ * The subscription an invoice belongs to, or null for a one-off invoice.
+ *
+ * The endpoint is pinned to 2024-04-10, where this is invoice.subscription.
+ * From 2025-03-31 (basil) Stripe moved it to
+ * invoice.parent.subscription_details.subscription, so read both: upgrading the
+ * endpoint must not make every renewal look like a one-off and stop commission.
+ */
+function invoiceSubscriptionId(invoice: Stripe.Invoice): string | null {
+  const legacy = (invoice as Stripe.Invoice & { subscription?: string | { id: string } | null }).subscription;
+  const fromParent = (invoice as Stripe.Invoice & {
+    parent?: { subscription_details?: { subscription?: string | { id: string } | null } | null } | null;
+  }).parent?.subscription_details?.subscription;
+  const sub = legacy ?? fromParent ?? null;
+  if (!sub) return null;
+  return typeof sub === 'string' ? sub : sub.id;
 }
