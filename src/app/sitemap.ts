@@ -37,6 +37,7 @@ async function marketingSitemap(): Promise<MetadataRoute.Sitemap> {
     // list entirely, so it relied on internal links alone to get discovered.
     { url: `${SITE_URL}/francais-pas-a-pas`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${SITE_URL}/teach`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE_URL}/business`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE_URL}/how-it-works`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE_URL}/pricing`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE_URL}/about`, changeFrequency: "monthly", priority: 0.6 },

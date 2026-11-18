@@ -1,7 +1,7 @@
 export const dynamic = 'force-dynamic';
 
 import type { Metadata } from "next";
-import { APP_URL } from "@/lib/site/hosts";
+import { APP_URL, SITE_URL } from "@/lib/site/hosts";
 
 /**
  * The app homepage was the last page on this host with no canonical at all,
@@ -306,10 +306,10 @@ function HomeContent({ aiTutorEnabled }: { aiTutorEnabled: boolean }) {
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-white mb-5 leading-tight">{t("landing.corporate_title")}</h2>
                 <p className="text-lg text-white/70 mb-8 leading-relaxed">{t("landing.corporate_subtitle")}</p>
-                <Link href="/contact" className="inline-flex items-center gap-2.5 bg-secondary text-white px-7 py-3.5 rounded-xl font-bold hover:bg-secondary-600 transition-all shadow-lg shadow-secondary/30 hover:shadow-xl hover:-translate-y-0.5">
+                <a href={`${SITE_URL}/business`} className="inline-flex items-center gap-2.5 bg-secondary text-white px-7 py-3.5 rounded-xl font-bold hover:bg-secondary-600 transition-all shadow-lg shadow-secondary/30 hover:shadow-xl hover:-translate-y-0.5">
                   {t("landing.corporate_cta")}
                   <ArrowRight className="w-5 h-5" />
-                </Link>
+                </a>
               </div>
               <div className="space-y-4">
                 {[

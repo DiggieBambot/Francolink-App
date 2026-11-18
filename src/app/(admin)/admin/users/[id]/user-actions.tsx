@@ -35,7 +35,7 @@ export function UserActions({ user }: UserActionsProps) {
     setOpen(false);
 
     try {
-      const response = await fetch("/api/admin/users/action", {
+      const response = await fetch("/admin/users/action", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId: user.id, action }),

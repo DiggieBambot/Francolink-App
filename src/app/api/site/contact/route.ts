@@ -18,6 +18,10 @@ const Body = z.object({
   email: z.email().max(200),
   topic: z.string().trim().max(120).optional().default(""),
   message: z.string().trim().min(10).max(4000),
+  // Business enquiries only (FrancoLink for Business). Folded into the stored
+  // message so the Support inbox, email and DiggieChat all see them unchanged.
+  organization: z.string().trim().max(160).optional().default(""),
+  learners: z.string().trim().max(12).optional().default(""),
   // Honeypot — a filled value means a bot.
   company: z.string().optional().default(""),
   // Proof the form was actually rendered — see lib/site/form-token.
@@ -47,6 +51,14 @@ export async function POST(request: Request) {
   if (!looksHuman(parsed.form_token)) {
     console.log("[site/contact] rejected: no valid form token");
     return NextResponse.json({ ok: true });
+  }
+
+  const businessLines = [
+    parsed.organization && `Organisation: ${parsed.organization}`,
+    parsed.learners && `Learners: ${parsed.learners}`,
+  ].filter(Boolean);
+  if (businessLines.length) {
+    parsed.message = `${businessLines.join("\n")}\n\n${parsed.message}`;
   }
 
   const supabase = createClient(
