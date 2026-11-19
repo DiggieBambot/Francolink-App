@@ -38,6 +38,7 @@ const STUDENT_DATA: ReadonlyArray<readonly [table: string, column: string]> = [
   ["enrollments", "user_id"],
   ["exercise_attempts", "user_id"],
   ["game_scores", "user_id"],
+  ["google_calendar_connections", "user_id"],
   ["homework_submissions", "student_id"],
   ["homework_assignments", "student_id"],
   ["lesson_coverage", "student_id"],
