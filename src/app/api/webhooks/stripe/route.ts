@@ -522,6 +522,11 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
       (e: unknown) => console.error('[webhook] linking tutor and student failed', e)
     );
 
+  // Tutor's Google Calendar, if connected. Never throws; the reconcile cron
+  // retries anything this misses.
+  const { pushBooking } = await import('@/lib/google-calendar/sync');
+  await pushBooking(bookingId);
+
   console.log('[webhook] booking confirmed:', bookingId);
 }
 

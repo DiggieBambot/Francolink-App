@@ -22,6 +22,7 @@ import { z } from "zod";
 import { stripe } from "@/lib/stripe";
 import { refundCredits } from "@/lib/credits/ledger";
 import { notifyBookingCancelled } from "@/lib/booking/notify";
+import { pushBooking } from "@/lib/google-calendar/sync";
 
 export const runtime = "nodejs";
 
@@ -180,6 +181,9 @@ export async function POST(request: Request) {
         ? `Cancelled more than ${FREE_CANCELLATION_HOURS} hours ahead, so this lesson isn't paid.`
         : "Cancelled inside the 12-hour window, so you're still paid for holding the time.",
   });
+
+  // Free the tutor's Google Calendar too. Never throws.
+  await pushBooking(booking.id);
 
   if (!refundable) {
     return NextResponse.json({

@@ -13,6 +13,7 @@ import {
   type Slot,
   type WeeklyRule,
 } from "./slots";
+import { googleBusyFor } from "@/lib/google-calendar/sync";
 
 /** Must match the availability editor's preview, or the two would disagree. */
 export const BOOKING_DURATIONS = [25, 50];
@@ -52,7 +53,7 @@ export interface TutorAvailability {
  */
 export async function getBookableSlots(
   tutorId: string,
-  opts: { durations?: number[]; now?: Date } = {}
+  opts: { durations?: number[]; now?: Date; freshGoogle?: boolean } = {}
 ): Promise<TutorAvailability> {
   const db = serviceClient();
   const now = opts.now ?? new Date();
@@ -101,7 +102,13 @@ export async function getBookableSlots(
     return { tutorId, timezone, slots: [] };
   }
 
+  // A tutor who connected Google Calendar can't be booked over their other
+  // commitments. Best-effort: on any Google failure this is empty, never an
+  // error, so a Google outage can't take a tutor's bookings down with it.
+  const googleBusy = await googleBusyFor(tutorId, now, to, { fresh: opts.freshGoogle });
+
   const busy: Interval[] = [
+    ...googleBusy,
     ...(blackouts ?? []).map((b) => ({
       start: new Date(b.starts_at),
       end: new Date(b.ends_at),
@@ -149,6 +156,8 @@ export async function isSlotStillBookable(
   const { slots } = await getBookableSlots(tutorId, {
     durations: [durationMinutes],
     now,
+    // Money is about to change hands: check Google now, not a cached answer.
+    freshGoogle: true,
   });
   return slots.some(
     (s) => s.start === startIso && s.durationMinutes === durationMinutes
