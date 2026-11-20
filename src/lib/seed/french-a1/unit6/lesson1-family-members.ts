@@ -8,7 +8,7 @@ export const frenchA1U6L1 = {
     unit: 6,
     lesson: 1,
     title: "Family Members",
-    slug: "family-members",
+    slug: "family-members-relationships",
     type: "VOCABULARY",
     estimatedMinutes: 15,
     xpReward: 20,

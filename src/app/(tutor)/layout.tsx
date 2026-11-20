@@ -104,6 +104,9 @@ export default async function TutorLayout({
                 icon: "Sparkles",
               },
             ]),
+        ...(isFrancolinkTutor
+          ? [{ name: "Profile insights", href: "/tutor/insights", icon: "BarChart3" }]
+          : []),
         { name: "Public profile", href: "/tutor/public-profile", icon: "Globe" },
         { name: "Availability", href: "/tutor/availability", icon: "CalendarClock" },
       ],

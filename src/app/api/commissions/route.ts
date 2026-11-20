@@ -1,15 +1,16 @@
 // src/app/api/commissions/route.ts
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { createServiceClient } from '@/lib/supabase/service';
 import { getCommissionConfig } from '@/lib/settings';
 
 // GET: Fetch commission data for current tutor
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const supabase = await createClient();
-    
+
     const { data: { user }, error: authError } = await supabase.auth.getUser();
-    
+
     if (authError || !user) {
       return NextResponse.json(
         { error: 'Unauthorized' },
@@ -17,8 +18,11 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Get tutor's info with commission balance
-    const { data: tutor, error: tutorError } = await supabase
+    // Every query below is scoped to user.id; the service client just keeps
+    // the answer independent of whatever RLS the finance tables happen to have.
+    const db = createServiceClient();
+
+    const { data: tutor, error: tutorError } = await db
       .from('users')
       .select('commission_balance, tutor_plan')
       .eq('id', user.id)
@@ -26,11 +30,10 @@ export async function GET(request: NextRequest) {
 
     if (tutorError) throw tutorError;
 
-    // Fetch commission ledger entries (if table exists)
-    const { data: ledger } = await supabase
+    const { data: ledger } = await db
       .from('commission_ledger')
       .select(`
-        *,
+        id, amount, commission_rate, kind, created_at, period_start,
         student:student_id (
           name,
           email
@@ -39,46 +42,53 @@ export async function GET(request: NextRequest) {
       .eq('tutor_id', user.id)
       .order('created_at', { ascending: false });
 
-    // Get referred students count
-    const { count: referredStudents } = await supabase
+    const { count: referredStudents } = await db
       .from('users')
       .select('*', { count: 'exact', head: true })
       .eq('referred_by_tutor_id', user.id);
 
-    // Get active paying students
-    const { count: payingStudents } = await supabase
+    const { count: payingStudents } = await db
       .from('users')
       .select('*', { count: 'exact', head: true })
       .eq('referred_by_tutor_id', user.id)
-      .neq('subscription_plan', 'FREE');
+      .not('subscription_plan', 'is', null)
+      .not('subscription_plan', 'in', '(FREE,free,none)');
 
-    // Calculate this month's earnings from ledger
+    // A withdrawal the tutor asked for that the admin hasn't paid yet.
+    const { data: pending } = await db
+      .from('commission_payouts')
+      .select('amount, created_at')
+      .eq('tutor_id', user.id)
+      .eq('status', 'requested')
+      .order('created_at', { ascending: false })
+      .limit(1)
+      .maybeSingle();
+
     const startOfMonth = new Date();
     startOfMonth.setDate(1);
     startOfMonth.setHours(0, 0, 0, 0);
-    
-    const thisMonth = ledger?.reduce((sum, entry) => {
-      const entryDate = new Date(entry.created_at);
-      return entryDate >= startOfMonth 
-        ? sum + parseFloat(entry.commission_amount) 
-        : sum;
-    }, 0) || 0;
 
-    // Total earned (from ledger)
-    const totalEarned = ledger?.reduce((sum, entry) => 
-      sum + parseFloat(entry.commission_amount), 0) || 0;
+    // The ledger column is `amount`. This summed `commission_amount`, which
+    // doesn't exist, so every total came out NaN. Reversals are negative rows
+    // and net out here.
+    const amountOf = (entry: { amount: number | string | null }) => Number(entry.amount) || 0;
+    const thisMonth = (ledger ?? []).reduce(
+      (sum, entry) => (new Date(entry.created_at) >= startOfMonth ? sum + amountOf(entry) : sum),
+      0
+    );
+    const totalEarned = (ledger ?? []).reduce((sum, entry) => sum + amountOf(entry), 0);
 
-    // Get commission settings
     const settings = await getCommissionConfig();
 
     return NextResponse.json({
       ledger: ledger || [],
       summary: {
-        total_earned: totalEarned,
-        available_balance: parseFloat(tutor?.commission_balance || '0'),
+        total_earned: Math.round(totalEarned * 100) / 100,
+        available_balance: Number(tutor?.commission_balance) || 0,
         referred_students: referredStudents || 0,
         paying_students: payingStudents || 0,
-        this_month: thisMonth
+        this_month: Math.round(thisMonth * 100) / 100,
+        pending_request: pending ? { amount: Number(pending.amount), created_at: pending.created_at } : null,
       },
       settings
     });

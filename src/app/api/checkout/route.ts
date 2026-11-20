@@ -1,9 +1,11 @@
 // src/app/api/checkout/route.ts
 
 import { NextRequest, NextResponse } from "next/server";
+import type Stripe from "stripe";
 import { createClient } from "@/lib/supabase/server";
 import { stripe, CheckoutPlan, planToSubscription } from "@/lib/stripe";
 import { getSetting } from "@/lib/config/settings";
+import { REF_COOKIE, affiliateForUser, attributeUser } from "@/lib/affiliates";
 
 // ------------------------------------------------------------------
 // Map plan param to settings key
@@ -161,8 +163,20 @@ export async function POST(request: NextRequest) {
     };
     const stripeLocale = stripeLocaleMap[locale] || "auto";
 
+    // Creator program. A creator link clicked since signup still counts, and a
+    // customer who came through a creator gets their code applied for them --
+    // nobody should have to remember MARIE from a video to get the discount.
+    // Only on a first subscription: the code is first-time-customers-only.
+    const refCode = request.cookies.get(REF_COOKIE)?.value;
+    if (refCode) await attributeUser(user.id, refCode, "link");
+    const affiliate = await affiliateForUser(user.id);
+    const creatorPromo =
+      affiliate?.status === "active" && affiliate.stripe_promotion_code_id && !profile?.subscription_ends_at
+        ? affiliate.stripe_promotion_code_id
+        : null;
+
     // Create Checkout Session
-    const session = await stripe.checkout.sessions.create({
+    const sessionParams: Stripe.Checkout.SessionCreateParams = {
       customer: customerId,
       payment_method_types: ["card"],
       line_items: [
@@ -189,8 +203,23 @@ export async function POST(request: NextRequest) {
           subscription_plan: planToSubscription[checkoutPlan],
         },
       },
-      allow_promotion_codes: true,
-    });
+    };
+
+    let session;
+    if (creatorPromo) {
+      try {
+        session = await stripe.checkout.sessions.create({
+          ...sessionParams,
+          discounts: [{ promotion_code: creatorPromo }],
+        });
+      } catch (e) {
+        // Stripe rejects the code for a customer who has paid before in a way
+        // our tables don't show (e.g. a one-off purchase). Sell without it.
+        console.warn("[checkout] creator code not applied", e);
+      }
+    }
+    // Stripe refuses a session with both a discount and the promo-code box.
+    session ??= await stripe.checkout.sessions.create({ ...sessionParams, allow_promotion_codes: true });
 
     return NextResponse.json({ url: session.url });
   } catch (error) {

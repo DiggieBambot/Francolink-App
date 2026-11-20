@@ -42,6 +42,14 @@ export const LESSON_MINUTES = 50;
 /** Weeks in a month, matching public.weeks_per_month() exactly. */
 export const WEEKS_PER_MONTH = 4.33;
 
+/**
+ * Plans of at least this many lessons a week come with one free first lesson
+ * of FREE_TRIAL_MINUTES. Starter packs don't. Enforced in
+ * lib/booking/confirm.ts freeTrialEligibility().
+ */
+export const FREE_TRIAL_MIN_LESSONS_PER_WEEK = 2;
+export const FREE_TRIAL_MINUTES = 25;
+
 export async function getPlans(): Promise<Plan[]> {
   const db = service();
 

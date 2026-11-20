@@ -12,6 +12,7 @@ import { TIER_BLURB, TIER_LABEL, type Tier } from "@/lib/site/pricing";
 import { appUrl } from "@/lib/site/hosts";
 import { JsonLd } from "@/components/site/json-ld";
 import { tutorListSchema, breadcrumbSchema } from "@/lib/site/schema";
+import { TrackTutorEvent } from "@/components/site/track-tutor-event";
 
 export const revalidate = 3600;
 
@@ -48,6 +49,7 @@ export default async function TutorsPage() {
 
   return (
     <>
+      <TrackTutorEvent kind="directory_view" />
       {/* The directory as a list Google can read, plus where it sits in the
           site. Position + url only — the tutor's own details live on the
           profile page and are not worth duplicating here. */}

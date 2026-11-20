@@ -28,7 +28,9 @@ export default async function LessonPage({ params }: PageProps) {
   if (!user) redirect("/login");
 
   // Fetch lesson with exercises
-  const { data: lesson, error } = await supabase
+  // Slugs are only unique within a course (e.g. "telling-time" exists in both
+  // A1 and A2), so fetch every match and pick the one in this course.
+  const { data: candidates, error } = await supabase
     .from("lessons")
     .select(
       `
@@ -67,8 +69,13 @@ export default async function LessonPage({ params }: PageProps) {
       )
     `
     )
-    .eq("slug", lessonSlug)
-    .single();
+    .eq("slug", lessonSlug);
+
+  const courseSlug = `${language}-${level}`.toLowerCase();
+  const lesson =
+    candidates?.find((l) => (l.unit as any)?.course?.slug === courseSlug) ??
+    candidates?.[0] ??
+    null;
 
   if (error || !lesson) {
     return (
@@ -126,6 +133,33 @@ export default async function LessonPage({ params }: PageProps) {
     .eq("lesson_id", lesson.id)
     .single();
 
+  // Level progress for the encouragement messages. Non-critical: if it fails
+  // the lesson still runs, just without the "x of y in this level" line.
+  let levelProgress: { completed: number; total: number } | null = null;
+  try {
+    const courseId = unit?.course?.id;
+    if (courseId) {
+      const { data: levelLessons } = await supabase
+        .from("units")
+        .select("lessons(id)")
+        .eq("course_id", courseId);
+      const ids = (levelLessons ?? []).flatMap(
+        (u: { lessons: { id: string }[] | null }) => (u.lessons ?? []).map((l) => l.id)
+      );
+      if (ids.length > 0) {
+        const { count } = await supabase
+          .from("lesson_progress")
+          .select("id", { count: "exact", head: true })
+          .eq("user_id", user.id)
+          .eq("status", "COMPLETED")
+          .in("lesson_id", ids);
+        levelProgress = { completed: count ?? 0, total: ids.length };
+      }
+    }
+  } catch {
+    // non-critical
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -158,6 +192,7 @@ export default async function LessonPage({ params }: PageProps) {
         language={language}
         level={level}
         existingProgress={existingProgress}
+        levelProgress={levelProgress}
       />
     </div>
   );

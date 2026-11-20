@@ -1,15 +1,25 @@
 // src/app/api/commissions/withdraw/route.ts
+//
+// POST { amount } — a tutor asks to be paid.
+//
+// This used to subtract the amount from users.commission_balance and record
+// nothing else. The admin payouts queue lists tutors by balance, so a tutor who
+// withdrew vanished from it and was never paid: the money was simply gone.
+//
+// Now it files a request (commission_payouts, status 'requested') and leaves
+// the balance alone. The admin pays by hand from Admin → Pricing → Commission,
+// and marking it paid is what takes the money off the balance.
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { createServiceClient } from '@/lib/supabase/service';
 import { getCommissionConfig } from '@/lib/settings';
 
-// POST: Request a commission withdrawal
 export async function POST(request: NextRequest) {
   try {
     const supabase = await createClient();
-    
+
     const { data: { user }, error: authError } = await supabase.auth.getUser();
-    
+
     if (authError || !user) {
       return NextResponse.json(
         { error: 'Unauthorized' },
@@ -17,17 +27,16 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const body = await request.json();
-    const { amount } = body;
+    const body = await request.json().catch(() => ({}));
+    const amount = Math.round(Number(body?.amount) * 100) / 100;
 
-    if (!amount || amount <= 0) {
+    if (!Number.isFinite(amount) || amount <= 0) {
       return NextResponse.json(
         { error: 'Invalid amount' },
         { status: 400 }
       );
     }
 
-    // Get commission settings
     const settings = await getCommissionConfig();
 
     if (!settings.enabled) {
@@ -44,16 +53,17 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Get tutor's current balance
-    const { data: tutor, error: tutorError } = await supabase
+    const db = createServiceClient();
+
+    const { data: tutor, error: tutorError } = await db
       .from('users')
-      .select('commission_balance, email, name')
+      .select('commission_balance, payout_details')
       .eq('id', user.id)
       .single();
 
     if (tutorError) throw tutorError;
 
-    const currentBalance = parseFloat(tutor.commission_balance || '0');
+    const currentBalance = Number(tutor.commission_balance) || 0;
 
     if (amount > currentBalance) {
       return NextResponse.json(
@@ -62,32 +72,39 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Deduct from balance (we'll process payout later)
-    const newBalance = currentBalance - amount;
+    const method = (tutor.payout_details as { method?: string } | null)?.method;
+    if (!method) {
+      return NextResponse.json(
+        { error: 'Add your payout details first, so we know where to send the money.' },
+        { status: 400 }
+      );
+    }
 
-    const { error: updateError } = await supabase
-      .from('users')
-      .update({ commission_balance: newBalance })
-      .eq('id', user.id);
+    const { count: open } = await db
+      .from('commission_payouts')
+      .select('id', { count: 'exact', head: true })
+      .eq('tutor_id', user.id)
+      .eq('status', 'requested');
 
-    if (updateError) throw updateError;
+    if ((open ?? 0) > 0) {
+      return NextResponse.json(
+        { error: 'You already have a withdrawal request in progress.' },
+        { status: 409 }
+      );
+    }
 
-    // TODO: In production, integrate with Stripe Connect or PayPal
-    // For now, we'll just log the withdrawal request
-    console.log(`Withdrawal request: $${amount} from ${tutor.email}`);
+    // payout_method may be a constrained enum ('stripe'|'paypal'|'bank_transfer');
+    // same fallback as the admin payouts route.
+    const row = { tutor_id: user.id, amount, status: 'requested' };
+    let { error: insertError } = await db.from('commission_payouts').insert({ ...row, payout_method: method });
+    if (insertError) {
+      ({ error: insertError } = await db.from('commission_payouts').insert({ ...row, payout_method: 'bank_transfer' }));
+    }
+    if (insertError) throw insertError;
 
-    // Optional: Send email notification to admin
-    // await sendAdminNotification({
-    //   type: 'withdrawal_request',
-    //   tutor_id: user.id,
-    //   tutor_email: tutor.email,
-    //   amount: amount
-    // });
-
-    return NextResponse.json({ 
-      success: true, 
+    return NextResponse.json({
+      success: true,
       message: 'Withdrawal request submitted successfully',
-      new_balance: newBalance
     });
   } catch (error) {
     console.error('Error requesting withdrawal:', error);

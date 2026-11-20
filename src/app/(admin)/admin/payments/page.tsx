@@ -2,6 +2,16 @@
 
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
+import { isDemoEmail } from "@/lib/demo";
+import { getSettingsByCategory } from "@/lib/config/settings";
+
+// Google Play prices are set in Play Console, not in our settings (decided
+// 2026-09-30: Premium only, $8.99/month, $69.99/year). Update here if they
+// change there. Premium+ isn't sold in the app; it falls back to Premium.
+const APP_PRICES = {
+  premium: { monthly: 8.99, yearly: 69.99 },
+  premiumPlus: { monthly: 8.99, yearly: 69.99 },
+};
 import {
   CreditCard,
   DollarSign,
@@ -20,7 +30,22 @@ export default async function AdminPaymentsPage() {
   // Get subscription stats
   const { data: users } = await supabase
     .from("users")
-    .select("subscription_plan, subscription_period, is_founding_member, subscription_started_at, stripe_customer_id");
+    .select("subscription_plan, subscription_period, is_founding_member, subscription_started_at, stripe_customer_id, subscription_source, email");
+
+  // MRR at list price, before Stripe/Google fees and before any discount code.
+  // Web prices come from the same admin settings the pricing page and the
+  // student plan card read, so they can't drift apart again.
+  const pricing = await getSettingsByCategory("pricing");
+  const webPrices = {
+    premium: {
+      monthly: Number(pricing.premium_monthly_price ?? 7.99),
+      yearly: Number(pricing.premium_yearly_price ?? 59.99),
+    },
+    premiumPlus: {
+      monthly: Number(pricing.premium_plus_monthly_price ?? 14.99),
+      yearly: Number(pricing.premium_plus_yearly_price ?? 119.99),
+    },
+  };
 
   const stats = {
     totalPaid: 0,
@@ -34,30 +59,33 @@ export default async function AdminPaymentsPage() {
 
   const recentSubscribers: any[] = [];
 
+  // Where each paying subscriber pays: web (Stripe) or the Android app
+  // (Google Play via RevenueCat). Anything else is a manual grant.
+  const bySource = { web: 0, app: 0, other: 0 };
+
   users?.forEach((user) => {
-    if (user.subscription_plan === "PREMIUM") {
-      stats.premium++;
-      stats.totalPaid++;
-      if (user.subscription_period === "monthly") {
-        stats.monthly++;
-        stats.mrr += 7.99;
-      } else if (user.subscription_period === "yearly") {
-        stats.yearly++;
-        stats.mrr += 79.99 / 12;
-      }
-    } else if (user.subscription_plan === "PREMIUM_PLUS") {
-      stats.premiumPlus++;
-      stats.totalPaid++;
-      if (user.subscription_period === "monthly") {
-        stats.monthly++;
-        stats.mrr += 14.99;
-      } else if (user.subscription_period === "yearly") {
-        stats.yearly++;
-        stats.mrr += 149.99 / 12;
-      }
+    if (user.subscription_plan && user.subscription_plan !== "FREE" && !isDemoEmail(user.email)) {
+      if (user.subscription_source === "google_play") bySource.app++;
+      else if (user.subscription_source === "stripe") bySource.web++;
+      else bySource.other++;
     }
+    if (isDemoEmail(user.email)) return;
     if (user.is_founding_member) {
       stats.foundingMembers++;
+    }
+    const plan = user.subscription_plan;
+    if (plan !== "PREMIUM" && plan !== "PREMIUM_PLUS") return;
+    stats.totalPaid++;
+    if (plan === "PREMIUM") stats.premium++;
+    else stats.premiumPlus++;
+    const prices = user.subscription_source === "google_play" ? APP_PRICES : webPrices;
+    const p = plan === "PREMIUM" ? prices.premium : prices.premiumPlus;
+    if (user.subscription_period === "monthly") {
+      stats.monthly++;
+      stats.mrr += p.monthly;
+    } else if (user.subscription_period === "yearly") {
+      stats.yearly++;
+      stats.mrr += p.yearly / 12;
     }
   });
 
@@ -119,6 +147,20 @@ export default async function AdminPaymentsPage() {
             </a>
           </div>
         </div>
+      </div>
+
+      {/* Web vs app */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        {[
+          { label: "Web subscribers (Stripe)", value: bySource.web, tone: "bg-indigo-50 text-indigo-700" },
+          { label: "App subscribers (Google Play)", value: bySource.app, tone: "bg-sky-50 text-sky-700" },
+          { label: "Other / manual grant", value: bySource.other, tone: "bg-gray-50 text-gray-700" },
+        ].map((c) => (
+          <div key={c.label} className={`rounded-xl p-4 ${c.tone}`}>
+            <p className="text-2xl font-bold">{c.value}</p>
+            <p className="text-sm">{c.label}</p>
+          </div>
+        ))}
       </div>
 
       {/* Stats Grid */}

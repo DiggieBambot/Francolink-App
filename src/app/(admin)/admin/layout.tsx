@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
-import { LayoutDashboard, Users, CreditCard, BarChart3, Settings, FileText, Plug, ChevronRight, Bot, Shield, GraduationCap, TrendingUp, LifeBuoy, MessageSquare, Newspaper, Megaphone, History, Globe, PencilLine, Wrench } from 'lucide-react';
+import { LayoutDashboard, Users, CreditCard, BarChart3, Settings, FileText, Plug, ChevronRight, Bot, Shield, GraduationCap, TrendingUp, LifeBuoy, MessageSquare, Star, Newspaper, Megaphone, History, Globe, PencilLine, Wrench, Handshake, Video } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Admin Panel | FrancoLink',
@@ -37,6 +37,8 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         { name: 'Users', href: '/admin/users', icon: Users },
         { name: 'Premium Grants', href: '/admin/premium-grants', icon: Gift },
         { name: 'Tutors', href: '/admin/tutors', icon: GraduationCap },
+        { name: 'Live Lessons', href: '/admin/live-lessons', icon: Video },
+        { name: 'Reviews', href: '/admin/reviews', icon: Star },
         { name: 'Content', href: '/admin/content', icon: FileText },
         { name: 'Tutor Lessons', href: '/admin/tutor-lessons', icon: GraduationCap },
         { name: 'Lesson Worker', href: '/admin/lesson-worker', icon: Wrench },
@@ -45,6 +47,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         { name: 'Import from Drive', href: '/admin/import-from-drive', icon: FileText },
         { name: 'Payments', href: '/admin/payments', icon: CreditCard },
         { name: 'Pricing', href: '/admin/pricing', icon: DollarSign },
+        { name: 'Creators', href: '/admin/affiliates', icon: Handshake },
         { name: 'Analytics', href: '/admin/analytics', icon: BarChart3 },
         { name: 'Lesson Coverage', href: '/admin/coverage', icon: History },
         { name: 'Website', href: '/admin/website', icon: Globe },

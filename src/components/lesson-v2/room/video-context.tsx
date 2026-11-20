@@ -23,6 +23,46 @@ import DailyIframe, {
   type DailyParticipant,
 } from "@daily-co/daily-js";
 
+/**
+ * Plays every other participant's microphone, exactly once.
+ *
+ * This is the ONLY place call audio is played. Video tiles are mounted more
+ * than once (stage + phone rail + desktop rail, hidden with CSS rather than
+ * unmounted) and used to each carry an <audio>; the same voice then came out
+ * of several elements slightly out of step, which is heard as echo. It also
+ * covers group rooms, where tiles show only the first learner but everyone
+ * must be heard.
+ *
+ * Shared-screen audio is intentionally not played: sharing a whole screen
+ * with system audio captures the call itself, and playing that back sends the
+ * other person their own voice.
+ */
+function RemoteAudio({ participants }: { participants: DailyParticipant[] }) {
+  return (
+    <>
+      {participants.map((p) => (
+        <ParticipantAudio key={p.session_id} participant={p} />
+      ))}
+    </>
+  );
+}
+
+function ParticipantAudio({ participant }: { participant: DailyParticipant }) {
+  const ref = useRef<HTMLAudioElement | null>(null);
+  const a = participant.tracks?.audio;
+  const track = a?.state === "playable" ? a.persistentTrack ?? null : null;
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const current = (el.srcObject as MediaStream | null)?.getAudioTracks()[0] ?? null;
+    // Participant objects are replaced on every Daily event; re-wrapping the
+    // same track each time restarts playback and clicks. Only swap on change.
+    if (current === track) return;
+    el.srcObject = track ? new MediaStream([track]) : null;
+  }, [track]);
+  return <audio ref={ref} autoPlay playsInline />;
+}
+
 /** Off, or how much of the room to lose. */
 export type BlurLevel = "off" | "light" | "strong";
 
@@ -220,6 +260,8 @@ export function RoomVideoProvider({
   );
   const [local, setLocal] = useState<DailyParticipant | null>(null);
   const [remote, setRemote] = useState<DailyParticipant | null>(null);
+  // Everyone but us, for audio. `remote` above is only the first of them.
+  const [others, setOthers] = useState<DailyParticipant[]>([]);
   const [micOn, setMicOn] = useState(true);
   const [camOn, setCamOn] = useState(true);
   const [screenOn, setScreenOn] = useState(false);
@@ -425,6 +467,7 @@ export function RoomVideoProvider({
     setLocal(all.local ?? null);
     const others = Object.values(all).filter((p) => !p.local);
     setRemote(others[0] ?? null);
+    setOthers(others);
     // Daily reports a screen share as a second set of tracks on the person
     // sharing, not as an extra participant, so this is the only way to know.
     const everyone = Object.values(all);
@@ -445,6 +488,7 @@ export function RoomVideoProvider({
     setPhase("idle");
     setLocal(null);
     setRemote(null);
+    setOthers([]);
     // The call object is destroyed below, and the camera and the blur
     // processor go with it. Saying otherwise would leave the lobby offering a
     // blur toggle attached to nothing.
@@ -788,6 +832,7 @@ export function RoomVideoProvider({
         classStartsAt, durationMinutes, intoClass,
       }}
     >
+      <RemoteAudio participants={others} />
       {children}
     </Ctx.Provider>
   );

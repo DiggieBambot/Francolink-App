@@ -1,0 +1,60 @@
+cluster,keyword,intent,role,search_volume,ai_search_volume,competition,cpc
+/guides/tcf-canada,tcf canada exam,informational,primary,1600,86,LOW,1.84
+/guides/tcf-canada/score-chart (NEW),tcf score chart,informational,primary,1000,,LOW,8.91
+/expression-ecrite,tcf expression écrite,informational,primary,320,2,LOW,3.5
+/expression-orale,tcf speaking format,informational,primary,260,2,LOW,3.32
+/comprehension-orale,tcf canada comprehension orale,informational,primary,140,,LOW,4.47
+/comprehension-ecrite,tcf compréhension écrite,informational,primary,90,6,LOW,0.74
+/guides/tcf-canada,tcf canada test,informational,secondary,2900,75,LOW,1.55
+/guides/tcf-canada,tcf exam,informational,secondary,1600,,LOW,4.76
+/guides/tcf-canada,tcf preparation,informational,secondary,1300,,LOW,3.92
+/guides/tcf-canada/score-chart (NEW),nclc tcf canada,navigational,secondary,480,,LOW,1.69
+/guides/tcf-canada,tcf results,informational,secondary,390,,LOW,
+/comprehension-orale,tcf listening practice,informational,secondary,390,,MEDIUM,3.01
+/guides/tcf-canada/score-chart (NEW),nclc 7 tcf canada,navigational,secondary,320,,LOW,0.65
+/guides/tcf-canada/score-chart (NEW),tcf canada score chart,informational,secondary,320,,LOW,
+/guides/tcf-canada/score-chart (NEW),tcf score,informational,secondary,320,,LOW,
+/guides/tcf-canada/score-chart (NEW),tcf clb 7 score,informational,secondary,260,26,LOW,6.92
+/expression-ecrite,expression écrite tcf canada,informational,secondary,260,,LOW,0.25
+/guides/tcf-canada/score-chart (NEW),tcf to clb,informational,secondary,210,115,LOW,
+/guides/tcf-canada/score-chart (NEW),tcf canada score,informational,secondary,210,,LOW,
+/expression-ecrite,tcf canada expression écrite,informational,secondary,210,,LOW,0.48
+/expression-orale,tcf expression orale,informational,secondary,210,2,LOW,13.61
+/expression-orale,expression orale tcf canada,informational,secondary,170,,LOW,0.67
+/comprehension-ecrite,tcf reading practice test,informational,secondary,170,,LOW,2.85
+/guides/tcf-canada,tcf exam format,informational,secondary,140,7,LOW,2.21
+/guides/tcf-canada,tcf canada results,informational,secondary,140,,LOW,1.44
+/guides/tcf-canada/score-chart (NEW),tcf score to clb,informational,secondary,140,,LOW,
+/expression-ecrite,tcf writing tasks,informational,secondary,140,4,LOW,5.54
+/expression-ecrite,tcf writing sample,informational,secondary,140,,LOW,5.28
+/expression-orale,tcf canada expression orale,navigational,secondary,140,,LOW,1.43
+/expression-orale,tcf speaking,navigational,secondary,140,,LOW,15.73
+/comprehension-orale,tcf listening,navigational,secondary,140,,LOW,1.43
+/guides/tcf-canada,what is tcf,informational,secondary,110,292,LOW,
+/guides/tcf-canada,tcf exam fees,informational,secondary,110,,LOW,0.04
+/comprehension-ecrite,tcf reading,informational,secondary,90,,LOW,2.34
+/guides/tcf-canada,tcf canada,navigational,support,18100,620,LOW,1.97
+/guides/tcf-canada/score-chart (NEW),tcf score calculator,informational,support,110,,LOW,
+/expression-ecrite,tcf writing,informational,support,110,,LOW,10.9
+/guides/tcf-canada/score-chart (NEW),tcf clb calculator,informational,support,90,,LOW,
+/guides/tcf-canada,tcf canada format,informational,support,50,,LOW,0.02
+/expression-orale,tcf expression orale tâche 3,informational,support,50,,LOW,0.02
+/expression-orale,tcf expression orale tâche 1,informational,support,40,,LOW,
+/comprehension-ecrite,tcf canada comprehension ecrite,informational,support,40,,LOW,16.75
+/expression-orale,tcf expression orale tâche 2,informational,support,30,,LOW,0.08
+/comprehension-orale,tcf compréhension orale,informational,support,30,,LOW,0.04
+/guides/tcf-canada,how to prepare for tcf canada,informational,support,20,2,MEDIUM,2.76
+Not ours,tcf,informational,skip,8100,,LOW,3.42
+Not ours,réussir tcf canada,informational,skip,4400,,LOW,0.61
+Not ours,tcf exam booking,navigational,skip,3600,,,
+Not ours,pack ayoub tcf canada,commercial,skip,3600,,,
+Not ours,formation tcf canada,informational,skip,1900,,LOW,
+Not ours,tcf canada rendez-vous,navigational,skip,1900,,,
+Not ours,tcf canada montreal,navigational,skip,1600,,,
+Not ours,tcf prep,informational,skip,1300,,LOW,3.92
+Not ours,tef vs tcf,informational,skip,720,,LOW,13.63
+Not ours,tcf practice test,informational,skip,590,10,LOW,5.57
+Not ours,tcf canada test gratuit,informational,skip,480,,LOW,0.26
+Not ours,tcf mock test,informational,skip,260,,MEDIUM,2.74
+Not ours,tef vs tcf which is easier,commercial,skip,260,,LOW,
+Not ours,test tcf en ligne gratuit,informational,skip,210,,LOW,0.42

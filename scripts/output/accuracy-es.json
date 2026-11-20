@@ -1,0 +1,4238 @@
+[
+ {
+  "slug": "es-a2-preterite-regular",
+  "lessonId": "007ddf49-032f-4a06-bd69-18e89112a252",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.3.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'vivimos' in context",
+    "old": "We lived in Mexico.",
+    "new": "We live in Mexico.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-unit4-review",
+  "lessonId": "05a431d5-38f6-4824-b81b-9e523d9bf5ef",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.4.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect use of article with 'doctor'",
+    "old": "Voy al doctor mañana.",
+    "new": "Voy al médico mañana.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.4.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Translation does not match corrected Spanish sentence",
+    "old": "I am going to the doctor tomorrow.",
+    "new": "I am going to the physician tomorrow.",
+    "rejected": true
+   },
+   {
+    "path": "ex:1db39568-f8b0-4e15-ba0e-ffa86e53930d.content.targetText",
+    "severity": "error",
+    "problem": "Incorrect use of article with 'doctor'",
+    "old": "Necesito ver al doctor.",
+    "new": "Necesito ver al médico.",
+    "rejected": true
+   },
+   {
+    "path": "ex:965aba80-eb04-45c2-b692-dc3795a0ad26.content.options.0",
+    "severity": "error",
+    "problem": "Translation does not match corrected Spanish term",
+    "old": "the doctor",
+    "new": "the physician",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-prepositions",
+  "lessonId": "06559e3d-e22e-40c2-aa1a-569b8d177cc7",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.1.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect preposition used in Spanish sentence",
+    "old": "La mesa está detrás del sofá.",
+    "new": "La mesa está al lado del sofá.",
+    "rejected": true
+   },
+   {
+    "path": "ex:85a71f31-70e9-41fb-af09-fd6ddc5490e7.explanation",
+    "severity": "error",
+    "problem": "Explanation incorrectly states the preposition 'en' is correct",
+    "old": "The correct preposition here is 'en', meaning 'in' the kitchen.",
+    "new": "The correct preposition here is 'al lado', meaning 'next to' the kitchen.",
+    "rejected": true
+   },
+   {
+    "path": "ex:85a71f31-70e9-41fb-af09-fd6ddc5490e7.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect correct answer for the sentence completion",
+    "old": "en",
+    "new": "al lado",
+    "rejected": true
+   },
+   {
+    "path": "ex:85a71f31-70e9-41fb-af09-fd6ddc5490e7.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for the sentence completion",
+    "old": "en",
+    "new": "al lado",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-yesterday",
+  "lessonId": "05cc2597-4a25-4884-83ce-3392930c4100",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of preterite endings for -er/-ir verbs",
+    "old": "The preterite tense is used to describe actions that were completed in the past. It is important to use the correct endings for regular verbs. For example, -ar verbs change to -é for 'I', -er/-ir verbs change to -í.",
+    "new": "The preterite tense is used to describe actions that were completed in the past. It is important to use the correct endings for regular verbs. For example, -ar verbs change to -é for 'I', while -er/-ir verbs change to -í for 'I'.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "minor",
+    "problem": "Incorrect example of common mistake",
+    "old": "Saying 'Yo juego' instead of 'Yo jugué' for past actions.",
+    "new": "Saying 'Yo juego' instead of 'Yo jugué' when talking about past actions."
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-analyze-texts",
+  "lessonId": "066d948a-0809-4d62-bf16-0a16ad6c7f43",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "error",
+    "problem": "Incorrect subjunctive form used in example",
+    "old": "Confusing the present and imperfect subjunctive: 'Si analizo...' should be 'Si analizara...'",
+    "new": "Confusing the present and imperfect subjunctive: 'Si analizo...' should be 'Si analizara...' or 'Si analizase...'",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-unit1-review",
+  "lessonId": "06a8f6ec-d91b-4689-8a17-7f98b91cbbb1",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.2.text",
+    "severity": "minor",
+    "problem": "The phrase 'Esos son hechos que no se pueden ignorar.' is unidiomatic in this context.",
+    "old": "Me encantaría visitar los museos. Esos son hechos que no se pueden ignorar.",
+    "new": "Me encantaría visitar los museos. Son cosas que no se pueden ignorar."
+   },
+   {
+    "path": "lesson.dialogue.lines.2.translation",
+    "severity": "minor",
+    "problem": "Translation does not match corrected Spanish text.",
+    "old": "I would love to visit the museums. Those are facts that cannot be ignored.",
+    "new": "I would love to visit the museums. Those are things that cannot be ignored."
+   },
+   {
+    "path": "ex:df4ac8bb-f1a1-4f65-8fea-d5cb6f9dba20.explanation",
+    "severity": "minor",
+    "problem": "Explanation does not match the correct sentence order.",
+    "old": "The sentence translates correctly to 'The fact is a sad fact.' in English.",
+    "new": "The sentence translates correctly to 'The fact is a sad fact.' in English, but the correct order should be 'El hecho es un hecho triste.'"
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-argument",
+  "lessonId": "081f9572-032b-4cf1-9a98-5a0ed56368b0",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.breakdown",
+    "severity": "error",
+    "problem": "Incorrect verb explanation; 'convenir' means 'to agree' not 'to convince'.",
+    "old": "The verb 'convenir' (to convince) is in the subjunctive because it expresses a hope.",
+    "new": "The verb 'convencer' (to convince) is in the subjunctive because it expresses a hope.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.examples.1.original",
+    "severity": "error",
+    "problem": "Incorrect use of subjunctive; 'refutara' should be conditional 'refutaría'.",
+    "old": "Si tuviera más tiempo, refutara sus argumentos.",
+    "new": "Si tuviera más tiempo, refutaría sus argumentos.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.examples.1.breakdown",
+    "severity": "error",
+    "problem": "Incorrect explanation; 'refutara' is not imperfect subjunctive here.",
+    "old": "Here, 'refutara' is in the imperfect subjunctive because it expresses a hypothetical situation.",
+    "new": "Here, 'refutaría' is in the conditional because it expresses a hypothetical situation.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-ojala",
+  "lessonId": "072af1e8-8a7b-46f2-b814-9d8bc807bbd6",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.0.1",
+    "severity": "error",
+    "problem": "Incomplete sentence in Spanish",
+    "old": "Ojalá que él llegue",
+    "new": "Ojalá que él llegue a tiempo",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.examples.0.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'vacaciones'",
+    "old": "I hope we have holidays soon.",
+    "new": "I hope we have a vacation soon.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.1.examples.0.breakdown",
+    "severity": "error",
+    "problem": "Incorrect explanation of conditional structure",
+    "old": "The sentence uses the conditional 'viajaría' because it depends on the condition 'Si pudiera'.",
+    "new": "The sentence uses the conditional 'viajaría' because it expresses a hypothetical situation based on the condition 'Si pudiera'.",
+    "rejected": true
+   },
+   {
+    "path": "ex:2e7cfb8a-62be-4c22-bf39-39849e678604.content.correctOrder.3",
+    "severity": "error",
+    "problem": "Incorrect word order for a conditional sentence",
+    "old": "sueño",
+    "new": "día",
+    "rejected": true
+   },
+   {
+    "path": "ex:2e7cfb8a-62be-4c22-bf39-39849e678604.content.correctOrder.4",
+    "severity": "error",
+    "problem": "Incorrect word order for a conditional sentence",
+    "old": "perfecto",
+    "new": "sueño",
+    "rejected": true
+   },
+   {
+    "path": "ex:2e7cfb8a-62be-4c22-bf39-39849e678604.content.correctOrder.5",
+    "severity": "error",
+    "problem": "Incorrect word order for a conditional sentence",
+    "old": "día",
+    "new": "perfecto",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-childhood",
+  "lessonId": "0aa739f2-f23c-4136-8075-3c14109b57b8",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.1.translation",
+    "severity": "minor",
+    "problem": "Translation should be more specific to context",
+    "old": "game/play",
+    "new": "game"
+   },
+   {
+    "path": "ex:2a154f1f-8bf7-4a61-8244-42f3e408dd93.content.translation",
+    "severity": "error",
+    "problem": "Translation does not match the correct order",
+    "old": "I had many toys from my childhood.",
+    "new": "I had many toys from my childhood.",
+    "rejected": true
+   },
+   {
+    "path": "ex:2a154f1f-8bf7-4a61-8244-42f3e408dd93.content.translation",
+    "severity": "error",
+    "problem": "Translation does not match the correct order",
+    "old": "I had many toys from my childhood.",
+    "new": "I had many toys during my childhood.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-unit2-review",
+  "lessonId": "08b1ff2f-89fb-425c-8af0-0059c5e7c088",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.5.pronunciation",
+    "severity": "minor",
+    "problem": "Pronunciation guide is incorrect.",
+    "old": "el koom-pleh-ahn-yohs",
+    "new": "el koom-pleh-ahn-yohs"
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-reviews",
+  "lessonId": "0bf56da7-0be3-40cc-8b32-67e8b525d901",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.culture.text",
+    "severity": "minor",
+    "problem": "Cannes Film Festival is not in a Spanish-speaking country",
+    "old": "In many Spanish-speaking countries, literature and film are crucial for cultural identity and expression. Events like the Guadalajara International Book Fair and the Cannes Film Festival showcase the richness of Latin American arts.",
+    "new": "In many Spanish-speaking countries, literature and film are crucial for cultural identity and expression. Events like the Guadalajara International Book Fair and the San Sebastián International Film Festival showcase the richness of Latin American arts."
+   },
+   {
+    "path": "lesson.dialogue.context",
+    "severity": "error",
+    "problem": "Context does not match dialogue content",
+    "old": "Two friends are discussing a film they watched and a book they both recently read.",
+    "new": "Two friends are discussing a film they watched and a book one of them recommended.",
+    "rejected": true
+   },
+   {
+    "path": "ex:777f6420-1af3-4a4b-b121-945b7ea0b905.content.correctOrder.4",
+    "severity": "error",
+    "problem": "Incorrect word order in Spanish sentence",
+    "old": "cinematografía",
+    "new": "excelente",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-experiences",
+  "lessonId": "0d80c2f8-91dd-40cf-b876-aaa5c3aed0aa",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.headers.1",
+    "severity": "error",
+    "problem": "Incorrect verb label; should be 'ir' not 'ser'.",
+    "old": "Verb (ser)",
+    "new": "Verb (ir)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation; 'fue' is the past form of 'ir', not 'ser'.",
+    "old": "In Spanish, we use the preterite tense to describe actions that were completed in the past. For example, 'fue' is the past form of 'ser', meaning 'was'. To form sentences, you can combine this with expressions like 'me gustó' (I liked) to share your experiences.",
+    "new": "In Spanish, we use the preterite tense to describe actions that were completed in the past. For example, 'fue' is the past form of 'ir', meaning 'went'. To form sentences, you can combine this with expressions like 'me gustó' (I liked) to share your experiences.",
+    "rejected": true
+   },
+   {
+    "path": "ex:4ef740d7-64bd-47f5-a3ef-f86f91e611a1.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation; 'interesante' is not the only correct word for a good trip.",
+    "old": "The correct word to describe a good trip is 'interesante'.",
+    "new": "'Interesante' is one way to describe a good trip, but other words like 'divertido' or 'fantástico' are also correct.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-memorable",
+  "lessonId": "0dfe7e1d-ae7e-4487-92f5-fe88898ce754",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "error",
+    "problem": "Incorrect example correction for 'hacer'.",
+    "old": "Confusing the conjugation of regular and irregular verbs. Example Correction: 'hice' for hacer, not 'hizo'.",
+    "new": "Confusing the conjugation of regular and irregular verbs. Example Correction: 'hice' for 'yo', not 'hizo' for 'él/ella/usted'.",
+    "rejected": false
+   },
+   {
+    "path": "ex:80de6bf8-f094-4e0c-b9c9-ab6f8278d8f3.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect alternative translation for 'I will tell you about my adventure'.",
+    "old": "Te diré sobre mi aventura.",
+    "new": "Te hablaré sobre mi aventura.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-weather",
+  "lessonId": "0e003ae5-0f22-47a3-8b75-667a5778cbbb",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of 'hace + adjective' structure",
+    "old": "In Spanish, we often use the verb 'hacer' to describe the weather. The structure is 'hace + adjective'. For example, 'hace frío' means 'it's cold'. This is different from English, where we use 'it is'.",
+    "new": "In Spanish, we often use the verb 'hacer' to describe the weather. The structure is 'hace + noun'. For example, 'hace frío' means 'it's cold'. This is different from English, where we use 'it is'.",
+    "rejected": false
+   },
+   {
+    "path": "ex:bd6a8d84-b15b-415f-b780-37096efb302c.content.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of sentence",
+    "old": "It snows in winter.",
+    "new": "There is snow in winter.",
+    "rejected": true
+   },
+   {
+    "path": "ex:bd6a8d84-b15b-415f-b780-37096efb302c.content.correctOrder.0",
+    "severity": "error",
+    "problem": "Incorrect word order for sentence",
+    "old": "hace",
+    "new": "la",
+    "rejected": true
+   },
+   {
+    "path": "ex:bd6a8d84-b15b-415f-b780-37096efb302c.content.correctOrder.1",
+    "severity": "error",
+    "problem": "Incorrect word order for sentence",
+    "old": "nieve",
+    "new": "nieve",
+    "rejected": true
+   },
+   {
+    "path": "ex:bd6a8d84-b15b-415f-b780-37096efb302c.content.correctOrder.2",
+    "severity": "error",
+    "problem": "Incorrect word order for sentence",
+    "old": "la",
+    "new": "hace",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-passive-se",
+  "lessonId": "0e7f2d2a-b5f0-419b-97f3-261818a9ccbd",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.4.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'se vende'",
+    "old": "The house is sold quickly.",
+    "new": "The house sells quickly.",
+    "rejected": true
+   },
+   {
+    "path": "ex:7fa2a70c-7257-4b2b-b2e3-38082c6aa5f5.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of 'se vende'",
+    "old": "'Se vende' translates to 'It is sold' in English, indicating something is available for sale.",
+    "new": "'Se vende' translates to 'It is sold' or 'It sells' in English, indicating something is available for sale.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-alphabet",
+  "lessonId": "0c208374-9eb6-45d5-b9f5-7559b9bb8011",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.25.ttsText",
+    "severity": "error",
+    "problem": "Incorrect name for the letter Y in Spanish",
+    "old": "ye",
+    "new": "i griega",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.25.pronunciation",
+    "severity": "error",
+    "problem": "Incorrect pronunciation for the letter Y",
+    "old": "ee gree-ay-gah",
+    "new": "ee gree-ay-gah",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-home",
+  "lessonId": "0ed24ff7-6328-471a-87ec-ed2ef99d2778",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "ex:518d5a67-2418-42ca-aa97-fd1ca016fa02.explanation",
+    "severity": "error",
+    "problem": "Explanation does not provide the Spanish translation.",
+    "old": "The phrase translates to 'I have a big house'.",
+    "new": "The phrase translates to 'Tengo una casa grande'.",
+    "rejected": true
+   },
+   {
+    "path": "ex:923734f4-998e-4210-8191-018ff176e5a7.explanation",
+    "severity": "error",
+    "problem": "Explanation does not provide the Spanish translation.",
+    "old": "The correct translation is 'Me gusta mi cuarto' which expresses liking for 'my room'.",
+    "new": "The correct translation is 'Me gusta mi cuarto', which means 'I like my room'.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-introductions",
+  "lessonId": "0fb5b493-9890-496b-9115-b1169f393b8f",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.summary.keyPoints.1",
+    "severity": "error",
+    "problem": "Key point not covered in lesson",
+    "old": "Practiced asking and answering questions about age.",
+    "new": "Practiced asking and answering questions about names.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-environment",
+  "lessonId": "1123efbf-fedf-4954-97a9-d448b96663da",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.culture.funFact",
+    "severity": "minor",
+    "problem": "The Amazon rainforest produces about 6% of the world's oxygen, not 20%.",
+    "old": "The Amazon rainforest, located in many South American countries, produces 20% of the world's oxygen.",
+    "new": "The Amazon rainforest, located in many South American countries, plays a crucial role in the Earth's oxygen cycle."
+   },
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "minor",
+    "problem": "The mistake description is not clear enough for B1 learners.",
+    "old": "Mistake: No usar el subjuntivo en opiniones. Correction: Use the subjunctive after expressions of opinion.",
+    "new": "Mistake: Not using the subjunctive in opinions. Correction: Use the subjunctive after expressions of opinion."
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-unit7-review",
+  "lessonId": "12e2fc9a-3df0-4f8e-a539-8685d5687dcb",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'Me gusta la música.'",
+    "old": "I like the music.",
+    "new": "I like music.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.0.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'Me gusta leer el libro.'",
+    "old": "I like to read the book.",
+    "new": "I like reading the book.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.1.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'Escucho la música todos los días.'",
+    "old": "I listen to the music every day.",
+    "new": "I listen to music every day.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.3.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'Vimos la película anoche.'",
+    "old": "We watched the movie last night.",
+    "new": "We watched the film last night.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-preterite-irregular",
+  "lessonId": "127df2d3-46b7-4fdd-bd07-67ee49532af1",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "ex:1d28b7df-329b-43d0-8f61-40353c53ccdd.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "'ver' is not an acceptable answer for preterite form",
+    "old": "ver",
+    "new": "vi",
+    "rejected": false
+   },
+   {
+    "path": "ex:1d28b7df-329b-43d0-8f61-40353c53ccdd.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "'veo' is not an acceptable answer for preterite form",
+    "old": "veo",
+    "new": "vi",
+    "rejected": false
+   },
+   {
+    "path": "ex:80696fc9-0c92-478e-8691-01d68cfeb599.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "'hicieron' is not an acceptable answer for 'nosotros'",
+    "old": "hicieron",
+    "new": "hicimos",
+    "rejected": false
+   },
+   {
+    "path": "ex:80696fc9-0c92-478e-8691-01d68cfeb599.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "'hizo' is not an acceptable answer for 'nosotros'",
+    "old": "hizo",
+    "new": "hicimos",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-unit5-review",
+  "lessonId": "15d957a5-7ba9-4e0b-be8a-c60a60e85a93",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "ex:38a2661c-14e4-4e42-8b9c-2547202dc035.content.translation",
+    "severity": "error",
+    "problem": "Translation does not match the reordered sentence",
+    "old": "The analysis is the important conclusion.",
+    "new": "The analysis is important.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-feelings",
+  "lessonId": "15e0a3ea-d797-4d29-aab9-57ae52c7de12",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.4.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect use of 'calma' as an adjective",
+    "old": "Ella está en calma.",
+    "new": "Ella está calmada.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.4.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Translation does not match corrected Spanish sentence",
+    "old": "She is calm.",
+    "new": "She is calm (calmada).",
+    "rejected": true
+   },
+   {
+    "path": "ex:dcf7c9ad-f519-4cca-b2a8-a602b0c50814.content.ttsText",
+    "severity": "error",
+    "problem": "Incorrect use of 'calma' as an adjective",
+    "old": "Ella está calma.",
+    "new": "Ella está calmada.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-professional-vocab",
+  "lessonId": "173eec5b-54aa-45b7-9bba-4ca565a118bd",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.0.0",
+    "severity": "error",
+    "problem": "Incorrect verb form for subjunctive",
+    "old": "aplicar (tú)",
+    "new": "apliques (tú)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Incorrect example of subjunctive usage",
+    "old": "Espero que apliques para el trabajo.",
+    "new": "Espero que solicites el trabajo.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Incorrect translation of subjunctive example",
+    "old": "This translates to 'I hope that you apply for the job.'",
+    "new": "This translates to 'I hope that you apply for the job.' (Note: 'apliques' is not commonly used in this context; 'solicites' is preferred.)",
+    "rejected": true
+   },
+   {
+    "path": "ex:88bbb4f2-d3ec-4913-9e90-b118ed5d5d28.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for the sentence context",
+    "old": "sueldo",
+    "new": "trabajo en equipo",
+    "rejected": true
+   },
+   {
+    "path": "ex:88bbb4f2-d3ec-4913-9e90-b118ed5d5d28.content.acceptableAnswers.2",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for the sentence context",
+    "old": "currículum",
+    "new": "trabajo en equipo",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-idioms",
+  "lessonId": "16cba257-6d7e-4499-820b-9c3cb98c6da7",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.original",
+    "severity": "error",
+    "problem": "Incorrect use of subjunctive in idiom example",
+    "old": "Es posible que no haya mal que por bien no venga.",
+    "new": "Es posible que no haya problemas.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.examples.0.translation",
+    "severity": "error",
+    "problem": "Translation does not match corrected Spanish example",
+    "old": "It’s possible that every cloud has a silver lining.",
+    "new": "It’s possible that there are no problems.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.examples.0.breakdown",
+    "severity": "error",
+    "problem": "Breakdown explanation does not match corrected example",
+    "old": "The expression requires the subjunctive 'haya' to convey uncertainty.",
+    "new": "The expression requires the subjunctive 'haya' to convey uncertainty about the existence of problems.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-directions",
+  "lessonId": "17a70fd5-46f2-4004-ad9b-ef5c6e476771",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.2.partOfSpeech",
+    "severity": "error",
+    "problem": "Incorrect part of speech for 'derecha'.",
+    "old": "adjective",
+    "new": "noun",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.3.partOfSpeech",
+    "severity": "error",
+    "problem": "Incorrect part of speech for 'izquierda'.",
+    "old": "adjective",
+    "new": "noun",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-reflexives",
+  "lessonId": "18c0d5fa-2d4e-4406-89b8-f111b6403787",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "ex:708c1697-11dd-4cee-8640-3b48eaf2636e.explanation",
+    "severity": "error",
+    "problem": "Incorrect meaning of 'levantarse'",
+    "old": "'Levantarse' means 'to wake up' in English.",
+    "new": "'Levantarse' means 'to get up' in English.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-gustar",
+  "lessonId": "1b4da55c-435b-40d9-ade7-7f7bfdeb546b",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.0.1",
+    "severity": "error",
+    "problem": "Incorrect conjugation of 'gustar' for 'yo'.",
+    "old": "gusto",
+    "new": "me gusta",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.1.1",
+    "severity": "error",
+    "problem": "Incorrect conjugation of 'gustar' for 'tú'.",
+    "old": "gustas",
+    "new": "te gusta",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.3.1",
+    "severity": "error",
+    "problem": "Incorrect conjugation of 'gustar' for 'nosotros'.",
+    "old": "gustamos",
+    "new": "nos gusta",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.4.1",
+    "severity": "error",
+    "problem": "Incorrect conjugation of 'gustar' for 'vosotros'.",
+    "old": "gustáis",
+    "new": "os gusta",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.5.1",
+    "severity": "error",
+    "problem": "Incorrect conjugation of 'gustar' for 'ellos/ellas'.",
+    "old": "gustan",
+    "new": "les gusta",
+    "rejected": false
+   },
+   {
+    "path": "ex:8dfc3651-0809-4d7b-af45-adb4b5bfec54.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect answer for the sentence completion.",
+    "old": "gustamos",
+    "new": "nos gusta",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-final-review",
+  "lessonId": "1e01e423-1ba7-4c3e-b84b-83b7dd879b09",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "ex:ae82bab5-9dbc-4e1e-8959-9e79063712e4.explanation",
+    "severity": "error",
+    "problem": "Explanation does not match the correct answer.",
+    "old": "'Logro' means 'achievement,' which fits in the context of the sentence.",
+    "new": "'Aspiración' means 'aspiration,' which fits in the context of the sentence.",
+    "rejected": true
+   },
+   {
+    "path": "ex:ae82bab5-9dbc-4e1e-8959-9e79063712e4.content.correctAnswer",
+    "severity": "error",
+    "problem": "Correct answer does not match the context of the sentence.",
+    "old": "logro",
+    "new": "aspiración",
+    "rejected": true
+   },
+   {
+    "path": "ex:ae82bab5-9dbc-4e1e-8959-9e79063712e4.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Acceptable answer does not match the context of the sentence.",
+    "old": "logro",
+    "new": "aspiración",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-usted",
+  "lessonId": "1f1a71d1-8598-4035-9942-49df9eaf9ca8",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.3.translation",
+    "severity": "minor",
+    "problem": "Translation is slightly awkward",
+    "old": "Of course, here you have the map.",
+    "new": "Of course, here is the map."
+   },
+   {
+    "path": "ex:7a4bf44d-3354-4688-80b6-4eb335f97bb0.content.translation",
+    "severity": "minor",
+    "problem": "Translation is slightly awkward",
+    "old": "You serve the water, please.",
+    "new": "Please serve the water."
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-media-vocab",
+  "lessonId": "228ed05c-d666-4d87-8bca-cea40f23d62c",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.0.1",
+    "severity": "error",
+    "problem": "Incorrect subjunctive form for 'yo'",
+    "old": "hable",
+    "new": "hable",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.1.1",
+    "severity": "error",
+    "problem": "Incorrect subjunctive form for 'tú'",
+    "old": "hables",
+    "new": "hables",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.2.1",
+    "severity": "error",
+    "problem": "Incorrect subjunctive form for 'él/ella'",
+    "old": "hable",
+    "new": "hable",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-refranes",
+  "lessonId": "218855d4-e482-4d79-9b66-1dba8038e7d9",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.original",
+    "severity": "error",
+    "problem": "Incorrect use of subjunctive in proverb",
+    "old": "Si el que no llora, no mama, es que no pide.",
+    "new": "El que no llora, no mama.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.examples.0.breakdown",
+    "severity": "error",
+    "problem": "Incorrect explanation of subjunctive use",
+    "old": "This uses the subjunctive to express a general truth.",
+    "new": "This proverb does not use the subjunctive; it states a general truth.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.examples.0.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of proverb",
+    "old": "If he who doesn't cry doesn't suck, it means he doesn't ask.",
+    "new": "He who doesn't cry doesn't get fed (i.e. the squeaky wheel gets the grease).",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.1.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of proverb",
+    "old": "If you don't ask for a raise, he who doesn't cry, doesn't suck.",
+    "new": "If you don't ask for a raise, you won't get it.",
+    "rejected": false
+   },
+   {
+    "path": "ex:63ce3c6c-5352-49f2-9b68-dd24b8ff5df7.content.options.0",
+    "severity": "error",
+    "problem": "Incorrect translation of proverb",
+    "old": "Where there is trust, it is disgusting.",
+    "new": "Familiarity breeds contempt.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-daily-routine",
+  "lessonId": "25f47be9-849a-49d2-86f5-0e38d3ca5797",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "ex:07cb9dbf-8e16-4c1d-b4d9-5b415ee21790.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "'dormir' is not a correct conjugation for 'yo' in present tense",
+    "old": "dormir",
+    "new": "duermo",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-arrangements",
+  "lessonId": "26910d57-4712-4be3-99e4-ed3dade55d90",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "ex:a2ed05b3-ac2c-4014-9a24-b16fec9cb4e3.content.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of the reordered sentence",
+    "old": "The place is the meeting.",
+    "new": "The place is for the meeting.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-error-correction",
+  "lessonId": "240f5efd-9d49-481b-bec8-df38f6117414",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Incorrect subjunctive example",
+    "old": "The subjunctive mood is often used incorrectly by learners. One common mistake is to use the indicative when the subjunctive is required. For example, 'Espero que él llega' should be 'Espero que él llegue.' Remember that the subjunctive expresses desires, doubts, and hypothetical situations.",
+    "new": "The subjunctive mood is often used incorrectly by learners. One common mistake is to use the indicative when the subjunctive is required. For example, 'Espero que él llega' should be 'Espero que él llegue.' Remember that the subjunctive expresses desires, doubts, and hypothetical situations.",
+    "rejected": true
+   },
+   {
+    "path": "ex:785f3f2c-5454-4504-be63-9611e50bdd5d.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for subjunctive exercise",
+    "old": "hacen",
+    "new": "hagan",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-unit5-review",
+  "lessonId": "2b950863-835b-4759-81a7-0f83a4adc5f3",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.1.definition",
+    "severity": "error",
+    "problem": "Definition is too narrow; 'estudiar' means 'to study', not just 'to learn about a subject'.",
+    "old": "To learn about a subject.",
+    "new": "To study.",
+    "rejected": true
+   },
+   {
+    "path": "ex:6d384202-9daa-4501-be00-8486680f699b.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "'estudiar' is not an acceptable answer for 'Yo ___ en la universidad.'",
+    "old": "estudiar",
+    "new": "",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-doctor",
+  "lessonId": "26b46492-c452-491c-8117-7feee121b242",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "ex:26f25861-144c-4139-b330-90472287f6c0.explanation",
+    "severity": "error",
+    "problem": "Explanation incorrectly links 'fiebre' to 'headache'.",
+    "old": "Here, 'fiebre' means 'fever', which can cause headaches and prevent sleep.",
+    "new": "Here, 'fiebre' means 'fever', but the correct word for 'headache' is 'dolor'.",
+    "rejected": true
+   },
+   {
+    "path": "ex:26f25861-144c-4139-b330-90472287f6c0.content.correctAnswer",
+    "severity": "error",
+    "problem": "Correct answer should be 'dolor' for 'headache'.",
+    "old": "fiebre",
+    "new": "dolor",
+    "rejected": true
+   },
+   {
+    "path": "ex:26f25861-144c-4139-b330-90472287f6c0.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Acceptable answer should be 'dolor' for 'headache'.",
+    "old": "fiebre",
+    "new": "dolor",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-planning-trip",
+  "lessonId": "2f8d7733-cb11-47c4-b836-af11d70a2c74",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "ex:6688c1e5-12aa-4a8e-85d9-ddc5b6793ab0.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of word order",
+    "old": "The correct order is 'el mapa destino', meaning 'the map of the destination'.",
+    "new": "The correct order is 'el mapa del destino', meaning 'the map of the destination'.",
+    "rejected": true
+   },
+   {
+    "path": "ex:6688c1e5-12aa-4a8e-85d9-ddc5b6793ab0.content.correctOrder.2",
+    "severity": "error",
+    "problem": "Incorrect word order",
+    "old": "destino",
+    "new": "del destino",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-persuasive-lang",
+  "lessonId": "331f81e3-805f-4be8-9bd6-6e190041f7d3",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect subjunctive form used in example",
+    "old": "Using the indicative instead of the subjunctive: 'Es importante que tú refutas...' (correct: refutes should be refutes).",
+    "new": "Using the indicative instead of the subjunctive: 'Es importante que tú refutas...' should be 'Es importante que tú refutes...'.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-imperfect",
+  "lessonId": "34039780-386d-4b40-8a91-c5b43c795378",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.2.tip",
+    "severity": "minor",
+    "problem": "Misleading tip about 'jugar' being irregular only in present tense",
+    "old": "The verb 'jugar' is irregular only in the present tense, so it follows regular patterns in the imperfect.",
+    "new": "The verb 'jugar' is irregular in the present tense, but follows regular patterns in the imperfect."
+   },
+   {
+    "path": "ex:f5d485aa-3f0a-4e1f-ac83-76087d747fde.content.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of the sentence",
+    "old": "The dog always played.",
+    "new": "The dog always used to play.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-global-challenges",
+  "lessonId": "38473126-9c49-4d86-a71b-ba2b1f5916cf",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "The example sentence is repeated without correction.",
+    "old": "Using the indicative instead of the subjunctive after expressions of desire. Correct: 'Espero que...' instead of 'Espero que...'.",
+    "new": "Using the indicative instead of the subjunctive after expressions of desire: 'Espero que vienes' should be 'Espero que vengas'.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-news",
+  "lessonId": "38d731ed-ce27-4c6a-aa57-1df1520bb5e4",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.3.tip",
+    "severity": "minor",
+    "problem": "The tip suggests 'periodista' is more common, but 'reportero' is also widely used.",
+    "old": "In some regions, you might hear 'periodista' more commonly for 'journalist.'",
+    "new": "'Periodista' is another common term for 'journalist.'"
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-diplomacy",
+  "lessonId": "3c56e50c-ad94-4488-882b-eb9475a5112b",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.0.0",
+    "severity": "error",
+    "problem": "Incorrect translation of subjunctive form",
+    "old": "hable (I speak)",
+    "new": "hable (I speak, subjunctive)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.1.0",
+    "severity": "error",
+    "problem": "Incorrect translation of subjunctive form",
+    "old": "trabaje (I work)",
+    "new": "trabaje (I work, subjunctive)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "error",
+    "problem": "Incorrect explanation of subjunctive form",
+    "old": "Confusing the subjunctive forms: Remember that 'hablar' changes to 'hable' in the first person.",
+    "new": "Confusing the subjunctive forms: Remember that 'hablar' changes to 'hable' in the first person singular.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-perfect-tenses",
+  "lessonId": "33990ef8-c4c1-48ad-88b8-73a6a7703713",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "ex:8e79c76e-12aa-41f4-8b8a-9d2176c68504.content.options.0",
+    "severity": "error",
+    "problem": "Incorrect use of present perfect with specific past time reference",
+    "old": "He visto a María ayer.",
+    "new": "He visto a María.",
+    "rejected": true
+   },
+   {
+    "path": "ex:8e79c76e-12aa-41f4-8b8a-9d2176c68504.content.ttsText",
+    "severity": "error",
+    "problem": "Incorrect use of present perfect with specific past time reference",
+    "old": "He visto a María ayer.",
+    "new": "He visto a María.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-discourse",
+  "lessonId": "3ecc27e7-d837-48e0-b1f5-4c262eb4dbcc",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.3.1",
+    "severity": "error",
+    "problem": "Incorrect function description for 'a pesar de'.",
+    "old": "Contrast despite",
+    "new": "Contrast",
+    "rejected": true
+   },
+   {
+    "path": "ex:23db2627-2fb9-4035-be62-4bef637fd8bd.content.correctOrder.0",
+    "severity": "error",
+    "problem": "Incorrect word order for the sentence.",
+    "old": "hemos",
+    "new": "avanzamos",
+    "rejected": true
+   },
+   {
+    "path": "ex:23db2627-2fb9-4035-be62-4bef637fd8bd.content.correctOrder.1",
+    "severity": "error",
+    "problem": "Incorrect word order for the sentence.",
+    "old": "avanzamos",
+    "new": "hemos",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-advice",
+  "lessonId": "3d867ead-406d-4006-b3ea-15f08336f870",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect explanation of a common mistake",
+    "old": "'Debes' is often confused with 'debes,' which is incorrect spelling.",
+    "new": "'Debes' is often confused with 'deber,' which is incorrect in this context.",
+    "rejected": true
+   },
+   {
+    "path": "ex:2e70e0ad-d1d0-4cbc-8c92-11d76ad04f14.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of the correct answer",
+    "old": "The verb 'debes' is the correct form of 'deber' for 'tú'.",
+    "new": "The verb 'debes' is the correct form of 'deber' for 'tú' to express advice.",
+    "rejected": true
+   },
+   {
+    "path": "ex:97c9a7b0-6c3a-4065-a79f-22544a7d8f2f.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for the context",
+    "old": "deber",
+    "new": "debemos",
+    "rejected": true
+   },
+   {
+    "path": "ex:97c9a7b0-6c3a-4065-a79f-22544a7d8f2f.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for the context",
+    "old": "deber",
+    "new": "debemos",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-hobbies",
+  "lessonId": "41690508-76ea-4c2b-b132-967efebc65c3",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.0.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'Me gusta el deporte.'",
+    "old": "I like sports.",
+    "new": "I like the sport.",
+    "rejected": true
+   },
+   {
+    "path": "ex:1374a4e2-f98d-40ed-997d-e24c27e0e76b.content.options.1",
+    "severity": "error",
+    "problem": "Incorrect translation of 'el deporte'.",
+    "old": "el deporte",
+    "new": "el deporte (the sport)",
+    "rejected": true
+   },
+   {
+    "path": "ex:e2b714f4-8a62-4b56-81c8-e1c482cdbc93.content.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'Me gusta el deporte.'",
+    "old": "I like the sport.",
+    "new": "I like sports.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-unit7-review",
+  "lessonId": "43ea331d-c841-4449-9548-d70226b62f3e",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "ex:b47ba71f-76ca-4f00-804a-ee6a77ba7ec7.content.options.1",
+    "severity": "error",
+    "problem": "Incorrect preposition in Spanish phrase",
+    "old": "Prefiero el café que el té.",
+    "new": "Prefiero el café al té.",
+    "rejected": false
+   },
+   {
+    "path": "ex:b47ba71f-76ca-4f00-804a-ee6a77ba7ec7.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of Spanish phrase",
+    "old": "The phrase 'Prefiero el café que el té' directly translates to 'I prefer coffee over tea'.",
+    "new": "The phrase 'Prefiero el café al té' directly translates to 'I prefer coffee over tea'.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-unit5-review",
+  "lessonId": "47bf18c8-b2c3-4776-b6e3-4745e25a23c7",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect translation of subjunctive sentence",
+    "old": "Using the indicative instead of the subjunctive: Correct: 'Es posible que venga.' (It's possible that he comes.)",
+    "new": "Using the indicative instead of the subjunctive: Correct: 'Es posible que venga.' (It's possible that he will come.)",
+    "rejected": true
+   },
+   {
+    "path": "ex:905ece44-db27-4261-b222-d349e3ddfe18.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for the sentence context",
+    "old": "envío",
+    "new": "",
+    "rejected": true
+   },
+   {
+    "path": "ex:905ece44-db27-4261-b222-d349e3ddfe18.content.acceptableAnswers.2",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for the sentence context",
+    "old": "recibo",
+    "new": "",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-complaint",
+  "lessonId": "475f74b6-7126-4df1-9a9e-6bd99e42bd3c",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "ex:4dca33a7-3a17-4c74-a721-b20cd1958706.content.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of the rearranged sentence",
+    "old": "I want to ask for an apology.",
+    "new": "I want to make an apology.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-telling-time",
+  "lessonId": "481df06b-c083-4049-a7cf-71cd8ab5253e",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.3.1",
+    "severity": "error",
+    "problem": "Incorrect use of 'Es la' for plural hour",
+    "old": "Es la dos menos diez.",
+    "new": "Son las dos menos diez.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.examples.0.translation",
+    "severity": "minor",
+    "problem": "Translation is too literal",
+    "old": "It is one o'clock and five minutes.",
+    "new": "It is five past one."
+   },
+   {
+    "path": "ex:9994ceae-911f-4892-b543-0c73ec24d842.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for time in the morning",
+    "old": "ocho",
+    "new": "siete",
+    "rejected": true
+   },
+   {
+    "path": "ex:9994ceae-911f-4892-b543-0c73ec24d842.content.acceptableAnswers.2",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for time in the morning",
+    "old": "nueve",
+    "new": "siete",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-unit2-review",
+  "lessonId": "4abf9ee1-51f2-42f9-aed7-713a2eeab3ec",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.1.0",
+    "severity": "error",
+    "problem": "Incorrect subjunctive form used",
+    "old": "convenciera",
+    "new": "convenciera (incorrect form for context)",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-body-health",
+  "lessonId": "4a5dae82-f8d9-41c0-b866-5b6dcdae4ca9",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.0.pronunciation",
+    "severity": "minor",
+    "problem": "Incorrect pronunciation guide for 'la cabeza'",
+    "old": "lah keh-BAH-dah",
+    "new": "lah kah-BEH-sah"
+   },
+   {
+    "path": "lesson.vocabulary.1.pronunciation",
+    "severity": "minor",
+    "problem": "Incorrect pronunciation guide for 'el brazo'",
+    "old": "el BRAH-tho",
+    "new": "el BRAH-soh"
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-places-town",
+  "lessonId": "4d74d5f5-1a28-45a1-adce-572898096cda",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.4.0",
+    "severity": "error",
+    "problem": "Incorrect subject pronoun for 'they' in Spanish",
+    "old": "Ellos",
+    "new": "Ellos/Ellas",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.5.tip",
+    "severity": "error",
+    "problem": "Incorrect article for 'cine'",
+    "old": "Remember 'el' is used for masculine nouns such as 'cine'.",
+    "new": "Remember 'el' is used for masculine nouns such as 'cine', but 'cine' is actually masculine.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-simple-email",
+  "lessonId": "50f1c785-fd11-45a9-b09b-e7bbfad34bd9",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.1.1",
+    "severity": "error",
+    "problem": "Incorrect future tense ending for 'tú'",
+    "old": "-ás",
+    "new": "-ás",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.4.0",
+    "severity": "error",
+    "problem": "Incorrect pronoun for 'vosotros'",
+    "old": "vosotros",
+    "new": "vosotros/as",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.5.0",
+    "severity": "error",
+    "problem": "Incorrect pronoun for 'ellos'",
+    "old": "ellos",
+    "new": "ellos/as",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-problems",
+  "lessonId": "4cf99e5b-5652-44e2-82aa-c6b8ee9838d3",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.5.pronunciation",
+    "severity": "minor",
+    "problem": "Incorrect pronunciation guide for 'resolver'.",
+    "old": "re-so-lver",
+    "new": "re-so-ver"
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-describing-places",
+  "lessonId": "5460d53f-9f2c-46f3-b2ef-af85d44b91f6",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "ex:0157c382-c278-4f88-a2be-b2fbbea60909.content.correctOrder.4",
+    "severity": "error",
+    "problem": "Incorrect word order in sentence",
+    "old": "calor",
+    "new": "un",
+    "rejected": true
+   },
+   {
+    "path": "ex:0157c382-c278-4f88-a2be-b2fbbea60909.content.correctOrder.5",
+    "severity": "error",
+    "problem": "Incorrect word order in sentence",
+    "old": "un",
+    "new": "calor",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-small-talk",
+  "lessonId": "515e3f10-1d55-4ef6-a4b4-5c0185d4e2d0",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect explanation about 'me gusta' usage with singular nouns.",
+    "old": "'Me gusta' should be used with singular nouns, not plural. For example, say 'Me gustan las frutas' for plural.",
+    "new": "'Me gusta' should be used with singular nouns, and 'me gustan' with plural nouns. For example, say 'Me gustan las frutas' for plural.",
+    "rejected": false
+   },
+   {
+    "path": "ex:f9479722-1d9b-4ee9-bc8c-02e93963aaa0.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation for sentence completion.",
+    "old": "Using 'interesante' completes the description of today's weather.",
+    "new": "Using 'agradable' completes the description of today's weather.",
+    "rejected": true
+   },
+   {
+    "path": "ex:f9479722-1d9b-4ee9-bc8c-02e93963aaa0.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect correct answer for sentence completion.",
+    "old": "interesante",
+    "new": "agradable",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-collocations",
+  "lessonId": "58803606-ced8-4da0-9647-1265fe65abad",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect use of 'tú' in subjunctive example",
+    "old": "Using the indicative instead of the subjunctive in expressions of desire (e.g., 'Espero que tú tienes' should be 'Espero que tú tengas').",
+    "new": "Using the indicative instead of the subjunctive in expressions of desire (e.g., 'Espero que tú tienes' should be 'Espero que tengas').",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.0.pronunciation",
+    "severity": "minor",
+    "problem": "Pronunciation guide is missing a hyphen",
+    "old": "ah-ser frent-eh ah",
+    "new": "ah-ser fren-teh ah"
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-future-review",
+  "lessonId": "57bd0d53-057c-4472-a2db-79df04584d79",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "ex:c3537da9-b913-4b3c-bab6-8bd8676ec51f.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of tense; future subjunctive is not used in modern Spanish.",
+    "old": "The correct answer is 'termine', which is the future subjunctive, used after 'cuando'.",
+    "new": "The correct answer is 'termine', which is the present subjunctive, used after 'cuando' for future actions.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-holiday-planning",
+  "lessonId": "5e9621fb-c81e-44d4-bdcf-cbc600250a30",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "ex:253d2e5f-9a86-48a1-a456-4db28b21d0d4.explanation",
+    "severity": "error",
+    "problem": "Explanation suggests incorrect completion for sentence.",
+    "old": "The correct answer is 'ir de vacaciones', indicating you are going on vacation to the beach.",
+    "new": "The correct answer is 'ir', indicating you are going to the beach.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-telling-story",
+  "lessonId": "608c2417-556b-4870-a317-9955cf687067",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "ex:041fb164-6be9-4699-87d1-9aceeb730c0a.explanation",
+    "severity": "error",
+    "problem": "Explanation does not match the sentence.",
+    "old": "The sentence translates to 'One day, there was a story in the forest.'",
+    "new": "The sentence translates to 'One day, there was a ___ in the forest.'",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-innovation",
+  "lessonId": "5f542e07-0de3-41d8-944e-f5b17c5cf2e5",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.0.1",
+    "severity": "error",
+    "problem": "Incorrect verb conjugation for subjunctive mood",
+    "old": "avance",
+    "new": "avance",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.1.1",
+    "severity": "error",
+    "problem": "Incorrect verb conjugation for subjunctive mood",
+    "old": "avances",
+    "new": "avances",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.2.1",
+    "severity": "error",
+    "problem": "Incorrect verb conjugation for subjunctive mood",
+    "old": "avance",
+    "new": "avance",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.3.1",
+    "severity": "error",
+    "problem": "Incorrect verb conjugation for subjunctive mood",
+    "old": "avancemos",
+    "new": "avancemos",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.4.1",
+    "severity": "error",
+    "problem": "Incorrect verb conjugation for subjunctive mood",
+    "old": "avancéis",
+    "new": "avancéis",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.5.1",
+    "severity": "error",
+    "problem": "Incorrect verb conjugation for subjunctive mood",
+    "old": "avancen",
+    "new": "avancen",
+    "rejected": true
+   },
+   {
+    "path": "ex:174d8e37-da74-46b8-b765-c34ba75d75e3.explanation",
+    "severity": "error",
+    "problem": "Explanation does not match correct answer",
+    "old": "An 'emprendedor' (entrepreneur) is essential for developing new technologies.",
+    "new": "An 'investigador' (researcher) is essential for developing new technologies.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-possessives",
+  "lessonId": "61d336db-0968-423c-9734-362a491507bf",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.translation",
+    "severity": "minor",
+    "problem": "Translation should match the original sentence more closely",
+    "old": "My house is pretty.",
+    "new": "My house is beautiful."
+   },
+   {
+    "path": "ex:3ab34954-f730-42d8-9f7b-0f10d44fd7ed.explanation",
+    "severity": "minor",
+    "problem": "Explanation should include all possible meanings",
+    "old": "'Su hermana' translates to 'her sister'.",
+    "new": "'Su hermana' translates to 'his/her/your (formal) sister'."
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-greetings",
+  "lessonId": "61d967f1-569c-4e96-8e73-56da5d822579",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect explanation of 'buenas tardes' usage",
+    "old": "Confusing 'buenas tardes' and 'buenas noches' - remember to use 'buenas tardes' until evening.",
+    "new": "Confusing 'buenas tardes' and 'buenas noches' - remember to use 'buenas tardes' until night.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.4.exampleSentence.translation",
+    "severity": "minor",
+    "problem": "Translation should match the context of 'buenas noches'",
+    "old": "Good night, rest well.",
+    "new": "Good evening, rest well."
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-business-emails",
+  "lessonId": "67876563-433f-4588-8453-c44fb8a13645",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Incorrect subjunctive example",
+    "old": "For example, instead of saying 'quiero que tú haces', you would say 'quiero que tú hagas'.",
+    "new": "For example, instead of saying 'quiero que tú haces', you would say 'quiero que tú hagas'.",
+    "rejected": true
+   },
+   {
+    "path": "ex:7ed96af5-168f-4981-b45a-1df0894e4966.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect formal command form",
+    "old": "Por favor, encuentre el documento adjunto.",
+    "new": "Por favor, encuentre el documento adjunto.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-negotiations",
+  "lessonId": "6147427a-761e-4545-8434-94fd2e67a49e",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.4.0",
+    "severity": "error",
+    "problem": "Incorrect subject pronoun for future tense conjugation",
+    "old": "Ustedes",
+    "new": "Ellos/Ellas",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.examples.0.breakdown",
+    "severity": "minor",
+    "problem": "Explanation is slightly misleading about future tense usage",
+    "old": "Here, 'aceptar' is in the future tense, indicating a decision to accept later.",
+    "new": "Here, 'aceptaré' is in the future tense, indicating a decision to accept later."
+   },
+   {
+    "path": "lesson.dialogue.lines.7.translation",
+    "severity": "minor",
+    "problem": "Translation is incomplete",
+    "old": "Thank you!",
+    "new": "Thank you too!"
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-science-vocab",
+  "lessonId": "6cc448e4-00b2-447a-9876-c76901a17535",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.culture.funFact",
+    "severity": "error",
+    "problem": "Incorrect information about Maria Teresa Ruiz; she is Chilean, not Argentine.",
+    "old": "Did you know that the first Latin American woman to earn a PhD in physics was the Argentine scientist, Maria Teresa Ruiz, known for her work in astronomy?",
+    "new": "Did you know that the first Latin American woman to earn a PhD in physics was the Chilean scientist, Maria Teresa Ruiz, known for her work in astronomy?",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.0.0",
+    "severity": "error",
+    "problem": "Incorrect translation of 'hable'; should be 'I speak' in subjunctive, not indicative.",
+    "old": "hable (I speak)",
+    "new": "hable (I speak, subjunctive)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.1.0",
+    "severity": "error",
+    "problem": "Incorrect translation of 'coma'; should be 'I eat' in subjunctive, not indicative.",
+    "old": "coma (I eat)",
+    "new": "coma (I eat, subjunctive)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.2.0",
+    "severity": "error",
+    "problem": "Incorrect translation of 'viva'; should be 'I live' in subjunctive, not indicative.",
+    "old": "viva (I live)",
+    "new": "viva (I live, subjunctive)",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-frequency",
+  "lessonId": "6eb387a0-100b-4b95-99d6-ddb83a483083",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect advice on adverb placement",
+    "old": "Do not place the frequency adverb at the end of the sentence. For example, say 'Siempre estudio' not 'Estudio siempre.'",
+    "new": "Frequency adverbs can be placed at the end of the sentence for emphasis. For example, 'Estudio siempre' is also correct.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.dialogue.lines.3.text",
+    "severity": "error",
+    "problem": "Incorrect placement of frequency adverb",
+    "old": "Sí, voy al cine siempre.",
+    "new": "Sí, siempre voy al cine.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-formal-speech",
+  "lessonId": "6ae2cf3d-6be8-4983-99fe-5b887a68e14f",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "ex:4985d39b-5ce3-4064-a8c7-3b3735af75ce.explanation",
+    "severity": "error",
+    "problem": "Explanation incorrectly states conclusion is the main point.",
+    "old": "The conclusion is indeed the main point of a presentation.",
+    "new": "The conclusion summarizes the main points of a presentation.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-ser-estar",
+  "lessonId": "75e76b3d-2177-436a-a157-466b021eba25",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect use of 'ser' for temporary emotion",
+    "old": "Saying 'Yo soy feliz' instead of 'Yo estoy feliz' when describing a temporary emotion.",
+    "new": "Saying 'Yo soy feliz' instead of 'Yo estoy feliz' when describing a temporary emotion, unless referring to a general state of happiness.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "error",
+    "problem": "Incorrect use of 'estar' for permanent characteristic",
+    "old": "Using 'está' for permanent characteristics, like 'Él está alto' instead of 'Él es alto'.",
+    "new": "Using 'está' for permanent characteristics, like 'Él está alto' instead of 'Él es alto', unless referring to a temporary condition.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-unit7-review",
+  "lessonId": "76647a1c-edc2-449d-a132-4201ff04c697",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect verb form in subjunctive example",
+    "old": "Using the indicative instead of the subjunctive: 'Es posible que él llega' should be 'llegue'.",
+    "new": "Using the indicative instead of the subjunctive: 'Es posible que él llega' should be 'llegue'.",
+    "rejected": true
+   },
+   {
+    "path": "ex:e2d12304-2f61-41f1-8c5f-adee69999359.content.translation",
+    "severity": "error",
+    "problem": "Incorrect English translation of reordered sentence",
+    "old": "The novel is a literature",
+    "new": "The novel is a type of literature",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-jobs",
+  "lessonId": "70d18672-13fe-45d4-8029-2b2b871567f7",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.4.0",
+    "severity": "error",
+    "problem": "Subject pronoun should be 'Ellos/Ellas' to match the verb conjugation.",
+    "old": "Ellos",
+    "new": "Ellos/Ellas",
+    "rejected": true
+   },
+   {
+    "path": "ex:47b77c22-957b-454c-ac70-a4bc863eaa2b.explanation",
+    "severity": "error",
+    "problem": "Explanation incorrectly translates 'el médico es' as 'He is a doctor'.",
+    "old": "The correct order is 'el médico es', which translates to 'He is a doctor'.",
+    "new": "The correct order is 'el médico es', which translates to 'The doctor is'.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-negotiation",
+  "lessonId": "777edcdc-f286-454a-993c-21915cd241a2",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.0.1",
+    "severity": "error",
+    "problem": "Incorrect indicative form for 'yo' in present tense",
+    "old": "que yo llego",
+    "new": "que yo llego",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.1.1",
+    "severity": "error",
+    "problem": "Incorrect indicative form for 'tú' in present tense",
+    "old": "que tú llegas",
+    "new": "que tú llegas",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.2.1",
+    "severity": "error",
+    "problem": "Incorrect indicative form for 'él/ella' in present tense",
+    "old": "que él/ella llega",
+    "new": "que él/ella llega",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-opinions",
+  "lessonId": "7c7abdd2-adf6-44fd-ab00-3ca34c54d33e",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.0.1",
+    "severity": "error",
+    "problem": "Incorrect subjunctive form for 'yo'",
+    "old": "opine",
+    "new": "opine",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.2.1",
+    "severity": "error",
+    "problem": "Incorrect subjunctive form for 'él/ella'",
+    "old": "opine",
+    "new": "opine",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.3.1",
+    "severity": "error",
+    "problem": "Incorrect subjunctive form for 'nosotros'",
+    "old": "opinemos",
+    "new": "opinemos",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.4.1",
+    "severity": "error",
+    "problem": "Incorrect subjunctive form for 'ellos/ellas'",
+    "old": "opinen",
+    "new": "opinen",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-unit1-review",
+  "lessonId": "7a6624eb-540f-4329-9432-429d834ec9d5",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "ex:ae4d581a-db6d-4e66-a010-f89328134f77.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "'era' is not acceptable for a completed action",
+    "old": "era",
+    "new": "",
+    "rejected": true
+   },
+   {
+    "path": "ex:bf49b30f-df06-4a3d-aeb9-ab1ba85e7c27.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "'fui' is not acceptable for ongoing past state",
+    "old": "fui",
+    "new": "",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-impersonal",
+  "lessonId": "82bc9535-3ec1-4497-91d5-b37d323da0c6",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.4.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Incorrect English translation of the Spanish sentence.",
+    "old": "It is used solar energy to reduce costs.",
+    "new": "Solar energy is used to reduce costs.",
+    "rejected": false
+   },
+   {
+    "path": "ex:bf44b0d1-5f7f-4dda-bd54-f0e3c325893f.explanation",
+    "severity": "error",
+    "problem": "Explanation does not match the correct answer.",
+    "old": "The correct phrase is 'se ha demostrado', meaning 'has been demonstrated'.",
+    "new": "The correct phrase is 'se utiliza', meaning 'is used'.",
+    "rejected": true
+   },
+   {
+    "path": "ex:bf44b0d1-5f7f-4dda-bd54-f0e3c325893f.content.correctAnswer",
+    "severity": "error",
+    "problem": "Correct answer does not match the sentence context.",
+    "old": "se ha demostrado",
+    "new": "se utiliza",
+    "rejected": true
+   },
+   {
+    "path": "ex:bf44b0d1-5f7f-4dda-bd54-f0e3c325893f.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Acceptable answer does not match the sentence context.",
+    "old": "se ha demostrado",
+    "new": "se utiliza",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-unit2-review",
+  "lessonId": "83533003-4bbb-4e7f-a4b8-f167d94c8b06",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "ex:d77da5e6-b5fa-4af3-a646-f65cf34fc40f.explanation",
+    "severity": "error",
+    "problem": "Incorrect sentence order in explanation",
+    "old": "The correct order forms the sentence 'La madre es mi'.",
+    "new": "The correct order forms the sentence 'La madre es mi madre'.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-preterite-imperfect",
+  "lessonId": "8340286a-a533-4b05-9923-c3dd5638c05c",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "ex:2a4612f7-fd99-4665-9b98-bb43a28e8647.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for imperfect context",
+    "old": "fui; jugué",
+    "new": "era; jugaba",
+    "rejected": true
+   },
+   {
+    "path": "ex:3a0b3ed6-2cac-4321-a5e8-5db2075c5578.content.translation",
+    "severity": "error",
+    "problem": "Translation does not match the correct order of words",
+    "old": "My friends called me suddenly.",
+    "new": "My friends called me while.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-arts-vocab",
+  "lessonId": "845cba77-5fa0-4fd3-9530-5f94816d1770",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "error",
+    "problem": "Incorrect explanation of subjunctive use",
+    "old": "Using the indicative mood instead of subjunctive when expressing doubt, e.g., 'no creo que sea' instead of 'no creo que es'.",
+    "new": "Using the indicative mood instead of subjunctive when expressing doubt, e.g., 'no creo que es' instead of 'no creo que sea'.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.dialogue.lines.6.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'crítica'",
+    "old": "Do you think the critique will appreciate it?",
+    "new": "Do you think the critics will appreciate it?",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-panel",
+  "lessonId": "87122320-8b7b-41ec-ae2e-580703eaa2b9",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect use of subjunctive in example sentence",
+    "old": "Using the indicative instead of the subjunctive: 'Es cierto que se toman decisiones' should be 'Es cierto que se tomen decisiones.'",
+    "new": "Using the indicative instead of the subjunctive: 'Es importante que se toman decisiones' should be 'Es importante que se tomen decisiones.'",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-unit4-review",
+  "lessonId": "88928303-b28a-41ab-9df9-bde10284a572",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.1.definition",
+    "severity": "error",
+    "problem": "Definition should refer to a hypothetical situation in the present or future, not past.",
+    "old": "Used to express a hypothetical situation in the past.",
+    "new": "Used to express a hypothetical situation.",
+    "rejected": true
+   },
+   {
+    "path": "ex:a1ab5dac-fc89-45d3-8a77-10e11d778e5e.content.translation",
+    "severity": "error",
+    "problem": "Translation does not match the Spanish sentence.",
+    "old": "I wish you do not go to the party.",
+    "new": "I wish that you do not go to the party.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-travel-stories",
+  "lessonId": "8780c1d2-d657-4717-bbab-70526aed8851",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.original",
+    "severity": "error",
+    "problem": "Incorrect verb form in subjunctive example",
+    "old": "Espero que viaje a España.",
+    "new": "Espero que viajes a España.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.dialogue.lines.0.translation",
+    "severity": "minor",
+    "problem": "Translation is slightly awkward",
+    "old": "What do you think if we travel to Mexico?",
+    "new": "What do you think about traveling to Mexico?"
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-unit4-review",
+  "lessonId": "8904b4a5-d894-4cc4-8273-d015a6a104ec",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.0.0",
+    "severity": "error",
+    "problem": "Incorrect subject for 'gusta'",
+    "old": "Singular (el)",
+    "new": "Singular (el/la)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.1.0",
+    "severity": "error",
+    "problem": "Incorrect subject for 'gustan'",
+    "old": "Plural (los)",
+    "new": "Plural (los/las)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "minor",
+    "problem": "Explanation of 'gustar' structure is unclear",
+    "old": "'Gustar' is used to express likes and dislikes. The structure is different from English; you say what you like, and then you say who likes it. For example, 'Me gusta el helado' means 'I like ice cream'. If you like more than one thing, use 'gustan'.",
+    "new": "'Gustar' is used to express likes and dislikes. The structure is different from English; you start with who likes it, followed by what is liked. For example, 'Me gusta el helado' means 'I like ice cream'. If you like more than one thing, use 'gustan'."
+   },
+   {
+    "path": "lesson.vocabulary.5.tip",
+    "severity": "minor",
+    "problem": "Tip is misleading for singular 'me gusta'",
+    "old": "Use 'me gustan' for plural items, like 'las pizzas'.",
+    "new": "Use 'me gusta' for singular items, like 'la pizza'."
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-ordering-cafe",
+  "lessonId": "8aaa2f11-e2c5-43e2-a04d-d9bcf4b44055",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.7.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'Son cinco dólares.'",
+    "old": "Okay. It is five dollars.",
+    "new": "Okay. That's five dollars.",
+    "rejected": false
+   },
+   {
+    "path": "ex:2a70c7c1-886e-43b7-9640-5619b7767d3a.content.correctAnswer",
+    "severity": "error",
+    "problem": "Missing article in translation",
+    "old": "Quiero té.",
+    "new": "Quiero un té.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-complex-ideas",
+  "lessonId": "8ad9d550-e36c-44cf-87cb-52b7e405ece9",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.4.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Incorrect gender in translation",
+    "old": "Her justification was convincing.",
+    "new": "His justification was convincing.",
+    "rejected": true
+   },
+   {
+    "path": "ex:3d6ee7b7-69a2-48ad-ac9c-a64d086d0f82.content.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of sentence",
+    "old": "The analysis is an important argument.",
+    "new": "The analysis is important.",
+    "rejected": true
+   },
+   {
+    "path": "ex:713acc4d-718c-46f5-a5d5-7fe764d7a933.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of correct answer",
+    "old": "The correct word is 'justificación', which means justification, essential for understanding a topic.",
+    "new": "The correct word is 'análisis', which means analysis, essential for understanding a topic.",
+    "rejected": true
+   },
+   {
+    "path": "ex:713acc4d-718c-46f5-a5d5-7fe764d7a933.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect correct answer for sentence completion",
+    "old": "justificación",
+    "new": "análisis",
+    "rejected": true
+   },
+   {
+    "path": "ex:713acc4d-718c-46f5-a5d5-7fe764d7a933.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for sentence completion",
+    "old": "justificación",
+    "new": "análisis",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-unit3-review",
+  "lessonId": "8c4ada65-3717-4509-90fc-29971eaac00d",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect use of indicative instead of subjunctive in example",
+    "old": "Using the indicative instead of the subjunctive: 'Es cierto que él viene' instead of 'Es cierto que él venga'.",
+    "new": "Using the indicative instead of the subjunctive: 'Espero que él viene' instead of 'Espero que él venga'.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "error",
+    "problem": "Incorrect use of indicative instead of subjunctive in example",
+    "old": "Forgetting to use the subjunctive in wish statements: 'Espero que tú estudies' instead of 'Espero que tú estudias'.",
+    "new": "Forgetting to use the subjunctive in wish statements: 'Espero que tú estudias' instead of 'Espero que tú estudies'.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-food",
+  "lessonId": "8d1f4cd2-882d-477f-9008-763cd224ffe3",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.3.text",
+    "severity": "error",
+    "problem": "Incorrect use of definite article with a verb",
+    "old": "Bebo la leche.",
+    "new": "Bebo leche.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.dialogue.lines.3.translation",
+    "severity": "error",
+    "problem": "Translation does not match corrected Spanish sentence",
+    "old": "I drink the milk.",
+    "new": "I drink milk.",
+    "rejected": false
+   },
+   {
+    "path": "ex:3128b483-c2e9-4134-8229-c8354f91bc1a.explanation",
+    "severity": "error",
+    "problem": "Explanation does not match correct translation",
+    "old": "The correct translation is 'Quiero pan'.",
+    "new": "The correct translation is 'Quiero el pan'.",
+    "rejected": true
+   },
+   {
+    "path": "ex:3128b483-c2e9-4134-8229-c8354f91bc1a.content.correctAnswer",
+    "severity": "error",
+    "problem": "Correct answer does not match the translation prompt",
+    "old": "Quiero pan.",
+    "new": "Quiero el pan.",
+    "rejected": true
+   },
+   {
+    "path": "ex:3128b483-c2e9-4134-8229-c8354f91bc1a.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Acceptable answer does not match the translation prompt",
+    "old": "Quiero pan.",
+    "new": "Quiero el pan.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-subjunctive-all",
+  "lessonId": "8b609421-8a10-4906-888f-a79c69ac4ae2",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.1.exampleSentence.original",
+    "severity": "error",
+    "problem": "The sentence should use the subjunctive after 'No tengo duda de que'.",
+    "old": "No tengo duda de que ella vendrá.",
+    "new": "No tengo duda de que ella venga.",
+    "rejected": true
+   },
+   {
+    "path": "ex:33fa44d5-a0ec-4632-b86b-8b5b88c22d97.content.options.0",
+    "severity": "error",
+    "problem": "The sentence should use the subjunctive 'venga' after 'Espero que'.",
+    "old": "Espero que él viene a la fiesta.",
+    "new": "Espero que él venga a la fiesta.",
+    "rejected": true
+   },
+   {
+    "path": "ex:33fa44d5-a0ec-4632-b86b-8b5b88c22d97.content.options.3",
+    "severity": "error",
+    "problem": "The sentence should use the subjunctive 'compren' after 'Me alegra que'.",
+    "old": "Me alegra que ellos compran un coche nuevo.",
+    "new": "Me alegra que ellos compren un coche nuevo.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-debate",
+  "lessonId": "8d3e2237-e473-4df1-b7fc-7d52154aefe1",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.1.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of conditional structure",
+    "old": "Conditionals in Spanish often use 'si' (if) to formulate hypothetical statements. The structure is important: 'si' + present indicative, then future or conditional.",
+    "new": "Conditionals in Spanish often use 'si' (if) to formulate hypothetical statements. The structure is important: 'si' + present indicative, then future; or 'si' + imperfect subjunctive, then conditional.",
+    "rejected": true
+   },
+   {
+    "path": "ex:9523c45f-dec4-41f1-9995-4a9c83cbb051.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for conditional sentence",
+    "old": "viajo",
+    "new": "viajaría",
+    "rejected": true
+   },
+   {
+    "path": "ex:9523c45f-dec4-41f1-9995-4a9c83cbb051.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for conditional sentence",
+    "old": "viajaré",
+    "new": "viajaría",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-family",
+  "lessonId": "8f7d91bb-d343-4d86-be64-4c93241bacd1",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "ex:11070458-8d96-4604-a800-2a9d367c464e.explanation",
+    "severity": "error",
+    "problem": "Explanation does not match the correct sentence order",
+    "old": "The correct order forms the sentence 'She is my grandmother.'",
+    "new": "The correct order forms the sentence 'My grandmother is.'",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-unit1-review",
+  "lessonId": "8e9712c5-d090-4046-8eba-c0affcb95d33",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Incorrect use of 'me parece que' with subjunctive",
+    "old": "The present subjunctive is used to express wishes, doubts, or opinions. It is often used after phrases like 'es importante que' or 'me parece que'. The verb forms change depending on the subject, so it's important to learn those conjugations.",
+    "new": "The present subjunctive is used to express wishes, doubts, or opinions. It is often used after phrases like 'es importante que'. The verb forms change depending on the subject, so it's important to learn those conjugations.",
+    "rejected": false
+   },
+   {
+    "path": "ex:97940b35-0135-4f2e-8670-fdec73ae6838.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect correct answer for the sentence",
+    "old": "A pesar",
+    "new": "A pesar de",
+    "rejected": true
+   },
+   {
+    "path": "ex:97940b35-0135-4f2e-8670-fdec73ae6838.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for the sentence",
+    "old": "A pesar",
+    "new": "A pesar de",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-si-clauses",
+  "lessonId": "8f82d6ee-9068-4302-8c54-4a4892af6afb",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "ex:cc5c2240-3846-40c9-b27b-767003586179.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect verb form for future tense",
+    "old": "vamos",
+    "new": "iremos",
+    "rejected": true
+   },
+   {
+    "path": "ex:cc5c2240-3846-40c9-b27b-767003586179.content.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation for future tense",
+    "old": "The correct form is 'vamos' because it refers to 'we' in the future.",
+    "new": "The correct form is 'iremos' because it refers to 'we' in the future.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-concern",
+  "lessonId": "8fb17b7f-de7f-409a-8a52-91610dba0745",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "ex:ab585df3-764a-4469-bfae-3ca3b43dc44d.content.correctOrder.3",
+    "severity": "error",
+    "problem": "Incorrect word order in sentence rearrangement",
+    "old": "sugerir",
+    "new": "encontremos",
+    "rejected": true
+   },
+   {
+    "path": "ex:ab585df3-764a-4469-bfae-3ca3b43dc44d.content.correctOrder.4",
+    "severity": "error",
+    "problem": "Incorrect word order in sentence rearrangement",
+    "old": "encontremos",
+    "new": "soluciones",
+    "rejected": true
+   },
+   {
+    "path": "ex:ab585df3-764a-4469-bfae-3ca3b43dc44d.content.correctOrder.5",
+    "severity": "error",
+    "problem": "Incorrect word order in sentence rearrangement",
+    "old": "soluciones",
+    "new": "sugerir",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-job-interview",
+  "lessonId": "8ffaac70-4d76-495c-af9a-4474cad97e72",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.1.translation",
+    "severity": "error",
+    "problem": "Translation is missing 'you' for politeness",
+    "old": "Thank you for the opportunity.",
+    "new": "Thank you to you for the opportunity.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.1.definition",
+    "severity": "error",
+    "problem": "Definition is too specific; 'currículum' can refer to any resume",
+    "old": "A document listing qualifications and experience.",
+    "new": "A document listing qualifications, experience, and skills.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.1.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Translation is missing 'my'",
+    "old": "I need to send my resume.",
+    "new": "I need to send my resume.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.3.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Translation is missing 'the'",
+    "old": "What is the salary for this position?",
+    "new": "What is the salary for this position?",
+    "rejected": true
+   },
+   {
+    "path": "ex:cc782ec9-ecd8-4765-8596-1be77d2d4ba8.content.acceptableVariants.0",
+    "severity": "error",
+    "problem": "'Aplicando' is not standard for 'applying' in this context",
+    "old": "Estoy aplicando para un trabajo.",
+    "new": "Estoy postulando para un trabajo.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-por-para",
+  "lessonId": "90e39050-6a7c-4e4f-ad22-f13574a1f0ba",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect explanation of 'por' usage for purpose",
+    "old": "'Por' is used for purposes: Incorrect: 'Voy por la tienda.' Correct: 'Voy para la tienda.'",
+    "new": "'Para' is used for purposes: Incorrect: 'Voy por la tienda.' Correct: 'Voy para la tienda.'",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-last-weekend",
+  "lessonId": "90b131a1-3012-468f-9b45-f509402206c4",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.0.pronunciation",
+    "severity": "minor",
+    "problem": "Pronunciation guide is incorrect",
+    "old": "el feen deh weh-kahn-dah",
+    "new": "el feen deh seh-mah-nah"
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-narrative-tenses",
+  "lessonId": "931b3888-c9bd-4c2d-b561-06681f24c618",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.5.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'el pasado perfecto'.",
+    "old": "the pluperfect",
+    "new": "the past perfect",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-social-issues",
+  "lessonId": "94cf6813-295c-4b7a-944b-e0d5f3cf840a",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect use of indicative instead of subjunctive",
+    "old": "Using the indicative instead of the subjunctive: 'es importante que todos hablan' should be 'hablen'.",
+    "new": "Using the indicative instead of the subjunctive: 'es importante que todos hablan' should be 'es importante que todos hablen'.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.dialogue.lines.6.translation",
+    "severity": "minor",
+    "problem": "Translation should use 'equality of opportunity'",
+    "old": "And what do you think about equality of opportunities?",
+    "new": "And what do you think about equality of opportunity?"
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-fun-conversation",
+  "lessonId": "93ad734f-9208-4a5e-a210-87645c04196e",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.title",
+    "severity": "error",
+    "problem": "Incorrect use of 'me encantan' for plural nouns; should be 'me gustan'.",
+    "old": "Using 'Me gusta' and 'Me encantan'",
+    "new": "Using 'Me gusta' and 'Me gustan'",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of 'me encantan'; should be 'me gustan' for plural nouns.",
+    "old": "In Spanish, to express likes, we use 'me gusta' for singular nouns and 'me encantan' for plural nouns. 'Gusta' comes from the verb 'gustar,' which is used to say what you like.",
+    "new": "In Spanish, to express likes, we use 'me gusta' for singular nouns and 'me gustan' for plural nouns. 'Gusta' comes from the verb 'gustar,' which is used to say what you like.",
+    "rejected": false
+   },
+   {
+    "path": "ex:a661f0bb-4c47-4a49-86ba-aa5f962c22fa.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect translation; should be 'Yo hago deporte.'",
+    "old": "Yo juego deportes.",
+    "new": "Yo hago deporte.",
+    "rejected": true
+   },
+   {
+    "path": "ex:a661f0bb-4c47-4a49-86ba-aa5f962c22fa.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation; 'Yo hago deporte' is more accurate.",
+    "old": "The translation 'Yo juego deportes' accurately conveys the meaning.",
+    "new": "The translation 'Yo hago deporte' accurately conveys the meaning.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-hay",
+  "lessonId": "9622c2ac-fb7f-417f-b79b-3458c2402543",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "ex:bf1acc86-d45b-4475-9776-5a8323330557.explanation",
+    "severity": "error",
+    "problem": "Explanation incorrectly states 'hay' only means 'there is' for singular objects.",
+    "old": "'Hay' translates to 'there is' in English when referring to a singular object.",
+    "new": "'Hay' translates to 'there is' or 'there are' in English, depending on the context.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-agree-disagree",
+  "lessonId": "9835f9c7-9fc1-4310-a2a6-d01cd5ed73fe",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "minor",
+    "problem": "Confusing 'es cierto que' with 'es verdad que' is not a common mistake; both are interchangeable.",
+    "old": "Confusing 'es cierto que' with 'es verdad que' – both are correct, but they can be used differently.",
+    "new": "Confusing 'es cierto que' with 'es verdad que' – both are correct and can be used interchangeably."
+   },
+   {
+    "path": "ex:3359caa4-fdab-4ebc-b2f7-6896db8f202c.content.translation",
+    "severity": "error",
+    "problem": "Translation does not match the correct order of words.",
+    "old": "It seems to me that your idea is not correct.",
+    "new": "I don't agree with your idea.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-unit3-review",
+  "lessonId": "9b4f5320-a061-491f-9e68-b7df2c6400c2",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.4.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'trabajas'",
+    "old": "What time do you work?",
+    "new": "What time do you start work?",
+    "rejected": true
+   },
+   {
+    "path": "ex:d7bf8470-c1e5-4352-9300-5e3f9a6770c5.content.correctOrder.1",
+    "severity": "error",
+    "problem": "Incorrect word order in sentence",
+    "old": "cena",
+    "new": "cenan",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-past-habits",
+  "lessonId": "9b9aebee-66b1-47ab-bed6-b14585b5a82f",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of 'soler' structure",
+    "old": "'Soler' is used to express habits in the past, while the imperfect tense describes ongoing actions or situations. To form the imperfect tense, you take the verb stem and add specific endings. The structure is: 'soler' + infinitive verb to indicate what you used to do.",
+    "new": "'Soler' is used to express habits in the past, while the imperfect tense describes ongoing actions or situations. To form the imperfect tense, you take the verb stem and add specific endings. The structure is: 'soler' in the imperfect tense + infinitive verb to indicate what you used to do.",
+    "rejected": true
+   },
+   {
+    "path": "ex:b5d5c963-e6f0-4603-883f-fde2147c4432.content.options.0",
+    "severity": "error",
+    "problem": "Incorrect use of 'soler'",
+    "old": "Yo solía a viajar a España cada verano.",
+    "new": "Yo solía viajar a España cada verano.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-concessive",
+  "lessonId": "9a4ec591-4216-4f16-ac5b-dd3fceac6979",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.5.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'Aunque llueva'",
+    "old": "Although it rains, we can take umbrellas.",
+    "new": "Even if it rains, we can take umbrellas.",
+    "rejected": false
+   },
+   {
+    "path": "ex:00b1c76f-5ea7-4196-9698-0df3c84bbbe6.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation for the correct answer",
+    "old": "The correct answer is 'Sin embargo' because it indicates a contrast with the previous statement.",
+    "new": "The correct answer is 'Aunque' because it introduces a concession.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-final-review",
+  "lessonId": "a0660666-2f6d-4d40-b3cb-03b823de0865",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.5.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'salir'.",
+    "old": "to go out",
+    "new": "to leave",
+    "rejected": true
+   },
+   {
+    "path": "ex:5977bca2-fad6-4ef0-b58d-d6bf6465cc8f.content.acceptableVariants.1",
+    "severity": "minor",
+    "problem": "'Soy feliz' is less common for temporary states.",
+    "old": "Soy feliz",
+    "new": "Estoy muy feliz"
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-simple-future",
+  "lessonId": "9bc5c366-ecfd-4396-b267-5394fa688c55",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect explanation of future tense formation",
+    "old": "Using the present tense instead of the future tense. Correction: Use 'voy a' plus the verb for future actions.",
+    "new": "Using the present tense instead of the future tense. Correction: Use the infinitive verb plus the correct future tense ending.",
+    "rejected": true
+   },
+   {
+    "path": "ex:18108be2-4bd4-45da-b2e3-1ef97f69d157.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of future tense formation",
+    "old": "'Voy' is the correct conjugation of 'ir' for the simple future in this context.",
+    "new": "'Iré' is the correct conjugation of 'ir' for the simple future in this context.",
+    "rejected": false
+   },
+   {
+    "path": "ex:18108be2-4bd4-45da-b2e3-1ef97f69d157.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect correct answer for simple future tense",
+    "old": "voy",
+    "new": "iré",
+    "rejected": false
+   },
+   {
+    "path": "ex:18108be2-4bd4-45da-b2e3-1ef97f69d157.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for simple future tense",
+    "old": "voy",
+    "new": "iré",
+    "rejected": false
+   },
+   {
+    "path": "ex:18108be2-4bd4-45da-b2e3-1ef97f69d157.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for simple future tense",
+    "old": "iré",
+    "new": "voy",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-social-media",
+  "lessonId": "a29457e4-ad54-4e89-bfc4-f52aceac6fa6",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.7.speaker",
+    "severity": "error",
+    "problem": "Speaker name is incorrect.",
+    "old": "Luis",
+    "new": "Clara",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-irregular-verbs",
+  "lessonId": "a16fbdb0-65b7-440f-84ed-a6e6b7a043ee",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.7.text",
+    "severity": "error",
+    "problem": "Incorrect use of 'voy' for future action",
+    "old": "Perfecto, voy al parque después.",
+    "new": "Perfecto, iré al parque después.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-summarize",
+  "lessonId": "a32ca0fc-3aa2-42a5-9bbe-08319d183846",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect explanation of subjunctive use",
+    "old": "Using the indicative instead of the subjunctive: 'Es importante que tú resumas.' (Correct form: 'resumas')",
+    "new": "Using the indicative instead of the subjunctive: 'Es importante que tú resumes.' (Correct form: 'resumas')",
+    "rejected": false
+   },
+   {
+    "path": "ex:43a237a0-793c-4479-8e88-95f35dc894e0.content.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of sentence",
+    "old": "The main idea summarizes a text.",
+    "new": "The text summarizes the main idea.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-travel",
+  "lessonId": "a30e14a1-c35b-408c-ba92-0f1033aaa09f",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'vamos'",
+    "old": "We go to the cinema.",
+    "new": "We are going to the cinema.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'voy'",
+    "old": "'Yo voy a la playa' means 'I go to the beach.'",
+    "new": "'Yo voy a la playa' means 'I am going to the beach.'",
+    "rejected": true
+   },
+   {
+    "path": "ex:3683b793-5e6b-459c-9926-ce8b9211b2ab.content.acceptableAnswers.0",
+    "severity": "minor",
+    "problem": "Alternative translation is not suitable for A1 level",
+    "old": "Voy a viajar.",
+    "new": "Voy de viaje."
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-describing-people",
+  "lessonId": "a4dc063b-c690-4c8f-84d8-b592f6b443ae",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "minor",
+    "problem": "Incorrect explanation about subject pronoun usage",
+    "old": "Saying 'Yo soy amable' instead of 'Soy amable'. You don't need 'yo' when it’s clear.",
+    "new": "Saying 'Yo soy amable' instead of 'Soy amable'. You don't need 'yo' when the subject is clear from context."
+   },
+   {
+    "path": "ex:90443ccb-9f09-49e8-aa1a-136961bffa38.content.acceptableAnswers.2",
+    "severity": "error",
+    "problem": "Missing accent in 'simpático'",
+    "old": "simpatico",
+    "new": "simpático",
+    "rejected": true
+   },
+   {
+    "path": "ex:cca3ff70-5fae-49ca-8258-a171ba9ee664.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Missing accent in 'simpática'",
+    "old": "simpatica",
+    "new": "simpática",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-past-expressions",
+  "lessonId": "a746f3f4-18bc-4015-8532-a3f502207724",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "ex:69c630be-df81-4121-968c-74da98b9324b.question",
+    "severity": "error",
+    "problem": "Question does not match explanation or options",
+    "old": "Which expression means 'the week before last'?",
+    "new": "Which expression means 'last week'?",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-present-regular",
+  "lessonId": "a7e8f5b5-6dcd-4853-9027-4c2d410f0486",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.3.0",
+    "severity": "error",
+    "problem": "Missing 'Nosotras' for gender-inclusive language",
+    "old": "Nosotros (We)",
+    "new": "Nosotros/Nosotras (We)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.4.0",
+    "severity": "error",
+    "problem": "Missing 'Ellas' for gender-inclusive language",
+    "old": "Ellos (They)",
+    "new": "Ellos/Ellas (They)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.3.tip",
+    "severity": "error",
+    "problem": "Incorrect information about verb regularity",
+    "old": "The verb 'leer' is an irregular verb in the present tense but common in daily life.",
+    "new": "The verb 'leer' is a regular verb in the present tense but common in daily life.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-unit6-review",
+  "lessonId": "a9133ba2-2132-4273-8d2e-d7d3106a7556",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.culture.funFact",
+    "severity": "error",
+    "problem": "Incorrect historical fact about the first heart transplant.",
+    "old": "Did you know that the first heart transplant in the world was performed in Chile in 1963?",
+    "new": "Did you know that Chile performed one of Latin America's first heart transplants in 1968, only weeks after the world's first in South Africa?",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "minor",
+    "problem": "Incorrect example translation for 'Espero que tú vengas'.",
+    "old": "For example, 'Espero que tú vengas' means 'I hope that you come.'",
+    "new": "For example, 'Espero que tú vengas' means 'I hope that you will come.'"
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-subjunctive-intro",
+  "lessonId": "a9515da8-0c0b-4121-aca8-83606349e97b",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "ex:18b80de4-5def-4124-9505-ebb86fa9b22b.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect use of indicative instead of subjunctive",
+    "old": "Espero que ella estudia.",
+    "new": "Espero que ella estudie.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-ethical",
+  "lessonId": "a594bfb1-390e-40ec-b72e-cdc033a0c9c4",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.culture.funFact",
+    "severity": "error",
+    "problem": "Incorrect reference to Dolly the sheep being cloned in Argentina",
+    "old": "In Argentina, a famous case of ethical debate involved the cloning of a sheep named 'Dolly', which sparked conversations about genetic manipulation.",
+    "new": "In Argentina, a famous case of ethical debate involved the cloning of a cow named 'Pampa', which sparked conversations about genetic manipulation.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.1.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect implication that innovation solves ethical problems",
+    "old": "La innovación tecnológica puede resolver problemas éticos.",
+    "new": "La innovación tecnológica puede plantear problemas éticos.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-unit6-review",
+  "lessonId": "ab0a5e8f-2520-44cb-927e-b5ef6d3bbe69",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.0.1",
+    "severity": "error",
+    "problem": "Incorrect translation of subjunctive form",
+    "old": "hable (I speak)",
+    "new": "hable (I speak, subjunctive)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.1.1",
+    "severity": "error",
+    "problem": "Incorrect translation of subjunctive form",
+    "old": "hables (you speak)",
+    "new": "hables (you speak, subjunctive)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.2.1",
+    "severity": "error",
+    "problem": "Incorrect translation of subjunctive form",
+    "old": "hable (he/she/you speak)",
+    "new": "hable (he/she/you speak, subjunctive)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.1.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect example of tense change in reported speech",
+    "old": "Forgetting to change the verb tense: 'Ella dice que me gusta' should be 'Ella dice que le gusta'.",
+    "new": "Forgetting to change the verb tense: 'Juan dijo: \"Nosotros reciclamos\"' should be 'Juan dijo que reciclábamos'.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-nuanced",
+  "lessonId": "acfab174-854f-4ff4-99e2-0d150e27ae4d",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.1.0",
+    "severity": "error",
+    "problem": "Incorrect use of subjunctive; should be indicative",
+    "old": "Me parece que el autor tenga una perspectiva única.",
+    "new": "Me parece que el autor tiene una perspectiva única.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "minor",
+    "problem": "Incorrect explanation of subjunctive use with 'Me parece que'",
+    "old": "In Spanish, the subjunctive mood is often used to express opinions, desires, or emotions. When discussing art or literature, we often use phrases like 'Es importante que...' or 'Me parece que...' followed by a verb in the subjunctive to show our subjective view.",
+    "new": "In Spanish, the subjunctive mood is often used to express opinions, desires, or emotions. When discussing art or literature, we often use phrases like 'Es importante que...' followed by a verb in the subjunctive to show our subjective view. However, 'Me parece que...' is typically followed by the indicative mood."
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-unit5-review",
+  "lessonId": "adc926d2-6e96-4cbc-a395-be73a34cd7b9",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.5.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect demonstrative adjective for 'vestido'.",
+    "old": "Ese vestido es caro.",
+    "new": "Este vestido es caro.",
+    "rejected": true
+   },
+   {
+    "path": "ex:5537bf9e-26ad-4fbc-aaea-9842e4e9e1eb.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect gender agreement for 'comida'.",
+    "old": "barato",
+    "new": "barata",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-opinions",
+  "lessonId": "af999a02-44c6-4d9b-807a-42e76eb0b786",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "ex:5c0e482e-7c01-4317-882f-e5010015113c.content.correctAnswer",
+    "severity": "error",
+    "problem": "Correct answer should be 'no me gusta' for the negative sentence.",
+    "old": "me gusta",
+    "new": "no me gusta",
+    "rejected": true
+   },
+   {
+    "path": "ex:5c0e482e-7c01-4317-882f-e5010015113c.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Acceptable answer should be 'no me gusta' for the negative sentence.",
+    "old": "me gusta",
+    "new": "no me gusta",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-near-future",
+  "lessonId": "b1ee8d42-e3c5-4377-bed1-70fbc3750c01",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.3.definition",
+    "severity": "minor",
+    "problem": "Definition is too broad and not specific to the verb 'ir'.",
+    "old": "To move from one place to another.",
+    "new": "To go from one place to another."
+   },
+   {
+    "path": "lesson.vocabulary.4.definition",
+    "severity": "minor",
+    "problem": "Definition is too broad and not specific to the verb 'hacer'.",
+    "old": "To perform an action or create something.",
+    "new": "To do or make something."
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-what-would",
+  "lessonId": "b809e055-07b5-42c3-8645-e45f570dff9a",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.1.examples.0.translation",
+    "severity": "error",
+    "problem": "Translation is unidiomatic",
+    "old": "I wish you to be happy.",
+    "new": "I wish that you are happy.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.dialogue.lines.5.text",
+    "severity": "error",
+    "problem": "Unidiomatic use of 'desearía'",
+    "old": "Sí, desearía aprender japonés.",
+    "new": "Sí, me gustaría aprender japonés.",
+    "rejected": true
+   },
+   {
+    "path": "ex:7566032b-93bc-4332-8180-bf9b4c03641f.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "Incorrect verb form for context",
+    "old": "deseo",
+    "new": "desear",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-relative-clauses",
+  "lessonId": "b8224b31-1da3-4d2a-bbb9-6135f0bcc5b5",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.1.original",
+    "severity": "error",
+    "problem": "Incorrect use of 'quien' for subject; should be 'que'.",
+    "old": "La mujer quien habla es mi profesora.",
+    "new": "La mujer que habla es mi profesora.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.2.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect use of 'que' instead of 'quien' for people.",
+    "old": "La persona que viene es mi amigo.",
+    "new": "La persona quien viene es mi amigo.",
+    "rejected": true
+   },
+   {
+    "path": "ex:47c7272a-c965-4f33-8ca8-bd90af3f12b4.content.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of reordered sentence.",
+    "old": "The resource whose environment is important.",
+    "new": "The resource whose environment is important is the environment.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-emphasis",
+  "lessonId": "b92330bd-f9ea-4ea9-85f9-83a592bb46f3",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.breakdown",
+    "severity": "error",
+    "problem": "Incorrect explanation of emphasis",
+    "old": "In this structure, the emphasis is on 'Juan' by placing it at the beginning.",
+    "new": "In this structure, the emphasis is on 'la reunión' by placing it at the beginning.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect correction of word order",
+    "old": "Incorrect: Asistió a la reunión Juan. (Correct: A la reunión asistió Juan.)",
+    "new": "Incorrect: Asistió Juan a la reunión. (Correct: A la reunión asistió Juan.)",
+    "rejected": true
+   },
+   {
+    "path": "ex:7b2c21c5-2dd9-466b-b1f0-8c8d6896a890.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of correct answer",
+    "old": "The correct answer is 'punto de vista', which means 'point of view'.",
+    "new": "The correct answer is 'conclusión', which means 'conclusion'.",
+    "rejected": true
+   },
+   {
+    "path": "ex:7b2c21c5-2dd9-466b-b1f0-8c8d6896a890.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect correct answer for the sentence",
+    "old": "punto de vista",
+    "new": "conclusión",
+    "rejected": true
+   },
+   {
+    "path": "ex:7b2c21c5-2dd9-466b-b1f0-8c8d6896a890.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for the sentence",
+    "old": "punto de vista",
+    "new": "conclusión",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-formal-writing",
+  "lessonId": "b94fabe3-7a0c-43d7-96db-9f56ff4f1d4b",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect use of subjunctive in example sentence",
+    "old": "Using the indicative instead of the subjunctive: 'Es importante que usted completa...' should be 'complete'.",
+    "new": "Using the indicative instead of the subjunctive: 'Es importante que usted completa...' should be 'complete'. (Note: 'completa' should be 'complete' in subjunctive form.)",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-connectors",
+  "lessonId": "bd9d22be-0a4e-4b6b-bea2-30bf4faf3c7a",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "ex:75f94f0e-84fb-4399-954a-2f0f7b7483d5.content.correctOrder.4",
+    "severity": "error",
+    "problem": "Incorrect word order in the correct answer",
+    "old": "almuerzo",
+    "new": "almuerzo",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-unit6-review",
+  "lessonId": "c245a2a9-2069-492b-8d3a-90994345c42b",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "ex:81b7698c-8abe-4abd-8fc5-5fecc138f6c3.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect use of 'es' instead of 'está' for temporary state",
+    "old": "La calle es ocupada.",
+    "new": "La calle está ocupada.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-final-review",
+  "lessonId": "b9d153d6-7cde-47b3-b60f-f1cd3b1bf6a9",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.0.0",
+    "severity": "error",
+    "problem": "Incorrect translation of 'hable'",
+    "old": "hable (I speak)",
+    "new": "hable (I speak, subjunctive)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.0.1",
+    "severity": "error",
+    "problem": "Incorrect translation of 'hablara'",
+    "old": "hablara (I spoke)",
+    "new": "hablara (I spoke, subjunctive)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.1.0",
+    "severity": "error",
+    "problem": "Incorrect translation of 'coma'",
+    "old": "coma (I eat)",
+    "new": "coma (I eat, subjunctive)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.1.1",
+    "severity": "error",
+    "problem": "Incorrect translation of 'comiera'",
+    "old": "comiera (I ate)",
+    "new": "comiera (I ate, subjunctive)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.2.0",
+    "severity": "error",
+    "problem": "Incorrect translation of 'viva'",
+    "old": "viva (I live)",
+    "new": "viva (I live, subjunctive)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.2.1",
+    "severity": "error",
+    "problem": "Incorrect translation of 'viviera'",
+    "old": "viviera (I lived)",
+    "new": "viviera (I lived, subjunctive)",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-education",
+  "lessonId": "c4334b31-a028-404b-8c91-809a7bc94dbd",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect explanation of tense usage",
+    "old": "Saying 'Yo estudio' when you mean 'I studied' (correct form: 'Yo estudié').",
+    "new": "Saying 'Yo estudio' when you mean 'I will study' (correct form: 'Yo estudiaré').",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-technology",
+  "lessonId": "c5adf912-d259-4377-aba6-43971767c303",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.4.0",
+    "severity": "error",
+    "problem": "Incorrect subject pronoun for 'ellos/ellas'",
+    "old": "Ellos",
+    "new": "Ellos/Ellas",
+    "rejected": true
+   },
+   {
+    "path": "lesson.dialogue.lines.3.text",
+    "severity": "minor",
+    "problem": "'Tareas' is more commonly used for homework in Latin America",
+    "old": "Es para trabajar. Necesito hacer mis tareas.",
+    "new": "Es para trabajar. Necesito hacer mi tarea."
+   },
+   {
+    "path": "lesson.dialogue.lines.3.translation",
+    "severity": "minor",
+    "problem": "Translation should match the corrected Spanish text",
+    "old": "It is for work. I need to do my homework.",
+    "new": "It is for work. I need to do my homework."
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-numbers-prices",
+  "lessonId": "c4b0e393-e801-4d02-8be3-2010f8bed0b7",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.0.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect use of 'años' without 'tener'",
+    "old": "Tengo veintiuno años.",
+    "new": "Tengo veintiún años.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.0.0",
+    "severity": "error",
+    "problem": "Incorrect spelling of 'veintiuno' when used before a noun",
+    "old": "veintiuno",
+    "new": "veintiún",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-ambitions",
+  "lessonId": "c95dff3a-e255-4813-90d7-f3879a046bc3",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.3.0",
+    "severity": "error",
+    "problem": "Incorrect subject pronoun for 'nosotros' form",
+    "old": "Nosotros",
+    "new": "Nosotros/Nosotras",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.4.0",
+    "severity": "error",
+    "problem": "Incorrect subject pronoun for 'ellos/ellas/ustedes' form",
+    "old": "Ellos/Ellas/Ustedes",
+    "new": "Ellos/Ellas/Ustedes",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "minor",
+    "problem": "Missing mention of 'nosotras' form",
+    "old": "In Spanish, the future tense is formed by adding specific endings to the infinitive form of the verb. The endings for regular verbs are -é, -ás, -á, -emos, -án. For example, 'hablar' becomes 'hablaré' (I will speak).",
+    "new": "In Spanish, the future tense is formed by adding specific endings to the infinitive form of the verb. The endings for regular verbs are -é, -ás, -á, -emos, -án. Note that 'nosotros' can also be 'nosotras' for feminine. For example, 'hablar' becomes 'hablaré' (I will speak)."
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-unit3-review",
+  "lessonId": "c9c3ce1f-af7f-4d9c-bca0-95ccfcf8d038",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "error",
+    "problem": "Incorrect explanation of 'Estudio mañana.'",
+    "old": "Forgetting to use 'ir a' for future plans: Correct: 'Voy a estudiar.' Incorrect: 'Estudio mañana.' (which means 'I study tomorrow.')",
+    "new": "Forgetting to use 'ir a' for future plans: Correct: 'Voy a estudiar.' Incorrect: 'Estudio mañana.' (which can mean 'I study tomorrow,' but 'Voy a estudiar mañana' is more common for future plans.)",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-quantities",
+  "lessonId": "cdea0b15-985e-49a8-84b8-7ed362ec3bb6",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "ex:62eecef7-5a60-43ea-aa95-f0feb7c4cd58.content.acceptableVariants.0",
+    "severity": "error",
+    "problem": "Incorrect variant for 'tablespoon'",
+    "old": "Tengo una cuchara de azúcar.",
+    "new": "Tengo una cucharada de azúcar.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-unit1-review",
+  "lessonId": "d4f8cd60-314c-4474-b5d5-2c5dcd7723e5",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect explanation about subject omission in Spanish",
+    "old": "Don't forget to include the subject. In Spanish, 'Yo soy' is necessary, unlike in English where you can say 'Am a teacher.'",
+    "new": "In Spanish the subject pronoun is usually left out: 'Soy profesor' is more natural than 'Yo soy profesor', which adds emphasis.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-unit4-review",
+  "lessonId": "d45fb50a-7f0f-4795-b1c1-4c21c947b4b4",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.0.0",
+    "severity": "error",
+    "problem": "Incorrect translation of 'hable'",
+    "old": "hable (I speak)",
+    "new": "hable (I speak, subjunctive)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.0.1",
+    "severity": "error",
+    "problem": "Incorrect translation of 'hablara'",
+    "old": "hablara (I spoke)",
+    "new": "hablara (I spoke, subjunctive)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.1.0",
+    "severity": "error",
+    "problem": "Incorrect translation of 'coma'",
+    "old": "coma (I eat)",
+    "new": "coma (I eat, subjunctive)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.1.1",
+    "severity": "error",
+    "problem": "Incorrect translation of 'comiera'",
+    "old": "comiera (I ate)",
+    "new": "comiera (I ate, subjunctive)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "error",
+    "problem": "Incorrect explanation of subjunctive vs. future tense",
+    "old": "Confusing the present subjunctive with the future tense: 'Cuando llegue' (When I arrive) vs. 'Cuando llegaré' (When I will arrive).",
+    "new": "Confusing the present subjunctive with the future tense: 'Cuando llegue' (When I arrive) should not be confused with 'Cuando llegaré' (When I will arrive).",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-comparatives",
+  "lessonId": "d91f0b5e-7ba9-432b-b513-07edc097612c",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.0.1",
+    "severity": "error",
+    "problem": "Incorrect superlative form for adjectives",
+    "old": "el mejor + adjective",
+    "new": "el/la/los/las más + adjective",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.1.1",
+    "severity": "error",
+    "problem": "Incorrect superlative form for adjectives",
+    "old": "el peor + adjective",
+    "new": "el/la/los/las menos + adjective",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of superlatives",
+    "old": "In Spanish, comparatives are used to compare two things, while superlatives express the highest degree among three or more items. To create a comparative, use 'más' for more and 'menos' for less, followed by the adjective. For superlatives, use 'el mejor' for the best and 'el peor' for the worst.",
+    "new": "In Spanish, comparatives are used to compare two things, while superlatives express the highest degree among three or more items. To create a comparative, use 'más' for more and 'menos' for less, followed by the adjective. For superlatives, use 'el/la/los/las más' for the most and 'el/la/los/las menos' for the least, followed by the adjective. 'El mejor' and 'el peor' are irregular superlatives for 'bueno' and 'malo', respectively.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.3.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect article for singular feminine noun",
+    "old": "Ese es el peor película que he visto.",
+    "new": "Esa es la peor película que he visto.",
+    "rejected": false
+   },
+   {
+    "path": "ex:d528dfe2-4807-4198-ac6b-887e31689ab2.content.translation",
+    "severity": "error",
+    "problem": "Incomplete translation",
+    "old": "This car is faster than",
+    "new": "This car is faster than this one.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-colloquial",
+  "lessonId": "d502a0f5-2f2f-4758-885e-0724abc2f497",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.1.breakdown",
+    "severity": "error",
+    "problem": "Incorrect identification of subjunctive tense",
+    "old": "Here, 'hubiera sabido' is the imperfect subjunctive, indicating a hypothetical situation in the past.",
+    "new": "Here, 'hubiera sabido' is the pluperfect subjunctive, indicating a hypothetical situation in the past.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "error",
+    "problem": "Incorrect subjunctive form example",
+    "old": "Confusing present and imperfect subjunctive: 'Si yo ser' should be 'Si yo fuera'.",
+    "new": "Confusing present and imperfect subjunctive: 'Si yo ser' should be 'Si yo fuera'.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "error",
+    "problem": "Incorrect subjunctive form example",
+    "old": "Confusing present and imperfect subjunctive: 'Si yo ser' should be 'Si yo fuera'.",
+    "new": "Confusing present and imperfect subjunctive: 'Si yo fuera' should be 'Si yo fuera'.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-numbers",
+  "lessonId": "ac69e90c-c8e6-4630-b00a-88052c118f85",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.8.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect statement about number parity",
+    "old": "Ocho es un número impar.",
+    "new": "Ocho es un número par.",
+    "rejected": false
+   },
+   {
+    "path": "ex:336f4b24-626c-435d-b413-e1f252237578.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for the exercise",
+    "old": "uno",
+    "new": "dos",
+    "rejected": true
+   },
+   {
+    "path": "ex:336f4b24-626c-435d-b413-e1f252237578.content.acceptableAnswers.2",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for the exercise",
+    "old": "tres",
+    "new": "dos",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-unit7-review",
+  "lessonId": "dc3ab791-e3d0-43a1-85d1-12291e73a3fc",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.breakdown",
+    "severity": "minor",
+    "problem": "Incorrect explanation of subjunctive use",
+    "old": "Here, 'hablemos' is the subjunctive form of 'hablar' (to speak), used because it's a suggestion.",
+    "new": "Here, 'hablemos' is the subjunctive form of 'hablar' (to speak), used because it follows 'Es importante que', which requires the subjunctive."
+   },
+   {
+    "path": "ex:5d5ed0e2-d63b-4238-9f84-92000860e695.explanation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'el turista'",
+    "old": "'El turista' means 'the traveler' in Spanish, referring to someone who travels.",
+    "new": "'El turista' means 'the tourist' in Spanish, referring to someone who travels for pleasure.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-final-review",
+  "lessonId": "dcbb543e-6b2b-4fc1-9d0c-47a88e0f017c",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.3.definition",
+    "severity": "error",
+    "problem": "Incorrect definition for 'hacer sol'.",
+    "old": "to have sunshine",
+    "new": "to be sunny",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-current-events",
+  "lessonId": "de3146a5-c25d-4e68-bf8e-0af7b93cd208",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.1.1",
+    "severity": "error",
+    "problem": "Incorrect subjunctive form of 'creer'.",
+    "old": "crea",
+    "new": "crea (Note: 'crea' is not typically used in the subjunctive for expressing opinions; 'creer' usually takes the indicative unless negated or in a question.)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Misleading explanation about 'creer' and subjunctive.",
+    "old": "The present subjunctive is used to express wishes, doubts, and opinions. It is often triggered by verbs that express emotion or uncertainty. For example, 'Espero que...' (I hope that...) indicates a wish and requires the subjunctive form.",
+    "new": "The present subjunctive is used to express wishes, doubts, and opinions. It is often triggered by verbs that express emotion or uncertainty. For example, 'Espero que...' (I hope that...) indicates a wish and requires the subjunctive form. Note: 'creer' typically uses the indicative unless negated or in a question.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-imperfect-subjunctive",
+  "lessonId": "e041238a-de7f-47f9-85a9-fe35b8269890",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Incorrect ending '-rán' in the explanation of the imperfect subjunctive formation.",
+    "old": "The imperfect subjunctive is formed by taking the third-person plural of the preterite, dropping the -ron ending, and adding the appropriate endings: -ra, -ras, -ra, -ramos, -rán, -ran. It is used in situations that require the subjunctive but refer to past actions or events that are uncertain or hypothetical.",
+    "new": "The imperfect subjunctive is formed by taking the third-person plural of the preterite, dropping the -ron ending, and adding the appropriate endings: -ra, -ras, -ra, -ramos, -rais, -ran. It is used in situations that require the subjunctive but refer to past actions or events that are uncertain or hypothetical.",
+    "rejected": true
+   },
+   {
+    "path": "ex:cb1f7241-8caa-4ee3-88b0-c24165d1d7ba.content.options.2",
+    "severity": "error",
+    "problem": "Duplicate option 'viniera' in the exercise options.",
+    "old": "viniera",
+    "new": "viniera (remove this duplicate option)",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-presentation",
+  "lessonId": "de62da0e-aa6a-4abd-b131-02c94d790e58",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "ex:215a57a1-d6fd-4eb0-b99b-453ad8efb20c.content.correctOrder.0",
+    "severity": "error",
+    "problem": "Incorrect word order in the correct sentence.",
+    "old": "el",
+    "new": "tener",
+    "rejected": true
+   },
+   {
+    "path": "ex:215a57a1-d6fd-4eb0-b99b-453ad8efb20c.content.correctOrder.1",
+    "severity": "error",
+    "problem": "Incorrect word order in the correct sentence.",
+    "old": "plan",
+    "new": "un",
+    "rejected": true
+   },
+   {
+    "path": "ex:215a57a1-d6fd-4eb0-b99b-453ad8efb20c.content.correctOrder.2",
+    "severity": "error",
+    "problem": "Incorrect word order in the correct sentence.",
+    "old": "es",
+    "new": "plan",
+    "rejected": true
+   },
+   {
+    "path": "ex:215a57a1-d6fd-4eb0-b99b-453ad8efb20c.content.correctOrder.3",
+    "severity": "error",
+    "problem": "Incorrect word order in the correct sentence.",
+    "old": "importante",
+    "new": "es",
+    "rejected": true
+   },
+   {
+    "path": "ex:215a57a1-d6fd-4eb0-b99b-453ad8efb20c.content.correctOrder.4",
+    "severity": "error",
+    "problem": "Incorrect word order in the correct sentence.",
+    "old": "tener",
+    "new": "importante",
+    "rejected": true
+   },
+   {
+    "path": "ex:215a57a1-d6fd-4eb0-b99b-453ad8efb20c.content.correctOrder.5",
+    "severity": "error",
+    "problem": "Incorrect word order in the correct sentence.",
+    "old": "futuro",
+    "new": "para el futuro",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-colours",
+  "lessonId": "e175fabc-8a6d-4e25-a847-bc25132268d2",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "ex:6a24a9dc-21cc-418b-a995-30a8af7ba4ee.content.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of the sentence",
+    "old": "The lamp is color.",
+    "new": "The lamp is the color.",
+    "rejected": true
+   },
+   {
+    "path": "ex:fe42d21f-fd40-43a8-bf03-35faf59840ff.explanation",
+    "severity": "error",
+    "problem": "Explanation does not match the correct answer",
+    "old": "The correct answer is 'mesa', meaning 'table' in English.",
+    "new": "The correct answer is 'silla', meaning 'chair' in English.",
+    "rejected": true
+   },
+   {
+    "path": "ex:fe42d21f-fd40-43a8-bf03-35faf59840ff.content.correctAnswer",
+    "severity": "error",
+    "problem": "Correct answer does not match the sentence",
+    "old": "mesa",
+    "new": "silla",
+    "rejected": true
+   },
+   {
+    "path": "ex:fe42d21f-fd40-43a8-bf03-35faf59840ff.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Acceptable answer does not match the sentence",
+    "old": "mesa",
+    "new": "silla",
+    "rejected": true
+   },
+   {
+    "path": "ex:fe42d21f-fd40-43a8-bf03-35faf59840ff.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "Acceptable answer does not match the sentence",
+    "old": "lámpara",
+    "new": "sofá",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-conditional",
+  "lessonId": "e549328f-f3a9-495c-b335-d69606ce9e23",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "ex:094cbc15-7801-4a42-b06f-bfee5737966b.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect correct answer for the sentence structure",
+    "old": "deseo",
+    "new": "desearía",
+    "rejected": true
+   },
+   {
+    "path": "ex:094cbc15-7801-4a42-b06f-bfee5737966b.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation for the correct answer",
+    "old": "'Deseo' is the present form of 'to wish', which fits the sentence structure.",
+    "new": "'Desearía' is the conditional form of 'to wish', which fits the sentence structure.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-intentions",
+  "lessonId": "e8954e18-aa3a-41c8-b171-463e487b993b",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.4.0",
+    "severity": "error",
+    "problem": "Incorrect subject pronoun for 'you all' in some regions",
+    "old": "Ustedes",
+    "new": "Vosotros",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.4.1",
+    "severity": "error",
+    "problem": "Incorrect conjugation for 'vosotros' form",
+    "old": "hablarán (You all will speak)",
+    "new": "hablaréis (You all will speak)",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-meetings",
+  "lessonId": "e61655ec-1d92-4496-87f0-ad010a251626",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.translation",
+    "severity": "error",
+    "problem": "Incorrect subject in translation",
+    "old": "It is important that I speak about the project.",
+    "new": "It is important that he/she speaks about the project.",
+    "rejected": true
+   },
+   {
+    "path": "ex:1def9ecf-0cf9-42fd-b9f3-b226205c1143.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "'reunión' does not fit the context of being clear and concise",
+    "old": "reunión",
+    "new": "None",
+    "rejected": true
+   },
+   {
+    "path": "ex:1def9ecf-0cf9-42fd-b9f3-b226205c1143.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "'propuesta' does not fit the context of being clear and concise",
+    "old": "propuesta",
+    "new": "None",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-at-the-shop",
+  "lessonId": "ec4aaacc-041e-48a1-99e2-235c9f209b35",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.6.text",
+    "severity": "error",
+    "problem": "Incorrect use of 'cambio' for 'change' in this context",
+    "old": "Gracias. ¿Dónde está el cambio?",
+    "new": "Gracias. ¿Dónde está la caja?",
+    "rejected": true
+   },
+   {
+    "path": "lesson.dialogue.lines.6.translation",
+    "severity": "error",
+    "problem": "Translation does not match corrected Spanish text",
+    "old": "Thank you. Where is the change?",
+    "new": "Thank you. Where is the cash register?",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-telling-story",
+  "lessonId": "ec202fd8-716d-4f79-a881-91a7cb47582a",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "ex:03d4fece-55d1-4536-b96f-7f96a5899f81.content.correctOrder.2",
+    "severity": "error",
+    "problem": "Incorrect word order in Spanish sentence",
+    "old": "es",
+    "new": "narrar",
+    "rejected": true
+   },
+   {
+    "path": "ex:03d4fece-55d1-4536-b96f-7f96a5899f81.content.correctOrder.3",
+    "severity": "error",
+    "problem": "Incorrect word order in Spanish sentence",
+    "old": "interesante",
+    "new": "es",
+    "rejected": true
+   },
+   {
+    "path": "ex:03d4fece-55d1-4536-b96f-7f96a5899f81.content.correctOrder.4",
+    "severity": "error",
+    "problem": "Incorrect word order in Spanish sentence",
+    "old": "narrar",
+    "new": "interesante",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-unit2-review",
+  "lessonId": "eec7cd9e-eadd-477a-bfb1-70ffc103b3b6",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "ex:21e030a4-9bda-4d82-90e1-5c8ffcb25a7b.explanation",
+    "severity": "error",
+    "problem": "Incorrect verb listed as correct answer",
+    "old": "'Contar' is the correct verb that means 'to narrate' in Spanish.",
+    "new": "'Narrar' is the correct verb that means 'to narrate' in Spanish.",
+    "rejected": true
+   },
+   {
+    "path": "ex:21e030a4-9bda-4d82-90e1-5c8ffcb25a7b.content.options.0",
+    "severity": "error",
+    "problem": "Incorrect option listed as correct answer",
+    "old": "Contar",
+    "new": "Narrar",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a1-unit6-review",
+  "lessonId": "f1d0fc4c-5ca0-46d1-b47d-6cf62c10a8ff",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.5.text",
+    "severity": "error",
+    "problem": "Incorrect location for the sofa",
+    "old": "El sofá está en el dormitorio.",
+    "new": "El sofá está en la sala.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.dialogue.lines.5.translation",
+    "severity": "error",
+    "problem": "Translation does not match the corrected Spanish sentence",
+    "old": "The sofa is in the bedroom.",
+    "new": "The sofa is in the living room.",
+    "rejected": true
+   },
+   {
+    "path": "ex:e5e9d5d9-3e36-4115-8fa6-30305736ff67.content.explanation",
+    "severity": "error",
+    "problem": "Explanation does not match the correct answer",
+    "old": "The correct answer is 'dormitorio' because it is a place where you might find a book.",
+    "new": "The correct answer is 'sofá' because it is a place where you might find a book.",
+    "rejected": true
+   },
+   {
+    "path": "ex:e5e9d5d9-3e36-4115-8fa6-30305736ff67.content.correctAnswer",
+    "severity": "error",
+    "problem": "Correct answer does not match the sentence context",
+    "old": "dormitorio",
+    "new": "sofá",
+    "rejected": true
+   },
+   {
+    "path": "ex:e5e9d5d9-3e36-4115-8fa6-30305736ff67.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Acceptable answer does not match the sentence context",
+    "old": "dormitorio",
+    "new": "sofá",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-cultural-diff",
+  "lessonId": "ef56e3a7-f025-4b5e-b2b5-33c92daa17c2",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.0.1",
+    "severity": "error",
+    "problem": "Incorrect subjunctive endings for 'yo' form",
+    "old": "-e for -ar verbs, -a for -er/-ir verbs",
+    "new": "-e for -ar verbs, -a for -er/-ir verbs (note: 'yo' form is the same as 'él/ella/usted')",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.1.1",
+    "severity": "error",
+    "problem": "Incorrect subjunctive endings for 'tú' form",
+    "old": "-es for -ar verbs, -as for -er/-ir verbs",
+    "new": "-es for -ar verbs, -as for -er/-ir verbs (note: 'tú' form is the same as 'él/ella/usted')",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-services",
+  "lessonId": "f3b42830-ad6f-481c-b27f-f49c8ad26a8b",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.1.1",
+    "severity": "error",
+    "problem": "Incorrect future tense ending for 'tú'",
+    "old": "-ás",
+    "new": "-ás",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "error",
+    "problem": "Incorrect example of future tense conjugation",
+    "old": "Forget to conjugate the verb correctly for the subject. Example: 'Nosotros ir' should be 'Nosotros iremos'.",
+    "new": "Forget to conjugate the verb correctly for the subject. Example: 'Nosotros ir' should be 'Nosotros iremos'.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-bias-tone",
+  "lessonId": "f60b6ad5-40ab-4c46-8eef-734f89723edc",
+  "level": "B2",
+  "issues": []
+ },
+ {
+  "slug": "es-b1-reported-speech",
+  "lessonId": "f6968d63-8960-4ded-9d1a-f457146a6a7c",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect example of a common mistake; both sentences are identical.",
+    "old": "Not changing the verb tense: 'Él dice que va a la tienda.' (correct) vs. 'Él dice que va a la tienda.' (incorrect)",
+    "new": "Not changing the verb tense: 'Él dijo que iba a la tienda.' (correct) vs. 'Él dice que va a la tienda.' (incorrect)",
+    "rejected": false
+   },
+   {
+    "path": "ex:1b16e93b-8e08-4b39-a908-23a0efb18c4e.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "'Que' is not acceptable for yes/no questions in reported speech.",
+    "old": "que",
+    "new": "cómo",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "es-b2-register",
+  "lessonId": "f6e132f4-d41c-4de6-bdf3-3191cbaccc61",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "minor",
+    "problem": "'Tú' can be used with strangers in informal settings.",
+    "old": "'Tú' should not be used with strangers or in professional settings.",
+    "new": "'Tú' should not be used in professional settings."
+   },
+   {
+    "path": "ex:bb854984-b495-459c-b15d-1dffa2db898a.explanation",
+    "severity": "error",
+    "problem": "'Señorita' is not necessarily informal; it's used for unmarried women.",
+    "old": "'Señora' is the formal way to address a woman, while 'señorita' is informal.",
+    "new": "'Señora' is the formal way to address a woman, while 'señorita' is used for unmarried women.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-b1-unit3-review",
+  "lessonId": "fa8f275d-9448-471f-9b80-337a8c8d913c",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.2.exampleSentence.original",
+    "severity": "error",
+    "problem": "Missing accent in Spanish sentence",
+    "old": "Enviaste tu currículum a la empresa?",
+    "new": "¿Enviaste tu currículum a la empresa?",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "es-a2-polite-requests",
+  "lessonId": "fb07f913-3037-42c9-8cf6-92edc25811cd",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.translation",
+    "severity": "minor",
+    "problem": "Translation is too literal; 'dirección' should be 'directions' in this context.",
+    "old": "Can you help me with the direction?",
+    "new": "Can you help me with the directions?"
+   },
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "minor",
+    "problem": "'¿Quieres?' is not inherently informal; the issue is more about politeness.",
+    "old": "Using informal language in a formal situation, such as '¿Quieres?' instead of '¿Puedes?'.",
+    "new": "Using less polite language in a formal situation, such as '¿Quieres?' instead of '¿Podrías?'."
+   },
+   {
+    "path": "ex:4b1975a8-510d-4a66-9ea2-0784bd8ad94d.content.correctAnswer",
+    "severity": "error",
+    "problem": "Correct answer should be 'Me', not 'Yo', as 'Me gustaría' is the correct expression.",
+    "old": "A",
+    "new": "B",
+    "rejected": true
+   }
+  ]
+ }
+]

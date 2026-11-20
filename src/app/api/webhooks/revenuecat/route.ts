@@ -13,6 +13,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { timingSafeEqual } from "node:crypto";
 import { syncPlaySubscription } from "@/lib/billing/revenuecat";
+import { handleAffiliatePlayEvent } from "@/lib/affiliates/play";
 
 // App user ids are our users.id. RevenueCat's own anonymous ids
 // ("$RCAnonymousID:…") belong to nobody we know and are skipped.
@@ -60,6 +61,10 @@ export async function POST(request: NextRequest) {
     // not worth a retry; anything else is.
     if (!result.ok && result.error !== "no such user") failures.push(`${id}: ${result.error}`);
   }
+
+  // Creator commission is per transaction, so it reads this event rather than
+  // the synced state. Idempotent on the transaction id, and never throws.
+  await handleAffiliatePlayEvent(event);
 
   if (failures.length) {
     console.error(`[revenuecat] ${event.type} sync failed`, failures);

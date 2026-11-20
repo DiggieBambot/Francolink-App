@@ -4,6 +4,7 @@
 // to zeros/empties rather than throwing.
 
 import { createClient } from "@supabase/supabase-js";
+import { DEMO_EMAIL_PATTERN } from "@/lib/demo";
 
 function svc() {
   return createClient(
@@ -61,7 +62,7 @@ export async function getOverview(): Promise<Overview> {
 export async function getSignupsOverTime(days = 30): Promise<{ date: string; count: number }[]> {
   const s = svc();
   const since = new Date(Date.now() - days * DAY).toISOString();
-  const { data } = await s.from("users").select("created_at").gte("created_at", since);
+  const { data } = await s.from("users").select("created_at").not("email", "ilike", DEMO_EMAIL_PATTERN).gte("created_at", since);
   const buckets = new Map<string, number>();
   for (let i = days - 1; i >= 0; i--) buckets.set(dayKey(new Date(Date.now() - i * DAY)), 0);
   for (const r of data || []) {
@@ -97,7 +98,7 @@ export interface Cohort {
 export async function getRetentionCohorts(weeks = 8): Promise<Cohort[]> {
   const s = svc();
   const [{ data: users }, { data: acts, error }] = await Promise.all([
-    s.from("users").select("id, created_at"),
+    s.from("users").select("id, created_at").not("email", "ilike", DEMO_EMAIL_PATTERN),
     s.from("user_activity").select("user_id, occurred_at"),
   ]);
   if (error || !users) return [];
@@ -148,7 +149,7 @@ export async function getRetentionCohorts(weeks = 8): Promise<Cohort[]> {
 /** Acquisition source breakdown (from first-touch signup_source). */
 export async function getAcquisition(): Promise<{ source: string; count: number }[]> {
   const s = svc();
-  const { data, error } = await s.from("users").select("signup_source");
+  const { data, error } = await s.from("users").select("signup_source").not("email", "ilike", DEMO_EMAIL_PATTERN);
   if (error) return [];
   const m = new Map<string, number>();
   for (const r of data || []) {
@@ -207,7 +208,7 @@ export interface FunnelBySourceRow {
 export async function getActivationFunnelBySource(): Promise<FunnelBySourceRow[]> {
   const s = svc();
   const [{ data: users }, submitters] = await Promise.all([
-    s.from("users").select("id, signup_source, placement_test_taken, referred_by_tutor_id").eq("role", "USER"),
+    s.from("users").select("id, signup_source, placement_test_taken, referred_by_tutor_id").not("email", "ilike", DEMO_EMAIL_PATTERN).eq("role", "USER"),
     getHomeworkSubmitters(),
   ]);
   const by = new Map<string, FunnelBySourceRow>();
@@ -266,7 +267,7 @@ export async function getNoLessonReturnByCohort(weeks = 8): Promise<NoLessonRetu
   };
 
   const [{ data: users }, { data: acts }] = await Promise.all([
-    s.from("users").select("id, created_at").eq("role", "USER").gte("created_at", since),
+    s.from("users").select("id, created_at").not("email", "ilike", DEMO_EMAIL_PATTERN).eq("role", "USER").gte("created_at", since),
     s.from("user_activity").select("user_id, metadata").eq("kind", "active").gte("occurred_at", since),
   ]);
 
@@ -326,6 +327,7 @@ export async function getOnboardingExperiment(): Promise<OnboardingExperimentRow
   const { data: users } = await s
     .from("users")
     .select("id, placement_test_taken")
+    .not("email", "ilike", DEMO_EMAIL_PATTERN)
     .in("id", [...variantByUser.keys()]);
   const tookPlacement = new Map((users || []).map((u) => [u.id, !!u.placement_test_taken]));
 
@@ -365,6 +367,7 @@ export async function getHomeworkEngagement(): Promise<HomeworkEngagement> {
   const { data } = await s
     .from("users")
     .select("id, last_seen_at")
+    .not("email", "ilike", DEMO_EMAIL_PATTERN)
     .in("id", [...submitters]);
   let retained = 0;
   for (const u of data || []) {
@@ -380,7 +383,7 @@ export async function getHomeworkEngagement(): Promise<HomeworkEngagement> {
 /** Plan distribution + free→paid conversion. */
 export async function getRevenue(): Promise<{ plans: { plan: string; count: number }[]; conversion: number }> {
   const s = svc();
-  const { data } = await s.from("users").select("subscription_plan").eq("role", "USER");
+  const { data } = await s.from("users").select("subscription_plan").not("email", "ilike", DEMO_EMAIL_PATTERN).eq("role", "USER");
   const m = new Map<string, number>();
   let paid = 0, total = 0;
   for (const r of data || []) {

@@ -13,6 +13,8 @@ interface Row {
   email: string;
   balance: number;
   totalPaid: number;
+  /** A withdrawal the tutor asked for; this is what "Mark as paid" pays. */
+  requested: number | null;
   payoutMethod: string | null;
   payoutSummary: string;
   hasDetails: boolean;
@@ -42,7 +44,8 @@ export function AdminPayouts() {
   useEffect(() => { load(); }, []);
 
   const markPaid = async (row: Row) => {
-    if (!confirm(`Mark ${money(row.balance)} as paid to ${row.name || row.email}?\n\nPay them via: ${row.payoutSummary}`)) return;
+    const due = row.requested ?? row.balance;
+    if (!confirm(`Mark ${money(due)} as paid to ${row.name || row.email}?\n\nPay them via: ${row.payoutSummary}`)) return;
     setPayingId(row.id);
     setMsg(null);
     try {
@@ -107,7 +110,12 @@ export function AdminPayouts() {
                     <div className="font-medium text-gray-900">{r.name || "—"}</div>
                     <div className="text-xs text-gray-400">{r.email}</div>
                   </td>
-                  <td className="py-3 px-3 font-bold text-primary">{money(r.balance)}</td>
+                  <td className="py-3 px-3">
+                    <div className="font-bold text-primary">{money(r.balance)}</div>
+                    {r.requested !== null && (
+                      <div className="text-xs font-medium text-amber-600">Requested {money(r.requested)}</div>
+                    )}
+                  </td>
                   <td className="py-3 px-3 max-w-[280px]">
                     {r.hasDetails ? (
                       <span className="text-gray-700">{r.payoutSummary}</span>

@@ -100,7 +100,13 @@ export default function SpeakExercise({
 
   const compareText = (spoken: string, target: string): boolean => {
     const normalize = (t: string) =>
-      t.toLowerCase().replace(/[.,!?;:'"]/g, "").replace(/\s+/g, " ").trim();
+      t
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "") // speech recognition output is unreliable about accents
+        .replace(/[.,!?;:¿¡'"]/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
     const ns = normalize(spoken);
     const nt = normalize(target);
     if (ns === nt) return true;

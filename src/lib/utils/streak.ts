@@ -2,6 +2,8 @@
 
 import { SupabaseClient } from "@supabase/supabase-js";
 
+import { advanceStreak } from "@/lib/streak/advance-streak";
+
 interface StreakResult {
   currentStreak: number;
   longestStreak: number;
@@ -18,95 +20,49 @@ export async function updateStreak(
   supabase: SupabaseClient,
   userId: string
 ): Promise<StreakResult> {
-  // Get current user data
-  const { data: user, error } = await supabase
-    .from("users")
-    .select("current_streak, longest_streak, last_activity_date")
-    .eq("id", userId)
-    .single();
+  const failed: StreakResult = { currentStreak: 0, longestStreak: 0, streakUpdated: false, streakBroken: false, isNewDay: false };
 
+  // streak_freezes arrives with its own migration; without it, read the rest.
+  const cols = "current_streak, longest_streak, last_activity_date";
+  let { data: user, error } = await supabase.from("users").select(`${cols}, streak_freezes`).eq("id", userId).single();
+  if (error) ({ data: user, error } = await supabase.from("users").select(cols).eq("id", userId).single());
   if (error || !user) {
     console.error("Error fetching user for streak:", error);
-    return {
-      currentStreak: 0,
-      longestStreak: 0,
-      streakUpdated: false,
-      streakBroken: false,
-      isNewDay: false,
-    };
+    return failed;
   }
 
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  
-  const lastActivity = user.last_activity_date 
-    ? new Date(user.last_activity_date) 
-    : null;
-  
-  if (lastActivity) {
-    lastActivity.setHours(0, 0, 0, 0);
-  }
+  // The learner's own calendar day (this runs in their browser). Compared as
+  // YYYY-MM-DD strings: mixing a local midnight with a UTC date string used
+  // to shift the day for anyone west of UTC and reset their streak.
+  const today = new Date().toLocaleDateString("en-CA");
+  const next = advanceStreak(
+    {
+      current: user.current_streak || 0,
+      longest: user.longest_streak || 0,
+      lastActivityDate: user.last_activity_date ? String(user.last_activity_date).slice(0, 10) : null,
+      freezes: (user as { streak_freezes?: number | null }).streak_freezes || 0,
+    },
+    today
+  );
 
-  let currentStreak = user.current_streak || 0;
-  let longestStreak = user.longest_streak || 0;
-  let streakUpdated = false;
-  let streakBroken = false;
-  let isNewDay = false;
-
-  if (!lastActivity) {
-    // First activity ever
-    currentStreak = 1;
-    streakUpdated = true;
-    isNewDay = true;
-  } else {
-    const diffTime = today.getTime() - lastActivity.getTime();
-    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-
-    if (diffDays === 0) {
-      // Same day - streak already counted
-      isNewDay = false;
-      streakUpdated = false;
-    } else if (diffDays === 1) {
-      // Consecutive day - increment streak!
-      currentStreak += 1;
-      streakUpdated = true;
-      isNewDay = true;
-    } else {
-      // Missed days - reset streak
-      streakBroken = true;
-      currentStreak = 1;
-      streakUpdated = true;
-      isNewDay = true;
-    }
-  }
-
-  // Update longest streak if needed
-  if (currentStreak > longestStreak) {
-    longestStreak = currentStreak;
-  }
-
-  // Save to database
-  if (streakUpdated || isNewDay) {
+  if (next.isNewDay) {
     const { error: updateError } = await supabase
       .from("users")
-      .update({
-        current_streak: currentStreak,
-        longest_streak: longestStreak,
-        last_activity_date: today.toISOString().split("T")[0],
-      })
+      .update({ current_streak: next.current, longest_streak: next.longest, last_activity_date: today })
       .eq("id", userId);
-
-    if (updateError) {
-      console.error("Error updating streak:", updateError);
+    if (updateError) console.error("Error updating streak:", updateError);
+    // Separate write, so a missing streak_freezes column can't block the streak.
+    if (next.freezeUsed || next.freezeEarned) {
+      await supabase.from("users").update({ streak_freezes: next.freezes }).eq("id", userId);
     }
   }
 
   return {
-    currentStreak,
-    longestStreak,
-    streakUpdated,
-    streakBroken,
-    isNewDay,
+    currentStreak: next.current,
+    longestStreak: next.longest,
+    streakUpdated: next.isNewDay,
+    streakBroken: next.streakBroken,
+    isNewDay: next.isNewDay,
   };
 }
 

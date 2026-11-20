@@ -1,0 +1,4331 @@
+[
+ {
+  "slug": "de-b2-summarize",
+  "lessonId": "01337e6e-c9a0-4f8d-987c-bd4853de35e3",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'sei' in context",
+    "old": "He says he is tired.",
+    "new": "He says he is tired.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.2.pronunciation",
+    "severity": "minor",
+    "problem": "Incorrect pronunciation guide for 'Hauptgedanke'",
+    "old": "hoypt-ge-dahn-ke",
+    "new": "howpt-ge-dahn-ke"
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-adjective-endings",
+  "lessonId": "010437f3-829d-4ae8-bdb0-95e1d601a4ba",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of adjective endings for nominative masculine.",
+    "old": "In the nominative case, the endings are -e for feminine, -er for masculine, and -es for neuter.",
+    "new": "In the nominative case, the endings are -er for masculine, -e for feminine, and -es for neuter.",
+    "rejected": true
+   },
+   {
+    "path": "ex:8f344f41-bdeb-4bad-879a-099aa9dbf18a.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of adjective ending for nominative masculine.",
+    "old": "In the nominative case, masculine singular nouns take the ending '-e' for adjectives.",
+    "new": "In the nominative case, masculine singular nouns take the ending '-er' for adjectives.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-es-gibt",
+  "lessonId": "06709f93-812a-4e8a-bbcd-cdb3c3b3b0ab",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect article for masculine noun",
+    "old": "'Es gibt ein Tisch.' should be 'Es gibt einen Tisch.' (correct article for masculine)',",
+    "new": "'Es gibt ein Tisch.' should be 'Es gibt einen Tisch.' (correct article for masculine)",
+    "rejected": false
+   },
+   {
+    "path": "lesson.summary.keyPoints.1",
+    "severity": "minor",
+    "problem": "Incomplete explanation of articles",
+    "old": "Remember the articles: der, die, das for nouns.",
+    "new": "Remember the articles: der, die, das for singular nouns."
+   },
+   {
+    "path": "ex:21fb7155-b07e-4fef-8384-3c014d2be2d0.content.targetText",
+    "severity": "error",
+    "problem": "Missing article for plural noun",
+    "old": "Es gibt Stühle in der Küche.",
+    "new": "Es gibt viele Stühle in der Küche.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-numbers",
+  "lessonId": "0601b7cb-d587-437c-a9b1-42c25bc3c54f",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation about numbers as nouns",
+    "old": "In German, numbers are typically used as nouns. When you count, you can combine these numbers with articles or other nouns. For example, 'ein' is used with masculine nouns, while 'eine' is used with feminine nouns.",
+    "new": "In German, numbers are typically used as adjectives. When you count, you can combine these numbers with nouns. For example, 'ein' is used with masculine nouns, while 'eine' is used with feminine nouns.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.1.tip",
+    "severity": "error",
+    "problem": "Incorrect explanation about 'ein' and 'eins'",
+    "old": "Note that 'ein' is the masculine form of 'a' or 'one' (for der words).",
+    "new": "Note that 'eins' is used for counting, while 'ein' is used as an article or in combination with nouns.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.1.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect use of 'eins' instead of 'ein'",
+    "old": "Ich habe ein Buch.",
+    "new": "Ich habe eins Buch.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.1.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Translation does not match corrected German sentence",
+    "old": "I have one book.",
+    "new": "I have a book.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-technology",
+  "lessonId": "07b7e435-ffc4-43df-a0c3-711fe97de83b",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.3.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect preposition used with 'Fernseher'.",
+    "old": "Wir schauen einen Film im Fernseher.",
+    "new": "Wir schauen einen Film auf dem Fernseher.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.3.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Incorrect preposition in English translation.",
+    "old": "We are watching a movie on the television.",
+    "new": "We are watching a movie on the television.",
+    "rejected": true
+   },
+   {
+    "path": "ex:e12f7b32-de33-43c8-ac50-766498d5abe2.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of preposition usage.",
+    "old": "'Dem Fernseher' means 'on the television', which is used for watching movies.",
+    "new": "'Auf dem Fernseher' means 'on the television', which is used for watching movies.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-konjunktiv-intro",
+  "lessonId": "0b7b197b-457b-47de-a6f7-d20cddde0866",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.1.breakdown",
+    "severity": "error",
+    "problem": "Incorrect explanation of 'wünschte' usage",
+    "old": "Here 'wünschte' expresses a wish using the Konjunktiv II form of 'sein'.",
+    "new": "Here 'wünschte' expresses a wish using the Konjunktiv II form of 'wünschen'.",
+    "rejected": false
+   },
+   {
+    "path": "ex:ef9bb10e-8bba-4903-92fa-ad388b4f1d1f.content.sentence",
+    "severity": "error",
+    "problem": "Incomplete sentence structure",
+    "old": "Wenn er mehr Zeit ___ helfen.",
+    "new": "Wenn er mehr Zeit ___, würde er helfen.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-formal-writing",
+  "lessonId": "0c2f8f69-8217-4152-bb0c-0712157a4264",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.translation",
+    "severity": "error",
+    "problem": "Translation should reflect the subjunctive mood used in Konjunktiv I.",
+    "old": "He said that he has no time.",
+    "new": "He said that he had no time.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.3.pronunciation",
+    "severity": "minor",
+    "problem": "Pronunciation is missing a syllable.",
+    "old": "dee bes-tai-gung",
+    "new": "dee besh-tay-gee-oong"
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-dative-intro",
+  "lessonId": "0d60c126-4b69-40d1-9f1d-28baf3bddca1",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.4.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'schenken' as 'gift' instead of 'give'.",
+    "old": "We gift you a present.",
+    "new": "We give you a present.",
+    "rejected": false
+   },
+   {
+    "path": "ex:78f1e2fe-d942-49ec-bcb9-2182b2b96400.content.correctOrder.1",
+    "severity": "error",
+    "problem": "Incorrect verb form in the reordered sentence.",
+    "old": "helfen",
+    "new": "helfe",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-unit7-review",
+  "lessonId": "0eb31a47-a8f1-4cdd-a558-561443c28694",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.0.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect use of 'Sport' in German sentence",
+    "old": "Ich spiele gern Sport.",
+    "new": "Ich mache gern Sport.",
+    "rejected": false
+   },
+   {
+    "path": "ex:909a136d-ff1e-4837-844e-3d014db75387.content.options.0",
+    "severity": "error",
+    "problem": "Duplicate option in multiple-choice question",
+    "old": "möchte",
+    "new": "möchten",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-body-health",
+  "lessonId": "0ec5cef2-e64f-4b7a-a23d-2a8fa355d818",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "ex:16acbb5f-b1e0-4f9e-9c04-e116c2a3c32c.content.acceptableVariants.1",
+    "severity": "error",
+    "problem": "Incorrect German phrase",
+    "old": "Meine Hand ist wehtun.",
+    "new": "Meine Hand schmerzt.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-unit1-review",
+  "lessonId": "10bd80f4-1687-41c8-9f0e-7f8309b8b7e4",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.translation",
+    "severity": "error",
+    "problem": "Translation does not match the original German sentence.",
+    "old": "I think that you are right.",
+    "new": "I find that you are right.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.dialogue.lines.5.translation",
+    "severity": "error",
+    "problem": "Translation does not match the original German sentence.",
+    "old": "That's a great idea! I would love to come along if you invite me.",
+    "new": "That's a great idea! I would like to come along if you invite me.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-professional-vocab",
+  "lessonId": "14199056-e23b-41ef-9aff-507d96577131",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.2.tip",
+    "severity": "error",
+    "problem": "Incorrect plural form for 'das Vorstellungsgespräch'.",
+    "old": "This word is neuter (das) and does not change in plural: 'die Vorstellungsgespräche'.",
+    "new": "This word is neuter (das) and its plural is 'die Vorstellungsgespräche'.",
+    "rejected": false
+   },
+   {
+    "path": "ex:eb0be3f9-dadf-4313-8a8d-b0b150bc489f.explanation",
+    "severity": "error",
+    "problem": "Incorrect translation explanation for 'das Vorstellungsgespräch'.",
+    "old": "'Das Vorstellungsgespräch' translates to 'interview' in English.",
+    "new": "'Das Vorstellungsgespräch' translates to 'job interview' in English.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-media-vocab",
+  "lessonId": "173357af-a469-40db-9f2a-8f95aae7cc38",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.2.definition",
+    "severity": "error",
+    "problem": "Incorrect definition of 'das Fernsehen'.",
+    "old": "a device for receiving television broadcasts",
+    "new": "the medium of television",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.5.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'die Werbung'.",
+    "old": "the advertising",
+    "new": "the advertisement",
+    "rejected": true
+   },
+   {
+    "path": "ex:76f69068-3edf-44cc-88cc-9e0c1d1e1b47.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of 'die Werbung'.",
+    "old": "'Die Werbung' translates to 'the advertisement' in English, relating to promotional content.",
+    "new": "'Die Werbung' translates to 'the advertising' in English, relating to promotional content.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-current-events",
+  "lessonId": "18f7d8d0-1c3c-43ab-bdef-533484f50c91",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.1.0",
+    "severity": "error",
+    "problem": "Incorrect use of 'weil' without a subject in the sentence.",
+    "old": "Ich glaube, weil es viele Vorteile hat.",
+    "new": "Ich glaube, dass es viele Vorteile hat.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.examples.1.original",
+    "severity": "error",
+    "problem": "Incorrect use of 'weil' without a subject in the sentence.",
+    "old": "Ich denke, weil es wichtig ist, informiert zu sein.",
+    "new": "Ich denke, dass es wichtig ist, informiert zu sein.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.examples.1.translation",
+    "severity": "error",
+    "problem": "Translation does not match corrected German sentence.",
+    "old": "I think because it is important to be informed.",
+    "new": "I think that it is important to be informed.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of 'weil' usage without a subject.",
+    "old": "'Dass' (that) is used to introduce clauses that explain opinions or beliefs, while 'weil' (because) introduces reasons. In German, the verb in these clauses goes to the end. For example, 'Ich denke, dass es wichtig ist.' (I think that it is important.) and 'Ich glaube, weil es viele Vorteile hat.' (I believe because it has many advantages.)",
+    "new": "'Dass' (that) is used to introduce clauses that explain opinions or beliefs, while 'weil' (because) introduces reasons and requires a subject. In German, the verb in these clauses goes to the end. For example, 'Ich denke, dass es wichtig ist.' (I think that it is important.) and 'Ich glaube, dass es viele Vorteile hat.' (I believe that it has many advantages.)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "error",
+    "problem": "Incorrect example of 'weil' usage without a subject.",
+    "old": "Using 'weil' without a subject. Correct: 'Ich denke, weil es wichtig ist.' (I think because it is important.)",
+    "new": "Using 'weil' without a subject. Correct: 'Ich denke, dass es wichtig ist.' (I think that it is important.)",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-unit1-review",
+  "lessonId": "1ae2ff8f-83a6-4871-9f52-05c19dc42d33",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect genitive form used in example sentence",
+    "old": "Using the nominative instead of the genitive: 'Das Buch von der Lehrer' should be 'Das Buch des Lehrers.'",
+    "new": "Using the nominative instead of the genitive: 'Das Buch von dem Lehrer' should be 'Das Buch des Lehrers.'",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.3.pronunciation",
+    "severity": "minor",
+    "problem": "Pronunciation does not match the German word",
+    "old": "dee ray-deh-vung",
+    "new": "dee ray-deh-ven-doong"
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-unit6-review",
+  "lessonId": "1d41daaa-58c0-4d88-bd71-49ae0d03c792",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.5.translation",
+    "severity": "minor",
+    "problem": "Translation should reflect the direction 'to Berlin' instead of 'for Berlin'.",
+    "old": "Yes, I am going to the train station. I have a ticket to Berlin.",
+    "new": "Yes, I am going to the train station. I have a ticket for Berlin."
+   },
+   {
+    "path": "ex:88d053da-70f1-477a-bc3f-bf774dcdd35e.content.sentence",
+    "severity": "error",
+    "problem": "Incorrect article used for 'die Stadt'.",
+    "old": "Das ___ ist groß.",
+    "new": "Die ___ ist groß.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-debate",
+  "lessonId": "217c5bae-882a-48aa-b9b5-568413c85957",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.2.text",
+    "severity": "error",
+    "problem": "Incorrect use of 'wenn' for future context",
+    "old": "Was denkst du, wenn du deinen Abschluss hast?",
+    "new": "Was denkst du, was du machen wirst, wenn du deinen Abschluss hast?",
+    "rejected": true
+   },
+   {
+    "path": "ex:e4311ddd-bb7e-49c7-a781-43feed44af89.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation; 'Vorschlag' means 'suggestion', not 'proposal'",
+    "old": "The word 'Vorschlag' means 'proposal', fitting in the context of discussing the future.",
+    "new": "The word 'Vorschlag' means 'suggestion', fitting in the context of discussing the future.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-unit2-review",
+  "lessonId": "20582ce2-5f53-46f1-ba02-39bb4f05a4d2",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.5.pronunciation",
+    "severity": "minor",
+    "problem": "Incorrect pronunciation guide for 'möchten'.",
+    "old": "MERK-ten",
+    "new": "MERK-ten"
+   },
+   {
+    "path": "ex:002817f3-7144-4f29-b5bf-9f7da7146c1c.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "'liebe' is not an acceptable answer for 'read'.",
+    "old": "liebe",
+    "new": "",
+    "rejected": true
+   },
+   {
+    "path": "ex:002817f3-7144-4f29-b5bf-9f7da7146c1c.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "'mag' is not an acceptable answer for 'read'.",
+    "old": "mag",
+    "new": "",
+    "rejected": true
+   },
+   {
+    "path": "ex:002817f3-7144-4f29-b5bf-9f7da7146c1c.content.acceptableAnswers.2",
+    "severity": "error",
+    "problem": "'kaufe' is not an acceptable answer for 'read'.",
+    "old": "kaufe",
+    "new": "",
+    "rejected": true
+   },
+   {
+    "path": "ex:4261dd5e-7e36-4b36-bc96-8fecfddcbc92.content.acceptableAnswers.1",
+    "severity": "minor",
+    "problem": "Duplicate acceptable answer.",
+    "old": "Ich will den Lehrer sehen.",
+    "new": ""
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-gifts",
+  "lessonId": "218bae4e-4a9e-44ec-bc46-a09468041c2a",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.2.1",
+    "severity": "error",
+    "problem": "Incorrect dative article for 'das Geschenk'",
+    "old": "dem Geschenk",
+    "new": "dem Geschenk (Note: 'das Geschenk' should remain 'dem Geschenk' in dative, but the noun itself doesn't change form)",
+    "rejected": true
+   },
+   {
+    "path": "ex:caf1f854-7519-4514-9c21-c00692538495.content.options.1",
+    "severity": "error",
+    "problem": "Duplicate option in exercise",
+    "old": "schenke",
+    "new": "schenkst",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-dative-verbs",
+  "lessonId": "228d5cf5-6d07-46f1-a8f0-b1664beeaf29",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "ex:e8b2e22d-065e-45c8-91a4-89d579a712b5.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect dative form used for 'my friend'.",
+    "old": "Ich danke meinen Freund.",
+    "new": "Ich danke meinem Freund.",
+    "rejected": false
+   },
+   {
+    "path": "ex:f3b89a67-1c08-4edf-bf38-1bfbe38f1a2d.content.acceptableVariants.0",
+    "severity": "error",
+    "problem": "Incorrect dative form used for 'my friend'.",
+    "old": "Ich helfe meinen Freund.",
+    "new": "Ich helfe meinem Freund.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-telling-time",
+  "lessonId": "2497d334-cf71-4b3c-a387-0e700e66cfb6",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.0.translation",
+    "severity": "error",
+    "problem": "Translation should include both 'clock' and 'watch'.",
+    "old": "the clock/watch",
+    "new": "the clock, the watch",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.3.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Translation should match the German sentence.",
+    "old": "It is a quarter past two.",
+    "new": "It is a quarter past three.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.4.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Translation should match the German sentence.",
+    "old": "It is half past two.",
+    "new": "It is half past three.",
+    "rejected": false
+   },
+   {
+    "path": "ex:3fc159b4-ec8c-4640-a4d3-c6f5feaa71a0.content.options.0",
+    "severity": "error",
+    "problem": "Translation should include both 'clock' and 'watch'.",
+    "old": "the clock",
+    "new": "the clock, the watch",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-fun-conversation",
+  "lessonId": "238e9f68-be87-408e-ad51-0d531f5b2ece",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.7.text",
+    "severity": "error",
+    "problem": "Incorrect word order in German sentence",
+    "old": "Schwimmen ist super! Ich kann schwimmen auch.",
+    "new": "Schwimmen ist super! Ich kann auch schwimmen.",
+    "rejected": false
+   },
+   {
+    "path": "ex:95b03708-97be-4012-b264-ca97bba2e37a.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation for the use of 'möchte'",
+    "old": "The correct word here is 'möchte', indicating a desire to play sports.",
+    "new": "The correct word here is 'mag', indicating a liking for playing sports.",
+    "rejected": true
+   },
+   {
+    "path": "ex:95b03708-97be-4012-b264-ca97bba2e37a.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect correct answer for the sentence",
+    "old": "möchte",
+    "new": "mag",
+    "rejected": true
+   },
+   {
+    "path": "ex:95b03708-97be-4012-b264-ca97bba2e37a.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for the sentence",
+    "old": "möchte",
+    "new": "mag",
+    "rejected": true
+   },
+   {
+    "path": "ex:95b03708-97be-4012-b264-ca97bba2e37a.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for the sentence",
+    "old": "will",
+    "new": "möchte",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-last-weekend",
+  "lessonId": "2981a7eb-d5e1-4efb-8a28-b041ce62ece4",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "ex:09dfe909-4cd8-4b5e-aa41-622f4e9d7601.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "'sah' is not an acceptable answer for Perfekt tense",
+    "old": "sah",
+    "new": "",
+    "rejected": true
+   },
+   {
+    "path": "ex:23dd4e62-9a05-4fb1-88fa-b8f39b04ec33.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation for tense used",
+    "old": "The past tense of 'essen' is 'aßen'.",
+    "new": "The correct auxiliary verb for 'essen' in Perfekt is 'haben', so 'haben gegessen' is also correct.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-unit3-review",
+  "lessonId": "2b192497-96b8-4c48-afba-21224034e982",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.0.tip",
+    "severity": "minor",
+    "problem": "Incorrect plural form for 'Kommunikation'.",
+    "old": "Remember that 'die' indicates it's feminine. The plural form is 'die Kommunikationen'.",
+    "new": "Remember that 'die' indicates it's feminine. The plural form is 'die Kommunikationen', although it is rarely used."
+   },
+   {
+    "path": "lesson.vocabulary.1.tip",
+    "severity": "minor",
+    "problem": "Incorrect plural form for 'Kunde'.",
+    "old": "It’s a masculine noun, so it uses 'der'. The plural is 'die Kunden'.",
+    "new": "It’s a masculine noun, so it uses 'der'. The plural is 'die Kunden', but note that 'Kunden' is the plural form of 'Kunde'."
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-colours",
+  "lessonId": "269a45e3-94ed-497f-b346-2439319d0918",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.culture.funFact",
+    "severity": "minor",
+    "problem": "The term 'himmlischblau' is not commonly used in German.",
+    "old": "Did you know that in Germany, there are special terms for different shades of colors? For example, 'himmlischblau' means 'sky blue'!",
+    "new": "Did you know that in Germany, there are special terms for different shades of colors? For example, 'himmelblau' means 'sky blue'!"
+   },
+   {
+    "path": "ex:1db6b2fa-191d-4b2a-8679-8a9299f45c70.explanation",
+    "severity": "error",
+    "problem": "The sentence should use 'Wand' instead of 'Fenster' to match the color 'grün'.",
+    "old": "The correct answer is 'Fenster', which means 'window' in German.",
+    "new": "The correct answer is 'Wand', which means 'wall' in German.",
+    "rejected": true
+   },
+   {
+    "path": "ex:1db6b2fa-191d-4b2a-8679-8a9299f45c70.content.correctAnswer",
+    "severity": "error",
+    "problem": "The correct answer should be 'Wand' to match the sentence context.",
+    "old": "Fenster",
+    "new": "Wand",
+    "rejected": true
+   },
+   {
+    "path": "ex:1db6b2fa-191d-4b2a-8679-8a9299f45c70.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "The acceptable answer should be 'Wand' to match the sentence context.",
+    "old": "Fenster",
+    "new": "Wand",
+    "rejected": true
+   },
+   {
+    "path": "ex:1db6b2fa-191d-4b2a-8679-8a9299f45c70.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "The acceptable answer should be 'die Wand' to match the sentence context.",
+    "old": "das Fenster",
+    "new": "die Wand",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-reviews",
+  "lessonId": "2c1cecdd-bb32-4902-8385-08f2a485d3d0",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect use of indicative instead of subjunctive in example",
+    "old": "Using indicative instead of subjunctive: 'Ich hätte gerne das Buch' (I would like the book) instead of 'Ich habe gerne das Buch'.",
+    "new": "Using indicative instead of subjunctive: 'Ich habe gerne das Buch' (I like the book) instead of 'Ich hätte gerne das Buch'.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.3.pronunciation",
+    "severity": "minor",
+    "problem": "Pronunciation does not match English-style respelling",
+    "old": "dehr karakter",
+    "new": "dehr kar-ak-ter"
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-final-review",
+  "lessonId": "2f4f5928-04eb-4e93-b980-ce1b97e2449b",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.0.tip",
+    "severity": "error",
+    "problem": "Incorrect plural form for 'Klimawandel'.",
+    "old": "Remember that 'der' indicates it is masculine. The plural form is 'die Klimawandel'.",
+    "new": "Remember that 'der' indicates it is masculine. The word 'Klimawandel' is usually used in the singular.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.3.tip",
+    "severity": "error",
+    "problem": "Incorrect plural form for 'Frieden'.",
+    "old": "'Der' indicates it is masculine. The plural form is 'die Frieden'.",
+    "new": "'Der' indicates it is masculine. The word 'Frieden' is usually used in the singular.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.dialogue.lines.4.translation",
+    "severity": "minor",
+    "problem": "Translation is slightly inaccurate; 'more' should be 'more likely'.",
+    "old": "Yes, if people knew more about environmental protection, they would act more.",
+    "new": "Yes, if people knew more about environmental protection, they would be more likely to act."
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-jobs",
+  "lessonId": "318d3956-c687-4007-8dda-0a8469f0aba4",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.1.2",
+    "severity": "error",
+    "problem": "Incorrect plural form for 'Ärztin'",
+    "old": "die Ärzte",
+    "new": "die Ärztinnen",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.1.tip",
+    "severity": "error",
+    "problem": "Incorrect plural form for 'Ärztin'",
+    "old": "The masculine form is 'der Arzt'. The plural is 'Ärzte' for males and 'Ärztinnen' for females.",
+    "new": "The masculine form is 'der Arzt'. The plural is 'Ärztinnen' for females.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-relative-clauses",
+  "lessonId": "2b58bf0d-7571-418d-ad47-b7471e102649",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.3.translation",
+    "severity": "minor",
+    "problem": "Translation is slightly awkward",
+    "old": "The movie, which is new, is called 'The Adventures'.",
+    "new": "The movie that is new is called 'The Adventures'."
+   },
+   {
+    "path": "lesson.dialogue.lines.4.translation",
+    "severity": "minor",
+    "problem": "Translation is slightly awkward",
+    "old": "I have heard about the movie, which is said to be very exciting.",
+    "new": "I have heard about the movie that is said to be very exciting."
+   },
+   {
+    "path": "ex:c5e0ae52-c1f5-4dc0-8371-69dc65efc7d2.content.options.0",
+    "severity": "error",
+    "problem": "Translation does not match the German sentence",
+    "old": "The friend I met yesterday is nice.",
+    "new": "The friend, whom I met yesterday, is nice.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-travel-stories",
+  "lessonId": "3428063f-079a-4c56-abab-d4dd4f12fbf2",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.5.text",
+    "severity": "error",
+    "problem": "Incorrect use of 'Flieger' for booking a plane",
+    "old": "Ja, ich habe einen Flieger gebucht und den Reiseführer gekauft.",
+    "new": "Ja, ich habe einen Flug gebucht und den Reiseführer gekauft.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.dialogue.lines.5.translation",
+    "severity": "error",
+    "problem": "Translation does not match corrected German text",
+    "old": "Yes, I booked a plane and bought the travel guide.",
+    "new": "Yes, I booked a flight and bought the travel guide.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-unit5-review",
+  "lessonId": "31fae15b-98fc-48f0-b50d-8c64f984c3f6",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.1.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'Voraussetzungen' as 'assumptions'",
+    "old": "I think it is necessary, but there are many assumptions.",
+    "new": "I think it is necessary, but there are many prerequisites.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.dialogue.lines.2.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'Voraussetzungen' as 'assumptions'",
+    "old": "What do you mean by assumptions?",
+    "new": "What do you mean by prerequisites?",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.3.definition",
+    "severity": "error",
+    "problem": "Incorrect definition of 'Voraussetzung' as 'assumption'",
+    "old": "Something that is accepted as true or as certain to happen, without proof.",
+    "new": "A condition or requirement that must be met.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.3.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'Voraussetzung' as 'assumption'",
+    "old": "The assumption for success is hard work.",
+    "new": "The prerequisite for success is hard work.",
+    "rejected": false
+   },
+   {
+    "path": "ex:ac5f0045-9278-49c3-a6a3-ae8ecd580dd6.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of 'Kritik' as 'criticism' instead of 'reasoning'",
+    "old": "A strong criticism ('Kritik') is crucial for a solid argumentation.",
+    "new": "A strong reasoning ('Argumentation') is crucial for a solid argumentation.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-greetings",
+  "lessonId": "3785b5bc-09ce-48da-8f54-7a93cefe285c",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.culture.funFact",
+    "severity": "minor",
+    "problem": "Cultural note about Switzerland is misleading; cheek kissing is not common among acquaintances.",
+    "old": "In Switzerland, people often greet each other with a friendly kiss on the cheek, even among acquaintances.",
+    "new": "In Switzerland, people may greet close friends and family with a friendly kiss on the cheek."
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.2.1",
+    "severity": "error",
+    "problem": "'Tschüss' is informal and should not be paired with 'Guten Abend' in a formal context.",
+    "old": "Tschüss",
+    "new": "Auf Wiedersehen",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.examples.0.original",
+    "severity": "minor",
+    "problem": "Example sentence is informal due to 'wie geht's?'",
+    "old": "Guten Morgen, wie geht's?",
+    "new": "Guten Morgen, wie geht es Ihnen?"
+   },
+   {
+    "path": "lesson.grammar.0.examples.0.translation",
+    "severity": "minor",
+    "problem": "Translation should reflect formality of the German sentence.",
+    "old": "Good morning, how are you?",
+    "new": "Good morning, how are you doing?"
+   },
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "minor",
+    "problem": "Explanation should mention 'Guten Abend' as formal.",
+    "old": "In German, greetings and farewells can vary in formality. 'Hallo' is informal, while 'Guten Tag' and 'Auf Wiedersehen' are more formal. Pay attention to the context when choosing your greeting.",
+    "new": "In German, greetings and farewells can vary in formality. 'Hallo' is informal, while 'Guten Tag', 'Guten Abend', and 'Auf Wiedersehen' are more formal. Pay attention to the context when choosing your greeting."
+   },
+   {
+    "path": "lesson.introduction.culturalNote",
+    "severity": "minor",
+    "problem": "Cultural note about Austria is misleading; cheek kissing is not typical among friends.",
+    "old": "In Germany, it is common to greet people with a handshake. In Austria, a friendly kiss on the cheek is typical among friends.",
+    "new": "In Germany, it is common to greet people with a handshake. In Austria, a friendly kiss on the cheek may occur among close friends."
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-doctor",
+  "lessonId": "37d2bc98-4c89-4c4d-a03e-418387685e71",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.3.0",
+    "severity": "error",
+    "problem": "Incorrect subject pronouns for 'haben' conjugation",
+    "old": "wir/sie/Sie",
+    "new": "wir/ihr/sie/Sie",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.3.1",
+    "severity": "error",
+    "problem": "Incorrect conjugation for 'ihr'",
+    "old": "haben + past participle",
+    "new": "haben/habt + past participle",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-unit2-review",
+  "lessonId": "38f46653-4ad9-4114-ad7e-c47af8b77cce",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.summary.keyPoints.2",
+    "severity": "minor",
+    "problem": "Key point about modal verbs is not relevant to the lesson content",
+    "old": "Modal verbs help express ability and desire.",
+    "new": "Practice using the correct articles for nouns."
+   },
+   {
+    "path": "ex:f9cecb71-2729-4681-9aaa-4a79a18e2f55.explanation",
+    "severity": "error",
+    "problem": "Explanation does not match the sentence context",
+    "old": "'Kann' means 'can' in English, which fits in this context.",
+    "new": "'Kann' means 'can' in English, but the sentence context is incorrect.",
+    "rejected": true
+   },
+   {
+    "path": "ex:f9cecb71-2729-4681-9aaa-4a79a18e2f55.content.sentence",
+    "severity": "error",
+    "problem": "Sentence context is incorrect for the verb 'kann'",
+    "old": "Ich ___ nicht wissen.",
+    "new": "Ich ___ nicht schwimmen.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-prepositions",
+  "lessonId": "3a922381-2f59-4759-aa1a-4fe0f324bbe6",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.2.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect preposition for location",
+    "old": "Das Buch liegt neben dem Tisch.",
+    "new": "Das Buch liegt auf dem Tisch.",
+    "rejected": true
+   },
+   {
+    "path": "ex:df9c0412-77f6-4c28-a379-0318a7de2cb4.content.ttsText",
+    "severity": "error",
+    "problem": "Mismatch between audio text and options",
+    "old": "Das Sofa ist neben der Tür.",
+    "new": "Das Sofa ist vor der Tür.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-opinions",
+  "lessonId": "394de2e5-c5ab-449b-8e45-c5481a84a6a2",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.translation",
+    "severity": "error",
+    "problem": "Translation is too literal; 'schön' is better translated as 'nice' or 'lovely' in this context.",
+    "old": "I find the weather beautiful.",
+    "new": "I find the weather nice.",
+    "rejected": true
+   },
+   {
+    "path": "ex:6a8dca7c-2872-408d-a433-53f49ccf6473.explanation",
+    "severity": "error",
+    "problem": "Explanation does not match the sentence; 'schlecht' is also acceptable.",
+    "old": "The sentence means 'I think it is good because it is interesting.'",
+    "new": "The sentence means 'I think it is good or bad because it is interesting.'",
+    "rejected": true
+   },
+   {
+    "path": "ex:6a8dca7c-2872-408d-a433-53f49ccf6473.content.correctAnswer",
+    "severity": "error",
+    "problem": "Both 'gut' and 'schlecht' are acceptable answers.",
+    "old": "gut",
+    "new": "gut, schlecht",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-ethical",
+  "lessonId": "3bc71c79-2ef1-457e-9b8a-7cb58c2bc210",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.0.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect plural form of 'Dilemma'",
+    "old": "Ein ethisches Dilemma kann in der Medizin auftreten.",
+    "new": "Ein ethisches Dilemma kann in der Medizin auftreten.",
+    "rejected": true
+   },
+   {
+    "path": "ex:1f29b4d2-f2fd-45ce-b2c5-b22d1b7f5a3f.content.ttsText",
+    "severity": "error",
+    "problem": "Incorrect plural form of 'Dilemma'",
+    "old": "Die Innovation bringt viele neue ethische Dilemmata mit sich.",
+    "new": "Die Innovation bringt viele neue ethische Dilemmas mit sich.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-experiences",
+  "lessonId": "3c22a721-84c8-4f85-aef0-b452c1d2c5b6",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'Ich habe im Urlaub viel gesehen.'",
+    "old": "I saw a lot on vacation.",
+    "new": "I have seen a lot on vacation.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.dialogue.lines.2.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'Wo bist du gewesen?'",
+    "old": "Where have you been?",
+    "new": "Where were you?",
+    "rejected": true
+   },
+   {
+    "path": "lesson.dialogue.lines.4.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'Ich habe dort auch einmal Urlaub gemacht.'",
+    "old": "I also had a vacation there once.",
+    "new": "I also went on vacation there once.",
+    "rejected": false
+   },
+   {
+    "path": "ex:2bda142e-73b7-4b69-a374-0c44ff488c51.content.acceptableAnswers.0",
+    "severity": "minor",
+    "problem": "Alternative translation is not equally correct",
+    "old": "Ich finde die Erfahrung spannend.",
+    "new": "Ich finde die Erfahrung interessant."
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-family",
+  "lessonId": "3d40138c-8b1e-45bd-8038-6f85dccecf9e",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.culture.funFact",
+    "severity": "error",
+    "problem": "'Familientag' is not a recognized holiday in Germany",
+    "old": "In Germany, there is a special day called 'Familientag' (Family Day) when families are encouraged to spend quality time together.",
+    "new": "In Germany, there is no official 'Familientag' (Family Day), but families often spend Sundays together.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.dialogue.lines.5.text",
+    "severity": "error",
+    "problem": "Incorrect article for 'Kind' in dative case",
+    "old": "Sie ist im Garten mit dem Kind.",
+    "new": "Sie ist im Garten mit einem Kind.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-unit7-review",
+  "lessonId": "3c285cf8-ddd6-45c9-8144-4005a6e2bd13",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect example of indicative vs. subjunctive",
+    "old": "Using the indicative instead of the subjunctive: 'Ich hätte' instead of 'Ich habe'.",
+    "new": "Using the indicative instead of the subjunctive: 'Ich habe' instead of 'Ich hätte'.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-futur",
+  "lessonId": "3ed23106-c47f-4380-a4a9-31a2a37a1ff8",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "minor",
+    "problem": "Misleading explanation about future tense usage",
+    "old": "Saying 'Ich werde gehen' instead of 'Ich gehe' for future plans. Remember, the future tense is for clear intentions.",
+    "new": "Using 'Ich werde gehen' instead of 'Ich gehe' for plans that are already decided. Remember, the present tense can also express future plans."
+   },
+   {
+    "path": "lesson.vocabulary.2.translation",
+    "severity": "minor",
+    "problem": "Translation does not match context",
+    "old": "to become",
+    "new": "will (auxiliary verb)"
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-innovation",
+  "lessonId": "4169c15b-4789-4371-a869-34ee5fd40770",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of Konjunktiv II formation",
+    "old": "The Konjunktiv II is used to express hypothetical situations or wishes. It often conveys what someone would do in a certain situation. The structure is typically formed by using the simple past form of the verb and adding the appropriate endings.",
+    "new": "The Konjunktiv II is used to express hypothetical situations or wishes. It often conveys what someone would do in a certain situation. The structure is typically formed by using the simple past form of the verb and modifying it with the appropriate subjunctive endings, or by using 'würde' plus the infinitive for most verbs.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.1.tip",
+    "severity": "error",
+    "problem": "Incorrect plural form of 'Fortschritt'",
+    "old": "This noun is masculine (der) and its plural is 'die Fortschritte'.",
+    "new": "This noun is masculine (der) and does not have a commonly used plural form.",
+    "rejected": true
+   },
+   {
+    "path": "ex:1532ef0c-5ecb-41ce-9bec-3f1f632422fe.content.options.2",
+    "severity": "error",
+    "problem": "'Innovator' is not a German word",
+    "old": "Innovator",
+    "new": "Innovateur",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-unit5-review",
+  "lessonId": "42479339-5173-4165-93bb-fb193628c2d8",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.7.translation",
+    "severity": "error",
+    "problem": "Incorrect plural form in English translation",
+    "old": "Me too! There are so many good contents.",
+    "new": "Me too! There is so much good content.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-diplomacy",
+  "lessonId": "46695c0a-f832-44a1-8633-b942e470a642",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.1.1",
+    "severity": "error",
+    "problem": "Incorrect Konjunktiv II form for 'mögen'.",
+    "old": "möchte",
+    "new": "möge",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.1.exampleSentence.original",
+    "severity": "minor",
+    "problem": "The example sentence is slightly unidiomatic.",
+    "old": "Die Verhandlung war sehr erfolgreich.",
+    "new": "Die Verhandlungen waren sehr erfolgreich."
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-weather",
+  "lessonId": "47aa8997-496e-45bd-96d0-1f4737f204bd",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.6.tip",
+    "severity": "minor",
+    "problem": "The tip suggests 'warm' describes only pleasant weather, which is misleading.",
+    "old": "Use 'warm' to describe pleasant, mild weather.",
+    "new": "Use 'warm' to describe mild or warm weather."
+   },
+   {
+    "path": "ex:c8c1420b-fb48-4c78-9677-1072457a5bff.content.targetText",
+    "severity": "error",
+    "problem": "The word order in the German sentence is incorrect.",
+    "old": "Das Wetter ist schön heute.",
+    "new": "Das Wetter ist heute schön.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-ambitions",
+  "lessonId": "492bc06c-db83-41cc-8ef3-38bbba379f37",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "ex:03e05b05-77bb-40d8-b17c-d50795b04105.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect gender for 'doctor' in German translation",
+    "old": "Meine Ambition ist, Arzt zu werden.",
+    "new": "Meine Ambition ist, Ärztin zu werden.",
+    "rejected": true
+   },
+   {
+    "path": "ex:03e05b05-77bb-40d8-b17c-d50795b04105.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect gender for 'doctor' in German translation",
+    "old": "Meine Ambition ist, eine Ärztin zu werden.",
+    "new": "Meine Ambition ist, Arzt zu werden.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-presentation",
+  "lessonId": "4a078d52-dcd3-48ea-8f27-9a02bcf38745",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.6.text",
+    "severity": "error",
+    "problem": "Unidiomatic German expression",
+    "old": "Ich möchte Informatik studieren, weil ich eine Fähigkeit in der Technik entwickeln möchte.",
+    "new": "Ich möchte Informatik studieren, weil ich meine technischen Fähigkeiten entwickeln möchte.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.2.exampleSentence.original",
+    "severity": "error",
+    "problem": "Unidiomatic German expression",
+    "old": "Ich habe die Fähigkeit, gut zu präsentieren.",
+    "new": "Ich habe die Fähigkeit, gut zu präsentieren.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.2.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Translation does not match the German sentence",
+    "old": "I have the ability to present well.",
+    "new": "I have the ability to present well.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-alphabet",
+  "lessonId": "40c5a814-fef9-4ded-8923-65f8480248f7",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.26.pronunciation",
+    "severity": "minor",
+    "problem": "Incorrect pronunciation guide for Ä",
+    "old": "ah-umlaut",
+    "new": "eh-umlaut"
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-education",
+  "lessonId": "4c6d3a39-b77e-4269-9586-8edec667e80c",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.1.pronunciation",
+    "severity": "minor",
+    "problem": "Pronunciation guide is incorrect for 'das Buch'.",
+    "old": "dahs BOOK",
+    "new": "dahs BOOCH"
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-unit4-review",
+  "lessonId": "4b2dd932-fe74-4806-a34d-2f2c9a2367fa",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.3.text",
+    "severity": "error",
+    "problem": "Incorrect idiom usage in German",
+    "old": "Dann werde ich einfach zu Hause bleiben und über den Tellerrand schauen.",
+    "new": "Dann werde ich einfach zu Hause bleiben.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.dialogue.lines.3.translation",
+    "severity": "error",
+    "problem": "Translation does not match corrected German text",
+    "old": "Then I will just stay at home and think outside the box.",
+    "new": "Then I will just stay at home.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-comparatives",
+  "lessonId": "4fa2a497-babc-4bc7-9417-5bc31142137c",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "ex:827d0e68-07e0-41c7-b796-4829854cc7ea.explanation",
+    "severity": "error",
+    "problem": "Explanation incorrectly states the apple is faster than the banana.",
+    "old": "The correct order shows that the apple is faster than the banana.",
+    "new": "The correct order shows that the apple is faster than the banana, but this is a nonsensical comparison.",
+    "rejected": true
+   },
+   {
+    "path": "ex:827d0e68-07e0-41c7-b796-4829854cc7ea.content.translation",
+    "severity": "error",
+    "problem": "Translation incorrectly states the apple is faster than the banana.",
+    "old": "The apple is faster than the banana.",
+    "new": "The apple is faster than the banana, but this is a nonsensical comparison.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-sie-du",
+  "lessonId": "500791f7-9834-4aef-85ae-d585f06f998b",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "ex:2476b781-63ec-444f-bb21-21c961570ca3.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation about 'Deutsch' being a neuter noun.",
+    "old": "'Deutsch' is a neuter noun, so we use 'das'.",
+    "new": "'Deutsch' is not preceded by an article in this context.",
+    "rejected": false
+   },
+   {
+    "path": "ex:b8e30f38-e97d-44ab-a7d4-8d4f0e96957f.content.ttsText",
+    "severity": "error",
+    "problem": "Mismatch between text and translation options.",
+    "old": "Hallo, wie geht es Ihnen?",
+    "new": "Guten Tag, wie geht es Ihnen?",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-unit2-review",
+  "lessonId": "5172ed80-7736-4fda-897f-fb004d0d3268",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.breakdown",
+    "severity": "minor",
+    "problem": "Incorrect explanation of 'hätte' and 'würde'.",
+    "old": "This sentence shows a hypothetical condition using 'hätte' (would have) and 'würde' (would).",
+    "new": "This sentence shows a hypothetical condition using 'hätte' (had) and 'würde' (would)."
+   },
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "minor",
+    "problem": "Incorrect explanation of 'Hätte'.",
+    "old": "The Konjunktiv II is used to express hypothetical situations or wishes. It often includes phrases that start with 'Wenn' (if) or 'Hätte' (would have). This mood is essential for persuasive arguments, as it allows speakers to discuss possibilities.",
+    "new": "The Konjunktiv II is used to express hypothetical situations or wishes. It often includes phrases that start with 'Wenn' (if) or use forms like 'hätte' (had). This mood is essential for persuasive arguments, as it allows speakers to discuss possibilities."
+   },
+   {
+    "path": "ex:19b5fe20-56aa-4ad9-977a-e82322a3d11c.content.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of the sentence.",
+    "old": "We must convince the opinion.",
+    "new": "We must convince people of the opinion.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-concern",
+  "lessonId": "539f087e-93ab-4f1e-a719-42931d7f99ab",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.4.tip",
+    "severity": "error",
+    "problem": "Incorrect plural form for 'Klimawandel'.",
+    "old": "This noun is masculine (der), and its plural is 'Klimawandel' (used as singular).",
+    "new": "This noun is masculine (der) and is usually used in the singular form.",
+    "rejected": false
+   },
+   {
+    "path": "ex:c0c8ddcb-01d1-467e-bc89-3f5c96c4f2ef.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Translation does not match the English sentence.",
+    "old": "Wir sollten die Umwelt schützen.",
+    "new": "Wir müssen die Umwelt schützen.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-environment",
+  "lessonId": "55c064be-9d47-45bd-9b18-cd09502b03aa",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "error",
+    "problem": "Incorrect example is identical to the correct version",
+    "old": "Incorrect: Sie geht nicht schwimmen, weil es kalt ist. (Correct: Sie geht nicht schwimmen, weil es kalt ist.)",
+    "new": "Incorrect: Sie geht nicht schwimmen, es kalt ist. (Correct: Sie geht nicht schwimmen, weil es kalt ist.)",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-global-challenges",
+  "lessonId": "5412cf5c-c782-40d9-9a9b-9927670777f7",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.0.tip",
+    "severity": "error",
+    "problem": "Incorrect plural form for 'Klimawandel'.",
+    "old": "Remember that 'der' is masculine; the plural is 'die Klimawandel' (rarely used).",
+    "new": "Remember that 'der' is masculine; 'Klimawandel' is usually used in singular.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.1.tip",
+    "severity": "error",
+    "problem": "Incorrect plural form for 'Armut'.",
+    "old": "This noun is feminine; the plural is 'die Armut' (used in a general sense).",
+    "new": "This noun is feminine and is usually used in singular.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.5.tip",
+    "severity": "error",
+    "problem": "Incorrect grammatical gender for 'sozialer'.",
+    "old": "This is a compound noun phrase; 'die' is feminine and 'Gerechtigkeit' is also feminine.",
+    "new": "This is a compound noun phrase; 'die' is feminine and 'soziale Gerechtigkeit' is also feminine.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-what-would",
+  "lessonId": "56b0d0e9-b2d9-473f-b13c-0e27ae0819ad",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.4.text",
+    "severity": "error",
+    "problem": "Incorrect pronoun usage in German",
+    "old": "Gute Idee! Ich habe einen Vorschlag: Wir könnten zu mir kommen.",
+    "new": "Gute Idee! Ich habe einen Vorschlag: Ihr könntet zu mir kommen.",
+    "rejected": true
+   },
+   {
+    "path": "ex:669f720b-189b-4c09-bda7-04846ff55273.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect use of subjunctive mood in German",
+    "old": "Ich wünsche, ich könnte fliegen.",
+    "new": "Ich wünschte, ich könnte fliegen.",
+    "rejected": false
+   },
+   {
+    "path": "ex:669f720b-189b-4c09-bda7-04846ff55273.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect use of subjunctive mood in German",
+    "old": "Ich hätte gerne, dass ich fliegen könnte.",
+    "new": "Ich hätte gerne fliegen können.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-konjunktiv-i",
+  "lessonId": "57c06fba-5207-4d79-948a-4463b7dcf3fe",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of Konjunktiv I",
+    "old": "He said that he would come later.",
+    "new": "He said that he comes later.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.examples.1.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of Konjunktiv I",
+    "old": "She thinks that it will rain tomorrow.",
+    "new": "She thinks that it rains tomorrow.",
+    "rejected": true
+   },
+   {
+    "path": "ex:da5ae0c1-a4be-48ca-a019-2437104dc82a.content.targetText",
+    "severity": "error",
+    "problem": "Incorrect use of Konjunktiv I",
+    "old": "Er sagte, dass sie bald gehen würden.",
+    "new": "Er sagte, dass sie bald gingen.",
+    "rejected": true
+   },
+   {
+    "path": "ex:da5ae0c1-a4be-48ca-a019-2437104dc82a.content.acceptableVariants.0",
+    "severity": "error",
+    "problem": "Incorrect use of Konjunktiv I",
+    "old": "Er sagte, dass sie bald gehen.",
+    "new": "Er sagte, dass sie bald gingen.",
+    "rejected": true
+   },
+   {
+    "path": "ex:da5ae0c1-a4be-48ca-a019-2437104dc82a.content.acceptableVariants.1",
+    "severity": "error",
+    "problem": "Incorrect use of Konjunktiv I",
+    "old": "Er sagte, sie würden bald gehen.",
+    "new": "Er sagte, sie gingen bald.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-two-way-prepositions",
+  "lessonId": "586cfb50-53d7-48c1-be26-aa8fe33d567b",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.1.text",
+    "severity": "error",
+    "problem": "Incorrect article for 'Café' in dative case",
+    "old": "Ich bin in der Café.",
+    "new": "Ich bin im Café.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-register",
+  "lessonId": "5ae43458-6053-4a7c-9c46-4882006d19ef",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.0.pronunciation",
+    "severity": "minor",
+    "problem": "Pronunciation is incorrect.",
+    "old": "doer OON-tair-sheid",
+    "new": "der OON-tair-shid"
+   },
+   {
+    "path": "lesson.vocabulary.2.pronunciation",
+    "severity": "minor",
+    "problem": "Pronunciation is incorrect.",
+    "old": "doer re-SPEKT",
+    "new": "der re-SPEKT"
+   },
+   {
+    "path": "lesson.vocabulary.4.pronunciation",
+    "severity": "minor",
+    "problem": "Pronunciation is incorrect.",
+    "old": "doer KONT-exht",
+    "new": "der KON-text"
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-unit3-review",
+  "lessonId": "5da4e935-a109-40e8-bf46-9c368f619644",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect explanation of accusative vs dative",
+    "old": "Using the accusative instead of dative: 'Ich gebe das Buch dem Freund.' (I give the book to the friend.)",
+    "new": "Using the accusative instead of dative: 'Ich gebe dem Freund das Buch.' (I give the book to the friend.)",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-business-emails",
+  "lessonId": "60691829-5d76-4219-af70-fd180bb293a7",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.translation",
+    "severity": "error",
+    "problem": "Translation does not match the German sentence.",
+    "old": "I want to receive more information.",
+    "new": "I would like to receive more information.",
+    "rejected": false
+   },
+   {
+    "path": "ex:225d77bb-3965-409b-91e1-855da15706f2.explanation",
+    "severity": "error",
+    "problem": "Explanation incorrectly states 'die Anfrage' means 'the request'.",
+    "old": "'Die Anfrage' means 'the request', a common term in business communication.",
+    "new": "'Die Anfrage' means 'the inquiry', a common term in business communication.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-social-media",
+  "lessonId": "60cd0dad-7374-44d6-b30c-0b37fbef328b",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect example of verb placement in subordinate clause",
+    "old": "Forgetting to place the verb at the end of the subordinate clause, e.g., 'Ich glaube, dass es regnet' (correct) vs. 'Ich glaube, dass es regnet ist' (incorrect).",
+    "new": "Forgetting to place the verb at the end of the subordinate clause, e.g., 'Ich glaube, dass es regnet' (correct) vs. 'Ich glaube, dass es ist regnet' (incorrect).",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-at-the-shop",
+  "lessonId": "64710d91-7391-4a96-b9a6-7d7cf46c2d5f",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "ex:0912c359-f4fd-4de7-9ac8-9fbb7562ba3e.explanation",
+    "severity": "error",
+    "problem": "Translation explanation is incorrect",
+    "old": "The sentence means 'I want to buy a dress.'",
+    "new": "The sentence means 'I would like to buy a dress.'",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-unit1-review",
+  "lessonId": "65e837e8-37dd-41e2-9927-75b17ac3baca",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.0.pronunciation",
+    "severity": "minor",
+    "problem": "Pronunciation guide is slightly misleading",
+    "old": "dare tish",
+    "new": "dair tish"
+   },
+   {
+    "path": "lesson.vocabulary.2.pronunciation",
+    "severity": "minor",
+    "problem": "Pronunciation guide is slightly misleading",
+    "old": "dahs boo-k",
+    "new": "dahs book"
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-adjective-all-cases",
+  "lessonId": "6196f821-bd0a-4859-b592-05d92e561a7c",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "ex:06afe049-0479-4138-b384-39b6a062eb25.explanation",
+    "severity": "error",
+    "problem": "Incorrect case explanation for adjective ending",
+    "old": "The neuter noun 'Buch' requires the adjective ending '-e' in nominative case.",
+    "new": "The neuter noun 'Buch' requires the adjective ending '-e' in accusative case.",
+    "rejected": true
+   },
+   {
+    "path": "ex:8ddbed70-a4e3-4295-857e-69260209c1b7.content.options.0",
+    "severity": "error",
+    "problem": "Incorrect adjective form for accusative case",
+    "old": "den hunden",
+    "new": "den großen",
+    "rejected": true
+   },
+   {
+    "path": "ex:8ddbed70-a4e3-4295-857e-69260209c1b7.content.options.1",
+    "severity": "error",
+    "problem": "Missing adjective in option",
+    "old": "den Hund",
+    "new": "den großen Hund",
+    "rejected": true
+   },
+   {
+    "path": "ex:8ddbed70-a4e3-4295-857e-69260209c1b7.content.options.2",
+    "severity": "error",
+    "problem": "Incorrect adjective form for accusative case",
+    "old": "den Hunde",
+    "new": "den großen",
+    "rejected": true
+   },
+   {
+    "path": "ex:8ddbed70-a4e3-4295-857e-69260209c1b7.content.options.3",
+    "severity": "error",
+    "problem": "Incorrect case for adjective ending",
+    "old": "der Hund",
+    "new": "den großen Hund",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-arts-vocab",
+  "lessonId": "682548d6-c8f6-4b80-bce9-09a0d929f26d",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Incorrect genitive article for feminine nouns",
+    "old": "In German, the genitive case is often used to show possession. It answers the question 'whose?' and is important in formal writing and speech. To form the genitive, add an '-s' to masculine and neuter nouns and use 'der' for feminine nouns. Note that the articles change accordingly.",
+    "new": "In German, the genitive case is often used to show possession. It answers the question 'whose?' and is important in formal writing and speech. To form the genitive, add an '-s' to masculine and neuter nouns and use 'der' for feminine nouns in singular. Note that the articles change accordingly.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-childhood",
+  "lessonId": "68c02993-e8a0-4404-beb9-7be44e2005d9",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.7.text",
+    "severity": "error",
+    "problem": "Incorrect auxiliary verb for 'Abenteuer'",
+    "old": "Das klingt toll! Hatten wir Abenteuer?",
+    "new": "Das klingt toll! Hattest du Abenteuer?",
+    "rejected": false
+   },
+   {
+    "path": "lesson.dialogue.lines.7.translation",
+    "severity": "error",
+    "problem": "Translation does not match corrected German text",
+    "old": "That sounds great! Did we have adventures?",
+    "new": "That sounds great! Did you have adventures?",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-concessive",
+  "lessonId": "68ca2384-acdd-46f0-a2ae-f925f277d1b0",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "ex:112459e5-d641-43be-8a89-20f22a570629.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation for the use of 'obwohl'.",
+    "old": "'Obwohl' is the correct choice to show contrast between having no time and still coming.",
+    "new": "'Trotzdem' is correct here: it follows a main clause and shows the contrast between having no time and still coming. 'Obwohl' would need to start a subordinate clause.",
+    "rejected": false
+   },
+   {
+    "path": "ex:112459e5-d641-43be-8a89-20f22a570629.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect correct answer for the sentence.",
+    "old": "obwohl",
+    "new": "trotzdem",
+    "rejected": false
+   },
+   {
+    "path": "ex:112459e5-d641-43be-8a89-20f22a570629.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for the sentence.",
+    "old": "obwohl",
+    "new": "trotzdem",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-dative-pronouns",
+  "lessonId": "68eed587-0801-480d-9c44-108172a30611",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.breakdown",
+    "severity": "error",
+    "problem": "Incorrect pronoun explanation",
+    "old": "'dir' is the dative pronoun for 'you', indicating the person receiving the action.",
+    "new": "'mir' is the dative pronoun for 'me', indicating the person receiving the action.",
+    "rejected": true
+   },
+   {
+    "path": "ex:fbc9346a-ac3e-44ae-be2d-c4bdc9fc435a.explanation",
+    "severity": "error",
+    "problem": "Incorrect pronoun explanation",
+    "old": "The sentence conveys that you have a task intended for someone, using the informal 'dich'.",
+    "new": "The sentence conveys that you have a task intended for someone, using the informal 'dir'.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-daily-routine",
+  "lessonId": "69f683ca-5fe2-4523-829a-f2ba9ca7c7ab",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.1.1",
+    "severity": "error",
+    "problem": "Incorrect verb form for 'du' with 'essen'.",
+    "old": "gehst (go)",
+    "new": "isst (eat)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "minor",
+    "problem": "Incorrect example of a common mistake; 'Ich geh' is colloquial, not incorrect.",
+    "old": "Using the wrong verb form: 'Ich geh' (I go) instead of 'Ich gehe'.",
+    "new": "Using the wrong verb form: 'Ich geht' (I goes) instead of 'Ich gehe'."
+   },
+   {
+    "path": "ex:ebb08095-8d9d-4149-973f-e22808f5daab.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect case after 'nach'; should be accusative 'die Schule'.",
+    "old": "der Schule",
+    "new": "die Schule",
+    "rejected": true
+   },
+   {
+    "path": "ex:ebb08095-8d9d-4149-973f-e22808f5daab.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect case after 'nach'; should be accusative 'die Schule'.",
+    "old": "der Schule",
+    "new": "die Schule",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-food",
+  "lessonId": "6fb8b1c5-d554-4bce-bbcf-b1d8221f8151",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.1.translation",
+    "severity": "error",
+    "problem": "Incorrect English translation",
+    "old": "Good day, what would you like else?",
+    "new": "Good day, what else would you like?",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.3.tip",
+    "severity": "error",
+    "problem": "Incorrect grammatical gender information",
+    "old": "'Die' indicates that 'Apfel' is feminine in the plural form, while 'der' is for singular.",
+    "new": "'Der' indicates that 'Apfel' is masculine in the singular form, while 'die' is for plural.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-discourse",
+  "lessonId": "6e6062fe-d962-430f-b3f7-c5c4b228bf6e",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "ex:15980930-d3cf-4748-9852-aabc62166856.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of 'dennoch'.",
+    "old": "'Dennoch' translates to 'despite that', indicating contrast.",
+    "new": "'Dennoch' translates to 'nevertheless', indicating contrast.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-unit3-review",
+  "lessonId": "6fba0d92-7771-491e-ae74-0a8df2eeec86",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.culture.funFact",
+    "severity": "minor",
+    "problem": "Tipping is not typically included in the bill in Germany.",
+    "old": "In some regions, it's customary to tip about 10% in restaurants, and it is often included in the bill.",
+    "new": "In some regions, it's customary to tip about 10% in restaurants, but it is not typically included in the bill."
+   },
+   {
+    "path": "lesson.vocabulary.3.pronunciation",
+    "severity": "minor",
+    "problem": "Incorrect pronunciation guide for 'möchten'.",
+    "old": "MERK-ten",
+    "new": "MERK-tuhn"
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-complaint",
+  "lessonId": "7271c6b1-57de-4ece-b5cd-87e243557f4f",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.1.1",
+    "severity": "error",
+    "problem": "Incorrect translation of 'Wir bitten um Entschuldigung.'",
+    "old": "We request an apology.",
+    "new": "We apologize.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.5.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'Ich habe keine Entschuldigung erhalten.'",
+    "old": "I did not receive an apology.",
+    "new": "I have not received an apology.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-hobbies",
+  "lessonId": "70778226-e43e-4915-82d3-75b171052490",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.2.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect use of 'Sport' in sentence",
+    "old": "Ich spiele Sport.",
+    "new": "Ich mache Sport.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.dialogue.lines.4.text",
+    "severity": "error",
+    "problem": "Incorrect use of 'kann' with 'hören'",
+    "old": "Ich kann die Musik hören, wenn wir warten.",
+    "new": "Ich kann Musik hören, während wir warten.",
+    "rejected": false
+   },
+   {
+    "path": "ex:f68e46d1-e624-44ea-b4ec-9092d3d41d1b.content.targetText",
+    "severity": "error",
+    "problem": "Incorrect translation of 'play sports'",
+    "old": "Ich möchte Sport treiben.",
+    "new": "Ich möchte Sport machen.",
+    "rejected": true
+   },
+   {
+    "path": "ex:f68e46d1-e624-44ea-b4ec-9092d3d41d1b.content.acceptableVariants.0",
+    "severity": "error",
+    "problem": "Incorrect translation of 'play sports'",
+    "old": "Ich will Sport machen.",
+    "new": "Ich möchte Sport treiben.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-quantities",
+  "lessonId": "73ee62cb-311c-4053-887d-983fb6bde4ac",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.1.translation",
+    "severity": "error",
+    "problem": "Incorrect article in English translation",
+    "old": "I am eating a bread.",
+    "new": "I am eating bread.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.dialogue.lines.4.translation",
+    "severity": "error",
+    "problem": "Incorrect article in English translation",
+    "old": "Would you like a bread?",
+    "new": "Would you like some bread?",
+    "rejected": false
+   },
+   {
+    "path": "lesson.dialogue.lines.5.translation",
+    "severity": "error",
+    "problem": "Incorrect article in English translation",
+    "old": "Yes, I would like a bread.",
+    "new": "Yes, I would like some bread.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.2.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Incorrect article in English translation",
+    "old": "I am buying a bread.",
+    "new": "I am buying bread.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-telling-story",
+  "lessonId": "733c3a98-def5-429c-a19e-01d654c5736c",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "ex:7c87ee5c-d4d4-42eb-97c2-9bd910bf8e27.content.ttsText",
+    "severity": "error",
+    "problem": "Incorrect past tense form used in German sentence",
+    "old": "Ich fand ein Abenteuer auf meiner Reise.",
+    "new": "Ich hatte ein Abenteuer auf meiner Reise.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-present-regular",
+  "lessonId": "7438f56a-3bd0-4ae3-aed7-9c639e3b2936",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.2.text",
+    "severity": "error",
+    "problem": "Unidiomatic question structure in German",
+    "old": "Das Buch ist interessant?",
+    "new": "Ist das Buch interessant?",
+    "rejected": false
+   },
+   {
+    "path": "lesson.summary.keyPoints.1",
+    "severity": "minor",
+    "problem": "Irrelevant to the lesson's focus on regular verbs",
+    "old": "The articles der, die, and das indicate the gender of nouns.",
+    "new": "Regular verbs are conjugated by removing '-en' and adding specific endings."
+   },
+   {
+    "path": "lesson.summary.keyPoints.2",
+    "severity": "minor",
+    "problem": "Irrelevant to the lesson's focus on regular verbs",
+    "old": "Modal verbs like können and möchten express ability and desire.",
+    "new": "The endings for regular verbs are: -e, -st, -t, -en, -t, -en."
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-praeteritum",
+  "lessonId": "75116014-7df0-4b7f-855e-1c23b5b2467d",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "error",
+    "problem": "Incorrect explanation for past form usage",
+    "old": "'Ich habe' should not be used with a past form; use 'Ich hatte'.",
+    "new": "'Ich habe gehabt' is incorrect; use 'Ich hatte'.",
+    "rejected": false
+   },
+   {
+    "path": "ex:617e801e-81db-4f13-b993-a991e31b7ba4.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation for past tense usage",
+    "old": "'Haben' is the correct form used with 'wir' to indicate possession in the past.",
+    "new": "'Hatten' is the Präteritum of 'haben' for 'wir', used to talk about possession in the past.",
+    "rejected": false
+   },
+   {
+    "path": "ex:617e801e-81db-4f13-b993-a991e31b7ba4.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect answer for past tense sentence",
+    "old": "haben",
+    "new": "hatten",
+    "rejected": false
+   },
+   {
+    "path": "ex:617e801e-81db-4f13-b993-a991e31b7ba4.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for past tense sentence",
+    "old": "haben",
+    "new": "hatten",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-travel",
+  "lessonId": "7725164f-ff4b-4a5d-8f0e-bec6fd636c3a",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "error",
+    "problem": "Incorrect explanation about verb placement in German sentences.",
+    "old": "'Ich möchte essen.' (I would like to eat.) - Remember the verb comes last in the sentence.",
+    "new": "'Ich möchte essen.' (I would like to eat.) - Remember the main verb comes at the end of the clause.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.5.tip",
+    "severity": "minor",
+    "problem": "Misleading tip about using 'kann' with 'fliegen'.",
+    "old": "This is a regular verb, use 'kann' to express ability: 'Ich kann fliegen.'",
+    "new": "This is a regular verb, use 'kann' to express ability: 'Ich kann fliegen.' (I can fly)"
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-telling-story",
+  "lessonId": "77df47e9-868d-41e7-900a-081e9848fa12",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.introduction.text",
+    "severity": "minor",
+    "problem": "Konjunktiv II is not used for politeness in storytelling context",
+    "old": "In this lesson, you will learn how to tell a story in German using the past tense. You will practice using subordinate clauses and the Konjunktiv II for politeness.",
+    "new": "In this lesson, you will learn how to tell a story in German using the past tense. You will practice using subordinate clauses and the Konjunktiv II."
+   },
+   {
+    "path": "ex:2b827e7c-49dc-4fa7-99c5-64e12087bfa4.content.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of sentence order",
+    "old": "The story was exciting at the end.",
+    "new": "The story was exciting.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-science-vocab",
+  "lessonId": "79a7a935-21f4-45b5-bcd3-39da52f10f90",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.0.1",
+    "severity": "error",
+    "problem": "Incorrect Konjunktiv II form for 'gehen'",
+    "old": "ginge",
+    "new": "ginge (correct form is 'ginge', but contextually 'würde gehen' is more common)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "minor",
+    "problem": "Explanation could be misleading about 'gehen'",
+    "old": "The Konjunktiv II is used to express hypothetical situations, wishes, or polite requests. It is formed from the simple past tense of the verb, often with changes to the stem vowel. For example, 'gehen' (to go) becomes 'ginge' in the Konjunktiv II. Use this structure to discuss scientific ideas that are not currently true.",
+    "new": "The Konjunktiv II is used to express hypothetical situations, wishes, or polite requests. It is formed from the simple past tense of the verb, often with changes to the stem vowel. For example, 'gehen' (to go) can become 'ginge' in the Konjunktiv II, though 'würde gehen' is more commonly used. Use this structure to discuss scientific ideas that are not currently true."
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-final-review",
+  "lessonId": "7a7d7e96-18fd-4f21-add7-2dad9edda68a",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.1.breakdown",
+    "severity": "error",
+    "problem": "Incorrect breakdown of main and subordinate clauses",
+    "old": "Main clause (Ich kann reisen) + subordinate clause (wenn ich Geld spare).",
+    "new": "Subordinate clause (Wenn ich Geld spare) + main clause (kann ich reisen).",
+    "rejected": true
+   },
+   {
+    "path": "ex:cc6543cd-57f0-42ad-a2d6-d0d8cac825e7.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of the word 'viel'",
+    "old": "'Viel' means 'a lot', which fits the context of traveling in your dreams.",
+    "new": "'Viel' means 'a lot', which fits the context of traveling extensively.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-idioms",
+  "lessonId": "7d507e21-f78c-45f1-acd9-bd9b440874d0",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect idiom number in German",
+    "old": "Translating idioms word for word: 'Ich bin auf Wolke neun' is wrong – German uses 'sieben'.",
+    "new": "Translating idioms word for word: 'Ich bin auf Wolke neun' is wrong – German uses 'sieben' (seven).",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.4.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of idiom number",
+    "old": "to be on cloud nine",
+    "new": "to be on cloud seven",
+    "rejected": true
+   },
+   {
+    "path": "lesson.dialogue.lines.1.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of idiom number",
+    "old": "I'm on cloud nine! But what if the presentation goes wrong?",
+    "new": "I'm on cloud seven! But what if the presentation goes wrong?",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-unit6-review",
+  "lessonId": "7f1df288-3843-4e68-ab0c-b30ca7c1820f",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.culture.funFact",
+    "severity": "minor",
+    "problem": "'Küche' is just the German word for 'kitchen', not a special concept.",
+    "old": "Many German households have a 'Küche', which is a room dedicated to cooking and often features modern appliances.",
+    "new": "Many German households have a kitchen ('Küche'), which is a room dedicated to cooking and often features modern appliances."
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.1.2",
+    "severity": "error",
+    "problem": "Accusative form for feminine nouns should be the same as nominative.",
+    "old": "die Lampe",
+    "new": "die Lampe",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.2.2",
+    "severity": "error",
+    "problem": "Accusative form for neuter nouns should be the same as nominative.",
+    "old": "das Buch",
+    "new": "das Buch",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "minor",
+    "problem": "Example sentence is redundant and not a mistake.",
+    "old": "Confusing 'der' (nominative) and 'den' (accusative) for masculine nouns. Example: Correct: 'Ich sehe den Tisch.'",
+    "new": "Confusing 'der' (nominative) and 'den' (accusative) for masculine nouns."
+   },
+   {
+    "path": "ex:d65c2bbf-5822-4ba1-9257-b0b284e40503.explanation",
+    "severity": "error",
+    "problem": "The explanation incorrectly refers to the dative case instead of accusative.",
+    "old": "The correct article in the dative case is 'dem', as it refers to 'the table' in this context.",
+    "new": "The correct article in the accusative case is 'den', as it refers to 'the table' in this context.",
+    "rejected": true
+   },
+   {
+    "path": "ex:d65c2bbf-5822-4ba1-9257-b0b284e40503.content.correctAnswer",
+    "severity": "error",
+    "problem": "The correct answer should be 'den' for accusative case.",
+    "old": "dem",
+    "new": "den",
+    "rejected": true
+   },
+   {
+    "path": "ex:d65c2bbf-5822-4ba1-9257-b0b284e40503.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "The acceptable answer should be 'den' for accusative case.",
+    "old": "dem",
+    "new": "den",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-unit7-review",
+  "lessonId": "802cb0e3-a911-4e7e-a3fd-3fee58ba451b",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.3.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect article for 'Schweiz'",
+    "old": "Die Reise nach Schweiz war sehr schön.",
+    "new": "Die Reise in die Schweiz war sehr schön.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-collocations",
+  "lessonId": "834400c8-9210-4fa7-bff9-42ba21c4af57",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "ex:4e593168-4dfd-4d48-b120-5b4a0e5d653b.explanation",
+    "severity": "error",
+    "problem": "Incorrect collocation explanation",
+    "old": "The correct collocation is 'to take a decision'.",
+    "new": "The correct collocation is 'to take a risk'.",
+    "rejected": true
+   },
+   {
+    "path": "ex:4e593168-4dfd-4d48-b120-5b4a0e5d653b.content.options.0",
+    "severity": "error",
+    "problem": "Incorrect option for collocation",
+    "old": "decision",
+    "new": "risk",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-news",
+  "lessonId": "817e284f-c751-4307-83d5-e3f6e26fddc3",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.1.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of Konjunktiv II formation",
+    "old": "The Konjunktiv II is often used to express politeness or hypothetical situations. You form it by using the simple past form of the verb and adding the appropriate endings.",
+    "new": "The Konjunktiv II is often used to express politeness or hypothetical situations. For regular verbs, it is formed by using the simple past form and adding the appropriate endings. For many irregular verbs, a special form is used, often involving an umlaut.",
+    "rejected": true
+   },
+   {
+    "path": "ex:a97b789e-fa93-45c5-84b0-49711f05a537.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for the sentence context",
+    "old": "Nachricht",
+    "new": "",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-unit4-review",
+  "lessonId": "84082736-adf4-4074-9855-b43e195bfbaa",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.0.1",
+    "severity": "error",
+    "problem": "Incorrect verb form for 'Ich' in Perfekt tense",
+    "old": "haben",
+    "new": "habe",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.1.1",
+    "severity": "error",
+    "problem": "Incorrect auxiliary verb for 'Er' in Perfekt tense",
+    "old": "sein",
+    "new": "ist",
+    "rejected": true
+   },
+   {
+    "path": "lesson.introduction.text",
+    "severity": "error",
+    "problem": "Incorrect mention of Präteritum tense, which is not covered in this lesson",
+    "old": "In this lesson, you will review vocabulary and grammar related to health and the body. You will practice using the Perfekt and Präteritum tenses as well as two-way prepositions in context.",
+    "new": "In this lesson, you will review vocabulary and grammar related to health and the body. You will practice using the Perfekt tense as well as two-way prepositions in context.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-numbers-prices",
+  "lessonId": "8a513f91-0606-4dd5-a771-f3b76d40ae4e",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.3.1",
+    "severity": "error",
+    "problem": "Incorrect translation of 250",
+    "old": "two hundred fifty",
+    "new": "two hundred and fifty",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of number formation",
+    "old": "In German, numbers from 21 to 99 are formed by combining the unit digit with the tens digit. For example, 21 is 'einundzwanzig' (one and twenty). For numbers 100 and above, the hundreds are named first, followed by the tens and units.",
+    "new": "In German, numbers from 21 to 99 are formed by combining the unit digit with the tens digit, with the unit coming first. For example, 21 is 'einundzwanzig' (one and twenty). For numbers 100 and above, the hundreds are named first, followed by the tens and units.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.0.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect use of definite article with numbers",
+    "old": "Ich habe die Eins.",
+    "new": "Ich habe eine Eins.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.1.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect use of definite article with numbers",
+    "old": "Ich habe die Zwei.",
+    "new": "Ich habe eine Zwei.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.2.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect use of definite article with numbers",
+    "old": "Ich sehe die Drei.",
+    "new": "Ich sehe eine Drei.",
+    "rejected": false
+   },
+   {
+    "path": "ex:8a2dfa86-5790-4af9-b035-1cf9c82cbc3f.content.correctOrder.2",
+    "severity": "error",
+    "problem": "Incorrect word order in sentence",
+    "old": "ein",
+    "new": "Auto",
+    "rejected": true
+   },
+   {
+    "path": "ex:8a2dfa86-5790-4af9-b035-1cf9c82cbc3f.content.correctOrder.3",
+    "severity": "error",
+    "problem": "Incorrect word order in sentence",
+    "old": "Auto",
+    "new": "kaufen",
+    "rejected": true
+   },
+   {
+    "path": "ex:8a2dfa86-5790-4af9-b035-1cf9c82cbc3f.content.correctOrder.4",
+    "severity": "error",
+    "problem": "Incorrect word order in sentence",
+    "old": "kaufen",
+    "new": "ein",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-wenn-clauses",
+  "lessonId": "88571c48-2035-400a-badd-d8037589e80b",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.1.translation",
+    "severity": "error",
+    "problem": "Incorrect future tense translation",
+    "old": "If you do that, you will be happy.",
+    "new": "If you do that, you are happy.",
+    "rejected": true
+   },
+   {
+    "path": "ex:b7010bde-0e6f-47af-b700-10bec10bdd76.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect verb form for present tense",
+    "old": "schlecht sein",
+    "new": "schlecht ist",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-cultural-diff",
+  "lessonId": "8e9891f2-8dab-46cd-91ee-e88576c8c45c",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "ex:99e2b2f4-2d40-4ebc-8c6c-e060cc662276.explanation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'der Brauch'.",
+    "old": "'Der Brauch' translates to 'tradition' in English.",
+    "new": "'Der Brauch' translates to 'custom' in English.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-satzklammer",
+  "lessonId": "8e68364e-e011-4c6d-a508-676a2671890e",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.2.1",
+    "severity": "error",
+    "problem": "Incorrect placement of 'das Buch' in the sentence bracket example",
+    "old": "das Buch (the book)",
+    "new": "lesen (read)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.examples.0.breakdown",
+    "severity": "error",
+    "problem": "Incorrect explanation of sentence structure",
+    "old": "Here, 'Der Schüler' is the subject in the first position, and 'liest' is the finite verb in the second position.",
+    "new": "Here, 'Der Schüler' is the subject in the first position, 'liest' is the finite verb in the second position, and 'das Buch' is the object.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "minor",
+    "problem": "Misleading statement about subject-verb order",
+    "old": "Placing the subject after the verb: Correct order is subject first, followed by the verb.",
+    "new": "Placing the finite verb before the subject in main clauses: Correct order is subject first, followed by the finite verb."
+   },
+   {
+    "path": "ex:903df99c-2c52-4150-856b-4e0071340852.content.options.1",
+    "severity": "minor",
+    "problem": "Option is also a correct sentence bracket usage",
+    "old": "Einen Apfel esse ich jeden Tag.",
+    "new": "Ich esse jeden Tag einen Apfel."
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-analyze-texts",
+  "lessonId": "8fb655d7-446b-44a9-a1f0-86201f5ca11b",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "error",
+    "problem": "Incorrect explanation of Konjunktiv II forms",
+    "old": "Confusing Konjunktiv II forms: 'wäre' instead of 'war' for wishes.",
+    "new": "Confusing Konjunktiv II forms: 'war' instead of 'wäre' for wishes.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-sein",
+  "lessonId": "8ed45f76-0cc2-4c8e-b7cd-10eb866677fb",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.1.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'Sie sind nett.'",
+    "old": "They are nice.",
+    "new": "You are nice.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.dialogue.lines.4.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'Was ist das für ein Cafe?'",
+    "old": "What kind of cafe is this?",
+    "new": "What kind of cafe is it?",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-polite-requests",
+  "lessonId": "9178a62d-06da-45af-98e7-f7ce35134d0f",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.2.text",
+    "severity": "error",
+    "problem": "Unidiomatic use of 'würde' for ordering",
+    "old": "Ich würde einen Cappuccino bestellen.",
+    "new": "Ich hätte gerne einen Cappuccino.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.dialogue.lines.4.text",
+    "severity": "error",
+    "problem": "Mixing 'könnte' with 'würden' is discouraged",
+    "old": "Ja, könnten Sie mir auch ein Stück Kuchen bringen?",
+    "new": "Ja, würden Sie mir auch ein Stück Kuchen bringen?",
+    "rejected": true
+   },
+   {
+    "path": "ex:9b862d8e-d795-4d34-996c-8d45c7da3c13.explanation",
+    "severity": "error",
+    "problem": "Explanation does not match the correct answer",
+    "old": "The first option is a polite request using 'möchte', which is more appropriate in a restaurant setting.",
+    "new": "The first option is a polite request using 'möchte', which is appropriate in a restaurant setting.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-argument",
+  "lessonId": "94315d64-57a5-4631-a9c9-7cee58dfbd76",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.2.1",
+    "severity": "error",
+    "problem": "Incorrect Konjunktiv II form for 'machen'",
+    "old": "machte",
+    "new": "machte (würde machen)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.1.pronunciation",
+    "severity": "minor",
+    "problem": "Pronunciation guide is slightly misleading",
+    "old": "oo-ber-tsu-gen",
+    "new": "oo-ber-tsoy-gen"
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-directions",
+  "lessonId": "9704cd43-0f47-45d8-9d11-087143c808e5",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "ex:6feef137-5fbd-4433-bb9e-9cb83a5e5521.content.translation",
+    "severity": "error",
+    "problem": "Incorrect English translation of the reordered sentence",
+    "old": "You go left the street.",
+    "new": "Go left on the street.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-indirect-speech",
+  "lessonId": "9bb07d76-caed-4546-ae6b-f834853417b5",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Incorrect use of Konjunktiv II for politeness",
+    "old": "When using indirect speech, you may need to use the Konjunktiv II to express politeness or hypothetical situations.",
+    "new": "When using indirect speech, you may need to use the Konjunktiv I to express reported speech, while Konjunktiv II is used for hypothetical situations.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.summary.keyPoints.0",
+    "severity": "error",
+    "problem": "Incorrect use of Konjunktiv II for indirect speech",
+    "old": "Indirect speech is formed using 'dass' and the Konjunktiv II.",
+    "new": "Indirect speech is formed using 'dass' and the Konjunktiv I.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "error",
+    "problem": "Incorrect explanation of Konjunktiv II usage",
+    "old": "Using the indicative instead of Konjunktiv II: Use 'möchte' instead of 'will'.",
+    "new": "Using the indicative instead of Konjunktiv I: Use 'möchte' instead of 'will' in hypothetical contexts.",
+    "rejected": true
+   },
+   {
+    "path": "ex:3556d7f4-e3d6-4615-95f7-510c6a7ca7a2.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for present tense",
+    "old": "sagen",
+    "new": "sagte",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-memorable",
+  "lessonId": "91d2c4a3-da30-4a2d-bae1-3caee270a823",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "error",
+    "problem": "Incorrect example sentence for mistake description",
+    "old": "Forgetting to place the verb at the end: 'Ich bleibe, weil es regnet.' (Correct: 'Ich bleibe zu Hause, weil es regnet.')",
+    "new": "Forgetting to place the verb at the end: 'Ich bleibe zu Hause, weil es regnet.' (Correct: 'Ich bleibe zu Hause, weil es regnet.')",
+    "rejected": true
+   },
+   {
+    "path": "ex:6b2659fd-2222-48f6-85fc-f1fe4228ba38.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect correct answer for the context",
+    "old": "Moment",
+    "new": "Erlebnis",
+    "rejected": true
+   },
+   {
+    "path": "ex:6b2659fd-2222-48f6-85fc-f1fe4228ba38.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for the context",
+    "old": "Moment",
+    "new": "Erlebnis",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-feelings",
+  "lessonId": "9e38cbcc-fab8-44ba-b512-97f6970e0fc8",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.0.term",
+    "severity": "error",
+    "problem": "Incorrect article for 'Freude'.",
+    "old": "der Freude",
+    "new": "die Freude",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.examples.0.translation",
+    "severity": "minor",
+    "problem": "Translation is too literal; 'Glück' often means 'luck'.",
+    "old": "We have happiness.",
+    "new": "We are lucky."
+   },
+   {
+    "path": "lesson.grammar.0.examples.0.breakdown",
+    "severity": "minor",
+    "problem": "Incorrect case explanation; 'Glück' is not in accusative.",
+    "old": "The subject 'wir' (we) uses the verb 'haben' (have) and the emotion 'Glück' (happiness) in the accusative case.",
+    "new": "The subject 'wir' (we) uses the verb 'haben' (have) and the emotion 'Glück' (luck/happiness)."
+   },
+   {
+    "path": "lesson.dialogue.lines.6.translation",
+    "severity": "minor",
+    "problem": "Translation is too literal; 'Traurigkeit' is a noun, not a verb.",
+    "old": "Yes, and sometimes I also feel sadness.",
+    "new": "Yes, and sometimes I also have sadness."
+   },
+   {
+    "path": "ex:66b0b801-b90a-4dfe-ba0d-76a0aaa9051e.explanation",
+    "severity": "error",
+    "problem": "Incorrect article for 'Freude'.",
+    "old": "'Der Freude' translates to 'joy' in English.",
+    "new": "'Die Freude' translates to 'joy' in English.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-agree-disagree",
+  "lessonId": "9e83d1ff-f397-431e-a600-7f841499d26a",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.1.original",
+    "severity": "error",
+    "problem": "Incorrect use of 'Argumente' in context",
+    "old": "Ich bin nicht einverstanden, weil du keine Argumente hast.",
+    "new": "Ich bin nicht einverstanden, weil du keine überzeugenden Argumente hast.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.examples.1.translation",
+    "severity": "error",
+    "problem": "Translation does not match corrected German sentence",
+    "old": "I disagree because you have no arguments.",
+    "new": "I disagree because you have no convincing arguments.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.2.translation",
+    "severity": "minor",
+    "problem": "Translation is not idiomatic",
+    "old": "not agree",
+    "new": "to disagree"
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-opinions",
+  "lessonId": "9bc44f20-1af2-4f54-89b6-3a86003d46a8",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.4.pronunciation",
+    "severity": "minor",
+    "problem": "Pronunciation is incorrect.",
+    "old": "dehr GROONT",
+    "new": "dehr GROOND"
+   },
+   {
+    "path": "ex:80e516b3-7d13-4251-a3e9-01049137cff1.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "'Denn' is not acceptable here because it requires a main clause.",
+    "old": "denn",
+    "new": "",
+    "rejected": true
+   },
+   {
+    "path": "ex:fe0d63cc-cd7b-40ed-ab9f-2ae591b297a1.content.translation",
+    "severity": "error",
+    "problem": "Translation does not match the correct order.",
+    "old": "That is important in my opinion because",
+    "new": "In my opinion, that is important because",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-accusative-intro",
+  "lessonId": "a491c00c-7918-4cb4-86c5-73cb2a992d35",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.1.text",
+    "severity": "error",
+    "problem": "Incorrect article for 'Banane' in accusative case",
+    "old": "Hallo Lena! Ich kaufe Äpfel und Banane.",
+    "new": "Hallo Lena! Ich kaufe Äpfel und eine Banane.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-redewendungen",
+  "lessonId": "a1d393c7-132f-4735-b07f-c87804037b20",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.3.term",
+    "severity": "error",
+    "problem": "Incorrect idiom; should be 'das Übel an der Wurzel packen'",
+    "old": "das Kind beim Schopf packen",
+    "new": "das Übel an der Wurzel packen",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.3.definition",
+    "severity": "error",
+    "problem": "Incorrect definition for idiom",
+    "old": "To address a problem promptly and directly.",
+    "new": "To tackle a problem at its root.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.3.translation",
+    "severity": "error",
+    "problem": "Incorrect translation for idiom",
+    "old": "to take the child by the hair",
+    "new": "to tackle the root of the problem",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.3.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect example sentence for idiom",
+    "old": "Wir müssen das Problem jetzt beim Schopf packen.",
+    "new": "Wir müssen das Übel an der Wurzel packen.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.3.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Incorrect translation for example sentence",
+    "old": "We need to tackle the problem directly now.",
+    "new": "We need to tackle the root of the problem now.",
+    "rejected": true
+   },
+   {
+    "path": "ex:d9742920-3f87-4416-b759-d94fc60936e8.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect translation for idiom",
+    "old": "das Kind beim Schopf packen",
+    "new": "das Übel an der Wurzel packen",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-persuasive-lang",
+  "lessonId": "ab341f71-f87b-4e8d-a124-355950f8513a",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.2.1",
+    "severity": "error",
+    "problem": "Incorrect Konjunktiv II form for 'machen'",
+    "old": "machte",
+    "new": "machte (würde machen)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "minor",
+    "problem": "Misleading advice about 'würde' usage",
+    "old": "Omitting 'würde' in conditional sentences. Always include 'würde' when expressing what would happen.",
+    "new": "Omitting 'würde' in conditional sentences. Use 'würde' with infinitive for most verbs, but not with 'sein' or 'haben'."
+   },
+   {
+    "path": "lesson.dialogue.lines.4.text",
+    "severity": "error",
+    "problem": "Unidiomatic use of 'Überzeugung'",
+    "old": "Wenn wir die Überzeugung unserer Teamkollegen gewinnen, könnten wir Unterstützung bekommen.",
+    "new": "Wenn wir unsere Teamkollegen überzeugen, könnten wir Unterstützung bekommen.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-subordinate-clauses",
+  "lessonId": "a80e1d5a-a9ae-40d8-847c-3c2361c2c3c8",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "ex:57311788-47da-4a8d-916d-cc3c29d9c992.content.ttsText",
+    "severity": "error",
+    "problem": "The sentence uses 'weil' incorrectly; it should use 'dass'.",
+    "old": "Ich glaube, weil es wichtig ist.",
+    "new": "Ich glaube, dass es wichtig ist.",
+    "rejected": false
+   },
+   {
+    "path": "ex:57311788-47da-4a8d-916d-cc3c29d9c992.content.options.0",
+    "severity": "error",
+    "problem": "The translation does not match the corrected sentence.",
+    "old": "I believe because it is important.",
+    "new": "I believe that it is important.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-modal-verbs",
+  "lessonId": "ae34c0da-3c8e-43aa-b961-5a955cf08507",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect form 'kannes' should be 'kann es'.",
+    "old": "Saying 'Ich kannes' instead of 'Ich kann.' (Correct form has no 'es')",
+    "new": "Saying 'Ich kannes' instead of 'Ich kann es.' (Correct form separates 'kann' and 'es')",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-unit6-review",
+  "lessonId": "ae37e5a5-a4a6-4438-a01e-5178ba021310",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.3.tip",
+    "severity": "error",
+    "problem": "Incorrect plural form for 'der Fortschritt'.",
+    "old": "Masculine noun; plural is 'die Fortschritte'.",
+    "new": "Masculine noun; plural is 'die Fortschritte', but 'Fortschritt' is usually uncountable.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.1.tip",
+    "severity": "error",
+    "problem": "Incorrect plural form for 'der Erfinder'.",
+    "old": "This noun is masculine; the plural is 'die Erfinder'.",
+    "new": "This noun is masculine; the plural is 'die Erfinder', but 'Erfinder' is often used in singular.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-formal-speech",
+  "lessonId": "afbdffdd-ec9c-4f2d-91ca-8dfa572e22b4",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.5.pronunciation",
+    "severity": "error",
+    "problem": "Incorrect pronunciation guide for 'die Herausforderung'",
+    "old": "dee heh-rau-sfor-doong",
+    "new": "dee heh-rau-sfohr-doong",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-social-issues",
+  "lessonId": "b1ea99ef-7d90-49f9-a68f-315dc7c3caca",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.4.pronunciation",
+    "severity": "minor",
+    "problem": "Pronunciation is slightly off for 'recyceln'.",
+    "old": "ree-tsy-keln",
+    "new": "ree-tsy-keln"
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-haben",
+  "lessonId": "aec4fa49-84e0-4610-a84c-9a6f5c160883",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect correction in common mistake example",
+    "old": "Saying 'Ich habe' instead of 'Ich hat' (correct form: 'Ich habe').",
+    "new": "Saying 'Ich hat' instead of 'Ich habe' (correct form: 'Ich habe').",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-services",
+  "lessonId": "b3832f51-ed34-4be4-abfe-3d7f0f2aabcd",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.5.definition",
+    "severity": "minor",
+    "problem": "Definition is misleading; dry cleaning does use some liquid solvents.",
+    "old": "A place that cleans clothes without water.",
+    "new": "A place that cleans clothes using special solvents."
+   },
+   {
+    "path": "ex:81f7a7c7-1de2-4efe-aaeb-523675ad9aed.content.sentence",
+    "severity": "error",
+    "problem": "Incorrect preposition for feminine noun in dative case.",
+    "old": "Er möchte zum _____. (die Reinigung)",
+    "new": "Er möchte zur _____. (die Reinigung)",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-separable-verbs",
+  "lessonId": "b2ac06eb-afc9-4d76-844e-a4bb6a5af64c",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect example of a common mistake; both sentences are the same.",
+    "old": "Saying 'Ich stehe auf' instead of 'Ich stehe auf.' (correct position of the prefix)",
+    "new": "Saying 'Ich aufstehe' instead of 'Ich stehe auf.' (correct position of the prefix)",
+    "rejected": false
+   },
+   {
+    "path": "ex:ceea5434-0c5e-46d8-8c77-edc1038b6212.explanation",
+    "severity": "error",
+    "problem": "Incorrect English translation of 'aufstehen'.",
+    "old": "'Aufstehen' translates to 'to wake up' in English.",
+    "new": "'Aufstehen' translates to 'to get up' in English.",
+    "rejected": false
+   },
+   {
+    "path": "ex:ceea5434-0c5e-46d8-8c77-ed7b5209acc1.content.options.0",
+    "severity": "error",
+    "problem": "Incorrect English translation of 'aufstehen'.",
+    "old": "to wake up",
+    "new": "to get up",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-unit2-review",
+  "lessonId": "b59ccb9c-290e-430a-9e34-cf2f1f997149",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.0.pronunciation",
+    "severity": "minor",
+    "problem": "Pronunciation guide is incorrect.",
+    "old": "dohr OOR-lahb",
+    "new": "dair OOR-lahb"
+   },
+   {
+    "path": "lesson.vocabulary.1.pronunciation",
+    "severity": "minor",
+    "problem": "Pronunciation guide is incorrect.",
+    "old": "dee eh-RIN-ner-ung",
+    "new": "dee eh-RIN-ner-oong"
+   },
+   {
+    "path": "lesson.vocabulary.2.pronunciation",
+    "severity": "minor",
+    "problem": "Pronunciation guide is incorrect.",
+    "old": "dahs ge-SHENK",
+    "new": "dahs ge-SHENK"
+   },
+   {
+    "path": "lesson.vocabulary.3.pronunciation",
+    "severity": "minor",
+    "problem": "Pronunciation guide is incorrect.",
+    "old": "vile",
+    "new": "vile"
+   },
+   {
+    "path": "lesson.vocabulary.4.pronunciation",
+    "severity": "minor",
+    "problem": "Pronunciation guide is incorrect.",
+    "old": "ven",
+    "new": "ven"
+   },
+   {
+    "path": "lesson.vocabulary.5.pronunciation",
+    "severity": "minor",
+    "problem": "Pronunciation guide is incorrect.",
+    "old": "HET-teh",
+    "new": "HET-teh"
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-passive",
+  "lessonId": "b561e669-296b-4598-86fe-93f3f8818301",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.2.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of passive voice",
+    "old": "Have you already received feedback?",
+    "new": "Has feedback already been given to you?",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.3.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect passive construction in German",
+    "old": "Die Stelle wurde frei.",
+    "new": "Die Stelle wurde angeboten.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.3.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Translation does not match the German sentence",
+    "old": "The position became available.",
+    "new": "The position was offered.",
+    "rejected": true
+   },
+   {
+    "path": "ex:125c0c9e-ab96-4e9b-a431-2c2ab285765a.content.options.1",
+    "severity": "error",
+    "problem": "Incorrect word order in German",
+    "old": "gegebn wird",
+    "new": "gegeben wird",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-bias-tone",
+  "lessonId": "b860e781-3da0-43f6-9fec-93e4d70f5c22",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.5.term",
+    "severity": "error",
+    "problem": "Incorrect gender for 'Vorurteil'.",
+    "old": "der Vorurteil",
+    "new": "das Vorurteil",
+    "rejected": false
+   },
+   {
+    "path": "ex:2b650b92-a13d-48d1-a48b-f1778e6d0cda.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect correct answer for the sentence context.",
+    "old": "Bias",
+    "new": "Vorurteil",
+    "rejected": true
+   },
+   {
+    "path": "ex:2b650b92-a13d-48d1-a48b-f1778e6d0cda.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for the sentence context.",
+    "old": "Vorurteil",
+    "new": "Bias",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-problems",
+  "lessonId": "b6c1b8be-7193-43b6-91f1-35c78c605998",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.0.translation",
+    "severity": "minor",
+    "problem": "Translation is slightly inaccurate",
+    "old": "Excuse me, I have a mistake in my order.",
+    "new": "Excuse me, there is a mistake in my order."
+   },
+   {
+    "path": "lesson.dialogue.lines.4.translation",
+    "severity": "minor",
+    "problem": "Translation is slightly inaccurate",
+    "old": "Thank you! I really need help.",
+    "new": "Thank you! I really need assistance."
+   },
+   {
+    "path": "ex:37cf51f1-bacf-493e-9f9c-186301ee8119.content.acceptableVariants.1",
+    "severity": "minor",
+    "problem": "Variant uses incorrect article for 'Problem'",
+    "old": "Kannst du mir bei dem Problem helfen?",
+    "new": "Kannst du mir bei diesem Problem helfen?"
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-frequency",
+  "lessonId": "beed02ec-7e4e-4810-9116-52d878d5017a",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.rows.1.0",
+    "severity": "error",
+    "problem": "Unidiomatic word order in German sentence",
+    "old": "Ich mache Sport oft.",
+    "new": "Ich mache oft Sport.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect explanation of mistake; both sentences are correct",
+    "old": "Saying 'Ich gehe oft schwimmen.' instead of 'Ich gehe oft ins Schwimmbad.' (You should specify the activity's location).",
+    "new": "Saying 'Ich gehe oft schwimmen.' instead of 'Ich gehe oft ins Schwimmbad.' (Both are correct, but the latter specifies the location).",
+    "rejected": true
+   },
+   {
+    "path": "ex:c3bf6e88-46c0-4eab-ab16-f07fe557f866.content.ttsText",
+    "severity": "error",
+    "problem": "Unidiomatic word order in German sentence",
+    "old": "Ich mache Sport oft.",
+    "new": "Ich mache oft Sport.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-konjunktiv-polite",
+  "lessonId": "c362b259-ad09-464f-ae61-6d20991f13e2",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "ex:91e6b0b9-7e1f-4673-948b-e5ab78b72441.content.acceptableVariants.0",
+    "severity": "error",
+    "problem": "Incorrect use of 'wollte' instead of 'würde'",
+    "old": "Wenn ich reich wäre, wollte ich die Welt bereisen.",
+    "new": "Wenn ich reich wäre, würde ich die Welt bereisen.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-past-expressions",
+  "lessonId": "b95a9533-7f39-47fd-8a17-ee9c42e4016f",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation about 'sein' usage in perfect tense",
+    "old": "In German, the perfect tense is commonly used to talk about past events. It is formed with a conjugated form of 'haben' or 'sein' and the past participle of the main verb. 'Haben' is used for most verbs, while 'sein' is used for movement or change of state verbs.",
+    "new": "In German, the perfect tense is commonly used to talk about past events. It is formed with a conjugated form of 'haben' or 'sein' and the past participle of the main verb. 'Haben' is used for most verbs, while 'sein' is used for verbs indicating movement, change of state, or existence.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.2.tip",
+    "severity": "error",
+    "problem": "Incorrect case usage with 'vor'",
+    "old": "Use 'vor' with the accusative case to indicate time in the past.",
+    "new": "Use 'vor' with the dative case to indicate time in the past.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-panel",
+  "lessonId": "c5abc599-4adb-4ebe-9fdd-5186adfcb631",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.introduction.text",
+    "severity": "error",
+    "problem": "Incorrect mention of Konjunktiv I, which is not covered in the lesson",
+    "old": "In this lesson, you will participate in a panel discussion simulation about global issues. You'll learn vocabulary related to discussing complex topics, practice using the Konjunktiv I and II, and engage in a realistic dialogue.",
+    "new": "In this lesson, you will participate in a panel discussion simulation about global issues. You'll learn vocabulary related to discussing complex topics, practice using the Konjunktiv II, and engage in a realistic dialogue.",
+    "rejected": true
+   },
+   {
+    "path": "ex:e8f52254-bf09-44ea-8dc8-e65dff05163f.explanation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'der Standpunkt'",
+    "old": "'Der Standpunkt' translates to 'the viewpoint,' which refers to a particular attitude or way of considering a matter.",
+    "new": "'Der Standpunkt' translates to 'the standpoint,' which refers to a particular attitude or way of considering a matter.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-praeteritum-writing",
+  "lessonId": "c6382af0-7d59-478c-9b25-3c446ee75c67",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.dialogue.context",
+    "severity": "error",
+    "problem": "Context does not match dialogue content.",
+    "old": "Two friends discuss their past vacation plans.",
+    "new": "Two friends reminisce about their past vacation.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.5.tip",
+    "severity": "minor",
+    "problem": "Incorrect plural form for 'das Wetter'.",
+    "old": "'Das' indicates it's neuter. The plural is 'die Wetter' (used rarely).",
+    "new": "'Das' indicates it's neuter. 'Wetter' is usually uncountable and does not have a plural form."
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-final-review",
+  "lessonId": "c6e18a9e-e458-4717-9be0-d01fc6e318db",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "error",
+    "problem": "Typo in the word 'essen'.",
+    "old": "Confusing the past participle form. Correct: 'gegessen' not 'esssen'.",
+    "new": "Confusing the past participle form. Correct: 'gegessen' not 'essen'.",
+    "rejected": false
+   },
+   {
+    "path": "ex:28176b3e-9a5a-477f-8d24-cb27cb7aa235.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "'hat' is not an acceptable answer for the verb 'gibt'.",
+    "old": "hat",
+    "new": "",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-advice",
+  "lessonId": "c4556c62-e796-4e76-b2d3-eef9dfc438eb",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect punctuation in example sentence",
+    "old": "'Ich soll gehen' (I should go) instead of 'Ich soll gehen.' (Correct with correct punctuation)",
+    "new": "'Ich soll gehen' (I should go) instead of 'Ich soll gehen.' (Correct with incorrect punctuation)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "error",
+    "problem": "Incorrect punctuation in example sentence",
+    "old": "'Du musst nicht gehen' (You must not go) instead of 'Du musst nicht gehen.' (Correct with correct punctuation)",
+    "new": "'Du musst nicht gehen' (You must not go) instead of 'Du musst nicht gehen.' (Correct with incorrect punctuation)",
+    "rejected": true
+   },
+   {
+    "path": "ex:3a114c31-a827-4a49-92e4-9578f62c8c88.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect translation of 'exercise'",
+    "old": "Du sollst mehr Bewegung haben.",
+    "new": "Du sollst mehr Sport machen.",
+    "rejected": true
+   },
+   {
+    "path": "ex:3a114c31-a827-4a49-92e4-9578f62c8c88.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "Incorrect translation of 'exercise'",
+    "old": "Du sollst mehr bewegen.",
+    "new": "Du sollst mehr Bewegung machen.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-unit5-review",
+  "lessonId": "c96b41db-c19c-4981-8629-5a47b577cb31",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "ex:e7909c60-4f7b-44b8-b12e-1a55e5562359.explanation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'möchten'",
+    "old": "'Möchten' means 'want' in English.",
+    "new": "'Möchten' means 'would like' in English.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-complex-ideas",
+  "lessonId": "ca17a71a-a2e6-46fd-a3fb-7e3619eeafca",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "ex:5dcaf28b-bbba-4427-8fc0-9b4dde61523c.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation for the correct word",
+    "old": "The correct word is 'Überlegung', meaning 'consideration', which fits the context of a discussion.",
+    "new": "The correct word is 'Aspekt', meaning 'aspect', which fits the context of a discussion.",
+    "rejected": true
+   },
+   {
+    "path": "ex:5dcaf28b-bbba-4427-8fc0-9b4dde61523c.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect correct answer for the sentence",
+    "old": "Überlegung",
+    "new": "Aspekt",
+    "rejected": true
+   },
+   {
+    "path": "ex:5dcaf28b-bbba-4427-8fc0-9b4dde61523c.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for the sentence",
+    "old": "Überlegung",
+    "new": "Aspekt",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-small-talk",
+  "lessonId": "cbd92c76-07bc-42a4-b635-36c1ea4bbc86",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.5.pronunciation",
+    "severity": "error",
+    "problem": "Incorrect pronunciation spelling",
+    "old": "shern",
+    "new": "shurn",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-unit1-review",
+  "lessonId": "ca35cd86-aaf2-45c5-b7c9-8097a4292a6d",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.culture.funFact",
+    "severity": "error",
+    "problem": "Incorrect information about the first full-length feature film",
+    "old": "The first full-length feature film was a German production called 'The Story of the Kelly Gang', released in 1906.",
+    "new": "The first full-length feature film was an Australian production called 'The Story of the Kelly Gang', released in 1906.",
+    "rejected": false
+   },
+   {
+    "path": "ex:22ceaed2-7c9a-4471-9e80-763781c123e6.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation for the past tense",
+    "old": "The correct form for 'I see' in German is 'Ich sehe'.",
+    "new": "The correct form for 'I saw' in German is 'Ich sah'.",
+    "rejected": true
+   },
+   {
+    "path": "ex:22ceaed2-7c9a-4471-9e80-763781c123e6.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect correct answer for past tense",
+    "old": "sehe",
+    "new": "sah",
+    "rejected": true
+   },
+   {
+    "path": "ex:22ceaed2-7c9a-4471-9e80-763781c123e6.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for past tense",
+    "old": "sehe",
+    "new": "sah",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-planning-trip",
+  "lessonId": "cd0c1b5c-7b30-49e7-83a2-cc29034a2825",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "ex:0f6a2e80-33a0-4192-b682-56bbd2523adc.explanation",
+    "severity": "error",
+    "problem": "Incorrect translation explanation",
+    "old": "The sentence translates to 'I want to travel to Paris.'",
+    "new": "The sentence translates to 'I would like to travel to Paris.'",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-unit5-review",
+  "lessonId": "cffced76-a7bf-434a-a41e-ef612a1c20f7",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of the German sentence",
+    "old": "I have done the homework.",
+    "new": "I did the homework.",
+    "rejected": true
+   },
+   {
+    "path": "ex:6dbfaa6a-61a0-4c5c-9d24-c9d1604daedf.explanation",
+    "severity": "error",
+    "problem": "Incorrect English translation of 'das Studium'",
+    "old": "'Das Studium' translates to 'the study' in English.",
+    "new": "'Das Studium' translates to 'the studies' in English.",
+    "rejected": true
+   },
+   {
+    "path": "ex:bc9ab545-6b51-4aa2-be86-f49e8a400f9c.explanation",
+    "severity": "error",
+    "problem": "Incorrect word order in the German sentence",
+    "old": "The correct order forms the sentence 'Ich möchte ein Lehrer werden'.",
+    "new": "The correct order forms the sentence 'Ich möchte Lehrer werden'.",
+    "rejected": true
+   },
+   {
+    "path": "ex:bc9ab545-6b51-4aa2-be86-f49e8a400f9c.content.correctOrder.2",
+    "severity": "error",
+    "problem": "Incorrect word order in the German sentence",
+    "old": "ein",
+    "new": "Lehrer",
+    "rejected": true
+   },
+   {
+    "path": "ex:bc9ab545-6b51-4aa2-be86-f49e8a400f9c.content.correctOrder.3",
+    "severity": "error",
+    "problem": "Incorrect word order in the German sentence",
+    "old": "Lehrer",
+    "new": "werden",
+    "rejected": true
+   },
+   {
+    "path": "ex:bc9ab545-6b51-4aa2-be86-f49e8a400f9c.content.correctOrder.4",
+    "severity": "error",
+    "problem": "Incorrect word order in the German sentence",
+    "old": "werden",
+    "new": "",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-negotiation",
+  "lessonId": "d4026cc2-c86a-48f4-bfb4-443ad64e38df",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.2.translation",
+    "severity": "error",
+    "problem": "Translation should be 'consent' or 'approval', not 'agreement'.",
+    "old": "the agreement/consent",
+    "new": "the consent/approval",
+    "rejected": true
+   },
+   {
+    "path": "ex:1e13f121-5a62-4079-b5c9-e778969cb45c.content.correctAnswer",
+    "severity": "error",
+    "problem": "The correct answer should be 'Kompromiss', not 'Vorschlag'.",
+    "old": "Vorschlag",
+    "new": "Kompromiss",
+    "rejected": true
+   },
+   {
+    "path": "ex:1e13f121-5a62-4079-b5c9-e778969cb45c.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "The acceptable answer should be 'Kompromiss', not 'Vorschlag'.",
+    "old": "Vorschlag",
+    "new": "Kompromiss",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-perfekt-sein",
+  "lessonId": "d5b4b0b7-cbfe-4956-8538-e840d9e7b49f",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.0.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of future tense as present",
+    "old": "Hello Lukas, where are you going on the weekend?",
+    "new": "Hello Lukas, where were you on the weekend?",
+    "rejected": true
+   },
+   {
+    "path": "ex:34c697a3-3f4c-4566-ac47-eded0544829a.explanation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'gelaufen'",
+    "old": "'Ich bin gelaufen' translates to 'I have walked' in English.",
+    "new": "'Ich bin gelaufen' translates to 'I walked' in English.",
+    "rejected": true
+   },
+   {
+    "path": "ex:34c697a3-3f4c-4566-ac47-eded0544829a.content.options.0",
+    "severity": "error",
+    "problem": "Incorrect translation of 'gelaufen'",
+    "old": "I have walked.",
+    "new": "I walked.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-unit4-review",
+  "lessonId": "d62b2343-4832-4349-a6d4-b01d94151183",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.summary.keyPoints.0",
+    "severity": "error",
+    "problem": "Incorrect explanation of conditionals",
+    "old": "Conditionals are formed with 'wenn' for real situations and 'würde' for hypotheticals.",
+    "new": "Conditionals are formed with 'wenn' for both real and hypothetical situations, often using 'würde' for hypotheticals.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect example of verb form usage",
+    "old": "Using 'wenn' with the wrong verb form: 'Wenn ich gehen, ich würde.' should be 'Wenn ich ginge, würde ich.'",
+    "new": "Using 'wenn' with the wrong verb form: 'Wenn ich gehen würde, ich würde.' should be 'Wenn ich ginge, würde ich.'",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-articles",
+  "lessonId": "d8442d4d-c763-4902-956d-c05c7c83df97",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "ex:affa58ac-b27f-4cbc-a365-54df85cfa7cd.explanation",
+    "severity": "error",
+    "problem": "Incorrect article explanation for 'Katze'",
+    "old": "'Cat' in German is 'Katze', and it requires the article 'eine' because it is feminine.",
+    "new": "'Cat' in German is 'Katze', and it requires the article 'eine' because it is feminine and the sentence uses the indefinite article.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-job-interview",
+  "lessonId": "dc7ac833-5dd5-4982-b351-c09a983ff9d5",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.5.pronunciation",
+    "severity": "minor",
+    "problem": "Pronunciation is incorrect",
+    "old": "for-be-ry-ten",
+    "new": "for-be-ry-ten"
+   },
+   {
+    "path": "ex:9c1bae16-388a-4e18-8028-924050d55cb1.content.acceptableVariants.1",
+    "severity": "error",
+    "problem": "Incorrect German sentence structure",
+    "old": "Ich möchte für das Vorstellungsgespräch vorbereiten.",
+    "new": "Ich möchte mich für das Vorstellungsgespräch vorbereiten.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-perfekt-haben-regular",
+  "lessonId": "d693c93f-e3ec-4a35-8ce9-789508628a0d",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of the German sentence",
+    "old": "I read a book yesterday.",
+    "new": "I have read a book yesterday.",
+    "rejected": true
+   },
+   {
+    "path": "ex:22720fae-a674-40e7-b43d-b482e12030e5.content.options.1",
+    "severity": "error",
+    "problem": "Incorrect auxiliary verb for 'spielen' with 'ich'",
+    "old": "habe gespielt",
+    "new": "hast gespielt",
+    "rejected": true
+   },
+   {
+    "path": "ex:22720fae-a674-40e7-b43d-b482e12030e5.content.options.2",
+    "severity": "error",
+    "problem": "Incorrect auxiliary verb form for 'spielen'",
+    "old": "haben spielt",
+    "new": "hat gespielt",
+    "rejected": true
+   },
+   {
+    "path": "ex:22720fae-a674-40e7-b43d-b482e12030e5.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect correct answer for the question",
+    "old": "hat gespielt",
+    "new": "habe gespielt",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-unit4-review",
+  "lessonId": "de208293-8d62-45b6-a5a8-ec9fcacccab6",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.3.text",
+    "severity": "error",
+    "problem": "Incorrect use of 'nehme' instead of 'möchte' for consistency with lesson focus",
+    "old": "Das ist lecker! Ich nehme eine Banane.",
+    "new": "Das ist lecker! Ich möchte eine Banane.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-unit7-review",
+  "lessonId": "e1596efe-29e2-4f78-b0aa-f72371879149",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.2.tip",
+    "severity": "error",
+    "problem": "Incorrect plural form for 'Lieblingsessen'.",
+    "old": "Remember that 'das Essen' is neuter, and 'die Lieblings' is plural.",
+    "new": "Remember that 'das Essen' is neuter, and 'Lieblingsessen' does not have a plural form.",
+    "rejected": false
+   },
+   {
+    "path": "ex:8cf4a2b9-c72b-48f7-9a32-367943463fae.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect word order in German sentence.",
+    "old": "Ich finde, dass Schwimmen macht Spaß.",
+    "new": "Ich finde, dass Schwimmen Spaß macht.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-plurals",
+  "lessonId": "e1bb85e7-7ea8-408d-bace-b4d5e3cbb4d4",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.6.text",
+    "severity": "error",
+    "problem": "Unidiomatic German phrase",
+    "old": "Das ist gut! Lass uns kaufen!",
+    "new": "Das ist gut! Lass uns einkaufen!",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-simple-email",
+  "lessonId": "e4a9e778-1756-43b2-81d6-00c58204a828",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.original",
+    "severity": "error",
+    "problem": "Missing space after comma in German text",
+    "old": "Sehr geehrte Frau Müller, Ich hoffe, es geht Ihnen gut. Mit freundlichen Grüßen, Max.",
+    "new": "Sehr geehrte Frau Müller, ich hoffe, es geht Ihnen gut. Mit freundlichen Grüßen, Max.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.0.examples.0.translation",
+    "severity": "error",
+    "problem": "Incorrect capitalization in English translation",
+    "old": "Dear Ms. Müller, I hope you are doing well. Kind regards, Max.",
+    "new": "Dear Ms. Müller, I hope you are doing well. Kind regards, Max.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.dialogue.lines.7.text",
+    "severity": "error",
+    "problem": "Inconsistent formality in salutation",
+    "old": "Lieber Lukas,",
+    "new": "Sehr geehrter Lukas,",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-error-correction",
+  "lessonId": "dd1066d6-a8ec-4bb8-a28e-2045a83a16fa",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect example of nominative instead of genitive",
+    "old": "Using the nominative instead of the genitive: 'Das Auto von der Lehrer' instead of 'Das Auto des Lehrers'.",
+    "new": "Using 'von' instead of the genitive: 'Das Auto von dem Lehrer' instead of 'Das Auto des Lehrers'.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.grammar.1.table.rows.2.1",
+    "severity": "error",
+    "problem": "Incorrect Konjunktiv II form",
+    "old": "Ich würde machen",
+    "new": "Ich machte",
+    "rejected": true
+   },
+   {
+    "path": "ex:c818958b-5a57-4a39-af0a-c5f1168076ff.explanation",
+    "severity": "error",
+    "problem": "Incorrect Konjunktiv II form explanation",
+    "old": "The correct form in Konjunktiv II of 'kommen' is 'kämmst'.",
+    "new": "The correct form in Konjunktiv II of 'kommen' is 'kämest'.",
+    "rejected": false
+   },
+   {
+    "path": "ex:c818958b-5a57-4a39-af0a-c5f1168076ff.content.options.1",
+    "severity": "error",
+    "problem": "Incorrect Konjunktiv II form",
+    "old": "kämmst",
+    "new": "kämest",
+    "rejected": false
+   },
+   {
+    "path": "ex:c818958b-5a57-4a39-af0a-c5f1168076ff.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect Konjunktiv II form",
+    "old": "kämmst",
+    "new": "kämest",
+    "rejected": false
+   },
+   {
+    "path": "ex:c818958b-5a57-4a39-af0a-c5f1168076ff.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect Konjunktiv II form",
+    "old": "kämmst",
+    "new": "kämest",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-final-review",
+  "lessonId": "e65f7e31-78ae-4079-ac54-190010ab1525",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.1.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'Sie möchten essen.'",
+    "old": "They would like to eat.",
+    "new": "You would like to eat.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.dialogue.lines.7.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'Urlaub' in context",
+    "old": "Perfect! I am looking forward to the vacation.",
+    "new": "Perfect! I am looking forward to the holiday.",
+    "rejected": true
+   },
+   {
+    "path": "ex:22fe027f-7e8a-4b92-910e-9a020f108b3a.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of 'Ich möchte reisen.'",
+    "old": "'Ich möchte reisen' means 'I want to travel' in German.",
+    "new": "'Ich möchte reisen' means 'I would like to travel' in German.",
+    "rejected": false
+   },
+   {
+    "path": "ex:22fe027f-7e8a-4b92-910e-9a020f108b3a.content.prompt",
+    "severity": "error",
+    "problem": "Incorrect prompt for translation",
+    "old": "Translate to German: 'I want to travel.'",
+    "new": "Translate to German: 'I would like to travel.'",
+    "rejected": true
+   },
+   {
+    "path": "ex:22fe027f-7e8a-4b92-910e-9a020f108b3a.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect correct answer for prompt",
+    "old": "Ich möchte reisen.",
+    "new": "Ich möchte reisen.",
+    "rejected": true
+   },
+   {
+    "path": "ex:22fe027f-7e8a-4b92-910e-9a020f108b3a.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Incorrect acceptable answer for prompt",
+    "old": "Ich will reisen.",
+    "new": "Ich möchte reisen.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-introductions",
+  "lessonId": "e90da12b-1717-40de-bcf9-e47e0a7af266",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.examples.0.original",
+    "severity": "error",
+    "problem": "Incorrect use of article with 'Stadt'",
+    "old": "Ich heiße Marie und ich komme aus der Stadt.",
+    "new": "Ich heiße Marie und ich komme aus einer Stadt.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.examples.0.translation",
+    "severity": "error",
+    "problem": "Translation does not match corrected German sentence",
+    "old": "I am called Marie and I come from the city.",
+    "new": "I am called Marie and I come from a city.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.2.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect article for 'Land' in context",
+    "old": "Ich komme aus dem Land.",
+    "new": "Ich komme aus einem Land.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.2.exampleSentence.translation",
+    "severity": "error",
+    "problem": "Translation does not match corrected German sentence",
+    "old": "I come from the country.",
+    "new": "I come from a country.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-genitive",
+  "lessonId": "e8ab43a9-1bbb-4919-99ae-2da387afa63d",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.table.headers.1",
+    "severity": "error",
+    "problem": "Header should indicate both singular and plural forms",
+    "old": "Genitive Singular Form",
+    "new": "Genitive Form",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.0.table.rows.3.1",
+    "severity": "error",
+    "problem": "Incorrect genitive plural form example",
+    "old": "der + noun (e.g., der Kinder)",
+    "new": "der + noun (e.g., der Kinder)",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-home",
+  "lessonId": "eba239bf-64c5-4a2a-bcb9-daa9977bbad8",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.culture.funFact",
+    "severity": "minor",
+    "problem": "'Vorfeld' is not a common term for 'front yard' in German.",
+    "old": "In Germany, it's common for people to have a 'Vorfeld' (front yard) where they grow flowers and vegetables.",
+    "new": "In Germany, it's common for people to have a 'Vorgarten' (front yard) where they grow flowers and vegetables."
+   },
+   {
+    "path": "lesson.dialogue.lines.0.translation",
+    "severity": "minor",
+    "problem": "Translation is slightly off; 'How is your home?' is not idiomatic.",
+    "old": "Hello Lukas! How is your home?",
+    "new": "Hello Lukas! How is your place?"
+   },
+   {
+    "path": "lesson.dialogue.lines.6.translation",
+    "severity": "minor",
+    "problem": "Translation is slightly off; 'Where is your table?' is not idiomatic.",
+    "old": "That sounds nice! Where is your table?",
+    "new": "That sounds nice! Where do you keep your table?"
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-unit3-review",
+  "lessonId": "ee473c61-238a-450e-a74f-aa139b034839",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "ex:404c1026-9323-4445-ac01-42b46c9ce77d.explanation",
+    "severity": "error",
+    "problem": "Explanation incorrectly states 'Bewerbung' instead of 'Kündigung'.",
+    "old": "'Bewerbung' is the correct word since it refers to the application submitted.",
+    "new": "'Kündigung' is the correct word since it refers to the resignation submitted.",
+    "rejected": true
+   },
+   {
+    "path": "ex:404c1026-9323-4445-ac01-42b46c9ce77d.content.correctAnswer",
+    "severity": "error",
+    "problem": "Correct answer should be 'Kündigung' not 'Bewerbung'.",
+    "old": "Bewerbung",
+    "new": "Kündigung",
+    "rejected": true
+   },
+   {
+    "path": "ex:404c1026-9323-4445-ac01-42b46c9ce77d.content.acceptableAnswers.0",
+    "severity": "error",
+    "problem": "Acceptable answer should be 'Kündigung' not 'Bewerbung'.",
+    "old": "Bewerbung",
+    "new": "Kündigung",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-describing-places",
+  "lessonId": "f1095ad3-f1c0-4b1a-95e1-1893ac92fe27",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "error",
+    "problem": "Incorrect punctuation rule for 'weil' clauses",
+    "old": "Be careful with punctuation: There is no comma before 'weil' in the subordinate clause.",
+    "new": "Be careful with punctuation: There is always a comma before 'weil' in the subordinate clause.",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-plusquamperfekt",
+  "lessonId": "ef59d93b-3f4d-4e5f-a571-6798f252e368",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.3.text",
+    "severity": "error",
+    "problem": "Incorrect verb usage in context",
+    "old": "Ja, ich hatte die Ausstellung schon vorher gelesen.",
+    "new": "Ja, ich hatte schon vorher von der Ausstellung gelesen.",
+    "rejected": false
+   },
+   {
+    "path": "lesson.vocabulary.5.exampleSentence.original",
+    "severity": "error",
+    "problem": "Incorrect verb tense for context",
+    "old": "Die Erinnerung war angenehm.",
+    "new": "Die Erinnerung war angenehm gewesen.",
+    "rejected": true
+   },
+   {
+    "path": "ex:a68699e3-ae02-4e22-ba75-2d497c00efe6.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of Plusquamperfekt form",
+    "old": "'Hatte gehabt' is the correct Plusquamperfekt form for 'ich'.",
+    "new": "'Hatte' is the correct Plusquamperfekt form for 'ich'.",
+    "rejected": true
+   },
+   {
+    "path": "ex:a68699e3-ae02-4e22-ba75-2d497c00efe6.content.options.0",
+    "severity": "error",
+    "problem": "Incorrect Plusquamperfekt form",
+    "old": "hatte gehabt",
+    "new": "hatte",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-modal-particles",
+  "lessonId": "f2b06d15-1fe3-43df-ad1e-98f5b0e577c0",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.7.translation",
+    "severity": "error",
+    "problem": "Translation missing 'doch' emphasis",
+    "old": "That is important for your career!",
+    "new": "That is indeed important for your career!",
+    "rejected": true
+   },
+   {
+    "path": "ex:4499f060-a6d9-48fc-839a-1474bd007124.content.correctOrder.5",
+    "severity": "error",
+    "problem": "Incorrect word order for 'doch' emphasis",
+    "old": "doch",
+    "new": "das",
+    "rejected": true
+   },
+   {
+    "path": "ex:4499f060-a6d9-48fc-839a-1474bd007124.content.correctOrder.6",
+    "severity": "error",
+    "problem": "Incorrect word order for 'doch' emphasis",
+    "old": "das",
+    "new": "doch",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-participial",
+  "lessonId": "f3ec4be2-363f-4822-9f0f-8b09d69a6497",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.explanation",
+    "severity": "error",
+    "problem": "Incorrect explanation of participles modifying verbs",
+    "old": "Participial constructions in German are formed using the present or past participle of a verb and can function as adjectives or adverbials. They allow for more concise expression in sentences. For example, the present participle 'lachend' (laughing) and the past participle 'gelacht' (laughed) can modify nouns or verbs respectively.",
+    "new": "Participial constructions in German are formed using the present or past participle of a verb and can function as adjectives or adverbials. They allow for more concise expression in sentences. For example, the present participle 'lachend' (laughing) can modify nouns, and the past participle 'gelacht' (laughed) is used in perfect tenses or passive voice.",
+    "rejected": true
+   },
+   {
+    "path": "ex:30d6869f-2338-4433-bfdc-4a6411ebde88.content.correctAnswer",
+    "severity": "error",
+    "problem": "Incorrect article in German translation",
+    "old": "Die Technik, die von dem Künstler verwendet wird, ist innovativ.",
+    "new": "Die Technik, die vom Künstler verwendet wird, ist innovativ.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-places-town",
+  "lessonId": "f5412d58-f4a3-49a6-9970-f62363751941",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.1",
+    "severity": "error",
+    "problem": "Incorrect use of 'kann' with a noun",
+    "old": "'Ich kann ein Apfel.' is incorrect. It should be 'Ich kann einen Apfel.' (a masculine noun in accusative).",
+    "new": "'Ich kann ein Apfel.' is incorrect. It should be 'Ich kann einen Apfel essen.' (a masculine noun in accusative with an infinitive verb).",
+    "rejected": false
+   }
+  ]
+ },
+ {
+  "slug": "de-a1-ordering-cafe",
+  "lessonId": "f5d41875-49f1-45bb-a08d-5333f728c579",
+  "level": "A1",
+  "issues": [
+   {
+    "path": "lesson.grammar.0.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect explanation of mistake; both sentences are identical.",
+    "old": "Saying 'Ich möchte einen Kaffee' instead of 'Ich möchte einen Kaffee.' (Incorrect use of articles)",
+    "new": "Saying 'Ich möchte einen Kaffee' instead of 'Ich hätte gern einen Kaffee.' (Incorrect use of polite form)",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.1.exampleSentence.original",
+    "severity": "error",
+    "problem": "Inconsistent use of 'hätte gern' instead of 'möchte'.",
+    "old": "Ich hätte gern einen Tee.",
+    "new": "Ich möchte einen Tee.",
+    "rejected": true
+   },
+   {
+    "path": "ex:efd8c527-66b1-4138-b6e0-4452317db6b0.content.acceptableAnswers.1",
+    "severity": "error",
+    "problem": "'Ich will Tee' is not a polite request.",
+    "old": "Ich will Tee.",
+    "new": "Ich möchte einen Tee.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-unit6-review",
+  "lessonId": "f789b731-97b9-4ced-87e2-ae14fe912a13",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.vocabulary.4.pronunciation",
+    "severity": "minor",
+    "problem": "Incorrect pronunciation guide for 'der Müll'.",
+    "old": "dohr mool",
+    "new": "dair muel"
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-nominalization",
+  "lessonId": "f77b30c0-bbd8-470d-bbf4-11a2c093e743",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "lesson.grammar.1.table.rows.0.1",
+    "severity": "error",
+    "problem": "Incorrect noun for 'cooker' in German",
+    "old": "der Kocher",
+    "new": "der Kessel",
+    "rejected": true
+   },
+   {
+    "path": "lesson.grammar.1.explanation",
+    "severity": "error",
+    "problem": "Incorrect example for 'der Wasserkocher'",
+    "old": "For instance, 'der Wasserkocher' (the kettle) combines 'das Wasser' (water) and 'der Kocher' (cooker).",
+    "new": "For instance, 'der Wasserkocher' (the kettle) combines 'das Wasser' (water) and 'der Kessel' (kettle).",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b1-meetings",
+  "lessonId": "fb8dc4b9-8c51-4196-a2ef-3562e91ab5e7",
+  "level": "B1",
+  "issues": [
+   {
+    "path": "lesson.grammar.1.commonMistakes.0",
+    "severity": "error",
+    "problem": "Incorrect suggestion for politeness",
+    "old": "'Ich möchte, dass du kommst.' should be 'Ich hätte gerne, dass du kommst.' for more politeness.",
+    "new": "'Ich möchte, dass du kommst.' is already polite; 'Ich hätte gerne, dass du kommst.' is not a standard correction.",
+    "rejected": true
+   },
+   {
+    "path": "lesson.vocabulary.3.pronunciation",
+    "severity": "minor",
+    "problem": "Incorrect pronunciation guide",
+    "old": "ein-SHY-dung",
+    "new": "en-SHY-dung"
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-negotiations",
+  "lessonId": "fbf656ec-f543-4c9a-82dc-32dc9019e0e3",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.0.text",
+    "severity": "error",
+    "problem": "Incorrect article for plural noun",
+    "old": "Hallo! Wie viel kostet die Äpfel?",
+    "new": "Hallo! Wie viel kosten die Äpfel?",
+    "rejected": false
+   },
+   {
+    "path": "lesson.dialogue.lines.0.translation",
+    "severity": "error",
+    "problem": "Incorrect translation for plural verb",
+    "old": "Hello! How much do the apples cost?",
+    "new": "Hello! How much do the apples cost?",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-b2-nuanced",
+  "lessonId": "fd3cfc3a-8862-406d-8ca1-760ea1db4648",
+  "level": "B2",
+  "issues": [
+   {
+    "path": "ex:acad2de2-b0dc-4234-acec-34eb062772c7.content.translation",
+    "severity": "error",
+    "problem": "Translation does not match the correct order of words",
+    "old": "Various aspects illustrate artworks.",
+    "new": "Various aspects of artworks illustrate.",
+    "rejected": true
+   }
+  ]
+ },
+ {
+  "slug": "de-a2-perfekt-irregular",
+  "lessonId": "fc91a213-b515-468c-8110-71beaf20d695",
+  "level": "A2",
+  "issues": [
+   {
+    "path": "lesson.dialogue.lines.6.translation",
+    "severity": "error",
+    "problem": "Incorrect translation of 'gefahren' as 'went' instead of 'driven' or 'gone'.",
+    "old": "I went to the city and ate with friends.",
+    "new": "I drove to the city and ate with friends.",
+    "rejected": true
+   },
+   {
+    "path": "ex:58866f95-1e65-41f1-aed8-0f6687f8bb4a.content.sentence",
+    "severity": "error",
+    "problem": "Incorrect auxiliary verb 'haben' used with 'gefahren'.",
+    "old": "Wir haben nach ___ gefahren.",
+    "new": "Wir sind nach ___ gefahren.",
+    "rejected": false
+   }
+  ]
+ }
+]

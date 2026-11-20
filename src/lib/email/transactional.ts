@@ -226,3 +226,34 @@ export async function notifyStudentHomeworkAssigned(
   );
   await send(st.email, subject, html, text);
 }
+
+// ── Invite to apply to teach ────────────────────────────────────────────────
+// Sent by an admin from the Users tab. Two audiences, two destinations:
+//   * an existing tutor who isn't listed -> /tutor/apply (get listed, get
+//     students from us, get paid per lesson)
+//   * a student -> /become-tutor (start teaching on FrancoLink)
+export function renderApplyInvite(firstName: string, isTutor: boolean): RenderedEmail {
+  const href = isTutor ? `${APP_URL}/tutor/apply` : `${APP_URL}/become-tutor`;
+  const bodyHtml = isTutor
+    ? `<p style="margin:0 0 16px 0;font-size:16px;">We'd love to list you in the FrancoLink tutor directory.</p>
+       <p style="margin:0 0 16px 0;font-size:16px;">Once you're approved, students find and book you on francolink.net, pay through us, and you're paid for every lesson — on top of the students you already teach. Applying takes a few minutes.</p>`
+    : `<p style="margin:0 0 16px 0;font-size:16px;">You've been learning with us — have you thought about teaching?</p>
+       <p style="margin:0 0 16px 0;font-size:16px;">FrancoLink gives tutors a live classroom, ready-made lessons and homework, and a public profile where students can book and pay. If you speak a language well and enjoy helping people learn it, we'd like you to apply.</p>`;
+  const text = isTutor
+    ? `We'd love to list you in the FrancoLink tutor directory. Students book and pay through us and you're paid per lesson. Apply: ${href}`
+    : `Have you thought about teaching on FrancoLink? Live classroom, ready-made lessons, a public profile students can book. Apply: ${href}`;
+  return {
+    subject: isTutor ? "Get listed as a FrancoLink tutor" : "Teach on FrancoLink?",
+    html: emailShell({ firstName, bodyHtml, ctaHref: href, ctaText: "Apply to teach" }),
+    text,
+  };
+}
+
+export async function sendApplyInvite(userId: string, isTutor: boolean): Promise<boolean> {
+  const s = svc();
+  const { data: u } = await s.from("users").select("email, name").eq("id", userId).maybeSingle();
+  if (!u?.email) return false;
+  const { subject, html, text } = renderApplyInvite(firstNameOf(u.name, u.email), isTutor);
+  await send(u.email, subject, html, text);
+  return true;
+}

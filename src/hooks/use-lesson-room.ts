@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { createBrowserClient } from "@/lib/supabase/client";
 import type { RealtimeChannel } from "@supabase/supabase-js";
-import type { RoomPresence } from "@/components/lesson-v2/lesson-room-context";
+import { ROOM_CHAT_TYPES, isRoomChatUrl } from "@/lib/storage/room-chat";
+import type { RoomPresence, ChatMessage, ChatAttachment, SharedSelection } from "@/components/lesson-v2/lesson-room-context";
 
 interface UseLessonRoomArgs {
   sessionId: string;
@@ -11,9 +12,7 @@ interface UseLessonRoomArgs {
   currentRole: "tutor" | "student";
   currentName: string;
   initialHighlights?: { anchor_id: string; role: "tutor" | "student" }[];
-  initialChatMessages?: {
-    id: string; from: string; name: string; role: "tutor" | "student"; text: string; at: number;
-  }[];
+  initialChatMessages?: ChatMessage[];
 }
 
 /** Trailing throttle on outgoing answer broadcasts, in ms. */
@@ -46,9 +45,7 @@ export function useLessonRoom({
     { text: string; at: number; from: string } | null
   >(null);
   const [revealedTranslations, setRevealedTranslations] = useState<Set<string>>(new Set());
-  const [chatMessages, setChatMessages] = useState<
-    { id: string; from: string; name: string; role: "tutor" | "student"; text: string; at: number }[]
-  >(initialChatMessages);
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>(initialChatMessages);
   // Live exercise answers, keyed student → anchor. A room holds up to
   // MAX_GROUP_LEARNERS students, so answers cannot be keyed by anchor alone:
   // two learners on the same exercise would overwrite each other.
@@ -102,6 +99,19 @@ export function useLessonRoom({
     { id: string; points: { s: number; x: number; y: number }[]; role: "tutor" | "student"; at: number }[]
   >([]);
 
+  // Free text selections made with the mouse, one per role. Click-highlights
+  // only exist on the few phrases wrapped in <Highlightable>; selecting any
+  // other lesson text is a native browser selection nobody else can see, which
+  // is why a tutor's "highlight" never reached the student.
+  // Keyed by user, not role: in a group room each learner has their own.
+  const [remoteSelections, setRemoteSelections] = useState<
+    Record<string, { role: "tutor" | "student"; sel: SharedSelection }>
+  >({});
+
+  // The tutor pressed End class. Without this the student was never told:
+  // they sat alone in the call and never reached the after-class rating.
+  const [classEndedAt, setClassEndedAt] = useState<number | null>(null);
+
   // Subscribe to the session channel for presence + highlight broadcasts.
   useEffect(() => {
     const channel = supabase.channel(`session:${sessionId}`, {
@@ -131,6 +141,32 @@ export function useLessonRoom({
         if (id) next.set(id, role);
         return next;
       });
+    });
+
+    channel.on("broadcast", { event: "highlight:selection" }, ({ payload }) => {
+      const p = payload as { role?: "tutor" | "student"; from?: string; sel?: SharedSelection | null };
+      if (!p.role || !p.from || p.from === currentUserId) return;
+      const from = p.from;
+      const role = p.role === "tutor" ? "tutor" : "student";
+      const sel = p.sel;
+      setRemoteSelections((prev) => {
+        const next = { ...prev };
+        if (
+          sel && typeof sel.text === "string" && sel.text.length > 0 && sel.text.length <= 400 &&
+          typeof sel.prefix === "string" && Number.isFinite(sel.s)
+        ) {
+          next[from] = { role, sel: { s: sel.s, text: sel.text, prefix: sel.prefix.slice(-24) } };
+        } else {
+          delete next[from];
+        }
+        return next;
+      });
+    });
+
+    channel.on("broadcast", { event: "class:ended" }, ({ payload }) => {
+      const p = payload as { role?: string; from?: string };
+      if (p.role !== "tutor" || p.from === currentUserId) return;
+      setClassEndedAt(Date.now());
     });
 
     channel.on("broadcast", { event: "tts:play" }, ({ payload }) => {
@@ -230,8 +266,16 @@ export function useLessonRoom({
     channel.on("broadcast", { event: "chat:message" }, ({ payload }) => {
       const m = payload as {
         id?: string; from?: string; name?: string; role?: "tutor" | "student"; text?: string; at?: number;
+        attachment?: ChatAttachment;
       };
-      if (!m?.text) return;
+      // A broadcast never touches our server, so the attachment is checked
+      // here too: a crafted message must not put an arbitrary URL in an <img>
+      // or a link on the other person's screen.
+      const attachment =
+        m?.attachment && isRoomChatUrl(m.attachment.url, sessionId) && ROOM_CHAT_TYPES[m.attachment.type]
+          ? { url: m.attachment.url, name: String(m.attachment.name || "file").slice(0, 120), type: m.attachment.type }
+          : undefined;
+      if (!m?.text && !attachment) return;
       setChatMessages((prev) => {
         if (m.id && prev.some((x) => x.id === m.id)) return prev; // dedupe own echo
         return [
@@ -241,8 +285,9 @@ export function useLessonRoom({
             from: m.from || "",
             name: m.name || "Someone",
             role: m.role || "student",
-            text: m.text!,
+            text: m.text || "",
             at: m.at || Date.now(),
+            ...(attachment ? { attachment } : {}),
           },
         ];
       });
@@ -332,6 +377,28 @@ export function useLessonRoom({
       }
     },
     [highlights, currentRole, currentUserId, sessionId, supabase]
+  );
+
+  /** Tutor-only: tell everyone in the room the class is over. */
+  const broadcastClassEnded = useCallback(async () => {
+    if (currentRole !== "tutor") return;
+    await channelRef.current?.send({
+      type: "broadcast",
+      event: "class:ended",
+      payload: { role: currentRole, from: currentUserId },
+    });
+  }, [currentRole, currentUserId]);
+
+  /** Share (or clear, with null) the text I currently have selected. */
+  const shareSelection = useCallback(
+    (sel: SharedSelection | null) => {
+      void channelRef.current?.send({
+        type: "broadcast",
+        event: "highlight:selection",
+        payload: { role: currentRole, from: currentUserId, sel },
+      });
+    },
+    [currentRole, currentUserId]
   );
 
   const broadcastSpeak = useCallback(
@@ -440,16 +507,17 @@ export function useLessonRoom({
 
   // Anyone can chat. Broadcast + optimistic local + best-effort persist.
   const sendChat = useCallback(
-    (text: string) => {
+    (text: string, attachment?: ChatAttachment) => {
       const trimmed = text.trim();
-      if (!trimmed) return;
-      const msg = {
+      if (!trimmed && !attachment) return;
+      const msg: ChatMessage = {
         id: crypto.randomUUID(),
         from: currentUserId,
         name: currentName,
         role: currentRole,
         text: trimmed,
         at: Date.now(),
+        ...(attachment ? { attachment } : {}),
       };
       setChatMessages((prev) => [...prev, msg]);
       void channelRef.current?.send({ type: "broadcast", event: "chat:message", payload: msg });
@@ -458,7 +526,7 @@ export function useLessonRoom({
       void fetch(`/api/space/${sessionId}/chat`, {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ text: trimmed, name: currentName, role: currentRole }),
+        body: JSON.stringify({ text: trimmed, name: currentName, role: currentRole, attachment }),
       }).catch(() => {});
     },
     [currentUserId, currentName, currentRole, sessionId]
@@ -615,6 +683,10 @@ export function useLessonRoom({
     setViewedStudentId,
     answersByStudent,
     toggleHighlight,
+    remoteSelections,
+    shareSelection,
+    classEndedAt,
+    broadcastClassEnded,
     broadcastSpeak,
     incomingSpeak,
     revealedTranslations,
