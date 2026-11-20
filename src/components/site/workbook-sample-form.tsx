@@ -64,7 +64,7 @@ export function WorkbookSampleForm({
     return (
       <div className="sample-done" role="status">
         <strong>Check your inbox.</strong> Partie 0 is on its way. If it isn&apos;t
-        there in a couple of minutes, look in spam or promotions.
+        there in a couple of minutes, look in the Updates, Promotions or spam folder.
       </div>
     );
   }

@@ -15,7 +15,7 @@ import { WorkbookTry } from "@/components/site/workbook-try";
 
 const TITLE = "Free chapter: Le Français Pas à Pas";
 const DESCRIPTION =
-  "Partie 0 of the French grammar workbook, free: twenty survival phrases with pronunciation hints and three dialogues you can use today.";
+  "Partie 0 of the French grammar workbook, free and interactive: twenty survival phrases and three dialogues with audio, and an exercise that marks itself.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -26,9 +26,9 @@ export const metadata: Metadata = {
 };
 
 const INSIDE = [
-  "The 20 phrases you need before any grammar, with a pronunciation hint for each",
-  "Three short dialogues: meeting someone, saying how you are, talking about what you like",
-  "Model answers to the questions you'll be asked first",
+  "The 20 phrases you need before any grammar. Tap any one to hear it",
+  "Three short dialogues, read at natural speed and then slowly",
+  "An exercise that marks your answers as you type them",
   "The contents of the whole book, A0 to B2, so you can see where it goes",
 ];
 
@@ -39,7 +39,7 @@ export default function FreeSamplePage() {
         <div className="wrap hero">
           <div>
             <p className="eyebrow">Free chapter · Le Français Pas à Pas</p>
-            <h1 className="h1">Speak your first real French today. The first chapter is free.</h1>
+            <h1 className="h1">Hear it, say it, check it. The first chapter is free.</h1>
             <p className="lead">
               Partie 0 of the grammar workbook that takes you from A0 to B2,
               written by a teacher who prepares learners for the TCF and TEF.
@@ -47,7 +47,7 @@ export default function FreeSamplePage() {
             </p>
             <WorkbookSampleForm source="sample-page" button="Send me the free chapter" />
             <p className="micro">
-              A PDF, no account. We&apos;ll also send you three short emails
+              Opens in your browser, with audio. No account. We&apos;ll also send you three short emails
               about the book. Unsubscribe in one click.
             </p>
           </div>
