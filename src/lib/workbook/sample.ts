@@ -62,9 +62,11 @@ function playButtons(c: Clip): string {
 }
 
 const SAMPLE_CSS = `<style>
-.sample-bar{position:sticky;top:0;z-index:50;background:#C08A2D;color:#1b1406;text-align:center;
+.sample-bar{background:#C08A2D;color:#1b1406;text-align:center;
   font:600 14px/1.4 "Instrument Sans",system-ui,sans-serif;padding:9px 14px;}
 .sample-bar a{color:#1b1406;text-decoration:underline;text-underline-offset:3px;}
+.topbuy{flex:none;background:#C08A2D;color:#1b1406;font:600 12px/1 "Instrument Sans",system-ui,sans-serif;
+  text-decoration:none;padding:8px 11px;border-radius:7px;white-space:nowrap;}
 .listen{margin:14px 0 18px;padding:14px 16px;border:1px solid var(--hair);border-radius:12px;background:#fff;}
 .listen .box-l{margin-bottom:8px;}
 .chips{display:flex;flex-wrap:wrap;gap:8px;}
@@ -195,7 +197,13 @@ export async function buildSampleHtml(): Promise<string> {
   head = head
     .replace(/<title>[\s\S]*?<\/title>/, "<title>Free sample — Le Français Pas à Pas (Partie 0 with audio)</title>")
     .replace("</head>", `<meta name="robots" content="noindex">${SAMPLE_CSS}</head>`)
-    .replace(/(<body[^>]*>)/, `$1${bar}`);
+    .replace(/(<body[^>]*>)/, `$1${bar}`)
+    // The offer stays in reach after the bar scrolls away: in the book's own
+    // sticky top bar, not a second sticky bar on top of it.
+    .replace(
+      '<span class="prog"></span>',
+      `<span class="prog"></span><a class="topbuy" href="${salesLink("topbar")}" target="_blank" rel="noopener">Get the full book</a>`
+    );
 
   return (
     head +

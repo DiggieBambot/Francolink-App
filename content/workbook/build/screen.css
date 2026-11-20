@@ -105,11 +105,16 @@
   }
 
   @media (min-width: 900px) {
-    .layout { padding-inline: 24px; }
+    /* The contents is FIXED in its own column, and the layout reserves that
+       column with padding. It used to be a sticky float, which only pushes
+       text aside near the top of the page: once scrolled, the sidebar
+       painted over the chapters. */
+    .layout { padding-inline: 24px; padding-left: 312px; }
     #toc-panel {
-      position: sticky; inset: auto; display: block; float: left;
-      width: 264px; height: calc(100vh - 58px); top: 58px;
-      background: transparent; padding: 18px 12px 40px; margin-right: 22px;
+      position: fixed; inset: auto; display: block;
+      left: max(0px, calc((100vw - 1180px) / 2)); top: 58px;
+      width: 288px; height: calc(100vh - 58px); overflow-y: auto;
+      background: transparent; padding: 18px 12px 40px 24px; margin: 0;
     }
     #toc-panel .close { display: none; }
     .navbtn.contents { display: none; }
