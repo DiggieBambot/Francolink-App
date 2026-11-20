@@ -1,0 +1,18 @@
+name: Send workbook free-sample sequence
+
+# Daily. Sends the next email to each free-sample lead whose gap has passed,
+# and stops the sequence for anyone who has bought the workbook.
+on:
+  schedule:
+    - cron: "0 10 * * *" # daily at 10:00 (UTC)
+  workflow_dispatch: {}
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send due sequence emails
+        run: |
+          curl -sS -X GET "https://app.francolink.net/api/cron/workbook-sequence" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            --max-time 300 --fail-with-body

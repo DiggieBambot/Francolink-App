@@ -13,28 +13,12 @@
 
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
-import { createClient as createServiceClient } from "@supabase/supabase-js";
-import { readFile } from "node:fs/promises";
-import path from "node:path";
-import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
-
-/** The stamp is user-supplied text going into a document we serve. */
-function escapeHtml(s: string): string {
-  return s.replace(/[&<>"']/g, (c) =>
-    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!)
-  );
-}
+import {
+  HTML_NAME, PDF_NAME, WORKBOOK_KEY, readBookFile, service, stampHtml, stampPdf, stampText,
+} from "@/lib/workbook/files";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-
-function service() {
-  return createServiceClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!,
-    { auth: { persistSession: false } }
-  );
-}
 
 export async function GET(request: Request) {
   // Two formats from one route: the PDF to keep, and the interactive HTML to
@@ -59,7 +43,7 @@ export async function GET(request: Request) {
     .maybeSingle();
 
   const owns = ((order?.digital_order_items ?? []) as { product_key: string }[])
-    .some((i) => i.product_key === "workbook_fpp");
+    .some((i) => i.product_key === WORKBOOK_KEY);
   if (!order || !owns) {
     return NextResponse.json(
       { error: "This is for workbook readers. Get your copy at francolink.net/francais-pas-a-pas." },
@@ -71,14 +55,10 @@ export async function GET(request: Request) {
     (user.user_metadata?.name as string | undefined) ||
     (user.user_metadata?.full_name as string | undefined) ||
     order.email;
-  const stamp = `Licensed to ${name} · order ${order.id.slice(0, 8)}`;
+  const stamp = stampText(name, order.id);
 
-  const file = format === "html" ? "book.html" : "book.pdf";
-  let bytes: Buffer;
-  try {
-    bytes = await readFile(path.join(process.cwd(), "assets", "workbook", file));
-  } catch {
-    console.error(`[workbook/download] ${file} missing from the deployment`);
+  const bytes = await readBookFile(format === "html" ? "book.html" : "book.pdf");
+  if (!bytes) {
     return NextResponse.json(
       { error: "The download isn't available right now. We're on it — try again shortly." },
       { status: 503 }
@@ -86,44 +66,19 @@ export async function GET(request: Request) {
   }
 
   if (format === "html") {
-    // Same stamp as the PDF, in the colophon rather than on every page —
-    // there are no pages to put it on.
-    const html = bytes
-      .toString("utf8")
-      .replace(
-        "</section>\n</div>",
-        `<p style="margin-top:14px;font-size:12px;color:#5A6570">${escapeHtml(stamp)}</p></section>\n</div>`
-      );
-    return new NextResponse(html, {
+    return new NextResponse(stampHtml(bytes, stamp), {
       headers: {
         "Content-Type": "text/html; charset=utf-8",
-        "Content-Disposition": 'attachment; filename="Le-Francais-Pas-a-Pas.html"',
+        "Content-Disposition": `attachment; filename="${HTML_NAME}"`,
         "Cache-Control": "private, no-store",
       },
     });
   }
 
-  const pdf = await PDFDocument.load(bytes);
-  const font = await pdf.embedFont(StandardFonts.Helvetica);
-  const size = 7;
-
-  for (const page of pdf.getPages()) {
-    const { width } = page.getSize();
-    const w = font.widthOfTextAtSize(stamp, size);
-    page.drawText(stamp, {
-      x: (width - w) / 2,
-      y: 14,
-      size,
-      font,
-      color: rgb(0.55, 0.57, 0.6),
-    });
-  }
-
-  const out = await pdf.save();
-  return new NextResponse(Buffer.from(out), {
+  return new NextResponse(Buffer.from(await stampPdf(bytes, stamp)), {
     headers: {
       "Content-Type": "application/pdf",
-      "Content-Disposition": 'attachment; filename="Le-Francais-Pas-a-Pas.pdf"',
+      "Content-Disposition": `attachment; filename="${PDF_NAME}"`,
       "Cache-Control": "private, no-store",
     },
   });

@@ -11,6 +11,7 @@ import { SiteFooter } from "@/components/site/site-footer";
 import { SITE_URL } from "@/lib/site/hosts";
 import { JsonLd } from "@/components/site/json-ld";
 import { DiggieChat } from "@/components/site/diggie-chat";
+import { TikTokPixel } from "@/components/site/tiktok-pixel";
 import { organizationSchema, websiteSchema, ORG_DESCRIPTION } from "@/lib/site/schema";
 
 export const metadata: Metadata = {
@@ -59,6 +60,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <main className="flex-1">{children}</main>
       <SiteFooter />
       <DiggieChat />
+      <TikTokPixel />
     </div>
   );
 }
