@@ -38,7 +38,12 @@ export interface SampleStep {
 
 const P = (s: string) => `<p style="margin:0 0 16px 0;font-size:16px;">${s}</p>`;
 
+/** The interactive sample: Partie 0 in the browser, with audio. */
 function sampleUrl(): string {
+  return siteUrl("/francais-pas-a-pas/sample");
+}
+
+function samplePdfUrl(): string {
   return siteUrl("/api/workbook/sample");
 }
 
@@ -83,16 +88,18 @@ export const STEPS: SampleStep[] = [
         a,
         "Your free chapter: Partie 0 of Le Français Pas à Pas",
         [
-          "Here is the sample you asked for: <strong>Partie 0</strong> of <em>Le Français Pas à Pas</em>, straight from the book.",
-          "It's twenty survival phrases, with a pronunciation hint for each, and three short dialogues that use them. Read the dialogues aloud: by the end you can greet someone, introduce yourself and talk about what you like doing.",
+          "Here is the sample you asked for: <strong>Partie 0</strong> of <em>Le Français Pas à Pas</em>, exactly as it is in the interactive ebook. It opens in your browser, on your phone too.",
+          "Tap any of the twenty survival phrases to <strong>hear it</strong>, play the three dialogues at natural speed and then slowly, and try the exercise: it <strong>marks your answers</strong> as you go.",
+          `Prefer paper? Here is the <a href="${samplePdfUrl()}" style="color:#0f2744;">same chapter as a PDF</a>.`,
           "Over the next week I'll send you three more short emails, including one real grammar lesson from later in the book. You can unsubscribe any time with the link at the bottom.",
         ],
         [
-          "Here is the sample you asked for: Partie 0 of Le Français Pas à Pas, straight from the book.",
-          "It's twenty survival phrases, with a pronunciation hint for each, and three short dialogues that use them. Read the dialogues aloud.",
+          "Here is the sample you asked for: Partie 0 of Le Français Pas à Pas, exactly as it is in the interactive ebook. It opens in your browser.",
+          "Tap any phrase to hear it, play the three dialogues at natural speed and slowly, and try the exercise: it marks your answers.",
+          `The same chapter as a PDF: ${samplePdfUrl()}`,
           "Over the next week I'll send three more short emails, including one real grammar lesson from later in the book.",
         ],
-        { href: sampleUrl(), text: "Open Partie 0 (PDF)" }
+        { href: sampleUrl(), text: "Open Partie 0 with audio" }
       ),
   },
   {

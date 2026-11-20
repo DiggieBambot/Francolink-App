@@ -504,10 +504,10 @@ export default function Page() {
             <div>
               <h2 className="h2 h2-sm">Not ready yet? Read Partie 0 free.</h2>
               <p className="muted">
-                The first chapter of the real book, as a PDF: twenty survival
-                phrases with pronunciation hints and three short dialogues.
-                We&apos;ll email it to you, along with one grammar lesson from
-                later in the book.
+                The first chapter of the real interactive ebook: twenty survival
+                phrases and three dialogues you can play, and an exercise that
+                marks itself. We&apos;ll email it to you, along with one grammar
+                lesson from later in the book.
               </p>
             </div>
             <div>
