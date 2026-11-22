@@ -8,6 +8,7 @@ import { assessSignup, AUTO_DECLINE_THRESHOLD } from '@/lib/auth/signup-risk';
 import { recordRisk } from '@/lib/auth/signup-guard';
 import { verifyNewAccount } from '@/lib/auth/verify-new-account';
 import { resolveJoinTarget } from '@/lib/auth/join-target';
+import { attributeCommission } from '@/lib/tutor/commission';
 
 // Use service role for this operation
 const supabase = createClient(
@@ -60,9 +61,6 @@ export async function POST(request: NextRequest) {
     // 2. Update user record (don't upsert - just update existing auth user)
     console.log('📝 Updating student profile...');
     
-    // Auto-assign: a student who signs up through a tutor's referral link is
-    // attributed to that tutor immediately (no manual approval). This also drives
-    // commission attribution. Brand-new signups are never bound elsewhere yet.
     const { error: updateError } = await supabase
       .from('users')
       .update({
@@ -97,25 +95,23 @@ export async function POST(request: NextRequest) {
 
     console.log('✅ Student profile created/updated');
 
-    // First-touch: tag the acquisition source as "tutor-invite" and set the
-    // commission-earning tutor — both only if not already set, so the first
-    // teacher wins. A student can connect to more teachers later without changing
-    // either. The connection itself is the tutor_students row below.
+    // First-touch acquisition source, only if not already set. An invite code
+    // is the tutor bringing the student; a public-profile slug is the student
+    // finding the tutor on our marketplace. Commission follows the same split
+    // (attributeCommission, after the spam gate below).
+    const signupVia = target.via === 'invite' ? 'tutor-invite' : 'tutor-profile';
     const { data: srcRow } = await supabase
       .from('users')
-      .select('signup_source, referred_by_tutor_id')
+      .select('signup_source')
       .eq('id', userId)
       .maybeSingle();
-    const firstTouch: Record<string, unknown> = {};
-    if (!srcRow?.signup_source) firstTouch.signup_source = 'tutor-invite';
-    if (!srcRow?.referred_by_tutor_id) firstTouch.referred_by_tutor_id = tutorId;
-    if (Object.keys(firstTouch).length > 0) {
-      await supabase.from('users').update(firstTouch).eq('id', userId);
+    if (!srcRow?.signup_source) {
+      await supabase.from('users').update({ signup_source: signupVia }).eq('id', userId);
     }
 
     // Funnel: record the granular signup event (server-side so it's reliable even
     // if the client emitter never runs).
-    await logActivity(userId, 'signup_completed', { metadata: { via: 'tutor-invite' } });
+    await logActivity(userId, 'signup_completed', { metadata: { via: signupVia } });
 
     // 3. Spam gate, then the tutor-student relationship.
     //
@@ -134,6 +130,14 @@ export async function POST(request: NextRequest) {
       // and sends no mail. Deliberately reported as success so a bot learns
       // nothing about which field tripped the check.
       return NextResponse.json({ success: true });
+    }
+
+    // Commission: invite code only, first touch only. Never for a blocked
+    // account (returned above). A failed write mustn't fail the signup.
+    try {
+      await attributeCommission(userId, tutorId, target.via);
+    } catch (e) {
+      console.error('⚠️ Commission attribution failed:', e);
     }
 
     console.log('📝 Creating tutor-student relationship...');

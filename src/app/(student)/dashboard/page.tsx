@@ -335,7 +335,7 @@ export default async function DashboardPage() {
 
           {/* Actions */}
           <div className="flex items-center gap-2">
-            <BookClassButton tutorName={tutor.name || "your tutor"} />
+            <BookClassButton tutorName={tutor.name || "your tutor"} tutorId={tutor.id} />
             <Link
               href="/student/sessions"
               className="p-2.5 bg-primary-50 text-primary rounded-xl hover:bg-primary-100 transition-colors"
@@ -367,7 +367,7 @@ export default async function DashboardPage() {
                 <p className="font-heading font-bold text-primary truncate">{t.name || "Your Tutor"}</p>
               </div>
               <div className="flex items-center gap-2">
-                <BookClassButton tutorName={t.name || "your tutor"} />
+                <BookClassButton tutorName={t.name || "your tutor"} tutorId={t.id} />
                 <Link
                   href="/messages"
                   className="p-2.5 bg-gray-50 text-gray-500 rounded-xl hover:bg-gray-100 transition-colors"
