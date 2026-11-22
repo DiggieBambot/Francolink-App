@@ -1,7 +1,9 @@
 // src/app/(student)/student/leaderboard/page.tsx
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
+import { createClient as createServiceClient } from '@supabase/supabase-js';
 import { Trophy, Medal, Flame, TrendingUp, Crown } from 'lucide-react';
+import { primaryTutorId } from '@/lib/tutor/commission';
 
 export default async function StudentLeaderboardPage() {
   const supabase = await createClient();
@@ -15,7 +17,7 @@ export default async function StudentLeaderboardPage() {
   // Get current user profile
   const { data: currentProfile } = await supabase
     .from('users')
-    .select('id, name, total_xp, current_streak, avatar_url, referred_by_tutor_id')
+    .select('id, name, total_xp, current_streak, avatar_url')
     .eq('id', user.id)
     .single();
 
@@ -27,9 +29,24 @@ export default async function StudentLeaderboardPage() {
     .order('total_xp', { ascending: false })
     .limit(50);
 
-  // If student has a tutor, show classmates
-  if (currentProfile?.referred_by_tutor_id) {
-    leaderboardQuery = leaderboardQuery.eq('referred_by_tutor_id', currentProfile.referred_by_tutor_id);
+  // If student has a tutor, show classmates: everyone actively connected to
+  // that tutor (tutor_students), not just the students the tutor earns
+  // commission on. Read with the service client so RLS on tutor_students
+  // can't hide other students' connections.
+  const myTutorId = await primaryTutorId(user.id);
+  if (myTutorId) {
+    const svc = createServiceClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!,
+      { auth: { persistSession: false } }
+    );
+    const { data: classmates } = await svc
+      .from('tutor_students')
+      .select('student_id')
+      .eq('tutor_id', myTutorId)
+      .eq('status', 'active');
+    const ids = (classmates || []).map((c) => c.student_id as string);
+    leaderboardQuery = leaderboardQuery.in('id', ids.length ? ids : [user.id]);
   }
 
   const { data: leaderboard } = await leaderboardQuery;
@@ -72,7 +89,7 @@ export default async function StudentLeaderboardPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Leaderboard</h1>
         <p className="text-gray-500 dark:text-gray-400 mt-1">
-          {currentProfile?.referred_by_tutor_id 
+          {myTutorId 
             ? 'See how you rank among your classmates'
             : 'Top French learners this week'}
         </p>

@@ -55,15 +55,10 @@ export function CreateSessionModal({ isOpen, onClose }: CreateSessionModalProps)
   };
 
   const fetchStudents = async () => {
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) return;
-
-    const { data } = await supabase
-      .from('users')
-      .select('id, name')
-      .eq('referred_by_tutor_id', user.id)
-      .order('name');
-    
+    // Active connections, not the commission field — see /api/tutor/students/list.
+    const res = await fetch('/api/tutor/students/list');
+    if (!res.ok) return;
+    const { students: data } = await res.json();
     if (data) setStudents(data);
   };
 
