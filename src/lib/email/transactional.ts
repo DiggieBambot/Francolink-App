@@ -87,15 +87,19 @@ export function renderWelcome(firstName: string, isTutor: boolean): RenderedEmai
   return { subject, html: emailShell({ firstName, bodyHtml, ctaHref, ctaText }), text };
 }
 
+// Sent only when a student is connected straight away (status 'active') — every
+// caller gates on that. Requests held as 'pending' by the signup risk gate send
+// no mail, so this must not ask the tutor to confirm anything: there is nothing
+// to confirm.
 export function renderNewStudent(firstName: string, studentName?: string | null): RenderedEmail {
   const who = escapeHtml(studentName || "A new student");
   const bodyHtml =
-    `<p style="margin:0 0 16px 0;font-size:16px;"><b>${who}</b> asked to join your class on Francolink.</p>
-     <p style="margin:0 0 16px 0;font-size:16px;">Head to your Students tab to confirm them — then you can send lessons and homework their way.</p>`;
-  const text = `${studentName || "A new student"} asked to join your class on Francolink. Confirm them: ${APP_URL}/tutor/students`;
+    `<p style="margin:0 0 16px 0;font-size:16px;"><b>${who}</b> just joined your class on Francolink.</p>
+     <p style="margin:0 0 16px 0;font-size:16px;">They're already in your Students tab — you can send them lessons and homework right away.</p>`;
+  const text = `${studentName || "A new student"} just joined your class on Francolink. They're already in your Students tab: ${APP_URL}/tutor/students`;
   return {
-    subject: "You have a new student request 🎉",
-    html: emailShell({ firstName, bodyHtml, ctaHref: `${APP_URL}/tutor/students`, ctaText: "Review the request" }),
+    subject: "A new student joined your class 🎉",
+    html: emailShell({ firstName, bodyHtml, ctaHref: `${APP_URL}/tutor/students`, ctaText: "See my students" }),
     text,
   };
 }
