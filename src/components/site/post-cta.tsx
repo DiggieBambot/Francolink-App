@@ -34,8 +34,8 @@ const OFFERS = {
   tutors: {
     title: "Practise it with a teacher",
     body:
-      "Every tutor is checked for a teaching qualification, proven experience and a live teaching demo " +
-      "before their profile goes live. Most offer a free trial lesson.",
+      "Every tutor passes a live teaching demo before their profile goes live, and Professional tutors " +
+      "also show their teaching qualification. Start with a one-off starter pack of lessons.",
     label: "Browse tutors",
     href: "/tutors",
     external: false,

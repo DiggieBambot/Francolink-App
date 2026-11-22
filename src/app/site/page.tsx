@@ -38,7 +38,7 @@ const STEPS = [
   {
     Icon: CalendarCheck,
     title: "Book your first lesson",
-    body: "Pick a slot that fits your week. Most tutors offer a free trial lesson so you can check the fit before committing to anything.",
+    body: "Pick a slot that fits your week. New to live lessons? Start with a one-off starter pack before you choose a plan.",
   },
   {
     Icon: Sparkles,
