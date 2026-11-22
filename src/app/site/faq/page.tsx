@@ -55,7 +55,7 @@ const DEFAULT_FAQS: Faq[] = [
     category: "Pricing",
     question: "What does it cost?",
     answer:
-      "The app has a free plan, plus Premium and Premium+ subscriptions. Live lessons are billed separately at the hourly rate shown on each tutor's profile. Most tutors offer a free trial lesson.",
+      "The app has a free plan, plus Premium and Premium+ subscriptions. Live lessons are paid separately, from a lesson plan or a one-off starter pack. Your plan decides which tutor tiers you can book; tutors don't set their own rates.",
   },
   {
     id: "d7",
@@ -140,7 +140,7 @@ export default async function FaqPage() {
             Still deciding?
           </h2>
           <p className="text-gray-600 mb-8">
-            Look through the tutors — most offer a free trial lesson.
+            Look through the tutors, then start with a one-off starter pack of lessons.
           </p>
           <CtaButton href="/tutors">Browse tutors</CtaButton>
         </div>
