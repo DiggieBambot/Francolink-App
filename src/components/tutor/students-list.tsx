@@ -241,8 +241,17 @@ export function StudentsList({ students, inviteLink }: StudentsListProps) {
                     </div>
                   </div>
 
-                  {/* Actions: enter this student's private room, or copy its link */}
-                  <div className="flex items-center gap-2">
+                  {/* Actions: enter this student's private room, email them, or copy the room link.
+                      Email opens the tutor's own mail app (mailto) — there is no in-app
+                      messaging yet, and this is the one way to reach a student today. */}
+                  <div className="flex flex-wrap items-center gap-2">
+                    <a
+                      href={`mailto:${student.email}?subject=${encodeURIComponent('Your French lessons on FrancoLink')}`}
+                      title={`Email ${student.name || 'this student'} from your own mail app`}
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 px-3 py-2 text-sm font-semibold text-gray-600 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
+                    >
+                      <Mail className="w-4 h-4" /> Email
+                    </a>
                     <a
                       href={`/room/${student.spaceId}`}
                       title="Open this student's private classroom"
