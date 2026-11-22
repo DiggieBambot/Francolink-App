@@ -284,9 +284,8 @@ export async function GET(req: Request) {
     .not("email", "is", null);
 
   if ((tutors || []).length > 0) {
-    const [{ data: allUsers }, { data: rels }, { data: hwAssigns }, { data: freshLessons }] = await Promise.all([
-      s.from("users").select("id, referred_by_tutor_id"),
-      s.from("tutor_students").select("tutor_id, student_id"),
+    const [{ data: rels }, { data: hwAssigns }, { data: freshLessons }] = await Promise.all([
+      s.from("tutor_students").select("tutor_id, student_id, status").in("status", ["active", "pending"]),
       s.from("homework_assignments").select("tutor_id, assigned_at"),
       s.from("tutor_lessons").select("title").eq("status", "published")
         .gte("published_at", new Date(now - 21 * DAY).toISOString())
@@ -294,14 +293,15 @@ export async function GET(req: Request) {
     ]);
     const newLessonCount = (freshLessons || []).length;
     const newLessonSamples = (freshLessons || []).slice(0, 3).map((l) => l.title as string);
-    const referredBy = new Map((allUsers || []).map((u) => [u.id, u.referred_by_tutor_id]));
+    // Class size and waiting requests come from the connection status itself.
+    // These used to be derived from users.referred_by_tutor_id (the commission
+    // field), which counted only commission students as "connected" and every
+    // other active student as a "pending request".
     const connectedByTutor = new Map<string, number>();
-    for (const u of allUsers || []) {
-      if (u.referred_by_tutor_id) connectedByTutor.set(u.referred_by_tutor_id, (connectedByTutor.get(u.referred_by_tutor_id) || 0) + 1);
-    }
     const pendingByTutor = new Map<string, number>();
     for (const r of rels || []) {
-      if (referredBy.get(r.student_id) !== r.tutor_id) pendingByTutor.set(r.tutor_id, (pendingByTutor.get(r.tutor_id) || 0) + 1);
+      const m = r.status === "active" ? connectedByTutor : pendingByTutor;
+      m.set(r.tutor_id, (m.get(r.tutor_id) || 0) + 1);
     }
     const lastAssignByTutor = new Map<string, number>();
     for (const a of hwAssigns || []) {

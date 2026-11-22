@@ -5,6 +5,7 @@ import { createClient as createServiceClient } from '@supabase/supabase-js';
 import { notifyTutorNewStudent } from '@/lib/email/transactional';
 import { joinStatusFor } from '@/lib/auth/signup-guard';
 import { resolveJoinTarget } from '@/lib/auth/join-target';
+import { attributeCommission } from '@/lib/tutor/commission';
 
 // Use service role client for database operations
 const supabaseService = createServiceClient(
@@ -51,21 +52,6 @@ export async function POST(request: NextRequest) {
 
     console.log('✅ Found tutor:', tutor.email);
 
-    // Check if student already has a tutor
-    const { data: student, error: studentError } = await supabaseService
-      .from('users')
-      .select('referred_by_tutor_id')
-      .eq('id', user.id)
-      .single();
-
-    if (studentError) {
-      console.error('❌ Error fetching student:', studentError);
-      return NextResponse.json(
-        { error: 'Failed to fetch student data' },
-        { status: 500 }
-      );
-    }
-
     // A student may have multiple teachers. Connections live in tutor_students;
     // if they're already connected to THIS tutor, just say so (idempotent).
     const { data: existingLink } = await supabaseService
@@ -81,20 +67,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Commission attribution is first-touch: the first teacher a student connects
-    // to keeps it. Only set referred_by_tutor_id if it isn't set yet; adding more
-    // teachers later never changes it.
-    if (!student?.referred_by_tutor_id) {
-      const { error: attrError } = await supabaseService
-        .from('users')
-        .update({ referred_by_tutor_id: tutor.tutorId, updated_at: new Date().toISOString() })
-        .eq('id', user.id);
-      if (attrError) {
-        console.error('❌ Error attributing student to tutor:', attrError);
-        return NextResponse.json({ error: 'Failed to join tutor' }, { status: 500 });
-      }
-    }
-
     // Spam gate. A clean account connects straight away, as before. Anything
     // that scores as risky lands as 'pending' — the tutor sees it under
     // Students and decides — and an outright block never reaches them at all.
@@ -105,6 +77,18 @@ export async function POST(request: NextRequest) {
         { error: "We couldn't complete this request. Please contact support@francolink.net." },
         { status: 403 }
       );
+    }
+
+    // Commission: only when they came through this tutor's private invite
+    // code, and only if no earlier invite already holds it. A public-profile
+    // join (/join/<slug>) connects the student but earns nothing — see
+    // lib/tutor/commission.ts. Done after the block check so a blocked
+    // account is never attributed.
+    try {
+      await attributeCommission(user.id, tutor.tutorId, tutor.via);
+    } catch (attrError) {
+      console.error('❌ Error attributing student to tutor:', attrError);
+      return NextResponse.json({ error: 'Failed to join tutor' }, { status: 500 });
     }
 
     // The connection itself (this is what puts the student in the tutor's list).
