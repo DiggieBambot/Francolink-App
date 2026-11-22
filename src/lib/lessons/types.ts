@@ -208,6 +208,8 @@ export interface Lesson {
   slug: string;
   title: string;
   title_translation?: string;
+  /** Hand-written <title> for search, overriding the generated one (see lib/lessons/seo.ts). */
+  seo_title?: string;
   language: string;
   level: string;
   duration_minutes?: number;

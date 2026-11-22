@@ -9,6 +9,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, Video, GraduationCap } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { getPublishedLessonBySlug } from "@/lib/lessons/public-queries";
+import { lessonSeoTitle, lessonSeoDescription } from "@/lib/lessons/seo";
 import { APP_URL, SITE_URL } from "@/lib/site/hosts";
 import { LessonRenderer } from "@/components/lesson-v2/lesson-renderer";
 import { GuestCTA } from "@/components/library/guest-cta";
@@ -42,21 +43,13 @@ export async function generateMetadata({
   const { lesson, seoIndexable } = found;
   const canonical = `${APP_URL}/library/lesson/${lesson.slug}`;
 
-  // Prefer what the lesson says it teaches; fall back to level + topic so the
-  // description is still specific to this page rather than a shared blurb.
-  const canDo = lesson.objectives?.map((o) => o.student_label).filter(Boolean) ?? [];
-  const topic = lesson.topic_tags?.slice(0, 3).join(", ");
-  const description = (
-    canDo.length
-      ? `${lesson.title} — a ${lesson.level} lesson. You'll learn to ${canDo
-          .slice(0, 2)
-          .join("; ")
-          .toLowerCase()}.`
-      : `${lesson.title} — a free ${lesson.level} lesson${topic ? ` on ${topic}` : ""} from the FrancoLink library.`
-  ).slice(0, 155);
+  // English topic + language + level in the title; one readable description.
+  // See lib/lessons/seo.ts for why the raw lesson title wasn't earning clicks.
+  const title = lessonSeoTitle(lesson);
+  const description = lessonSeoDescription(lesson);
 
   return {
-    title: `${lesson.title} | FrancoLink`,
+    title,
     description,
     alternates: { canonical },
     // Lessons that failed the quality lint stay reachable for students but are
@@ -64,9 +57,15 @@ export async function generateMetadata({
     robots: seoIndexable ? undefined : { index: false, follow: true },
     openGraph: {
       type: "article",
-      title: lesson.title,
+      title,
       description,
       url: canonical,
+      images: lesson.hero_image_url ? [lesson.hero_image_url] : undefined,
+    },
+    // Otherwise inherited from the root layout's app_settings defaults.
+    twitter: {
+      title,
+      description,
       images: lesson.hero_image_url ? [lesson.hero_image_url] : undefined,
     },
   };
@@ -192,7 +191,11 @@ export default async function PublicLessonPage({
           </div>
         </div>
       </div>
-      <LessonRenderer lesson={found.lesson} initialView={view} lockedView={view} />
+      {/* The page shell is lang="en"; mark the lesson body with the language it
+          teaches so screen readers and search engines read French as French. */}
+      <div lang={found.lesson.language || undefined}>
+        <LessonRenderer lesson={found.lesson} initialView={view} lockedView={view} />
+      </div>
 
       {/* Tutor: send this lesson's homework to students. */}
       {isTutor && homework ? (
