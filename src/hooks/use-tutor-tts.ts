@@ -16,6 +16,7 @@
 // learning language, rate from the CEFR level, optionally slowed for replay.
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { bandBuffers, readVoiceBands, silentBands, type VoiceBands } from "@/components/ai-tutor/leon/voice";
 
 interface UseTutorTTSOptions {
   /** Learning language code, e.g. "fr". */
@@ -45,6 +46,8 @@ export interface NowPlaying {
   /** performance.now() when it started, and its length in seconds once known. */
   startedAt: number;
   duration: number | null;
+  /** Playback position in seconds, read from the audio element (for lip sync). */
+  position?: () => number;
 }
 
 /** 0.1 s of silence; playing it inside a click unlocks the element on iOS. */
@@ -100,6 +103,9 @@ export function useTutorTTS(options: UseTutorTTSOptions = {}) {
   // Live loudness of Leon's voice, 0–1, for lip sync. A ref, not state: it
   // changes every frame and is read by the animation directly.
   const voiceLevelRef = useRef(0);
+  // The same voice split into frequency bands, so Léon's mouth shape can
+  // follow the sound (round for "o", wide for "i", teeth for "s").
+  const voiceBandsRef = useRef<VoiceBands>(silentBands());
   const ctxRef = useRef<AudioContext | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
   const rafRef = useRef<number | null>(null);
@@ -154,12 +160,10 @@ export function useTutorTTS(options: UseTutorTTSOptions = {}) {
   const startMeter = useCallback(() => {
     const analyser = analyserRef.current;
     if (!analyser || rafRef.current !== null) return;
-    const data = new Uint8Array(analyser.fftSize);
+    const buf = bandBuffers(analyser);
     const tick = () => {
-      analyser.getByteTimeDomainData(data);
-      let sum = 0;
-      for (const v of data) sum += ((v - 128) / 128) ** 2;
-      voiceLevelRef.current = Math.min(1, Math.sqrt(sum / data.length) * 5);
+      readVoiceBands(analyser, buf, voiceBandsRef.current);
+      voiceLevelRef.current = voiceBandsRef.current.level;
       rafRef.current = requestAnimationFrame(tick);
     };
     tick();
@@ -169,6 +173,7 @@ export function useTutorTTS(options: UseTutorTTSOptions = {}) {
     if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
     rafRef.current = null;
     voiceLevelRef.current = 0;
+    Object.assign(voiceBandsRef.current, silentBands());
   }, []);
 
   /** Call from a click/tap handler before any audio is expected. */
@@ -232,7 +237,13 @@ export function useTutorTTS(options: UseTutorTTSOptions = {}) {
       setIsSpeaking(true);
       if (ctxRef.current?.state === "suspended") void ctxRef.current.resume().catch(() => {});
       startMeter();
-      setNowPlaying({ id: item.id, text: item.text, startedAt: performance.now(), duration: null });
+      setNowPlaying({
+        id: item.id,
+        text: item.text,
+        startedAt: performance.now(),
+        duration: null,
+        position: () => el.currentTime,
+      });
 
       await new Promise<void>((resolve) => {
         const done = () => {
@@ -335,5 +346,6 @@ export function useTutorTTS(options: UseTutorTTSOptions = {}) {
     error,
     nowPlaying,
     voiceLevelRef,
+    voiceBandsRef,
   };
 }

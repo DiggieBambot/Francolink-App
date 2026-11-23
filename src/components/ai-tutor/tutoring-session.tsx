@@ -12,13 +12,14 @@
 // Léon's own voice is never used as a trigger, so speakers can't make him
 // interrupt himself.
 //
-// Around that: Léon's mouth follows his real voice level, he reacts to the
-// student's voice while listening, subtitles light up word by word, and a
-// class board collects the corrections from the session.
+// Around that: Léon (the animation library in ./leon) lip-syncs to each
+// sentence from its text and his live voice, nods along while the student
+// talks, reacts to corrections and good answers; a comic speech bubble shows
+// what he's saying word by word; and a class board collects the corrections.
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Mic, Pause, PhoneOff, Hand, Loader2, NotebookPen, ChevronUp } from "lucide-react";
-import { Leon, leonPalette, type LeonMood } from "@/components/ai-tutor/leon";
+import { Leon, LeonSpeechBubble, leonPalette, type LeonMood, type VoiceBands } from "@/components/ai-tutor/leon";
 import type { NowPlaying } from "@/hooks/use-tutor-tts";
 
 interface Correction {
@@ -64,6 +65,7 @@ export function TutoringSession({
   isSpeaking,
   nowPlaying,
   voiceLevel,
+  voiceBands,
   recorder,
   prefetchClip,
   playClip,
@@ -88,6 +90,8 @@ export function TutoringSession({
   isSpeaking: boolean;
   nowPlaying: NowPlaying | null;
   voiceLevel: React.MutableRefObject<number>;
+  /** His voice's frequency bands, for mouth shapes that follow the sound. */
+  voiceBands?: React.MutableRefObject<VoiceBands>;
   recorder: Recorder;
   prefetchClip: (text: string) => Promise<Blob | null>;
   playClip: (audio: Promise<Blob | null>, text?: string) => void;
@@ -244,21 +248,34 @@ export function TutoringSession({
       </div>
 
       <div className="flex-1 min-h-0 w-full max-w-5xl mx-auto px-4 grid md:grid-cols-[1fr_300px] gap-6">
-        {/* Léon + subtitles */}
+        {/* Léon and his speech bubble */}
         <div className="min-h-0 overflow-y-auto flex flex-col items-center text-center">
+          {/* Room is kept for the bubble so Léon doesn't jump as it changes;
+              it grows upward from just above his head. */}
+          <div className="w-full max-w-xl min-h-[6.5rem] md:min-h-[7.5rem] flex flex-col justify-end pt-1 pb-5">
+            <LeonSpeechBubble
+              language={language}
+              text={tutorLine}
+              speech={leonTalking ? nowPlaying : null}
+              streaming={tutorStreaming && !leonTalking}
+              tailX="46%"
+            />
+          </div>
           <button
             onClick={leonTalking ? interrupt : undefined}
-            className="mt-1 rounded-full focus:outline-none"
+            className="rounded-full focus:outline-none"
             aria-label={leonTalking ? "Interrupt Professor Léon" : "Professor Léon"}
           >
-            <div className="w-[220px] h-[220px] md:w-[280px] md:h-[280px]">
+            <div className="w-[200px] h-[200px] md:w-[260px] md:h-[260px]">
               <Leon
                 language={language}
                 mood={mood}
-                size={280}
+                size={260}
                 className="w-full h-full"
                 voiceLevel={voiceLevel}
+                voiceBands={voiceBands}
                 micLevel={micLevel}
+                speech={leonTalking ? nowPlaying : null}
               />
             </div>
           </button>
@@ -269,15 +286,6 @@ export function TutoringSession({
 
           {studentLine && (
             <p className="mt-5 text-sm text-gray-500 italic max-w-xl">&ldquo;{studentLine}&rdquo;</p>
-          )}
-
-          {tutorLine && (
-            <SpokenCaption
-              text={tutorLine}
-              streaming={tutorStreaming}
-              nowPlaying={leonTalking ? nowPlaying : null}
-              speaking={leonTalking}
-            />
           )}
 
           {/* On phones the latest correction shows inline; the board is a sheet. */}
@@ -355,71 +363,6 @@ export function TutoringSession({
         </div>
       )}
     </div>
-  );
-}
-
-/**
- * Léon's line as subtitles: words already spoken are dark, the rest are
- * faint, advancing through each sentence as its audio plays.
- */
-function SpokenCaption({
-  text,
-  streaming,
-  nowPlaying,
-  speaking,
-}: {
-  text: string;
-  streaming: boolean;
-  nowPlaying: NowPlaying | null;
-  speaking: boolean;
-}) {
-  // Advanced by animation frames while a sentence plays.
-  const [liveChars, setLiveChars] = useState(0);
-  const playing = speaking && !!nowPlaying;
-  // Not speaking: everything is "read". While the reply is still arriving and
-  // its audio hasn't started, nothing is.
-  const spokenChars = playing ? liveChars : streaming ? 0 : text.length;
-
-  useEffect(() => {
-    if (!speaking || !nowPlaying) return;
-    const start = text.indexOf(nowPlaying.text.slice(0, 24));
-    const base = start >= 0 ? start : 0;
-    let raf = 0;
-    let last = -1;
-    const tick = () => {
-      const dur = nowPlaying.duration ? nowPlaying.duration * 1000 : nowPlaying.text.length * 70;
-      const f = Math.min(1, (performance.now() - nowPlaying.startedAt) / dur);
-      const chars = base + Math.round(nowPlaying.text.length * f);
-      if (chars !== last) {
-        setLiveChars(chars);
-        last = chars;
-      }
-      if (f < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [nowPlaying, speaking, text]);
-
-  // Split on spaces, keeping each word's position in the text.
-  const words: { w: string; end: number }[] = [];
-  const re = /\S+\s*/g;
-  let m: RegExpExecArray | null;
-  while ((m = re.exec(text))) words.push({ w: m[0], end: m.index + m[0].trimEnd().length });
-
-  return (
-    <p className="mt-3 max-w-xl text-xl md:text-2xl leading-relaxed font-medium">
-      {words.map((x, i) => (
-        <span
-          key={i}
-          className={`transition-colors duration-150 ${x.end <= spokenChars ? "text-gray-900" : "text-gray-300"}`}
-        >
-          {x.w}
-        </span>
-      ))}
-      {streaming && (
-        <span className="inline-block w-1.5 h-5 -mb-0.5 ml-1 bg-gray-400 animate-pulse rounded-sm" />
-      )}
-    </p>
   );
 }
 
