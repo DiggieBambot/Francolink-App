@@ -386,9 +386,9 @@ export default async function DashboardPage() {
               <Video className="w-5 h-5" />
             </Link>
             <Link
-              href="/messages"
+              href={`/messages?with=${tutor.id}`}
               className="p-2.5 bg-gray-50 text-gray-500 rounded-xl hover:bg-gray-100 transition-colors"
-              title="Message"
+              title={`Message ${tutor.name || "your tutor"}`}
             >
               <MessageSquare className="w-5 h-5" />
             </Link>
@@ -415,9 +415,9 @@ export default async function DashboardPage() {
                   bookHref={bookLinks.get(t.id)}
                 />
                 <Link
-                  href="/messages"
+                  href={`/messages?with=${t.id}`}
                   className="p-2.5 bg-gray-50 text-gray-500 rounded-xl hover:bg-gray-100 transition-colors"
-                  title="Message"
+                  title={`Message ${t.name || "your tutor"}`}
                 >
                   <MessageSquare className="w-5 h-5" />
                 </Link>

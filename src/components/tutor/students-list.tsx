@@ -16,7 +16,8 @@ import {
   Check,
   User,
   Video,
-  History
+  History,
+  MessageSquare
 } from 'lucide-react';
 
 interface Student {
@@ -241,10 +242,16 @@ export function StudentsList({ students, inviteLink }: StudentsListProps) {
                     </div>
                   </div>
 
-                  {/* Actions: enter this student's private room, email them, or copy the room link.
-                      Email opens the tutor's own mail app (mailto) — there is no in-app
-                      messaging yet, and this is the one way to reach a student today. */}
+                  {/* Actions: enter this student's private room, message them in-app, email
+                      them from the tutor's own mail app (mailto), or copy the room link. */}
                   <div className="flex flex-wrap items-center gap-2">
+                    <a
+                      href={`/messages?with=${student.id}`}
+                      title={`Message ${student.name || 'this student'} in FrancoLink`}
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 px-3 py-2 text-sm font-semibold text-gray-600 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
+                    >
+                      <MessageSquare className="w-4 h-4" /> Message
+                    </a>
                     <a
                       href={`mailto:${student.email}?subject=${encodeURIComponent('Your French lessons on FrancoLink')}`}
                       title={`Email ${student.name || 'this student'} from your own mail app`}
