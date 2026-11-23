@@ -18,9 +18,28 @@
 // what he's saying word by word; and a class board collects the corrections.
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Mic, Pause, PhoneOff, Hand, Loader2, NotebookPen, ChevronUp } from "lucide-react";
+import { Mic, Pause, PhoneOff, Hand, Loader2, NotebookPen, ChevronUp, BookOpen, RotateCcw } from "lucide-react";
 import { Leon, LeonSpeechBubble, leonPalette, type LeonMood, type VoiceBands } from "@/components/ai-tutor/leon";
 import type { NowPlaying } from "@/hooks/use-tutor-tts";
+
+/** A live-class lesson Léon offers at the start of a class. */
+export interface ClassTopicOption {
+  id: string;
+  title: string;
+  translation: string | null;
+  level: string;
+  minutes: number | null;
+  /** Set on the unfinished lesson from a previous class. */
+  sectionIndex?: number;
+  totalSections?: number;
+}
+
+export interface ClassLesson {
+  title: string;
+  sectionIndex: number;
+  totalSections: number;
+  finished: boolean;
+}
 
 interface Correction {
   original: string;
@@ -77,6 +96,10 @@ export function TutoringSession({
   outOfTimePanel,
   error,
   pauseKey = 0,
+  topics = [],
+  resume = null,
+  onPickTopic,
+  lesson = null,
 }: {
   language: string;
   mood: LeonMood;
@@ -104,6 +127,12 @@ export function TutoringSession({
   error: string | null;
   /** Changes when a turn failed: pause rather than retry into the same error. */
   pauseKey?: number;
+  /** Lessons offered for today's class, until one is chosen. */
+  topics?: ClassTopicOption[];
+  resume?: ClassTopicOption | null;
+  onPickTopic?: (topic: ClassTopicOption) => void;
+  /** The lesson being taught, once chosen. */
+  lesson?: ClassLesson | null;
 }) {
   const [paused, setPaused] = useState(false);
   const [boardOpen, setBoardOpen] = useState(false);
@@ -219,7 +248,7 @@ export function TutoringSession({
   else status = "Getting ready…";
 
   const boardPanel = (
-    <ClassBoard items={board} />
+    <ClassBoard items={board} lesson={lesson} />
   );
 
   return (
@@ -286,6 +315,51 @@ export function TutoringSession({
 
           {studentLine && (
             <p className="mt-5 text-sm text-gray-500 italic max-w-xl">&ldquo;{studentLine}&rdquo;</p>
+          )}
+
+          {!lesson && (topics.length > 0 || resume) && onPickTopic && (
+            <div className="mt-6 w-full max-w-xl text-left">
+              <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">
+                Today&apos;s lesson · say it or tap it
+              </p>
+              <div className="grid sm:grid-cols-2 gap-2">
+                {resume && (
+                  <button
+                    onClick={() => onPickTopic(resume)}
+                    disabled={isLoading}
+                    className="sm:col-span-2 flex items-start gap-3 rounded-xl border-2 px-3 py-2.5 text-left hover:bg-gray-50 disabled:opacity-60"
+                    style={{ borderColor: palette.body }}
+                  >
+                    <RotateCcw className="w-4 h-4 mt-0.5 shrink-0" style={{ color: palette.dark }} />
+                    <span className="min-w-0">
+                      <span className="block text-sm font-semibold text-gray-900 truncate">
+                        Finish &ldquo;{resume.title}&rdquo;
+                      </span>
+                      <span className="block text-xs text-gray-500">
+                        {resume.translation ? `${resume.translation} · ` : ""}part {(resume.sectionIndex ?? 0) + 1}
+                        {resume.totalSections ? ` of ${resume.totalSections}` : ""}
+                      </span>
+                    </span>
+                  </button>
+                )}
+                {topics.map((t) => (
+                  <button
+                    key={t.id}
+                    onClick={() => onPickTopic(t)}
+                    disabled={isLoading}
+                    className="flex items-start gap-3 rounded-xl border border-gray-200 bg-white px-3 py-2.5 text-left hover:border-gray-400 disabled:opacity-60"
+                  >
+                    <BookOpen className="w-4 h-4 mt-0.5 shrink-0" style={{ color: palette.dark }} />
+                    <span className="min-w-0">
+                      <span className="block text-sm font-semibold text-gray-900">{t.title}</span>
+                      <span className="block text-xs text-gray-500">
+                        {[t.translation, t.level, t.minutes ? `${t.minutes} min` : null].filter(Boolean).join(" · ")}
+                      </span>
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
           )}
 
           {/* On phones the latest correction shows inline; the board is a sheet. */}
@@ -376,9 +450,29 @@ function CorrectionLine({ c }: { c: Correction }) {
 }
 
 /** A chalkboard of everything Léon corrected in this class. */
-function ClassBoard({ items }: { items: Correction[] }) {
+function ClassBoard({ items, lesson }: { items: Correction[]; lesson: ClassLesson | null }) {
+  const done = lesson ? Math.min(lesson.sectionIndex, lesson.totalSections) : 0;
   return (
     <div className="rounded-2xl bg-[#1F3B2D] text-[#F3F1E7] p-4 shadow-inner border-4 border-[#8B6B4A] min-h-[200px]">
+      {lesson && (
+        <div className="mb-4 pb-3 border-b border-[#F3F1E7]/15">
+          <p className="text-xs uppercase tracking-widest text-[#F3F1E7]/60">Today&apos;s lesson</p>
+          <p className="mt-1 font-[cursive] text-lg leading-snug">{lesson.title}</p>
+          <div className="mt-2 flex items-center gap-2">
+            <div className="flex-1 h-1.5 rounded-full bg-[#F3F1E7]/15 overflow-hidden">
+              <div
+                className="h-full bg-[#F3F1E7]/80 transition-all duration-500"
+                style={{ width: `${lesson.totalSections ? (done / lesson.totalSections) * 100 : 0}%` }}
+              />
+            </div>
+            <span className="text-xs text-[#F3F1E7]/70">
+              {lesson.finished || done >= lesson.totalSections
+                ? "Done 🎉"
+                : `Part ${done + 1} of ${lesson.totalSections}`}
+            </span>
+          </div>
+        </div>
+      )}
       <p className="text-xs uppercase tracking-widest text-[#F3F1E7]/60 flex items-center gap-1.5">
         <NotebookPen className="w-3.5 h-3.5" /> Class board
       </p>

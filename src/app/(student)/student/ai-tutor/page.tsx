@@ -2,7 +2,7 @@
 import { useTutorTTS, takeSentences } from "@/hooks/use-tutor-tts";
 import { useVoiceRecorder } from "@/hooks/use-voice-recorder";
 import { PLANS, formatTutoringTime } from "@/lib/config/subscription";
-import { TutoringSession } from "@/components/ai-tutor/tutoring-session";
+import { TutoringSession, type ClassTopicOption } from "@/components/ai-tutor/tutoring-session";
 import { ExtraHoursOffer } from "@/components/ai-tutor/extra-hours-offer";
 import { TappableText } from "@/components/ai-tutor/tappable-text";
 import { RecapPanel, type Recap } from "@/components/ai-tutor/recap-panel";
@@ -114,6 +114,11 @@ export default function AITutorPage() {
   const [autoSpeak, setAutoSpeak] = useState(true);
   const [conversationId, setConversationId] = useState<string | null>(null);
   const [lesson, setLesson] = useState<LessonProgress | null>(null);
+  // Lessons Léon offered when the class opened, until the student picks one.
+  const [classTopics, setClassTopics] = useState<{
+    topics: ClassTopicOption[];
+    resume: ClassTopicOption | null;
+  } | null>(null);
   const [hints, setHints] = useState<Hint[]>([]);
   const [hintsOpen, setHintsOpen] = useState(false);
   const [recap, setRecap] = useState<Recap | null>(null);
@@ -204,7 +209,7 @@ export default function AITutorPage() {
 
   const sendMessage = async (
     override?: string,
-    opts: { greet?: boolean; session?: boolean } = {}
+    opts: { greet?: boolean; session?: boolean; lessonId?: string } = {}
   ) => {
     const greet = opts.greet === true;
     // Passed explicitly when opening a session, before sessionOpen has updated.
@@ -250,8 +255,10 @@ export default function AITutorPage() {
         body: JSON.stringify({
           messages: apiMessages,
           conversationId,
-          lessonId,
+          lessonId: opts.lessonId ?? lessonId,
           mode: inSession ? "session" : undefined,
+          // Léon introduces a first class in the student's own language.
+          nativeLanguage: typeof navigator !== "undefined" ? navigator.language : undefined,
           greet: greet || undefined,
         }),
         signal: abortRef.current.signal,
@@ -298,6 +305,11 @@ export default function AITutorPage() {
       const handle = (ev: any) => {
         if (ev.t === "start") {
           if (ev.conversationId) setConversationId(ev.conversationId);
+        } else if (ev.t === "topics") {
+          setClassTopics({
+            topics: Array.isArray(ev.topics) ? ev.topics : [],
+            resume: ev.resume ?? null,
+          });
         } else if (ev.t === "delta") {
           text += ev.text;
           patchMessage(assistantId, { content: text });
@@ -322,7 +334,10 @@ export default function AITutorPage() {
           else if (trimmed.split(/\s+/).length >= 4) flash("celebrating", 1800);
           setHints(Array.isArray(ev.hints) ? ev.hints : []);
           if (ev.conversationId) setConversationId(ev.conversationId);
-          if (ev.lesson) setLesson(ev.lesson);
+          if (ev.lesson) {
+            setLesson(ev.lesson);
+            setClassTopics(null);
+          }
           if (ev.level) setStudentLevel(ev.level);
           // Refresh the time left (today, this month, extra) after each turn.
           if (ev.remainingSeconds !== undefined) void fetchUsage();
@@ -492,6 +507,15 @@ export default function AITutorPage() {
     if (messages.length === 0) void sendMessage(undefined, { greet: true, session: true });
   };
 
+  // Tapping one of the offered lessons: it starts right away.
+  const pickClassTopic = (topic: ClassTopicOption) => {
+    if (isLoading) return;
+    tts.stop();
+    setLessonId(topic.id);
+    setClassTopics(null);
+    void sendMessage(topic.title, { session: true, lessonId: topic.id });
+  };
+
   const endTutoringSession = async () => {
     recorder.cancel();
     tts.stop();
@@ -508,6 +532,7 @@ export default function AITutorPage() {
     setConversationId(null);
     setLesson(null);
     setLessonId(null);
+    setClassTopics(null);
     setHints([]);
     setError(null);
   };
@@ -1224,6 +1249,10 @@ export default function AITutorPage() {
           outOfTimePanel={<ExtraHoursOffer reason={usage?.reason} tone="light" />}
           error={error}
           pauseKey={sessionPauseKey}
+          topics={classTopics?.topics ?? []}
+          resume={classTopics?.resume ?? null}
+          onPickTopic={pickClassTopic}
+          lesson={lesson}
         />
       )}
 
