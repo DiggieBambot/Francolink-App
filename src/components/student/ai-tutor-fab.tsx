@@ -7,10 +7,12 @@ import Link from "next/link";
 
 interface AITutorFabProps {
   plan: string;
+  /** Admins and testers get the tutor on any plan, matching getTutorAccess. */
+  privileged?: boolean;
 }
 
-export function AITutorFab({ plan }: AITutorFabProps) {
-  const isPaid = plan === "PREMIUM" || plan === "PREMIUM_PLUS";
+export function AITutorFab({ plan, privileged = false }: AITutorFabProps) {
+  const isPaid = privileged || plan === "PREMIUM" || plan === "PREMIUM_PLUS";
   const [showTooltip, setShowTooltip] = useState(false);
 
   return (

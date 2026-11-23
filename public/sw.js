@@ -1,4 +1,9 @@
-const CACHE_NAME = 'francolink-v5';
+// v6: purges dev-server chunks that v5 cached on localhost (see IS_DEV below).
+const CACHE_NAME = 'francolink-v6';
+
+// The dev server reuses chunk URLs while their contents change, so caching
+// /_next/static/ there pins the browser to stale code after every edit.
+const IS_DEV = /^(localhost|127\.0\.0\.1|\[::1\])$|\.localhost$/.test(self.location.hostname);
 
 const STATIC_ASSETS = [
   '/',
@@ -106,7 +111,9 @@ self.addEventListener('fetch', (event) => {
   }
 
   // Immutable hashed build assets → cache-first (fast, never stale by URL).
+  // Production only: in dev the URLs are not content-hashed.
   if (url.pathname.startsWith('/_next/static/')) {
+    if (IS_DEV) return;
     event.respondWith(
       caches.match(request).then((cached) =>
         cached ||

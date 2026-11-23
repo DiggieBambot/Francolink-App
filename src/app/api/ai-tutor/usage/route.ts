@@ -30,10 +30,13 @@ export async function GET() {
     // into lesson mode. Without an entry point, "lesson mode" is a capability
     // nobody ever reaches — an empty chat box gives a student no idea what to
     // do, which is the most common way a tutor chat goes unused.
+    // Only a lesson in the language being learned now: a student who switched
+    // to Spanish shouldn't be offered last week's French lesson.
     const { data: recent } = await supabase
       .from("lesson_coverage")
-      .select("tutor_lesson_id, lesson_title")
+      .select("tutor_lesson_id, lesson_title, tutor_lessons!inner(language)")
       .eq("student_id", user.id)
+      .eq("tutor_lessons.language", access.learningLanguage)
       .not("tutor_lesson_id", "is", null)
       .order("covered_on", { ascending: false })
       .limit(1)

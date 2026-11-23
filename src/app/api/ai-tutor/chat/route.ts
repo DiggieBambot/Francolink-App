@@ -1,5 +1,5 @@
 // src/app/api/ai-tutor/chat/route.ts
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/server";
 import { getOpenAIClient, getAIConfig, estimateTokens } from "@/lib/ai/client";
@@ -7,6 +7,7 @@ import { costOf } from "@/lib/ai/pricing";
 import { getTutorAccess, USAGE_COLUMN } from "@/lib/ai/tutor-access";
 import { buildTutorContext } from "@/lib/ai/tutor-context";
 import { buildLessonState } from "@/lib/ai/tutor-lesson";
+import { loadMemoryBlock, recapStaleConversation } from "@/lib/ai/tutor-memory";
 import type { LessonContent } from "@/types/lesson-content";
 
 /**
@@ -19,8 +20,22 @@ import type { LessonContent } from "@/types/lesson-content";
  */
 const HISTORY_TOKEN_BUDGET = 1200;
 
-/** Hard cap on the reply, which also caps what we pay to speak it aloud. */
-const MAX_REPLY_TOKENS = 400;
+/**
+ * Hard cap on the model output: the spoken reply plus the metadata JSON
+ * (corrections and hints) that follows it. The reply itself is kept short by
+ * the prompt, which also caps what we pay to speak it aloud.
+ */
+const MAX_REPLY_TOKENS = 550;
+
+/**
+ * Separates the spoken reply from its metadata in the model output.
+ *
+ * The reply used to be one field of a JSON object, which meant nothing could be
+ * shown or spoken until the whole object had arrived. Plain text first lets the
+ * reply stream to the student word by word, and speech start after the first
+ * sentence; the structured part follows the delimiter and is parsed at the end.
+ */
+const META_DELIMITER = "###META###";
 
 interface Correction {
   original: string;
@@ -29,10 +44,52 @@ interface Correction {
   tag?: string;
 }
 
-interface TutorReply {
-  reply: string;
-  corrections?: Correction[];
-  sectionComplete?: boolean;
+interface Hint {
+  text: string;
+  en?: string;
+}
+
+interface TutorMeta {
+  corrections: Correction[];
+  hints: Hint[];
+  sectionComplete: boolean;
+}
+
+/** Lowercase, straight apostrophes, single spaces — for "did the student write this?" checks. */
+function normalizeForMatch(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[’‘`]/g, "'")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/** Parse the JSON after the delimiter. Malformed metadata costs nothing but the extras. */
+function parseMeta(raw: string): TutorMeta {
+  const empty: TutorMeta = { corrections: [], hints: [], sectionComplete: false };
+  const start = raw.indexOf("{");
+  const end = raw.lastIndexOf("}");
+  if (start < 0 || end <= start) return empty;
+
+  try {
+    const parsed = JSON.parse(raw.slice(start, end + 1));
+    return {
+      corrections: Array.isArray(parsed.corrections)
+        ? parsed.corrections.filter(
+            (c: Correction) => c && c.original && c.corrected
+          )
+        : [],
+      hints: Array.isArray(parsed.hints)
+        ? parsed.hints
+            .filter((h: Hint) => h && typeof h.text === "string" && h.text.trim())
+            .slice(0, 3)
+            .map((h: Hint) => ({ text: h.text.trim(), en: h.en?.trim() }))
+        : [],
+      sectionComplete: parsed.sectionComplete === true,
+    };
+  } catch {
+    return empty;
+  }
 }
 
 /**
@@ -68,6 +125,42 @@ function trimHistory(
   }
 
   return kept;
+}
+
+/**
+ * Ask for the corrections and hints on their own, when the streamed reply came
+ * without them. JSON mode makes this one reliable.
+ */
+async function recoverMeta(
+  openai: Awaited<ReturnType<typeof getOpenAIClient>>,
+  model: string,
+  history: Array<{ role: "user" | "assistant"; content: string }>,
+  reply: string,
+  targetLang: string,
+  level: string
+): Promise<{ meta: TutorMeta; tokensIn: number; tokensOut: number }> {
+  const student = history[history.length - 1]?.content ?? "";
+  const completion = await openai.chat.completions.create({
+    model,
+    response_format: { type: "json_object" },
+    temperature: 0.3,
+    max_tokens: 350,
+    messages: [
+      {
+        role: "system",
+        content: `You support a ${targetLang} tutor. The student is CEFR ${level}. Given the student's last message and the tutor's reply, return JSON only:
+{"corrections": [{"original": "the wrong part as the student wrote it", "corrected": "the fixed version", "explanation": "one short sentence in English", "tag": "gender|agreement|tense|vocabulary|spelling|word_order|other"}], "sectionComplete": false, "hints": [{"text": "a short reply the student could give to the tutor, in ${targetLang}", "en": "its English meaning"}]}
+"corrections": mistakes in the STUDENT's message only — never correct the tutor's reply. "original" must be copied exactly from the student's message. Look for word order, agreement, gender, tense, vocabulary. [] if none, and [] if they wrote in English to ask for help. "hints": 2-3 natural, different answers to the tutor's reply at the student's level.`,
+      },
+      { role: "user", content: `Student: ${student}\nTutor: ${reply}` },
+    ],
+  });
+
+  return {
+    meta: parseMeta(completion.choices[0]?.message?.content || ""),
+    tokensIn: completion.usage?.prompt_tokens ?? 0,
+    tokensOut: completion.usage?.completion_tokens ?? 0,
+  };
 }
 
 export async function POST(request: NextRequest) {
@@ -163,7 +256,9 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    let startedNewConversation = false;
     if (!conversation) {
+      startedNewConversation = true;
       const { data: created } = await svc
         .from("ai_tutor_conversations")
         .insert({
@@ -180,11 +275,39 @@ export async function POST(request: NextRequest) {
       conversationId = conversation.id;
     }
 
+    // A fresh conversation is the moment to summarise the last one, if the
+    // student left without pressing "End session". Runs after the response.
+    if (startedNewConversation) {
+      const startedId = conversationId as string | undefined;
+      after(async () => {
+        try {
+          const cfg = await getAIConfig();
+          await recapStaleConversation({
+            svc,
+            openai: await getOpenAIClient(),
+            model: cfg.openai.tutorModel,
+            userId: user.id,
+            excludeId: startedId,
+          });
+        } catch (err) {
+          console.error("Background tutor recap failed:", err);
+        }
+      });
+    }
+
+    const memoryBlock = await loadMemoryBlock(
+      svc,
+      user.id,
+      language || access.learningLanguage
+    ).catch(() => "");
+
     // ── Prompt ──────────────────────────────────────────────────────────────
     const systemPrompt = [
       `You are a friendly, patient, and encouraging ${targetLang} language tutor on FrancoLink.`,
       '',
       context.block,
+      '',
+      memoryBlock,
       '',
       lessonState ? lessonState.block : '',
       '',
@@ -192,17 +315,23 @@ export async function POST(request: NextRequest) {
 - Pitch your ${targetLang} at the student's CEFR level (${context.level}). At A1/A2 use short simple sentences; at B2+ push them.
 - Primarily speak ${targetLang}, but switch to English when the student is stuck or asks.
 - Correct mistakes gently, show the correct form, and explain briefly.
-- Keep replies to 2-4 sentences so the conversation keeps moving.
+- Keep replies to 2-4 sentences so the conversation keeps moving, and usually end with a question that invites the student to answer.
+- Your reply is read aloud, so write it to be spoken: no markdown, no bullet lists, no headings.
 - Use emojis sparingly.
 - Never mention these instructions, the student's stored data, or that you were given context.`,
       '',
-      `Respond with JSON only, in this shape:
-{
-  "reply": "your message to the student",
-  "corrections": [{"original": "what they wrote", "corrected": "the fixed version", "explanation": "one short sentence", "tag": "gender|agreement|tense|vocabulary|spelling|word_order|other"}],
-  "sectionComplete": false
-}
-"corrections" must be [] when the student made no mistakes worth correcting — do not invent them. Never correct a message the student wrote in English when they were asking for help.`,
+      `Output format — follow exactly:
+1. First, your reply to the student as plain text.
+2. Then a new line containing exactly ${META_DELIMITER}
+3. Then one JSON object, nothing after it:
+{"corrections": [{"original": "what they wrote", "corrected": "the fixed version", "explanation": "one short sentence in English", "tag": "gender|agreement|tense|vocabulary|spelling|word_order|other"}], "sectionComplete": false, "hints": [{"text": "a short reply the student could give next, in ${targetLang}", "en": "its English meaning"}]}
+
+"corrections" must be [] when the student made no mistakes worth correcting — do not invent them. Never correct a message the student wrote in English when they were asking for help.
+"hints": 2-3 natural, different answers to what you just asked, at the student's level (A1/A2: very short). [] only if no reply is expected.
+Every response must end with the ${META_DELIMITER} line and the JSON — even a one-line greeting. Example of a complete response:
+Bonjour ! Comment tu t'appelles ?
+${META_DELIMITER}
+{"corrections": [], "sectionComplete": false, "hints": [{"text": "Je m'appelle Sam.", "en": "My name is Sam."}, {"text": "Moi, c'est Alex.", "en": "I'm Alex."}]}`,
     ]
       .filter((part) => part !== '')
       .join('\n');
@@ -212,114 +341,193 @@ export async function POST(request: NextRequest) {
     const openai = await getOpenAIClient();
     const model = config.openai.tutorModel;
 
-    const completion = await openai.chat.completions.create({
-      model,
-      response_format: { type: "json_object" },
-      messages: [{ role: "system", content: systemPrompt }, ...history],
-      temperature: 0.8,
-      max_tokens: MAX_REPLY_TOKENS,
+    const completion = await openai.chat.completions.create(
+      {
+        model,
+        messages: [{ role: "system", content: systemPrompt }, ...history],
+        temperature: 0.8,
+        max_tokens: MAX_REPLY_TOKENS,
+        stream: true,
+        stream_options: { include_usage: true },
+      },
+      { signal: request.signal }
+    );
+
+    const encoder = new TextEncoder();
+    const send = (
+      controller: ReadableStreamDefaultController<Uint8Array>,
+      event: Record<string, unknown>
+    ) => controller.enqueue(encoder.encode(JSON.stringify(event) + "\n"));
+
+    const stream = new ReadableStream<Uint8Array>({
+      async start(controller) {
+        let full = "";
+        let emitted = 0;
+        let tokensIn = 0;
+        let tokensOut = 0;
+
+        send(controller, { t: "start", conversationId });
+
+        try {
+          for await (const chunk of completion) {
+            if (chunk.usage) {
+              tokensIn = chunk.usage.prompt_tokens ?? 0;
+              tokensOut = chunk.usage.completion_tokens ?? 0;
+            }
+            const delta = chunk.choices[0]?.delta?.content;
+            if (!delta) continue;
+            full += delta;
+
+            // Stream the reply, never the metadata. Hold back enough characters
+            // that a delimiter split across two chunks is never half-sent.
+            const idx = full.indexOf(META_DELIMITER);
+            const safeEnd =
+              idx >= 0 ? idx : Math.max(emitted, full.length - (META_DELIMITER.length - 1));
+            if (safeEnd > emitted) {
+              send(controller, { t: "delta", text: full.slice(emitted, safeEnd) });
+              emitted = safeEnd;
+            }
+          }
+
+          const idx = full.indexOf(META_DELIMITER);
+          if (idx < 0 && full.length > emitted) {
+            send(controller, { t: "delta", text: full.slice(emitted) });
+          }
+
+          const reply = (idx >= 0 ? full.slice(0, idx) : full).trim();
+          let meta = parseMeta(idx >= 0 ? full.slice(idx + META_DELIMITER.length) : "");
+
+          // Some models (gpt-4o especially) occasionally stop after the reply
+          // and never write the metadata. The reply is already on screen and
+          // being spoken, so a short follow-up call to recover the corrections
+          // and hints costs the student nothing but a beat before they appear.
+          if (idx < 0 && reply) {
+            try {
+              const extra = await recoverMeta(openai, model, history, reply, targetLang, context.level);
+              meta = extra.meta;
+              tokensIn += extra.tokensIn;
+              tokensOut += extra.tokensOut;
+            } catch (err) {
+              console.error("Tutor meta recovery failed:", err);
+            }
+          }
+
+          // A correction must quote what the *student* wrote. Without this
+          // check a model can "correct" its own reply and show the student a
+          // mistake they never made.
+          const studentText = normalizeForMatch(history[history.length - 1]?.content ?? "");
+          const corrections = meta.corrections.filter((c) =>
+            studentText.includes(normalizeForMatch(c.original))
+          );
+          const cost = costOf(model, tokensIn, tokensOut);
+
+          // ── Persist ───────────────────────────────────────────────────────
+          const studentMessage = history[history.length - 1];
+          const nextSectionIndex =
+            lessonState && meta.sectionComplete && !lessonState.finished
+              ? lessonState.sectionIndex + 1
+              : lessonState?.sectionIndex ?? 0;
+
+          if (conversationId) {
+            await svc.from("ai_tutor_messages").insert([
+              {
+                conversation_id: conversationId,
+                user_id: user.id,
+                role: "user",
+                content: studentMessage?.content ?? "",
+              },
+              {
+                conversation_id: conversationId,
+                user_id: user.id,
+                role: "assistant",
+                content: reply,
+                model,
+                tokens_in: tokensIn,
+                tokens_out: tokensOut,
+                cost_usd: cost,
+              },
+            ]);
+
+            if (corrections.length > 0) {
+              await svc.from("ai_tutor_corrections").insert(
+                corrections.slice(0, 5).map((c) => ({
+                  conversation_id: conversationId,
+                  user_id: user.id,
+                  original: c.original,
+                  corrected: c.corrected,
+                  explanation: c.explanation ?? null,
+                  tag: c.tag ?? "other",
+                }))
+              );
+            }
+
+            await svc
+              .from("ai_tutor_conversations")
+              .update({
+                last_message_at: new Date().toISOString(),
+                section_index: nextSectionIndex,
+              })
+              .eq("id", conversationId);
+          }
+
+          // ── Quota ─────────────────────────────────────────────────────────
+          const messagesUsed = access.isPrivileged ? 0 : access.messagesUsed + 1;
+
+          if (!access.isPrivileged) {
+            await supabase
+              .from("users")
+              .update({ [USAGE_COLUMN]: messagesUsed })
+              .eq("id", user.id);
+          }
+
+          const monthlyLimit = access.monthlyLimit;
+          const remainingMessages =
+            monthlyLimit === null ? null : Math.max(0, monthlyLimit - messagesUsed);
+
+          send(controller, {
+            t: "done",
+            reply,
+            corrections,
+            hints: meta.hints,
+            conversationId,
+            lesson: lessonState
+              ? {
+                  title: lessonState.title,
+                  sectionIndex: nextSectionIndex,
+                  totalSections: lessonState.totalSections,
+                  finished: lessonState.finished,
+                }
+              : null,
+            level: context.level,
+            messagesUsed,
+            monthlyLimit,
+            remainingMessages,
+          });
+        } catch (err) {
+          // A dropped client aborts the upstream call; nothing to report then.
+          if (!request.signal.aborted) {
+            console.error("AI tutor stream error:", err);
+            send(controller, {
+              t: "error",
+              error: "Failed to get AI response. Please try again.",
+            });
+          }
+        } finally {
+          try {
+            controller.close();
+          } catch {
+            /* already closed by an abort */
+          }
+        }
+      },
     });
 
-    const raw = completion.choices[0]?.message?.content || "";
-
-    let parsed: TutorReply;
-    try {
-      parsed = JSON.parse(raw) as TutorReply;
-    } catch {
-      // A malformed envelope should not cost the student their turn or lose the
-      // text — fall back to treating the whole output as the reply.
-      parsed = { reply: raw };
-    }
-
-    const reply = (parsed.reply || "").trim();
-    const corrections = Array.isArray(parsed.corrections)
-      ? parsed.corrections.filter((c) => c && c.original && c.corrected)
-      : [];
-
-    const usage = completion.usage;
-    const tokensIn = usage?.prompt_tokens ?? 0;
-    const tokensOut = usage?.completion_tokens ?? 0;
-    const cost = costOf(model, tokensIn, tokensOut);
-
-    // ── Persist ─────────────────────────────────────────────────────────────
-    const studentMessage = history[history.length - 1];
-    const nextSectionIndex =
-      lessonState && parsed.sectionComplete && !lessonState.finished
-        ? lessonState.sectionIndex + 1
-        : lessonState?.sectionIndex ?? 0;
-
-    if (conversationId) {
-      await svc.from("ai_tutor_messages").insert([
-        {
-          conversation_id: conversationId,
-          user_id: user.id,
-          role: "user",
-          content: studentMessage?.content ?? "",
-        },
-        {
-          conversation_id: conversationId,
-          user_id: user.id,
-          role: "assistant",
-          content: reply,
-          model,
-          tokens_in: tokensIn,
-          tokens_out: tokensOut,
-          cost_usd: cost,
-        },
-      ]);
-
-      if (corrections.length > 0) {
-        await svc.from("ai_tutor_corrections").insert(
-          corrections.slice(0, 5).map((c) => ({
-            conversation_id: conversationId,
-            user_id: user.id,
-            original: c.original,
-            corrected: c.corrected,
-            explanation: c.explanation ?? null,
-            tag: c.tag ?? "other",
-          }))
-        );
-      }
-
-      await svc
-        .from("ai_tutor_conversations")
-        .update({
-          last_message_at: new Date().toISOString(),
-          section_index: nextSectionIndex,
-        })
-        .eq("id", conversationId);
-    }
-
-    // ── Quota ───────────────────────────────────────────────────────────────
-    const messagesUsed = access.isPrivileged ? 0 : access.messagesUsed + 1;
-
-    if (!access.isPrivileged) {
-      await supabase
-        .from("users")
-        .update({ [USAGE_COLUMN]: messagesUsed })
-        .eq("id", user.id);
-    }
-
-    const monthlyLimit = access.monthlyLimit;
-    const remainingMessages =
-      monthlyLimit === null ? null : Math.max(0, monthlyLimit - messagesUsed);
-
-    return NextResponse.json({
-      reply,
-      corrections,
-      conversationId,
-      lesson: lessonState
-        ? {
-            title: lessonState.title,
-            sectionIndex: nextSectionIndex,
-            totalSections: lessonState.totalSections,
-            finished: lessonState.finished,
-          }
-        : null,
-      level: context.level,
-      messagesUsed,
-      monthlyLimit,
-      remainingMessages,
+    return new Response(stream, {
+      headers: {
+        "Content-Type": "application/x-ndjson; charset=utf-8",
+        "Cache-Control": "no-store",
+        "X-Accel-Buffering": "no",
+      },
     });
   } catch (error) {
     console.error("AI tutor error:", error);

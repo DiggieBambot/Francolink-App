@@ -214,7 +214,12 @@ export default async function StudentLayout({
       <AttributionCapture />
 
       {/* AI Tutor Floating Button */}
-      {showAiTutor && <AITutorFab plan={profile?.subscription_plan || "FREE"} />}
+      {showAiTutor && (
+        <AITutorFab
+          plan={profile?.subscription_plan || "FREE"}
+          privileged={profile?.role === "ADMIN" || profile?.role === "TESTER"}
+        />
+      )}
 
       {/* Hides DiggieChat's floating bubble; it lives on /support instead */}
       <DiggieChat />

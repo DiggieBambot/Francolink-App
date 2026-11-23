@@ -52,6 +52,8 @@ export async function POST(request: NextRequest) {
     const text = String(body.text ?? "").trim().slice(0, MAX_CHARS);
     const language = String(body.language ?? "fr").split("-")[0].toLowerCase();
     const level = String(body.level ?? "A1").toUpperCase();
+    // "Slow replay": the student asked to hear it again, slower.
+    const slow = body.slow === true;
 
     if (!text) {
       return Response.json({ error: "text is required" }, { status: 400 });
@@ -65,7 +67,7 @@ export async function POST(request: NextRequest) {
       voice: (LANGUAGE_VOICES[language] || config.openai.ttsVoice) as
         | "alloy" | "echo" | "fable" | "onyx" | "nova" | "shimmer",
       input: text,
-      speed: LEVEL_SPEED[level] ?? 1.0,
+      speed: (LEVEL_SPEED[level] ?? 1.0) * (slow ? 0.72 : 1),
       response_format: "mp3",
     });
 
