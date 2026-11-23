@@ -71,6 +71,36 @@ export default function LeonPreviewPage() {
     return () => cancelAnimationFrame(raf);
   }, []);
 
+  // A scripting hook for recording demo videos: drive Léon from the console
+  // or a headless browser, e.g. leonPlayground.say("Bonjour !", 1.4).
+  useEffect(() => {
+    const w = window as unknown as { leonPlayground?: object };
+    w.leonPlayground = {
+      say: (s: string, duration?: number) => {
+        const startedAt = performance.now();
+        setSaid(s);
+        setMood("speaking");
+        setClip({
+          text: s,
+          startedAt,
+          duration: duration ?? buildSpeechTrack(s, lang).duration,
+          position: () => (performance.now() - startedAt) / 1000,
+        });
+      },
+      hush: () => {
+        setClip(null);
+        setMood("idle");
+      },
+      mood: (m: LeonMood) => setMood(m),
+      gesture: (g: GestureName) => setCue((c) => ({ gesture: g, id: (c?.id ?? 0) + 1 })),
+      language: (l: string) => setLang(l),
+      mic: (level: number) => (micLevel.current = level),
+    };
+    return () => {
+      delete w.leonPlayground;
+    };
+  }, [lang]);
+
   useEffect(
     () => () => {
       timers.current.forEach(clearTimeout);
