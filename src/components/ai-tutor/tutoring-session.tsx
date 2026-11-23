@@ -1,19 +1,25 @@
 "use client";
 
-// The voice-first AI tutoring session: a full-screen conversation with Leon.
+// The voice-first AI tutoring session: a class with Professor Léon.
 //
 // Hands-free turn-taking, built on the same pipeline as the chat (record →
 // transcribe → streamed reply → spoken sentence by sentence):
-//   - Leon finishes speaking → the mic opens on its own
-//   - the student talks → ~1.2 s of silence sends the turn
+//   - Léon finishes speaking → the mic opens on its own
+//   - the student talks → ~0.85 s of silence ends the turn, and Léon answers
+//     at once with a short "Mm-hm" so there is no dead air while he thinks
 //   - nobody speaks for 10 s → the session pauses (no mic left open)
-//   - tap while Leon speaks → he stops and it's the student's turn
-// Leon's voice is never used as a trigger, so speakers can't make him
+//   - tap while Léon speaks → he stops and it's the student's turn
+// Léon's own voice is never used as a trigger, so speakers can't make him
 // interrupt himself.
+//
+// Around that: Léon's mouth follows his real voice level, he reacts to the
+// student's voice while listening, subtitles light up word by word, and a
+// class board collects the corrections from the session.
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Mic, Pause, PhoneOff, Hand, Loader2 } from "lucide-react";
+import { Mic, Pause, PhoneOff, Hand, Loader2, NotebookPen, ChevronUp } from "lucide-react";
 import { Leon, leonPalette, type LeonMood } from "@/components/ai-tutor/leon";
+import type { NowPlaying } from "@/hooks/use-tutor-tts";
 
 interface Correction {
   original: string;
@@ -33,11 +39,18 @@ interface Recorder {
 /** Input level that counts as speech (0–1 meter from useVoiceRecorder). */
 const SPEECH_LEVEL = 0.12;
 /** Silence after speech that ends the student's turn. */
-const END_OF_TURN_MS = 1200;
+const END_OF_TURN_MS = 850;
 /** No speech at all for this long pauses the session. */
 const NO_SPEECH_PAUSE_MS = 10_000;
-/** Beat between Leon finishing and the mic opening. */
-const LISTEN_DELAY_MS = 450;
+/** Beat between Léon finishing and the mic opening. */
+const LISTEN_DELAY_MS = 250;
+
+/** What Léon says the instant a student finishes, before his real reply. */
+const ACKS: Record<string, string[]> = {
+  fr: ["Mm-hm…", "D'accord…", "Ah, je vois…"],
+  es: ["Mm-hm…", "Vale…", "Ah, ya veo…"],
+  en: ["Mm-hm…", "Okay…", "I see…"],
+};
 
 export function TutoringSession({
   language,
@@ -45,11 +58,15 @@ export function TutoringSession({
   studentLine,
   tutorLine,
   tutorStreaming,
-  corrections,
+  board,
   isLoading,
   isTranscribing,
   isSpeaking,
+  nowPlaying,
+  voiceLevel,
   recorder,
+  prefetchClip,
+  playClip,
   onInterrupt,
   onEnd,
   ending,
@@ -64,11 +81,16 @@ export function TutoringSession({
   studentLine: string | null;
   tutorLine: string | null;
   tutorStreaming: boolean;
-  corrections: Correction[];
+  /** Every correction from this session, oldest first. */
+  board: Correction[];
   isLoading: boolean;
   isTranscribing: boolean;
   isSpeaking: boolean;
+  nowPlaying: NowPlaying | null;
+  voiceLevel: React.MutableRefObject<number>;
   recorder: Recorder;
+  prefetchClip: (text: string) => Promise<Blob | null>;
+  playClip: (audio: Promise<Blob | null>, text?: string) => void;
   onInterrupt: () => void;
   onEnd: () => void;
   ending: boolean;
@@ -80,13 +102,33 @@ export function TutoringSession({
   pauseKey?: number;
 }) {
   const [paused, setPaused] = useState(false);
+  const [boardOpen, setBoardOpen] = useState(false);
+  const palette = leonPalette(language);
 
   // Only failures while this session is open count, not ones from before it.
   const initialPauseKey = useRef(pauseKey);
   useEffect(() => {
     if (pauseKey !== initialPauseKey.current) setPaused(true);
   }, [pauseKey]);
-  const palette = leonPalette(language);
+
+  // ── Acknowledgement clips, fetched once so they play instantly ────────────
+  const acksRef = useRef<Promise<Blob | null>[]>([]);
+  useEffect(() => {
+    acksRef.current = (ACKS[language] ?? ACKS.en).map((t) => prefetchClip(t));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [language]);
+  const ackIndex = useRef(0);
+  const acknowledge = () => {
+    const clips = acksRef.current;
+    if (!clips.length) return;
+    // Mostly "Mm-hm", sometimes a word, never the same twice in a row.
+    ackIndex.current = (ackIndex.current + 1 + Math.floor(Math.random() * (clips.length - 1))) % clips.length;
+    playClip(clips[ackIndex.current], "");
+  };
+
+  // A clip with no text is an acknowledgement, not Léon's real reply.
+  const leonTalking = isSpeaking && !!nowPlaying?.text;
+  const acking = isSpeaking && !nowPlaying?.text;
 
   // ── Auto-listen ──────────────────────────────────────────────────────────
   const busy = isLoading || isTranscribing || isSpeaking;
@@ -108,8 +150,8 @@ export function TutoringSession({
   }, [paused, outOfTime, ending, busy, recorder.isRecording, recorder.supported]);
 
   // ── End-of-turn detection ────────────────────────────────────────────────
-  const levelRef = useRef(0);
-  levelRef.current = recorder.level;
+  const micLevel = useRef(0);
+  micLevel.current = recorder.level;
   const [heard, setHeard] = useState(false);
   useEffect(() => {
     if (!recorder.isRecording) {
@@ -121,7 +163,7 @@ export function TutoringSession({
     let lastLoud = 0;
     const iv = setInterval(() => {
       const now = Date.now();
-      if (levelRef.current >= SPEECH_LEVEL) {
+      if (micLevel.current >= SPEECH_LEVEL) {
         if (!speechAt) {
           speechAt = now;
           setHeard(true);
@@ -131,12 +173,13 @@ export function TutoringSession({
       if (speechAt && now - lastLoud > END_OF_TURN_MS) {
         clearInterval(iv);
         recorder.stop(); // sends the turn
+        acknowledge();
       } else if (!speechAt && now - startedAt > NO_SPEECH_PAUSE_MS) {
         clearInterval(iv);
         recorder.cancel();
         setPaused(true);
       }
-    }, 100);
+    }, 80);
     return () => clearInterval(iv);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [recorder.isRecording]);
@@ -164,23 +207,26 @@ export function TutoringSession({
   // ── Status line ──────────────────────────────────────────────────────────
   let status: string;
   if (outOfTime) status = "Out of tutoring time";
-  else if (ending) status = "Wrapping up your session…";
-  else if (isSpeaking) status = "Professor Léon is speaking · tap to interrupt";
-  else if (isLoading) status = "Professor Léon is thinking…";
-  else if (isTranscribing) status = "Got it…";
-  else if (recorder.isRecording) status = heard ? "Listening…" : "Your turn — just start talking";
+  else if (ending) status = "Wrapping up your class…";
+  else if (leonTalking) status = "Tap Professor Léon to interrupt";
+  else if (acking || isTranscribing || isLoading) status = "Professor Léon is thinking…";
+  else if (recorder.isRecording) status = heard ? "Listening…" : "Your turn, just start talking";
   else if (paused) status = error ? "Paused · tap the mic to try again" : "Paused · tap the mic to talk";
   else status = "Getting ready…";
+
+  const boardPanel = (
+    <ClassBoard items={board} />
+  );
 
   return (
     <div
       className="fixed inset-0 z-50 flex flex-col text-gray-900"
-      style={{ background: `linear-gradient(180deg, ${palette.bg} 0%, #ffffff 70%)` }}
+      style={{ background: `radial-gradient(120% 70% at 50% 0%, ${palette.bg} 0%, #ffffff 65%)` }}
       role="dialog"
       aria-label="AI tutoring session with Professor Léon"
     >
       {/* Top bar */}
-      <div className="flex items-center justify-between px-4 py-3 max-w-3xl w-full mx-auto">
+      <div className="flex items-center justify-between px-4 py-3 max-w-5xl w-full mx-auto">
         <div>
           <p className="text-sm font-semibold">Professor Léon</p>
           <p className="text-xs text-gray-500">
@@ -193,65 +239,72 @@ export function TutoringSession({
           className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-red-500 text-white text-sm font-semibold hover:bg-red-600 disabled:opacity-60"
         >
           {ending ? <Loader2 className="w-4 h-4 animate-spin" /> : <PhoneOff className="w-4 h-4" />}
-          End session
+          End class
         </button>
       </div>
 
-      {/* Leon + captions */}
-      <div className="flex-1 overflow-y-auto">
-        <div className="max-w-xl mx-auto px-4 flex flex-col items-center text-center">
+      <div className="flex-1 min-h-0 w-full max-w-5xl mx-auto px-4 grid md:grid-cols-[1fr_300px] gap-6">
+        {/* Léon + subtitles */}
+        <div className="min-h-0 overflow-y-auto flex flex-col items-center text-center">
           <button
-            onClick={isSpeaking ? interrupt : undefined}
-            className="mt-2 rounded-full focus:outline-none"
-            aria-label={isSpeaking ? "Interrupt Professor Léon" : "Professor Léon"}
+            onClick={leonTalking ? interrupt : undefined}
+            className="mt-1 rounded-full focus:outline-none"
+            aria-label={leonTalking ? "Interrupt Professor Léon" : "Professor Léon"}
           >
-            <Leon language={language} mood={mood} size={220} />
+            <div className="w-[220px] h-[220px] md:w-[280px] md:h-[280px]">
+              <Leon
+                language={language}
+                mood={mood}
+                size={280}
+                className="w-full h-full"
+                voiceLevel={voiceLevel}
+                micLevel={micLevel}
+              />
+            </div>
           </button>
 
-          <p className="mt-3 text-sm font-medium text-gray-500" aria-live="polite">
+          <p className="mt-2 text-sm font-medium text-gray-500" aria-live="polite">
             {status}
           </p>
 
           {studentLine && (
-            <p className="mt-6 text-sm text-gray-500 italic">&ldquo;{studentLine}&rdquo;</p>
+            <p className="mt-5 text-sm text-gray-500 italic max-w-xl">&ldquo;{studentLine}&rdquo;</p>
           )}
 
           {tutorLine && (
-            <p className="mt-3 text-xl leading-relaxed font-medium text-gray-900">
-              {tutorLine}
-              {tutorStreaming && (
-                <span className="inline-block w-1.5 h-5 -mb-0.5 ml-1 bg-gray-400 animate-pulse rounded-sm" />
-              )}
-            </p>
+            <SpokenCaption
+              text={tutorLine}
+              streaming={tutorStreaming}
+              nowPlaying={leonTalking ? nowPlaying : null}
+              speaking={leonTalking}
+            />
           )}
 
-          {corrections.length > 0 && (
-            <div className="mt-4 w-full rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-left space-y-1">
-              {corrections.slice(0, 3).map((c, i) => (
-                <p key={i} className="text-sm">
-                  <span className="line-through text-amber-700/70">{c.original}</span>{" "}
-                  <span className="text-amber-700">→</span>{" "}
-                  <span className="font-semibold text-amber-900">{c.corrected}</span>
-                </p>
-              ))}
+          {/* On phones the latest correction shows inline; the board is a sheet. */}
+          {board.length > 0 && (
+            <div className="md:hidden mt-4 w-full max-w-xl rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-left">
+              <CorrectionLine c={board[board.length - 1]} />
             </div>
           )}
 
           {error && !outOfTime && <p className="mt-4 text-sm text-red-600">{error}</p>}
 
-          {outOfTime && <div className="mt-6 w-full">{outOfTimePanel}</div>}
+          {outOfTime && <div className="mt-6 w-full max-w-xl">{outOfTimePanel}</div>}
 
           {!recorder.supported && (
             <p className="mt-6 text-sm text-gray-500">
-              Your browser can&apos;t record audio. End the session to type to Professor Léon instead.
+              Your browser can&apos;t record audio. End the class to type to Professor Léon instead.
             </p>
           )}
         </div>
+
+        {/* Class board (desktop) */}
+        <div className="hidden md:block min-h-0 overflow-y-auto pb-4">{boardPanel}</div>
       </div>
 
       {/* Controls */}
-      <div className="pb-8 pt-4 flex items-center justify-center gap-6">
-        {isSpeaking ? (
+      <div className="relative pb-8 pt-4 flex items-center justify-center gap-6">
+        {leonTalking ? (
           <button
             onClick={interrupt}
             className="w-20 h-20 rounded-full bg-gray-900 text-white flex items-center justify-center shadow-lg"
@@ -262,7 +315,7 @@ export function TutoringSession({
         ) : (
           <button
             onClick={togglePause}
-            disabled={outOfTime || ending || isLoading || isTranscribing}
+            disabled={outOfTime || ending || isLoading || isTranscribing || acking}
             className={`relative w-20 h-20 rounded-full flex items-center justify-center shadow-lg transition-colors disabled:opacity-50 ${
               recorder.isRecording ? "bg-red-500 text-white" : "bg-white text-gray-900 border border-gray-200"
             }`}
@@ -281,7 +334,127 @@ export function TutoringSession({
             )}
           </button>
         )}
+
+        {/* Board toggle (phones) */}
+        {board.length > 0 && (
+          <button
+            onClick={() => setBoardOpen((v) => !v)}
+            className="md:hidden absolute right-4 bottom-10 flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#1F3B2D] text-white text-xs font-semibold shadow"
+          >
+            <NotebookPen className="w-4 h-4" /> Board ({board.length})
+            <ChevronUp className={`w-3.5 h-3.5 transition-transform ${boardOpen ? "rotate-180" : ""}`} />
+          </button>
+        )}
       </div>
+
+      {/* Class board sheet (phones) */}
+      {boardOpen && (
+        <div className="md:hidden absolute inset-x-0 bottom-0 max-h-[60%] overflow-y-auto rounded-t-3xl shadow-2xl bg-white p-4">
+          <button onClick={() => setBoardOpen(false)} className="mx-auto mb-3 block h-1.5 w-12 rounded-full bg-gray-300" aria-label="Close board" />
+          {boardPanel}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/**
+ * Léon's line as subtitles: words already spoken are dark, the rest are
+ * faint, advancing through each sentence as its audio plays.
+ */
+function SpokenCaption({
+  text,
+  streaming,
+  nowPlaying,
+  speaking,
+}: {
+  text: string;
+  streaming: boolean;
+  nowPlaying: NowPlaying | null;
+  speaking: boolean;
+}) {
+  // Advanced by animation frames while a sentence plays.
+  const [liveChars, setLiveChars] = useState(0);
+  const playing = speaking && !!nowPlaying;
+  // Not speaking: everything is "read". While the reply is still arriving and
+  // its audio hasn't started, nothing is.
+  const spokenChars = playing ? liveChars : streaming ? 0 : text.length;
+
+  useEffect(() => {
+    if (!speaking || !nowPlaying) return;
+    const start = text.indexOf(nowPlaying.text.slice(0, 24));
+    const base = start >= 0 ? start : 0;
+    let raf = 0;
+    let last = -1;
+    const tick = () => {
+      const dur = nowPlaying.duration ? nowPlaying.duration * 1000 : nowPlaying.text.length * 70;
+      const f = Math.min(1, (performance.now() - nowPlaying.startedAt) / dur);
+      const chars = base + Math.round(nowPlaying.text.length * f);
+      if (chars !== last) {
+        setLiveChars(chars);
+        last = chars;
+      }
+      if (f < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [nowPlaying, speaking, text]);
+
+  // Split on spaces, keeping each word's position in the text.
+  const words: { w: string; end: number }[] = [];
+  const re = /\S+\s*/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(text))) words.push({ w: m[0], end: m.index + m[0].trimEnd().length });
+
+  return (
+    <p className="mt-3 max-w-xl text-xl md:text-2xl leading-relaxed font-medium">
+      {words.map((x, i) => (
+        <span
+          key={i}
+          className={`transition-colors duration-150 ${x.end <= spokenChars ? "text-gray-900" : "text-gray-300"}`}
+        >
+          {x.w}
+        </span>
+      ))}
+      {streaming && (
+        <span className="inline-block w-1.5 h-5 -mb-0.5 ml-1 bg-gray-400 animate-pulse rounded-sm" />
+      )}
+    </p>
+  );
+}
+
+function CorrectionLine({ c }: { c: Correction }) {
+  return (
+    <p className="text-sm">
+      <span className="line-through opacity-60">{c.original}</span>{" "}
+      <span className="opacity-70">→</span> <span className="font-semibold">{c.corrected}</span>
+    </p>
+  );
+}
+
+/** A chalkboard of everything Léon corrected in this class. */
+function ClassBoard({ items }: { items: Correction[] }) {
+  return (
+    <div className="rounded-2xl bg-[#1F3B2D] text-[#F3F1E7] p-4 shadow-inner border-4 border-[#8B6B4A] min-h-[200px]">
+      <p className="text-xs uppercase tracking-widest text-[#F3F1E7]/60 flex items-center gap-1.5">
+        <NotebookPen className="w-3.5 h-3.5" /> Class board
+      </p>
+      {items.length === 0 ? (
+        <p className="mt-3 text-sm text-[#F3F1E7]/60">
+          Corrections from today&apos;s class will appear here. They&apos;re in your recap too.
+        </p>
+      ) : (
+        <ul className="mt-3 space-y-3">
+          {items.map((c, i) => (
+            <li key={i} className="font-[cursive] leading-snug">
+              <CorrectionLine c={c} />
+              {c.explanation && (
+                <p className="text-xs mt-0.5 text-[#F3F1E7]/70 font-sans">{c.explanation}</p>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
