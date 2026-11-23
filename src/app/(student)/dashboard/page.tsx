@@ -24,6 +24,7 @@ import { CourseCard } from "@/components/dashboard/course-card";
 import { StreakCard } from "@/components/dashboard/streak-card";
 import { DailyLessonLimit } from "@/components/dashboard/daily-lesson-limit";
 import { JoinTutorCode } from "@/components/dashboard/join-tutor-code";
+import { findTutorUrl } from "@/lib/site/find-tutor";
 import { BookClassButton } from "@/components/dashboard/book-class-button";
 import { SubscribePrompt } from "@/components/dashboard/subscribe-prompt";
 import { PlanCard } from "@/components/dashboard/plan-card";
@@ -127,10 +128,15 @@ export default async function DashboardPage() {
   // here only hides the prompt / falls back to the request form.
   let bookLinks = new Map<string, string>();
   let needsFirstLesson = false;
-  if (user?.id && teachers.length > 0) {
+  // Computed for every student, not only those with a teacher: a student a
+  // teacher brought in for self-study (whose teacher may not take bookings
+  // here) still gets a way to a live lesson — see the generic card below.
+  if (user?.id) {
     try {
       const [links, planActive, balance, { count: lessonCount }] = await Promise.all([
-        tutorBookingLinks(teachers.map((t) => t.id)),
+        teachers.length > 0
+          ? tutorBookingLinks(teachers.map((t) => t.id))
+          : Promise.resolve(new Map<string, string>()),
         hasActivePlan(user.id),
         creditBalance(user.id),
         svc
@@ -438,6 +444,28 @@ export default async function DashboardPage() {
                 <ArrowRight className="w-4 h-4" />
               </a>
             </div>
+          ) : needsFirstLesson ? (
+            // Their teacher(s) don't take bookings on FrancoLink, so point at
+            // the directory instead — every student should have a way to a
+            // live lesson, whoever brought them in.
+            <div className="rounded-2xl border border-primary-100 bg-primary-50 p-5 flex flex-col sm:flex-row sm:items-center gap-4">
+              <div className="flex-1 min-w-0">
+                <p className="font-heading font-bold text-primary">
+                  Learn live with a FrancoLink tutor
+                </p>
+                <p className="mt-1 text-sm text-gray-600">
+                  Find a tutor who fits your level and schedule. Live lessons are
+                  booked with the 3-lesson starter pack or a plan.
+                </p>
+              </div>
+              <a
+                href={findTutorUrl(activeLangData?.placement_level || profile?.placement_test_level)}
+                className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary-800 flex-shrink-0"
+              >
+                Book a live lesson
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
           ) : null}
 
           {/* Add another teacher with a class code */}
@@ -454,16 +482,14 @@ export default async function DashboardPage() {
                 No teacher assigned
               </p>
               <p className="text-xs text-gray-400">
-                Ask your teacher for an invite link or join with a code
+                Find a tutor and book a live lesson, or join your teacher with a code
               </p>
             </div>
             <a
-              href="https://www.francolink.net/teachers"
-              target="_blank"
-              rel="noopener noreferrer"
+              href={findTutorUrl(activeLangData?.placement_level || profile?.placement_test_level)}
               className="flex items-center gap-1.5 px-4 py-2 bg-primary text-white text-sm font-semibold rounded-xl hover:bg-primary-800 transition-colors flex-shrink-0 shadow-sm"
             >
-              <span>Book a Tutor</span>
+              <span>Find a tutor</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
           </div>

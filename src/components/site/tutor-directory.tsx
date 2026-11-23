@@ -1,12 +1,13 @@
 "use client";
 
-import { useCallback, useDeferredValue, useMemo } from "react";
+import { useCallback, useDeferredValue, useMemo, useState, useSyncExternalStore } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Heart, RotateCcw, SlidersHorizontal } from "lucide-react";
+import { Heart, RotateCcw, SlidersHorizontal, Sparkles } from "lucide-react";
 import type { TutorCard as TutorCardData } from "@/lib/site/queries";
 import { TIME_BANDS } from "@/lib/site/queries";
 import { TutorCard } from "@/components/site/tutor-card";
 import { TutorWaitlistForm } from "@/components/site/tutor-waitlist-form";
+import { TutorMatch, MATCH_ANY, type MatchAnswers } from "@/components/site/tutor-match";
 import { LANGUAGE_LABEL } from "@/lib/site/format";
 import { useShortlist } from "@/lib/site/shortlist";
 import { cn } from "@/lib/utils";
@@ -90,6 +91,48 @@ function toQuery(f: Filters): string {
   if (f.sort !== "relevance") p.set("sort", f.sort);
   return p.toString();
 }
+
+/** Whether one tutor passes every active filter. Shared by the list and the
+ *  "help me choose" card's live count, so the two can never disagree. */
+function tutorMatches(
+  t: TutorCardData,
+  f: Filters,
+  isSaved: (slug: string) => boolean
+): boolean {
+  if (f.lang !== ANY && !t.teaches.includes(f.lang)) return false;
+  if (f.level !== ANY && !t.levels.includes(f.level)) return false;
+  if (f.tier !== ANY && t.tier !== f.tier) return false;
+  if (f.speaks !== ANY && !t.speaks.includes(f.speaks)) return false;
+  if (f.specialty !== ANY && !t.specialties.includes(f.specialty)) return false;
+  if (f.country !== ANY && t.country !== f.country) return false;
+  if (f.trial && !t.trial_available) return false;
+  if (f.saved && !isSaved(t.slug)) return false;
+
+  // Availability. A tutor with no schedule on file is "unknown", not
+  // "never free" — hiding them would punish the tutor for our missing
+  // data, so they stay visible until a day AND band are both chosen.
+  if (f.day || f.band) {
+    if (t.availability_bands.length === 0) return true;
+    return t.availability_bands.some((key) => {
+      const [day, band] = key.split("-");
+      return (!f.day || day === f.day) && (!f.band || band === f.band);
+    });
+  }
+  return true;
+}
+
+// Once someone has answered or skipped "help me choose", don't put it back in
+// front of them for the rest of the visit — clearing filters shouldn't re-ask.
+const MATCH_DONE_KEY = "fl_tutor_match_done";
+
+function readMatchDone(): boolean {
+  try {
+    return sessionStorage.getItem(MATCH_DONE_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+const subscribeNothing = () => () => {};
 
 function Chip({
   active,
@@ -224,28 +267,7 @@ export function TutorDirectory({ tutors }: { tutors: TutorCardData[] }) {
   const f = useDeferredValue(filters);
 
   const visible = useMemo(() => {
-    const matches = tutors.filter((t) => {
-      if (f.lang !== ANY && !t.teaches.includes(f.lang)) return false;
-      if (f.level !== ANY && !t.levels.includes(f.level)) return false;
-      if (f.tier !== ANY && t.tier !== f.tier) return false;
-      if (f.speaks !== ANY && !t.speaks.includes(f.speaks)) return false;
-      if (f.specialty !== ANY && !t.specialties.includes(f.specialty)) return false;
-      if (f.country !== ANY && t.country !== f.country) return false;
-      if (f.trial && !t.trial_available) return false;
-      if (f.saved && !isSaved(t.slug)) return false;
-
-      // Availability. A tutor with no schedule on file is "unknown", not
-      // "never free" — hiding them would punish the tutor for our missing
-      // data, so they stay visible until a day AND band are both chosen.
-      if (f.day || f.band) {
-        if (t.availability_bands.length === 0) return true;
-        return t.availability_bands.some((key) => {
-          const [day, band] = key.split("-");
-          return (!f.day || day === f.day) && (!f.band || band === f.band);
-        });
-      }
-      return true;
-    });
+    const matches = tutors.filter((t) => tutorMatches(t, f, isSaved));
 
     const sorted = [...matches];
     if (f.sort === "available") {
@@ -265,8 +287,104 @@ export function TutorDirectory({ tutors }: { tutors: TutorCardData[] }) {
 
   const dirty = toQuery(filters).length > 0;
 
+  // ------------------------------------------------- "help me choose" card
+  // Shown when the app sent a student here (?match=1, maybe with ?level= from
+  // their placement test), or to anyone landing on a plain /tutors who hasn't
+  // already answered or skipped it this visit. Decided after mount: it reads
+  // sessionStorage, and the list underneath renders either way.
+  const askedFor = params.get("match") === "1";
+  // null on the server and during hydration, the stored flag after that;
+  // an explicit answer/skip/reopen in this render tree overrides it.
+  const storedDone = useSyncExternalStore(subscribeNothing, readMatchDone, () => null);
+  const [doneOverride, setMatchDone] = useState<boolean | null>(null);
+  const matchDone = doneOverride ?? storedDone;
+  const showMatch =
+    matchDone !== null && tutors.length > 0 && (askedFor || (!dirty && !matchDone));
+
+  const markMatchDone = useCallback(() => {
+    setMatchDone(true);
+    try {
+      sessionStorage.setItem(MATCH_DONE_KEY, "1");
+    } catch {}
+  }, []);
+
+  const languagesWithTutors = useMemo(
+    () => languages.filter((code) => tutors.some((t) => t.teaches.includes(code))),
+    [languages, tutors]
+  );
+
+  const matchInitial: MatchAnswers = {
+    lang:
+      filters.lang !== ANY
+        ? filters.lang
+        : languagesWithTutors.length === 1
+          ? languagesWithTutors[0]
+          : languagesWithTutors.includes("fr")
+            ? "fr"
+            : MATCH_ANY,
+    level: levels.includes(filters.level) ? filters.level : MATCH_ANY,
+    band: filters.band,
+    specialty: specialties.includes(filters.specialty) ? filters.specialty : MATCH_ANY,
+  };
+
+  const specialtiesFor = useCallback(
+    (lang: string) => {
+      const counts = new Map<string, number>();
+      for (const t of tutors) {
+        if (lang !== ANY && !t.teaches.includes(lang)) continue;
+        for (const sp of t.specialties) counts.set(sp, (counts.get(sp) || 0) + 1);
+      }
+      return [...counts.entries()]
+        .sort((x, y) => y[1] - x[1] || x[0].localeCompare(y[0]))
+        .map(([sp]) => sp);
+    },
+    [tutors]
+  );
+
+  const countFor = useCallback(
+    (a: MatchAnswers) =>
+      tutors.filter((t) =>
+        tutorMatches(t, { ...filters, lang: a.lang, level: a.level, band: a.band, specialty: a.specialty }, isSaved)
+      ).length,
+    [tutors, filters, isSaved]
+  );
+
+  const applyMatch = useCallback(
+    (a: MatchAnswers) => {
+      markMatchDone();
+      // toQuery never writes ?match, so applying also drops it from the URL.
+      update({ lang: a.lang, level: a.level, band: a.band, specialty: a.specialty });
+    },
+    [markMatchDone, update]
+  );
+
+  const skipMatch = useCallback(() => {
+    markMatchDone();
+    if (askedFor) update({}); // rewrite the URL without ?match, keeping any filters
+  }, [askedFor, markMatchDone, update]);
+
+  const reopenMatch = useCallback(() => {
+    setMatchDone(false);
+    try {
+      sessionStorage.removeItem(MATCH_DONE_KEY);
+    } catch {}
+    clear();
+  }, [clear]);
+
   return (
     <div>
+      {showMatch && (
+        <TutorMatch
+          languages={languagesWithTutors}
+          levels={levels}
+          specialtiesFor={specialtiesFor}
+          initial={matchInitial}
+          levelFromPlacement={askedFor && filters.level !== ANY}
+          countFor={countFor}
+          onApply={applyMatch}
+          onSkip={skipMatch}
+        />
+      )}
       {/* ------------------------------------------------- LANGUAGE (primary) */}
       <div className="flex flex-wrap items-center gap-2">
         <span className="text-sm font-bold text-primary mr-1">I want to learn</span>
@@ -431,6 +549,16 @@ export function TutorDirectory({ tutors }: { tutors: TutorCardData[] }) {
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 Clear filters
+              </button>
+            )}
+            {!showMatch && (
+              <button
+                type="button"
+                onClick={reopenMatch}
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-secondary-700 hover:text-primary"
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                Help me choose
               </button>
             )}
             <span className="ml-auto text-sm text-gray-500">
