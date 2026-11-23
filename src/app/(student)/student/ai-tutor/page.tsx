@@ -4,6 +4,7 @@ import { useVoiceRecorder } from "@/hooks/use-voice-recorder";
 import { PLANS } from "@/lib/config/subscription";
 import { TappableText } from "@/components/ai-tutor/tappable-text";
 import { RecapPanel, type Recap } from "@/components/ai-tutor/recap-panel";
+import { Leon, leonGreeting, type LeonMood } from "@/components/ai-tutor/leon";
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
@@ -83,9 +84,6 @@ interface UsageData {
 /** Levels at which reply suggestions are shown up front rather than on request. */
 const HINTS_UP_FRONT = new Set(["A1", "A2", "B1"]);
 
-const AVATAR_FALLBACK =
-  '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-primary"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>';
-
 function formatElapsed(ms: number) {
   const s = Math.floor(ms / 1000);
   return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
@@ -113,6 +111,21 @@ export default function AITutorPage() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const abortRef = useRef<AbortController | null>(null);
+  // A short-lived reaction (tongue flick on a correction, a hop on a clean
+  // answer) that overrides Leon's steady state for a moment.
+  const [flashMood, setFlashMood] = useState<LeonMood | null>(null);
+  const flashTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const flash = useCallback((mood: LeonMood, ms: number) => {
+    if (flashTimer.current) clearTimeout(flashTimer.current);
+    setFlashMood(mood);
+    flashTimer.current = setTimeout(() => setFlashMood(null), ms);
+  }, []);
+  useEffect(
+    () => () => {
+      if (flashTimer.current) clearTimeout(flashTimer.current);
+    },
+    []
+  );
 
   // Voice follows the student's own language and level rather than a
   // hardcoded French default.
@@ -247,6 +260,8 @@ export default function AITutorPage() {
             tts.enqueue(speechBuf, { id: assistantId });
             speechBuf = "";
           }
+          if (ev.corrections?.length) flash("correcting", 2400);
+          else if (trimmed.split(/\s+/).length >= 4) flash("celebrating", 1800);
           setHints(Array.isArray(ev.hints) ? ev.hints : []);
           if (ev.conversationId) setConversationId(ev.conversationId);
           if (ev.lesson) setLesson(ev.lesson);
@@ -406,6 +421,7 @@ export default function AITutorPage() {
         return;
       }
       setRecap(data.recap);
+      flash("celebrating", 2500);
     } catch {
       setError("Couldn't build your recap.");
     } finally {
@@ -552,10 +568,26 @@ export default function AITutorPage() {
   const lastAssistantId = [...messages].reverse().find((m) => m.role === "assistant")?.id;
   const micBusy = isTranscribing || isLoading;
 
+  // Leon's face follows what the tutor is doing right now.
+  const leonMood: LeonMood =
+    recorder.isRecording || isTranscribing
+      ? "listening"
+      : flashMood
+      ? flashMood
+      : tts.isSpeaking || messages.some((m) => m.streaming && m.content)
+      ? "speaking"
+      : isLoading
+      ? "thinking"
+      : "idle";
+
   return (
-    <div className="flex flex-col h-screen bg-gray-50">
+    // Fill what the student layout leaves: its top bar (3.5rem) plus <main>'s
+    // padding (mobile: 1rem top + 7rem for the bottom nav; sm: 1.5rem + 7rem;
+    // lg: 2rem + 2rem). A plain h-screen overflowed by that much and pushed
+    // this header, with End session, up under the layout's bar.
+    <div className="flex flex-col h-[calc(100dvh-11.5rem)] sm:h-[calc(100dvh-12rem)] lg:h-[calc(100dvh-7.5rem)] bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
+      <header className="bg-white border-b border-gray-200 z-10">
         <div className="max-w-3xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-3 min-w-0">
@@ -567,22 +599,16 @@ export default function AITutorPage() {
               </Link>
               <div className="flex items-center gap-2 min-w-0">
                 <div
-                  className={`w-9 h-9 rounded-full overflow-hidden bg-primary/10 flex items-center justify-center flex-shrink-0 transition-shadow ${
-                    tts.isSpeaking ? "ring-2 ring-primary/50 ring-offset-2 animate-pulse" : ""
+                  className={`rounded-full flex-shrink-0 transition-shadow ${
+                    tts.isSpeaking ? "ring-2 ring-primary/40 ring-offset-2" : ""
                   }`}
                 >
-                  <img
-                    src="/images/ai-tutor-avatar.svg"
-                    alt="AI Tutor"
-                    className="w-9 h-9 object-cover"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = "none";
-                      (e.target as HTMLImageElement).parentElement!.innerHTML = AVATAR_FALLBACK;
-                    }}
-                  />
+                  <Leon language={learningLanguage} mood={leonMood} size={40} />
                 </div>
                 <div className="min-w-0">
-                  <h1 className="font-bold text-gray-900 text-sm">AI Tutor</h1>
+                  <h1 className="font-bold text-gray-900 text-sm">
+                    Leon <span className="font-normal text-gray-400">· AI tutor</span>
+                  </h1>
                   {lesson ? (
                     <p className="text-xs text-gray-500 truncate">
                       {lesson.title} · step{" "}
@@ -675,21 +701,14 @@ export default function AITutorPage() {
         <div className="max-w-3xl mx-auto px-4 py-6">
           {messages.length === 0 && (
             <div className="text-center py-12">
-              <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-4 bg-primary/10 flex items-center justify-center">
-                <img
-                  src="/images/ai-tutor-avatar.svg"
-                  alt="AI Tutor"
-                  className="w-20 h-20 object-cover"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = "none";
-                  }}
-                />
+              <div className="flex justify-center mb-4">
+                <Leon language={learningLanguage} mood={leonMood} size={120} />
               </div>
               <h2 className="text-xl font-bold text-gray-900 mb-2">
-                Start a Conversation
+                Say &ldquo;{leonGreeting(learningLanguage)}&rdquo; to Leon
               </h2>
               <p className="text-gray-500 max-w-sm mx-auto mb-2">
-                Practice speaking with your AI tutor. Tap the mic and just talk, or type.
+                Leon is your AI practice partner. Tap the mic and just talk, or type.
               </p>
               <p className="text-xs text-gray-400 mb-6">
                 Tap any word for its meaning &nbsp;·&nbsp; End the session for your recap
@@ -742,15 +761,12 @@ export default function AITutorPage() {
                 className={`flex gap-3 ${msg.role === "user" ? "justify-end" : "justify-start"}`}
               >
                 {msg.role === "assistant" && (
-                  <div className="w-8 h-8 rounded-full overflow-hidden bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
-                    <img
-                      src="/images/ai-tutor-avatar.svg"
-                      alt="AI"
-                      className="w-8 h-8 object-cover"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).style.display = "none";
-                        (e.target as HTMLImageElement).parentElement!.innerHTML = AVATAR_FALLBACK;
-                      }}
+                  <div className="flex-shrink-0 mt-1">
+                    <Leon
+                      language={learningLanguage}
+                      mood={msg.id === lastAssistantId ? leonMood : "idle"}
+                      still={msg.id !== lastAssistantId}
+                      size={32}
                     />
                   </div>
                 )}
