@@ -1,10 +1,12 @@
 "use client";
-import { useTutorTTS } from "@/hooks/use-tutor-tts";
+import { useTutorTTS, takeSentences } from "@/hooks/use-tutor-tts";
+import { useVoiceRecorder } from "@/hooks/use-voice-recorder";
 import { PLANS } from "@/lib/config/subscription";
+import { TappableText } from "@/components/ai-tutor/tappable-text";
+import { RecapPanel, type Recap } from "@/components/ai-tutor/recap-panel";
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   Send,
   Bot,
@@ -15,9 +17,15 @@ import {
   AlertCircle,
   Crown,
   Mic,
-  MicOff,
+  Square,
+  X,
   Volume2,
   VolumeX,
+  Languages,
+  Snail,
+  Lightbulb,
+  Flag,
+  Layers,
 } from "lucide-react";
 
 interface Correction {
@@ -27,14 +35,23 @@ interface Correction {
   tag?: string;
 }
 
+interface Hint {
+  text: string;
+  en?: string;
+}
+
 interface Message {
   id: string;
   role: "user" | "assistant";
   content: string;
   timestamp: Date;
-  isPlaying?: boolean;
+  /** True while the reply is still streaming in. */
+  streaming?: boolean;
   /** Corrections the tutor made to the student's previous message. */
   corrections?: Correction[];
+  /** English translation of the whole message, once asked for. */
+  translation?: string;
+  translating?: boolean;
 }
 
 interface LessonProgress {
@@ -43,14 +60,6 @@ interface LessonProgress {
   totalSections: number;
   finished: boolean;
 }
-
-/** BCP-47 locales for the browser's speech recognition, per learning language. */
-const RECOGNITION_LOCALES: Record<string, string> = {
-  fr: "fr-FR",
-  es: "es-ES",
-  de: "de-DE",
-  en: "en-US",
-};
 
 interface UsageData {
   hasAccess: boolean;
@@ -71,6 +80,17 @@ interface UsageData {
   suggestedLesson?: { id: string; title: string } | null;
 }
 
+/** Levels at which reply suggestions are shown up front rather than on request. */
+const HINTS_UP_FRONT = new Set(["A1", "A2", "B1"]);
+
+const AVATAR_FALLBACK =
+  '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-primary"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>';
+
+function formatElapsed(ms: number) {
+  const s = Math.floor(ms / 1000);
+  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+}
+
 export default function AITutorPage() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
@@ -78,24 +98,25 @@ export default function AITutorPage() {
   const [usage, setUsage] = useState<UsageData | null>(null);
   const [usageLoading, setUsageLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [isRecording, setIsRecording] = useState(false);
-  const [isSpeaking, setIsSpeaking] = useState(false);
+  const [isTranscribing, setIsTranscribing] = useState(false);
   const [autoSpeak, setAutoSpeak] = useState(true);
   const [conversationId, setConversationId] = useState<string | null>(null);
   const [lesson, setLesson] = useState<LessonProgress | null>(null);
+  const [hints, setHints] = useState<Hint[]>([]);
+  const [hintsOpen, setHintsOpen] = useState(false);
+  const [recap, setRecap] = useState<Recap | null>(null);
+  const [recapLoading, setRecapLoading] = useState(false);
   // Learned from the usage/chat responses, so voice and speech recognition
   // follow the student instead of assuming French at A1.
   const [learningLanguage, setLearningLanguage] = useState("fr");
   const [studentLevel, setStudentLevel] = useState("A1");
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
-  const recognitionRef = useRef<any>(null);
+  const abortRef = useRef<AbortController | null>(null);
+
   // Voice follows the student's own language and level rather than a
   // hardcoded French default.
-  const { speak: ttsSpeak, stop: ttsStop } = useTutorTTS({
-    language: learningLanguage,
-    level: studentLevel,
-  });
+  const tts = useTutorTTS({ language: learningLanguage, level: studentLevel });
 
   const fetchUsage = useCallback(async () => {
     try {
@@ -128,93 +149,26 @@ export default function AITutorPage() {
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  }, [messages, hints]);
 
-  // Initialize speech recognition
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const SpeechRecognition =
-        (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-      if (SpeechRecognition) {
-        const recognition = new SpeechRecognition();
-        recognition.continuous = false;
-        recognition.interimResults = true;
-        recognition.lang = RECOGNITION_LOCALES[learningLanguage] || "fr-FR";
+  // Abort an in-flight reply if the student leaves the page.
+  useEffect(() => () => abortRef.current?.abort(), []);
 
-        recognition.onresult = (event: any) => {
-          const transcript = Array.from(event.results)
-            .map((result: any) => result[0].transcript)
-            .join("");
-          setInput(transcript);
-        };
+  const patchMessage = (id: string, patch: Partial<Message>) =>
+    setMessages((prev) => prev.map((m) => (m.id === id ? { ...m, ...patch } : m)));
 
-        recognition.onend = () => {
-          setIsRecording(false);
-        };
-
-        recognition.onerror = () => {
-          setIsRecording(false);
-        };
-
-        recognitionRef.current = recognition;
-      }
-    }
-  }, [learningLanguage]);
-
-  const toggleRecording = () => {
-    if (!recognitionRef.current) {
-      setError("Speech recognition is not supported in your browser.");
-      return;
-    }
-
-    if (isRecording) {
-      recognitionRef.current.stop();
-      setIsRecording(false);
-    } else {
-      setInput("");
-      recognitionRef.current.start();
-      setIsRecording(true);
-    }
-  };
-
-  const speakText = (text: string, messageId: string) => {
-    // Toggle off if already speaking
-    if (isSpeaking) {
-      ttsStop();
-      setIsSpeaking(false);
-      setMessages((prev) => prev.map((m) => ({ ...m, isPlaying: false })));
-      return;
-    }
-
-    // Set playing state
-    setMessages((prev) =>
-      prev.map((m) =>
-        m.id === messageId ? { ...m, isPlaying: true } : { ...m, isPlaying: false }
-      )
-    );
-    setIsSpeaking(true);
-
-    // Speak, then clear the playing state when the audio finishes
-    ttsSpeak(text).then(() => {
-      setIsSpeaking(false);
-      setMessages((prev) => prev.map((m) => ({ ...m, isPlaying: false })));
-    }).catch(() => {
-      setIsSpeaking(false);
-      setMessages((prev) => prev.map((m) => ({ ...m, isPlaying: false })));
-    });
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setInput(e.target.value);
-    e.target.style.height = "auto";
-    e.target.style.height = Math.min(e.target.scrollHeight, 120) + "px";
-  };
-
-  const sendMessage = async () => {
-    const trimmed = input.trim();
+  const sendMessage = async (override?: string) => {
+    const trimmed = (override ?? input).trim();
     if (!trimmed || isLoading) return;
 
+    // This runs inside the click, so it is the moment to unlock audio for the
+    // reply that will arrive later.
+    tts.unlock();
+    tts.stop();
+
     setError(null);
+    setHints([]);
+    setHintsOpen(false);
     const userMessage: Message = {
       id: `user-${Date.now()}`,
       role: "user",
@@ -225,10 +179,11 @@ export default function AITutorPage() {
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setIsLoading(true);
+    if (inputRef.current) inputRef.current.style.height = "auto";
 
-    if (inputRef.current) {
-      inputRef.current.style.height = "auto";
-    }
+    const assistantId = `assistant-${Date.now()}`;
+    const speakAsItArrives = autoSpeak;
+    let assistantAdded = false;
 
     try {
       const apiMessages = [...messages, userMessage].map((m) => ({
@@ -236,71 +191,243 @@ export default function AITutorPage() {
         content: m.content,
       }));
 
+      abortRef.current = new AbortController();
       const res = await fetch("/api/ai-tutor/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          messages: apiMessages,
-          conversationId,
-          lessonId,
-        }),
+        body: JSON.stringify({ messages: apiMessages, conversationId, lessonId }),
+        signal: abortRef.current.signal,
       });
 
-      const data = await res.json();
-
-      if (!res.ok) {
+      if (!res.ok || !res.body) {
+        const data = await res.json().catch(() => ({}));
         if (data.code === "LIMIT_REACHED") {
-          setError(data.error);
           setUsage((prev) =>
-            prev
-              ? { ...prev, remainingMessages: 0, messagesUsed: data.messagesUsed }
-              : prev
+            prev ? { ...prev, remainingMessages: 0, messagesUsed: data.messagesUsed } : prev
           );
-        } else if (data.code === "NO_ACCESS" || data.code === "DISABLED") {
-          setError(data.error);
-        } else {
-          setError(data.error || "Something went wrong. Please try again.");
         }
+        setError(data.error || "Something went wrong. Please try again.");
         return;
       }
 
-      const assistantMessage: Message = {
-        id: `assistant-${Date.now()}`,
-        role: "assistant",
-        content: data.reply,
-        timestamp: new Date(),
-        corrections: data.corrections?.length ? data.corrections : undefined,
+      setMessages((prev) => [
+        ...prev,
+        { id: assistantId, role: "assistant", content: "", timestamp: new Date(), streaming: true },
+      ]);
+      assistantAdded = true;
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let lineBuf = "";
+      let text = "";
+      let speechBuf = "";
+      let finished = false;
+
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const handle = (ev: any) => {
+        if (ev.t === "start") {
+          if (ev.conversationId) setConversationId(ev.conversationId);
+        } else if (ev.t === "delta") {
+          text += ev.text;
+          patchMessage(assistantId, { content: text });
+          if (speakAsItArrives) {
+            speechBuf += ev.text;
+            const { sentences, rest } = takeSentences(speechBuf);
+            speechBuf = rest;
+            sentences.forEach((s) => tts.enqueue(s, { id: assistantId }));
+          }
+        } else if (ev.t === "done") {
+          finished = true;
+          patchMessage(assistantId, {
+            content: ev.reply || text,
+            streaming: false,
+            corrections: ev.corrections?.length ? ev.corrections : undefined,
+          });
+          if (speakAsItArrives && speechBuf.trim()) {
+            tts.enqueue(speechBuf, { id: assistantId });
+            speechBuf = "";
+          }
+          setHints(Array.isArray(ev.hints) ? ev.hints : []);
+          if (ev.conversationId) setConversationId(ev.conversationId);
+          if (ev.lesson) setLesson(ev.lesson);
+          if (ev.level) setStudentLevel(ev.level);
+          if (ev.remainingMessages !== undefined) {
+            setUsage((prev) =>
+              prev
+                ? {
+                    ...prev,
+                    messagesUsed: ev.messagesUsed,
+                    remainingMessages: ev.remainingMessages,
+                  }
+                : prev
+            );
+          }
+        } else if (ev.t === "error") {
+          setError(ev.error || "Something went wrong. Please try again.");
+        }
       };
 
-      setMessages((prev) => [...prev, assistantMessage]);
-
-      // Keep the server-side conversation so a reload can resume it, and track
-      // how far through a lesson the tutor has walked.
-      if (data.conversationId) setConversationId(data.conversationId);
-      if (data.lesson) setLesson(data.lesson);
-      if (data.level) setStudentLevel(data.level);
-
-      // Auto-speak the response
-      if (autoSpeak && data.reply) {
-        setTimeout(() => speakText(data.reply, assistantMessage.id), 300);
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        lineBuf += decoder.decode(value, { stream: true });
+        let nl: number;
+        while ((nl = lineBuf.indexOf("\n")) >= 0) {
+          const line = lineBuf.slice(0, nl).trim();
+          lineBuf = lineBuf.slice(nl + 1);
+          if (!line) continue;
+          try {
+            handle(JSON.parse(line));
+          } catch {
+            /* ignore a malformed line */
+          }
+        }
       }
 
-      if (data.remainingMessages !== undefined) {
-        setUsage((prev) =>
-          prev
-            ? {
-                ...prev,
-                messagesUsed: data.messagesUsed,
-                remainingMessages: data.remainingMessages,
-              }
-            : prev
-        );
+      if (!finished) {
+        // Stream ended early: keep whatever arrived, drop an empty bubble.
+        if (text.trim()) patchMessage(assistantId, { streaming: false });
+        else setMessages((prev) => prev.filter((m) => m.id !== assistantId));
       }
     } catch (err) {
+      if ((err as Error)?.name === "AbortError") return;
       setError("Network error. Please check your connection and try again.");
+      if (assistantAdded) {
+        setMessages((prev) =>
+          prev.filter((m) => !(m.id === assistantId && !m.content.trim()))
+        );
+      }
     } finally {
       setIsLoading(false);
     }
+  };
+
+  // The recorder callback outlives renders; always call the latest sendMessage.
+  const sendRef = useRef(sendMessage);
+  useEffect(() => {
+    sendRef.current = sendMessage;
+  });
+
+  const transcribe = useCallback(
+    async (file: File) => {
+      setIsTranscribing(true);
+      setError(null);
+      try {
+        const form = new FormData();
+        form.append("audio", file);
+        form.append("language", learningLanguage);
+        const res = await fetch("/api/ai-tutor/transcribe", { method: "POST", body: form });
+        const data = await res.json();
+        if (!res.ok) {
+          setError(data.error || "Couldn't hear that. Please try again.");
+          return;
+        }
+        if (!data.text) {
+          setError("I didn't catch anything — try again a little closer to the mic.");
+          return;
+        }
+        await sendRef.current(data.text);
+      } catch {
+        setError("Couldn't hear that. Please try again.");
+      } finally {
+        setIsTranscribing(false);
+      }
+    },
+    [learningLanguage]
+  );
+
+  const recorder = useVoiceRecorder({
+    onRecorded: transcribe,
+    onError: (msg) => setError(msg),
+  });
+
+  const toggleRecording = () => {
+    if (recorder.isRecording) {
+      recorder.stop();
+      return;
+    }
+    // The click is also the audio-unlock gesture for the reply to come.
+    tts.unlock();
+    tts.stop();
+    setError(null);
+    void recorder.start();
+  };
+
+  const toggleSpeak = (msg: Message, slow = false) => {
+    tts.unlock();
+    if (tts.speakingId === msg.id && !slow) {
+      tts.stop();
+      return;
+    }
+    tts.speak(msg.content, { id: msg.id, slow });
+  };
+
+  const sayPhrase = (text: string) => {
+    tts.unlock();
+    tts.speak(text, { id: `phrase-${text}` });
+  };
+
+  const toggleTranslation = async (msg: Message) => {
+    if (msg.translation !== undefined) {
+      patchMessage(msg.id, { translation: undefined });
+      return;
+    }
+    patchMessage(msg.id, { translating: true });
+    try {
+      const res = await fetch("/api/ai-tutor/translate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: msg.content, mode: "message" }),
+      });
+      const data = await res.json();
+      patchMessage(msg.id, {
+        translating: false,
+        translation: res.ok ? data.translation : "Translation unavailable.",
+      });
+    } catch {
+      patchMessage(msg.id, { translating: false, translation: "Translation unavailable." });
+    }
+  };
+
+  const endSession = async () => {
+    if (!conversationId) return;
+    tts.stop();
+    setRecapLoading(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/ai-tutor/recap", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ conversationId }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error || "Couldn't build your recap.");
+        return;
+      }
+      setRecap(data.recap);
+    } catch {
+      setError("Couldn't build your recap.");
+    } finally {
+      setRecapLoading(false);
+    }
+  };
+
+  const newSession = () => {
+    tts.stop();
+    setRecap(null);
+    setMessages([]);
+    setConversationId(null);
+    setLesson(null);
+    setLessonId(null);
+    setHints([]);
+    setError(null);
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setInput(e.target.value);
+    e.target.style.height = "auto";
+    e.target.style.height = Math.min(e.target.scrollHeight, 120) + "px";
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -313,6 +440,9 @@ export default function AITutorPage() {
   const isLimitReached =
     usage && usage.remainingMessages !== null && usage.remainingMessages <= 0;
   const noAccess = usage && !usage.hasAccess;
+  const studentTurns = messages.filter((m) => m.role === "user").length;
+  const canEnd = !!conversationId && studentTurns >= 2 && !isLoading;
+  const hintsVisible = hints.length > 0 && (HINTS_UP_FRONT.has(studentLevel) || hintsOpen);
 
   // Loading state
   if (usageLoading) {
@@ -419,40 +549,50 @@ export default function AITutorPage() {
   // early enough for a student to pace the rest of the month.
   const poolLow = !isUnlimited && poolRemaining <= 0.2;
 
+  const lastAssistantId = [...messages].reverse().find((m) => m.role === "assistant")?.id;
+  const micBusy = isTranscribing || isLoading;
+
   return (
     <div className="flex flex-col h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
         <div className="max-w-3xl mx-auto px-4 py-3">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center gap-3 min-w-0">
               <Link
                 href="/dashboard"
                 className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
               >
                 <ArrowLeft className="w-5 h-5 text-gray-600" />
               </Link>
-              <div className="flex items-center gap-2">
-                <div className="w-9 h-9 rounded-full overflow-hidden bg-primary/10 flex items-center justify-center">
+              <div className="flex items-center gap-2 min-w-0">
+                <div
+                  className={`w-9 h-9 rounded-full overflow-hidden bg-primary/10 flex items-center justify-center flex-shrink-0 transition-shadow ${
+                    tts.isSpeaking ? "ring-2 ring-primary/50 ring-offset-2 animate-pulse" : ""
+                  }`}
+                >
                   <img
                     src="/images/ai-tutor-avatar.svg"
                     alt="AI Tutor"
                     className="w-9 h-9 object-cover"
                     onError={(e) => {
                       (e.target as HTMLImageElement).style.display = "none";
-                      (e.target as HTMLImageElement).parentElement!.innerHTML =
-                        '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-primary"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>';
+                      (e.target as HTMLImageElement).parentElement!.innerHTML = AVATAR_FALLBACK;
                     }}
                   />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <h1 className="font-bold text-gray-900 text-sm">AI Tutor</h1>
                   {lesson ? (
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-gray-500 truncate">
                       {lesson.title} · step{" "}
                       {Math.min(lesson.sectionIndex + 1, lesson.totalSections)} of{" "}
                       {lesson.totalSections}
                     </p>
+                  ) : tts.isSpeaking ? (
+                    <p className="text-xs text-primary">Speaking…</p>
+                  ) : isLoading ? (
+                    <p className="text-xs text-gray-500">Thinking…</p>
                   ) : (
                     <p className="text-xs text-green-600 flex items-center gap-1">
                       <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
@@ -463,10 +603,37 @@ export default function AITutorPage() {
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1.5 sm:gap-3">
+              <Link
+                href="/student/ai-tutor/review"
+                className="p-2 rounded-lg text-gray-500 hover:bg-gray-100"
+                title="Review deck"
+              >
+                <Layers className="w-4 h-4" />
+              </Link>
+
+              {canEnd && (
+                <button
+                  onClick={endSession}
+                  disabled={recapLoading}
+                  className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-primary bg-primary/10 hover:bg-primary/15 disabled:opacity-60"
+                  title="End session and see your recap"
+                >
+                  {recapLoading ? (
+                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                  ) : (
+                    <Flag className="w-3.5 h-3.5" />
+                  )}
+                  <span className="hidden sm:inline">End session</span>
+                </button>
+              )}
+
               {/* Auto-speak toggle */}
               <button
-                onClick={() => setAutoSpeak(!autoSpeak)}
+                onClick={() => {
+                  if (autoSpeak) tts.stop();
+                  setAutoSpeak(!autoSpeak);
+                }}
                 className={`p-2 rounded-lg transition-colors ${
                   autoSpeak ? "bg-primary/10 text-primary" : "bg-gray-100 text-gray-400"
                 }`}
@@ -476,7 +643,7 @@ export default function AITutorPage() {
               </button>
 
               {/* Monthly pool meter */}
-              <div className="flex items-center gap-2 text-sm">
+              <div className="hidden sm:flex items-center gap-2 text-sm">
                 <Clock className="w-4 h-4 text-gray-400" />
                 <div className="flex flex-col items-end gap-1">
                   <span
@@ -522,11 +689,10 @@ export default function AITutorPage() {
                 Start a Conversation
               </h2>
               <p className="text-gray-500 max-w-sm mx-auto mb-2">
-                Practice your language skills with your AI tutor. Type or use the
-                microphone to speak!
+                Practice speaking with your AI tutor. Tap the mic and just talk, or type.
               </p>
               <p className="text-xs text-gray-400 mb-6">
-                🎤 Tap the mic to speak &nbsp;·&nbsp; 🔊 Responses are read aloud automatically
+                Tap any word for its meaning &nbsp;·&nbsp; End the session for your recap
               </p>
 
               {/* One-tap way into lesson mode: practise what the student's own
@@ -583,8 +749,7 @@ export default function AITutorPage() {
                       className="w-8 h-8 object-cover"
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = "none";
-                        (e.target as HTMLImageElement).parentElement!.innerHTML =
-                          '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-primary"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>';
+                        (e.target as HTMLImageElement).parentElement!.innerHTML = AVATAR_FALLBACK;
                       }}
                     />
                   </div>
@@ -594,12 +759,34 @@ export default function AITutorPage() {
                     className={`rounded-2xl px-4 py-3 ${
                       msg.role === "user"
                         ? "bg-primary text-white rounded-br-md"
-                        : "bg-white border border-gray-200 text-gray-900 rounded-bl-md shadow-sm"
+                        : `bg-white border text-gray-900 rounded-bl-md shadow-sm transition-colors ${
+                            tts.speakingId === msg.id ? "border-primary/40" : "border-gray-200"
+                          }`
                     }`}
                   >
-                    <p className="whitespace-pre-wrap text-sm leading-relaxed">
-                      {msg.content}
-                    </p>
+                    {msg.role === "assistant" && msg.streaming && !msg.content ? (
+                      <div className="flex items-center gap-1 py-1">
+                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                      </div>
+                    ) : (
+                      <p className="whitespace-pre-wrap text-sm leading-relaxed">
+                        {msg.role === "assistant" && !msg.streaming ? (
+                          <TappableText text={msg.content} onSpeak={sayPhrase} />
+                        ) : (
+                          msg.content
+                        )}
+                        {msg.streaming && (
+                          <span className="inline-block w-1.5 h-4 -mb-0.5 ml-0.5 bg-primary/60 animate-pulse rounded-sm" />
+                        )}
+                      </p>
+                    )}
+                    {msg.translation !== undefined && (
+                      <p className="mt-2 pt-2 border-t border-gray-100 text-sm text-gray-500 italic">
+                        {msg.translation}
+                      </p>
+                    )}
                   </div>
 
                   {/* Corrections are the part worth keeping — surface them as
@@ -616,6 +803,13 @@ export default function AITutorPage() {
                             <span className="font-semibold text-amber-900">
                               {c.corrected}
                             </span>
+                            <button
+                              onClick={() => sayPhrase(c.corrected)}
+                              className="p-0.5 text-amber-700/70 hover:text-amber-900"
+                              aria-label="Hear the corrected version"
+                            >
+                              <Volume2 className="w-3 h-3" />
+                            </button>
                             {c.tag && (
                               <span className="px-1.5 py-0.5 rounded bg-amber-200/70 text-amber-900 text-[10px] uppercase tracking-wide">
                                 {c.tag.replace(/_/g, " ")}
@@ -629,27 +823,93 @@ export default function AITutorPage() {
                       ))}
                     </div>
                   ) : null}
-                  <div className={`flex items-center gap-2 mt-1 ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
-                    <p className="text-xs text-gray-400">
+
+                  <div className={`flex items-center gap-1 mt-1 ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
+                    <p className="text-xs text-gray-400 mr-1">
                       {msg.timestamp.toLocaleTimeString([], {
                         hour: "2-digit",
                         minute: "2-digit",
                       })}
                     </p>
-                    {msg.role === "assistant" && (
-                      <button
-                        onClick={() => speakText(msg.content, msg.id)}
-                        className={`p-1 rounded transition-colors ${
-                          msg.isPlaying
-                            ? "text-primary bg-primary/10"
-                            : "text-gray-400 hover:text-gray-600"
-                        }`}
-                        title="Listen"
-                      >
-                        <Volume2 className="w-3.5 h-3.5" />
-                      </button>
+                    {msg.role === "assistant" && !msg.streaming && msg.content && (
+                      <>
+                        <button
+                          onClick={() => toggleSpeak(msg)}
+                          className={`p-1 rounded transition-colors ${
+                            tts.speakingId === msg.id
+                              ? "text-primary bg-primary/10"
+                              : "text-gray-400 hover:text-gray-600"
+                          }`}
+                          title={tts.speakingId === msg.id ? "Stop" : "Listen"}
+                        >
+                          <Volume2 className="w-3.5 h-3.5" />
+                        </button>
+                        <button
+                          onClick={() => toggleSpeak(msg, true)}
+                          className="p-1 rounded text-gray-400 hover:text-gray-600 transition-colors"
+                          title="Listen slowly"
+                        >
+                          <Snail className="w-3.5 h-3.5" />
+                        </button>
+                        <button
+                          onClick={() => toggleTranslation(msg)}
+                          className={`p-1 rounded transition-colors ${
+                            msg.translation !== undefined
+                              ? "text-primary bg-primary/10"
+                              : "text-gray-400 hover:text-gray-600"
+                          }`}
+                          title={msg.translation !== undefined ? "Hide translation" : "Translate"}
+                        >
+                          {msg.translating ? (
+                            <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                          ) : (
+                            <Languages className="w-3.5 h-3.5" />
+                          )}
+                        </button>
+                      </>
                     )}
                   </div>
+
+                  {/* Reply suggestions under the latest tutor message. */}
+                  {msg.id === lastAssistantId && hints.length > 0 && !isLoading && (
+                    hintsVisible ? (
+                      <div className="mt-3 flex flex-col gap-1.5">
+                        <p className="text-[11px] uppercase tracking-wide text-gray-400 font-semibold flex items-center gap-1">
+                          <Lightbulb className="w-3 h-3" /> You could say
+                        </p>
+                        {hints.map((h, i) => (
+                          <div key={i} className="flex items-stretch gap-1">
+                            <button
+                              onClick={() => {
+                                setInput(h.text);
+                                inputRef.current?.focus();
+                              }}
+                              className="flex-1 text-left px-3 py-2 bg-white border border-gray-200 rounded-xl hover:border-primary/40 hover:bg-primary/5 transition-colors"
+                            >
+                              <span className="block text-sm text-gray-900">{h.text}</span>
+                              {h.en && (
+                                <span className="block text-xs text-gray-500">{h.en}</span>
+                              )}
+                            </button>
+                            <button
+                              onClick={() => sayPhrase(h.text)}
+                              className="px-2 rounded-xl text-gray-400 hover:text-primary hover:bg-primary/5"
+                              aria-label="Hear this"
+                            >
+                              <Volume2 className="w-4 h-4" />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <button
+                        onClick={() => setHintsOpen(true)}
+                        className="mt-2 inline-flex items-center gap-1 text-xs text-gray-500 hover:text-primary"
+                      >
+                        <Lightbulb className="w-3.5 h-3.5" /> Need a hint?
+                      </button>
+                    )
+                  )}
                 </div>
                 {msg.role === "user" && (
                   <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 mt-1 overflow-hidden">
@@ -668,24 +928,10 @@ export default function AITutorPage() {
               </div>
             ))}
 
-            {isLoading && (
-              <div className="flex gap-3 justify-start">
-                <div className="w-8 h-8 rounded-full overflow-hidden bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
-                  <img
-                    src="/images/ai-tutor-avatar.svg"
-                    alt="AI"
-                    className="w-8 h-8 object-cover"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = "none";
-                    }}
-                  />
-                </div>
-                <div className="bg-white border border-gray-200 rounded-2xl rounded-bl-md px-4 py-3 shadow-sm">
-                  <div className="flex items-center gap-1">
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
-                  </div>
+            {isTranscribing && (
+              <div className="flex justify-end">
+                <div className="rounded-2xl rounded-br-md bg-primary/10 text-primary px-4 py-3 text-sm flex items-center gap-2">
+                  <Loader2 className="w-4 h-4 animate-spin" /> Listening back…
                 </div>
               </div>
             )}
@@ -716,54 +962,110 @@ export default function AITutorPage() {
       {/* Input area */}
       <div className="bg-white border-t border-gray-200">
         <div className="max-w-3xl mx-auto px-4 py-3">
-          <div className="flex items-end gap-2">
-            {/* Microphone button */}
-            <button
-              onClick={toggleRecording}
-              disabled={!!isLimitReached}
-              className={`p-3 rounded-xl transition-all flex-shrink-0 ${
-                isRecording
-                  ? "bg-red-500 text-white animate-pulse"
-                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-              } disabled:opacity-50 disabled:cursor-not-allowed`}
-              title={isRecording ? "Stop recording" : "Start speaking"}
-            >
-              {isRecording ? <MicOff className="w-5 h-5" /> : <Mic className="w-5 h-5" />}
-            </button>
+          {recorder.isRecording ? (
+            <div className="flex items-center gap-3">
+              <button
+                onClick={recorder.cancel}
+                className="p-3 rounded-xl bg-gray-100 text-gray-500 hover:bg-gray-200 flex-shrink-0"
+                title="Cancel"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              <div className="flex-1 flex items-center gap-3 rounded-xl border border-red-200 bg-red-50 px-4 py-3">
+                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                <span className="text-sm font-medium text-red-700 tabular-nums">
+                  {formatElapsed(recorder.elapsedMs)}
+                </span>
+                {/* Live input level so the student can see they are heard. */}
+                <div className="flex-1 flex items-center gap-[3px] h-6 overflow-hidden">
+                  {Array.from({ length: 28 }).map((_, i) => {
+                    const wave = Math.abs(Math.sin((i + recorder.elapsedMs / 120) * 0.7));
+                    const h = 15 + recorder.level * 85 * (0.4 + 0.6 * wave);
+                    return (
+                      <span
+                        key={i}
+                        className="w-[3px] rounded-full bg-red-400 transition-[height] duration-75"
+                        style={{ height: `${h}%` }}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+              <button
+                onClick={toggleRecording}
+                className="relative p-3 rounded-xl bg-red-500 text-white hover:bg-red-600 flex-shrink-0"
+                title="Send"
+              >
+                <span
+                  className="absolute inset-0 rounded-xl bg-red-400/50"
+                  style={{ transform: `scale(${1 + recorder.level * 0.35})` }}
+                />
+                <Square className="relative w-5 h-5 fill-current" />
+              </button>
+            </div>
+          ) : (
+            <div className="flex items-end gap-2">
+              {/* Microphone button */}
+              <button
+                onClick={toggleRecording}
+                disabled={!!isLimitReached || micBusy}
+                className="p-3 rounded-xl transition-all flex-shrink-0 bg-primary/10 text-primary hover:bg-primary/15 disabled:opacity-50 disabled:cursor-not-allowed"
+                title="Tap to speak"
+              >
+                {isTranscribing ? (
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                ) : (
+                  <Mic className="w-5 h-5" />
+                )}
+              </button>
 
-            <textarea
-              ref={inputRef}
-              value={input}
-              onChange={handleInputChange}
-              onKeyDown={handleKeyDown}
-              placeholder={
-                isLimitReached
-                  ? "Daily limit reached. Upgrade for more messages!"
-                  : isRecording
-                  ? "Listening..."
-                  : "Type or speak a message..."
-              }
-              disabled={isLoading || !!isLimitReached}
-              rows={1}
-              className="flex-1 resize-none rounded-xl border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary disabled:opacity-50 disabled:bg-gray-50"
-            />
-            <button
-              onClick={sendMessage}
-              disabled={!input.trim() || isLoading || !!isLimitReached}
-              className="p-3 bg-primary text-white rounded-xl hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0"
-            >
-              {isLoading ? (
-                <Loader2 className="w-5 h-5 animate-spin" />
-              ) : (
-                <Send className="w-5 h-5" />
-              )}
-            </button>
-          </div>
+              <textarea
+                ref={inputRef}
+                value={input}
+                onChange={handleInputChange}
+                onKeyDown={handleKeyDown}
+                placeholder={
+                  isLimitReached
+                    ? "Monthly limit reached. Upgrade for more messages!"
+                    : isTranscribing
+                    ? "Listening back…"
+                    : "Type or tap the mic to speak..."
+                }
+                disabled={isLoading || !!isLimitReached}
+                rows={1}
+                className="flex-1 resize-none rounded-xl border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary disabled:opacity-50 disabled:bg-gray-50"
+              />
+              <button
+                onClick={() => sendMessage()}
+                disabled={!input.trim() || isLoading || !!isLimitReached}
+                className="p-3 bg-primary text-white rounded-xl hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0"
+              >
+                {isLoading ? (
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                ) : (
+                  <Send className="w-5 h-5" />
+                )}
+              </button>
+            </div>
+          )}
           <p className="text-xs text-gray-400 mt-2 text-center">
-            🎤 Speak or type · 🔊 Auto-read is {autoSpeak ? "on" : "off"} · AI may make mistakes
+            {recorder.isRecording
+              ? "Tap ■ when you're done · it sends automatically"
+              : `Tap the mic and talk · Auto-read is ${autoSpeak ? "on" : "off"} · AI may make mistakes`}
           </p>
         </div>
       </div>
+
+      {recap && conversationId && (
+        <RecapPanel
+          recap={recap}
+          conversationId={conversationId}
+          language={learningLanguage}
+          onClose={() => setRecap(null)}
+          onNewSession={newSession}
+          onSpeak={sayPhrase}
+        />
+      )}
     </div>
   );
 }
