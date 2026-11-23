@@ -81,6 +81,13 @@ interface UsageData {
   suggestedLesson?: { id: string; title: string } | null;
 }
 
+/** The greeting chip on the empty state, in the language being learned. */
+const OPENERS: Record<string, string> = {
+  fr: "Bonjour ! Comment allez-vous ?",
+  es: "¡Hola! ¿Cómo estás?",
+  en: "Hi! How are you?",
+};
+
 /** Levels at which reply suggestions are shown up front rather than on request. */
 const HINTS_UP_FRONT = new Set(["A1", "A2", "B1"]);
 
@@ -734,7 +741,7 @@ export default function AITutorPage() {
 
               <div className="flex flex-wrap justify-center gap-2">
                 {[
-                  "Bonjour! Comment allez-vous?",
+                  OPENERS[learningLanguage] ?? "Hi! How are you?",
                   "Help me practice ordering food",
                   "Can we do a role-play?",
                   "Explain the past tense",

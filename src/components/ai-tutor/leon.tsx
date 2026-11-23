@@ -158,6 +158,21 @@ export function Leon({
             <circle cx={e.cx} cy={e.cy} r={EYE_R} />
           </clipPath>
         ))}
+        <linearGradient id={`${uid}-fr`} x1="0" y1="0" x2="1" y2="0">
+          <stop offset=".333" stopColor="#1F4FB4" />
+          <stop offset=".333" stopColor="#FFFFFF" />
+          <stop offset=".667" stopColor="#FFFFFF" />
+          <stop offset=".667" stopColor="#E1353A" />
+        </linearGradient>
+        <linearGradient id={`${uid}-es`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset=".3" stopColor="#C8102E" />
+          <stop offset=".3" stopColor="#FFC400" />
+          <stop offset=".72" stopColor="#FFC400" />
+          <stop offset=".72" stopColor="#C8102E" />
+        </linearGradient>
+        <clipPath id={`${uid}-bow`}>
+          <path d="M43 73 L56 79.5 L43 86 Z M69 73 L56 79.5 L69 86 Z" />
+        </clipPath>
         <clipPath id={`${uid}-badge`}>
           <circle cx="60" cy="60" r="60" />
         </clipPath>
@@ -208,30 +223,30 @@ export function Leon({
             </g>
 
             {/* ── Layer 2: outfit ── */}
+            {/* Each accessory carries its country's flag. */}
             {outfit === "fr" && (
-              <g>
-                <path className="leon-skin" fill="var(--leon-outfit)" d="M31 70 C44 78 68 78 81 70 L82 78 C68 87 44 87 30 78 Z" />
-                <path className="leon-skin" fill="var(--leon-outfit)" d="M62 80 L71 96 L59 96 L57 82 Z" />
-                <path className="leon-skin" fill="none" stroke="var(--leon-accent)" strokeWidth="2" d="M38 75 L37 82 M48 77 L48 84 M64 77 L64 84 M74 75 L75 82 M62 88 L67 88 M63 92 L69 92" />
+              // tricolour scarf: bleu, blanc, rouge
+              <g stroke="#1F2937" strokeWidth="1.2" strokeLinejoin="round">
+                <path fill={`url(#${uid}-fr)`} d="M31 70 C44 78 68 78 81 70 L82 78 C68 87 44 87 30 78 Z" />
+                <path fill={`url(#${uid}-fr)`} d="M58 80 L72 96 L58 96 L55 82 Z" />
               </g>
             )}
             {outfit === "es" && (
-              <g>
-                <path className="leon-skin" fill="var(--leon-outfit)" d="M31 70 C44 78 68 78 81 70 L56 94 Z" />
-                <g className="leon-skin" fill="var(--leon-accent)">
-                  <circle cx="42" cy="77" r="1.7" />
-                  <circle cx="56" cy="79" r="1.7" />
-                  <circle cx="70" cy="77" r="1.7" />
-                  <circle cx="50" cy="85" r="1.7" />
-                  <circle cx="62" cy="85" r="1.7" />
-                  <circle cx="56" cy="90" r="1.5" />
-                </g>
-              </g>
+              // neckerchief in the Spanish flag's red, gold, red bands
+              <path fill={`url(#${uid}-es)`} stroke="#1F2937" strokeWidth="1.2" strokeLinejoin="round" d="M31 70 C44 78 68 78 81 70 L56 94 Z" />
             )}
             {outfit === "en" && (
+              // Union Jack bow tie
               <g>
-                <path className="leon-skin" fill="var(--leon-outfit)" stroke="var(--leon-dark)" strokeWidth="1" strokeLinejoin="round" d="M43 73 L56 79 L43 86 Z M69 73 L56 79 L69 86 Z" />
-                <circle className="leon-skin" fill="var(--leon-outfit)" stroke="var(--leon-dark)" strokeWidth="1" cx="56" cy="79" r="3.6" />
+                <g clipPath={`url(#${uid}-bow)`}>
+                  <rect x="42" y="72" width="28" height="15" fill="#012169" />
+                  <path stroke="#FFFFFF" strokeWidth="3" d="M43 73 L56 86 M43 86 L56 73 M69 73 L56 86 M69 86 L56 73" />
+                  <path stroke="#C8102E" strokeWidth="1.1" d="M43 73 L56 86 M43 86 L56 73 M69 73 L56 86 M69 86 L56 73" />
+                  <path stroke="#FFFFFF" strokeWidth="3.6" d="M42 79.5 H70 M49.5 72 V87 M62.5 72 V87" />
+                  <path stroke="#C8102E" strokeWidth="1.8" d="M42 79.5 H70 M49.5 72 V87 M62.5 72 V87" />
+                </g>
+                <path fill="none" stroke="#1F2937" strokeWidth="1.2" strokeLinejoin="round" d="M43 73 L56 79.5 L43 86 Z M69 73 L56 79.5 L69 86 Z" />
+                <circle fill="#012169" stroke="#1F2937" strokeWidth="1.2" cx="56" cy="79.5" r="3.4" />
               </g>
             )}
 
