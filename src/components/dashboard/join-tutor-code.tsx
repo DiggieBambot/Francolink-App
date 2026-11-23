@@ -4,6 +4,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { UserPlus, Check, AlertCircle } from 'lucide-react';
+import { findTutorUrl } from '@/lib/site/find-tutor';
 
 interface JoinTutorCodeProps {
   userId?: string;
@@ -142,12 +143,10 @@ export function JoinTutorCode({ userId }: JoinTutorCodeProps) {
         <p className="text-xs text-gray-500">
           Get this code from your teacher or find a tutor on{' '}
           <a 
-            href="https://www.francolink.net/teachers"
-            target="_blank"
-            rel="noopener noreferrer"
+            href={findTutorUrl()}
             className="text-primary hover:underline"
           >
-            FrancoLink Teachers
+            FrancoLink
           </a>
         </p>
       </form>
