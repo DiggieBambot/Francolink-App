@@ -17,9 +17,10 @@
 // talks, reacts to corrections and good answers; a comic speech bubble shows
 // what he's saying word by word; and a class board collects the corrections.
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { Mic, Pause, PhoneOff, Hand, Loader2, NotebookPen, ChevronUp, BookOpen, RotateCcw } from "lucide-react";
 import { Leon, LeonSpeechBubble, leonPalette, type LeonMood, type VoiceBands } from "@/components/ai-tutor/leon";
+import { ClassLesson as LessonOnScreen } from "@/components/ai-tutor/class-lesson";
 import type { NowPlaying } from "@/hooks/use-tutor-tts";
 
 /** A live-class lesson Léon offers at the start of a class. */
@@ -35,6 +36,8 @@ export interface ClassTopicOption {
 }
 
 export interface ClassLesson {
+  /** Set by the server for lessons from the live-class programme. */
+  id?: string;
   title: string;
   sectionIndex: number;
   totalSections: number;
@@ -72,6 +75,17 @@ const ACKS: Record<string, string[]> = {
   en: ["Mm-hm…", "Okay…", "I see…"],
 };
 
+const WIDE = "(min-width: 768px)";
+function subscribeWide(cb: () => void) {
+  const m = window.matchMedia(WIDE);
+  m.addEventListener("change", cb);
+  return () => m.removeEventListener("change", cb);
+}
+/** Desktop layout (md and up), for the one prop CSS can't switch. */
+function useWide(): boolean {
+  return useSyncExternalStore(subscribeWide, () => window.matchMedia(WIDE).matches, () => true);
+}
+
 export function TutoringSession({
   language,
   mood,
@@ -100,6 +114,9 @@ export function TutoringSession({
   resume = null,
   onPickTopic,
   lesson = null,
+  lessonAnswers,
+  onLessonStep,
+  onLessonCheck,
 }: {
   language: string;
   mood: LeonMood;
@@ -133,6 +150,12 @@ export function TutoringSession({
   onPickTopic?: (topic: ClassTopicOption) => void;
   /** The lesson being taught, once chosen. */
   lesson?: ClassLesson | null;
+  /** The student's answers in the on-screen exercises, by exercise anchor. */
+  lessonAnswers?: React.MutableRefObject<Record<string, unknown>>;
+  /** The student moved to another step of the lesson on screen. */
+  onLessonStep?: (index: number) => void;
+  /** The student asked Léon to check their on-screen answers. */
+  onLessonCheck?: () => void;
 }) {
   const [paused, setPaused] = useState(false);
   const [boardOpen, setBoardOpen] = useState(false);
@@ -237,6 +260,17 @@ export function TutoringSession({
     setPaused(false);
   };
 
+  // A tap on the lesson is the student's turn: stop listening, hand it to
+  // Léon, and listen again once he has answered.
+  const lessonTap = (fn: () => void) => {
+    if (recorder.isRecording) recorder.cancel();
+    if (isSpeaking) onInterrupt();
+    setPaused(false);
+    fn();
+  };
+  const showLesson = !!(lesson?.id && lessonAnswers && onLessonStep && onLessonCheck);
+  const wide = useWide();
+
   // ── Status line ──────────────────────────────────────────────────────────
   let status: string;
   if (outOfTime) status = "Out of tutoring time";
@@ -276,6 +310,78 @@ export function TutoringSession({
         </button>
       </div>
 
+      {showLesson ? (
+        <div className="flex-1 min-h-0 w-full max-w-6xl mx-auto px-3 md:px-4 flex flex-col md:grid md:grid-cols-[minmax(0,1fr)_320px] gap-2 md:gap-6">
+          {/* Léon: a strip above the lesson on phones, a column beside it on desktop */}
+          <div className="md:order-2 shrink-0 md:min-h-0 md:overflow-y-auto flex flex-col items-center text-center">
+            {/* Phones: bubble and a small Léon side by side; desktop: stacked */}
+            <div className="w-full flex items-end gap-1 md:flex-col md:items-center md:gap-0">
+            <div className="flex-1 min-w-0 md:w-full shrink-0 max-h-[7.5rem] md:max-h-none overflow-y-auto pt-1 pb-3 text-left md:text-center">
+            <LeonSpeechBubble
+              language={language}
+              text={tutorLine}
+              speech={leonTalking ? nowPlaying : null}
+              streaming={tutorStreaming && !leonTalking}
+              tailX={wide ? "50%" : "88%"}
+            />
+            </div>
+          <button
+            onClick={leonTalking ? interrupt : undefined}
+            className="rounded-full focus:outline-none"
+            aria-label={leonTalking ? "Interrupt Professor Léon" : "Professor Léon"}
+          >
+            <div className="w-[76px] h-[76px] md:w-[210px] md:h-[210px]">
+              <Leon
+                language={language}
+                mood={mood}
+                size={260}
+                className="w-full h-full"
+                voiceLevel={voiceLevel}
+                voiceBands={voiceBands}
+                micLevel={micLevel}
+                speech={leonTalking ? nowPlaying : null}
+              />
+            </div>
+          </button>
+
+            </div>
+            <p className="mt-1 text-xs md:text-sm font-medium text-gray-500" aria-live="polite">
+              {status}
+            </p>
+            {studentLine && (
+              <p className="hidden md:block mt-3 text-sm text-gray-500 italic">&ldquo;{studentLine}&rdquo;</p>
+            )}
+          {error && !outOfTime && <p className="mt-4 text-sm text-red-600">{error}</p>}
+
+          {outOfTime && <div className="mt-6 w-full max-w-xl">{outOfTimePanel}</div>}
+
+          {!recorder.supported && (
+            <p className="mt-6 text-sm text-gray-500">
+              Your browser can&apos;t record audio. End the class to type to Professor Léon instead.
+            </p>
+          )}
+            <div className="hidden md:block mt-4 w-full text-left">{boardPanel}</div>
+          </div>
+
+          {/* The lesson, as in the live lesson room */}
+          <div className="md:order-1 flex-1 min-h-0 overflow-y-auto pb-3 text-left">
+            <LessonOnScreen
+              lessonId={lesson!.id!}
+              sectionIndex={lesson!.sectionIndex}
+              answersRef={lessonAnswers!}
+              onStep={(i) => lessonTap(() => onLessonStep!(i))}
+              onCheck={() => lessonTap(onLessonCheck!)}
+              busy={isLoading || isTranscribing || acking}
+              accent={palette.dark}
+            />
+            {board.length > 0 && (
+              <div className="md:hidden mt-3 rounded-xl border border-amber-200 bg-amber-50 px-3 py-2">
+                <CorrectionLine c={board[board.length - 1]} />
+              </div>
+            )}
+          </div>
+        </div>
+      ) : (
       <div className="flex-1 min-h-0 w-full max-w-5xl mx-auto px-4 grid md:grid-cols-[1fr_300px] gap-6">
         {/* Léon and his speech bubble */}
         <div className="min-h-0 overflow-y-auto flex flex-col items-center text-center">
@@ -383,9 +489,10 @@ export function TutoringSession({
         {/* Class board (desktop) */}
         <div className="hidden md:block min-h-0 overflow-y-auto pb-4">{boardPanel}</div>
       </div>
+      )}
 
       {/* Controls */}
-      <div className="relative pb-8 pt-4 flex items-center justify-center gap-6">
+      <div className={`relative flex items-center justify-center gap-6 ${showLesson ? "pb-4 pt-2" : "pb-8 pt-4"}`}>
         {leonTalking ? (
           <button
             onClick={interrupt}
