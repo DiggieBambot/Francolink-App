@@ -147,6 +147,7 @@ AUGMENTATION RULES (these are NOT in the doc — invent them well)
 1. Every section needs a tutor_instruction (~1 short sentence).
 2. tutor_overview.teaching_tips and common_mistakes: 2-4 each, specific to this lesson's content.
 3. valid_answers_by_blank: for each blank, list the answer_pool items that semantically fit.
+   Blanks in fill_in_blank sections are ALWAYS numbered inline markers "(1)", "(2)" in the exchange text. Never write blanks as "___", and never set blank:true on a line whose text is a question to be answered from the answer pool: turn the gap or the answer into a "(N)" marker in the line's text instead (e.g. "Où est la fourchette ? — (1)").
 4. image_hint / hero_image_hint: concrete scene description that Pexels can find ("woman holding shopping bags", "shoes with price tag").
 5. skill on objectives: one of speaking, listening, reading, writing, grammar, vocabulary.
 6. cefr_can_do: a single sentence in CEFR "Can do" style.
