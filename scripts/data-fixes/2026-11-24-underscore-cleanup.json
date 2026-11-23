@@ -1,0 +1,2459 @@
+[
+ {
+  "id": "c6fde292-0996-47af-a9de-48e9ca82e0b2",
+  "title": "Activités extérieures",
+  "status": "published",
+  "i": 9,
+  "j": 4,
+  "before": "Ils font (1) __________.",
+  "after": "Ils font (1)."
+ },
+ {
+  "id": "1bca7c3d-b8e9-4c9c-8060-d4ff8b82d5ae",
+  "title": "Activités intérieures",
+  "status": "published",
+  "i": 1,
+  "j": 1,
+  "before": "Je (1) __________.",
+  "after": "Je (1)."
+ },
+ {
+  "id": "1bca7c3d-b8e9-4c9c-8060-d4ff8b82d5ae",
+  "title": "Activités intérieures",
+  "status": "published",
+  "i": 4,
+  "j": 1,
+  "before": "Je (1) ____.",
+  "after": "Je (1)."
+ },
+ {
+  "id": "1bca7c3d-b8e9-4c9c-8060-d4ff8b82d5ae",
+  "title": "Activités intérieures",
+  "status": "published",
+  "i": 5,
+  "j": 0,
+  "before": "Montrez-moi l'image de quelqu'un qui (1) ___ .",
+  "after": "Montrez-moi l'image de quelqu'un qui (1)."
+ },
+ {
+  "id": "1bca7c3d-b8e9-4c9c-8060-d4ff8b82d5ae",
+  "title": "Activités intérieures",
+  "status": "published",
+  "i": 7,
+  "j": 0,
+  "before": "Pour lire, il faut (1) _____.",
+  "after": "Pour lire, il faut (1)."
+ },
+ {
+  "id": "1bca7c3d-b8e9-4c9c-8060-d4ff8b82d5ae",
+  "title": "Activités intérieures",
+  "status": "published",
+  "i": 7,
+  "j": 1,
+  "before": "Voici (2) _____.",
+  "after": "Voici (2)."
+ },
+ {
+  "id": "a9391ab4-86b2-4aee-b29b-6f685b49c4e0",
+  "title": "Parlez de l'impact des questions environnementales sur votre vie",
+  "status": "published",
+  "i": 5,
+  "j": 1,
+  "before": "J'essaie de faire du ________ (1) et de limiter ma consommation de ________ (2).",
+  "after": "J'essaie de faire du (1) et de limiter ma consommation de (2)."
+ },
+ {
+  "id": "a9391ab4-86b2-4aee-b29b-6f685b49c4e0",
+  "title": "Parlez de l'impact des questions environnementales sur votre vie",
+  "status": "published",
+  "i": 5,
+  "j": 2,
+  "before": "Oui, moi aussi. Je pense que c'est important de réduire notre utilisation du ________ (3).",
+  "after": "Oui, moi aussi. Je pense que c'est important de réduire notre utilisation du (3)."
+ },
+ {
+  "id": "7c1976a8-5770-4205-ae27-ede35dc6e8ac",
+  "title": "Nombres 20-99",
+  "status": "published",
+  "i": 2,
+  "j": 1,
+  "before": "J'ai choisi (1) ___.",
+  "after": "J'ai choisi (1)."
+ },
+ {
+  "id": "ee3bd92a-a7f2-499e-8a10-ad3e9f064253",
+  "title": "Salon",
+  "status": "published",
+  "i": 1,
+  "j": 0,
+  "before": "Les étagères sont (1) ___ la télé.",
+  "after": "Les étagères sont (1) la télé."
+ },
+ {
+  "id": "ee3bd92a-a7f2-499e-8a10-ad3e9f064253",
+  "title": "Salon",
+  "status": "published",
+  "i": 1,
+  "j": 1,
+  "before": "Les peintures sont (2) ___ le fauteuil.",
+  "after": "Les peintures sont (2) le fauteuil."
+ },
+ {
+  "id": "ee3bd92a-a7f2-499e-8a10-ad3e9f064253",
+  "title": "Salon",
+  "status": "published",
+  "i": 1,
+  "j": 2,
+  "before": "La télé est (3) ___ l'étagère.",
+  "after": "La télé est (3) l'étagère."
+ },
+ {
+  "id": "ee3bd92a-a7f2-499e-8a10-ad3e9f064253",
+  "title": "Salon",
+  "status": "published",
+  "i": 1,
+  "j": 3,
+  "before": "Les peintures sont (4) ___ la table.",
+  "after": "Les peintures sont (4) la table."
+ },
+ {
+  "id": "ee3bd92a-a7f2-499e-8a10-ad3e9f064253",
+  "title": "Salon",
+  "status": "published",
+  "i": 1,
+  "j": 4,
+  "before": "La balle est (5) ___ le fauteuil.",
+  "after": "La balle est (5) le fauteuil."
+ },
+ {
+  "id": "ee3bd92a-a7f2-499e-8a10-ad3e9f064253",
+  "title": "Salon",
+  "status": "published",
+  "i": 1,
+  "j": 5,
+  "before": "Le tapis est (6) ___ la table.",
+  "after": "Le tapis est (6) la table."
+ },
+ {
+  "id": "ee3bd92a-a7f2-499e-8a10-ad3e9f064253",
+  "title": "Salon",
+  "status": "published",
+  "i": 1,
+  "j": 6,
+  "before": "Le chat est (7) ___ la table.",
+  "after": "Le chat est (7) la table."
+ },
+ {
+  "id": "ee3bd92a-a7f2-499e-8a10-ad3e9f064253",
+  "title": "Salon",
+  "status": "published",
+  "i": 1,
+  "j": 7,
+  "before": "La balle est (8) ___ le tapis.",
+  "after": "La balle est (8) le tapis."
+ },
+ {
+  "id": "45fe041f-f86e-4310-983e-166a131d39b2",
+  "title": "Bagages Perdus",
+  "status": "published",
+  "i": 4,
+  "j": 0,
+  "before": "Comment (1) ___________ ?",
+  "after": "Comment (1) ?"
+ },
+ {
+  "id": "45fe041f-f86e-4310-983e-166a131d39b2",
+  "title": "Bagages Perdus",
+  "status": "published",
+  "i": 4,
+  "j": 1,
+  "before": "Mes bagages sont (2) __________. Je ne les trouve pas !",
+  "after": "Mes bagages sont (2). Je ne les trouve pas !"
+ },
+ {
+  "id": "45fe041f-f86e-4310-983e-166a131d39b2",
+  "title": "Bagages Perdus",
+  "status": "published",
+  "i": 4,
+  "j": 2,
+  "before": "Puis-je voir votre (3) ___________ ?",
+  "after": "Puis-je voir votre (3) ?"
+ },
+ {
+  "id": "45fe041f-f86e-4310-983e-166a131d39b2",
+  "title": "Bagages Perdus",
+  "status": "published",
+  "i": 4,
+  "j": 3,
+  "before": "(4) ___________ ici. C’est une valise noire.",
+  "after": "(4) ici. C’est une valise noire."
+ },
+ {
+  "id": "45fe041f-f86e-4310-983e-166a131d39b2",
+  "title": "Bagages Perdus",
+  "status": "published",
+  "i": 4,
+  "j": 5,
+  "before": "C’est une (5) ____________ avec une étiquette de nom blanche.",
+  "after": "C’est une (5) avec une étiquette de nom blanche."
+ },
+ {
+  "id": "45fe041f-f86e-4310-983e-166a131d39b2",
+  "title": "Bagages Perdus",
+  "status": "published",
+  "i": 4,
+  "j": 6,
+  "before": "D’accord, merci. Veuillez patienter quelques minutes, je vais vérifier. Je suis désolé(e) pour le (6) ____________.",
+  "after": "D’accord, merci. Veuillez patienter quelques minutes, je vais vérifier. Je suis désolé(e) pour le (6)."
+ },
+ {
+  "id": "3d404c18-36f0-40d5-bf5e-6d7dacb01f38",
+  "title": "Saluer un Nouvel Employé",
+  "status": "published",
+  "i": 3,
+  "j": 3,
+  "before": "Très bien, merci. (1) ______________.",
+  "after": "Très bien, merci. (1)."
+ },
+ {
+  "id": "9a09ff3b-c6d5-4365-b726-55a23b7c04f8",
+  "title": "Que rechercher avant un entretien d'embauche",
+  "status": "published",
+  "i": 2,
+  "j": 3,
+  "before": "Je relis toujours mon (1) ___ et prépare des (2) ___ de mes expériences passées.",
+  "after": "Je relis toujours mon (1) et prépare des (2) de mes expériences passées."
+ },
+ {
+  "id": "9a09ff3b-c6d5-4365-b726-55a23b7c04f8",
+  "title": "Que rechercher avant un entretien d'embauche",
+  "status": "published",
+  "i": 2,
+  "j": 4,
+  "before": "Quelle a été votre meilleure (3) ___ professionnelle jusqu'à présent ?",
+  "after": "Quelle a été votre meilleure (3) professionnelle jusqu'à présent ?"
+ },
+ {
+  "id": "9a09ff3b-c6d5-4365-b726-55a23b7c04f8",
+  "title": "Que rechercher avant un entretien d'embauche",
+  "status": "published",
+  "i": 2,
+  "j": 5,
+  "before": "Je travaillais dans une start-up où j’ai beaucoup (4) ___ en peu de (5) ___.",
+  "after": "Je travaillais dans une start-up où j’ai beaucoup (4) en peu de (5)."
+ },
+ {
+  "id": "809d52b3-b178-44f2-b2d5-042f4926f992",
+  "title": "Alphabet (T-Z)",
+  "status": "published",
+  "i": 3,
+  "j": 0,
+  "before": "Professeur : (1) __________",
+  "after": "Professeur : (1)"
+ },
+ {
+  "id": "809d52b3-b178-44f2-b2d5-042f4926f992",
+  "title": "Alphabet (T-Z)",
+  "status": "published",
+  "i": 3,
+  "j": 1,
+  "before": "Élève : (1) __________",
+  "after": "Élève : (1)"
+ },
+ {
+  "id": "809d52b3-b178-44f2-b2d5-042f4926f992",
+  "title": "Alphabet (T-Z)",
+  "status": "published",
+  "i": 6,
+  "j": 0,
+  "before": "Professeur : (1) __________",
+  "after": "Professeur : (1)"
+ },
+ {
+  "id": "809d52b3-b178-44f2-b2d5-042f4926f992",
+  "title": "Alphabet (T-Z)",
+  "status": "published",
+  "i": 6,
+  "j": 1,
+  "before": "Élève : (1) __________",
+  "after": "Élève : (1)"
+ },
+ {
+  "id": "e7f13a47-0053-4596-8bc5-7f2634e94ff0",
+  "title": "Discutez de la culture et des traditions françaises",
+  "status": "published",
+  "i": 3,
+  "j": 1,
+  "before": "J'adore la (1) ____. Il y a des feux d'artifice, des bals populaires, et tout le monde est de bonne humeur.",
+  "after": "J'adore la (1). Il y a des feux d'artifice, des bals populaires, et tout le monde est de bonne humeur."
+ },
+ {
+  "id": "e7f13a47-0053-4596-8bc5-7f2634e94ff0",
+  "title": "Discutez de la culture et des traditions françaises",
+  "status": "published",
+  "i": 3,
+  "j": 3,
+  "before": "Oui, je participe aussi à des (2) ____. La nourriture y est incroyable, et les décorations sont magnifiques.",
+  "after": "Oui, je participe aussi à des (2). La nourriture y est incroyable, et les décorations sont magnifiques."
+ },
+ {
+  "id": "e7f13a47-0053-4596-8bc5-7f2634e94ff0",
+  "title": "Discutez de la culture et des traditions françaises",
+  "status": "published",
+  "i": 3,
+  "j": 7,
+  "before": "Absolument ! (3) ____ des plats comme les crêpes, les escargots, et bien sûr, boire du bon vin, fait partie intégrante des traditions françaises.",
+  "after": "Absolument ! (3) des plats comme les crêpes, les escargots, et bien sûr, boire du bon vin, fait partie intégrante des traditions françaises."
+ },
+ {
+  "id": "2b0c9d19-0408-4082-8573-d532b07e1645",
+  "title": "Dans une boutique hors taxes",
+  "status": "published",
+  "i": 4,
+  "j": 0,
+  "before": "Bonsoir ! Êtes-vous (1) _______ pour quelque chose de spécifique ? Puis-je vous aider, peut-être ?",
+  "after": "Bonsoir ! Êtes-vous (1) pour quelque chose de spécifique ? Puis-je vous aider, peut-être ?"
+ },
+ {
+  "id": "2b0c9d19-0408-4082-8573-d532b07e1645",
+  "title": "Dans une boutique hors taxes",
+  "status": "published",
+  "i": 4,
+  "j": 1,
+  "before": "Oh, oui. Je pense acheter ce vase comme (2) ________, mais il pourrait être un peu difficile à transporter, car il est assez gros et lourd.",
+  "after": "Oh, oui. Je pense acheter ce vase comme (2), mais il pourrait être un peu difficile à transporter, car il est assez gros et lourd."
+ },
+ {
+  "id": "2b0c9d19-0408-4082-8573-d532b07e1645",
+  "title": "Dans une boutique hors taxes",
+  "status": "published",
+  "i": 4,
+  "j": 5,
+  "before": "Très bien. Alors, j'aimerais (3) _______ ce bol aussi.",
+  "after": "Très bien. Alors, j'aimerais (3) ce bol aussi."
+ },
+ {
+  "id": "2b0c9d19-0408-4082-8573-d532b07e1645",
+  "title": "Dans une boutique hors taxes",
+  "status": "published",
+  "i": 4,
+  "j": 7,
+  "before": "Oui, s'il vous plaît. Mais pourriez-vous les emballer (4) _______ ?",
+  "after": "Oui, s'il vous plaît. Mais pourriez-vous les emballer (4) ?"
+ },
+ {
+  "id": "2b0c9d19-0408-4082-8573-d532b07e1645",
+  "title": "Dans une boutique hors taxes",
+  "status": "published",
+  "i": 4,
+  "j": 10,
+  "before": "Pas de problème, monsieur. (5) _______ autre chose ?",
+  "after": "Pas de problème, monsieur. (5) autre chose ?"
+ },
+ {
+  "id": "2b0c9d19-0408-4082-8573-d532b07e1645",
+  "title": "Dans une boutique hors taxes",
+  "status": "published",
+  "i": 4,
+  "j": 12,
+  "before": "Ok. Juste un (6) _______, je vais le faire emballer. Allez-vous payer en espèces ou (7) _______ ?",
+  "after": "Ok. Juste un (6), je vais le faire emballer. Allez-vous payer en espèces ou (7) ?"
+ },
+ {
+  "id": "2b0c9d19-0408-4082-8573-d532b07e1645",
+  "title": "Dans une boutique hors taxes",
+  "status": "published",
+  "i": 4,
+  "j": 14,
+  "before": "Bien sûr, monsieur. Pourriez-vous simplement mettre votre (8) _______ ici ? Merci !",
+  "after": "Bien sûr, monsieur. Pourriez-vous simplement mettre votre (8) ici ? Merci !"
+ },
+ {
+  "id": "e78abce5-c220-4d52-b87c-737a1fbd35e9",
+  "title": "Contacter l'Ambassade",
+  "status": "published",
+  "i": 4,
+  "j": 0,
+  "before": "Excusez-moi, comment puis-je contacter le (1) ____________ ?",
+  "after": "Excusez-moi, comment puis-je contacter le (1) ?"
+ },
+ {
+  "id": "e78abce5-c220-4d52-b87c-737a1fbd35e9",
+  "title": "Contacter l'Ambassade",
+  "status": "published",
+  "i": 4,
+  "j": 2,
+  "before": "Mon passeport (2) ____________ volé.",
+  "after": "Mon passeport (2) volé."
+ },
+ {
+  "id": "e78abce5-c220-4d52-b87c-737a1fbd35e9",
+  "title": "Contacter l'Ambassade",
+  "status": "published",
+  "i": 4,
+  "j": 3,
+  "before": "C'est une situation (3) ____________. Nous allons examiner cela tout de suite.",
+  "after": "C'est une situation (3). Nous allons examiner cela tout de suite."
+ },
+ {
+  "id": "e78abce5-c220-4d52-b87c-737a1fbd35e9",
+  "title": "Contacter l'Ambassade",
+  "status": "published",
+  "i": 4,
+  "j": 5,
+  "before": "Excusez-moi, pouvez-vous m'aider ? Je pense qu'il y a eu une (4) ____________ avec mon visa !",
+  "after": "Excusez-moi, pouvez-vous m'aider ? Je pense qu'il y a eu une (4) avec mon visa !"
+ },
+ {
+  "id": "e78abce5-c220-4d52-b87c-737a1fbd35e9",
+  "title": "Contacter l'Ambassade",
+  "status": "published",
+  "i": 4,
+  "j": 7,
+  "before": "Dois-je prendre un (5) ____________ ?",
+  "after": "Dois-je prendre un (5) ?"
+ },
+ {
+  "id": "8d768713-ff15-48c1-97fa-32bfd0d3a738",
+  "title": "Divertissement en vol",
+  "status": "published",
+  "i": 2,
+  "j": 0,
+  "before": "Excusez-moi, est-ce que vous proposez (1) _______ ?",
+  "after": "Excusez-moi, est-ce que vous proposez (1) ?"
+ },
+ {
+  "id": "8d768713-ff15-48c1-97fa-32bfd0d3a738",
+  "title": "Divertissement en vol",
+  "status": "published",
+  "i": 2,
+  "j": 2,
+  "before": "Où puis-je trouver la liste des (3) _______ émissions de télévision ?",
+  "after": "Où puis-je trouver la liste des (3) émissions de télévision ?"
+ },
+ {
+  "id": "8d768713-ff15-48c1-97fa-32bfd0d3a738",
+  "title": "Divertissement en vol",
+  "status": "published",
+  "i": 2,
+  "j": 3,
+  "before": "Les émissions disponibles sont (4) _______ dans ce magazine.",
+  "after": "Les émissions disponibles sont (4) dans ce magazine."
+ },
+ {
+  "id": "8d768713-ff15-48c1-97fa-32bfd0d3a738",
+  "title": "Divertissement en vol",
+  "status": "published",
+  "i": 2,
+  "j": 6,
+  "before": "Je (7) _______. Merci pour vos conseils.",
+  "after": "Je (7). Merci pour vos conseils."
+ },
+ {
+  "id": "8d768713-ff15-48c1-97fa-32bfd0d3a738",
+  "title": "Divertissement en vol",
+  "status": "published",
+  "i": 2,
+  "j": 7,
+  "before": "Pas de problème, je suis contente d'avoir pu (8) _______.",
+  "after": "Pas de problème, je suis contente d'avoir pu (8)."
+ },
+ {
+  "id": "03c16717-f6d4-4507-bdf7-d2e940a31a2e",
+  "title": "Parlez de l'importance de la santé et du bien-être",
+  "status": "published",
+  "i": 3,
+  "j": 1,
+  "before": "Camille : Je pense que c’est très important de (1)________ une alimentation équilibrée et de (2)________ du temps pour me détendre.",
+  "after": "Camille : Je pense que c’est très important de (1) une alimentation équilibrée et de (2) du temps pour me détendre."
+ },
+ {
+  "id": "03c16717-f6d4-4507-bdf7-d2e940a31a2e",
+  "title": "Parlez de l'importance de la santé et du bien-être",
+  "status": "published",
+  "i": 3,
+  "j": 3,
+  "before": "Camille : Oui, je fais de l’exercice (3)________ fois par semaine.",
+  "after": "Camille : Oui, je fais de l’exercice (3) fois par semaine."
+ },
+ {
+  "id": "03c16717-f6d4-4507-bdf7-d2e940a31a2e",
+  "title": "Parlez de l'importance de la santé et du bien-être",
+  "status": "published",
+  "i": 3,
+  "j": 5,
+  "before": "Camille : Je (4)________ le yoga et la méditation pour me relaxer.",
+  "after": "Camille : Je (4) le yoga et la méditation pour me relaxer."
+ },
+ {
+  "id": "31701c7f-d858-44cf-b9d3-fee41b5636ea",
+  "title": "Partagez vos conseils d'achat",
+  "status": "published",
+  "i": 5,
+  "j": 1,
+  "before": "J'aime toujours(1)__________ avant d'acheter.",
+  "after": "J'aime toujours(1) avant d'acheter."
+ },
+ {
+  "id": "31701c7f-d858-44cf-b9d3-fee41b5636ea",
+  "title": "Partagez vos conseils d'achat",
+  "status": "published",
+  "i": 5,
+  "j": 3,
+  "before": "Je(2)__________ le week-end.",
+  "after": "Je(2) le week-end."
+ },
+ {
+  "id": "31701c7f-d858-44cf-b9d3-fee41b5636ea",
+  "title": "Partagez vos conseils d'achat",
+  "status": "published",
+  "i": 5,
+  "j": 5,
+  "before": "C'est(3)__________ ! Et les prix sont(4)__________.",
+  "after": "C'est(3) ! Et les prix sont(4)."
+ },
+ {
+  "id": "da3c2a78-c18d-48e8-9f83-bd43cf97324c",
+  "title": "Parlez de vos études ou de votre travail",
+  "status": "published",
+  "i": 2,
+  "j": 1,
+  "before": "J'ai (1) _______ l'université en 2018.",
+  "after": "J'ai (1) l'université en 2018."
+ },
+ {
+  "id": "da3c2a78-c18d-48e8-9f83-bd43cf97324c",
+  "title": "Parlez de vos études ou de votre travail",
+  "status": "published",
+  "i": 2,
+  "j": 3,
+  "before": "J'ai (2) _______ la biologie et l'informatique.",
+  "after": "J'ai (2) la biologie et l'informatique."
+ },
+ {
+  "id": "da3c2a78-c18d-48e8-9f83-bd43cf97324c",
+  "title": "Parlez de vos études ou de votre travail",
+  "status": "published",
+  "i": 2,
+  "j": 5,
+  "before": "Oui, je l'ai (3) _______.",
+  "after": "Oui, je l'ai (3)."
+ },
+ {
+  "id": "da3c2a78-c18d-48e8-9f83-bd43cf97324c",
+  "title": "Parlez de vos études ou de votre travail",
+  "status": "published",
+  "i": 2,
+  "j": 7,
+  "before": "La biologie (4) _______ passionnante et mes professeurs (5) _______ motivants.",
+  "after": "La biologie (4) passionnante et mes professeurs (5) motivants."
+ },
+ {
+  "id": "da3c2a78-c18d-48e8-9f83-bd43cf97324c",
+  "title": "Parlez de vos études ou de votre travail",
+  "status": "published",
+  "i": 2,
+  "j": 9,
+  "before": "Non, ce n'(6) _______ pas.",
+  "after": "Non, ce n'(6) pas."
+ },
+ {
+  "id": "dc1d6167-901f-4010-84ba-6b53a731ac54",
+  "title": "Partagez vos expériences de passe-temps",
+  "status": "published",
+  "i": 2,
+  "j": 1,
+  "before": "Je (1) ______ le lundi.",
+  "after": "Je (1) le lundi."
+ },
+ {
+  "id": "dc1d6167-901f-4010-84ba-6b53a731ac54",
+  "title": "Partagez vos expériences de passe-temps",
+  "status": "published",
+  "i": 2,
+  "j": 3,
+  "before": "Je (2) ______ le mercredi.",
+  "after": "Je (2) le mercredi."
+ },
+ {
+  "id": "dc1d6167-901f-4010-84ba-6b53a731ac54",
+  "title": "Partagez vos expériences de passe-temps",
+  "status": "published",
+  "i": 2,
+  "j": 5,
+  "before": "Je (3) ______ le jeudi.",
+  "after": "Je (3) le jeudi."
+ },
+ {
+  "id": "dc1d6167-901f-4010-84ba-6b53a731ac54",
+  "title": "Partagez vos expériences de passe-temps",
+  "status": "published",
+  "i": 2,
+  "j": 7,
+  "before": "Je (4) ______ le dimanche.",
+  "after": "Je (4) le dimanche."
+ },
+ {
+  "id": "dc1d6167-901f-4010-84ba-6b53a731ac54",
+  "title": "Partagez vos expériences de passe-temps",
+  "status": "published",
+  "i": 5,
+  "j": 1,
+  "before": "Bonjour, Mme Dupont. Je (1) ______ et (2) ______ le samedi.",
+  "after": "Bonjour, Mme Dupont. Je (1) et (2) le samedi."
+ },
+ {
+  "id": "dc1d6167-901f-4010-84ba-6b53a731ac54",
+  "title": "Partagez vos expériences de passe-temps",
+  "status": "published",
+  "i": 5,
+  "j": 3,
+  "before": "Je (4) ______ et je me détends le dimanche.",
+  "after": "Je (4) et je me détends le dimanche."
+ },
+ {
+  "id": "dc1d6167-901f-4010-84ba-6b53a731ac54",
+  "title": "Partagez vos expériences de passe-temps",
+  "status": "published",
+  "i": 5,
+  "j": 5,
+  "before": "Je (5) ______ le lundi, mardi et mercredi. (6) ______ est-ce que tu travailles ?",
+  "after": "Je (5) le lundi, mardi et mercredi. (6) est-ce que tu travailles ?"
+ },
+ {
+  "id": "a2660b81-5907-4250-98db-90698435cc9f",
+  "title": "Demander des informations",
+  "status": "published",
+  "i": 3,
+  "j": 1,
+  "before": "Bonjour. (1) _________ l'achat de votre service Internet. (2) _________ les tarifs que vous proposez.",
+  "after": "Bonjour. (1) l'achat de votre service Internet. (2) les tarifs que vous proposez."
+ },
+ {
+  "id": "d2f8d64f-19a1-4f94-a836-b1d215f3dc2e",
+  "title": "Au restaurant",
+  "status": "published",
+  "i": 4,
+  "j": 0,
+  "before": "Salut ! Avez-vous des ____________ (1), par hasard ?",
+  "after": "Salut ! Avez-vous des (1), par hasard ?"
+ },
+ {
+  "id": "d2f8d64f-19a1-4f94-a836-b1d215f3dc2e",
+  "title": "Au restaurant",
+  "status": "published",
+  "i": 4,
+  "j": 2,
+  "before": "Parfait ! Pourrais-je avoir le ____________ (2), s'il te plaît ?",
+  "after": "Parfait ! Pourrais-je avoir le (2), s'il te plaît ?"
+ },
+ {
+  "id": "d2f8d64f-19a1-4f94-a836-b1d215f3dc2e",
+  "title": "Au restaurant",
+  "status": "published",
+  "i": 4,
+  "j": 4,
+  "before": "Êtes-vous prête à ____________ (3), manquer ?",
+  "after": "Êtes-vous prête à (3), manquer ?"
+ },
+ {
+  "id": "d2f8d64f-19a1-4f94-a836-b1d215f3dc2e",
+  "title": "Au restaurant",
+  "status": "published",
+  "i": 4,
+  "j": 5,
+  "before": "Je ne suis pas sûre. Hmm. ____________ (4) ce plat ?",
+  "after": "Je ne suis pas sûre. Hmm. (4) ce plat ?"
+ },
+ {
+  "id": "d2f8d64f-19a1-4f94-a836-b1d215f3dc2e",
+  "title": "Au restaurant",
+  "status": "published",
+  "i": 4,
+  "j": 7,
+  "before": "Ok, j'aimerais ça comme un ____________ (5).",
+  "after": "Ok, j'aimerais ça comme un (5)."
+ },
+ {
+  "id": "d2f8d64f-19a1-4f94-a836-b1d215f3dc2e",
+  "title": "Au restaurant",
+  "status": "published",
+  "i": 4,
+  "j": 9,
+  "before": "Oui, en avez-vous des ____________ (6) ?",
+  "after": "Oui, en avez-vous des (6) ?"
+ },
+ {
+  "id": "d2f8d64f-19a1-4f94-a836-b1d215f3dc2e",
+  "title": "Au restaurant",
+  "status": "published",
+  "i": 4,
+  "j": 14,
+  "before": "Excusez-moi ! Puis-je avoir la ____________ (7), s'il te plaît ?",
+  "after": "Excusez-moi ! Puis-je avoir la (7), s'il te plaît ?"
+ },
+ {
+  "id": "b5ecca1e-72a4-44ce-94f4-3810b084cb1b",
+  "title": "Légumes",
+  "status": "published",
+  "i": 2,
+  "j": 0,
+  "before": "Voici (1) ______.",
+  "after": "Voici (1)."
+ },
+ {
+  "id": "b5ecca1e-72a4-44ce-94f4-3810b084cb1b",
+  "title": "Légumes",
+  "status": "published",
+  "i": 2,
+  "j": 1,
+  "before": "C'est (1) ______.",
+  "after": "C'est (1)."
+ },
+ {
+  "id": "705ed737-1962-49c1-834f-8fbf86b13d96",
+  "title": "Parlez de vos équipes et joueurs préférés",
+  "status": "published",
+  "i": 2,
+  "j": 1,
+  "before": "Mon joueur préféré est (1) _________.",
+  "after": "Mon joueur préféré est (1)."
+ },
+ {
+  "id": "705ed737-1962-49c1-834f-8fbf86b13d96",
+  "title": "Parlez de vos équipes et joueurs préférés",
+  "status": "published",
+  "i": 2,
+  "j": 3,
+  "before": "(2) __________ ans.",
+  "after": "(2) ans."
+ },
+ {
+  "id": "705ed737-1962-49c1-834f-8fbf86b13d96",
+  "title": "Parlez de vos équipes et joueurs préférés",
+  "status": "published",
+  "i": 2,
+  "j": 5,
+  "before": "Parce qu'il est (3) __________ et (4) ___________.",
+  "after": "Parce qu'il est (3) et (4)."
+ },
+ {
+  "id": "705ed737-1962-49c1-834f-8fbf86b13d96",
+  "title": "Parlez de vos équipes et joueurs préférés",
+  "status": "published",
+  "i": 2,
+  "j": 7,
+  "before": "Nous aimons (5) __________ des matchs et (6) __________ des trophées.",
+  "after": "Nous aimons (5) des matchs et (6) des trophées."
+ },
+ {
+  "id": "d1bc2f56-b1a5-4a1f-9b9d-7bebebd9fbfc",
+  "title": "Quelles matières ou tâches préférez-vous ?",
+  "status": "published",
+  "i": 4,
+  "j": 1,
+  "before": "Je (1) __________ les mathématiques.",
+  "after": "Je (1) les mathématiques."
+ },
+ {
+  "id": "d1bc2f56-b1a5-4a1f-9b9d-7bebebd9fbfc",
+  "title": "Quelles matières ou tâches préférez-vous ?",
+  "status": "published",
+  "i": 4,
+  "j": 3,
+  "before": "Je (2) __________ dans une salle de classe.",
+  "after": "Je (2) dans une salle de classe."
+ },
+ {
+  "id": "b81a1a5a-0179-4f36-b0bc-ba9d9be2b3a7",
+  "title": "Top 5 des châteaux à visiter en Europe",
+  "status": "published",
+  "i": 4,
+  "j": 1,
+  "before": "J'ai choisi le château de Chambord. (1) ____________",
+  "after": "J'ai choisi le château de Chambord. (1)"
+ },
+ {
+  "id": "2b4f4488-2876-4d4e-ad7f-26de55fa7bce",
+  "title": "Salle de bain",
+  "status": "published",
+  "i": 1,
+  "j": 0,
+  "before": "Les toilettes sont (1) _______ la baignoire.",
+  "after": "Les toilettes sont (1) la baignoire."
+ },
+ {
+  "id": "2b4f4488-2876-4d4e-ad7f-26de55fa7bce",
+  "title": "Salle de bain",
+  "status": "published",
+  "i": 1,
+  "j": 1,
+  "before": "Le miroir est (2) _______ le mur.",
+  "after": "Le miroir est (2) le mur."
+ },
+ {
+  "id": "2b4f4488-2876-4d4e-ad7f-26de55fa7bce",
+  "title": "Salle de bain",
+  "status": "published",
+  "i": 1,
+  "j": 2,
+  "before": "La fleur est (3) _______ l’étagère.",
+  "after": "La fleur est (3) l’étagère."
+ },
+ {
+  "id": "2b4f4488-2876-4d4e-ad7f-26de55fa7bce",
+  "title": "Salle de bain",
+  "status": "published",
+  "i": 1,
+  "j": 3,
+  "before": "L’évier est (4) _______ le miroir.",
+  "after": "L’évier est (4) le miroir."
+ },
+ {
+  "id": "2b4f4488-2876-4d4e-ad7f-26de55fa7bce",
+  "title": "Salle de bain",
+  "status": "published",
+  "i": 1,
+  "j": 4,
+  "before": "La serviette est (5) _______ la baignoire.",
+  "after": "La serviette est (5) la baignoire."
+ },
+ {
+  "id": "29dc54bf-adb7-4320-a852-e28f6138f46a",
+  "title": "Partagez vos expériences avec les relations",
+  "status": "published",
+  "i": 4,
+  "j": 3,
+  "before": "Nous sommes allés (1) ______ un restaurant, puis nous avons (2) ______ un film.",
+  "after": "Nous sommes allés (1) un restaurant, puis nous avons (2) un film."
+ },
+ {
+  "id": "29dc54bf-adb7-4320-a852-e28f6138f46a",
+  "title": "Partagez vos expériences avec les relations",
+  "status": "published",
+  "i": 4,
+  "j": 5,
+  "before": "Nous avons (3) ______ de la bonne nourriture et nous avons beaucoup parlé.",
+  "after": "Nous avons (3) de la bonne nourriture et nous avons beaucoup parlé."
+ },
+ {
+  "id": "8e3161c6-164a-4bc7-b7d6-dc5c521990f0",
+  "title": "Vêtements",
+  "status": "published",
+  "i": 2,
+  "j": 1,
+  "before": "Il porte (1) __________.",
+  "after": "Il porte (1)."
+ },
+ {
+  "id": "8e3161c6-164a-4bc7-b7d6-dc5c521990f0",
+  "title": "Vêtements",
+  "status": "published",
+  "i": 3,
+  "j": 1,
+  "before": "Elle porte ___ rouge. (2)",
+  "after": "Elle porte (2) rouge."
+ },
+ {
+  "id": "29614910-fd17-4f4a-a3bd-3cc962511571",
+  "title": "Quels plats et boissons préférez-vous ?",
+  "status": "published",
+  "i": 5,
+  "j": 1,
+  "before": "(1) ___ la pizza et les pâtes. Quels plats aimez-vous ?",
+  "after": "(1) la pizza et les pâtes. Quels plats aimez-vous ?"
+ },
+ {
+  "id": "29614910-fd17-4f4a-a3bd-3cc962511571",
+  "title": "Quels plats et boissons préférez-vous ?",
+  "status": "published",
+  "i": 5,
+  "j": 3,
+  "before": "J'aime le chocolat. (2) ___ tu aimes le chocolat ?",
+  "after": "J'aime le chocolat. (2) tu aimes le chocolat ?"
+ },
+ {
+  "id": "fbd714ef-0607-42f6-b8af-76d34b582691",
+  "title": "Parlez de la signification de la psychologie",
+  "status": "published",
+  "i": 3,
+  "j": 1,
+  "before": "Je pense que la psychologie, en étudiant les processus mentaux et les comportements, nous permet de mieux comprendre les raisons derrière nos actions. Par exemple, lorsque quelqu'un utilise des (1) _______ pour éviter des émotions négatives, la psychologie peut nous aider à identifier ces comportements.",
+  "after": "Je pense que la psychologie, en étudiant les processus mentaux et les comportements, nous permet de mieux comprendre les raisons derrière nos actions. Par exemple, lorsque quelqu'un utilise des (1) pour éviter des émotions négatives, la psychologie peut nous aider à identifier ces comportements."
+ },
+ {
+  "id": "fbd714ef-0607-42f6-b8af-76d34b582691",
+  "title": "Parlez de la signification de la psychologie",
+  "status": "published",
+  "i": 3,
+  "j": 3,
+  "before": "Certainement ! Grâce à des outils comme la (2) _______ cognitive, on peut apprendre à gérer des situations stressantes de manière plus efficace.",
+  "after": "Certainement ! Grâce à des outils comme la (2) cognitive, on peut apprendre à gérer des situations stressantes de manière plus efficace."
+ },
+ {
+  "id": "220a235b-a09c-4d85-8b6d-f90e6ba851d1",
+  "title": "Démissionner d'un emploi",
+  "status": "published",
+  "i": 2,
+  "j": 2,
+  "before": "Merci. J’ai peur d’avoir de mauvaises nouvelles. Je souhaite ___(1)___ .",
+  "after": "Merci. J’ai peur d’avoir de mauvaises nouvelles. Je souhaite (1)."
+ },
+ {
+  "id": "eea46782-f877-49ea-86ba-aaefcf6bbe39",
+  "title": "Ventes à bord",
+  "status": "published",
+  "i": 3,
+  "j": 0,
+  "before": "Mesdames et messieurs, nous allons commencer notre (1) ____ des articles hors taxes sous peu. Veuillez vous référer à votre exemplaire de notre magazine de bord « Fun America ! » pour plus de détails. Vous pouvez trouver le (2) ____ dans la poche du siège devant vous. Veuillez donner votre (3) ____ aux hôtesses de l'air lorsqu'elles s'approchent de vos sièges.",
+  "after": "Mesdames et messieurs, nous allons commencer notre (1) des articles hors taxes sous peu. Veuillez vous référer à votre exemplaire de notre magazine de bord « Fun America ! » pour plus de détails. Vous pouvez trouver le (2) dans la poche du siège devant vous. Veuillez donner votre (3) aux hôtesses de l'air lorsqu'elles s'approchent de vos sièges."
+ },
+ {
+  "id": "eea46782-f877-49ea-86ba-aaefcf6bbe39",
+  "title": "Ventes à bord",
+  "status": "published",
+  "i": 3,
+  "j": 1,
+  "before": "Excusez-moi, (4) ____ je commande quelque chose ?",
+  "after": "Excusez-moi, (4) je commande quelque chose ?"
+ },
+ {
+  "id": "eea46782-f877-49ea-86ba-aaefcf6bbe39",
+  "title": "Ventes à bord",
+  "status": "published",
+  "i": 3,
+  "j": 4,
+  "before": "Bien sûr. Ceux-ci ne sont disponibles qu'en (5) ____ ventes.",
+  "after": "Bien sûr. Ceux-ci ne sont disponibles qu'en (5) ventes."
+ },
+ {
+  "id": "eea46782-f877-49ea-86ba-aaefcf6bbe39",
+  "title": "Ventes à bord",
+  "status": "published",
+  "i": 3,
+  "j": 5,
+  "before": "Je vois. Donc, ceux-là sont limités (6) ____ ?",
+  "after": "Je vois. Donc, ceux-là sont limités (6) ?"
+ },
+ {
+  "id": "eea46782-f877-49ea-86ba-aaefcf6bbe39",
+  "title": "Ventes à bord",
+  "status": "published",
+  "i": 3,
+  "j": 7,
+  "before": "Ok, je vais acheter les deux. Comment puis-je (7) ____ pour eux ?",
+  "after": "Ok, je vais acheter les deux. Comment puis-je (7) pour eux ?"
+ },
+ {
+  "id": "b6dd0fb3-e1bf-4759-ba8e-729881863400",
+  "title": "Discutez de questions éducatives",
+  "status": "published",
+  "i": 5,
+  "j": 1,
+  "before": "Ben : Je suis allé à (1) __________.",
+  "after": "Ben : Je suis allé à (1)."
+ },
+ {
+  "id": "b6dd0fb3-e1bf-4759-ba8e-729881863400",
+  "title": "Discutez de questions éducatives",
+  "status": "published",
+  "i": 5,
+  "j": 3,
+  "before": "Ben : C’était une (2) __________.",
+  "after": "Ben : C’était une (2)."
+ },
+ {
+  "id": "b6dd0fb3-e1bf-4759-ba8e-729881863400",
+  "title": "Discutez de questions éducatives",
+  "status": "published",
+  "i": 5,
+  "j": 5,
+  "before": "Ben : Tout le monde commence l'école à (3) __________.",
+  "after": "Ben : Tout le monde commence l'école à (3)."
+ },
+ {
+  "id": "b6dd0fb3-e1bf-4759-ba8e-729881863400",
+  "title": "Discutez de questions éducatives",
+  "status": "published",
+  "i": 5,
+  "j": 7,
+  "before": "Ben : Oui, la plupart des gens (4) __________ à l’université après le lycée.",
+  "after": "Ben : Oui, la plupart des gens (4) à l’université après le lycée."
+ },
+ {
+  "id": "1352aa2e-8739-4b62-8701-0efa83abefba",
+  "title": "Discutez de croyances religieuses",
+  "status": "published",
+  "i": 4,
+  "j": 0,
+  "before": "La diversité religieuse ______(1) notre culture.",
+  "after": "La diversité religieuse (1) notre culture."
+ },
+ {
+  "id": "1352aa2e-8739-4b62-8701-0efa83abefba",
+  "title": "Discutez de croyances religieuses",
+  "status": "published",
+  "i": 4,
+  "j": 2,
+  "before": "Beaucoup de gens trouvent du ______(2) dans leur foi.",
+  "after": "Beaucoup de gens trouvent du (2) dans leur foi."
+ },
+ {
+  "id": "1352aa2e-8739-4b62-8701-0efa83abefba",
+  "title": "Discutez de croyances religieuses",
+  "status": "published",
+  "i": 4,
+  "j": 4,
+  "before": "Les ______(3) jouent un rôle crucial dans la pratique religieuse.",
+  "after": "Les (3) jouent un rôle crucial dans la pratique religieuse."
+ },
+ {
+  "id": "f856d0b5-f51d-48df-93c7-722c917ac38a",
+  "title": "Partagez vos connaissances des événements historiques",
+  "status": "published",
+  "i": 5,
+  "j": 0,
+  "before": "Que sais-tu de la ________ (1) française ?",
+  "after": "Que sais-tu de la (1) française ?"
+ },
+ {
+  "id": "f856d0b5-f51d-48df-93c7-722c917ac38a",
+  "title": "Partagez vos connaissances des événements historiques",
+  "status": "published",
+  "i": 5,
+  "j": 1,
+  "before": "La Révolution a commencé en ________ (2) et a changé la façon dont les gens pensaient au ________ (3).",
+  "after": "La Révolution a commencé en (2) et a changé la façon dont les gens pensaient au (3)."
+ },
+ {
+  "id": "abfb93d8-9821-44aa-96d6-4181fe2fbdf7",
+  "title": "Parlez de l'impact de la politique sur votre vie",
+  "status": "published",
+  "i": 6,
+  "j": 1,
+  "before": "La politique m’impacte beaucoup. Je pense que ________ (1) sont très importants.",
+  "after": "La politique m’impacte beaucoup. Je pense que (1) sont très importants."
+ },
+ {
+  "id": "abfb93d8-9821-44aa-96d6-4181fe2fbdf7",
+  "title": "Parlez de l'impact de la politique sur votre vie",
+  "status": "published",
+  "i": 6,
+  "j": 2,
+  "before": "J’utilise mon ________ (2) pour voter aux élections.",
+  "after": "J’utilise mon (2) pour voter aux élections."
+ },
+ {
+  "id": "abfb93d8-9821-44aa-96d6-4181fe2fbdf7",
+  "title": "Parlez de l'impact de la politique sur votre vie",
+  "status": "published",
+  "i": 6,
+  "j": 4,
+  "before": "Oui, je crois que nous devons ________ (3) pour défendre nos droits.",
+  "after": "Oui, je crois que nous devons (3) pour défendre nos droits."
+ },
+ {
+  "id": "abfb93d8-9821-44aa-96d6-4181fe2fbdf7",
+  "title": "Parlez de l'impact de la politique sur votre vie",
+  "status": "published",
+  "i": 6,
+  "j": 5,
+  "before": "Parfois, je participe à ________ (4) pour exprimer mes opinions.",
+  "after": "Parfois, je participe à (4) pour exprimer mes opinions."
+ },
+ {
+  "id": "abfb93d8-9821-44aa-96d6-4181fe2fbdf7",
+  "title": "Parlez de l'impact de la politique sur votre vie",
+  "status": "published",
+  "i": 6,
+  "j": 6,
+  "before": "C’est génial ! La politique affecte notre ________ (5) de vivre ensemble.",
+  "after": "C’est génial ! La politique affecte notre (5) de vivre ensemble."
+ },
+ {
+  "id": "646e9210-7ea9-4bd3-9265-b8a8b25d8364",
+  "title": "Chambre à coucher",
+  "status": "published",
+  "i": 5,
+  "j": 0,
+  "before": "Les oreillers sont (1) ____ le lit.",
+  "after": "Les oreillers sont (1) le lit."
+ },
+ {
+  "id": "5543d85c-e3d0-40df-a77f-9731576ac286",
+  "title": "Partagez vos opinions sur les questions politiques",
+  "status": "published",
+  "i": 6,
+  "j": 1,
+  "before": "Oui, je viens de __________ (1) et j'ai voté pour la première fois aux dernières élections.",
+  "after": "Oui, je viens de (1) et j'ai voté pour la première fois aux dernières élections."
+ },
+ {
+  "id": "5543d85c-e3d0-40df-a77f-9731576ac286",
+  "title": "Partagez vos opinions sur les questions politiques",
+  "status": "published",
+  "i": 6,
+  "j": 3,
+  "before": "Je pense que chaque __________ (2) a la responsabilité de participer. Les décisions politiques affectent notre quotidien.",
+  "after": "Je pense que chaque (2) a la responsabilité de participer. Les décisions politiques affectent notre quotidien."
+ },
+ {
+  "id": "5543d85c-e3d0-40df-a77f-9731576ac286",
+  "title": "Partagez vos opinions sur les questions politiques",
+  "status": "published",
+  "i": 6,
+  "j": 4,
+  "before": "Exactement ! Et il est important de __________ (3) les enjeux avant de se rendre aux urnes.",
+  "after": "Exactement ! Et il est important de (3) les enjeux avant de se rendre aux urnes."
+ },
+ {
+  "id": "74f12c9a-32b8-4fd9-bc19-322fb1b72cf5",
+  "title": "Partagez vos opinions sur les questions actuelles",
+  "status": "published",
+  "i": 6,
+  "j": 1,
+  "before": "Je (1) ______ beaucoup aux droits de l'homme et à l'éducation.",
+  "after": "Je (1) beaucoup aux droits de l'homme et à l'éducation."
+ },
+ {
+  "id": "74f12c9a-32b8-4fd9-bc19-322fb1b72cf5",
+  "title": "Partagez vos opinions sur les questions actuelles",
+  "status": "published",
+  "i": 6,
+  "j": 3,
+  "before": "J’(2) ______ en parler tous les jours. J'utilise souvent mes réseaux sociaux pour le faire.",
+  "after": "J’(2) en parler tous les jours. J'utilise souvent mes réseaux sociaux pour le faire."
+ },
+ {
+  "id": "74f12c9a-32b8-4fd9-bc19-322fb1b72cf5",
+  "title": "Partagez vos opinions sur les questions actuelles",
+  "status": "published",
+  "i": 6,
+  "j": 5,
+  "before": "Je lis des articles et je (3) ______ des vidéos éducatives.",
+  "after": "Je lis des articles et je (3) des vidéos éducatives."
+ },
+ {
+  "id": "74f12c9a-32b8-4fd9-bc19-322fb1b72cf5",
+  "title": "Partagez vos opinions sur les questions actuelles",
+  "status": "published",
+  "i": 6,
+  "j": 7,
+  "before": "J’ (4) ______ principalement Twitter et Instagram.",
+  "after": "J’ (4) principalement Twitter et Instagram."
+ },
+ {
+  "id": "e4543218-24d8-46a6-9c3c-9bddea659160",
+  "title": "Justice Sociale",
+  "status": "published",
+  "i": 1,
+  "j": 4,
+  "before": "Il est également important de lutter contre les (1) __________ qui persistent dans notre société.",
+  "after": "Il est également important de lutter contre les (1) qui persistent dans notre société."
+ },
+ {
+  "id": "5cf935bd-8ee2-4c80-91d3-51ae8e69b398",
+  "title": "Quelle Couleur Est-Ce ?",
+  "status": "published",
+  "i": 8,
+  "j": 1,
+  "before": "___ (1).",
+  "after": "(1)."
+ },
+ {
+  "id": "430eacf6-b4aa-42f4-826d-75d46b6796c9",
+  "title": "Partagez vos plans pour atteindre vos objectifs",
+  "status": "published",
+  "i": 1,
+  "j": 0,
+  "before": "Je veux (1) ____. Pour atteindre cet objectif, je vais (2) ____ et m'entraîner dans un restaurant.",
+  "after": "Je veux (1). Pour atteindre cet objectif, je vais (2) et m'entraîner dans un restaurant."
+ },
+ {
+  "id": "430eacf6-b4aa-42f4-826d-75d46b6796c9",
+  "title": "Partagez vos plans pour atteindre vos objectifs",
+  "status": "published",
+  "i": 1,
+  "j": 1,
+  "before": "Moi, je veux (3) ____. Je vais (4) ____ trois fois par semaine et manger plus sainement.",
+  "after": "Moi, je veux (3). Je vais (4) trois fois par semaine et manger plus sainement."
+ },
+ {
+  "id": "069b7de5-db7e-48f6-abce-b61cc55e7b76",
+  "title": "Sucreries",
+  "status": "published",
+  "i": 1,
+  "j": 0,
+  "before": "Professeur : (1) _____, (2) _____",
+  "after": "Professeur : (1), (2)"
+ },
+ {
+  "id": "e02ccbba-04c5-44f6-8ecc-b9f0c7a0f691",
+  "title": "Discutez de l'histoire française",
+  "status": "published",
+  "i": 4,
+  "j": 0,
+  "before": "Que sais-tu de la ________ (1) française ?",
+  "after": "Que sais-tu de la (1) française ?"
+ },
+ {
+  "id": "e02ccbba-04c5-44f6-8ecc-b9f0c7a0f691",
+  "title": "Discutez de l'histoire française",
+  "status": "published",
+  "i": 4,
+  "j": 1,
+  "before": "La Révolution a commencé en ________ (2). Elle a été un moment de grande ________ (3) pour le peuple.",
+  "after": "La Révolution a commencé en (2). Elle a été un moment de grande (3) pour le peuple."
+ },
+ {
+  "id": "e02ccbba-04c5-44f6-8ecc-b9f0c7a0f691",
+  "title": "Discutez de l'histoire française",
+  "status": "published",
+  "i": 4,
+  "j": 3,
+  "before": "Les inégalités sociales et ________ (4) économiques étaient des facteurs clés. Les gens voulaient ________ (5) et égalité.",
+  "after": "Les inégalités sociales et (4) économiques étaient des facteurs clés. Les gens voulaient (5) et égalité."
+ },
+ {
+  "id": "e02ccbba-04c5-44f6-8ecc-b9f0c7a0f691",
+  "title": "Discutez de l'histoire française",
+  "status": "published",
+  "i": 4,
+  "j": 5,
+  "before": "Cela a établi les bases de la ________ (6) moderne.",
+  "after": "Cela a établi les bases de la (6) moderne."
+ },
+ {
+  "id": "6dc6ed4c-64ce-4af1-9a04-a5bfbb5e0999",
+  "title": "Rapports graphiques",
+  "status": "published",
+  "i": 3,
+  "j": 0,
+  "before": "Entre janvier et février, il y a eu une (1) _______ dans les ventes.",
+  "after": "Entre janvier et février, il y a eu une (1) dans les ventes."
+ },
+ {
+  "id": "6dc6ed4c-64ce-4af1-9a04-a5bfbb5e0999",
+  "title": "Rapports graphiques",
+  "status": "published",
+  "i": 3,
+  "j": 1,
+  "before": "Nous avons vu un (2) _______ de février à juin.",
+  "after": "Nous avons vu un (2) de février à juin."
+ },
+ {
+  "id": "11b54241-df3a-4bfd-bde0-cc07a93ace4b",
+  "title": "Quelle est ta couleur préférée ?",
+  "status": "published",
+  "i": 6,
+  "j": 1,
+  "before": "Il manque du (1) ___.",
+  "after": "Il manque du (1)."
+ },
+ {
+  "id": "d8ef8960-7d68-401c-b4e3-b89d98fb99a5",
+  "title": "Partagez vos opinions sur la protection de l'environnement",
+  "status": "published",
+  "i": 6,
+  "j": 1,
+  "before": "Je pense qu'il est essentiel de réduire notre consommation de _____ (1) et de promouvoir l'utilisation de _____ (2).",
+  "after": "Je pense qu'il est essentiel de réduire notre consommation de (1) et de promouvoir l'utilisation de (2)."
+ },
+ {
+  "id": "d8ef8960-7d68-401c-b4e3-b89d98fb99a5",
+  "title": "Partagez vos opinions sur la protection de l'environnement",
+  "status": "published",
+  "i": 6,
+  "j": 3,
+  "before": "J'essaie de faire du _____ (3) autant que possible, et j'utilise des produits biodégradables.",
+  "after": "J'essaie de faire du (3) autant que possible, et j'utilise des produits biodégradables."
+ },
+ {
+  "id": "2e1b3697-e0a5-4e4e-b9aa-4afa4d87a238",
+  "title": "Légumes",
+  "status": "published",
+  "i": 3,
+  "j": 1,
+  "before": "Anissa a (1) ___.",
+  "after": "Anissa a (1)."
+ },
+ {
+  "id": "437adfa5-c8b7-491b-a1b7-d38ad95122f9",
+  "title": "Mauvais temps",
+  "status": "published",
+  "i": 3,
+  "j": 0,
+  "before": "Mesdames et messieurs, nous nous attendons à quelques (1) ____. Veuillez attacher votre ceinture de sécurité en toute sécurité et (2) ____ d'utiliser les toilettes lorsque le panneau est allumé.",
+  "after": "Mesdames et messieurs, nous nous attendons à quelques (1). Veuillez attacher votre ceinture de sécurité en toute sécurité et (2) d'utiliser les toilettes lorsque le panneau est allumé."
+ },
+ {
+  "id": "437adfa5-c8b7-491b-a1b7-d38ad95122f9",
+  "title": "Mauvais temps",
+  "status": "published",
+  "i": 3,
+  "j": 2,
+  "before": "Nous passons une (3) ____, Monsieur, les turbulences sont assez fréquentes dans cette région. Les instructions ne sont qu'une mesure de précaution. Assurez-vous donc d'attacher vos (4) ____ en toute sécurité. De plus, je crains que vous deviez retourner votre (5) ____ et table à leur original (6) ____ pendant que le signal de ceinture de sécurité est allumé.",
+  "after": "Nous passons une (3), Monsieur, les turbulences sont assez fréquentes dans cette région. Les instructions ne sont qu'une mesure de précaution. Assurez-vous donc d'attacher vos (4) en toute sécurité. De plus, je crains que vous deviez retourner votre (5) et table à leur original (6) pendant que le signal de ceinture de sécurité est allumé."
+ },
+ {
+  "id": "437adfa5-c8b7-491b-a1b7-d38ad95122f9",
+  "title": "Mauvais temps",
+  "status": "published",
+  "i": 3,
+  "j": 4,
+  "before": "Merci pour votre (7) ____.",
+  "after": "Merci pour votre (7)."
+ },
+ {
+  "id": "842f8295-8a55-451b-835d-f7ea6abc30a4",
+  "title": "Appeler une ambulance",
+  "status": "published",
+  "i": 4,
+  "j": 0,
+  "before": "Ma femme s’est (1) _______ la main et elle (2) _______ beaucoup !",
+  "after": "Ma femme s’est (1) la main et elle (2) beaucoup !"
+ },
+ {
+  "id": "842f8295-8a55-451b-835d-f7ea6abc30a4",
+  "title": "Appeler une ambulance",
+  "status": "published",
+  "i": 4,
+  "j": 4,
+  "before": "(3) _______ arrivent-ils ?",
+  "after": "(3) arrivent-ils ?"
+ },
+ {
+  "id": "842f8295-8a55-451b-835d-f7ea6abc30a4",
+  "title": "Appeler une ambulance",
+  "status": "published",
+  "i": 4,
+  "j": 6,
+  "before": "Bonjour, quel est votre (4) _______ ?",
+  "after": "Bonjour, quel est votre (4) ?"
+ },
+ {
+  "id": "842f8295-8a55-451b-835d-f7ea6abc30a4",
+  "title": "Appeler une ambulance",
+  "status": "published",
+  "i": 4,
+  "j": 7,
+  "before": "Ah... Je suis à Abby Park près du musée... Mon fils (5) _______ de la balançoire et il a une grosse (6) _______ à la tête !",
+  "after": "Ah... Je suis à Abby Park près du musée... Mon fils (5) de la balançoire et il a une grosse (6) à la tête !"
+ },
+ {
+  "id": "6e1b82a9-6b12-4350-bc48-1f59b14a9b76",
+  "title": "Faire du Shopping",
+  "status": "published",
+  "i": 2,
+  "j": 1,
+  "before": "Oui, j'ai besoin de ___ (1) ___ pour l'été. Je pense acheter des ___ (2) ___.",
+  "after": "Oui, j'ai besoin de (1) pour l'été. Je pense acheter des (2)."
+ },
+ {
+  "id": "6e1b82a9-6b12-4350-bc48-1f59b14a9b76",
+  "title": "Faire du Shopping",
+  "status": "published",
+  "i": 2,
+  "j": 2,
+  "before": "Ah, c'est une bonne idée ! Est-ce que tu veux regarder les ___ (3) ___ en soldes ?",
+  "after": "Ah, c'est une bonne idée ! Est-ce que tu veux regarder les (3) en soldes ?"
+ },
+ {
+  "id": "6e1b82a9-6b12-4350-bc48-1f59b14a9b76",
+  "title": "Faire du Shopping",
+  "status": "published",
+  "i": 2,
+  "j": 3,
+  "before": "Oui, mais je préfère les articles de bonne qualité, même s'ils sont un peu ___ (4) ___.",
+  "after": "Oui, mais je préfère les articles de bonne qualité, même s'ils sont un peu (4)."
+ },
+ {
+  "id": "6e1b82a9-6b12-4350-bc48-1f59b14a9b76",
+  "title": "Faire du Shopping",
+  "status": "published",
+  "i": 2,
+  "j": 4,
+  "before": "D'accord, allons voir les nouvelles ___ (5) ___ au fond du magasin.",
+  "after": "D'accord, allons voir les nouvelles (5) au fond du magasin."
+ },
+ {
+  "id": "6e1b82a9-6b12-4350-bc48-1f59b14a9b76",
+  "title": "Faire du Shopping",
+  "status": "published",
+  "i": 3,
+  "j": 0,
+  "before": "Bonjour ! Je voudrais ___ (1) ___ un pantalon bleu.",
+  "after": "Bonjour ! Je voudrais (1) un pantalon bleu."
+ },
+ {
+  "id": "6e1b82a9-6b12-4350-bc48-1f59b14a9b76",
+  "title": "Faire du Shopping",
+  "status": "published",
+  "i": 3,
+  "j": 1,
+  "before": "Bien sûr. Quelle ___ (2) ___ faites-vous habituellement ?",
+  "after": "Bien sûr. Quelle (2) faites-vous habituellement ?"
+ },
+ {
+  "id": "6e1b82a9-6b12-4350-bc48-1f59b14a9b76",
+  "title": "Faire du Shopping",
+  "status": "published",
+  "i": 3,
+  "j": 2,
+  "before": "Je porte généralement une ___ (3) ___ 40.",
+  "after": "Je porte généralement une (3) 40."
+ },
+ {
+  "id": "6e1b82a9-6b12-4350-bc48-1f59b14a9b76",
+  "title": "Faire du Shopping",
+  "status": "published",
+  "i": 3,
+  "j": 3,
+  "before": "D'accord, voici le pantalon en taille 40. Vous pouvez essayer dans la ___ (4) ___ si vous voulez.",
+  "after": "D'accord, voici le pantalon en taille 40. Vous pouvez essayer dans la (4) si vous voulez."
+ },
+ {
+  "id": "6e1b82a9-6b12-4350-bc48-1f59b14a9b76",
+  "title": "Faire du Shopping",
+  "status": "published",
+  "i": 3,
+  "j": 4,
+  "before": "Parfait, merci ! Et le ___ (5) ___ de ce pantalon ?",
+  "after": "Parfait, merci ! Et le (5) de ce pantalon ?"
+ },
+ {
+  "id": "6e1b82a9-6b12-4350-bc48-1f59b14a9b76",
+  "title": "Faire du Shopping",
+  "status": "published",
+  "i": 3,
+  "j": 5,
+  "before": "Il est à 39,99 €, mais nous avons une promotion de ___ (6) ___ pour ce mois-ci !",
+  "after": "Il est à 39,99 €, mais nous avons une promotion de (6) pour ce mois-ci !"
+ },
+ {
+  "id": "ac2331d7-dc39-4668-aa8d-8161de328e44",
+  "title": "Discutez de vos passe-temps et intérêts ?",
+  "status": "published",
+  "i": 1,
+  "j": 1,
+  "before": "J'aime (1) __________ plus que la musique.",
+  "after": "J'aime (1) plus que la musique."
+ },
+ {
+  "id": "ac2331d7-dc39-4668-aa8d-8161de328e44",
+  "title": "Discutez de vos passe-temps et intérêts ?",
+  "status": "published",
+  "i": 1,
+  "j": 3,
+  "before": "Elle aime (2) __________ plus que la cuisine.",
+  "after": "Elle aime (2) plus que la cuisine."
+ },
+ {
+  "id": "ac2331d7-dc39-4668-aa8d-8161de328e44",
+  "title": "Discutez de vos passe-temps et intérêts ?",
+  "status": "published",
+  "i": 1,
+  "j": 5,
+  "before": "Ils aiment (3) __________ plus que le jardinage.",
+  "after": "Ils aiment (3) plus que le jardinage."
+ },
+ {
+  "id": "ac2331d7-dc39-4668-aa8d-8161de328e44",
+  "title": "Discutez de vos passe-temps et intérêts ?",
+  "status": "published",
+  "i": 1,
+  "j": 7,
+  "before": "J'aime (4) __________ plus qu'écrire.",
+  "after": "J'aime (4) plus qu'écrire."
+ },
+ {
+  "id": "ac2331d7-dc39-4668-aa8d-8161de328e44",
+  "title": "Discutez de vos passe-temps et intérêts ?",
+  "status": "published",
+  "i": 3,
+  "j": 1,
+  "before": "C'est (1) __________.",
+  "after": "C'est (1)."
+ },
+ {
+  "id": "ac2331d7-dc39-4668-aa8d-8161de328e44",
+  "title": "Discutez de vos passe-temps et intérêts ?",
+  "status": "published",
+  "i": 3,
+  "j": 3,
+  "before": "C'est (2) __________.",
+  "after": "C'est (2)."
+ },
+ {
+  "id": "ac2331d7-dc39-4668-aa8d-8161de328e44",
+  "title": "Discutez de vos passe-temps et intérêts ?",
+  "status": "published",
+  "i": 6,
+  "j": 1,
+  "before": "(2) __________ c'est créatif et intéressant.",
+  "after": "(2) c'est créatif et intéressant."
+ },
+ {
+  "id": "ac2331d7-dc39-4668-aa8d-8161de328e44",
+  "title": "Discutez de vos passe-temps et intérêts ?",
+  "status": "published",
+  "i": 6,
+  "j": 3,
+  "before": "J'aime dessiner (3) __________ que peindre.",
+  "after": "J'aime dessiner (3) que peindre."
+ },
+ {
+  "id": "ac2331d7-dc39-4668-aa8d-8161de328e44",
+  "title": "Discutez de vos passe-temps et intérêts ?",
+  "status": "published",
+  "i": 6,
+  "j": 4,
+  "before": "Peindre (4) __________ fatigant.",
+  "after": "Peindre (4) fatigant."
+ },
+ {
+  "id": "ac2331d7-dc39-4668-aa8d-8161de328e44",
+  "title": "Discutez de vos passe-temps et intérêts ?",
+  "status": "published",
+  "i": 6,
+  "j": 6,
+  "before": "J’aime plus voyager (5) __________ cuisiner.",
+  "after": "J’aime plus voyager (5) cuisiner."
+ },
+ {
+  "id": "ac2331d7-dc39-4668-aa8d-8161de328e44",
+  "title": "Discutez de vos passe-temps et intérêts ?",
+  "status": "published",
+  "i": 6,
+  "j": 8,
+  "before": "(6) __________ voyager est enrichissant et amusant.",
+  "after": "(6) voyager est enrichissant et amusant."
+ },
+ {
+  "id": "a3bdbed4-6a60-4554-9154-8fb7a458b543",
+  "title": "Parlez de l'impact de la science et de la technologie sur votre vie",
+  "status": "published",
+  "i": 3,
+  "j": 5,
+  "before": "Je (1) __________ utiliser des applications pour m'organiser.",
+  "after": "Je (1) utiliser des applications pour m'organiser."
+ },
+ {
+  "id": "a3bdbed4-6a60-4554-9154-8fb7a458b543",
+  "title": "Parlez de l'impact de la science et de la technologie sur votre vie",
+  "status": "published",
+  "i": 6,
+  "j": 1,
+  "before": "Oui, c'est vrai. J'ai remarqué que beaucoup de gens ___ (1) des informations très personnelles en ligne.",
+  "after": "Oui, c'est vrai. J'ai remarqué que beaucoup de gens (1) des informations très personnelles en ligne."
+ },
+ {
+  "id": "a3bdbed4-6a60-4554-9154-8fb7a458b543",
+  "title": "Parlez de l'impact de la science et de la technologie sur votre vie",
+  "status": "published",
+  "i": 6,
+  "j": 2,
+  "before": "C'est parfois inquiétant. La technologie nous ___ (2), mais elle peut aussi nous éloigner.",
+  "after": "C'est parfois inquiétant. La technologie nous (2), mais elle peut aussi nous éloigner."
+ },
+ {
+  "id": "a3bdbed4-6a60-4554-9154-8fb7a458b543",
+  "title": "Parlez de l'impact de la science et de la technologie sur votre vie",
+  "status": "published",
+  "i": 6,
+  "j": 3,
+  "before": "Exactement. Penses-tu que cela ___ (3) va changer à l'avenir ?",
+  "after": "Exactement. Penses-tu que cela (3) va changer à l'avenir ?"
+ },
+ {
+  "id": "d4e87a04-6d7e-43f6-9f42-4d200a161c04",
+  "title": "Parlez de l'impact des événements actuels sur votre vie",
+  "status": "published",
+  "i": 3,
+  "j": 0,
+  "before": "Je (1) ______ lire les actualités.",
+  "after": "Je (1) lire les actualités."
+ },
+ {
+  "id": "d4e87a04-6d7e-43f6-9f42-4d200a161c04",
+  "title": "Parlez de l'impact des événements actuels sur votre vie",
+  "status": "published",
+  "i": 6,
+  "j": 1,
+  "before": "Je (1) _____ que c'est un moment difficile pour tout le monde.",
+  "after": "Je (1) que c'est un moment difficile pour tout le monde."
+ },
+ {
+  "id": "c30eb6d2-7813-4cd1-95db-5882213048a1",
+  "title": "Demander à quelqu'un de prendre une photo",
+  "status": "published",
+  "i": 4,
+  "j": 0,
+  "before": "Pardon ? Pourriez-vous (1) __________, s'il vous plaît ?",
+  "after": "Pardon ? Pourriez-vous (1), s'il vous plaît ?"
+ },
+ {
+  "id": "c30eb6d2-7813-4cd1-95db-5882213048a1",
+  "title": "Demander à quelqu'un de prendre une photo",
+  "status": "published",
+  "i": 4,
+  "j": 4,
+  "before": "Ah ! (2) ________ ce bouton pour prendre une photo et le (3) __________ est ici.",
+  "after": "Ah ! (2) ce bouton pour prendre une photo et le (3) est ici."
+ },
+ {
+  "id": "c30eb6d2-7813-4cd1-95db-5882213048a1",
+  "title": "Demander à quelqu'un de prendre une photo",
+  "status": "published",
+  "i": 4,
+  "j": 5,
+  "before": "Ok. Tu veux un (4) __________ photo ou seulement la partie supérieure de votre corps ?",
+  "after": "Ok. Tu veux un (4) photo ou seulement la partie supérieure de votre corps ?"
+ },
+ {
+  "id": "22178b9b-b232-46c2-8f3d-3b0c5827ba19",
+  "title": "Comment se préparer aux entretiens en ligne",
+  "status": "published",
+  "i": 2,
+  "j": 3,
+  "before": "Oui, une fois, ma connexion Internet (1) __________, et j'ai dû redémarrer mon ordinateur.",
+  "after": "Oui, une fois, ma connexion Internet (1), et j'ai dû redémarrer mon ordinateur."
+ },
+ {
+  "id": "95969042-3125-4b9d-8012-95f1e6390829",
+  "title": "Ma journée",
+  "status": "published",
+  "i": 3,
+  "j": 0,
+  "before": "Plus tard, je (1) ______.",
+  "after": "Plus tard, je (1)."
+ },
+ {
+  "id": "95969042-3125-4b9d-8012-95f1e6390829",
+  "title": "Ma journée",
+  "status": "published",
+  "i": 3,
+  "j": 1,
+  "before": "Plus tard, je (1) ______.",
+  "after": "Plus tard, je (1)."
+ },
+ {
+  "id": "3873e251-80cb-455d-bdb6-daefa96a84ba",
+  "title": "Parlez de vos magasins préférés",
+  "status": "published",
+  "i": 4,
+  "j": 1,
+  "before": "J'aime vraiment (1)__________.",
+  "after": "J'aime vraiment (1)."
+ },
+ {
+  "id": "3873e251-80cb-455d-bdb6-daefa96a84ba",
+  "title": "Parlez de vos magasins préférés",
+  "status": "published",
+  "i": 4,
+  "j": 3,
+  "before": "Il (2)__________ très agréable. Et toi ? Quel est ton magasin préféré ?",
+  "after": "Il (2) très agréable. Et toi ? Quel est ton magasin préféré ?"
+ },
+ {
+  "id": "3873e251-80cb-455d-bdb6-daefa96a84ba",
+  "title": "Parlez de vos magasins préférés",
+  "status": "published",
+  "i": 4,
+  "j": 4,
+  "before": "J'aime la (3)__________.",
+  "after": "J'aime la (3)."
+ },
+ {
+  "id": "3873e251-80cb-455d-bdb6-daefa96a84ba",
+  "title": "Parlez de vos magasins préférés",
+  "status": "published",
+  "i": 4,
+  "j": 5,
+  "before": "Quand y es-tu allé (4)__________ ?",
+  "after": "Quand y es-tu allé (4) ?"
+ },
+ {
+  "id": "3873e251-80cb-455d-bdb6-daefa96a84ba",
+  "title": "Parlez de vos magasins préférés",
+  "status": "published",
+  "i": 4,
+  "j": 7,
+  "before": "(5)__________ ?",
+  "after": "(5) ?"
+ },
+ {
+  "id": "808b037f-d45e-4957-8081-642b3e6b2d4d",
+  "title": "Discutez de vos films et musiques préférés",
+  "status": "published",
+  "i": 5,
+  "j": 1,
+  "before": "J'adore les comédies romantiques. Elles sont (1) _____ et amusantes.",
+  "after": "J'adore les comédies romantiques. Elles sont (1) et amusantes."
+ },
+ {
+  "id": "808b037f-d45e-4957-8081-642b3e6b2d4d",
+  "title": "Discutez de vos films et musiques préférés",
+  "status": "published",
+  "i": 5,
+  "j": 3,
+  "before": "Beaucoup, c'est mon genre préféré ! Et toi, (2) _____ films aimes-tu ?",
+  "after": "Beaucoup, c'est mon genre préféré ! Et toi, (2) films aimes-tu ?"
+ },
+ {
+  "id": "808b037f-d45e-4957-8081-642b3e6b2d4d",
+  "title": "Discutez de vos films et musiques préférés",
+  "status": "published",
+  "i": 5,
+  "j": 4,
+  "before": "J'aime les thrillers, ils sont souvent (3) _____ et captivants.",
+  "after": "J'aime les thrillers, ils sont souvent (3) et captivants."
+ },
+ {
+  "id": "1d45e745-0a67-491f-a90c-32073a208be0",
+  "title": "Grand, Petit, Rapide, Lent, Long, Court",
+  "status": "published",
+  "i": 1,
+  "j": 0,
+  "before": "J'ai un (1) _____ chien.",
+  "after": "J'ai un (1) chien."
+ },
+ {
+  "id": "1d45e745-0a67-491f-a90c-32073a208be0",
+  "title": "Grand, Petit, Rapide, Lent, Long, Court",
+  "status": "published",
+  "i": 1,
+  "j": 1,
+  "before": "J'ai un (2) _____ chien.",
+  "after": "J'ai un (2) chien."
+ },
+ {
+  "id": "1d45e745-0a67-491f-a90c-32073a208be0",
+  "title": "Grand, Petit, Rapide, Lent, Long, Court",
+  "status": "published",
+  "i": 2,
+  "j": 0,
+  "before": "J'ai un (1) _____ hamster.",
+  "after": "J'ai un (1) hamster."
+ },
+ {
+  "id": "1d45e745-0a67-491f-a90c-32073a208be0",
+  "title": "Grand, Petit, Rapide, Lent, Long, Court",
+  "status": "published",
+  "i": 2,
+  "j": 1,
+  "before": "J'ai un (2) _____ hamster.",
+  "after": "J'ai un (2) hamster."
+ },
+ {
+  "id": "1d45e745-0a67-491f-a90c-32073a208be0",
+  "title": "Grand, Petit, Rapide, Lent, Long, Court",
+  "status": "published",
+  "i": 3,
+  "j": 0,
+  "before": "J'ai un (1) _____ poisson.",
+  "after": "J'ai un (1) poisson."
+ },
+ {
+  "id": "1d45e745-0a67-491f-a90c-32073a208be0",
+  "title": "Grand, Petit, Rapide, Lent, Long, Court",
+  "status": "published",
+  "i": 3,
+  "j": 1,
+  "before": "J'ai un (2) _____ poisson.",
+  "after": "J'ai un (2) poisson."
+ },
+ {
+  "id": "77ee536c-1152-40b6-a15f-e3c84208f138",
+  "title": "Demander de l'aide à votre collègue",
+  "status": "published",
+  "i": 3,
+  "j": 1,
+  "before": "Il a des difficultés avec son (1) ___.",
+  "after": "Il a des difficultés avec son (1)."
+ },
+ {
+  "id": "88cfe0a7-fdcd-4c6f-8354-385fc4730cc5",
+  "title": "À quand remonte votre dernière maladie ?",
+  "status": "published",
+  "i": 6,
+  "j": 1,
+  "before": "Je (1) ______ malade le mois dernier. Je (2) ______ une éruption cutanée et de la fièvre.",
+  "after": "Je (1) malade le mois dernier. Je (2) une éruption cutanée et de la fièvre."
+ },
+ {
+  "id": "88cfe0a7-fdcd-4c6f-8354-385fc4730cc5",
+  "title": "À quand remonte votre dernière maladie ?",
+  "status": "published",
+  "i": 6,
+  "j": 3,
+  "before": "Je me suis senti (3) ______ malade. J'étais très (4) ______.",
+  "after": "Je me suis senti (3) malade. J'étais très (4)."
+ },
+ {
+  "id": "88cfe0a7-fdcd-4c6f-8354-385fc4730cc5",
+  "title": "À quand remonte votre dernière maladie ?",
+  "status": "published",
+  "i": 6,
+  "j": 5,
+  "before": "Non, je (5) ______.",
+  "after": "Non, je (5)."
+ },
+ {
+  "id": "88cfe0a7-fdcd-4c6f-8354-385fc4730cc5",
+  "title": "À quand remonte votre dernière maladie ?",
+  "status": "published",
+  "i": 6,
+  "j": 7,
+  "before": "Je (6) ______ chez le médecin et j'ai pris quelques (7) ______.",
+  "after": "Je (6) chez le médecin et j'ai pris quelques (7)."
+ },
+ {
+  "id": "6e151983-7a6d-4d2f-a6c6-c67ac5f00714",
+  "title": "À quelle fréquence faites-vous du sport ?",
+  "status": "published",
+  "i": 3,
+  "j": 1,
+  "before": "Je fais tous les jours. Je fais (1)_________ du football le week-end. (2)_________ en semaine, je fais du jogging. Et toi ?",
+  "after": "Je fais tous les jours. Je fais (1) du football le week-end. (2) en semaine, je fais du jogging. Et toi ?"
+ },
+ {
+  "id": "6e151983-7a6d-4d2f-a6c6-c67ac5f00714",
+  "title": "À quelle fréquence faites-vous du sport ?",
+  "status": "published",
+  "i": 3,
+  "j": 3,
+  "before": "Je me (3)_________ parfois fatigué après le sport. Et toi ?",
+  "after": "Je me (3) parfois fatigué après le sport. Et toi ?"
+ },
+ {
+  "id": "6e151983-7a6d-4d2f-a6c6-c67ac5f00714",
+  "title": "À quelle fréquence faites-vous du sport ?",
+  "status": "published",
+  "i": 3,
+  "j": 5,
+  "before": "Je fais de la natation (4)_________ chaque été.",
+  "after": "Je fais de la natation (4) chaque été."
+ },
+ {
+  "id": "6e151983-7a6d-4d2f-a6c6-c67ac5f00714",
+  "title": "À quelle fréquence faites-vous du sport ?",
+  "status": "published",
+  "i": 3,
+  "j": 7,
+  "before": "Parce que j'aime (5)_________ me rafraîchir !",
+  "after": "Parce que j'aime (5) me rafraîchir !"
+ },
+ {
+  "id": "e9f10efa-ceb7-4f7a-a30e-97a15a7d459c",
+  "title": "Discutez des actualités",
+  "status": "published",
+  "i": 5,
+  "j": 0,
+  "before": "Où (1) ______-tu habituellement tes informations ?",
+  "after": "Où (1)-tu habituellement tes informations ?"
+ },
+ {
+  "id": "e9f10efa-ceb7-4f7a-a30e-97a15a7d459c",
+  "title": "Discutez des actualités",
+  "status": "published",
+  "i": 6,
+  "j": 1,
+  "before": "Juste en ligne habituellement, mais j’(1) ______ aussi la radio en voiture.",
+  "after": "Juste en ligne habituellement, mais j’(1) aussi la radio en voiture."
+ },
+ {
+  "id": "8e93d82b-f4d3-41f9-8668-c6c85a7e6a52",
+  "title": "Comparer la culture française à la vôtre",
+  "status": "published",
+  "i": 3,
+  "j": 1,
+  "before": "Je trouve qu'il y a beaucoup de différences, surtout dans la manière de manger. Les repas en France sont souvent (1) ________ et (2) ________.",
+  "after": "Je trouve qu'il y a beaucoup de différences, surtout dans la manière de manger. Les repas en France sont souvent (1) et (2)."
+ },
+ {
+  "id": "2a10cc72-f87f-4bb7-9727-304d7efd4e6f",
+  "title": "Parlez de vos passe-temps préférés",
+  "status": "published",
+  "i": 5,
+  "j": 1,
+  "before": "Je (1) __________ le week-end.",
+  "after": "Je (1) le week-end."
+ },
+ {
+  "id": "2a10cc72-f87f-4bb7-9727-304d7efd4e6f",
+  "title": "Parlez de vos passe-temps préférés",
+  "status": "published",
+  "i": 5,
+  "j": 3,
+  "before": "Oui, je (2) __________ le soir. Et vous, que faites-vous ?",
+  "after": "Oui, je (2) le soir. Et vous, que faites-vous ?"
+ },
+ {
+  "id": "2a10cc72-f87f-4bb7-9727-304d7efd4e6f",
+  "title": "Parlez de vos passe-temps préférés",
+  "status": "published",
+  "i": 5,
+  "j": 4,
+  "before": "Je (3) __________ au sport.",
+  "after": "Je (3) au sport."
+ },
+ {
+  "id": "2a10cc72-f87f-4bb7-9727-304d7efd4e6f",
+  "title": "Parlez de vos passe-temps préférés",
+  "status": "published",
+  "i": 5,
+  "j": 5,
+  "before": "Quand (4) __________ tu fais du sport ?",
+  "after": "Quand (4) tu fais du sport ?"
+ },
+ {
+  "id": "9f475573-bc99-4749-9006-6554b9872a58",
+  "title": "Discutez de la politique française",
+  "status": "published",
+  "i": 6,
+  "j": 1,
+  "before": "La France est une (1) __, c'est-à-dire que les citoyens (2) __ pour choisir leurs représentants.",
+  "after": "La France est une (1), c'est-à-dire que les citoyens (2) pour choisir leurs représentants."
+ },
+ {
+  "id": "c897de1d-ea19-42fe-8237-56bb0482eb1c",
+  "title": "Partagez vos croyances philosophiques",
+  "status": "published",
+  "i": 6,
+  "j": 1,
+  "before": "Je pense que la _______(1) est un droit fondamental. Chaque individu devrait avoir la possibilité de choisir son _______(2).",
+  "after": "Je pense que la (1) est un droit fondamental. Chaque individu devrait avoir la possibilité de choisir son (2)."
+ },
+ {
+  "id": "c897de1d-ea19-42fe-8237-56bb0482eb1c",
+  "title": "Partagez vos croyances philosophiques",
+  "status": "published",
+  "i": 6,
+  "j": 2,
+  "before": "Et que dites-vous du _______(3) ?",
+  "after": "Et que dites-vous du (3) ?"
+ },
+ {
+  "id": "c897de1d-ea19-42fe-8237-56bb0482eb1c",
+  "title": "Partagez vos croyances philosophiques",
+  "status": "published",
+  "i": 6,
+  "j": 3,
+  "before": "Je pense que notre _______(4) n'est pas entièrement déterminé par notre environnement, car nous avons tous la capacité de faire des choix.",
+  "after": "Je pense que notre (4) n'est pas entièrement déterminé par notre environnement, car nous avons tous la capacité de faire des choix."
+ },
+ {
+  "id": "c897de1d-ea19-42fe-8237-56bb0482eb1c",
+  "title": "Partagez vos croyances philosophiques",
+  "status": "published",
+  "i": 6,
+  "j": 5,
+  "before": "J'aime beaucoup lire les œuvres de _______(5) pour sa vision sur la liberté et l'authenticité.",
+  "after": "J'aime beaucoup lire les œuvres de (5) pour sa vision sur la liberté et l'authenticité."
+ },
+ {
+  "id": "b1c8e1ee-15b1-491b-b229-c480484a446b",
+  "title": "Parlez de la signification de la religion",
+  "status": "published",
+  "i": 4,
+  "j": 1,
+  "before": "Pour moi, le (1)______ et l'amour du prochain sont fondamentaux.",
+  "after": "Pour moi, le (1) et l'amour du prochain sont fondamentaux."
+ },
+ {
+  "id": "b1c8e1ee-15b1-491b-b229-c480484a446b",
+  "title": "Parlez de la signification de la religion",
+  "status": "published",
+  "i": 4,
+  "j": 2,
+  "before": "Crois-tu que la (2)______ est un concept important dans toutes les religions ?",
+  "after": "Crois-tu que la (2) est un concept important dans toutes les religions ?"
+ },
+ {
+  "id": "b1c8e1ee-15b1-491b-b229-c480484a446b",
+  "title": "Parlez de la signification de la religion",
+  "status": "published",
+  "i": 4,
+  "j": 3,
+  "before": "Oui, je pense que la (3)______ est un élément central qui unit les croyants.",
+  "after": "Oui, je pense que la (3) est un élément central qui unit les croyants."
+ },
+ {
+  "id": "88de3059-9a6f-4ada-9d3b-9729017b1664",
+  "title": "Discutez des découvertes scientifiques et des avancées technologiques",
+  "status": "published",
+  "i": 6,
+  "j": 0,
+  "before": "Oui, j'ai lu que les scientifiques ___ (1) une nouvelle méthode pour traiter certaines maladies.",
+  "after": "Oui, j'ai lu que les scientifiques (1) une nouvelle méthode pour traiter certaines maladies."
+ },
+ {
+  "id": "88de3059-9a6f-4ada-9d3b-9729017b1664",
+  "title": "Discutez des découvertes scientifiques et des avancées technologiques",
+  "status": "published",
+  "i": 6,
+  "j": 1,
+  "before": "De plus, l'intelligence artificielle ___ (2) utilisée pour analyser de grandes quantités de données.",
+  "after": "De plus, l'intelligence artificielle (2) utilisée pour analyser de grandes quantités de données."
+ },
+ {
+  "id": "88de3059-9a6f-4ada-9d3b-9729017b1664",
+  "title": "Discutez des découvertes scientifiques et des avancées technologiques",
+  "status": "published",
+  "i": 6,
+  "j": 2,
+  "before": "Penses-tu que cela ___ (3) des impacts sur la société ?",
+  "after": "Penses-tu que cela (3) des impacts sur la société ?"
+ },
+ {
+  "id": "58c2a0de-3cf2-4fb8-ae9f-e77b0def5406",
+  "title": "Parlez de l'importance de l'éducation",
+  "status": "published",
+  "i": 2,
+  "j": 1,
+  "before": "Pour moi, l'éducation est (1) _________, car elle permet de (2) _________ des compétences essentielles.",
+  "after": "Pour moi, l'éducation est (1), car elle permet de (2) des compétences essentielles."
+ },
+ {
+  "id": "58c2a0de-3cf2-4fb8-ae9f-e77b0def5406",
+  "title": "Parlez de l'importance de l'éducation",
+  "status": "published",
+  "i": 2,
+  "j": 3,
+  "before": "L'accès à l'éducation est (3) _________ pour tous, car cela garantit que chaque personne peut (4) _________ son potentiel.",
+  "after": "L'accès à l'éducation est (3) pour tous, car cela garantit que chaque personne peut (4) son potentiel."
+ },
+ {
+  "id": "4ae1e206-92a0-455b-b95c-d9b0c658817a",
+  "title": "Partagez vos activités préférées par temps",
+  "status": "published",
+  "i": 5,
+  "j": 1,
+  "before": "Je (1)___________ au parc.",
+  "after": "Je (1) au parc."
+ },
+ {
+  "id": "4ae1e206-92a0-455b-b95c-d9b0c658817a",
+  "title": "Partagez vos activités préférées par temps",
+  "status": "published",
+  "i": 5,
+  "j": 3,
+  "before": "Je (2)___________ un livre.",
+  "after": "Je (2) un livre."
+ },
+ {
+  "id": "4ae1e206-92a0-455b-b95c-d9b0c658817a",
+  "title": "Partagez vos activités préférées par temps",
+  "status": "published",
+  "i": 5,
+  "j": 5,
+  "before": "Je fais du vélo (3)___________. Quand fais-tu du vélo ?",
+  "after": "Je fais du vélo (3). Quand fais-tu du vélo ?"
+ },
+ {
+  "id": "4ae1e206-92a0-455b-b95c-d9b0c658817a",
+  "title": "Partagez vos activités préférées par temps",
+  "status": "published",
+  "i": 5,
+  "j": 6,
+  "before": "Je fais du vélo (4)___________.",
+  "after": "Je fais du vélo (4)."
+ },
+ {
+  "id": "4ae1e206-92a0-455b-b95c-d9b0c658817a",
+  "title": "Partagez vos activités préférées par temps",
+  "status": "published",
+  "i": 5,
+  "j": 8,
+  "before": "Je fais un bonhomme de neige (5)___________.",
+  "after": "Je fais un bonhomme de neige (5)."
+ },
+ {
+  "id": "b72d99e9-0a25-422f-8beb-c296aa73a74a",
+  "title": "Discutez des découvertes scientifiques et des avancées technologiques.",
+  "status": "published",
+  "i": 6,
+  "j": 1,
+  "before": "Je suis d'accord. Récemment, j'ai lu que l'intelligence artificielle ___ (1) de plus en plus utilisée dans la recherche médicale.",
+  "after": "Je suis d'accord. Récemment, j'ai lu que l'intelligence artificielle (1) de plus en plus utilisée dans la recherche médicale."
+ },
+ {
+  "id": "b72d99e9-0a25-422f-8beb-c296aa73a74a",
+  "title": "Discutez des découvertes scientifiques et des avancées technologiques.",
+  "status": "published",
+  "i": 6,
+  "j": 2,
+  "before": "Exactement ! Il y a également de grandes avancées dans le domaine des énergies renouvelables. De plus en plus d'entreprises investissent dans les ___ (2) pour rendre l'énergie plus propre et efficace.",
+  "after": "Exactement ! Il y a également de grandes avancées dans le domaine des énergies renouvelables. De plus en plus d'entreprises investissent dans les (2) pour rendre l'énergie plus propre et efficace."
+ },
+ {
+  "id": "b72d99e9-0a25-422f-8beb-c296aa73a74a",
+  "title": "Discutez des découvertes scientifiques et des avancées technologiques.",
+  "status": "published",
+  "i": 6,
+  "j": 3,
+  "before": "Penses-tu que ces avancées ___ (3) des impacts sociaux majeurs ?",
+  "after": "Penses-tu que ces avancées (3) des impacts sociaux majeurs ?"
+ },
+ {
+  "id": "b72d99e9-0a25-422f-8beb-c296aa73a74a",
+  "title": "Discutez des découvertes scientifiques et des avancées technologiques.",
+  "status": "published",
+  "i": 6,
+  "j": 4,
+  "before": "Je crois que cela va transformer le marché du travail, mais cela créera aussi ___ (4) nouvelles opportunités.",
+  "after": "Je crois que cela va transformer le marché du travail, mais cela créera aussi (4) nouvelles opportunités."
+ },
+ {
+  "id": "2a43c0b0-e72c-4bc0-b623-116bba0b5b9a",
+  "title": "Parlez de vos acteurs et musiciens préférés",
+  "status": "published",
+  "i": 5,
+  "j": 1,
+  "before": "Je (1) ___________ Ed Sheeran.",
+  "after": "Je (1) Ed Sheeran."
+ },
+ {
+  "id": "2a43c0b0-e72c-4bc0-b623-116bba0b5b9a",
+  "title": "Parlez de vos acteurs et musiciens préférés",
+  "status": "published",
+  "i": 5,
+  "j": 3,
+  "before": "Parce qu'il est (2) ___________.",
+  "after": "Parce qu'il est (2)."
+ },
+ {
+  "id": "2a43c0b0-e72c-4bc0-b623-116bba0b5b9a",
+  "title": "Parlez de vos acteurs et musiciens préférés",
+  "status": "published",
+  "i": 5,
+  "j": 5,
+  "before": "Je (3) ___________ beaucoup les films de Johnny Depp ! Je (4) ___________ ses performances.",
+  "after": "Je (3) beaucoup les films de Johnny Depp ! Je (4) ses performances."
+ },
+ {
+  "id": "2a43c0b0-e72c-4bc0-b623-116bba0b5b9a",
+  "title": "Parlez de vos acteurs et musiciens préférés",
+  "status": "published",
+  "i": 5,
+  "j": 7,
+  "before": "Oui, je (5) ___________ beaucoup Robert Downey Jr.",
+  "after": "Oui, je (5) beaucoup Robert Downey Jr."
+ },
+ {
+  "id": "2a43c0b0-e72c-4bc0-b623-116bba0b5b9a",
+  "title": "Parlez de vos acteurs et musiciens préférés",
+  "status": "published",
+  "i": 5,
+  "j": 9,
+  "before": "Ses films (6) ___________ toujours amusants.",
+  "after": "Ses films (6) toujours amusants."
+ },
+ {
+  "id": "fc20aa5c-ca2a-4cf7-9efd-d58b831393e3",
+  "title": "Quelle forme voyez-vous ?",
+  "status": "published",
+  "i": 7,
+  "j": 1,
+  "before": "Il manque un (1) ________.",
+  "after": "Il manque un (1)."
+ },
+ {
+  "id": "1270d04d-fc59-4e5f-a3ba-b29dba4f4936",
+  "title": "Quels sports aimez-vous ?",
+  "status": "published",
+  "i": 1,
+  "j": 1,
+  "before": "J'aime (1) _______ plus que le basket-ball.",
+  "after": "J'aime (1) plus que le basket-ball."
+ },
+ {
+  "id": "1270d04d-fc59-4e5f-a3ba-b29dba4f4936",
+  "title": "Quels sports aimez-vous ?",
+  "status": "published",
+  "i": 1,
+  "j": 3,
+  "before": "Il aime (2) _______ plus que le football.",
+  "after": "Il aime (2) plus que le football."
+ },
+ {
+  "id": "1270d04d-fc59-4e5f-a3ba-b29dba4f4936",
+  "title": "Quels sports aimez-vous ?",
+  "status": "published",
+  "i": 1,
+  "j": 5,
+  "before": "Ils aiment (3) _______ plus que la natation.",
+  "after": "Ils aiment (3) plus que la natation."
+ },
+ {
+  "id": "1270d04d-fc59-4e5f-a3ba-b29dba4f4936",
+  "title": "Quels sports aimez-vous ?",
+  "status": "published",
+  "i": 1,
+  "j": 7,
+  "before": "J'aime (4) _______ plus que le tennis.",
+  "after": "J'aime (4) plus que le tennis."
+ },
+ {
+  "id": "1270d04d-fc59-4e5f-a3ba-b29dba4f4936",
+  "title": "Quels sports aimez-vous ?",
+  "status": "published",
+  "i": 6,
+  "j": 1,
+  "before": "Je (1) _______ le basket-ball.",
+  "after": "Je (1) le basket-ball."
+ },
+ {
+  "id": "1270d04d-fc59-4e5f-a3ba-b29dba4f4936",
+  "title": "Quels sports aimez-vous ?",
+  "status": "published",
+  "i": 6,
+  "j": 3,
+  "before": "(2) _______ c'est passionnant.",
+  "after": "(2) c'est passionnant."
+ },
+ {
+  "id": "1270d04d-fc59-4e5f-a3ba-b29dba4f4936",
+  "title": "Quels sports aimez-vous ?",
+  "status": "published",
+  "i": 6,
+  "j": 5,
+  "before": "J'aime le football (3) _______ le golf. Le golf est (4) _______ ennuyeux.",
+  "after": "J'aime le football (3) le golf. Le golf est (4) ennuyeux."
+ },
+ {
+  "id": "1270d04d-fc59-4e5f-a3ba-b29dba4f4936",
+  "title": "Quels sports aimez-vous ?",
+  "status": "published",
+  "i": 6,
+  "j": 7,
+  "before": "Parce que c'est (5) _______.",
+  "after": "Parce que c'est (5)."
+ },
+ {
+  "id": "103bc733-fb63-4fe6-9238-7c7ad74d2ca7",
+  "title": "Partagez vos recommandations de film ou de musique",
+  "status": "published",
+  "i": 5,
+  "j": 1,
+  "before": "Je (1) _________ 'Les Choristes'.",
+  "after": "Je (1) 'Les Choristes'."
+ },
+ {
+  "id": "103bc733-fb63-4fe6-9238-7c7ad74d2ca7",
+  "title": "Partagez vos recommandations de film ou de musique",
+  "status": "published",
+  "i": 5,
+  "j": 3,
+  "before": "Parce qu'il est (2) _________ et (3) _________.",
+  "after": "Parce qu'il est (2) et (3)."
+ },
+ {
+  "id": "103bc733-fb63-4fe6-9238-7c7ad74d2ca7",
+  "title": "Partagez vos recommandations de film ou de musique",
+  "status": "published",
+  "i": 5,
+  "j": 5,
+  "before": "Je préfère (4) _________.",
+  "after": "Je préfère (4)."
+ },
+ {
+  "id": "103bc733-fb63-4fe6-9238-7c7ad74d2ca7",
+  "title": "Partagez vos recommandations de film ou de musique",
+  "status": "published",
+  "i": 5,
+  "j": 7,
+  "before": "Je (5) _________ beaucoup de Stromae !",
+  "after": "Je (5) beaucoup de Stromae !"
+ },
+ {
+  "id": "7339aa43-264b-4c15-a458-a84fa9641c37",
+  "title": "Avez-vous atteint des objectifs majeurs ?",
+  "status": "published",
+  "i": 6,
+  "j": 1,
+  "before": "Oui, je (1) ___ un prix pour ma photographie lors d'un concours national. C'était un grand moment pour moi.",
+  "after": "Oui, je (1) un prix pour ma photographie lors d'un concours national. C'était un grand moment pour moi."
+ },
+ {
+  "id": "7339aa43-264b-4c15-a458-a84fa9641c37",
+  "title": "Avez-vous atteint des objectifs majeurs ?",
+  "status": "published",
+  "i": 6,
+  "j": 3,
+  "before": "Oui, je travaille pour obtenir un (2) ___ en design graphique. Il m'a fallu deux ans pour (3) ___ la formation tout en travaillant à temps plein.",
+  "after": "Oui, je travaille pour obtenir un (2) en design graphique. Il m'a fallu deux ans pour (3) la formation tout en travaillant à temps plein."
+ },
+ {
+  "id": "7339aa43-264b-4c15-a458-a84fa9641c37",
+  "title": "Avez-vous atteint des objectifs majeurs ?",
+  "status": "published",
+  "i": 6,
+  "j": 5,
+  "before": "Parfois, nous perdons notre (4) ___ quand on se concentre trop sur l'ensemble du processus. J'essaie de (5) ___ les petites réalisations.",
+  "after": "Parfois, nous perdons notre (4) quand on se concentre trop sur l'ensemble du processus. J'essaie de (5) les petites réalisations."
+ },
+ {
+  "id": "7339aa43-264b-4c15-a458-a84fa9641c37",
+  "title": "Avez-vous atteint des objectifs majeurs ?",
+  "status": "published",
+  "i": 6,
+  "j": 7,
+  "before": "Je suis inspiré par les athlètes professionnels qui (6) ___ à être passionnés par ce qu'ils font.",
+  "after": "Je suis inspiré par les athlètes professionnels qui (6) à être passionnés par ce qu'ils font."
+ },
+ {
+  "id": "4d760a0d-b7c9-4c0c-8097-e524f467c9e1",
+  "title": "Partagez vos expériences avec la culture française",
+  "status": "published",
+  "i": 5,
+  "j": 1,
+  "before": "L’année dernière, je suis allé en France et j’ai visité plusieurs (1) __________ comme le musée du Louvre. J’ai été très impressionné par la richesse de la (2) __________ française.",
+  "after": "L’année dernière, je suis allé en France et j’ai visité plusieurs (1) comme le musée du Louvre. J’ai été très impressionné par la richesse de la (2) française."
+ },
+ {
+  "id": "4d760a0d-b7c9-4c0c-8097-e524f467c9e1",
+  "title": "Partagez vos expériences avec la culture française",
+  "status": "published",
+  "i": 5,
+  "j": 3,
+  "before": "Oui, par exemple, les Français sont très attachés à leurs traditions. J’ai assisté à une (3) __________ traditionnelle dans un village, c’était fascinant.",
+  "after": "Oui, par exemple, les Français sont très attachés à leurs traditions. J’ai assisté à une (3) traditionnelle dans un village, c’était fascinant."
+ },
+ {
+  "id": "60fbb97f-7e95-4cab-9f82-b888b64c85c6",
+  "title": "Parlez de la signification des événements historiques",
+  "status": "published",
+  "i": 5,
+  "j": 0,
+  "before": "La Révolution française a eu un grand ______ (1) sur la société.",
+  "after": "La Révolution française a eu un grand (1) sur la société."
+ },
+ {
+  "id": "630df56d-b800-4c09-a932-6dfdcd5d30b6",
+  "title": "Partagez vos expériences religieuses",
+  "status": "published",
+  "i": 3,
+  "j": 1,
+  "before": "Oui, ma famille célèbre une  (1) __________ chaque année.",
+  "after": "Oui, ma famille célèbre une (1) chaque année."
+ },
+ {
+  "id": "630df56d-b800-4c09-a932-6dfdcd5d30b6",
+  "title": "Partagez vos expériences religieuses",
+  "status": "published",
+  "i": 3,
+  "j": 3,
+  "before": "Nous faisons des(2) __________ et nous nous réunissons en famille.",
+  "after": "Nous faisons des(2) et nous nous réunissons en famille."
+ },
+ {
+  "id": "630df56d-b800-4c09-a932-6dfdcd5d30b6",
+  "title": "Partagez vos expériences religieuses",
+  "status": "published",
+  "i": 3,
+  "j": 5,
+  "before": "Je pense que c'est une (3) __________ importante, car cela nous aide à comprendre les autres.",
+  "after": "Je pense que c'est une (3) importante, car cela nous aide à comprendre les autres."
+ },
+ {
+  "id": "630df56d-b800-4c09-a932-6dfdcd5d30b6",
+  "title": "Partagez vos expériences religieuses",
+  "status": "published",
+  "i": 3,
+  "j": 7,
+  "before": "Oui, et cela a enrichi ma (4) __________ personnelle.",
+  "after": "Oui, et cela a enrichi ma (4) personnelle."
+ },
+ {
+  "id": "d7068f98-6f66-4b58-bab2-62feee1223af",
+  "title": "Atterrissage",
+  "status": "published",
+  "i": 1,
+  "j": 0,
+  "before": "Excusez-moi, quand est-ce que nous allons commencer le (1) __________ ?",
+  "after": "Excusez-moi, quand est-ce que nous allons commencer le (1) ?"
+ },
+ {
+  "id": "d7068f98-6f66-4b58-bab2-62feee1223af",
+  "title": "Atterrissage",
+  "status": "published",
+  "i": 1,
+  "j": 1,
+  "before": "Le (2) __________ aura lieu dans quelques minutes. Merci de garder votre (3) __________ attachée jusqu'à ce que l'avion soit complètement arrêté.",
+  "after": "Le (2) aura lieu dans quelques minutes. Merci de garder votre (3) attachée jusqu'à ce que l'avion soit complètement arrêté."
+ },
+ {
+  "id": "d7068f98-6f66-4b58-bab2-62feee1223af",
+  "title": "Atterrissage",
+  "status": "published",
+  "i": 1,
+  "j": 2,
+  "before": "Merci beaucoup ! Je suis impatient d'atteindre la (4) __________.",
+  "after": "Merci beaucoup ! Je suis impatient d'atteindre la (4)."
+ },
+ {
+  "id": "92e09518-31f2-4550-80ac-f6a0631a7be9",
+  "title": "Conseils pour survivre à un vol long-courrier",
+  "status": "published",
+  "i": 4,
+  "j": 2,
+  "before": "Je pense que (1) __________.",
+  "after": "Je pense que (1)."
+ },
+ {
+  "id": "92e09518-31f2-4550-80ac-f6a0631a7be9",
+  "title": "Conseils pour survivre à un vol long-courrier",
+  "status": "published",
+  "i": 4,
+  "j": 3,
+  "before": "Je ne suis pas d'accord car (2) __________.",
+  "after": "Je ne suis pas d'accord car (2)."
+ },
+ {
+  "id": "92e09518-31f2-4550-80ac-f6a0631a7be9",
+  "title": "Conseils pour survivre à un vol long-courrier",
+  "status": "published",
+  "i": 4,
+  "j": 4,
+  "before": "Je pense que la Terre est magnifique (3) __________.",
+  "after": "Je pense que la Terre est magnifique (3)."
+ },
+ {
+  "id": "74bd2e41-267e-470c-8748-04b461169dfa",
+  "title": "Discutez de vos passe-temps",
+  "status": "published",
+  "i": 4,
+  "j": 1,
+  "before": "J’aime (1) __________.",
+  "after": "J’aime (1)."
+ },
+ {
+  "id": "74bd2e41-267e-470c-8748-04b461169dfa",
+  "title": "Discutez de vos passe-temps",
+  "status": "published",
+  "i": 4,
+  "j": 3,
+  "before": "Oui, je (2) __________ le week-end.",
+  "after": "Oui, je (2) le week-end."
+ },
+ {
+  "id": "74bd2e41-267e-470c-8748-04b461169dfa",
+  "title": "Discutez de vos passe-temps",
+  "status": "published",
+  "i": 4,
+  "j": 5,
+  "before": "J’aime (3) __________.",
+  "after": "J’aime (3)."
+ },
+ {
+  "id": "74bd2e41-267e-470c-8748-04b461169dfa",
+  "title": "Discutez de vos passe-temps",
+  "status": "published",
+  "i": 4,
+  "j": 6,
+  "before": "Quand (4) __________ ?",
+  "after": "Quand (4) ?"
+ }
+]
