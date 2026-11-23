@@ -10,9 +10,11 @@
 //
 // So: no cache, one upstream call, streamed straight back to the browser.
 
-import { NextRequest } from "next/server";
+import { NextRequest, after } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { getOpenAIClient, getAIConfig } from "@/lib/ai/client";
+import { ttsCost } from "@/lib/ai/pricing";
+import { logAiUsage } from "@/lib/ai/usage-log";
 
 /** Voice per learning language. Kept close to the Inworld defaults in tone. */
 const LANGUAGE_VOICES: Record<string, string> = {
@@ -62,14 +64,28 @@ export async function POST(request: NextRequest) {
     const config = await getAIConfig();
     const openai = await getOpenAIClient();
 
+    const speed = (LEVEL_SPEED[level] ?? 1.0) * (slow ? 0.72 : 1);
     const speech = await openai.audio.speech.create({
       model: "gpt-4o-mini-tts",
       voice: (LANGUAGE_VOICES[language] || config.openai.ttsVoice) as
         | "alloy" | "echo" | "fable" | "onyx" | "nova" | "shimmer",
       input: text,
-      speed: (LEVEL_SPEED[level] ?? 1.0) * (slow ? 0.72 : 1),
+      speed,
       response_format: "mp3",
     });
+
+    // The speech API reports no usage, so the cost is estimated from the text.
+    const { costUsd, seconds } = ttsCost(text.length, speed);
+    after(() =>
+      logAiUsage({
+        userId: user.id,
+        feature: "tts",
+        model: "gpt-4o-mini-tts",
+        costUsd,
+        tokensIn: Math.ceil(text.length / 4),
+        audioSeconds: seconds,
+      })
+    );
 
     // Hand the upstream stream straight to the browser rather than buffering it
     // here — the server should not be the thing that adds latency.
