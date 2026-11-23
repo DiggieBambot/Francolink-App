@@ -105,6 +105,8 @@ export function MessagesApp({ meId, initialWith }: { meId: string; initialWith: 
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const activeIdRef = useRef(activeId);
   activeIdRef.current = activeId;
+  const listRef = useRef(list);
+  listRef.current = list;
   const threadConvRef = useRef<string | null>(null);
   threadConvRef.current = thread?.conversationId ?? null;
 
@@ -174,20 +176,59 @@ export function MessagesApp({ meId, initialWith }: { meId: string; initialWith: 
   // Realtime: any new message in one of my conversations.
   useEffect(() => {
     if (setupRequired) return;
-    const channel = supabase
-      .channel(`messages:${meId}`)
-      .on("postgres_changes", { event: "INSERT", schema: "public", table: "messages" }, (payload) => {
-        const m = payload.new as Message & { conversation_id: string };
-        if (m.sender_id === meId) return; // my own sends are already shown
-        // Refetch the open thread if it's this one (that also marks it read).
-        if (activeIdRef.current && threadConvRef.current === m.conversation_id) {
-          loadThread(activeIdRef.current, { quiet: true });
-        }
-        loadList();
-      })
-      .subscribe();
+    let channel: ReturnType<typeof supabase.channel> | null = null;
+    let cancelled = false;
+
+    const onInsert = (m: Message & { conversation_id: string }) => {
+      if (m.sender_id === meId) return; // my own sends are already shown
+      const isOpen = Boolean(activeIdRef.current) && threadConvRef.current === m.conversation_id;
+      // Refetch the open thread if it's this one (that also marks it read).
+      if (isOpen) loadThread(activeIdRef.current!, { quiet: true });
+      // Update the list from the event itself: the insert lands before the
+      // server writes the conversation's last-message summary, so an
+      // immediate refetch would still show the previous preview.
+      const known = Boolean(listRef.current?.some((c) => c.conversationId === m.conversation_id));
+      setList((prev) =>
+        prev
+          ? sortSummaries(
+              prev.map((c) =>
+                c.conversationId === m.conversation_id
+                  ? {
+                      ...c,
+                      lastMessageAt: m.created_at,
+                      lastMessagePreview: m.body.slice(0, 140),
+                      lastSenderIsMe: false,
+                      unread: isOpen ? 0 : c.unread + 1,
+                    }
+                  : c
+              )
+            )
+          : prev
+      );
+      // A brand-new conversation isn't in the list yet: fetch once the server
+      // has finished writing it.
+      if (!known) setTimeout(loadList, 1500);
+    };
+
+    (async () => {
+      // The browser client loads its session from cookies asynchronously; a
+      // channel joined before that listens as anon, still reports SUBSCRIBED,
+      // and RLS filters out every message. Hand realtime the user's token first.
+      const { data } = await supabase.auth.getSession();
+      if (cancelled) return;
+      if (data.session) await supabase.realtime.setAuth(data.session.access_token);
+      if (cancelled) return;
+      channel = supabase
+        .channel(`messages:${meId}`)
+        .on("postgres_changes", { event: "INSERT", schema: "public", table: "messages" }, (payload) =>
+          onInsert(payload.new as Message & { conversation_id: string })
+        )
+        .subscribe();
+    })();
+
     return () => {
-      void supabase.removeChannel(channel);
+      cancelled = true;
+      if (channel) void supabase.removeChannel(channel);
     };
   }, [supabase, meId, setupRequired, loadList, loadThread]);
 
