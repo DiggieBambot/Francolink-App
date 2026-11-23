@@ -71,53 +71,41 @@ const EYE_R = 10;
 
 const TAIL = "M76 90 C90 98 108 92 108 78 C108 64 90 62 88 74 C87 82 97 85 99 77";
 
+// Body movement is driven per frame by the motion engine below, which writes
+// CSS variables (degrees / viewBox px). Defaults are the resting pose, so a
+// still avatar (no engine) simply stands at rest.
 const STYLES = `
+.leon{--hr:0;--hx:0;--hy:0;--br:0;--bs:0;--hop:0;--tr:0;--al:-18;--ar:18;--brow:0;--sx:0;--sy:0}
 .leon-skin{transition:fill .6s ease,stroke .6s ease}
-.leon-char,.leon-head,.leon-tail{transition:transform .4s ease}
-.leon-head{transform-origin:56px 72px}
-.leon-tail{transform-origin:78px 90px}
-.leon[data-mood=idle] .leon-head{animation:leon-bob 3.2s ease-in-out infinite}
-.leon[data-mood=idle] .leon-tail{animation:leon-sway 4.5s ease-in-out infinite}
-.leon[data-mood=listening] .leon-head{transform:rotate(-7deg)}
-.leon[data-mood=thinking] .leon-tail{transform:rotate(-8deg)}
-.leon[data-mood=celebrating] .leon-char{animation:leon-hop .45s ease-in-out infinite alternate}
-.leon[data-mood=celebrating] .leon-tail{animation:leon-sway .45s ease-in-out infinite alternate}
+.leon-char{transform-origin:56px 104px;transform:translateY(calc(var(--hop) * 1px)) rotate(calc(var(--br) * 1deg)) scale(1,calc(1 + var(--bs)))}
+.leon-head{transform-origin:56px 74px;transform:translate(calc(var(--hx) * 1px),calc(var(--hy) * 1px)) rotate(calc(var(--hr) * 1deg))}
+.leon-tail{transform-origin:78px 90px;transform:rotate(calc(var(--tr) * 1deg))}
+.leon-arm-l{transform-origin:0 0;transform:translate(39px,79px) rotate(calc(var(--al) * 1deg))}
+.leon-arm-r{transform-origin:0 0;transform:translate(77px,79px) rotate(calc(var(--ar) * 1deg))}
+.leon-specs{transform:translateY(calc(var(--brow) * 1px))}
+.leon-look{transform:translate(calc(var(--sx) * 1px),calc(var(--sy) * 1px))}
+.leon-gaze{transition:transform .3s ease}
+.leon-pupil{transform-box:fill-box;transform-origin:center;transform:scale(calc(1 + var(--leon-ear,0) * .3))}
+.leon-finger{opacity:0;transition:opacity .2s}
+.leon[data-mood=correcting] .leon-finger,.leon[data-mood=speaking] .leon-finger{opacity:1}
 .leon-lid{transform-box:fill-box;transform-origin:top;transform:scaleY(0);animation:leon-blink 4.6s infinite}
 .leon-lid-1{animation-delay:.07s}
-.leon-gaze,.leon-specs{transition:transform .35s ease}
-.leon[data-mood=correcting] .leon-specs{transform:translateY(2.5px)}
-.leon-wander-0{animation:leon-wander-a 7s ease-in-out infinite}
-.leon-wander-1{animation:leon-wander-b 5.5s ease-in-out infinite}
 .leon-talk{transform-box:fill-box;transform-origin:center;animation:leon-talk .2s ease-in-out infinite alternate}
 .leon-tongue{transform-origin:68px 61px;animation:leon-flick .9s ease-out 1 both}
 .leon-dot{animation:leon-dot 1.2s ease-in-out infinite}
 .leon-spark{transform-box:fill-box;transform-origin:center;animation:leon-spark .8s ease-in-out infinite alternate}
-@keyframes leon-bob{50%{transform:translateY(-1.5px)}}
-@keyframes leon-sway{0%,100%{transform:rotate(0)}50%{transform:rotate(-7deg)}}
-@keyframes leon-hop{to{transform:translateY(-5px)}}
 @keyframes leon-blink{0%,92%,100%{transform:scaleY(0)}95%{transform:scaleY(1)}}
-@keyframes leon-wander-a{0%,30%{transform:translate(0,0)}40%,60%{transform:translate(-3px,1px)}70%,100%{transform:translate(2px,-2px)}}
-@keyframes leon-wander-b{0%,20%{transform:translate(0,0)}35%,55%{transform:translate(3px,2px)}65%,100%{transform:translate(-2px,-1px)}}
 @keyframes leon-talk{from{transform:scaleY(.35)}to{transform:scaleY(1)}}
 @keyframes leon-flick{0%{transform:scaleX(0)}35%,55%{transform:scaleX(1)}100%{transform:scaleX(0)}}
 @keyframes leon-dot{0%,100%{opacity:.25}50%{opacity:1}}
 @keyframes leon-spark{from{transform:scale(.5);opacity:.4}to{transform:scale(1.1);opacity:1}}
-/* Breathing: a slow rise and fall so he is never frozen. */
-.leon:not([data-mood=celebrating]) .leon-char{transform-origin:56px 104px;animation:leon-breathe 4.2s ease-in-out infinite}
-@keyframes leon-breathe{0%,100%{transform:scale(1,1)}50%{transform:scale(1.008,1.018)}}
-/* Listening: he leans in, and nods and widens his eyes as the student talks. */
-.leon[data-mood=listening] .leon-head{transform:rotate(-7deg) translateY(calc(var(--leon-ear,0) * 3px));transition:transform .12s ease-out}
-.leon[data-mood=listening] .leon-pupil{transform:scale(calc(1 + var(--leon-ear,0) * .28))}
-.leon-pupil{transform-box:fill-box;transform-origin:center;transition:transform .12s ease-out}
-/* Speaking: the head moves a little with the voice. */
-.leon[data-mood=speaking] .leon-head{transform:translateY(calc(var(--leon-mouth,0) * -1.6px)) rotate(calc(var(--leon-mouth,0) * -2deg));transition:transform .08s linear}
 /* Mouth shapes cross-fade instead of swapping. */
-.leon-mouth{opacity:0;transition:opacity .16s ease}
+.leon-mouth{opacity:0;transition:opacity .14s ease}
 .leon[data-mood=idle] .leon-mouth-idle,.leon[data-mood=correcting] .leon-mouth-idle,
 .leon[data-mood=listening] .leon-mouth-listening,.leon[data-mood=thinking] .leon-mouth-thinking,
 .leon[data-mood=celebrating] .leon-mouth-celebrating{opacity:1}
-/* Live lip sync: four shapes chosen from the voice level every frame. */
-.leon-viseme{opacity:0;transition:opacity .05s linear}
+/* Lip sync: four shapes picked every frame from his voice. */
+.leon-viseme{opacity:0;transition:opacity .04s linear}
 .leon[data-mood=speaking][data-live=true][data-mouth="0"] .leon-v0,
 .leon[data-mood=speaking][data-live=true][data-mouth="1"] .leon-v1,
 .leon[data-mood=speaking][data-live=true][data-mouth="2"] .leon-v2,
@@ -153,48 +141,21 @@ export function Leon({
   const uid = useId().replace(/:/g, "");
   const svgRef = useRef<SVGSVGElement>(null);
 
-  // Drive the mouth and head straight from the audio levels, once per frame,
-  // by writing to the SVG's attributes: no React re-render per frame.
-  const liveSource =
-    still ? null : mood === "speaking" ? voiceLevel : mood === "listening" ? micLevel : null;
+  // One animation loop drives the whole puppet: no React render per frame.
+  const moodRef = useRef(mood);
+  const voiceRef = useRef(voiceLevel);
+  const micRef = useRef(micLevel);
+  useEffect(() => {
+    moodRef.current = mood;
+    voiceRef.current = voiceLevel;
+    micRef.current = micLevel;
+  });
   useEffect(() => {
     const el = svgRef.current;
-    if (!el) return;
-    if (!liveSource) {
-      el.removeAttribute("data-live");
-      el.style.setProperty("--leon-mouth", "0");
-      el.style.setProperty("--leon-ear", "0");
-      return;
-    }
-    let raf = 0;
-    let smooth = 0;
-    let lastShape = -1;
-    const speaking = mood === "speaking";
-    el.setAttribute("data-live", "true");
-    const tick = () => {
-      const target = liveSource.current ?? 0;
-      // Fast attack, slower release: mouths open quickly and close softly.
-      smooth += (target - smooth) * (target > smooth ? 0.55 : 0.25);
-      if (speaking) {
-        el.style.setProperty("--leon-mouth", smooth.toFixed(3));
-        const shape = smooth < 0.06 ? 0 : smooth < 0.22 ? 1 : smooth < 0.45 ? 2 : 3;
-        if (shape !== lastShape) {
-          el.setAttribute("data-mouth", String(shape));
-          lastShape = shape;
-        }
-      } else {
-        el.style.setProperty("--leon-ear", Math.min(1, smooth * 1.6).toFixed(3));
-      }
-      raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => {
-      cancelAnimationFrame(raf);
-      el.removeAttribute("data-live");
-      el.style.setProperty("--leon-mouth", "0");
-      el.style.setProperty("--leon-ear", "0");
-    };
-  }, [liveSource, mood]);
+    if (!el || still) return;
+    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
+    return runPuppet(el, { mood: moodRef, voice: voiceRef, mic: micRef }, reduce);
+  }, [still]);
   const p = leonPalette(language);
   const outfit = PALETTES[language] ? language : "fr";
   const happyEyes = mood === "celebrating";
@@ -347,7 +308,7 @@ export function Leon({
                   ) : (
                     <g clipPath={`url(#${uid}-eye${i})`}>
                       <g className="leon-gaze" style={{ transform: `translate(${gx}px, ${gy}px)` }}>
-                        <g className={mood === "idle" ? `leon-wander-${i}` : undefined}>
+                        <g className="leon-look">
                           <circle className="leon-pupil" cx={e.cx} cy={e.cy} r={mood === "listening" ? 5.8 : 4.9} fill="#1F2937" />
                           <circle cx={e.cx - 1.6} cy={e.cy - 1.6} r="1.6" fill="#FFFFFF" />
                         </g>
@@ -402,6 +363,10 @@ export function Leon({
 
             <Mouth mood={mood} />
           </g>
+
+          {/* arms: pivot at the shoulder, posed by the motion engine */}
+          <Arm side="l" skin={skin} />
+          <Arm side="r" skin={skin} />
         </g>
       </g>
 
@@ -471,4 +436,206 @@ function Mouth({ mood }: { mood: LeonMood }) {
       </g>
     </g>
   );
+}
+
+function Arm({ side, skin }: { side: "l" | "r"; skin: { fill: string; stroke: string; strokeLinejoin: "round" } }) {
+  // Drawn hanging straight down from the shoulder at (0,0).
+  return (
+    <g className={`leon-arm-${side}`}>
+      <path d="M0 0 L0 15" fill="none" stroke="var(--leon-dark)" strokeWidth="8" strokeLinecap="round" className="leon-skin" />
+      <path d="M0 0 L0 15" fill="none" stroke="var(--leon-body)" strokeWidth="4.6" strokeLinecap="round" className="leon-skin" />
+      {side === "r" && (
+        // pointing finger, shown while explaining or correcting
+        <path className="leon-finger leon-skin" d="M0 18 L0 24" fill="none" stroke="var(--leon-dark)" strokeWidth="3.4" strokeLinecap="round" />
+      )}
+      <ellipse {...skin} strokeWidth={2} className="leon-skin" cx="0" cy="17.5" rx="4.6" ry="4.2" />
+    </g>
+  );
+}
+
+// ── Motion engine ─────────────────────────────────────────────────────────────
+
+type PuppetRefs = {
+  mood: React.MutableRefObject<LeonMood>;
+  voice: React.MutableRefObject<React.MutableRefObject<number> | undefined>;
+  mic: React.MutableRefObject<React.MutableRefObject<number> | undefined>;
+};
+
+const KEYS = ["hr", "hx", "hy", "br", "bs", "hop", "tr", "al", "ar", "brow", "sx", "sy"] as const;
+type Pose = Record<(typeof KEYS)[number], number>;
+const REST: Pose = { hr: 0, hx: 0, hy: 0, br: 0, bs: 0, hop: 0, tr: 0, al: -18, ar: 18, brow: 0, sx: 0, sy: 0 };
+
+/**
+ * Animate Leon like a puppet: every frame, work out a target pose from his
+ * mood, the time and the live voice level, then ease each joint toward it.
+ * Moods blend into one another instead of snapping. Returns a stop function.
+ */
+function runPuppet(el: SVGSVGElement, refs: PuppetRefs, reduce: boolean): () => void {
+  const pose: Pose = { ...REST };
+  const amp = reduce ? 0.25 : 1;
+  let raf = 0;
+  let last = performance.now();
+  let voice = 0; // smoothed, 0..1, relative to the recent loudest
+  let peak = 0.05;
+  let silentFor = 0; // seconds of speaking-mood with no measurable audio
+  let meterWorks = false; // once real audio is seen, trust the meter (pauses included)
+  let speakingFor = 0;
+  let lastShape = -1;
+  let wasLive = false;
+  let beatAt = -10; // last stressed syllable
+  let nod = 0; // decaying impulses
+  let brow = 0;
+  let gesture = 0; // which explaining pose the arm is in
+  let nextGesture = 0;
+  let look = { x: 0, y: 0 };
+  let nextLook = 0;
+
+  const tick = (now: number) => {
+    const dt = Math.min(0.05, (now - last) / 1000);
+    last = now;
+    const t = now / 1000;
+    const mood = refs.mood.current;
+    const speaking = mood === "speaking";
+    const listening = mood === "listening";
+
+    // ── loudness: Leon's own voice, or the student's mic while listening ──
+    const src = speaking ? refs.voice.current : listening ? refs.mic.current : undefined;
+    let raw = src?.current ?? 0;
+    if (speaking) {
+      speakingFor += dt;
+      if (raw > 0.02) meterWorks = true;
+      silentFor = raw > 0.006 ? 0 : silentFor + dt;
+      // No usable meter (iPhone, blocked analyser, or a dead reading): fake a
+      // natural speech rhythm (syllables with short pauses) so he still talks.
+      if (!meterWorks && (silentFor > 0.35 || !src)) {
+        const syl = Math.abs(Math.sin(t * Math.PI * 4.6));
+        const phrase = 0.55 + 0.45 * Math.sin(t * 1.9) * Math.sin(t * 0.73 + 1);
+        raw = Math.sin(t * 0.9) > -0.85 ? syl * phrase * 0.6 : 0;
+      }
+    } else {
+      speakingFor = 0;
+      silentFor = 0;
+    }
+    peak = Math.max(raw, peak * Math.pow(0.6, dt), 0.02);
+    const target = raw < 0.006 ? 0 : Math.min(1, raw / peak);
+    voice += (target - voice) * (target > voice ? 0.6 : 0.3);
+
+    // a stressed syllable: a jump in loudness, at most ~4 a second
+    if (voice > 0.62 && t - beatAt > 0.26 && (speaking || listening)) {
+      beatAt = t;
+      nod = listening ? 2.6 : 1.6;
+      if (speaking) brow = -1.8;
+    }
+    nod *= Math.pow(0.02, dt);
+    brow *= Math.pow(0.04, dt);
+
+    // look around the room now and then; look at the student while talking
+    if (t > nextLook) {
+      const roam = mood === "idle" ? 3 : mood === "thinking" ? 1.5 : 1;
+      look = { x: (Math.random() * 2 - 1) * roam, y: (Math.random() * 2 - 1) * roam * 0.6 };
+      if (mood === "thinking") look.y -= 2.5;
+      nextLook = t + 0.8 + Math.random() * (mood === "idle" ? 2.5 : 1.6);
+    }
+
+    // ── target pose per mood ──
+    const g: Pose = { ...REST };
+    g.bs = 0.012 * Math.sin(t * 1.6); // breathing
+    g.tr = 5 * Math.sin(t * 0.8);
+    g.sx = look.x;
+    g.sy = look.y;
+    switch (mood) {
+      case "idle":
+        g.hr = 3 * Math.sin(t * 0.55) + 1.5 * Math.sin(t * 1.3);
+        g.hy = 1.2 * Math.sin(t * 1.1);
+        g.br = 1.2 * Math.sin(t * 0.45);
+        g.al = -16 + 4 * Math.sin(t * 0.9);
+        g.ar = 16 - 4 * Math.sin(t * 0.8);
+        break;
+      case "listening":
+        // leans in toward the student, nods along to their voice
+        g.hr = -8 + 1.5 * Math.sin(t * 0.7);
+        g.hx = -1.5;
+        g.hy = 1 + nod;
+        g.br = -2;
+        g.brow = -0.8 * voice;
+        g.al = -24;
+        g.ar = 26 + 4 * Math.sin(t * 0.9);
+        g.sx = look.x * 0.4;
+        break;
+      case "thinking":
+        // head tipped, eyes up, hand on chin, tapping
+        g.hr = 7 + 1.5 * Math.sin(t * 0.9);
+        g.hy = -0.5;
+        g.brow = -1.4;
+        g.ar = 128 + 6 * Math.abs(Math.sin(t * 3.2));
+        g.al = -10;
+        g.tr = -10 + 6 * Math.sin(t * 1.4);
+        break;
+      case "speaking": {
+        // talking with his hands: a new explaining pose every second or two
+        if (t > nextGesture) {
+          gesture = (gesture + 1 + Math.floor(Math.random() * 2)) % 3;
+          nextGesture = t + 1.1 + Math.random() * 1.3;
+        }
+        const armPose = [-70, -105, -40][gesture];
+        g.ar = armPose + 10 * voice * Math.sin(t * 7) - 6 * (nod / 1.6);
+        g.al = 30 + 12 * Math.sin(t * 1.2) + (gesture === 1 ? 20 : 0);
+        g.hr = 3.5 * Math.sin(t * 0.9) + 2 * Math.sin(t * 2.1) + (gesture - 1) * 2;
+        g.hy = -1.8 * voice + nod;
+        g.br = 1.6 * Math.sin(t * 0.7);
+        g.brow = brow - 0.6 * voice;
+        g.bs += 0.01 * voice;
+        g.sx *= 0.3;
+        g.sy = 0.5;
+        break;
+      }
+      case "correcting":
+        // finger up and wagging, glasses slid down the nose
+        g.ar = -168 + 9 * Math.sin(t * 9);
+        g.al = -14;
+        g.hr = -5 + 2 * Math.sin(t * 4.5);
+        g.brow = 2.6;
+        g.sy = 2;
+        break;
+      case "celebrating":
+        g.al = 140 + 12 * Math.sin(t * 11);
+        g.ar = -140 - 12 * Math.sin(t * 11);
+        g.hop = -5 * Math.abs(Math.sin(t * 7));
+        g.hr = 5 * Math.sin(t * 7);
+        g.tr = 10 * Math.sin(t * 7);
+        g.brow = -1.5;
+        break;
+    }
+
+    // ease every joint toward its target (critically-damped-ish follow)
+    const k = 1 - Math.pow(0.0008, dt);
+    for (const key of KEYS) {
+      const goal = key === "al" || key === "ar" ? REST[key] + (g[key] - REST[key]) * amp : g[key] * amp;
+      pose[key] += (goal - pose[key]) * k;
+      el.style.setProperty(`--${key}`, pose[key].toFixed(2));
+    }
+
+    // ── mouth ──
+    const live = speaking && speakingFor > 0;
+    if (live !== wasLive) {
+      if (live) el.setAttribute("data-live", "true");
+      else el.removeAttribute("data-live");
+      wasLive = live;
+    }
+    if (live) {
+      const shape = voice < 0.12 ? 0 : voice < 0.38 ? 1 : voice < 0.7 ? 2 : 3;
+      if (shape !== lastShape) {
+        el.setAttribute("data-mouth", String(shape));
+        lastShape = shape;
+      }
+    } else lastShape = -1;
+    el.style.setProperty("--leon-ear", listening ? voice.toFixed(3) : "0");
+
+    raf = requestAnimationFrame(tick);
+  };
+  raf = requestAnimationFrame(tick);
+  return () => {
+    cancelAnimationFrame(raf);
+    el.removeAttribute("data-live");
+  };
 }
