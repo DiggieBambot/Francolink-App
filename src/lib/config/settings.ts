@@ -203,13 +203,11 @@ export async function getLimitsConfig() {
       ["A1", "A2", "B1", "B2"]
     ),
     // These live in the "ai" category alongside the rest of the AI settings —
-    // that is where the admin panel writes them.
-    premiumAiMessages: await getSetting("ai", "premium_ai_messages_per_month", 300),
-    premiumPlusAiMessages: await getSetting(
-      "ai",
-      "premium_plus_ai_messages_per_month",
-      1500
-    ),
+    // that is where the admin panel writes them. Minutes of tutoring time.
+    premiumAiDailyMinutes: await getSetting("ai", "premium_ai_daily_minutes", 15),
+    premiumAiMonthlyMinutes: await getSetting("ai", "premium_ai_monthly_minutes", 180),
+    premiumPlusAiDailyMinutes: await getSetting("ai", "premium_plus_ai_daily_minutes", 45),
+    premiumPlusAiMonthlyMinutes: await getSetting("ai", "premium_plus_ai_monthly_minutes", 600),
   };
 }
 

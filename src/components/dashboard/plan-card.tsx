@@ -24,12 +24,12 @@ export interface PlanPrices {
 const PERKS: Record<"premium" | "premium_plus", string[]> = {
   premium: [
     "Unlimited lessons, all levels",
-    "300 AI Tutor messages a month",
+    "3 hours of AI tutoring a month",
     "Offline mode & priority support",
   ],
   premium_plus: [
     "Everything in Premium",
-    "1,500 AI Tutor messages a month",
+    "10 hours of AI tutoring a month",
     "Advanced pronunciation analysis",
   ],
 };

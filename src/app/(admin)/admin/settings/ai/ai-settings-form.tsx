@@ -90,27 +90,43 @@ const SETTING_LABELS: Record<string, { label: string; description: string; group
   },
   
   // Limits
-  free_ai_messages_per_month: { 
-    label: 'Free Tier Monthly Messages', 
-    description: 'AI tutor messages per month for free users (0 = disabled)',
+  free_ai_daily_minutes: {
+    label: 'Free: minutes per day',
+    description: 'AI tutoring minutes per day for free users (0 = no access)',
     group: 'limits'
   },
-  premium_ai_messages_per_month: { 
-    label: 'Premium Monthly Messages', 
-    description: 'AI tutor messages per month for Premium subscribers',
+  free_ai_monthly_minutes: {
+    label: 'Free: minutes per month',
+    description: 'AI tutoring minutes per month for free users (0 = no access)',
     group: 'limits'
   },
-  premium_plus_ai_messages_per_month: { 
-    label: 'Premium+ Monthly Messages', 
-    description: 'AI tutor messages per month for Premium Plus subscribers',
+  premium_ai_daily_minutes: {
+    label: 'Premium: minutes per day',
+    description: 'AI tutoring minutes per day for Premium subscribers',
+    group: 'limits'
+  },
+  premium_ai_monthly_minutes: {
+    label: 'Premium: minutes per month',
+    description: 'AI tutoring minutes per month for Premium subscribers (180 = 3 h)',
+    group: 'limits'
+  },
+  premium_plus_ai_daily_minutes: {
+    label: 'Premium+: minutes per day',
+    description: 'AI tutoring minutes per day for Premium+ subscribers',
+    group: 'limits'
+  },
+  premium_plus_ai_monthly_minutes: {
+    label: 'Premium+: minutes per month',
+    description: 'AI tutoring minutes per month for Premium+ subscribers (600 = 10 h)',
     group: 'limits'
   },
 };
 
 const MODEL_OPTIONS = {
   openai: [
-    { value: 'gpt-4o', label: 'GPT-4o (Recommended)' },
-    { value: 'gpt-4o-mini', label: 'GPT-4o Mini (Cheaper)' },
+    { value: 'gpt-4.1-mini', label: 'GPT-4.1 Mini (Recommended for the tutor)' },
+    { value: 'gpt-4o', label: 'GPT-4o (about 6x the cost)' },
+    { value: 'gpt-4o-mini', label: 'GPT-4o Mini (Cheapest)' },
     { value: 'gpt-4-turbo', label: 'GPT-4 Turbo' },
   ],
   anthropic: [

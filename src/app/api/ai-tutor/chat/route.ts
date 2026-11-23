@@ -4,7 +4,7 @@ import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/server";
 import { getOpenAIClient, getAIConfig, estimateTokens } from "@/lib/ai/client";
 import { costOf } from "@/lib/ai/pricing";
-import { getTutorAccess, USAGE_COLUMN } from "@/lib/ai/tutor-access";
+import { getTutorAccess, recordTutorTime, secondsForTurn } from "@/lib/ai/tutor-access";
 import { buildTutorContext } from "@/lib/ai/tutor-context";
 import { buildLessonState } from "@/lib/ai/tutor-lesson";
 import { loadMemoryBlock, recapStaleConversation } from "@/lib/ai/tutor-memory";
@@ -185,9 +185,8 @@ export async function POST(request: NextRequest) {
         {
           error: access.reason,
           code: access.code,
-          messagesUsed: access.messagesUsed,
-          monthlyLimit: access.monthlyLimit,
-          remainingMessages: access.remainingMessages,
+          limitScope: access.limitScope,
+          remainingSeconds: access.remainingSeconds,
         },
         { status }
       );
@@ -195,6 +194,8 @@ export async function POST(request: NextRequest) {
 
     const body = await request.json();
     const { messages, language, lessonId } = body;
+    // "session" = the voice-first tutoring session: short, spoken replies.
+    const spokenSession = body.mode === "session";
     let { conversationId } = body;
 
     if (!messages || !Array.isArray(messages)) {
@@ -217,12 +218,13 @@ export async function POST(request: NextRequest) {
       id: string;
       section_index: number;
       tutor_lesson_id: string | null;
+      last_message_at?: string | null;
     } | null = null;
 
     if (conversationId) {
       const { data } = await svc
         .from("ai_tutor_conversations")
-        .select("id, section_index, tutor_lesson_id, user_id")
+        .select("id, section_index, tutor_lesson_id, user_id, last_message_at")
         .eq("id", conversationId)
         .maybeSingle();
       // Never resume someone else's conversation on a supplied id.
@@ -255,6 +257,10 @@ export async function POST(request: NextRequest) {
         );
       }
     }
+
+    // Active tutoring time this turn: the gap since the previous turn, capped
+    // at 2 minutes so time stops counting when the student walks away.
+    const turnSeconds = secondsForTurn(conversation?.last_message_at);
 
     let startedNewConversation = false;
     if (!conversation) {
@@ -304,6 +310,10 @@ export async function POST(request: NextRequest) {
     // ── Prompt ──────────────────────────────────────────────────────────────
     const systemPrompt = [
       `You are a friendly, patient, and encouraging ${targetLang} language tutor on FrancoLink.`,
+      '',
+      spokenSession
+        ? `This is a live spoken tutoring session: everything you write is read aloud. Reply in 1-2 short sentences and end with a question so the student keeps talking. No lists, markdown, emoji or parentheses. If the student made a mistake, recast it naturally in your reply (for example "Ah, tu es allé au marché ?") rather than explaining grammar; the written corrections go in the JSON as usual.`
+        : '',
       '',
       context.block,
       '',
@@ -470,19 +480,13 @@ ${META_DELIMITER}
               .eq("id", conversationId);
           }
 
-          // ── Quota ─────────────────────────────────────────────────────────
-          const messagesUsed = access.isPrivileged ? 0 : access.messagesUsed + 1;
-
-          if (!access.isPrivileged) {
-            await supabase
-              .from("users")
-              .update({ [USAGE_COLUMN]: messagesUsed })
-              .eq("id", user.id);
-          }
-
-          const monthlyLimit = access.monthlyLimit;
-          const remainingMessages =
-            monthlyLimit === null ? null : Math.max(0, monthlyLimit - messagesUsed);
+          // ── Tutoring time ─────────────────────────────────────────────────
+          // Charged only for a turn that succeeded.
+          await recordTutorTime(access, user.id, turnSeconds);
+          const remainingSeconds =
+            access.remainingSeconds === null
+              ? null
+              : Math.max(0, access.remainingSeconds - turnSeconds);
 
           send(controller, {
             t: "done",
@@ -499,9 +503,7 @@ ${META_DELIMITER}
                 }
               : null,
             level: context.level,
-            messagesUsed,
-            monthlyLimit,
-            remainingMessages,
+            remainingSeconds,
           });
         } catch (err) {
           // A dropped client aborts the upstream call; nothing to report then.
