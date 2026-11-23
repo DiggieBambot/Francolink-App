@@ -16,8 +16,10 @@ import {
   History,
   CreditCard,
   LifeBuoy,
+  Search,
   LucideIcon,
 } from "lucide-react";
+import { findTutorUrl } from "@/lib/site/find-tutor";
 
 interface NavItem {
   label: string;
@@ -32,6 +34,8 @@ const navigationItems: NavItem[] = [
   { label: "AI Tutor", href: "/student/ai-tutor", icon: Bot },
   { label: "Homework", href: "/student/homework", icon: PencilLine },
   { label: "Sessions", href: "/student/sessions", icon: Video },
+  // The website directory, opened on the "help me choose" questions.
+  { label: "Find a tutor", href: findTutorUrl(), icon: Search },
   { label: "Lessons Covered", href: "/student/history", icon: History },
   { label: "Leaderboard", href: "/student/leaderboard", icon: Trophy },
   { label: "Placement Test", href: "/placement-test", icon: Brain },
