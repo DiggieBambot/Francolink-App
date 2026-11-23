@@ -47,10 +47,14 @@ export interface TutorCard {
   /**
    * Coarse weekly availability, as "weekday-band" keys like "2-evening".
    * Bands are cut in the TUTOR's timezone here and re-cut per viewer in the
-   * browser; see availabilityBands(). Empty means we have no schedule for
+   * browser from `slots` + `timezone`; see lib/site/viewer-bands.ts. Empty means we have no schedule for
    * them, which the directory treats as "unknown", never as "never free".
    */
   availability_bands: string[];
+  /** The raw weekly slots and the zone they're in, so the browser can re-cut
+   *  bands in the visitor's own zone (lib/site/viewer-bands.ts). */
+  slots: AvailabilitySlot[];
+  timezone: string | null;
 }
 
 export interface TutorProfile extends TutorCard {
@@ -58,7 +62,6 @@ export interface TutorProfile extends TutorCard {
   bio: string | null;
   qualifications: Qualification[];
   intro_video_url: string | null;
-  timezone: string | null;
   availability: AvailabilitySlot[];
   testimonials: Testimonial[];
 }
@@ -159,7 +162,7 @@ export function availabilityBands(slots: AvailabilitySlot[]): string[] {
   return [...out];
 }
 
-function toCard(row: ProfileRow, bands: string[] = []): TutorCard {
+function toCard(row: ProfileRow, slots: AvailabilitySlot[] = []): TutorCard {
   const user = joinedUser(row);
   return {
     slug: row.slug,
@@ -174,7 +177,9 @@ function toCard(row: ProfileRow, bands: string[] = []): TutorCard {
     tier: (row.tier as Tier) || "community",
     trial_available: row.trial_available,
     speaks: row.speaks ?? [],
-    availability_bands: bands,
+    availability_bands: availabilityBands(slots),
+    slots: slots.map(({ weekday, start_minute, end_minute }) => ({ weekday, start_minute, end_minute })),
+    timezone: row.timezone,
   };
 }
 
@@ -208,7 +213,7 @@ export async function getPublicTutors(): Promise<TutorCard[]> {
   }
 
   return rows.map((row) =>
-    toCard(row, availabilityBands(byTutor.get(row.user_id) ?? []))
+    toCard(row, byTutor.get(row.user_id) ?? [])
   );
 }
 
@@ -248,7 +253,7 @@ export async function getPublicTutor(slug: string): Promise<TutorProfile | null>
   const availability = (slots as AvailabilitySlot[]) ?? [];
 
   return {
-    ...toCard(row, availabilityBands(availability)),
+    ...toCard(row, availability),
     user_id: row.user_id,
     bio: row.bio,
     qualifications: row.qualifications ?? [],
