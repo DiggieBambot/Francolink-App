@@ -6,9 +6,9 @@ import { getOpenAIClient, getAIConfig, estimateTokens, isAIUnavailableError, AI_
 import { costOf } from "@/lib/ai/pricing";
 import { getTutorAccess, recordTutorTime, secondsForTurn } from "@/lib/ai/tutor-access";
 import { buildTutorContext } from "@/lib/ai/tutor-context";
-import { buildLessonState } from "@/lib/ai/tutor-lesson";
+import { buildLessonState, describeWork, sectionLabel } from "@/lib/ai/tutor-lesson";
 import { loadMemoryBlock, recapStaleConversation } from "@/lib/ai/tutor-memory";
-import type { LessonContent } from "@/types/lesson-content";
+import type { Lesson } from "@/lib/lessons/types";
 import {
   findResumableLesson,
   isFirstClass,
@@ -207,6 +207,16 @@ export async function POST(request: NextRequest) {
     const spokenSession = body.mode === "session";
     // Opening a session: Professor Léon speaks first, with no student message.
     const greeting = body.greet === true;
+    // A tap on the on-screen lesson rather than something the student said:
+    // moving to another step, or asking Léon to check their answers.
+    const event: { type: "step"; to: number } | { type: "check" } | null =
+      body.event?.type === "step" && Number.isInteger(body.event.to)
+        ? { type: "step", to: body.event.to }
+        : body.event?.type === "check"
+          ? { type: "check" }
+          : null;
+    // Turns with no new student message: the opening greeting and lesson taps.
+    const silentTurn = greeting || !!event;
     let { conversationId } = body;
 
     if (!messages || !Array.isArray(messages)) {
@@ -286,7 +296,7 @@ export async function POST(request: NextRequest) {
     let pendingChoice: { id: string; title: string; translation: string | null }[] = [];
     let choiceTokensIn = 0;
     let choiceTokensOut = 0;
-    if (spokenSession && !greeting && !lessonId && conversation && !conversation.tutor_lesson_id) {
+    if (spokenSession && !silentTurn && !lessonId && conversation && !conversation.tutor_lesson_id) {
       const { data: extra } = await svc
         .from("ai_tutor_conversations")
         .select("offered_lesson_ids")
@@ -333,6 +343,9 @@ export async function POST(request: NextRequest) {
       startSection = resumed && resume ? resume.sectionIndex : 0;
     }
     let lessonState = null;
+    let lessonContent: Lesson | null = null;
+    // Where the student moved on screen, when they tapped a step.
+    let movedFrom: number | null = null;
 
     if (activeLessonId) {
       const { data: lesson } = await svc
@@ -342,13 +355,25 @@ export async function POST(request: NextRequest) {
         .maybeSingle();
 
       if (lesson) {
-        lessonState = buildLessonState(
-          lesson.id,
-          lesson.content as LessonContent | null,
-          startSection
-        );
+        lessonContent = lesson.content as Lesson | null;
+        const total = lessonContent?.sections?.length ?? 0;
+        if (event?.type === "step" && !lessonStartsNow && event.to >= 0 && event.to < total && event.to !== startSection) {
+          movedFrom = startSection;
+          startSection = event.to;
+          if (conversation) {
+            await svc.from("ai_tutor_conversations").update({ section_index: startSection }).eq("id", conversation.id);
+            conversation.section_index = startSection;
+          }
+        }
+        lessonState = buildLessonState(lesson.id, lessonContent, startSection);
       }
     }
+
+    // What the student has done in the on-screen exercises of the current step.
+    const workNote =
+      lessonState && !lessonState.finished && body.work && typeof body.work === "object"
+        ? describeWork(lessonContent, lessonState.sectionIndex, body.work as Record<string, unknown>)
+        : "";
 
     // Record the choice before the reply, so it survives a failed turn.
     if (lessonStartsNow && lessonState && conversation) {
@@ -434,6 +459,7 @@ export async function POST(request: NextRequest) {
       '',
       lessonState ? lessonState.block : '',
       '',
+      workNote,
       lessonState && spokenSession
         ? `You lead this class like a real teacher: follow the lesson, one small step at a time (present, ask, let them answer, correct, move on). If the student drifts off topic, answer in one sentence and bring them back to the lesson.`
         : '',
@@ -489,7 +515,21 @@ ${META_DELIMITER}
         ? `(The student has just walked into their very first class with you. Speak ${studentLang} for this introduction so they understand everything; use ${targetLang} only for a one-word greeting and the lesson titles. In four or five short spoken sentences: greet them by first name if you know it and introduce yourself with real enthusiasm by your full name, Léon Chame (Professor Léon), their ${targetLang} teacher; explain how class works: each class you teach them one real lesson from FrancoLink's live-class programme, they answer out loud, you correct them gently, and the class board on screen keeps their corrections. ${offerLine})`
         : `(The student has just opened a class. Welcome them back warmly as Professor Léon, by first name if you know it, and mention one specific thing you know about them. ${offerLine} Speak mostly in ${targetLang}, pitched at their level; at A1 or A2 add a very short ${studentLang} gloss after the hard part. Three or four short spoken sentences.)`
       : `(The student has just opened an AI tutoring session. Open the class now as Professor Léon. If the notes above show you have met before, welcome them back warmly; otherwise introduce yourself by name, as Léon Chame, with enthusiasm in one short sentence. Use their first name if you know it. ${lessonState ? `Then begin the lesson above.` : `Mention one specific thing you know about them — something from your notes, a lesson they covered recently, or their streak — then ask one easy opening question that fits it.`} Speak mostly in ${targetLang}, pitched at their level; at A1 or A2, add a very short English gloss in brackets after the hard part. Two or three short spoken sentences. No hints are needed beyond the usual JSON.)`;
-    const greetingCue = greeting ? [{ role: "user" as const, content: greetingText }] : [];
+    const stepNow = lessonState ? sectionLabel(lessonContent?.sections?.[lessonState.sectionIndex], lessonState.sectionIndex) : "this step";
+    const eventText = !event
+      ? ""
+      : event.type === "step"
+        ? movedFrom !== null && movedFrom > (lessonState?.sectionIndex ?? 0)
+          ? `(The student went back to ${stepNow} on screen to review it. Say so in a few words and go over it with one quick question.)`
+          : `(The student moved on to ${stepNow} on screen. Introduce it in one sentence and give them the first small task.)`
+        : workNote
+          ? `(The student tapped "Check my answers" on ${stepNow}. React to their on-screen answers above: praise what is right, take the first wrong one and help them fix it, and have them say the corrected line aloud.)`
+          : `(The student tapped "Check my answers" on ${stepNow} but has not answered anything on screen yet. Encourage them to try the exercise, or to say the answers aloud, and give the first prompt.)`;
+    const greetingCue = greeting
+      ? [{ role: "user" as const, content: greetingText }]
+      : eventText
+        ? [{ role: "user" as const, content: eventText }]
+        : [];
     const completion = await openai.chat.completions.create(
       {
         model,
@@ -568,7 +608,8 @@ ${META_DELIMITER}
           // check a model can "correct" its own reply and show the student a
           // mistake they never made.
           const studentText = normalizeForMatch(history[history.length - 1]?.content ?? "");
-          const corrections = meta.corrections.filter((c) =>
+          // A tap on the lesson has no new student words to correct.
+          const corrections = silentTurn ? [] : meta.corrections.filter((c) =>
             studentText.includes(normalizeForMatch(c.original))
           );
           const cost = costOf(model, tokensIn, tokensOut);
@@ -583,7 +624,7 @@ ${META_DELIMITER}
           if (conversationId) {
             await svc.from("ai_tutor_messages").insert([
               // A greeting has no student message to store.
-              ...(greeting
+              ...(silentTurn
                 ? []
                 : [
                     {

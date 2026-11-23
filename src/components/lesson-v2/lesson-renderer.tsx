@@ -26,7 +26,7 @@ interface LessonRendererProps {
   lockedView?: LessonView;
 }
 
-function renderSection(s: Section, view: LessonView, sectionIdx: number, theme: ReturnType<typeof getLevelTheme>) {
+export function renderSection(s: Section, view: LessonView, sectionIdx: number, theme: ReturnType<typeof getLevelTheme>) {
   const kind = s.kind as string;
   switch (kind) {
     case "warmup_vocabulary":

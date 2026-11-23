@@ -58,6 +58,7 @@ interface Message {
 }
 
 interface LessonProgress {
+  id?: string;
   title: string;
   sectionIndex: number;
   totalSections: number;
@@ -135,6 +136,10 @@ export default function AITutorPage() {
   const [learningLanguage, setLearningLanguage] = useState("fr");
   const [studentLevel, setStudentLevel] = useState("A1");
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  // Answers the student gives in the on-screen lesson exercises, by anchor,
+  // and the last set already sent to Léon (so he hears about each change once).
+  const lessonAnswersRef = useRef<Record<string, unknown>>({});
+  const sentAnswersRef = useRef("");
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const abortRef = useRef<AbortController | null>(null);
   // A short-lived reaction (tongue flick on a correction, a hop on a clean
@@ -209,13 +214,21 @@ export default function AITutorPage() {
 
   const sendMessage = async (
     override?: string,
-    opts: { greet?: boolean; session?: boolean; lessonId?: string } = {}
+    opts: {
+      greet?: boolean;
+      session?: boolean;
+      lessonId?: string;
+      /** A tap on the on-screen lesson instead of something the student said. */
+      event?: { type: "step"; to: number } | { type: "check" };
+    } = {}
   ) => {
     const greet = opts.greet === true;
+    // Turns with no student message of their own.
+    const silent = greet || !!opts.event;
     // Passed explicitly when opening a session, before sessionOpen has updated.
     const inSession = opts.session ?? sessionOpen;
     const trimmed = (override ?? input).trim();
-    if ((!trimmed && !greet) || isLoading) return;
+    if ((!trimmed && !silent) || isLoading) return;
 
     // This runs inside the click, so it is the moment to unlock audio for the
     // reply that will arrive later.
@@ -232,7 +245,7 @@ export default function AITutorPage() {
       timestamp: new Date(),
     };
 
-    if (!greet) setMessages((prev) => [...prev, userMessage]);
+    if (!silent) setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setIsLoading(true);
     if (inputRef.current) inputRef.current.style.height = "auto";
@@ -243,7 +256,7 @@ export default function AITutorPage() {
     let assistantAdded = false;
 
     try {
-      const apiMessages = (greet ? messages : [...messages, userMessage]).map((m) => ({
+      const apiMessages = (silent ? messages : [...messages, userMessage]).map((m) => ({
         role: m.role,
         content: m.content,
       }));
@@ -260,6 +273,8 @@ export default function AITutorPage() {
           // Léon introduces a first class in the student's own language.
           nativeLanguage: typeof navigator !== "undefined" ? navigator.language : undefined,
           greet: greet || undefined,
+          event: opts.event,
+          work: workToSend(opts.event?.type === "check"),
         }),
         signal: abortRef.current.signal,
       });
@@ -507,6 +522,32 @@ export default function AITutorPage() {
     if (messages.length === 0) void sendMessage(undefined, { greet: true, session: true });
   };
 
+  // On-screen exercise answers for Léon: when they changed since he last
+  // heard them, or always when the student asks him to check.
+  function workToSend(force: boolean): Record<string, unknown> | undefined {
+    const answers = lessonAnswersRef.current;
+    if (!Object.keys(answers).length) return undefined;
+    const json = JSON.stringify(answers);
+    if (!force && json === sentAnswersRef.current) return undefined;
+    sentAnswersRef.current = json;
+    return answers;
+  }
+
+  // The student moved to another step of the lesson on screen: the screen
+  // moves at once and Léon picks it up.
+  const goToLessonStep = (index: number) => {
+    if (isLoading || !lesson) return;
+    tts.stop();
+    setLesson({ ...lesson, sectionIndex: index, finished: false });
+    void sendMessage(undefined, { session: true, event: { type: "step", to: index } });
+  };
+
+  const checkLessonAnswers = () => {
+    if (isLoading) return;
+    tts.stop();
+    void sendMessage(undefined, { session: true, event: { type: "check" } });
+  };
+
   // Tapping one of the offered lessons: it starts right away.
   const pickClassTopic = (topic: ClassTopicOption) => {
     if (isLoading) return;
@@ -533,6 +574,8 @@ export default function AITutorPage() {
     setLesson(null);
     setLessonId(null);
     setClassTopics(null);
+    lessonAnswersRef.current = {};
+    sentAnswersRef.current = "";
     setHints([]);
     setError(null);
   };
@@ -1253,6 +1296,9 @@ export default function AITutorPage() {
           resume={classTopics?.resume ?? null}
           onPickTopic={pickClassTopic}
           lesson={lesson}
+          lessonAnswers={lessonAnswersRef}
+          onLessonStep={goToLessonStep}
+          onLessonCheck={checkLessonAnswers}
         />
       )}
 
