@@ -6,7 +6,10 @@ import { emailShell, escapeHtml, APP_URL } from "@/lib/email/shell";
 
 export const CAMPAIGN = "engagement";
 
-export type MessageType = "homework" | "winback" | "nudge" | "streak" | "discover";
+export type MessageType = "homework" | "first_lesson" | "winback" | "nudge" | "streak" | "discover";
+
+/** Ledger campaign used only to space out first_lesson sends (see the cron). */
+export const FIRST_LESSON_LEDGER = "engagement-first-lesson";
 
 export interface UserSignals {
   firstName: string;
@@ -14,6 +17,13 @@ export interface UserSignals {
   daysSinceSeen: number;     // Infinity if never seen
   streak: number;
   hasPendingHomework: boolean;
+  /**
+   * Set when the student has an active tutor connection but no plan, no
+   * credits and no lesson yet, and that tutor has open slots — and the
+   * first_lesson nudge isn't on cooldown. Drives the "book your first lesson"
+   * email.
+   */
+  firstLesson?: { tutorName: string; bookUrl: string };
 }
 
 export interface RenderedEmail {
@@ -26,6 +36,7 @@ export interface RenderedEmail {
 export function pickMessage(s: UserSignals): MessageType | null {
   if (s.hasPendingHomework) return "homework";
   if (s.daysSinceSeen < 1) return null;            // active today — don't nag
+  if (s.firstLesson) return "first_lesson";
   if (s.daysSinceSeen >= 7) return "winback";
   if (s.daysSinceSeen >= 2) return "nudge";
   if (s.streak >= 2) return "streak";
@@ -89,6 +100,21 @@ export function render(type: MessageType, s: UserSignals, unsubscribeUrl?: strin
         `${APP_URL}/student/homework`,
         unsubscribeUrl
       );
+    case "first_lesson": {
+      const tutor = escapeHtml(s.firstLesson?.tutorName || "your tutor");
+      return build(
+        name,
+        `Book your first lesson with ${s.firstLesson?.tutorName || "your tutor"}`,
+        [
+          `You're connected with <b>${tutor}</b> on FrancoLink — the next step is your first live ${lang} lesson.`,
+          `Open ${tutor}'s calendar, pick a time that suits you, and you're set. Live lessons are booked with the 3-lesson starter pack or a plan, which you choose after picking your slot.`,
+          `Speaking with a real tutor is where the lessons you've been doing start to stick.`,
+        ],
+        "See open times",
+        s.firstLesson?.bookUrl || `${APP_URL}/dashboard`,
+        unsubscribeUrl
+      );
+    }
     case "winback":
       return build(
         name,

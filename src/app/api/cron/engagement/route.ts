@@ -7,6 +7,7 @@
 // Query params:
 //   ?dry=1                — compute + return who WOULD get what, send nothing
 //   ?preview=winback&lang=fr — render one message type in the browser (no auth)
+//                           (?preview=first_lesson renders the "book your first lesson" nudge)
 //   ?test=me@x.io&type=streak — send one real message to a test address
 //   ?limit=200            — cap sends this run
 
@@ -15,8 +16,9 @@ import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { sendCampaignEmail } from "@/lib/email/send";
 import { unsubscribeUrl } from "@/lib/email/link-token";
 import { languageName } from "@/lib/email/campaigns/learning-tips";
+import { tutorBookingLinks, tutorBookUrl } from "@/lib/booking/book-link";
 import {
-  CAMPAIGN, pickMessage, render, renderTutor, pickTutorMessage, TUTOR_VALUE_THEMES,
+  CAMPAIGN, FIRST_LESSON_LEDGER, pickMessage, render, renderTutor, pickTutorMessage, TUTOR_VALUE_THEMES,
   type MessageType, type UserSignals, type TutorMessageType, type TutorSignals,
 } from "@/lib/email/campaigns/engagement";
 
@@ -58,6 +60,11 @@ export const dynamic = "force-dynamic";
 const DAY = 86400_000;
 const MIN_GAP_MS = 36 * 3600_000;    // never two engagement emails within 36h
 const MAX_PER_7D = 3;                 // at most 3 engagement emails per rolling week
+// The first-lesson nudge is the same ask every time, so it gets its own,
+// tighter spacing on top of the campaign caps above.
+const FIRST_LESSON_GAP_MS = 7 * DAY;
+const FIRST_LESSON_MAX = 3;
+const SAMPLE_FIRST_LESSON = { tutorName: "Camille", bookUrl: tutorBookUrl("camille") };
 
 function svc() {
   return createServiceClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!);
@@ -76,7 +83,82 @@ function isTestAccount(u: { email?: string | null; name?: string | null }): bool
   if (!email.includes("@")) return true;
   if (/\.(test|local)$/.test(email) || email.endsWith("@example.com")) return true;
   if (/^test\d*@/.test(email)) return true;
+  if (email.endsWith("@demo.francolink.net")) return true; // filming accounts
   return false;
+}
+
+/**
+ * Students to send the "book your first lesson" nudge, keyed by student id:
+ * an active tutor connection (tutor_students.status='active') whose tutor has
+ * open slots, no live plan, no credit balance, no booked lesson (an abandoned
+ * checkout doesn't count), and the nudge not sent in the last 7 days nor more
+ * than FIRST_LESSON_MAX times ever.
+ */
+async function firstLessonTargets(
+  s: ReturnType<typeof svc>,
+  userIds: string[],
+  now: number
+): Promise<Map<string, { tutorName: string; bookUrl: string }>> {
+  const out = new Map<string, { tutorName: string; bookUrl: string }>();
+  if (userIds.length === 0) return out;
+  try {
+    const { data: links } = await s
+      .from("tutor_students")
+      .select("tutor_id, student_id, assigned_at")
+      .eq("status", "active")
+      .in("student_id", userIds)
+      .order("assigned_at", { ascending: false });
+    const tutorsBy = new Map<string, string[]>();
+    for (const l of links || []) {
+      if (!l.tutor_id || l.tutor_id === l.student_id) continue;
+      if (!tutorsBy.has(l.student_id)) tutorsBy.set(l.student_id, []);
+      tutorsBy.get(l.student_id)!.push(l.tutor_id);
+    }
+    const candidates = [...tutorsBy.keys()];
+    if (candidates.length === 0) return out;
+
+    const [{ data: subs }, { data: credits }, { data: bookings }, { data: sends }] = await Promise.all([
+      s.from("user_subscriptions").select("user_id").in("user_id", candidates).in("status", ["active", "past_due"]),
+      s.from("lesson_credits").select("user_id, delta").in("user_id", candidates),
+      s.from("bookings").select("student_id").in("student_id", candidates).not("status", "in", "(pending_payment,expired)"),
+      s.from("email_campaign_sends").select("user_id, sent_at").eq("campaign", FIRST_LESSON_LEDGER).in("user_id", candidates),
+    ]);
+    const excluded = new Set<string>([
+      ...(subs || []).map((r) => r.user_id as string),
+      ...(bookings || []).map((r) => r.student_id as string),
+    ]);
+    const balance = new Map<string, number>();
+    for (const c of credits || []) balance.set(c.user_id, (balance.get(c.user_id) || 0) + Number(c.delta || 0));
+    for (const [id, b] of balance) if (b > 0) excluded.add(id);
+    const sendsBy = new Map<string, number[]>();
+    for (const r of sends || []) {
+      if (!sendsBy.has(r.user_id)) sendsBy.set(r.user_id, []);
+      sendsBy.get(r.user_id)!.push(new Date(r.sent_at).getTime());
+    }
+    for (const [id, times] of sendsBy) {
+      if (times.length >= FIRST_LESSON_MAX || times.some((t) => now - t < FIRST_LESSON_GAP_MS)) excluded.add(id);
+    }
+
+    const eligible = candidates.filter((id) => !excluded.has(id));
+    if (eligible.length === 0) return out;
+    const tutorIds = [...new Set(eligible.flatMap((id) => tutorsBy.get(id) || []))];
+    const [bookLinks, { data: tutorRows }] = await Promise.all([
+      tutorBookingLinks(tutorIds),
+      s.from("users").select("id, name").in("id", tutorIds),
+    ]);
+    const nameOf = new Map((tutorRows || []).map((t) => [t.id as string, (t.name as string | null) || ""]));
+    for (const id of eligible) {
+      // Most recent connection first; the first one with open slots wins.
+      const tutorId = (tutorsBy.get(id) || []).find((t) => bookLinks.has(t));
+      if (!tutorId) continue;
+      const tutorName = (nameOf.get(tutorId) || "").split(/\s+/)[0] || "your tutor";
+      out.set(id, { tutorName, bookUrl: bookLinks.get(tutorId)! });
+    }
+  } catch (e) {
+    // Best-effort: without targets everyone just gets their usual nudge.
+    console.error("[engagement] first-lesson targeting failed:", (e as Error).message);
+  }
+  return out;
 }
 
 export async function GET(req: Request) {
@@ -92,7 +174,7 @@ export async function GET(req: Request) {
     const sampleExtras = { newLessonCount: 12, newLessonSamples: ["Comment ça va ?", "At the Restaurant", "Job Interview"] };
     const html = TUTOR_TYPES.has(preview)
       ? renderTutor(preview as TutorMessageType, { firstName: "Marie", daysSinceSeen: 5, studentCount: 3, pendingRequests: preview === "requests" ? 2 : 0, daysSinceLastAssign: 20 }, undefined, sampleExtras).html
-      : render(preview as MessageType, { firstName: "Alex", lang, daysSinceSeen: 5, streak: 4, hasPendingHomework: preview === "homework" }).html;
+      : render(preview as MessageType, { firstName: "Alex", lang, daysSinceSeen: 5, streak: 4, hasPendingHomework: preview === "homework", firstLesson: preview === "first_lesson" ? SAMPLE_FIRST_LESSON : undefined }).html;
     return new NextResponse(html, { headers: { "content-type": "text/html; charset=utf-8" } });
   }
 
@@ -106,7 +188,7 @@ export async function GET(req: Request) {
     const first = testEmail.split("@")[0];
     const m = TUTOR_TYPES.has(type)
       ? renderTutor(type as TutorMessageType, { firstName: first, daysSinceSeen: 5, studentCount: 3, pendingRequests: type === "requests" ? 2 : 0, daysSinceLastAssign: 20 }, undefined, { newLessonCount: 12, newLessonSamples: ["Comment ça va ?", "At the Restaurant", "Job Interview"] })
-      : render(type as MessageType, { firstName: first, lang, daysSinceSeen: 5, streak: 4, hasPendingHomework: type === "homework" });
+      : render(type as MessageType, { firstName: first, lang, daysSinceSeen: 5, streak: 4, hasPendingHomework: type === "homework", firstLesson: type === "first_lesson" ? SAMPLE_FIRST_LESSON : undefined });
     const id = await sendCampaignEmail({ to: testEmail, subject: m.subject, html: m.html, text: m.text });
     return NextResponse.json({ ok: true, sentTo: testEmail, type, resendId: id });
   }
@@ -138,9 +220,10 @@ export async function GET(req: Request) {
   }
 
   const now = Date.now();
+  const firstLessonBy = await firstLessonTargets(s, (users || []).map((u) => u.id), now);
   const dayStep = Math.floor(now / DAY); // idempotency key: one engagement email per user per day max
   let sent = 0, failed = 0, skippedCap = 0, skippedNothing = 0, skippedTest = 0, skippedTime = 0;
-  const planned: { to: string; type: string }[] = [];
+  const planned: { to: string; type: string; bookUrl?: string }[] = [];
 
   for (const u of users || []) {
     if (sent >= limit) break;
@@ -161,11 +244,15 @@ export async function GET(req: Request) {
       daysSinceSeen,
       streak: u.current_streak || 0,
       hasPendingHomework: pendingBy.has(u.id),
+      firstLesson: firstLessonBy.get(u.id),
     };
     const type = pickMessage(sig);
     if (!type) { skippedNothing++; continue; }
 
-    if (dry) { planned.push({ to: u.email, type }); continue; }
+    if (dry) {
+      planned.push(type === "first_lesson" ? { to: u.email, type, bookUrl: sig.firstLesson?.bookUrl } : { to: u.email, type });
+      continue;
+    }
 
     const unsub = unsubscribeUrl(u.id, CAMPAIGN);
     const m = render(type, sig, unsub);
@@ -175,6 +262,11 @@ export async function GET(req: Request) {
         .from("email_campaign_sends")
         .insert({ user_id: u.id, campaign: CAMPAIGN, step: dayStep, resend_id: resendId });
       if (insErr && !insErr.message.includes("duplicate")) throw insErr;
+      if (type === "first_lesson") {
+        // Spacing ledger for this one type; the send already counted above.
+        await s.from("email_campaign_sends")
+          .insert({ user_id: u.id, campaign: FIRST_LESSON_LEDGER, step: dayStep, resend_id: resendId });
+      }
       sent++;
     } catch (e) {
       failed++;
