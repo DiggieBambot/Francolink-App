@@ -1,0 +1,4351 @@
+[
+ {
+  "id": "b4e50d7e-abd6-442e-979a-95910ece85c7",
+  "title": "Visage",
+  "i": 1,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Réchauffer",
+   "number": 2,
+   "example": {
+    "tutor_line": "Tête, épaules, bras et cou.",
+    "student_line": "Tête, épaules, bras et cou."
+   },
+   "exchanges": [
+    {
+     "text": "Tête, épaules, bras et cou.",
+     "blank": null,
+     "speaker": "tuteur",
+     "avatar_seed": "Tuteur",
+     "translation": "Head, shoulders, arms and neck.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Tête, épaules, bras et cou.",
+     "blank": null,
+     "speaker": "élève",
+     "avatar_seed": "Élève",
+     "translation": "Head, shoulders, arms and neck.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Faites écouter la chanson aux élèves.",
+   "student_instruction": "Écoutez et répétez après votre tuteur.",
+   "valid_answers_by_blank": {}
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 2,
+   "title": "Réchauffer",
+   "student_instruction": "Écoutez et répétez après votre tuteur.",
+   "tutor_instruction": "Faites écouter la chanson aux élèves.",
+   "lines": [
+    {
+     "speaker": "tuteur",
+     "role": "tutor",
+     "avatar_seed": "Tuteur",
+     "text": "Tête, épaules, bras et cou.",
+     "translation": "Head, shoulders, arms and neck."
+    },
+    {
+     "speaker": "élève",
+     "role": "student",
+     "avatar_seed": "Élève",
+     "text": "Tête, épaules, bras et cou.",
+     "translation": "Head, shoulders, arms and neck."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "74bd2e41-267e-470c-8748-04b461169dfa",
+  "title": "Discutez de vos passe-temps",
+  "i": 2,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Dialogue",
+   "number": 3,
+   "example": {
+    "tutor_line": "Quel est ton passe-temps, Alex ?",
+    "student_line": "J’aime lire."
+   },
+   "exchanges": [
+    {
+     "text": "Quel est ton passe-temps, Alex ?",
+     "blank": null,
+     "speaker": "Professeur : Quel est ton passe-temps, Alex ?",
+     "avatar_seed": "Professeur",
+     "translation": "What is your hobby, Alex?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "J’aime lire. Et vous, Mme Dupont ? Quel est votre passe-temps ?",
+     "blank": null,
+     "speaker": "Alex : J’aime lire. Et vous, Mme Dupont ? Quel est votre passe-temps ?",
+     "avatar_seed": "Alex",
+     "translation": "I like to read. And you, Mrs. Dupont? What is your hobby?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "J’aime cuisiner.",
+     "blank": null,
+     "speaker": "Professeur : J’aime cuisiner.",
+     "avatar_seed": "Professeur",
+     "translation": "I like to cook.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Quand cuisines-tu ?",
+     "blank": null,
+     "speaker": "Alex : Quand cuisines-tu ?",
+     "avatar_seed": "Alex",
+     "translation": "When do you cook?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Je cuisine le week-end. Quand est-ce que tu lis ?",
+     "blank": null,
+     "speaker": "Professeur : Je cuisine le week-end. Quand est-ce que tu lis ?",
+     "avatar_seed": "Professeur",
+     "translation": "I cook on the weekend. When do you read?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Je lis le soir. Et toi ?",
+     "blank": null,
+     "speaker": "Alex : Je lis le soir. Et toi ?",
+     "avatar_seed": "Alex",
+     "translation": "I read in the evening. And you?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Je lis le matin.",
+     "blank": null,
+     "speaker": "Professeur : Je lis le matin.",
+     "avatar_seed": "Professeur",
+     "translation": "I read in the morning.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Super ! Que lis-tu ?",
+     "blank": null,
+     "speaker": "Alex : Super ! Que lis-tu ?",
+     "avatar_seed": "Alex",
+     "translation": "Great! What are you reading?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Je lis des romans.",
+     "blank": null,
+     "speaker": "Professeur : Je lis des romans.",
+     "avatar_seed": "Professeur",
+     "translation": "I read novels.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Faites lire le dialogue aux étudiants.",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur. Vous serez Alex."
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 3,
+   "title": "Dialogue",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur. Vous serez Alex.",
+   "tutor_instruction": "Faites lire le dialogue aux étudiants.",
+   "lines": [
+    {
+     "speaker": "Professeur : Quel est ton passe-temps, Alex ?",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "Quel est ton passe-temps, Alex ?",
+     "translation": "What is your hobby, Alex?"
+    },
+    {
+     "speaker": "Alex : J’aime lire. Et vous, Mme Dupont ? Quel est votre passe-temps ?",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "J’aime lire. Et vous, Mme Dupont ? Quel est votre passe-temps ?",
+     "translation": "I like to read. And you, Mrs. Dupont? What is your hobby?"
+    },
+    {
+     "speaker": "Professeur : J’aime cuisiner.",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "J’aime cuisiner.",
+     "translation": "I like to cook."
+    },
+    {
+     "speaker": "Alex : Quand cuisines-tu ?",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Quand cuisines-tu ?",
+     "translation": "When do you cook?"
+    },
+    {
+     "speaker": "Professeur : Je cuisine le week-end. Quand est-ce que tu lis ?",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "Je cuisine le week-end. Quand est-ce que tu lis ?",
+     "translation": "I cook on the weekend. When do you read?"
+    },
+    {
+     "speaker": "Alex : Je lis le soir. Et toi ?",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Je lis le soir. Et toi ?",
+     "translation": "I read in the evening. And you?"
+    },
+    {
+     "speaker": "Professeur : Je lis le matin.",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "Je lis le matin.",
+     "translation": "I read in the morning."
+    },
+    {
+     "speaker": "Alex : Super ! Que lis-tu ?",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Super ! Que lis-tu ?",
+     "translation": "Great! What are you reading?"
+    },
+    {
+     "speaker": "Professeur : Je lis des romans.",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "Je lis des romans.",
+     "translation": "I read novels."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "74bd2e41-267e-470c-8748-04b461169dfa",
+  "title": "Discutez de vos passe-temps",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue_extended",
+   "title": "Correspondance",
+   "number": 4,
+   "example": {
+    "tutor_line": "Aimes-tu jouer au football ?",
+    "student_line": "Oui, j’aime ça."
+   },
+   "exchanges": [
+    {
+     "text": "Aimes-tu jouer au football ?",
+     "blank": null,
+     "speaker": "Professeur : Aimes-tu jouer au football ?",
+     "avatar_seed": "Professeur",
+     "translation": "Do you like to play football?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Oui, j’aime ça.",
+     "blank": null,
+     "speaker": "Vous : Oui, j’aime ça.",
+     "avatar_seed": "Vous",
+     "translation": "Yes, I like that.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Que fais-tu comme passe-temps ?",
+     "blank": null,
+     "speaker": "Professeur : Que fais-tu comme passe-temps ?",
+     "avatar_seed": "Professeur",
+     "translation": "What do you do as a hobby?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "J’aime lire.",
+     "blank": null,
+     "speaker": "Vous : J’aime lire.",
+     "avatar_seed": "Vous",
+     "translation": "I like to read.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Que fais-tu le week-end ?",
+     "blank": null,
+     "speaker": "Professeur : Que fais-tu le week-end ?",
+     "avatar_seed": "Professeur",
+     "translation": "What do you do on the weekend?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Je cuisine.",
+     "blank": null,
+     "speaker": "Vous : Je cuisine.",
+     "avatar_seed": "Vous",
+     "translation": "I cook.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Quand vas-tu te coucher ?",
+     "blank": null,
+     "speaker": "Professeur : Quand vas-tu te coucher ?",
+     "avatar_seed": "Professeur",
+     "translation": "When are you going to bed?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Je vais me coucher tard.",
+     "blank": null,
+     "speaker": "Vous : Je vais me coucher tard.",
+     "avatar_seed": "Vous",
+     "translation": "I am going to bed late.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Faites répondre les étudiants aux questions.",
+   "student_instruction": "Dites à votre tuteur la réponse qui correspond aux affirmations ou aux questions."
+  },
+  "after": {
+   "kind": "matching_qa",
+   "number": 4,
+   "title": "Correspondance",
+   "student_instruction": "Dites à votre tuteur la réponse qui correspond aux affirmations ou aux questions.",
+   "tutor_instruction": "Faites répondre les étudiants aux questions.",
+   "pairs": [
+    {
+     "question": "Aimes-tu jouer au football ?",
+     "answer": "Oui, j’aime ça.",
+     "question_translation": "Do you like to play football?",
+     "answer_translation": "Yes, I like that."
+    },
+    {
+     "question": "Que fais-tu comme passe-temps ?",
+     "answer": "J’aime lire.",
+     "question_translation": "What do you do as a hobby?",
+     "answer_translation": "I like to read."
+    },
+    {
+     "question": "Que fais-tu le week-end ?",
+     "answer": "Je cuisine.",
+     "question_translation": "What do you do on the weekend?",
+     "answer_translation": "I cook."
+    },
+    {
+     "question": "Quand vas-tu te coucher ?",
+     "answer": "Je vais me coucher tard.",
+     "question_translation": "When are you going to bed?",
+     "answer_translation": "I am going to bed late."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "78fdb34f-8d23-4697-96dd-780ddee5d464",
+  "title": "Vêtements",
+  "i": 2,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Parlons-en",
+   "number": 3,
+   "example": {
+    "tutor_line": "Qu'est-ce qu'elle porte ?",
+    "student_line": "Elle porte une robe rouge."
+   },
+   "exchanges": [
+    {
+     "text": "Qu'est-ce qu'elle porte ?",
+     "blank": false,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "What is she wearing?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Elle porte une robe rouge.",
+     "blank": false,
+     "speaker": "Anissa",
+     "avatar_seed": "Anissa",
+     "translation": "She is wearing a red dress.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Lisez le dialogue ensemble.",
+   "student_instruction": "Regardez votre tuteur jouer le dialogue.",
+   "valid_answers_by_blank": {}
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 3,
+   "title": "Parlons-en",
+   "student_instruction": "Regardez votre tuteur jouer le dialogue.",
+   "tutor_instruction": "Lisez le dialogue ensemble.",
+   "lines": [
+    {
+     "speaker": "Professeur",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "Qu'est-ce qu'elle porte ?",
+     "translation": "What is she wearing?"
+    },
+    {
+     "speaker": "Anissa",
+     "role": "student",
+     "avatar_seed": "Anissa",
+     "text": "Elle porte une robe rouge.",
+     "translation": "She is wearing a red dress."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "1270d04d-fc59-4e5f-a3ba-b29dba4f4936",
+  "title": "Quels sports aimez-vous ?",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue_extended",
+   "title": "Pratiquons",
+   "number": 2.5,
+   "example": {
+    "tutor_line": "C'est amusant.",
+    "student_line": "C'est ennuyeux."
+   },
+   "exchanges": [
+    {
+     "text": "C'est amusant.",
+     "blank": false,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "It's fun.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "C'est ennuyeux.",
+     "blank": false,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "It's boring.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "C'est passionnant.",
+     "blank": false,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "It's exciting.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "C'est facile.",
+     "blank": false,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "It's easy.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "C'est amusant.",
+     "blank": false,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "It's fun.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "C'est difficile.",
+     "blank": false,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "It's difficult.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "C'est relaxant.",
+     "blank": false,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "It's relaxing.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "C'est ennuyeux.",
+     "blank": false,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "It's boring.",
+     "speaker_role": "student"
+    }
+   ],
+   "tutor_role": "Professeur",
+   "student_role": "Eli",
+   "tutor_instruction": "Guide the student to find antonyms.",
+   "student_instruction": "Dites à votre tuteur la réponse qui a le sens opposé à chaque phrase.",
+   "valid_answers_by_blank": {}
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 2.5,
+   "title": "Pratiquons",
+   "student_instruction": "Dites à votre tuteur la réponse qui a le sens opposé à chaque phrase.",
+   "tutor_instruction": "Guide the student to find antonyms.",
+   "student_role": "Eli",
+   "tutor_role": "Professeur",
+   "lines": [
+    {
+     "speaker": "Professeur",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "C'est amusant.",
+     "translation": "It's fun."
+    },
+    {
+     "speaker": "Eli",
+     "role": "student",
+     "avatar_seed": "Eli",
+     "text": "C'est ennuyeux.",
+     "translation": "It's boring."
+    },
+    {
+     "speaker": "Professeur",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "C'est passionnant.",
+     "translation": "It's exciting."
+    },
+    {
+     "speaker": "Eli",
+     "role": "student",
+     "avatar_seed": "Eli",
+     "text": "C'est facile.",
+     "translation": "It's easy."
+    },
+    {
+     "speaker": "Professeur",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "C'est amusant.",
+     "translation": "It's fun."
+    },
+    {
+     "speaker": "Eli",
+     "role": "student",
+     "avatar_seed": "Eli",
+     "text": "C'est difficile.",
+     "translation": "It's difficult."
+    },
+    {
+     "speaker": "Professeur",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "C'est relaxant.",
+     "translation": "It's relaxing."
+    },
+    {
+     "speaker": "Eli",
+     "role": "student",
+     "avatar_seed": "Eli",
+     "text": "C'est ennuyeux.",
+     "translation": "It's boring."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "1270d04d-fc59-4e5f-a3ba-b29dba4f4936",
+  "title": "Quels sports aimez-vous ?",
+  "i": 5,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Correspondance",
+   "number": 4,
+   "exchanges": [
+    {
+     "text": "Quels sports aimes-tu ?",
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "What sports do you like?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "J'aime le tennis.",
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "I like tennis.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Aimez-vous le vélo ou la natation ?",
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "Do you like cycling or swimming?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "J'aime plus le vélo que la natation.",
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "I like cycling more than swimming.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Aimez-vous courir ?",
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "Do you like running?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Non, je ne le fais pas.",
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "No, I don't.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Pourquoi tu l'aimes ?",
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "Why do you like it?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Parce que c'est passionnant.",
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Because it's exciting.",
+     "speaker_role": "student"
+    }
+   ],
+   "tutor_instruction": "Guide the student to respond correctly.",
+   "student_instruction": "Dites à votre tuteur la bonne réponse à chaque question."
+  },
+  "after": {
+   "kind": "matching_qa",
+   "number": 4,
+   "title": "Correspondance",
+   "student_instruction": "Dites à votre tuteur la bonne réponse à chaque question.",
+   "tutor_instruction": "Guide the student to respond correctly.",
+   "pairs": [
+    {
+     "question": "Quels sports aimes-tu ?",
+     "answer": "J'aime le tennis.",
+     "question_translation": "What sports do you like?",
+     "answer_translation": "I like tennis."
+    },
+    {
+     "question": "Aimez-vous le vélo ou la natation ?",
+     "answer": "J'aime plus le vélo que la natation.",
+     "question_translation": "Do you like cycling or swimming?",
+     "answer_translation": "I like cycling more than swimming."
+    },
+    {
+     "question": "Aimez-vous courir ?",
+     "answer": "Non, je ne le fais pas.",
+     "question_translation": "Do you like running?",
+     "answer_translation": "No, I don't."
+    },
+    {
+     "question": "Pourquoi tu l'aimes ?",
+     "answer": "Parce que c'est passionnant.",
+     "question_translation": "Why do you like it?",
+     "answer_translation": "Because it's exciting."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "2b0bacc6-073f-4684-9ab2-dd7391115221",
+  "title": "Quel est ton sport préféré ?",
+  "i": 9,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Pratiquons !",
+   "number": 10,
+   "example": {
+    "tutor_line": "Est-ce qu’il joue au football ?",
+    "student_line": "Oui, il joue au football !"
+   },
+   "exchanges": [
+    {
+     "text": "Est-ce qu’il joue au football ?",
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "Does he play football?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Oui, il joue au football !",
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Yes, he plays football!",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Est-ce qu’elle joue au volley-ball ?",
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "Does she play volleyball?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Non, elle joue au badminton !",
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "No, she plays badminton!",
+     "speaker_role": "student"
+    }
+   ],
+   "tutor_instruction": "Répétez après moi.",
+   "student_instruction": "Regardez votre tuteur jouer le dialogue et pratiquez avec un partenaire."
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 10,
+   "title": "Pratiquons !",
+   "student_instruction": "Regardez votre tuteur jouer le dialogue et pratiquez avec un partenaire.",
+   "tutor_instruction": "Répétez après moi.",
+   "lines": [
+    {
+     "speaker": "Professeur",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "Est-ce qu’il joue au football ?",
+     "translation": "Does he play football?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "student",
+     "avatar_seed": "Eli",
+     "text": "Oui, il joue au football !",
+     "translation": "Yes, he plays football!"
+    },
+    {
+     "speaker": "Professeur",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "Est-ce qu’elle joue au volley-ball ?",
+     "translation": "Does she play volleyball?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "student",
+     "avatar_seed": "Eli",
+     "text": "Non, elle joue au badminton !",
+     "translation": "No, she plays badminton!"
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "5021fe19-3336-4d4a-9ef2-62dab99c4993",
+  "title": "Quelle est votre saison préférée ?",
+  "i": 5,
+  "before": {
+   "kind": "fill_in_blank_dialogue_extended",
+   "title": "Correspondance",
+   "number": 4,
+   "example": {
+    "tutor_line": "Quelle est votre saison préférée ?",
+    "student_line": "Tu aimes l’hiver."
+   },
+   "exchanges": [
+    {
+     "text": "Quelle est votre saison préférée ?",
+     "blank": false,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "What is your favorite season?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Tu aimes l’hiver.",
+     "blank": false,
+     "speaker": "Peter",
+     "avatar_seed": "Peter",
+     "translation": "You like winter.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Quelle est sa saison préférée ?",
+     "blank": false,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "What is her favorite season?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Elle aime l’été.",
+     "blank": false,
+     "speaker": "Peter",
+     "avatar_seed": "Peter",
+     "translation": "She likes summer.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Pourquoi tu l’aimes ?",
+     "blank": false,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "Why do you like it?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Parce qu'il fait chaud et ensoleillé.",
+     "blank": false,
+     "speaker": "Peter",
+     "avatar_seed": "Peter",
+     "translation": "Because it is hot and sunny.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Quelle est votre saison la moins préférée ?",
+     "blank": false,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "What is your least favorite season?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Ma saison la moins préférée est l’automne.",
+     "blank": false,
+     "speaker": "Peter",
+     "avatar_seed": "Peter",
+     "translation": "My least favorite season is autumn.",
+     "speaker_role": "student"
+    }
+   ],
+   "tutor_role": "tutor",
+   "student_role": "student",
+   "tutor_instruction": "Posez les questions aux étudiants.",
+   "student_instruction": "Dites à votre tuteur la bonne réponse à chaque question."
+  },
+  "after": {
+   "kind": "matching_qa",
+   "number": 4,
+   "title": "Correspondance",
+   "student_instruction": "Dites à votre tuteur la bonne réponse à chaque question.",
+   "tutor_instruction": "Posez les questions aux étudiants.",
+   "pairs": [
+    {
+     "question": "Quelle est votre saison préférée ?",
+     "answer": "Tu aimes l’hiver.",
+     "question_translation": "What is your favorite season?",
+     "answer_translation": "You like winter."
+    },
+    {
+     "question": "Quelle est sa saison préférée ?",
+     "answer": "Elle aime l’été.",
+     "question_translation": "What is her favorite season?",
+     "answer_translation": "She likes summer."
+    },
+    {
+     "question": "Pourquoi tu l’aimes ?",
+     "answer": "Parce qu'il fait chaud et ensoleillé.",
+     "question_translation": "Why do you like it?",
+     "answer_translation": "Because it is hot and sunny."
+    },
+    {
+     "question": "Quelle est votre saison la moins préférée ?",
+     "answer": "Ma saison la moins préférée est l’automne.",
+     "question_translation": "What is your least favorite season?",
+     "answer_translation": "My least favorite season is autumn."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "792ac1cd-6daa-4e5d-ad7f-89a348061ec6",
+  "title": "Démarrer sur LinkedIn en 4 étapes faciles",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Discussion simulée",
+   "number": 4,
+   "example": {
+    "tutor_line": "Connaissez-vous quelqu'un qui se plaint souvent de son travail ?",
+    "student_line": "Alex : Ma partenaire se plaint tout le temps de son patron. Il fait rester toute l'entreprise après l'heure sans payer même pendant les jours fériés. Elle parle depuis un certain temps de vouloir quitter son emploi et j'espère qu'elle le fera bientôt."
+   },
+   "exchanges": [
+    {
+     "text": "Ma partenaire se plaint tout le temps de son patron. Il fait rester toute l'entreprise après l'heure sans payer même pendant les jours fériés. Elle parle depuis un certain temps de vouloir quitter son emploi et j'espère qu'elle le fera bientôt.",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "My partner complains all the time about her boss. He makes the whole company stay after hours without pay even on holidays. She has been talking for a while about wanting to leave her job and I hope she does soon.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Les trois entreprises semblent bien, mais je pense que je travaillerais pour Apple juste parce que j'aime leurs produits. En tant qu'employé, je parie que je pourrais avoir toutes les dernières mises à jour.",
+     "blank": false,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "The three companies seem good, but I think I would work for Apple just because I love their products. As an employee, I bet I could get all the latest updates.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Depuis que je suis devenu chef d'équipe, j'ai appris à communiquer avec les gens et à comprendre leurs idées et leurs souhaits beaucoup mieux qu'avant.",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Since I became team leader, I have learned to communicate with people and understand their ideas and wishes much better than before.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Posez les questions et encouragez les réponses.",
+   "student_instruction": "Écoutez votre tuteur lire les questions et les réponses d'exemple. Ensuite, votre tuteur vous posera les questions.",
+   "valid_answers_by_blank": {}
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 4,
+   "title": "Discussion simulée",
+   "student_instruction": "Écoutez votre tuteur lire les questions et les réponses d'exemple. Ensuite, votre tuteur vous posera les questions.",
+   "tutor_instruction": "Posez les questions et encouragez les réponses.",
+   "lines": [
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Ma partenaire se plaint tout le temps de son patron. Il fait rester toute l'entreprise après l'heure sans payer même pendant les jours fériés. Elle parle depuis un certain temps de vouloir quitter son emploi et j'espère qu'elle le fera bientôt.",
+     "translation": "My partner complains all the time about her boss. He makes the whole company stay after hours without pay even on holidays. She has been talking for a while about wanting to leave her job and I hope she does soon."
+    },
+    {
+     "speaker": "Eli",
+     "role": "student",
+     "avatar_seed": "Eli",
+     "text": "Les trois entreprises semblent bien, mais je pense que je travaillerais pour Apple juste parce que j'aime leurs produits. En tant qu'employé, je parie que je pourrais avoir toutes les dernières mises à jour.",
+     "translation": "The three companies seem good, but I think I would work for Apple just because I love their products. As an employee, I bet I could get all the latest updates."
+    },
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Depuis que je suis devenu chef d'équipe, j'ai appris à communiquer avec les gens et à comprendre leurs idées et leurs souhaits beaucoup mieux qu'avant.",
+     "translation": "Since I became team leader, I have learned to communicate with people and understand their ideas and wishes much better than before."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "de679227-ef5d-4c5f-b8b1-956e1425dfb7",
+  "title": "Comment se passent vos relations familiales et amicales ?",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Dialogue",
+   "number": 4,
+   "example": {
+    "tutor_line": "Professeur, Alex, tu as une bonne relation avec ta famille ?",
+    "student_line": "Alex, Oui, je suis très proche de mes parents et de ma sœur."
+   },
+   "exchanges": [
+    {
+     "text": "Professeur, Alex, tu as une bonne relation avec ta famille ?",
+     "blank": null,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "Teacher, Alex, do you have a good relationship with your family?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Oui, je suis très proche de mes parents et de ma sœur. Nous parlons souvent et nous nous soutenons beaucoup.",
+     "blank": null,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Yes, I am very close to my parents and my sister. We talk often and support each other a lot.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Et tes amis ?",
+     "blank": null,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "And your friends?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "J'ai aussi de très bons amis. Mon meilleur ami, Eli, et moi, nous connaissons depuis l'enfance. On se voit souvent et on partage beaucoup de moments ensemble.",
+     "blank": null,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "I also have very good friends. My best friend, Eli, and I have known each other since childhood. We see each other often and share a lot of moments together.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Est-ce qu'il t'arrive de te disputer avec ta famille ou tes amis ?",
+     "blank": null,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "Do you sometimes argue with your family or friends?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Oui, bien sûr, mais on finit toujours par se réconcilier après une discussion.",
+     "blank": null,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Yes, of course, but we always end up reconciling after a discussion.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Qu'est-ce que tu aimes le plus dans tes relations avec eux ?",
+     "blank": null,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "What do you like most about your relationships with them?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Le soutien mutuel et la confiance qu'on a l'un envers l'autre.",
+     "blank": null,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "The mutual support and trust we have for each other.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Faites lire le dialogue à l'élève.",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions."
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 4,
+   "title": "Dialogue",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions.",
+   "tutor_instruction": "Faites lire le dialogue à l'élève.",
+   "lines": [
+    {
+     "speaker": "Professeur",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "Professeur, Alex, tu as une bonne relation avec ta famille ?",
+     "translation": "Teacher, Alex, do you have a good relationship with your family?"
+    },
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Oui, je suis très proche de mes parents et de ma sœur. Nous parlons souvent et nous nous soutenons beaucoup.",
+     "translation": "Yes, I am very close to my parents and my sister. We talk often and support each other a lot."
+    },
+    {
+     "speaker": "Professeur",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "Et tes amis ?",
+     "translation": "And your friends?"
+    },
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "J'ai aussi de très bons amis. Mon meilleur ami, Eli, et moi, nous connaissons depuis l'enfance. On se voit souvent et on partage beaucoup de moments ensemble.",
+     "translation": "I also have very good friends. My best friend, Eli, and I have known each other since childhood. We see each other often and share a lot of moments together."
+    },
+    {
+     "speaker": "Professeur",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "Est-ce qu'il t'arrive de te disputer avec ta famille ou tes amis ?",
+     "translation": "Do you sometimes argue with your family or friends?"
+    },
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Oui, bien sûr, mais on finit toujours par se réconcilier après une discussion.",
+     "translation": "Yes, of course, but we always end up reconciling after a discussion."
+    },
+    {
+     "speaker": "Professeur",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "Qu'est-ce que tu aimes le plus dans tes relations avec eux ?",
+     "translation": "What do you like most about your relationships with them?"
+    },
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Le soutien mutuel et la confiance qu'on a l'un envers l'autre.",
+     "translation": "The mutual support and trust we have for each other."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "737453c4-b65e-4d78-9125-ffded2c2b70d",
+  "title": "Accueillir des visiteurs",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Discussion simulée",
+   "number": 4,
+   "example": {
+    "tutor_line": "Comment vous préparez-vous à accueillir des visiteurs ?",
+    "student_line": "Je m'assure que la salle de réunion est prête et que nous avons tous les documents nécessaires."
+   },
+   "exchanges": [
+    {
+     "text": "Je m'assure que la salle de réunion est prête et que nous avons tous les documents nécessaires.",
+     "blank": false,
+     "speaker": "Elise",
+     "avatar_seed": "Elise",
+     "translation": "I make sure the meeting room is ready and that we have all the necessary documents.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Quelle a été votre expérience la plus mémorable en accueillant des visiteurs ?",
+     "blank": false,
+     "speaker": "John",
+     "avatar_seed": "John",
+     "translation": "What was your most memorable experience welcoming visitors?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Une fois, nous avons accueilli un client important qui est devenu un partenaire de longue date.",
+     "blank": false,
+     "speaker": "Elise",
+     "avatar_seed": "Elise",
+     "translation": "Once, we welcomed an important client who became a long-term partner.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Que faites-vous si un visiteur se sent mal à l'aise ?",
+     "blank": false,
+     "speaker": "John",
+     "avatar_seed": "John",
+     "translation": "What do you do if a visitor feels uncomfortable?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "J'essaie de créer une atmosphère détendue et de les rassurer.",
+     "blank": false,
+     "speaker": "Elise",
+     "avatar_seed": "Elise",
+     "translation": "I try to create a relaxed atmosphere and reassure them.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Posez les questions aux étudiants et encouragez-les à répondre.",
+   "student_instruction": "Écoutez les questions et les exemples de réponses de votre tuteur, puis répondez aux questions :",
+   "valid_answers_by_blank": {}
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 4,
+   "title": "Discussion simulée",
+   "student_instruction": "Écoutez les questions et les exemples de réponses de votre tuteur, puis répondez aux questions :",
+   "tutor_instruction": "Posez les questions aux étudiants et encouragez-les à répondre.",
+   "lines": [
+    {
+     "speaker": "Elise",
+     "role": "student",
+     "avatar_seed": "Elise",
+     "text": "Je m'assure que la salle de réunion est prête et que nous avons tous les documents nécessaires.",
+     "translation": "I make sure the meeting room is ready and that we have all the necessary documents."
+    },
+    {
+     "speaker": "John",
+     "role": "tutor",
+     "avatar_seed": "John",
+     "text": "Quelle a été votre expérience la plus mémorable en accueillant des visiteurs ?",
+     "translation": "What was your most memorable experience welcoming visitors?"
+    },
+    {
+     "speaker": "Elise",
+     "role": "student",
+     "avatar_seed": "Elise",
+     "text": "Une fois, nous avons accueilli un client important qui est devenu un partenaire de longue date.",
+     "translation": "Once, we welcomed an important client who became a long-term partner."
+    },
+    {
+     "speaker": "John",
+     "role": "tutor",
+     "avatar_seed": "John",
+     "text": "Que faites-vous si un visiteur se sent mal à l'aise ?",
+     "translation": "What do you do if a visitor feels uncomfortable?"
+    },
+    {
+     "speaker": "Elise",
+     "role": "student",
+     "avatar_seed": "Elise",
+     "text": "J'essaie de créer une atmosphère détendue et de les rassurer.",
+     "translation": "I try to create a relaxed atmosphere and reassure them."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "08cfc19a-a602-4b91-a91b-c09121917791",
+  "title": "Réunions",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Discussion simulée",
+   "number": 4,
+   "example": {
+    "tutor_line": "Comment vous assurez-vous que les réunions auxquelles vous participez sont productives ?",
+    "student_line": "J'aime m'assurer que chaque point de l'ordre du jour est abordé et que chacun a la possibilité de donner son avis."
+   },
+   "exchanges": [
+    {
+     "text": "J'aime m'assurer que chaque point de l'ordre du jour est abordé et que chacun a la possibilité de donner son avis.",
+     "blank": false,
+     "speaker": "Elise",
+     "avatar_seed": "Elise",
+     "translation": "I like to ensure that each item on the agenda is addressed and that everyone has the opportunity to give their opinion.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Dans mon équipe, c'est souvent moi qui prends les notes et envoie le compte rendu après la réunion.",
+     "blank": false,
+     "speaker": "John",
+     "avatar_seed": "John",
+     "translation": "In my team, it is often me who takes the notes and sends the minutes after the meeting.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "J'essaie de ramener la discussion sur le sujet principal pour éviter de perdre du temps.",
+     "blank": false,
+     "speaker": "Elise",
+     "avatar_seed": "Elise",
+     "translation": "I try to bring the discussion back to the main topic to avoid wasting time.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Posez les questions et écoutez les réponses.",
+   "student_instruction": "Écoutez les questions et les réponses types lues par votre tuteur, puis répondez aux questions posées par votre tuteur :",
+   "valid_answers_by_blank": {}
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 4,
+   "title": "Discussion simulée",
+   "student_instruction": "Écoutez les questions et les réponses types lues par votre tuteur, puis répondez aux questions posées par votre tuteur :",
+   "tutor_instruction": "Posez les questions et écoutez les réponses.",
+   "lines": [
+    {
+     "speaker": "Elise",
+     "role": "student",
+     "avatar_seed": "Elise",
+     "text": "J'aime m'assurer que chaque point de l'ordre du jour est abordé et que chacun a la possibilité de donner son avis.",
+     "translation": "I like to ensure that each item on the agenda is addressed and that everyone has the opportunity to give their opinion."
+    },
+    {
+     "speaker": "John",
+     "role": "student",
+     "avatar_seed": "John",
+     "text": "Dans mon équipe, c'est souvent moi qui prends les notes et envoie le compte rendu après la réunion.",
+     "translation": "In my team, it is often me who takes the notes and sends the minutes after the meeting."
+    },
+    {
+     "speaker": "Elise",
+     "role": "student",
+     "avatar_seed": "Elise",
+     "text": "J'essaie de ramener la discussion sur le sujet principal pour éviter de perdre du temps.",
+     "translation": "I try to bring the discussion back to the main topic to avoid wasting time."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "03c16717-f6d4-4507-bdf7-d2e940a31a2e",
+  "title": "Parlez de l'importance de la santé et du bien-être",
+  "i": 2,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Dialogue",
+   "number": 3,
+   "example": {
+    "tutor_line": "Alex : Eli, pourquoi penses-tu que la santé et le bien-être sont si importants ?",
+    "student_line": "Eli : Parce qu’ils influencent tout dans la vie. Quand on est en bonne santé, on a plus d’énergie, on se sent bien."
+   },
+   "exchanges": [
+    {
+     "text": "Alex : Eli, pourquoi penses-tu que la santé et le bien-être sont si importants ?",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Alex: Eli, why do you think health and well-being are so important?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Eli : Parce qu’ils influencent tout dans la vie. Quand on est en bonne santé, on a plus d’énergie, on se sent bien.",
+     "blank": false,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Eli: Because they influence everything in life. When you are healthy, you have more energy, you feel good.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Alex : Oui, et le bien-être mental aussi, n'est-ce pas ?",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Alex: Yes, and mental well-being too, right?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Eli : Absolument. Le stress peut affecter la santé physique. C’est pour ça qu’il faut se détendre et se reposer.",
+     "blank": false,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Eli: Absolutely. Stress can affect physical health. That's why you need to relax and rest.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Alex : Qu’est-ce que tu fais pour prendre soin de ta santé et de ton bien-être ?",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Alex: What do you do to take care of your health and well-being?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Eli : J'essaie de manger sainement, de dormir suffisamment et de faire de l'exercice. Toi ?",
+     "blank": false,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Eli: I try to eat healthily, sleep enough, and exercise. How about you?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Alex : Moi aussi. Et je prends du temps pour me relaxer chaque jour.",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Alex: Me too. And I take time to relax every day.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Faites lire le dialogue à voix haute.",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions."
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 3,
+   "title": "Dialogue",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions.",
+   "tutor_instruction": "Faites lire le dialogue à voix haute.",
+   "lines": [
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Alex : Eli, pourquoi penses-tu que la santé et le bien-être sont si importants ?",
+     "translation": "Alex: Eli, why do you think health and well-being are so important?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "Eli : Parce qu’ils influencent tout dans la vie. Quand on est en bonne santé, on a plus d’énergie, on se sent bien.",
+     "translation": "Eli: Because they influence everything in life. When you are healthy, you have more energy, you feel good."
+    },
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Alex : Oui, et le bien-être mental aussi, n'est-ce pas ?",
+     "translation": "Alex: Yes, and mental well-being too, right?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "Eli : Absolument. Le stress peut affecter la santé physique. C’est pour ça qu’il faut se détendre et se reposer.",
+     "translation": "Eli: Absolutely. Stress can affect physical health. That's why you need to relax and rest."
+    },
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Alex : Qu’est-ce que tu fais pour prendre soin de ta santé et de ton bien-être ?",
+     "translation": "Alex: What do you do to take care of your health and well-being?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "Eli : J'essaie de manger sainement, de dormir suffisamment et de faire de l'exercice. Toi ?",
+     "translation": "Eli: I try to eat healthily, sleep enough, and exercise. How about you?"
+    },
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Alex : Moi aussi. Et je prends du temps pour me relaxer chaque jour.",
+     "translation": "Alex: Me too. And I take time to relax every day."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "1352aa2e-8739-4b62-8701-0efa83abefba",
+  "title": "Discutez de croyances religieuses",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Dialogue",
+   "number": 4,
+   "example": {
+    "tutor_line": "Quelles sont tes croyances religieuses, Ben ?",
+    "student_line": "Je suis catholique, mais je suis aussi ouvert aux autres philosophies."
+   },
+   "exchanges": [
+    {
+     "text": "Quelles sont tes croyances religieuses, Ben ?",
+     "blank": false,
+     "speaker": "Emilie",
+     "avatar_seed": "Emilie",
+     "translation": "What are your religious beliefs, Ben?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Je suis catholique, mais je suis aussi ouvert aux autres philosophies.",
+     "blank": false,
+     "speaker": "Ben",
+     "avatar_seed": "Ben",
+     "translation": "I am Catholic, but I am also open to other philosophies.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Est-ce que tu penses que la religion est toujours nécessaire dans notre société moderne ?",
+     "blank": false,
+     "speaker": "Emilie",
+     "avatar_seed": "Emilie",
+     "translation": "Do you think religion is always necessary in our modern society?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Je pense qu'elle peut offrir un sens et une communauté, mais ce n'est pas indispensable pour tout le monde.",
+     "blank": false,
+     "speaker": "Ben",
+     "avatar_seed": "Ben",
+     "translation": "I think it can offer meaning and community, but it is not essential for everyone.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Que penses-tu de la diversité religieuse ?",
+     "blank": false,
+     "speaker": "Emilie",
+     "avatar_seed": "Emilie",
+     "translation": "What do you think of religious diversity?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Je crois que c'est enrichissant, car cela nous permet de mieux comprendre les autres.",
+     "blank": false,
+     "speaker": "Ben",
+     "avatar_seed": "Ben",
+     "translation": "I believe it is enriching, as it allows us to better understand others.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Faites lire le dialogue et posez les questions de compréhension.",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions.",
+   "valid_answers_by_blank": {}
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 4,
+   "title": "Dialogue",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions.",
+   "tutor_instruction": "Faites lire le dialogue et posez les questions de compréhension.",
+   "lines": [
+    {
+     "speaker": "Emilie",
+     "role": "student",
+     "avatar_seed": "Emilie",
+     "text": "Quelles sont tes croyances religieuses, Ben ?",
+     "translation": "What are your religious beliefs, Ben?"
+    },
+    {
+     "speaker": "Ben",
+     "role": "tutor",
+     "avatar_seed": "Ben",
+     "text": "Je suis catholique, mais je suis aussi ouvert aux autres philosophies.",
+     "translation": "I am Catholic, but I am also open to other philosophies."
+    },
+    {
+     "speaker": "Emilie",
+     "role": "student",
+     "avatar_seed": "Emilie",
+     "text": "Est-ce que tu penses que la religion est toujours nécessaire dans notre société moderne ?",
+     "translation": "Do you think religion is always necessary in our modern society?"
+    },
+    {
+     "speaker": "Ben",
+     "role": "tutor",
+     "avatar_seed": "Ben",
+     "text": "Je pense qu'elle peut offrir un sens et une communauté, mais ce n'est pas indispensable pour tout le monde.",
+     "translation": "I think it can offer meaning and community, but it is not essential for everyone."
+    },
+    {
+     "speaker": "Emilie",
+     "role": "student",
+     "avatar_seed": "Emilie",
+     "text": "Que penses-tu de la diversité religieuse ?",
+     "translation": "What do you think of religious diversity?"
+    },
+    {
+     "speaker": "Ben",
+     "role": "tutor",
+     "avatar_seed": "Ben",
+     "text": "Je crois que c'est enrichissant, car cela nous permet de mieux comprendre les autres.",
+     "translation": "I believe it is enriching, as it allows us to better understand others."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "698af100-9a15-49d8-bb40-c4ee7ea6d841",
+  "title": "Partagez vos connaissances d'artistes et d'auteurs célèbres",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Dialogue",
+   "number": 4,
+   "example": {
+    "tutor_line": "Alex : Eli, connais-tu Claude Monet ?",
+    "student_line": "Eli : Bien sûr ! Il est l'un des peintres les plus célèbres du mouvement impressionniste."
+   },
+   "exchanges": [
+    {
+     "text": "Eli, connais-tu Claude Monet ?",
+     "blank": false,
+     "speaker": "Alex :",
+     "avatar_seed": "Alex",
+     "translation": "Eli, do you know Claude Monet?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Bien sûr ! Il est l'un des peintres les plus célèbres du mouvement impressionniste.",
+     "blank": false,
+     "speaker": "Eli :",
+     "avatar_seed": "Eli",
+     "translation": "Of course! He is one of the most famous painters of the Impressionist movement.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Oui, j'adore ses tableaux, surtout Les Nymphéas.",
+     "blank": false,
+     "speaker": "Alex :",
+     "avatar_seed": "Alex",
+     "translation": "Yes, I love his paintings, especially The Water Lilies.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Moi aussi. Et en littérature, tu aimes qui ?",
+     "blank": false,
+     "speaker": "Eli :",
+     "avatar_seed": "Eli",
+     "translation": "Me too. And in literature, who do you like?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "J'aime beaucoup Marcel Proust. Son œuvre À la recherche du temps perdu est fascinante.",
+     "blank": false,
+     "speaker": "Alex :",
+     "avatar_seed": "Alex",
+     "translation": "I really like Marcel Proust. His work In Search of Lost Time is fascinating.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Oh oui, c'est un chef-d'œuvre de la littérature moderne.",
+     "blank": false,
+     "speaker": "Eli :",
+     "avatar_seed": "Eli",
+     "translation": "Oh yes, it's a masterpiece of modern literature.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Encourage the student to read and understand the dialogue.",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions."
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 4,
+   "title": "Dialogue",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions.",
+   "tutor_instruction": "Encourage the student to read and understand the dialogue.",
+   "lines": [
+    {
+     "speaker": "Alex :",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Eli, connais-tu Claude Monet ?",
+     "translation": "Eli, do you know Claude Monet?"
+    },
+    {
+     "speaker": "Eli :",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "Bien sûr ! Il est l'un des peintres les plus célèbres du mouvement impressionniste.",
+     "translation": "Of course! He is one of the most famous painters of the Impressionist movement."
+    },
+    {
+     "speaker": "Alex :",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Oui, j'adore ses tableaux, surtout Les Nymphéas.",
+     "translation": "Yes, I love his paintings, especially The Water Lilies."
+    },
+    {
+     "speaker": "Eli :",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "Moi aussi. Et en littérature, tu aimes qui ?",
+     "translation": "Me too. And in literature, who do you like?"
+    },
+    {
+     "speaker": "Alex :",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "J'aime beaucoup Marcel Proust. Son œuvre À la recherche du temps perdu est fascinante.",
+     "translation": "I really like Marcel Proust. His work In Search of Lost Time is fascinating."
+    },
+    {
+     "speaker": "Eli :",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "Oh oui, c'est un chef-d'œuvre de la littérature moderne.",
+     "translation": "Oh yes, it's a masterpiece of modern literature."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "f856d0b5-f51d-48df-93c7-722c917ac38a",
+  "title": "Partagez vos connaissances des événements historiques",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Dialogue",
+   "number": 4,
+   "example": {
+    "tutor_line": "Quels événements historiques trouves-tu les plus intéressants, Eli ?",
+    "student_line": "Je pense que la Révolution française est fascinante."
+   },
+   "exchanges": [
+    {
+     "text": "Quels événements historiques trouves-tu les plus intéressants, Eli ?",
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Which historical events do you find most interesting, Eli?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Je pense que la Révolution française est fascinante. Elle a bouleversé les fondements de la monarchie.",
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "I think the French Revolution is fascinating. It shook the foundations of the monarchy.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Oui, c'est vrai ! Que peux-tu me dire sur la Première Guerre mondiale ?",
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Yes, that's true! What can you tell me about World War I?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "C'était un conflit dévastateur qui a causé la mort de millions de personnes. Les conséquences ont changé la carte de l'Europe.",
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "It was a devastating conflict that caused the death of millions of people. The consequences changed the map of Europe.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Et la Renaissance ? Pourquoi est-ce si important ?",
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "And the Renaissance? Why is it so important?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "La Renaissance a été une période de renouveau culturel. Elle a apporté de grandes avancées dans l'art et la science.",
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "The Renaissance was a period of cultural renewal. It brought great advancements in art and science.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "tutor_instruction": "Faites lire le dialogue aux étudiants.",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions."
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 4,
+   "title": "Dialogue",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions.",
+   "tutor_instruction": "Faites lire le dialogue aux étudiants.",
+   "lines": [
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Quels événements historiques trouves-tu les plus intéressants, Eli ?",
+     "translation": "Which historical events do you find most interesting, Eli?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "Je pense que la Révolution française est fascinante. Elle a bouleversé les fondements de la monarchie.",
+     "translation": "I think the French Revolution is fascinating. It shook the foundations of the monarchy."
+    },
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Oui, c'est vrai ! Que peux-tu me dire sur la Première Guerre mondiale ?",
+     "translation": "Yes, that's true! What can you tell me about World War I?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "C'était un conflit dévastateur qui a causé la mort de millions de personnes. Les conséquences ont changé la carte de l'Europe.",
+     "translation": "It was a devastating conflict that caused the death of millions of people. The consequences changed the map of Europe."
+    },
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Et la Renaissance ? Pourquoi est-ce si important ?",
+     "translation": "And the Renaissance? Why is it so important?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "La Renaissance a été une période de renouveau culturel. Elle a apporté de grandes avancées dans l'art et la science.",
+     "translation": "The Renaissance was a period of cultural renewal. It brought great advancements in art and science."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "abfb93d8-9821-44aa-96d6-4181fe2fbdf7",
+  "title": "Parlez de l'impact de la politique sur votre vie",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Dialogue",
+   "number": 4,
+   "example": {
+    "tutor_line": "Comment la politique influence-t-elle ta vie, Eli ?",
+    "student_line": "La politique a un grand impact sur mes droits."
+   },
+   "exchanges": [
+    {
+     "text": "Comment la politique influence-t-elle ta vie, Eli ?",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "How does politics influence your life, Eli?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "La politique a un grand impact sur mes droits. Par exemple, les lois sur l'éducation me permettent d'avoir accès à une bonne formation.",
+     "blank": false,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Politics has a big impact on my rights. For example, education laws allow me to access a good education.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Et qu'en est-il de ton droit de vote ?",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "And what about your right to vote?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Voter est très important pour moi. Cela me permet d'exprimer mes opinions sur les candidats et les politiques.",
+     "blank": false,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Voting is very important to me. It allows me to express my opinions on candidates and policies.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "As-tu déjà participé à des manifestations ?",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Have you ever participated in protests?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Oui, j'ai participé à une manifestation pour les droits de l'homme. C'était une expérience très enrichissante.",
+     "blank": false,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Yes, I participated in a protest for human rights. It was a very enriching experience.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Penses-tu que la politique affecte la manière dont nous vivons au quotidien ?",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Do you think politics affects the way we live day to day?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Absolument. Les décisions politiques peuvent influencer tout, de la santé publique aux impôts.",
+     "blank": false,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Absolutely. Political decisions can influence everything from public health to taxes.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Faites lire le dialogue aux étudiants.",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions.",
+   "valid_answers_by_blank": {}
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 4,
+   "title": "Dialogue",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions.",
+   "tutor_instruction": "Faites lire le dialogue aux étudiants.",
+   "lines": [
+    {
+     "speaker": "Alex",
+     "role": "tutor",
+     "avatar_seed": "Alex",
+     "text": "Comment la politique influence-t-elle ta vie, Eli ?",
+     "translation": "How does politics influence your life, Eli?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "student",
+     "avatar_seed": "Eli",
+     "text": "La politique a un grand impact sur mes droits. Par exemple, les lois sur l'éducation me permettent d'avoir accès à une bonne formation.",
+     "translation": "Politics has a big impact on my rights. For example, education laws allow me to access a good education."
+    },
+    {
+     "speaker": "Alex",
+     "role": "tutor",
+     "avatar_seed": "Alex",
+     "text": "Et qu'en est-il de ton droit de vote ?",
+     "translation": "And what about your right to vote?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "student",
+     "avatar_seed": "Eli",
+     "text": "Voter est très important pour moi. Cela me permet d'exprimer mes opinions sur les candidats et les politiques.",
+     "translation": "Voting is very important to me. It allows me to express my opinions on candidates and policies."
+    },
+    {
+     "speaker": "Alex",
+     "role": "tutor",
+     "avatar_seed": "Alex",
+     "text": "As-tu déjà participé à des manifestations ?",
+     "translation": "Have you ever participated in protests?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "student",
+     "avatar_seed": "Eli",
+     "text": "Oui, j'ai participé à une manifestation pour les droits de l'homme. C'était une expérience très enrichissante.",
+     "translation": "Yes, I participated in a protest for human rights. It was a very enriching experience."
+    },
+    {
+     "speaker": "Alex",
+     "role": "tutor",
+     "avatar_seed": "Alex",
+     "text": "Penses-tu que la politique affecte la manière dont nous vivons au quotidien ?",
+     "translation": "Do you think politics affects the way we live day to day?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "student",
+     "avatar_seed": "Eli",
+     "text": "Absolument. Les décisions politiques peuvent influencer tout, de la santé publique aux impôts.",
+     "translation": "Absolutely. Political decisions can influence everything from public health to taxes."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "e02ccbba-04c5-44f6-8ecc-b9f0c7a0f691",
+  "title": "Discutez de l'histoire française",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Dialogue",
+   "number": 4,
+   "example": {
+    "tutor_line": "Qu'est-ce qui te fascine le plus dans l'histoire de France, Eli ?",
+    "student_line": "Je suis vraiment intéressé par la Révolution française."
+   },
+   "exchanges": [
+    {
+     "text": "Qu'est-ce qui te fascine le plus dans l'histoire de France, Eli ?",
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "What fascinates you most about the history of France, Eli?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Je suis vraiment intéressé par la Révolution française. C'est un moment clé qui a défini la démocratie en France.",
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "I am really interested in the French Revolution. It is a key moment that defined democracy in France.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Oui, c'est vrai. Et que penses-tu de la guerre de Cent Ans ?",
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Yes, that's true. And what do you think about the Hundred Years' War?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "C'était une période très complexe. Elle a influencé les relations entre la France et l'Angleterre.",
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "It was a very complex period. It influenced the relations between France and England.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Et la Renaissance ?",
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "And the Renaissance?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "La Renaissance a apporté de grands changements dans l'art et la culture. Des figures comme Léonard de Vinci ont eu un impact énorme.",
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "The Renaissance brought great changes in art and culture. Figures like Leonardo da Vinci had a huge impact.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Que dirais-tu du patrimoine français ?",
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "What would you say about French heritage?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Le patrimoine français est riche et varié. Il reflète les différentes époques et événements historiques.",
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "French heritage is rich and varied. It reflects different eras and historical events.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Encouragez la lecture à haute voix.",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions.",
+   "valid_answers_by_blank": {}
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 4,
+   "title": "Dialogue",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions.",
+   "tutor_instruction": "Encouragez la lecture à haute voix.",
+   "lines": [
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Qu'est-ce qui te fascine le plus dans l'histoire de France, Eli ?",
+     "translation": "What fascinates you most about the history of France, Eli?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "Je suis vraiment intéressé par la Révolution française. C'est un moment clé qui a défini la démocratie en France.",
+     "translation": "I am really interested in the French Revolution. It is a key moment that defined democracy in France."
+    },
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Oui, c'est vrai. Et que penses-tu de la guerre de Cent Ans ?",
+     "translation": "Yes, that's true. And what do you think about the Hundred Years' War?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "C'était une période très complexe. Elle a influencé les relations entre la France et l'Angleterre.",
+     "translation": "It was a very complex period. It influenced the relations between France and England."
+    },
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Et la Renaissance ?",
+     "translation": "And the Renaissance?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "La Renaissance a apporté de grands changements dans l'art et la culture. Des figures comme Léonard de Vinci ont eu un impact énorme.",
+     "translation": "The Renaissance brought great changes in art and culture. Figures like Leonardo da Vinci had a huge impact."
+    },
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Que dirais-tu du patrimoine français ?",
+     "translation": "What would you say about French heritage?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "Le patrimoine français est riche et varié. Il reflète les différentes époques et événements historiques.",
+     "translation": "French heritage is rich and varied. It reflects different eras and historical events."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "4ba6e6d5-a43d-417f-b346-f157fbe84e21",
+  "title": "Partagez votre compréhension du comportement humain",
+  "i": 1,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Discussion Guidée - Alex et Eli Débattent",
+   "number": 2,
+   "example": {
+    "tutor_line": "Je suis convaincu que la génétique joue un rôle primordial dans le comportement.",
+    "student_line": "Je comprends ton point de vue."
+   },
+   "exchanges": [
+    {
+     "text": "Je suis convaincu que la génétique joue un rôle primordial dans le comportement.",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "I am convinced that genetics plays a crucial role in behavior.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Je comprends ton point de vue, mais je crois que l'environnement dans lequel on grandit a une plus grande influence.",
+     "blank": false,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "I understand your point of view, but I believe that the environment we grow up in has a greater influence.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Guide the students through the dialogue and help them fill in the blanks.",
+   "student_instruction": "Lisez le dialogue et complétez les blancs.",
+   "valid_answers_by_blank": {}
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 2,
+   "title": "Discussion Guidée - Alex et Eli Débattent",
+   "student_instruction": "Lisez le dialogue et complétez les blancs.",
+   "tutor_instruction": "Guide the students through the dialogue and help them fill in the blanks.",
+   "lines": [
+    {
+     "speaker": "Alex",
+     "role": "tutor",
+     "avatar_seed": "Alex",
+     "text": "Je suis convaincu que la génétique joue un rôle primordial dans le comportement.",
+     "translation": "I am convinced that genetics plays a crucial role in behavior."
+    },
+    {
+     "speaker": "Eli",
+     "role": "student",
+     "avatar_seed": "Eli",
+     "text": "Je comprends ton point de vue, mais je crois que l'environnement dans lequel on grandit a une plus grande influence.",
+     "translation": "I understand your point of view, but I believe that the environment we grow up in has a greater influence."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "1a46bc9d-92dd-471b-9096-b19d1707b645",
+  "title": "Starbucks",
+  "i": 4,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Jeu de Rôles",
+   "number": 5,
+   "example": {
+    "tutor_line": "Bonjour, je suis Max, un investisseur potentiel.",
+    "student_line": "Bonjour Max, je suis Eve, comment puis-je vous aider ?"
+   },
+   "exchanges": [
+    {
+     "text": "Comment Starbucks se distingue-t-il des autres chaînes de cafés ?",
+     "blank": false,
+     "speaker": "Max",
+     "avatar_seed": "Max",
+     "translation": "How does Starbucks stand out from other coffee chains?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Nous offrons une expérience unique et des produits de qualité.",
+     "blank": false,
+     "speaker": "Eve",
+     "avatar_seed": "Eve",
+     "translation": "We offer a unique experience and quality products.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Quels sont vos plans pour l'avenir de la marque ?",
+     "blank": false,
+     "speaker": "Max",
+     "avatar_seed": "Max",
+     "translation": "What are your plans for the future of the brand?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Nous prévoyons d'ouvrir de nouveaux magasins à l'international.",
+     "blank": false,
+     "speaker": "Eve",
+     "avatar_seed": "Eve",
+     "translation": "We plan to open new stores internationally.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Guide les étudiants à utiliser le vocabulaire appris.",
+   "student_instruction": "Faites une simulation où Max est un investisseur potentiel et Eve est une employée de Starbucks.",
+   "valid_answers_by_blank": {}
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 5,
+   "title": "Jeu de Rôles",
+   "student_instruction": "Faites une simulation où Max est un investisseur potentiel et Eve est une employée de Starbucks.",
+   "tutor_instruction": "Guide les étudiants à utiliser le vocabulaire appris.",
+   "lines": [
+    {
+     "speaker": "Max",
+     "role": "student",
+     "avatar_seed": "Max",
+     "text": "Comment Starbucks se distingue-t-il des autres chaînes de cafés ?",
+     "translation": "How does Starbucks stand out from other coffee chains?"
+    },
+    {
+     "speaker": "Eve",
+     "role": "tutor",
+     "avatar_seed": "Eve",
+     "text": "Nous offrons une expérience unique et des produits de qualité.",
+     "translation": "We offer a unique experience and quality products."
+    },
+    {
+     "speaker": "Max",
+     "role": "student",
+     "avatar_seed": "Max",
+     "text": "Quels sont vos plans pour l'avenir de la marque ?",
+     "translation": "What are your plans for the future of the brand?"
+    },
+    {
+     "speaker": "Eve",
+     "role": "tutor",
+     "avatar_seed": "Eve",
+     "text": "Nous prévoyons d'ouvrir de nouveaux magasins à l'international.",
+     "translation": "We plan to open new stores internationally."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "91332bea-a205-4554-877a-c3994bcd52e5",
+  "title": "Partagez vos opinions sur l'éducation",
+  "i": 2,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Dialogue",
+   "number": 3,
+   "example": {
+    "tutor_line": "Ben :« Dans quelle école es-tu allée, Emilie ? »",
+    "student_line": "Emilie :« J'ai fréquenté un lycée mixte à Paris. »"
+   },
+   "exchanges": [
+    {
+     "text": "Dans quelle école es-tu allée, Emilie ?",
+     "blank": false,
+     "speaker": "Ben :« Dans quelle école es-tu allée, Emilie ? »",
+     "avatar_seed": "Ben",
+     "translation": "Which school did you go to, Emilie?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "J'ai fréquenté un lycée mixte à Paris.",
+     "blank": false,
+     "speaker": "Emilie :« J'ai fréquenté un lycée mixte à Paris. »",
+     "avatar_seed": "Emilie",
+     "translation": "I attended a mixed high school in Paris.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Et comment était le système éducatif là-bas ?",
+     "blank": false,
+     "speaker": "Ben :« Et comment était le système éducatif là-bas ? »",
+     "avatar_seed": "Ben",
+     "translation": "And how was the educational system there?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Le système était plutôt exigeant, mais on avait aussi beaucoup d’activités sportives et culturelles.",
+     "blank": false,
+     "speaker": "Emilie :« Le système était plutôt exigeant, mais on avait aussi beaucoup d’activités sportives et culturelles. »",
+     "avatar_seed": "Emilie",
+     "translation": "The system was quite demanding, but we also had many sports and cultural activities.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Est-ce que beaucoup de personnes choisissent l'éducation privée en France ?",
+     "blank": false,
+     "speaker": "Ben :« Est-ce que beaucoup de personnes choisissent l'éducation privée en France ? »",
+     "avatar_seed": "Ben",
+     "translation": "Do many people choose private education in France?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Non, la majorité des élèves vont dans des écoles publiques.",
+     "blank": false,
+     "speaker": "Emilie :« Non, la majorité des élèves vont dans des écoles publiques. »",
+     "avatar_seed": "Emilie",
+     "translation": "No, the majority of students go to public schools.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Encouragez l'élève à lire avec expression.",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions."
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 3,
+   "title": "Dialogue",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions.",
+   "tutor_instruction": "Encouragez l'élève à lire avec expression.",
+   "lines": [
+    {
+     "speaker": "Ben :« Dans quelle école es-tu allée, Emilie ? »",
+     "role": "tutor",
+     "avatar_seed": "Ben",
+     "text": "Dans quelle école es-tu allée, Emilie ?",
+     "translation": "Which school did you go to, Emilie?"
+    },
+    {
+     "speaker": "Emilie :« J'ai fréquenté un lycée mixte à Paris. »",
+     "role": "student",
+     "avatar_seed": "Emilie",
+     "text": "J'ai fréquenté un lycée mixte à Paris.",
+     "translation": "I attended a mixed high school in Paris."
+    },
+    {
+     "speaker": "Ben :« Et comment était le système éducatif là-bas ? »",
+     "role": "tutor",
+     "avatar_seed": "Ben",
+     "text": "Et comment était le système éducatif là-bas ?",
+     "translation": "And how was the educational system there?"
+    },
+    {
+     "speaker": "Emilie :« Le système était plutôt exigeant, mais on avait aussi beaucoup d’activités sportives et culturelles. »",
+     "role": "student",
+     "avatar_seed": "Emilie",
+     "text": "Le système était plutôt exigeant, mais on avait aussi beaucoup d’activités sportives et culturelles.",
+     "translation": "The system was quite demanding, but we also had many sports and cultural activities."
+    },
+    {
+     "speaker": "Ben :« Est-ce que beaucoup de personnes choisissent l'éducation privée en France ? »",
+     "role": "tutor",
+     "avatar_seed": "Ben",
+     "text": "Est-ce que beaucoup de personnes choisissent l'éducation privée en France ?",
+     "translation": "Do many people choose private education in France?"
+    },
+    {
+     "speaker": "Emilie :« Non, la majorité des élèves vont dans des écoles publiques. »",
+     "role": "student",
+     "avatar_seed": "Emilie",
+     "text": "Non, la majorité des élèves vont dans des écoles publiques.",
+     "translation": "No, the majority of students go to public schools."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "d4c06604-a60f-4f3a-91ef-2d61dd7083c3",
+  "title": "3 questions d'entretien que personne ne veut répondre",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Discussion simulée",
+   "number": 4,
+   "example": {
+    "tutor_line": "Avez-vous déjà eu à répondre à une question difficile en entretien ?",
+    "student_line": "Oui, une fois on m'a demandé de parler d'un échec passé."
+   },
+   "exchanges": [
+    {
+     "text": "Oui, une fois on m'a demandé de parler d'un échec passé. J'ai répondu en expliquant ce que j'avais appris de cette expérience et comment cela m'avait aidé à m'améliorer dans mon travail actuel.",
+     "blank": false,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Yes, once I was asked to talk about a past failure. I responded by explaining what I learned from that experience and how it helped me improve in my current job.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Je prends le temps de respirer et de me recentrer. Parfois, une courte pause ou une marche rapide suffit à retrouver le calme nécessaire pour gérer une situation difficile.",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "I take the time to breathe and refocus. Sometimes, a short break or a quick walk is enough to regain the calm needed to handle a difficult situation.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Posez les questions et laissez les étudiants répondre.",
+   "student_instruction": "Écoutez les questions et réponses types lues par votre tuteur, puis répondez aux questions posées par votre tuteur :",
+   "valid_answers_by_blank": {}
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 4,
+   "title": "Discussion simulée",
+   "student_instruction": "Écoutez les questions et réponses types lues par votre tuteur, puis répondez aux questions posées par votre tuteur :",
+   "tutor_instruction": "Posez les questions et laissez les étudiants répondre.",
+   "lines": [
+    {
+     "speaker": "Eli",
+     "role": "student",
+     "avatar_seed": "Eli",
+     "text": "Oui, une fois on m'a demandé de parler d'un échec passé. J'ai répondu en expliquant ce que j'avais appris de cette expérience et comment cela m'avait aidé à m'améliorer dans mon travail actuel.",
+     "translation": "Yes, once I was asked to talk about a past failure. I responded by explaining what I learned from that experience and how it helped me improve in my current job."
+    },
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Je prends le temps de respirer et de me recentrer. Parfois, une courte pause ou une marche rapide suffit à retrouver le calme nécessaire pour gérer une situation difficile.",
+     "translation": "I take the time to breathe and refocus. Sometimes, a short break or a quick walk is enough to regain the calm needed to handle a difficult situation."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "e9f10efa-ceb7-4f7a-a30e-97a15a7d459c",
+  "title": "Discutez des actualités",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Dialogue",
+   "number": 4,
+   "example": {
+    "tutor_line": "Où trouves-tu habituellement tes informations ?",
+    "student_line": "J’ai tendance à lire les journaux."
+   },
+   "exchanges": [
+    {
+     "text": "Où trouves-tu habituellement tes informations ?",
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Where do you usually find your information?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "J’ai tendance à lire les journaux. Ils semblent être les plus fiables et les plus informatifs – et les moins biaisés.",
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "I tend to read newspapers. They seem to be the most reliable and informative – and the least biased.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Encouragez l'étudiant à pratiquer la lecture à voix haute.",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions.",
+   "valid_answers_by_blank": {}
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 4,
+   "title": "Dialogue",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions.",
+   "tutor_instruction": "Encouragez l'étudiant à pratiquer la lecture à voix haute.",
+   "lines": [
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Où trouves-tu habituellement tes informations ?",
+     "translation": "Where do you usually find your information?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "J’ai tendance à lire les journaux. Ils semblent être les plus fiables et les plus informatifs – et les moins biaisés.",
+     "translation": "I tend to read newspapers. They seem to be the most reliable and informative – and the least biased."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "b1c8e1ee-15b1-491b-b229-c480484a446b",
+  "title": "Parlez de la signification de la religion",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Dialogue",
+   "number": 4,
+   "example": {
+    "tutor_line": "Quelle est la signification de la religion pour toi, Emilie ?",
+    "student_line": "Pour moi, la religion est un cadre moral qui guide mes choix."
+   },
+   "exchanges": [
+    {
+     "text": "Quelle est la signification de la religion pour toi, Emilie ?",
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "What is the meaning of religion for you, Emilie?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Pour moi, la religion est un cadre moral qui guide mes choix.",
+     "speaker": "Emilie",
+     "avatar_seed": "Emilie",
+     "translation": "For me, religion is a moral framework that guides my choices.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Penses-tu que la religion peut encore avoir un impact dans le monde moderne ?",
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "Do you think religion can still have an impact in the modern world?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Absolument, elle continue d'influencer les valeurs et les comportements des gens.",
+     "speaker": "Emilie",
+     "avatar_seed": "Emilie",
+     "translation": "Absolutely, it continues to influence people's values and behaviors.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Que penses-tu des différentes interprétations de la religion ?",
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "What do you think about the different interpretations of religion?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Je crois qu'elles enrichissent le débat et la compréhension entre les cultures.",
+     "speaker": "Emilie",
+     "avatar_seed": "Emilie",
+     "translation": "I believe they enrich the debate and understanding between cultures.",
+     "speaker_role": "student"
+    }
+   ],
+   "tutor_instruction": "Encouragez la lecture expressive.",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions."
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 4,
+   "title": "Dialogue",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions.",
+   "tutor_instruction": "Encouragez la lecture expressive.",
+   "lines": [
+    {
+     "speaker": "Professeur",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "Quelle est la signification de la religion pour toi, Emilie ?",
+     "translation": "What is the meaning of religion for you, Emilie?"
+    },
+    {
+     "speaker": "Emilie",
+     "role": "student",
+     "avatar_seed": "Emilie",
+     "text": "Pour moi, la religion est un cadre moral qui guide mes choix.",
+     "translation": "For me, religion is a moral framework that guides my choices."
+    },
+    {
+     "speaker": "Professeur",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "Penses-tu que la religion peut encore avoir un impact dans le monde moderne ?",
+     "translation": "Do you think religion can still have an impact in the modern world?"
+    },
+    {
+     "speaker": "Emilie",
+     "role": "student",
+     "avatar_seed": "Emilie",
+     "text": "Absolument, elle continue d'influencer les valeurs et les comportements des gens.",
+     "translation": "Absolutely, it continues to influence people's values and behaviors."
+    },
+    {
+     "speaker": "Professeur",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "Que penses-tu des différentes interprétations de la religion ?",
+     "translation": "What do you think about the different interpretations of religion?"
+    },
+    {
+     "speaker": "Emilie",
+     "role": "student",
+     "avatar_seed": "Emilie",
+     "text": "Je crois qu'elles enrichissent le débat et la compréhension entre les cultures.",
+     "translation": "I believe they enrich the debate and understanding between cultures."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "4d760a0d-b7c9-4c0c-8097-e524f467c9e1",
+  "title": "Partagez vos expériences avec la culture française",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Dialogue",
+   "number": 4,
+   "example": {
+    "tutor_line": "Alex, as-tu déjà visité la France ?",
+    "student_line": "Oui, j’y suis allé l’année dernière."
+   },
+   "exchanges": [
+    {
+     "text": "Eli, as-tu déjà visité la France ?",
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Eli, have you ever visited France?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Oui, j’y suis allé l’année dernière. J’ai visité Paris et Lyon. C’était incroyable !",
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Yes, I went there last year. I visited Paris and Lyon. It was amazing!",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Quelle a été ta première impression de la France ?",
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "What was your first impression of France?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "J’ai été impressionné par la beauté des monuments historiques, comme la Tour Eiffel et la cathédrale Notre-Dame. Les gens étaient aussi très accueillants.",
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "I was impressed by the beauty of the historical monuments, like the Eiffel Tower and Notre-Dame Cathedral. The people were also very welcoming.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Y a-t-il quelque chose dans la culture française qui t’a surpris ?",
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Is there something in French culture that surprised you?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Oui, la manière dont les Français prennent leur temps pour les repas. C’est très différent de chez moi où l’on mange plus rapidement.",
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Yes, the way the French take their time for meals. It's very different from my home where we eat more quickly.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Est-ce qu’il y a un aspect de la culture française que tu as particulièrement aimé ?",
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Is there an aspect of French culture that you particularly liked?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Oui, j’ai adoré la gastronomie. La cuisine française est vraiment délicieuse, et j’ai découvert des plats que je ne connaissais pas, comme le coq au vin.",
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Yes, I loved the gastronomy. French cuisine is really delicious, and I discovered dishes I didn't know, like coq au vin.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Encouragez l'élève à pratiquer la lecture à haute voix.",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions.",
+   "valid_answers_by_blank": {}
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 4,
+   "title": "Dialogue",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions.",
+   "tutor_instruction": "Encouragez l'élève à pratiquer la lecture à haute voix.",
+   "lines": [
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Eli, as-tu déjà visité la France ?",
+     "translation": "Eli, have you ever visited France?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "Oui, j’y suis allé l’année dernière. J’ai visité Paris et Lyon. C’était incroyable !",
+     "translation": "Yes, I went there last year. I visited Paris and Lyon. It was amazing!"
+    },
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Quelle a été ta première impression de la France ?",
+     "translation": "What was your first impression of France?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "J’ai été impressionné par la beauté des monuments historiques, comme la Tour Eiffel et la cathédrale Notre-Dame. Les gens étaient aussi très accueillants.",
+     "translation": "I was impressed by the beauty of the historical monuments, like the Eiffel Tower and Notre-Dame Cathedral. The people were also very welcoming."
+    },
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Y a-t-il quelque chose dans la culture française qui t’a surpris ?",
+     "translation": "Is there something in French culture that surprised you?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "Oui, la manière dont les Français prennent leur temps pour les repas. C’est très différent de chez moi où l’on mange plus rapidement.",
+     "translation": "Yes, the way the French take their time for meals. It's very different from my home where we eat more quickly."
+    },
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Est-ce qu’il y a un aspect de la culture française que tu as particulièrement aimé ?",
+     "translation": "Is there an aspect of French culture that you particularly liked?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "Oui, j’ai adoré la gastronomie. La cuisine française est vraiment délicieuse, et j’ai découvert des plats que je ne connaissais pas, comme le coq au vin.",
+     "translation": "Yes, I loved the gastronomy. French cuisine is really delicious, and I discovered dishes I didn't know, like coq au vin."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "7b4173cc-1bdc-4fe2-996e-f9fd59412c85",
+  "title": "Services de restauration aérienne",
+  "i": 4,
+  "before": {
+   "kind": "fill_in_blank_dialogue_extended",
+   "title": "Expressions utiles",
+   "number": 5,
+   "exchanges": [
+    {
+     "text": "Pourriez-vous me donner…",
+     "blank": null,
+     "speaker": "Début de phrase",
+     "avatar_seed": "Début de phrase",
+     "translation": "Could you give me…",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "une autre serviette, s'il vous plaît ?",
+     "blank": null,
+     "speaker": "Fin de phrase",
+     "avatar_seed": "Fin de phrase",
+     "translation": "another napkin, please?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "J'aimerais savoir si…",
+     "blank": null,
+     "speaker": "Début de phrase",
+     "avatar_seed": "Début de phrase",
+     "translation": "I would like to know if…",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "vous avez des options sans gluten.",
+     "blank": null,
+     "speaker": "Fin de phrase",
+     "avatar_seed": "Fin de phrase",
+     "translation": "you have gluten-free options.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Excusez-moi, pourriez-vous…",
+     "blank": null,
+     "speaker": "Début de phrase",
+     "avatar_seed": "Début de phrase",
+     "translation": "Excuse me, could you…",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "m’apporter de l’eau ?",
+     "blank": null,
+     "speaker": "Fin de phrase",
+     "avatar_seed": "Fin de phrase",
+     "translation": "bring me some water?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Est-ce qu'il y a…",
+     "blank": null,
+     "speaker": "Début de phrase",
+     "avatar_seed": "Début de phrase",
+     "translation": "Is there…",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "un dessert avec le repas ?",
+     "blank": null,
+     "speaker": "Fin de phrase",
+     "avatar_seed": "Fin de phrase",
+     "translation": "a dessert with the meal?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Je souhaiterais…",
+     "blank": null,
+     "speaker": "Début de phrase",
+     "avatar_seed": "Début de phrase",
+     "translation": "I would like…",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "un café sans sucre, merci.",
+     "blank": null,
+     "speaker": "Fin de phrase",
+     "avatar_seed": "Fin de phrase",
+     "translation": "a coffee without sugar, thank you.",
+     "speaker_role": "student"
+    }
+   ],
+   "tutor_role": "tutor",
+   "student_role": "student",
+   "tutor_instruction": "Aidez les étudiants à faire les associations.",
+   "student_instruction": "Associez les débuts et fins de phrases pour former des expressions courantes utilisées pendant un vol.",
+   "valid_answers_by_blank": {}
+  },
+  "after": {
+   "kind": "matching_qa",
+   "number": 5,
+   "title": "Expressions utiles",
+   "student_instruction": "Associez les débuts et fins de phrases pour former des expressions courantes utilisées pendant un vol.",
+   "tutor_instruction": "Aidez les étudiants à faire les associations.",
+   "pairs": [
+    {
+     "question": "Pourriez-vous me donner…",
+     "answer": "une autre serviette, s'il vous plaît ?",
+     "question_translation": "Could you give me…",
+     "answer_translation": "another napkin, please?"
+    },
+    {
+     "question": "J'aimerais savoir si…",
+     "answer": "vous avez des options sans gluten.",
+     "question_translation": "I would like to know if…",
+     "answer_translation": "you have gluten-free options."
+    },
+    {
+     "question": "Excusez-moi, pourriez-vous…",
+     "answer": "m’apporter de l’eau ?",
+     "question_translation": "Excuse me, could you…",
+     "answer_translation": "bring me some water?"
+    },
+    {
+     "question": "Est-ce qu'il y a…",
+     "answer": "un dessert avec le repas ?",
+     "question_translation": "Is there…",
+     "answer_translation": "a dessert with the meal?"
+    },
+    {
+     "question": "Je souhaiterais…",
+     "answer": "un café sans sucre, merci.",
+     "question_translation": "I would like…",
+     "answer_translation": "a coffee without sugar, thank you."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "60fbb97f-7e95-4cab-9f82-b888b64c85c6",
+  "title": "Parlez de la signification des événements historiques",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Dialogue",
+   "number": 4,
+   "example": {
+    "tutor_line": "Quel événement historique vous a le plus marqué ?",
+    "student_line": "Je pense que la Révolution française est très significative."
+   },
+   "exchanges": [
+    {
+     "text": "Quel événement historique vous a le plus marqué ?",
+     "blank": null,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Which historical event impacted you the most?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Je pense que la Révolution française est très significative. Elle a changé la manière dont la société était organisée.",
+     "blank": null,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "I think the French Revolution is very significant. It changed the way society was organized.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Pourquoi est-ce que cela a eu un tel impact ?",
+     "blank": null,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Why did it have such an impact?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Elle a promu des valeurs comme la liberté et l'égalité. Ces idées ont influencé de nombreux autres pays.",
+     "blank": null,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "It promoted values like freedom and equality. These ideas influenced many other countries.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "C'est vrai ! Et que penses-tu de la Seconde Guerre mondiale ?",
+     "blank": null,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "That's true! And what do you think about World War II?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "C'était un événement tragique, mais il a aussi conduit à des changements importants dans le monde, comme la création de l'ONU.",
+     "blank": null,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "It was a tragic event, but it also led to significant changes in the world, like the creation of the UN.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Faites lire le dialogue à l'élève.",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions."
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 4,
+   "title": "Dialogue",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions.",
+   "tutor_instruction": "Faites lire le dialogue à l'élève.",
+   "lines": [
+    {
+     "speaker": "Eli",
+     "role": "student",
+     "avatar_seed": "Eli",
+     "text": "Quel événement historique vous a le plus marqué ?",
+     "translation": "Which historical event impacted you the most?"
+    },
+    {
+     "speaker": "Alex",
+     "role": "tutor",
+     "avatar_seed": "Alex",
+     "text": "Je pense que la Révolution française est très significative. Elle a changé la manière dont la société était organisée.",
+     "translation": "I think the French Revolution is very significant. It changed the way society was organized."
+    },
+    {
+     "speaker": "Eli",
+     "role": "student",
+     "avatar_seed": "Eli",
+     "text": "Pourquoi est-ce que cela a eu un tel impact ?",
+     "translation": "Why did it have such an impact?"
+    },
+    {
+     "speaker": "Alex",
+     "role": "tutor",
+     "avatar_seed": "Alex",
+     "text": "Elle a promu des valeurs comme la liberté et l'égalité. Ces idées ont influencé de nombreux autres pays.",
+     "translation": "It promoted values like freedom and equality. These ideas influenced many other countries."
+    },
+    {
+     "speaker": "Eli",
+     "role": "student",
+     "avatar_seed": "Eli",
+     "text": "C'est vrai ! Et que penses-tu de la Seconde Guerre mondiale ?",
+     "translation": "That's true! And what do you think about World War II?"
+    },
+    {
+     "speaker": "Alex",
+     "role": "tutor",
+     "avatar_seed": "Alex",
+     "text": "C'était un événement tragique, mais il a aussi conduit à des changements importants dans le monde, comme la création de l'ONU.",
+     "translation": "It was a tragic event, but it also led to significant changes in the world, like the creation of the UN."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "73f47e6e-c024-4b3a-a358-2a84f3534b34",
+  "title": "Discutez de l'art et de la littérature français",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Dialogue",
+   "number": 4,
+   "example": {
+    "tutor_line": "Eli : As-tu lu Le Petit Prince ?",
+    "student_line": "Oui, c'est un roman très poétique."
+   },
+   "exchanges": [
+    {
+     "text": "Eli, as-tu déjà visité le Louvre ?",
+     "blank": false,
+     "speaker": "Alex :",
+     "avatar_seed": "Alex",
+     "translation": "Eli, have you ever visited the Louvre?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Oui, j'y suis allé l'année dernière. J'ai adoré les peintures de la Renaissance !",
+     "blank": false,
+     "speaker": "Eli :",
+     "avatar_seed": "Eli",
+     "translation": "Yes, I went there last year. I loved the Renaissance paintings!",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Laquelle était ta préférée ?",
+     "blank": false,
+     "speaker": "Alex :",
+     "avatar_seed": "Alex",
+     "translation": "Which one was your favorite?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "La Joconde, bien sûr ! C'est incroyable de la voir en vrai.",
+     "blank": false,
+     "speaker": "Eli :",
+     "avatar_seed": "Eli",
+     "translation": "The Mona Lisa, of course! It's amazing to see it in person.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Et toi, tu as une œuvre d'art préférée ?",
+     "blank": false,
+     "speaker": "Alex :",
+     "avatar_seed": "Alex",
+     "translation": "And you, do you have a favorite artwork?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "J'adore les œuvres impressionnistes, surtout celles de Monet.",
+     "blank": false,
+     "speaker": "Eli :",
+     "avatar_seed": "Eli",
+     "translation": "I love impressionist works, especially those by Monet.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Les Nymphéas est une œuvre qui me fascine.",
+     "blank": false,
+     "speaker": "Alex :",
+     "avatar_seed": "Alex",
+     "translation": "Water Lilies is a work that fascinates me.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Oui, Monet est un maître ! Tu aimes aussi la littérature française ?",
+     "blank": false,
+     "speaker": "Eli :",
+     "avatar_seed": "Eli",
+     "translation": "Yes, Monet is a master! Do you also like French literature?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Absolument, je suis un grand fan de Victor Hugo.",
+     "blank": false,
+     "speaker": "Alex :",
+     "avatar_seed": "Alex",
+     "translation": "Absolutely, I am a big fan of Victor Hugo.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Les Misérables est un roman tellement puissant.",
+     "blank": false,
+     "speaker": "Eli :",
+     "avatar_seed": "Eli",
+     "translation": "Les Misérables is such a powerful novel.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Faites lire le dialogue à l'étudiant.",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions."
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 4,
+   "title": "Dialogue",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions.",
+   "tutor_instruction": "Faites lire le dialogue à l'étudiant.",
+   "lines": [
+    {
+     "speaker": "Alex :",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Eli, as-tu déjà visité le Louvre ?",
+     "translation": "Eli, have you ever visited the Louvre?"
+    },
+    {
+     "speaker": "Eli :",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "Oui, j'y suis allé l'année dernière. J'ai adoré les peintures de la Renaissance !",
+     "translation": "Yes, I went there last year. I loved the Renaissance paintings!"
+    },
+    {
+     "speaker": "Alex :",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Laquelle était ta préférée ?",
+     "translation": "Which one was your favorite?"
+    },
+    {
+     "speaker": "Eli :",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "La Joconde, bien sûr ! C'est incroyable de la voir en vrai.",
+     "translation": "The Mona Lisa, of course! It's amazing to see it in person."
+    },
+    {
+     "speaker": "Alex :",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Et toi, tu as une œuvre d'art préférée ?",
+     "translation": "And you, do you have a favorite artwork?"
+    },
+    {
+     "speaker": "Eli :",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "J'adore les œuvres impressionnistes, surtout celles de Monet.",
+     "translation": "I love impressionist works, especially those by Monet."
+    },
+    {
+     "speaker": "Alex :",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Les Nymphéas est une œuvre qui me fascine.",
+     "translation": "Water Lilies is a work that fascinates me."
+    },
+    {
+     "speaker": "Eli :",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "Oui, Monet est un maître ! Tu aimes aussi la littérature française ?",
+     "translation": "Yes, Monet is a master! Do you also like French literature?"
+    },
+    {
+     "speaker": "Alex :",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Absolument, je suis un grand fan de Victor Hugo.",
+     "translation": "Absolutely, I am a big fan of Victor Hugo."
+    },
+    {
+     "speaker": "Eli :",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "Les Misérables est un roman tellement puissant.",
+     "translation": "Les Misérables is such a powerful novel."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "0cf00c2a-1ade-4abe-819d-7ad1f98d7ddc",
+  "title": "Prendre et Laisser des Messages",
+  "i": 6,
+  "before": {
+   "kind": "fill_in_blank_dialogue_extended",
+   "title": "Écoute et Répétition",
+   "number": 7,
+   "example": {
+    "tutor_line": "Je peux transmettre votre message dès qu'il sera disponible.",
+    "student_line": "Je peux transmettre votre message dès qu'il sera disponible."
+   },
+   "exchanges": [
+    {
+     "text": "Je peux transmettre votre message dès qu'il sera disponible.",
+     "blank": false,
+     "speaker": "tutor",
+     "avatar_seed": "Max",
+     "translation": "I can pass on your message as soon as he is available.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Je peux transmettre votre message dès qu'il sera disponible.",
+     "blank": false,
+     "speaker": "student",
+     "avatar_seed": "Appelant",
+     "translation": "I can pass on your message as soon as he is available.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Puis-je avoir votre numéro de téléphone, s'il vous plaît ?",
+     "blank": false,
+     "speaker": "tutor",
+     "avatar_seed": "Max",
+     "translation": "May I have your phone number, please?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Puis-je avoir votre numéro de téléphone, s'il vous plaît ?",
+     "blank": false,
+     "speaker": "student",
+     "avatar_seed": "Appelant",
+     "translation": "May I have your phone number, please?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Merci pour votre appel. Je lui dirai que vous avez appelé.",
+     "blank": false,
+     "speaker": "tutor",
+     "avatar_seed": "Max",
+     "translation": "Thank you for your call. I will tell him that you called.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Merci pour votre appel. Je lui dirai que vous avez appelé.",
+     "blank": false,
+     "speaker": "student",
+     "avatar_seed": "Appelant",
+     "translation": "Thank you for your call. I will tell him that you called.",
+     "speaker_role": "student"
+    }
+   ],
+   "tutor_instruction": "Focus on pronunciation and intonation.",
+   "student_instruction": "Écoutez votre partenaire lire les phrases suivantes, puis répétez-les à haute voix."
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 7,
+   "title": "Écoute et Répétition",
+   "student_instruction": "Écoutez votre partenaire lire les phrases suivantes, puis répétez-les à haute voix.",
+   "tutor_instruction": "Focus on pronunciation and intonation.",
+   "lines": [
+    {
+     "speaker": "tutor",
+     "role": "tutor",
+     "avatar_seed": "Max",
+     "text": "Je peux transmettre votre message dès qu'il sera disponible.",
+     "translation": "I can pass on your message as soon as he is available."
+    },
+    {
+     "speaker": "student",
+     "role": "student",
+     "avatar_seed": "Appelant",
+     "text": "Je peux transmettre votre message dès qu'il sera disponible.",
+     "translation": "I can pass on your message as soon as he is available."
+    },
+    {
+     "speaker": "tutor",
+     "role": "tutor",
+     "avatar_seed": "Max",
+     "text": "Puis-je avoir votre numéro de téléphone, s'il vous plaît ?",
+     "translation": "May I have your phone number, please?"
+    },
+    {
+     "speaker": "student",
+     "role": "student",
+     "avatar_seed": "Appelant",
+     "text": "Puis-je avoir votre numéro de téléphone, s'il vous plaît ?",
+     "translation": "May I have your phone number, please?"
+    },
+    {
+     "speaker": "tutor",
+     "role": "tutor",
+     "avatar_seed": "Max",
+     "text": "Merci pour votre appel. Je lui dirai que vous avez appelé.",
+     "translation": "Thank you for your call. I will tell him that you called."
+    },
+    {
+     "speaker": "student",
+     "role": "student",
+     "avatar_seed": "Appelant",
+     "text": "Merci pour votre appel. Je lui dirai que vous avez appelé.",
+     "translation": "Thank you for your call. I will tell him that you called."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "630df56d-b800-4c09-a932-6dfdcd5d30b6",
+  "title": "Partagez vos expériences religieuses",
+  "i": 2,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Dialogue",
+   "number": 3,
+   "example": {
+    "tutor_line": "Quelle est ton expérience religieuse, Ben ?",
+    "student_line": "J'ai grandi dans une famille chrétienne. Nous allions à l'église tous les dimanches."
+   },
+   "exchanges": [
+    {
+     "text": "Quelle est ton expérience religieuse, Ben ?",
+     "blank": null,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "What is your religious experience, Ben?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "J'ai grandi dans une famille chrétienne. Nous allions à l'église tous les dimanches.",
+     "blank": null,
+     "speaker": "Ben",
+     "avatar_seed": "Ben",
+     "translation": "I grew up in a Christian family. We went to church every Sunday.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Est-ce que tu as participé à des activités religieuses ?",
+     "blank": null,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "Have you participated in religious activities?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Oui, j'ai été membre de la chorale de l'église. C'était très enrichissant.",
+     "blank": null,
+     "speaker": "Ben",
+     "avatar_seed": "Ben",
+     "translation": "Yes, I was a member of the church choir. It was very enriching.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Comment as-tu ressenti cela ?",
+     "blank": null,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "How did you feel about that?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Cela m'a permis de rencontrer des gens et de renforcer ma foi.",
+     "blank": null,
+     "speaker": "Ben",
+     "avatar_seed": "Ben",
+     "translation": "It allowed me to meet people and strengthen my faith.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Avez-vous d'autres expériences avec d'autres religions ?",
+     "blank": null,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "Do you have other experiences with other religions?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Oui, j'ai assisté à des cérémonies dans d'autres religions, comme le mariage musulman de ma meilleure amie.",
+     "blank": null,
+     "speaker": "Ben",
+     "avatar_seed": "Ben",
+     "translation": "Yes, I have attended ceremonies in other religions, like my best friend's Muslim wedding.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Faites lire le dialogue à l'étudiant.",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions.",
+   "valid_answers_by_blank": {}
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 3,
+   "title": "Dialogue",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions.",
+   "tutor_instruction": "Faites lire le dialogue à l'étudiant.",
+   "lines": [
+    {
+     "speaker": "Professeur",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "Quelle est ton expérience religieuse, Ben ?",
+     "translation": "What is your religious experience, Ben?"
+    },
+    {
+     "speaker": "Ben",
+     "role": "student",
+     "avatar_seed": "Ben",
+     "text": "J'ai grandi dans une famille chrétienne. Nous allions à l'église tous les dimanches.",
+     "translation": "I grew up in a Christian family. We went to church every Sunday."
+    },
+    {
+     "speaker": "Professeur",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "Est-ce que tu as participé à des activités religieuses ?",
+     "translation": "Have you participated in religious activities?"
+    },
+    {
+     "speaker": "Ben",
+     "role": "student",
+     "avatar_seed": "Ben",
+     "text": "Oui, j'ai été membre de la chorale de l'église. C'était très enrichissant.",
+     "translation": "Yes, I was a member of the church choir. It was very enriching."
+    },
+    {
+     "speaker": "Professeur",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "Comment as-tu ressenti cela ?",
+     "translation": "How did you feel about that?"
+    },
+    {
+     "speaker": "Ben",
+     "role": "student",
+     "avatar_seed": "Ben",
+     "text": "Cela m'a permis de rencontrer des gens et de renforcer ma foi.",
+     "translation": "It allowed me to meet people and strengthen my faith."
+    },
+    {
+     "speaker": "Professeur",
+     "role": "tutor",
+     "avatar_seed": "Professeur",
+     "text": "Avez-vous d'autres expériences avec d'autres religions ?",
+     "translation": "Do you have other experiences with other religions?"
+    },
+    {
+     "speaker": "Ben",
+     "role": "student",
+     "avatar_seed": "Ben",
+     "text": "Oui, j'ai assisté à des cérémonies dans d'autres religions, comme le mariage musulman de ma meilleure amie.",
+     "translation": "Yes, I have attended ceremonies in other religions, like my best friend's Muslim wedding."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "61653c24-9ede-4f88-9e1a-55c9210d9eb9",
+  "title": "Courriel",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Discussion simulée",
+   "number": 4,
+   "example": {
+    "tutor_line": "Que faites-vous si vous remarquez une erreur après avoir envoyé un courriel ?",
+    "student_line": "Si c’est une petite faute, je laisse passer."
+   },
+   "exchanges": [
+    {
+     "text": "Que faites-vous si vous remarquez une erreur après avoir envoyé un courriel ?",
+     "blank": false,
+     "speaker": "tutor",
+     "avatar_seed": "Tutor",
+     "translation": "What do you do if you notice a mistake after sending an email?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Si c’est une petite faute, je laisse passer. Mais pour une erreur importante, j’envoie un message de correction rapidement.",
+     "blank": false,
+     "speaker": "student",
+     "avatar_seed": "Elise",
+     "translation": "If it's a small mistake, I let it go. But for a significant error, I send a correction message quickly.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Comment réagissez-vous si quelqu'un oublie de répondre à votre courriel ?",
+     "blank": false,
+     "speaker": "tutor",
+     "avatar_seed": "Tutor",
+     "translation": "How do you react if someone forgets to reply to your email?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "J’attends un ou deux jours et je renvoie un message de suivi pour vérifier qu’il a bien reçu mon courriel.",
+     "blank": false,
+     "speaker": "student",
+     "avatar_seed": "John",
+     "translation": "I wait a day or two and then I send a follow-up message to check if he received my email.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Est-il acceptable d’envoyer des courriels professionnels en dehors des heures de travail ?",
+     "blank": false,
+     "speaker": "tutor",
+     "avatar_seed": "Tutor",
+     "translation": "Is it acceptable to send professional emails outside of working hours?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Ça dépend de l’urgence, mais j’essaie de respecter les horaires de bureau.",
+     "blank": false,
+     "speaker": "student",
+     "avatar_seed": "Elise",
+     "translation": "It depends on the urgency, but I try to respect office hours.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Posez les questions et écoutez les réponses.",
+   "student_instruction": "Écoutez les questions et exemples de réponses de votre tuteur, puis répondez aux questions :"
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 4,
+   "title": "Discussion simulée",
+   "student_instruction": "Écoutez les questions et exemples de réponses de votre tuteur, puis répondez aux questions :",
+   "tutor_instruction": "Posez les questions et écoutez les réponses.",
+   "lines": [
+    {
+     "speaker": "tutor",
+     "role": "tutor",
+     "avatar_seed": "Tutor",
+     "text": "Que faites-vous si vous remarquez une erreur après avoir envoyé un courriel ?",
+     "translation": "What do you do if you notice a mistake after sending an email?"
+    },
+    {
+     "speaker": "student",
+     "role": "student",
+     "avatar_seed": "Elise",
+     "text": "Si c’est une petite faute, je laisse passer. Mais pour une erreur importante, j’envoie un message de correction rapidement.",
+     "translation": "If it's a small mistake, I let it go. But for a significant error, I send a correction message quickly."
+    },
+    {
+     "speaker": "tutor",
+     "role": "tutor",
+     "avatar_seed": "Tutor",
+     "text": "Comment réagissez-vous si quelqu'un oublie de répondre à votre courriel ?",
+     "translation": "How do you react if someone forgets to reply to your email?"
+    },
+    {
+     "speaker": "student",
+     "role": "student",
+     "avatar_seed": "John",
+     "text": "J’attends un ou deux jours et je renvoie un message de suivi pour vérifier qu’il a bien reçu mon courriel.",
+     "translation": "I wait a day or two and then I send a follow-up message to check if he received my email."
+    },
+    {
+     "speaker": "tutor",
+     "role": "tutor",
+     "avatar_seed": "Tutor",
+     "text": "Est-il acceptable d’envoyer des courriels professionnels en dehors des heures de travail ?",
+     "translation": "Is it acceptable to send professional emails outside of working hours?"
+    },
+    {
+     "speaker": "student",
+     "role": "student",
+     "avatar_seed": "Elise",
+     "text": "Ça dépend de l’urgence, mais j’essaie de respecter les horaires de bureau.",
+     "translation": "It depends on the urgency, but I try to respect office hours."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "97601242-26cd-472d-bd66-51db96d57fb1",
+  "title": "Partagez vos conseils de santé et de bien-être",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Dialogue",
+   "number": 4,
+   "example": {
+    "tutor_line": "Alex : Eli, tu as l'air en forme ces derniers temps. Quel est ton secret pour rester en bonne santé ?",
+    "student_line": "Eli : Merci ! J'essaie de suivre une routine saine."
+   },
+   "exchanges": [
+    {
+     "text": "Alex : Eli, tu as l'air en forme ces derniers temps. Quel est ton secret pour rester en bonne santé ?",
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Alex: Eli, you look fit these days. What's your secret to staying healthy?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Eli : Merci ! J'essaie de suivre une routine saine. Je mange équilibré, je fais de l'exercice, et je dors suffisamment.",
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Eli: Thank you! I try to follow a healthy routine. I eat balanced, exercise, and sleep enough.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Alex : Ça a l'air simple. Est-ce que tu fais autre chose ?",
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Alex: That sounds simple. Do you do anything else?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Eli : Oui, je bois beaucoup d'eau et j'évite le stress. Et toi, qu'est-ce que tu fais pour ton bien-être ?",
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Eli: Yes, I drink a lot of water and avoid stress. And you, what do you do for your well-being?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Alex : J'aime faire du sport et je prends soin de mon alimentation, mais je dois travailler sur mon sommeil.",
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Alex: I like to play sports and take care of my diet, but I need to work on my sleep.",
+     "speaker_role": "student"
+    }
+   ],
+   "tutor_instruction": "Encouragez les étudiants à pratiquer le dialogue.",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur."
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 4,
+   "title": "Dialogue",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur.",
+   "tutor_instruction": "Encouragez les étudiants à pratiquer le dialogue.",
+   "lines": [
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Alex : Eli, tu as l'air en forme ces derniers temps. Quel est ton secret pour rester en bonne santé ?",
+     "translation": "Alex: Eli, you look fit these days. What's your secret to staying healthy?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "Eli : Merci ! J'essaie de suivre une routine saine. Je mange équilibré, je fais de l'exercice, et je dors suffisamment.",
+     "translation": "Eli: Thank you! I try to follow a healthy routine. I eat balanced, exercise, and sleep enough."
+    },
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Alex : Ça a l'air simple. Est-ce que tu fais autre chose ?",
+     "translation": "Alex: That sounds simple. Do you do anything else?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "Eli : Oui, je bois beaucoup d'eau et j'évite le stress. Et toi, qu'est-ce que tu fais pour ton bien-être ?",
+     "translation": "Eli: Yes, I drink a lot of water and avoid stress. And you, what do you do for your well-being?"
+    },
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Alex : J'aime faire du sport et je prends soin de mon alimentation, mais je dois travailler sur mon sommeil.",
+     "translation": "Alex: I like to play sports and take care of my diet, but I need to work on my sleep."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "051b2701-7168-4b42-aca5-6f08d92ffc1e",
+  "title": "Conseils de réseautage pour vous aider à bâtir votre carrière",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Discussion simulée",
+   "number": 4,
+   "example": {
+    "tutor_line": "Dans quels secteurs pensez-vous que vous aimeriez travailler ?",
+    "student_line": "Le secteur informatique est en pleine expansion et je pense que je pourrais m'y épanouir."
+   },
+   "exchanges": [
+    {
+     "text": "Le secteur informatique est en pleine expansion et je pense que je pourrais m'y épanouir.",
+     "blank": false,
+     "speaker": "Jason",
+     "avatar_seed": "Jason",
+     "translation": "The IT sector is booming and I think I could thrive there.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Je ne pense pas que je pourrais réussir dans le secteur de la restauration.",
+     "blank": false,
+     "speaker": "Alice",
+     "avatar_seed": "Alice",
+     "translation": "I don't think I could succeed in the restaurant sector.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "M'adapter à un nouveau flux de travail a été un défi, mais mes collègues m'ont aidé.",
+     "blank": false,
+     "speaker": "Nina",
+     "avatar_seed": "Nina",
+     "translation": "Adapting to a new workflow was a challenge, but my colleagues helped me.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Posez les questions aux étudiants.",
+   "student_instruction": "Écoutez votre tuteur lire les questions et les exemples de réponses.",
+   "valid_answers_by_blank": {}
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 4,
+   "title": "Discussion simulée",
+   "student_instruction": "Écoutez votre tuteur lire les questions et les exemples de réponses.",
+   "tutor_instruction": "Posez les questions aux étudiants.",
+   "lines": [
+    {
+     "speaker": "Jason",
+     "role": "student",
+     "avatar_seed": "Jason",
+     "text": "Le secteur informatique est en pleine expansion et je pense que je pourrais m'y épanouir.",
+     "translation": "The IT sector is booming and I think I could thrive there."
+    },
+    {
+     "speaker": "Alice",
+     "role": "student",
+     "avatar_seed": "Alice",
+     "text": "Je ne pense pas que je pourrais réussir dans le secteur de la restauration.",
+     "translation": "I don't think I could succeed in the restaurant sector."
+    },
+    {
+     "speaker": "Nina",
+     "role": "student",
+     "avatar_seed": "Nina",
+     "text": "M'adapter à un nouveau flux de travail a été un défi, mais mes collègues m'ont aidé.",
+     "translation": "Adapting to a new workflow was a challenge, but my colleagues helped me."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "4a440617-d3ba-4639-8b7e-81cb3a588023",
+  "title": "Discutez des questions environnementales",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Dialogue",
+   "number": 4,
+   "example": {
+    "tutor_line": "Alex : Eli, penses-tu que le réchauffement climatique est le plus grand problème environnemental aujourd'hui ?",
+    "student_line": "Eli : Oui, c'est un problème très sérieux, mais je pense que la déforestation est aussi très préoccupante."
+   },
+   "exchanges": [
+    {
+     "text": "Eli, penses-tu que le réchauffement climatique est le plus grand problème environnemental aujourd'hui ?",
+     "blank": null,
+     "speaker": "Alex :",
+     "avatar_seed": "Alex",
+     "translation": "Eli, do you think that global warming is the biggest environmental problem today?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Oui, c'est un problème très sérieux, mais je pense que la déforestation est aussi très préoccupante.",
+     "blank": null,
+     "speaker": "Eli :",
+     "avatar_seed": "Eli",
+     "translation": "Yes, it's a very serious problem, but I think deforestation is also very concerning.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Je suis d'accord. La déforestation affecte la biodiversité et contribue au réchauffement climatique.",
+     "blank": null,
+     "speaker": "Alex :",
+     "avatar_seed": "Alex",
+     "translation": "I agree. Deforestation affects biodiversity and contributes to global warming.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Et que penses-tu des énergies renouvelables ?",
+     "blank": null,
+     "speaker": "Eli :",
+     "avatar_seed": "Eli",
+     "translation": "And what do you think about renewable energies?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Je crois que c'est la meilleure solution pour réduire notre dépendance aux énergies fossiles et protéger l'environnement.",
+     "blank": null,
+     "speaker": "Alex :",
+     "avatar_seed": "Alex",
+     "translation": "I believe it's the best solution to reduce our dependence on fossil fuels and protect the environment.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Oui, il faut encourager l'utilisation des panneaux solaires et de l'énergie éolienne.",
+     "blank": null,
+     "speaker": "Eli :",
+     "avatar_seed": "Eli",
+     "translation": "Yes, we need to encourage the use of solar panels and wind energy.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "tutor_instruction": "Lisez le dialogue avec l'élève et posez les questions.",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions.",
+   "valid_answers_by_blank": {}
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 4,
+   "title": "Dialogue",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre tuteur, puis répondez aux questions.",
+   "tutor_instruction": "Lisez le dialogue avec l'élève et posez les questions.",
+   "lines": [
+    {
+     "speaker": "Alex :",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Eli, penses-tu que le réchauffement climatique est le plus grand problème environnemental aujourd'hui ?",
+     "translation": "Eli, do you think that global warming is the biggest environmental problem today?"
+    },
+    {
+     "speaker": "Eli :",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "Oui, c'est un problème très sérieux, mais je pense que la déforestation est aussi très préoccupante.",
+     "translation": "Yes, it's a very serious problem, but I think deforestation is also very concerning."
+    },
+    {
+     "speaker": "Alex :",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Je suis d'accord. La déforestation affecte la biodiversité et contribue au réchauffement climatique.",
+     "translation": "I agree. Deforestation affects biodiversity and contributes to global warming."
+    },
+    {
+     "speaker": "Eli :",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "Et que penses-tu des énergies renouvelables ?",
+     "translation": "And what do you think about renewable energies?"
+    },
+    {
+     "speaker": "Alex :",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Je crois que c'est la meilleure solution pour réduire notre dépendance aux énergies fossiles et protéger l'environnement.",
+     "translation": "I believe it's the best solution to reduce our dependence on fossil fuels and protect the environment."
+    },
+    {
+     "speaker": "Eli :",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "Oui, il faut encourager l'utilisation des panneaux solaires et de l'énergie éolienne.",
+     "translation": "Yes, we need to encourage the use of solar panels and wind energy."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "013c64ad-3891-424a-9943-4fc3242e1db6",
+  "title": "Sociologie",
+  "i": 2,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Pratique du dialogue",
+   "number": 3,
+   "example": {
+    "tutor_line": "As-tu remarqué que certaines personnes semblent défiantes envers les normes ? Que penses-tu de la déviance ?",
+    "student_line": "C'est un sujet complexe."
+   },
+   "exchanges": [
+    {
+     "text": "As-tu remarqué que certaines personnes semblent défiantes envers les normes ? Que penses-tu de la déviance ?",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Have you noticed that some people seem defiant towards norms? What do you think about deviance?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "C'est un sujet complexe. D'un côté, la déviance peut indiquer un besoin de changement.",
+     "blank": false,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "It's a complex subject. On one hand, deviance can indicate a need for change.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Oui, et je pense que parfois, la société réagit trop sévèrement à la déviance.",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Yes, and I think that sometimes society reacts too harshly to deviance.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Exactement. Cela peut mener à l'aliénation des individus qui ne se conforment pas aux attentes.",
+     "blank": false,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Exactly. This can lead to the alienation of individuals who do not conform to expectations.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Nous pourrions promouvoir des espaces de dialogue où chacun peut exprimer ses idées sans crainte d'être jugé.",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "We could promote spaces for dialogue where everyone can express their ideas without fear of being judged.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Faites pratiquer le dialogue en binômes.",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre partenaire d'étude.",
+   "valid_answers_by_blank": {}
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 3,
+   "title": "Pratique du dialogue",
+   "student_instruction": "Lisez le dialogue à haute voix avec votre partenaire d'étude.",
+   "tutor_instruction": "Faites pratiquer le dialogue en binômes.",
+   "lines": [
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "As-tu remarqué que certaines personnes semblent défiantes envers les normes ? Que penses-tu de la déviance ?",
+     "translation": "Have you noticed that some people seem defiant towards norms? What do you think about deviance?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "student",
+     "avatar_seed": "Eli",
+     "text": "C'est un sujet complexe. D'un côté, la déviance peut indiquer un besoin de changement.",
+     "translation": "It's a complex subject. On one hand, deviance can indicate a need for change."
+    },
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Oui, et je pense que parfois, la société réagit trop sévèrement à la déviance.",
+     "translation": "Yes, and I think that sometimes society reacts too harshly to deviance."
+    },
+    {
+     "speaker": "Eli",
+     "role": "student",
+     "avatar_seed": "Eli",
+     "text": "Exactement. Cela peut mener à l'aliénation des individus qui ne se conforment pas aux attentes.",
+     "translation": "Exactly. This can lead to the alienation of individuals who do not conform to expectations."
+    },
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Nous pourrions promouvoir des espaces de dialogue où chacun peut exprimer ses idées sans crainte d'être jugé.",
+     "translation": "We could promote spaces for dialogue where everyone can express their ideas without fear of being judged."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "268f0d90-e65c-4e49-b50a-3c3b36c2f33a",
+  "title": "Rio de Janeiro : une destination incontournable",
+  "i": 2,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Discussion – Préparation d’un itinéraire",
+   "number": 3,
+   "example": {
+    "tutor_line": "Si je vais à Rio, je veux absolument voir le Christ Rédempteur et danser la samba.",
+    "student_line": "Moi, je choisirais de faire une excursion en forêt tropicale pour admirer la vue."
+   },
+   "exchanges": [
+    {
+     "text": "Si je vais à Rio, je veux absolument voir le Christ Rédempteur et danser la samba.",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "If I go to Rio, I absolutely want to see Christ the Redeemer and dance the samba.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Moi, je choisirais de faire une excursion en forêt tropicale pour admirer la vue.",
+     "blank": false,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "I would choose to take a trip to the tropical rainforest to enjoy the view.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Encouragez les étudiants à utiliser le vocabulaire.",
+   "student_instruction": "Discutez de vos projets pour Rio.",
+   "valid_answers_by_blank": {}
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 3,
+   "title": "Discussion – Préparation d’un itinéraire",
+   "student_instruction": "Discutez de vos projets pour Rio.",
+   "tutor_instruction": "Encouragez les étudiants à utiliser le vocabulaire.",
+   "lines": [
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Si je vais à Rio, je veux absolument voir le Christ Rédempteur et danser la samba.",
+     "translation": "If I go to Rio, I absolutely want to see Christ the Redeemer and dance the samba."
+    },
+    {
+     "speaker": "Eli",
+     "role": "student",
+     "avatar_seed": "Eli",
+     "text": "Moi, je choisirais de faire une excursion en forêt tropicale pour admirer la vue.",
+     "translation": "I would choose to take a trip to the tropical rainforest to enjoy the view."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "0ae138a5-ad4b-4772-990c-7102df657b5d",
+  "title": "Séances de Brainstorming",
+  "i": 1,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Pratique du Dialogue",
+   "number": 2,
+   "example": {
+    "tutor_line": "Bien, tout le monde. Nous sommes ici aujourd'hui pour proposer des idées pour notre prochaine campagne publicitaire.",
+    "student_line": "Quelles sont vos suggestions ?"
+   },
+   "exchanges": [
+    {
+     "text": "Bien, tout le monde. Nous sommes ici aujourd'hui pour proposer des idées pour notre prochaine campagne publicitaire.",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Okay, everyone. We are here today to propose ideas for our next advertising campaign.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Quel type de campagne cherchons-nous ? Quelque chose de numérique ou plus traditionnel ?",
+     "blank": false,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "What type of campaign are we looking for? Something digital or more traditional?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Je ne suis pas encore sûr. Échangeons simplement nos idées et voyons ce que nous pouvons trouver.",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "I'm not sure yet. Let's just exchange our ideas and see what we can find.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Peut-être que nous pourrions faire une série de vidéos courtes sur les réseaux sociaux ?",
+     "blank": false,
+     "speaker": "Zoé",
+     "avatar_seed": "Zoé",
+     "translation": "Maybe we could make a series of short videos on social media?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Et si nous faisions une campagne basée sur des témoignages de clients ? Cela pourrait être très engageant.",
+     "blank": false,
+     "speaker": "Marc",
+     "avatar_seed": "Marc",
+     "translation": "What if we did a campaign based on customer testimonials? That could be very engaging.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Ce n'est pas une mauvaise idée. Mais que diriez-vous d'une approche mixte ?",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "That's not a bad idea. But how about a mixed approach?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Pourquoi pas. Nous pourrions commencer avec les vidéos et inclure les témoignages dans une phase ultérieure.",
+     "blank": false,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Why not. We could start with the videos and include the testimonials in a later phase.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Ne serait-il pas plus intelligent de commencer par les témoignages pour créer une base authentique avant de lancer les vidéos ?",
+     "blank": false,
+     "speaker": "Zoé",
+     "avatar_seed": "Zoé",
+     "translation": "Wouldn't it be smarter to start with the testimonials to create an authentic base before launching the videos?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Cela pourrait valoir la peine d'essayer. Qu'en pensez-vous tous ?",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "It might be worth trying. What do you all think?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "J'aime beaucoup cette idée. Cela semble logique.",
+     "blank": false,
+     "speaker": "Marc",
+     "avatar_seed": "Marc",
+     "translation": "I really like this idea. It makes sense.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Très bien, nous avons donc notre plan. Préparez des propositions pour notre prochaine réunion.",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Very well, we have our plan. Prepare proposals for our next meeting.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Practice the dialogue scenario.",
+   "student_instruction": "Jouez le dialogue avec votre tuteur.",
+   "valid_answers_by_blank": {}
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 2,
+   "title": "Pratique du Dialogue",
+   "student_instruction": "Jouez le dialogue avec votre tuteur.",
+   "tutor_instruction": "Practice the dialogue scenario.",
+   "lines": [
+    {
+     "speaker": "Alex",
+     "role": "tutor",
+     "avatar_seed": "Alex",
+     "text": "Bien, tout le monde. Nous sommes ici aujourd'hui pour proposer des idées pour notre prochaine campagne publicitaire.",
+     "translation": "Okay, everyone. We are here today to propose ideas for our next advertising campaign."
+    },
+    {
+     "speaker": "Eli",
+     "role": "student",
+     "avatar_seed": "Eli",
+     "text": "Quel type de campagne cherchons-nous ? Quelque chose de numérique ou plus traditionnel ?",
+     "translation": "What type of campaign are we looking for? Something digital or more traditional?"
+    },
+    {
+     "speaker": "Alex",
+     "role": "tutor",
+     "avatar_seed": "Alex",
+     "text": "Je ne suis pas encore sûr. Échangeons simplement nos idées et voyons ce que nous pouvons trouver.",
+     "translation": "I'm not sure yet. Let's just exchange our ideas and see what we can find."
+    },
+    {
+     "speaker": "Zoé",
+     "role": "student",
+     "avatar_seed": "Zoé",
+     "text": "Peut-être que nous pourrions faire une série de vidéos courtes sur les réseaux sociaux ?",
+     "translation": "Maybe we could make a series of short videos on social media?"
+    },
+    {
+     "speaker": "Marc",
+     "role": "student",
+     "avatar_seed": "Marc",
+     "text": "Et si nous faisions une campagne basée sur des témoignages de clients ? Cela pourrait être très engageant.",
+     "translation": "What if we did a campaign based on customer testimonials? That could be very engaging."
+    },
+    {
+     "speaker": "Alex",
+     "role": "tutor",
+     "avatar_seed": "Alex",
+     "text": "Ce n'est pas une mauvaise idée. Mais que diriez-vous d'une approche mixte ?",
+     "translation": "That's not a bad idea. But how about a mixed approach?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "student",
+     "avatar_seed": "Eli",
+     "text": "Pourquoi pas. Nous pourrions commencer avec les vidéos et inclure les témoignages dans une phase ultérieure.",
+     "translation": "Why not. We could start with the videos and include the testimonials in a later phase."
+    },
+    {
+     "speaker": "Zoé",
+     "role": "student",
+     "avatar_seed": "Zoé",
+     "text": "Ne serait-il pas plus intelligent de commencer par les témoignages pour créer une base authentique avant de lancer les vidéos ?",
+     "translation": "Wouldn't it be smarter to start with the testimonials to create an authentic base before launching the videos?"
+    },
+    {
+     "speaker": "Alex",
+     "role": "tutor",
+     "avatar_seed": "Alex",
+     "text": "Cela pourrait valoir la peine d'essayer. Qu'en pensez-vous tous ?",
+     "translation": "It might be worth trying. What do you all think?"
+    },
+    {
+     "speaker": "Marc",
+     "role": "student",
+     "avatar_seed": "Marc",
+     "text": "J'aime beaucoup cette idée. Cela semble logique.",
+     "translation": "I really like this idea. It makes sense."
+    },
+    {
+     "speaker": "Alex",
+     "role": "tutor",
+     "avatar_seed": "Alex",
+     "text": "Très bien, nous avons donc notre plan. Préparez des propositions pour notre prochaine réunion.",
+     "translation": "Very well, we have our plan. Prepare proposals for our next meeting."
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "0ae138a5-ad4b-4772-990c-7102df657b5d",
+  "title": "Séances de Brainstorming",
+  "i": 4,
+  "before": {
+   "kind": "fill_in_blank_dialogue_extended",
+   "title": "Création d’idées",
+   "number": 5,
+   "example": {
+    "tutor_line": "Quel problème ce produit ou service pourrait-il résoudre ?",
+    "student_line": "Il pourrait aider à réduire les déchets."
+   },
+   "exchanges": [
+    {
+     "text": "Quel problème ce produit ou service pourrait-il résoudre ?",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "What problem could this product or service solve?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Il pourrait aider à réduire les déchets.",
+     "blank": false,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "It could help reduce waste.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Qui est la cible principale ?",
+     "blank": false,
+     "speaker": "Zoé",
+     "avatar_seed": "Zoé",
+     "translation": "Who is the main target?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Les jeunes adultes soucieux de l'environnement.",
+     "blank": false,
+     "speaker": "Marc",
+     "avatar_seed": "Marc",
+     "translation": "Environmentally conscious young adults.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Quels seraient les avantages et les défis de ce concept ?",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "What would be the advantages and challenges of this concept?",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [],
+   "tutor_instruction": "Guide students through the idea creation process.",
+   "student_instruction": "Travaillez avec votre tuteur ou en groupe pour imaginer un produit ou un service innovant.",
+   "valid_answers_by_blank": {}
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 5,
+   "title": "Création d’idées",
+   "student_instruction": "Travaillez avec votre tuteur ou en groupe pour imaginer un produit ou un service innovant.",
+   "tutor_instruction": "Guide students through the idea creation process.",
+   "lines": [
+    {
+     "speaker": "Alex",
+     "role": "tutor",
+     "avatar_seed": "Alex",
+     "text": "Quel problème ce produit ou service pourrait-il résoudre ?",
+     "translation": "What problem could this product or service solve?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "student",
+     "avatar_seed": "Eli",
+     "text": "Il pourrait aider à réduire les déchets.",
+     "translation": "It could help reduce waste."
+    },
+    {
+     "speaker": "Zoé",
+     "role": "student",
+     "avatar_seed": "Zoé",
+     "text": "Qui est la cible principale ?",
+     "translation": "Who is the main target?"
+    },
+    {
+     "speaker": "Marc",
+     "role": "student",
+     "avatar_seed": "Marc",
+     "text": "Les jeunes adultes soucieux de l'environnement.",
+     "translation": "Environmentally conscious young adults."
+    },
+    {
+     "speaker": "Alex",
+     "role": "tutor",
+     "avatar_seed": "Alex",
+     "text": "Quels seraient les avantages et les défis de ce concept ?",
+     "translation": "What would be the advantages and challenges of this concept?"
+    }
+   ]
+  },
+  "errorsAfter": []
+ },
+ {
+  "id": "ba087521-00b5-4d9c-b8cb-02583d2c1cad",
+  "title": "Discutez de concepts psychologiques",
+  "i": 2,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Dialogue",
+   "number": 3,
+   "example": {
+    "tutor_line": "Que penses-tu de l’importance de la résilience mentale, Eli ?",
+    "student_line": "C'est essentiel."
+   },
+   "exchanges": [
+    {
+     "text": "Que penses-tu de l’importance de la résilience mentale, Eli ?",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "What do you think about the importance of mental resilience, Eli?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "C'est essentiel. Face aux épreuves, être capable de s'adapter psychologiquement est primordial.",
+     "blank": false,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "It's essential. In the face of challenges, being able to adapt psychologically is crucial.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Je suis d'accord. Je pense aussi que comprendre nos émotions et nos mécanismes d'adaptation est tout aussi important.",
+     "blank": false,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "I agree. I also think that understanding our emotions and coping mechanisms is equally important.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Oui, et la méditation ou la pleine conscience sont des outils utiles pour rester ancré dans le moment présent.",
+     "blank": false,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Yes, and meditation or mindfulness are useful tools to stay grounded in the present moment.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "tutor_instruction": "Répondez aux questions de compréhension.",
+   "student_instruction": "Lisez et jouez ce dialogue avec votre tuteur."
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 3,
+   "title": "Dialogue",
+   "student_instruction": "Lisez et jouez ce dialogue avec votre tuteur.",
+   "tutor_instruction": "Répondez aux questions de compréhension.",
+   "lines": [
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Que penses-tu de l’importance de la résilience mentale, Eli ?",
+     "translation": "What do you think about the importance of mental resilience, Eli?"
+    },
+    {
+     "speaker": "Eli",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "C'est essentiel. Face aux épreuves, être capable de s'adapter psychologiquement est primordial.",
+     "translation": "It's essential. In the face of challenges, being able to adapt psychologically is crucial."
+    },
+    {
+     "speaker": "Alex",
+     "role": "student",
+     "avatar_seed": "Alex",
+     "text": "Je suis d'accord. Je pense aussi que comprendre nos émotions et nos mécanismes d'adaptation est tout aussi important.",
+     "translation": "I agree. I also think that understanding our emotions and coping mechanisms is equally important."
+    },
+    {
+     "speaker": "Eli",
+     "role": "tutor",
+     "avatar_seed": "Eli",
+     "text": "Oui, et la méditation ou la pleine conscience sont des outils utiles pour rester ancré dans le moment présent.",
+     "translation": "Yes, and meditation or mindfulness are useful tools to stay grounded in the present moment."
+    }
+   ]
+  },
+  "errorsAfter": []
+ }
+]

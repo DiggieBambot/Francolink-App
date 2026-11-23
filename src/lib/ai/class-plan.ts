@@ -52,6 +52,9 @@ const EXCLUDED_CATEGORIES = new Set(["daily-news", "fr-daily-news", "french-for-
 
 const OFFER_COUNT = 4;
 
+/** conversion_notes prefix marking a lesson with no real content. */
+const FILLER_NOTE = "template-filler";
+
 /** The student's level and the one below it (the one above for A1). */
 function nearbyLevels(level: string): string[] {
   const i = Math.max(0, LEVELS.indexOf(level));
@@ -126,6 +129,9 @@ export async function pickClassTopics(opts: {
       .eq("language", language)
       .in("level", levels)
       .gte("section_count", 3)
+      // Lessons generated from a filler template (no real content) are kept
+      // in the library but never offered as a class until they are rewritten.
+      .or(`conversion_notes.is.null,conversion_notes.not.like.${FILLER_NOTE}*`)
       .limit(400),
     doneLessonIds(svc, userId),
   ]);
