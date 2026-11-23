@@ -16,6 +16,7 @@ import {
   History,
   CreditCard,
   LifeBuoy,
+  MessageSquare,
   LucideIcon,
 } from "lucide-react";
 
@@ -31,6 +32,7 @@ const navigationItems: NavItem[] = [
   { label: "Games", href: "/games", icon: Gamepad2 },
   { label: "AI Tutor", href: "/student/ai-tutor", icon: Bot },
   { label: "Homework", href: "/student/homework", icon: PencilLine },
+  { label: "Messages", href: "/messages", icon: MessageSquare },
   { label: "Sessions", href: "/student/sessions", icon: Video },
   { label: "Lessons Covered", href: "/student/history", icon: History },
   { label: "Leaderboard", href: "/student/leaderboard", icon: Trophy },
