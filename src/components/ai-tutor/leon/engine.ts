@@ -437,8 +437,14 @@ export function runLeon(
             }
           }
           if (meterWorks) {
-            // the transcript gives the shape, the audio how wide it opens
-            if (env < 0.05 && k.v !== "MBP") {
+            // The transcript gives the shape, the audio how wide it opens.
+            // If the transcript guessed a pause but the voice is still going,
+            // trust the voice: open the mouth from the sound itself.
+            const guessedShut = k.v === "rest" || (k.v === "MBP" && t - k.t > 0.1);
+            if (guessedShut && env > 0.12) {
+              m = inp.bands?.current && inp.bands.current.level > 0 ? bandsToMouth(inp.bands.current, env, smile) : visemeParams(env > 0.5 ? "A" : "E", smile);
+              viseme = "audio";
+            } else if (env < 0.05 && k.v !== "MBP") {
               m = { ...m, jaw: m.jaw * 0.15, teeth: m.teeth * 0.5 };
             } else m = { ...m, jaw: m.jaw * lerp(0.6, 1.2, env) };
           }

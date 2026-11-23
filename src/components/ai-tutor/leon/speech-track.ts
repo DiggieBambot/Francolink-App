@@ -58,6 +58,8 @@ const SECONDS_PER_WEIGHT = 0.085;
 /** TTS clips start and end with a little silence. */
 const LEAD = 0.06;
 const TAIL = 0.14;
+/** Longest an m/b/p keeps the lips pressed, seconds. */
+const MAX_CLOSURE = 0.09;
 
 const isVowelChar = (c: string) => /[aeiouyàâäáéèêëíìîïóòôöúùûüœæ]/.test(c);
 
@@ -166,12 +168,30 @@ export function wordPhones(raw: string, language: string): Phone[] {
   return merged;
 }
 
+/**
+ * Timing knobs, in "weight" units (a vowel = 1). Tuned against recorded
+ * French, English and Spanish speech: voices pause less at punctuation than
+ * you'd think, and stretch the last word before a pause.
+ */
+export const TIMING = {
+  pauseEllipsis: 2.2,
+  pauseSentence: 1.5,
+  pauseComma: 0.8,
+  pauseWord: 0.12,
+  /** The word before a pause (and the last word) is said this much slower. */
+  finalStretch: 1.45,
+  /** Lips close this far into a pause, not the instant the word ends. */
+  closeInto: 0.35,
+  /** Only pauses longer than this close the mouth at all. */
+  closeMin: 1,
+};
+
 /** Pause after a word, in weight units, from its trailing punctuation. */
 function pauseAfter(token: string): number {
-  if (/(…|\.\.\.)\W*$/.test(token)) return 3.2;
-  if (/[.!?]\W*$/.test(token)) return 2.4;
-  if (/[,;:—–]\W*$/.test(token)) return 1.5;
-  return 0.18;
+  if (/(…|\.\.\.)\W*$/.test(token)) return TIMING.pauseEllipsis;
+  if (/[.!?]\W*$/.test(token)) return TIMING.pauseSentence;
+  if (/[,;:—–]\W*$/.test(token)) return TIMING.pauseComma;
+  return TIMING.pauseWord;
 }
 
 /**
@@ -195,8 +215,11 @@ export function buildSpeechTrack(text: string, language: string, duration?: numb
     tokens.push({ start: m.index, end: m.index + raw.length, raw, phones: wordPhones(raw, language), pause: pauseAfter(raw) });
   }
 
-  const wordWeight = (tk: (typeof tokens)[number]) =>
+  const stretchOf = (i: number) =>
+    i === tokens.length - 1 || tokens[i].pause > TIMING.pauseWord ? TIMING.finalStretch : 1;
+  const baseWeight = (tk: (typeof tokens)[number]) =>
     tk.phones.reduce((s, p) => s + p.w, 0) || (/\w/.test(tk.raw) ? 1 : 0.3);
+  const wordWeight = (tk: (typeof tokens)[number]) => baseWeight(tk) * stretchOf(tokens.indexOf(tk));
   const total = tokens.reduce((s, tk, i) => s + wordWeight(tk) + (i < tokens.length - 1 ? tk.pause : 0), 0);
 
   const speakTime = duration && duration > LEAD + TAIL + 0.1 ? duration - LEAD - TAIL : total * SECONDS_PER_WEIGHT;
@@ -208,6 +231,7 @@ export function buildSpeechTrack(text: string, language: string, duration?: numb
   let t = LEAD;
   tokens.forEach((tk, i) => {
     const t0 = t;
+    const stretch = stretchOf(i);
     if (tk.phones.length === 0) {
       t += wordWeight(tk) * scale;
     } else {
@@ -216,18 +240,24 @@ export function buildSpeechTrack(text: string, language: string, duration?: numb
         const vowel = weightOf(p.v) === VOWEL_W;
         keys.push({ t, v: p.v, stress: vowel && firstVowel });
         if (vowel) firstVowel = false;
-        t += p.w * scale;
+        t += p.w * stretch * scale;
       }
     }
     words.push({ start: tk.start, end: tk.end, t0, t1: t });
     if (i < tokens.length - 1) {
       const pause = tk.pause * scale;
-      // Short gaps between words keep the mouth moving; real pauses close it.
-      if (tk.pause > 1) keys.push({ t, v: "rest" });
+      // Short gaps between words keep the mouth moving; real pauses close
+      // it, a moment after the word ends (the sound trails off first).
+      if (tk.pause >= TIMING.closeMin) keys.push({ t: t + pause * TIMING.closeInto, v: "rest" });
       t += pause;
     }
   });
   keys.push({ t, v: "rest" });
+  // Lips only press shut for a moment on m/b/p; give the rest of a long
+  // closure to the sound after it, so the mouth never looks stuck shut.
+  for (let i = 0; i < keys.length - 1; i++) {
+    if (keys[i].v === "MBP" && keys[i + 1].t - keys[i].t > MAX_CLOSURE) keys[i + 1].t = keys[i].t + MAX_CLOSURE;
+  }
   return { text, words, keys, duration: layoutDuration };
 }
 
