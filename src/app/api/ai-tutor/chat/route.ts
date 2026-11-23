@@ -2,7 +2,7 @@
 import { NextRequest, NextResponse, after } from "next/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/server";
-import { getOpenAIClient, getAIConfig, estimateTokens } from "@/lib/ai/client";
+import { getOpenAIClient, getAIConfig, estimateTokens, isAIUnavailableError, AI_UNAVAILABLE_MESSAGE } from "@/lib/ai/client";
 import { costOf } from "@/lib/ai/pricing";
 import { getTutorAccess, recordTutorTime, secondsForTurn } from "@/lib/ai/tutor-access";
 import { buildTutorContext } from "@/lib/ai/tutor-context";
@@ -196,6 +196,8 @@ export async function POST(request: NextRequest) {
     const { messages, language, lessonId } = body;
     // "session" = the voice-first tutoring session: short, spoken replies.
     const spokenSession = body.mode === "session";
+    // Opening a session: Professor Léon speaks first, with no student message.
+    const greeting = body.greet === true;
     let { conversationId } = body;
 
     if (!messages || !Array.isArray(messages)) {
@@ -309,7 +311,7 @@ export async function POST(request: NextRequest) {
 
     // ── Prompt ──────────────────────────────────────────────────────────────
     const systemPrompt = [
-      `You are a friendly, patient, and encouraging ${targetLang} language tutor on FrancoLink.`,
+      `You are Professor Léon, FrancoLink's ${targetLang} tutor: a cheerful, warm, slightly theatrical chameleon who changes colour with every language he teaches. You are friendly, patient and encouraging. If asked, you are an AI tutor, not a human.`,
       '',
       spokenSession
         ? `This is a live spoken tutoring session: everything you write is read aloud. Reply in 1-2 short sentences and end with a question so the student keeps talking. No lists, markdown, emoji or parentheses. If the student made a mistake, recast it naturally in your reply (for example "Ah, tu es allé au marché ?") rather than explaining grammar; the written corrections go in the JSON as usual.`
@@ -347,6 +349,16 @@ ${META_DELIMITER}
       .join('\n');
 
     const history = trimHistory(messages);
+    // The greeting has no student turn; this cue is sent to the model only and
+    // never stored as something the student said.
+    const greetingCue = greeting
+      ? [
+          {
+            role: "user" as const,
+            content: `(The student has just opened an AI tutoring session. Open the class now as Professor Léon. If the notes above show you have met before, welcome them back warmly; otherwise introduce yourself with enthusiasm in one short sentence. Use their first name if you know it. Mention one specific thing you know about them — something from your notes, a lesson they covered recently, or their streak — then ask one easy opening question that fits it. Speak mostly in ${targetLang}, pitched at their level; at A1 or A2, add a very short English gloss in brackets after the hard part. Two or three short spoken sentences. No hints are needed beyond the usual JSON.)`,
+          },
+        ]
+      : [];
     const config = await getAIConfig();
     const openai = await getOpenAIClient();
     const model = config.openai.tutorModel;
@@ -354,7 +366,7 @@ ${META_DELIMITER}
     const completion = await openai.chat.completions.create(
       {
         model,
-        messages: [{ role: "system", content: systemPrompt }, ...history],
+        messages: [{ role: "system", content: systemPrompt }, ...history, ...greetingCue],
         temperature: 0.8,
         max_tokens: MAX_REPLY_TOKENS,
         stream: true,
@@ -440,12 +452,17 @@ ${META_DELIMITER}
 
           if (conversationId) {
             await svc.from("ai_tutor_messages").insert([
-              {
-                conversation_id: conversationId,
-                user_id: user.id,
-                role: "user",
-                content: studentMessage?.content ?? "",
-              },
+              // A greeting has no student message to store.
+              ...(greeting
+                ? []
+                : [
+                    {
+                      conversation_id: conversationId,
+                      user_id: user.id,
+                      role: "user",
+                      content: studentMessage?.content ?? "",
+                    },
+                  ]),
               {
                 conversation_id: conversationId,
                 user_id: user.id,
@@ -509,9 +526,13 @@ ${META_DELIMITER}
           // A dropped client aborts the upstream call; nothing to report then.
           if (!request.signal.aborted) {
             console.error("AI tutor stream error:", err);
+            const unavailable = isAIUnavailableError(err);
             send(controller, {
               t: "error",
-              error: "Failed to get AI response. Please try again.",
+              code: unavailable ? "AI_UNAVAILABLE" : undefined,
+              error: unavailable
+                ? AI_UNAVAILABLE_MESSAGE
+                : "Failed to get AI response. Please try again.",
             });
           }
         } finally {
@@ -533,6 +554,12 @@ ${META_DELIMITER}
     });
   } catch (error) {
     console.error("AI tutor error:", error);
+    if (isAIUnavailableError(error)) {
+      return NextResponse.json(
+        { error: AI_UNAVAILABLE_MESSAGE, code: "AI_UNAVAILABLE" },
+        { status: 503 }
+      );
+    }
     return NextResponse.json(
       { error: "Failed to get AI response. Please try again." },
       { status: 500 }

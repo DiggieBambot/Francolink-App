@@ -57,6 +57,7 @@ export function TutoringSession({
   outOfTime,
   outOfTimePanel,
   error,
+  pauseKey = 0,
 }: {
   language: string;
   mood: LeonMood;
@@ -75,8 +76,16 @@ export function TutoringSession({
   outOfTime: boolean;
   outOfTimePanel: React.ReactNode;
   error: string | null;
+  /** Changes when a turn failed: pause rather than retry into the same error. */
+  pauseKey?: number;
 }) {
   const [paused, setPaused] = useState(false);
+
+  // Only failures while this session is open count, not ones from before it.
+  const initialPauseKey = useRef(pauseKey);
+  useEffect(() => {
+    if (pauseKey !== initialPauseKey.current) setPaused(true);
+  }, [pauseKey]);
   const palette = leonPalette(language);
 
   // ── Auto-listen ──────────────────────────────────────────────────────────
@@ -156,11 +165,11 @@ export function TutoringSession({
   let status: string;
   if (outOfTime) status = "Out of tutoring time";
   else if (ending) status = "Wrapping up your session…";
-  else if (isSpeaking) status = "Leon is speaking · tap to interrupt";
-  else if (isLoading) status = "Leon is thinking…";
+  else if (isSpeaking) status = "Professor Léon is speaking · tap to interrupt";
+  else if (isLoading) status = "Professor Léon is thinking…";
   else if (isTranscribing) status = "Got it…";
   else if (recorder.isRecording) status = heard ? "Listening…" : "Your turn — just start talking";
-  else if (paused) status = "Paused · tap the mic to talk";
+  else if (paused) status = error ? "Paused · tap the mic to try again" : "Paused · tap the mic to talk";
   else status = "Getting ready…";
 
   return (
@@ -168,13 +177,15 @@ export function TutoringSession({
       className="fixed inset-0 z-50 flex flex-col text-gray-900"
       style={{ background: `linear-gradient(180deg, ${palette.bg} 0%, #ffffff 70%)` }}
       role="dialog"
-      aria-label="AI tutoring session with Leon"
+      aria-label="AI tutoring session with Professor Léon"
     >
       {/* Top bar */}
       <div className="flex items-center justify-between px-4 py-3 max-w-3xl w-full mx-auto">
         <div>
-          <p className="text-sm font-semibold">AI tutoring session</p>
-          {timeLabel && <p className="text-xs text-gray-500">{timeLabel}</p>}
+          <p className="text-sm font-semibold">Professor Léon</p>
+          <p className="text-xs text-gray-500">
+            AI tutoring session{timeLabel ? ` · ${timeLabel}` : ""}
+          </p>
         </div>
         <button
           onClick={onEnd}
@@ -192,7 +203,7 @@ export function TutoringSession({
           <button
             onClick={isSpeaking ? interrupt : undefined}
             className="mt-2 rounded-full focus:outline-none"
-            aria-label={isSpeaking ? "Interrupt Leon" : "Leon"}
+            aria-label={isSpeaking ? "Interrupt Professor Léon" : "Professor Léon"}
           >
             <Leon language={language} mood={mood} size={220} />
           </button>
@@ -232,7 +243,7 @@ export function TutoringSession({
 
           {!recorder.supported && (
             <p className="mt-6 text-sm text-gray-500">
-              Your browser can&apos;t record audio. End the session to type to Leon instead.
+              Your browser can&apos;t record audio. End the session to type to Professor Léon instead.
             </p>
           )}
         </div>
@@ -244,7 +255,7 @@ export function TutoringSession({
           <button
             onClick={interrupt}
             className="w-20 h-20 rounded-full bg-gray-900 text-white flex items-center justify-center shadow-lg"
-            aria-label="Interrupt Leon"
+            aria-label="Interrupt Professor Léon"
           >
             <Hand className="w-8 h-8" />
           </button>

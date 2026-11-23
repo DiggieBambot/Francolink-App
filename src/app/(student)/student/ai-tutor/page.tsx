@@ -122,6 +122,9 @@ export default function AITutorPage() {
   const [sessionOpen, setSessionOpen] = useState(false);
   const [showHoursOffer, setShowHoursOffer] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
+  // Bumped whenever a turn fails during a session: the session pauses instead
+  // of re-opening the mic into the same failure over and over.
+  const [sessionPauseKey, setSessionPauseKey] = useState(0);
   // Learned from the usage/chat responses, so voice and speech recognition
   // follow the student instead of assuming French at A1.
   const [learningLanguage, setLearningLanguage] = useState("fr");
@@ -199,9 +202,15 @@ export default function AITutorPage() {
   const patchMessage = (id: string, patch: Partial<Message>) =>
     setMessages((prev) => prev.map((m) => (m.id === id ? { ...m, ...patch } : m)));
 
-  const sendMessage = async (override?: string) => {
+  const sendMessage = async (
+    override?: string,
+    opts: { greet?: boolean; session?: boolean } = {}
+  ) => {
+    const greet = opts.greet === true;
+    // Passed explicitly when opening a session, before sessionOpen has updated.
+    const inSession = opts.session ?? sessionOpen;
     const trimmed = (override ?? input).trim();
-    if (!trimmed || isLoading) return;
+    if ((!trimmed && !greet) || isLoading) return;
 
     // This runs inside the click, so it is the moment to unlock audio for the
     // reply that will arrive later.
@@ -218,18 +227,18 @@ export default function AITutorPage() {
       timestamp: new Date(),
     };
 
-    setMessages((prev) => [...prev, userMessage]);
+    if (!greet) setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setIsLoading(true);
     if (inputRef.current) inputRef.current.style.height = "auto";
 
     const assistantId = `assistant-${Date.now()}`;
     // A tutoring session is spoken by definition.
-    const speakAsItArrives = autoSpeak || sessionOpen;
+    const speakAsItArrives = autoSpeak || inSession;
     let assistantAdded = false;
 
     try {
-      const apiMessages = [...messages, userMessage].map((m) => ({
+      const apiMessages = (greet ? messages : [...messages, userMessage]).map((m) => ({
         role: m.role,
         content: m.content,
       }));
@@ -242,7 +251,8 @@ export default function AITutorPage() {
           messages: apiMessages,
           conversationId,
           lessonId,
-          mode: sessionOpen ? "session" : undefined,
+          mode: inSession ? "session" : undefined,
+          greet: greet || undefined,
         }),
         signal: abortRef.current.signal,
       });
@@ -267,6 +277,7 @@ export default function AITutorPage() {
           );
         }
         setError(data.error || "Something went wrong. Please try again.");
+        if (inSession) setSessionPauseKey((k) => k + 1);
         return;
       }
 
@@ -316,6 +327,7 @@ export default function AITutorPage() {
           // Refresh the time left (today, this month, extra) after each turn.
           if (ev.remainingSeconds !== undefined) void fetchUsage();
         } else if (ev.t === "error") {
+          if (inSession) setSessionPauseKey((k) => k + 1);
           setError(ev.error || "Something went wrong. Please try again.");
         }
       };
@@ -373,6 +385,7 @@ export default function AITutorPage() {
         const data = await res.json();
         if (!res.ok) {
           setError(data.error || "Couldn't hear that. Please try again.");
+          setSessionPauseKey((k) => k + 1);
           return;
         }
         if (!data.text) {
@@ -382,6 +395,7 @@ export default function AITutorPage() {
         await sendRef.current(data.text);
       } catch {
         setError("Couldn't hear that. Please try again.");
+        setSessionPauseKey((k) => k + 1);
       } finally {
         setIsTranscribing(false);
       }
@@ -474,6 +488,8 @@ export default function AITutorPage() {
     setError(null);
     setNotice(null);
     setSessionOpen(true);
+    // A fresh class: Professor Léon welcomes the student before they speak.
+    if (messages.length === 0) void sendMessage(undefined, { greet: true, session: true });
   };
 
   const endTutoringSession = async () => {
@@ -676,7 +692,7 @@ export default function AITutorPage() {
                 </div>
                 <div className="min-w-0">
                   <h1 className="font-bold text-gray-900 text-sm">
-                    Leon <span className="font-normal text-gray-400">· AI tutor</span>
+                    Professor Léon <span className="font-normal text-gray-400">· AI tutor</span>
                   </h1>
                   {lesson ? (
                     <p className="text-xs text-gray-500 truncate">
@@ -794,11 +810,11 @@ export default function AITutorPage() {
                 <Leon language={learningLanguage} mood={leonMood} size={120} />
               </div>
               <h2 className="text-xl font-bold text-gray-900 mb-2">
-                Say &ldquo;{leonGreeting(learningLanguage)}&rdquo; to Leon
+                Say &ldquo;{leonGreeting(learningLanguage)}&rdquo; to Professor Léon
               </h2>
               <p className="text-gray-500 max-w-sm mx-auto mb-5">
-                Leon is your AI tutor. Start a session and just talk: he listens,
-                answers out loud and gently corrects you.
+                Professor Léon is your AI tutor. Start a session and he&apos;ll
+                welcome you, listen, answer out loud and gently correct you.
               </p>
               <button
                 onClick={startTutoringSession}
@@ -1197,6 +1213,7 @@ export default function AITutorPage() {
           outOfTime={isLimitReached}
           outOfTimePanel={<ExtraHoursOffer reason={usage?.reason} tone="light" />}
           error={error}
+          pauseKey={sessionPauseKey}
         />
       )}
 

@@ -336,3 +336,15 @@ export async function isAIAvailable(): Promise<{
     };
   }
 }
+/**
+ * True when an OpenAI call failed because the service is unusable for us right
+ * now (no credit, rate limited, bad key) rather than because of the request.
+ * The tutor shows students a calm "unavailable" message for these.
+ */
+export function isAIUnavailableError(err: unknown): boolean {
+  const status = (err as { status?: number } | null)?.status;
+  return status === 429 || status === 401 || status === 403 || status === 503;
+}
+
+export const AI_UNAVAILABLE_MESSAGE =
+  "Professor Léon is unavailable right now. Please try again in a little while.";
