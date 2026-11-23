@@ -13,7 +13,7 @@
 
 import { NextRequest, NextResponse, after } from "next/server";
 import { createClient } from "@/lib/supabase/server";
-import { getOpenAIClient } from "@/lib/ai/client";
+import { getOpenAIClient, isAIUnavailableError, AI_UNAVAILABLE_MESSAGE } from "@/lib/ai/client";
 import { getTutorAccess } from "@/lib/ai/tutor-access";
 import { transcribeCost } from "@/lib/ai/pricing";
 import { logAiUsage } from "@/lib/ai/usage-log";
@@ -88,6 +88,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ text: (result.text ?? "").trim() });
   } catch (error) {
     console.error("Tutor transcription error:", error);
+    if (isAIUnavailableError(error)) {
+      return NextResponse.json(
+        { error: AI_UNAVAILABLE_MESSAGE, code: "AI_UNAVAILABLE" },
+        { status: 503 }
+      );
+    }
     return NextResponse.json(
       { error: "Couldn't hear that. Please try again." },
       { status: 500 }
