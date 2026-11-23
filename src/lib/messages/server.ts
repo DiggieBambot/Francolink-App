@@ -233,6 +233,11 @@ export interface Thread {
   active: boolean;
   conversationId: string | null;
   messages: ThreadMessage[];
+  /**
+   * When the other person last read this thread (opening it, or sending in
+   * it), for "Seen" receipts on my messages. Null if they never have.
+   */
+  otherLastReadAt: string | null;
 }
 
 /** The thread between me and `otherId` (latest 200 messages), marking it read. */
@@ -258,6 +263,11 @@ export async function getThread(meId: string, otherId: string): Promise<Thread |
     const col = pair.tutorId === meId ? "tutor_last_read_at" : "student_last_read_at";
     await s.from("conversations").update({ [col]: new Date().toISOString() }).eq("id", conv.id);
   }
+  const otherLastReadAt = conv
+    ? pair.tutorId === meId
+      ? conv.student_last_read_at
+      : conv.tutor_last_read_at
+    : null;
 
   return {
     other,
@@ -265,6 +275,7 @@ export async function getThread(meId: string, otherId: string): Promise<Thread |
     active: pair.active,
     conversationId: conv?.id ?? null,
     messages,
+    otherLastReadAt,
   };
 }
 

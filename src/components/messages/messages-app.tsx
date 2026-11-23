@@ -42,6 +42,26 @@ interface Thread {
   active: boolean;
   conversationId: string | null;
   messages: Message[];
+  /** When the other person last read the thread, for "Seen" receipts. */
+  otherLastReadAt: string | null;
+}
+
+const timeOf = (iso: string) => new Date(iso).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+
+/**
+ * Which of my messages gets a receipt: "Seen" under the newest one the other
+ * person has read, and "Sent" under my newest one if it came after that.
+ * Refreshed by the thread poll, so "Seen" appears without a reload.
+ */
+function receipts(thread: Thread, meId: string): { seenId: string | null; sentId: string | null } {
+  const mine = thread.messages.filter((m) => m.sender_id === meId && !m.pending);
+  const readAt = thread.otherLastReadAt ? Date.parse(thread.otherLastReadAt) : null;
+  let seenId: string | null = null;
+  if (readAt !== null) {
+    for (const m of mine) if (Date.parse(m.created_at) <= readAt) seenId = m.id;
+  }
+  const last = mine[mine.length - 1];
+  return { seenId, sentId: last && last.id !== seenId ? last.id : null };
 }
 
 const LIST_POLL_MS = 30_000;
@@ -307,6 +327,7 @@ export function MessagesApp({ meId, initialWith }: { meId: string; initialWith: 
     }
   };
 
+  const { seenId, sentId } = thread ? receipts(thread, meId) : { seenId: null, sentId: null };
   const activeSummary = list?.find((c) => c.otherUser.id === activeId) || null;
   const header: Person | null = thread?.other || activeSummary?.otherUser || null;
   const headerRole = thread?.otherRole || activeSummary?.otherRole;
@@ -446,10 +467,15 @@ export function MessagesApp({ meId, initialWith }: { meId: string; initialWith: 
                         >
                           {m.body}
                           <div className={`text-[11px] mt-0.5 text-right ${mine ? "text-white/70" : "text-gray-400"}`}>
-                            {m.pending ? "Sending…" : new Date(m.created_at).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}
+                            {m.pending ? "Sending…" : timeOf(m.created_at)}
                           </div>
                         </div>
                       </div>
+                      {(m.id === seenId || m.id === sentId) && (
+                        <p className="text-[11px] text-gray-400 text-right -mt-0.5 mb-2 pr-1">
+                          {m.id === seenId && thread.otherLastReadAt ? `Seen · ${timeOf(thread.otherLastReadAt)}` : "Sent"}
+                        </p>
+                      )}
                     </div>
                   );
                 })
