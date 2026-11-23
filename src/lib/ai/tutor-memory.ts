@@ -13,6 +13,7 @@
 
 import type OpenAI from "openai";
 import { costOf } from "@/lib/ai/pricing";
+import { logAiUsage } from "@/lib/ai/usage-log";
 
 /** Hard cap on the stored note. It rides along on every tutor call. */
 const MAX_MEMORY_CHARS = 700;
@@ -237,6 +238,15 @@ Rules for "memory": rewrite the previous note merged with anything new and durab
       completion.usage?.completion_tokens ?? 0
     ),
   };
+
+  await logAiUsage({
+    userId,
+    feature: "recap",
+    model,
+    costUsd: recap.costUsd ?? 0,
+    tokensIn: completion.usage?.prompt_tokens ?? 0,
+    tokensOut: completion.usage?.completion_tokens ?? 0,
+  });
 
   const memory = clean(parsed.memory, MAX_MEMORY_CHARS);
 

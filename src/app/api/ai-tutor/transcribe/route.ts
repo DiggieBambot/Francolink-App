@@ -11,10 +11,12 @@
 // forcing French makes the model "translate" those turns instead of
 // transcribing them. The prompt tells it to expect both.
 
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { getOpenAIClient } from "@/lib/ai/client";
 import { getTutorAccess } from "@/lib/ai/tutor-access";
+import { transcribeCost } from "@/lib/ai/pricing";
+import { logAiUsage } from "@/lib/ai/usage-log";
 
 /** ~90 s of compressed speech. The page stops recording at 60 s. */
 const MAX_BYTES = 3 * 1024 * 1024;
@@ -64,6 +66,24 @@ export async function POST(request: NextRequest) {
       file: audio,
       prompt: `A student learning ${langName} talking to their tutor. They speak mostly ${langName}, sometimes English. Transcribe exactly what they say, including their mistakes; do not correct grammar.`,
     });
+
+    // Billed by tokens when the API reports them; otherwise estimate the length
+    // from the clip size (~4 KB per second of compressed speech).
+    const { costUsd, seconds, tokensIn, tokensOut } = transcribeCost(
+      result.usage,
+      audio.size / 4096
+    );
+    after(() =>
+      logAiUsage({
+        userId: user.id,
+        feature: "transcribe",
+        model: "gpt-4o-transcribe",
+        costUsd,
+        tokensIn,
+        tokensOut,
+        audioSeconds: seconds,
+      })
+    );
 
     return NextResponse.json({ text: (result.text ?? "").trim() });
   } catch (error) {

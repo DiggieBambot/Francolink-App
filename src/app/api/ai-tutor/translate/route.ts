@@ -7,10 +7,12 @@
 // word means is the tutor working, not a new turn — but it is gated to the same
 // students and capped in size.
 
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { getOpenAIClient, getAIConfig } from "@/lib/ai/client";
 import { getTutorAccess } from "@/lib/ai/tutor-access";
+import { costOf } from "@/lib/ai/pricing";
+import { logAiUsage } from "@/lib/ai/usage-log";
 
 const MAX_TEXT = 700;
 
@@ -58,6 +60,20 @@ export async function POST(request: NextRequest) {
       temperature: 0.2,
       max_tokens: mode === "word" ? 80 : 300,
     });
+
+    const model = config.openai.tutorModel;
+    const tokensIn = completion.usage?.prompt_tokens ?? 0;
+    const tokensOut = completion.usage?.completion_tokens ?? 0;
+    after(() =>
+      logAiUsage({
+        userId: user.id,
+        feature: "translate",
+        model,
+        costUsd: costOf(model, tokensIn, tokensOut),
+        tokensIn,
+        tokensOut,
+      })
+    );
 
     let parsed: { translation?: string; lemma?: string; note?: string } = {};
     try {
