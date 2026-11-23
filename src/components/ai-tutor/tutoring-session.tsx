@@ -18,7 +18,7 @@
 // what he's saying word by word; and a class board collects the corrections.
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { Mic, Pause, PhoneOff, Hand, Loader2, NotebookPen, ChevronUp, BookOpen, RotateCcw } from "lucide-react";
+import { Mic, Pause, PhoneOff, Hand, Loader2, NotebookPen, ChevronUp, BookOpen, RotateCcw, Languages } from "lucide-react";
 import { Leon, LeonSpeechBubble, leonPalette, type LeonMood, type VoiceBands } from "@/components/ai-tutor/leon";
 import { ClassLesson as LessonOnScreen } from "@/components/ai-tutor/class-lesson";
 import type { NowPlaying } from "@/hooks/use-tutor-tts";
@@ -92,6 +92,7 @@ export function TutoringSession({
   studentLine,
   tutorLine,
   tutorStreaming,
+  tutorTranslation = null,
   board,
   isLoading,
   isTranscribing,
@@ -123,6 +124,8 @@ export function TutoringSession({
   studentLine: string | null;
   tutorLine: string | null;
   tutorStreaming: boolean;
+  /** His reply in the student's own language, shown small under the bubble. */
+  tutorTranslation?: string | null;
   /** Every correction from this session, oldest first. */
   board: Correction[];
   isLoading: boolean;
@@ -159,6 +162,24 @@ export function TutoringSession({
 }) {
   const [paused, setPaused] = useState(false);
   const [boardOpen, setBoardOpen] = useState(false);
+  // Small translation under Léon's bubble, on unless the student turns it off.
+  const [showTranslation, setShowTranslation] = useState(true);
+  useEffect(() => {
+    try {
+      if (localStorage.getItem("leon-translation") === "off") setShowTranslation(false);
+    } catch {
+      /* private mode: keep the default */
+    }
+  }, []);
+  const toggleTranslation = () =>
+    setShowTranslation((v) => {
+      try {
+        localStorage.setItem("leon-translation", v ? "off" : "on");
+      } catch {
+        /* not remembered, still toggled */
+      }
+      return !v;
+    });
   const palette = leonPalette(language);
 
   // Only failures while this session is open count, not ones from before it.
@@ -287,14 +308,24 @@ export function TutoringSession({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex flex-col text-gray-900"
-      style={{ background: `radial-gradient(120% 70% at 50% 0%, ${palette.bg} 0%, #ffffff 65%)` }}
+      // z-[100]: above the bottom nav, the AI FAB and the z-[60] prompts.
+      // viewport-fit=cover is set app-wide, so a fixed full-screen layer
+      // starts under the iPhone status bar / Dynamic Island, where iOS eats
+      // taps — that left End class unclickable. Pad by the safe areas.
+      className="fixed inset-0 z-[100] flex flex-col text-gray-900"
+      style={{
+        background: `radial-gradient(120% 70% at 50% 0%, ${palette.bg} 0%, #ffffff 65%)`,
+        paddingTop: "env(safe-area-inset-top)",
+        paddingBottom: "env(safe-area-inset-bottom)",
+        paddingLeft: "env(safe-area-inset-left)",
+        paddingRight: "env(safe-area-inset-right)",
+      }}
       role="dialog"
       aria-label="AI tutoring session with Professor Léon"
     >
       {/* Top bar */}
-      <div className="flex items-center justify-between px-4 py-3 max-w-5xl w-full mx-auto">
-        <div>
+      <div className="shrink-0 flex items-center justify-between gap-3 px-4 py-3 max-w-5xl w-full mx-auto">
+        <div className="min-w-0">
           <p className="text-sm font-semibold">Professor Léon</p>
           <p className="text-xs text-gray-500">
             AI tutoring session{timeLabel ? ` · ${timeLabel}` : ""}
@@ -303,7 +334,7 @@ export function TutoringSession({
         <button
           onClick={onEnd}
           disabled={ending}
-          className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-red-500 text-white text-sm font-semibold hover:bg-red-600 disabled:opacity-60"
+          className="shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl bg-red-500 text-white text-sm font-semibold hover:bg-red-600 disabled:opacity-60"
         >
           {ending ? <Loader2 className="w-4 h-4 animate-spin" /> : <PhoneOff className="w-4 h-4" />}
           End class
@@ -322,6 +353,7 @@ export function TutoringSession({
               text={tutorLine}
               speech={leonTalking ? nowPlaying : null}
               streaming={tutorStreaming && !leonTalking}
+              translation={showTranslation ? tutorTranslation : null}
               tailX={wide ? "50%" : "88%"}
             />
             </div>
@@ -348,6 +380,16 @@ export function TutoringSession({
             <p className="mt-1 text-xs md:text-sm font-medium text-gray-500" aria-live="polite">
               {status}
             </p>
+            {tutorTranslation && (
+              <button
+                onClick={toggleTranslation}
+                className="mt-1 inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium text-gray-500 hover:bg-gray-100"
+                aria-pressed={showTranslation}
+              >
+                <Languages className="w-3.5 h-3.5" />
+                {showTranslation ? "Hide translation" : "Show translation"}
+              </button>
+            )}
             {studentLine && (
               <p className="hidden md:block mt-3 text-sm text-gray-500 italic">&ldquo;{studentLine}&rdquo;</p>
             )}
@@ -393,6 +435,7 @@ export function TutoringSession({
               text={tutorLine}
               speech={leonTalking ? nowPlaying : null}
               streaming={tutorStreaming && !leonTalking}
+              translation={showTranslation ? tutorTranslation : null}
               tailX="46%"
             />
           </div>
@@ -418,6 +461,16 @@ export function TutoringSession({
           <p className="mt-2 text-sm font-medium text-gray-500" aria-live="polite">
             {status}
           </p>
+          {tutorTranslation && (
+            <button
+              onClick={toggleTranslation}
+              className="mt-1 inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium text-gray-500 hover:bg-gray-100"
+              aria-pressed={showTranslation}
+            >
+              <Languages className="w-3.5 h-3.5" />
+              {showTranslation ? "Hide translation" : "Show translation"}
+            </button>
+          )}
 
           {studentLine && (
             <p className="mt-5 text-sm text-gray-500 italic max-w-xl">&ldquo;{studentLine}&rdquo;</p>
@@ -538,7 +591,10 @@ export function TutoringSession({
 
       {/* Class board sheet (phones) */}
       {boardOpen && (
-        <div className="md:hidden absolute inset-x-0 bottom-0 max-h-[60%] overflow-y-auto rounded-t-3xl shadow-2xl bg-white p-4">
+        <div
+          className="md:hidden absolute inset-x-0 bottom-0 max-h-[60%] overflow-y-auto rounded-t-3xl shadow-2xl bg-white p-4"
+          style={{ paddingBottom: "max(1rem, env(safe-area-inset-bottom))" }}
+        >
           <button onClick={() => setBoardOpen(false)} className="mx-auto mb-3 block h-1.5 w-12 rounded-full bg-gray-300" aria-label="Close board" />
           {boardPanel}
         </div>

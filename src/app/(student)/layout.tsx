@@ -171,14 +171,16 @@ export default async function StudentLayout({
 
       {/* Mobile Header */}
       <header className="lg:hidden sticky top-0 z-40 bg-white border-b border-gray-100 shadow-sm">
-        <div className="flex items-center justify-between h-14 px-4">
-          <div className="flex items-center gap-3">
+        <div className="flex items-center justify-between gap-2 h-14 px-3 sm:px-4">
+          {/* min-w-0 + a smaller logo on phones: at 430px the full 176px logo
+              plus language, streak, XP and bell overflowed and overlapped. */}
+          <div className="flex min-w-0 items-center gap-2 sm:gap-3">
             <MobileSidebar>{sidebarContent}</MobileSidebar>
-            <Link href="/dashboard" className="flex items-center">
-              <Image src="/logo-new.webp" alt="Francolink" width={176} height={32} priority />
+            <Link href="/dashboard" className="flex min-w-0 items-center">
+              <Image src="/logo-new.webp" alt="Francolink" width={176} height={32} priority className="h-auto w-[110px] sm:w-[176px]" />
             </Link>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
             {(userLanguages && userLanguages.length > 0) && (
               <LanguageSwitcher
                 activeLanguage={activeLanguage}

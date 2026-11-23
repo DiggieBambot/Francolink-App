@@ -62,6 +62,8 @@ interface TutorMeta {
   corrections: Correction[];
   hints: Hint[];
   sectionComplete: boolean;
+  /** The reply in the student's own language (spoken classes only). */
+  translation: string;
 }
 
 /** Lowercase, straight apostrophes, single spaces — for "did the student write this?" checks. */
@@ -75,7 +77,7 @@ function normalizeForMatch(text: string): string {
 
 /** Parse the JSON after the delimiter. Malformed metadata costs nothing but the extras. */
 function parseMeta(raw: string): TutorMeta {
-  const empty: TutorMeta = { corrections: [], hints: [], sectionComplete: false };
+  const empty: TutorMeta = { corrections: [], hints: [], sectionComplete: false, translation: "" };
   const start = raw.indexOf("{");
   const end = raw.lastIndexOf("}");
   if (start < 0 || end <= start) return empty;
@@ -95,6 +97,7 @@ function parseMeta(raw: string): TutorMeta {
             .map((h: Hint) => ({ text: h.text.trim(), en: h.en?.trim() }))
         : [],
       sectionComplete: parsed.sectionComplete === true,
+      translation: typeof parsed.translation === "string" ? parsed.translation.trim().slice(0, 1200) : "",
     };
   } catch {
     return empty;
@@ -146,7 +149,9 @@ async function recoverMeta(
   history: Array<{ role: "user" | "assistant"; content: string }>,
   reply: string,
   targetLang: string,
-  level: string
+  level: string,
+  /** Also translate the reply into this language (spoken classes). */
+  translateTo?: string
 ): Promise<{ meta: TutorMeta; tokensIn: number; tokensOut: number }> {
   const student = history[history.length - 1]?.content ?? "";
   const completion = await openai.chat.completions.create({
@@ -159,7 +164,11 @@ async function recoverMeta(
         role: "system",
         content: `You support a ${targetLang} tutor. The student is CEFR ${level}. Given the student's last message and the tutor's reply, return JSON only:
 {"corrections": [{"original": "the wrong part as the student wrote it", "corrected": "the fixed version", "explanation": "one short sentence in English", "tag": "gender|agreement|tense|vocabulary|spelling|word_order|other"}], "sectionComplete": false, "hints": [{"text": "a short reply the student could give to the tutor, in ${targetLang}", "en": "its English meaning"}]}
-"corrections": mistakes in the STUDENT's message only — never correct the tutor's reply. "original" must be copied exactly from the student's message. Look for word order, agreement, gender, tense, vocabulary. [] if none, and [] if they wrote in English to ask for help. "hints": 2-3 natural, different answers to the tutor's reply at the student's level.`,
+"corrections": mistakes in the STUDENT's message only — never correct the tutor's reply. "original" must be copied exactly from the student's message. Look for word order, agreement, gender, tense, vocabulary. [] if none, and [] if they wrote in English to ask for help. "hints": 2-3 natural, different answers to the tutor's reply at the student's level.${
+          translateTo
+            ? `\nAlso add "translation": the tutor's reply translated into natural ${translateTo} ("" if it is already in ${translateTo}).`
+            : ""
+        }`,
       },
       { role: "user", content: `Student: ${student}\nTutor: ${reply}` },
     ],
@@ -489,7 +498,11 @@ export async function POST(request: NextRequest) {
 {"corrections": [{"original": "what they wrote", "corrected": "the fixed version", "explanation": "one short sentence in English", "tag": "gender|agreement|tense|vocabulary|spelling|word_order|other"}], "sectionComplete": false, "hints": [{"text": "a short reply the student could give next, in ${targetLang}", "en": "its English meaning"}]}
 
 "corrections" must be [] when the student made no mistakes worth correcting — do not invent them. Never correct a message the student wrote in English when they were asking for help.
-"hints": 2-3 natural, different answers to what you just asked, at the student's level (A1/A2: very short). [] only if no reply is expected.
+"hints": 2-3 natural, different answers to what you just asked, at the student's level (A1/A2: very short). [] only if no reply is expected.${
+        spokenSession
+          ? `\nAlso add "translation" to the JSON: your whole reply translated into natural ${studentLang}, shown in small print under your speech bubble so the student never feels lost. Use "" if your reply is already in ${studentLang}.`
+          : ""
+      }
 Every response must end with the ${META_DELIMITER} line and the JSON — even a one-line greeting. Example of a complete response:
 Bonjour ! Comment tu t'appelles ?
 ${META_DELIMITER}
@@ -595,7 +608,15 @@ ${META_DELIMITER}
           // and hints costs the student nothing but a beat before they appear.
           if (idx < 0 && reply) {
             try {
-              const extra = await recoverMeta(openai, model, history, reply, targetLang, context.level);
+              const extra = await recoverMeta(
+                openai,
+                model,
+                history,
+                reply,
+                targetLang,
+                context.level,
+                spokenSession ? studentLang : undefined
+              );
               meta = extra.meta;
               tokensIn += extra.tokensIn;
               tokensOut += extra.tokensOut;
@@ -689,6 +710,7 @@ ${META_DELIMITER}
             reply,
             corrections,
             hints: meta.hints,
+            translation: spokenSession ? meta.translation : "",
             conversationId,
             lesson: lessonState
               ? {

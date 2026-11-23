@@ -28,6 +28,7 @@ export function LeonSpeechBubble({
   speech,
   streaming = false,
   tailX = "50%",
+  translation,
   className,
 }: {
   language: string;
@@ -39,6 +40,8 @@ export function LeonSpeechBubble({
   streaming?: boolean;
   /** Where the tail sits along the bottom edge (CSS length). */
   tailX?: string;
+  /** His whole reply in the student's own language, in small print below. */
+  translation?: string | null;
   className?: string;
 }) {
   const palette = leonPalette(language);
@@ -100,6 +103,15 @@ export function LeonSpeechBubble({
             " "
           )}
         </div>
+        {translation && display && !streaming && (
+          // The student's own language, not the bubble's.
+          <p
+            lang=""
+            className="mt-2 pt-2 border-t border-dashed border-gray-200 text-xs md:text-sm leading-snug text-gray-500 italic max-h-[5.5rem] overflow-y-auto"
+          >
+            {translation}
+          </p>
+        )}
         {/* comic tail pointing down at Léon */}
         <svg
           className="absolute -bottom-[19px] h-[21px] w-[30px] -translate-x-1/2"

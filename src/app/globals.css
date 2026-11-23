@@ -699,3 +699,19 @@ html {
 .wb .box.next strong { color: hsl(var(--foreground)); }
 .wb .box.next a { color: hsl(var(--primary)); font-weight: 600; text-decoration: none; }
 .wb .box.next a:hover { text-decoration: underline; }
+
+/* AI tutor chat: fill what the student layout leaves (top bar, <main> padding,
+   bottom nav) minus the iPhone safe-area padding the layout adds. */
+.ai-chat-shell {
+  height: calc(100dvh - 11.5rem - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+}
+@media (min-width: 640px) {
+  .ai-chat-shell {
+    height: calc(100dvh - 12rem - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  }
+}
+@media (min-width: 1024px) {
+  .ai-chat-shell {
+    height: calc(100dvh - 7.5rem - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  }
+}
