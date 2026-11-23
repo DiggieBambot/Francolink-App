@@ -28,11 +28,11 @@ const DEFAULT_PLANS: Plan[] = [
     badge: '', highlighted: false, cta_label: 'Get Started Free' },
   { id: 'premium', name: 'Premium', price_monthly: '7.99', price_yearly: '59.99', currency: 'USD',
     stripe_price_monthly: '', stripe_price_yearly: '',
-    features: ['Unlimited lessons', 'All exercises', 'Progress tracking', '300 AI Tutor messages a month'],
+    features: ['Unlimited lessons', 'All exercises', 'Progress tracking', '3 hours of AI tutoring a month'],
     badge: 'Popular', highlighted: true, cta_label: 'Start Premium' },
   { id: 'premium_plus', name: 'Premium Plus', price_monthly: '14.99', price_yearly: '119.99', currency: 'USD',
     stripe_price_monthly: '', stripe_price_yearly: '',
-    features: ['Everything in Premium', '1,500 AI Tutor messages a month', 'Live tutor sessions', 'Priority support'],
+    features: ['Everything in Premium', '10 hours of AI tutoring a month', 'Live tutor sessions', 'Priority support'],
     badge: 'Best Value', highlighted: false, cta_label: 'Go Premium Plus' },
 ];
 

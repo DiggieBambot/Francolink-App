@@ -51,11 +51,21 @@ export async function GET() {
         ? { id: recent.tutor_lesson_id, title: recent.lesson_title }
         : null,
       plan: access.plan,
-      messagesUsed: access.messagesUsed,
-      monthlyLimit: access.monthlyLimit,
-      remainingMessages: access.remainingMessages,
-      period: access.period,
       isPrivileged: access.isPrivileged,
+      allowed: access.allowed,
+      code: access.code ?? null,
+      reason: access.reason ?? null,
+      // Tutoring time, in seconds. null = unlimited.
+      time: {
+        dailyCapSeconds: access.dailyCapSeconds,
+        monthlyCapSeconds: access.monthlyCapSeconds,
+        usedTodaySeconds: access.usedTodaySeconds,
+        usedMonthSeconds: access.usedMonthSeconds,
+        extraSeconds: access.extraSeconds,
+        planRemainingSeconds: access.planRemainingSeconds,
+        remainingSeconds: access.remainingSeconds,
+        limitScope: access.limitScope,
+      },
     });
   } catch (error) {
     console.error("AI usage check error:", error);

@@ -1,7 +1,9 @@
 "use client";
 import { useTutorTTS, takeSentences } from "@/hooks/use-tutor-tts";
 import { useVoiceRecorder } from "@/hooks/use-voice-recorder";
-import { PLANS } from "@/lib/config/subscription";
+import { PLANS, formatTutoringTime } from "@/lib/config/subscription";
+import { TutoringSession } from "@/components/ai-tutor/tutoring-session";
+import { ExtraHoursOffer } from "@/components/ai-tutor/extra-hours-offer";
 import { TappableText } from "@/components/ai-tutor/tappable-text";
 import { RecapPanel, type Recap } from "@/components/ai-tutor/recap-panel";
 import { Leon, leonGreeting, type LeonMood } from "@/components/ai-tutor/leon";
@@ -66,15 +68,20 @@ interface UsageData {
   hasAccess: boolean;
   tutorEnabled: boolean;
   plan: string;
-  /** Student messages sent this month. The quota is a monthly pool. */
-  messagesUsed: number;
-  /** `null` means unlimited. */
-  monthlyLimit: number | null;
-  /** `null` means unlimited. */
-  remainingMessages: number | null;
-  /** Quota period, as YYYY-MM. */
-  period?: string;
   isPrivileged: boolean;
+  allowed?: boolean;
+  reason?: string | null;
+  /** AI tutoring time in seconds; `null` caps/remaining mean unlimited. */
+  time?: {
+    dailyCapSeconds: number | null;
+    monthlyCapSeconds: number | null;
+    usedTodaySeconds: number;
+    usedMonthSeconds: number;
+    extraSeconds: number;
+    planRemainingSeconds: number | null;
+    remainingSeconds: number | null;
+    limitScope: "DAY" | "MONTH" | null;
+  };
   learningLanguage?: string;
   level?: string;
   /** Most recent lesson the student's human tutor covered, if any. */
@@ -111,6 +118,10 @@ export default function AITutorPage() {
   const [hintsOpen, setHintsOpen] = useState(false);
   const [recap, setRecap] = useState<Recap | null>(null);
   const [recapLoading, setRecapLoading] = useState(false);
+  // The voice-first AI tutoring session (full screen, hands-free).
+  const [sessionOpen, setSessionOpen] = useState(false);
+  const [showHoursOffer, setShowHoursOffer] = useState(false);
+  const [notice, setNotice] = useState<string | null>(null);
   // Learned from the usage/chat responses, so voice and speech recognition
   // follow the student instead of assuming French at A1.
   const [learningLanguage, setLearningLanguage] = useState("fr");
@@ -158,6 +169,17 @@ export default function AITutorPage() {
     fetchUsage();
   }, [fetchUsage]);
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("hours") !== "added") return;
+    setNotice("Extra tutoring hours added. Enjoy your time with Leon!");
+    params.delete("hours");
+    const qs = params.toString();
+    window.history.replaceState(null, "", window.location.pathname + (qs ? `?${qs}` : ""));
+    const t = setTimeout(fetchUsage, 2500);
+    return () => clearTimeout(t);
+  }, [fetchUsage]);
+
   // Lesson mode is entered by link (?lesson=<tutor_lesson_id>) from a lesson
   // page. Read it off the URL rather than useSearchParams so the page does not
   // need a Suspense boundary.
@@ -202,7 +224,8 @@ export default function AITutorPage() {
     if (inputRef.current) inputRef.current.style.height = "auto";
 
     const assistantId = `assistant-${Date.now()}`;
-    const speakAsItArrives = autoSpeak;
+    // A tutoring session is spoken by definition.
+    const speakAsItArrives = autoSpeak || sessionOpen;
     let assistantAdded = false;
 
     try {
@@ -215,7 +238,12 @@ export default function AITutorPage() {
       const res = await fetch("/api/ai-tutor/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: apiMessages, conversationId, lessonId }),
+        body: JSON.stringify({
+          messages: apiMessages,
+          conversationId,
+          lessonId,
+          mode: sessionOpen ? "session" : undefined,
+        }),
         signal: abortRef.current.signal,
       });
 
@@ -223,7 +251,19 @@ export default function AITutorPage() {
         const data = await res.json().catch(() => ({}));
         if (data.code === "LIMIT_REACHED") {
           setUsage((prev) =>
-            prev ? { ...prev, remainingMessages: 0, messagesUsed: data.messagesUsed } : prev
+            prev && prev.time
+              ? {
+                  ...prev,
+                  reason: data.error,
+                  time: {
+                    ...prev.time,
+                    remainingSeconds: 0,
+                    planRemainingSeconds: 0,
+                    extraSeconds: 0,
+                    limitScope: data.limitScope ?? prev.time.limitScope,
+                  },
+                }
+              : prev
           );
         }
         setError(data.error || "Something went wrong. Please try again.");
@@ -273,17 +313,8 @@ export default function AITutorPage() {
           if (ev.conversationId) setConversationId(ev.conversationId);
           if (ev.lesson) setLesson(ev.lesson);
           if (ev.level) setStudentLevel(ev.level);
-          if (ev.remainingMessages !== undefined) {
-            setUsage((prev) =>
-              prev
-                ? {
-                    ...prev,
-                    messagesUsed: ev.messagesUsed,
-                    remainingMessages: ev.remainingMessages,
-                  }
-                : prev
-            );
-          }
+          // Refresh the time left (today, this month, extra) after each turn.
+          if (ev.remainingSeconds !== undefined) void fetchUsage();
         } else if (ev.t === "error") {
           setError(ev.error || "Something went wrong. Please try again.");
         }
@@ -436,6 +467,24 @@ export default function AITutorPage() {
     }
   };
 
+  const startTutoringSession = () => {
+    // This click is the audio-unlock gesture for everything Leon says.
+    tts.unlock();
+    tts.stop();
+    setError(null);
+    setNotice(null);
+    setSessionOpen(true);
+  };
+
+  const endTutoringSession = async () => {
+    recorder.cancel();
+    tts.stop();
+    const turns = messages.filter((m) => m.role === "user").length;
+    // Long enough for a recap: build it, then show it in place of the session.
+    if (conversationId && turns >= 2) await endSession();
+    setSessionOpen(false);
+  };
+
   const newSession = () => {
     tts.stop();
     setRecap(null);
@@ -461,7 +510,7 @@ export default function AITutorPage() {
   };
 
   const isLimitReached =
-    usage && usage.remainingMessages !== null && usage.remainingMessages <= 0;
+    !!usage?.time && usage.time.remainingSeconds !== null && usage.time.remainingSeconds <= 0;
   const noAccess = usage && !usage.hasAccess;
   const studentTurns = messages.filter((m) => m.role === "user").length;
   const canEnd = !!conversationId && studentTurns >= 2 && !isLoading;
@@ -515,28 +564,31 @@ export default function AITutorPage() {
           </div>
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Premium Feature</h1>
           <p className="text-gray-600 mb-6">
-            The AI Tutor is available with Premium and Premium Plus plans. Practice
-            conversations, get instant corrections, and improve your skills with
-            AI-powered tutoring.
+            AI tutoring sessions with Leon come with Premium and Premium Plus. Speak
+            out loud, get gentle corrections, and build real conversation skills.
           </p>
           <div className="space-y-3">
             <div className="bg-gray-50 rounded-xl p-4 text-left">
               <div className="flex justify-between items-center mb-1">
                 <span className="font-medium text-gray-900">Premium</span>
                 <span className="text-primary font-bold">
-                  {PLANS.PREMIUM.aiMessagesPerMonth} messages/mo
+                  {formatTutoringTime(PLANS.PREMIUM.aiMonthlyMinutes * 60)}/month
                 </span>
               </div>
-              <p className="text-sm text-gray-500">Daily AI tutor practice sessions</p>
+              <p className="text-sm text-gray-500">
+                Up to {PLANS.PREMIUM.aiDailyMinutes} min of AI tutoring a day
+              </p>
             </div>
             <div className="bg-primary/5 border border-primary/20 rounded-xl p-4 text-left">
               <div className="flex justify-between items-center mb-1">
                 <span className="font-medium text-gray-900">Premium Plus</span>
                 <span className="text-primary font-bold">
-                  {PLANS.PREMIUM_PLUS.aiMessagesPerMonth} messages/mo
+                  {formatTutoringTime(PLANS.PREMIUM_PLUS.aiMonthlyMinutes * 60)}/month
                 </span>
               </div>
-              <p className="text-sm text-gray-500">Extended AI tutor sessions + priority</p>
+              <p className="text-sm text-gray-500">
+                Up to {PLANS.PREMIUM_PLUS.aiDailyMinutes} min of AI tutoring a day
+              </p>
             </div>
           </div>
           <div className="mt-6 space-y-2">
@@ -558,21 +610,31 @@ export default function AITutorPage() {
     );
   }
 
-  const isUnlimited = !usage || usage.monthlyLimit === null;
+  const time = usage?.time;
+  const isUnlimited = !time || time.remainingSeconds === null;
+  const planLeft = time?.planRemainingSeconds ?? 0;
+  const extraLeft = time?.extraSeconds ?? 0;
   const displayLimit = isUnlimited
     ? "Unlimited"
-    : `${usage!.remainingMessages} left this month`;
+    : planLeft > 0
+      ? `${formatTutoringTime(planLeft)} left today`
+      : extraLeft > 0
+        ? `${formatTutoringTime(extraLeft)} extra left`
+        : "Out of time";
+  const extraLabel =
+    !isUnlimited && planLeft > 0 && extraLeft > 0 ? `+${formatTutoringTime(extraLeft)} extra` : null;
 
-  // Fraction of the monthly pool still available, for the meter.
+  // Fraction of today's time still available, for the meter.
   const poolRemaining =
-    isUnlimited || !usage?.monthlyLimit
+    isUnlimited || !time?.dailyCapSeconds
       ? 1
-      : (usage.remainingMessages ?? 0) / usage.monthlyLimit;
-  // Warn on the last fifth of the pool rather than the last three messages —
-  // early enough for a student to pace the rest of the month.
+      : Math.min(1, (planLeft + extraLeft) / time.dailyCapSeconds);
+  // Warn on the last fifth of the day's time.
   const poolLow = !isUnlimited && poolRemaining <= 0.2;
 
   const lastAssistantId = [...messages].reverse().find((m) => m.role === "assistant")?.id;
+  const lastAssistant = [...messages].reverse().find((m) => m.role === "assistant");
+  const lastStudent = [...messages].reverse().find((m) => m.role === "user");
   const micBusy = isTranscribing || isLoading;
 
   // Leon's face follows what the tutor is doing right now.
@@ -645,6 +707,25 @@ export default function AITutorPage() {
                 <Layers className="w-4 h-4" />
               </Link>
 
+              <button
+                onClick={startTutoringSession}
+                disabled={isLimitReached || isLoading}
+                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-white bg-primary hover:bg-primary/90 disabled:opacity-50"
+                title="Start a voice tutoring session with Leon"
+              >
+                <Mic className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">Session</span>
+              </button>
+
+              {poolLow && !isLimitReached && (
+                <button
+                  onClick={() => setShowHoursOffer((v) => !v)}
+                  className="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100"
+                >
+                  Add hours
+                </button>
+              )}
+
               {canEnd && (
                 <button
                   onClick={endSession}
@@ -686,6 +767,7 @@ export default function AITutorPage() {
                   >
                     {displayLimit}
                   </span>
+                  {extraLabel && <span className="text-[10px] text-gray-500">{extraLabel}</span>}
                   {!isUnlimited && (
                     <div className="w-20 h-1.5 bg-gray-100 rounded-full overflow-hidden">
                       <div
@@ -714,9 +796,19 @@ export default function AITutorPage() {
               <h2 className="text-xl font-bold text-gray-900 mb-2">
                 Say &ldquo;{leonGreeting(learningLanguage)}&rdquo; to Leon
               </h2>
-              <p className="text-gray-500 max-w-sm mx-auto mb-2">
-                Leon is your AI practice partner. Tap the mic and just talk, or type.
+              <p className="text-gray-500 max-w-sm mx-auto mb-5">
+                Leon is your AI tutor. Start a session and just talk: he listens,
+                answers out loud and gently corrects you.
               </p>
+              <button
+                onClick={startTutoringSession}
+                disabled={isLimitReached}
+                className="mb-5 inline-flex items-center gap-2 px-6 py-3.5 bg-primary text-white rounded-2xl text-base font-semibold shadow-sm hover:bg-primary/90 transition-colors disabled:opacity-50"
+              >
+                <Mic className="w-5 h-5" />
+                Start AI tutoring session
+              </button>
+              <p className="text-xs text-gray-400 mb-2">Or type to Leon below</p>
               <p className="text-xs text-gray-400 mb-6">
                 Tap any word for its meaning &nbsp;·&nbsp; End the session for your recap
               </p>
@@ -970,14 +1062,21 @@ export default function AITutorPage() {
           <div className="max-w-3xl mx-auto flex items-center gap-2 text-sm text-red-700">
             <AlertCircle className="w-4 h-4 flex-shrink-0" />
             <p className="flex-1">{error}</p>
-            {isLimitReached && (
-              <Link
-                href="/upgrade-plus"
-                className="text-primary font-medium hover:underline whitespace-nowrap"
-              >
-                Upgrade
-              </Link>
-            )}
+
+          </div>
+        </div>
+      )}
+
+      {notice && (
+        <div className="bg-green-50 border-t border-green-200 px-4 py-3">
+          <p className="max-w-3xl mx-auto text-sm text-green-800">{notice}</p>
+        </div>
+      )}
+
+      {(isLimitReached || showHoursOffer) && usage?.hasAccess && !usage?.isPrivileged && (
+        <div className="px-4 py-3 bg-white border-t border-gray-200">
+          <div className="max-w-3xl mx-auto">
+            <ExtraHoursOffer reason={isLimitReached ? usage?.reason : null} />
           </div>
         </div>
       )}
@@ -1078,6 +1177,28 @@ export default function AITutorPage() {
           </p>
         </div>
       </div>
+
+      {sessionOpen && (
+        <TutoringSession
+          language={learningLanguage}
+          mood={leonMood}
+          studentLine={lastStudent?.content ?? null}
+          tutorLine={lastAssistant?.content || null}
+          tutorStreaming={!!lastAssistant?.streaming}
+          corrections={lastAssistant?.corrections ?? []}
+          isLoading={isLoading}
+          isTranscribing={isTranscribing}
+          isSpeaking={tts.isSpeaking}
+          recorder={recorder}
+          onInterrupt={() => tts.stop()}
+          onEnd={endTutoringSession}
+          ending={recapLoading}
+          timeLabel={isUnlimited ? null : displayLimit}
+          outOfTime={isLimitReached}
+          outOfTimePanel={<ExtraHoursOffer reason={usage?.reason} tone="light" />}
+          error={error}
+        />
+      )}
 
       {recap && conversationId && (
         <RecapPanel

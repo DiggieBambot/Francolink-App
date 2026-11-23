@@ -45,7 +45,7 @@ export function DailyLessonLimit({ usage }: DailyLessonLimitProps) {
         >
           <span className="flex items-center justify-center gap-1">
             <Sparkles className="h-3 w-3" />
-            {tutorEnabled ? 'Upgrade to Premium+ for 1,500 AI Tutor messages a month' : 'Upgrade to Premium+'}
+            {tutorEnabled ? 'Upgrade to Premium+ for 10 hours of AI tutoring a month' : 'Upgrade to Premium+'}
           </span>
         </button>
       </div>

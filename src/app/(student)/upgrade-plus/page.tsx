@@ -20,8 +20,8 @@ import { withoutTutorCopy } from "@/lib/ai/tutor-copy";
 const upgradeBenefits = [
   {
     icon: MessageSquare,
-    current: "300 AI Tutor messages a month",
-    upgraded: "1,500 AI Tutor messages a month",
+    current: "3 hours of AI tutoring a month",
+    upgraded: "10 hours of AI tutoring a month",
     description: "5x more conversation practice",
   },
   {

@@ -2,6 +2,7 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { notFound } from "next/navigation";
+import { formatTutoringTime } from "@/lib/config/subscription";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -58,6 +59,27 @@ export default async function AdminUserDetailPage({ params }: PageProps) {
     (sum: number, row: { cost_usd: number | null }) => sum + Number(row.cost_usd ?? 0),
     0
   );
+
+  // AI tutoring time this month (UTC), and any extra hours left.
+  const monthStart = new Date().toISOString().slice(0, 8) + "01";
+  const [{ data: timeRows }, { data: timeBalance }] = await Promise.all([
+    supabase
+      .from("ai_tutor_time_usage")
+      .select("plan_seconds, extra_seconds")
+      .eq("user_id", id)
+      .gte("day", monthStart),
+    supabase
+      .from("ai_tutor_time_balance")
+      .select("extra_seconds")
+      .eq("user_id", id)
+      .maybeSingle(),
+  ]);
+  const tutoringSecondsThisMonth = (timeRows ?? []).reduce(
+    (sum: number, r: { plan_seconds: number; extra_seconds: number }) =>
+      sum + (r.plan_seconds ?? 0) + (r.extra_seconds ?? 0),
+    0
+  );
+  const extraSecondsLeft = timeBalance?.extra_seconds ?? 0;
 
   // Everything else the tutor spends: voice, microphone, translate, recaps.
   const { data: otherSpend } = await supabase
@@ -385,11 +407,14 @@ export default async function AdminUserDetailPage({ params }: PageProps) {
                 <p className="text-gray-900">{user.lessons_today || 0} / 3</p>
               </div>
               <div>
-                <p className="text-sm text-gray-500">
-                  AI Tutor Messages ({user.ai_usage_period || "this month"})
-                </p>
+                <p className="text-sm text-gray-500">AI Tutoring Time (this month)</p>
                 <p className="text-gray-900">
-                  {user.ai_minutes_used_today || 0} messages
+                  {formatTutoringTime(tutoringSecondsThisMonth)}
+                  {extraSecondsLeft > 0 && (
+                    <span className="text-gray-500 text-sm">
+                      {" "}· {formatTutoringTime(extraSecondsLeft)} extra left
+                    </span>
+                  )}
                 </p>
               </div>
               <div>

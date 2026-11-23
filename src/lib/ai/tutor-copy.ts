@@ -1,4 +1,4 @@
-// Sales copy that sells the AI tutor ("300 AI Tutor messages a month", "AI
+// Sales copy that sells the AI tutor ("3 hours of AI tutoring a month", "AI
 // conversation tutor") is dropped wherever the tutor is switched off in
 // Admin → Settings → AI. Plain module, no "use client", so server pages and
 // client components can both use it.

@@ -36,14 +36,10 @@ export interface AIConfig {
     contentProcessingEnabled: boolean;
   };
   /**
-   * Monthly AI tutor message pools per plan. These are exchanges, not minutes —
-   * the usage counter increments once per student message.
+   * AI tutoring time per plan, in minutes of active session time, per day and
+   * per month. 0 switches a tier off.
    */
-  limits: {
-    freeMessagesPerMonth: number;
-    premiumMessagesPerMonth: number;
-    premiumPlusMessagesPerMonth: number;
-  };
+  limits: Record<'FREE' | 'PREMIUM' | 'PREMIUM_PLUS', { dailyMinutes: number; monthlyMinutes: number }>;
 }
 
 /**
@@ -121,18 +117,18 @@ export async function getAIConfig(): Promise<AIConfig> {
         contentProcessingEnabled: settingsMap.get('ai_content_processing_enabled') !== 'false',
       },
       limits: {
-        freeMessagesPerMonth: parseLimit(
-          settingsMap.get('free_ai_messages_per_month'),
-          PLANS.FREE.aiMessagesPerMonth
-        ),
-        premiumMessagesPerMonth: parseLimit(
-          settingsMap.get('premium_ai_messages_per_month'),
-          PLANS.PREMIUM.aiMessagesPerMonth
-        ),
-        premiumPlusMessagesPerMonth: parseLimit(
-          settingsMap.get('premium_plus_ai_messages_per_month'),
-          PLANS.PREMIUM_PLUS.aiMessagesPerMonth
-        ),
+        FREE: {
+          dailyMinutes: parseLimit(settingsMap.get('free_ai_daily_minutes'), PLANS.FREE.aiDailyMinutes),
+          monthlyMinutes: parseLimit(settingsMap.get('free_ai_monthly_minutes'), PLANS.FREE.aiMonthlyMinutes),
+        },
+        PREMIUM: {
+          dailyMinutes: parseLimit(settingsMap.get('premium_ai_daily_minutes'), PLANS.PREMIUM.aiDailyMinutes),
+          monthlyMinutes: parseLimit(settingsMap.get('premium_ai_monthly_minutes'), PLANS.PREMIUM.aiMonthlyMinutes),
+        },
+        PREMIUM_PLUS: {
+          dailyMinutes: parseLimit(settingsMap.get('premium_plus_ai_daily_minutes'), PLANS.PREMIUM_PLUS.aiDailyMinutes),
+          monthlyMinutes: parseLimit(settingsMap.get('premium_plus_ai_monthly_minutes'), PLANS.PREMIUM_PLUS.aiMonthlyMinutes),
+        },
       },
     };
 
@@ -179,9 +175,9 @@ function getEnvConfig(): AIConfig {
       contentProcessingEnabled: true,
     },
     limits: {
-      freeMessagesPerMonth: PLANS.FREE.aiMessagesPerMonth,
-      premiumMessagesPerMonth: PLANS.PREMIUM.aiMessagesPerMonth,
-      premiumPlusMessagesPerMonth: PLANS.PREMIUM_PLUS.aiMessagesPerMonth,
+      FREE: { dailyMinutes: PLANS.FREE.aiDailyMinutes, monthlyMinutes: PLANS.FREE.aiMonthlyMinutes },
+      PREMIUM: { dailyMinutes: PLANS.PREMIUM.aiDailyMinutes, monthlyMinutes: PLANS.PREMIUM.aiMonthlyMinutes },
+      PREMIUM_PLUS: { dailyMinutes: PLANS.PREMIUM_PLUS.aiDailyMinutes, monthlyMinutes: PLANS.PREMIUM_PLUS.aiMonthlyMinutes },
     },
   };
 }

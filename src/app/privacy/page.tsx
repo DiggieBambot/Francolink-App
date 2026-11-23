@@ -93,7 +93,7 @@ export default async function PrivacyPage() {
           <li><strong>Supabase</strong> — database, sign-in and file storage.</li>
           <li><strong>Vercel</strong> — website and app hosting.</li>
           <li><strong>Stripe</strong> — payment processing and subscriptions.</li>
-          <li><strong>OpenAI</strong> — the AI tutor, and generating the audio for lesson content. AI tutor messages are sent to OpenAI to produce replies.</li>
+          <li><strong>OpenAI</strong> — the AI tutor, and generating the audio for lesson content. AI tutor messages, and the voice recordings you make in AI tutoring sessions, are sent to OpenAI to transcribe them and produce written and spoken replies.</li>
           <li><strong>Daily.co</strong> — video for live lessons with tutors.</li>
           <li><strong>Resend</strong> — sending emails.</li>
           <li><strong>Google</strong> — Google sign-in (if you choose it) and Google Analytics.</li>
