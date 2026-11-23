@@ -1209,6 +1209,7 @@ export default function AITutorPage() {
           board={messages.flatMap((m) => (m.role === "assistant" ? m.corrections ?? [] : []))}
           nowPlaying={tts.nowPlaying}
           voiceLevel={tts.voiceLevelRef}
+          voiceBands={tts.voiceBandsRef}
           prefetchClip={tts.prefetch}
           playClip={tts.playClip}
           isLoading={isLoading}
