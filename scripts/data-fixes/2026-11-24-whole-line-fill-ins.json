@@ -1,0 +1,6400 @@
+[
+ {
+  "id": "8ad30702-5560-4983-b49e-07f8146ec8ab",
+  "title": "Dans la cuisine",
+  "i": 1,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Répondez aux questions",
+   "number": 2,
+   "example": {
+    "tutor_line": "Alex, où est la fourchette ?",
+    "student_line": "La fourchette est sur la table."
+   },
+   "exchanges": [
+    {
+     "text": "Où est la fourchette ?",
+     "blank": true,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Where is the fork?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Où as-tu mis l'assiette ?",
+     "blank": true,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Where did you put the plate?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Où se trouve le couteau ?",
+     "blank": true,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "Where is the knife?",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "La fourchette est sur la table.",
+    "L'assiette est dans le placard.",
+    "Le couteau est à côté de la cuillère."
+   ],
+   "tutor_instruction": "Encouragez les élèves à formuler des réponses complètes.",
+   "student_instruction": "Répondez aux questions en phrases complètes.",
+   "valid_answers_by_blank": {
+    "1": [
+     "La fourchette est sur la table."
+    ],
+    "2": [
+     "L'assiette est dans le placard."
+    ],
+    "3": [
+     "Le couteau est à côté de la cuillère."
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Répondez aux questions",
+   "number": 2,
+   "example": {
+    "tutor_line": "Alex, où est la fourchette ?",
+    "student_line": "La fourchette est sur la table."
+   },
+   "exchanges": [
+    {
+     "text": "La fourchette est sur la table.",
+     "blank": true,
+     "speaker": "Où est la fourchette ? ____",
+     "avatar_seed": "Alex",
+     "translation": "Where is the fork?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "L'assiette est dans le placard.",
+     "blank": true,
+     "speaker": "Où as-tu mis l'assiette ? ____",
+     "avatar_seed": "Eli",
+     "translation": "Where did you put the plate?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Le couteau est à côté de la cuillère.",
+     "blank": true,
+     "speaker": "Où se trouve le couteau ? ____",
+     "avatar_seed": "Alex",
+     "translation": "Where is the knife?",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "La fourchette est sur la table.",
+    "L'assiette est dans le placard.",
+    "Le couteau est à côté de la cuillère."
+   ],
+   "tutor_instruction": "Encouragez les élèves à formuler des réponses complètes.",
+   "student_instruction": "Répondez aux questions en phrases complètes.",
+   "valid_answers_by_blank": {
+    "1": [
+     "La fourchette est sur la table."
+    ],
+    "2": [
+     "L'assiette est dans le placard."
+    ],
+    "3": [
+     "Le couteau est à côté de la cuillère."
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "02f71ce3-0c5f-4ef7-bd13-ce5551afd167",
+  "title": "Discutez de questions économiques",
+  "i": 5,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 6,
+   "example": {
+    "tutor_line": "Quelle est votre opinion sur l'________ de l'économie mondiale aujourd'hui ?",
+    "student_line": "Je pense qu'il y a une forte _______ entre les pays développés et les pays en développement."
+   },
+   "exchanges": [
+    {
+     "text": "Quelle est votre opinion sur l'________ de l'économie mondiale aujourd'hui ?",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "What is your opinion on the _______ of the global economy today?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Je pense qu'il y a une forte _______ entre les pays développés et les pays en développement.",
+     "blank": true,
+     "speaker": "Emilie",
+     "avatar_seed": "Emilie",
+     "translation": "I think there is a strong _______ between developed and developing countries.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Oui, et cela soulève des questions sur la _______ et l'équité.",
+     "blank": true,
+     "speaker": "Ben",
+     "avatar_seed": "Ben",
+     "translation": "Yes, and this raises questions about _______ and equity.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Que pouvez-vous dire à propos de l'________ ? Est-ce une solution viable pour résoudre les problèmes économiques ?",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "What can you say about _______? Is it a viable solution to solve economic problems?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Cela peut être une option, mais il y a aussi des _______ à considérer.",
+     "blank": true,
+     "speaker": "Emilie",
+     "avatar_seed": "Emilie",
+     "translation": "This can be an option, but there are also _______ to consider.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "risque",
+    "aide internationale",
+    "justice",
+    "inégalité",
+    "état"
+   ],
+   "tutor_instruction": "Guide the students through the dialogue and help them fill in the blanks.",
+   "student_instruction": "Lisez le dialogue à voix haute avec votre tuteur et remplissez les espaces vides.",
+   "valid_answers_by_blank": {
+    "0": [
+     "état"
+    ],
+    "1": [
+     "inégalité"
+    ],
+    "2": [
+     "justice"
+    ],
+    "3": [
+     "aide internationale"
+    ],
+    "4": [
+     "risque"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 6,
+   "example": {
+    "tutor_line": "Quelle est votre opinion sur l'________ de l'économie mondiale aujourd'hui ?",
+    "student_line": "Je pense qu'il y a une forte _______ entre les pays développés et les pays en développement."
+   },
+   "exchanges": [
+    {
+     "text": "état",
+     "blank": true,
+     "speaker": "Quelle est votre opinion sur l'____ de l'économie mondiale aujourd'hui ?",
+     "avatar_seed": "Professeur",
+     "translation": "What is your opinion on the _______ of the global economy today?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "inégalité",
+     "blank": true,
+     "speaker": "Je pense qu'il y a une forte ____ entre les pays développés et les pays en développement.",
+     "avatar_seed": "Emilie",
+     "translation": "I think there is a strong _______ between developed and developing countries.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "justice",
+     "blank": true,
+     "speaker": "Oui, et cela soulève des questions sur la ____ et l'équité.",
+     "avatar_seed": "Ben",
+     "translation": "Yes, and this raises questions about _______ and equity.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "aide internationale",
+     "blank": true,
+     "speaker": "Que pouvez-vous dire à propos de l'____ ? Est-ce une solution viable pour résoudre les problèmes économiques ?",
+     "avatar_seed": "Professeur",
+     "translation": "What can you say about _______? Is it a viable solution to solve economic problems?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "risque",
+     "blank": true,
+     "speaker": "Cela peut être une option, mais il y a aussi des ____ à considérer.",
+     "avatar_seed": "Emilie",
+     "translation": "This can be an option, but there are also _______ to consider.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "risque",
+    "aide internationale",
+    "justice",
+    "inégalité",
+    "état"
+   ],
+   "tutor_instruction": "Guide the students through the dialogue and help them fill in the blanks.",
+   "student_instruction": "Lisez le dialogue à voix haute avec votre tuteur et remplissez les espaces vides.",
+   "valid_answers_by_blank": {
+    "0": [
+     "état"
+    ],
+    "1": [
+     "inégalité"
+    ],
+    "2": [
+     "justice"
+    ],
+    "3": [
+     "aide internationale"
+    ],
+    "4": [
+     "risque"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "b72d99e9-0a25-422f-8beb-c296aa73a74a",
+  "title": "Discutez des découvertes scientifiques et des avancées technologiques.",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Je vais mener une expérience en laboratoire.",
+    "student_line": "Je suis impatient de mener une expérience en laboratoire."
+   },
+   "exchanges": [
+    {
+     "text": "Je ___ mener une expérience en laboratoire.",
+     "blank": true,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "I ___ to conduct an experiment in the laboratory.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Je ___ développer une nouvelle technologie.",
+     "blank": true,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "I ___ to develop a new technology.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Je ___ utiliser l'intelligence artificielle pour analyser les données.",
+     "blank": true,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "I ___ to use artificial intelligence to analyze the data.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Je ___ publier des articles scientifiques.",
+     "blank": true,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "I ___ to publish scientific articles.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "planifier",
+    "ne pas vouloir",
+    "être impatient de",
+    "être impatient de",
+    "planifier"
+   ],
+   "tutor_instruction": "Guide l'élève à choisir le bon verbe.",
+   "student_instruction": "Remplissez les blancs en utilisant les verbes « planifier », « ne pas vouloir », ou « être impatient de » pour rendre ces phrases vraies pour vous.",
+   "valid_answers_by_blank": {
+    "1": [
+     "être impatient de"
+    ],
+    "2": [
+     "planifier"
+    ],
+    "3": [
+     "être impatient de"
+    ],
+    "4": [
+     "planifier"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Je vais mener une expérience en laboratoire.",
+    "student_line": "Je suis impatient de mener une expérience en laboratoire."
+   },
+   "exchanges": [
+    {
+     "text": "planifier",
+     "blank": true,
+     "speaker": "Je ____ mener une expérience en laboratoire.",
+     "avatar_seed": "Alex",
+     "translation": "I ___ to conduct an experiment in the laboratory.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "ne pas vouloir",
+     "blank": true,
+     "speaker": "Je ____ développer une nouvelle technologie.",
+     "avatar_seed": "Eli",
+     "translation": "I ___ to develop a new technology.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "être impatient de",
+     "blank": true,
+     "speaker": "Je ____ utiliser l'intelligence artificielle pour analyser les données.",
+     "avatar_seed": "Alex",
+     "translation": "I ___ to use artificial intelligence to analyze the data.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "planifier",
+     "blank": true,
+     "speaker": "Je ____ publier des articles scientifiques.",
+     "avatar_seed": "Eli",
+     "translation": "I ___ to publish scientific articles.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "planifier",
+    "ne pas vouloir",
+    "être impatient de",
+    "être impatient de",
+    "planifier"
+   ],
+   "tutor_instruction": "Guide l'élève à choisir le bon verbe.",
+   "student_instruction": "Remplissez les blancs en utilisant les verbes « planifier », « ne pas vouloir », ou « être impatient de » pour rendre ces phrases vraies pour vous.",
+   "valid_answers_by_blank": {
+    "1": [
+     "être impatient de"
+    ],
+    "2": [
+     "planifier"
+    ],
+    "3": [
+     "être impatient de"
+    ],
+    "4": [
+     "planifier"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "09e181e3-5670-4967-b006-400a2e711c45",
+  "title": "New York",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Complétez la phrase : Times Square est un lieu __________.",
+    "student_line": "C'est un lieu célèbre."
+   },
+   "exchanges": [
+    {
+     "text": "Times Square est un lieu __________.",
+     "blank": true,
+     "speaker": "Max",
+     "avatar_seed": "Max",
+     "translation": "Times Square is a __________ place.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Max et Anissa ont pris le __________ pour se rendre à Brooklyn.",
+     "blank": true,
+     "speaker": "Anissa",
+     "avatar_seed": "Anissa",
+     "translation": "Max and Anissa took the __________ to get to Brooklyn.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "La __________ de la Liberté est un symbole emblématique de New York.",
+     "blank": true,
+     "speaker": "Max",
+     "avatar_seed": "Max",
+     "translation": "The __________ of Liberty is an emblematic symbol of New York.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "New York est souvent appelée '__________' en raison de son influence mondiale.",
+     "blank": true,
+     "speaker": "Anissa",
+     "avatar_seed": "Anissa",
+     "translation": "New York is often called '__________' due to its global influence.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Les spectacles de __________ attirent des milliers de spectateurs chaque année à New York.",
+     "blank": true,
+     "speaker": "Max",
+     "avatar_seed": "Max",
+     "translation": "The __________ shows attract thousands of spectators every year in New York.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "broadway",
+    "skyscraper",
+    "iconic",
+    "subway",
+    "Big Apple",
+    "Big Apple"
+   ],
+   "tutor_instruction": "Guide les étudiants à réfléchir aux mots manquants.",
+   "student_instruction": "Complétez les phrases suivantes avec les mots appropriés.",
+   "valid_answers_by_blank": {
+    "0": [
+     "Big Apple"
+    ],
+    "1": [
+     "subway"
+    ],
+    "2": [
+     "iconic"
+    ],
+    "3": [
+     "Big Apple"
+    ],
+    "4": [
+     "broadway"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Complétez la phrase : Times Square est un lieu __________.",
+    "student_line": "C'est un lieu célèbre."
+   },
+   "exchanges": [
+    {
+     "text": "iconic",
+     "blank": true,
+     "speaker": "Times Square est un lieu ____.",
+     "avatar_seed": "Max",
+     "translation": "Times Square is a __________ place.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "subway",
+     "blank": true,
+     "speaker": "Max et Anissa ont pris le ____ pour se rendre à Brooklyn.",
+     "avatar_seed": "Anissa",
+     "translation": "Max and Anissa took the __________ to get to Brooklyn.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Statue",
+     "blank": true,
+     "speaker": "La ____ de la Liberté est un symbole emblématique de New York.",
+     "avatar_seed": "Max",
+     "translation": "The __________ of Liberty is an emblematic symbol of New York.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Big Apple",
+     "blank": true,
+     "speaker": "New York est souvent appelée '____' en raison de son influence mondiale.",
+     "avatar_seed": "Anissa",
+     "translation": "New York is often called '__________' due to its global influence.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "broadway",
+     "blank": true,
+     "speaker": "Les spectacles de ____ attirent des milliers de spectateurs chaque année à New York.",
+     "avatar_seed": "Max",
+     "translation": "The __________ shows attract thousands of spectators every year in New York.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "broadway",
+    "skyscraper",
+    "iconic",
+    "subway",
+    "Big Apple",
+    "Big Apple",
+    "Statue"
+   ],
+   "tutor_instruction": "Guide les étudiants à réfléchir aux mots manquants.",
+   "student_instruction": "Complétez les phrases suivantes avec les mots appropriés.",
+   "valid_answers_by_blank": {
+    "0": [
+     "Big Apple"
+    ],
+    "1": [
+     "subway"
+    ],
+    "2": [
+     "iconic"
+    ],
+    "3": [
+     "Big Apple"
+    ],
+    "4": [
+     "broadway"
+    ]
+   }
+  },
+  "added": 1,
+  "missing": 0
+ },
+ {
+  "id": "7035ca01-2652-4707-bd7d-87f5a37a1419",
+  "title": "Quel temps fait-il ?",
+  "i": 4,
+  "before": {
+   "kind": "fill_in_blank_dialogue_extended",
+   "title": "Questionnaire",
+   "number": 5,
+   "example": {
+    "tutor_line": "Quel temps fait-il ?",
+    "student_line": "Il fait nuageux et venteux."
+   },
+   "exchanges": [
+    {
+     "text": "Quel temps fait-il ?",
+     "blank": true,
+     "speaker": "Jamie",
+     "avatar_seed": "Jamie",
+     "translation": "What is the weather like?",
+     "speaker_role": "student"
+    }
+   ],
+   "tutor_role": "tutor",
+   "answer_pool": [
+    "nuageux",
+    "venteux"
+   ],
+   "student_role": "student",
+   "tutor_instruction": "Posez des questions sur la météo.",
+   "student_instruction": "Répondez aux questions de votre tuteur en phrases complètes.",
+   "valid_answers_by_blank": {
+    "1": [
+     "nuageux",
+     "venteux"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue_extended",
+   "title": "Questionnaire",
+   "number": 5,
+   "example": {
+    "tutor_line": "Quel temps fait-il ?",
+    "student_line": "Il fait nuageux et venteux."
+   },
+   "exchanges": [
+    {
+     "text": "nuageux",
+     "blank": true,
+     "speaker": "Quel temps fait-il ? ____",
+     "avatar_seed": "Jamie",
+     "translation": "What is the weather like?",
+     "speaker_role": "student"
+    }
+   ],
+   "tutor_role": "tutor",
+   "answer_pool": [
+    "nuageux",
+    "venteux"
+   ],
+   "student_role": "student",
+   "tutor_instruction": "Posez des questions sur la météo.",
+   "student_instruction": "Répondez aux questions de votre tuteur en phrases complètes.",
+   "valid_answers_by_blank": {
+    "1": [
+     "nuageux",
+     "venteux"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "103bc733-fb63-4fe6-9238-7c7ad74d2ca7",
+  "title": "Partagez vos recommandations de film ou de musique",
+  "i": 2,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 3,
+   "example": {
+    "tutor_line": "Ce film est _________.",
+    "student_line": "Ce film est génial."
+   },
+   "exchanges": [
+    {
+     "text": "Ce film est _________.",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "This movie is _________.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Cette chanson est _________.",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "This song is _________.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Cette série est _________.",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "This series is _________.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "génial",
+    "intéressant",
+    "ennuyeux",
+    "émouvant",
+    "drôle",
+    "captivant",
+    "génial",
+    "génial"
+   ],
+   "tutor_instruction": "Aidez l'élève à compléter les phrases.",
+   "student_instruction": "Remplissez les blancs en utilisant les mots et les expressions ci-dessus pour rendre ces phrases vraies pour vous.",
+   "valid_answers_by_blank": {
+    "1": [
+     "génial",
+     "intéressant",
+     "ennuyeux",
+     "émouvant",
+     "drôle",
+     "captivant"
+    ],
+    "2": [
+     "génial",
+     "intéressant",
+     "ennuyeux",
+     "émouvant",
+     "drôle",
+     "captivant"
+    ],
+    "3": [
+     "génial",
+     "intéressant",
+     "ennuyeux",
+     "émouvant",
+     "drôle",
+     "captivant"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 3,
+   "example": {
+    "tutor_line": "Ce film est _________.",
+    "student_line": "Ce film est génial."
+   },
+   "exchanges": [
+    {
+     "text": "génial",
+     "blank": true,
+     "speaker": "Ce film est ____.",
+     "avatar_seed": "Professeur",
+     "translation": "This movie is _________.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "émouvant",
+     "blank": true,
+     "speaker": "Cette chanson est ____.",
+     "avatar_seed": "Professeur",
+     "translation": "This song is _________.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "captivant",
+     "blank": true,
+     "speaker": "Cette série est ____.",
+     "avatar_seed": "Professeur",
+     "translation": "This series is _________.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "génial",
+    "intéressant",
+    "ennuyeux",
+    "émouvant",
+    "drôle",
+    "captivant",
+    "génial",
+    "génial"
+   ],
+   "tutor_instruction": "Aidez l'élève à compléter les phrases.",
+   "student_instruction": "Remplissez les blancs en utilisant les mots et les expressions ci-dessus pour rendre ces phrases vraies pour vous.",
+   "valid_answers_by_blank": {
+    "1": [
+     "génial",
+     "intéressant",
+     "ennuyeux",
+     "émouvant",
+     "drôle",
+     "captivant"
+    ],
+    "2": [
+     "génial",
+     "intéressant",
+     "ennuyeux",
+     "émouvant",
+     "drôle",
+     "captivant"
+    ],
+    "3": [
+     "génial",
+     "intéressant",
+     "ennuyeux",
+     "émouvant",
+     "drôle",
+     "captivant"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "ab7a8cbb-41df-4bd3-ab27-d6812ada69be",
+  "title": "Écosse",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Les Écossais ont inventé le ____ au 15ème siècle.",
+    "student_line": "golf"
+   },
+   "exchanges": [
+    {
+     "text": "Les Écossais ont inventé le ____ au 15ème siècle.",
+     "blank": true,
+     "speaker": "Max",
+     "avatar_seed": "Max",
+     "translation": "The Scots invented the ____ in the 15th century.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Le Loch Ness est un endroit ____ grâce à la légende du monstre.",
+     "blank": true,
+     "speaker": "Anissa",
+     "avatar_seed": "Anissa",
+     "translation": "Loch Ness is a ____ place because of the monster legend.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Les Écossais boivent du thé ____ pendant la journée.",
+     "blank": true,
+     "speaker": "Max",
+     "avatar_seed": "Max",
+     "translation": "Scots drink tea ____ during the day.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Elle a ____ de peur après avoir vu une photo du Loch Ness.",
+     "blank": true,
+     "speaker": "Anissa",
+     "avatar_seed": "Anissa",
+     "translation": "She ____ in fear after seeing a photo of Loch Ness.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Ils aiment ____ leur culture et leurs traditions.",
+     "blank": true,
+     "speaker": "Max",
+     "avatar_seed": "Max",
+     "translation": "They love ____ their culture and traditions.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "golf",
+    "célèbre",
+    "très souvent",
+    "frissonner",
+    "mettre l'accent sur"
+   ],
+   "tutor_instruction": "Guide les étudiants à réfléchir aux mots manquants.",
+   "student_instruction": "Complétez les phrases avec les mots appropriés.",
+   "valid_answers_by_blank": {
+    "1": [
+     "golf"
+    ],
+    "2": [
+     "célèbre"
+    ],
+    "3": [
+     "très souvent"
+    ],
+    "4": [
+     "frissonner"
+    ],
+    "5": [
+     "mettre l'accent sur"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Les Écossais ont inventé le ____ au 15ème siècle.",
+    "student_line": "golf"
+   },
+   "exchanges": [
+    {
+     "text": "golf",
+     "blank": true,
+     "speaker": "Les Écossais ont inventé le ____ au 15ème siècle.",
+     "avatar_seed": "Max",
+     "translation": "The Scots invented the ____ in the 15th century.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "célèbre",
+     "blank": true,
+     "speaker": "Le Loch Ness est un endroit ____ grâce à la légende du monstre.",
+     "avatar_seed": "Anissa",
+     "translation": "Loch Ness is a ____ place because of the monster legend.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "très souvent",
+     "blank": true,
+     "speaker": "Les Écossais boivent du thé ____ pendant la journée.",
+     "avatar_seed": "Max",
+     "translation": "Scots drink tea ____ during the day.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "a frissonné",
+     "blank": true,
+     "speaker": "Elle a ____ de peur après avoir vu une photo du Loch Ness.",
+     "avatar_seed": "Anissa",
+     "translation": "She ____ in fear after seeing a photo of Loch Ness.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "mettre l'accent sur",
+     "blank": true,
+     "speaker": "Ils aiment ____ leur culture et leurs traditions.",
+     "avatar_seed": "Max",
+     "translation": "They love ____ their culture and traditions.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "golf",
+    "célèbre",
+    "très souvent",
+    "frissonner",
+    "mettre l'accent sur",
+    "a frissonné"
+   ],
+   "tutor_instruction": "Guide les étudiants à réfléchir aux mots manquants.",
+   "student_instruction": "Complétez les phrases avec les mots appropriés.",
+   "valid_answers_by_blank": {
+    "1": [
+     "golf"
+    ],
+    "2": [
+     "célèbre"
+    ],
+    "3": [
+     "très souvent"
+    ],
+    "4": [
+     "frissonner"
+    ],
+    "5": [
+     "mettre l'accent sur"
+    ]
+   }
+  },
+  "added": 1,
+  "missing": 0
+ },
+ {
+  "id": "e8c37ead-1cfd-4730-90ce-3b842ca96371",
+  "title": "Secouez-le avec ces expressions de contrat d'affaires",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Nous avons finalement accepté les termes du contrat et avons décidé de _________.",
+    "student_line": "Nous avons finalement accepté les termes du contrat et avons décidé de conclure l'accord."
+   },
+   "exchanges": [
+    {
+     "text": "Nous avons finalement accepté les termes du contrat et avons décidé de _________.",
+     "blank": true,
+     "speaker": "Nous avons finalement accepté les termes du contrat et avons décidé de _________.",
+     "avatar_seed": "Tutor",
+     "translation": "We finally accepted the terms of the contract and decided to _________.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Assurez-vous de lire les _________ avant de signer le contrat.",
+     "blank": true,
+     "speaker": "Assurez-vous de lire les _________ avant de signer le contrat.",
+     "avatar_seed": "Student",
+     "translation": "Make sure to read the _________ before signing the contract.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "La négociation s'est bien passée et les deux _________ ont obtenu un bénéfice satisfaisant.",
+     "blank": true,
+     "speaker": "La négociation s'est bien passée et les deux _________ ont obtenu un bénéfice satisfaisant.",
+     "avatar_seed": "Tutor",
+     "translation": "The negotiation went well and both _________ achieved a satisfactory profit.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Certains magasins dans les zones touristiques _________ pour les clients étrangers.",
+     "blank": true,
+     "speaker": "Certains magasins dans les zones touristiques _________ pour les clients étrangers.",
+     "avatar_seed": "Student",
+     "translation": "Some stores in tourist areas _________ for foreign customers.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "N'oubliez pas de _________ lorsque vous achetez des souvenirs en Tunisie.",
+     "blank": true,
+     "speaker": "N'oubliez pas de _________ lorsque vous achetez des souvenirs en Tunisie.",
+     "avatar_seed": "Tutor",
+     "translation": "Don't forget to _________ when buying souvenirs in Tunisia.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Tout ce que vous avez à faire est de _________ et le contrat sera officiellement conclu.",
+     "blank": true,
+     "speaker": "Tout ce que vous avez à faire est de _________ et le contrat sera officiellement conclu.",
+     "avatar_seed": "Student",
+     "translation": "All you have to do is _________ and the contract will be officially concluded.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "petits caractères",
+    "parties",
+    "augmenter le prix",
+    "marchander",
+    "signer sur la ligne pointillée",
+    "conclure l'accord",
+    "marchander"
+   ],
+   "tutor_instruction": "Utilisez le vocabulaire appris pour compléter les phrases.",
+   "student_instruction": "Complétez les phrases en utilisant le vocabulaire approprié.",
+   "valid_answers_by_blank": {
+    "0": [
+     "conclure l'accord"
+    ],
+    "1": [
+     "petits caractères"
+    ],
+    "2": [
+     "parties"
+    ],
+    "3": [
+     "marchander"
+    ],
+    "4": [
+     "marchander"
+    ],
+    "5": [
+     "signer sur la ligne pointillée"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Nous avons finalement accepté les termes du contrat et avons décidé de _________.",
+    "student_line": "Nous avons finalement accepté les termes du contrat et avons décidé de conclure l'accord."
+   },
+   "exchanges": [
+    {
+     "text": "conclure l'accord",
+     "blank": true,
+     "speaker": "Nous avons finalement accepté les termes du contrat et avons décidé de ____.",
+     "avatar_seed": "Tutor",
+     "translation": "We finally accepted the terms of the contract and decided to _________.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "petits caractères",
+     "blank": true,
+     "speaker": "Assurez-vous de lire les ____ avant de signer le contrat.",
+     "avatar_seed": "Student",
+     "translation": "Make sure to read the _________ before signing the contract.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "parties",
+     "blank": true,
+     "speaker": "La négociation s'est bien passée et les deux ____ ont obtenu un bénéfice satisfaisant.",
+     "avatar_seed": "Tutor",
+     "translation": "The negotiation went well and both _________ achieved a satisfactory profit.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "augmenter le prix",
+     "blank": true,
+     "speaker": "Certains magasins dans les zones touristiques ____ pour les clients étrangers.",
+     "avatar_seed": "Student",
+     "translation": "Some stores in tourist areas _________ for foreign customers.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "marchander",
+     "blank": true,
+     "speaker": "N'oubliez pas de ____ lorsque vous achetez des souvenirs en Tunisie.",
+     "avatar_seed": "Tutor",
+     "translation": "Don't forget to _________ when buying souvenirs in Tunisia.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "signer sur la ligne pointillée",
+     "blank": true,
+     "speaker": "Tout ce que vous avez à faire est de ____ et le contrat sera officiellement conclu.",
+     "avatar_seed": "Student",
+     "translation": "All you have to do is _________ and the contract will be officially concluded.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "petits caractères",
+    "parties",
+    "augmenter le prix",
+    "marchander",
+    "signer sur la ligne pointillée",
+    "conclure l'accord",
+    "marchander"
+   ],
+   "tutor_instruction": "Utilisez le vocabulaire appris pour compléter les phrases.",
+   "student_instruction": "Complétez les phrases en utilisant le vocabulaire approprié.",
+   "valid_answers_by_blank": {
+    "0": [
+     "conclure l'accord"
+    ],
+    "1": [
+     "petits caractères"
+    ],
+    "2": [
+     "parties"
+    ],
+    "3": [
+     "marchander"
+    ],
+    "4": [
+     "marchander"
+    ],
+    "5": [
+     "signer sur la ligne pointillée"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "7ae38656-da94-4171-8315-b856faeb8d70",
+  "title": "Instructions à bord",
+  "i": 2,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Dialogue de simulation",
+   "number": 3,
+   "example": {
+    "tutor_line": "Alex : Eli, pourrais-tu m'aider avec mon sac dans le ________ supérieur ?",
+    "student_line": "Eli : Bien sûr ! N'oublie pas de mettre ton siège en position ________."
+   },
+   "exchanges": [
+    {
+     "text": "Alex : Eli, pourrais-tu m'aider avec mon sac dans le ________ supérieur ?",
+     "blank": true,
+     "speaker": "Alex : Eli, pourrais-tu m'aider avec mon sac dans le compartiment supérieur ?",
+     "avatar_seed": "Alex",
+     "translation": "Alex: Eli, could you help me with my bag in the ________ compartment?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Eli : Bien sûr ! N'oublie pas de mettre ton siège en position ________.",
+     "blank": true,
+     "speaker": "Eli : Bien sûr ! N'oublie pas de mettre ton siège en position verticale.",
+     "avatar_seed": "Eli",
+     "translation": "Eli: Of course! Don't forget to put your seat in the ________ position.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Alex : Oui, et je vais aussi attacher ma ________ de sécurité.",
+     "blank": true,
+     "speaker": "Alex : Oui, et je vais aussi attacher ma ceinture de sécurité.",
+     "avatar_seed": "Alex",
+     "translation": "Alex: Yes, and I will also fasten my ________ seatbelt.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Eli : Très bien. N'oublie pas de régler ton téléphone en mode ________ avant le décollage.",
+     "blank": true,
+     "speaker": "Eli : Très bien. N'oublie pas de régler ton téléphone en mode avion avant le décollage.",
+     "avatar_seed": "Eli",
+     "translation": "Eli: Very well. Don't forget to set your phone to ________ mode before takeoff.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Alex : C’est bon. Merci pour les ________ !",
+     "blank": true,
+     "speaker": "Alex : C’est bon. Merci pour les consignes !",
+     "avatar_seed": "Alex",
+     "translation": "Alex: That's good. Thank you for the ________!",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "compartiment",
+    "verticale",
+    "ceinture",
+    "avion",
+    "consignes"
+   ],
+   "tutor_instruction": "Demandez aux étudiants de compléter le dialogue.",
+   "student_instruction": "Lisez le dialogue entre Alex et Eli. Complétez les espaces avec les expressions du vocabulaire appris.",
+   "valid_answers_by_blank": {
+    "0": [
+     "compartiment"
+    ],
+    "1": [
+     "verticale"
+    ],
+    "2": [
+     "ceinture"
+    ],
+    "3": [
+     "avion"
+    ],
+    "4": [
+     "consignes"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Dialogue de simulation",
+   "number": 3,
+   "example": {
+    "tutor_line": "Alex : Eli, pourrais-tu m'aider avec mon sac dans le ________ supérieur ?",
+    "student_line": "Eli : Bien sûr ! N'oublie pas de mettre ton siège en position ________."
+   },
+   "exchanges": [
+    {
+     "text": "compartiment",
+     "blank": true,
+     "speaker": "Alex : Eli, pourrais-tu m'aider avec mon sac dans le ____ supérieur ?",
+     "avatar_seed": "Alex",
+     "translation": "Alex: Eli, could you help me with my bag in the ________ compartment?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "verticale",
+     "blank": true,
+     "speaker": "Eli : Bien sûr ! N'oublie pas de mettre ton siège en position ____.",
+     "avatar_seed": "Eli",
+     "translation": "Eli: Of course! Don't forget to put your seat in the ________ position.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "ceinture",
+     "blank": true,
+     "speaker": "Alex : Oui, et je vais aussi attacher ma ____ de sécurité.",
+     "avatar_seed": "Alex",
+     "translation": "Alex: Yes, and I will also fasten my ________ seatbelt.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "avion",
+     "blank": true,
+     "speaker": "Eli : Très bien. N'oublie pas de régler ton téléphone en mode ____ avant le décollage.",
+     "avatar_seed": "Eli",
+     "translation": "Eli: Very well. Don't forget to set your phone to ________ mode before takeoff.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "consignes",
+     "blank": true,
+     "speaker": "Alex : C’est bon. Merci pour les ____ !",
+     "avatar_seed": "Alex",
+     "translation": "Alex: That's good. Thank you for the ________!",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "compartiment",
+    "verticale",
+    "ceinture",
+    "avion",
+    "consignes"
+   ],
+   "tutor_instruction": "Demandez aux étudiants de compléter le dialogue.",
+   "student_instruction": "Lisez le dialogue entre Alex et Eli. Complétez les espaces avec les expressions du vocabulaire appris.",
+   "valid_answers_by_blank": {
+    "0": [
+     "compartiment"
+    ],
+    "1": [
+     "verticale"
+    ],
+    "2": [
+     "ceinture"
+    ],
+    "3": [
+     "avion"
+    ],
+    "4": [
+     "consignes"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "703c6135-d686-4479-8320-c4ef1cd16633",
+  "title": "Parlez de la signification de l'éthique",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "L'éthique est un ensemble de _______ qui guident nos décisions.",
+    "student_line": "Les _______ de nos choix peuvent avoir des impacts significatifs sur notre vie."
+   },
+   "exchanges": [
+    {
+     "text": "L'éthique est un ensemble de _______ qui guident nos décisions.",
+     "blank": true,
+     "speaker": "student",
+     "avatar_seed": "Student",
+     "translation": "Ethics is a set of _______ that guide our decisions.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Les _______ de nos choix peuvent avoir des impacts significatifs sur notre vie.",
+     "blank": true,
+     "speaker": "tutor",
+     "avatar_seed": "Tutor",
+     "translation": "The _______ of our choices can have significant impacts on our lives.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "principes",
+    "conséquences"
+   ],
+   "tutor_instruction": "Guide students to think critically about the context.",
+   "student_instruction": "Lisez le dialogue ci-dessus et complétez les phrases manquantes avec les mots appropriés.",
+   "valid_answers_by_blank": {
+    "1": [
+     "principes"
+    ],
+    "2": [
+     "conséquences"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "L'éthique est un ensemble de _______ qui guident nos décisions.",
+    "student_line": "Les _______ de nos choix peuvent avoir des impacts significatifs sur notre vie."
+   },
+   "exchanges": [
+    {
+     "text": "principes",
+     "blank": true,
+     "speaker": "L'éthique est un ensemble de ____ qui guident nos décisions.",
+     "avatar_seed": "Student",
+     "translation": "Ethics is a set of _______ that guide our decisions.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "conséquences",
+     "blank": true,
+     "speaker": "Les ____ de nos choix peuvent avoir des impacts significatifs sur notre vie.",
+     "avatar_seed": "Tutor",
+     "translation": "The _______ of our choices can have significant impacts on our lives.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "principes",
+    "conséquences"
+   ],
+   "tutor_instruction": "Guide students to think critically about the context.",
+   "student_instruction": "Lisez le dialogue ci-dessus et complétez les phrases manquantes avec les mots appropriés.",
+   "valid_answers_by_blank": {
+    "1": [
+     "principes"
+    ],
+    "2": [
+     "conséquences"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "be158cee-790a-40e4-83a9-6880db4b6327",
+  "title": "Partagez vos croyances éthiques",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "L’éthique est de plus en plus mise à l’épreuve, surtout avec les _______ technologiques.",
+    "student_line": "Les _______ doivent agir de manière éthique pour garantir le _______ commun."
+   },
+   "exchanges": [
+    {
+     "text": "L’éthique est de plus en plus mise à l’épreuve, surtout avec les _______ technologiques.",
+     "blank": true,
+     "speaker": "student",
+     "avatar_seed": "Student",
+     "translation": "Ethics are increasingly being tested, especially with _______ technologies.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Les _______ doivent agir de manière éthique pour garantir le _______ commun.",
+     "blank": true,
+     "speaker": "tutor",
+     "avatar_seed": "Tutor",
+     "translation": "Companies must act ethically to ensure the _______ common good.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "avancées",
+    "entreprises",
+    "bien"
+   ],
+   "tutor_instruction": "Demandez aux étudiants de remplir les blancs.",
+   "student_instruction": "Lisez le dialogue ci-dessus et complétez les phrases manquantes avec les mots appropriés.",
+   "valid_answers_by_blank": {
+    "0": [
+     "avancées"
+    ],
+    "1": [
+     "entreprises"
+    ],
+    "2": [
+     "bien"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "L’éthique est de plus en plus mise à l’épreuve, surtout avec les _______ technologiques.",
+    "student_line": "Les _______ doivent agir de manière éthique pour garantir le _______ commun."
+   },
+   "exchanges": [
+    {
+     "text": "avancées",
+     "blank": true,
+     "speaker": "L’éthique est de plus en plus mise à l’épreuve, surtout avec les ____ technologiques.",
+     "avatar_seed": "Student",
+     "translation": "Ethics are increasingly being tested, especially with _______ technologies.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "entreprises",
+     "blank": true,
+     "speaker": "Les ____ doivent agir de manière éthique pour garantir le ____ commun.",
+     "avatar_seed": "Tutor",
+     "translation": "Companies must act ethically to ensure the _______ common good.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "avancées",
+    "entreprises",
+    "bien"
+   ],
+   "tutor_instruction": "Demandez aux étudiants de remplir les blancs.",
+   "student_instruction": "Lisez le dialogue ci-dessus et complétez les phrases manquantes avec les mots appropriés.",
+   "valid_answers_by_blank": {
+    "0": [
+     "avancées"
+    ],
+    "1": [
+     "entreprises"
+    ],
+    "2": [
+     "bien"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "82b382eb-c345-4f8c-a779-37483c18d10a",
+  "title": "Vous \"dirigerez\" avec ces expressions de leadership",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Un bon leader sait comment _______ son équipe à travers des défis.",
+    "student_line": "inspirer"
+   },
+   "exchanges": [
+    {
+     "text": "Un bon leader sait comment _______ son équipe à travers des défis.",
+     "blank": true,
+     "speaker": "Un bon leader sait comment _______ son équipe à travers des défis.",
+     "avatar_seed": "Tutor",
+     "translation": "A good leader knows how to _______ their team through challenges.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Les mauvais dirigeants ont tendance à _______ leurs employés pour obtenir des résultats immédiats.",
+     "blank": true,
+     "speaker": "Les mauvais dirigeants ont tendance à _______ leurs employés pour obtenir des résultats immédiats.",
+     "avatar_seed": "Tutor",
+     "translation": "Bad leaders tend to _______ their employees for immediate results.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Un leader efficace doit _______ pour ses actions et ses décisions.",
+     "blank": true,
+     "speaker": "Un leader efficace doit _______ pour ses actions et ses décisions.",
+     "avatar_seed": "Tutor",
+     "translation": "An effective leader must _______ for their actions and decisions.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Il est crucial d'encourager la _______ au sein de l'équipe.",
+     "blank": true,
+     "speaker": "Il est crucial d'encourager la _______ au sein de l'équipe.",
+     "avatar_seed": "Tutor",
+     "translation": "It is crucial to encourage _______ within the team.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Un bon leader doit toujours _______ les opinions de son équipe avant de prendre une décision.",
+     "blank": true,
+     "speaker": "Un bon leader doit toujours _______ les opinions de son équipe avant de prendre une décision.",
+     "avatar_seed": "Tutor",
+     "translation": "A good leader must always _______ the opinions of their team before making a decision.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "inspirer",
+    "faire preuve de favoritisme",
+    "assumer",
+    "collaboration",
+    "écouter"
+   ],
+   "tutor_instruction": "Guide the student through the sentences and help them think of the right words.",
+   "student_instruction": "Remplissez les blancs pour compléter les phrases.",
+   "valid_answers_by_blank": {
+    "1": [
+     "inspirer"
+    ],
+    "2": [
+     "faire preuve de favoritisme"
+    ],
+    "3": [
+     "assumer"
+    ],
+    "4": [
+     "collaboration"
+    ],
+    "5": [
+     "écouter"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Un bon leader sait comment _______ son équipe à travers des défis.",
+    "student_line": "inspirer"
+   },
+   "exchanges": [
+    {
+     "text": "inspirer",
+     "blank": true,
+     "speaker": "Un bon leader sait comment ____ son équipe à travers des défis.",
+     "avatar_seed": "Tutor",
+     "translation": "A good leader knows how to _______ their team through challenges.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "faire preuve de favoritisme",
+     "blank": true,
+     "speaker": "Les mauvais dirigeants ont tendance à ____ leurs employés pour obtenir des résultats immédiats.",
+     "avatar_seed": "Tutor",
+     "translation": "Bad leaders tend to _______ their employees for immediate results.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "assumer",
+     "blank": true,
+     "speaker": "Un leader efficace doit ____ pour ses actions et ses décisions.",
+     "avatar_seed": "Tutor",
+     "translation": "An effective leader must _______ for their actions and decisions.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "collaboration",
+     "blank": true,
+     "speaker": "Il est crucial d'encourager la ____ au sein de l'équipe.",
+     "avatar_seed": "Tutor",
+     "translation": "It is crucial to encourage _______ within the team.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "écouter",
+     "blank": true,
+     "speaker": "Un bon leader doit toujours ____ les opinions de son équipe avant de prendre une décision.",
+     "avatar_seed": "Tutor",
+     "translation": "A good leader must always _______ the opinions of their team before making a decision.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "inspirer",
+    "faire preuve de favoritisme",
+    "assumer",
+    "collaboration",
+    "écouter"
+   ],
+   "tutor_instruction": "Guide the student through the sentences and help them think of the right words.",
+   "student_instruction": "Remplissez les blancs pour compléter les phrases.",
+   "valid_answers_by_blank": {
+    "1": [
+     "inspirer"
+    ],
+    "2": [
+     "faire preuve de favoritisme"
+    ],
+    "3": [
+     "assumer"
+    ],
+    "4": [
+     "collaboration"
+    ],
+    "5": [
+     "écouter"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "644d960d-3520-4755-ae26-e11509c83a6a",
+  "title": "Alphabet (A-F)",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Quiz",
+   "number": 4,
+   "example": {
+    "tutor_line": "ananas",
+    "student_line": "A"
+   },
+   "exchanges": [
+    {
+     "text": "ananas",
+     "blank": true,
+     "speaker": "formateur",
+     "avatar_seed": "Formateur",
+     "translation": "pineapple",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ],
+   "tutor_instruction": "Demandez aux élèves de pointer la lettre.",
+   "student_instruction": "Pointez sur la lettre qui commence le mot.",
+   "valid_answers_by_blank": {
+    "1": [
+     "A"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Quiz",
+   "number": 4,
+   "example": {
+    "tutor_line": "ananas",
+    "student_line": "A"
+   },
+   "exchanges": [
+    {
+     "text": "A",
+     "blank": true,
+     "speaker": "ananas ____",
+     "avatar_seed": "Formateur",
+     "translation": "pineapple",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ],
+   "tutor_instruction": "Demandez aux élèves de pointer la lettre.",
+   "student_instruction": "Pointez sur la lettre qui commence le mot.",
+   "valid_answers_by_blank": {
+    "1": [
+     "A"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "644d960d-3520-4755-ae26-e11509c83a6a",
+  "title": "Alphabet (A-F)",
+  "i": 6,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Quiz",
+   "number": 7,
+   "example": {
+    "tutor_line": "chat",
+    "student_line": "C"
+   },
+   "exchanges": [
+    {
+     "text": "chat",
+     "blank": true,
+     "speaker": "formateur",
+     "avatar_seed": "Formateur",
+     "translation": "cat",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ],
+   "tutor_instruction": "Demandez aux élèves de pointer la lettre.",
+   "student_instruction": "Pointez sur la lettre qui commence le mot.",
+   "valid_answers_by_blank": {
+    "1": [
+     "C"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Quiz",
+   "number": 7,
+   "example": {
+    "tutor_line": "chat",
+    "student_line": "C"
+   },
+   "exchanges": [
+    {
+     "text": "C",
+     "blank": true,
+     "speaker": "chat ____",
+     "avatar_seed": "Formateur",
+     "translation": "cat",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ],
+   "tutor_instruction": "Demandez aux élèves de pointer la lettre.",
+   "student_instruction": "Pointez sur la lettre qui commence le mot.",
+   "valid_answers_by_blank": {
+    "1": [
+     "C"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "644d960d-3520-4755-ae26-e11509c83a6a",
+  "title": "Alphabet (A-F)",
+  "i": 9,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Quiz",
+   "number": 10,
+   "example": {
+    "tutor_line": "drapeau",
+    "student_line": "D"
+   },
+   "exchanges": [
+    {
+     "text": "drapeau",
+     "blank": true,
+     "speaker": "formateur",
+     "avatar_seed": "Formateur",
+     "translation": "flag",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ],
+   "tutor_instruction": "Demandez aux élèves de pointer la lettre.",
+   "student_instruction": "Pointez sur la lettre qui commence le mot.",
+   "valid_answers_by_blank": {
+    "1": [
+     "D"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Quiz",
+   "number": 10,
+   "example": {
+    "tutor_line": "drapeau",
+    "student_line": "D"
+   },
+   "exchanges": [
+    {
+     "text": "D",
+     "blank": true,
+     "speaker": "drapeau ____",
+     "avatar_seed": "Formateur",
+     "translation": "flag",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ],
+   "tutor_instruction": "Demandez aux élèves de pointer la lettre.",
+   "student_instruction": "Pointez sur la lettre qui commence le mot.",
+   "valid_answers_by_blank": {
+    "1": [
+     "D"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "644d960d-3520-4755-ae26-e11509c83a6a",
+  "title": "Alphabet (A-F)",
+  "i": 11,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Montre-moi !",
+   "number": 12,
+   "example": {
+    "tutor_line": "éléphant",
+    "student_line": "E"
+   },
+   "exchanges": [
+    {
+     "text": "éléphant",
+     "blank": true,
+     "speaker": "formateur",
+     "avatar_seed": "Formateur",
+     "translation": "elephant",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ],
+   "tutor_instruction": "Demandez aux élèves de montrer la lettre.",
+   "student_instruction": "Pointez sur la lettre qui commence le mot que votre formateur nomme.",
+   "valid_answers_by_blank": {
+    "1": [
+     "E"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Montre-moi !",
+   "number": 12,
+   "example": {
+    "tutor_line": "éléphant",
+    "student_line": "E"
+   },
+   "exchanges": [
+    {
+     "text": "E",
+     "blank": true,
+     "speaker": "éléphant ____",
+     "avatar_seed": "Formateur",
+     "translation": "elephant",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ],
+   "tutor_instruction": "Demandez aux élèves de montrer la lettre.",
+   "student_instruction": "Pointez sur la lettre qui commence le mot que votre formateur nomme.",
+   "valid_answers_by_blank": {
+    "1": [
+     "E"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "644d960d-3520-4755-ae26-e11509c83a6a",
+  "title": "Alphabet (A-F)",
+  "i": 13,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Pratiquons",
+   "number": 14,
+   "example": {
+    "tutor_line": "fourmi",
+    "student_line": "F"
+   },
+   "exchanges": [
+    {
+     "text": "fourmi",
+     "blank": true,
+     "speaker": "formateur",
+     "avatar_seed": "Formateur",
+     "translation": "ant",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ],
+   "tutor_instruction": "Demandez aux élèves de pointer la lettre.",
+   "student_instruction": "Pointez sur la lettre qui commence le mot prononcé par le formateur.",
+   "valid_answers_by_blank": {
+    "1": [
+     "F"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Pratiquons",
+   "number": 14,
+   "example": {
+    "tutor_line": "fourmi",
+    "student_line": "F"
+   },
+   "exchanges": [
+    {
+     "text": "F",
+     "blank": true,
+     "speaker": "fourmi ____",
+     "avatar_seed": "Formateur",
+     "translation": "ant",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ],
+   "tutor_instruction": "Demandez aux élèves de pointer la lettre.",
+   "student_instruction": "Pointez sur la lettre qui commence le mot prononcé par le formateur.",
+   "valid_answers_by_blank": {
+    "1": [
+     "F"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "c921a3bd-a125-48dc-aaa4-e3ca2655c4f2",
+  "title": "Concepts linguistiques",
+  "i": 4,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez la phrase",
+   "number": 5,
+   "example": {
+    "tutor_line": "Ben : Comment vois-tu l'évolution du _______ ?",
+    "student_line": "Emilie : Je pense que la _______ est cruciale pour comprendre comment les langues changent au fil du temps."
+   },
+   "exchanges": [
+    {
+     "text": "Comment vois-tu l'évolution du _______ ?",
+     "blank": true,
+     "speaker": "Ben",
+     "avatar_seed": "Ben",
+     "translation": "How do you see the evolution of _______?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Je pense que la _______ est cruciale pour comprendre comment les langues changent au fil du temps.",
+     "blank": true,
+     "speaker": "Emilie",
+     "avatar_seed": "Emilie",
+     "translation": "I think that _______ is crucial for understanding how languages change over time.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Et que penses-tu de l'importance de la _______ dans la communication ?",
+     "blank": true,
+     "speaker": "Ben",
+     "avatar_seed": "Ben",
+     "translation": "And what do you think about the importance of _______ in communication?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "La _______ permet de structurer nos idées de manière claire et cohérente.",
+     "blank": true,
+     "speaker": "Emilie",
+     "avatar_seed": "Emilie",
+     "translation": "_______ allows us to structure our ideas clearly and coherently.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "phonetique",
+    "sémantique",
+    "linguistique",
+    "syntaxe",
+    "syntaxe",
+    "phonétique"
+   ],
+   "tutor_instruction": "Guide les étudiants à choisir les bonnes réponses.",
+   "student_instruction": "Choisissez la bonne réponse pour compléter chaque phrase.",
+   "valid_answers_by_blank": {
+    "0": [
+     "linguistique"
+    ],
+    "1": [
+     "syntaxe"
+    ],
+    "2": [
+     "phonétique"
+    ],
+    "3": [
+     "syntaxe"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez la phrase",
+   "number": 5,
+   "example": {
+    "tutor_line": "Ben : Comment vois-tu l'évolution du _______ ?",
+    "student_line": "Emilie : Je pense que la _______ est cruciale pour comprendre comment les langues changent au fil du temps."
+   },
+   "exchanges": [
+    {
+     "text": "linguistique",
+     "blank": true,
+     "speaker": "Comment vois-tu l'évolution du ____ ?",
+     "avatar_seed": "Ben",
+     "translation": "How do you see the evolution of _______?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "sémantique",
+     "blank": true,
+     "speaker": "Je pense que la ____ est cruciale pour comprendre comment les langues changent au fil du temps.",
+     "avatar_seed": "Emilie",
+     "translation": "I think that _______ is crucial for understanding how languages change over time.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "phonetique",
+     "blank": true,
+     "speaker": "Et que penses-tu de l'importance de la ____ dans la communication ?",
+     "avatar_seed": "Ben",
+     "translation": "And what do you think about the importance of _______ in communication?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "syntaxe",
+     "blank": true,
+     "speaker": "La ____ permet de structurer nos idées de manière claire et cohérente.",
+     "avatar_seed": "Emilie",
+     "translation": "_______ allows us to structure our ideas clearly and coherently.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "phonetique",
+    "sémantique",
+    "linguistique",
+    "syntaxe",
+    "syntaxe",
+    "phonétique"
+   ],
+   "tutor_instruction": "Guide les étudiants à choisir les bonnes réponses.",
+   "student_instruction": "Choisissez la bonne réponse pour compléter chaque phrase.",
+   "valid_answers_by_blank": {
+    "0": [
+     "linguistique"
+    ],
+    "1": [
+     "syntaxe"
+    ],
+    "2": [
+     "phonétique"
+    ],
+    "3": [
+     "syntaxe"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "5543d85c-e3d0-40df-a77f-9731576ac286",
+  "title": "Partagez vos opinions sur les questions politiques",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Phrases Utiles",
+   "number": 4,
+   "example": {
+    "tutor_line": "« La démocratie est essentielle pour une société libre. »",
+    "student_line": "« Chaque citoyen a le droit de voter. »"
+   },
+   "exchanges": [
+    {
+     "text": "Je pense que la participation des jeunes est essentielle à la démocratie.",
+     "blank": true,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "I think that the participation of young people is essential to democracy.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Il est crucial de respecter les opinions des autres.",
+     "blank": true,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "It is crucial to respect the opinions of others.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "la participation des jeunes",
+    "les débats politiques",
+    "nous respections les opinions"
+   ],
+   "tutor_instruction": "Encouragez l'étudiant à utiliser ces phrases dans des discussions.",
+   "student_instruction": "Écoutez et répétez ces phrases avec votre tuteur.",
+   "valid_answers_by_blank": {
+    "1": [
+     "la participation des jeunes"
+    ],
+    "2": [
+     "les débats politiques"
+    ],
+    "3": [
+     "nous respections les opinions"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Phrases Utiles",
+   "number": 4,
+   "example": {
+    "tutor_line": "« La démocratie est essentielle pour une société libre. »",
+    "student_line": "« Chaque citoyen a le droit de voter. »"
+   },
+   "exchanges": [
+    {
+     "text": "la participation des jeunes",
+     "blank": true,
+     "speaker": "Je pense que la participation des jeunes est essentielle à la démocratie. ____",
+     "avatar_seed": "Alex",
+     "translation": "I think that the participation of young people is essential to democracy.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "respecter les opinions des autres",
+     "blank": true,
+     "speaker": "Il est crucial de respecter les opinions des autres. ____",
+     "avatar_seed": "Eli",
+     "translation": "It is crucial to respect the opinions of others.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "la participation des jeunes",
+    "les débats politiques",
+    "nous respections les opinions",
+    "respecter les opinions des autres"
+   ],
+   "tutor_instruction": "Encouragez l'étudiant à utiliser ces phrases dans des discussions.",
+   "student_instruction": "Écoutez et répétez ces phrases avec votre tuteur.",
+   "valid_answers_by_blank": {
+    "1": [
+     "la participation des jeunes"
+    ],
+    "2": [
+     "les débats politiques"
+    ],
+    "3": [
+     "nous respections les opinions"
+    ]
+   }
+  },
+  "added": 1,
+  "missing": 0
+ },
+ {
+  "id": "74f12c9a-32b8-4fd9-bc19-322fb1b72cf5",
+  "title": "Partagez vos opinions sur les questions actuelles",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Plus de vocabulaire",
+   "number": 4,
+   "example": {
+    "tutor_line": "J'aime débattre de sujets d'actualité.",
+    "student_line": "Je n'aime pas partager mes opinions en ligne."
+   },
+   "exchanges": [
+    {
+     "text": "J'______ débattre de sujets d'actualité.",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "I ______ like to debate current issues.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Je ______ partager mes opinions en ligne.",
+     "blank": true,
+     "speaker": "Nina",
+     "avatar_seed": "Nina",
+     "translation": "I ______ like to share my opinions online.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "J'______ analyser les informations avant de me faire une opinion.",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "I ______ like to analyze information before forming an opinion.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "J'______ m'engager dans des discussions sur la politique.",
+     "blank": true,
+     "speaker": "Nina",
+     "avatar_seed": "Nina",
+     "translation": "I ______ like to engage in discussions about politics.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "J'______ informer les autres sur des sujets importants.",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "I ______ like to inform others about important topics.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "aime",
+    "n'aime pas",
+    "aime",
+    "aime",
+    "aime",
+    "aime"
+   ],
+   "tutor_instruction": "Encouragez les étudiants à demander des définitions.",
+   "student_instruction": "Écoutez et répétez ces mots avec votre partenaire.",
+   "valid_answers_by_blank": {
+    "1": [
+     "aime"
+    ],
+    "2": [
+     "aime"
+    ],
+    "3": [
+     "aime"
+    ],
+    "4": [
+     "aime"
+    ],
+    "5": [
+     "aime"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Plus de vocabulaire",
+   "number": 4,
+   "example": {
+    "tutor_line": "J'aime débattre de sujets d'actualité.",
+    "student_line": "Je n'aime pas partager mes opinions en ligne."
+   },
+   "exchanges": [
+    {
+     "text": "aime",
+     "blank": true,
+     "speaker": "J'____ débattre de sujets d'actualité.",
+     "avatar_seed": "Professeur",
+     "translation": "I ______ like to debate current issues.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "n'aime pas",
+     "blank": true,
+     "speaker": "Je ____ partager mes opinions en ligne.",
+     "avatar_seed": "Nina",
+     "translation": "I ______ like to share my opinions online.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "aime",
+     "blank": true,
+     "speaker": "J'____ analyser les informations avant de me faire une opinion.",
+     "avatar_seed": "Professeur",
+     "translation": "I ______ like to analyze information before forming an opinion.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "aime",
+     "blank": true,
+     "speaker": "J'____ m'engager dans des discussions sur la politique.",
+     "avatar_seed": "Nina",
+     "translation": "I ______ like to engage in discussions about politics.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "aime",
+     "blank": true,
+     "speaker": "J'____ informer les autres sur des sujets importants.",
+     "avatar_seed": "Professeur",
+     "translation": "I ______ like to inform others about important topics.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "aime",
+    "n'aime pas",
+    "aime",
+    "aime",
+    "aime",
+    "aime"
+   ],
+   "tutor_instruction": "Encouragez les étudiants à demander des définitions.",
+   "student_instruction": "Écoutez et répétez ces mots avec votre partenaire.",
+   "valid_answers_by_blank": {
+    "1": [
+     "aime"
+    ],
+    "2": [
+     "aime"
+    ],
+    "3": [
+     "aime"
+    ],
+    "4": [
+     "aime"
+    ],
+    "5": [
+     "aime"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "abfb93d8-9821-44aa-96d6-4181fe2fbdf7",
+  "title": "Parlez de l'impact de la politique sur votre vie",
+  "i": 5,
+  "before": {
+   "kind": "fill_in_blank_dialogue_extended",
+   "title": "Complétez la phrase",
+   "number": 6,
+   "example": {
+    "tutor_line": "La politique influence notre ________ quotidienne.",
+    "student_line": "vie"
+   },
+   "exchanges": [
+    {
+     "text": "La politique influence notre ________ quotidienne.",
+     "blank": true,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Politics influences our ________ daily.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Voter est un ________ essentiel de la démocratie.",
+     "blank": true,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Voting is an ________ essential to democracy.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Les lois protègent nos ________ en tant que citoyens.",
+     "blank": true,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Laws protect our ________ as citizens.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Participer à la vie politique nous permet de ________.",
+     "blank": true,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Participating in political life allows us to ________.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "vie",
+    "temps",
+    "loisirs",
+    "acte",
+    "événement",
+    "choix",
+    "droits",
+    "responsabilités",
+    "choix",
+    "agir",
+    "rester",
+    "ignorer"
+   ],
+   "tutor_instruction": "Aidez les étudiants à choisir les bonnes réponses.",
+   "student_instruction": "Choisissez la bonne réponse pour compléter chaque phrase, puis lisez-la à voix haute.",
+   "valid_answers_by_blank": {
+    "1": [
+     "vie"
+    ],
+    "2": [
+     "acte"
+    ],
+    "3": [
+     "droits"
+    ],
+    "4": [
+     "agir"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue_extended",
+   "title": "Complétez la phrase",
+   "number": 6,
+   "example": {
+    "tutor_line": "La politique influence notre ________ quotidienne.",
+    "student_line": "vie"
+   },
+   "exchanges": [
+    {
+     "text": "vie",
+     "blank": true,
+     "speaker": "La politique influence notre ____ quotidienne.",
+     "avatar_seed": "Eli",
+     "translation": "Politics influences our ________ daily.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "acte",
+     "blank": true,
+     "speaker": "Voter est un ____ essentiel de la démocratie.",
+     "avatar_seed": "Eli",
+     "translation": "Voting is an ________ essential to democracy.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "droits",
+     "blank": true,
+     "speaker": "Les lois protègent nos ____ en tant que citoyens.",
+     "avatar_seed": "Eli",
+     "translation": "Laws protect our ________ as citizens.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "agir",
+     "blank": true,
+     "speaker": "Participer à la vie politique nous permet de ____.",
+     "avatar_seed": "Eli",
+     "translation": "Participating in political life allows us to ________.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "vie",
+    "temps",
+    "loisirs",
+    "acte",
+    "événement",
+    "choix",
+    "droits",
+    "responsabilités",
+    "choix",
+    "agir",
+    "rester",
+    "ignorer"
+   ],
+   "tutor_instruction": "Aidez les étudiants à choisir les bonnes réponses.",
+   "student_instruction": "Choisissez la bonne réponse pour compléter chaque phrase, puis lisez-la à voix haute.",
+   "valid_answers_by_blank": {
+    "1": [
+     "vie"
+    ],
+    "2": [
+     "acte"
+    ],
+    "3": [
+     "droits"
+    ],
+    "4": [
+     "agir"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "069b7de5-db7e-48f6-abce-b61cc55e7b76",
+  "title": "Sucreries",
+  "i": 5,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Allons épeler !",
+   "number": 6,
+   "example": {
+    "tutor_line": "Professeur : pancakes",
+    "student_line": ""
+   },
+   "exchanges": [
+    {
+     "text": "pancakes",
+     "blank": true,
+     "speaker": "Professeur :",
+     "avatar_seed": "Professeur",
+     "translation": "pancakes",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "chocolat",
+     "blank": true,
+     "speaker": "Professeur :",
+     "avatar_seed": "Professeur",
+     "translation": "chocolate",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "p",
+    "c"
+   ],
+   "tutor_instruction": "Dites les mots clairement pour que les étudiants puissent les épeler.",
+   "student_instruction": "Votre tuteur dira quelques mots : pancakes, chocolat. Choisissez la lettre qui commence chaque mot.",
+   "valid_answers_by_blank": {
+    "1": [
+     "p"
+    ],
+    "2": [
+     "c"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Allons épeler !",
+   "number": 6,
+   "example": {
+    "tutor_line": "Professeur : pancakes",
+    "student_line": ""
+   },
+   "exchanges": [
+    {
+     "text": "p",
+     "blank": true,
+     "speaker": "pancakes ____",
+     "avatar_seed": "Professeur",
+     "translation": "pancakes",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "c",
+     "blank": true,
+     "speaker": "chocolat ____",
+     "avatar_seed": "Professeur",
+     "translation": "chocolate",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "p",
+    "c"
+   ],
+   "tutor_instruction": "Dites les mots clairement pour que les étudiants puissent les épeler.",
+   "student_instruction": "Votre tuteur dira quelques mots : pancakes, chocolat. Choisissez la lettre qui commence chaque mot.",
+   "valid_answers_by_blank": {
+    "1": [
+     "p"
+    ],
+    "2": [
+     "c"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "b4e50d7e-abd6-442e-979a-95910ece85c7",
+  "title": "Visage",
+  "i": 8,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Qu'est-ce qui manque ?",
+   "number": 9,
+   "example": {
+    "tutor_line": "La marionnette verte n'a pas de... nez.",
+    "student_line": "La marionnette bleue n'a pas de... bouche."
+   },
+   "exchanges": [
+    {
+     "text": "La marionnette verte n'a pas de... nez.",
+     "blank": true,
+     "speaker": "tuteur",
+     "avatar_seed": "Tuteur",
+     "translation": "The green puppet is missing a... nose.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "La marionnette bleue n'a pas de... bouche.",
+     "blank": true,
+     "speaker": "élève",
+     "avatar_seed": "Élève",
+     "translation": "The blue puppet is missing a... mouth.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "nez",
+    "bouche",
+    "yeux",
+    "oreilles"
+   ],
+   "tutor_instruction": "Demandez aux élèves de deviner ce qui manque.",
+   "student_instruction": "Découvrez ce qui manque pour pouvoir les réparer.",
+   "valid_answers_by_blank": {
+    "1": [
+     "nez"
+    ],
+    "2": [
+     "bouche"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Qu'est-ce qui manque ?",
+   "number": 9,
+   "example": {
+    "tutor_line": "La marionnette verte n'a pas de... nez.",
+    "student_line": "La marionnette bleue n'a pas de... bouche."
+   },
+   "exchanges": [
+    {
+     "text": "nez",
+     "blank": true,
+     "speaker": "La marionnette verte n'a pas de... nez. ____",
+     "avatar_seed": "Tuteur",
+     "translation": "The green puppet is missing a... nose.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "bouche",
+     "blank": true,
+     "speaker": "La marionnette bleue n'a pas de... bouche. ____",
+     "avatar_seed": "Élève",
+     "translation": "The blue puppet is missing a... mouth.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "nez",
+    "bouche",
+    "yeux",
+    "oreilles"
+   ],
+   "tutor_instruction": "Demandez aux élèves de deviner ce qui manque.",
+   "student_instruction": "Découvrez ce qui manque pour pouvoir les réparer.",
+   "valid_answers_by_blank": {
+    "1": [
+     "nez"
+    ],
+    "2": [
+     "bouche"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "2a43c0b0-e72c-4bc0-b623-116bba0b5b9a",
+  "title": "Parlez de vos acteurs et musiciens préférés",
+  "i": 1,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 2,
+   "example": {
+    "tutor_line": "Je suis fou de chocolat.",
+    "student_line": "Je suis fou de chocolat."
+   },
+   "exchanges": [
+    {
+     "text": "je _______________ chocolat.",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "I _______________ chocolate.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "je _______________ temps froid.",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "I _______________ cold weather.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "je _______________ football.",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "I _______________ football.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "je _______________ fruit de mer.",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "I _______________ seafood.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "je _______________ jeux vidéo.",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "I _______________ video games.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "je _______________ achats.",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "I _______________ shopping.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "suis fou de",
+    "aime",
+    "n'aime pas",
+    "ne supporte pas",
+    "détester",
+    "suis fou de",
+    "n'aime pas",
+    "aime"
+   ],
+   "tutor_instruction": "Aidez les étudiants à formuler leurs réponses.",
+   "student_instruction": "Remplissez les blancs en utilisant les mots et les expressions ci-dessus pour rendre ces phrases vraies pour vous.",
+   "valid_answers_by_blank": {
+    "1": [
+     "suis fou de",
+     "aime"
+    ],
+    "2": [
+     "n'aime pas",
+     "ne supporte pas"
+    ],
+    "3": [
+     "aime"
+    ],
+    "4": [
+     "n'aime pas"
+    ],
+    "5": [
+     "suis fou de",
+     "aime"
+    ],
+    "6": [
+     "aime"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 2,
+   "example": {
+    "tutor_line": "Je suis fou de chocolat.",
+    "student_line": "Je suis fou de chocolat."
+   },
+   "exchanges": [
+    {
+     "text": "aime",
+     "blank": true,
+     "speaker": "je ____ chocolat.",
+     "avatar_seed": "Professeur",
+     "translation": "I _______________ chocolate.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "n'aime pas",
+     "blank": true,
+     "speaker": "je ____ temps froid.",
+     "avatar_seed": "Professeur",
+     "translation": "I _______________ cold weather.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "suis fou de",
+     "blank": true,
+     "speaker": "je ____ football.",
+     "avatar_seed": "Professeur",
+     "translation": "I _______________ football.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "ne supporte pas",
+     "blank": true,
+     "speaker": "je ____ fruit de mer.",
+     "avatar_seed": "Professeur",
+     "translation": "I _______________ seafood.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "détester",
+     "blank": true,
+     "speaker": "je ____ jeux vidéo.",
+     "avatar_seed": "Professeur",
+     "translation": "I _______________ video games.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "suis fou de",
+     "blank": true,
+     "speaker": "je ____ achats.",
+     "avatar_seed": "Professeur",
+     "translation": "I _______________ shopping.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "suis fou de",
+    "aime",
+    "n'aime pas",
+    "ne supporte pas",
+    "détester",
+    "suis fou de",
+    "n'aime pas",
+    "aime"
+   ],
+   "tutor_instruction": "Aidez les étudiants à formuler leurs réponses.",
+   "student_instruction": "Remplissez les blancs en utilisant les mots et les expressions ci-dessus pour rendre ces phrases vraies pour vous.",
+   "valid_answers_by_blank": {
+    "1": [
+     "suis fou de",
+     "aime"
+    ],
+    "2": [
+     "n'aime pas",
+     "ne supporte pas"
+    ],
+    "3": [
+     "aime"
+    ],
+    "4": [
+     "n'aime pas"
+    ],
+    "5": [
+     "suis fou de",
+     "aime"
+    ],
+    "6": [
+     "aime"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "f82be5a3-87cc-4cf6-9a0a-063086cb8b8f",
+  "title": "Améliorez votre ROI avec ces abréviations commerciales",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Complétez la phrase : Alex préfère travailler en ____.",
+    "student_line": "Alex préfère travailler en FMH."
+   },
+   "exchanges": [
+    {
+     "text": "Alex préfère travailler en FMH.",
+     "blank": true,
+     "speaker": "Alex préfère travailler en ____.",
+     "avatar_seed": "Alex",
+     "translation": "Alex prefers to work from home.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Le clé de notre projet de marketing est essentiel pour évaluer son succès.",
+     "blank": true,
+     "speaker": "Le ____ de notre projet de marketing est essentiel pour évaluer son succès.",
+     "avatar_seed": "Tutor",
+     "translation": "The key of our marketing project is essential to evaluate its success.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Eli utilise des abréviations comme le 'KPI' pour suivre ses progrès.",
+     "blank": true,
+     "speaker": "Eli utilise des ____ comme le 'KPI' pour suivre ses progrès.",
+     "avatar_seed": "Eli",
+     "translation": "Eli uses abbreviations like 'KPI' to track his progress.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Notre objectif principal cette année est d'augmenter notre retour sur investissement de 20 %.",
+     "blank": true,
+     "speaker": "Notre objectif principal cette année est d'augmenter notre ____ de 20 %.",
+     "avatar_seed": "Tutor",
+     "translation": "Our main goal this year is to increase our ROI by 20%.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Les abréviations aident à raccourcir les conversations dans le monde des affaires.",
+     "blank": true,
+     "speaker": "Les ____ aident à raccourcir les conversations dans le monde des affaires.",
+     "avatar_seed": "Alex",
+     "translation": "Abbreviations help shorten conversations in the business world.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Investir dans des formations est un bon investissement pour améliorer les compétences des employés.",
+     "blank": true,
+     "speaker": "Investir dans des formations est un bon __ pour améliorer les compétences des employés.",
+     "avatar_seed": "Tutor",
+     "translation": "Investing in training is a good investment to improve employees' skills.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "Clé",
+    "KPI",
+    "Retour sur investissement",
+    "FMH",
+    "Investissement",
+    "Abréviations",
+    "Abréviations"
+   ],
+   "tutor_instruction": "Guide the students through the exercise.",
+   "student_instruction": "Complétez les phrases avec les mots suivants.",
+   "valid_answers_by_blank": {
+    "1": [
+     "FMH"
+    ],
+    "2": [
+     "Clé"
+    ],
+    "3": [
+     "Abréviations"
+    ],
+    "4": [
+     "Retour sur investissement"
+    ],
+    "5": [
+     "Abréviations"
+    ],
+    "6": [
+     "Investissement"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Complétez la phrase : Alex préfère travailler en ____.",
+    "student_line": "Alex préfère travailler en FMH."
+   },
+   "exchanges": [
+    {
+     "text": "FMH",
+     "blank": true,
+     "speaker": "Alex préfère travailler en FMH. ____",
+     "avatar_seed": "Alex",
+     "translation": "Alex prefers to work from home.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "KPI",
+     "blank": true,
+     "speaker": "Le clé de notre projet de marketing est essentiel pour évaluer son succès. ____",
+     "avatar_seed": "Tutor",
+     "translation": "The key of our marketing project is essential to evaluate its success.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "KPI",
+     "blank": true,
+     "speaker": "Eli utilise des abréviations comme le 'KPI' pour suivre ses progrès. ____",
+     "avatar_seed": "Eli",
+     "translation": "Eli uses abbreviations like 'KPI' to track his progress.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Retour sur investissement",
+     "blank": true,
+     "speaker": "Notre objectif principal cette année est d'augmenter notre retour sur investissement de 20 %. ____",
+     "avatar_seed": "Tutor",
+     "translation": "Our main goal this year is to increase our ROI by 20%.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Abréviations",
+     "blank": true,
+     "speaker": "Les abréviations aident à raccourcir les conversations dans le monde des affaires. ____",
+     "avatar_seed": "Alex",
+     "translation": "Abbreviations help shorten conversations in the business world.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Investissement",
+     "blank": true,
+     "speaker": "Investir dans des formations est un bon investissement pour améliorer les compétences des employés. ____",
+     "avatar_seed": "Tutor",
+     "translation": "Investing in training is a good investment to improve employees' skills.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "Clé",
+    "KPI",
+    "Retour sur investissement",
+    "FMH",
+    "Investissement",
+    "Abréviations",
+    "Abréviations"
+   ],
+   "tutor_instruction": "Guide the students through the exercise.",
+   "student_instruction": "Complétez les phrases avec les mots suivants.",
+   "valid_answers_by_blank": {
+    "1": [
+     "FMH"
+    ],
+    "2": [
+     "Clé"
+    ],
+    "3": [
+     "Abréviations"
+    ],
+    "4": [
+     "Retour sur investissement"
+    ],
+    "5": [
+     "Abréviations"
+    ],
+    "6": [
+     "Investissement"
+    ]
+   }
+  },
+  "added": 1,
+  "missing": 0
+ },
+ {
+  "id": "5c58da4b-8d9e-4556-976a-83cdda543e70",
+  "title": "Expressions sportives que vous entendrez dans le monde des affaires",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Nous devrions __________ la semaine prochaine pour discuter un peu plus du contrat.",
+    "student_line": "Nous devrions toucher la base la semaine prochaine pour discuter un peu plus du contrat."
+   },
+   "exchanges": [
+    {
+     "text": "Nous devrions __________ la semaine prochaine pour discuter un peu plus du contrat.",
+     "blank": true,
+     "speaker": "Nous devrions __________ la semaine prochaine pour discuter un peu plus du contrat.",
+     "avatar_seed": "Tutor",
+     "translation": "We should __________ next week to discuss the contract further.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "J'aimerais __________ une réunion en personne pour parler de notre partenariat.",
+     "blank": true,
+     "speaker": "J'aimerais __________ une réunion en personne pour parler de notre partenariat.",
+     "avatar_seed": "Student",
+     "translation": "I would like to __________ a meeting in person to talk about our partnership.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Notre offre finale est de 100 000 €, donc __________ maintenant.",
+     "blank": true,
+     "speaker": "Notre offre finale est de 100 000 €, donc __________ maintenant.",
+     "avatar_seed": "Tutor",
+     "translation": "Our final offer is 100,000 €, so __________ now.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Nous avons besoin de l'aide de tout le monde pour ce projet et je ne veux pas que quelqu'un __________ .",
+     "blank": true,
+     "speaker": "Nous avons besoin de l'aide de tout le monde pour ce projet et je ne veux pas que quelqu'un __________ .",
+     "avatar_seed": "Student",
+     "translation": "We need everyone's help for this project and I don't want anyone __________ .",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Si nous continuons à ce rythme, nous en aurons au moins dix de plus __________ d'ici la fin de l'année.",
+     "blank": true,
+     "speaker": "Si nous continuons à ce rythme, nous en aurons au moins dix de plus __________ d'ici la fin de l'année.",
+     "avatar_seed": "Tutor",
+     "translation": "If we continue at this pace, we will have at least ten more __________ by the end of the year.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "toucher la base",
+    "la balle est dans votre camp",
+    "regarder de côté",
+    "mettre en place",
+    "clients"
+   ],
+   "tutor_instruction": "Guide students to think about the context of each sentence.",
+   "student_instruction": "Complétez les phrases avec les mots appropriés :",
+   "valid_answers_by_blank": {
+    "0": [
+     "toucher la base"
+    ],
+    "1": [
+     "mettre en place"
+    ],
+    "2": [
+     "la balle est dans votre camp"
+    ],
+    "3": [
+     "regarder de côté"
+    ],
+    "4": [
+     "clients"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Nous devrions __________ la semaine prochaine pour discuter un peu plus du contrat.",
+    "student_line": "Nous devrions toucher la base la semaine prochaine pour discuter un peu plus du contrat."
+   },
+   "exchanges": [
+    {
+     "text": "toucher la base",
+     "blank": true,
+     "speaker": "Nous devrions ____ la semaine prochaine pour discuter un peu plus du contrat.",
+     "avatar_seed": "Tutor",
+     "translation": "We should __________ next week to discuss the contract further.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "mettre en place",
+     "blank": true,
+     "speaker": "J'aimerais ____ une réunion en personne pour parler de notre partenariat.",
+     "avatar_seed": "Student",
+     "translation": "I would like to __________ a meeting in person to talk about our partnership.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "la balle est dans votre camp",
+     "blank": true,
+     "speaker": "Notre offre finale est de 100 000 €, donc ____ maintenant.",
+     "avatar_seed": "Tutor",
+     "translation": "Our final offer is 100,000 €, so __________ now.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "regarder de côté",
+     "blank": true,
+     "speaker": "Nous avons besoin de l'aide de tout le monde pour ce projet et je ne veux pas que quelqu'un ____ .",
+     "avatar_seed": "Student",
+     "translation": "We need everyone's help for this project and I don't want anyone __________ .",
+     "speaker_role": "student"
+    },
+    {
+     "text": "clients",
+     "blank": true,
+     "speaker": "Si nous continuons à ce rythme, nous en aurons au moins dix de plus ____ d'ici la fin de l'année.",
+     "avatar_seed": "Tutor",
+     "translation": "If we continue at this pace, we will have at least ten more __________ by the end of the year.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "toucher la base",
+    "la balle est dans votre camp",
+    "regarder de côté",
+    "mettre en place",
+    "clients"
+   ],
+   "tutor_instruction": "Guide students to think about the context of each sentence.",
+   "student_instruction": "Complétez les phrases avec les mots appropriés :",
+   "valid_answers_by_blank": {
+    "0": [
+     "toucher la base"
+    ],
+    "1": [
+     "mettre en place"
+    ],
+    "2": [
+     "la balle est dans votre camp"
+    ],
+    "3": [
+     "regarder de côté"
+    ],
+    "4": [
+     "clients"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "1f992df1-0504-4c0c-8a35-1be1de25c1cd",
+  "title": "Passer une commande",
+  "i": 5,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez les phrases",
+   "number": 6,
+   "example": {
+    "tutor_line": "Avant de passer une commande, il est important de vérifier si les articles sont ________.",
+    "student_line": "disponibles"
+   },
+   "exchanges": [
+    {
+     "text": "Avant de passer une commande, il est important de vérifier si les articles sont ________.",
+     "blank": true,
+     "speaker": "student",
+     "avatar_seed": "Max",
+     "translation": "Before placing an order, it is important to check if the items are ________.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Lorsque vous passez une commande, demandez toujours quelle est la ________ de livraison estimée.",
+     "blank": true,
+     "speaker": "tutor",
+     "avatar_seed": "Eve",
+     "translation": "When placing an order, always ask what the estimated ________ delivery time is.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Si vous avez besoin des articles rapidement, il est préférable de choisir l'option ________.",
+     "blank": true,
+     "speaker": "student",
+     "avatar_seed": "Max",
+     "translation": "If you need the items quickly, it is better to choose the ________ option.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Une bonne pratique consiste à demander des détails sur ________ avant de finaliser votre commande.",
+     "blank": true,
+     "speaker": "tutor",
+     "avatar_seed": "Eve",
+     "translation": "A good practice is to ask for details about ________ before finalizing your order.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Il est essentiel d'indiquer votre ________ e-mail pour recevoir des confirmations de commande.",
+     "blank": true,
+     "speaker": "student",
+     "avatar_seed": "Max",
+     "translation": "It is essential to provide your ________ email to receive order confirmations.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "disponibles",
+    "date",
+    "express",
+    "l'expédition",
+    "adresse"
+   ],
+   "tutor_instruction": "Demandez aux étudiants de remplir les blancs.",
+   "student_instruction": "Complétez les phrases suivantes avec les mots ou expressions appropriés.",
+   "valid_answers_by_blank": {
+    "0": [
+     "disponibles"
+    ],
+    "1": [
+     "date"
+    ],
+    "2": [
+     "express"
+    ],
+    "3": [
+     "l'expédition"
+    ],
+    "4": [
+     "adresse"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez les phrases",
+   "number": 6,
+   "example": {
+    "tutor_line": "Avant de passer une commande, il est important de vérifier si les articles sont ________.",
+    "student_line": "disponibles"
+   },
+   "exchanges": [
+    {
+     "text": "disponibles",
+     "blank": true,
+     "speaker": "Avant de passer une commande, il est important de vérifier si les articles sont ____.",
+     "avatar_seed": "Max",
+     "translation": "Before placing an order, it is important to check if the items are ________.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "date",
+     "blank": true,
+     "speaker": "Lorsque vous passez une commande, demandez toujours quelle est la ____ de livraison estimée.",
+     "avatar_seed": "Eve",
+     "translation": "When placing an order, always ask what the estimated ________ delivery time is.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "express",
+     "blank": true,
+     "speaker": "Si vous avez besoin des articles rapidement, il est préférable de choisir l'option ____.",
+     "avatar_seed": "Max",
+     "translation": "If you need the items quickly, it is better to choose the ________ option.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "l'expédition",
+     "blank": true,
+     "speaker": "Une bonne pratique consiste à demander des détails sur ____ avant de finaliser votre commande.",
+     "avatar_seed": "Eve",
+     "translation": "A good practice is to ask for details about ________ before finalizing your order.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "adresse",
+     "blank": true,
+     "speaker": "Il est essentiel d'indiquer votre ____ e-mail pour recevoir des confirmations de commande.",
+     "avatar_seed": "Max",
+     "translation": "It is essential to provide your ________ email to receive order confirmations.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "disponibles",
+    "date",
+    "express",
+    "l'expédition",
+    "adresse"
+   ],
+   "tutor_instruction": "Demandez aux étudiants de remplir les blancs.",
+   "student_instruction": "Complétez les phrases suivantes avec les mots ou expressions appropriés.",
+   "valid_answers_by_blank": {
+    "0": [
+     "disponibles"
+    ],
+    "1": [
+     "date"
+    ],
+    "2": [
+     "express"
+    ],
+    "3": [
+     "l'expédition"
+    ],
+    "4": [
+     "adresse"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "93892419-c11e-4d12-a0b4-3b3829647eb2",
+  "title": "Jours de la semaine",
+  "i": 4,
+  "before": {
+   "kind": "fill_in_blank_dialogue_extended",
+   "title": "Dialogue étendu",
+   "number": 5,
+   "example": {
+    "tutor_line": "Quel est ton jour préféré ?",
+    "student_line": "Mon jour préféré est le samedi."
+   },
+   "exchanges": [
+    {
+     "text": "Quel est ton jour préféré ?",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "What is your favorite day?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Mon jour préféré est le ____.",
+     "blank": true,
+     "speaker": "Max",
+     "avatar_seed": "Max",
+     "translation": "My favorite day is ____.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "lundi",
+    "mardi",
+    "mercredi",
+    "jeudi",
+    "vendredi",
+    "samedi",
+    "dimanche"
+   ],
+   "tutor_instruction": "Discutez des jours de la semaine.",
+   "student_instruction": "Répondez aux questions de votre tuteur en phrases complètes.",
+   "valid_answers_by_blank": {
+    "1": [
+     "lundi",
+     "mardi",
+     "mercredi",
+     "jeudi",
+     "vendredi",
+     "samedi",
+     "dimanche"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue_extended",
+   "title": "Dialogue étendu",
+   "number": 5,
+   "example": {
+    "tutor_line": "Quel est ton jour préféré ?",
+    "student_line": "Mon jour préféré est le samedi."
+   },
+   "exchanges": [
+    {
+     "text": "Mon jour préféré est le samedi.",
+     "blank": true,
+     "speaker": "Quel est ton jour préféré ? ____",
+     "avatar_seed": "Professeur",
+     "translation": "What is your favorite day?",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "samedi",
+     "blank": true,
+     "speaker": "Mon jour préféré est le ____.",
+     "avatar_seed": "Max",
+     "translation": "My favorite day is ____.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "lundi",
+    "mardi",
+    "mercredi",
+    "jeudi",
+    "vendredi",
+    "samedi",
+    "dimanche",
+    "Mon jour préféré est le samedi."
+   ],
+   "tutor_instruction": "Discutez des jours de la semaine.",
+   "student_instruction": "Répondez aux questions de votre tuteur en phrases complètes.",
+   "valid_answers_by_blank": {
+    "1": [
+     "lundi",
+     "mardi",
+     "mercredi",
+     "jeudi",
+     "vendredi",
+     "samedi",
+     "dimanche"
+    ]
+   }
+  },
+  "added": 1,
+  "missing": 0
+ },
+ {
+  "id": "50881fdc-e5d4-421b-9407-b75129d71ff8",
+  "title": "Quand est ton anniversaire ?",
+  "i": 2,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Questionnaire",
+   "number": 3,
+   "example": {
+    "tutor_line": "Février est le ___ mois de l'année.",
+    "student_line": "Février est le deuxième mois de l'année."
+   },
+   "exchanges": [
+    {
+     "text": "Février est le ___ mois de l'année.",
+     "blank": true,
+     "speaker": "Février est le ___ mois de l'année.",
+     "avatar_seed": "Max",
+     "translation": "February is the ___ month of the year.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Juin est le ___ mois de l'année.",
+     "blank": true,
+     "speaker": "Juin est le ___ mois de l'année.",
+     "avatar_seed": "Max",
+     "translation": "June is the ___ month of the year.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Avril est le ___ mois de l'année.",
+     "blank": true,
+     "speaker": "Avril est le ___ mois de l'année.",
+     "avatar_seed": "Max",
+     "translation": "April is the ___ month of the year.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "deuxième",
+    "sixième",
+    "quatrième"
+   ],
+   "tutor_instruction": "Aidez les élèves à remplir les blancs.",
+   "student_instruction": "Remplissez les blancs pour compléter les phrases.",
+   "valid_answers_by_blank": {
+    "1": [
+     "deuxième"
+    ],
+    "2": [
+     "sixième"
+    ],
+    "3": [
+     "quatrième"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Questionnaire",
+   "number": 3,
+   "example": {
+    "tutor_line": "Février est le ___ mois de l'année.",
+    "student_line": "Février est le deuxième mois de l'année."
+   },
+   "exchanges": [
+    {
+     "text": "deuxième",
+     "blank": true,
+     "speaker": "Février est le ____ mois de l'année.",
+     "avatar_seed": "Max",
+     "translation": "February is the ___ month of the year.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "sixième",
+     "blank": true,
+     "speaker": "Juin est le ____ mois de l'année.",
+     "avatar_seed": "Max",
+     "translation": "June is the ___ month of the year.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "quatrième",
+     "blank": true,
+     "speaker": "Avril est le ____ mois de l'année.",
+     "avatar_seed": "Max",
+     "translation": "April is the ___ month of the year.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "deuxième",
+    "sixième",
+    "quatrième"
+   ],
+   "tutor_instruction": "Aidez les élèves à remplir les blancs.",
+   "student_instruction": "Remplissez les blancs pour compléter les phrases.",
+   "valid_answers_by_blank": {
+    "1": [
+     "deuxième"
+    ],
+    "2": [
+     "sixième"
+    ],
+    "3": [
+     "quatrième"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "50881fdc-e5d4-421b-9407-b75129d71ff8",
+  "title": "Quand est ton anniversaire ?",
+  "i": 4,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Questionnaire",
+   "number": 5,
+   "example": {
+    "tutor_line": "Août est le ___ mois de l'année.",
+    "student_line": "Août est le huitième mois de l'année."
+   },
+   "exchanges": [
+    {
+     "text": "Août est le ___ mois de l'année.",
+     "blank": true,
+     "speaker": "Août est le ___ mois de l'année.",
+     "avatar_seed": "Max",
+     "translation": "August is the ___ month of the year.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Décembre est le ___ mois de l'année.",
+     "blank": true,
+     "speaker": "Décembre est le ___ mois de l'année.",
+     "avatar_seed": "Max",
+     "translation": "December is the ___ month of the year.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Octobre est le ___ mois de l'année.",
+     "blank": true,
+     "speaker": "Octobre est le ___ mois de l'année.",
+     "avatar_seed": "Max",
+     "translation": "October is the ___ month of the year.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "huitième",
+    "douzième",
+    "dixième"
+   ],
+   "tutor_instruction": "Aidez les élèves à remplir les blancs.",
+   "student_instruction": "Remplissez les blancs pour compléter les phrases.",
+   "valid_answers_by_blank": {
+    "1": [
+     "huitième"
+    ],
+    "2": [
+     "douzième"
+    ],
+    "3": [
+     "dixième"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Questionnaire",
+   "number": 5,
+   "example": {
+    "tutor_line": "Août est le ___ mois de l'année.",
+    "student_line": "Août est le huitième mois de l'année."
+   },
+   "exchanges": [
+    {
+     "text": "huitième",
+     "blank": true,
+     "speaker": "Août est le ____ mois de l'année.",
+     "avatar_seed": "Max",
+     "translation": "August is the ___ month of the year.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "douzième",
+     "blank": true,
+     "speaker": "Décembre est le ____ mois de l'année.",
+     "avatar_seed": "Max",
+     "translation": "December is the ___ month of the year.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "dixième",
+     "blank": true,
+     "speaker": "Octobre est le ____ mois de l'année.",
+     "avatar_seed": "Max",
+     "translation": "October is the ___ month of the year.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "huitième",
+    "douzième",
+    "dixième"
+   ],
+   "tutor_instruction": "Aidez les élèves à remplir les blancs.",
+   "student_instruction": "Remplissez les blancs pour compléter les phrases.",
+   "valid_answers_by_blank": {
+    "1": [
+     "huitième"
+    ],
+    "2": [
+     "douzième"
+    ],
+    "3": [
+     "dixième"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "97601242-26cd-472d-bd66-51db96d57fb1",
+  "title": "Partagez vos conseils de santé et de bien-être",
+  "i": 5,
+  "before": {
+   "kind": "fill_in_blank_dialogue_extended",
+   "title": "Complétez la phrase",
+   "number": 6,
+   "example": {
+    "tutor_line": "Il est important de dormir suffisamment.",
+    "student_line": "Pour rester en bonne santé, il est conseillé de se détendre régulièrement."
+   },
+   "exchanges": [
+    {
+     "text": "Il est important de _____ suffisamment.",
+     "blank": true,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "It is important to _____ enough.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Pour rester en bonne santé, il est conseillé de _____ régulièrement.",
+     "blank": true,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "To stay healthy, it is advised to _____ regularly.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "J'aime faire du sport pour _____ en forme.",
+     "blank": true,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "I like to play sports to _____ fit.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "_____ des légumes est une bonne habitude pour la santé.",
+     "blank": true,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "_____ vegetables is a good habit for health.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Pour éviter le stress, il est utile de _____ souvent.",
+     "blank": true,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "To avoid stress, it is useful to _____ often.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "dormir",
+    "manger",
+    "boire",
+    "se détendre",
+    "fumer",
+    "se stresser",
+    "rester",
+    "faire du sport",
+    "manger des légumes",
+    "se reposer",
+    "Manger"
+   ],
+   "tutor_instruction": "Aidez les étudiants à choisir les bonnes réponses.",
+   "student_instruction": "Choisissez la bonne réponse pour compléter chaque phrase.",
+   "valid_answers_by_blank": {
+    "1": [
+     "dormir"
+    ],
+    "2": [
+     "se détendre"
+    ],
+    "3": [
+     "rester"
+    ],
+    "4": [
+     "Manger"
+    ],
+    "5": [
+     "se reposer"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue_extended",
+   "title": "Complétez la phrase",
+   "number": 6,
+   "example": {
+    "tutor_line": "Il est important de dormir suffisamment.",
+    "student_line": "Pour rester en bonne santé, il est conseillé de se détendre régulièrement."
+   },
+   "exchanges": [
+    {
+     "text": "dormir",
+     "blank": true,
+     "speaker": "Il est important de ____ suffisamment.",
+     "avatar_seed": "Eli",
+     "translation": "It is important to _____ enough.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "faire du sport",
+     "blank": true,
+     "speaker": "Pour rester en bonne santé, il est conseillé de ____ régulièrement.",
+     "avatar_seed": "Alex",
+     "translation": "To stay healthy, it is advised to _____ regularly.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "rester",
+     "blank": true,
+     "speaker": "J'aime faire du sport pour ____ en forme.",
+     "avatar_seed": "Eli",
+     "translation": "I like to play sports to _____ fit.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Manger",
+     "blank": true,
+     "speaker": "____ des légumes est une bonne habitude pour la santé.",
+     "avatar_seed": "Alex",
+     "translation": "_____ vegetables is a good habit for health.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "se détendre",
+     "blank": true,
+     "speaker": "Pour éviter le stress, il est utile de ____ souvent.",
+     "avatar_seed": "Eli",
+     "translation": "To avoid stress, it is useful to _____ often.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "dormir",
+    "manger",
+    "boire",
+    "se détendre",
+    "fumer",
+    "se stresser",
+    "rester",
+    "faire du sport",
+    "manger des légumes",
+    "se reposer",
+    "Manger"
+   ],
+   "tutor_instruction": "Aidez les étudiants à choisir les bonnes réponses.",
+   "student_instruction": "Choisissez la bonne réponse pour compléter chaque phrase.",
+   "valid_answers_by_blank": {
+    "1": [
+     "dormir"
+    ],
+    "2": [
+     "se détendre"
+    ],
+    "3": [
+     "rester"
+    ],
+    "4": [
+     "Manger"
+    ],
+    "5": [
+     "se reposer"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "524a3b9a-c9b9-47ff-9ec8-7a9f2f16d7d5",
+  "title": "Parlez de la signification de la linguistique",
+  "i": 5,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez les phrases",
+   "number": 6,
+   "example": {
+    "tutor_line": "La _______ analyse la structure des phrases dans une langue.",
+    "student_line": "La syntaxe analyse la structure des phrases dans une langue."
+   },
+   "exchanges": [
+    {
+     "text": "La _______ analyse la structure des phrases dans une langue.",
+     "blank": true,
+     "speaker": "student",
+     "avatar_seed": "Student",
+     "translation": "The _______ analyzes the structure of sentences in a language.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "La _______ étudie les sons dans le langage parlé.",
+     "blank": true,
+     "speaker": "tutor",
+     "avatar_seed": "Tutor",
+     "translation": "The _______ studies sounds in spoken language.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "La _______ se concentre sur la signification des mots et des phrases.",
+     "blank": true,
+     "speaker": "student",
+     "avatar_seed": "Student",
+     "translation": "The _______ focuses on the meaning of words and phrases.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Le _______ est une compétence précieuse pour comprendre et parler plusieurs langues.",
+     "blank": true,
+     "speaker": "tutor",
+     "avatar_seed": "Tutor",
+     "translation": "The _______ is a valuable skill for understanding and speaking multiple languages.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "La _______ est la langue apprise dès l'enfance.",
+     "blank": true,
+     "speaker": "student",
+     "avatar_seed": "Student",
+     "translation": "The _______ is the language learned from childhood.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "langue maternelle",
+    "bilinguisme",
+    "sémantique",
+    "phonétique",
+    "syntaxe"
+   ],
+   "tutor_instruction": "Guide les étudiants à choisir les bons mots.",
+   "student_instruction": "Choisissez les mots qui conviennent pour compléter les phrases suivantes, puis lisez-les à haute voix.",
+   "valid_answers_by_blank": {
+    "1": [
+     "syntaxe"
+    ],
+    "2": [
+     "phonétique"
+    ],
+    "3": [
+     "sémantique"
+    ],
+    "4": [
+     "bilinguisme"
+    ],
+    "5": [
+     "langue maternelle"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez les phrases",
+   "number": 6,
+   "example": {
+    "tutor_line": "La _______ analyse la structure des phrases dans une langue.",
+    "student_line": "La syntaxe analyse la structure des phrases dans une langue."
+   },
+   "exchanges": [
+    {
+     "text": "syntaxe",
+     "blank": true,
+     "speaker": "La ____ analyse la structure des phrases dans une langue.",
+     "avatar_seed": "Student",
+     "translation": "The _______ analyzes the structure of sentences in a language.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "phonétique",
+     "blank": true,
+     "speaker": "La ____ étudie les sons dans le langage parlé.",
+     "avatar_seed": "Tutor",
+     "translation": "The _______ studies sounds in spoken language.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "sémantique",
+     "blank": true,
+     "speaker": "La ____ se concentre sur la signification des mots et des phrases.",
+     "avatar_seed": "Student",
+     "translation": "The _______ focuses on the meaning of words and phrases.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "bilinguisme",
+     "blank": true,
+     "speaker": "Le ____ est une compétence précieuse pour comprendre et parler plusieurs langues.",
+     "avatar_seed": "Tutor",
+     "translation": "The _______ is a valuable skill for understanding and speaking multiple languages.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "langue maternelle",
+     "blank": true,
+     "speaker": "La ____ est la langue apprise dès l'enfance.",
+     "avatar_seed": "Student",
+     "translation": "The _______ is the language learned from childhood.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "langue maternelle",
+    "bilinguisme",
+    "sémantique",
+    "phonétique",
+    "syntaxe"
+   ],
+   "tutor_instruction": "Guide les étudiants à choisir les bons mots.",
+   "student_instruction": "Choisissez les mots qui conviennent pour compléter les phrases suivantes, puis lisez-les à haute voix.",
+   "valid_answers_by_blank": {
+    "1": [
+     "syntaxe"
+    ],
+    "2": [
+     "phonétique"
+    ],
+    "3": [
+     "sémantique"
+    ],
+    "4": [
+     "bilinguisme"
+    ],
+    "5": [
+     "langue maternelle"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "eb062db0-e2dd-4817-b4f6-c115191ae58e",
+  "title": "Que pouvez-vous faire avec un \"Skeleton Crew\"?",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Nous travaillons avec une ______ pendant les vacances.",
+    "student_line": "Nous travaillons avec une équipe de squelette pendant les vacances."
+   },
+   "exchanges": [
+    {
+     "text": "Nous travaillons avec une équipe de squelette pendant les vacances.",
+     "blank": true,
+     "speaker": "Nous travaillons avec une ______ pendant les vacances.",
+     "avatar_seed": "Student1",
+     "translation": "We work with a skeleton crew during the holidays.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "L'équipe a dû travailler jusqu'à l'os pour respecter la date limite.",
+     "blank": true,
+     "speaker": "L'équipe a dû ______ pour respecter la date limite.",
+     "avatar_seed": "Tutor1",
+     "translation": "The team had to work to the bone to meet the deadline.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "équipe de squelette",
+    "travailler jusqu'à l'os",
+    "frôler l'os",
+    "blessant(e)",
+    "proche de l'os"
+   ],
+   "tutor_instruction": "Guide les étudiants à réfléchir aux réponses.",
+   "student_instruction": "Complétez les phrases avec les expressions appropriées :",
+   "valid_answers_by_blank": {
+    "0": [
+     "équipe de squelette"
+    ],
+    "1": [
+     "travailler jusqu'à l'os"
+    ],
+    "2": [
+     "blessant(e)"
+    ],
+    "3": [
+     "proche de l'os"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Nous travaillons avec une ______ pendant les vacances.",
+    "student_line": "Nous travaillons avec une équipe de squelette pendant les vacances."
+   },
+   "exchanges": [
+    {
+     "text": "équipe de squelette",
+     "blank": true,
+     "speaker": "Nous travaillons avec une équipe de squelette pendant les vacances. ____",
+     "avatar_seed": "Student1",
+     "translation": "We work with a skeleton crew during the holidays.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "travailler jusqu'à l'os",
+     "blank": true,
+     "speaker": "L'équipe a dû travailler jusqu'à l'os pour respecter la date limite. ____",
+     "avatar_seed": "Tutor1",
+     "translation": "The team had to work to the bone to meet the deadline.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "équipe de squelette",
+    "travailler jusqu'à l'os",
+    "frôler l'os",
+    "blessant(e)",
+    "proche de l'os"
+   ],
+   "tutor_instruction": "Guide les étudiants à réfléchir aux réponses.",
+   "student_instruction": "Complétez les phrases avec les expressions appropriées :",
+   "valid_answers_by_blank": {
+    "0": [
+     "équipe de squelette"
+    ],
+    "1": [
+     "travailler jusqu'à l'os"
+    ],
+    "2": [
+     "blessant(e)"
+    ],
+    "3": [
+     "proche de l'os"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "21c0fa05-0d5c-4509-940c-60cc2d3f6313",
+  "title": "Alphabet (G-M)",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Quiz",
+   "number": 4,
+   "example": {
+    "tutor_line": "Gâteau",
+    "student_line": "G"
+   },
+   "exchanges": [
+    {
+     "text": "Gâteau",
+     "blank": true,
+     "speaker": "formateur",
+     "avatar_seed": "Formateur",
+     "translation": "Cake",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M"
+   ],
+   "tutor_instruction": "Posez des questions sur les mots.",
+   "student_instruction": "Cliquez sur la lettre qui commence le mot.",
+   "valid_answers_by_blank": {
+    "1": [
+     "G"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Quiz",
+   "number": 4,
+   "example": {
+    "tutor_line": "Gâteau",
+    "student_line": "G"
+   },
+   "exchanges": [
+    {
+     "text": "G",
+     "blank": true,
+     "speaker": "Gâteau ____",
+     "avatar_seed": "Formateur",
+     "translation": "Cake",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M"
+   ],
+   "tutor_instruction": "Posez des questions sur les mots.",
+   "student_instruction": "Cliquez sur la lettre qui commence le mot.",
+   "valid_answers_by_blank": {
+    "1": [
+     "G"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "21c0fa05-0d5c-4509-940c-60cc2d3f6313",
+  "title": "Alphabet (G-M)",
+  "i": 6,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Quiz",
+   "number": 7,
+   "example": {
+    "tutor_line": "Jambon",
+    "student_line": "J"
+   },
+   "exchanges": [
+    {
+     "text": "Jambon",
+     "blank": true,
+     "speaker": "formateur",
+     "avatar_seed": "Formateur",
+     "translation": "Ham",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M"
+   ],
+   "tutor_instruction": "Posez des questions sur les mots.",
+   "student_instruction": "Cliquez sur la lettre qui commence le mot.",
+   "valid_answers_by_blank": {
+    "1": [
+     "J"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Quiz",
+   "number": 7,
+   "example": {
+    "tutor_line": "Jambon",
+    "student_line": "J"
+   },
+   "exchanges": [
+    {
+     "text": "J",
+     "blank": true,
+     "speaker": "Jambon ____",
+     "avatar_seed": "Formateur",
+     "translation": "Ham",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M"
+   ],
+   "tutor_instruction": "Posez des questions sur les mots.",
+   "student_instruction": "Cliquez sur la lettre qui commence le mot.",
+   "valid_answers_by_blank": {
+    "1": [
+     "J"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "21c0fa05-0d5c-4509-940c-60cc2d3f6313",
+  "title": "Alphabet (G-M)",
+  "i": 9,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Quiz",
+   "number": 10,
+   "example": {
+    "tutor_line": "Kangourou",
+    "student_line": "K"
+   },
+   "exchanges": [
+    {
+     "text": "Kangourou",
+     "blank": true,
+     "speaker": "formateur",
+     "avatar_seed": "Formateur",
+     "translation": "Kangaroo",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M"
+   ],
+   "tutor_instruction": "Posez des questions sur les mots.",
+   "student_instruction": "Cliquez sur la lettre qui commence le mot.",
+   "valid_answers_by_blank": {
+    "1": [
+     "K"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Quiz",
+   "number": 10,
+   "example": {
+    "tutor_line": "Kangourou",
+    "student_line": "K"
+   },
+   "exchanges": [
+    {
+     "text": "K",
+     "blank": true,
+     "speaker": "Kangourou ____",
+     "avatar_seed": "Formateur",
+     "translation": "Kangaroo",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M"
+   ],
+   "tutor_instruction": "Posez des questions sur les mots.",
+   "student_instruction": "Cliquez sur la lettre qui commence le mot.",
+   "valid_answers_by_blank": {
+    "1": [
+     "K"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "bb03cd48-048a-457a-836e-6faa4aca87a4",
+  "title": "Partagez vos connaissances de la langue",
+  "i": 4,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 5,
+   "example": {
+    "tutor_line": "La _______ s'intéresse à la production des sons de la parole.",
+    "student_line": "La phonétique s'intéresse à la production des sons de la parole."
+   },
+   "exchanges": [
+    {
+     "text": "La _______ s'intéresse à la production des sons de la parole.",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "Phonetics focuses on the production of speech sounds.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "La _______ se concentre sur la formation des phrases.",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "Syntax focuses on the formation of sentences.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "La _______ est l'étude de la signification des mots et des phrases.",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "Semantics is the study of the meaning of words and phrases.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Le _______ peut enrichir la compétence linguistique des locuteurs.",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "Bilingualism can enrich the linguistic competence of speakers.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "La _______ examine comment les mots sont structurés.",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "Morphology examines how words are structured.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Le contexte joue un rôle crucial dans la _______.",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "Context plays a crucial role in pragmatics.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "bilinguisme",
+    "morphologie",
+    "pragmatique",
+    "phonétique",
+    "syntaxe",
+    "sémantique"
+   ],
+   "tutor_instruction": "Guide students to think about the context of each blank.",
+   "student_instruction": "Complétez les phrases avec les mots suivants. Utilisez un seul mot par blanc.",
+   "valid_answers_by_blank": {
+    "1": [
+     "phonétique"
+    ],
+    "2": [
+     "syntaxe"
+    ],
+    "3": [
+     "sémantique"
+    ],
+    "4": [
+     "bilinguisme"
+    ],
+    "5": [
+     "morphologie"
+    ],
+    "6": [
+     "pragmatique"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 5,
+   "example": {
+    "tutor_line": "La _______ s'intéresse à la production des sons de la parole.",
+    "student_line": "La phonétique s'intéresse à la production des sons de la parole."
+   },
+   "exchanges": [
+    {
+     "text": "phonétique",
+     "blank": true,
+     "speaker": "La ____ s'intéresse à la production des sons de la parole.",
+     "avatar_seed": "Professeur",
+     "translation": "Phonetics focuses on the production of speech sounds.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "syntaxe",
+     "blank": true,
+     "speaker": "La ____ se concentre sur la formation des phrases.",
+     "avatar_seed": "Professeur",
+     "translation": "Syntax focuses on the formation of sentences.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "sémantique",
+     "blank": true,
+     "speaker": "La ____ est l'étude de la signification des mots et des phrases.",
+     "avatar_seed": "Professeur",
+     "translation": "Semantics is the study of the meaning of words and phrases.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "bilinguisme",
+     "blank": true,
+     "speaker": "Le ____ peut enrichir la compétence linguistique des locuteurs.",
+     "avatar_seed": "Professeur",
+     "translation": "Bilingualism can enrich the linguistic competence of speakers.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "morphologie",
+     "blank": true,
+     "speaker": "La ____ examine comment les mots sont structurés.",
+     "avatar_seed": "Professeur",
+     "translation": "Morphology examines how words are structured.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "pragmatique",
+     "blank": true,
+     "speaker": "Le contexte joue un rôle crucial dans la ____.",
+     "avatar_seed": "Professeur",
+     "translation": "Context plays a crucial role in pragmatics.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "bilinguisme",
+    "morphologie",
+    "pragmatique",
+    "phonétique",
+    "syntaxe",
+    "sémantique"
+   ],
+   "tutor_instruction": "Guide students to think about the context of each blank.",
+   "student_instruction": "Complétez les phrases avec les mots suivants. Utilisez un seul mot par blanc.",
+   "valid_answers_by_blank": {
+    "1": [
+     "phonétique"
+    ],
+    "2": [
+     "syntaxe"
+    ],
+    "3": [
+     "sémantique"
+    ],
+    "4": [
+     "bilinguisme"
+    ],
+    "5": [
+     "morphologie"
+    ],
+    "6": [
+     "pragmatique"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "d614f679-6d7c-437a-a151-2badfaab00f0",
+  "title": "Leçon 8: Gardez ce vocabulaire de travail \"à portée de main\"",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "J'ai décidé que je ne voulais pas d’un emploi ____.",
+    "student_line": "temporaire."
+   },
+   "exchanges": [
+    {
+     "text": "J'ai décidé que je ne voulais pas d’un emploi ____.",
+     "blank": true,
+     "speaker": "student",
+     "avatar_seed": "Student",
+     "translation": "I decided that I didn't want a ____ job.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Nos bureaux sont ouverts ____ pour nos clients partout dans le monde.",
+     "blank": true,
+     "speaker": "tutor",
+     "avatar_seed": "Tutor",
+     "translation": "Our offices are open ____ for our clients around the world.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Les étudiants trouvent souvent des emplois ____ pendant les vacances.",
+     "blank": true,
+     "speaker": "student",
+     "avatar_seed": "Student",
+     "translation": "Students often find ____ jobs during the holidays.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "J'ai travaillé le ____ à la station-service durant mes études.",
+     "blank": true,
+     "speaker": "tutor",
+     "avatar_seed": "Tutor",
+     "translation": "I worked the ____ at the gas station during my studies.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Mon ami est ____ ; il travaille pour lui-même et pour plusieurs clients.",
+     "blank": true,
+     "speaker": "student",
+     "avatar_seed": "Student",
+     "translation": "My friend is ____; he works for himself and for several clients.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "24/7",
+    "Temporaire",
+    "Travail posté",
+    "Quart de cimetière",
+    "Freelance",
+    "Temporaire"
+   ],
+   "tutor_instruction": "Guide les étudiants pour qu'ils choisissent les bons mots.",
+   "student_instruction": "Complétez les phrases avec les mots du pool de réponses ci-dessous.",
+   "valid_answers_by_blank": {
+    "1": [
+     "Temporaire"
+    ],
+    "2": [
+     "24/7"
+    ],
+    "3": [
+     "Temporaire"
+    ],
+    "4": [
+     "Quart de cimetière"
+    ],
+    "5": [
+     "Freelance"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "J'ai décidé que je ne voulais pas d’un emploi ____.",
+    "student_line": "temporaire."
+   },
+   "exchanges": [
+    {
+     "text": "Temporaire",
+     "blank": true,
+     "speaker": "J'ai décidé que je ne voulais pas d’un emploi ____.",
+     "avatar_seed": "Student",
+     "translation": "I decided that I didn't want a ____ job.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "24/7",
+     "blank": true,
+     "speaker": "Nos bureaux sont ouverts ____ pour nos clients partout dans le monde.",
+     "avatar_seed": "Tutor",
+     "translation": "Our offices are open ____ for our clients around the world.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Temporaire",
+     "blank": true,
+     "speaker": "Les étudiants trouvent souvent des emplois ____ pendant les vacances.",
+     "avatar_seed": "Student",
+     "translation": "Students often find ____ jobs during the holidays.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Quart de cimetière",
+     "blank": true,
+     "speaker": "J'ai travaillé le ____ à la station-service durant mes études.",
+     "avatar_seed": "Tutor",
+     "translation": "I worked the ____ at the gas station during my studies.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Freelance",
+     "blank": true,
+     "speaker": "Mon ami est ____ ; il travaille pour lui-même et pour plusieurs clients.",
+     "avatar_seed": "Student",
+     "translation": "My friend is ____; he works for himself and for several clients.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "24/7",
+    "Temporaire",
+    "Travail posté",
+    "Quart de cimetière",
+    "Freelance",
+    "Temporaire"
+   ],
+   "tutor_instruction": "Guide les étudiants pour qu'ils choisissent les bons mots.",
+   "student_instruction": "Complétez les phrases avec les mots du pool de réponses ci-dessous.",
+   "valid_answers_by_blank": {
+    "1": [
+     "Temporaire"
+    ],
+    "2": [
+     "24/7"
+    ],
+    "3": [
+     "Temporaire"
+    ],
+    "4": [
+     "Quart de cimetière"
+    ],
+    "5": [
+     "Freelance"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "d864c018-8e82-42a1-bb9e-ca4fd4234263",
+  "title": "Afrique du Sud",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Complétez la phrase : L'Afrique du Sud est célèbre pour ses magnifiques ________.",
+    "student_line": "vignobles"
+   },
+   "exchanges": [
+    {
+     "text": "L'Afrique du Sud est célèbre pour ses magnifiques ________.",
+     "blank": true,
+     "speaker": "student",
+     "avatar_seed": "Student",
+     "translation": "South Africa is famous for its beautiful ________.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Pendant son voyage, Max a eu l'occasion de faire un ________.",
+     "blank": true,
+     "speaker": "tutor",
+     "avatar_seed": "Tutor",
+     "translation": "During his trip, Max had the opportunity to go on a ________.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Le ________ est un événement majeur de l’histoire sud-africaine.",
+     "blank": true,
+     "speaker": "student",
+     "avatar_seed": "Student",
+     "translation": "The ________ is a major event in South African history.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Anissa a goûté du ________, un snack populaire en Afrique du Sud.",
+     "blank": true,
+     "speaker": "tutor",
+     "avatar_seed": "Tutor",
+     "translation": "Anissa tasted ________, a popular snack in South Africa.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "La diversité culturelle en Afrique du Sud est incroyable. On y trouve des ________ très différentes selon les régions.",
+     "blank": true,
+     "speaker": "student",
+     "avatar_seed": "Student",
+     "translation": "The cultural diversity in South Africa is incredible. There are ________ very different depending on the regions.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "vignobles",
+    "safari",
+    "apartheid",
+    "biltong",
+    "cultures"
+   ],
+   "tutor_instruction": "Encourage students to think critically about vocabulary usage.",
+   "student_instruction": "Complétez les phrases avec les mots appropriés.",
+   "valid_answers_by_blank": {
+    "0": [
+     "vignobles"
+    ],
+    "1": [
+     "safari"
+    ],
+    "2": [
+     "apartheid"
+    ],
+    "3": [
+     "biltong"
+    ],
+    "4": [
+     "cultures"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Complétez la phrase : L'Afrique du Sud est célèbre pour ses magnifiques ________.",
+    "student_line": "vignobles"
+   },
+   "exchanges": [
+    {
+     "text": "vignobles",
+     "blank": true,
+     "speaker": "L'Afrique du Sud est célèbre pour ses magnifiques ____.",
+     "avatar_seed": "Student",
+     "translation": "South Africa is famous for its beautiful ________.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "safari",
+     "blank": true,
+     "speaker": "Pendant son voyage, Max a eu l'occasion de faire un ____.",
+     "avatar_seed": "Tutor",
+     "translation": "During his trip, Max had the opportunity to go on a ________.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "apartheid",
+     "blank": true,
+     "speaker": "Le ____ est un événement majeur de l’histoire sud-africaine.",
+     "avatar_seed": "Student",
+     "translation": "The ________ is a major event in South African history.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "biltong",
+     "blank": true,
+     "speaker": "Anissa a goûté du ____, un snack populaire en Afrique du Sud.",
+     "avatar_seed": "Tutor",
+     "translation": "Anissa tasted ________, a popular snack in South Africa.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "cultures",
+     "blank": true,
+     "speaker": "La diversité culturelle en Afrique du Sud est incroyable. On y trouve des ____ très différentes selon les régions.",
+     "avatar_seed": "Student",
+     "translation": "The cultural diversity in South Africa is incredible. There are ________ very different depending on the regions.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "vignobles",
+    "safari",
+    "apartheid",
+    "biltong",
+    "cultures"
+   ],
+   "tutor_instruction": "Encourage students to think critically about vocabulary usage.",
+   "student_instruction": "Complétez les phrases avec les mots appropriés.",
+   "valid_answers_by_blank": {
+    "0": [
+     "vignobles"
+    ],
+    "1": [
+     "safari"
+    ],
+    "2": [
+     "apartheid"
+    ],
+    "3": [
+     "biltong"
+    ],
+    "4": [
+     "cultures"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "0fbc1098-afd6-476c-a0c2-c804fe195f73",
+  "title": "Les affaires sont la guerre, alors ne soyez pas \"pris au dépourvu\"",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "La plupart des _______ proviennent de la vente de produits.",
+    "student_line": "La plupart des actions proviennent de la vente de produits."
+   },
+   "exchanges": [
+    {
+     "text": "La plupart des _______ proviennent de la vente de produits.",
+     "blank": true,
+     "speaker": "La plupart des _______ proviennent de la vente de produits.",
+     "avatar_seed": "Tutor",
+     "translation": "Most _______ come from product sales.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Mon partenaire pris au dépourvu lorsqu'il s'agit de son entreprise.",
+     "blank": true,
+     "speaker": "Mon partenaire ________ lorsqu'il s'agit de son entreprise.",
+     "avatar_seed": "Student",
+     "translation": "My partner ________ when it comes to his business.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "L'entreprise a ________ des bénéfices records ce trimestre.",
+     "blank": true,
+     "speaker": "L'entreprise a ________ des bénéfices records ce trimestre.",
+     "avatar_seed": "Tutor",
+     "translation": "The company ________ record profits this quarter.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Notre équipe a été prise au dépourvu par la nouvelle réglementation.",
+     "blank": true,
+     "speaker": "Notre équipe a été ________ par la nouvelle réglementation.",
+     "avatar_seed": "Student",
+     "translation": "Our team was ________ by the new regulations.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Mon ami a ________ des actions d'une start-up au moment opportun.",
+     "blank": true,
+     "speaker": "Mon ami a ________ des actions d'une start-up au moment opportun.",
+     "avatar_seed": "Tutor",
+     "translation": "My friend ________ shares of a startup at the right time.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "Gagner",
+    "pris au dépourvu",
+    "fait un meurtre",
+    "pris au dépourvu",
+    "vendre"
+   ],
+   "tutor_instruction": "Guide les étudiants à choisir les bons mots.",
+   "student_instruction": "Complétez les phrases avec les mots appropriés.",
+   "valid_answers_by_blank": {
+    "1": [
+     "Gagner"
+    ],
+    "2": [
+     "pris au dépourvu"
+    ],
+    "3": [
+     "fait un meurtre"
+    ],
+    "4": [
+     "pris au dépourvu"
+    ],
+    "5": [
+     "vendre"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "La plupart des _______ proviennent de la vente de produits.",
+    "student_line": "La plupart des actions proviennent de la vente de produits."
+   },
+   "exchanges": [
+    {
+     "text": "revenus",
+     "blank": true,
+     "speaker": "La plupart des ____ proviennent de la vente de produits.",
+     "avatar_seed": "Tutor",
+     "translation": "Most _______ come from product sales.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "pris au dépourvu",
+     "blank": true,
+     "speaker": "Mon partenaire pris au dépourvu lorsqu'il s'agit de son entreprise. ____",
+     "avatar_seed": "Student",
+     "translation": "My partner ________ when it comes to his business.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Gagner",
+     "blank": true,
+     "speaker": "L'entreprise a ____ des bénéfices records ce trimestre.",
+     "avatar_seed": "Tutor",
+     "translation": "The company ________ record profits this quarter.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "pris au dépourvu",
+     "blank": true,
+     "speaker": "Notre équipe a été prise au dépourvu par la nouvelle réglementation. ____",
+     "avatar_seed": "Student",
+     "translation": "Our team was ________ by the new regulations.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "vendre",
+     "blank": true,
+     "speaker": "Mon ami a ____ des actions d'une start-up au moment opportun.",
+     "avatar_seed": "Tutor",
+     "translation": "My friend ________ shares of a startup at the right time.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "Gagner",
+    "pris au dépourvu",
+    "fait un meurtre",
+    "pris au dépourvu",
+    "vendre",
+    "revenus"
+   ],
+   "tutor_instruction": "Guide les étudiants à choisir les bons mots.",
+   "student_instruction": "Complétez les phrases avec les mots appropriés.",
+   "valid_answers_by_blank": {
+    "1": [
+     "Gagner"
+    ],
+    "2": [
+     "pris au dépourvu"
+    ],
+    "3": [
+     "fait un meurtre"
+    ],
+    "4": [
+     "pris au dépourvu"
+    ],
+    "5": [
+     "vendre"
+    ]
+   }
+  },
+  "added": 1,
+  "missing": 0
+ },
+ {
+  "id": "bb1922dc-03e8-4bab-b518-b9e58d9fdce1",
+  "title": "Sud des États-Unis",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Complétez la phrase : Le ________ est un genre musical typique du Sud des États-Unis.",
+    "student_line": "Le blues est un genre musical typique du Sud des États-Unis."
+   },
+   "exchanges": [
+    {
+     "text": "Le blues est un genre musical typique du Sud des États-Unis.",
+     "blank": true,
+     "speaker": "Max",
+     "avatar_seed": "Max",
+     "translation": "Blues is a typical musical genre of the Southern United States.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Anissa adore les plats cajun, comme le gumbo et le jambalaya.",
+     "blank": true,
+     "speaker": "Anissa",
+     "avatar_seed": "Anissa",
+     "translation": "Anissa loves cajun dishes, like gumbo and jambalaya.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Pendant le Mardi Gras, les rues de la Nouvelle-Orléans sont pleines de musique et de parades colorées.",
+     "blank": true,
+     "speaker": "Max",
+     "avatar_seed": "Max",
+     "translation": "During Mardi Gras, the streets of New Orleans are full of music and colorful parades.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Les gens du Sud sont connus pour leur southern hospitality et leur accueil chaleureux.",
+     "blank": true,
+     "speaker": "Anissa",
+     "avatar_seed": "Anissa",
+     "translation": "People in the South are known for their southern hospitality and warm welcome.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Max et Anissa vont souvent à une fête pour se retrouver avec des amis et cuisiner ensemble.",
+     "blank": true,
+     "speaker": "Max",
+     "avatar_seed": "Max",
+     "translation": "Max and Anissa often go to a party to meet with friends and cook together.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "fête",
+    "blues",
+    "cajun",
+    "Mardi Gras",
+    "southern hospitality"
+   ],
+   "tutor_instruction": "Guide les étudiants à travers les phrases.",
+   "student_instruction": "Complétez les phrases avec les mots appropriés.",
+   "valid_answers_by_blank": {
+    "1": [
+     "blues"
+    ],
+    "2": [
+     "cajun"
+    ],
+    "3": [
+     "Mardi Gras"
+    ],
+    "4": [
+     "southern hospitality"
+    ],
+    "5": [
+     "fête"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Complétez la phrase : Le ________ est un genre musical typique du Sud des États-Unis.",
+    "student_line": "Le blues est un genre musical typique du Sud des États-Unis."
+   },
+   "exchanges": [
+    {
+     "text": "blues",
+     "blank": true,
+     "speaker": "Le blues est un genre musical typique du Sud des États-Unis. ____",
+     "avatar_seed": "Max",
+     "translation": "Blues is a typical musical genre of the Southern United States.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "cajun",
+     "blank": true,
+     "speaker": "Anissa adore les plats cajun, comme le gumbo et le jambalaya. ____",
+     "avatar_seed": "Anissa",
+     "translation": "Anissa loves cajun dishes, like gumbo and jambalaya.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Mardi Gras",
+     "blank": true,
+     "speaker": "Pendant le Mardi Gras, les rues de la Nouvelle-Orléans sont pleines de musique et de parades colorées. ____",
+     "avatar_seed": "Max",
+     "translation": "During Mardi Gras, the streets of New Orleans are full of music and colorful parades.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "hospitalité du Sud",
+     "blank": true,
+     "speaker": "Les gens du Sud sont connus pour leur southern hospitality et leur accueil chaleureux. ____",
+     "avatar_seed": "Anissa",
+     "translation": "People in the South are known for their southern hospitality and warm welcome.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "fête",
+     "blank": true,
+     "speaker": "Max et Anissa vont souvent à une fête pour se retrouver avec des amis et cuisiner ensemble. ____",
+     "avatar_seed": "Max",
+     "translation": "Max and Anissa often go to a party to meet with friends and cook together.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "fête",
+    "blues",
+    "cajun",
+    "Mardi Gras",
+    "southern hospitality",
+    "hospitalité du Sud"
+   ],
+   "tutor_instruction": "Guide les étudiants à travers les phrases.",
+   "student_instruction": "Complétez les phrases avec les mots appropriés.",
+   "valid_answers_by_blank": {
+    "1": [
+     "blues"
+    ],
+    "2": [
+     "cajun"
+    ],
+    "3": [
+     "Mardi Gras"
+    ],
+    "4": [
+     "southern hospitality"
+    ],
+    "5": [
+     "fête"
+    ]
+   }
+  },
+  "added": 1,
+  "missing": 0
+ },
+ {
+  "id": "d7068f98-6f66-4b58-bab2-62feee1223af",
+  "title": "Atterrissage",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue_extended",
+   "title": "Dialogues en situation",
+   "number": 4,
+   "example": {
+    "tutor_line": "Eli : Bonjour, est-ce que nous avons un retard pour l'__________ ?",
+    "student_line": "Personnel de cabine : Non, nous sommes à l'heure. Nous allons __________ dans cinq minutes. Veuillez attacher votre __________."
+   },
+   "exchanges": [
+    {
+     "text": "Bonjour, est-ce que nous avons un retard pour l'__________ ?",
+     "blank": true,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "Hello, are we delayed for the __________ ?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Non, nous sommes à l'heure. Nous allons __________ dans cinq minutes. Veuillez attacher votre __________.",
+     "blank": true,
+     "speaker": "Personnel de cabine",
+     "avatar_seed": "Cabin Crew",
+     "translation": "No, we are on time. We will __________ in five minutes. Please fasten your __________.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "tutor_role": "tutor",
+   "answer_pool": [
+    "atterrir",
+    "atterrissage",
+    "sangles de sécurité"
+   ],
+   "student_role": "student",
+   "tutor_instruction": "Aidez les étudiants à comprendre le dialogue.",
+   "student_instruction": "Lisez le dialogue suivant entre Eli et un membre du personnel de cabine, puis complétez les phrases manquantes.",
+   "valid_answers_by_blank": {
+    "0": [
+     "atterrir"
+    ],
+    "1": [
+     "atterrissage"
+    ],
+    "2": [
+     "sangles de sécurité"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue_extended",
+   "title": "Dialogues en situation",
+   "number": 4,
+   "example": {
+    "tutor_line": "Eli : Bonjour, est-ce que nous avons un retard pour l'__________ ?",
+    "student_line": "Personnel de cabine : Non, nous sommes à l'heure. Nous allons __________ dans cinq minutes. Veuillez attacher votre __________."
+   },
+   "exchanges": [
+    {
+     "text": "atterrissage",
+     "blank": true,
+     "speaker": "Bonjour, est-ce que nous avons un retard pour l'____ ?",
+     "avatar_seed": "Eli",
+     "translation": "Hello, are we delayed for the __________ ?",
+     "speaker_role": "student"
+    },
+    {
+     "text": "atterrir",
+     "blank": true,
+     "speaker": "Non, nous sommes à l'heure. Nous allons ____ dans cinq minutes. Veuillez attacher votre ____.",
+     "avatar_seed": "Cabin Crew",
+     "translation": "No, we are on time. We will __________ in five minutes. Please fasten your __________.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "tutor_role": "tutor",
+   "answer_pool": [
+    "atterrir",
+    "atterrissage",
+    "sangles de sécurité"
+   ],
+   "student_role": "student",
+   "tutor_instruction": "Aidez les étudiants à comprendre le dialogue.",
+   "student_instruction": "Lisez le dialogue suivant entre Eli et un membre du personnel de cabine, puis complétez les phrases manquantes.",
+   "valid_answers_by_blank": {
+    "0": [
+     "atterrir"
+    ],
+    "1": [
+     "atterrissage"
+    ],
+    "2": [
+     "sangles de sécurité"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "88de3059-9a6f-4ada-9d3b-9729017b1664",
+  "title": "Discutez des découvertes scientifiques et des avancées technologiques",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Phrases courantes",
+   "number": 4,
+   "example": {
+    "tutor_line": "J'___ utiliser une nouvelle technologie.",
+    "student_line": "Je veux utiliser une nouvelle technologie."
+   },
+   "exchanges": [
+    {
+     "text": "J'___ utiliser une nouvelle technologie.",
+     "blank": true,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "I ___ want to use a new technology.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Je n'___ pas encore comprendre l'intelligence artificielle.",
+     "blank": true,
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "I ___ still do not understand artificial intelligence.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Je ___ découvrir plus sur les énergies renouvelables.",
+     "blank": true,
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "I ___ want to discover more about renewable energies.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "veux",
+    "comprends",
+    "veux"
+   ],
+   "tutor_instruction": "Faites pratiquer les phrases avec des exemples personnels.",
+   "student_instruction": "Écoutez et répétez ces phrases avec votre tuteur.",
+   "valid_answers_by_blank": {
+    "1": [
+     "veux"
+    ],
+    "2": [
+     "comprends"
+    ],
+    "3": [
+     "veux"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Phrases courantes",
+   "number": 4,
+   "example": {
+    "tutor_line": "J'___ utiliser une nouvelle technologie.",
+    "student_line": "Je veux utiliser une nouvelle technologie."
+   },
+   "exchanges": [
+    {
+     "text": "veux",
+     "blank": true,
+     "speaker": "J'____ utiliser une nouvelle technologie.",
+     "avatar_seed": "Eli",
+     "translation": "I ___ want to use a new technology.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "comprends",
+     "blank": true,
+     "speaker": "Je n'____ pas encore comprendre l'intelligence artificielle.",
+     "avatar_seed": "Alex",
+     "translation": "I ___ still do not understand artificial intelligence.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "veux",
+     "blank": true,
+     "speaker": "Je ____ découvrir plus sur les énergies renouvelables.",
+     "avatar_seed": "Eli",
+     "translation": "I ___ want to discover more about renewable energies.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "veux",
+    "comprends",
+    "veux"
+   ],
+   "tutor_instruction": "Faites pratiquer les phrases avec des exemples personnels.",
+   "student_instruction": "Écoutez et répétez ces phrases avec votre tuteur.",
+   "valid_answers_by_blank": {
+    "1": [
+     "veux"
+    ],
+    "2": [
+     "comprends"
+    ],
+    "3": [
+     "veux"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "f6456230-fced-44e9-9b0e-cf7c2372174a",
+  "title": "États-Unis",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Les gratte-ciels de New York sont ________ et impressionnants.",
+    "student_line": "Les gratte-ciels de New York sont grands et impressionnants."
+   },
+   "exchanges": [
+    {
+     "text": "Les gratte-ciels de New York sont ________ et impressionnants.",
+     "blank": true,
+     "speaker": "Max",
+     "avatar_seed": "Max",
+     "translation": "The skyscrapers of New York are ________ and impressive.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Max et Anissa ont fait un ________ à travers les États-Unis pendant leurs vacances.",
+     "blank": true,
+     "speaker": "Anissa",
+     "avatar_seed": "Anissa",
+     "translation": "Max and Anissa went on a ________ across the United States during their vacation.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "divertissement",
+    "chill",
+    "indépendance",
+    "road trip",
+    "grande"
+   ],
+   "tutor_instruction": "Guide les étudiants à choisir les bons mots.",
+   "student_instruction": "Complétez les phrases avec les mots appropriés.",
+   "valid_answers_by_blank": {
+    "0": [
+     "grande"
+    ],
+    "1": [
+     "road trip"
+    ],
+    "2": [
+     "indépendance"
+    ],
+    "3": [
+     "divertissement"
+    ],
+    "4": [
+     "chill"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Les gratte-ciels de New York sont ________ et impressionnants.",
+    "student_line": "Les gratte-ciels de New York sont grands et impressionnants."
+   },
+   "exchanges": [
+    {
+     "text": "grande",
+     "blank": true,
+     "speaker": "Les gratte-ciels de New York sont ____ et impressionnants.",
+     "avatar_seed": "Max",
+     "translation": "The skyscrapers of New York are ________ and impressive.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "road trip",
+     "blank": true,
+     "speaker": "Max et Anissa ont fait un ____ à travers les États-Unis pendant leurs vacances.",
+     "avatar_seed": "Anissa",
+     "translation": "Max and Anissa went on a ________ across the United States during their vacation.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "divertissement",
+    "chill",
+    "indépendance",
+    "road trip",
+    "grande"
+   ],
+   "tutor_instruction": "Guide les étudiants à choisir les bons mots.",
+   "student_instruction": "Complétez les phrases avec les mots appropriés.",
+   "valid_answers_by_blank": {
+    "0": [
+     "grande"
+    ],
+    "1": [
+     "road trip"
+    ],
+    "2": [
+     "indépendance"
+    ],
+    "3": [
+     "divertissement"
+    ],
+    "4": [
+     "chill"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "ae33cedf-a8f3-4648-85fe-84f22bbcba6c",
+  "title": "Parlez des défis et des récompenses de la fixation d'objectifs",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez les phrases",
+   "number": 4,
+   "example": {
+    "tutor_line": "Je me ____ parfois, mais je continue.",
+    "student_line": "Je me décourage parfois, mais je continue."
+   },
+   "exchanges": [
+    {
+     "text": "Je ____ (se décourager) parfois, mais je continue.",
+     "blank": true,
+     "speaker": "student",
+     "avatar_seed": "Student",
+     "translation": "I ____ sometimes, but I continue.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Mon plus grand défi est ______ (trouver) le temps pour travailler sur mon objectif.",
+     "blank": true,
+     "speaker": "student",
+     "avatar_seed": "Student",
+     "translation": "My biggest challenge is ______ the time to work on my goal.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "Après avoir atteint une étape, je me ______ (récompenser) avec un film.",
+     "blank": true,
+     "speaker": "student",
+     "avatar_seed": "Student",
+     "translation": "After reaching a milestone, I ______ myself with a movie.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "se décourager",
+    "trouver",
+    "récompenser"
+   ],
+   "tutor_instruction": "Guide the students to fill in the blanks.",
+   "student_instruction": "Complétez les phrases avec les verbes pronominaux et le vocabulaire approprié.",
+   "valid_answers_by_blank": {
+    "0": [
+     "se décourager"
+    ],
+    "1": [
+     "trouver"
+    ],
+    "2": [
+     "récompenser"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez les phrases",
+   "number": 4,
+   "example": {
+    "tutor_line": "Je me ____ parfois, mais je continue.",
+    "student_line": "Je me décourage parfois, mais je continue."
+   },
+   "exchanges": [
+    {
+     "text": "se décourager",
+     "blank": true,
+     "speaker": "Je ____ (se décourager) parfois, mais je continue.",
+     "avatar_seed": "Student",
+     "translation": "I ____ sometimes, but I continue.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "trouver",
+     "blank": true,
+     "speaker": "Mon plus grand défi est ____ (trouver) le temps pour travailler sur mon objectif.",
+     "avatar_seed": "Student",
+     "translation": "My biggest challenge is ______ the time to work on my goal.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "récompenser",
+     "blank": true,
+     "speaker": "Après avoir atteint une étape, je me ____ (récompenser) avec un film.",
+     "avatar_seed": "Student",
+     "translation": "After reaching a milestone, I ______ myself with a movie.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "se décourager",
+    "trouver",
+    "récompenser"
+   ],
+   "tutor_instruction": "Guide the students to fill in the blanks.",
+   "student_instruction": "Complétez les phrases avec les verbes pronominaux et le vocabulaire approprié.",
+   "valid_answers_by_blank": {
+    "0": [
+     "se décourager"
+    ],
+    "1": [
+     "trouver"
+    ],
+    "2": [
+     "récompenser"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "c1209999-5e4d-49f9-822a-89e07a29bdd2",
+  "title": "Secouez-le avec ces expressions de contrat d'affaires",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Nous avons finalement accepté les termes du contrat et avons décidé de _________.",
+    "student_line": "Nous avons finalement accepté les termes du contrat et avons décidé de conclure l'accord."
+   },
+   "exchanges": [
+    {
+     "text": "Nous avons finalement accepté les termes du contrat et avons décidé de _________.",
+     "blank": true,
+     "speaker": "Nous avons finalement accepté les termes du contrat et avons décidé de _________.",
+     "avatar_seed": "Tutor",
+     "translation": "We finally accepted the terms of the contract and decided to _________.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Assurez-vous de lire les _________ avant de signer le contrat.",
+     "blank": true,
+     "speaker": "Assurez-vous de lire les _________ avant de signer le contrat.",
+     "avatar_seed": "Tutor",
+     "translation": "Make sure to read the _________ before signing the contract.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "La négociation s'est bien passée et les deux _________ ont obtenu un bénéfice satisfaisant.",
+     "blank": true,
+     "speaker": "La négociation s'est bien passée et les deux _________ ont obtenu un bénéfice satisfaisant.",
+     "avatar_seed": "Tutor",
+     "translation": "The negotiation went well and both _________ achieved a satisfactory profit.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Certains magasins dans les zones touristiques _________ pour les clients étrangers.",
+     "blank": true,
+     "speaker": "Certains magasins dans les zones touristiques _________ pour les clients étrangers.",
+     "avatar_seed": "Tutor",
+     "translation": "Some stores in tourist areas _________ for foreign customers.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "N'oubliez pas de _________ lorsque vous achetez des souvenirs en Tunisie.",
+     "blank": true,
+     "speaker": "N'oubliez pas de _________ lorsque vous achetez des souvenirs en Tunisie.",
+     "avatar_seed": "Tutor",
+     "translation": "Don't forget to _________ when buying souvenirs in Tunisia.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Tout ce que vous avez à faire est de _________ et le contrat sera officiellement conclu.",
+     "blank": true,
+     "speaker": "Tout ce que vous avez à faire est de _________ et le contrat sera officiellement conclu.",
+     "avatar_seed": "Tutor",
+     "translation": "All you have to do is _________ and the contract will be officially concluded.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "petits caractères",
+    "parties",
+    "augmenter le prix",
+    "marchander",
+    "signer sur la ligne pointillée",
+    "conclure l'accord",
+    "marchander"
+   ],
+   "tutor_instruction": "Guide les étudiants à choisir les bons mots pour compléter les phrases.",
+   "student_instruction": "Complétez les phrases en utilisant le vocabulaire approprié.",
+   "valid_answers_by_blank": {
+    "0": [
+     "conclure l'accord"
+    ],
+    "1": [
+     "petits caractères"
+    ],
+    "2": [
+     "parties"
+    ],
+    "3": [
+     "marchander"
+    ],
+    "4": [
+     "marchander"
+    ],
+    "5": [
+     "signer sur la ligne pointillée"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "Nous avons finalement accepté les termes du contrat et avons décidé de _________.",
+    "student_line": "Nous avons finalement accepté les termes du contrat et avons décidé de conclure l'accord."
+   },
+   "exchanges": [
+    {
+     "text": "conclure l'accord",
+     "blank": true,
+     "speaker": "Nous avons finalement accepté les termes du contrat et avons décidé de ____.",
+     "avatar_seed": "Tutor",
+     "translation": "We finally accepted the terms of the contract and decided to _________.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "petits caractères",
+     "blank": true,
+     "speaker": "Assurez-vous de lire les ____ avant de signer le contrat.",
+     "avatar_seed": "Tutor",
+     "translation": "Make sure to read the _________ before signing the contract.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "parties",
+     "blank": true,
+     "speaker": "La négociation s'est bien passée et les deux ____ ont obtenu un bénéfice satisfaisant.",
+     "avatar_seed": "Tutor",
+     "translation": "The negotiation went well and both _________ achieved a satisfactory profit.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "augmenter le prix",
+     "blank": true,
+     "speaker": "Certains magasins dans les zones touristiques ____ pour les clients étrangers.",
+     "avatar_seed": "Tutor",
+     "translation": "Some stores in tourist areas _________ for foreign customers.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "marchander",
+     "blank": true,
+     "speaker": "N'oubliez pas de ____ lorsque vous achetez des souvenirs en Tunisie.",
+     "avatar_seed": "Tutor",
+     "translation": "Don't forget to _________ when buying souvenirs in Tunisia.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "signer sur la ligne pointillée",
+     "blank": true,
+     "speaker": "Tout ce que vous avez à faire est de ____ et le contrat sera officiellement conclu.",
+     "avatar_seed": "Tutor",
+     "translation": "All you have to do is _________ and the contract will be officially concluded.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "petits caractères",
+    "parties",
+    "augmenter le prix",
+    "marchander",
+    "signer sur la ligne pointillée",
+    "conclure l'accord",
+    "marchander"
+   ],
+   "tutor_instruction": "Guide les étudiants à choisir les bons mots pour compléter les phrases.",
+   "student_instruction": "Complétez les phrases en utilisant le vocabulaire approprié.",
+   "valid_answers_by_blank": {
+    "0": [
+     "conclure l'accord"
+    ],
+    "1": [
+     "petits caractères"
+    ],
+    "2": [
+     "parties"
+    ],
+    "3": [
+     "marchander"
+    ],
+    "4": [
+     "marchander"
+    ],
+    "5": [
+     "signer sur la ligne pointillée"
+    ]
+   }
+  },
+  "added": 0,
+  "missing": 0
+ },
+ {
+  "id": "dcd8a9f2-c442-4911-bf06-98db3379f09f",
+  "title": "Discutez de questions philosophiques",
+  "i": 5,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez les phrases",
+   "number": 6,
+   "example": {
+    "tutor_line": "La conscience est considérée comme une forme de...",
+    "student_line": "illusion."
+   },
+   "exchanges": [
+    {
+     "text": "illusion",
+     "blank": true,
+     "speaker": "student",
+     "avatar_seed": "Ben",
+     "translation": "illusion",
+     "speaker_role": "student"
+    },
+    {
+     "text": "liberté",
+     "blank": true,
+     "speaker": "student",
+     "avatar_seed": "Ben",
+     "translation": "freedom",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "illusion",
+    "liberté",
+    "contrainte"
+   ],
+   "tutor_instruction": "Discutez des réponses après que l'étudiant ait complété les phrases.",
+   "student_instruction": "Choisissez la bonne réponse pour compléter chaque phrase.",
+   "valid_answers_by_blank": {
+    "1": [
+     "illusion"
+    ],
+    "2": [
+     "liberté",
+     "contrainte"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez les phrases",
+   "number": 6,
+   "example": {
+    "tutor_line": "La conscience est considérée comme une forme de...",
+    "student_line": "illusion."
+   },
+   "exchanges": [
+    {
+     "text": "illusion",
+     "blank": true,
+     "speaker": "Pour certains philosophes, le libre arbitre n'est qu'une ____.",
+     "avatar_seed": "Ben",
+     "translation": "For some philosophers, free will is only an illusion.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "liberté",
+     "blank": true,
+     "speaker": "La ____ d'expression est un droit fondamental.",
+     "avatar_seed": "Ben",
+     "translation": "Freedom of expression is a fundamental right.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "illusion",
+    "liberté",
+    "contrainte"
+   ],
+   "tutor_instruction": "Discutez des réponses après que l'étudiant ait complété les phrases.",
+   "student_instruction": "Choisissez la bonne réponse pour compléter chaque phrase.",
+   "valid_answers_by_blank": {
+    "1": [
+     "illusion"
+    ],
+    "2": [
+     "liberté",
+     "contrainte"
+    ]
+   }
+  },
+  "manual": true
+ },
+ {
+  "id": "21c0fa05-0d5c-4509-940c-60cc2d3f6313",
+  "title": "Alphabet (G-M)",
+  "i": 13,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Qu’est-ce que c’est ?",
+   "number": 14,
+   "example": {
+    "tutor_line": "K",
+    "student_line": "K"
+   },
+   "exchanges": [
+    {
+     "text": "K",
+     "blank": true,
+     "speaker": "formateur",
+     "avatar_seed": "Formateur",
+     "translation": "K",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M"
+   ],
+   "tutor_instruction": "Demandez aux élèves de nommer la lettre.",
+   "student_instruction": "Nommer la lettre que votre formateur clique.",
+   "valid_answers_by_blank": {
+    "1": [
+     "K"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Qu’est-ce que c’est ?",
+   "number": 14,
+   "example": {
+    "tutor_line": "K",
+    "student_line": "K"
+   },
+   "exchanges": [
+    {
+     "text": "K",
+     "blank": true,
+     "speaker": "Koala ____",
+     "avatar_seed": "Formateur",
+     "translation": "Koala: K",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M"
+   ],
+   "tutor_instruction": "Demandez aux élèves de nommer la lettre.",
+   "student_instruction": "Nommer la lettre que votre formateur clique.",
+   "valid_answers_by_blank": {
+    "1": [
+     "K"
+    ]
+   }
+  },
+  "manual": true
+ },
+ {
+  "id": "95be4093-8141-42ec-aa07-c17332a4da69",
+  "title": "Ne « perdez pas de sommeil » au travail avec ces expressions",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "J'ai essayé tout ce que je pouvais pour résoudre le problème, mais je suis complètement __________.",
+    "student_line": "Je suis complètement perdu."
+   },
+   "exchanges": [
+    {
+     "text": "Je suis complètement perdu.",
+     "blank": true,
+     "speaker": "J'ai essayé tout ce que je pouvais pour résoudre le problème, mais je suis complètement __________.",
+     "avatar_seed": "Student",
+     "translation": "I am completely lost.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "arracher mes cheveux",
+     "blank": true,
+     "speaker": "Karen oublie toujours d’éteindre son ordinateur avant de partir. Ça me donne envie de __________ !",
+     "avatar_seed": "Tutor",
+     "translation": "pull my hair out",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "perdre le sommeil à ce sujet.",
+     "blank": true,
+     "speaker": "Je sais que le travail est stressant en ce moment, mais essayez de ne pas __________.",
+     "translation": "lose sleep over it.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "point de rupture.",
+     "blank": true,
+     "speaker": "John a dû prendre des vacances car il atteignait son __________ avec le travail.",
+     "translation": "breaking point.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "se faire courir dans le sol.",
+     "blank": true,
+     "speaker": "Dan est passionné par son travail, mais a tendance à __________.",
+     "translation": "run himself into the ground.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "a craqué.",
+     "blank": true,
+     "speaker": "Matt __________ en larmes après avoir supprimé accidentellement tout un document.",
+     "translation": "cracked.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "se faire courir dans le sol",
+    "perdre le sommeil à ce sujet",
+    "arracher mes cheveux",
+    "point de rupture",
+    "craqué",
+    "à perte",
+    "perdre le sommeil à ce sujet"
+   ],
+   "tutor_instruction": "Encouragez les étudiants à réfléchir aux mots qui manquent.",
+   "student_instruction": "Remplissez les blancs pour compléter les phrases.",
+   "valid_answers_by_blank": {
+    "1": [
+     "perdre le sommeil à ce sujet",
+     "à perte"
+    ],
+    "2": [
+     "arracher mes cheveux"
+    ],
+    "3": [
+     "perdre le sommeil à ce sujet"
+    ],
+    "4": [
+     "point de rupture"
+    ],
+    "5": [
+     "se faire courir dans le sol"
+    ],
+    "6": [
+     "craqué"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Remplissez les blancs",
+   "number": 4,
+   "example": {
+    "tutor_line": "J'ai essayé tout ce que je pouvais pour résoudre le problème, mais je suis complètement __________.",
+    "student_line": "Je suis complètement perdu."
+   },
+   "exchanges": [
+    {
+     "text": "perdu",
+     "blank": true,
+     "speaker": "J'ai essayé tout ce que je pouvais pour résoudre le problème, mais je suis complètement __________.",
+     "avatar_seed": "Student",
+     "translation": "I tried everything I could to solve the problem, but I am completely lost.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "arracher mes cheveux",
+     "blank": true,
+     "speaker": "Karen oublie toujours d’éteindre son ordinateur avant de partir. Ça me donne envie de __________ !",
+     "avatar_seed": "Tutor",
+     "translation": "pull my hair out",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "perdre le sommeil à ce sujet.",
+     "blank": true,
+     "speaker": "Je sais que le travail est stressant en ce moment, mais essayez de ne pas __________.",
+     "translation": "lose sleep over it.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "point de rupture.",
+     "blank": true,
+     "speaker": "John a dû prendre des vacances car il atteignait son __________ avec le travail.",
+     "translation": "breaking point.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "se faire courir dans le sol.",
+     "blank": true,
+     "speaker": "Dan est passionné par son travail, mais a tendance à __________.",
+     "translation": "run himself into the ground.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "craqué",
+     "blank": true,
+     "speaker": "Matt a ____ en larmes après avoir supprimé accidentellement tout un document.",
+     "translation": "cracked.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "se faire courir dans le sol",
+    "perdre le sommeil à ce sujet",
+    "arracher mes cheveux",
+    "point de rupture",
+    "craqué",
+    "perdu",
+    "perdre le sommeil à ce sujet"
+   ],
+   "tutor_instruction": "Encouragez les étudiants à réfléchir aux mots qui manquent.",
+   "student_instruction": "Remplissez les blancs pour compléter les phrases.",
+   "valid_answers_by_blank": {
+    "1": [
+     "perdre le sommeil à ce sujet",
+     "à perte"
+    ],
+    "2": [
+     "arracher mes cheveux"
+    ],
+    "3": [
+     "perdre le sommeil à ce sujet"
+    ],
+    "4": [
+     "point de rupture"
+    ],
+    "5": [
+     "se faire courir dans le sol"
+    ],
+    "6": [
+     "craqué"
+    ]
+   }
+  },
+  "manual": true
+ },
+ {
+  "id": "db713b71-721e-44cf-acbb-fcc4f5210ee6",
+  "title": "Google",
+  "i": 2,
+  "before": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez les phrases",
+   "number": 3,
+   "source": "lesson-doctor",
+   "exchanges": [
+    {
+     "text": "indexation",
+     "blank": true,
+     "speaker": "La ________ est un processus crucial pour organiser les informations sur le web.",
+     "translation": "Indexing is a crucial process to organize information on the web.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "moteur de recherche",
+     "blank": true,
+     "speaker": "Pour trouver des informations précises, il est important d'utiliser un bon ________.",
+     "translation": "To find precise information, it is important to use a good search engine.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "algorithme",
+     "blank": true,
+     "speaker": "L'________ des résultats de recherche peut influencer les sites que nous visitons.",
+     "translation": "The algorithm of search results can influence the sites we visit.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "navigateur",
+     "blank": true,
+     "speaker": "Lorsque vous surfez sur Internet, le ________ est essentiel pour accéder à différents sites.",
+     "translation": "When browsing the Internet, the browser is essential for accessing different sites.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "annonces",
+     "blank": true,
+     "speaker": "Les ________ en ligne peuvent parfois être intrusives, mais elles sont aussi une source de revenus pour les sites.",
+     "translation": "Online advertisements can sometimes be intrusive, but they are also a source of income for websites.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "moteur de recherche",
+    "indexation",
+    "algorithme",
+    "annonce",
+    "navigateur"
+   ],
+   "tutor_instruction": "Have the student justify each choice; review pronunciation.",
+   "student_instruction": "Glissez le bon mot dans chaque espace (ou touchez-le)."
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue",
+   "title": "Complétez les phrases",
+   "number": 3,
+   "source": "lesson-doctor",
+   "exchanges": [
+    {
+     "text": "indexation",
+     "blank": true,
+     "speaker": "La ________ est un processus crucial pour organiser les informations sur le web.",
+     "translation": "Indexing is a crucial process to organize information on the web.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "moteur de recherche",
+     "blank": true,
+     "speaker": "Pour trouver des informations précises, il est important d'utiliser un bon ________.",
+     "translation": "To find precise information, it is important to use a good search engine.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "algorithme",
+     "blank": true,
+     "speaker": "L'________ des résultats de recherche peut influencer les sites que nous visitons.",
+     "translation": "The algorithm of search results can influence the sites we visit.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "navigateur",
+     "blank": true,
+     "speaker": "Lorsque vous surfez sur Internet, le ________ est essentiel pour accéder à différents sites.",
+     "translation": "When browsing the Internet, the browser is essential for accessing different sites.",
+     "speaker_role": "student"
+    },
+    {
+     "text": "annonces",
+     "blank": true,
+     "speaker": "Les ________ en ligne peuvent parfois être intrusives, mais elles sont aussi une source de revenus pour les sites.",
+     "translation": "Online advertisements can sometimes be intrusive, but they are also a source of income for websites.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "moteur de recherche",
+    "indexation",
+    "algorithme",
+    "annonces",
+    "navigateur"
+   ],
+   "tutor_instruction": "Have the student justify each choice; review pronunciation.",
+   "student_instruction": "Glissez le bon mot dans chaque espace (ou touchez-le)."
+  },
+  "manual": true
+ }
+]

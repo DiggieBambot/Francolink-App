@@ -115,9 +115,24 @@ function checkBlanks(sec: any, i: number, out: Defect[]): void {
     !exchanges.some((ex: any) => /\(\d+\)/.test(String(ex?.text ?? "")));
 
   if (blankPerExchange) {
+    const norm = (x: unknown) =>
+      String(x ?? "").trim().toLowerCase().replace(/[‘’ʼʻ]/g, "'").replace(/[.,!?;:]/g, "").replace(/\s+/g, " ").trim();
+    const inPool = new Set(pool.map(norm));
     exchanges.forEach((ex: any, j: number) => {
+      const path = `sections[${i}].exchanges[${j}]`;
       if (!String(ex?.text ?? "").trim()) {
-        out.push({ code: "blank.no_answer_text", severity: "error", section_index: i, path: `sections[${i}].exchanges[${j}]`, message: "Whole-line blank has no answer text." });
+        out.push({ code: "blank.no_answer_text", severity: "error", section_index: i, path, message: "Whole-line blank has no answer text." });
+        return;
+      }
+      // The broken variant generation produces: the sentence or question in
+      // `text` (where the answer belongs), a person's name in `speaker`, and
+      // the real answers only in answer_pool. The student then sees a name and
+      // an empty box, and the right answer is always marked wrong.
+      if (!/_{2,}/.test(String(ex?.speaker ?? ""))) {
+        out.push({ code: "blank.whole_line_no_gap", severity: "error", section_index: i, path, message: `Whole-line blank: "speaker" must be the sentence or question with ____ where the answer goes, and "text" the answer from answer_pool. Here speaker is "${ex?.speaker ?? ""}" and text is "${ex?.text ?? ""}".` });
+      }
+      if (pool.length && !inPool.has(norm(ex.text))) {
+        out.push({ code: "blank.answer_not_in_pool", severity: "error", section_index: i, path, message: `Whole-line blank answer "${ex.text}" is not in answer_pool, so the line can never be completed.` });
       }
     });
     return;
