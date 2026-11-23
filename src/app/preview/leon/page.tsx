@@ -33,9 +33,9 @@ const LANGS = [
 ];
 
 const SAMPLES: Record<string, string> = {
-  fr: "Bonjour ! Je m'appelle Léon, et aujourd'hui on va parler de la boulangerie. Tu préfères le pain ou les croissants ?",
-  es: "¡Hola! Me llamo Léon y hoy vamos a practicar los verbos. ¿Qué hiciste el fin de semana?",
-  en: "Hello there! My name is Léon, and today we're going to practise ordering food. What would you like to eat?",
+  fr: "Bonjour ! Je m'appelle Léon Chame, et aujourd'hui on va parler de la boulangerie. Tu préfères le pain ou les croissants ?",
+  es: "¡Hola! Me llamo Léon Chame y hoy vamos a practicar los verbos. ¿Qué hiciste el fin de semana?",
+  en: "Hello there! My name is Léon Chame, and today we're going to practise ordering food. What would you like to eat?",
 };
 
 export default function LeonPreviewPage() {
