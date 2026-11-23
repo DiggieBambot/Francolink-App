@@ -33,7 +33,18 @@ interface SpeakOptions {
 
 interface QueueItem {
   id?: string;
+  /** What is being said, for captions. Empty for non-verbal clips. */
+  text: string;
   audio: Promise<Blob | null>;
+}
+
+/** The clip playing right now, for word-by-word captions. */
+export interface NowPlaying {
+  id?: string;
+  text: string;
+  /** performance.now() when it started, and its length in seconds once known. */
+  startedAt: number;
+  duration: number | null;
 }
 
 /** 0.1 s of silence; playing it inside a click unlocks the element on iOS. */
@@ -84,6 +95,14 @@ export function useTutorTTS(options: UseTutorTTSOptions = {}) {
   const [speakingId, setSpeakingId] = useState<string | null>(null);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [error, setError] = useState(false);
+  const [nowPlaying, setNowPlaying] = useState<NowPlaying | null>(null);
+
+  // Live loudness of Leon's voice, 0–1, for lip sync. A ref, not state: it
+  // changes every frame and is read by the animation directly.
+  const voiceLevelRef = useRef(0);
+  const ctxRef = useRef<AudioContext | null>(null);
+  const analyserRef = useRef<AnalyserNode | null>(null);
+  const rafRef = useRef<number | null>(null);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const queueRef = useRef<QueueItem[]>([]);
@@ -105,8 +124,57 @@ export function useTutorTTS(options: UseTutorTTSOptions = {}) {
     return audioRef.current;
   }, []);
 
+  /**
+   * Route the player through an analyser so the voice level can drive lip
+   * sync. Done once, inside a user gesture; if anything fails the audio still
+   * plays normally and Leon simply falls back to a gentle mouth movement.
+   */
+  const attachAnalyser = useCallback(() => {
+    const el = element();
+    if (!el || analyserRef.current || typeof window === "undefined") return;
+    try {
+      const Ctx =
+        window.AudioContext ||
+        (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+      if (!Ctx) return;
+      const ctx = new Ctx();
+      const source = ctx.createMediaElementSource(el);
+      const analyser = ctx.createAnalyser();
+      analyser.fftSize = 512;
+      analyser.smoothingTimeConstant = 0.5;
+      source.connect(analyser);
+      analyser.connect(ctx.destination);
+      ctxRef.current = ctx;
+      analyserRef.current = analyser;
+    } catch {
+      /* lip sync is decoration */
+    }
+  }, [element]);
+
+  const startMeter = useCallback(() => {
+    const analyser = analyserRef.current;
+    if (!analyser || rafRef.current !== null) return;
+    const data = new Uint8Array(analyser.fftSize);
+    const tick = () => {
+      analyser.getByteTimeDomainData(data);
+      let sum = 0;
+      for (const v of data) sum += ((v - 128) / 128) ** 2;
+      voiceLevelRef.current = Math.min(1, Math.sqrt(sum / data.length) * 5);
+      rafRef.current = requestAnimationFrame(tick);
+    };
+    tick();
+  }, []);
+
+  const stopMeter = useCallback(() => {
+    if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+    rafRef.current = null;
+    voiceLevelRef.current = 0;
+  }, []);
+
   /** Call from a click/tap handler before any audio is expected. */
   const unlock = useCallback(() => {
+    attachAnalyser();
+    void ctxRef.current?.resume().catch(() => {});
     const el = element();
     if (!el || el.dataset.unlocked) return;
     el.src = SILENT_WAV;
@@ -117,7 +185,7 @@ export function useTutorTTS(options: UseTutorTTSOptions = {}) {
       .catch(() => {
         /* best effort */
       });
-  }, [element]);
+  }, [element, attachAnalyser]);
 
   const fetchAudio = useCallback(
     async (text: string, slow: boolean): Promise<Blob | null> => {
@@ -162,16 +230,24 @@ export function useTutorTTS(options: UseTutorTTSOptions = {}) {
       const url = URL.createObjectURL(blob);
       setSpeakingId(item.id ?? null);
       setIsSpeaking(true);
+      if (ctxRef.current?.state === "suspended") void ctxRef.current.resume().catch(() => {});
+      startMeter();
+      setNowPlaying({ id: item.id, text: item.text, startedAt: performance.now(), duration: null });
 
       await new Promise<void>((resolve) => {
         const done = () => {
           el.onended = null;
           el.onerror = null;
+          el.onloadedmetadata = null;
           finishClipRef.current = null;
           URL.revokeObjectURL(url);
           resolve();
         };
         finishClipRef.current = done;
+        el.onloadedmetadata = () => {
+          const d = Number.isFinite(el.duration) ? el.duration : null;
+          setNowPlaying((np) => (np && np.text === item.text ? { ...np, duration: d } : np));
+        };
         el.onended = done;
         el.onerror = () => {
           setError(true);
@@ -190,9 +266,11 @@ export function useTutorTTS(options: UseTutorTTSOptions = {}) {
     if (gen === genRef.current) {
       setIsSpeaking(false);
       setSpeakingId(null);
+      setNowPlaying(null);
+      stopMeter();
       playingRef.current = false;
     }
-  }, [element]);
+  }, [element, startMeter, stopMeter]);
 
   /** Add one chunk (normally a sentence) to the end of the queue. */
   const enqueue = useCallback(
@@ -200,10 +278,25 @@ export function useTutorTTS(options: UseTutorTTSOptions = {}) {
       const trimmed = text.trim();
       if (!trimmed) return;
       setError(false);
-      queueRef.current.push({ id: opts.id, audio: fetchAudio(trimmed, !!opts.slow) });
+      queueRef.current.push({ id: opts.id, text: trimmed, audio: fetchAudio(trimmed, !!opts.slow) });
       void pump();
     },
     [fetchAudio, pump]
+  );
+
+  /** Fetch a short clip now to play later without waiting (e.g. "Mm-hm"). */
+  const prefetch = useCallback(
+    (text: string) => fetchAudio(text, false),
+    [fetchAudio]
+  );
+
+  /** Play an already-fetched clip through the same (unlocked) player. */
+  const playClip = useCallback(
+    (audio: Promise<Blob | null>, text = "") => {
+      queueRef.current.push({ text, audio });
+      void pump();
+    },
+    [pump]
   );
 
   const stop = useCallback(() => {
@@ -215,7 +308,9 @@ export function useTutorTTS(options: UseTutorTTSOptions = {}) {
     finishClipRef.current?.();
     setIsSpeaking(false);
     setSpeakingId(null);
-  }, []);
+    setNowPlaying(null);
+    stopMeter();
+  }, [stopMeter]);
 
   /** Replace whatever is playing with `text`, sentence by sentence. */
   const speak = useCallback(
@@ -228,5 +323,17 @@ export function useTutorTTS(options: UseTutorTTSOptions = {}) {
 
   useEffect(() => stop, [stop]);
 
-  return { speak, enqueue, stop, unlock, isSpeaking, speakingId, error };
+  return {
+    speak,
+    enqueue,
+    stop,
+    unlock,
+    prefetch,
+    playClip,
+    isSpeaking,
+    speakingId,
+    error,
+    nowPlaying,
+    voiceLevelRef,
+  };
 }

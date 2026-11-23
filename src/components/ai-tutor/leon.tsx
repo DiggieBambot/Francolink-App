@@ -1,6 +1,6 @@
 "use client";
 
-import { useId } from "react";
+import { useEffect, useId, useRef } from "react";
 
 /**
  * Leon, the AI tutor: a cartoon chameleon perched on a branch, drawn as
@@ -102,6 +102,27 @@ const STYLES = `
 @keyframes leon-flick{0%{transform:scaleX(0)}35%,55%{transform:scaleX(1)}100%{transform:scaleX(0)}}
 @keyframes leon-dot{0%,100%{opacity:.25}50%{opacity:1}}
 @keyframes leon-spark{from{transform:scale(.5);opacity:.4}to{transform:scale(1.1);opacity:1}}
+/* Breathing: a slow rise and fall so he is never frozen. */
+.leon:not([data-mood=celebrating]) .leon-char{transform-origin:56px 104px;animation:leon-breathe 4.2s ease-in-out infinite}
+@keyframes leon-breathe{0%,100%{transform:scale(1,1)}50%{transform:scale(1.008,1.018)}}
+/* Listening: he leans in, and nods and widens his eyes as the student talks. */
+.leon[data-mood=listening] .leon-head{transform:rotate(-7deg) translateY(calc(var(--leon-ear,0) * 3px));transition:transform .12s ease-out}
+.leon[data-mood=listening] .leon-pupil{transform:scale(calc(1 + var(--leon-ear,0) * .28))}
+.leon-pupil{transform-box:fill-box;transform-origin:center;transition:transform .12s ease-out}
+/* Speaking: the head moves a little with the voice. */
+.leon[data-mood=speaking] .leon-head{transform:translateY(calc(var(--leon-mouth,0) * -1.6px)) rotate(calc(var(--leon-mouth,0) * -2deg));transition:transform .08s linear}
+/* Mouth shapes cross-fade instead of swapping. */
+.leon-mouth{opacity:0;transition:opacity .16s ease}
+.leon[data-mood=idle] .leon-mouth-idle,.leon[data-mood=correcting] .leon-mouth-idle,
+.leon[data-mood=listening] .leon-mouth-listening,.leon[data-mood=thinking] .leon-mouth-thinking,
+.leon[data-mood=celebrating] .leon-mouth-celebrating{opacity:1}
+/* Live lip sync: four shapes chosen from the voice level every frame. */
+.leon-viseme{opacity:0;transition:opacity .05s linear}
+.leon[data-mood=speaking][data-live=true][data-mouth="0"] .leon-v0,
+.leon[data-mood=speaking][data-live=true][data-mouth="1"] .leon-v1,
+.leon[data-mood=speaking][data-live=true][data-mouth="2"] .leon-v2,
+.leon[data-mood=speaking][data-live=true][data-mouth="3"] .leon-v3{opacity:1}
+.leon[data-mood=speaking]:not([data-live=true]) .leon-mouth-talk{opacity:1}
 .leon[data-still=true] *{animation:none!important}
 @media (prefers-reduced-motion:reduce){.leon *{animation:none!important}}
 `;
@@ -113,6 +134,8 @@ export function Leon({
   still = false,
   background = true,
   className,
+  voiceLevel,
+  micLevel,
 }: {
   language?: string;
   mood?: LeonMood;
@@ -122,8 +145,56 @@ export function Leon({
   /** Draw the tinted circle behind Leon (and clip him to it). */
   background?: boolean;
   className?: string;
+  /** Live loudness of Leon's own voice (0–1), for lip sync while speaking. */
+  voiceLevel?: React.MutableRefObject<number>;
+  /** Live loudness of the student's mic (0–1), so he reacts while listening. */
+  micLevel?: React.MutableRefObject<number>;
 }) {
   const uid = useId().replace(/:/g, "");
+  const svgRef = useRef<SVGSVGElement>(null);
+
+  // Drive the mouth and head straight from the audio levels, once per frame,
+  // by writing to the SVG's attributes: no React re-render per frame.
+  const liveSource =
+    still ? null : mood === "speaking" ? voiceLevel : mood === "listening" ? micLevel : null;
+  useEffect(() => {
+    const el = svgRef.current;
+    if (!el) return;
+    if (!liveSource) {
+      el.removeAttribute("data-live");
+      el.style.setProperty("--leon-mouth", "0");
+      el.style.setProperty("--leon-ear", "0");
+      return;
+    }
+    let raf = 0;
+    let smooth = 0;
+    let lastShape = -1;
+    const speaking = mood === "speaking";
+    el.setAttribute("data-live", "true");
+    const tick = () => {
+      const target = liveSource.current ?? 0;
+      // Fast attack, slower release: mouths open quickly and close softly.
+      smooth += (target - smooth) * (target > smooth ? 0.55 : 0.25);
+      if (speaking) {
+        el.style.setProperty("--leon-mouth", smooth.toFixed(3));
+        const shape = smooth < 0.06 ? 0 : smooth < 0.22 ? 1 : smooth < 0.45 ? 2 : 3;
+        if (shape !== lastShape) {
+          el.setAttribute("data-mouth", String(shape));
+          lastShape = shape;
+        }
+      } else {
+        el.style.setProperty("--leon-ear", Math.min(1, smooth * 1.6).toFixed(3));
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => {
+      cancelAnimationFrame(raf);
+      el.removeAttribute("data-live");
+      el.style.setProperty("--leon-mouth", "0");
+      el.style.setProperty("--leon-ear", "0");
+    };
+  }, [liveSource, mood]);
   const p = leonPalette(language);
   const outfit = PALETTES[language] ? language : "fr";
   const happyEyes = mood === "celebrating";
@@ -141,6 +212,7 @@ export function Leon({
 
   return (
     <svg
+      ref={svgRef}
       viewBox="0 0 120 120"
       width={size}
       height={size}
@@ -276,7 +348,7 @@ export function Leon({
                     <g clipPath={`url(#${uid}-eye${i})`}>
                       <g className="leon-gaze" style={{ transform: `translate(${gx}px, ${gy}px)` }}>
                         <g className={mood === "idle" ? `leon-wander-${i}` : undefined}>
-                          <circle cx={e.cx} cy={e.cy} r={mood === "listening" ? 5.8 : 4.9} fill="#1F2937" />
+                          <circle className="leon-pupil" cx={e.cx} cy={e.cy} r={mood === "listening" ? 5.8 : 4.9} fill="#1F2937" />
                           <circle cx={e.cx - 1.6} cy={e.cy - 1.6} r="1.6" fill="#FFFFFF" />
                         </g>
                       </g>
@@ -363,28 +435,40 @@ export function Leon({
 
 function Mouth({ mood }: { mood: LeonMood }) {
   const line = { fill: "none", stroke: "#1F2937", strokeWidth: 2.8, strokeLinecap: "round" as const };
-  switch (mood) {
-    case "listening":
-      return <path {...line} d="M49 62 Q56 67 63 62" />;
-    case "thinking":
-      return <path {...line} d="M46 64 Q51 60 57 63 T68 61" />;
-    case "speaking":
-      return (
-        <g className="leon-talk">
-          <ellipse cx="56" cy="63" rx="7" ry="5.5" fill="#5B1F2B" />
-          <ellipse cx="56" cy="66" rx="4.4" ry="2.2" fill="#F06A8A" />
+  const inside = "#5B1F2B";
+  const tongue = "#F06A8A";
+  return (
+    <g>
+      {/* Resting expressions, cross-faded by mood. */}
+      <path className="leon-mouth leon-mouth-idle" {...line} d="M43 60 Q56 69 69 60" />
+      <path className="leon-mouth leon-mouth-listening" {...line} d="M49 62 Q56 67 63 62" />
+      <path className="leon-mouth leon-mouth-thinking" {...line} d="M46 64 Q51 60 57 63 T68 61" />
+      <g className="leon-mouth leon-mouth-celebrating">
+        <path d="M42 59 Q56 79 70 59 Z" fill={inside} stroke="#1F2937" strokeWidth="2.4" strokeLinejoin="round" />
+        <path d="M49 67 Q56 63 63 67 Q56 74 49 67 Z" fill={tongue} />
+      </g>
+
+      {/* Talking without a live level (fallback): a gentle flap. */}
+      <g className="leon-mouth leon-mouth-talk">
+        <g className={mood === "speaking" ? "leon-talk" : undefined}>
+          <ellipse cx="56" cy="63" rx="7" ry="5.5" fill={inside} />
+          <ellipse cx="56" cy="66" rx="4.4" ry="2.2" fill={tongue} />
         </g>
-      );
-    case "celebrating":
-      return (
-        <g>
-          <path d="M42 59 Q56 79 70 59 Z" fill="#5B1F2B" stroke="#1F2937" strokeWidth="2.4" strokeLinejoin="round" />
-          <path d="M49 67 Q56 63 63 67 Q56 74 49 67 Z" fill="#F06A8A" />
-        </g>
-      );
-    case "correcting":
-    case "idle":
-    default:
-      return <path {...line} d="M43 60 Q56 69 69 60" />;
-  }
+      </g>
+
+      {/* Live lip sync: closed, small, open, wide. */}
+      <path className="leon-viseme leon-v0" {...line} d="M47 62 Q56 66 65 62" />
+      <g className="leon-viseme leon-v1">
+        <ellipse cx="56" cy="62.8" rx="6.5" ry="3" fill={inside} stroke="#1F2937" strokeWidth="1.6" />
+      </g>
+      <g className="leon-viseme leon-v2">
+        <ellipse cx="56" cy="63.4" rx="7.6" ry="5.4" fill={inside} stroke="#1F2937" strokeWidth="1.8" />
+        <ellipse cx="56" cy="66.6" rx="4.4" ry="2" fill={tongue} />
+      </g>
+      <g className="leon-viseme leon-v3">
+        <ellipse cx="56" cy="64" rx="9" ry="7.8" fill={inside} stroke="#1F2937" strokeWidth="2" />
+        <ellipse cx="56" cy="68.4" rx="5.4" ry="2.8" fill={tongue} />
+      </g>
+    </g>
+  );
 }

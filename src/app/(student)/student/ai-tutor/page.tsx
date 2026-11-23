@@ -215,7 +215,7 @@ export default function AITutorPage() {
     // This runs inside the click, so it is the moment to unlock audio for the
     // reply that will arrive later.
     tts.unlock();
-    tts.stop();
+    if (!inSession) tts.stop();
 
     setError(null);
     setHints([]);
@@ -688,7 +688,12 @@ export default function AITutorPage() {
                     tts.isSpeaking ? "ring-2 ring-primary/40 ring-offset-2" : ""
                   }`}
                 >
-                  <Leon language={learningLanguage} mood={leonMood} size={40} />
+                  <Leon
+                    language={learningLanguage}
+                    mood={leonMood}
+                    size={40}
+                    voiceLevel={tts.voiceLevelRef}
+                  />
                 </div>
                 <div className="min-w-0">
                   <h1 className="font-bold text-gray-900 text-sm">
@@ -1201,7 +1206,11 @@ export default function AITutorPage() {
           studentLine={lastStudent?.content ?? null}
           tutorLine={lastAssistant?.content || null}
           tutorStreaming={!!lastAssistant?.streaming}
-          corrections={lastAssistant?.corrections ?? []}
+          board={messages.flatMap((m) => (m.role === "assistant" ? m.corrections ?? [] : []))}
+          nowPlaying={tts.nowPlaying}
+          voiceLevel={tts.voiceLevelRef}
+          prefetchClip={tts.prefetch}
+          playClip={tts.playClip}
           isLoading={isLoading}
           isTranscribing={isTranscribing}
           isSpeaking={tts.isSpeaking}
