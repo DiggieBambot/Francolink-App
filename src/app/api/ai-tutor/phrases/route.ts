@@ -82,15 +82,21 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Nothing to save" }, { status: 400 });
   }
 
-  const { error } = await supabase
+  // The same phrase can come in twice (a correction and a vocab word, or a
+  // card saved last week); duplicates are skipped, so report what was new.
+  const unique = rows.filter(
+    (r, i) => rows.findIndex((o) => o.front === r.front && o.language === r.language) === i
+  );
+  const { data, error } = await supabase
     .from("ai_tutor_saved_phrases")
-    .upsert(rows, { onConflict: "user_id,language,front", ignoreDuplicates: true });
+    .upsert(unique, { onConflict: "user_id,language,front", ignoreDuplicates: true })
+    .select("id");
 
   if (error) {
     console.error("Save phrases error:", error);
     return NextResponse.json({ error: "Couldn't save to your review deck" }, { status: 500 });
   }
-  return NextResponse.json({ saved: rows.length });
+  return NextResponse.json({ saved: data?.length ?? unique.length });
 }
 
 /**

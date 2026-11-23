@@ -55,6 +55,15 @@ interface TutorMeta {
   sectionComplete: boolean;
 }
 
+/** Lowercase, straight apostrophes, single spaces — for "did the student write this?" checks. */
+function normalizeForMatch(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[’‘`]/g, "'")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 /** Parse the JSON after the delimiter. Malformed metadata costs nothing but the extras. */
 function parseMeta(raw: string): TutorMeta {
   const empty: TutorMeta = { corrections: [], hints: [], sectionComplete: false };
@@ -116,6 +125,42 @@ function trimHistory(
   }
 
   return kept;
+}
+
+/**
+ * Ask for the corrections and hints on their own, when the streamed reply came
+ * without them. JSON mode makes this one reliable.
+ */
+async function recoverMeta(
+  openai: Awaited<ReturnType<typeof getOpenAIClient>>,
+  model: string,
+  history: Array<{ role: "user" | "assistant"; content: string }>,
+  reply: string,
+  targetLang: string,
+  level: string
+): Promise<{ meta: TutorMeta; tokensIn: number; tokensOut: number }> {
+  const student = history[history.length - 1]?.content ?? "";
+  const completion = await openai.chat.completions.create({
+    model,
+    response_format: { type: "json_object" },
+    temperature: 0.3,
+    max_tokens: 350,
+    messages: [
+      {
+        role: "system",
+        content: `You support a ${targetLang} tutor. The student is CEFR ${level}. Given the student's last message and the tutor's reply, return JSON only:
+{"corrections": [{"original": "the wrong part as the student wrote it", "corrected": "the fixed version", "explanation": "one short sentence in English", "tag": "gender|agreement|tense|vocabulary|spelling|word_order|other"}], "sectionComplete": false, "hints": [{"text": "a short reply the student could give to the tutor, in ${targetLang}", "en": "its English meaning"}]}
+"corrections": mistakes in the STUDENT's message only — never correct the tutor's reply. "original" must be copied exactly from the student's message. Look for word order, agreement, gender, tense, vocabulary. [] if none, and [] if they wrote in English to ask for help. "hints": 2-3 natural, different answers to the tutor's reply at the student's level.`,
+      },
+      { role: "user", content: `Student: ${student}\nTutor: ${reply}` },
+    ],
+  });
+
+  return {
+    meta: parseMeta(completion.choices[0]?.message?.content || ""),
+    tokensIn: completion.usage?.prompt_tokens ?? 0,
+    tokensOut: completion.usage?.completion_tokens ?? 0,
+  };
 }
 
 export async function POST(request: NextRequest) {
@@ -350,9 +395,30 @@ ${META_DELIMITER}
           }
 
           const reply = (idx >= 0 ? full.slice(0, idx) : full).trim();
-          const meta = parseMeta(idx >= 0 ? full.slice(idx + META_DELIMITER.length) : "");
+          let meta = parseMeta(idx >= 0 ? full.slice(idx + META_DELIMITER.length) : "");
 
-          const corrections = meta.corrections;
+          // Some models (gpt-4o especially) occasionally stop after the reply
+          // and never write the metadata. The reply is already on screen and
+          // being spoken, so a short follow-up call to recover the corrections
+          // and hints costs the student nothing but a beat before they appear.
+          if (idx < 0 && reply) {
+            try {
+              const extra = await recoverMeta(openai, model, history, reply, targetLang, context.level);
+              meta = extra.meta;
+              tokensIn += extra.tokensIn;
+              tokensOut += extra.tokensOut;
+            } catch (err) {
+              console.error("Tutor meta recovery failed:", err);
+            }
+          }
+
+          // A correction must quote what the *student* wrote. Without this
+          // check a model can "correct" its own reply and show the student a
+          // mistake they never made.
+          const studentText = normalizeForMatch(history[history.length - 1]?.content ?? "");
+          const corrections = meta.corrections.filter((c) =>
+            studentText.includes(normalizeForMatch(c.original))
+          );
           const cost = costOf(model, tokensIn, tokensOut);
 
           // ── Persist ───────────────────────────────────────────────────────

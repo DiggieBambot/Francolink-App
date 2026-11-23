@@ -23,7 +23,9 @@ export async function POST(request: NextRequest) {
     }
 
     const access = await getTutorAccess(supabase, user.id);
-    if (!access?.hasAccess || !access.tutorEnabled) {
+    // Same gate as the chat route: paid students while the tutor is on, and
+    // admins/testers always (so it can be checked while switched off).
+    if (!access?.hasAccess || (!access.tutorEnabled && !access.isPrivileged)) {
       return NextResponse.json({ error: "Not allowed" }, { status: 403 });
     }
 

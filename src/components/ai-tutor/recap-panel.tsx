@@ -98,7 +98,7 @@ export function RecapPanel({
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
-      setSaved(items.length);
+      setSaved(typeof data.saved === "number" ? data.saved : items.length);
     } catch (err) {
       setSaveError(err instanceof Error && err.message ? err.message : "Couldn't save. Try again.");
     } finally {
@@ -245,7 +245,8 @@ export function RecapPanel({
               {saved !== null ? (
                 <div className="flex items-center justify-between rounded-xl bg-green-50 border border-green-200 px-4 py-3 text-sm">
                   <span className="text-green-800 flex items-center gap-2">
-                    <Check className="w-4 h-4" /> Saved {saved} to your review deck
+                    <Check className="w-4 h-4" />
+                    {saved === 0 ? "Already in your review deck" : `Saved ${saved} to your review deck`}
                   </span>
                   <Link href="/student/ai-tutor/review" className="font-semibold text-primary hover:underline">
                     Review now
