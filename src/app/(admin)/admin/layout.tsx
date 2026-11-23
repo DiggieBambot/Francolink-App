@@ -1,4 +1,4 @@
-import { DollarSign, AppWindow } from 'lucide-react';
+import { DollarSign, AppWindow, Gift } from 'lucide-react';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
@@ -35,6 +35,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         { name: 'Support', href: '/admin/support', icon: LifeBuoy },
         { name: 'Moderation', href: '/admin/moderation', icon: MessageSquare },
         { name: 'Users', href: '/admin/users', icon: Users },
+        { name: 'Premium Grants', href: '/admin/premium-grants', icon: Gift },
         { name: 'Tutors', href: '/admin/tutors', icon: GraduationCap },
         { name: 'Content', href: '/admin/content', icon: FileText },
         { name: 'Tutor Lessons', href: '/admin/tutor-lessons', icon: GraduationCap },

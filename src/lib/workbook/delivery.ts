@@ -1,48 +1,58 @@
 // Delivering the workbook.
 //
-// The single highest-risk step in the funnel, and the reason it gets its own
-// module rather than a few lines inside the webhook: if the buyer ends up with
-// a file in their inbox and no FrancoLink account, there is no funnel left --
-// just a $27 sale with negative margin after ads. Everything here exists to
-// make the next click land them INSIDE the app.
+// The receipt email gives the buyer the book: one link to the download page on
+// francolink.net, which holds the PDF, the ebook and (if bought) the audio.
+// No account needed (decided 2026-11-17).
 //
-// So the email links to a claim URL, never to a file. The file is behind the
-// claim.
+// That used to be the other way round -- the email linked only to a claim
+// screen, and the file sat behind a new account -- so that every buyer landed
+// in the app. The account is still offered, from the download page and as a
+// second link here, as what it really is: the online version.
 
-import { emailShell, escapeHtml } from "@/lib/email/shell";
+import { emailShell } from "@/lib/email/shell";
 import { sendTransactionalEmail, type RenderedEmail } from "@/lib/email/transactional";
-import { APP_URL } from "@/lib/site/hosts";
+import { APP_URL, siteUrl } from "@/lib/site/hosts";
 
-/** Where the delivery email points. Claiming binds the order to an account. */
+/** The download page. The token is the order's delivery credential. */
+export function downloadUrl(claimToken: string): string {
+  return siteUrl(`/francais-pas-a-pas/download?t=${encodeURIComponent(claimToken)}`);
+}
+
+/** Creates the optional account and binds the order to it. */
 export function claimUrl(claimToken: string): string {
   return `${APP_URL}/unlock?t=${encodeURIComponent(claimToken)}`;
 }
 
 export function renderWorkbookDelivery(
   firstName: string,
-  url: string,
+  download: string,
+  claim: string,
   hasAudio: boolean
 ): RenderedEmail {
   const audioLine = hasAudio
-    ? "<p style=\"margin:0 0 16px 0;font-size:16px;\">Your <strong>audio pack</strong> is in there too — every dialogue read at natural speed and again slowly, plus the pronunciation drills — so you can hear the liaisons rather than guess at them.</p>"
+    ? "<p style=\"margin:0 0 16px 0;font-size:16px;\">Your <strong>audio pack</strong> is there too — every dialogue read at natural speed and again slowly, plus the pronunciation drills — so you can hear the liaisons rather than guess at them.</p>"
     : "";
 
   const bodyHtml = `
     <p style="margin:0 0 16px 0;font-size:16px;">Your workbook is ready. <em>Le Français Pas à Pas</em> takes you from your first sentence to the subjunctive, and every rule comes with the reason behind it.</p>
-    <p style="margin:0 0 16px 0;font-size:16px;">Open it below to set a password — that unlocks <strong>both</strong> the PDF and the online version, where the exercises mark themselves as you type.</p>
+    <p style="margin:0 0 16px 0;font-size:16px;">Use the button below to download the <strong>PDF</strong> and the <strong>ebook</strong>, an interactive version that opens in any browser and marks your exercises for you. Keep this email: the link works whenever you need it.</p>
     ${audioLine}
+    <p style="margin:0 0 16px 0;font-size:16px;">Prefer to work online, with your progress saved? <a href="${claim}" style="color:#0f2744;">Create a free account</a> and the workbook will be waiting in it.</p>
     <p style="margin:0 0 16px 0;font-size:16px;">Start with Partie 0. It's twenty phrases and three short dialogues, and you can hold a real conversation by the end of it.</p>
+    <p style="margin:0 0 16px 0;font-size:14px;color:#64748b;">14-day money-back guarantee: reply to this email and we'll refund you.</p>
   `;
 
   const text = [
     `Hi ${firstName},`,
     "",
-    "Your workbook is ready. Open it here to set a password — that unlocks both",
-    "the PDF and the online version, where the exercises mark themselves:",
+    "Your workbook is ready. Download the PDF and the ebook here:",
     "",
-    url,
+    download,
     "",
-    hasAudio ? "Your audio pack is included too.\n" : "",
+    hasAudio ? "Your audio pack is on the same page.\n" : "",
+    "Prefer to work online, with your progress saved? Create a free account:",
+    claim,
+    "",
     "Start with Partie 0 — twenty phrases and three short dialogues.",
     "",
     "14-day money-back guarantee: reply to this email and we'll refund you.",
@@ -57,8 +67,8 @@ export function renderWorkbookDelivery(
     html: emailShell({
       firstName,
       bodyHtml,
-      ctaHref: url,
-      ctaText: "Open my workbook",
+      ctaHref: download,
+      ctaText: "Download my workbook",
     }),
     text,
   };
@@ -66,17 +76,19 @@ export function renderWorkbookDelivery(
 
 /**
  * Never throws. A failed send must not make Stripe retry a payment we have
- * already recorded -- that would double-charge nothing but would re-run the
- * whole branch. The claim link is recoverable from the receipt page instead.
+ * already recorded -- that would re-run the whole branch. The links are
+ * recoverable from the success page instead.
  */
 export async function sendWorkbookDelivery(
   email: string,
   claimToken: string,
   hasAudio: boolean
 ): Promise<void> {
-  const firstName = escapeHtml(email.split("@")[0] || "there");
+  // emailShell escapes the name itself.
+  const firstName = email.split("@")[0] || "there";
   const { subject, html, text } = renderWorkbookDelivery(
     firstName,
+    downloadUrl(claimToken),
     claimUrl(claimToken),
     hasAudio
   );

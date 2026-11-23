@@ -8,6 +8,7 @@
 // or, worse, let the price be set from the page.
 
 import { useState } from "react";
+import { WORKBOOK_CONTENT, ttqTrack } from "@/lib/site/tiktok";
 
 export function WorkbookCta({
   label = "Get the workbook — $27",
@@ -24,6 +25,7 @@ export function WorkbookCta({
   async function buy() {
     setBusy(true);
     setError("");
+    ttqTrack("InitiateCheckout", { contents: [WORKBOOK_CONTENT], value: 27, currency: "USD" });
     try {
       const res = await fetch("/api/checkout/workbook", {
         method: "POST",

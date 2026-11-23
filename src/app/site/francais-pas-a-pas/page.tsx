@@ -20,24 +20,17 @@
 //     the site layout already.
 
 import type { Metadata } from "next";
-import { Fraunces, Instrument_Sans } from "next/font/google";
 import "./workbook.css";
 import Link from "next/link";
 import { WorkbookCta } from "@/components/site/workbook-cta";
 import { WorkbookTry } from "@/components/site/workbook-try";
 import { WorkbookStickyCta } from "@/components/site/workbook-sticky-cta";
+import { WorkbookSampleForm } from "@/components/site/workbook-sample-form";
+import { TikTokViewContent } from "@/components/site/tiktok-events";
 import { REVIEWS, HAS_REVIEWS } from "@/lib/workbook/reviews";
 import { SITE_URL, appUrl } from "@/lib/site/hosts";
 
-// Self-hosted by next/font: no render-blocking @import, no layout shift, and
-// nothing injected into the React tree — an inline <style> and a <link> in the
-// component body are exactly the kind of thing that breaks hydration.
-const fraunces = Fraunces({
-  subsets: ["latin"], display: "swap", variable: "--font-display", weight: ["400", "500", "600"],
-});
-const instrument = Instrument_Sans({
-  subsets: ["latin"], display: "swap", variable: "--font-body", weight: ["400", "500", "600"],
-});
+import { fraunces, instrument } from "./fonts";
 
 const TITLE = "Le Français Pas à Pas — the French grammar workbook, A0 to B2";
 const DESCRIPTION =
@@ -138,17 +131,20 @@ const STACK = [
   "Lifetime access",
 ];
 
-const FAQ: [string, string][] = [
+// The optional third element is a follow-up link, rendered after the answer.
+// It stays out of the FAQPage schema, whose answer text is the plain string.
+const FAQ: [string, string, { href: string; label: string }?][] = [
   ["Is this really A0 to B2?",
    "Yes. It starts at your first phrase and ends with the subjunctive, reported speech, and the connectors used to argue a point in French. Six parts, 45 exercises, every answer given."],
   ["I already know the basics — is it too easy?",
    "Start at Partie 3. Object pronouns, y and en, and the relative pronouns are where nearly every self-taught learner has a hole, and they are what make speech sound French rather than translated."],
   ["Will it help with the TCF or TEF?",
-   "It builds the grammar those exams rest on, and it is written by a teacher who prepares candidates for them. It is not a full exam-prep course — there are no mock papers or timed sections — but the structures the written and spoken sections test are exactly what it drills."],
+   "It builds the grammar those exams rest on, and it is written by a teacher who prepares candidates for them. It is not a full exam-prep course — there are no mock papers or timed sections — but the structures the written and spoken sections test are exactly what it drills.",
+   { href: "/guides/tcf-canada", label: "How the TCF Canada works, part by part" }],
   ["Is it a PDF or an app?",
    "Both, for one price. A PDF to keep and print, plus an online version in your browser where the exercises mark themselves and your progress saves. No download, no app store."],
   ["Do I need an account to buy?",
-   "No. You pay first, then set a password — that unlocks the PDF and the online version together."],
+   "No. You pay, and the PDF and the ebook are yours to download straight away, on the next page and in your receipt email. A free account is optional: it adds the online version, which saves your progress."],
   ["Will typing accents be a nightmare?",
    "No. The online version accepts answers without accents, marks them correct, and shows you the accented spelling. You are learning French, not a keyboard layout."],
   ["What if it isn't for me?",
@@ -191,6 +187,7 @@ export default function Page() {
     <div className={`fpap ${fraunces.variable} ${instrument.variable}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <WorkbookStickyCta />
+      <TikTokViewContent />
 
       {LAUNCH && (
         <div className="announce">
@@ -477,15 +474,46 @@ export default function Page() {
         <div className="wrap max-3">
           <h2 className="h2">Before you buy</h2>
           <div className="faq">
-            {FAQ.map(([q, a]) => (
+            {FAQ.map(([q, a, link]) => (
               <details key={q} className="faq-item">
                 <summary className="faq-q">
                   <span>{q}</span>
                   <span className="faq-sign" aria-hidden>+</span>
                 </summary>
-                <p className="faq-a muted">{a}</p>
+                <p className="faq-a muted">
+                  {a}
+                  {link && (
+                    <>
+                      {" "}
+                      <Link href={link.href} className="faq-link">
+                        {link.label}
+                      </Link>
+                    </>
+                  )}
+                </p>
               </details>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Free sample ──────────────────────────────────────── */}
+      <section id="sample" className="sec sec-pad">
+        <div className="wrap max-3">
+          <div className="sample-box">
+            <div>
+              <h2 className="h2 h2-sm">Not ready yet? Read Partie 0 free.</h2>
+              <p className="muted">
+                The first chapter of the real interactive ebook: twenty survival
+                phrases and three dialogues you can play, and an exercise that
+                marks itself. We&apos;ll email it to you, along with one grammar
+                lesson from later in the book.
+              </p>
+            </div>
+            <div>
+              <WorkbookSampleForm source="sales-page" />
+              <p className="micro">No account. Unsubscribe in one click.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -505,8 +533,8 @@ export default function Page() {
             One payment · Lifetime access · 14-day money-back guarantee
           </p>
           <p className="micro-light">
-            Already bought it?{" "}
-            <a href={appUrl("/workbook")} className="link-light">Open your workbook</a>
+            Already bought it? Your download links are in your receipt email, or{" "}
+            <a href={appUrl("/workbook")} className="link-light">open it in your account</a>
           </p>
         </div>
       </section>

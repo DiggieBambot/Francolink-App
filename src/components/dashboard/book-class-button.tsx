@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { CalendarPlus, X, Loader2, Check } from "lucide-react";
 
-export function BookClassButton({ tutorName }: { tutorName: string }) {
+export function BookClassButton({ tutorName, tutorId }: { tutorName: string; tutorId?: string }) {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
   const [preferredTime, setPreferredTime] = useState("");
@@ -17,7 +17,7 @@ export function BookClassButton({ tutorName }: { tutorName: string }) {
       const res = await fetch("/api/tutor/book-class", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message, preferredTime }),
+        body: JSON.stringify({ tutorId, message, preferredTime }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Could not send");

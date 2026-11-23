@@ -421,7 +421,6 @@ export function PublicProfileForm({
             </span>
             <span className="block text-xs text-gray-500 mb-2">
               Sets what the lesson sells for and what this tutor is paid.
-              FrancoLink sets prices — tutors never set their own rate.
             </span>
             <select
               value={tier}
@@ -435,8 +434,8 @@ export function PublicProfileForm({
           </label>
         ) : (
           <p className="text-sm text-gray-600 bg-gray-50 px-4 py-3 rounded-xl">
-            Lesson prices are set by FrancoLink from your tier — you don&apos;t
-            need to set a rate. Ask us if you think your tier is wrong.
+            Your tier:{" "}
+            <span className="font-semibold text-primary capitalize">{tier}</span>
           </p>
         )}
 

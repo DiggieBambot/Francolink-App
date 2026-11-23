@@ -98,6 +98,11 @@ export async function confirmBooking(
     console.error("[booking/confirm] notify failed", bookingId, e);
   }
 
+  // Put the lesson in the tutor's Google Calendar, if they connected one.
+  // pushBooking never throws; a miss is retried by the reconcile cron.
+  const { pushBooking } = await import("@/lib/google-calendar/sync");
+  await pushBooking(bookingId);
+
   return true;
 }
 

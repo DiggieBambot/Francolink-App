@@ -182,7 +182,9 @@ export async function getActivationFunnel(): Promise<{ step: string; count: numb
   const [signed, placement, connected, submitters] = await Promise.all([
     count("users", (q) => q.eq("role", "USER")),
     count("users", (q) => q.eq("role", "USER").eq("placement_test_taken", true)),
-    count("users", (q) => q.eq("role", "USER").not("referred_by_tutor_id", "is", null)),
+    // "Connected" = has an active tutor connection, not commission attribution.
+    svc().from("tutor_students").select("student_id").eq("status", "active")
+      .then(({ data }) => new Set((data || []).map((r) => r.student_id)).size),
     getHomeworkSubmitters(),
   ]);
   return [
@@ -207,17 +209,20 @@ export interface FunnelBySourceRow {
 }
 export async function getActivationFunnelBySource(): Promise<FunnelBySourceRow[]> {
   const s = svc();
-  const [{ data: users }, submitters] = await Promise.all([
-    s.from("users").select("id, signup_source, placement_test_taken, referred_by_tutor_id").not("email", "ilike", DEMO_EMAIL_PATTERN).eq("role", "USER"),
+  const [{ data: users }, submitters, { data: links }] = await Promise.all([
+    s.from("users").select("id, signup_source, placement_test_taken").not("email", "ilike", DEMO_EMAIL_PATTERN).eq("role", "USER"),
     getHomeworkSubmitters(),
+    // "Connected" = has an active tutor, not "is attributed for commission".
+    s.from("tutor_students").select("student_id").eq("status", "active"),
   ]);
+  const connected = new Set((links || []).map((l) => l.student_id as string));
   const by = new Map<string, FunnelBySourceRow>();
   for (const u of users || []) {
     const source = u.signup_source || "unknown";
     const row = by.get(source) || { source, signed: 0, placement: 0, connected: 0, submitted: 0 };
     row.signed++;
     if (u.placement_test_taken) row.placement++;
-    if (u.referred_by_tutor_id) row.connected++;
+    if (connected.has(u.id)) row.connected++;
     if (submitters.has(u.id)) row.submitted++;
     by.set(source, row);
   }

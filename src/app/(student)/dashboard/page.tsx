@@ -128,6 +128,7 @@ export default async function DashboardPage() {
         title,
         units:unit_id (
           courses:course_id (
+            id,
             level
           )
         )
@@ -171,31 +172,88 @@ export default async function DashboardPage() {
     currentLevel: activeLangData?.placement_level || profile?.placement_test_level || currentLevel,
   };
 
-  // Dynamic placeholder course based on user's language
-  const placeholderCourses = [
-    {
+  // Course cards come from the published courses for the learner's language,
+  // with progress counted from their completed lessons. Enrollments are never
+  // written, so building the cards from them always fell through to a
+  // placeholder showing 0% however many lessons had been done.
+  const completedByCourse = new Map<string, number>();
+  for (const row of completedLessons || []) {
+    const courseId = (row as any).lessons?.units?.courses?.id;
+    if (courseId) completedByCourse.set(courseId, (completedByCourse.get(courseId) || 0) + 1);
+  }
+
+  const { data: languageCourses } = await supabase
+    .from("courses")
+    .select(
+      "id, title, slug, level, units ( order_index, lessons ( id, title, slug, order_index, estimated_minutes ) )"
+    )
+    .like("slug", `${userLanguageSlug}-%`)
+    .eq("is_published", true)
+    .order("level");
+
+  const courses = (languageCourses || [])
+    .map((c: any) => {
+      const totalLessons = (c.units || []).reduce(
+        (n: number, u: any) => n + (u.lessons?.length || 0),
+        0
+      );
+      const completed = Math.min(completedByCourse.get(c.id) || 0, totalLessons);
+      return {
+        id: c.slug,
+        title: c.title,
+        flag: languageInfo.flag,
+        level: c.level,
+        progress: totalLessons > 0 ? Math.round((completed / totalLessons) * 100) : 0,
+        totalLessons,
+        completedLessons: completed,
+      };
+    })
+    // Levels they've started, plus the one they're on now.
+    .filter((c) => c.completedLessons > 0 || c.level === String(stats.currentLevel).toUpperCase());
+
+  // "Continue Learning": the course at their current level, and the first
+  // lesson in it they haven't completed. Without this the card fell back to a
+  // hardcoded "Getting Started" at 0%.
+  const completedIds = new Set(
+    (completedLessons || []).map((r: any) => r.lessons?.id).filter(Boolean)
+  );
+  const byOrder = (a: any, b: any) => (a.order_index ?? 0) - (b.order_index ?? 0);
+  const continueSource =
+    (languageCourses || []).find(
+      (c: any) => c.level === String(stats.currentLevel).toUpperCase()
+    ) || (languageCourses || [])[0];
+  const continueCard = courses.find((c) => c.id === continueSource?.slug);
+  let continueCourse: Parameters<typeof ContinueLearning>[0]["course"];
+  if (continueSource && continueCard) {
+    const ordered = [...(continueSource.units || [])]
+      .sort(byOrder)
+      .flatMap((u: any) => [...(u.lessons || [])].sort(byOrder));
+    const next = ordered.find((l: any) => !completedIds.has(l.id));
+    const levelPath = `/learn/${userLanguageSlug}/${continueSource.level.toLowerCase()}`;
+    continueCourse = {
+      id: continueSource.slug,
+      title: continueSource.title,
+      language: languageInfo.name,
+      level: continueSource.level,
+      flag: languageInfo.flag,
+      currentLesson: next ? next.title : "Level complete",
+      progress: continueCard.progress,
+      estimatedMinutes: next?.estimated_minutes || 10,
+      href: next?.slug ? `${levelPath}/${next.slug}` : levelPath,
+    };
+  }
+
+  if (courses.length === 0) {
+    courses.push({
       id: `${userLanguageSlug}-a1`,
       title: `${languageInfo.name} Foundations`,
       flag: languageInfo.flag,
       level: "A1",
       progress: 0,
-      totalLessons: 40,
+      totalLessons: 0,
       completedLessons: 0,
-    },
-  ];
-
-  const courses =
-    enrollments && enrollments.length > 0
-      ? enrollments.map((e) => ({
-          id: e.courses?.slug || "",
-          title: e.courses?.title || "",
-          flag: e.courses?.languages?.flag_emoji || "🌍",
-          level: e.courses?.level || "A1",
-          progress: 0,
-          totalLessons: e.courses?.total_lessons || 0,
-          completedLessons: 0,
-        }))
-      : placeholderCourses;
+    });
+  }
 
   // Per-language placement check — show banner if this language hasn't been tested
   const hasPlacementTest = activeLangData?.placement_taken === true;
@@ -277,7 +335,7 @@ export default async function DashboardPage() {
 
           {/* Actions */}
           <div className="flex items-center gap-2">
-            <BookClassButton tutorName={tutor.name || "your tutor"} />
+            <BookClassButton tutorName={tutor.name || "your tutor"} tutorId={tutor.id} />
             <Link
               href="/student/sessions"
               className="p-2.5 bg-primary-50 text-primary rounded-xl hover:bg-primary-100 transition-colors"
@@ -309,7 +367,7 @@ export default async function DashboardPage() {
                 <p className="font-heading font-bold text-primary truncate">{t.name || "Your Tutor"}</p>
               </div>
               <div className="flex items-center gap-2">
-                <BookClassButton tutorName={t.name || "your tutor"} />
+                <BookClassButton tutorName={t.name || "your tutor"} tutorId={t.id} />
                 <Link
                   href="/messages"
                   className="p-2.5 bg-gray-50 text-gray-500 rounded-xl hover:bg-gray-100 transition-colors"
@@ -423,6 +481,7 @@ export default async function DashboardPage() {
         <div className="lg:col-span-2 space-y-6">
           {/* Continue Learning */}
           <ContinueLearning
+          course={continueCourse}
           userLanguage={userLanguageSlug}
           userLevel={(activeLangData?.placement_level || profile?.placement_test_level || "A1").toLowerCase()}
           />

@@ -9,11 +9,14 @@ import { appUrl } from "@/lib/site/hosts";
 // Nav for the front-facing website. Every "app" destination is an absolute
 // cross-host link — the app lives on a different domain now, so next/link
 // prefetching would be wrong here.
-const NAV = [
+const NAV: { href: string; label: string; wideOnly?: boolean }[] = [
   { href: "/tutors", label: "Find a tutor" },
   { href: "/how-it-works", label: "How it works" },
+  { href: "/guides/tcf-canada", label: "TCF Canada" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/testimonials", label: "Stories" },
+  // Desktop bar only from xl: at lg there is not room for seven links beside
+  // the logo and buttons. The mobile menu and the footer still carry it.
+  { href: "/testimonials", label: "Stories", wideOnly: true },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
@@ -24,7 +27,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-primary-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between gap-6 h-16 md:h-20">
           <Link href="/" className="flex items-center shrink-0">
             <Image
               src="/logo-new.webp"
@@ -36,12 +39,14 @@ export function SiteHeader() {
             />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-7">
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
             {NAV.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-semibold text-gray-600 hover:text-primary transition-colors"
+                className={`text-sm font-semibold text-gray-600 hover:text-primary transition-colors whitespace-nowrap ${
+                  item.wideOnly ? "hidden xl:inline" : ""
+                }`}
               >
                 {item.label}
               </Link>
@@ -51,13 +56,13 @@ export function SiteHeader() {
           <div className="hidden lg:flex items-center gap-3">
             <a
               href={appUrl("/login")}
-              className="text-sm font-semibold text-primary px-4 py-2 rounded-lg hover:bg-primary-50 transition-colors"
+              className="text-sm font-semibold text-primary px-4 py-2 rounded-lg whitespace-nowrap hover:bg-primary-50 transition-colors"
             >
               Log in
             </a>
             <a
               href={appUrl("/signup")}
-              className="text-sm font-bold text-white bg-primary px-5 py-2.5 rounded-xl hover:bg-primary-800 transition-all shadow-lg shadow-primary/20 hover:-translate-y-0.5"
+              className="text-sm font-bold text-white bg-primary px-5 py-2.5 rounded-xl whitespace-nowrap hover:bg-primary-800 transition-all shadow-lg shadow-primary/20 hover:-translate-y-0.5"
             >
               Open the app
             </a>

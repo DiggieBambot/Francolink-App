@@ -6,7 +6,7 @@
 // exist" but "does this account get to appear in a real tutor's class list and
 // send them an email". A borderline signup lands as `pending` instead — the
 // tutor still sees it under Students and can accept, but nothing is auto-
-// connected and no "X asked to join your class" mail goes out unprompted.
+// connected and no "X joined your class" mail goes out unprompted.
 //
 // Scoring itself lives in ./signup-risk so it stays pure and testable.
 

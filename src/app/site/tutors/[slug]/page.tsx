@@ -19,7 +19,7 @@ import { AvailabilityTable } from "@/components/site/availability-table";
 import { SlotPicker } from "@/components/site/slot-picker";
 import { TutorTabs } from "@/components/site/tutor-tabs";
 import { Collapsible } from "@/components/site/collapsible";
-import { getPublicTutor, getPublicTutorSlugs } from "@/lib/site/queries";
+import { getPublicTutor, getPublicTutorSlugs, isOffSiteReview } from "@/lib/site/queries";
 import { JsonLd } from "@/components/site/json-ld";
 import { ORG_ID, breadcrumbSchema } from "@/lib/site/schema";
 import { getBookableSlots } from "@/lib/booking/availability";
@@ -115,15 +115,20 @@ export default async function TutorProfilePage({ params }: PageProps) {
     worksFor: { "@id": ORG_ID },
   };
 
-  // Reuses the `rating` the page already computes for display, so the stars a
-  // visitor sees and the stars Google sees can never disagree. Null when no
-  // student left a rating, and then the property is omitted entirely — a
-  // made-up rating is structured-data spam.
-  if (rating) {
+  // Same average as the visible stars, minus reviews imported from other
+  // platforms: Google forbids aggregating ratings collected on other sites, so
+  // those show on the page but never reach structured data. Omitted entirely
+  // when no FrancoLink student left a rating — a made-up rating is
+  // structured-data spam.
+  const ownRated = tutor.testimonials
+    .filter((t) => !isOffSiteReview(t))
+    .map((t) => t.rating)
+    .filter((r): r is number => typeof r === "number");
+  if (ownRated.length) {
     jsonLd.aggregateRating = {
       "@type": "AggregateRating",
-      ratingValue: Number(rating.average.toFixed(1)),
-      reviewCount: rating.count,
+      ratingValue: Number((ownRated.reduce((sum, r) => sum + r, 0) / ownRated.length).toFixed(1)),
+      reviewCount: ownRated.length,
       bestRating: 5,
     };
   }

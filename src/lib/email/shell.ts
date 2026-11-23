@@ -23,11 +23,13 @@ export interface ShellArgs {
   ctaText: string;
   /** Absolute unsubscribe URL. Rendered in the footer; omit for previews. */
   unsubscribeUrl?: string;
+  /** Footer link text. Defaults to the learning-tips wording. */
+  unsubscribeLabel?: string;
 }
 
-export function emailShell({ firstName, bodyHtml, ctaHref, ctaText, unsubscribeUrl }: ShellArgs): string {
+export function emailShell({ firstName, bodyHtml, ctaHref, ctaText, unsubscribeUrl, unsubscribeLabel }: ShellArgs): string {
   const unsub = unsubscribeUrl
-    ? `<br/><a href="${unsubscribeUrl}" style="color:#94a3b8;">Unsubscribe from tips</a>`
+    ? `<br/><a href="${unsubscribeUrl}" style="color:#94a3b8;">${escapeHtml(unsubscribeLabel || "Unsubscribe from tips")}</a>`
     : "";
 
   return `<!doctype html>

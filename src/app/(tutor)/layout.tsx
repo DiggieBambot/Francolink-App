@@ -16,6 +16,8 @@ import {
 } from "lucide-react";
 import { TutorSidebar } from "@/components/tutor/tutor-sidebar";
 import { MobileSidebar } from "@/components/shared/mobile-sidebar";
+import { NotificationBell } from "@/components/notifications/notification-bell";
+import { DiggieChat } from "@/components/shared/diggie-chat";
 import { Flame } from "lucide-react";
 
 export const metadata = {
@@ -87,28 +89,30 @@ export default async function TutorLayout({
         { name: "Schedule", href: "/tutor/schedule", icon: "Calendar" },
       ],
     },
-    isFrancolinkTutor
-      ? {
-          label: "FrancoLink tutor",
-          items: [
-            { name: "Public profile", href: "/tutor/public-profile", icon: "Globe" },
-            { name: "Availability", href: "/tutor/availability", icon: "CalendarClock" },
-          ],
-        }
-      : {
-          label: "Earning opportunity",
-          items: [
-            {
-              name: applicationOpen ? "Application pending" : "Become a FrancoLink tutor",
-              href: "/tutor/apply",
-              icon: "Sparkles",
-            },
-          ],
-        },
+    // Public profile is always listed: the sidebar is a layout, which Next
+    // doesn't re-render on client navigation, so it can lag behind an
+    // acceptance. The editor itself shows "apply first" to non-members.
+    {
+      label: isFrancolinkTutor ? "FrancoLink tutor" : "Earning opportunity",
+      items: [
+        ...(isFrancolinkTutor
+          ? []
+          : [
+              {
+                name: applicationOpen ? "Application pending" : "Become a FrancoLink tutor",
+                href: "/tutor/apply",
+                icon: "Sparkles",
+              },
+            ]),
+        { name: "Public profile", href: "/tutor/public-profile", icon: "Globe" },
+        { name: "Availability", href: "/tutor/availability", icon: "CalendarClock" },
+      ],
+    },
     {
       label: "Account",
       items: [
         { name: "Commissions", href: "/tutor/commisions", icon: "DollarSign" },
+        { name: "Help & support", href: "/tutor/support", icon: "LifeBuoy" },
         { name: "Settings", href: "/tutor/settings", icon: "Settings" },
       ],
     },
@@ -152,6 +156,7 @@ export default async function TutorLayout({
             </Link>
           </div>
           <div className="flex items-center gap-3">
+            <NotificationBell inboxHref={null} />
             {commissionBalance > 0 && (
               <Link
                 href="/tutor/commissions"
@@ -174,10 +179,14 @@ export default async function TutorLayout({
 
       {/* Main Content */}
       <div className="lg:pl-64">
+        <div className="hidden lg:flex sticky top-0 z-30 h-14 items-center justify-end px-8 bg-white/90 backdrop-blur border-b border-gray-100">
+          <NotificationBell inboxHref={null} />
+        </div>
         <main className="min-h-screen p-4 sm:p-6 lg:p-8">{children}</main>
       </div>
       <ActivityPinger />
       <AttributionCapture />
+      <DiggieChat />
     </div>
   );
 }

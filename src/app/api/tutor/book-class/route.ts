@@ -1,4 +1,4 @@
-// POST /api/tutor/book-class  { message?, preferredTime? }
+// POST /api/tutor/book-class  { tutorId?, message?, preferredTime? }
 // A connected student asks their tutor for a class. Records the request and
 // notifies the tutor (in-app + email).
 
@@ -7,6 +7,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { notifyUser } from "@/lib/notifications/create";
 import { notifyTutorClassRequest } from "@/lib/email/transactional";
+import { primaryTutorId } from "@/lib/tutor/commission";
 
 function svc() {
   return createServiceClient(
@@ -28,11 +29,28 @@ export async function POST(req: NextRequest) {
   const service = svc();
   const { data: me } = await service
     .from("users")
-    .select("name, referred_by_tutor_id")
+    .select("name")
     .eq("id", user.id)
     .maybeSingle();
 
-  const tutorId = me?.referred_by_tutor_id;
+  // Which tutor: the one whose card the student clicked, if they're actually
+  // connected to them; otherwise their primary tutor. This used to read the
+  // commission field, which sent every request to the first tutor even from a
+  // second teacher's card — and now that public-profile joins aren't
+  // attributed, would have told those students they had no tutor at all.
+  const requested = typeof body.tutorId === "string" ? body.tutorId : null;
+  let tutorId: string | null = null;
+  if (requested) {
+    const { data: link } = await service
+      .from("tutor_students")
+      .select("tutor_id")
+      .eq("tutor_id", requested)
+      .eq("student_id", user.id)
+      .eq("status", "active")
+      .maybeSingle();
+    tutorId = link?.tutor_id ?? null;
+  }
+  if (!tutorId) tutorId = await primaryTutorId(user.id);
   if (!tutorId) {
     return NextResponse.json({ error: "You're not connected to a tutor yet." }, { status: 400 });
   }

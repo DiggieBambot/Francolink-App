@@ -15,6 +15,7 @@ export const OUTREACH_PLATFORMS = [
   { value: "tiktok", label: "TikTok DM" },
   { value: "youtube", label: "YouTube" },
   { value: "linkedin", label: "LinkedIn" },
+  { value: "email", label: "Email" },
   { value: "forum", label: "Forum / Blog" },
   { value: "other", label: "Other" },
 ] as const;

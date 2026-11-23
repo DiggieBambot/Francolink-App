@@ -15,6 +15,7 @@ import {
   PencilLine,
   History,
   CreditCard,
+  LifeBuoy,
   LucideIcon,
 } from "lucide-react";
 
@@ -36,6 +37,7 @@ const navigationItems: NavItem[] = [
   { label: "Placement Test", href: "/placement-test", icon: Brain },
   { label: "My plan", href: "/student/subscription", icon: CreditCard },
   { label: "Notifications", href: "/notifications", icon: Bell },
+  { label: "Help & support", href: "/support", icon: LifeBuoy },
   { label: "Settings", href: "/settings", icon: Settings },
 ];
 

@@ -84,6 +84,8 @@ const SITE_ROUTES = [
   "/",
   "/tutors",
   "/teach",
+  // FrancoLink for Business (self-study seats). docs/PLAN-business.md.
+  "/business",
   "/how-it-works",
   "/pricing",
   "/about",
@@ -103,6 +105,8 @@ const SITE_ROUTES = [
   "/terms",
   // Google Play's required web link for account deletion. Must work signed-out.
   "/delete-account",
+  // Certificate verification. The link students share; must work signed-out.
+  "/certificates",
   // The workbook's sales page. Lives on the website, not the app: it is
   // indexable, it is what ads point at, and buying does not need a session.
   "/francais-pas-a-pas",
@@ -154,6 +158,7 @@ const APP_ROUTES = [
   "/profile",
   "/settings",
   "/notifications",
+  "/support",
   "/placement-test",
   "/checkout",
   "/student",
@@ -180,6 +185,9 @@ const APP_ROUTES = [
   // at /start, so leaving it off this list 404s the whole funnel — which is
   // exactly what it did in production until someone tried it.
   "/start",
+  // Private lesson rates. Unlisted, but every link to it is sent to a paying
+  // student, so a 404 here is a lost sale.
+  "/private-rate",
   "/how-it-works",
   "/get-started",
   "/space",

@@ -125,6 +125,7 @@ export async function getStarterPacks(): Promise<StarterPack[]> {
     .from("starter_packs")
     .select("pack_key, tier, lessons, price_cents, currency")
     .eq("active", true)
+    .eq("visibility", "public")
     .order("sort_order", { ascending: true });
 
   return (data ?? []).map((p) => ({
@@ -142,7 +143,8 @@ export async function hasUsedStarterPack(userId: string): Promise<boolean> {
     .from("starter_pack_purchases")
     .select("*", { count: "exact", head: true })
     .eq("user_id", userId)
-    .eq("status", "paid");
+    .eq("status", "paid")
+    .eq("pack_visibility", "public");
   return (count ?? 0) > 0;
 }
 

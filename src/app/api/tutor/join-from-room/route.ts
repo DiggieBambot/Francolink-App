@@ -1,8 +1,8 @@
 // POST /api/tutor/join-from-room  { sessionId }
 // A student in a live room asks to join that room's tutor as a student. Keyed by
 // the session id (trusted server-side) so we don't depend on the invite code.
-// Creates a PENDING request (same model as /join/[code]): a tutor_students row
-// exists, but referred_by_tutor_id is only set when the tutor accepts in People.
+// Connects the student to that tutor (active). It never attributes commission:
+// only a private invite code does that (lib/tutor/commission.ts).
 
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
@@ -39,13 +39,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "You own this room" }, { status: 400 });
   }
 
-  // Already attributed to some tutor?
-  const { data: me } = await service
-    .from("users")
-    .select("referred_by_tutor_id")
-    .eq("id", user.id)
-    .maybeSingle();
-
   // Was there already a connection to THIS tutor? (Idempotent; also avoids
   // emailing the tutor twice.) A student may be connected to many tutors.
   const { data: existingRel } = await service
@@ -58,16 +51,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: true, status: "connected" });
   }
 
-  // Commission attribution is first-touch — only set it if unset. A student can
-  // be connected to multiple teachers; this just adds the connection below.
-  if (!me?.referred_by_tutor_id) {
-    const { error: attrError } = await service
-      .from("users")
-      .update({ referred_by_tutor_id: tutorId, updated_at: new Date().toISOString() })
-      .eq("id", user.id);
-    if (attrError) return NextResponse.json({ error: attrError.message }, { status: 500 });
-  }
-
+  // No commission here: joining from a room isn't an invite code, so it
+  // connects without attributing (lib/tutor/commission.ts).
   const { error } = await service
     .from("tutor_students")
     .upsert(

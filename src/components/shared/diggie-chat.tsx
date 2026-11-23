@@ -1,36 +1,18 @@
 "use client";
 
-// Mounts the DiggieChat widget in its default floating mode: a launcher pinned
-// bottom-right that opens a slide-out panel over the page.
+// In the app, DiggieChat never floats over the UI: no launcher bubble, no
+// proactive pop-ups, no floating panel. It only appears where a page docks it
+// (DiggieChatPanel — the Help & support page, the lesson room's AI tab).
 //
-// Rendered only when NEXT_PUBLIC_DIGGIECHAT_SITE_ID is set.
-
-import { useEffect } from "react";
-import { DIGGIECHAT_SITE_ID, loadDiggieChat } from "@/lib/diggie-chat";
+// The widget script stays loaded after you leave a docked page, and on
+// unmount it hands the panel back to its floating launcher — so the floating
+// pieces are hidden here, for the whole app, rather than per page.
 
 export function DiggieChat() {
-  useEffect(() => {
-    if (!DIGGIECHAT_SITE_ID) return;
-    loadDiggieChat().catch(() => {
-      /* widget unavailable — the rest of the page is unaffected */
-    });
-  }, []);
-
-  if (!DIGGIECHAT_SITE_ID) return null;
-
-  // The widget pins itself to bottom-right, where AITutorFab and the mobile
-  // bottom nav already live. Lift and inset it so the launchers stack instead
-  // of overlapping.
   return (
     <style>{`
-      #_dc_fab._dc_right { right: 16px; bottom: 168px; }
-      #_dc_win._dc_right { right: 16px; bottom: 230px; }
-      #_dc_proactive._dc_right { right: 16px; bottom: 230px; }
-      @media (min-width: 1024px) {
-        #_dc_fab._dc_right { right: 24px; bottom: 96px; }
-        #_dc_win._dc_right { right: 24px; bottom: 158px; }
-        #_dc_proactive._dc_right { right: 24px; bottom: 158px; }
-      }
+      #_dc_fab, #_dc_proactive { display: none !important; }
+      #_dc_win:not(._dc_docked) { display: none !important; }
     `}</style>
   );
 }

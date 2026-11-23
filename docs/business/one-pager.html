@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>FrancoLink for Business</title>
+<!-- Source for one-pager.pdf. Prices mirror src/lib/site/business.ts (DRAFT until approved).
+     Rebuild: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --no-pdf-header-footer --print-to-pdf=docs/business/one-pager.pdf docs/business/one-pager.html -->
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; color: #1f2937; font-size: 10.5pt; line-height: 1.45; }
+  .page { width: 210mm; height: 297mm; padding: 16mm 16mm 12mm; display: flex; flex-direction: column; }
+  header { display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #f0912f; padding-bottom: 6mm; }
+  header img { height: 11mm; }
+  header .tag { font-size: 9pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #f0912f; }
+  h1 { font-size: 22pt; line-height: 1.15; color: #102a4c; margin: 7mm 0 2mm; }
+  .lead { font-size: 11.5pt; color: #4b5563; margin: 0 0 6mm; max-width: 165mm; }
+  h2 { font-size: 11pt; text-transform: uppercase; letter-spacing: .08em; color: #102a4c; margin: 0 0 3mm; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; }
+  ul { margin: 0; padding-left: 4.5mm; }
+  li { margin-bottom: 1.6mm; }
+  .card { border: 1px solid #e5e7eb; border-radius: 3mm; padding: 4mm; }
+  .card h3 { margin: 0 0 1mm; font-size: 12pt; color: #102a4c; }
+  .card .who { font-size: 8.5pt; color: #6b7280; margin-bottom: 2.5mm; }
+  .price { font-weight: 700; color: #102a4c; }
+  .row { display: flex; justify-content: space-between; gap: 2mm; padding: 1.2mm 0; border-bottom: 1px dashed #e5e7eb; font-size: 9.5pt; }
+  .row:last-child { border-bottom: 0; }
+  .hl { border: 2px solid #f0912f; }
+  .band { background: #fdf1e4; border-radius: 3mm; padding: 4mm 5mm; margin-top: 5mm; }
+  .band strong { color: #102a4c; }
+  section { margin-top: 6mm; }
+  ol { margin: 0; padding-left: 5mm; }
+  footer { margin-top: auto; border-top: 1px solid #e5e7eb; padding-top: 4mm; display: flex; justify-content: space-between; font-size: 9.5pt; color: #4b5563; }
+  footer b { color: #102a4c; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <img src="../../public/logo-new.png" alt="FrancoLink">
+    <span class="tag">For Business</span>
+  </header>
+
+  <h1>French your people will actually keep up with</h1>
+  <p class="lead">A structured self-study French course for your staff, students or clients — A1 to B2, with TCF Canada prep — plus progress reports so you can see it working.</p>
+
+  <div class="grid2">
+    <div>
+      <h2>What every learner gets</h2>
+      <ul>
+        <li><b>A full course, A1–B2</b>: lessons, exercises, grammar, vocabulary and games on one learning path</li>
+        <li><b>Audio on everything</b>: dialogues, words and example sentences</li>
+        <li><b>Placement test</b> so each learner starts at the right level</li>
+        <li><b>TCF Canada prep</b> for Canada-bound learners</li>
+        <li><b>Verifiable certificates</b> for each level completed</li>
+        <li>Works on any phone or laptop, with streaks and reminders</li>
+      </ul>
+    </div>
+    <div>
+      <h2>What you get</h2>
+      <ul>
+        <li><b>Progress reports</b>: who is active, lessons completed, level progress</li>
+        <li><b>One annual invoice</b>, card or bank transfer, PO numbers welcome</li>
+        <li><b>Seats you can move</b> when someone leaves</li>
+        <li><b>Private by design</b>: each learner creates their own account</li>
+        <li><b>Free teacher accounts</b> to assign lessons and homework</li>
+      </ul>
+    </div>
+  </div>
+
+  <section>
+    <h2>Pricing (per learner, per year)</h2>
+    <div class="grid3">
+      <div class="card">
+        <h3>Teams</h3>
+        <div class="who">Employers · minimum 5 learners</div>
+        <div class="row"><span>5–49 learners</span><span class="price">$79</span></div>
+        <div class="row"><span>50–199 learners</span><span class="price">$59</span></div>
+        <div class="row"><span>200+ learners</span><span class="price">Quote</span></div>
+      </div>
+      <div class="card hl">
+        <h3>Schools &amp; teachers</h3>
+        <div class="who">Classrooms</div>
+        <div class="row"><span>Schools (30+ students)</span><span class="price">$15</span></div>
+        <div class="row"><span>Teachers (10+ students)</span><span class="price">$20</span></div>
+        <div class="row"><span>Teacher accounts</span><span class="price">Free</span></div>
+      </div>
+      <div class="card">
+        <h3>Partners</h3>
+        <div class="who">Immigration, relocation &amp; study-abroad agencies</div>
+        <div class="row"><span>Referral share</span><span class="price">Per client</span></div>
+        <div class="row"><span>12-month codes</span><span class="price">Bulk</span></div>
+        <div class="row"><span>Rates</span><span class="price">On request</span></div>
+      </div>
+    </div>
+    <div class="band">
+      <strong>Free 30-day pilot</strong> for up to 10 learners, with a usage report at the end.
+      &nbsp;·&nbsp; <strong>Founding customers:</strong> 30% off year one for our first 10 organisations, in return for a short case study.
+    </div>
+  </section>
+
+  <section>
+    <h2>Getting started</h2>
+    <ol>
+      <li>Tell us who is learning: how many people, rough level, and any deadline (a test date, a move, a new role).</li>
+      <li>Learners join with one link, take the placement test and start at the right level.</li>
+      <li>After 30 days you get a usage report and a quote. Continue only if it's working.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <span><b>francolink.net/business</b></span>
+    <span>support@francolink.net</span>
+  </footer>
+</div>
+</body>
+</html>

@@ -3,19 +3,25 @@
 import { useState } from "react";
 import { useFormToken } from "@/hooks/use-form-token";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
+import { BUSINESS_CONTACT_TOPIC } from "@/lib/site/business";
 
 const TOPICS = [
   "Learning with FrancoLink",
   "Finding the right tutor",
   "Billing and subscriptions",
   "Teaching with FrancoLink",
+  BUSINESS_CONTACT_TOPIC,
   "Something else",
 ];
 
 type Status = "idle" | "sending" | "sent" | "error";
 
-export function ContactForm() {
+export function ContactForm({ initialTopic }: { initialTopic?: string } = {}) {
   const [status, setStatus] = useState<Status>("idle");
+  const [topic, setTopic] = useState(
+    initialTopic && TOPICS.includes(initialTopic) ? initialTopic : TOPICS[0]
+  );
+  const isBusiness = topic === BUSINESS_CONTACT_TOPIC;
   // Proves the form was rendered — blocks bots posting straight at the API.
   const formToken = useFormToken();
   const [error, setError] = useState<string | null>(null);
@@ -31,6 +37,8 @@ export function ContactForm() {
       email: String(form.get("email") || ""),
       topic: String(form.get("topic") || ""),
       message: String(form.get("message") || ""),
+      organization: isBusiness ? String(form.get("organization") || "") : "",
+      learners: isBusiness ? String(form.get("learners") || "") : "",
       // Honeypot: real people never fill a hidden field.
       company: String(form.get("company") || ""),
           form_token: formToken,
@@ -70,7 +78,7 @@ export function ContactForm() {
   const busy = status === "sending";
 
   return (
-    <form onSubmit={onSubmit} className="space-y-5">
+    <form id="contact-form" onSubmit={onSubmit} className="space-y-5 scroll-mt-28">
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Your name" name="name" autoComplete="name" required />
         <Field
@@ -88,7 +96,8 @@ export function ContactForm() {
         </span>
         <select
           name="topic"
-          defaultValue={TOPICS[0]}
+          value={topic}
+          onChange={(e) => setTopic(e.target.value)}
           className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-800 focus:border-primary focus:ring-2 focus:ring-primary-100 outline-none"
         >
           {TOPICS.map((t) => (
@@ -96,6 +105,27 @@ export function ContactForm() {
           ))}
         </select>
       </label>
+
+      {isBusiness && (
+        <div className="grid gap-5 sm:grid-cols-2">
+          <Field
+            label="Organisation"
+            name="organization"
+            autoComplete="organization"
+            maxLength={160}
+            required
+          />
+          <Field
+            label="How many learners?"
+            name="learners"
+            type="number"
+            inputMode="numeric"
+            min={1}
+            max={100000}
+            placeholder="e.g. 12"
+          />
+        </div>
+      )}
 
       <label className="block">
         <span className="block text-sm font-semibold text-primary mb-2">
@@ -107,7 +137,11 @@ export function ContactForm() {
           required
           minLength={10}
           maxLength={4000}
-          placeholder="Tell us what you need…"
+          placeholder={
+            isBusiness
+              ? "Who needs French, their rough level, and any deadline (a test date, a move, a new role)…"
+              : "Tell us what you need…"
+          }
           className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary-100 outline-none resize-y"
         />
       </label>

@@ -220,10 +220,10 @@ export default async function SitePricingPage() {
         <SectionHeading
           eyebrow="Live lessons"
           title="What does a tutor cost?"
-          subtitle="Each tutor sets their own hourly rate — you'll see it on their profile before you book. Most offer a free trial lesson so you can check the fit first."
+          subtitle="Live lessons come from a lesson plan, not a rate each tutor sets. Every tutor is in a tier, and your plan decides which tiers you can book. New to live lessons? Start with a one-off starter pack before choosing a plan."
         />
         <div className="text-center">
-          <CtaButton href="/tutors">See tutors and their rates</CtaButton>
+          <CtaButton href="/tutors">See our tutors</CtaButton>
         </div>
       </Section>
     </>

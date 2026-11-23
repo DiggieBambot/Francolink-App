@@ -1,8 +1,7 @@
 // POST /api/tutor/students/respond
 // Body: { studentId: string, action: "accept" | "decline" }
-// The logged-in tutor accepts a pending join request (connects the student and
-// sets referred_by_tutor_id, which also drives commission attribution) or
-// declines it (removes the request row).
+// The logged-in tutor accepts a pending join request (connects the student) or
+// declines it (removes the request row). Commission is not decided here.
 
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
@@ -56,24 +55,10 @@ export async function POST(req: NextRequest) {
   }
 
   // Accept: connect the student to this tutor. Students may have multiple
-  // teachers, so we never reject on an existing connection. Commission is
-  // first-touch — only set referred_by if it isn't set yet.
-  const { data: student } = await service
-    .from("users")
-    .select("referred_by_tutor_id")
-    .eq("id", studentId)
-    .maybeSingle();
-
-  if (!student?.referred_by_tutor_id) {
-    const { error: upErr } = await service
-      .from("users")
-      .update({ referred_by_tutor_id: user.id, updated_at: new Date().toISOString() })
-      .eq("id", studentId);
-    if (upErr) {
-      return NextResponse.json({ error: "Failed to connect student" }, { status: 500 });
-    }
-  }
-
+  // teachers, so we never reject on an existing connection. Accepting does
+  // NOT attribute commission: that was decided when the request was made —
+  // set then if it came through this tutor's invite code, and never for a
+  // public-profile request (lib/tutor/commission.ts).
   await service
     .from("tutor_students")
     .update({ status: "active", assigned_at: new Date().toISOString() })

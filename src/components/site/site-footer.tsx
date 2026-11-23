@@ -12,6 +12,7 @@ const COLUMNS = [
       { href: "/how-it-works", label: "How it works" },
       { href: "/pricing", label: "Pricing" },
       { href: "/testimonials", label: "Student stories" },
+      { href: "/guides/tcf-canada", label: "TCF Canada guide" },
     ],
   },
   {
@@ -25,6 +26,7 @@ const COLUMNS = [
     title: "Company",
     links: [
       { href: "/about", label: "About us" },
+      { href: "/business", label: "For business" },
       { href: "/faq", label: "FAQ" },
       { href: "/contact", label: "Contact" },
       { href: "/blog", label: "Blog" },

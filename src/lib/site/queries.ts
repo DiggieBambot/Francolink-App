@@ -73,6 +73,16 @@ export interface Testimonial {
   rating: number | null;
 }
 
+/**
+ * A testimonial copied from another platform (e.g. a tutor's Preply reviews),
+ * recognised by the role it was imported under ("Preply student"). Fine to
+ * show on the page, but it must stay out of structured data: Google's review
+ * snippet rules forbid aggregating ratings collected on other sites.
+ */
+export function isOffSiteReview(t: Testimonial): boolean {
+  return /\bpreply\b/i.test(t.author_role ?? "");
+}
+
 export interface Faq {
   id: string;
   category: string;
@@ -232,7 +242,7 @@ export async function getPublicTutor(slug: string): Promise<TutorProfile | null>
       .eq("tutor_id", row.user_id)
       .eq("is_published", true)
       .order("display_order", { ascending: true })
-      .limit(6),
+      .limit(20),
   ]);
 
   const availability = (slots as AvailabilitySlot[]) ?? [];

@@ -4,11 +4,12 @@
 // notify the team by email. A failed notification must never fail the request —
 // the row is already saved.
 
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { z } from "zod";
 import { looksHuman } from "@/lib/site/form-token";
 import { DEFAULT_FROM, getResend } from "@/lib/email/resend";
+import { relayContactToDiggieChat } from "@/lib/site/diggiechat-relay";
 
 export const runtime = "nodejs";
 
@@ -17,6 +18,10 @@ const Body = z.object({
   email: z.email().max(200),
   topic: z.string().trim().max(120).optional().default(""),
   message: z.string().trim().min(10).max(4000),
+  // Business enquiries only (FrancoLink for Business). Folded into the stored
+  // message so the Support inbox, email and DiggieChat all see them unchanged.
+  organization: z.string().trim().max(160).optional().default(""),
+  learners: z.string().trim().max(12).optional().default(""),
   // Honeypot — a filled value means a bot.
   company: z.string().optional().default(""),
   // Proof the form was actually rendered — see lib/site/form-token.
@@ -48,20 +53,28 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   }
 
+  const businessLines = [
+    parsed.organization && `Organisation: ${parsed.organization}`,
+    parsed.learners && `Learners: ${parsed.learners}`,
+  ].filter(Boolean);
+  if (businessLines.length) {
+    parsed.message = `${businessLines.join("\n")}\n\n${parsed.message}`;
+  }
+
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.SUPABASE_SERVICE_ROLE_KEY!,
     { auth: { persistSession: false } }
   );
 
-  const { error } = await supabase.from("contact_messages").insert({
+  const { data: saved, error } = await supabase.from("contact_messages").insert({
     name: parsed.name,
     email: parsed.email,
     topic: parsed.topic || null,
     message: parsed.message,
     source: "website",
     user_agent: request.headers.get("user-agent")?.slice(0, 500) ?? null,
-  });
+  }).select("id").single();
 
   if (error) {
     console.error("[site/contact] insert failed", error);
@@ -87,6 +100,20 @@ export async function POST(request: Request) {
   } catch (err) {
     // Already persisted — surface in logs and let the visitor see success.
     console.error("[site/contact] email notification failed", err);
+  }
+
+  // Let DiggieChat answer it and put it in the DiggieChat inbox. After the
+  // response so the visitor never waits on the bot.
+  if (saved) {
+    after(() =>
+      relayContactToDiggieChat({
+        id: saved.id,
+        name: parsed.name,
+        email: parsed.email,
+        topic: parsed.topic || null,
+        message: parsed.message,
+      })
+    );
   }
 
   return NextResponse.json({ ok: true });

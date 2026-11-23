@@ -17,7 +17,7 @@ import { Section } from "@/components/site/ui";
 import { JsonLd } from "@/components/site/json-ld";
 import { MdxContent } from "@/components/site/mdx-content";
 import { PostCtaBlock } from "@/components/site/post-cta";
-import { getAllGuides, getGuide } from "@/lib/blog/guides";
+import { getAllGuides, getChildGuides, getGuide, type Guide } from "@/lib/blog/guides";
 import { extractFaqs } from "@/lib/blog/posts";
 import { articleSchema, personSchema, breadcrumbSchema, faqSchema } from "@/lib/site/schema";
 import { SITE_URL } from "@/lib/site/hosts";
@@ -79,17 +79,84 @@ function trailFor(guide: { urlPath: string; title: string }) {
   const segments = guide.urlPath.split("/");
   const trail = [{ name: "FrancoLink", path: "/" }];
 
-  segments.forEach((seg, i) => {
+  segments.forEach((_, i) => {
     const urlPath = segments.slice(0, i + 1).join("/");
     const isLast = i === segments.length - 1;
-    if (!isLast && !getGuide(urlPath)) return;
+    const parent = isLast ? null : getGuide(urlPath);
+    if (!isLast && !parent) return;
     trail.push({
-      name: isLast ? guide.title : seg.charAt(0).toUpperCase() + seg.slice(1),
+      name: isLast ? guide.title : parent!.navTitle,
       path: `/guides/${urlPath}`,
     });
   });
 
   return trail;
+}
+
+/**
+ * Navigation within a multi-page guide such as TCF Canada: a hub lists its
+ * parts, and a part links back to its hub and across to its siblings. Renders
+ * nothing for a guide with neither, so single-page guides are unchanged.
+ */
+function GuideSectionNav({ guide }: { guide: Guide }) {
+  const children = getChildGuides(guide.urlPath);
+  const parentPath = guide.urlPath.split("/").slice(0, -1).join("/");
+  const parent = parentPath ? getGuide(parentPath) : null;
+  const siblings = parent ? getChildGuides(parent.urlPath) : [];
+
+  if (children.length) {
+    return (
+      <nav aria-label={`${guide.navTitle} sections`} className="mt-16">
+        <h2 className="font-heading font-extrabold text-2xl text-primary tracking-tight">
+          The rest of the {guide.navTitle} guide
+        </h2>
+        <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+          {children.map((c) => (
+            <li key={c.urlPath}>
+              <Link
+                href={`/guides/${c.urlPath}`}
+                className="block h-full rounded-2xl border border-primary-100 bg-white p-6 hover:border-secondary transition-colors"
+              >
+                <span className="font-heading font-bold text-lg text-primary">{c.navTitle}</span>
+                <span className="mt-2 block text-gray-600 leading-relaxed">{c.description}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    );
+  }
+
+  if (!parent || siblings.length < 2) return null;
+
+  return (
+    <nav aria-label={`${parent.navTitle} sections`} className="mt-16 rounded-2xl border border-primary-100 p-6 sm:p-8">
+      <Link
+        href={`/guides/${parent.urlPath}`}
+        className="text-sm font-bold uppercase tracking-[0.15em] text-secondary hover:underline underline-offset-4"
+      >
+        {parent.navTitle} guide
+      </Link>
+      <ul className="mt-4 space-y-2">
+        {siblings.map((s) => (
+          <li key={s.urlPath}>
+            {s.urlPath === guide.urlPath ? (
+              <span className="font-semibold text-gray-500" aria-current="page">
+                {s.navTitle}
+              </span>
+            ) : (
+              <Link
+                href={`/guides/${s.urlPath}`}
+                className="font-semibold text-primary underline underline-offset-4 decoration-secondary"
+              >
+                {s.navTitle}
+              </Link>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
 }
 
 export default async function GuidePage({
@@ -102,6 +169,8 @@ export default async function GuidePage({
   if (!guide) notFound();
 
   const faqs = extractFaqs(guide.body);
+  const parentPath = guide.urlPath.split("/").slice(0, -1).join("/");
+  const parent = parentPath ? getGuide(parentPath) : null;
   const url = `${SITE_URL}/guides/${guide.urlPath}`;
 
   return (
@@ -136,9 +205,18 @@ export default async function GuidePage({
       <Section>
         <article className="max-w-3xl mx-auto">
           <header className="mb-10">
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">
-              Guide
-            </span>
+            {parent ? (
+              <Link
+                href={`/guides/${parent.urlPath}`}
+                className="text-xs font-bold uppercase tracking-[0.15em] text-secondary hover:underline underline-offset-4"
+              >
+                {parent.navTitle} guide
+              </Link>
+            ) : (
+              <span className="text-xs font-bold uppercase tracking-[0.15em] text-secondary">
+                Guide
+              </span>
+            )}
             <h1 className="mt-4 font-heading font-extrabold text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.15] text-primary tracking-tight">
               {guide.title}
             </h1>
@@ -166,6 +244,8 @@ export default async function GuidePage({
         {/* Outside <article>, so the heading outline stays the guide's own
             questions. Same reason as the post route. */}
         <aside className="max-w-3xl mx-auto">
+          <GuideSectionNav guide={guide} />
+
           <PostCtaBlock primary={guide.cta} />
 
           {/* The blog route carries this and guides did not, which left the

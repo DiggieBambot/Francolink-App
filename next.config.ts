@@ -13,6 +13,9 @@ const nextConfig: NextConfig = {
   // the file has to be traced into that function's bundle explicitly.
   outputFileTracingIncludes: {
     "/api/workbook/download": ["./assets/workbook/**"],
+    // Certificate images draw with these fonts, read from disk so a slow or
+    // blocked Google Fonts never breaks a student's certificate.
+    "/site/certificates/[number]/image": ["./assets/certificate-fonts/**"],
   },
   /**
    * Only HSTS was set before this. These three are the ones that cost nothing
