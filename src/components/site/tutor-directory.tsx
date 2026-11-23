@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useDeferredValue, useMemo, useState, useSyncExternalStore } from "react";
+import { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Heart, RotateCcw, SlidersHorizontal, Sparkles } from "lucide-react";
 import type { TutorCard as TutorCardData } from "@/lib/site/queries";
@@ -8,6 +8,9 @@ import { TIME_BANDS } from "@/lib/site/queries";
 import { TutorCard } from "@/components/site/tutor-card";
 import { TutorWaitlistForm } from "@/components/site/tutor-waitlist-form";
 import { TutorMatch, MATCH_ANY, type MatchAnswers } from "@/components/site/tutor-match";
+import { GOALS, goalByKey, tutorHasGoal, canonicalSpecialty } from "@/lib/site/specialties";
+import { viewerBands } from "@/lib/site/viewer-bands";
+import { trackSite } from "@/lib/analytics/site";
 import { LANGUAGE_LABEL } from "@/lib/site/format";
 import { useShortlist } from "@/lib/site/shortlist";
 import { cn } from "@/lib/utils";
@@ -51,6 +54,7 @@ interface Filters {
   tier: string;
   speaks: string;
   specialty: string;
+  goal: string;  // "" | a GOALS key (lib/site/specialties.ts)
   country: string;
   day: string;   // "" | weekday number as string
   band: string;  // "" | morning | afternoon | evening
@@ -66,6 +70,7 @@ function readFilters(params: URLSearchParams): Filters {
     tier: params.get("tier") || ANY,
     speaks: params.get("speaks") || ANY,
     specialty: params.get("specialty") || ANY,
+    goal: goalByKey(params.get("goal") || "") ? (params.get("goal") as string) : "",
     country: params.get("country") || ANY,
     day: params.get("day") || "",
     band: params.get("band") || "",
@@ -83,6 +88,7 @@ function toQuery(f: Filters): string {
   if (f.tier !== ANY) p.set("tier", f.tier);
   if (f.speaks !== ANY) p.set("speaks", f.speaks);
   if (f.specialty !== ANY) p.set("specialty", f.specialty);
+  if (f.goal) p.set("goal", f.goal);
   if (f.country !== ANY) p.set("country", f.country);
   if (f.day) p.set("day", f.day);
   if (f.band) p.set("band", f.band);
@@ -97,13 +103,20 @@ function toQuery(f: Filters): string {
 function tutorMatches(
   t: TutorCardData,
   f: Filters,
-  isSaved: (slug: string) => boolean
+  isSaved: (slug: string) => boolean,
+  /** Weekday-band keys for this tutor in the VIEWER's zone (viewer-bands.ts). */
+  bands: string[]
 ): boolean {
   if (f.lang !== ANY && !t.teaches.includes(f.lang)) return false;
   if (f.level !== ANY && !t.levels.includes(f.level)) return false;
   if (f.tier !== ANY && t.tier !== f.tier) return false;
   if (f.speaks !== ANY && !t.speaks.includes(f.speaks)) return false;
-  if (f.specialty !== ANY && !t.specialties.includes(f.specialty)) return false;
+  if (
+    f.specialty !== ANY &&
+    !t.specialties.some((sp) => sp.toLowerCase() === f.specialty.toLowerCase())
+  )
+    return false;
+  if (f.goal && !tutorHasGoal(t.specialties, f.goal)) return false;
   if (f.country !== ANY && t.country !== f.country) return false;
   if (f.trial && !t.trial_available) return false;
   if (f.saved && !isSaved(t.slug)) return false;
@@ -112,8 +125,8 @@ function tutorMatches(
   // "never free" — hiding them would punish the tutor for our missing
   // data, so they stay visible until a day AND band are both chosen.
   if (f.day || f.band) {
-    if (t.availability_bands.length === 0) return true;
-    return t.availability_bands.some((key) => {
+    if (bands.length === 0) return true;
+    return bands.some((key) => {
       const [day, band] = key.split("-");
       return (!f.day || day === f.day) && (!f.band || band === f.band);
     });
@@ -133,6 +146,14 @@ function readMatchDone(): boolean {
   }
 }
 const subscribeNothing = () => () => {};
+
+function readViewerTz(): string | null {
+  try {
+    return Intl.DateTimeFormat().resolvedOptions().timeZone || null;
+  } catch {
+    return null;
+  }
+}
 
 function Chip({
   active,
@@ -250,9 +271,30 @@ export function TutorDirectory({ tutors }: { tutors: TutorCardData[] }) {
     () => Array.from(new Set(tutors.flatMap((t) => t.levels))).sort(),
     [tutors]
   );
-  const specialties = useMemo(
-    () => Array.from(new Set(tutors.flatMap((t) => t.specialties))).sort(),
-    [tutors]
+  // Case-insensitive and canonically spelled, so "conversation" and
+  // "Conversation" are one option until the cleanup migration has run.
+  const specialties = useMemo(() => {
+    const byKey = new Map<string, string>();
+    for (const sp of tutors.flatMap((t) => t.specialties)) {
+      const key = sp.trim().toLowerCase();
+      if (!byKey.has(key) || canonicalSpecialty(sp) === sp) byKey.set(key, canonicalSpecialty(sp) ?? sp);
+    }
+    return [...byKey.values()].sort((a, b) => a.localeCompare(b));
+  }, [tutors]);
+
+  // The visitor's own zone (null on the server and during hydration). Each
+  // tutor's bands are re-cut into it, so "Evening" means the visitor's evening.
+  const viewerTz = useSyncExternalStore(subscribeNothing, readViewerTz, () => null);
+  const bandsBySlug = useMemo(() => {
+    const m = new Map<string, string[]>();
+    for (const t of tutors) {
+      m.set(t.slug, viewerBands(t.slots, t.timezone, viewerTz) ?? t.availability_bands);
+    }
+    return m;
+  }, [tutors, viewerTz]);
+  const bandsOf = useCallback(
+    (t: TutorCardData) => bandsBySlug.get(t.slug) ?? t.availability_bands,
+    [bandsBySlug]
   );
   const countries = useMemo(
     () =>
@@ -267,16 +309,16 @@ export function TutorDirectory({ tutors }: { tutors: TutorCardData[] }) {
   const f = useDeferredValue(filters);
 
   const visible = useMemo(() => {
-    const matches = tutors.filter((t) => tutorMatches(t, f, isSaved));
+    const matches = tutors.filter((t) => tutorMatches(t, f, isSaved, bandsOf(t)));
 
     const sorted = [...matches];
     if (f.sort === "available") {
-      sorted.sort((a, b) => b.availability_bands.length - a.availability_bands.length);
+      sorted.sort((a, b) => bandsOf(b).length - bandsOf(a).length);
     } else if (f.sort === "experience") {
       sorted.sort((a, b) => (b.years_experience ?? 0) - (a.years_experience ?? 0));
     }
     return sorted;
-  }, [tutors, f, isSaved]);
+  }, [tutors, f, isSaved, bandsOf]);
 
   // How many tutors exist for the chosen language, ignoring everything else —
   // so "none at B2" reads differently from "none at all".
@@ -301,6 +343,9 @@ export function TutorDirectory({ tutors }: { tutors: TutorCardData[] }) {
   const showMatch =
     matchDone !== null && tutors.length > 0 && (askedFor || (!dirty && !matchDone));
 
+  // Whether the visitor reached the list through the card (for tracking).
+  const [cameFromMatch, setCameFromMatch] = useState(false);
+
   const markMatchDone = useCallback(() => {
     setMatchDone(true);
     try {
@@ -324,44 +369,78 @@ export function TutorDirectory({ tutors }: { tutors: TutorCardData[] }) {
             : MATCH_ANY,
     level: levels.includes(filters.level) ? filters.level : MATCH_ANY,
     band: filters.band,
-    specialty: specialties.includes(filters.specialty) ? filters.specialty : MATCH_ANY,
+    goal: filters.goal,
   };
 
-  const specialtiesFor = useCallback(
-    (lang: string) => {
-      const counts = new Map<string, number>();
-      for (const t of tutors) {
-        if (lang !== ANY && !t.teaches.includes(lang)) continue;
-        for (const sp of t.specialties) counts.set(sp, (counts.get(sp) || 0) + 1);
-      }
-      return [...counts.entries()]
-        .sort((x, y) => y[1] - x[1] || x[0].localeCompare(y[0]))
-        .map(([sp]) => sp);
-    },
+  // Goals with at least one tutor for the chosen language, most served first.
+  const goalsFor = useCallback(
+    (lang: string) =>
+      GOALS.map((g) => ({
+        goal: g,
+        n: tutors.filter(
+          (t) => (lang === ANY || t.teaches.includes(lang)) && tutorHasGoal(t.specialties, g.key)
+        ).length,
+      }))
+        .filter((x) => x.n > 0)
+        .sort((x, y) => y.n - x.n)
+        .map((x) => ({ key: x.goal.key, label: x.goal.label })),
     [tutors]
+  );
+
+  const answersAsFilters = useCallback(
+    (a: MatchAnswers): Filters => ({ ...filters, lang: a.lang, level: a.level, band: a.band, goal: a.goal }),
+    [filters]
   );
 
   const countFor = useCallback(
     (a: MatchAnswers) =>
-      tutors.filter((t) =>
-        tutorMatches(t, { ...filters, lang: a.lang, level: a.level, band: a.band, specialty: a.specialty }, isSaved)
-      ).length,
-    [tutors, filters, isSaved]
+      tutors.filter((t) => tutorMatches(t, answersAsFilters(a), isSaved, bandsOf(t))).length,
+    [tutors, answersAsFilters, isSaved, bandsOf]
   );
 
   const applyMatch = useCallback(
     (a: MatchAnswers) => {
       markMatchDone();
+      setCameFromMatch(true);
+      trackSite("tutor_match_applied", {
+        lang: a.lang,
+        level: a.level,
+        band: a.band || "any",
+        goal: a.goal || "any",
+        results: countFor(a),
+        from_app: askedFor,
+      });
       // toQuery never writes ?match, so applying also drops it from the URL.
-      update({ lang: a.lang, level: a.level, band: a.band, specialty: a.specialty });
+      update({ lang: a.lang, level: a.level, band: a.band, goal: a.goal });
     },
-    [markMatchDone, update]
+    [markMatchDone, update, countFor, askedFor]
   );
 
   const skipMatch = useCallback(() => {
     markMatchDone();
+    trackSite("tutor_match_skipped", { from_app: askedFor });
     if (askedFor) update({}); // rewrite the URL without ?match, keeping any filters
   }, [askedFor, markMatchDone, update]);
+
+  // One "shown" per appearance of the card.
+  const shownLogged = useRef(false);
+  useEffect(() => {
+    if (showMatch && !shownLogged.current) {
+      shownLogged.current = true;
+      trackSite("tutor_match_shown", { from_app: askedFor, level: filters.level });
+    }
+    if (!showMatch) shownLogged.current = false;
+  }, [showMatch, askedFor, filters.level]);
+
+  // Which tutor got clicked, and whether the visitor came through the card.
+  const onListClick = useCallback(
+    (e: React.MouseEvent) => {
+      const a = (e.target as HTMLElement).closest("a");
+      const m = a?.getAttribute("href")?.match(/\/tutors\/([^/?#]+)/);
+      if (m) trackSite("tutor_profile_opened", { slug: m[1], via: cameFromMatch ? "match" : "browse" });
+    },
+    [cameFromMatch]
+  );
 
   const reopenMatch = useCallback(() => {
     setMatchDone(false);
@@ -377,7 +456,7 @@ export function TutorDirectory({ tutors }: { tutors: TutorCardData[] }) {
         <TutorMatch
           languages={languagesWithTutors}
           levels={levels}
-          specialtiesFor={specialtiesFor}
+          goalsFor={goalsFor}
           initial={matchInitial}
           levelFromPlacement={askedFor && filters.level !== ANY}
           countFor={countFor}
@@ -440,7 +519,12 @@ export function TutorDirectory({ tutors }: { tutors: TutorCardData[] }) {
 
           {/* ---------------------------------------------------- AVAILABLE */}
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-sm font-bold text-primary mr-1 w-20">Free on</span>
+            <span
+              className="text-sm font-bold text-primary mr-1 w-20"
+              title={viewerTz ? `Times are in your time zone (${viewerTz})` : undefined}
+            >
+              Free on
+            </span>
             <Chip size="sm" active={!f.day} onClick={() => update({ day: "" })}>
               Any day
             </Chip>
@@ -477,6 +561,15 @@ export function TutorDirectory({ tutors }: { tutors: TutorCardData[] }) {
               value={f.tier}
               options={TIER_OPTIONS}
               onChange={(v) => update({ tier: v })}
+            />
+            <Select
+              label="Goal"
+              value={f.goal || ANY}
+              options={[
+                { value: ANY, label: "Any goal" },
+                ...GOALS.map((g) => ({ value: g.key, label: g.label })),
+              ]}
+              onChange={(v) => update({ goal: v === ANY ? "" : v })}
             />
             {specialties.length > 0 && (
               <Select
@@ -568,7 +661,7 @@ export function TutorDirectory({ tutors }: { tutors: TutorCardData[] }) {
         </div>
       )}
 
-      <div className="mt-8">
+      <div className="mt-8" onClickCapture={onListClick}>
         {visible.length > 0 ? (
           // One tutor per row, marketplace-style: a wide box gives each tutor
           // room for the things people actually filter on, and a vertical list

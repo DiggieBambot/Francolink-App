@@ -11,6 +11,7 @@ import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { z } from "zod";
 import { isValidTimezone } from "@/lib/booking/slots";
 import { revalidateTutorPages } from "@/lib/site/revalidate";
+import { canonicalSpecialty } from "@/lib/site/specialties";
 
 /**
  * RLS on tutor_public_profiles / tutor_availability only permits
@@ -219,7 +220,15 @@ export async function POST(request: Request) {
         teaches: input.teaches,
         speaks: input.speaks,
         levels: input.levels,
-        specialties: input.specialties,
+        // Fixed list only (lib/site/specialties.ts): canonical spelling,
+        // no duplicates, anything off the list dropped.
+        specialties: [
+          ...new Set(
+            input.specialties
+              .map((sp) => canonicalSpecialty(sp))
+              .filter((sp): sp is string => Boolean(sp))
+          ),
+        ],
         qualifications: input.qualifications,
         years_experience: input.years_experience,
         photo_url: input.photo_url,

@@ -9,6 +9,10 @@
 // directory the visitor can keep adjusting. The full list stays rendered
 // underneath the whole time — crawlers and people who'd rather browse lose
 // nothing.
+//
+// Times are the visitor's own (the directory re-cuts each tutor's schedule
+// into their zone), and goals are plain-language outcomes that map onto tutor
+// specialties (lib/site/specialties.ts).
 
 import { useMemo, useState } from "react";
 import { Sparkles, X } from "lucide-react";
@@ -22,7 +26,7 @@ export interface MatchAnswers {
   lang: string;
   level: string;
   band: string; // "" = any time
-  specialty: string;
+  goal: string; // "" = any goal; a GOALS key (lib/site/specialties.ts)
 }
 
 function Option({
@@ -51,7 +55,12 @@ function Option({
   );
 }
 
-function Question({ n, title, hint, children }: {
+function Question({
+  n,
+  title,
+  hint,
+  children,
+}: {
   n: number;
   title: string;
   hint?: string;
@@ -71,10 +80,18 @@ function Question({ n, title, hint, children }: {
   );
 }
 
+function readViewerTz(): string | null {
+  try {
+    return Intl.DateTimeFormat().resolvedOptions().timeZone || null;
+  } catch {
+    return null;
+  }
+}
+
 export function TutorMatch({
   languages,
   levels,
-  specialtiesFor,
+  goalsFor,
   initial,
   levelFromPlacement,
   countFor,
@@ -84,8 +101,8 @@ export function TutorMatch({
   /** Language codes that have at least one tutor. */
   languages: string[];
   levels: string[];
-  /** Goals offered by tutors of a language, most common first. */
-  specialtiesFor: (lang: string) => string[];
+  /** Goals served by tutors of a language, most common first. */
+  goalsFor: (lang: string) => { key: string; label: string }[];
   initial: MatchAnswers;
   /** True when the level was passed in from the student's placement test. */
   levelFromPlacement: boolean;
@@ -97,12 +114,11 @@ export function TutorMatch({
   const [a, setA] = useState<MatchAnswers>(initial);
   const set = (patch: Partial<MatchAnswers>) => setA((prev) => ({ ...prev, ...patch }));
   const count = useMemo(() => countFor(a), [a, countFor]);
-  const [allGoals, setAllGoals] = useState(false);
-  const goals = useMemo(() => specialtiesFor(a.lang), [a.lang, specialtiesFor]);
-  // Keep a chosen goal visible even when it falls outside the short list.
-  const shownGoals = allGoals
-    ? goals
-    : [...goals.slice(0, 8), ...(goals.indexOf(a.specialty) >= 8 ? [a.specialty] : [])];
+  const goals = useMemo(() => goalsFor(a.lang), [a.lang, goalsFor]);
+  // Only rendered client-side (the directory shows the card after mount).
+  const [viewerTz] = useState(readViewerTz);
+
+  let n = 0;
 
   return (
     <section
@@ -128,7 +144,7 @@ export function TutorMatch({
 
       <div className="mt-5 space-y-5">
         {languages.length > 1 && (
-          <Question n={1} title="What do you want to learn?">
+          <Question n={++n} title="What do you want to learn?">
             {languages.map((code) => (
               <Option key={code} active={a.lang === code} onClick={() => set({ lang: code })}>
                 {LANGUAGE_LABEL[code] ?? code.toUpperCase()}
@@ -142,7 +158,7 @@ export function TutorMatch({
 
         {levels.length > 0 && (
           <Question
-            n={languages.length > 1 ? 2 : 1}
+            n={++n}
             title="Your level"
             hint={levelFromPlacement && a.level !== MATCH_ANY ? "from your placement test" : undefined}
           >
@@ -157,7 +173,11 @@ export function TutorMatch({
           </Question>
         )}
 
-        <Question n={languages.length > 1 ? 3 : 2} title="When can you take lessons?">
+        <Question
+          n={++n}
+          title="When can you take lessons?"
+          hint={viewerTz ? `your time (${viewerTz.replace(/_/g, " ")})` : undefined}
+        >
           {TIME_BANDS.map((b) => (
             <Option key={b.key} active={a.band === b.key} onClick={() => set({ band: b.key })}>
               {b.label}
@@ -169,27 +189,15 @@ export function TutorMatch({
         </Question>
 
         {goals.length > 0 && (
-          <Question n={languages.length > 1 ? 4 : 3} title="What's your main goal?">
-            {shownGoals.map((s) => (
-              <Option key={s} active={a.specialty === s} onClick={() => set({ specialty: s })}>
-                {s}
+          <Question n={++n} title="What's your main goal?">
+            {goals.map((g) => (
+              <Option key={g.key} active={a.goal === g.key} onClick={() => set({ goal: g.key })}>
+                {g.label}
               </Option>
             ))}
-            <Option
-              active={a.specialty === MATCH_ANY}
-              onClick={() => set({ specialty: MATCH_ANY })}
-            >
-              General / not sure
+            <Option active={a.goal === ""} onClick={() => set({ goal: "" })}>
+              Not sure yet
             </Option>
-            {!allGoals && goals.length > 8 && (
-              <button
-                type="button"
-                onClick={() => setAllGoals(true)}
-                className="px-3 py-2 text-sm font-semibold text-primary underline underline-offset-4"
-              >
-                More goals ({goals.length - 8})
-              </button>
-            )}
           </Question>
         )}
       </div>
