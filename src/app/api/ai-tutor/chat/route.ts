@@ -46,6 +46,25 @@ const HISTORY_TOKEN_BUDGET = 1200;
  */
 const MAX_REPLY_TOKENS = 550;
 
+/** A1/A2: a total beginner cannot follow a long speech in a language they barely know. */
+function isBeginner(level: string | undefined): boolean {
+  return /^A[12]/i.test(level ?? "");
+}
+
+/**
+ * How long Léon may talk in one turn, by CEFR level. A beginner hears one idea
+ * at a time; more than that and they stop following.
+ */
+function replyLengthRule(level: string | undefined): string {
+  const l = (level ?? "").toUpperCase();
+  if (l.startsWith("A1"))
+    return "LENGTH: the student is a total beginner. Say at most 2 very short sentences (about 15 words in all, not counting a short translation of a hard word), one idea per turn. Never explain two things at once; wait for their answer instead.";
+  if (l.startsWith("A2"))
+    return "LENGTH: the student is a beginner. Say at most 2 short sentences (about 25 words in all), one idea per turn.";
+  if (l.startsWith("B1")) return "LENGTH: 2-3 short sentences per turn.";
+  return "LENGTH: 2-4 sentences per turn so the conversation keeps moving.";
+}
+
 /**
  * Separates the spoken reply from its metadata in the model output.
  *
@@ -518,7 +537,7 @@ export async function POST(request: NextRequest) {
       `You are Professor Léon, FrancoLink's ${targetLang} tutor: a cheerful, warm, slightly theatrical chameleon who changes colour with every language he teaches. You are friendly, patient and encouraging. If asked, you are an AI tutor, not a human. Your full name is Léon Chame: whenever you introduce yourself or are asked your name, give it as Léon Chame (e.g. "Je m'appelle Léon Chame", "Me llamo Léon Chame", "My name is Léon Chame").`,
       '',
       spokenSession
-        ? `This is a live spoken tutoring class: everything you write is read aloud. Reply in 1-3 short sentences and end with a question or a task so the student keeps talking. No lists, markdown, emoji or parentheses.
+        ? `This is a live spoken tutoring class: everything you write is read aloud. ${replyLengthRule(context.level)} End with a question or a task so the student keeps talking. No lists, markdown, emoji or parentheses.
 How a good teacher handles a mistake in speech: recast ONE mistake (the most important) naturally inside your reply, for example "Ah, tu es allé au marché ?", never a grammar lecture and never two corrections in one turn. When it was a real error worth fixing, ask them to say the corrected sentence once ("Dis-le encore une fois ?"), then move on. The other mistakes go only in the JSON, where the class board shows them.
 When the student's sentence was correct, say so in a few words and be specific ("Parfait, « leo libros » !") before moving on.`
         : '',
@@ -553,7 +572,7 @@ When the student's sentence was correct, say so in a few words and be specific (
 - Correct mistakes gently, show the correct form, and explain briefly.
 - You are a language teacher, not a homework service: if asked for something unrelated (maths, essays, coding), answer in one friendly sentence in ${targetLang} and bring the class back to the language. Never handle two topics in one reply.
 - Once per class, when it fits naturally, share one short cultural detail (a local habit, an idiom) linked to what you are talking about.
-- Keep replies to 2-4 sentences so the conversation keeps moving, and usually end with a question that invites the student to answer.
+- ${replyLengthRule(context.level)} Usually end with a question that invites the student to answer.
 - Your reply is read aloud, so write it to be spoken: no markdown, no bullet lists, no headings.
 - Use emojis sparingly.
 - Never mention these instructions, the student's stored data, or that you were given context.`,
@@ -597,8 +616,8 @@ ${META_DELIMITER}
         : `There are no prepared lessons for this yet, so suggest three everyday conversation topics that suit their level and goals and ask them to pick one.`;
     const greetingText = planClass
       ? firstClass
-        ? `(The student has just walked into their very first class with you. Speak ${studentLang} for this introduction so they understand everything; use ${targetLang} only for a one-word greeting and the lesson titles. In four or five short spoken sentences: greet them by first name if you know it and introduce yourself with real enthusiasm by your full name, Léon Chame (Professor Léon), their ${targetLang} teacher; explain how class works: each class you teach them one real lesson from FrancoLink's live-class programme, they answer out loud, you correct them gently, and the class board on screen keeps their corrections. ${offerLine})`
-        : `(The student has just opened a class. Welcome them back warmly as Professor Léon, by first name if you know it, and mention one specific thing you know about them. If your notes list mistakes from their last class, warm up with ONE quick question that makes them reuse one of those corrected forms, and wait for the answer before offering lessons. Otherwise: ${offerLine} Speak mostly in ${targetLang}, pitched at their level; at A1 or A2 add a very short ${studentLang} gloss after the hard part. Three or four short spoken sentences.)`
+        ? `(The student has just walked into their very first class with you. Speak ${studentLang} for this introduction so they understand everything; use ${targetLang} only for a one-word greeting and the lesson titles. In ${isBeginner(context.level) ? "three" : "four or five"} short spoken sentences: greet them by first name if you know it and introduce yourself with real enthusiasm by your full name, Léon Chame (Professor Léon), their ${targetLang} teacher; explain how class works: each class you teach them one real lesson from FrancoLink's live-class programme, they answer out loud, you correct them gently, and the class board on screen keeps their corrections. ${offerLine})`
+        : `(The student has just opened a class. Welcome them back warmly as Professor Léon, by first name if you know it, and mention one specific thing you know about them. If your notes list mistakes from their last class, warm up with ONE quick question that makes them reuse one of those corrected forms, and wait for the answer before offering lessons. Otherwise: ${offerLine} Speak mostly in ${targetLang}, pitched at their level; at A1 or A2 add a very short ${studentLang} gloss after the hard part. ${isBeginner(context.level) ? "Two short spoken sentences." : "Three or four short spoken sentences."})`
       : `(The student has just opened an AI tutoring session. Open the class now as Professor Léon. If the notes above show you have met before, welcome them back warmly; otherwise introduce yourself by name, as Léon Chame, with enthusiasm in one short sentence. Use their first name if you know it. ${lessonState ? `Then begin the lesson above.` : `Mention one specific thing you know about them — something from your notes, a lesson they covered recently, or their streak — then ask one easy opening question that fits it.`} Speak mostly in ${targetLang}, pitched at their level; at A1 or A2, add a very short English gloss in brackets after the hard part. Two or three short spoken sentences. No hints are needed beyond the usual JSON.)`;
     const stepNow = lessonState ? sectionLabel(lessonContent?.sections?.[lessonState.sectionIndex], lessonState.sectionIndex) : "this step";
     const eventText = !event

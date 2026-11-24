@@ -28,7 +28,6 @@ import {
   ChevronUp,
   BookOpen,
   RotateCcw,
-  Languages,
   Lightbulb,
   LifeBuoy,
   Keyboard,
@@ -751,7 +750,9 @@ export function TutoringSession({
               text={tutorLine}
               speech={leonTalking ? nowPlaying : null}
               streaming={tutorStreaming && !leonTalking}
-              translation={showTranslation ? tutorTranslation : null}
+              translation={tutorTranslation}
+              translationOpen={showTranslation}
+              onTranslationToggle={toggleTranslation}
               tailX={wide ? "50%" : "88%"}
             />
             </div>
@@ -778,16 +779,6 @@ export function TutoringSession({
             <p className="mt-1 text-xs md:text-sm font-medium text-gray-500" aria-live="polite">
               {status}
             </p>
-            {tutorTranslation && (
-              <button
-                onClick={toggleTranslation}
-                className="mt-1 inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium text-gray-500 hover:bg-gray-100"
-                aria-pressed={showTranslation}
-              >
-                <Languages className="w-3.5 h-3.5" />
-                {showTranslation ? "Hide translation" : "Show translation"}
-              </button>
-            )}
             {studentLine && (
               <p className="hidden md:block mt-3 text-sm text-gray-500 italic">&ldquo;{studentLine}&rdquo;</p>
             )}
@@ -836,7 +827,9 @@ export function TutoringSession({
               text={tutorLine}
               speech={leonTalking ? nowPlaying : null}
               streaming={tutorStreaming && !leonTalking}
-              translation={showTranslation ? tutorTranslation : null}
+              translation={tutorTranslation}
+              translationOpen={showTranslation}
+              onTranslationToggle={toggleTranslation}
               tailX="46%"
             />
           </div>
@@ -863,16 +856,6 @@ export function TutoringSession({
           <p className="mt-2 text-sm font-medium text-gray-500" aria-live="polite">
             {status}
           </p>
-          {tutorTranslation && (
-            <button
-              onClick={toggleTranslation}
-              className="mt-1 inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium text-gray-500 hover:bg-gray-100"
-              aria-pressed={showTranslation}
-            >
-              <Languages className="w-3.5 h-3.5" />
-              {showTranslation ? "Hide translation" : "Show translation"}
-            </button>
-          )}
 
           {studentLine && (
             <p className="mt-5 text-sm text-gray-500 italic max-w-xl">&ldquo;{studentLine}&rdquo;</p>

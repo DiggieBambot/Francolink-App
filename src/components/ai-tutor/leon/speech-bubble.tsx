@@ -13,6 +13,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { buildSpeechTrack, clipTime, wordIndexAt, type SpeechClip } from "./speech-track";
 import { leonPalette } from "./palette";
+import { ChevronDown, ChevronUp, Languages } from "lucide-react";
 
 const FADE_OUT_MS = 140;
 
@@ -29,6 +30,8 @@ export function LeonSpeechBubble({
   streaming = false,
   tailX = "50%",
   translation,
+  translationOpen = true,
+  onTranslationToggle,
   className,
 }: {
   language: string;
@@ -42,6 +45,10 @@ export function LeonSpeechBubble({
   tailX?: string;
   /** His whole reply in the student's own language, in small print below. */
   translation?: string | null;
+  /** The translation box is expanded (it can be minimised to a small chip). */
+  translationOpen?: boolean;
+  /** Minimise or expand the translation box. Without it the box can't be minimised. */
+  onTranslationToggle?: () => void;
   className?: string;
 }) {
   const palette = leonPalette(language);
@@ -106,14 +113,39 @@ export function LeonSpeechBubble({
             " "
           )}
         </div>
-        {translation && display && !streaming && (
+        {translation && display && !streaming && (translationOpen || !onTranslationToggle) && (
           // The student's own language, not the bubble's.
-          <p
-            lang=""
-            className="mt-2 pt-2 border-t border-dashed border-gray-200 text-xs md:text-sm leading-snug text-gray-500 italic max-h-[5.5rem] overflow-y-auto"
+          <div className="mt-2 pt-2 border-t border-dashed border-gray-200 flex items-start gap-1">
+            <p
+              lang=""
+              className="flex-1 min-w-0 text-left text-xs md:text-sm leading-snug text-gray-500 italic max-h-[5.5rem] overflow-y-auto"
+            >
+              {translation}
+            </p>
+            {onTranslationToggle && (
+              <button
+                type="button"
+                onClick={onTranslationToggle}
+                className="shrink-0 -mt-1 -mr-1 rounded-full p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600"
+                aria-label="Minimise translation"
+                title="Minimise translation"
+              >
+                <ChevronDown className="w-4 h-4" />
+              </button>
+            )}
+          </div>
+        )}
+        {translation && display && !streaming && !translationOpen && onTranslationToggle && (
+          <button
+            type="button"
+            onClick={onTranslationToggle}
+            className="mt-2 inline-flex items-center gap-1 rounded-full border border-gray-200 px-2 py-0.5 text-xs font-medium text-gray-500 hover:bg-gray-50"
+            aria-label="Show translation"
           >
-            {translation}
-          </p>
+            <Languages className="w-3.5 h-3.5" />
+            Translation
+            <ChevronUp className="w-3.5 h-3.5" />
+          </button>
         )}
         {/* comic tail pointing down at Léon */}
         <svg
