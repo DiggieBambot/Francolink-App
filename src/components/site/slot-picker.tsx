@@ -24,8 +24,6 @@ export function SlotPicker({
   tutorName,
   tutorSlug,
   prices,
-  trial,
-  trialAvailable,
   appUrl,
   profileUrl,
 }: {
@@ -34,8 +32,6 @@ export function SlotPicker({
   tutorName: string;
   tutorSlug: string;
   prices: TierPrice[];
-  trial: TierPrice | null;
-  trialAvailable: boolean;
   appUrl: string;
   profileUrl: string;
 }) {
@@ -108,11 +104,13 @@ export function SlotPicker({
   }
 
   const chosen = slots.find((s) => s.start === selected);
-  const chosenPrice = chosen
-    ? trialAvailable && trial && chosen.durationMinutes === trial.durationMinutes
-      ? trial
-      : priceFor(chosen.durationMinutes)
-    : null;
+  // No trial pricing: the discounted first lesson was retired
+  // (20260901_defer_intro_month.sql) and there is no free lesson, but its old
+  // lesson_pricing rows still exist and showed as "Book — $0". Lessons are
+  // paid with a starter pack or plan; a price that isn't positive is never
+  // shown.
+  const listed = chosen ? priceFor(chosen.durationMinutes) : null;
+  const chosenPrice = listed && listed.priceCents > 0 ? listed : null;
 
   return (
     <div>
@@ -204,7 +202,6 @@ export function SlotPicker({
           {chosenPrice && (
             <p className="mt-1 text-sm text-gray-600">
               {formatPrice(chosenPrice.priceCents, chosenPrice.currency)}
-              {chosenPrice === trial && " — discounted first lesson"}
             </p>
           )}
           <button
