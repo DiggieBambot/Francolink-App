@@ -7,6 +7,7 @@ import type { TutorCard as TutorCardData } from "@/lib/site/queries";
 import { TIME_BANDS } from "@/lib/site/queries";
 import { TutorCard } from "@/components/site/tutor-card";
 import { TutorWaitlistForm } from "@/components/site/tutor-waitlist-form";
+import { LeonTutorCard, LEON_LANGUAGES } from "@/components/site/leon-tutor-card";
 import { TutorMatch, MATCH_ANY, type MatchAnswers } from "@/components/site/tutor-match";
 import { GOALS, goalByKey, tutorHasGoal, canonicalSpecialty } from "@/lib/site/specialties";
 import { viewerBands } from "@/lib/site/viewer-bands";
@@ -60,6 +61,8 @@ interface Filters {
   band: string;  // "" | morning | afternoon | evening
   trial: boolean;
   saved: boolean;
+  /** Show Professor Léon, the AI tutor, above the list (off: ?ai=0). */
+  ai: boolean;
   sort: string;
 }
 
@@ -76,6 +79,7 @@ function readFilters(params: URLSearchParams): Filters {
     band: params.get("band") || "",
     trial: params.get("trial") === "1",
     saved: params.get("saved") === "1",
+    ai: params.get("ai") !== "0",
     sort: params.get("sort") || "relevance",
   };
 }
@@ -94,8 +98,21 @@ function toQuery(f: Filters): string {
   if (f.band) p.set("band", f.band);
   if (f.trial) p.set("trial", "1");
   if (f.saved) p.set("saved", "1");
+  if (!f.ai) p.set("ai", "0");
   if (f.sort !== "relevance") p.set("sort", f.sort);
   return p.toString();
+}
+
+/**
+ * Whether Professor Léon (the AI tutor) belongs above the list. He is shown
+ * for his own languages, at any level, goal or time (he is always free), and
+ * hidden by filters only a person can satisfy: a tier, a country, another
+ * spoken language, a named focus, or the visitor's saved shortlist.
+ */
+function leonMatches(f: Filters): boolean {
+  if (!f.ai || f.saved) return false;
+  if (f.lang !== ANY && !(LEON_LANGUAGES as readonly string[]).includes(f.lang)) return false;
+  return f.tier === ANY && f.country === ANY && f.speaks === ANY && f.specialty === ANY;
 }
 
 /** Whether one tutor passes every active filter. Shared by the list and the
@@ -614,6 +631,13 @@ export function TutorDirectory({ tutors }: { tutors: TutorCardData[] }) {
             >
               Takes new students
             </Chip>
+            <Chip
+              size="sm"
+              active={!f.ai}
+              onClick={() => update({ ai: !f.ai })}
+            >
+              Hide AI tutor
+            </Chip>
             {saved.length > 0 && (
               <Chip
                 size="sm"
@@ -662,6 +686,12 @@ export function TutorDirectory({ tutors }: { tutors: TutorCardData[] }) {
       )}
 
       <div className="mt-8" onClickCapture={onListClick}>
+        {/* The AI tutor, pinned above the people and never counted as one. */}
+        {leonMatches(f) && (
+          <div className="mb-4">
+            <LeonTutorCard language={f.lang === ANY ? null : f.lang} />
+          </div>
+        )}
         {visible.length > 0 ? (
           // One tutor per row, marketplace-style: a wide box gives each tutor
           // room for the things people actually filter on, and a vertical list
