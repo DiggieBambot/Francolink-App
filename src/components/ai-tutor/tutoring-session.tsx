@@ -255,6 +255,11 @@ export function TutoringSession({
   const [typing, setTyping] = useState(false);
   const [draft, setDraft] = useState("");
   const [settingsOpen, setSettingsOpen] = useState(false);
+  // Focus the answer box when it opens, without scrolling Léon's bubble away.
+  const typeRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (typing) typeRef.current?.focus({ preventScroll: true });
+  }, [typing]);
 
   // While a class is open, the page's background polling (notifications) waits.
   useEffect(() => {
@@ -587,7 +592,7 @@ export function TutoringSession({
           className="flex items-center gap-2"
         >
           <input
-            autoFocus
+            ref={typeRef}
             value={draft}
             onChange={(e) => setDraft(e.target.value)}
             placeholder="Type your answer…"

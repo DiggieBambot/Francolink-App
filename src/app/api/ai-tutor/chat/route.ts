@@ -21,6 +21,7 @@ import {
 import { findMission, missionBlock, missionCard, missionsForLevel, MISSIONS, type Mission } from "@/lib/ai/missions";
 import {
   filterCorrections,
+  looksEnglish,
   parseBoardNote,
   parseCorrectionStyle,
   parseSupport,
@@ -564,7 +565,7 @@ When the student's sentence was correct, say so in a few words and be specific (
 {"corrections": [{"original": "what they wrote", "corrected": "the fixed version", "explanation": "one short sentence in English", "tag": "one of: gender, agreement, tense, vocabulary, spelling, word_order, other"}], "sectionComplete": false, "hints": [{"text": "a short reply the student could give next, in ${targetLang}", "en": "its English meaning"}], "board": null${mission && !lessonState ? `, "objectivesMet": []` : ""}}
 
 "corrections" must be [] when the student made no mistakes worth correcting — do not invent them. Never correct a message the student wrote in English (asking for help, asking a question about the language, or anything else): only their attempts at ${targetLang}. Exactly one tag per correction.
-"board": when you explain a rule, a contrast (e.g. ser vs estar) or introduce key phrases, write it on the class board: {"title": "short title", "lines": ["2-5 short lines, e.g. ser → who/what something is: Soy estudiante"]}. Otherwise null.
+"board": whenever your reply explains a rule, a difference between two words (e.g. ser vs estar) or gives useful phrases, you MUST write it on the class board as {"title": "short title", "lines": ["2-5 short lines, e.g. ser → who/what something is: Soy estudiante"]} — the student reads it while you talk. Only null when you explained nothing.
 "hints": 2-3 natural, different answers to what you just asked, at the student's level (A1/A2: very short). [] only if no reply is expected.${
         spokenSession
           ? `\nAlso add "translation" to the JSON: your whole reply translated into natural ${studentLang}, shown in small print under your speech bubble so the student never feels lost. Use "" if your reply is already in ${studentLang}.`
@@ -791,7 +792,9 @@ ${META_DELIMITER}
             reply,
             corrections,
             hints: meta.hints,
-            translation: spokenSession ? meta.translation : "",
+            // No "translation" that just repeats an English reply in English.
+            translation:
+              spokenSession && !(studentLang === "English" && looksEnglish(reply)) ? meta.translation : "",
             board: meta.board,
             mission: missionNow ? { ...missionCard(mission!), met: missionNow.met } : null,
             conversationId,
