@@ -64,8 +64,18 @@ export async function POST(request: NextRequest) {
     const result = await openai.audio.transcriptions.create({
       model: "gpt-4o-transcribe",
       file: audio,
-      prompt: `A student learning ${langName} talking to their tutor. They speak mostly ${langName}, sometimes English. Transcribe exactly what they say, including their mistakes; do not correct grammar.`,
+      prompt: `A student learning ${langName} talking to their tutor. They speak mostly ${langName}, sometimes English. Transcribe exactly what they say, including their mistakes; do not correct grammar. If there is no clear speech, return nothing.`,
+      response_format: "json",
+      include: ["logprobs"],
     });
+
+    // How sure the model is, 0–1 (mean token probability). Background noise
+    // and Léon's own voice leaking into the mic come back as short, low-
+    // confidence guesses ("La casa"), which the class asks about before sending.
+    const probs = (result.logprobs ?? [])
+      .map((l) => (typeof l.logprob === "number" ? Math.exp(l.logprob) : null))
+      .filter((p): p is number => p !== null);
+    const confidence = probs.length ? probs.reduce((a, b) => a + b, 0) / probs.length : null;
 
     // Billed by tokens when the API reports them; otherwise estimate the length
     // from the clip size (~4 KB per second of compressed speech).
@@ -85,7 +95,10 @@ export async function POST(request: NextRequest) {
       })
     );
 
-    return NextResponse.json({ text: (result.text ?? "").trim() });
+    const text = (result.text ?? "").trim();
+    const words = text.split(/\s+/).filter(Boolean).length;
+    const unsure = !!text && confidence !== null && (confidence < 0.5 || (words <= 3 && confidence < 0.75));
+    return NextResponse.json({ text, confidence, unsure });
   } catch (error) {
     console.error("Tutor transcription error:", error);
     if (isAIUnavailableError(error)) {

@@ -18,6 +18,15 @@ import {
   type ClassTopic,
   type ResumableLesson,
 } from "@/lib/ai/class-plan";
+import { findMission, missionBlock, missionCard, missionsForLevel, MISSIONS, type Mission } from "@/lib/ai/missions";
+import {
+  filterCorrections,
+  parseBoardNote,
+  parseCorrectionStyle,
+  parseSupport,
+  prefsBlock,
+  type BoardNote,
+} from "@/lib/ai/tutor-coach";
 
 /**
  * Ceiling on conversation history sent back to the model, in tokens.
@@ -64,6 +73,10 @@ interface TutorMeta {
   sectionComplete: boolean;
   /** The reply in the student's own language (spoken classes only). */
   translation: string;
+  /** Something Léon writes on the class board (a rule, a table, key phrases). */
+  board: BoardNote | null;
+  /** Mission objectives (0-based) the student completed this turn. */
+  objectivesMet: number[];
 }
 
 /** Lowercase, straight apostrophes, single spaces — for "did the student write this?" checks. */
@@ -77,7 +90,7 @@ function normalizeForMatch(text: string): string {
 
 /** Parse the JSON after the delimiter. Malformed metadata costs nothing but the extras. */
 function parseMeta(raw: string): TutorMeta {
-  const empty: TutorMeta = { corrections: [], hints: [], sectionComplete: false, translation: "" };
+  const empty: TutorMeta = { corrections: [], hints: [], sectionComplete: false, translation: "", board: null, objectivesMet: [] };
   const start = raw.indexOf("{");
   const end = raw.lastIndexOf("}");
   if (start < 0 || end <= start) return empty;
@@ -98,6 +111,13 @@ function parseMeta(raw: string): TutorMeta {
         : [],
       sectionComplete: parsed.sectionComplete === true,
       translation: typeof parsed.translation === "string" ? parsed.translation.trim().slice(0, 1200) : "",
+      board: parseBoardNote(parsed.board),
+      // Models write these 1-based, as they are numbered in the prompt.
+      objectivesMet: Array.isArray(parsed.objectivesMet)
+        ? parsed.objectivesMet
+            .map((n: unknown) => Number(n) - 1)
+            .filter((n: number) => Number.isInteger(n) && n >= 0 && n < 3)
+        : [],
     };
   } catch {
     return empty;
@@ -218,12 +238,26 @@ export async function POST(request: NextRequest) {
     const greeting = body.greet === true;
     // A tap on the on-screen lesson rather than something the student said:
     // moving to another step, or asking Léon to check their answers.
-    const event: { type: "step"; to: number } | { type: "check" } | null =
+    const event: { type: "step"; to: number } | { type: "check" } | { type: "help" } | null =
       body.event?.type === "step" && Number.isInteger(body.event.to)
         ? { type: "step", to: body.event.to }
         : body.event?.type === "check"
           ? { type: "check" }
-          : null;
+          : body.event?.type === "help"
+            ? { type: "help" }
+            : null;
+    // The student's own settings for this class.
+    const support = parseSupport(body.support);
+    const correctionStyle = parseCorrectionStyle(body.correctionStyle);
+    // A role-play mission in progress (for languages without prepared lessons,
+    // or when the student picks one), with the objectives already met.
+    let mission: Mission | null = findMission(body.missionId);
+    const missionMet: number[] = Array.isArray(body.missionMet)
+      ? body.missionMet.filter((n: unknown) => Number.isInteger(n) && (n as number) >= 0 && (n as number) < 3)
+      : [];
+    const offeredMissionIds: string[] = Array.isArray(body.offeredMissions)
+      ? body.offeredMissions.filter((id: unknown) => typeof id === "string").slice(0, 4)
+      : [];
     // Turns with no new student message: the opening greeting and lesson taps.
     const silentTurn = greeting || !!event;
     let { conversationId } = body;
@@ -299,6 +333,9 @@ export async function POST(request: NextRequest) {
         exclude: resumable ? [resumable.id] : [],
       }).catch(() => []);
     }
+    // No prepared lessons for this language or level: offer role-play missions.
+    const offeredMissions: Mission[] =
+      planClass && !offered.length && !resumable ? missionsForLevel(context.level) : [];
 
     // The turn after the offer: work out which lesson the student chose.
     let chosenLessonId: string | null = null;
@@ -336,6 +373,27 @@ export async function POST(request: NextRequest) {
         } catch (err) {
           console.error("Lesson choice match failed:", err);
         }
+      }
+    }
+
+    // The turn after a mission offer: did the student say which one?
+    let missionStartsNow = !!mission && body.missionStart === true;
+    if (spokenSession && !silentTurn && !mission && !lessonId && !chosenLessonId && offeredMissionIds.length) {
+      const options = offeredMissionIds
+        .map((id) => MISSIONS.find((m) => m.id === id))
+        .filter((m): m is Mission => !!m)
+        .map((m) => ({ id: m.id, title: m.title, translation: null }));
+      const said = messages[messages.length - 1]?.content ?? "";
+      try {
+        const match = await matchTopicChoice({ openai, model, said: typeof said === "string" ? said : "", options });
+        choiceTokensIn += match.tokensIn;
+        choiceTokensOut += match.tokensOut;
+        if (match.id) {
+          mission = findMission(match.id);
+          missionStartsNow = !!mission;
+        }
+      } catch (err) {
+        console.error("Mission choice match failed:", err);
       }
     }
 
@@ -459,7 +517,9 @@ export async function POST(request: NextRequest) {
       `You are Professor Léon, FrancoLink's ${targetLang} tutor: a cheerful, warm, slightly theatrical chameleon who changes colour with every language he teaches. You are friendly, patient and encouraging. If asked, you are an AI tutor, not a human. Your full name is Léon Chame: whenever you introduce yourself or are asked your name, give it as Léon Chame (e.g. "Je m'appelle Léon Chame", "Me llamo Léon Chame", "My name is Léon Chame").`,
       '',
       spokenSession
-        ? `This is a live spoken tutoring class: everything you write is read aloud. Reply in 1-3 short sentences and end with a question or a task so the student keeps talking. No lists, markdown, emoji or parentheses. If the student made a mistake, recast it naturally in your reply (for example "Ah, tu es allé au marché ?") rather than explaining grammar; the written corrections go in the JSON as usual.`
+        ? `This is a live spoken tutoring class: everything you write is read aloud. Reply in 1-3 short sentences and end with a question or a task so the student keeps talking. No lists, markdown, emoji or parentheses.
+How a good teacher handles a mistake in speech: recast ONE mistake (the most important) naturally inside your reply, for example "Ah, tu es allé au marché ?", never a grammar lecture and never two corrections in one turn. When it was a real error worth fixing, ask them to say the corrected sentence once ("Dis-le encore une fois ?"), then move on. The other mistakes go only in the JSON, where the class board shows them.
+When the student's sentence was correct, say so in a few words and be specific ("Parfait, « leo libros » !") before moving on.`
         : '',
       '',
       context.block,
@@ -467,6 +527,10 @@ export async function POST(request: NextRequest) {
       memoryBlock,
       '',
       lessonState ? lessonState.block : '',
+      '',
+      mission && !lessonState ? missionBlock(mission, missionMet, targetLang, missionStartsNow) : '',
+      '',
+      prefsBlock(support, correctionStyle, targetLang, studentLang),
       '',
       workNote,
       lessonState && spokenSession
@@ -484,8 +548,10 @@ export async function POST(request: NextRequest) {
         : '',
       `Guidelines:
 - Pitch your ${targetLang} at the student's CEFR level (${context.level}). At A1/A2 use short simple sentences; at B2+ push them.
-- Primarily speak ${targetLang}, but switch to English when the student is stuck or asks.
+- Primarily speak ${targetLang}, but switch to ${studentLang} when the student is stuck or asks, and keep helping that way afterwards.
 - Correct mistakes gently, show the correct form, and explain briefly.
+- You are a language teacher, not a homework service: if asked for something unrelated (maths, essays, coding), answer in one friendly sentence in ${targetLang} and bring the class back to the language. Never handle two topics in one reply.
+- Once per class, when it fits naturally, share one short cultural detail (a local habit, an idiom) linked to what you are talking about.
 - Keep replies to 2-4 sentences so the conversation keeps moving, and usually end with a question that invites the student to answer.
 - Your reply is read aloud, so write it to be spoken: no markdown, no bullet lists, no headings.
 - Use emojis sparingly.
@@ -495,9 +561,10 @@ export async function POST(request: NextRequest) {
 1. First, your reply to the student as plain text.
 2. Then a new line containing exactly ${META_DELIMITER}
 3. Then one JSON object, nothing after it:
-{"corrections": [{"original": "what they wrote", "corrected": "the fixed version", "explanation": "one short sentence in English", "tag": "gender|agreement|tense|vocabulary|spelling|word_order|other"}], "sectionComplete": false, "hints": [{"text": "a short reply the student could give next, in ${targetLang}", "en": "its English meaning"}]}
+{"corrections": [{"original": "what they wrote", "corrected": "the fixed version", "explanation": "one short sentence in English", "tag": "one of: gender, agreement, tense, vocabulary, spelling, word_order, other"}], "sectionComplete": false, "hints": [{"text": "a short reply the student could give next, in ${targetLang}", "en": "its English meaning"}], "board": null${mission && !lessonState ? `, "objectivesMet": []` : ""}}
 
-"corrections" must be [] when the student made no mistakes worth correcting — do not invent them. Never correct a message the student wrote in English when they were asking for help.
+"corrections" must be [] when the student made no mistakes worth correcting — do not invent them. Never correct a message the student wrote in English (asking for help, asking a question about the language, or anything else): only their attempts at ${targetLang}. Exactly one tag per correction.
+"board": when you explain a rule, a contrast (e.g. ser vs estar) or introduce key phrases, write it on the class board: {"title": "short title", "lines": ["2-5 short lines, e.g. ser → who/what something is: Soy estudiante"]}. Otherwise null.
 "hints": 2-3 natural, different answers to what you just asked, at the student's level (A1/A2: very short). [] only if no reply is expected.${
         spokenSession
           ? `\nAlso add "translation" to the JSON: your whole reply translated into natural ${studentLang}, shown in small print under your speech bubble so the student never feels lost. Use "" if your reply is already in ${studentLang}.`
@@ -522,11 +589,15 @@ ${META_DELIMITER}
     ].join("\n");
     const offerLine = topicList
       ? `Then offer today's lesson choice${resumable ? ": ask whether they want to finish the unfinished lesson, or start one of the new ones" : ""}. Lessons (from FrancoLink's live-class programme):\n${topicList}\nSay the titles naturally in ${targetLang}${firstClass ? ` with a quick ${studentLang} meaning` : ""} and ask which one they want; they can say it or tap it on screen.`
-      : `There are no prepared lessons for this yet, so suggest three everyday conversation topics that suit their level and goals and ask them to pick one.`;
+      : offeredMissions.length
+        ? `Then offer today's role-play missions (real-life scenes you will act out together): ${offeredMissions
+            .map((m) => `"${m.title}" (${m.goal})`)
+            .join("; ")}. Name them briefly in ${targetLang}${firstClass ? ` with a quick ${studentLang} meaning` : ""} and ask which one they want; they can say it or tap it on screen.`
+        : `There are no prepared lessons for this yet, so suggest three everyday conversation topics that suit their level and goals and ask them to pick one.`;
     const greetingText = planClass
       ? firstClass
         ? `(The student has just walked into their very first class with you. Speak ${studentLang} for this introduction so they understand everything; use ${targetLang} only for a one-word greeting and the lesson titles. In four or five short spoken sentences: greet them by first name if you know it and introduce yourself with real enthusiasm by your full name, Léon Chame (Professor Léon), their ${targetLang} teacher; explain how class works: each class you teach them one real lesson from FrancoLink's live-class programme, they answer out loud, you correct them gently, and the class board on screen keeps their corrections. ${offerLine})`
-        : `(The student has just opened a class. Welcome them back warmly as Professor Léon, by first name if you know it, and mention one specific thing you know about them. ${offerLine} Speak mostly in ${targetLang}, pitched at their level; at A1 or A2 add a very short ${studentLang} gloss after the hard part. Three or four short spoken sentences.)`
+        : `(The student has just opened a class. Welcome them back warmly as Professor Léon, by first name if you know it, and mention one specific thing you know about them. If your notes list mistakes from their last class, warm up with ONE quick question that makes them reuse one of those corrected forms, and wait for the answer before offering lessons. Otherwise: ${offerLine} Speak mostly in ${targetLang}, pitched at their level; at A1 or A2 add a very short ${studentLang} gloss after the hard part. Three or four short spoken sentences.)`
       : `(The student has just opened an AI tutoring session. Open the class now as Professor Léon. If the notes above show you have met before, welcome them back warmly; otherwise introduce yourself by name, as Léon Chame, with enthusiasm in one short sentence. Use their first name if you know it. ${lessonState ? `Then begin the lesson above.` : `Mention one specific thing you know about them — something from your notes, a lesson they covered recently, or their streak — then ask one easy opening question that fits it.`} Speak mostly in ${targetLang}, pitched at their level; at A1 or A2, add a very short English gloss in brackets after the hard part. Two or three short spoken sentences. No hints are needed beyond the usual JSON.)`;
     const stepNow = lessonState ? sectionLabel(lessonContent?.sections?.[lessonState.sectionIndex], lessonState.sectionIndex) : "this step";
     const eventText = !event
@@ -535,7 +606,9 @@ ${META_DELIMITER}
         ? movedFrom !== null && movedFrom > (lessonState?.sectionIndex ?? 0)
           ? `(The student went back to ${stepNow} on screen to review it. Say so in a few words and go over it with one quick question.)`
           : `(The student moved on to ${stepNow} on screen. Introduce it in one sentence and give them the first small task.)`
-        : workNote
+        : event.type === "help"
+          ? `(The student tapped "Help me": they are stuck on what you just said. In ${studentLang}, in one or two short sentences, explain what you asked, then give one simple model answer in ${targetLang} they can say. Then invite them to try. Put that model answer first in "hints".)`
+          : workNote
           ? `(The student tapped "Check my answers" on ${stepNow}. React to their on-screen answers above: praise what is right, take the first wrong one and help them fix it, and have them say the corrected line aloud.)`
           : `(The student tapped "Check my answers" on ${stepNow} but has not answered anything on screen yet. Encourage them to try the exercise, or to say the answers aloud, and give the first prompt.)`;
     const greetingCue = greeting
@@ -571,6 +644,9 @@ ${META_DELIMITER}
         send(controller, { t: "start", conversationId });
         if (planClass && (offered.length || resumable)) {
           send(controller, { t: "topics", topics: offered, resume: resumable });
+        }
+        if (offeredMissions.length) {
+          send(controller, { t: "missions", missions: offeredMissions.map(missionCard) });
         }
 
         try {
@@ -630,9 +706,14 @@ ${META_DELIMITER}
           // mistake they never made.
           const studentText = normalizeForMatch(history[history.length - 1]?.content ?? "");
           // A tap on the lesson has no new student words to correct.
-          const corrections = silentTurn ? [] : meta.corrections.filter((c) =>
-            studentText.includes(normalizeForMatch(c.original))
-          );
+          // Their English requests for help are never logged as mistakes, and
+          // each correction carries one clean tag.
+          const corrections = silentTurn
+            ? []
+            : filterCorrections(meta.corrections, studentText, targetLang, normalizeForMatch);
+          const missionNow = mission && !lessonState
+            ? { id: mission.id, met: [...new Set([...missionMet, ...meta.objectivesMet])].sort() }
+            : null;
           const cost = costOf(model, tokensIn, tokensOut);
 
           // ── Persist ───────────────────────────────────────────────────────
@@ -711,6 +792,8 @@ ${META_DELIMITER}
             corrections,
             hints: meta.hints,
             translation: spokenSession ? meta.translation : "",
+            board: meta.board,
+            mission: missionNow ? { ...missionCard(mission!), met: missionNow.met } : null,
             conversationId,
             lesson: lessonState
               ? {

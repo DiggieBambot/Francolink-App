@@ -52,7 +52,8 @@ export function NotificationBell({ inboxHref = "/notifications" }: { inboxHref?:
   useEffect(() => {
     load();
     const t = setInterval(() => {
-      if (document.visibilityState === "visible") load();
+      // Not while the student is in a class with Léon (it marks the body).
+      if (document.visibilityState === "visible" && document.body.dataset.leonClass !== "1") load();
     }, POLL_MS);
     const onFocus = () => load();
     window.addEventListener("focus", onFocus);

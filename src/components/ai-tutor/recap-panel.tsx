@@ -15,6 +15,9 @@ import {
   Trophy,
   Volume2,
   X,
+  Zap,
+  TrendingUp,
+  GraduationCap,
 } from "lucide-react";
 
 export interface Recap {
@@ -28,8 +31,24 @@ export interface Recap {
     explanation: string | null;
     tag: string | null;
   }[];
-  stats: { studentMessages: number; minutes: number };
+  stats: {
+    studentMessages: number;
+    minutes: number;
+    words?: number;
+    previous?: { words: number; corrections: number; minutes: number } | null;
+  };
+  patterns?: { tag: string; count: number }[];
+  xp?: number;
 }
+
+const TAG_LABELS: Record<string, string> = {
+  gender: "Gender (le/la, el/la…)",
+  agreement: "Agreement",
+  tense: "Verb tenses",
+  vocabulary: "Word choice",
+  spelling: "Spelling & accents",
+  word_order: "Word order",
+};
 
 interface Props {
   recap: Recap;
@@ -132,10 +151,44 @@ export function RecapPanel({
             <span className="flex items-center gap-1.5">
               <Check className="w-4 h-4" /> {recap.corrections.length} fixes
             </span>
+            {!!recap.xp && (
+              <span className="flex items-center gap-1.5 font-semibold text-amber-200">
+                <Zap className="w-4 h-4" /> +{recap.xp} XP
+              </span>
+            )}
           </div>
         </div>
 
         <div className="px-6 py-5 space-y-6">
+          {typeof recap.stats.words === "number" && recap.stats.words > 0 && (
+            <section className="grid grid-cols-2 gap-3">
+              <div className="rounded-xl border border-gray-200 px-3 py-2.5">
+                <p className="text-xs text-gray-500">Words you said</p>
+                <p className="text-xl font-bold text-gray-900">{recap.stats.words}</p>
+                {recap.stats.previous && recap.stats.previous.words > 0 && (
+                  <p
+                    className={`text-xs ${
+                      recap.stats.words >= recap.stats.previous.words ? "text-green-600" : "text-gray-500"
+                    }`}
+                  >
+                    {recap.stats.words >= recap.stats.previous.words ? "▲" : "▼"} last class: {recap.stats.previous.words}
+                  </p>
+                )}
+              </div>
+              <div className="rounded-xl border border-gray-200 px-3 py-2.5">
+                <p className="text-xs text-gray-500">Mistakes per 10 words</p>
+                <p className="text-xl font-bold text-gray-900">
+                  {((recap.corrections.length / recap.stats.words) * 10).toFixed(1)}
+                </p>
+                {recap.stats.previous && recap.stats.previous.words > 0 && (
+                  <p className="text-xs text-gray-500">
+                    last class: {((recap.stats.previous.corrections / recap.stats.previous.words) * 10).toFixed(1)}
+                  </p>
+                )}
+              </div>
+            </section>
+          )}
+
           {recap.wins.length > 0 && (
             <section>
               <h3 className="flex items-center gap-2 text-sm font-bold text-gray-900 mb-2">
@@ -230,6 +283,29 @@ export function RecapPanel({
             </section>
           )}
 
+          {recap.patterns && recap.patterns.length > 0 && (
+            <section>
+              <h3 className="flex items-center gap-2 text-sm font-bold text-gray-900 mb-2">
+                <TrendingUp className="w-4 h-4 text-primary" /> Your patterns this month
+              </h3>
+              <ul className="space-y-1.5">
+                {recap.patterns.map((p) => (
+                  <li key={p.tag} className="flex items-center gap-3 text-sm">
+                    <span className="w-40 shrink-0 text-gray-700">{TAG_LABELS[p.tag] ?? p.tag.replace(/_/g, " ")}</span>
+                    <span className="flex-1 h-2 rounded-full bg-gray-100 overflow-hidden">
+                      <span
+                        className="block h-full rounded-full bg-amber-400"
+                        style={{ width: `${Math.min(100, (p.count / Math.max(...recap.patterns!.map((x) => x.count))) * 100)}%` }}
+                      />
+                    </span>
+                    <span className="w-8 text-right text-xs text-gray-500">{p.count}×</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-1.5 text-xs text-gray-500">Léon brings these back in your next classes.</p>
+            </section>
+          )}
+
           {recap.focus && (
             <section className="rounded-xl bg-amber-50 border border-amber-200 px-4 py-3">
               <h3 className="flex items-center gap-2 text-sm font-bold text-amber-900 mb-1">
@@ -269,6 +345,20 @@ export function RecapPanel({
               {saveError && <p className="text-xs text-red-600 mt-2 text-center">{saveError}</p>}
             </div>
           )}
+
+          {/* Léon takes students far; a live tutor takes them further. */}
+          <a
+            href="https://www.francolink.net/tutors?match=1"
+            className="flex items-center gap-3 rounded-xl border border-gray-200 px-4 py-3 hover:border-gray-300 hover:bg-gray-50"
+          >
+            <GraduationCap className="w-5 h-5 text-primary shrink-0" />
+            <span className="text-sm">
+              <span className="block font-semibold text-gray-900">Go deeper with a live tutor</span>
+              <span className="block text-gray-500">
+                {recap.focus ? "Work on what Léon spotted with a real teacher." : "Practise what you learned with a real teacher."}
+              </span>
+            </span>
+          </a>
 
           <button
             onClick={onNewSession}
