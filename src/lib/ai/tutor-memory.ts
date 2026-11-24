@@ -14,6 +14,8 @@
 import type OpenAI from "openai";
 import { costOf } from "@/lib/ai/pricing";
 import { logAiUsage } from "@/lib/ai/usage-log";
+import { classXp, looksEnglish } from "@/lib/ai/tutor-coach";
+import { recordActivity } from "@/lib/streak/record-activity";
 
 /** Hard cap on the stored note. It rides along on every tutor call. */
 const MAX_MEMORY_CHARS = 700;
@@ -40,7 +42,18 @@ export interface TutorRecap {
   vocab: RecapVocab[];
   focus: string;
   corrections: RecapCorrection[];
-  stats: { studentMessages: number; minutes: number };
+  stats: {
+    studentMessages: number;
+    minutes: number;
+    /** Words the student said or typed in the language this class. */
+    words?: number;
+    /** The same numbers from their previous class, for comparison. */
+    previous?: { words: number; corrections: number; minutes: number } | null;
+  };
+  /** Their most frequent kinds of mistake over the last 30 days. */
+  patterns?: { tag: string; count: number }[];
+  /** XP earned for this class (once). */
+  xp?: number;
   model?: string;
   costUsd?: number;
 }
@@ -59,7 +72,7 @@ export async function loadMemoryBlock(
 ): Promise<string> {
   const since = new Date(Date.now() - 30 * 24 * 3600 * 1000).toISOString();
 
-  const [memRes, tagRes] = await Promise.all([
+  const [memRes, tagRes, lastRes] = await Promise.all([
     svc
       .from("ai_tutor_memory")
       .select("notes")
@@ -72,7 +85,17 @@ export async function loadMemoryBlock(
       .eq("user_id", userId)
       .gte("created_at", since)
       .limit(200),
+    // The latest few corrections, for a warm-up at the start of the next class.
+    svc
+      .from("ai_tutor_corrections")
+      .select("original, corrected, created_at")
+      .eq("user_id", userId)
+      .order("created_at", { ascending: false })
+      .limit(3),
   ]);
+  const recent = ((lastRes?.data ?? []) as Array<{ original: string; corrected: string }>).filter(
+    (c) => c.original && c.corrected
+  );
 
   const notes: string = memRes?.data?.notes?.trim() ?? "";
 
@@ -88,13 +111,20 @@ export async function loadMemoryBlock(
     .slice(0, 3)
     .map(([tag, n]) => `${tag.replace(/_/g, " ")} (${n}×)`);
 
-  if (!notes && topTags.length === 0) return "";
+  if (!notes && topTags.length === 0 && recent.length === 0) return "";
 
   const lines = ["What you remember about this student from earlier sessions:"];
   if (notes) lines.push(notes);
   if (topTags.length) {
     lines.push(
       `Mistakes they keep making this month: ${topTags.join(", ")}. Weave in natural chances to practise these, without lecturing.`
+    );
+  }
+  if (recent.length) {
+    lines.push(
+      `Mistakes from their last class (good for a quick warm-up question): ${recent
+        .map((c) => `"${c.original}" → "${c.corrected}"`)
+        .join("; ")}.`
     );
   }
   lines.push(
@@ -130,7 +160,8 @@ export async function recapConversation(opts: {
   if (!conv || conv.user_id !== userId) return null;
   if (conv.ended_at && conv.recap) return conv.recap as TutorRecap;
 
-  const [{ data: messages }, { data: corrections }, { data: mem }] = await Promise.all([
+  const since = new Date(Date.now() - 30 * 24 * 3600 * 1000).toISOString();
+  const [{ data: messages }, { data: corrections }, { data: mem }, { data: prevConv }, { data: tagRows }] = await Promise.all([
     svc
       .from("ai_tutor_messages")
       .select("role, content, created_at")
@@ -147,7 +178,24 @@ export async function recapConversation(opts: {
       .eq("user_id", userId)
       .eq("language", conv.language)
       .maybeSingle(),
+    svc
+      .from("ai_tutor_conversations")
+      .select("recap")
+      .eq("user_id", userId)
+      .eq("language", conv.language)
+      .neq("id", conversationId)
+      .not("recap", "is", null)
+      .order("ended_at", { ascending: false })
+      .limit(1)
+      .maybeSingle(),
+    svc
+      .from("ai_tutor_corrections")
+      .select("tag")
+      .eq("user_id", userId)
+      .gte("created_at", since)
+      .limit(300),
   ]);
+  const english = conv.language === "en";
 
   const rows = (messages ?? []) as Array<{ role: string; content: string; created_at: string }>;
   if (rows.length < MIN_MESSAGES_FOR_RECAP) return null;
@@ -163,6 +211,8 @@ export async function recapConversation(opts: {
   const correctionList: RecapCorrection[] = (
     (corrections ?? []) as Array<RecapCorrection>
   )
+    // Older classes logged English requests for help as "mistakes".
+    .filter((c) => english || !looksEnglish(c.original))
     // The same slip corrected twice should appear once.
     .filter(
       (c, i, all) => all.findIndex((d) => d.corrected === c.corrected) === i
@@ -176,11 +226,13 @@ export async function recapConversation(opts: {
 Return JSON only:
 {
   "summary": "1-2 warm sentences in English, addressed to the student as 'you', on what you practised together",
-  "wins": ["up to 3 short specific things the student did well, in English"],
+  "wins": ["up to 3 short specific things the student did well, in English, each pointing at something they actually said"],
   "vocab": [{"term": "target-language word or short phrase worth keeping", "translation": "English"}],
   "focus": "one concrete thing to practise next time, in English, one sentence",
   "memory": "the updated memory note"
 }
+
+Be honest. Only describe what the transcript shows the STUDENT doing. Never praise something they did not do (if the tutor explained something and the student never used it, it is not a win), and never claim they mastered or "learned how to use something correctly" after one exchange; say they practised or started on it. Requests in English for help are not wins and not mistakes. If there is little to praise, give fewer wins.
 
 Rules for "vocab": up to 8 items, only words/phrases that actually appeared in the conversation and are useful at the student's level; prefer ones the student struggled with or the tutor introduced. Base form for verbs and nouns with article (e.g. "la boulangerie").
 
@@ -230,7 +282,31 @@ Rules for "memory": rewrite the previous note merged with anything new and durab
     stats: {
       studentMessages: rows.filter((m) => m.role === "user").length,
       minutes: Math.max(1, Math.round((last - started) / 60000)),
+      words: rows
+        .filter((m) => m.role === "user" && (english || !looksEnglish(m.content)))
+        .reduce((n, m) => n + m.content.split(/\s+/).filter(Boolean).length, 0),
+      previous: (() => {
+        const p = (prevConv?.recap ?? null) as TutorRecap | null;
+        if (!p?.stats) return null;
+        return {
+          words: p.stats.words ?? 0,
+          corrections: p.corrections?.length ?? 0,
+          minutes: p.stats.minutes ?? 0,
+        };
+      })(),
     },
+    patterns: (() => {
+      const counts = new Map<string, number>();
+      for (const r of (tagRows ?? []) as Array<{ tag: string | null }>) {
+        const t = r.tag || "other";
+        if (t !== "other") counts.set(t, (counts.get(t) ?? 0) + 1);
+      }
+      return [...counts.entries()]
+        .filter(([, n]) => n >= 2)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 3)
+        .map(([tag, count]) => ({ tag, count }));
+    })(),
     model,
     costUsd: costOf(
       model,
@@ -249,6 +325,22 @@ Rules for "memory": rewrite the previous note merged with anything new and durab
   });
 
   const memory = clean(parsed.memory, MAX_MEMORY_CHARS);
+
+  // XP and a day of streak for the class, once (a recapped class is never
+  // recapped again). Best-effort: a failure here never loses the recap.
+  recap.xp = classXp(recap.stats.studentMessages);
+  if (recap.xp > 0) {
+    try {
+      const { error } = await svc.rpc("increment_user_xp", { p_user_id: userId, p_xp_amount: recap.xp });
+      if (error) {
+        const { data: u } = await svc.from("users").select("total_xp").eq("id", userId).maybeSingle();
+        if (u) await svc.from("users").update({ total_xp: (u.total_xp || 0) + recap.xp }).eq("id", userId);
+      }
+    } catch (err) {
+      console.error("Tutor class XP failed:", err);
+    }
+  }
+  await recordActivity(userId, { kind: "ai_tutor" }).catch(() => undefined);
 
   await Promise.all([
     svc

@@ -35,7 +35,7 @@ export default function AuthLayout({
                 Start learning a new language today
               </h2>
               <p className="text-white/60 text-lg leading-relaxed">
-                Learn with certified tutors, on a proper CEFR syllabus from A1 to C2.
+                Learn with experienced tutors, on a proper CEFR syllabus from A1 to C2.
               </p>
             </div>
 
@@ -47,7 +47,7 @@ export default function AuthLayout({
                 },
                 {
                   icon: Users,
-                  text: "120+ certified, bilingual tutors",
+                  text: "120+ experienced, bilingual tutors",
                 },
                 {
                   icon: Shield,

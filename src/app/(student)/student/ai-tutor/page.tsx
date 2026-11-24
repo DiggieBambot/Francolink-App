@@ -2,7 +2,13 @@
 import { useTutorTTS, takeSentences } from "@/hooks/use-tutor-tts";
 import { useVoiceRecorder } from "@/hooks/use-voice-recorder";
 import { PLANS, formatTutoringTime } from "@/lib/config/subscription";
-import { TutoringSession, type ClassTopicOption } from "@/components/ai-tutor/tutoring-session";
+import {
+  TutoringSession,
+  type ClassTopicOption,
+  type MissionCard,
+  type BoardNote,
+} from "@/components/ai-tutor/tutoring-session";
+import { normalizeTag, type SupportLevel, type CorrectionStyle } from "@/lib/ai/tutor-coach";
 import { ExtraHoursOffer } from "@/components/ai-tutor/extra-hours-offer";
 import { TappableText } from "@/components/ai-tutor/tappable-text";
 import { RecapPanel, type Recap } from "@/components/ai-tutor/recap-panel";
@@ -124,6 +130,42 @@ export default function AITutorPage() {
   } | null>(null);
   const [hints, setHints] = useState<Hint[]>([]);
   const [hintsOpen, setHintsOpen] = useState(false);
+  // Role-play missions offered when there are no prepared lessons, the one in
+  // progress (with the objectives met so far), and Léon's board notes.
+  const [missionOffers, setMissionOffers] = useState<MissionCard[] | null>(null);
+  const [mission, setMission] = useState<(MissionCard & { met: number[] }) | null>(null);
+  const [boardNotes, setBoardNotes] = useState<BoardNote[]>([]);
+  // A transcript the recogniser was not sure about, waiting for "yes, send".
+  const [unsureText, setUnsureText] = useState<string | null>(null);
+  // The student's class settings, remembered on this device.
+  const [support, setSupportState] = useState<SupportLevel>("balanced");
+  const [correctionStyle, setCorrectionStyleState] = useState<CorrectionStyle>("all");
+  useEffect(() => {
+    try {
+      const s = localStorage.getItem("leon-support");
+      if (s === "more_english" || s === "immersion" || s === "balanced") setSupportState(s);
+      const c = localStorage.getItem("leon-corrections");
+      if (c === "all" || c === "major" || c === "fluency") setCorrectionStyleState(c);
+    } catch {
+      /* private mode: defaults */
+    }
+  }, []);
+  const setSupport = (v: SupportLevel) => {
+    setSupportState(v);
+    try {
+      localStorage.setItem("leon-support", v);
+    } catch {
+      /* not remembered */
+    }
+  };
+  const setCorrectionStyle = (v: CorrectionStyle) => {
+    setCorrectionStyleState(v);
+    try {
+      localStorage.setItem("leon-corrections", v);
+    } catch {
+      /* not remembered */
+    }
+  };
   const [recap, setRecap] = useState<Recap | null>(null);
   const [recapLoading, setRecapLoading] = useState(false);
   // The voice-first AI tutoring session (full screen, hands-free).
@@ -220,8 +262,11 @@ export default function AITutorPage() {
       greet?: boolean;
       session?: boolean;
       lessonId?: string;
-      /** A tap on the on-screen lesson instead of something the student said. */
-      event?: { type: "step"; to: number } | { type: "check" };
+      /** A tap on the on-screen lesson (or "Help me") instead of something the student said. */
+      event?: { type: "step"; to: number } | { type: "check" } | { type: "help" };
+      /** A mission tapped this turn (state has not updated yet). */
+      missionId?: string;
+      missionStart?: boolean;
     } = {}
   ) => {
     const greet = opts.greet === true;
@@ -277,6 +322,12 @@ export default function AITutorPage() {
           greet: greet || undefined,
           event: opts.event,
           work: workToSend(opts.event?.type === "check"),
+          support,
+          correctionStyle,
+          missionId: opts.missionId ?? mission?.id,
+          missionMet: opts.missionId ? [] : mission?.met,
+          missionStart: opts.missionStart || undefined,
+          offeredMissions: !mission && !opts.missionId && missionOffers ? missionOffers.map((m) => m.id) : undefined,
         }),
         signal: abortRef.current.signal,
       });
@@ -327,6 +378,8 @@ export default function AITutorPage() {
             topics: Array.isArray(ev.topics) ? ev.topics : [],
             resume: ev.resume ?? null,
           });
+        } else if (ev.t === "missions") {
+          setMissionOffers(Array.isArray(ev.missions) ? ev.missions : null);
         } else if (ev.t === "delta") {
           text += ev.text;
           patchMessage(assistantId, { content: text });
@@ -348,7 +401,16 @@ export default function AITutorPage() {
             tts.enqueue(speechBuf, { id: assistantId });
             speechBuf = "";
           }
-          if (ev.corrections?.length) flash("correcting", 2400);
+          const newlyMet: number[] = ev.mission?.met
+            ? ev.mission.met.filter((i: number) => !(mission?.met ?? []).includes(i))
+            : [];
+          if (ev.mission) {
+            setMission(ev.mission);
+            setMissionOffers(null);
+          }
+          if (ev.board?.title) setBoardNotes((prev) => [...prev, ev.board]);
+          if (newlyMet.length) flash("celebrating", ev.mission.met.length >= 3 ? 3200 : 2200);
+          else if (ev.corrections?.length) flash("correcting", 2400);
           else if (trimmed.split(/\s+/).length >= 4) flash("celebrating", 1800);
           setHints(Array.isArray(ev.hints) ? ev.hints : []);
           if (ev.conversationId) setConversationId(ev.conversationId);
@@ -402,8 +464,10 @@ export default function AITutorPage() {
 
   // The recorder callback outlives renders; always call the latest sendMessage.
   const sendRef = useRef(sendMessage);
+  const sessionOpenRef = useRef(sessionOpen);
   useEffect(() => {
     sendRef.current = sendMessage;
+    sessionOpenRef.current = sessionOpen;
   });
 
   const transcribe = useCallback(
@@ -423,6 +487,16 @@ export default function AITutorPage() {
         }
         if (!data.text) {
           setError("I didn't catch anything — try again a little closer to the mic.");
+          return;
+        }
+        // Not sure it heard the student (noise, or Léon's voice in the mic):
+        // ask in class, or let them edit it in the chat box.
+        if (data.unsure) {
+          if (sessionOpenRef.current) setUnsureText(data.text);
+          else {
+            setInput(data.text);
+            inputRef.current?.focus();
+          }
           return;
         }
         await sendRef.current(data.text);
@@ -560,6 +634,22 @@ export default function AITutorPage() {
     void sendMessage(topic.title, { session: true, lessonId: topic.id });
   };
 
+  // Tapping one of the offered missions: it starts right away.
+  const pickMission = (card: MissionCard) => {
+    if (isLoading) return;
+    tts.stop();
+    setMission({ ...card, met: [] });
+    setMissionOffers(null);
+    void sendMessage(card.title, { session: true, missionId: card.id, missionStart: true });
+  };
+
+  // "Help me": Léon explains what he asked, in the student's language.
+  const askForHelp = () => {
+    if (isLoading) return;
+    tts.stop();
+    void sendMessage(undefined, { session: true, event: { type: "help" } });
+  };
+
   const endTutoringSession = async () => {
     recorder.cancel();
     tts.stop();
@@ -577,6 +667,10 @@ export default function AITutorPage() {
     setLesson(null);
     setLessonId(null);
     setClassTopics(null);
+    setMissionOffers(null);
+    setMission(null);
+    setBoardNotes([]);
+    setUnsureText(null);
     lessonAnswersRef.current = {};
     sentAnswersRef.current = "";
     setHints([]);
@@ -769,9 +863,10 @@ export default function AITutorPage() {
                   />
                 </div>
                 <div className="min-w-0">
-                  <h1 className="font-bold text-gray-900 text-sm">
+                  {/* Not an <h1>: the global h1 size (2.5rem) beats the utility class. */}
+                  <p role="heading" aria-level={1} className="font-bold text-gray-900 text-sm truncate">
                     Professor Léon <span className="font-normal text-gray-400">· AI tutor</span>
-                  </h1>
+                  </p>
                   {lesson ? (
                     <p className="text-xs text-gray-500 truncate">
                       {lesson.title} · step{" "}
@@ -795,10 +890,11 @@ export default function AITutorPage() {
             <div className="flex items-center gap-1.5 sm:gap-3">
               <Link
                 href="/student/ai-tutor/review"
-                className="p-2 rounded-lg text-gray-500 hover:bg-gray-100"
+                className="flex items-center gap-1.5 p-2 rounded-lg text-xs font-medium text-gray-500 hover:bg-gray-100"
                 title="Review deck"
               >
                 <Layers className="w-4 h-4" />
+                <span className="hidden sm:inline">Review</span>
               </Link>
 
               <button
@@ -1021,7 +1117,7 @@ export default function AITutorPage() {
                             </button>
                             {c.tag && (
                               <span className="px-1.5 py-0.5 rounded bg-amber-200/70 text-amber-900 text-[10px] uppercase tracking-wide">
-                                {c.tag.replace(/_/g, " ")}
+                                {normalizeTag(c.tag).replace(/_/g, " ")}
                               </span>
                             )}
                           </div>
@@ -1305,6 +1401,25 @@ export default function AITutorPage() {
           lessonAnswers={lessonAnswersRef}
           onLessonStep={goToLessonStep}
           onLessonCheck={checkLessonAnswers}
+          level={studentLevel}
+          hints={hints}
+          onSend={(text) => void sendMessage(text, { session: true })}
+          onHelp={askForHelp}
+          onSpeak={sayPhrase}
+          missions={missionOffers ?? []}
+          onPickMission={pickMission}
+          mission={mission}
+          notes={boardNotes}
+          support={support}
+          onSupport={setSupport}
+          correctionStyle={correctionStyle}
+          onCorrectionStyle={setCorrectionStyle}
+          unsure={unsureText}
+          onUnsure={(send) => {
+            const t = unsureText;
+            setUnsureText(null);
+            if (send && t) void sendMessage(t, { session: true });
+          }}
         />
       )}
 

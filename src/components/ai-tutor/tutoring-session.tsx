@@ -18,10 +18,56 @@
 // what he's saying word by word; and a class board collects the corrections.
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { Mic, Pause, PhoneOff, Hand, Loader2, NotebookPen, ChevronUp, BookOpen, RotateCcw, Languages } from "lucide-react";
+import {
+  Mic,
+  Pause,
+  PhoneOff,
+  Hand,
+  Loader2,
+  NotebookPen,
+  ChevronUp,
+  BookOpen,
+  RotateCcw,
+  Languages,
+  Lightbulb,
+  LifeBuoy,
+  Keyboard,
+  Send,
+  Volume2,
+  Settings2,
+  Check,
+  X,
+  Target,
+} from "lucide-react";
 import { Leon, LeonSpeechBubble, leonPalette, type LeonMood, type VoiceBands } from "@/components/ai-tutor/leon";
 import { ClassLesson as LessonOnScreen } from "@/components/ai-tutor/class-lesson";
 import type { NowPlaying } from "@/hooks/use-tutor-tts";
+import { markSaid, type WordMark } from "@/lib/ai/say-again";
+import type { SupportLevel, CorrectionStyle } from "@/lib/ai/tutor-coach";
+
+/** A role-play mission Léon offers (for languages without prepared lessons). */
+export interface MissionCard {
+  id: string;
+  title: string;
+  emoji: string;
+  goal: string;
+  objectives: string[];
+  level: string;
+}
+
+/** Something Léon wrote on the board: a rule, a contrast, key phrases. */
+export interface BoardNote {
+  title: string;
+  lines: string[];
+}
+
+interface Hint {
+  text: string;
+  en?: string;
+}
+
+/** Levels at which reply suggestions show without asking. */
+const HINTS_UP_FRONT = new Set(["A1", "A2", "B1"]);
 
 /** A live-class lesson Léon offers at the start of a class. */
 export interface ClassTopicOption {
@@ -61,6 +107,8 @@ interface Recorder {
 
 /** Input level that counts as speech (0–1 meter from useVoiceRecorder). */
 const SPEECH_LEVEL = 0.12;
+/** Loud time needed before it counts as the student talking (not a click or a cough). */
+const MIN_SPEECH_MS = 240;
 /** Silence after speech that ends the student's turn. */
 const END_OF_TURN_MS = 850;
 /** No speech at all for this long pauses the session. */
@@ -118,6 +166,21 @@ export function TutoringSession({
   lessonAnswers,
   onLessonStep,
   onLessonCheck,
+  level = "A1",
+  hints = [],
+  onSend,
+  onHelp,
+  onSpeak,
+  missions = [],
+  onPickMission,
+  mission = null,
+  notes = [],
+  support = "balanced",
+  onSupport,
+  correctionStyle = "all",
+  onCorrectionStyle,
+  unsure = null,
+  onUnsure,
 }: {
   language: string;
   mood: LeonMood;
@@ -159,9 +222,84 @@ export function TutoringSession({
   onLessonStep?: (index: number) => void;
   /** The student asked Léon to check their on-screen answers. */
   onLessonCheck?: () => void;
+  /** The student's CEFR level (hints show up front at A1–B1). */
+  level?: string;
+  /** Replies the student could give to what Léon just asked. */
+  hints?: Hint[];
+  /** Send a typed or tapped message as the student's turn. */
+  onSend?: (text: string) => void;
+  /** "Help me": Léon explains what he asked in the student's language. */
+  onHelp?: () => void;
+  /** Say a phrase aloud (hint chips, the "say it again" sentence). */
+  onSpeak?: (text: string) => void;
+  /** Role-play missions offered for today's class, until one is chosen. */
+  missions?: MissionCard[];
+  onPickMission?: (m: MissionCard) => void;
+  /** The mission in progress and the objectives met so far. */
+  mission?: (MissionCard & { met: number[] }) | null;
+  /** What Léon wrote on the board this class. */
+  notes?: BoardNote[];
+  support?: SupportLevel;
+  onSupport?: (v: SupportLevel) => void;
+  correctionStyle?: CorrectionStyle;
+  onCorrectionStyle?: (v: CorrectionStyle) => void;
+  /** A transcript the recogniser was unsure of, waiting for a yes/no. */
+  unsure?: string | null;
+  onUnsure?: (send: boolean) => void;
 }) {
   const [paused, setPaused] = useState(false);
+  // Paused because nobody spoke for a while (not by the student): Léon offers help.
+  const [idle, setIdle] = useState(false);
   const [boardOpen, setBoardOpen] = useState(false);
+  const [hintsOpen, setHintsOpen] = useState(false);
+  const [typing, setTyping] = useState(false);
+  const [draft, setDraft] = useState("");
+  const [settingsOpen, setSettingsOpen] = useState(false);
+
+  // While a class is open, the page's background polling (notifications) waits.
+  useEffect(() => {
+    document.body.dataset.leonClass = "1";
+    return () => {
+      delete document.body.dataset.leonClass;
+    };
+  }, []);
+
+  // New suggestions for each question: closed again unless shown up front.
+  const hintKey = hints.map((h) => h.text).join("|");
+  useEffect(() => {
+    setHintsOpen(false);
+  }, [hintKey]);
+
+  // ── "Say it again" ───────────────────────────────────────────────────────
+  // After a correction, the student's next attempt is checked word by word.
+  const [sayAgain, setSayAgain] = useState<{
+    target: string;
+    before: string | null;
+    marks: WordMark[] | null;
+    score: number;
+  } | null>(null);
+  const boardCount = board.length;
+  const lastCorrected = board[board.length - 1]?.corrected ?? null;
+  const studentLineRef = useRef(studentLine);
+  useEffect(() => {
+    studentLineRef.current = studentLine;
+  });
+  useEffect(() => {
+    if (!boardCount || !lastCorrected || correctionStyle === "fluency") {
+      setSayAgain(null);
+      return;
+    }
+    setSayAgain({ target: lastCorrected, before: studentLineRef.current, marks: null, score: 0 });
+  }, [boardCount, lastCorrected, correctionStyle]);
+  useEffect(() => {
+    setSayAgain((s) => {
+      if (!s || !studentLine || studentLine === s.before) return s;
+      // Already scored: the next turn after that closes the card.
+      if (s.marks) return null;
+      const { marks, score } = markSaid(s.target, studentLine);
+      return { ...s, marks, score };
+    });
+  }, [studentLine]);
   // Small translation under Léon's bubble, on unless the student turns it off.
   const [showTranslation, setShowTranslation] = useState(true);
   useEffect(() => {
@@ -211,7 +349,7 @@ export function TutoringSession({
   const busy = isLoading || isTranscribing || isSpeaking;
   const startingRef = useRef(false);
   useEffect(() => {
-    if (paused || outOfTime || ending || busy || recorder.isRecording || !recorder.supported) return;
+    if (paused || typing || unsure || outOfTime || ending || busy || recorder.isRecording || !recorder.supported) return;
     const t = setTimeout(async () => {
       if (startingRef.current) return;
       startingRef.current = true;
@@ -224,7 +362,7 @@ export function TutoringSession({
     return () => clearTimeout(t);
     // recorder.start is stable; listing the flags is what matters.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [paused, outOfTime, ending, busy, recorder.isRecording, recorder.supported]);
+  }, [paused, typing, unsure, outOfTime, ending, busy, recorder.isRecording, recorder.supported]);
 
   // ── End-of-turn detection ────────────────────────────────────────────────
   const micLevel = useRef(0);
@@ -238,14 +376,19 @@ export function TutoringSession({
     const startedAt = Date.now();
     let speechAt = 0;
     let lastLoud = 0;
+    let loudMs = 0;
     const iv = setInterval(() => {
       const now = Date.now();
       if (micLevel.current >= SPEECH_LEVEL) {
-        if (!speechAt) {
+        loudMs += 80;
+        lastLoud = now;
+        // A click, a cough or a door is not the student's turn.
+        if (!speechAt && loudMs >= MIN_SPEECH_MS) {
           speechAt = now;
           setHeard(true);
         }
-        lastLoud = now;
+      } else if (!speechAt && now - lastLoud > 600) {
+        loudMs = 0;
       }
       if (speechAt && now - lastLoud > END_OF_TURN_MS) {
         clearInterval(iv);
@@ -255,6 +398,7 @@ export function TutoringSession({
         clearInterval(iv);
         recorder.cancel();
         setPaused(true);
+        setIdle(true);
       }
     }, 80);
     return () => clearInterval(iv);
@@ -268,6 +412,7 @@ export function TutoringSession({
   useEffect(() => () => cancelRef.current(), []);
 
   const togglePause = useCallback(() => {
+    setIdle(false);
     if (paused) {
       setPaused(false);
     } else {
@@ -279,6 +424,30 @@ export function TutoringSession({
   const interrupt = () => {
     onInterrupt();
     setPaused(false);
+    setIdle(false);
+  };
+
+  // A typed or tapped reply is the student's turn, like speaking.
+  const sendText = (text: string) => {
+    const t = text.trim();
+    if (!t || !onSend) return;
+    if (recorder.isRecording) recorder.cancel();
+    if (isSpeaking) onInterrupt();
+    setIdle(false);
+    setPaused(false);
+    setDraft("");
+    onSend(t);
+  };
+  const help = () => {
+    if (!onHelp) return;
+    if (recorder.isRecording) recorder.cancel();
+    setIdle(false);
+    setPaused(false);
+    onHelp();
+  };
+  const openTyping = () => {
+    if (recorder.isRecording) recorder.cancel();
+    setTyping(true);
   };
 
   // A tap on the lesson is the student's turn: stop listening, hand it to
@@ -299,11 +468,193 @@ export function TutoringSession({
   else if (leonTalking) status = "Tap Professor Léon to interrupt";
   else if (acking || isTranscribing || isLoading) status = "Professor Léon is thinking…";
   else if (recorder.isRecording) status = heard ? "Listening…" : "Your turn, just start talking";
+  else if (unsure) status = "Did Léon hear you right?";
+  else if (typing) status = "Type your answer below";
+  else if (paused && idle && !error) status = "Take your time. Need a hint?";
   else if (paused) status = error ? "Paused · tap the mic to try again" : "Paused · tap the mic to talk";
   else status = "Getting ready…";
 
   const boardPanel = (
-    <ClassBoard items={board} lesson={lesson} />
+    <ClassBoard items={board} lesson={lesson} mission={mission} notes={notes} />
+  );
+  const boardCountAll = board.length + notes.length + (mission ? 1 : 0);
+
+  const showHints =
+    !leonTalking && !isLoading && hints.length > 0 && (HINTS_UP_FRONT.has(level) || hintsOpen || idle);
+
+  // Under Léon: everything that helps a student who is stuck or can't talk.
+  const helpers = (
+    <div className="w-full max-w-xl mt-3 space-y-2 text-left">
+      {unsure && onUnsure && (
+        <div className="rounded-2xl border border-gray-200 bg-white px-3 py-2.5 shadow-sm">
+          <p className="text-sm text-gray-700">
+            Did you say <span className="font-semibold text-gray-900">&ldquo;{unsure}&rdquo;</span>?
+          </p>
+          <div className="mt-2 flex gap-2">
+            <button
+              onClick={() => onUnsure(true)}
+              className="inline-flex items-center gap-1 rounded-lg bg-gray-900 px-3 py-1.5 text-xs font-semibold text-white"
+            >
+              <Check className="w-3.5 h-3.5" /> Yes, send it
+            </button>
+            <button
+              onClick={() => onUnsure(false)}
+              className="inline-flex items-center gap-1 rounded-lg border border-gray-200 px-3 py-1.5 text-xs font-semibold text-gray-700 hover:bg-gray-50"
+            >
+              <X className="w-3.5 h-3.5" /> No, that wasn&apos;t me
+            </button>
+          </div>
+        </div>
+      )}
+
+      {sayAgain && !leonTalking && (
+        <div
+          className={`rounded-2xl border px-3 py-2.5 ${
+            sayAgain.marks
+              ? sayAgain.score >= 0.85
+                ? "border-green-200 bg-green-50"
+                : "border-amber-200 bg-amber-50"
+              : "border-gray-200 bg-white"
+          }`}
+        >
+          <div className="flex items-center justify-between gap-2">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-gray-500">
+              {sayAgain.marks
+                ? sayAgain.score >= 0.85
+                  ? "Nailed it 🎉"
+                  : `Léon heard ${sayAgain.marks.filter((m) => m.ok).length} of ${sayAgain.marks.length} words`
+                : "Say it again"}
+            </p>
+            {onSpeak && (
+              <button
+                onClick={() => onSpeak(sayAgain.target)}
+                className="p-1 rounded text-gray-500 hover:text-gray-900"
+                aria-label="Hear the corrected sentence"
+              >
+                <Volume2 className="w-4 h-4" />
+              </button>
+            )}
+          </div>
+          <p className="mt-0.5 text-base font-medium leading-snug">
+            {sayAgain.marks
+              ? sayAgain.marks.map((m, i) => (
+                  <span key={i} className={m.ok ? "text-green-700" : "text-amber-700 underline decoration-dotted"}>
+                    {m.word}{" "}
+                  </span>
+                ))
+              : sayAgain.target}
+          </p>
+        </div>
+      )}
+
+      {showHints && (
+        <div>
+          <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-gray-400 flex items-center gap-1">
+            <Lightbulb className="w-3 h-3" /> You could say · tap to answer
+          </p>
+          <div className="flex flex-col gap-1.5">
+            {hints.map((h, i) => (
+              <div key={i} className="flex items-stretch gap-1">
+                <button
+                  onClick={() => sendText(h.text)}
+                  disabled={!onSend || isLoading}
+                  className="flex-1 rounded-xl border border-gray-200 bg-white px-3 py-1.5 text-left hover:border-gray-400 disabled:opacity-60"
+                >
+                  <span className="block text-sm text-gray-900">{h.text}</span>
+                  {h.en && <span className="block text-xs text-gray-500">{h.en}</span>}
+                </button>
+                {onSpeak && (
+                  <button
+                    onClick={() => onSpeak(h.text)}
+                    className="px-2 rounded-xl text-gray-400 hover:text-gray-900 hover:bg-white"
+                    aria-label="Hear this"
+                  >
+                    <Volume2 className="w-4 h-4" />
+                  </button>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {typing && onSend && (
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            sendText(draft);
+          }}
+          className="flex items-center gap-2"
+        >
+          <input
+            autoFocus
+            value={draft}
+            onChange={(e) => setDraft(e.target.value)}
+            placeholder="Type your answer…"
+            className="flex-1 rounded-xl border border-gray-300 bg-white px-3 py-2 text-base md:text-sm focus:outline-none focus:ring-2 focus:ring-gray-900/10"
+          />
+          <button
+            type="submit"
+            disabled={!draft.trim() || isLoading}
+            className="rounded-xl bg-gray-900 p-2.5 text-white disabled:opacity-50"
+            aria-label="Send"
+          >
+            <Send className="w-4 h-4" />
+          </button>
+        </form>
+      )}
+
+      {!outOfTime && !ending && (
+        <div className="flex flex-wrap items-center justify-center gap-1.5 pt-1">
+          {hints.length > 0 && !showHints && !leonTalking && (
+            <button onClick={() => setHintsOpen(true)} className={CHIP}>
+              <Lightbulb className="w-3.5 h-3.5" /> Hints
+            </button>
+          )}
+          {onHelp && (
+            <button onClick={help} disabled={isLoading || acking} className={CHIP}>
+              <LifeBuoy className="w-3.5 h-3.5" /> Help me
+            </button>
+          )}
+          {onSend && (
+            <button
+              onClick={() => (typing ? setTyping(false) : openTyping())}
+              className={CHIP}
+              aria-pressed={typing}
+            >
+              {typing ? <Mic className="w-3.5 h-3.5" /> : <Keyboard className="w-3.5 h-3.5" />}
+              {typing ? "Talk instead" : "Type instead"}
+            </button>
+          )}
+        </div>
+      )}
+    </div>
+  );
+
+  const missionOffers = !lesson && !mission && missions.length > 0 && onPickMission && (
+    <div className="mt-5 w-full max-w-xl text-left">
+      <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">
+        Today&apos;s mission · say it or tap it
+      </p>
+      <div className="grid sm:grid-cols-3 gap-2">
+        {missions.map((m) => (
+          <button
+            key={m.id}
+            onClick={() => onPickMission(m)}
+            disabled={isLoading}
+            className="flex sm:flex-col items-start gap-2 rounded-xl border border-gray-200 bg-white px-3 py-2.5 text-left hover:border-gray-400 disabled:opacity-60"
+          >
+            <span className="text-2xl leading-none" aria-hidden>
+              {m.emoji}
+            </span>
+            <span className="min-w-0">
+              <span className="block text-sm font-semibold text-gray-900">{m.title}</span>
+              <span className="block text-xs text-gray-500">{m.goal}</span>
+            </span>
+          </button>
+        ))}
+      </div>
+    </div>
   );
 
   return (
@@ -327,9 +678,51 @@ export function TutoringSession({
       <div className="shrink-0 flex items-center justify-between gap-3 px-4 py-3 max-w-5xl w-full mx-auto">
         <div className="min-w-0">
           <p className="text-sm font-semibold">Professor Léon</p>
-          <p className="text-xs text-gray-500">
-            AI tutoring session{timeLabel ? ` · ${timeLabel}` : ""}
+          <p className="text-xs text-gray-500 truncate">
+            {mission ? (
+              <span className="inline-flex items-center gap-1 font-medium text-gray-700">
+                <Target className="w-3 h-3" /> {mission.emoji} {mission.title} · {mission.met.length}/{mission.objectives.length}
+              </span>
+            ) : (
+              "AI tutoring session"
+            )}
+            {timeLabel ? ` · ${timeLabel}` : ""}
           </p>
+        </div>
+        <div className="relative ml-auto">
+          <button
+            onClick={() => setSettingsOpen((v) => !v)}
+            className="p-2 rounded-xl text-gray-500 hover:bg-gray-100"
+            aria-label="Class settings"
+            aria-expanded={settingsOpen}
+          >
+            <Settings2 className="w-5 h-5" />
+          </button>
+          {settingsOpen && (
+            <div className="absolute right-0 top-11 z-10 w-72 rounded-2xl border border-gray-200 bg-white p-3 shadow-xl text-left">
+              <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">English help</p>
+              <Segmented
+                value={support}
+                onChange={(v) => onSupport?.(v as SupportLevel)}
+                options={[
+                  ["more_english", "More English"],
+                  ["balanced", "Balanced"],
+                  ["immersion", "Immersion"],
+                ]}
+              />
+              <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-gray-400">Corrections</p>
+              <Segmented
+                value={correctionStyle}
+                onChange={(v) => onCorrectionStyle?.(v as CorrectionStyle)}
+                options={[
+                  ["all", "Everything"],
+                  ["major", "Big ones"],
+                  ["fluency", "Just talk"],
+                ]}
+              />
+              <p className="mt-2 text-[11px] text-gray-400">Léon uses these from his next reply.</p>
+            </div>
+          )}
         </div>
         <button
           onClick={onEnd}
@@ -393,6 +786,7 @@ export function TutoringSession({
             {studentLine && (
               <p className="hidden md:block mt-3 text-sm text-gray-500 italic">&ldquo;{studentLine}&rdquo;</p>
             )}
+            {helpers}
           {error && !outOfTime && <p className="mt-4 text-sm text-red-600">{error}</p>}
 
           {outOfTime && <div className="mt-6 w-full max-w-xl">{outOfTimePanel}</div>}
@@ -426,7 +820,9 @@ export function TutoringSession({
       ) : (
       <div className="flex-1 min-h-0 w-full max-w-5xl mx-auto px-4 grid md:grid-cols-[1fr_300px] gap-6">
         {/* Léon and his speech bubble */}
-        <div className="min-h-0 overflow-y-auto flex flex-col items-center text-center">
+        {/* Children never shrink: when the column overflows it scrolls, rather
+            than squeezing the bubble (which grows upward) off the top. */}
+        <div className="min-h-0 overflow-y-auto flex flex-col items-center text-center [&>*]:shrink-0">
           {/* Room is kept for the bubble so Léon doesn't jump as it changes;
               it grows upward from just above his head. */}
           <div className="w-full max-w-xl min-h-[6.5rem] md:min-h-[7.5rem] flex flex-col justify-end pt-1 pb-5">
@@ -444,7 +840,8 @@ export function TutoringSession({
             className="rounded-full focus:outline-none"
             aria-label={leonTalking ? "Interrupt Professor Léon" : "Professor Léon"}
           >
-            <div className="w-[200px] h-[200px] md:w-[260px] md:h-[260px]">
+            {/* Shrinks on short screens so the help below him stays in view. */}
+            <div className="w-[min(160px,22vh)] h-[min(160px,22vh)] md:w-[min(260px,32vh)] md:h-[min(260px,32vh)]">
               <Leon
                 language={language}
                 mood={mood}
@@ -475,6 +872,10 @@ export function TutoringSession({
           {studentLine && (
             <p className="mt-5 text-sm text-gray-500 italic max-w-xl">&ldquo;{studentLine}&rdquo;</p>
           )}
+
+          {missionOffers}
+
+          {helpers}
 
           {!lesson && (topics.length > 0 || resume) && onPickTopic && (
             <div className="mt-6 w-full max-w-xl text-left">
@@ -521,8 +922,9 @@ export function TutoringSession({
             </div>
           )}
 
-          {/* On phones the latest correction shows inline; the board is a sheet. */}
-          {board.length > 0 && (
+          {/* On phones the latest correction shows inline (unless the "say it
+              again" card already shows it); the board is a sheet. */}
+          {board.length > 0 && !sayAgain && (
             <div className="md:hidden mt-4 w-full max-w-xl rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-left">
               <CorrectionLine c={board[board.length - 1]} />
             </div>
@@ -578,12 +980,12 @@ export function TutoringSession({
         )}
 
         {/* Board toggle (phones) */}
-        {board.length > 0 && (
+        {boardCountAll > 0 && (
           <button
             onClick={() => setBoardOpen((v) => !v)}
             className="md:hidden absolute right-4 bottom-10 flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#1F3B2D] text-white text-xs font-semibold shadow"
           >
-            <NotebookPen className="w-4 h-4" /> Board ({board.length})
+            <NotebookPen className="w-4 h-4" /> Board ({boardCountAll})
             <ChevronUp className={`w-3.5 h-3.5 transition-transform ${boardOpen ? "rotate-180" : ""}`} />
           </button>
         )}
@@ -603,6 +1005,36 @@ export function TutoringSession({
   );
 }
 
+const CHIP =
+  "inline-flex items-center gap-1 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-gray-600 hover:border-gray-400 hover:text-gray-900 disabled:opacity-50";
+
+function Segmented({
+  value,
+  onChange,
+  options,
+}: {
+  value: string;
+  onChange: (v: string) => void;
+  options: [string, string][];
+}) {
+  return (
+    <div className="mt-1.5 grid grid-cols-3 gap-1 rounded-xl bg-gray-100 p-1">
+      {options.map(([v, label]) => (
+        <button
+          key={v}
+          onClick={() => onChange(v)}
+          aria-pressed={value === v}
+          className={`rounded-lg px-2 py-1.5 text-xs font-medium ${
+            value === v ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-800"
+          }`}
+        >
+          {label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 function CorrectionLine({ c }: { c: Correction }) {
   return (
     <p className="text-sm">
@@ -613,10 +1045,64 @@ function CorrectionLine({ c }: { c: Correction }) {
 }
 
 /** A chalkboard of everything Léon corrected in this class. */
-function ClassBoard({ items, lesson }: { items: Correction[]; lesson: ClassLesson | null }) {
+function ClassBoard({
+  items,
+  lesson,
+  mission = null,
+  notes = [],
+}: {
+  items: Correction[];
+  lesson: ClassLesson | null;
+  mission?: (MissionCard & { met: number[] }) | null;
+  notes?: BoardNote[];
+}) {
   const done = lesson ? Math.min(lesson.sectionIndex, lesson.totalSections) : 0;
+  const missionDone = !!mission && mission.met.length >= mission.objectives.length;
   return (
     <div className="rounded-2xl bg-[#1F3B2D] text-[#F3F1E7] p-4 shadow-inner border-4 border-[#8B6B4A] min-h-[200px]">
+      {mission && !lesson && (
+        <div className="mb-4 pb-3 border-b border-[#F3F1E7]/15">
+          <p className="text-xs uppercase tracking-widest text-[#F3F1E7]/60">Today&apos;s mission</p>
+          <p className="mt-1 font-[cursive] text-lg leading-snug">
+            {mission.emoji} {mission.title}
+          </p>
+          <p className="text-xs text-[#F3F1E7]/70">{mission.goal}</p>
+          <ul className="mt-2 space-y-1">
+            {mission.objectives.map((o, i) => {
+              const ok = mission.met.includes(i);
+              return (
+                <li key={i} className={`flex items-start gap-2 text-sm ${ok ? "text-[#F3F1E7]" : "text-[#F3F1E7]/60"}`}>
+                  <span
+                    className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border ${
+                      ok ? "bg-[#9BE3A5] border-[#9BE3A5] text-[#1F3B2D]" : "border-[#F3F1E7]/40"
+                    }`}
+                  >
+                    {ok && <Check className="w-3 h-3" />}
+                  </span>
+                  <span className={ok ? "line-through decoration-[#9BE3A5]/70" : ""}>{o}</span>
+                </li>
+              );
+            })}
+          </ul>
+          {missionDone && <p className="mt-2 text-sm font-semibold text-[#9BE3A5]">Mission complete 🎉</p>}
+        </div>
+      )}
+      {notes.length > 0 && (
+        <div className="mb-4 pb-3 border-b border-[#F3F1E7]/15 space-y-3">
+          {[...notes].reverse().map((n, i) => (
+            <div key={i}>
+              <p className="font-[cursive] text-base underline decoration-[#F3F1E7]/30 underline-offset-4">{n.title}</p>
+              <ul className="mt-1 space-y-0.5">
+                {n.lines.map((l, j) => (
+                  <li key={j} className="font-[cursive] text-sm leading-snug text-[#F3F1E7]/90">
+                    {l}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      )}
       {lesson && (
         <div className="mb-4 pb-3 border-b border-[#F3F1E7]/15">
           <p className="text-xs uppercase tracking-widest text-[#F3F1E7]/60">Today&apos;s lesson</p>

@@ -78,7 +78,10 @@ export function LeonSpeechBubble({
   // Same view, newer text (the full reply streaming in).
   const display = shown && want && shown.key === want.key ? want : shown;
 
-  const visible = !!display && !leaving;
+  // A fade only counts while there is something new to swap in: if the text
+  // changed back before it finished (a very short sentence, or the reply
+  // arriving as he stops), the cancelled fade must not leave him invisible.
+  const visible = !!display && !(leaving && wantKey !== shownKey);
   return (
     <div
       className={`relative transition-[opacity,transform] duration-200 ease-out motion-reduce:transition-opacity ${
