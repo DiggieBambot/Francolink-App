@@ -8,6 +8,7 @@
 // actually hearing them — the single most reassuring thing a voice UI can do.
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { micClosed, micOpening } from "@/lib/tts/audio-session";
 
 const MIME_CANDIDATES = [
   "audio/webm;codecs=opus",
@@ -57,23 +58,38 @@ export function useVoiceRecorder({ maxMs = 60_000, onRecorded, onError }: Option
     !!navigator.mediaDevices?.getUserMedia &&
     typeof MediaRecorder !== "undefined";
 
-  const cleanup = useCallback(() => {
-    if (timerRef.current) clearInterval(timerRef.current);
+  /**
+   * Close the mic now. On phones an open mic holds the audio session in its
+   * quiet voice-call mode, so the sooner it closes the sooner Léon's reply
+   * (and his "Mm-hm") can play at full, normal volume.
+   */
+  const releaseMic = useCallback(() => {
     if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    timerRef.current = null;
     rafRef.current = null;
     streamRef.current?.getTracks().forEach((t) => t.stop());
     streamRef.current = null;
     ctxRef.current?.close().catch(() => {});
     ctxRef.current = null;
+    micClosed();
+  }, []);
+
+  const cleanup = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = null;
+    releaseMic();
     setIsRecording(false);
     setLevel(0);
-  }, []);
+  }, [releaseMic]);
 
   const stop = useCallback(() => {
     const rec = recorderRef.current;
-    if (rec && rec.state !== "inactive") rec.stop();
-  }, []);
+    if (rec && rec.state !== "inactive") {
+      // stop() still delivers everything recorded so far; ending the tracks
+      // straight after doesn't wait for onstop to close the mic.
+      rec.stop();
+      releaseMic();
+    }
+  }, [releaseMic]);
 
   const cancel = useCallback(() => {
     cancelledRef.current = true;
@@ -88,11 +104,13 @@ export function useVoiceRecorder({ maxMs = 60_000, onRecorded, onError }: Option
     if (recorderRef.current?.state === "recording") return;
 
     let stream: MediaStream;
+    micOpening();
     try {
       stream = await navigator.mediaDevices.getUserMedia({
         audio: { echoCancellation: true, noiseSuppression: true },
       });
     } catch {
+      micClosed();
       cbRef.current.onError?.(
         "Microphone access was blocked. Allow it in your browser's site settings to speak."
       );

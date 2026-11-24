@@ -14,9 +14,20 @@
 //
 // Talks to /api/tts/tutor: no cache (tutor replies are unique), voice from the
 // learning language, rate from the CEFR level, optionally slowed for replay.
+//
+// Two things keep every line whole and at one volume:
+// - The element is routed through one long-lived AudioContext (for lip sync).
+//   While that context is suspended or "interrupted" (iOS does this when the
+//   mic opens), the element plays into nothing, so a clip started then lost
+//   its first syllables. Each clip now waits until the context is running and
+//   the audio route has settled after the mic (see lib/tts/audio-session).
+// - Each clip is measured and played at a gain that brings its speech to one
+//   target level, with a limiter after it (see lib/tts/loudness).
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { bandBuffers, readVoiceBands, silentBands, type VoiceBands } from "@/components/ai-tutor/leon/voice";
+import { playbackRouteReady } from "@/lib/tts/audio-session";
+import { measureClipGain } from "@/lib/tts/loudness";
 
 interface UseTutorTTSOptions {
   /** Learning language code, e.g. "fr". */
@@ -37,6 +48,8 @@ interface QueueItem {
   /** What is being said, for captions. Empty for non-verbal clips. */
   text: string;
   audio: Promise<Blob | null>;
+  /** Playback gain that normalises this clip's loudness. */
+  gain: Promise<number>;
 }
 
 /** The clip playing right now, for word-by-word captions. */
@@ -48,6 +61,28 @@ export interface NowPlaying {
   duration: number | null;
   /** Playback position in seconds, read from the audio element (for lip sync). */
   position?: () => number;
+}
+
+const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
+
+/** Start measuring a clip's loudness as soon as it arrives. */
+function gainFor(audio: Promise<Blob | null>): Promise<number> {
+  return audio.then((b) => (b ? measureClipGain(b) : 1)).catch(() => 1);
+}
+
+/**
+ * Resolve once `ctx` is actually running. iOS leaves it "suspended" or
+ * "interrupted" after the mic has been used, and resume() takes a moment.
+ * Returns whether it had to wake up (the output then needs a beat to settle).
+ */
+async function wakeContext(ctx: AudioContext | null): Promise<boolean> {
+  if (!ctx || ctx.state === "running" || ctx.state === "closed") return false;
+  try {
+    await Promise.race([ctx.resume(), sleep(1000)]);
+  } catch {
+    /* play anyway: some audio beats a stuck turn */
+  }
+  return true;
 }
 
 /** 0.1 s of silence; playing it inside a click unlocks the element on iOS. */
@@ -108,6 +143,7 @@ export function useTutorTTS(options: UseTutorTTSOptions = {}) {
   const voiceBandsRef = useRef<VoiceBands>(silentBands());
   const ctxRef = useRef<AudioContext | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
+  const gainRef = useRef<GainNode | null>(null);
   const rafRef = useRef<number | null>(null);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -145,13 +181,24 @@ export function useTutorTTS(options: UseTutorTTSOptions = {}) {
       if (!Ctx) return;
       const ctx = new Ctx();
       const source = ctx.createMediaElementSource(el);
+      // element → gain (per-clip loudness) → analyser (lip sync) → limiter → out
+      const gain = ctx.createGain();
       const analyser = ctx.createAnalyser();
       analyser.fftSize = 512;
       analyser.smoothingTimeConstant = 0.5;
-      source.connect(analyser);
-      analyser.connect(ctx.destination);
+      const limiter = ctx.createDynamicsCompressor();
+      limiter.threshold.value = -6;
+      limiter.knee.value = 4;
+      limiter.ratio.value = 12;
+      limiter.attack.value = 0.003;
+      limiter.release.value = 0.15;
+      source.connect(gain);
+      gain.connect(analyser);
+      analyser.connect(limiter);
+      limiter.connect(ctx.destination);
       ctxRef.current = ctx;
       analyserRef.current = analyser;
+      gainRef.current = gain;
     } catch {
       /* lip sync is decoration */
     }
@@ -229,13 +276,24 @@ export function useTutorTTS(options: UseTutorTTSOptions = {}) {
         setError(true);
         continue;
       }
+      const gain = await item.gain;
+
+      // Don't start into a dead or switching output: that is what clipped the
+      // first syllables. Both waits are ~0 ms in the steady state.
+      await playbackRouteReady();
+      if (await wakeContext(ctxRef.current)) await sleep(80);
+      if (gen !== genRef.current) break;
 
       const el = element();
       if (!el) break;
       const url = URL.createObjectURL(blob);
       setSpeakingId(item.id ?? null);
       setIsSpeaking(true);
-      if (ctxRef.current?.state === "suspended") void ctxRef.current.resume().catch(() => {});
+      const g = gainRef.current;
+      if (g) {
+        g.gain.cancelScheduledValues(0);
+        g.gain.setValueAtTime(gain, g.context.currentTime);
+      }
       startMeter();
       setNowPlaying({
         id: item.id,
@@ -289,7 +347,8 @@ export function useTutorTTS(options: UseTutorTTSOptions = {}) {
       const trimmed = text.trim();
       if (!trimmed) return;
       setError(false);
-      queueRef.current.push({ id: opts.id, text: trimmed, audio: fetchAudio(trimmed, !!opts.slow) });
+      const audio = fetchAudio(trimmed, !!opts.slow);
+      queueRef.current.push({ id: opts.id, text: trimmed, audio, gain: gainFor(audio) });
       void pump();
     },
     [fetchAudio, pump]
@@ -304,7 +363,7 @@ export function useTutorTTS(options: UseTutorTTSOptions = {}) {
   /** Play an already-fetched clip through the same (unlocked) player. */
   const playClip = useCallback(
     (audio: Promise<Blob | null>, text = "") => {
-      queueRef.current.push({ text, audio });
+      queueRef.current.push({ text, audio, gain: gainFor(audio) });
       void pump();
     },
     [pump]

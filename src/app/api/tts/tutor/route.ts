@@ -37,6 +37,16 @@ const LEVEL_SPEED: Record<string, number> = {
   C2: 1.05,
 };
 
+/**
+ * Every sentence is a separate request, and gpt-4o-mini-tts is expressive
+ * enough that each one can come back at a different volume ("Mm-hm…" nearly
+ * whispered, the next sentence projected). Asking for one steady delivery
+ * keeps the clips close; the browser normalises what difference is left.
+ * Costs a few input tokens per call, i.e. nothing.
+ */
+const DELIVERY =
+  "A warm, clear teacher speaking to one student. Keep the same steady, even volume and the same distance from the microphone from start to finish: no whispering, no shouting, no fading out. Start speaking right away.";
+
 /** Hard cap so a runaway reply cannot run up an unbounded synthesis bill. */
 const MAX_CHARS = 1000;
 
@@ -70,6 +80,7 @@ export async function POST(request: NextRequest) {
       voice: (LANGUAGE_VOICES[language] || config.openai.ttsVoice) as
         | "alloy" | "echo" | "fable" | "onyx" | "nova" | "shimmer",
       input: text,
+      instructions: DELIVERY,
       speed,
       response_format: "mp3",
     });
