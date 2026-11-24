@@ -149,7 +149,7 @@ export function RecapPanel({
               <MessageSquare className="w-4 h-4" /> {recap.stats.studentMessages} messages
             </span>
             <span className="flex items-center gap-1.5">
-              <Check className="w-4 h-4" /> {recap.corrections.length} fixes
+              <Check className="w-4 h-4" /> {recap.corrections.length} {recap.corrections.length === 1 ? "fix" : "fixes"}
             </span>
             {!!recap.xp && (
               <span className="flex items-center gap-1.5 font-semibold text-amber-200">
