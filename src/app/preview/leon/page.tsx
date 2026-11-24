@@ -32,6 +32,13 @@ const LANGS = [
   { code: "en", name: "English" },
 ];
 
+/** What the student would see under the bubble (their own language). */
+const SAMPLE_TRANSLATIONS: Record<string, string | null> = {
+  fr: "Hello! My name is Léon Chame, and today we're going to talk about the bakery. Do you prefer bread or croissants?",
+  es: "Hi! My name is Léon Chame and today we're going to practise verbs. What did you do at the weekend?",
+  en: null,
+};
+
 const SAMPLES: Record<string, string> = {
   fr: "Bonjour ! Je m'appelle Léon Chame, et aujourd'hui on va parler de la boulangerie. Tu préfères le pain ou les croissants ?",
   es: "¡Hola! Me llamo Léon Chame y hoy vamos a practicar los verbos. ¿Qué hiciste el fin de semana?",
@@ -195,7 +202,13 @@ export default function LeonPreviewPage() {
         <section className="bg-white rounded-2xl shadow-sm p-4 sm:p-6 grid md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-6">
           <div className="flex flex-col items-center">
             <div className="w-full max-w-md min-h-[7rem] flex flex-col justify-end pb-5">
-              <LeonSpeechBubble language={lang} text={said} speech={clip} tailX="46%" />
+              <LeonSpeechBubble
+                language={lang}
+                text={said}
+                speech={clip}
+                tailX="46%"
+                translation={said === SAMPLES[lang] ? SAMPLE_TRANSLATIONS[lang] : null}
+              />
             </div>
             <div ref={leonBox} className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px]">
               <Leon

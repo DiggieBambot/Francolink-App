@@ -55,6 +55,8 @@ interface Message {
   /** English translation of the whole message, once asked for. */
   translation?: string;
   translating?: boolean;
+  /** In a class: the reply in the student's own language, under Léon's bubble. */
+  spokenTranslation?: string;
 }
 
 interface LessonProgress {
@@ -340,6 +342,7 @@ export default function AITutorPage() {
             content: ev.reply || text,
             streaming: false,
             corrections: ev.corrections?.length ? ev.corrections : undefined,
+            spokenTranslation: typeof ev.translation === "string" && ev.translation ? ev.translation : undefined,
           });
           if (speakAsItArrives && speechBuf.trim()) {
             tts.enqueue(speechBuf, { id: assistantId });
@@ -737,8 +740,10 @@ export default function AITutorPage() {
     // Fill what the student layout leaves: its top bar (3.5rem) plus <main>'s
     // padding (mobile: 1rem top + 7rem for the bottom nav; sm: 1.5rem + 7rem;
     // lg: 2rem + 2rem). A plain h-screen overflowed by that much and pushed
-    // this header, with End session, up under the layout's bar.
-    <div className="flex flex-col h-[calc(100dvh-11.5rem)] sm:h-[calc(100dvh-12rem)] lg:h-[calc(100dvh-7.5rem)] bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
+    // this header, with End session, up under the layout's bar. The layout
+    // also pads by the iPhone safe areas, so those come off too
+    // (.ai-chat-shell in globals.css).
+    <div className="ai-chat-shell flex flex-col bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
       {/* Header */}
       <header className="bg-white border-b border-gray-200 z-10">
         <div className="max-w-3xl mx-auto px-4 py-3">
@@ -1274,6 +1279,7 @@ export default function AITutorPage() {
           studentLine={lastStudent?.content ?? null}
           tutorLine={lastAssistant?.content || null}
           tutorStreaming={!!lastAssistant?.streaming}
+          tutorTranslation={lastAssistant?.spokenTranslation ?? null}
           board={messages.flatMap((m) => (m.role === "assistant" ? m.corrections ?? [] : []))}
           nowPlaying={tts.nowPlaying}
           voiceLevel={tts.voiceLevelRef}
