@@ -6,7 +6,7 @@
 > Anything marked ⚠️ verify was inferred from the website and needs a human to
 > confirm it. Anything marked ⚠️ NEEDS INPUT could not be determined at all.
 >
-> Last updated: 2026-09-08
+> Last updated: 2026-11-25 (positioning revised: multi-language, conversation-practice first)
 
 ---
 
@@ -14,13 +14,14 @@
 
 - **Business name:** FrancoLink
 - **Domain:** www.francolink.net (marketing) · app.francolink.net (product + public lesson library)
-- **Industry / niche:** Online language learning — French-first, with English, Spanish and German listed; live tutoring marketplace + self-study app + a paid grammar workbook.
+- **Industry / niche:** Online language learning app. French first, but a multi-language app (English and Spanish live, more coming); live tutoring marketplace + self-study app + a paid grammar workbook.
+- **Positioning (revised 2026-11-25):** the lead promise is **speaking**: conversation practice in the target language (with Léon, the AI tutor, and with live tutors). Sell it per language: "French conversation practice", "English conversation practice", "Spanish conversation practice". French gets the most weight. Supporting use cases sit under that promise: exams (TCF/TEF and others), business (FrancoLink for Business), kids, travel.
 - **What they actually sell (one sentence):** ⚠️ verify — Three revenue lines: live lessons with vetted tutors (tutor-priced, per lesson), a $27 French grammar workbook ("Le Français Pas à Pas"), and a Premium/Premium+ subscription to the self-study CEFR app.
 - **Price positioning:** ⚠️ verify — accessible/mid: free tier, $7/mo Premium ($5 billed yearly), $14/mo Premium+ ($10 yearly), $27 one-off workbook; lesson prices set by each tutor.
 
 ### Services or products
 
-1. **Live lessons with certified tutors** — browse profiles, weekly availability, most offer a free trial lesson. `/tutors`, `/tutors/[slug]`
+1. **Live lessons with vetted tutors** — browse profiles, weekly availability. Every tutor passes a live teaching demo; only Professional-tier tutors are credential-checked. No free trial lesson. `/tutors`, `/tutors/[slug]`
 2. **Le Français Pas à Pas** — 95-page A0→B2 French grammar workbook, PDF + self-marking interactive version, $27. `/francais-pas-a-pas`
 3. **Self-study platform subscription** — CEFR A1–C2 lessons, games, homework, placement test, AI conversation tutor, streaks. `/pricing`, `app.francolink.net/library`
 
@@ -35,7 +36,7 @@
 - **Towns / suburbs / regions that matter:** None. No geo-targeting — do not write location pages or "french tutor near me" content.
 - **Country for search data:** Worldwide — pull global volumes, no country filter.
 - **Language for search data:** English.
-- **Audience direction:** English speakers learning French, only. The `fr` and `ar` locales exist in the app but are **not** a content target; do not write Arabic-audience or French-speaker-learning-English content unless asked.
+- **Audience direction (revised 2026-11-25):** primarily English speakers learning French, but the product is multi-language. Learners of English (e.g. French and Arabic speakers) and of Spanish are now in scope for conversation-practice content and landing pages. Use cases to cover: conversation practice (lead), exams, business, kids, travel. Check with the user before writing a large batch for a new audience, since search data language and country change with it.
 
 > These last two are load-bearing. Wrong values return wrong search volumes in
 > every skill, with no error message.
