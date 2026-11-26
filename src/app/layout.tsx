@@ -71,12 +71,17 @@ export async function generateMetadata(): Promise<Metadata> {
       description: config.meta_description,
       images: [config.og_image],
     },
-    // Google Search Console ownership verification (HTML-tag method).
-    // Public token — env overrides the committed default if ever needed.
+    // Ownership verification (HTML-tag method). Public tokens — env overrides
+    // the committed defaults if ever needed.
     verification: {
       google:
         process.env.GOOGLE_SITE_VERIFICATION ||
         "q5OAsmmbxgyUdtqXHq3lU8kO1DuEaVi6eJMmX_f5HMI",
+      other: {
+        // Meta Business Manager domain verification for francolink.net.
+        "facebook-domain-verification":
+          process.env.FACEBOOK_DOMAIN_VERIFICATION || "6hae4hxc3xajirc39jtzfecq16tgf4",
+      },
     },
   };
 }
