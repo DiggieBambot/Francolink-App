@@ -17,7 +17,7 @@ import { organizationSchema, websiteSchema, ORG_DESCRIPTION } from "@/lib/site/s
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "FrancoLink — learn a language with certified tutors",
+    default: "FrancoLink — learn a language by speaking it",
     template: "%s | FrancoLink",
   },
   // The root layout also declares openGraph, and Next resolves ITS relative
@@ -36,13 +36,13 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "FrancoLink — learn French with certified tutors",
+        alt: "FrancoLink — learn a language by speaking it",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "FrancoLink — learn French with certified tutors",
+    title: "FrancoLink — learn a language by speaking it",
     description: ORG_DESCRIPTION,
     images: ["/og-image.png"],
   },

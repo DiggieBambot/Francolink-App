@@ -32,7 +32,7 @@ const features = [
     icon: Users,
     title: "Group Live Lessons",
     description:
-      "Private and group classes available with certified tutors.",
+      "Private and group classes available with vetted tutors.",
   },
   {
     icon: Heart,
@@ -61,7 +61,7 @@ export default function HomePage() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 text-primary">
-                  Highly Trained and Certified Tutors
+                  Vetted Live Tutors
                 </h1>
                 <p className="text-2xl md:text-3xl text-secondary font-heading font-semibold mb-4">
                   Learn any Language for free!!

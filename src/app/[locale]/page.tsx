@@ -259,39 +259,6 @@ function HomeContent({ aiTutorEnabled }: { aiTutorEnabled: boolean }) {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="py-20 sm:py-28 bg-primary-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-16">
-            <span className="inline-block text-sm font-bold text-secondary uppercase tracking-wider mb-3">Testimonials</span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-primary mb-5">{t("landing.social_proof_title")}</h2>
-            <p className="text-lg text-gray-600">{t("landing.social_proof_subtitle")}</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="bg-white rounded-2xl p-8 shadow-soft border border-gray-100/80 hover:shadow-medium transition-all duration-300 hover:-translate-y-1">
-                <div className="flex gap-0.5 mb-5">
-                  {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="w-4 h-4 fill-secondary text-secondary" />
-                  ))}
-                </div>
-                <blockquote className="text-gray-700 leading-relaxed mb-6 text-[15px]">&ldquo;{t(`landing.testimonial_${i}_text`)}&rdquo;</blockquote>
-                <div className="flex items-center gap-3 pt-5 border-t border-gray-100">
-                  <div className="w-11 h-11 bg-gradient-to-br from-primary to-primary-600 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-sm">
-                    {t(`landing.testimonial_${i}_name`).charAt(0)}
-                  </div>
-                  <div>
-                    <div className="font-heading font-bold text-primary text-sm">{t(`landing.testimonial_${i}_name`)}</div>
-                    <div className="text-xs text-gray-500 font-medium">{t(`landing.testimonial_${i}_role`)}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CORPORATE */}
       <section className="py-20 sm:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">

@@ -65,7 +65,7 @@ export async function SiteFooter() {
               className="h-12 w-auto"
             />
             <p className="mt-5 text-primary-100 text-sm leading-relaxed max-w-sm">
-              {config.app_tagline}. Structured CEFR lessons, certified tutors and
+              {config.app_tagline}. Structured CEFR lessons, vetted live tutors and
               daily practice — all in one app.
             </p>
             <a

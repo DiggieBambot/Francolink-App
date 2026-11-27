@@ -134,7 +134,7 @@ export default async function PublicCertificatePage({ params }: PageProps) {
           <div className="rounded-2xl bg-primary-50 p-6">
             <h2 className="font-heading font-bold text-lg text-primary">Earn yours</h2>
             <p className="mt-2 text-sm text-gray-600 leading-relaxed">
-              Learn {language} with short daily lessons and certified tutors, from A1 to B2.
+              Learn {language} with short daily lessons and live tutors, from A1 to B2.
             </p>
             <Link
               href={appUrl("/signup/student")}
