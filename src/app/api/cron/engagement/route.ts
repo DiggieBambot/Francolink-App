@@ -10,6 +10,13 @@
 //                           (?preview=first_lesson renders the "book your first lesson" nudge)
 //   ?test=me@x.io&type=streak — send one real message to a test address
 //   ?limit=200            — cap sends this run
+//   ?preview=speak:T1&plan=FREE — render one "speak" sequence step (L1 L2 T1 T2 F1)
+//   ?test=me@x.io&type=speak:L1&plan=PREMIUM — send one speak step to a test address
+//
+// Switches (app_settings, category 'features'; see lib/email/switches.ts):
+//   tutor_marketing_emails — off pauses every tutor email here except `requests`
+//   student_speak_emails   — off holds the student speak sequence (dry runs
+//                            still list who would get it, marked held)
 
 import { NextResponse } from "next/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
@@ -17,6 +24,11 @@ import { sendCampaignEmail } from "@/lib/email/send";
 import { unsubscribeUrl } from "@/lib/email/link-token";
 import { languageName } from "@/lib/email/campaigns/learning-tips";
 import { tutorBookingLinks, tutorBookUrl } from "@/lib/booking/book-link";
+import { speakEmailsEnabled, tutorMarketingEmailsEnabled } from "@/lib/email/switches";
+import {
+  SPEAK_CAMPAIGN, SPEAK_STEP_NUMBER, SPEAK_STEPS, nextSpeakStep, renderSpeak,
+  type SpeakPlan, type SpeakStepKey,
+} from "@/lib/email/campaigns/speak";
 import {
   CAMPAIGN, FIRST_LESSON_LEDGER, pickMessage, render, renderTutor, pickTutorMessage, TUTOR_VALUE_THEMES,
   type MessageType, type UserSignals, type TutorMessageType, type TutorSignals,
@@ -161,6 +173,51 @@ async function firstLessonTargets(
   return out;
 }
 
+interface SpeakFacts {
+  usedLeon: Set<string>;
+  hasLiveLessons: Set<string>;
+  hasTutorLink: Set<string>;
+  sent: Map<string, Partial<Record<SpeakStepKey, number>>>;
+}
+
+/** Everything nextSpeakStep() needs that isn't on the users row. */
+async function speakFacts(s: ReturnType<typeof svc>, userIds: string[]): Promise<SpeakFacts> {
+  const facts: SpeakFacts = { usedLeon: new Set(), hasLiveLessons: new Set(), hasTutorLink: new Set(), sent: new Map() };
+  if (userIds.length === 0) return facts;
+  const [{ data: convs }, { data: bookings }, { data: plans }, { data: credits }, { data: links }, { data: ledger }] = await Promise.all([
+    s.from("ai_tutor_conversations").select("user_id").in("user_id", userIds),
+    s.from("bookings").select("student_id").in("student_id", userIds).not("status", "in", "(pending_payment,expired)"),
+    s.from("user_subscriptions").select("user_id").in("user_id", userIds).in("status", ["active", "past_due"]),
+    s.from("lesson_credits").select("user_id, delta").in("user_id", userIds),
+    s.from("tutor_students").select("tutor_id, student_id").eq("status", "active").in("student_id", userIds),
+    s.from("email_campaign_sends").select("user_id, step, sent_at").eq("campaign", SPEAK_CAMPAIGN).in("user_id", userIds),
+  ]);
+  for (const r of convs || []) facts.usedLeon.add(r.user_id);
+  for (const r of bookings || []) facts.hasLiveLessons.add(r.student_id);
+  for (const r of plans || []) facts.hasLiveLessons.add(r.user_id);
+  const balance = new Map<string, number>();
+  for (const c of credits || []) balance.set(c.user_id, (balance.get(c.user_id) || 0) + Number(c.delta || 0));
+  for (const [id, b] of balance) if (b > 0) facts.hasLiveLessons.add(id);
+  for (const l of links || []) if (l.tutor_id && l.tutor_id !== l.student_id) facts.hasTutorLink.add(l.student_id);
+  const keyOf = new Map(SPEAK_STEPS.map((k) => [SPEAK_STEP_NUMBER[k], k]));
+  for (const r of ledger || []) {
+    const key = keyOf.get(r.step);
+    if (!key) continue;
+    if (!facts.sent.has(r.user_id)) facts.sent.set(r.user_id, {});
+    facts.sent.get(r.user_id)![key] = new Date(r.sent_at).getTime();
+  }
+  return facts;
+}
+
+function speakPlanOf(plan: string | null | undefined): SpeakPlan {
+  return plan === "PREMIUM" || plan === "PREMIUM_PLUS" ? plan : "FREE";
+}
+
+function speakStepParam(v: string | null): SpeakStepKey | null {
+  const key = (v || "").replace(/^speak:/, "") as SpeakStepKey;
+  return v?.startsWith("speak:") && SPEAK_STEPS.includes(key) ? key : null;
+}
+
 export async function GET(req: Request) {
   const url = new URL(req.url);
   const preview = url.searchParams.get("preview") as MessageType | null;
@@ -171,6 +228,11 @@ export async function GET(req: Request) {
   // --- Browser preview: render one message, no auth/DB/send ------------------
   if (preview) {
     const lang = languageName(url.searchParams.get("lang"));
+    const speakPreview = speakStepParam(preview);
+    if (speakPreview) {
+      const html = renderSpeak(speakPreview, { firstName: "Alex", lang, plan: speakPlanOf(url.searchParams.get("plan")) }).html;
+      return new NextResponse(html, { headers: { "content-type": "text/html; charset=utf-8" } });
+    }
     const sampleExtras = { newLessonCount: 12, newLessonSamples: ["Comment ça va ?", "At the Restaurant", "Job Interview"] };
     const html = TUTOR_TYPES.has(preview)
       ? renderTutor(preview as TutorMessageType, { firstName: "Marie", daysSinceSeen: 5, studentCount: 3, pendingRequests: preview === "requests" ? 2 : 0, daysSinceLastAssign: 20 }, undefined, sampleExtras).html
@@ -186,6 +248,12 @@ export async function GET(req: Request) {
     const type = url.searchParams.get("type") || "nudge";
     const lang = languageName(url.searchParams.get("lang") || "fr");
     const first = testEmail.split("@")[0];
+    const speakTest = speakStepParam(type);
+    if (speakTest) {
+      const m = renderSpeak(speakTest, { firstName: first, lang, plan: speakPlanOf(url.searchParams.get("plan")) });
+      const id = await sendCampaignEmail({ to: testEmail, subject: m.subject, html: m.html, text: m.text });
+      return NextResponse.json({ ok: true, sentTo: testEmail, type, resendId: id });
+    }
     const m = TUTOR_TYPES.has(type)
       ? renderTutor(type as TutorMessageType, { firstName: first, daysSinceSeen: 5, studentCount: 3, pendingRequests: type === "requests" ? 2 : 0, daysSinceLastAssign: 20 }, undefined, { newLessonCount: 12, newLessonSamples: ["Comment ça va ?", "At the Restaurant", "Job Interview"] })
       : render(type as MessageType, { firstName: first, lang, daysSinceSeen: 5, streak: 4, hasPendingHomework: type === "homework", firstLesson: type === "first_lesson" ? SAMPLE_FIRST_LESSON : undefined });
@@ -196,7 +264,7 @@ export async function GET(req: Request) {
   // --- Real run -------------------------------------------------------------
   const { data: users, error } = await s
     .from("users")
-    .select("id, email, name, learning_language, current_streak, last_seen_at, timezone, is_active, email_marketing_opt_out")
+    .select("id, email, name, learning_language, current_streak, last_seen_at, timezone, is_active, email_marketing_opt_out, subscription_plan, created_at")
     .eq("role", "USER")
     .eq("is_active", true)
     .eq("email_marketing_opt_out", false)
@@ -220,10 +288,17 @@ export async function GET(req: Request) {
   }
 
   const now = Date.now();
-  const firstLessonBy = await firstLessonTargets(s, (users || []).map((u) => u.id), now);
+  const studentIds = (users || []).map((u) => u.id);
+  const [firstLessonBy, speak, speakOn, tutorMarketingOn] = await Promise.all([
+    firstLessonTargets(s, studentIds, now),
+    speakFacts(s, studentIds),
+    speakEmailsEnabled(),
+    tutorMarketingEmailsEnabled(),
+  ]);
   const dayStep = Math.floor(now / DAY); // idempotency key: one engagement email per user per day max
   let sent = 0, failed = 0, skippedCap = 0, skippedNothing = 0, skippedTest = 0, skippedTime = 0;
-  const planned: { to: string; type: string; bookUrl?: string }[] = [];
+  let speakSent = 0, speakHeld = 0, tutorPaused = 0;
+  const planned: { to: string; type: string; bookUrl?: string; subject?: string; held?: true; paused?: true }[] = [];
 
   for (const u of users || []) {
     if (sent >= limit) break;
@@ -246,6 +321,47 @@ export async function GET(req: Request) {
       hasPendingHomework: pendingBy.has(u.id),
       firstLesson: firstLessonBy.get(u.id),
     };
+    // Speak sequence: takes this run's slot over the general nudge, but never
+    // over homework, and not for someone already active today.
+    if (!sig.hasPendingHomework && daysSinceSeen >= 1) {
+      const plan = speakPlanOf(u.subscription_plan);
+      const step = nextSpeakStep({
+        firstName: sig.firstName,
+        lang: sig.lang,
+        plan,
+        accountAgeDays: (now - new Date(u.created_at).getTime()) / DAY,
+        usedLeon: speak.usedLeon.has(u.id),
+        hasLiveLessons: speak.hasLiveLessons.has(u.id),
+        hasTutorLink: speak.hasTutorLink.has(u.id),
+        sent: speak.sent.get(u.id) || {},
+      }, now);
+      if (step && dry) {
+        const m = renderSpeak(step, { firstName: sig.firstName, lang: sig.lang, plan });
+        planned.push({ to: u.email, type: `speak:${step}`, subject: m.subject, ...(speakOn ? {} : { held: true as const }) });
+        if (!speakOn) speakHeld++;
+        continue;
+      }
+      if (step && speakOn) {
+        const unsub = unsubscribeUrl(u.id, SPEAK_CAMPAIGN);
+        const m = renderSpeak(step, { firstName: sig.firstName, lang: sig.lang, plan }, unsub);
+        try {
+          const resendId = await sendCampaignEmail({ to: u.email, subject: m.subject, html: m.html, text: m.text, unsubscribeUrl: unsub });
+          // Counts toward the engagement caps, and records the sequence step.
+          const [{ error: e1 }, { error: e2 }] = await Promise.all([
+            s.from("email_campaign_sends").insert({ user_id: u.id, campaign: CAMPAIGN, step: dayStep, resend_id: resendId }),
+            s.from("email_campaign_sends").insert({ user_id: u.id, campaign: SPEAK_CAMPAIGN, step: SPEAK_STEP_NUMBER[step], resend_id: resendId }),
+          ]);
+          for (const e of [e1, e2]) if (e && !e.message.includes("duplicate")) throw e;
+          sent++; speakSent++;
+        } catch (e) {
+          failed++;
+          console.error(`[engagement] speak ${step} failed for ${u.email}:`, (e as Error).message);
+        }
+        continue;
+      }
+      if (step) speakHeld++; // switch off: fall through to the usual nudge
+    }
+
     const type = pickMessage(sig);
     if (!type) { skippedNothing++; continue; }
 
@@ -332,7 +448,11 @@ export async function GET(req: Request) {
       }
       const type = pickTutorMessage(sig, rotationTheme);
       if (!type) { skippedNothing++; continue; }
-      if (dry) { planned.push({ to: u.email, type: `tutor:${type}` }); continue; }
+      // Paused: only `requests` (real students waiting on this tutor) goes out.
+      const paused = type !== "requests" && !tutorMarketingOn;
+      if (paused) tutorPaused++;
+      if (dry) { planned.push({ to: u.email, type: `tutor:${type}`, ...(paused ? { paused: true as const } : {}) }); continue; }
+      if (paused) continue;
 
       const unsub = unsubscribeUrl(u.id, CAMPAIGN);
       const m = renderTutor(type, sig, unsub, { newLessonCount, newLessonSamples });
@@ -351,6 +471,8 @@ export async function GET(req: Request) {
   return NextResponse.json({
     ok: true, campaign: CAMPAIGN, mode: dry ? "dry-run" : "live",
     sent, failed, skippedCap, skippedNothing, skippedTest, skippedTime,
+    speakSent, speakHeld, tutorPaused,
+    switches: { tutorMarketingEmails: tutorMarketingOn, studentSpeakEmails: speakOn },
     ...(dry ? { planned } : {}),
   });
 }
