@@ -13,6 +13,7 @@ import { stripe } from "@/lib/stripe";
 import { APP_URL } from "@/lib/site/hosts";
 import { getTutorAccess } from "@/lib/ai/tutor-access";
 import { AI_TUTOR_HOUR_PACKS } from "@/lib/config/subscription";
+import { metaCheckoutMetadata } from "@/lib/meta/capi";
 
 export const runtime = "nodejs";
 
@@ -87,6 +88,7 @@ export async function POST(request: Request) {
         kind: "ai_tutor_hours",
         purchase_id: purchase.id,
         supabase_user_id: user.id,
+        ...metaCheckoutMetadata(request),
       },
       payment_intent_data: {
         metadata: { kind: "ai_tutor_hours", purchase_id: purchase.id },

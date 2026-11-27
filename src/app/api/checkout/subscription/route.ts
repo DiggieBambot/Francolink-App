@@ -20,6 +20,7 @@ import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { z } from "zod";
 import { stripe } from "@/lib/stripe";
 import { APP_URL } from "@/lib/site/hosts";
+import { metaCheckoutMetadata } from "@/lib/meta/capi";
 
 export const runtime = "nodejs";
 
@@ -235,7 +236,8 @@ export async function POST(request: Request) {
         ? `${APP_URL}${safeNext(input.next)}`
         : `${APP_URL}${localePrefix}/student/subscription?welcome=1`,
       cancel_url: `${APP_URL}${localePrefix}/pricing?canceled=1`,
-      metadata: meta,
+      // Browser context for the ad-conversion event; session only, not renewals.
+      metadata: { ...meta, ...metaCheckoutMetadata(request) },
       subscription_data: { metadata: meta },
       // Stripe rejects a session carrying both a coupon and a promo-code box.
       // The intro month is the better offer, so it wins when both apply.

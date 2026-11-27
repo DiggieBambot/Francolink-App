@@ -4,6 +4,7 @@ import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 import { isLessonPlanSubscription } from '@/lib/credits/referral';
 import { activateLessonPlan, endLessonPlan } from '@/lib/credits/subscription';
+import { metaContextFromMetadata, sendMetaEvent } from '@/lib/meta/capi';
 
 // Use service role for webhook (bypasses RLS)
 const supabase = createClient(
@@ -296,6 +297,28 @@ async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
 }
 
 /**
+ * Every paid checkout (plan, pack, hours, workbook) is a Purchase for Meta ads;
+ * a subscription checkout is also a Subscribe. Renewals are not reported: they
+ * are not something an ad caused. The browser context was put in the session
+ * metadata at checkout. Retried webhooks reuse the event id, so Meta keeps one.
+ */
+async function reportCheckoutToMeta(session: Stripe.Checkout.Session) {
+  if (session.payment_status !== 'paid') return;
+  const common = {
+    email: session.customer_details?.email ?? session.customer_email,
+    externalId: session.metadata?.supabase_user_id || null,
+    browser: metaContextFromMetadata(session.metadata),
+    value: (session.amount_total ?? 0) / 100,
+    currency: session.currency ?? 'usd',
+    contentCategory: session.metadata?.kind || 'self_study_subscription',
+  };
+  await sendMetaEvent({ ...common, name: 'Purchase', eventId: `purchase_${session.id}` });
+  if (session.mode === 'subscription') {
+    await sendMetaEvent({ ...common, name: 'Subscribe', eventId: `subscribe_${session.id}` });
+  }
+}
+
+/**
  * Handle subscription created
  */
 async function handleSubscriptionCreated(subscription: Stripe.Subscription) {
@@ -406,6 +429,8 @@ async function determinePlanFromPriceId(priceId: string | undefined): Promise<st
  * safe — only a booking still in `pending_payment` is acted on.
  */
 async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
+  await reportCheckoutToMeta(session);
+
   // A lesson plan: write user_subscriptions and grant the first week now, so
   // the student can book the moment they land back on the site.
   if (session.metadata?.kind === 'lesson_subscription') {
