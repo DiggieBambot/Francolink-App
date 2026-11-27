@@ -19,6 +19,7 @@ import {
   getPrivatePackByToken,
   getPrivatePacksFor,
 } from "@/lib/credits/private-packs";
+import { metaCheckoutMetadata } from "@/lib/meta/capi";
 
 export const runtime = "nodejs";
 
@@ -112,6 +113,7 @@ export async function POST(request: Request) {
         kind: "starter_pack",
         purchase_id: purchase.id,
         supabase_user_id: user.id,
+        ...metaCheckoutMetadata(request),
       },
       payment_intent_data: {
         metadata: { kind: "starter_pack", purchase_id: purchase.id },

@@ -8,6 +8,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { logActivity, CLIENT_EMITTABLE_KINDS, type ActivityKind } from "@/lib/analytics/activity";
+import { metaContextFromRequest, sendMetaEvent } from "@/lib/meta/capi";
 
 export async function POST(req: NextRequest) {
   const supabase = await createClient();
@@ -30,5 +31,18 @@ export async function POST(req: NextRequest) {
     body.metadata && typeof body.metadata === "object" ? body.metadata : undefined;
 
   await logActivity(user.id, kind, { path: req.nextUrl.pathname, metadata });
+
+  // The server copy of the pixel's CompleteRegistration (same event id).
+  const metaEventId = metadata?.meta_event_id;
+  if (kind === "signup_completed" && typeof metaEventId === "string" && metaEventId.length <= 120) {
+    await sendMetaEvent({
+      name: "CompleteRegistration",
+      eventId: metaEventId,
+      email: user.email,
+      externalId: user.id,
+      browser: metaContextFromRequest(req),
+      sourceUrl: req.headers.get("referer") || undefined,
+    });
+  }
   return NextResponse.json({ ok: true });
 }
