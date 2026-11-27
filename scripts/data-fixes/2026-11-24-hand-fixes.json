@@ -1,0 +1,492 @@
+[
+ {
+  "id": "646e9210-7ea9-4bd3-9265-b8a8b25d8364",
+  "title": "Chambre à coucher",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue_extended",
+   "title": "Exercice 4 : Questionnaire",
+   "number": 4,
+   "example": {
+    "tutor_line": "Cliquez sur l'image de la lampe.",
+    "student_line": "Cliquez sur l'image de la lampe."
+   },
+   "exchanges": [
+    {
+     "text": "Cliquez sur l'image de la (N).",
+     "blank": [
+      "(N)"
+     ],
+     "speaker": "tuteur",
+     "avatar_seed": "Tuteur",
+     "translation": "Click on the image of the chair.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Cliquez sur l'image du (N).",
+     "blank": [
+      "(N)"
+     ],
+     "speaker": "élève",
+     "avatar_seed": "Élève",
+     "translation": "Click on the image of the bed.",
+     "speaker_role": "student"
+    }
+   ],
+   "answer_pool": [
+    "chaise",
+    "lit",
+    "bureau",
+    "lampe",
+    "garde-robe"
+   ],
+   "tutor_instruction": "Dites à l'élève de cliquer sur l'image.",
+   "student_instruction": "Cliquez sur l'image que votre tuteur nomme.",
+   "valid_answers_by_blank": {
+    "0": [
+     "chaise"
+    ],
+    "1": [
+     "lit"
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue_extended",
+   "title": "Exercice 4 : Questionnaire",
+   "number": 4,
+   "example": {
+    "tutor_line": "Cliquez sur l'image de la lampe.",
+    "student_line": "Cliquez sur l'image de la lampe."
+   },
+   "exchanges": [
+    {
+     "speaker": "Élève",
+     "speaker_role": "student",
+     "avatar_seed": "Student",
+     "text": "Je m'assois sur la (1).",
+     "blank": 1
+    },
+    {
+     "speaker": "Élève",
+     "speaker_role": "student",
+     "avatar_seed": "Student",
+     "text": "Je dors dans le (2).",
+     "blank": 2
+    },
+    {
+     "speaker": "Élève",
+     "speaker_role": "student",
+     "avatar_seed": "Student",
+     "text": "Je fais mes devoirs au (3).",
+     "blank": 3
+    },
+    {
+     "speaker": "Élève",
+     "speaker_role": "student",
+     "avatar_seed": "Student",
+     "text": "J'allume la (4) pour lire.",
+     "blank": 4
+    },
+    {
+     "speaker": "Élève",
+     "speaker_role": "student",
+     "avatar_seed": "Student",
+     "text": "Je range mes vêtements dans la (5).",
+     "blank": 5
+    }
+   ],
+   "answer_pool": [
+    "chaise",
+    "lit",
+    "bureau",
+    "lampe",
+    "garde-robe"
+   ],
+   "tutor_instruction": "Lisez chaque phrase avec l'élève et faites-lui choisir le meuble qui convient.",
+   "student_instruction": "Complétez les phrases avec le bon mot.",
+   "valid_answers_by_blank": {
+    "1": [
+     "chaise"
+    ],
+    "2": [
+     "lit"
+    ],
+    "3": [
+     "bureau"
+    ],
+    "4": [
+     "lampe"
+    ],
+    "5": [
+     "garde-robe"
+    ]
+   }
+  },
+  "manual": true
+ },
+ {
+  "id": "701ea991-8982-4081-b59f-452a3c965038",
+  "title": "Ordre des choses",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue_extended",
+   "title": "Apprenons !",
+   "number": 4,
+   "example": {
+    "tutor_line": "Quatrième : L'éléphant est le quatrième.",
+    "student_line": "L'éléphant est le quatrième."
+   },
+   "exchanges": [
+    {
+     "text": "Quatrième : L'éléphant est le quatrième.",
+     "blank": false,
+     "speaker": "Max : quatrième : L'éléphant est le quatrième.",
+     "avatar_seed": "Max",
+     "translation": "Fourth: The elephant is the fourth.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Cinquième : La girafe est la cinquième.",
+     "blank": false,
+     "speaker": "Max : cinquième : La girafe est la cinquième.",
+     "avatar_seed": "Max",
+     "translation": "Fifth: The giraffe is the fifth.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Sixième : Le serpent est le sixième.",
+     "blank": false,
+     "speaker": "Max : sixième : Le serpent est le sixième.",
+     "avatar_seed": "Max",
+     "translation": "Sixth: The snake is the sixth.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "Septième : Le tigre est le septième.",
+     "blank": false,
+     "speaker": "Max : septième : Le tigre est le septième.",
+     "avatar_seed": "Max",
+     "translation": "Seventh: The tiger is the seventh.",
+     "speaker_role": "tutor"
+    }
+   ],
+   "answer_pool": [
+    "éléphant",
+    "girafe",
+    "serpent",
+    "tigre"
+   ],
+   "tutor_instruction": "Lisez chaque phrase et demandez aux étudiants de répéter.",
+   "student_instruction": "Écoutez et répétez après Max.",
+   "valid_answers_by_blank": {
+    "1": [
+     "éléphant"
+    ],
+    "2": [
+     "girafe"
+    ],
+    "3": [
+     "serpent"
+    ],
+    "4": [
+     "tigre"
+    ]
+   }
+  },
+  "after": {
+   "kind": "dialogue_read_aloud",
+   "number": 4,
+   "title": "Apprenons !",
+   "student_instruction": "Écoutez et répétez après Max.",
+   "tutor_instruction": "Lisez chaque phrase et demandez aux étudiants de répéter.",
+   "tutor_role": "Max",
+   "student_role": "Élève",
+   "lines": [
+    {
+     "speaker": "Max",
+     "role": "tutor",
+     "avatar_seed": "Max",
+     "text": "Quatrième : L'éléphant est le quatrième."
+    },
+    {
+     "speaker": "Élève",
+     "role": "student",
+     "avatar_seed": "Student",
+     "text": "Quatrième : L'éléphant est le quatrième."
+    },
+    {
+     "speaker": "Max",
+     "role": "tutor",
+     "avatar_seed": "Max",
+     "text": "Cinquième : La girafe est la cinquième."
+    },
+    {
+     "speaker": "Élève",
+     "role": "student",
+     "avatar_seed": "Student",
+     "text": "Cinquième : La girafe est la cinquième."
+    },
+    {
+     "speaker": "Max",
+     "role": "tutor",
+     "avatar_seed": "Max",
+     "text": "Sixième : Le serpent est le sixième."
+    },
+    {
+     "speaker": "Élève",
+     "role": "student",
+     "avatar_seed": "Student",
+     "text": "Sixième : Le serpent est le sixième."
+    },
+    {
+     "speaker": "Max",
+     "role": "tutor",
+     "avatar_seed": "Max",
+     "text": "Septième : Le tigre est le septième."
+    },
+    {
+     "speaker": "Élève",
+     "role": "student",
+     "avatar_seed": "Student",
+     "text": "Septième : Le tigre est le septième."
+    }
+   ]
+  },
+  "manual": true
+ },
+ {
+  "id": "cde21b38-0261-4385-a903-3aba07327234",
+  "title": "Discutez de vos endroits de vacances préférés",
+  "i": 3,
+  "before": {
+   "kind": "fill_in_blank_dialogue_extended",
+   "title": "Pratiquons",
+   "number": 2.5,
+   "example": {
+    "tutor_line": "C'était coûteux.",
+    "student_line": "C'était bon marché."
+   },
+   "exchanges": [
+    {
+     "N": 1,
+     "text": "(N)",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "It was cheap.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "C'était coûteux.",
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "It was expensive.",
+     "speaker_role": "student"
+    },
+    {
+     "N": 4,
+     "text": "(N)",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "It was tiring.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "C'était relaxant.",
+     "speaker": "Eli",
+     "avatar_seed": "Eli",
+     "translation": "It was relaxing.",
+     "speaker_role": "student"
+    },
+    {
+     "N": 3,
+     "text": "(N)",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "It was fun.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "C'était ennuyeux.",
+     "speaker": "David",
+     "avatar_seed": "David",
+     "translation": "It was boring.",
+     "speaker_role": "student"
+    },
+    {
+     "N": 2,
+     "text": "(N)",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "It was expensive.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "C'était bon marché.",
+     "speaker": "Sophie",
+     "avatar_seed": "Sophie",
+     "translation": "It was cheap.",
+     "speaker_role": "student"
+    },
+    {
+     "N": 5,
+     "text": "(N)",
+     "blank": true,
+     "speaker": "Professeur",
+     "avatar_seed": "Professeur",
+     "translation": "It was interesting.",
+     "speaker_role": "tutor"
+    },
+    {
+     "text": "C'était ennuyeux.",
+     "speaker": "Alex",
+     "avatar_seed": "Alex",
+     "translation": "It was boring.",
+     "speaker_role": "student"
+    }
+   ],
+   "tutor_role": "tutor",
+   "answer_pool": [
+    "C'était bon marché.",
+    "C'était relaxant.",
+    "C'était ennuyeux.",
+    "C'était fatigant.",
+    "C'était amusant.",
+    "C'était cher.",
+    "C'était intéressant."
+   ],
+   "student_role": "student",
+   "tutor_instruction": "Posez les questions aux étudiants.",
+   "student_instruction": "Donnez la réponse opposée à chaque phrase à haute voix.",
+   "valid_answers_by_blank": {
+    "1": [
+     "C'était bon marché."
+    ],
+    "2": [
+     "C'était cher."
+    ],
+    "3": [
+     "C'était amusant."
+    ],
+    "4": [
+     "C'était fatigant."
+    ],
+    "5": [
+     "C'était intéressant."
+    ],
+    "6": [
+     "C'était relaxant."
+    ]
+   }
+  },
+  "after": {
+   "kind": "fill_in_blank_dialogue_extended",
+   "title": "Pratiquons",
+   "number": 2.5,
+   "example": {
+    "tutor_line": "C'était coûteux.",
+    "student_line": "C'était bon marché."
+   },
+   "exchanges": [
+    {
+     "speaker": "Tuteur",
+     "speaker_role": "tutor",
+     "avatar_seed": "Tutor",
+     "text": "C'était bon marché."
+    },
+    {
+     "speaker": "Élève",
+     "speaker_role": "student",
+     "avatar_seed": "Student",
+     "text": "(1)",
+     "blank": 1
+    },
+    {
+     "speaker": "Tuteur",
+     "speaker_role": "tutor",
+     "avatar_seed": "Tutor",
+     "text": "C'était fatigant."
+    },
+    {
+     "speaker": "Élève",
+     "speaker_role": "student",
+     "avatar_seed": "Student",
+     "text": "(2)",
+     "blank": 2
+    },
+    {
+     "speaker": "Tuteur",
+     "speaker_role": "tutor",
+     "avatar_seed": "Tutor",
+     "text": "C'était amusant."
+    },
+    {
+     "speaker": "Élève",
+     "speaker_role": "student",
+     "avatar_seed": "Student",
+     "text": "(3)",
+     "blank": 3
+    },
+    {
+     "speaker": "Tuteur",
+     "speaker_role": "tutor",
+     "avatar_seed": "Tutor",
+     "text": "C'était cher."
+    },
+    {
+     "speaker": "Élève",
+     "speaker_role": "student",
+     "avatar_seed": "Student",
+     "text": "(4)",
+     "blank": 4
+    },
+    {
+     "speaker": "Tuteur",
+     "speaker_role": "tutor",
+     "avatar_seed": "Tutor",
+     "text": "C'était intéressant."
+    },
+    {
+     "speaker": "Élève",
+     "speaker_role": "student",
+     "avatar_seed": "Student",
+     "text": "(5)",
+     "blank": 5
+    }
+   ],
+   "tutor_role": "tutor",
+   "answer_pool": [
+    "C'était cher.",
+    "C'était relaxant.",
+    "C'était ennuyeux.",
+    "C'était bon marché.",
+    "C'était ennuyeux."
+   ],
+   "student_role": "student",
+   "tutor_instruction": "Posez les questions aux étudiants.",
+   "student_instruction": "Donnez la réponse opposée à chaque phrase à haute voix.",
+   "valid_answers_by_blank": {
+    "1": [
+     "C'était cher."
+    ],
+    "2": [
+     "C'était relaxant."
+    ],
+    "3": [
+     "C'était ennuyeux."
+    ],
+    "4": [
+     "C'était bon marché."
+    ],
+    "5": [
+     "C'était ennuyeux."
+    ]
+   }
+  },
+  "manual": true
+ }
+]

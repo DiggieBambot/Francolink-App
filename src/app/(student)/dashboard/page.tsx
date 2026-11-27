@@ -24,12 +24,16 @@ import { CourseCard } from "@/components/dashboard/course-card";
 import { StreakCard } from "@/components/dashboard/streak-card";
 import { DailyLessonLimit } from "@/components/dashboard/daily-lesson-limit";
 import { JoinTutorCode } from "@/components/dashboard/join-tutor-code";
+import { findTutorUrl } from "@/lib/site/find-tutor";
 import { BookClassButton } from "@/components/dashboard/book-class-button";
 import { SubscribePrompt } from "@/components/dashboard/subscribe-prompt";
 import { PlanCard } from "@/components/dashboard/plan-card";
 import { TrackOnce } from "@/components/analytics/track-once";
 import { UpcomingClasses } from "@/components/dashboard/upcoming-classes";
 import { getUpcomingClasses } from "@/lib/booking/upcoming";
+import { tutorBookingLinks } from "@/lib/booking/book-link";
+import { hasActivePlan } from "@/lib/credits/plans";
+import { creditBalance } from "@/lib/credits/ledger";
 import { formatNumber } from "@/lib/utils";
 import { getLessonUsage } from "@/lib/utils/lesson-limits";
 import { getSettingsByCategory } from "@/lib/config/settings";
@@ -116,6 +120,40 @@ export default async function DashboardPage() {
     }
   }
   const tutor = teachers[0] || null;
+
+  // Each teacher's "Book a lesson" goes to their public slot picker (the paid
+  // flow). A connected student with no plan, no credits and no lesson yet also
+  // gets a first-lesson prompt — connecting to a tutor costs nothing, so
+  // without it nothing on this page leads to a lesson. Best-effort: a failure
+  // here only hides the prompt / falls back to the request form.
+  let bookLinks = new Map<string, string>();
+  let needsFirstLesson = false;
+  // Computed for every student, not only those with a teacher: a student a
+  // teacher brought in for self-study (whose teacher may not take bookings
+  // here) still gets a way to a live lesson — see the generic card below.
+  if (user?.id) {
+    try {
+      const [links, planActive, balance, { count: lessonCount }] = await Promise.all([
+        teachers.length > 0
+          ? tutorBookingLinks(teachers.map((t) => t.id))
+          : Promise.resolve(new Map<string, string>()),
+        hasActivePlan(user.id),
+        creditBalance(user.id),
+        svc
+          .from("bookings")
+          .select("id", { count: "exact", head: true })
+          .eq("student_id", user.id)
+          .not("status", "in", "(pending_payment,expired)"),
+      ]);
+      bookLinks = links;
+      needsFirstLesson = !planActive && balance <= 0 && (lessonCount ?? 0) === 0;
+    } catch (e) {
+      console.error("[dashboard] booking links failed", e);
+    }
+  }
+  const firstLessonTutor = needsFirstLesson
+    ? teachers.find((t) => bookLinks.has(t.id)) || null
+    : null;
 
   const { data: completedLessons } = await supabase
     .from("lesson_progress")
@@ -335,7 +373,11 @@ export default async function DashboardPage() {
 
           {/* Actions */}
           <div className="flex items-center gap-2">
-            <BookClassButton tutorName={tutor.name || "your tutor"} />
+            <BookClassButton
+              tutorName={tutor.name || "your tutor"}
+              tutorId={tutor.id}
+              bookHref={bookLinks.get(tutor.id)}
+            />
             <Link
               href="/student/sessions"
               className="p-2.5 bg-primary-50 text-primary rounded-xl hover:bg-primary-100 transition-colors"
@@ -344,9 +386,9 @@ export default async function DashboardPage() {
               <Video className="w-5 h-5" />
             </Link>
             <Link
-              href="/messages"
+              href={`/messages?with=${tutor.id}`}
               className="p-2.5 bg-gray-50 text-gray-500 rounded-xl hover:bg-gray-100 transition-colors"
-              title="Message"
+              title={`Message ${tutor.name || "your tutor"}`}
             >
               <MessageSquare className="w-5 h-5" />
             </Link>
@@ -367,17 +409,64 @@ export default async function DashboardPage() {
                 <p className="font-heading font-bold text-primary truncate">{t.name || "Your Tutor"}</p>
               </div>
               <div className="flex items-center gap-2">
-                <BookClassButton tutorName={t.name || "your tutor"} />
+                <BookClassButton
+                  tutorName={t.name || "your tutor"}
+                  tutorId={t.id}
+                  bookHref={bookLinks.get(t.id)}
+                />
                 <Link
-                  href="/messages"
+                  href={`/messages?with=${t.id}`}
                   className="p-2.5 bg-gray-50 text-gray-500 rounded-xl hover:bg-gray-100 transition-colors"
-                  title="Message"
+                  title={`Message ${t.name || "your tutor"}`}
                 >
                   <MessageSquare className="w-5 h-5" />
                 </Link>
               </div>
             </div>
           ))}
+
+          {firstLessonTutor ? (
+            <div className="rounded-2xl border border-primary-100 bg-primary-50 p-5 flex flex-col sm:flex-row sm:items-center gap-4">
+              <div className="flex-1 min-w-0">
+                <p className="font-heading font-bold text-primary">
+                  Book your first lesson with {firstLessonTutor.name?.split(" ")[0] || "your tutor"}
+                </p>
+                <p className="mt-1 text-sm text-gray-600">
+                  Pick a time that suits you. Live lessons are booked with the
+                  3-lesson starter pack or a plan — you choose after picking your slot.
+                </p>
+              </div>
+              <a
+                href={bookLinks.get(firstLessonTutor.id)}
+                className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary-800 flex-shrink-0"
+              >
+                See open times
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          ) : needsFirstLesson ? (
+            // Their teacher(s) don't take bookings on FrancoLink, so point at
+            // the directory instead — every student should have a way to a
+            // live lesson, whoever brought them in.
+            <div className="rounded-2xl border border-primary-100 bg-primary-50 p-5 flex flex-col sm:flex-row sm:items-center gap-4">
+              <div className="flex-1 min-w-0">
+                <p className="font-heading font-bold text-primary">
+                  Learn live with a FrancoLink tutor
+                </p>
+                <p className="mt-1 text-sm text-gray-600">
+                  Find a tutor who fits your level and schedule. Live lessons are
+                  booked with the 3-lesson starter pack or a plan.
+                </p>
+              </div>
+              <a
+                href={findTutorUrl(activeLangData?.placement_level || profile?.placement_test_level)}
+                className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary-800 flex-shrink-0"
+              >
+                Book a live lesson
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          ) : null}
 
           {/* Add another teacher with a class code */}
           <JoinTutorCode userId={user?.id} />
@@ -393,16 +482,14 @@ export default async function DashboardPage() {
                 No teacher assigned
               </p>
               <p className="text-xs text-gray-400">
-                Ask your teacher for an invite link or join with a code
+                Find a tutor and book a live lesson, or join your teacher with a code
               </p>
             </div>
             <a
-              href="https://www.francolink.net/teachers"
-              target="_blank"
-              rel="noopener noreferrer"
+              href={findTutorUrl(activeLangData?.placement_level || profile?.placement_test_level)}
               className="flex items-center gap-1.5 px-4 py-2 bg-primary text-white text-sm font-semibold rounded-xl hover:bg-primary-800 transition-colors flex-shrink-0 shadow-sm"
             >
-              <span>Book a Tutor</span>
+              <span>Find a tutor</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
           </div>

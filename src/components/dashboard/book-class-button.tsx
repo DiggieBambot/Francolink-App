@@ -3,7 +3,20 @@
 import { useState } from "react";
 import { CalendarPlus, X, Loader2, Check } from "lucide-react";
 
-export function BookClassButton({ tutorName }: { tutorName: string }) {
+// The primary action is the paid flow: the tutor's public slot picker
+// (`bookHref`, from lib/booking/book-link.ts), which runs through /book →
+// login → /start (starter pack or plan) → /api/booking/create. Only when the
+// tutor has no listed profile or no open slots does this fall back to the
+// free "request a class" form.
+export function BookClassButton({
+  tutorName,
+  tutorId,
+  bookHref,
+}: {
+  tutorName: string;
+  tutorId?: string;
+  bookHref?: string | null;
+}) {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
   const [preferredTime, setPreferredTime] = useState("");
@@ -17,7 +30,7 @@ export function BookClassButton({ tutorName }: { tutorName: string }) {
       const res = await fetch("/api/tutor/book-class", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message, preferredTime }),
+        body: JSON.stringify({ tutorId, message, preferredTime }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Could not send");
@@ -33,15 +46,28 @@ export function BookClassButton({ tutorName }: { tutorName: string }) {
     setTimeout(() => { setState("idle"); setMessage(""); setPreferredTime(""); setError(""); }, 200);
   }
 
+  if (bookHref) {
+    return (
+      <a
+        href={bookHref}
+        className="inline-flex items-center gap-1.5 rounded-xl bg-primary px-3.5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary-800"
+        title={`Book a lesson with ${tutorName}`}
+      >
+        <CalendarPlus className="h-4 w-4" />
+        <span className="hidden sm:inline">Book a lesson</span>
+      </a>
+    );
+  }
+
   return (
     <>
       <button
         onClick={() => setOpen(true)}
         className="inline-flex items-center gap-1.5 rounded-xl bg-primary px-3.5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary-800"
-        title="Book a class"
+        title="Request a class"
       >
         <CalendarPlus className="h-4 w-4" />
-        <span className="hidden sm:inline">Book a class</span>
+        <span className="hidden sm:inline">Request a class</span>
       </button>
 
       {open ? (
@@ -71,7 +97,7 @@ export function BookClassButton({ tutorName }: { tutorName: string }) {
                   <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-primary-100 text-primary">
                     <CalendarPlus className="h-5 w-5" />
                   </span>
-                  <h2 className="text-lg font-bold text-gray-900 dark:text-white">Book a class with {tutorName}</h2>
+                  <h2 className="text-lg font-bold text-gray-900 dark:text-white">Request a class with {tutorName}</h2>
                 </div>
                 <p className="mb-4 text-sm text-gray-500 dark:text-gray-400">
                   Send a quick request — your tutor will get in touch to confirm a time.

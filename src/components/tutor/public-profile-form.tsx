@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { CheckCircle2, Loader2, Plus, Save, Trash2 } from "lucide-react";
+import { SPECIALTY_OPTIONS, canonicalSpecialty } from "@/lib/site/specialties";
 import { LANGUAGE_LABEL } from "@/lib/site/format";
 import { PhotoUpload } from "@/components/site/photo-upload";
 import { cn } from "@/lib/utils";
@@ -13,30 +14,9 @@ const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
 // The picker list. Tutors tick these instead of typing free text, so the
 // public site gets consistent, filterable labels. Anything a tutor typed
 // before this list existed still round-trips via the "add your own" field.
-const SPECIALTY_OPTIONS = [
-  "DELF",
-  "DALF",
-  "TEF",
-  "TCF",
-  "TEFAQ",
-  "Conversation",
-  "Pronunciation",
-  "Grammar",
-  "Business French",
-  "French for beginners",
-  "Kids and teens",
-  "Exam prep",
-  "Interview preparation",
-  "Immigration French",
-  "Travel French",
-  "Writing and essays",
-  "Reading comprehension",
-  "Listening comprehension",
-  "Academic French",
-  "Medical French",
-  "Legal French",
-  "Homework help",
-];
+// The fixed list lives in lib/site/specialties.ts, next to the student-facing
+// goals built on it. Tutors pick from it; free text is no longer accepted.
+
 
 
 // Free text let a tutor save "Paris", which is not an IANA zone — every slot
@@ -102,26 +82,16 @@ export function PublicProfileForm({
   const [teaches, setTeaches] = useState<string[]>(profile?.teaches ?? []);
   const [speaks, setSpeaks] = useState<string[]>(profile?.speaks ?? []);
   const [levels, setLevels] = useState<string[]>(profile?.levels ?? []);
-  const [specialties, setSpecialties] = useState<string[]>(
-    profile?.specialties ?? []
-  );
-  const [customSpecialty, setCustomSpecialty] = useState("");
-  // Anything already saved that is not in the canonical list still gets a
-  // chip, so an older free-text profile can be unticked rather than stranded.
-  const specialtyOptions = [
-    ...SPECIALTY_OPTIONS,
-    ...specialties.filter((s) => !SPECIALTY_OPTIONS.includes(s)),
-  ];
-
-  function addCustomSpecialty() {
-    const v = customSpecialty.trim();
-    if (!v || specialties.includes(v)) {
-      setCustomSpecialty("");
-      return;
-    }
-    setSpecialties([...specialties, v]);
-    setCustomSpecialty("");
-  }
+  // Saved values are mapped onto the fixed list ("conversation" → "Conversation");
+  // anything not on it is dropped here and by the API on save.
+  const [specialties, setSpecialties] = useState<string[]>(() => [
+    ...new Set(
+      (profile?.specialties ?? [])
+        .map((s) => canonicalSpecialty(s))
+        .filter((s): s is string => Boolean(s))
+    ),
+  ]);
+  const specialtyOptions: string[] = [...SPECIALTY_OPTIONS];
   const [quals, setQuals] = useState<Qualification[]>(profile?.qualifications ?? []);
   const [years, setYears] = useState(profile?.years_experience?.toString() ?? "");
   const [photoUrl, setPhotoUrl] = useState(profile?.photo_url ?? "");
@@ -318,33 +288,11 @@ export function PublicProfileForm({
         />
         <Chips
           label="Specialities"
-          hint="Tick everything you teach. Add your own below if something is missing."
+          hint="Tick everything you teach. Students find you by these, so pick the ones you really offer."
           options={specialtyOptions.map((v) => ({ value: v, label: v }))}
           selected={specialties}
           onChange={setSpecialties}
         />
-        <div className="flex gap-2">
-          <input
-            value={customSpecialty}
-            onChange={(e) => setCustomSpecialty(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                e.preventDefault();
-                addCustomSpecialty();
-              }
-            }}
-            maxLength={80}
-            placeholder="Add another speciality…"
-            className="flex-1 px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary-100 outline-none"
-          />
-          <button
-            type="button"
-            onClick={addCustomSpecialty}
-            className="px-4 py-3 rounded-xl bg-gray-100 text-gray-700 text-sm font-semibold hover:bg-gray-200"
-          >
-            <Plus className="w-4 h-4" />
-          </button>
-        </div>
       </Card>
 
       <Card title="Qualifications and experience">

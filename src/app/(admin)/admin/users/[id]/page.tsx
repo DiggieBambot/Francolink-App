@@ -2,6 +2,7 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { notFound } from "next/navigation";
+import { formatTutoringTime } from "@/lib/config/subscription";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -54,10 +55,55 @@ export default async function AdminUserDetailPage({ params }: PageProps) {
     .eq("user_id", id)
     .not("cost_usd", "is", null);
 
-  const aiTutorCost = (tutorSpend ?? []).reduce(
-    (sum: number, row: { cost_usd: number | null }) => sum + (row.cost_usd ?? 0),
+  const chatCost = (tutorSpend ?? []).reduce(
+    (sum: number, row: { cost_usd: number | null }) => sum + Number(row.cost_usd ?? 0),
     0
   );
+
+  // AI tutoring time this month (UTC), and any extra hours left.
+  const monthStart = new Date().toISOString().slice(0, 8) + "01";
+  const [{ data: timeRows }, { data: timeBalance }] = await Promise.all([
+    supabase
+      .from("ai_tutor_time_usage")
+      .select("plan_seconds, extra_seconds")
+      .eq("user_id", id)
+      .gte("day", monthStart),
+    supabase
+      .from("ai_tutor_time_balance")
+      .select("extra_seconds")
+      .eq("user_id", id)
+      .maybeSingle(),
+  ]);
+  const tutoringSecondsThisMonth = (timeRows ?? []).reduce(
+    (sum: number, r: { plan_seconds: number; extra_seconds: number }) =>
+      sum + (r.plan_seconds ?? 0) + (r.extra_seconds ?? 0),
+    0
+  );
+  const extraSecondsLeft = timeBalance?.extra_seconds ?? 0;
+
+  // Everything else the tutor spends: voice, microphone, translate, recaps.
+  const { data: otherSpend } = await supabase
+    .from("ai_usage_events")
+    .select("feature, cost_usd")
+    .eq("user_id", id);
+
+  const spendByFeature: Record<string, number> = { chat: chatCost };
+  for (const row of (otherSpend ?? []) as { feature: string; cost_usd: number | null }[]) {
+    spendByFeature[row.feature] = (spendByFeature[row.feature] ?? 0) + Number(row.cost_usd ?? 0);
+  }
+  const aiTutorCost = Object.values(spendByFeature).reduce((a, b) => a + b, 0);
+  const FEATURE_LABELS: Record<string, string> = {
+    chat: "Replies",
+    tts: "Voice",
+    transcribe: "Mic",
+    translate: "Translate",
+    recap: "Recaps",
+  };
+  const costBreakdown = Object.entries(spendByFeature)
+    .filter(([, v]) => v > 0)
+    .sort((a, b) => b[1] - a[1])
+    .map(([k, v]) => `${FEATURE_LABELS[k] ?? k} $${v.toFixed(4)}`)
+    .join(" · ");
 
   // Fetch user's enrollments
   const { data: enrollments } = await supabase
@@ -361,16 +407,22 @@ export default async function AdminUserDetailPage({ params }: PageProps) {
                 <p className="text-gray-900">{user.lessons_today || 0} / 3</p>
               </div>
               <div>
-                <p className="text-sm text-gray-500">
-                  AI Tutor Messages ({user.ai_usage_period || "this month"})
-                </p>
+                <p className="text-sm text-gray-500">AI Tutoring Time (this month)</p>
                 <p className="text-gray-900">
-                  {user.ai_minutes_used_today || 0} messages
+                  {formatTutoringTime(tutoringSecondsThisMonth)}
+                  {extraSecondsLeft > 0 && (
+                    <span className="text-gray-500 text-sm">
+                      {" "}· {formatTutoringTime(extraSecondsLeft)} extra left
+                    </span>
+                  )}
                 </p>
               </div>
               <div>
                 <p className="text-sm text-gray-500">AI Tutor Cost (all time)</p>
                 <p className="text-gray-900">${aiTutorCost.toFixed(4)}</p>
+                {costBreakdown && (
+                  <p className="text-xs text-gray-500 mt-0.5">{costBreakdown}</p>
+                )}
               </div>
             </div>
           </div>

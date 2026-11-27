@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Section, SectionHeading, CtaButton } from "@/components/site/ui";
 import { TutorDirectory } from "@/components/site/tutor-directory";
 import { TutorCard } from "@/components/site/tutor-card";
+import { LeonTutorCard } from "@/components/site/leon-tutor-card";
 import {
   getPlanNamesByTier,
   getPublicTutors,
@@ -30,6 +31,8 @@ export const metadata: Metadata = {
 function TutorDirectoryFallback({ tutors }: { tutors: TutorCardData[] }) {
   return (
     <div className="space-y-4">
+      {/* Same spot as in the filtered list, so nothing jumps on hydration. */}
+      <LeonTutorCard />
       {tutors.map((tutor) => (
         <TutorCard key={tutor.slug} tutor={tutor} />
       ))}

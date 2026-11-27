@@ -90,7 +90,7 @@ export function Sidebar({ user }: SidebarProps) {
               <span className="font-heading font-bold">Premium Member</span>
             </div>
             <p className="text-sm text-indigo-100 mb-3">
-              Upgrade for 1,500 AI Tutor messages a month
+              Upgrade for 10 hours of AI tutoring a month
             </p>
             <Link
               href="/upgrade-plus"

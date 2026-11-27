@@ -2,6 +2,7 @@ import { PWAInstallPrompt } from "@/components/shared/pwa-install-prompt";
 import { ServiceWorkerRegistrar } from "@/components/shared/service-worker-registrar";
 import { GoogleAnalytics } from "@/components/shared/google-analytics";
 import { AttributionCookie } from "@/components/analytics/attribution";
+import { MetaPixel } from "@/components/analytics/meta-pixel";
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import { Mulish, Roboto } from "next/font/google";
@@ -71,12 +72,17 @@ export async function generateMetadata(): Promise<Metadata> {
       description: config.meta_description,
       images: [config.og_image],
     },
-    // Google Search Console ownership verification (HTML-tag method).
-    // Public token — env overrides the committed default if ever needed.
+    // Ownership verification (HTML-tag method). Public tokens — env overrides
+    // the committed defaults if ever needed.
     verification: {
       google:
         process.env.GOOGLE_SITE_VERIFICATION ||
         "q5OAsmmbxgyUdtqXHq3lU8kO1DuEaVi6eJMmX_f5HMI",
+      other: {
+        // Meta Business Manager domain verification for francolink.net.
+        "facebook-domain-verification":
+          process.env.FACEBOOK_DOMAIN_VERIFICATION || "6hae4hxc3xajirc39jtzfecq16tgf4",
+      },
     },
   };
 }
@@ -110,6 +116,9 @@ export default async function RootLayout({
       </head>
       <body className={`${roboto.variable} ${mulish.variable} font-body`}>
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || "G-YLH30JTCQT"} />
+        {process.env.NEXT_PUBLIC_META_PIXEL_ID && (
+          <MetaPixel pixelId={process.env.NEXT_PUBLIC_META_PIXEL_ID} />
+        )}
         <AttributionCookie />
         <ServiceWorkerRegistrar />
         <PWAInstallPrompt />

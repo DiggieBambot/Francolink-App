@@ -1,17 +1,22 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Bot, Crown } from "lucide-react";
 import Link from "next/link";
 
 interface AITutorFabProps {
   plan: string;
+  /** Admins and testers get the tutor on any plan, matching getTutorAccess. */
+  privileged?: boolean;
 }
 
-export function AITutorFab({ plan }: AITutorFabProps) {
-  const isPaid = plan === "PREMIUM" || plan === "PREMIUM_PLUS";
+export function AITutorFab({ plan, privileged = false }: AITutorFabProps) {
+  const isPaid = privileged || plan === "PREMIUM" || plan === "PREMIUM_PLUS";
   const [showTooltip, setShowTooltip] = useState(false);
+  // Already with Léon: a second robot button pointing at this page only confuses.
+  const pathname = usePathname();
+  if (pathname?.startsWith("/student/ai-tutor")) return null;
 
   return (
     <div className="fixed bottom-24 right-4 lg:bottom-6 lg:right-6 z-50">

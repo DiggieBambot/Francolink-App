@@ -4,6 +4,7 @@ import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 import { isLessonPlanSubscription } from '@/lib/credits/referral';
 import { activateLessonPlan, endLessonPlan } from '@/lib/credits/subscription';
+import { metaContextFromMetadata, sendMetaEvent } from '@/lib/meta/capi';
 
 // Use service role for webhook (bypasses RLS)
 const supabase = createClient(
@@ -296,6 +297,28 @@ async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
 }
 
 /**
+ * Every paid checkout (plan, pack, hours, workbook) is a Purchase for Meta ads;
+ * a subscription checkout is also a Subscribe. Renewals are not reported: they
+ * are not something an ad caused. The browser context was put in the session
+ * metadata at checkout. Retried webhooks reuse the event id, so Meta keeps one.
+ */
+async function reportCheckoutToMeta(session: Stripe.Checkout.Session) {
+  if (session.payment_status !== 'paid') return;
+  const common = {
+    email: session.customer_details?.email ?? session.customer_email,
+    externalId: session.metadata?.supabase_user_id || null,
+    browser: metaContextFromMetadata(session.metadata),
+    value: (session.amount_total ?? 0) / 100,
+    currency: session.currency ?? 'usd',
+    contentCategory: session.metadata?.kind || 'self_study_subscription',
+  };
+  await sendMetaEvent({ ...common, name: 'Purchase', eventId: `purchase_${session.id}` });
+  if (session.mode === 'subscription') {
+    await sendMetaEvent({ ...common, name: 'Subscribe', eventId: `subscribe_${session.id}` });
+  }
+}
+
+/**
  * Handle subscription created
  */
 async function handleSubscriptionCreated(subscription: Stripe.Subscription) {
@@ -406,6 +429,8 @@ async function determinePlanFromPriceId(priceId: string | undefined): Promise<st
  * safe — only a booking still in `pending_payment` is acted on.
  */
 async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
+  await reportCheckoutToMeta(session);
+
   // A lesson plan: write user_subscriptions and grant the first week now, so
   // the student can book the moment they land back on the site.
   if (session.metadata?.kind === 'lesson_subscription') {
@@ -414,6 +439,25 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
       return;
     }
     await activateLessonPlan(session);
+    return;
+  }
+
+  // Extra AI tutoring hours, bought on top of a plan.
+  if (session.metadata?.kind === 'ai_tutor_hours') {
+    if (session.payment_status !== 'paid') {
+      console.log('[webhook] tutoring hours checkout not yet paid:', session.id);
+      return;
+    }
+    // Idempotent on the session id: a retried delivery grants nothing twice.
+    const { data: granted, error } = await supabase.rpc('grant_ai_tutor_hours', {
+      p_session_id: session.id,
+    });
+    if (error) {
+      console.error('[webhook] grant_ai_tutor_hours failed', session.id, error);
+      // Throw so Stripe retries: the student has paid and is owed the hours.
+      throw new Error(`grant_ai_tutor_hours failed: ${error.message}`);
+    }
+    console.log('[webhook] tutoring hours granted:', session.id, granted, 'seconds');
     return;
   }
 
@@ -541,6 +585,15 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
 async function handleCheckoutExpired(session: Stripe.Checkout.Session) {
   // A pack holds nothing scarce — no slot, no tutor time — so this is just
   // bookkeeping, to stop abandoned rows looking like they might still pay.
+  if (session.metadata?.kind === 'ai_tutor_hours') {
+    await supabase
+      .from('ai_tutor_hour_purchases')
+      .update({ status: 'abandoned' })
+      .eq('stripe_checkout_session_id', session.id)
+      .eq('status', 'pending');
+    return;
+  }
+
   if (session.metadata?.kind === 'starter_pack') {
     await supabase
       .from('starter_pack_purchases')

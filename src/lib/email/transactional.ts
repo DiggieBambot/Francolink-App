@@ -87,15 +87,19 @@ export function renderWelcome(firstName: string, isTutor: boolean): RenderedEmai
   return { subject, html: emailShell({ firstName, bodyHtml, ctaHref, ctaText }), text };
 }
 
+// Sent only when a student is connected straight away (status 'active') — every
+// caller gates on that. Requests held as 'pending' by the signup risk gate send
+// no mail, so this must not ask the tutor to confirm anything: there is nothing
+// to confirm.
 export function renderNewStudent(firstName: string, studentName?: string | null): RenderedEmail {
   const who = escapeHtml(studentName || "A new student");
   const bodyHtml =
-    `<p style="margin:0 0 16px 0;font-size:16px;"><b>${who}</b> asked to join your class on Francolink.</p>
-     <p style="margin:0 0 16px 0;font-size:16px;">Head to your Students tab to confirm them — then you can send lessons and homework their way.</p>`;
-  const text = `${studentName || "A new student"} asked to join your class on Francolink. Confirm them: ${APP_URL}/tutor/students`;
+    `<p style="margin:0 0 16px 0;font-size:16px;"><b>${who}</b> just joined your class on Francolink.</p>
+     <p style="margin:0 0 16px 0;font-size:16px;">They're already in your Students tab — you can send them lessons and homework right away.</p>`;
+  const text = `${studentName || "A new student"} just joined your class on Francolink. They're already in your Students tab: ${APP_URL}/tutor/students`;
   return {
-    subject: "You have a new student request 🎉",
-    html: emailShell({ firstName, bodyHtml, ctaHref: `${APP_URL}/tutor/students`, ctaText: "Review the request" }),
+    subject: "A new student joined your class 🎉",
+    html: emailShell({ firstName, bodyHtml, ctaHref: `${APP_URL}/tutor/students`, ctaText: "See my students" }),
     text,
   };
 }
@@ -131,6 +135,27 @@ export function renderClassRequest(
   return {
     subject: "A student wants to book a class 📅",
     html: emailShell({ firstName, bodyHtml, ctaHref: `${APP_URL}/tutor/students`, ctaText: "Open my classroom" }),
+    text,
+  };
+}
+
+export function renderNewMessage(
+  firstName: string,
+  senderName: string,
+  preview: string,
+  url: string
+): RenderedEmail {
+  const who = escapeHtml(senderName);
+  const short = preview.length > 300 ? `${preview.slice(0, 300)}…` : preview;
+  const ctaHref = `${APP_URL}${url}`;
+  const bodyHtml =
+    `<p style="margin:0 0 16px 0;font-size:16px;"><b>${who}</b> sent you a message on FrancoLink:</p>
+     <p style="margin:0 0 16px 0;font-size:15px;color:#475569;border-left:3px solid #e2e8f0;padding-left:12px;white-space:pre-wrap;">${escapeHtml(short)}</p>
+     <p style="margin:0;font-size:14px;color:#64748b;">Reply in FrancoLink — replies to this email don't reach ${who}.</p>`;
+  const text = `${senderName} sent you a message on FrancoLink:\n\n${short}\n\nReply here: ${ctaHref}`;
+  return {
+    subject: `New message from ${senderName}`,
+    html: emailShell({ firstName, bodyHtml, ctaHref, ctaText: "Read and reply" }),
     text,
   };
 }
@@ -225,4 +250,20 @@ export async function notifyStudentHomeworkAssigned(
     tutorName
   );
   await send(st.email, subject, html, text);
+}
+
+/** A tutor or student sent this user an in-app message (throttled by the caller). */
+export async function notifyNewMessage(
+  recipientId: string,
+  senderName: string,
+  preview: string,
+  url: string
+): Promise<void> {
+  const s = svc();
+  const { data: u } = await s.from("users").select("email, name").eq("id", recipientId).maybeSingle();
+  if (!u?.email) return;
+  // Filming accounts never get mail.
+  if (u.email.endsWith("@demo.francolink.net")) return;
+  const { subject, html, text } = renderNewMessage(firstNameOf(u.name, u.email), senderName, preview, url);
+  await send(u.email, subject, html, text);
 }

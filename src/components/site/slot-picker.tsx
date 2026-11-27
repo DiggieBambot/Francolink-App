@@ -5,6 +5,7 @@ import { CalendarDays, Clock, Globe2, Loader2 } from "lucide-react";
 import type { BookableSlot } from "@/lib/booking/availability";
 import { formatPrice, type TierPrice } from "@/lib/site/pricing";
 import { cn } from "@/lib/utils";
+import { trackSite } from "@/lib/analytics/site";
 
 /**
  * Slot picker on a tutor's public profile.
@@ -86,6 +87,8 @@ export function SlotPicker({
       duration: String(slot.durationMinutes),
       from: profileUrl,
     });
+    // GA4 sends with sendBeacon, so the event survives the navigation below.
+    trackSite("tutor_booking_started", { slug: tutorSlug, duration: slot.durationMinutes });
     window.location.href = `${appUrl}/book?${params.toString()}`;
   }
 

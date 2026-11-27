@@ -1,6 +1,11 @@
 // Client-side analytics helper. Thin wrapper over POST /api/activity/event.
 // Fire-and-forget: never blocks UI, never throws. Optionally de-dupes an event
 // to once-per-browser via localStorage (for funnel steps like dashboard_viewed).
+//
+// Some events are also ad conversions: they fire the Meta pixel here and the
+// server repeats them through the Conversions API with the same event id.
+
+import { metaTrack } from "@/components/analytics/meta-pixel";
 
 export type ClientEvent =
   | "signup_completed"
@@ -25,6 +30,11 @@ interface TrackOpts {
   once?: string;
 }
 
+/** Our funnel events that are also Meta standard events. */
+const META_EVENTS: Partial<Record<ClientEvent, string>> = {
+  signup_completed: "CompleteRegistration",
+};
+
 export function trackEvent(kind: ClientEvent, opts: TrackOpts = {}): void {
   try {
     if (opts.once) {
@@ -32,10 +42,17 @@ export function trackEvent(kind: ClientEvent, opts: TrackOpts = {}): void {
       if (typeof window !== "undefined" && window.localStorage.getItem(key)) return;
       if (typeof window !== "undefined") window.localStorage.setItem(key, "1");
     }
+    let metadata = opts.metadata;
+    const metaName = META_EVENTS[kind];
+    if (metaName) {
+      const metaEventId = `${kind}_${crypto.randomUUID()}`;
+      metaTrack(metaName, {}, metaEventId);
+      metadata = { ...metadata, meta_event_id: metaEventId };
+    }
     void fetch("/api/activity/event", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ kind, metadata: opts.metadata }),
+      body: JSON.stringify({ kind, metadata }),
       keepalive: true,
     }).catch(() => {});
   } catch {

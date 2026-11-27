@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { stripe, CheckoutPlan, planToSubscription } from "@/lib/stripe";
 import { getSetting } from "@/lib/config/settings";
+import { metaCheckoutMetadata } from "@/lib/meta/capi";
 
 // ------------------------------------------------------------------
 // Map plan param to settings key
@@ -181,6 +182,7 @@ export async function POST(request: NextRequest) {
         subscription_plan: planToSubscription[checkoutPlan],
         display_currency: displayCurrency,
         locale: locale,
+        ...metaCheckoutMetadata(request),
       },
       subscription_data: {
         metadata: {

@@ -25,6 +25,7 @@ import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { z } from "zod";
 import { stripe } from "@/lib/stripe";
 import { APP_URL, SITE_URL } from "@/lib/site/hosts";
+import { metaCheckoutMetadata } from "@/lib/meta/capi";
 
 export const runtime = "nodejs";
 
@@ -121,6 +122,7 @@ export async function POST(request: Request) {
         // Present only for an already-signed-in buyer. The webhook uses it to
         // pre-claim the order so that person never sees a claim screen.
         supabase_user_id: user?.id ?? "",
+        ...metaCheckoutMetadata(request),
       },
       payment_intent_data: {
         setup_future_usage: "off_session",
