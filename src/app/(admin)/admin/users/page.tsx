@@ -14,6 +14,7 @@ import {
   Zap,
   Flame
 } from "lucide-react";
+import { DEMO_EMAIL_PATTERN } from "@/lib/demo";
 
 interface PageProps {
   searchParams: Promise<{
@@ -67,6 +68,7 @@ export default async function AdminUsersPage({ searchParams }: PageProps) {
   const { data: planStats } = await supabase
     .from("users")
     .select("subscription_plan")
+    .not("email", "ilike", DEMO_EMAIL_PATTERN)
     .then(({ data }) => {
       const stats = { FREE: 0, PREMIUM: 0, PREMIUM_PLUS: 0 };
       data?.forEach((u) => {
