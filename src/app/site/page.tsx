@@ -16,9 +16,11 @@ import { cn } from "@/lib/utils";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "FrancoLink: speak French, English or Spanish with Léon and live tutors",
+  // Same promise as the ads ("the freeze"), so a click lands on the words that
+  // earned it. Length-checked for Google: title 53 chars, description 147.
+  title: { absolute: "Stop Freezing in French. Start Speaking. | FrancoLink" },
   description:
-    "A language app that gets you speaking. Practise real conversations out loud with Léon, our AI tutor, then use them in live lessons with vetted tutors. French first, with English and Spanish.",
+    "You know the words, then freeze the moment someone talks. FrancoLink gets you speaking: daily lessons, live tutors and a free 90-second level test.",
   alternates: { canonical: "/" },
 };
 

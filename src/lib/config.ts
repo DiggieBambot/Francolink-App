@@ -54,8 +54,8 @@ const DEFAULT_CONFIG: AppConfig = {
   instagram_url: '',
   
   // SEO
-  meta_title: 'Learn French, English & Spanish Online with Certified Tutors | Francolink',
-  meta_description: 'Learn a language with structured CEFR lessons, live certified tutors and an AI conversation partner you can practise with anytime. Start free with a 90-second placement test.',
+  meta_title: 'Learn French, English & Spanish by Speaking | FrancoLink',
+  meta_description: 'Learn a language with structured CEFR lessons, vetted live tutors and, with Premium, an AI tutor you can practise speaking with anytime. Start free with a 90-second placement test.',
   og_image: '/og-image.png'
 };
 

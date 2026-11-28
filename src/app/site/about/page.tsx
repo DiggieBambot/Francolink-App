@@ -5,7 +5,7 @@ import { Section, SectionHeading, CtaButton } from "@/components/site/ui";
 export const metadata: Metadata = {
   title: "About us",
   description:
-    "FrancoLink connects language learners with certified live tutors and gives them a structured CEFR app to practise in every day. Here's who we are and what we believe about learning a language.",
+    "FrancoLink connects language learners with vetted live tutors and gives them a structured CEFR app to practise in every day. Here's who we are and what we believe about learning a language.",
   alternates: { canonical: "/about" },
 };
 
