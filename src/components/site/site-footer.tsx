@@ -65,8 +65,11 @@ export async function SiteFooter() {
               className="h-12 w-auto"
             />
             <p className="mt-5 text-primary-100 text-sm leading-relaxed max-w-sm">
-              {config.app_tagline}. Structured CEFR lessons, vetted live tutors and
-              daily practice — all in one app.
+              {/* Fixed copy, not config.app_tagline: in production that setting
+                  held "#1 Best Online Language Learning Platform", which then
+                  printed on every page of the marketing site. */}
+              Structured CEFR lessons, vetted live tutors and daily practice —
+              all in one app.
             </p>
             <a
               href={appUrl("/signup")}
