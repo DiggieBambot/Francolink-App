@@ -382,7 +382,7 @@ export function SpeakingHero({
           <div className="flex flex-col items-center gap-4 sm:flex-row lg:items-center">
             <a
               href={signupHref}
-              className="inline-flex w-full items-center justify-center gap-2.5 rounded-xl bg-primary px-8 py-4 text-lg font-bold text-white shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:bg-primary-800 hover:shadow-xl sm:w-auto"
+              className="inline-flex w-full shrink-0 items-center justify-center gap-2.5 whitespace-nowrap rounded-xl bg-primary px-8 py-4 text-lg font-bold text-white shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:bg-primary-800 hover:shadow-xl sm:w-auto"
             >
               <Mic className="h-5 w-5" />
               Start speaking
