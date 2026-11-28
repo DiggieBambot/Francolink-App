@@ -548,8 +548,6 @@ export default async function TutorProfilePage({ params }: PageProps) {
                 tutorName={tutor.name}
                 tutorSlug={tutor.slug}
                 prices={pricing.lessons}
-                trial={pricing.trial}
-                trialAvailable={tutor.trial_available}
                 appUrl={appUrl("")}
                 profileUrl={siteUrl(`/tutors/${tutor.slug}`)}
               />
