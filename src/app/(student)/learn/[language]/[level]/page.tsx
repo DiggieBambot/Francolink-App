@@ -138,6 +138,10 @@ export default async function CoursePage({ params }: PageProps) {
     previousCompleted = allCompleted;
   });
 
+  const firstIncompleteId = sortedUnits
+    .flatMap(u => u.lessons)
+    .find(l => !completedLessons.has(l.id))?.id;
+
   const totalLessons = sortedUnits.reduce((acc, u) => acc + u.lessons.length, 0);
   const completedCount = sortedUnits.reduce(
     (acc, u) => acc + u.lessons.filter(l => completedLessons.has(l.id)).length,
@@ -166,13 +170,19 @@ export default async function CoursePage({ params }: PageProps) {
         };
       }
 
-      const isProgressUnlocked = unlockedLessons.has(lesson.id);
+      // Paid plans open every lesson in the levels they include: a student who
+      // has just paid expects the course to be theirs, not a row of padlocks
+      // waiting on lessons they haven't done. The order still shows through
+      // the single "Next" badge. Free accounts keep the step-by-step unlock.
+      const isProgressUnlocked = userIsPaid || unlockedLessons.has(lesson.id);
       const isPremiumLocked =
         !levelAccessible ||
         (lesson.is_premium && !userIsPaid) ||
         (unit.is_premium && !userIsPaid);
       const isUnlocked = isProgressUnlocked && !isPremiumLocked;
-      const isNext = isUnlocked && !isCompleted;
+      const isNext = userIsPaid
+        ? isUnlocked && lesson.id === firstIncompleteId
+        : isUnlocked && !isCompleted;
 
       return {
         ...lesson,

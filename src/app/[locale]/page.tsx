@@ -24,33 +24,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const path = locale === "en" ? "/" : `/${locale}`;
 
-  // The homepage sets its own title and description rather than inheriting the
-  // admin-editable `meta_title` / `meta_description` from app_settings. Those
-  // DB values still read "#1 Best Online Language Learning Platform" and
-  // "Join 5,000+ students" in production (Search Console, 2026-11-21), and this
-  // is the page Google shows most. Pinning it in code keeps the claim off the
-  // page whatever the settings table says.
-  const fr = locale === "fr";
-  const title = fr
-    ? "Apprendre l'anglais, le français ou l'espagnol en ligne | FrancoLink"
-    : "Learn French, English & Spanish Online: CEFR Lessons & Tutors | FrancoLink";
-  const description = fr
-    ? "Leçons structurées selon le CECRL (A1–C2), tuteurs certifiés et pratique quotidienne. Commencez gratuitement avec un test de niveau de 90 secondes."
-    : "Structured CEFR lessons from A1 to C2, certified tutors and daily practice. Start free with a 90-second placement test.";
-
   return {
-    title,
-    description,
-    // Next replaces (not merges) these objects, so restate the share image.
-    openGraph: {
-      type: "website",
-      siteName: "FrancoLink",
-      title,
-      description,
-      url: `${APP_URL}${path === "/" ? "" : path}`,
-      images: ["/og-image.png"],
-    },
-    twitter: { card: "summary_large_image", title, description, images: ["/og-image.png"] },
     alternates: {
       canonical: `${APP_URL}${path === "/" ? "" : path}`,
       languages: {
@@ -73,7 +47,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   GraduationCap, Users, Sparkles, BookOpen, BarChart3, Globe,
-  CheckCircle, ArrowRight, Zap, Award, Building2, ChevronRight,
+  CheckCircle, ArrowRight, Star, Zap, Award, Building2, ChevronRight,
   Shield, Clock, MessageCircle,
 } from "lucide-react";
 import { LANGUAGES } from "@/lib/constants";
@@ -154,12 +128,10 @@ function HomeContent({ aiTutorEnabled }: { aiTutorEnabled: boolean }) {
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-3xl mx-auto">
               {[
-                // Facts about the product only. Learner counts, tutor counts and
-                // ratings stay off this page until a query can produce them.
-                { value: t("landing.stats_levels"), label: t("landing.stats_levels_label"), icon: GraduationCap },
+                { value: t("landing.stats_students"), label: t("landing.stats_students_label"), icon: Users },
+                { value: t("landing.stats_tutors"), label: t("landing.stats_tutors_label"), icon: GraduationCap },
                 { value: t("landing.stats_languages"), label: t("landing.stats_languages_label"), icon: Globe },
-                { value: t("landing.stats_free"), label: t("landing.stats_free_label"), icon: Zap },
-                { value: t("landing.stats_placement"), label: t("landing.stats_placement_label"), icon: Clock },
+                { value: t("landing.stats_rating"), label: t("landing.stats_rating_label"), icon: Star },
               ].map((stat) => (
                 <div key={stat.label} className="bg-white rounded-2xl p-5 shadow-soft border border-gray-100/80 hover:shadow-medium transition-shadow">
                   <stat.icon className="w-5 h-5 text-secondary mx-auto mb-2.5" />
@@ -286,10 +258,6 @@ function HomeContent({ aiTutorEnabled }: { aiTutorEnabled: boolean }) {
           </div>
         </div>
       </section>
-
-      {/* TESTIMONIALS — removed 2026-11-21. The three quotes were placeholders
-          (there are no reviews yet; see /testimonials). Bring the section back
-          only with real, attributable reviews. */}
 
       {/* CORPORATE */}
       <section className="py-20 sm:py-28 bg-white">

@@ -68,8 +68,8 @@ export async function SiteFooter() {
               {/* Fixed copy, not config.app_tagline: in production that setting
                   held "#1 Best Online Language Learning Platform", which then
                   printed on every page of the marketing site. */}
-              Structured CEFR lessons, certified tutors and daily practice — all
-              in one app.
+              Structured CEFR lessons, vetted live tutors and daily practice —
+              all in one app.
             </p>
             <a
               href={appUrl("/signup")}

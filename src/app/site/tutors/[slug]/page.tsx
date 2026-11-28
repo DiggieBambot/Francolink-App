@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${tutor.name} — ${languages} tutor`,
     description:
       tutor.headline ||
-      `Book a lesson with ${tutor.name}, a certified ${languages} tutor on FrancoLink. See qualifications, specialities and weekly availability.`,
+      `Book a lesson with ${tutor.name}, a ${tutor.tier === "community" ? "" : "qualified "}${languages} tutor on FrancoLink. See qualifications, specialities and weekly availability.`,
     alternates: { canonical: `/tutors/${tutor.slug}` },
     openGraph: {
       type: "profile",
