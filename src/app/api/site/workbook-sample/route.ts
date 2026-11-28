@@ -10,6 +10,7 @@ import { looksHuman } from "@/lib/site/form-token";
 import { service } from "@/lib/workbook/files";
 import { sendCampaignEmail } from "@/lib/email/send";
 import { STEPS, leadUnsubscribeUrl } from "@/lib/email/campaigns/workbook-sample";
+import { metaContextFromRequest, sendMetaEvent } from "@/lib/meta/capi";
 
 export const runtime = "nodejs";
 
@@ -23,6 +24,8 @@ const Body = z.object({
   company: z.string().optional().default(""),
   // Proof the form was actually rendered — see lib/site/form-token.
   form_token: z.string().optional().default(""),
+  // Shared with the browser pixel so Meta dedupes the two Lead events.
+  meta_event_id: z.string().max(120).optional(),
 });
 
 /** Resending the sample to the same address more often than this is a bot or a double click. */
@@ -46,6 +49,20 @@ export async function POST(request: Request) {
   const email = input.email.trim().toLowerCase();
   const utm: Record<string, string> = {};
   for (const k of UTM_KEYS) if (input.utm[k]) utm[k] = input.utm[k];
+
+  // Counted for ads on every real request, a repeat included: the browser pixel
+  // fires on the same submit, and the shared id keeps it to one Lead.
+  if (input.meta_event_id) {
+    await sendMetaEvent({
+      name: "Lead",
+      eventId: input.meta_event_id,
+      email,
+      browser: metaContextFromRequest(request),
+      sourceUrl: request.headers.get("referer") || undefined,
+      contentName: "workbook_sample",
+      contentCategory: input.source,
+    });
+  }
 
   const db = service();
   const { data: existing } = await db

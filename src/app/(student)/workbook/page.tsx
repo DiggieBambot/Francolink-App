@@ -17,6 +17,10 @@ import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { BookOpen, Headphones, Download, FileCode, ArrowRight, Lock } from "lucide-react";
 import { siteUrl } from "@/lib/site/hosts";
+import { stripe } from "@/lib/stripe";
+import { getSetting } from "@/lib/config/settings";
+import { workbookPremiumOfferEligible } from "@/lib/workbook/premium-offer";
+import { PremiumOfferCard } from "@/components/workbook/premium-offer-card";
 
 // Phase 1 deliverables. Flip each to true the day the asset actually exists.
 // All three now do: the PDF (76 pages), the online reader, and the audio pack
@@ -66,6 +70,11 @@ export default async function LibraryPage() {
   if (!owned.has("workbook_fpp")) return <NothingYet />;
 
   const hasAudio = owned.has("audio_fpp");
+
+  // The next step after the book: Premium, first month $4.99, for buyers who
+  // have never subscribed. Below the content, like the other offers here.
+  const showPremium = await workbookPremiumOfferEligible(user.id, user.email, stripe);
+  const thenPrice = showPremium ? await monthlyPremiumPrice() : null;
 
   return (
     <main className="mx-auto max-w-3xl space-y-8 px-4 py-8 sm:px-6">
@@ -127,8 +136,23 @@ export default async function LibraryPage() {
         )}
       </section>
 
+      {showPremium && <PremiumOfferCard thenPrice={thenPrice} />}
     </main>
   );
+}
+
+/** "$8.99", read from the live Stripe price so the card never quotes a stale number. */
+async function monthlyPremiumPrice(): Promise<string | null> {
+  try {
+    const id = await getSetting("payments", "stripe_premium_monthly_price_id", "");
+    if (!stripe || !id) return null;
+    const p = await stripe.prices.retrieve(id);
+    if (p.unit_amount == null) return null;
+    return new Intl.NumberFormat("en-US", { style: "currency", currency: p.currency.toUpperCase() })
+      .format(p.unit_amount / 100);
+  } catch {
+    return null;
+  }
 }
 
 // `ready` is the honest switch. Phase 1 has not produced the PDF, the audio or

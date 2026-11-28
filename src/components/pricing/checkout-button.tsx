@@ -15,6 +15,8 @@ interface CheckoutButtonProps {
   style?: React.CSSProperties;
   children: React.ReactNode;
   disabled?: boolean;
+  /** A server-checked offer, e.g. "workbook" for the buyers' first month. */
+  offer?: string;
 }
 
 export function CheckoutButton({
@@ -24,6 +26,7 @@ export function CheckoutButton({
   style,
   children,
   disabled = false,
+  offer,
 }: CheckoutButtonProps) {
   const [loading, setLoading] = useState(false);
 
@@ -36,7 +39,7 @@ export function CheckoutButton({
       const response = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ plan, billingPeriod }),
+        body: JSON.stringify({ plan, billingPeriod, ...(offer ? { offer } : {}) }),
       });
 
       const data = await response.json();

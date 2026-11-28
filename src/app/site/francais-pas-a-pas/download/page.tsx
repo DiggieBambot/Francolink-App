@@ -110,6 +110,28 @@ export default async function DownloadPage({ searchParams }: PageProps) {
         </a>
       </div>
 
+      {/* The next step after the book. The app page checks they qualify
+          (never subscribed) before the $4.99 price is applied. */}
+      <div className="dl-online">
+        <p className="eyebrow">Workbook buyers only</p>
+        <h2 className="h3">You&apos;ve read the rules. Now say them out loud.</h2>
+        <p className="muted">
+          FrancoLink Premium opens every lesson and lets you practise speaking
+          with Léon, our AI tutor. Your first month is $4.99, and you can cancel
+          any time.
+        </p>
+        <a
+          className="btn btn-accent"
+          href={
+            order.user_id
+              ? appUrl("/workbook#premium")
+              : appUrl(`/unlock?t=${encodeURIComponent(order.claim_token)}`)
+          }
+        >
+          {order.user_id ? "Get Premium for $4.99" : "Create my account and get the offer"}
+        </a>
+      </div>
+
       <p className="micro">
         Start with Partie 0: twenty phrases and three short dialogues. ·
         14-day money-back guarantee: reply to your receipt.

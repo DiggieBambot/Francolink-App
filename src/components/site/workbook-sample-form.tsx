@@ -6,6 +6,7 @@
 import { useState } from "react";
 import { useFormToken } from "@/hooks/use-form-token";
 import { WORKBOOK_CONTENT, ttqIdentifyEmail, ttqTrack } from "@/lib/site/tiktok";
+import { metaTrack } from "@/components/analytics/meta-pixel";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -36,6 +37,9 @@ export function WorkbookSampleForm({
       if (v) utm[k] = v.slice(0, 200);
     }
 
+    // One id for the browser pixel and the server event, so Meta counts one Lead.
+    const metaEventId = `lead_${crypto.randomUUID()}`;
+
     try {
       const res = await fetch("/api/site/workbook-sample", {
         method: "POST",
@@ -46,11 +50,13 @@ export function WorkbookSampleForm({
           utm,
           company: String(f.get("company") || ""),
           form_token: formToken,
+          meta_event_id: metaEventId,
         }),
       });
       const body = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(body.error || "Something went wrong. Please try again.");
       setStatus("sent");
+      metaTrack("Lead", { content_name: "workbook_sample", content_category: source }, metaEventId);
       void ttqIdentifyEmail(String(f.get("email") || "")).then(() =>
         ttqTrack("SubmitForm", { contents: [WORKBOOK_CONTENT], description: `free-sample:${source}` })
       );
