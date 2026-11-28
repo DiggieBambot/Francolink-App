@@ -5,14 +5,16 @@
 //   0  at once     the sample itself
 //   1  +2 days     one real lesson from the book (être or avoir in the past)
 //   2  +2 days     what is in the other parts, and the price
-//   3  +3 days     the last one: the guarantee, and then we stop
+//   3  +3 days     the last one about the book: the guarantee
+//   4  +4 days     not the book: a free account and the 90-second level test,
+//                  so a lead who won't pay $27 still starts speaking with us
 //
 // It stops early the moment they buy (the cron checks orders) or unsubscribe.
 // No fake deadlines: the sales page's launch price has ended, and an urgency
 // line that is not true is worse than none.
 
 import { emailShell } from "@/lib/email/shell";
-import { siteUrl } from "@/lib/site/hosts";
+import { appUrl, siteUrl } from "@/lib/site/hosts";
 import { signLinkToken } from "@/lib/email/link-token";
 
 export const CAMPAIGN = "workbook-sample";
@@ -151,16 +153,40 @@ export const STEPS: SampleStep[] = [
         a,
         "Last email about the workbook",
         [
-          "This is the last email in this series, so I'll keep it short.",
+          "This is my last email about the workbook, so I'll keep it short.",
           "If you've worked through Partie 0 and want the rest, <em>Le Français Pas à Pas</em> is $27, and it comes with a <strong>14-day money-back guarantee</strong>: if it isn't for you, reply to your receipt and we refund you. No form, and you keep the PDF.",
           "If now isn't the time, that's fine too. Keep the sample. It's yours.",
         ],
         [
-          "This is the last email in this series.",
+          "This is my last email about the workbook.",
           "If you want the rest of the book, it's $27 with a 14-day money-back guarantee: reply to your receipt and we refund you, and you keep the PDF.",
           "If now isn't the time, that's fine. Keep the sample.",
         ],
         { href: salesUrl("last"), text: "Get the full workbook" }
+      ),
+  },
+  {
+    afterDays: 4,
+    render: (a) =>
+      wrap(
+        a,
+        "Where are you, really? 90 seconds to find out",
+        [
+          "Partie 0 is only the start, and you don't need the book to keep going.",
+          "FrancoLink has a free <strong>90-second level test</strong>. It places you from A1 to C2, and then the free plan gives you a <strong>short lesson every day</strong> at that level, built around speaking, not memorising lists.",
+          "When you want to practise out loud, you can book a live tutor, or practise with Léon, our AI tutor, on Premium.",
+          "That's the last email in this series. Bonne continuation !",
+        ],
+        [
+          "Partie 0 is only the start, and you don't need the book to keep going.",
+          "FrancoLink has a free 90-second level test. It places you from A1 to C2, and the free plan then gives you a short lesson every day at that level, built around speaking.",
+          "When you want to practise out loud, book a live tutor, or practise with Léon, our AI tutor, on Premium.",
+          "That's the last email in this series. Bonne continuation !",
+        ],
+        {
+          href: appUrl(`/signup?utm_source=email&utm_medium=sequence&utm_campaign=${CAMPAIGN}&utm_content=level_test`),
+          text: "Take the free level test",
+        }
       ),
   },
 ];

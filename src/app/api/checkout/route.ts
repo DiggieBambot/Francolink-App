@@ -5,6 +5,7 @@ import { createClient } from "@/lib/supabase/server";
 import { stripe, CheckoutPlan, planToSubscription } from "@/lib/stripe";
 import { getSetting } from "@/lib/config/settings";
 import { metaCheckoutMetadata } from "@/lib/meta/capi";
+import { workbookFirstMonthCoupon, workbookPremiumOfferEligible } from "@/lib/workbook/premium-offer";
 
 // ------------------------------------------------------------------
 // Map plan param to settings key
@@ -72,11 +73,15 @@ export async function POST(request: NextRequest) {
       billingPeriod = "monthly",
       displayCurrency = "USD",
       locale = "en",
+      offer,
     } = body as {
       plan: "premium" | "premium_plus";
       billingPeriod?: "monthly" | "yearly";
       displayCurrency?: string;
       locale?: string;
+      // "workbook": the $4.99 first month for workbook buyers. Only a request;
+      // the server checks the buyer qualifies before applying it.
+      offer?: string;
     };
 
     if (!plan || !["premium", "premium_plus"].includes(plan)) {
@@ -162,6 +167,17 @@ export async function POST(request: NextRequest) {
     };
     const stripeLocale = stripeLocaleMap[locale] || "auto";
 
+    // Workbook buyers: first month of monthly Premium at $4.99.
+    let discounts: { coupon: string }[] | undefined;
+    if (
+      offer === "workbook" &&
+      checkoutPlan === "premium_monthly" &&
+      (await workbookPremiumOfferEligible(user.id, user.email, stripe))
+    ) {
+      const coupon = await workbookFirstMonthCoupon(stripe, priceId);
+      if (coupon) discounts = [{ coupon }];
+    }
+
     // Create Checkout Session
     const session = await stripe.checkout.sessions.create({
       customer: customerId,
@@ -182,6 +198,7 @@ export async function POST(request: NextRequest) {
         subscription_plan: planToSubscription[checkoutPlan],
         display_currency: displayCurrency,
         locale: locale,
+        ...(discounts ? { offer: "workbook_first_month" } : {}),
         ...metaCheckoutMetadata(request),
       },
       subscription_data: {
@@ -191,7 +208,8 @@ export async function POST(request: NextRequest) {
           subscription_plan: planToSubscription[checkoutPlan],
         },
       },
-      allow_promotion_codes: true,
+      // Stripe rejects a coupon and a promo-code box together.
+      ...(discounts ? { discounts } : { allow_promotion_codes: true }),
     });
 
     return NextResponse.json({ url: session.url });
